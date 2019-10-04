@@ -49,8 +49,8 @@
     - name: Processar o detetor de ocorrências
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Notícias da página
-      href: paging-news.md
+    - name: Navegar pelos resultados da pesquisa
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Redimensionar e recortar miniaturas
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

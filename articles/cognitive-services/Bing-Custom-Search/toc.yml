@@ -60,8 +60,9 @@
     - name: Processar o detetor de ocorrências
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Percorrer as páginas Web
-      href: page-webpages.md
+    - name: Navegar pelos resultados da pesquisa
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Referência
   items:
     - name: Referência da API de Sugestão Automática Personalizada do Bing

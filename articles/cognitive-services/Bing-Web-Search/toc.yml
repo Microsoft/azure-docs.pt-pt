@@ -54,7 +54,7 @@
     - name: Processar o detetor de ocorrências
       href: hit-highlighting.md
     - name: Percorrer os resultados
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: Redimensionar e recortar miniaturas
       href: resize-and-crop-thumbnails.md
     - name: Atualizar da v5 para v7

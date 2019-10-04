@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: be82ab1597021d7198d7936ecd24e4bec64fdf25
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: fc5a974273cbc0398e9fee7b60b424a46ef5dd30
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266913"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949721"
 ---
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos Managed disks
 
@@ -25,7 +25,7 @@ Os Managed disks são projetados para a disponibilidade de 99,999%. Os discos ge
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Implantação de VM simples e escalonável
 
-Usando discos gerenciados, você pode criar até 50.000 **discos** de VM de um tipo em uma assinatura por região, permitindo que você crie milhares de **VMs** em uma única assinatura. Esse recurso também aumenta ainda mais a escalabilidade dos conjuntos de dimensionamento de [máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , permitindo que você crie até 1.000 VMs em um conjunto de dimensionamento de máquinas virtuais usando uma imagem do Marketplace.
+Usando discos gerenciados, você pode criar até 50.000 **discos** de VM de um tipo em uma assinatura por região, permitindo que você crie milhares de **VMs** em uma única assinatura. Esse recurso também aumenta ainda mais a escalabilidade dos [conjuntos de dimensionamento de máquinas virtuais](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) , permitindo que você crie até 1.000 VMs em um conjunto de dimensionamento de máquinas virtuais usando uma imagem do Marketplace.
 
 ### <a name="integration-with-availability-sets"></a>Integração com conjuntos de disponibilidade
 
@@ -73,7 +73,7 @@ Um disco de dados é um disco gerenciado que é anexado a uma máquina virtual p
 
 ### <a name="os-disk"></a>Disco do SO
 
-Cada máquina virtual tem um disco do sistema operacional anexado. Esse disco do sistema operacional tem um sistema operacional pré-instalado, que foi selecionado quando a VM foi criada.
+Cada máquina virtual tem um disco do sistema operacional anexado. Esse disco do sistema operacional tem um sistema operacional pré-instalado, que foi selecionado quando a VM foi criada. Esse disco contém o volume de inicialização.
 
 Esse disco tem uma capacidade máxima de 2.048 GiB.
 

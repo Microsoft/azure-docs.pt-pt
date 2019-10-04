@@ -7,20 +7,20 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5d842c2d6ff84a0f17c4e8be0bfade018edc48b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111341"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959982"
 ---
-# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início rápido: Criar uma zona DNS do Azure e o registo com a CLI do Azure
+# <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início rápido: Criar uma zona DNS do Azure e um registro usando CLI do Azure
 
 Este artigo explica-lhe os passos para criar a primeira zona DNS e registar com a CLI 1.0 do Azure, que está disponível para Windows, Mac e Linux. Também pode executar estes passos com o [portal do Azure](dns-getstarted-portal.md) ou com o [Azure PowerShell](dns-getstarted-powershell.md).
 
 Uma zona DNS é utilizada para alojar os registos DNS para um determinado domínio. Para começar a alojar o seu domínio no DNS do Azure, tem de criar uma zona DNS para esse nome de domínio. Cada registo DNS para o seu domínio é então criado no interior desta zona DNS. Por fim, para publicar a zona DNS na Internet, tem de configurar os servidores de nomes do domínio. Cada um destes passos está descrito abaixo.
 
-O DNS do Azure também suporta agora zonas DNS privadas (atualmente em pré-visualização pública). Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
+O DNS do Azure também dá suporte a zonas DNS privadas. Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +38,7 @@ az group create --name MyResourceGroup --location "East US"
 
 Uma zona DNS é criada ao utilizar o comando `az network dns zone create`. Para ver a ajuda deste comando, escreva `az network dns zone create -h`.
 
-O exemplo seguinte cria uma zona DNS denominada *contoso.xyz* no grupo de recursos *MyResourceGroup*. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
+O exemplo a seguir cria uma zona DNS chamada *contoso. xyz* no grupo de recursos *MyResource*Group. Utilize o exemplo para criar uma zona DNS, substituindo os valores pelos seus.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -48,7 +48,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Para criar um registo DNS, utilize o comando `az network dns record-set [record type] add-record`. Para obter ajuda com os registos A, veja `azure network dns record-set A add-record -h`.
 
-O exemplo seguinte cria um registo com o nome relativo "www" na zona DNS "contoso.xyz" no grupo de recursos "MyResourceGroup". O nome completamente qualificado do conjunto de registos é "www.contoso.xyz". O tipo de registo é "A", com o endereço IP "10.10.10.10" e um TTL predefinido de 3600 segundos (1 hora).
+O exemplo a seguir cria um registro com o nome relativo "www" na zona DNS "contoso. xyz" no grupo de recursos "MyResource Group". O nome totalmente qualificado do conjunto de registros é "www. contoso. xyz". O tipo de registro é "A", com o endereço IP "10.10.10.10", e um TTL padrão de 3600 segundos (1 hora).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -64,19 +64,19 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
 
 ## <a name="test-the-name-resolution"></a>Testar a resolução de nomes
 
-Agora que tem uma zona DNS de teste com um registo de teste "A", pode testar a resolução de nomes com uma ferramenta chamada *nslookup*. 
+Agora que você tem uma zona DNS de teste com um registro ' A ' de teste, você pode testar a resolução de nome com uma ferramenta chamada *nslookup*. 
 
-**Para testar a resolução de nome DNS:**
+**Para testar a resolução de nomes DNS:**
 
-1. Execute o seguinte cmdlet para obter a lista de servidores de nomes para a sua zona:
+1. Execute o seguinte cmdlet para obter a lista de servidores de nomes para sua zona:
 
    ```azurecli
    az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
    ```
 
-1. Copie um dos nomes de servidor a partir da saída do passo anterior.
+1. Copie um dos nomes de servidor de nomes da saída da etapa anterior.
 
-1. Abra uma linha de comandos e execute o seguinte comando:
+1. Abra um prompt de comando e execute o seguinte comando:
 
    ```
    nslookup www.contoso.xyz <name server name>
@@ -88,11 +88,11 @@ Agora que tem uma zona DNS de teste com um registo de teste "A", pode testar a r
    nslookup www.contoso.xyz ns1-08.azure-dns.com.
    ```
 
-   Deverá ver algo semelhante ao seguinte ecrã:
+   Você deverá ver algo parecido com a tela a seguir:
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome do anfitrião **www\.contoso.xyz** é resolvido para o **10.10.10.10**, tal como tiver configurado. Este resultado verifica se a resolução de nomes está a funcionar corretamente.
+O nome de host **www\.contoso.xyz** é resolvido para **10.10.10.10**, assim como você o configurou. Esse resultado verifica se a resolução de nomes está funcionando corretamente.
 
 ## <a name="delete-all-resources"></a>Eliminar todos os recursos
 
@@ -102,7 +102,7 @@ Quando já não forem necessários, pode eliminar todos os recursos criados nest
 az group delete --name MyResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou sua primeira zona DNS e o registo com a CLI do Azure, pode criar registos para uma aplicação Web num domínio personalizado.
 

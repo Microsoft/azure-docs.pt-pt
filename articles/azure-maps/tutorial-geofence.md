@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934191"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694929"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurar uma cerca geográfica usando mapas do Azure
 
@@ -148,10 +148,24 @@ Abra o aplicativo de postmaster e siga as etapas a seguir para carregar a cerca 
    }
    ```
 
-5. Clique em enviar e examine o cabeçalho de resposta. O cabeçalho de local contém o URI para acessar ou baixar os dados para uso futuro. Ele também contém um exclusivo `udId` para os dados carregados.
+5. Clique em enviar e examine o cabeçalho de resposta. Após uma solicitação bem-sucedida, o cabeçalho de **local** conterá o URI de status para verificar o status atual da solicitação de upload. O URI de status será do formato a seguir. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Copie seu URI de status e acrescente `subscription-key` um parâmetro a ele com seu valor sendo sua chave de assinatura de conta do Azure Maps. O formato do URI de status deve ser semelhante ao mostrado abaixo:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. Para obter o, `udId` abra uma nova guia no aplicativo de postmaster e selecione obter método http na guia Construtor e faça uma solicitação get no URI de status. Se o upload de dados tiver sido bem-sucedido, você receberá um udId no corpo da resposta. Copie o udId para uso posterior.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Configurar um manipulador de eventos

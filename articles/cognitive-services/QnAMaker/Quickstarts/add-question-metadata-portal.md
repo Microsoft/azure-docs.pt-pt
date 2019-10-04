@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc4548e0c07adc485d1bb5785179aeb7ea2f3fe1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ed50e6adbcca7cbb4935400c7850c37dc2ed389f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195695"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803534"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Início rápido: Adicionar perguntas e respostas com o portal de QnA Maker
 
@@ -61,7 +61,7 @@ Quando essa URL foi importada, apenas uma pergunta com uma resposta foi criada.
 
 Neste procedimento, adicione outras perguntas.
 
-1. Na página **Editar** , use a caixa de texto Pesquisar acima dos conjuntos de perguntas e respostas para encontrar a pergunta`How large a knowledge base can I create?`
+1. Na página **Editar** , use a caixa de texto Pesquisar acima dos conjuntos de perguntas e respostas para localizar a pergunta `How large a knowledge base can I create?`
 
 1. Na coluna **pergunta** , selecione **+ Adicionar frases alternativas** e, em seguida, adicione todas as novas frases, fornecidas na tabela a seguir.
 
@@ -76,7 +76,7 @@ Neste procedimento, adicione outras perguntas.
 
     `What GB size can a knowledge base be?`
 
-    A resposta correta é retornada no formato de redução:`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    A resposta correta é retornada no formato de redução: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
     Se você selecionar **inspecionar** na resposta retornada, poderá ver que mais respostas atenderam à pergunta, mas não com o mesmo alto nível de confiança. 
 
@@ -92,14 +92,14 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
 
 1. Selecione **Opções de exibição**e, em seguida, selecione **Mostrar metadados**. 
 
-1. Para o conjunto de perguntas e respostas que você acabou de adicionar, selecione **Adicionar marcas**de `service` metadados e, em seguida, `service:search`adicione o nome e o valor de `search`,.
+1. Para o conjunto de perguntas e respostas que você acabou de adicionar, selecione **Adicionar marcas de metadados**e, em seguida, adicione o nome `service` e o valor de `search`, `service:search`.
 
-1. Adicione outras marcas de metadados com o `link_in_answer` nome e o `false`valor `link_in_answer:false`de,.
+1. Adicione outras marcas de metadados com o nome de `link_in_answer` e o valor de `false`, `link_in_answer:false`.
 
-1. Pesquise a primeira resposta na tabela, `How large a knowledge base can I create?`. 
+1. Procure a primeira resposta na tabela, `How large a knowledge base can I create?`. 
 1. Adicione pares de metadados para as mesmas duas marcas de metadados:
 
-    `link_in_answer`:`true`<br>
+    `link_in_answer`: `true`<br>
     `server`: `qna_maker`
 
     Agora você tem duas perguntas com as mesmas marcas de metadados com valores diferentes. 
@@ -108,7 +108,7 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
 
 1. Selecione **publicar** no menu superior para ir para a página publicar. 
 1. Selecione o botão **publicar** para publicar a base de dados de conhecimento atual em um ponto de extremidade passível de consulta. 
-1. Depois que a base de dados de conhecimento for publicada, selecione a guia ondulação para ver um exemplo de comando de ondulação usado para gerar uma resposta da base de dados de conhecimento.
+1. Depois que a base de dados de conhecimento for publicada, selecione a guia **ondulação** para ver um exemplo de comando de ondulação usado para gerar uma resposta da base de dados de conhecimento.
 1. Copie o comando para um painel de notas ou outro ambiente editável para que você possa editar o comando. Edite para seu próprio nome de recurso, ID da base de dados de conhecimento e chave do ponto de extremidade:
 
     |Substituir|
@@ -121,7 +121,7 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
     curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Observe que a pergunta é apenas uma única palavra `size`,, que pode retornar a pergunta e o conjunto de respostas. A `strictFilters` matriz informa a resposta para reduzir apenas as `qna_maker` respostas. 
+    Observe que a pergunta é apenas uma única palavra, `size`, que pode retornar o conjunto de perguntas e respostas. A matriz `strictFilters` informa à resposta para reduzir apenas as respostas `qna_maker`. 
 
     [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
 
@@ -162,7 +162,7 @@ A adição de metadados a um conjunto de perguntas e respostas permite que o apl
     }
     ```
 
-    Se houver um conjunto de perguntas e respostas que não atendeu ao termo de pesquisa, mas que atendeu ao filtro, ele não será retornado. Em vez disso, a `No good match found in KB.` resposta geral é retornada.
+    Se houver um conjunto de perguntas e respostas que não atendeu ao termo de pesquisa, mas que atendeu ao filtro, ele não será retornado. Em vez disso, a resposta geral `No good match found in KB.` é retornada.
 
     Certifique-se de manter seus pares de nome de metadados e valor dentro dos limites necessários. 
 
@@ -173,7 +173,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obter resposta com o postmaster](get-answer-from-kb-using-postman.md)

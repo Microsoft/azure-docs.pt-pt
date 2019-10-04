@@ -6,18 +6,18 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 06e53f07969ab5dfdebec88d36d0cb3d06cc87e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5055734ae3529d7fca87688c5f9410f38368a634
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078434"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959373"
 ---
 # <a name="what-is-azure-dns"></a>O que é o DNS do Azure?
 
 O DNS do Azure é um serviço de alojamento dos domínios DNS que oferece resolução de nomes através da infraestrutura do Microsoft Azure. Ao alojar os seus domínios no Azure, pode gerir os recursos DNS com as mesmas credenciais, APIs, ferramentas e faturação dos seus outros serviços do Azure.
 
-Não pode utilizar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, pode comprar um nome de domínio, utilizando [domínios do serviço de aplicações](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) ou uma entidade de registo de nome de domínio de terceiros. Os domínios podem, então, ser alojados no DNS do Azure para a gestão de registos. Para obter mais informações, veja [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md).
+Não pode utilizar o DNS do Azure para comprar um nome de domínio. Por uma taxa anual, você pode comprar um nome de domínio usando [domínios do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/manage-custom-dns-buy-domain#buy-the-domain) ou um registrador de nome de domínio de terceiros. Os domínios podem, então, ser alojados no DNS do Azure para a gestão de registos. Para obter mais informações, veja [Delegar um domínio ao DNS do Azure](dns-domain-delegation.md).
 
 As seguintes funcionalidades estão incluídas com o DNS do Azure.
 
@@ -39,7 +39,7 @@ Para obter mais informações, veja [Como proteger zonas DNS e registos](dns-pro
 
 ## <a name="dnssec"></a>DNSSEC
 
-O DNS do Azure não suporta atualmente DNSSEC. Na maioria dos casos, pode reduzir a necessidade de DNSSEC utilizando consistentemente HTTPS/TLS em seus aplicativos. Se o DNSSEC é um requisito essencial para as zonas DNS, pode alojar essas zonas com fornecedores de alojamento de DNS de terceiros.
+Atualmente, o DNS do Azure não oferece suporte a DNSSEC. Na maioria dos casos, você pode reduzir a necessidade do DNSSEC usando o HTTPS/TLS consistentemente em seus aplicativos. Se o DNSSEC for um requisito crítico para suas zonas DNS, você poderá hospedar essas zonas com provedores de Hospedagem de DNS de terceiros.
 
 ## <a name="ease-of-use"></a>Facilidade de utilização
 
@@ -51,19 +51,19 @@ Os domínios e registos podem ser geridos com o portal do Azure, cmdlets do Azur
 
 ## <a name="customizable-virtual-networks-with-private-domains"></a>Redes virtuais personalizáveis com domínios privados
 
-O DNS do Azure também suporta domínios DNS privados, com uma funcionalidade que se encontra atualmente em pré-visualização pública. Esta funcionalidade permite-lhe utilizar os seus próprios nomes de domínio personalizados nas suas redes virtuais privadas, em vez dos nomes apresentados pelo Azure atualmente disponíveis.
+O DNS do Azure também dá suporte a domínios DNS privados. Esta funcionalidade permite-lhe utilizar os seus próprios nomes de domínio personalizados nas suas redes virtuais privadas, em vez dos nomes apresentados pelo Azure atualmente disponíveis.
 
 Para obter mais informações, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md).
 
 ## <a name="alias-records"></a>Registos de alias
 
-O DNS do Azure suporta conjuntos de registos de alias. Pode utilizar um conjunto de registos de alias para fazer referência a um recurso do Azure, como um endereço IP público do Azure, um perfil do Gestor de tráfego do Azure ou um ponto de extremidade de rede de entrega conteúdo (CDN). Se o endereço IP do recurso subjacente for alterado, o conjunto de registos de alias atualiza-se automaticamente durante a resolução de DNS. O conjunto de registo de alias aponta para a instância do serviço e esta está associada a um endereço IP.
+O DNS do Azure suporta conjuntos de registos de alias. Você pode usar um conjunto de registros de alias para se referir a um recurso do Azure, como um endereço IP público do Azure, um perfil do Gerenciador de tráfego do Azure ou um ponto de extremidade da CDN (rede de distribuição de conteúdo) do Azure. Se o endereço IP do recurso subjacente for alterado, o conjunto de registos de alias atualiza-se automaticamente durante a resolução de DNS. O conjunto de registo de alias aponta para a instância do serviço e esta está associada a um endereço IP.
 
-Além disso, agora pode apontar seu vértice ou domínio sem "www" a um perfil do Traffic Manager ou o ponto final da CDN através de um registo de alias. Um exemplo é contoso.com.
+Além disso, agora você pode apontar seu domínio de Apex ou Naked para um perfil do Gerenciador de tráfego ou ponto de extremidade CDN usando um registro de alias. Um exemplo é contoso.com.
 
 Para obter mais informações, consulte [Descrição geral do registo de alias do DNS do Azure](dns-alias.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre zonas DNS e registos, veja [Descrição geral das zonas DNS e registos](dns-zones-records.md).
 

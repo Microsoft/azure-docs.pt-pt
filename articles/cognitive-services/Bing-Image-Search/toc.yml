@@ -52,8 +52,9 @@
       href: gif-images.md
     - name: Obter imagens populares
       href: trending-images.md
-    - name: Percorrer as imagens
-      href: paging-images.md
+    - name: Navegar pelos resultados da pesquisa
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: Redimensionar e recortar miniaturas
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

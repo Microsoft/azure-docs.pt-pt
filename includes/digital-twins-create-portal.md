@@ -2,24 +2,25 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: digital-twins
-author: dsk-2015
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 09/24/2019
-ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 5b88e3f17c1bbf60d38763f7fb349302ae4a920b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7b2df437833f270a6e102257693426f4cc65b9d2
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310514"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949748"
 ---
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 1. No painel esquerdo, selecione **criar um recurso**. Pesquise **gêmeos digital**e selecione **digital gêmeos**. Selecione **criar** para iniciar o processo de implantação.
 
-   [![Seleções para criar uma nova instância de gêmeos digital](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![Selections para criar uma nova instância de gêmeos digital](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
 
 1. No painel **Digital Twins**, introduza as seguintes informações:
    * **Nome do recurso**: Crie um nome exclusivo para sua instância de gêmeos digital.
@@ -27,14 +28,14 @@ ms.locfileid: "71310514"
    * **Grupo de recursos**: Selecione ou crie um [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) para a instância de gêmeos digital.
    * **Local**: Selecione o local mais próximo para seus dispositivos.
 
-     [![Painel digital gêmeos com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
+     [painel de gêmeos de @no__t 1Digital com informações inseridas](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 
 1. Examine as informações de gêmeos digital e, em seguida, selecione **criar**. Sua instância digital gêmeos pode levar alguns minutos para ser criada. Pode monitorizar o progresso no painel **Notificações**.
 
 1. Abra o painel **Descrição geral** da instância do Digital Twins. Observe o link sob **API de gerenciamento**.
 
-   A URL da **API de gerenciamento** é `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`formatada como. Este URL leva-o para a documentação da API REST do Azure Digital Twins que se aplica à sua instância. Leia [Como utilizar o Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) para saber como ler e utilizar esta documentação de API.
+   A URL da **API de gerenciamento** é formatada como `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger`. Este URL leva-o para a documentação da API REST do Azure Digital Twins que se aplica à sua instância. Leia [Como utilizar o Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) para saber como ler e utilizar esta documentação de API.
 
-    Modifique a URL da **API de gerenciamento** para `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`esse formato. A aplicação irá utilizar o URL modificado como URL base para aceder à sua instância. Copie este URL modificado para um ficheiro temporário. Você precisará dela na próxima seção.
+    Modifique a URL da **API de gerenciamento** para esse formato `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. A aplicação irá utilizar o URL modificado como URL base para aceder à sua instância. Copie este URL modificado para um ficheiro temporário. Você precisará dela na próxima seção.
 
-    [![API de gerenciamento](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
+    [API ![Management](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
