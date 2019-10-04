@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: ddb9dd49af4557e6ff8d38110de4a99a9cf6fed7
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687008"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827593"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o cache do Azure para Redis
 Este tópico descreve como executar tarefas de administração, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para o cache do Azure para instâncias Redis.
@@ -83,7 +83,7 @@ Sim, para instruções do PowerShell, consulte [para reinicializar um cache do A
 A reinicialização está disponível para todos os tipos de preço.
 
 ## <a name="schedule-updates"></a>Agendar atualizações
-A folha **agendar atualizações** permite designar uma janela de manutenção para o cache da camada Premium. Quando a janela de manutenção é especificada, todas as atualizações do servidor Redis são feitas durante essa janela. 
+A folha **agendar atualizações** permite designar uma janela de manutenção para sua instância de cache. Quando a janela de manutenção é especificada, todas as atualizações do servidor Redis são feitas durante essa janela. 
 
 > [!NOTE] 
 > A janela de manutenção aplica-se somente a atualizações do servidor Redis e não a atualizações do Azure ou a atualizações do sistema operacional das VMs que hospedam o cache.

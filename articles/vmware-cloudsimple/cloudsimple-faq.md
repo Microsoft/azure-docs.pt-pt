@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d1cbca20b9f1ee1d5f7eefb760ed60fa4d019050
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972862"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828927"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Perguntas frequentes sobre a solução VMware por CloudSimple
 
@@ -29,11 +29,11 @@ Uma nuvem privada CloudSimple é uma nuvem privada e dedicada que consiste em um
 
 **Onde o serviço CloudSimple está disponível?**
 
-O CloudSimple está disponível nas regiões leste dos EUA e oeste dos EUA com regiões adicionais em breve.
+O CloudSimple está disponível nas regiões leste dos EUA, oeste dos EUA e Europa Ocidental com regiões adicionais em breve.
 
 **Como fazer habilitar minha assinatura para CloudSimple?**
 
-Você pode entrar em contato com seu [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) representante de conta Microsoft em para habilitar sua assinatura para o serviço CloudSimple. Forneça sua ID de assinatura no email para o qual você deseja que o serviço CloudSimple seja habilitado.  
+Você pode entrar em contato com seu representante de conta Microsoft em [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) para habilitar sua assinatura para o serviço CloudSimple. Forneça sua ID de assinatura no email para o qual você deseja que o serviço CloudSimple seja habilitado.  
 
 **Como fazer acessar o portal do CloudSimple?**
 
@@ -68,7 +68,7 @@ Você pode exibir detalhes de sua nuvem privada no portal do CloudSimple. Para s
 
 Um circuito do Azure ExpressRoute é uma conexão segura de alta velocidade, baixa latência.  O CloudSimple fornece um circuito de ExpressRoute dedicado por região por cliente.  Usando esse circuito, você pode estabelecer uma conexão segura do local ou da sua assinatura do Azure.
 
-**Quais são os custos de rede para se conectar ao CloudSimple?  Os encargos de egresso se aplicam entre o CloudSimple e o Azure, ou entre regiões?**
+**What são os custos de rede para se conectar ao CloudSimple?  Os encargos de saída se aplicam entre CloudSimple e Azure, ou entre regiões?**
 
 Não há nenhum encargo CloudSimple para a saída de rede.  As taxas padrão do Azure se aplicam a qualquer tráfego de saída de sua rede virtual ou de seu circuito de ExpressRoute local.
 
@@ -106,8 +106,9 @@ O CloudSimple fornece os seguintes recursos de segurança para proteger seu ambi
 
 O CloudSimple oferece esses tipos de host:
 
-* **Nó CS28:** CPU: 2x 2,2 GHz, total de 28 núcleos, 48 HT.  RAM: 256 GB.  Armazenamento: cache NVMe de 1600 GB, 5760 GB de dados (todos-flash). Rede NIC 2x25Gbe
-* **Nó CS36:** CPU 2x 2,3 GHz, total de 36 núcleos, 72 HT.  RAM: 512 GB.  Armazenamento: 3200 GB NVMe cache de 11520 GB de dados (todos-flash).  Rede NIC 2x25Gbe
+* **Nó CS28:** CPU: 2x 2,2 GHz, total de 28 núcleos, 48 HT.  RAM: 256 GB.  Armazenamento: cache NVMe de 1600 GB, 5760 GB de dados (todos-flash). Rede NIC 4x25Gbe
+* **Nó CS36:** CPU 2x 2,3 GHz, total de 36 núcleos, 72 HT.  RAM: 512 GB.  Armazenamento: 3200 GB NVMe cache de 11520 GB de dados (todos-flash).  Rede NIC 4x25Gbe
+* **Nó CS36m:** CPU 2x 2,3 GHz, total de 36 núcleos, 72 HT.  RAM: 576 GB.  Armazenamento: 3200 GB NVMe cache de 13360 GB de dados (todos-flash).  Rede NIC 4x25Gbe
 
 **Como as falhas de hardware são tratadas?**
 

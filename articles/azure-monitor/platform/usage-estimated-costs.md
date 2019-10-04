@@ -9,22 +9,19 @@ ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 787618b59cd18dd4c38892ddf0861808211671cb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453829"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936630"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Monitorizar a utilização e custos estimados no Azure Monitor
 
 > [!NOTE]
-> Este artigo descreve como ver a utilização e custos estimados entre várias funcionalidades de monitorização do Azure para diferentes modelos de preços.  Veja os artigos seguintes para obter informações relacionadas.
-> - [Gerir os custos ao controlar o volume de dados e a retenção do Log Analytics](manage-cost-storage.md) descreve como controlar os custos ao alterar o período de retenção de dados.
-> - [Analisar a utilização de dados do Log Analytics](../../azure-monitor/platform/data-usage.md) descreve como analisar e alerta sobre a utilização de dados.
-> - [Gerir preços e volumes de dados no Application Insights](../../azure-monitor/app/pricing.md) descreve como analisar a utilização de dados do Application Insights.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Este artigo descreve como exibir o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços. Os artigos relacionados para componentes específicos do Azure Monitor incluem:
+> - [Gerenciar o uso e os custos com logs de Azure monitor](manage-cost-storage.md) descreve como controlar seus custos alterando seu período de retenção de dados e como analisar e alertar o uso de dados.
+> - [Gerenciar o uso e os custos de Application insights](../../azure-monitor/app/pricing.md) descreve como analisar o uso de dados no Application insights.
 
 No hub do Monitor do portal do Azure, o **utilização e custos estimados** página explica a utilização das principais funcionalidades de monitorização, tal como [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), e [Application Insights do Azure](https://azure.microsoft.com/pricing/details/application-insights/). Para os clientes sobre os planos de preços disponíveis antes de Abril de 2018, isso também inclui a utilização do Log Analytics adquirida por meio das informações e análise da oferta.
 
@@ -42,9 +39,11 @@ Eis outro uso semelhante e o resumo do custo. Este exemplo mostra uma subscriç�
 
 ![Utilização e custos estimados captura de ecrã portal - preços de Abril de 2018](./media/usage-estimated-costs/003.png)
 
-## <a name="new-pricing-model"></a>Novo modelo de preços
+## <a name="pricing-model"></a>Modelo preços
 
-Em Abril de 2018, um [monitorização novo modelo de preços foi lançado](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Isso oferece preços de nuvem amigável e baseado no consumo. Paga apenas aquilo que utiliza, sem compromissos com base no nó. Estão disponíveis detalhes do novo modelo de preços para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+Em Abril de 2018, um [monitorização novo modelo de preços foi lançado](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Isso apresenta preços com base em consumo para a nuvem ("pré-pago"). Paga apenas aquilo que utiliza, sem compromissos com base no nó. Estão disponíveis detalhes do novo modelo de preços para [alertas, métricas, notificações](https://azure.microsoft.com/pricing/details/monitor/), [do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) e [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+
+Além do modelo pago conforme o uso, em setembro de 2019, adicionamos reservas de capacidade para Log Analytics que permitem que você economize até 25% em comparação com o preço pago conforme o uso. O preço de reserva de capacidade permite que você compre uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa paga conforme o uso. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os preços de reserva de capacidade.
 
 Para a integração de clientes para o Log Analytics ou o Application Insights depois de 2 de Abril de 2018, o novo modelo de preços é a única opção. Para os clientes que já utilizam estes serviços, mudar para o novo modelo de preços é opcional.
 
@@ -102,14 +101,13 @@ A estimativa de custos mostra os efeitos dessas alterações.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Mover para o novo modelo de preços
 
-Se decidir adotar o novo modelo de preços para uma determinada subscrição, aceda a cada recurso do Application Insights, abra a **utilização e custos estimados** e certifique-se de que está a ser o escalão de preços básico e aceda a cada Log Analytics área de trabalho, abra a **escalão de preço** página e altere para o **por GB (2018)** escalão de preço. 
+Se você decidiu adotar o novo modelo de preços para uma determinada assinatura, vá para cada Application Insights recurso, abra o **uso e os custos estimados** e certifique-se de que ele esteja no tipo de preço básico e vá para cada espaço de trabalho log Analytics, abra cada umPágina de tipo de preço e altere para o tipo de preço **por GB (2018)** . 
 
 > [!NOTE]
-> O requisito de que todos os recursos do Application Insights e áreas de trabalho do Log Analytics numa determinada subscrição adotam o modelo de preços mais recente foi removido, que permite maior flexibilidade e a configuração mais fácil. 
+> O requisito de que todos os Application Insights recursos e espaços de trabalho de Log Analytics em uma determinada assinatura adotam o modelo de preços mais recente agora foi removido, permitindo maior flexibilidade e configuração mais fácil. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatizar a migração para o novo modelo de preços
 
-Conforme indicado acima, o já não é um requisito para mover todos os recursos de monitorização numa subscrição para o novo modelo de preços, ao mesmo tempo e, por conseguinte, o ``migratetonewpricingmodel`` ação já não terá qualquer efeito. Agora pode mover recursos do Application Insights e áreas de trabalho do Log Analytics separadamente para os escalões de preços mais recentes.  
+Conforme observado acima, o não é mais um requisito para mover todos os recursos de monitoramento em uma assinatura para o novo modelo de preços ao mesmo tempo e, portanto, a ação ``migratetonewpricingmodel`` não terá mais nenhum efeito. Agora você pode mover Application Insights recursos e Log Analytics espaços de trabalho separadamente para os tipos de preços mais recentes.  
 
-Automatizar essa alteração é documentado para o Application Insights com [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) com ``-PricingPlan "Basic"`` e a utilização do Log Analytics [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) com ``-sku "PerGB2018"``. 
-
+Automatizar essa alteração é documentado para Application Insights usando [set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) com ``-PricingPlan "Basic"`` e log Analytics usando [set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) com ``-sku "PerGB2018"``. 

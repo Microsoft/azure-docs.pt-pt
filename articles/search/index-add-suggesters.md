@@ -1,7 +1,7 @@
 ---
 title: Adicionar consultas typeahead a um índice-Azure Search
 description: Habilite ações de consulta de tipo antecipado em Azure Search criando sugestores e solicitações formular que invoquem os termos de consulta autocompletados ou autosugeridos.
-ms.date: 05/02/2019
+ms.date: 09/30/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,26 +19,28 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 73cfdb6a4185689a6485f55a4f6bdd1e7e3b14be
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d3f934bea5df821e51a4747170af4f7efd1eaacc
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648847"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828302"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Adicionar sugestores a um índice para typeahead no Azure Search
 
-Um Sugestor é um constructo em um [índice de Azure Search](search-what-is-an-index.md) que dá suporte a uma experiência de "pesquisa conforme o uso". Ele contém uma lista de campos para os quais você deseja habilitar as entradas de consulta typeahead. Dentro de um índice, o mesmo Sugestor dá suporte a uma ou ambas as duas variantes typeahead: preenchimento automático conclui o termo ou frase que você está digitando, *sugestões* fornece uma breve lista de resultados. 
+No Azure Search, a funcionalidade de "pesquisa conforme o tipo" ou typeahead é baseada em uma construção de **sugestão** que você adiciona a um [índice de pesquisa](search-what-is-an-index.md). É uma lista de um ou mais campos para os quais você deseja que o typeahead seja habilitado.
 
-A captura de tela a seguir ilustra os dois recursos do typeahead. Nesta página de pesquisa do Xbox, os itens de preenchimento automático levam você a uma nova página de resultados da pesquisa para essa consulta, enquanto as sugestões são resultados reais que levam você a uma página para esse jogo específico. Você pode limitar o preenchimento automático a um item em uma barra de pesquisa ou fornecer uma lista como a mostrada aqui. Para obter sugestões, você pode retonar qualquer parte de um documento que melhor descreva o resultado.
+Um Sugestor dá suporte a duas variantes typeahead: *preenchimento automático*, que conclui o termo ou frase que você está digitando e *sugestões* que retornam uma pequena lista de documentos correspondentes.  
 
-![Comparação visual de consultas autocompletas e sugeridas](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Comparação visual de consultas autocompletas e sugeridas")
+A captura de tela a seguir, do [criar seu primeiro C# aplicativo em](tutorial-csharp-type-ahead-and-suggestions.md) exemplo, ilustra typeahead. O preenchimento automático prevê o que o usuário pode digitar na caixa de pesquisa. A entrada real é "TW", que o preenchimento automático termina com "in", resolvendo como "" "para o termo de pesquisa potencial. As sugestões são visualizadas na lista suspensa. Para obter sugestões, você pode retonar qualquer parte de um documento que melhor descreva o resultado. Neste exemplo, as sugestões são nomes de Hotel. 
+
+![Comparação visual de consultas autocompletadas e sugeridas](./media/index-add-suggesters/hotel-app-suggestions-autocomplete.png "de comparação visual de consultas autocompletas e sugeridas")
 
 Para implementar esses comportamentos no Azure Search, há um componente de índice e consulta. 
 
-+ O componente de índice é um Sugestor. Você pode usar o portal, a API REST ou o SDK do .NET para criar um Sugestor. 
++ No índice, adicione um Sugestor a um índice. Você pode usar o portal, a [API REST](https://docs.microsoft.com/rest/api/searchservice/create-index)ou o [SDK do .net](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). O restante deste artigo se concentra na criação de um Sugestor. 
 
-+ O componente de consulta é uma ação especificada na solicitação de consulta (uma ação de sugestão ou de preenchimento automático). 
++ Na solicitação de consulta, chame uma das [APIs listadas abaixo](#how-to-use-a-suggester).
 
 O suporte de pesquisa conforme o tipo é habilitado em uma base por campo. Você pode implementar ambos os comportamentos do typeahead na mesma solução de pesquisa se desejar uma experiência semelhante à indicada na captura de tela. Ambas as solicitações direcionam a coleção de *documentos* de índice e respostas específicas são retornadas depois que um usuário tiver fornecido pelo menos uma cadeia de caracteres de entrada de três caracteres.
 
@@ -48,9 +50,15 @@ Embora um Sugestor tenha várias propriedades, ele é basicamente uma coleção 
 
 Para criar um Sugestor, adicione um a um esquema de índice. Você pode ter um Sugestor em um índice (especificamente, um Sugestor na coleção de sugestores). 
 
-### <a name="use-the-rest-api"></a>Utilizar a API REST
+### <a name="when-to-create-a-suggester"></a>Quando criar um Sugestor
 
-Na API REST, você pode adicionar sugestores por meio de [CREATE INDEX](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Update index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+O melhor momento para criar um Sugestor é quando você também está criando a própria definição de campo.
+
+Se você tentar criar um Sugestor usando campos preexistentes, a API não permitirá isso. O texto typeahead é criado durante a indexação, quando os termos parciais em duas ou mais combinações de caracteres são indexados com os termos inteiros. Considerando que os campos existentes já foram indexados, você precisará recompilar o índice se quiser adicioná-los a um Sugestor. Para obter mais informações sobre a reindexação, consulte [como recriar um índice de Azure Search](search-howto-reindex.md).
+
+### <a name="create-using-the-rest-api"></a>Criar usando a API REST
+
+Na API REST, adicione sugestores por meio de [CREATE INDEX](https://docs.microsoft.com/rest/api/searchservice/create-index) ou [Update index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
 
   ```json
   {
@@ -70,11 +78,11 @@ Na API REST, você pode adicionar sugestores por meio de [CREATE INDEX](https://
     ]
   }
   ```
-Depois que um Sugestor for criado, adicione a [API de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou a [API de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) em sua lógica de consulta para invocar o recurso.
 
-### <a name="use-the-net-sdk"></a>Utilizar o .NET SDK
 
-No C#, defina um [objeto de sugestão](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters`é uma coleção, mas só pode pegar um item. 
+### <a name="create-using-the-net-sdk"></a>Criar usando o SDK do .NET
+
+No C#, defina um [objeto de sugestão](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` é uma coleção, mas só pode pegar um item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -95,48 +103,49 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Referência de propriedade
-
-Os principais pontos a serem observados sobre os sugestores é que há um nome (sugestores são referenciados pelo nome em uma solicitação), um searchmode (atualmente, apenas um, "analyzingInfixMatching") e a lista de campos para os quais typeahead está habilitado. 
-
-As propriedades que definem um Sugestor incluem o seguinte:
+### <a name="property-reference"></a>Referência de propriedade
 
 |Propriedade      |Descrição      |
 |--------------|-----------------|
-|`name`        |O nome do Sugestor. Use o nome do Sugestor ao chamar a [API REST de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou a [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
-|`searchMode`  |A estratégia usada para pesquisar frases candidatas. O único modo com suporte no `analyzingInfixMatching`momento é, que executa a correspondência flexível de frases no início ou no meio de frases.|
-|`sourceFields`|Uma lista de um ou mais campos que são a origem do conteúdo para sugestões. Somente os campos do `Edm.String` tipo `Collection(Edm.String)` e podem ser fontes para sugestões. Somente os campos que não têm um conjunto de analisador de linguagem personalizado podem ser usados.<p/>Especifique somente os campos que se prestam a uma resposta esperada e apropriada, seja uma cadeia de caracteres completa em uma barra de pesquisa ou uma lista suspensa.<p/>Um nome de Hotel é um bom candidato porque tem precisão. Campos detalhados, como descrições e comentários, são muito densos. Da mesma forma, campos repetitivos, como categorias e marcas, são menos eficazes. Nos exemplos, incluímos "category" de qualquer forma para demonstrar que você pode incluir vários campos. |
+|`name`        |O nome do Sugestor.|
+|`searchMode`  |A estratégia usada para pesquisar frases candidatas. O único modo com suporte no momento é `analyzingInfixMatching`, o que executa a correspondência flexível de frases no início ou no meio de frases.|
+|`sourceFields`|Uma lista de um ou mais campos que são a origem do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` e `Collection(Edm.String)`. Se um analisador for especificado no campo, ele deverá ser um analisador Nomeado [desta lista](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (não um analisador personalizado).<p/>Como prática recomendada, especifique somente os campos que se prestam a uma resposta esperada e apropriada, seja uma cadeia de caracteres completa em uma barra de pesquisa ou uma lista suspensa.<p/>Um nome de Hotel é um bom candidato porque tem precisão. Campos detalhados, como descrições e comentários, são muito densos. Da mesma forma, campos repetitivos, como categorias e marcas, são menos eficazes. Nos exemplos, incluímos "category" de qualquer forma para demonstrar que você pode incluir vários campos. |
 
-#### <a name="analysis-of-sourcefields-in-a-suggester"></a>Análise de SourceFields em um Sugestor
+### <a name="analyzer-restrictions-for-sourcefields-in-a-suggester"></a>Restrições do analisador para sourceFields em um Sugestor
 
-Azure Search analisa o conteúdo do campo para habilitar a consulta em termos individuais. Os sugestores exigem que os prefixos sejam indexados além dos termos completos, o que requer análise adicional nos campos de origem. As configurações personalizadas do analisador podem combinar qualquer um dos vários filtros e criadores, geralmente de maneira que tornaria a produção dos prefixos necessários para sugestões impossível. Por esse motivo, **Azure Search impede que os campos com analisadores personalizados sejam incluídos em um**Sugestor.
+Azure Search analisa o conteúdo do campo para habilitar a consulta em termos individuais. Os sugestores exigem que os prefixos sejam indexados além dos termos completos, o que requer análise adicional nos campos de origem. As configurações personalizadas do analisador podem combinar qualquer um dos vários filtros e criadores, geralmente de maneira que tornaria a produção dos prefixos necessários para sugestões impossível. Por esse motivo, Azure Search impede que os campos com analisadores personalizados sejam incluídos em um Sugestor.
 
 > [!NOTE] 
->  A abordagem recomendada para contornar a limitação acima é usar dois campos separados para o mesmo conteúdo. Isso permitirá que um dos campos tenha sugestores e o outro possa ser configurado com uma configuração personalizada do analisador.
+>  Se você precisar contornar a limitação acima, use dois campos separados para o mesmo conteúdo. Isso permitirá que um dos campos tenha um Sugestor, enquanto o outro pode ser configurado com uma configuração personalizada do analisador.
 
-## <a name="when-to-create-a-suggester"></a>Quando criar um Sugestor
+<a name="how-to-use-a-suggester"></a>
 
-Para evitar uma recompilação de índice, um Sugestor e os `sourceFields` campos especificados em devem ser criados ao mesmo tempo.
+## <a name="use-a-suggester-in-a-query"></a>Usar um Sugestor em uma consulta
 
-Se você adicionar um Sugestor a um índice existente, em que os campos existentes `sourceFields`são incluídos no, a definição de campo é fundamentalmente alterada e uma recompilação é necessária. Para obter mais informações, consulte [como recriar um índice de Azure Search](search-howto-reindex.md).
+Depois que um Sugestor for criado, chame a API apropriada em sua lógica de consulta para invocar o recurso. 
 
-## <a name="how-to-use-a-suggester"></a>Como usar um Sugestor
++ [API REST de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
++ [API REST de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
++ [Método SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [Método AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
-Conforme observado anteriormente, você pode usar um Sugestor para consultas sugeridas, preenchimento automático ou ambos. 
+O uso da API é ilustrado na chamada a seguir para a API REST de preenchimento automático. Há dois argumentos neste exemplo. Primeiro, assim como acontece com todas as consultas, a operação é relacionada à coleção de documentos de um índice. Em segundo lugar, você pode adicionar parâmetros de consulta. Embora muitos parâmetros de consulta sejam comuns a ambas as APIs, a lista é diferente para cada uma delas.
 
-Um Sugestor é referenciado na solicitação junto com a operação. Por exemplo, em uma chamada Get REST, especifique `suggest` ou `autocomplete` na coleção documentos. Para REST, depois que um Sugestor for criado, use a [API de sugestões](https://docs.microsoft.com/rest/api/searchservice/suggestions) ou a [API de preenchimento automático](https://docs.microsoft.com/rest/api/searchservice/autocomplete) em sua lógica de consulta.
+```http
+GET https://[service name].search.windows.net/indexes/[index name]/docs/autocomplete?[query parameters]  
+api-key: [admin or query key]
+```
 
-Para .NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) ou [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
-
-Para ver um exemplo que demonstra as duas solicitações, consulte o [exemplo para adicionar preenchimento automático e sugestões em Azure Search](search-autocomplete-tutorial.md).
+Se um Sugestor não estiver definido no índice, uma chamada para preenchimento automático ou sugestões falhará.
 
 ## <a name="sample-code"></a>Código de exemplo
 
-O exemplo [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) contém o C# e o código Java e demonstra uma construção de sugestão, consultas sugeridas, preenchimento automático e navegação de faceta. 
++ [Criar seu primeiro aplicativo em C# ](tutorial-csharp-type-ahead-and-suggestions.md) exemplo demonstra uma construção de sugestão, consultas sugeridas, preenchimento automático e navegação facetada. Este exemplo de código é executado em um serviço de Azure Search de área restrita e usa um índice de hotéis pré-carregado para que tudo o que você precisa fazer seja pressionar F5 para executar o aplicativo. Nenhuma assinatura ou entrada é necessária.
 
-Ele usa um serviço de Azure Search de área restrita e um índice pré-carregado para que tudo o que você precisa fazer seja pressionar F5 para executá-lo. Nenhuma assinatura ou entrada necessária.
++ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) é um exemplo mais antigo que C# contém o e o código Java. Ele também demonstra uma construção de sugestão, consultas sugeridas, preenchimento automático e navegação facetada. Este exemplo de código usa os dados de exemplo hospedados do [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) . 
 
-## <a name="next-steps"></a>Passos Seguintes
+
+## <a name="next-steps"></a>Passos seguintes
 
 Recomendamos o exemplo a seguir para ver como as solicitações são formuladas.
 

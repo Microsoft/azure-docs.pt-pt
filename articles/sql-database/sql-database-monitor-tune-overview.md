@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910518"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935608"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Ajuste de monitorização e desempenho
 
@@ -187,7 +187,7 @@ Uma recompilação (ou uma nova compilação após a remoção do cache) ainda p
 
 Depois de identificar o problema, você pode ajustar as consultas de problema ou atualizar o tamanho da computação ou a camada de serviço para aumentar a capacidade do banco de dados SQL para absorver os requisitos de CPU. 
 
-Para obter mais informações, consulte [dimensionar recursos de banco de dados individual no banco de dados SQL do Azure](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico no banco de dados SQL do Azure](sql-database-elastic-pool-scale.md). Para obter informações sobre como dimensionar uma instância gerenciada, consulte [limites de recursos em nível de instância](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Para obter mais informações, consulte [dimensionar recursos de banco de dados individual no banco de dados SQL do Azure](sql-database-single-database-scale.md) e [dimensionar recursos de pool elástico no banco de dados SQL do Azure](sql-database-elastic-pool-scale.md). Para obter informações sobre como dimensionar uma instância gerenciada, consulte [limites de recursos da camada de serviço](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>Problemas de desempenho causados pelo aumento do volume de carga de trabalho
 

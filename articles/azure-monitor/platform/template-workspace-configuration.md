@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147335"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840903"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager
 
@@ -121,7 +121,7 @@ O exemplo a seguir cria um espaço de trabalho usando um modelo de seu computado
 
 2. Edite o modelo para satisfazer os seus requisitos. Revisão [Microsoft.OperationalInsights/workspaces modelo](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referência para saber quais propriedades e valores são suportados. 
 3. Guarde este ficheiro como **deploylaworkspacetemplate.json** para uma pasta local.
-4. Está pronto para implementar este modelo. Você pode usar o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome do espaço de trabalho e o local como parte do comando.
+4. Está pronto para implementar este modelo. Você pode usar o PowerShell ou a linha de comando para criar o espaço de trabalho, especificando o nome do espaço de trabalho e o local como parte do comando. O nome do espaço de trabalho deve ser globalmente exclusivo em todas as assinaturas do Azure.
 
    * Para o PowerShell, use os seguintes comandos da pasta que contém o modelo:
    
@@ -596,7 +596,7 @@ O exemplo de modelo a seguir ilustra como:
 
 Para implantar o modelo de exemplo:
 
-1. Salve a amostra anexada em um arquivo, por exemplo`azuredeploy.json` 
+1. Salve a amostra anexada em um arquivo, por exemplo `azuredeploy.json` 
 2. Edite o modelo para ter a configuração desejada
 3. Usar o PowerShell ou a linha de comando para implantar o modelo
 

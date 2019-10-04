@@ -1,20 +1,20 @@
 ---
-title: Criar e gerenciar atribuições de função no Azure digital gêmeos | Microsoft Docs
-description: Crie e gerencie atribuições de função no gêmeos digital do Azure.
+title: Criar e gerenciar atribuições de função – gêmeos digital do Azure | Microsoft Docs
+description: Saiba mais sobre como criar e gerenciar atribuições de função no Azure digital gêmeos.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703360"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827708"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função no gêmeos digital do Azure
 
@@ -165,8 +165,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | Cadeia |   O objectId do objectIdtype de UserId. |
 | YOUR_PATH | True | Cadeia |   O caminho escolhido para verificar o acesso. |
-| YOUR_ACCESS_TYPE |  True | Cadeia |   O tipo de acesso a ser verificado. |
-| YOUR_RESOURCE_TYPE | True | Cadeia |  O recurso a ser verificado. |
+| YOUR_ACCESS_TYPE |  True | Cadeia |   *Ler*, *criar*, *Atualizar*ou *excluir* |
+| YOUR_RESOURCE_TYPE | True | Cadeia |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondente*, *ontologia*, *relatório*,  *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema* , *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
 
 Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho e o recurso especificados.
 

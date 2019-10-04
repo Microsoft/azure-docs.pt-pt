@@ -4,14 +4,14 @@ description: Descreve como resolver o erro de ter mais de 800 implantações no 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
-ms.date: 10/01/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: f06aff74e2cf800d44115f34921825122b09a9e7
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 755383c9d40c104d50ad9bb7a31b3a00f8348313
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719438"
+ms.locfileid: "71827020"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>Resolver erro quando a contagem de implantação exceder 800
 
@@ -51,3 +51,9 @@ Você pode obter a contagem atual no histórico de implantação com o seguinte 
 (Get-AzResourceGroupDeployment -ResourceGroupName exampleGroup).Count
 ```
 
+## <a name="third-party-solutions"></a>Soluções de terceiros
+
+As soluções externas a seguir abordam cenários específicos:
+
+* [Aplicativos lógicos do Azure e soluções do PowerShell](https://devkimchi.com/2018/05/30/managing-excessive-arm-deployment-histories-with-logic-apps/)
+* [Extensão AzDevOps](https://github.com/christianwaha/AzureDevOpsExtensionCleanRG)

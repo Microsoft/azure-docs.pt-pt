@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102335"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828368"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Início rápido: Crie uma máquina virtual do SQL Server 2017 Windows no portal do Azure
 
@@ -43,7 +43,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite *SQL do Azure* na caixa de pesquisa.
 1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais selecionando **Mostrar detalhes** no bloco **máquinas virtuais do SQL** .
-1. Selecione a **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 na imagem do Windows** Server 2016 do menu suspenso.
+1. Selecione a **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 na imagem do Windows Server 2016 @ no__t-0 da lista suspensa.
 
    ![Nova janela de procura](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
@@ -81,9 +81,10 @@ Na guia **noções básicas** , forneça as seguintes informações:
 Na guia **configurações de SQL Server** , configure as seguintes opções:
 
 1. Em **segurança & rede**, selecione conectividade _pública (Internet_) para **SQL** e altere a porta para `1401` para evitar o uso de um número de porta conhecido no cenário público. 
-1. Em **autenticação do SQL**, selecione **habilitar**. O Início de Sessão de SQL está definido para o mesmo nome de utilizador e palavra-passe que configurou para a VM. Use as configurações padrão para **Azure Key Vault integração** e **configuração de armazenamento**.  
+1. Em **autenticação do SQL**, selecione **habilitar**. O Início de Sessão de SQL está definido para o mesmo nome de utilizador e palavra-passe que configurou para a VM. Use a configuração padrão para [**integração de Azure Key Vault**](virtual-machines-windows-ps-sql-keyvault.md). A **configuração de armazenamento** não está disponível para a imagem de VM SQL Server básica, mas você pode encontrar mais informações sobre as opções disponíveis para outras imagens na configuração de [armazenamento](virtual-machines-windows-sql-server-storage-configuration.md#new-vms).  
 
    ![Configurações de segurança do SQL Server](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. Altere todas as outras configurações, se necessário, e selecione revisar **+ criar**. 
 
@@ -130,7 +131,7 @@ O acesso ao computador permite-lhe alterar diretamente as definições do SQL Se
 Se não precisar que a sua VM SQL execute continuamente, pode evitar despesas desnecessárias ao pará-la quando não estiver a utilizar. Também pode eliminar permanentemente todos os recursos associados à máquina virtual ao eliminar o seu grupo de recursos associados no portal. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado. Para mais informações, consulte [Manage Azure resources through portal (Gerir recursos do Azure através do portal)](../../../azure-resource-manager/manage-resource-groups-portal.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou uma máquina virtual SQL Server 2017 no portal do Azure. Para saber mais sobre como migrar os seus dados para o novo SQL Server, consulte o seguinte artigo.
 

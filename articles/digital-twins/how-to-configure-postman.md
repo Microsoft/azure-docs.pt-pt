@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: f04946dffd66dcd44743197a0ca8f0fe21624285
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803434"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844513"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
@@ -122,7 +122,8 @@ Depois de concluir as etapas anteriores, configure o postmaster para fazer uma s
    [![Filtragem de tipo com várias partes/misturadas](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialize dados que não são de texto em arquivos. Os dados JSON seriam salvos como um arquivo JSON.
-1. Na guia **corpo** , adicione cada arquivo atribuindo um nome de **chave** , selecionando `file` ou `text`.
+1. Na guia **corpo** , selecione `form-data`. 
+1. Adicione cada arquivo atribuindo um nome de **chave** , selecionando `file`.
 1. Em seguida, selecione cada arquivo no botão **escolher arquivo** .
 
    [exemplo de cliente ![Postman](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

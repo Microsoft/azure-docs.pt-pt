@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843294"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71830152"
 ---
 É importante manter sua VM (máquina virtual) segura para os aplicativos que você executa. Proteger suas VMs pode incluir um ou mais serviços e recursos do Azure que abrangem o acesso seguro às suas VMs e o armazenamento seguro de seus dados. Este artigo fornece informações que permitem que você mantenha a VM e os aplicativos seguros.
 
@@ -25,7 +25,7 @@ O acesso just-in-time da central de segurança pode ser aplicado em sua implanta
 
 ## <a name="encryption"></a>Encriptação
 
-Para maior segurança e conformidade da VM do [Windows](../articles/virtual-machines/windows/encrypt-disks.md) e da VM do [Linux](../articles/virtual-machines/linux/encrypt-disks.md) , os discos virtuais no Azure podem ser criptografados. Os discos virtuais em VMs do Windows são criptografados em repouso usando o BitLocker. Os discos virtuais em VMs do Linux são criptografados em repouso usando DM-cript. 
+Para maior segurança e conformidade da VM do [Windows](../articles/virtual-machines/windows/encrypt-disks.md) e da VM do [Linux](../articles/virtual-machines/linux/disk-encryption-overview.md) , os discos virtuais no Azure podem ser criptografados. Os discos virtuais em VMs do Windows são criptografados em repouso usando o BitLocker. Os discos virtuais em VMs do Linux são criptografados em repouso usando DM-cript. 
 
 Não há nenhum custo para criptografar discos virtuais no Azure. As chaves de criptografia são armazenadas em Azure Key Vault usando a proteção de software ou você pode importar ou gerar suas chaves em HSMs (módulos de segurança de hardware) certificados para os padrões FIPS 140-2 nível 2. Essas chaves de criptografia são usadas para criptografar e descriptografar discos virtuais anexados à sua VM. Você mantém o controle dessas chaves de criptografia e pode auditar seu uso. Uma entidade de serviço Azure Active Directory fornece um mecanismo seguro para emitir essas chaves de criptografia à medida que as VMs são ativadas e desativadas.
 
@@ -52,5 +52,5 @@ A funcionalidade de identidades geridas para recursos do Azure no Active Directo
 Usando o [RBAC (controle de acesso baseado em função)](../articles/role-based-access-control/overview.md), você pode separar as tarefas dentro de sua equipe e conceder apenas a quantidade de acesso aos usuários em sua VM que eles precisam para executar seus trabalhos. Em vez de fornecer a todos permissões irrestritas na VM, você pode permitir apenas determinadas ações. Você pode configurar o controle de acesso para a VM no [portal do Azure](../articles/role-based-access-control/role-assignments-portal.md), usando o [CLI do Azure](https://docs.microsoft.com/cli/azure/role)ou[Azure PowerShell](../articles/role-based-access-control/role-assignments-powershell.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Percorra as etapas para monitorar a segurança da máquina virtual usando a central de segurança do Azure para [Linux](../articles/security/fundamentals/overview.md) ou [Windows](../articles/virtual-machines/windows/tutorial-azure-security.md).

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 5f6f4ce4fc77533a4d893472298ef3a20f153136
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568003"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828216"
 ---
 # <a name="in-memory-sample"></a>Exemplo na memória
 
@@ -25,7 +25,7 @@ As tecnologias na memória no banco de dados SQL do Azure permitem melhorar o de
 Neste artigo, você verá dois exemplos que ilustram o uso de OLTP na memória, bem como índices columnstore no banco de dados SQL do Azure.
 
 Para obter mais informações, consulte:
-- [Visão geral e cenários de uso do OLTP em memória](https://msdn.microsoft.com/library/mt774593.aspx) (inclui referências a estudos de caso de cliente e informações para começar)
+- [Visão geral e cenários de uso do OLTP na memória](https://msdn.microsoft.com/library/mt774593.aspx) (inclui referências a estudos de caso de cliente e informações para começar)
 - [Documentação para OLTP na memória](https://msdn.microsoft.com/library/dn133186.aspx)
 - [Guia de índices Columnstore](https://msdn.microsoft.com/library/gg492088.aspx)
 - HTAP (processamento transacional/analítico híbrido), também conhecido como [análise operacional em tempo real](https://msdn.microsoft.com/library/dn817827.aspx)
@@ -49,9 +49,9 @@ Para uma demonstração de desempenho mais simplista, mas mais visualmente atrae
 
 2. Conecte-se ao banco de dados com SQL Server Management Studio [(SSMS. exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copie o [script Transact-SQL OLTP na memória](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência. O script T-SQL cria os objetos na memória necessários no banco de dados de exemplo AdventureWorksLT que você criou na etapa 1.
+3. Copie o [script Transact-SQL OLTP na memória](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) para a área de transferência. O script T-SQL cria os objetos na memória necessários no banco de dados de exemplo AdventureWorksLT que você criou na etapa 1.
 
-4. Cole o script T-SQL no SSMS e, em seguida, execute o script. As `MEMORY_OPTIMIZED = ON` instruções de CREATE TABLE de cláusula são cruciais. Por exemplo:
+4. Cole o script T-SQL no SSMS e, em seguida, execute o script. A cláusula `MEMORY_OPTIMIZED = ON` CREATE TABLE instruções são cruciais. Por exemplo:
 
 
 ```sql
@@ -87,7 +87,7 @@ Um resultado de **0** significa que a memória não tem suporte e **1** signific
 - Demo.DemoSalesOrderDetailSeed
 
 
-Você pode inspecionar tabelas com otimização de memória por meio do pesquisador de **objetos** no SSMS. Clique com o botão direito do mouse em **tabelas** > filtro de**filtro** > **configurações** > com**otimização de memória**. O valor é igual a 1.
+Você pode inspecionar tabelas com otimização de memória por meio do pesquisador de **objetos** no SSMS. Clique com o botão direito do mouse em **tabelas** > **Filtrar** **configurações de filtro** >   > **é otimizado para memória**. O valor é igual a 1.
 
 
 Ou você pode consultar as exibições do catálogo, como:
@@ -171,7 +171,7 @@ end
 Para tornar a versão *_ondisk* do script T-SQL anterior para ostress. exe, você substituiria as duas ocorrências da subcadeia de caracteres *_inmem* por *_ondisk*. Essas substituições afetam os nomes de tabelas e procedimentos armazenados.
 
 
-### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários do RML e`ostress`
+### <a name="install-rml-utilities-and-ostress"></a>Instalar utilitários RML e `ostress`
 
 
 O ideal é que você planeje executar o ostress. exe em uma VM (máquina virtual) do Azure. Você criaria uma [VM do Azure](https://azure.microsoft.com/documentation/services/virtual-machines/) na mesma região geográfica do Azure em que o banco de dados AdventureWorksLT reside. No entanto, você pode executar o ostress. exe em seu laptop.
@@ -198,10 +198,10 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>Executar a carga de trabalho de estresse *_inmem* primeiro
+### <a name="run-the-_inmem-stress-workload-first"></a>Executar a carga de trabalho de estresse *_inmem* primeiro
 
 
-Você pode usar uma janela de *prompt de cmd do RML* para executar nossa linha de comando do ostress. exe. Os parâmetros de linha de comando `ostress` diretos para:
+Você pode usar uma janela de *prompt de cmd do RML* para executar nossa linha de comando do ostress. exe. Os parâmetros de linha de comando direcionam `ostress` para:
 
 - Executar conexões de 100 simultaneamente (-N100).
 - Faça com que cada conexão execute o script T-SQL 50 vezes (-R50).
@@ -231,12 +231,12 @@ Para executar a linha de comando ostress. exe anterior:
 #### <a name="result-is-a-duration"></a>O resultado é uma duração
 
 
-Quando `ostress.exe` termina, ele grava a duração da execução como sua linha final de saída na janela cmd do RML. Por exemplo, uma execução de teste mais curta duração cerca de 1,5 minutos:
+Quando `ostress.exe` é concluído, ele grava a duração da execução como sua linha final de saída na janela cmd RML. Por exemplo, uma execução de teste mais curta duração cerca de 1,5 minutos:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-ondisk-then-rerun"></a>Redefina, edite para *_ondisk*e execute novamente
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Redefina, edite para *_ondisk*e execute novamente
 
 
 Depois de ter o resultado da execução do *_inmem* , execute as seguintes etapas para a execução do *_ondisk* :
@@ -256,7 +256,7 @@ Depois de ter o resultado da execução do *_inmem* , execute as seguintes etapa
 
 #### <a name="expected-comparison-results"></a>Resultados de comparação esperados
 
-Nossos testes na memória mostraram que o desempenho foi melhorado em **nove vezes** para essa carga de trabalho `ostress` simplista, com a execução em uma VM do Azure na mesma região do Azure que o banco de dados.
+Nossos testes na memória mostraram que o desempenho foi melhorado em **nove vezes** para essa carga de trabalho simplista, com `ostress` em execução em uma VM do Azure na mesma região do Azure que o banco de dados.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
@@ -279,7 +279,7 @@ Para análise em tempo real em uma carga de trabalho OLTP, geralmente é melhor 
    - Use esse nome exato.
    - Escolha qualquer camada de serviço Premium.
 
-2. Copie o [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) para a área de transferência.
+2. Copie o [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql) para a área de transferência.
    - O script T-SQL cria os objetos na memória necessários no banco de dados de exemplo AdventureWorksLT que você criou na etapa 1.
    - O script cria a tabela de dimensões e duas tabelas de fatos. As tabelas de fatos são populadas com 3,5 milhões linhas cada.
    - O script pode levar 15 minutos para ser concluído.
@@ -302,14 +302,14 @@ Para análise em tempo real em uma carga de trabalho OLTP, geralmente é melhor 
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Consultas de chave para comparar o índice columnstore
 
 
-Há [vários tipos de consulta T-SQL que você pode executar](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) para ver as melhorias de desempenho. Na etapa 2 do script T-SQL, preste atenção a esse par de consultas. Eles diferem apenas em uma linha:
+Há [vários tipos de consulta T-SQL que você pode executar](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/clustered_columnstore_sample_queries.sql) para ver as melhorias de desempenho. Na etapa 2 do script T-SQL, preste atenção a esse par de consultas. Eles diferem apenas em uma linha:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
 
-Um índice columnstore clusterizado está na tabela CCI\_FactResellerSalesXL.
+Um índice columnstore clusterizado está na tabela FactResellerSalesXL @ no__t-0CCI.
 
 O trecho de script T-SQL a seguir imprime estatísticas para e/s e hora para a consulta de cada tabela.
 
@@ -380,9 +380,9 @@ Em um banco de dados com o tipo de preço P2, você pode esperar aproximadamente
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Início rápido 1: Tecnologias OLTP na memória para um desempenho mais rápido do T-SQL](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Quickstart 1: Tecnologias OLTP na memória para um desempenho mais rápido do T-SQL @ no__t-0
 
 - [Usar o OLTP na memória em um aplicativo SQL do Azure existente](sql-database-in-memory-oltp-migration.md)
 

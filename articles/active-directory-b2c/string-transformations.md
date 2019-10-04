@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063447"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936816"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeia de caracteres
 
@@ -238,8 +238,8 @@ Cria uma cadeia de caracteres aleatória usando o gerador de números aleatório
 | InputParameter | randomGeneratorType | Cadeia de caracteres | Especifica o valor aleatório a ser gerado, `GUID` (ID global exclusiva) ou `INTEGER` (um número). |
 | InputParameter | stringFormat | Cadeia de caracteres | Adicional Formate o valor aleatório. |
 | InputParameter | base64 | boolean | Adicional Converta o valor aleatório em base64. Se o formato da cadeia de caracteres for aplicado, o valor após o formato da cadeia de caracteres será codificado em base64. |
-| InputParameter | maximumNumber | int | Adicional Somente `INTEGER` para randomGeneratorType. Especifique o número máximo. |
-| InputParameter | semente  | int | Adicional Somente `INTEGER` para randomGeneratorType. Especifique a semente para o valor aleatório. Observação: a mesma semente produz a mesma sequência de números aleatórios. |
+| InputParameter | maximumNumber | int | Adicional Somente para `INTEGER` randomGeneratorType. Especifique o número máximo. |
+| InputParameter | semente  | int | Adicional Somente para `INTEGER` randomGeneratorType. Especifique a semente para o valor aleatório. Observação: a mesma semente produz a mesma sequência de números aleatórios. |
 | OutputClaim | outputClaim | Cadeia de caracteres | O ClaimTypes que será produzido depois que essa transformação de declarações for invocada. O valor aleatório. |
 
 O exemplo a seguir gera uma ID exclusiva global. Essa transformação de declarações é usada para criar o UPN aleatório (nome do princípio do usuário).
@@ -319,7 +319,7 @@ Use essa transformação de declarações para formatar qualquer cadeia de carac
 - Declarações de entrada:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Parâmetros de entrada:
-    - **StringFormat**: cpim_{0}@ {RelyingPartyTenantId}
+    - **StringFormat**: cpim_ @ no__t-1 @ {RelyingPartyTenantId}
 - Declarações de saída:
   - **outputClaim**:cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 

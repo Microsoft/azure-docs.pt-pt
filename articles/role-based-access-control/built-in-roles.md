@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/27/2019
+ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672633"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842299"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Funções internas para recursos do Azure
 
@@ -60,6 +60,9 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 | [Função de administrador de cluster do serviço kubernetes do Azure](#azure-kubernetes-service-cluster-admin-role) | Listar ação de credencial de administrador do cluster. |
 | [Função de usuário de cluster do serviço kubernetes do Azure](#azure-kubernetes-service-cluster-user-role) | Listar ação de credencial de usuário de cluster. |
 | [Leitor de dados do Azure Maps (versão prévia)](#azure-maps-data-reader-preview) | Concede acesso para ler dados relacionados ao mapa de uma conta do Azure Maps. |
+| [Colaborador do Azure Sentinel](#azure-sentinel-contributor) | Colaborador do Azure Sentinel |
+| [Leitor do Azure Sentinel](#azure-sentinel-reader) | Leitor do Azure Sentinel |
+| [Respondente do Azure Sentinel](#azure-sentinel-responder) | Respondente do Azure Sentinel |
 | [Proprietário de dados do barramento de serviço do Azure](#azure-service-bus-data-owner) | Permite acesso completo aos recursos do barramento de serviço do Azure. |
 | [Receptor de dados do barramento de serviço do Azure](#azure-service-bus-data-receiver) | Permite o acesso de recebimento aos recursos do barramento de serviço do Azure. |
 | [Remetente de dados do barramento de serviço do Azure](#azure-service-bus-data-sender) | Permite o acesso de envio aos recursos do barramento de serviço do Azure. |
@@ -178,7 +181,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Descrição** | Permite que você gerencie tudo, exceto o acesso aos recursos. |
+> | **Descrição** | Permite que você gerencie tudo, exceto conceder acesso aos recursos. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Ações** |  |
 > | * | Criar e gerenciar recursos de todos os tipos |
@@ -645,6 +648,89 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | *None* |  |
 > | **DataActions** |  |
 > | Microsoft.Maps/accounts/data/read | Concede acesso de leitura de dados a uma conta do Maps. |
+> | **NotDataActions** |  |
+> | *None* |  |
+
+## <a name="azure-sentinel-contributor"></a>Colaborador do Azure Sentinel
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Colaborador do Azure Sentinel |
+> | **Id** | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | **Ações** |  |
+> | Microsoft. SecurityInsights/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
+> | Microsoft.OperationalInsights/workspaces/read | Obter um espaço de trabalho existente |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
+> | Microsoft.OperationsManagement/solutions/read | Obter solução OMS de saída |
+> | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas sobre os dados no espaço de trabalho |
+> | Microsoft. OperationalInsights/Workspaces/fontes de trabalho/leitura | Obter fontes de origem em um espaço de trabalho. |
+> | Microsoft. insights/pastas de trabalho/* |  |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do insights |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações de grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *None* |  |
+> | **DataActions** |  |
+> | *None* |  |
+> | **NotDataActions** |  |
+> | *None* |  |
+
+## <a name="azure-sentinel-reader"></a>Leitor do Azure Sentinel
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Leitor do Azure Sentinel |
+> | **Id** | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | **Ações** |  |
+> | Microsoft. SecurityInsights/*/Read |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
+> | Microsoft.OperationalInsights/workspaces/read | Obter um espaço de trabalho existente |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtém uma consulta de pesquisa salva |
+> | Microsoft.OperationsManagement/solutions/read | Obter solução OMS de saída |
+> | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas sobre os dados no espaço de trabalho |
+> | Microsoft. OperationalInsights/Workspaces/fontes de trabalho/leitura | Obter fontes de origem em um espaço de trabalho. |
+> | Microsoft. insights/pastas de trabalho/leitura | Ler um livro |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do insights |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações de grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *None* |  |
+> | **DataActions** |  |
+> | *None* |  |
+> | **NotDataActions** |  |
+> | *None* |  |
+
+## <a name="azure-sentinel-responder"></a>Respondente do Azure Sentinel
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Descrição** | Respondente do Azure Sentinel |
+> | **Id** | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | **Ações** |  |
+> | Microsoft. SecurityInsights/*/Read |  |
+> | Microsoft. SecurityInsights/cases/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Pesquisar usando o novo mecanismo. |
+> | Microsoft.OperationalInsights/workspaces/read | Obter um espaço de trabalho existente |
+> | Microsoft. OperationalInsights/Workspaces/fontes de trabalho/leitura | Obter fontes de origem em um espaço de trabalho. |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtém uma consulta de pesquisa salva |
+> | Microsoft.OperationsManagement/solutions/read | Obter solução OMS de saída |
+> | Microsoft.OperationalInsights/workspaces/query/read | Executar consultas sobre os dados no espaço de trabalho |
+> | Microsoft. OperationalInsights/Workspaces/fontes de trabalho/leitura | Obter fontes de origem em um espaço de trabalho. |
+> | Microsoft. insights/pastas de trabalho/leitura | Ler um livro |
+> | Microsoft.Authorization/*/read | Ler funções e atribuições de função |
+> | Microsoft.Insights/alertRules/* | Criar e gerenciar regras de alerta do insights |
+> | Microsoft.Resources/deployments/* | Criar e gerenciar implantações de grupo de recursos |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtém ou lista os grupos de recursos. |
+> | Microsoft.Support/* | Criar e gerenciar tíquetes de suporte |
+> | **NotActions** |  |
+> | *None* |  |
+> | **DataActions** |  |
+> | *None* |  |
 > | **NotDataActions** |  |
 > | *None* |  |
 
@@ -1767,7 +1853,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.Web/customApis/* | Cria e gerencia uma API personalizada. |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Obter as propriedades em um plano do serviço de aplicativo |
-> | Microsoft.Web/sites/functions/listSecrets/action | Listar segredos funções de aplicativos Web. |
+> | Microsoft.Web/sites/functions/listSecrets/action | Listar segredos de função. |
 > | **NotActions** |  |
 > | *None* |  |
 > | **DataActions** |  |
@@ -2278,6 +2364,7 @@ A tabela a seguir fornece uma breve descrição de cada função interna. Clique
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Ler pontos de recuperação de replicação |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparar replicação |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Voltar a Proteger o Item Protegido |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Contentor de Proteção de Parâmetro |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Ativação Pós-falha de Teste |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Limpeza da Ativação Pós-falha de Teste |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Ativação pós-falha |

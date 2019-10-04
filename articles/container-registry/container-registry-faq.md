@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142677"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827413"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o registro de contêiner do Azure
 
@@ -260,6 +260,7 @@ A quarentena da imagem é atualmente um recurso de visualização do ACR. Você 
 - [As novas permissões de usuário podem não ser efetivas imediatamente após a atualização](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [As informações de autenticação não são fornecidas no formato correto em chamadas à API REST diretas](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Por que o portal do Azure não listar todos os meus repositórios ou marcas?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Por que a portal do Azure não consegue buscar repositórios ou marcas?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Como fazer coletar rastreamentos http no Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Verificar a integridade com`az acr check-health`
@@ -410,6 +411,17 @@ curl $redirect_url
 
 Se você estiver usando o navegador Microsoft Edge/IE, poderá ver no máximo 100 repositórios ou marcas. Se o registro tiver mais de 100 repositórios ou marcas, recomendamos que você use o navegador Firefox ou Chrome para listar todos eles.
 
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>Por que a portal do Azure não consegue buscar repositórios ou marcas?
+
+O navegador pode não ser capaz de enviar a solicitação para buscar repositórios ou marcas no servidor. Pode haver vários motivos, como:
+
+* Falta de conectividade de rede
+* Firewall
+* Bloqueadores de AD
+* Erros de DNS
+
+Entre em contato com seu administrador de rede ou verifique a configuração de rede e a conectividade. Além disso, você também pode tentar uma sessão Incognito ou privada em seu navegador para evitar nenhum cookie ou cache de navegador obsoleto.
+
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Como fazer coletar rastreamentos http no Windows?
 
 #### <a name="prerequisites"></a>Pré-requisitos
@@ -461,6 +473,6 @@ Essa configuração também se aplica ao `az acr run` comando.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [Ações do GitHub](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais](container-registry-intro.md) sobre o registro de contêiner do Azure.

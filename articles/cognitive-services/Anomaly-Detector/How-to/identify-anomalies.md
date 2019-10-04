@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: c7b3d9b66d74f16dc0938c888456d673b9cd4b77
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882893"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840229"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Como: Usar a API do detector de anomalias em seus dados de série temporal  
 
-A [API do detector](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) de anomalias fornece dois métodos de detecção de anomalias. Você pode detectar anomalias como um lote em toda a série temporal ou como seus dados são gerados detectando o status de anomalia do último ponto de dados. O modelo de detecção retorna resultados de anomalias junto com o valor esperado de cada ponto de dados e os limites de detecção de anomalias superior e inferior. Você pode usar esses valores para visualizar o intervalo de valores normais e anomalias nos dados.
+A [API do detector de anomalias](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect) fornece dois métodos de detecção de anomalias. Você pode detectar anomalias como um lote em toda a série temporal ou como seus dados são gerados detectando o status de anomalia do último ponto de dados. O modelo de detecção retorna resultados de anomalias junto com o valor esperado de cada ponto de dados e os limites de detecção de anomalias superior e inferior. Você pode usar esses valores para visualizar o intervalo de valores normais e anomalias nos dados.
 
 ## <a name="anomaly-detection-modes"></a>Modos de detecção de anomalias 
 
 A API do detector de anomalias fornece modos de detecção: lote e streaming.
 
 > [!NOTE]
-> As URLs de solicitação a seguir devem ser combinadas com o ponto de extremidade apropriado para sua assinatura. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> As URLs de solicitação a seguir devem ser combinadas com o ponto de extremidade apropriado para sua assinatura. Por exemplo: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>Detecção de lote
@@ -47,7 +47,7 @@ Ao enviar novos pontos de dados conforme você os gera, você pode monitorar seu
 
 ## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>Ajustando limites de detecção de anomalias inferiores e superiores
 
-Por padrão, os limites superior e inferior para detecção de anomalias são calculados `upperMargin`usando `expectedValue`, `lowerMargin`e. Se você precisar de limites diferentes, é recomendável `marginScale` aplicar `upperMargin` um `lowerMargin`a ou. Os limites seriam calculados da seguinte maneira:
+Por padrão, os limites superior e inferior para detecção de anomalias são calculados usando `expectedValue`, `upperMargin` e `lowerMargin`. Se você precisar de limites diferentes, é recomendável aplicar um `marginScale` a `upperMargin` ou `lowerMargin`. Os limites seriam calculados da seguinte maneira:
 
 |Divisão  |Cálculo  |
 |---------|---------|

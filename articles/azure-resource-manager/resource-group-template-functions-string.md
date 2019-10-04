@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194773"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937024"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos de Azure Resource Manager
 
@@ -21,7 +21,7 @@ O Gerenciador de recursos fornece as seguintes funções para trabalhar com cade
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
-* [terá](#contains)
+* [contains](#contains)
 * [dataUri](#datauri)
 * [dataUriToString](#datauritostring)
 * [empty](#empty)
@@ -331,7 +331,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| exibir | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| Exibir | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>Contém
 
@@ -764,7 +764,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 | ---- | ---- | ----- |
 | formatTest | Cadeia | Olá, usuário. Número formatado: 8.175.133 |
 
-## <a name="guid"></a>volume
+## <a name="guid"></a>guid
 
 `guid(baseString, ...)`
 
@@ -1364,7 +1364,7 @@ Retorna uma matriz de cadeias de caracteres que contém as subcadeias da cadeia 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | inputString |Sim |Cadeia de caracteres |A cadeia de caracteres a ser dividida. |
-| delimitador |Sim |String ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
+| Delimitador |Sim |String ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1824,7 +1824,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| exibir | Cadeia | Um dois três |
+| Exibir | Cadeia | Um dois três |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1914,10 +1914,26 @@ Cria um URI absoluto combinando o baseUri e a cadeia de caracteres relativeUri.
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| baseUri |Sim |Cadeia de caracteres |A cadeia de caracteres de URI de base. |
+| baseUri |Sim |Cadeia de caracteres |A cadeia de caracteres de URI de base. Tome cuidado para observar o comportamento em relação à manipulação da barra à direita ('/'), conforme descrito a seguir nesta tabela.  |
 | relativeUri |Sim |Cadeia de caracteres |A cadeia de caracteres de URI relativa a ser adicionada à cadeia de caracteres de URI de base. |
 
-O valor do parâmetro **BaseUri** pode incluir um arquivo específico, mas apenas o caminho base é usado ao construir o URI. Por exemplo, passar `http://contoso.com/resources/azuredeploy.json` como o parâmetro BaseUri resulta em um URI base de `http://contoso.com/resources/`.
+* Se **BaseUri** terminar em uma barra à direita, o resultado será simplesmente **BaseUri** seguido por **relativeUri**.
+
+* Se **BaseUri** não terminar em uma barra à direita, uma das duas coisas ocorrerá.  
+
+   * Se **BaseUri** não tiver nenhuma barra (além da "//" próxima à frente), o resultado será simplesmente **BaseUri** seguido por **relativeUri**.
+
+   * Se **BaseUri** tiver algumas barras, mas não terminar com uma barra, tudo da última barra em diante será removido do **BaseUri** e o resultado será **BaseUri** seguido por **relativeUri**.
+     
+Eis alguns exemplos:
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+Para obter detalhes completos, os parâmetros **BaseUri** e **relativeUri** são resolvidos conforme especificado na [RFC 3986, seção 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1976,7 +1992,7 @@ Codifica um URI.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Type | Descrição |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Sim |Cadeia de caracteres |O valor a ser codificado. |
 
@@ -2088,7 +2104,7 @@ Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato 
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| format |Não |Cadeia de caracteres |O valor codificado de URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou cadeias de [caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
+| format |Não |Cadeia de caracteres |O valor codificado de URI a ser convertido em uma cadeia de caracteres. Use cadeias de caracteres de [formato padrão](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) ou [cadeias de caracteres de formato personalizado](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). |
 
 ### <a name="remarks"></a>Observações
 
@@ -2187,7 +2203,7 @@ O exemplo a seguir mostra como usar um valor da função ao definir um valor de 
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter uma descrição das secções num modelo Azure Resource Manager, consulte [modelos Authoring Azure Resource Manager](resource-group-authoring-templates.md).
 * Para intercalar vários modelos, veja [utilizar modelos ligados com o Azure Resource Manager](resource-group-linked-templates.md).
 * Para fazer a iteração de um número especificado de vezes ao criar um tipo de recurso, consulte [criar várias instâncias de recursos no Azure Resource Manager](resource-group-create-multiple.md).

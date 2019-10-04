@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: overview
 ms.date: 08/31/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 06dfa40b6f320646513ab759f0ad5f4d10790236
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 864a641968268c439c65996998cbb822746b96f9
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719986"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838991"
 ---
 # <a name="entity-functions-preview"></a>Funções de entidade (visualização)
 
@@ -143,12 +143,12 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-    // Synchronous call to the entity which returns a value
+    // Synchronous call to the entity which returns a value - will await a response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
-        // Asynchronous call which updates the value
-        await context.SignalEntityAsync<int>(entityId, "Add", 1);
+        // Asynchronous call which updates the value - will not await a response
+        context.SignalEntity(entityId, "Add", 1);
     }
 }
 ```

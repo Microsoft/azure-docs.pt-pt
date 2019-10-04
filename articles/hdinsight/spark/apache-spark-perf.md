@@ -1,19 +1,19 @@
 ---
 title: Otimizar trabalhos do Spark para desempenho-Azure HDInsight
 description: Mostre estratégias comuns para o melhor desempenho de clusters de Apache Spark no Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/01/2019
+ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181074"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936851"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Otimizar Apache Spark trabalhos no HDInsight
 
@@ -55,11 +55,12 @@ O melhor formato para desempenho é parquet com *compactação de instantâneo*,
 
 ## <a name="select-default-storage"></a>Selecionar armazenamento padrão
 
-Ao criar um novo cluster Spark, você tem a opção de selecionar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage como o armazenamento padrão do cluster. Ambas as opções oferecem o benefício do armazenamento de longo prazo para clusters transitórios, para que seus dados não sejam excluídos automaticamente quando você excluir o cluster. Você pode recriar um cluster transitório e ainda acessar seus dados.
+Ao criar um novo cluster Spark, você pode selecionar o armazenamento de BLOBs do Azure ou Azure Data Lake Storage como o armazenamento padrão do cluster. Ambas as opções oferecem o benefício do armazenamento de longo prazo para clusters transitórios, para que seus dados não sejam excluídos automaticamente quando você excluir o cluster. Você pode recriar um cluster transitório e ainda acessar seus dados.
 
 | Tipo de repositório | Sistema de ficheiros | Velocidade | Transitório | Casos de Utilização |
 | --- | --- | --- | --- | --- |
 | Armazenamento de Blobs do Azure | **wasb:** //url/ | **Standard** | Sim | Cluster transitório |
+| Armazenamento de BLOBs do Azure (seguro) | **wasbs:** //URL/ | **Standard** | Sim | Cluster transitório |
 | Azure Data Lake Storage Gen 2| **abfs:** //URL/ | **Meio** | Sim | Cluster transitório |
 | Armazenamento do Azure Data Lake Ger 1| **adl:** //url/ | **Meio** | Sim | Cluster transitório |
 | HDFS local | **hdfs:** //url/ | **Fastest** | Não | Cluster interativo 24/7 |
@@ -127,7 +128,7 @@ Você pode usar particionamento e bucketing ao mesmo tempo.
 
 ## <a name="optimize-joins-and-shuffles"></a>Otimizar junções e embaralhamentos
 
-Se você tiver trabalhos lentos em uma junção ou em ordem aleatória, a causa provavelmente será a *distorção de dados*, que é assimetria em seus dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são ingressados ou embaralhados leva horas.   Para corrigir a distorção de dados, você deve usar o Salt da chave inteira ou utilizar um *Salt isolado* para apenas algum subconjunto de chaves.  Se você estiver usando um Salt isolado, deverá filtrar ainda mais para isolar seu subconjunto de chaves com Salt em junções de mapa. Outra opção é introduzir uma coluna de Bucket e agregar previamente em buckets primeiro.
+Se você tiver trabalhos lentos em uma junção ou em ordem aleatória, a causa provavelmente será a *distorção de dados*, que é assimetria em seus dados de trabalho. Por exemplo, um trabalho de mapa pode levar 20 segundos, mas executar um trabalho onde os dados são ingressados ou embaralhados leva horas. Para corrigir a distorção de dados, você deve usar o Salt da chave inteira ou utilizar um *Salt isolado* para apenas algum subconjunto de chaves. Se você estiver usando um Salt isolado, deverá filtrar ainda mais para isolar seu subconjunto de chaves com Salt em junções de mapa. Outra opção é introduzir uma coluna de Bucket e agregar previamente em buckets primeiro.
 
 Outro fator que causa junções lentas poderia ser o tipo de junção. Por padrão, o Spark usa `SortMerge` o tipo de junção. Esse tipo de junção é mais adequado para grandes conjuntos de dados, mas, de outra forma, é computacionalmente caro, pois ele deve primeiro classificar os lados esquerdo e direito dos dados antes de mesclá-los.
 
@@ -144,14 +145,15 @@ val df1 = spark.table("FactTableA")
 val df2 = spark.table("dimMP")
 df1.join(broadcast(df2), Seq("PK")).
     createOrReplaceTempView("V_JOIN")
+
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Se você estiver usando tabelas em Bucket, terá um terceiro tipo de junção, a `Merge` junção. Um conjunto de espaço de os previamente particionado e previamente classificado ignorará a fase de classificação cara `SortMerge` de uma junção.
+Se você estiver usando tabelas em Bucket, terá um terceiro tipo de junção, a junção `Merge`. Um conjunto de espaço de os previamente particionado e previamente classificado ignorará a fase de classificação cara `SortMerge` de uma junção.
 
 A ordem das junções é importante, especialmente em consultas mais complexas. Comece com as junções mais seletivas. Além disso, mova junções que aumentam o número de linhas após as agregações, quando possível.
 
-Para gerenciar o paralelismo, especificamente no caso de junções cartesianas, você pode adicionar estruturas aninhadas, janelas e, talvez, ignorar uma ou mais etapas em seu trabalho do Spark.
+Para gerenciar o paralelismo para junções cartesianas, você pode adicionar estruturas aninhadas, janelas e, talvez, ignorar uma ou mais etapas em seu trabalho do Spark.
 
 ## <a name="customize-cluster-configuration"></a>Personalizar a configuração do cluster
 
@@ -179,17 +181,17 @@ Ao decidir a configuração do executor, considere a sobrecarga de GC (coleta de
     5. Opcional: Aumente a utilização e a simultaneidade da CPU sobrecarregar.
 
 Como regra geral ao selecionar o tamanho do executor:
-    
+
 1. Comece com 30 GB por executor e distribua os núcleos de máquina disponíveis.
 2. Aumente o número de núcleos de executor para clusters maiores (> executores 100).
-3. Aumente ou diminua os tamanhos com base nas execuções de avaliação e nos fatores anteriores, como a sobrecarga de GC.
+3. Modifique o tamanho com base nas execuções de avaliação e nos fatores anteriores, como a sobrecarga de GC.
 
 Ao executar consultas simultâneas, considere o seguinte:
 
 1. Comece com 30 GB por executor e todos os núcleos de máquina.
 2. Crie vários aplicativos paralelos do Spark por CPU sobrecarregar (cerca de 30% de melhoria de latência).
 3. Distribua consultas em aplicativos paralelos.
-4. Aumente ou diminua os tamanhos com base nas execuções de avaliação e nos fatores anteriores, como a sobrecarga de GC.
+4. Modifique o tamanho com base nas execuções de avaliação e nos fatores anteriores, como a sobrecarga de GC.
 
 Monitore o desempenho de consulta para exceções ou outros problemas de desempenho examinando o modo de exibição de linha do tempo, SQL Graph, estatísticas de trabalho e assim por diante. Às vezes, um ou alguns dos executores são mais lentos do que os outros, e as tarefas demoram muito mais para serem executadas. Isso geralmente ocorre em clusters maiores (> 30 nós). Nesse caso, divida o trabalho em um número maior de tarefas para que o Agendador possa compensar tarefas lentas. Por exemplo, tenha pelo menos duas vezes mais tarefas que o número de núcleos de executor no aplicativo. Você também pode habilitar a execução especulativa de tarefas `conf: spark.speculation = true`com o.
 

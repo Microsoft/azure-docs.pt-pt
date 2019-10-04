@@ -1,6 +1,6 @@
 ---
-title: Gerir segredos da aplicação do Azure Service Fabric | Documentos da Microsoft
-description: Saiba como proteger os valores secretos num aplicativo de Service Fabric (independente de plataforma).
+title: Gerenciar segredos do aplicativo Service Fabric do Azure | Microsoft Docs
+description: Saiba como proteger valores secretos em um aplicativo Service Fabric (independente de plataforma).
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614473"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828840"
 ---
-# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerir os segredos encriptados em aplicações do Service Fabric
-Este guia explica os passos para gerir segredos na aplicação do Service Fabric. Segredos podem ser qualquer informações confidenciais, como cadeias de ligação de armazenamento, as palavras-passe ou outros valores que não devem ser processados em texto simples.
+# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Gerenciar segredos criptografados em aplicativos Service Fabric
+Este guia orienta você pelas etapas de gerenciamento de segredos em um aplicativo Service Fabric. Os segredos podem ser qualquer informação confidencial, como cadeias de conexão de armazenamento, senhas ou outros valores que não devem ser manipulados em texto sem formatação.
 
-Usando os segredos encriptados num aplicativo de Service Fabric envolve três etapas:
-* Configurar um certificado de encriptação e encriptar os segredos.
-* Especifique os segredos encriptados num aplicativo.
-* Desencriptar os segredos encriptados a partir do código de serviço.
+O uso de segredos criptografados em um aplicativo Service Fabric envolve três etapas:
+* Configurar um certificado de criptografia e criptografar segredos.
+* Especifique segredos criptografados em um aplicativo.
+* Descriptografar segredos criptografados do código de serviço.
 
-## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Configurar um certificado de encriptação e encriptar os segredos
-Configurar um certificado de encriptação e utilizá-la para encriptar os segredos variam entre Windows e Linux.
-* [Configurar um certificado de encriptação e encriptar os segredos em clusters do Windows.][secret-management-windows-specific-link]
-* [Configurar um certificado de encriptação e encriptar os segredos em clusters do Linux.][secret-management-linux-specific-link]
+## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Configurar um certificado de criptografia e criptografar segredos
+Configurar um certificado de criptografia e usá-lo para criptografar segredos varia entre o Windows e o Linux.
+* [Configure um certificado de criptografia e criptografe segredos em clusters do Windows.][secret-management-windows-specific-link]
+* [Configure um certificado de criptografia e criptografe segredos em clusters do Linux.][secret-management-linux-specific-link]
 
-## <a name="specify-encrypted-secrets-in-an-application"></a>Especifique os segredos encriptados num aplicativo
-O passo anterior descreve como encriptar um segredo com um certificado e produzir uma cadeia codificada de base 64 para uso num aplicativo. Esta cadeia com codificação base 64 pode ser especificada um encriptadas [parâmetro] [ parameters-link] em Settings de um serviço ou um encriptadas [variável de ambiente] [ environment-variables-link] no servicemanifest. XML de um serviço.
+## <a name="specify-encrypted-secrets-in-an-application"></a>Especificar segredos criptografados em um aplicativo
+A etapa anterior descreve como criptografar um segredo com um certificado e produzir uma cadeia de caracteres codificada em base 64 para uso em um aplicativo. Essa cadeia de caracteres codificada em base 64 pode ser especificada como um [parâmetro][parameters-link] criptografado no Settings. XML de um serviço ou como uma [variável de ambiente][environment-variables-link] criptografada no Service manifest. XML de um serviço.
 
-Especifique um encriptado [parâmetro] [ parameters-link] no ficheiro de configuração de Settings do seu serviço com o `IsEncrypted` atributo definido como `true`:
+Especifique um [parâmetro][parameters-link] criptografado no arquivo de configuração Settings. XML do seu serviço com o atributo `IsEncrypted` definido como `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -47,7 +47,7 @@ Especifique um encriptado [parâmetro] [ parameters-link] no ficheiro de configu
   </Section>
 </Settings>
 ```
-Especifique um encriptado [variável de ambiente] [ environment-variables-link] no ficheiro servicemanifest. XML de seu serviço com o `Type` atributo definido como `Encrypted`:
+Especifique uma [variável de ambiente][environment-variables-link] criptografada no arquivo Service manifest. XML do serviço com o atributo `Type` definido como `Encrypted`:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -56,11 +56,22 @@ Especifique um encriptado [variável de ambiente] [ environment-variables-link] 
 </CodePackage>
 ```
 
-### <a name="inject-application-secrets-into-application-instances"></a>Inserir os segredos da aplicação nas instâncias da aplicação
-O ideal é que a implantação em ambientes diferentes deve ser o mais automatizada possível. Pode fazê-ao efetuar a encriptação secreta num ambiente de compilação e ao fornecer os segredos encriptados como parâmetros durante a criação de instâncias da aplicação.
+Os segredos também podem ser incluídos no seu aplicativo Service Fabric especificando um certificado no manifesto do aplicativo. Adicione um elemento **SecretsCertificate** a **ApplicationManifest. xml** e inclua a impressão digital do certificado desejado.
 
-#### <a name="use-overridable-parameters-in-settingsxml"></a>Utilizar os parâmetros substituíveis em Settings
-O ficheiro de configuração Settings permite que os parâmetros substituíveis, que podem ser fornecidos no momento da criação de aplicativos. Utilize o `MustOverride` atributo em vez de fornecer um valor para um parâmetro:
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
+### <a name="inject-application-secrets-into-application-instances"></a>Injetar segredos do aplicativo em instâncias do aplicativo
+Idealmente, a implantação em ambientes diferentes deve ser a mais automatizada possível. Isso pode ser feito executando a criptografia secreta em um ambiente de compilação e fornecendo os segredos criptografados como parâmetros ao criar instâncias de aplicativo.
+
+#### <a name="use-overridable-parameters-in-settingsxml"></a>Usar parâmetros substituíveis em Settings. xml
+O arquivo de configuração Settings. xml permite parâmetros substituíveis que podem ser fornecidos no momento da criação do aplicativo. Use o atributo `MustOverride` em vez de fornecer um valor para um parâmetro:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -71,7 +82,7 @@ O ficheiro de configuração Settings permite que os parâmetros substituíveis,
 </Settings>
 ```
 
-Para substituir valores em Settings, declare um parâmetro de substituição para o serviço no applicationmanifest. XML:
+Para substituir valores em Settings. xml, declare um parâmetro override para o serviço em ApplicationManifest. xml:
 
 ```xml
 <ApplicationManifest ... >
@@ -92,15 +103,15 @@ Para substituir valores em Settings, declare um parâmetro de substituição par
   </ServiceManifestImport>
  ```
 
-Agora o valor pode ser especificado como um *parametr aplikace* durante a criação de uma instância da aplicação. Criar uma instância de aplicação pode ser colocado em script com o PowerShell, ou por escrito em C#, para uma integração fácil num processo de compilação.
+Agora, o valor pode ser especificado como um *parâmetro de aplicativo* ao criar uma instância do aplicativo. A criação de uma instância de aplicativo pode ser inserida em C#script usando o PowerShell ou escrita para facilitar a integração em um processo de compilação.
 
-Com o PowerShell, o parâmetro é fornecido para o `New-ServiceFabricApplication` comando como uma [tabela de hash](https://technet.microsoft.com/library/ee692803.aspx):
+Usando o PowerShell, o parâmetro é fornecido para o comando `New-ServiceFabricApplication` como uma [tabela de hash](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Com o C#, os parâmetros de aplicação estão especificados numa `ApplicationDescription` como uma `NameValueCollection`:
+Usando C#o, os parâmetros de aplicativo são especificados em um `ApplicationDescription` como um `NameValueCollection`:
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -118,8 +129,8 @@ ApplicationDescription applicationDescription = new ApplicationDescription(
 await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescription);
 ```
 
-## <a name="decrypt-encrypted-secrets-from-service-code"></a>Desencriptar os segredos encriptados a partir do código de serviço
-As APIs para acessar [parâmetros] [ parameters-link] e [variáveis de ambiente] [ environment-variables-link] permitem a descriptografia fácil de valores encriptados. Uma vez que a cadeia encriptada contém informações sobre o certificado utilizado para encriptação, não é necessário especificar manualmente o certificado. O certificado apenas tem de ser instalado no nó que o serviço está em execução.
+## <a name="decrypt-encrypted-secrets-from-service-code"></a>Descriptografar segredos criptografados do código de serviço
+As APIs para acessar [parâmetros][parameters-link] e [variáveis de ambiente][environment-variables-link] permitem a descriptografia fácil de valores criptografados. Como a cadeia de caracteres criptografada contém informações sobre o certificado usado para criptografia, você não precisa especificar o certificado manualmente. O certificado precisa ser instalado apenas no nó em que o serviço está sendo executado.
 
 ```csharp
 // Access decrypted parameters from Settings.xml
@@ -135,8 +146,8 @@ if (MySecretIsEncrypted)
 string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [aplicações e segurança de serviço](service-fabric-application-and-service-security.md)
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre a [segurança de aplicativos e serviços](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

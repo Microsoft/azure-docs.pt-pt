@@ -1,20 +1,20 @@
 ---
-title: Criação de locatários e pool de hosts na área de trabalho virtual do Windows – Azure
-description: Como resolver problemas quando você estiver configurando uma VM (máquina virtual) de locatário e de sessão em um ambiente de área de trabalho virtual do Windows.
+title: Configuração de máquina virtual do host de sessão-Azure
+description: Como resolver problemas quando estiver configurando máquinas virtuais do host de sessão de área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 09/20/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: d163bbf50193743b6602bc9ec3d330df4c14ebcc
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4c684a2db02b7587b6d81eaf2f034540250fc001
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676422"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841300"
 ---
-# <a name="tenant-and-host-pool-creation"></a>Criação de inquilinos e conjuntos de anfitriões
+# <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 

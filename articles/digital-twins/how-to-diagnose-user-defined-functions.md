@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
-ms.translationtype: MT
+ms.openlocfilehash: df12d6866f5e9e6bf492e228e32b0b10f7266eb4
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260846"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843838"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -55,6 +55,13 @@ AzureDiagnostics
 | Valor da consulta | Substituir |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | A ID de correlação especificada nos dados do evento |
+
+Para ver todas as consultas de logs de telemetria recentes:
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 Se você habilitar o registro em log para a função definida pelo usuário, esses logs aparecerão na instância do log `UserDefinedFunction`Analytics com a categoria. Para recuperá-los, insira a seguinte condição de consulta no log Analytics:
 

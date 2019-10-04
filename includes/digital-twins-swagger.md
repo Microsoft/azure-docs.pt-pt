@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 10/02/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 5c53f4408fb9e2345cf9efabffc39e93e9ec300b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: b8f6e13fc7de06729cbc2165a5b8847cb86e1b41
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012246"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845524"
 ---
 > [!TIP]
 > Uma visualização de espiadas do Swagger é fornecida para demonstrar o conjunto de recursos da API.
@@ -25,7 +25,7 @@ Você pode acessar sua própria documentação do Swagger de API de gerenciament
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nome | Substituir |
+| Name | Substituir |
 | --- | --- |
 | YOUR_INSTANCE_NAME | O nome da instância de gêmeos digital do Azure |
 | YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |

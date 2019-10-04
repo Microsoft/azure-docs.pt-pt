@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/26/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350377"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827991"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes do Microsoft Commercial Marketplace
 
@@ -155,7 +155,7 @@ Essas são as opções mais comuns por tipo de oferta:
 
 **Que tipos de avaliações têm suporte?**
 
-As ofertas de avaliação gratuita são listagens com um plano de ação para iniciar uma avaliação. Eles levam o cliente a um site definido pelo editor para configurar a experiência de avaliação. As avaliações também podem ser adicionadas às ofertas pagas nas quais o primeiro mês é gratuito. 
+Os editores podem adicionar um mês gratuito para ofertas de SaaS pagas e um ou três meses de consumo gratuitos para imagens de VM. As ofertas de avaliação gratuita são listagens com um plano de ação para iniciar uma avaliação. Eles levam o cliente a um site definido pelo editor para configurar a experiência de avaliação. As avaliações também podem ser adicionadas às ofertas pagas nas quais o primeiro mês é gratuito. 
 
 **Preciso ter um instrumento de pagamento (por exemplo, cartão de crédito) no arquivo para implantar as ofertas de camada gratuita ou BYOL (traga sua própria licença)?**
 
@@ -169,6 +169,10 @@ Os clientes indiretos do Enterprise Agreement (EA) devem contatar seu LSP (prove
 
 Sim, para clientes de Enterprise Agreement (EA), o administrador de registro pode desativar os privilégios de compra para todas as contas no registro e retorná-lo de volta por tempo suficiente para fazer uma compra. Além disso, todos os clientes podem usar Azure Policy para restringir as opções de implantação para suas assinaturas do Azure, incluindo o gerenciamento de recursos do Azure Marketplace.
 
+**Quais métodos de pagamento têm suporte para compras do Marketplace comercial?**
+
+Os clientes podem comprar ofertas do Azure Marketplace e Microsoft AppSource usando cartões de crédito. Se você tiver uma assinatura do Azure existente, as compras do Azure Marketplace usarão o método de pagamento configurado na conta e aparecerão na mesma fatura como um item de linha separado. Algumas ofertas consomem o compromisso monetário do Azure, mas a maioria das compras do ommercial Marketplace não desenha Enterprise Agreement compromissos, embora o consumo de infraestrutura do Azure seja.
+
 **Posso aplicar créditos de assinatura do Azure ou fundos de compromisso monetário em minha conta em relação às ofertas do Azure Marketplace?**
 
 As ofertas específicas do Azure Marketplace podem utilizar créditos de subscrição ou fundos de compromisso monetário do Azure. Consulte [compromisso monetário do Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) para obter uma lista completa de produtos que participam deste programa. Essas ofertas não incluem as opções BYOL ou BYOS. Todas as outras ofertas do Azure Marketplace não podem usar créditos de assinatura do Azure ou compromisso monetário: como o crédito de avaliação de um mês gratuito, créditos mensais do MSDN, créditos de promoções do Azure, saldos de compromisso monetário e quaisquer outros créditos gratuitos fornecidos por Azure.
@@ -176,12 +180,6 @@ As ofertas específicas do Azure Marketplace podem utilizar créditos de subscri
 **Os descontos de licença de volume se aplicam às compras do Azure Marketplace?**
 
 Não. O Publicador que possui soluções no Azure Marketplace pode definir preços.  Os descontos de licenciamento por volume padrão da Microsoft não se aplicam às compras do Azure Marketplace.
-
-**Como fazer pagar por essas assinaturas? Minhas compras do Azure Marketplace aparecem na fatura do Azure ou há outra conta?**
-
-MOSP- [programa de assinaturas online da Microsoft](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (como Web-Direct) são cobrados em relação ao mesmo cartão de crédito que está no arquivo para seu perfil de assinatura do Azure. Se você não tiver um cartão de crédito no arquivo, não poderá comprar no Azure Marketplace. Nesse caso, você recebeu uma renúncia especial para ter seus encargos do Azure faturados para você em vez disso.
-
-Os clientes do Enterprise Agreement (EA) são cobrados em relação ao seu EA. As ofertas específicas do Azure Marketplace listadas aqui são primeiro deduzidas de qualquer compromisso monetário disponível e cobradas como um excedente em uma única fatura trimestral. Os clientes de EA indireto, de educação e do governo são cobrados pelo seu LSP (provedor de soluções de licenciamento).
 
 **Onde posso exibir os detalhes da assinatura do Azure Marketplace e as informações de cobrança?**
 
@@ -197,7 +195,7 @@ Como o complemento está associado à VM (máquina virtual) do Azure, para cance
 
 **Com que frequência sou cobrado pelas minhas compras do Azure Marketplace?**
 
-Enterprise Agreement clientes, para os serviços específicos descritos, primeiro têm fundos de compromisso monetário disponíveis reduzidos pelo custo total para esses serviços no mês em que são consumidos. Todas as ofertas do Azure Marketplace que não deduzim do compromisso monetário são cobradas mensalmente em pelos débitos anteriores. As assinaturas SaaS anuais são cobradas uma vez para os serviços de um ano inteiro.
+Todas as ofertas do Azure Marketplace que não deduzim do compromisso monetário são cobradas mensalmente em pelos débitos anteriores. As assinaturas SaaS anuais são cobradas uma vez para os serviços de um ano inteiro.
 
 MOSP-os clientes [do programa de assinatura do Microsoft Online](https://azure.microsoft.com/support/legal/subscription-agreement/) (Web Direct) são cobrados mensalmente no mesmo cartão de crédito que está no arquivo para seu perfil de assinatura do Azure. As assinaturas SaaS anuais são cobradas uma vez para os serviços de um ano inteiro.
 
@@ -210,10 +208,6 @@ Para migrar outros serviços adquiridos do Azure Marketplace para uma assinatura
 **Qual é a diferença entre *preço*, *preço de software*e *preço total* na estrutura de custo para ofertas de máquina virtual no Azure Marketplace?**
 
 O *preço* refere-se ao custo da máquina virtual do Azure para executar o software. O *preço do software* refere-se ao custo do software do editor do Marketplace em execução em uma máquina virtual do Azure. *Preço total* refere-se ao custo total combinado da máquina virtual do Azure e do software do Publicador do Marketplace em execução em uma máquina virtual do Azure.
-
-**Posso aplicar créditos de assinatura do Azure ou fundos monetários em minha conta em relação aos produtos e serviços do Azure necessários para executar ofertas do Azure Marketplace?**
-
-Sim. Os créditos de assinatura do Azure ou os fundos de investimento monetário na conta podem ser usados para produtos do Azure e ofertas do Azure Marketplace. Por exemplo, os fundos de compromisso monetário do Azure podem ser aplicados em relação ao componente de *preço* de uma oferta de máquina virtual no Azure Marketplace. No entanto, os créditos de assinatura do Azure e os fundos de investimento monetário só podem ser aplicados em determinados softwares de editores do Marketplace (*preço de software*) em execução em uma máquina virtual do Azure.
 
 **Como fazer descobrir quanto da minha compra do Azure Marketplace eu usei?**
 

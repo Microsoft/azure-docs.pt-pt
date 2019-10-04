@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/02/2019
+ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816085"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935611"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -25,13 +25,9 @@ Este artigo fornece uma visão geral das características técnicas e dos limite
 > [!NOTE]
 > Para obter diferenças em recursos com suporte e instruções T-SQL, consulte [diferenças de recursos](sql-database-features.md) e [suporte a instruções t-SQL](sql-database-managed-instance-transact-sql-information.md). Para obter a diferença geral entre as camadas de serviço em um único banco de dados e instância gerenciada, consulte [comparação da camada de serviço](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
-## <a name="instance-level-resource-limits"></a>Limites de recursos em nível de instância
+## <a name="hardware-generation-characteristics"></a>Características de geração de hardware
 
-A instância gerenciada tem características e limites de recursos que dependem da infraestrutura e da arquitetura subjacentes. Os limites dependem da geração de hardware e da camada de serviço.
-
-### <a name="hardware-generation-characteristics"></a>Características de geração de hardware
-
-Instância gerenciada do banco de dados SQL do Azure pode ser implantada em duas gerações de hardware: Gen4 e Gen5. As gerações de hardware têm características diferentes, conforme descrito na tabela a seguir:
+A instância gerenciada tem características e limites de recursos que dependem da infraestrutura e da arquitetura subjacentes. Instância gerenciada do banco de dados SQL do Azure pode ser implantada em duas gerações de hardware: Gen4 e Gen5. As gerações de hardware têm características diferentes, conforme descrito na tabela a seguir:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -39,28 +35,28 @@ Instância gerenciada do banco de dados SQL do Azure pode ser implantada em duas
 | Número de vCores | 8, 16, 24 vCores | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | Memória máxima (taxa de memória/núcleo) | 7 GB por vCore<br/>Adicione mais vCores para obter mais memória. | 5,1 GB por vCore<br/>Adicione mais vCores para obter mais memória. |
 | Memória máxima OLTP na memória | Limite de instância: 1 a 1,5 GB por vCore| Limite de instância: 0,8-1,65 GB por vCore |
-| Armazenamento reservado de instância máx. |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
+| Armazenamento reservado de instância máx. |  Uso Geral: 8 TB<br/>Comercialmente Crítico: 1 TB | Uso Geral: 8 TB<br/> Comercialmente Crítico 1 TB, 2 TB ou 4 TB, dependendo do número de núcleos |
 
 > [!IMPORTANT]
 > - O hardware Gen4 está sendo desativado. É recomendável implantar novas instâncias gerenciadas em hardware Gen5.
 > - O hardware do Gen4 no momento ainda está disponível apenas nas seguintes regiões: Europa Setentrional, Europa Ocidental, leste dos EUA, Sul EUA Central, norte EUA Central, oeste dos EUA 2, EUA Central, Canadá central, sul da Índia, Sudeste Asiático e Coreia central.
 
-#### <a name="in-memory-oltp-available-space"></a>Espaço disponível no OLTP na memória 
+### <a name="in-memory-oltp-available-space"></a>Espaço disponível no OLTP na memória 
 
-A quantidade de espaço OLTP na memória depende do número de vCores e da geração de hardware. Na tabela a seguir estão listados os limites de memória que podem ser usados para objetos OLTP na memória.
+A quantidade de espaço OLTP na memória na camada de serviço [comercialmente crítico](sql-database-service-tier-business-critical.md) depende do número de vCores e da geração de hardware. Na tabela a seguir estão listados os limites de memória que podem ser usados para objetos OLTP na memória.
 
-| Espaço OLTP na memória por vCore    | **Gen5** | **Gen4** |
+| Espaço OLTP na memória  | **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4 | 3,14 GB | |   
-| 8 | 6,28 GB | 8 GB |
-| 16    | 15,77 GB | 20 GB |
-| 24    | 25,25 GB | 36 GB |
-| 32    | 37,94 GB | |
-| 40    | 52,23 GB | |
-| 64    | 99,9 GB   | |
-| 80    | 131,68 GB| |
+| 4 vCores  | 3,14 GB | |   
+| 8 vCores  | 6,28 GB | 8 GB |
+| 16 vCores | 15,77 GB | 20 GB |
+| 24 vCores | 25,25 GB | 36 GB |
+| 32 vCores | 37,94 GB | |
+| 40 vCores | 52,23 GB | |
+| 64 vCores | 99,9 GB    | |
+| 80 vCores | 131,68 GB| |
 
-### <a name="service-tier-characteristics"></a>Características da camada de serviço
+## <a name="service-tier-characteristics"></a>Características da camada de serviço
 
 A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-service-tier-general-purpose.md) e [comercialmente crítico](sql-database-service-tier-business-critical.md). Essas camadas fornecem [recursos diferentes](sql-database-service-tiers-general-purpose-business-critical.md), conforme descrito na tabela a seguir:
 
@@ -75,7 +71,7 @@ A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-s
 | Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do arquivo de dados | Limitado ao tamanho de armazenamento da instância disponível no momento (máx. 2 TB-8 TB) e ao [espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instância disponível no momento (até 1 TB-4 TB). |
 | Tamanho máximo do arquivo de log | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. |
-| IOPS de dados/log (aproximado) | 500-7.500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| IOPS de dados/log (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máximo de 48 MB/s |
 | Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
@@ -88,9 +84,23 @@ A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-s
 > - Os dados e o tamanho do arquivo de log nos bancos de dado do usuário e do sistema são incluídos no tamanho do armazenamento da instância que é comparado com o limite de tamanho máximo de armazenamento. Use a exibição do sistema <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">Sys. master_files</a> para determinar o total de espaço usado por bancos de dados. Os logs de erros não são persistidos e não são incluídos no tamanho. Os backups não são incluídos no tamanho do armazenamento.
 > - A taxa de transferência e o IOPS também dependem do tamanho da página que não é explicitamente limitado pela instância gerenciada.
 > Você pode criar outra réplica legível em uma região do Azure diferente usando grupos de failover automático.
+> - IOPS de instância máxima dependem do layout do arquivo e da distribuição da carga de trabalho. Por exemplo, se você criar arquivos de 7 x 1GB com IOPS de 5K máximo cada e 7 arquivos pequenos (menores que 128 GB) com 500 IOPS cada, você poderá obter 38500 IOPS por instância (7x5000 + 7x500) se sua carga de trabalho puder usar todos os arquivos. Observe que alguma quantidade de IOPS também é usada para backups automáticos.
 
 > [!NOTE]
 > Encontre mais informações sobre os [limites de recursos em pools de instâncias gerenciadas neste artigo](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
+### <a name="file-io-characteristics-in-general-purpose-tier"></a>Características de e/s de arquivo na camada de Uso Geral
+
+No Uso Geral camada de serviço, cada arquivo de banco de dados está obtendo IOPS dedicados e taxa de transferência que depende do tamanho do arquivo. Arquivos maiores estão obtendo mais IOPS e taxa de transferência. As características de e/s dos arquivos de banco de dados são mostradas na tabela a seguir:
+
+| Tamanho do ficheiro           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0,5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| IOPS por arquivo       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
+| Taxa de transferência por arquivo | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+
+Se você notar alta latência de e/s em algum arquivo de banco de dados ou se perceber que o IOPS/taxa de transferência está atingindo o limite, você pode melhorar [o desempenho aumentando o tamanho do arquivo](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
+
+Também há limites no nível da instância, como taxa de transferência máxima de gravação de log 22 MB/s, portanto, talvez você não consiga acessar o arquivo em todo o arquivo de log porque você está atingindo o limite de taxa de transferência da instância.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 

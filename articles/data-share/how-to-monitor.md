@@ -1,51 +1,55 @@
 ---
-title: Como monitorizar a pré-visualização de partilha de dados do Azure
-description: Como monitorizar a pré-visualização de partilha de dados do Azure
+title: Como monitorar a visualização do compartilhamento de dados do Azure
+description: Como monitorar a visualização do compartilhamento de dados do Azure
 author: joannapea
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 869c1ed41d7f78df184461bc1d8cab6c6eb8d426
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789101"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827066"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Visualização de partilha de dados do Azure monitor 
+# <a name="monitor-azure-data-share-preview"></a>Monitorar a visualização do compartilhamento de dados do Azure 
 
-Este artigo explica como pode monitorizar as partilhas de dados com a pré-visualização de partilha de dados do Azure. Como um provedor de dados, é capaz de monitorar vários aspectos de seus relacionamentos de partilha de dados. Detalhes de como se os consumidores de dados aceitou o convite para a partilha de dados, bem como se tiver criado uma subscrição de partilha e começou a utilizar os seus dados estão disponíveis para monitorizar. 
+Este artigo explica como você pode monitorar seus compartilhamentos de dados usando a visualização do compartilhamento de dados do Azure. Como um provedor de dados, você pode monitorar vários aspectos de suas relações de compartilhamento de dados. Detalhes, como se os consumidores de dados tiverem aceitado seu convite para o compartilhamento de dados, bem como se eles criaram uma assinatura de compartilhamento e começarem a usar seus dados estão disponíveis para monitoramento. 
 
-Como um consumidor de dados, pode monitorizar os instantâneos que foram acionados na sua subscrição do Azure. 
+Como um consumidor de dados, você pode monitorar os instantâneos que foram disparados em sua assinatura do Azure. 
 
-## <a name="monitor-invitation-status"></a>Monitorizar o estado de convite
+## <a name="monitor-invitation-status"></a>Monitorar o status do convite
 
-Visualizar o estado de sua convites de partilha de dados ao navegar para partilhas de enviados -> convites. 
+Exiba o status de seus convites de compartilhamento de dados navegando para compartilhamentos enviados-> convites. 
 
-![Estado de convite](./media/invitation-status.png "estado de convite") 
+![](./media/invitation-status.png "Status do convite") para status do convite 
 
-Existem três Estados em que o convite pode estar:
+Há três Estados em que seu convite pode estar:
 
-* Pendente - destinatário de partilha de dados ainda não aceitou o convite.
-* Aceite - destinatário de partilha de dados já aceitou o convite.
-* Rejeitado - destinatário de partilha de dados rejeitou o convite.
+* O destinatário de compartilhamento de dados pendentes ainda não aceitou o convite.
+* Aceito-o destinatário do compartilhamento de dados aceitou o convite.
+* Rejeitado-o destinatário do compartilhamento de dados rejeitou o convite.
 
 > [!IMPORTANT]
-> Se eliminar um convite depois de já ter sido aceite, não é equivalente a revogar o acesso. Se quiser parar instantâneos futuros de ser copiado para a sua conta de armazenamento de consumidores de dados, tem de revogar o acesso através da *Compartilhe assinaturas* separador. 
+> Se você excluir um convite depois que ele já tiver sido aceito, não será equivalente a revogar o acesso. Se você deseja impedir que instantâneos futuros sejam copiados para sua conta de armazenamento de consumidores de dados, você deve revogar o acesso por meio da guia *assinaturas de compartilhamento* . 
 
-## <a name="monitor-share-subscriptions"></a>Subscrições de partilha do monitor
+## <a name="monitor-share-subscriptions"></a>Monitorar assinaturas de compartilhamento
 
-Ver o estado das suas subscrições de partilha ao aceder a partilhas enviados -> subscrições de partilhar. Isso fornece detalhes sobre as subscrições ativas criadas por seus consumidores de dados depois de aceitar o convite. Pode parar as futuras atualizações para o consumidor de dados ao selecionar a subscrição de partilha e selecionando *revogar*. 
+Exiba o status de suas assinaturas de compartilhamento navegando para compartilhamentos enviados-> compartilhar assinaturas. Isso fornecerá detalhes sobre as assinaturas ativas criadas por seus consumidores de dados depois de aceitar seu convite. Você pode parar as atualizações futuras para o consumidor de dados selecionando a assinatura de compartilhamento e selecionando *revogar*. 
 
-## <a name="snapshot-history"></a>Histórico de instantâneo 
+## <a name="snapshot-history"></a>Histórico de instantâneos 
 
-No separador de histórico, é possível ver os instantâneos que tenham sido copiados no inquilino do consumidor de dados. É possível monitorizar a frequência e duração de cada intervalo de instantâneos. 
+Na guia histórico, você pode exibir os instantâneos que foram copiados para o locatário do consumidor de dados. Você pode monitorar a frequência e a duração de cada intervalo de instantâneo. 
 
-![Histórico de instantâneo](./media/sent-shares.png "histórico de instantâneo") 
+(./media/sent-shares.png "Histórico de instantâneos") do ![histórico de instantâneos] 
 
-Pode ver mais detalhes sobre cada instantâneo executar clicando na data de início da execução. 
+Você pode exibir mais detalhes sobre cada execução de instantâneo clicando na data de início da execução. 
+
+Por padrão, até 30 dias de histórico de instantâneos são exibidos. Se você precisar ver mais de 30 dias de histórico, navegue até monitoramento-> configurações de diagnóstico e selecione **Adicionar configuração de diagnóstico**. Você será solicitado a selecionar uma conta de armazenamento na qual armazenar esses logs. 
+
+(./media/diagnostic-settings.png "Configurações de diagnóstico") do ![histórico de instantâneos] 
 
 ## <a name="next-steps"></a>Próximos Passos 
 
-Saiba mais sobre [terminologia de partilha de dados do Azure](terminology.md)
+Saiba mais sobre a [terminologia do compartilhamento de dados do Azure](terminology.md)

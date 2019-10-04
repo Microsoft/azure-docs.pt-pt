@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 9c750522123995685191001988ae0081d9454ccf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728364"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828570"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Quadro de segurança: Segurança de comunicação | Mitigações 
 | Produtos/serviços | Artigo |
@@ -33,7 +33,7 @@ ms.locfileid: "68728364"
 | **Base de Dados** | <ul><li>[Garantir a criptografia de conexão do SQL Server e a validação de certificado](#sqlserver-validation)</li><li>[Forçar a comunicação criptografada com o SQL Server](#encrypted-sqlserver)</li></ul> |
 | **Armazenamento do Azure** | <ul><li>[Garantir que a comunicação com o armazenamento do Azure seja por HTTPS](#comm-storage)</li><li>[Validar o hash MD5 depois de baixar o blob se não for possível habilitar o HTTPS](#md5-https)</li><li>[Usar o cliente compatível com SMB 3,0 para garantir a criptografia de dados em trânsito para compartilhamentos de arquivos do Azure](#smb-shares)</li></ul> |
 | **Cliente móvel** | <ul><li>[Implementar fixação de certificado](#cert-pinning)</li></ul> |
-| **WCF** | <ul><li>[Habilitar HTTPS-proteger canal de transporte](#https-transport)</li><li>[WCF: Definir nível de proteção de segurança de mensagem como EncryptAndSign](#message-protection)</li><li>[WCF: Use uma conta com privilégios mínimos para executar o serviço WCF](#least-account-wcf)</li></ul> |
+| **WCF** | <ul><li>[Habilitar HTTPS-proteger canal de transporte](#https-transport)</li><li>[WCF: Definir nível de proteção de segurança de mensagem como EncryptAndSign @ no__t-0</li><li>[WCF: Use uma conta com privilégios mínimos para executar seu serviço WCF @ no__t-0</li></ul> |
 | **API Web** | <ul><li>[Forçar todo o tráfego para APIs Web por conexão HTTPS](#webapi-https)</li></ul> |
 | **Cache do Azure para Redis** | <ul><li>[Verifique se a comunicação com o cache do Azure para Redis é sobre SSL](#redis-ssl)</li></ul> |
 | **Gateway de campo IoT** | <ul><li>[Proteger o dispositivo para comunicação de gateway de campo](#device-field)</li></ul> |
@@ -136,7 +136,7 @@ O exemplo a seguir contém uma regra básica de reescrita de URL que força todo
   </system.webServer>
 </configuration>
 ```
-Essa regra funciona retornando um código de status HTTP 301 (redirecionamento permanente) quando o usuário solicita uma página usando HTTP. O 301 redireciona a solicitação para a mesma URL que o visitante solicitou, mas substitui a parte HTTP da solicitação por HTTPS. Por exemplo, HTTP://contoso.com seria Redirecionado para. HTTPS://contoso.com 
+Essa regra funciona retornando um código de status HTTP 301 (redirecionamento permanente) quando o usuário solicita uma página usando HTTP. O 301 redireciona a solicitação para a mesma URL que o visitante solicitou, mas substitui a parte HTTP da solicitação por HTTPS. Por exemplo, HTTP://contoso.com seria Redirecionado para HTTPS://contoso.com. 
 
 ## <a id="http-hsts"></a>Habilitar HSTS (segurança de transporte estrito) HTTP
 
@@ -147,7 +147,7 @@ Essa regra funciona retornando um código de status HTTP 301 (redirecionamento p
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/A  |
 | **Referências**              | [Roteiro de segurança de transporte OWASP HTTP estrito](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Passos** | <p>A HSTS (segurança de transporte estrita) HTTP é um aprimoramento de segurança opcional que é especificado por um aplicativo Web por meio do uso de um cabeçalho de resposta especial. Quando um navegador com suporte recebe esse cabeçalho, o navegador impedirá que qualquer comunicação seja enviada por HTTP para o domínio especificado e, em vez disso, enviará todas as comunicações por HTTPS. Ele também impede que o HTTPS clique nos prompts nos navegadores.</p><p>Para implementar o HSTS, o cabeçalho de resposta a seguir deve ser configurado para um site globalmente, seja no código ou na configuração. Strict-Transport-Security: Max-age = 300; includeSubDomains HSTS aborda as seguintes ameaças:</p><ul><li>Indicadores do usuário ou tipos https://example.com manuais e estão sujeitos a um invasor Man-in-the-middle: O HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>O aplicativo Web destinado a ser puramente HTTPS, inadvertidamente, contém links HTTP ou fornece conteúdo por HTTP: O HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>Um invasor Man-in-the-Middle tenta interceptar o tráfego de um usuário vítima usando um certificado inválido e, esperando que o usuário aceite o certificado incorreto: HSTS não permite que um usuário substitua a mensagem de certificado inválida</li></ul>|
+| **Passos** | <p>A HSTS (segurança de transporte estrita) HTTP é um aprimoramento de segurança opcional que é especificado por um aplicativo Web por meio do uso de um cabeçalho de resposta especial. Quando um navegador com suporte recebe esse cabeçalho, o navegador impedirá que qualquer comunicação seja enviada por HTTP para o domínio especificado e, em vez disso, enviará todas as comunicações por HTTPS. Ele também impede que o HTTPS clique nos prompts nos navegadores.</p><p>Para implementar o HSTS, o cabeçalho de resposta a seguir deve ser configurado para um site globalmente, seja no código ou na configuração. Strict-Transport-Security: Max-age = 300; includeSubDomains HSTS aborda as seguintes ameaças:</p><ul><li>Os indicadores do usuário ou os tipos manualmente https://example.com e estão sujeitos a um invasor Man-in-the-middle: O HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>O aplicativo Web destinado a ser puramente HTTPS, inadvertidamente, contém links HTTP ou fornece conteúdo por HTTP: O HSTS redireciona automaticamente as solicitações HTTP para HTTPS para o domínio de destino</li><li>Um invasor Man-in-the-Middle tenta interceptar o tráfego de um usuário vítima usando um certificado inválido e, esperando que o usuário aceite o certificado incorreto: HSTS não permite que um usuário substitua a mensagem de certificado inválida</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Garantir a criptografia de conexão do SQL Server e a validação de certificado
 
@@ -158,7 +158,7 @@ Essa regra funciona retornando um código de status HTTP 301 (redirecionamento p
 | **Tecnologias aplicáveis** | SQL Azure  |
 | **Atributos**              | Versão do SQL-V12 |
 | **Referências**              | [Práticas recomendadas sobre a gravação de cadeias de conexão seguras para o banco de dados SQL](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Passos** | <p>Todas as comunicações entre o banco de dados SQL e um aplicativo cliente são criptografadas usando protocolo SSL (SSL) em todos os momentos. O banco de dados SQL não dá suporte a conexões não criptografadas. Para validar certificados com código ou ferramentas do aplicativo, solicite explicitamente uma conexão criptografada e não confie nos certificados do servidor. Se o código do aplicativo ou as ferramentas não solicitarem uma conexão criptografada, eles ainda receberão conexões criptografadas</p><p>No entanto, eles não podem validar os certificados do servidor e, portanto, serão suscetíveis a ataques "Man-in-the-middle". Para validar certificados com o código do aplicativo ADO.NET `Encrypt=True` , `TrustServerCertificate=False` defina e na cadeia de conexão do banco de dados. Para validar certificados por meio do SQL Server Management Studio, abra a caixa de diálogo conectar ao servidor. Clique em criptografar conexão na guia Propriedades da conexão</p>|
+| **Passos** | <p>Todas as comunicações entre o banco de dados SQL e um aplicativo cliente são criptografadas usando protocolo SSL (SSL) em todos os momentos. O banco de dados SQL não dá suporte a conexões não criptografadas. Para validar certificados com código ou ferramentas do aplicativo, solicite explicitamente uma conexão criptografada e não confie nos certificados do servidor. Se o código do aplicativo ou as ferramentas não solicitarem uma conexão criptografada, eles ainda receberão conexões criptografadas</p><p>No entanto, eles não podem validar os certificados do servidor e, portanto, serão suscetíveis a ataques "Man-in-the-middle". Para validar certificados com o código do aplicativo ADO.NET, defina `Encrypt=True` e `TrustServerCertificate=False` na cadeia de conexão do banco de dados. Para validar certificados por meio do SQL Server Management Studio, abra a caixa de diálogo conectar ao servidor. Clique em criptografar conexão na guia Propriedades da conexão</p>|
 
 ## <a id="encrypted-sqlserver"></a>Forçar a comunicação criptografada com o SQL Server
 
@@ -213,7 +213,7 @@ Essa regra funciona retornando um código de status HTTP 301 (redirecionamento p
 | **Tecnologias aplicáveis** | Genérico, Windows Phone |
 | **Atributos**              | N/A  |
 | **Referências**              | [Fixação de certificado e chave pública](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| **Passos** | <p>A fixação de certificado defende contra ataques MITM (Man-in-the-Middle). A fixação é o processo de associar um host ao certificado X509 ou à chave pública esperada. Depois que um certificado ou uma chave pública é conhecido ou visto para um host, o certificado ou a chave pública é associado ou ' fixado ' ao host. </p><p>Assim, quando um adversário tenta realizar um ataque de MITM SSL, durante o handshake de SSL, a chave do servidor do invasor será diferente da chave do certificado fixado e a solicitação será descartada, impedindo que a fixação do certificado MITM possa ser obtida por Implementando o `ServerCertificateValidationCallback` delegado do ServicePointManager.</p>|
+| **Passos** | <p>A fixação de certificado defende contra ataques MITM (Man-in-the-Middle). A fixação é o processo de associar um host ao certificado X509 ou à chave pública esperada. Depois que um certificado ou uma chave pública é conhecido ou visto para um host, o certificado ou a chave pública é associado ou ' fixado ' ao host. </p><p>Assim, quando um adversário tenta realizar um ataque de MITM SSL, durante o handshake de SSL, a chave do servidor do invasor será diferente da chave do certificado fixado e a solicitação será descartada, impedindo que a fixação do certificado MITM possa ser obtida por Implementando o delegado `ServerCertificateValidationCallback` do ServicePointManager.</p>|
 
 ### <a name="example"></a>Exemplo
 ```csharp
@@ -289,8 +289,8 @@ namespace CertificatePinningExample
 | **Fase do SDL**               | Compilação |  
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/A  |
-| **Referências**              | [Msdn](https://msdn.microsoft.com/library/ff648500.aspx), [fortalecer o Reino Unido](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **Passos** | A configuração do aplicativo deve garantir que o HTTPS seja usado para todo o acesso a informações confidenciais.<ul><li>**EXPLICA** Se um aplicativo lida com informações confidenciais e não usa criptografia no nível de mensagem, ele só deve ter permissão para se comunicar por meio de um canal de transporte criptografado.</li><li>**RECOMMENDATIONS** Verifique se o transporte HTTP está desabilitado e habilite o transporte HTTPS. Por exemplo, substitua a `<httpTransport/>` marca `<httpsTransport/>` with. Não confie em uma configuração de rede (firewall) para garantir que o aplicativo só possa ser acessado por um canal seguro. De um ponto de vista filosofia, o aplicativo não deve depender da rede para sua segurança.</li></ul><p>Do ponto de vista prático, as pessoas responsáveis pela proteção da rede nem sempre rastreiam os requisitos de segurança do aplicativo à medida que eles evoluem.</p>|
+| **Referências**              | [Msdn](https://msdn.microsoft.com/library/ff648500.aspx), [fortalecer o Reino Unido](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **Passos** | A configuração do aplicativo deve garantir que o HTTPS seja usado para todo o acesso a informações confidenciais.<ul><li>**EXPLICA** Se um aplicativo lida com informações confidenciais e não usa criptografia no nível de mensagem, ele só deve ter permissão para se comunicar por meio de um canal de transporte criptografado.</li><li>**RECOMMENDATIONS** Verifique se o transporte HTTP está desabilitado e habilite o transporte HTTPS. Por exemplo, substitua o `<httpTransport/>` pela marca `<httpsTransport/>`. Não confie em uma configuração de rede (firewall) para garantir que o aplicativo só possa ser acessado por um canal seguro. De um ponto de vista filosofia, o aplicativo não deve depender da rede para sua segurança.</li></ul><p>Do ponto de vista prático, as pessoas responsáveis pela proteção da rede nem sempre rastreiam os requisitos de segurança do aplicativo à medida que eles evoluem.</p>|
 
 ## <a id="message-protection"></a>WCF: Definir nível de proteção de segurança de mensagem como EncryptAndSign
 
@@ -301,10 +301,10 @@ namespace CertificatePinningExample
 | **Tecnologias aplicáveis** | .NET Framework 3 |
 | **Atributos**              | N/A  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Passos** | <ul><li>**EXPLICA** Quando o nível de proteção estiver definido como "nenhum", ele desabilitará a proteção de mensagem. A confidencialidade e a integridade são obtidas com o nível apropriado de configuração.</li><li>**RECOMMENDATIONS**<ul><li>Quando `Mode=None` -desabilita a proteção de mensagem</li><li>Quando `Mode=Sign` -assina, mas não criptografa a mensagem; deve ser usado quando a integridade dos dados for importante</li><li>Quando `Mode=EncryptAndSign` -assina e criptografa a mensagem</li></ul></li></ul><p>Considere desativar a criptografia e apenas assinar sua mensagem quando precisar apenas validar a integridade das informações sem preocupações com a confidencialidade. Isso pode ser útil para operações ou contratos de serviço nos quais você precisa validar o remetente original, mas nenhum dado confidencial é transmitido. Ao reduzir o nível de proteção, tenha cuidado para que a mensagem não contenha informações de identificação pessoal (PII).</p>|
+| **Passos** | <ul><li>**EXPLICA** Quando o nível de proteção estiver definido como "nenhum", ele desabilitará a proteção de mensagem. A confidencialidade e a integridade são obtidas com o nível apropriado de configuração.</li><li>**RECOMMENDATIONS**<ul><li>Quando `Mode=None`-desabilita a proteção de mensagem</li><li>Quando `Mode=Sign`-sinaliza, mas não criptografa a mensagem; deve ser usado quando a integridade dos dados é importante</li><li>Quando `Mode=EncryptAndSign`-assina e criptografa a mensagem</li></ul></li></ul><p>Considere desativar a criptografia e apenas assinar sua mensagem quando precisar apenas validar a integridade das informações sem preocupações com a confidencialidade. Isso pode ser útil para operações ou contratos de serviço nos quais você precisa validar o remetente original, mas nenhum dado confidencial é transmitido. Ao reduzir o nível de proteção, tenha cuidado para que a mensagem não contenha dados pessoais.</p>|
 
 ### <a name="example"></a>Exemplo
-A configuração do serviço e a operação para assinar apenas a mensagem é mostrada nos exemplos a seguir. Exemplo de contrato de `ProtectionLevel.Sign`serviço de: Veja a seguir um exemplo de como usar ProtectionLevel. Sign no nível do contrato de serviço: 
+A configuração do serviço e a operação para assinar apenas a mensagem é mostrada nos exemplos a seguir. Exemplo de contrato de serviço de `ProtectionLevel.Sign`: Veja a seguir um exemplo de como usar ProtectionLevel. Sign no nível do contrato de serviço: 
 ```
 [ServiceContract(Protection Level=ProtectionLevel.Sign] 
 public interface IService 
@@ -314,7 +314,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>Exemplo
-Exemplo de contrato de `ProtectionLevel.Sign` operação de (para controle granular): Veja a seguir um exemplo de como `ProtectionLevel.Sign` usar no nível OperationContract:
+Exemplo de contrato de operação de `ProtectionLevel.Sign` (para controle granular): Veja a seguir um exemplo de como usar `ProtectionLevel.Sign` no nível OperationContract:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 

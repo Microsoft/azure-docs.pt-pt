@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: a8dfe0db5277a995b6e6675381ebeb5aeb243c9b
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 65b6b503d107b36813d1716348ce5f11fa840cc0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647219"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937221"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Introdução à instância gerenciada do banco de dados SQL do Azure
 
@@ -24,7 +24,7 @@ A opção de implantação de [instância gerenciada](sql-database-managed-insta
 
 ## <a name="quickstart-overview"></a>Visão geral do início rápido
 
-Os guias de início rápido a seguir permitem criar rapidamente uma instância gerenciada, configurar uma máquina virtual ou uma conexão VPN ponto a site para o aplicativo cliente e restaurar um banco de dados para sua `.bak` nova instância gerenciada usando um arquivo.
+Os guias de início rápido a seguir permitem criar rapidamente uma instância gerenciada, configurar uma máquina virtual ou uma conexão VPN ponto a site para o aplicativo cliente e restaurar um banco de dados para sua nova instância gerenciada usando um arquivo `.bak`.
 
 ### <a name="configure-environment"></a>Configurar o ambiente
 
@@ -45,10 +45,10 @@ Como alternativa à criação manual de Instância Gerenciada, você pode usar o
 
 Depois de criar uma instância gerenciada e configurar o acesso, você pode começar a migrar seus bancos de dados de SQL Server VMs locais ou do Azure. A migração falhará se você tiver alguns recursos sem suporte no banco de dados de origem que deseja migrar. Para evitar falhas e verificar a compatibilidade, você pode instalar o [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) que analisa seus bancos de dados no SQL Server e encontrar qualquer problema que possa bloquear a migração para uma instância gerenciada, como a existência de [FileStream](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) ou vários arquivos de log. Se você resolver esses problemas, seus bancos de dados estarão prontos para migrar para a instância gerenciada. [Assistente para experimentos de banco de dados](https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/) é outra ferramenta útil que pode registrar sua carga de trabalho no SQL Server e reproduzi-la em uma instância gerenciada para que você possa determinar que haverá problemas de desempenho se você migrar para uma instância gerenciada.
 
-Depois de ter certeza de que você pode migrar seu banco de dados para uma instância gerenciada, você pode usar os recursos de restauração de SQL Server nativos para restaurar um `.bak` banco de dados em uma instância gerenciada de um arquivo. Você pode usar esse método para migrar bancos de dados do SQL Server mecanismo de banco de dados instalado no local ou na VM do Azure. Para obter um início rápido, consulte [restaurar do backup para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md). Neste guia de início rápido, você restaura `.bak` de um arquivo armazenado no armazenamento de BLOBs do Azure usando o `RESTORE` comando Transact-SQL.
+Depois de ter certeza de que você pode migrar seu banco de dados para uma instância gerenciada, você pode usar os recursos de restauração de SQL Server nativos para restaurar um banco de dados em uma instância gerenciada de um arquivo `.bak`. Você pode usar esse método para migrar bancos de dados do SQL Server mecanismo de banco de dados instalado no local ou na VM do Azure. Para obter um início rápido, consulte [restaurar do backup para uma instância gerenciada](sql-database-managed-instance-get-started-restore.md). Neste guia de início rápido, você restaura a partir de um arquivo `.bak` armazenado no armazenamento de BLOBs do Azure usando o comando Transact-SQL `RESTORE`.
 
 > [!TIP]
-> Para usar o `BACKUP` comando Transact-SQL para criar um backup de seu banco de dados no armazenamento de BLOBs do Azure, consulte [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
+> Para usar o comando Transact-SQL `BACKUP` para criar um backup de seu banco de dados no armazenamento de BLOBs do Azure, consulte [SQL Server Backup to URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url).
 
 Esses guias de início rápido permitem criar, configurar e restaurar rapidamente o backup de banco de dados em uma instância gerenciada. Em alguns cenários, você precisaria personalizar ou automatizar a implantação de instâncias gerenciadas e o ambiente de rede necessário. Esses cenários serão descritos abaixo.
 
@@ -62,17 +62,17 @@ Se você já tiver uma VNet e uma sub-rede em que deseja implantar sua instânci
 
 ## <a name="migrate-to-a-managed-instance"></a>Migrar para uma instância gerenciada
 
-Os artigos nestes guias de início rápido permitem que você configure rapidamente uma instância gerenciada e mova seus bancos de dados usando `RESTORE` o recurso nativo. Esse é um bom ponto de partida se você quiser concluir os conceitos de provas rápidas e verificar se sua solução pode funcionar em Instância Gerenciada. 
+Os artigos nestes guias de início rápido permitem que você configure rapidamente uma instância gerenciada e mova seus bancos de dados usando o recurso nativo `RESTORE`. Esse é um bom ponto de partida se você quiser concluir os conceitos de provas rápidas e verificar se sua solução pode funcionar em Instância Gerenciada. 
 
 No entanto, a fim de migrar seu banco de dados de produção ou até mesmo os bancos de dados de desenvolvimento/teste que você deseja usar para algum teste de desempenho, você precisará considerar o uso de algumas técnicas adicionais, como:
 - Teste de desempenho-você deve medir o desempenho de linha de base em sua instância de SQL Server de origem e compará-las com o desempenho no Instância Gerenciada de destino em que você migrou o banco de dados. Saiba mais sobre as [práticas recomendadas para comparação de desempenho](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/The-best-practices-for-performance-comparison-between-Azure-SQL/ba-p/683210).
-- Migração online-com o nativo `RESTORE` descrito neste artigo, você precisa aguardar que os bancos de dados sejam restaurados (e copiados para o armazenamento de BLOBs do Azure, se ainda não estiverem armazenados nele). Isso causa algum tempo de inatividade do seu aplicativo, especialmente para bancos de dados maiores. Para mover seu banco de dados de produção, use o DMS para migrar seu banco de [dado](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) com o mínimo de tempo de inatividade. O DMS realiza isso incrementalmente as alterações feitas no banco de dados de origem para o banco de dados de instância gerenciada que está sendo restaurado. Dessa forma, você pode alternar rapidamente seu aplicativo do banco de dados de origem para destino com o tempo de inatividade mínimo.
+- Migração online-com o @no__t nativo-0 descrito neste artigo, você precisa aguardar que os bancos de dados sejam restaurados (e copiados para o armazenamento de BLOBs do Azure, se ainda não estiverem armazenados). Isso causa algum tempo de inatividade do seu aplicativo, especialmente para bancos de dados maiores. Para mover seu banco de dados de produção, use o DMS para migrar seu banco de [dado](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance?toc=/azure/sql-database/toc.json) com o mínimo de tempo de inatividade. O DMS realiza isso incrementalmente as alterações feitas no banco de dados de origem para o banco de dados de instância gerenciada que está sendo restaurado. Dessa forma, você pode alternar rapidamente seu aplicativo do banco de dados de origem para destino com o tempo de inatividade mínimo.
 
 Saiba mais sobre o [processo de migração recomendado](sql-database-managed-instance-migrate.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Encontre uma [lista de alto nível dos recursos com suporte na instância gerenciada aqui](sql-database-features.md) e [detalhes e problemas conhecidos aqui](sql-database-managed-instance-transact-sql-information.md).
-- Saiba mais sobre as [características técnicas da instância gerenciada](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+- Saiba mais sobre as [características técnicas da instância gerenciada](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 - Encontre instruções mais avançadas [sobre como usar uma instância gerenciada no banco de dados SQL do Azure](sql-database-howto-managed-instance.md).
 - [Identifique o banco de dados SQL do Azure/instância gerenciada SKU correto para seu banco de dados local](/sql/dma/dma-sku-recommend-sql-db/).

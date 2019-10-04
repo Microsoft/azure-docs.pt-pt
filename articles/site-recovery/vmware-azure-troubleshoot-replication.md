@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 54686a96385532e17fe0ac6e59058b91b40c1342
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742570"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844347"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Solucionar problemas de replicação para VMs VMware e servidores físicos
 
@@ -41,9 +41,9 @@ Para resolver esses problemas, [solucione problemas de conectividade e replicaç
 
 Quando você tenta selecionar o computador de origem para habilitar a replicação usando Site Recovery, o computador pode não estar disponível por um dos seguintes motivos:
 
-* **Duas máquinas virtuais com o mesmo UUID de instância**: Se duas máquinas virtuais no vCenter tiverem o mesmo UUID de instância, a primeira máquina virtual descoberta pelo servidor de configuração será mostrada na portal do Azure. Para resolver esse problema, certifique-se de que duas máquinas virtuais tenham o mesmo UUID de instância. Esse cenário geralmente é visto em instâncias em que uma VM de backup se torna ativa e registrada em nossos registros de descoberta. [Consulte Azure site Recovery VMware para o Azure: Como limpar entradas](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) duplicadas ou obsoletas para resolver.
-* **Credenciais de usuário do vCenter**incorretas: Certifique-se de ter adicionado as credenciais do vCenter corretas ao configurar o servidor de configuração usando o modelo OVF ou a configuração unificada. Para verificar as credenciais que você adicionou durante a instalação, consulte [Modificar credenciais para descoberta automática](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* **privilégios**insuficientes do vCenter: Se as permissões fornecidas para acessar o vCenter não tiverem as permissões necessárias, a falha na descoberta de máquinas virtuais poderá ocorrer. Certifique-se de que as permissões descritas em [preparar uma conta para a descoberta automática](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) sejam adicionadas à conta de usuário do vCenter.
+* **Duas máquinas virtuais com o mesmo UUID de instância**: Se duas máquinas virtuais no vCenter tiverem o mesmo UUID de instância, a primeira máquina virtual descoberta pelo servidor de configuração será mostrada na portal do Azure. Para resolver esse problema, certifique-se de que duas máquinas virtuais tenham o mesmo UUID de instância. Esse cenário geralmente é visto em instâncias em que uma VM de backup se torna ativa e registrada em nossos registros de descoberta. Consulte o [Azure Site Recovery VMware-to-Azure: Como limpar entradas duplicadas ou obsoletas @ no__t-0 para resolver.
+* **Credenciais de usuário do vCenter incorretas**: Certifique-se de ter adicionado as credenciais do vCenter corretas ao configurar o servidor de configuração usando o modelo OVF ou a configuração unificada. Para verificar as credenciais que você adicionou durante a instalação, consulte [Modificar credenciais para descoberta automática](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* **privilégios insuficientes do vCenter**: Se as permissões fornecidas para acessar o vCenter não tiverem as permissões necessárias, a falha na descoberta de máquinas virtuais poderá ocorrer. Certifique-se de que as permissões descritas em [preparar uma conta para a descoberta automática](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) sejam adicionadas à conta de usuário do vCenter.
 * **Azure site Recovery servidores de gerenciamento**: Se a máquina virtual for usada como servidor de gerenciamento em uma ou mais das funções a seguir: servidor de processo/scale-out de servidor de configuração/servidor de destino mestre, não será possível escolher a máquina virtual no Portal. Os servidores de gerenciamento não podem ser replicados.
 * **Já protegido/com failover por meio de serviços de Azure site Recovery**: Se a máquina virtual já estiver protegida ou com failover por meio de Site Recovery, a máquina virtual não estará disponível para selecionar para proteção no Portal. Verifique se a máquina virtual que você está procurando no portal ainda não está protegida por nenhum outro usuário ou em uma assinatura diferente.
 * **vCenter não conectado**: Verifique se o vCenter está no estado conectado. Para verificar, acesse cofre dos serviços de recuperação > Site Recovery infraestrutura > servidores de configuração > clique no respectivo servidor de configuração > uma folha é aberta à direita com detalhes dos servidores associados. Verifique se o vCenter está conectado. Se ele estiver em um estado "não conectado", resolva o problema e, em seguida, [atualize o servidor de configuração](vmware-azure-manage-configuration-server.md#refresh-configuration-server) no Portal. Depois disso, a máquina virtual será listada no Portal.
@@ -53,37 +53,17 @@ Quando você tenta selecionar o computador de origem para habilitar a replicaç�
 
 ### <a name="troubleshoot-protected-virtual-machines-greyed-out-in-the-portal"></a>Solucionar problemas de máquinas virtuais protegidas esmaecidas no portal
 
-As máquinas virtuais replicadas em Site Recovery não estarão disponíveis no portal do Azure se houver entradas duplicadas no sistema. Para saber como excluir entradas obsoletas e resolver o problema, consulte [Azure site Recovery VMware-to-Azure: Como limpar entradas](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx)duplicadas ou obsoletas.
+As máquinas virtuais replicadas em Site Recovery não estarão disponíveis no portal do Azure se houver entradas duplicadas no sistema. Para saber como excluir entradas obsoletas e resolver o problema, consulte [Azure Site Recovery VMware-to-Azure: Como limpar entradas duplicadas ou obsoletas @ no__t-0.
 
-## <a name="common-errors-and-solutions"></a>Erros e soluções comuns
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Nenhum ponto de recuperação consistente de falha disponível para a VM nos últimos ' XXX ' minutos
+
+Alguns dos problemas mais comuns estão listados abaixo
 
 ### <a name="initial-replication-issues-error-78169"></a>Problemas de replicação inicial [erro 78169]
 
 Acima de verificar se não há problemas relacionados à conectividade, largura de banda ou sincronização de tempo, verifique se:
 
 - Nenhum software antivírus está bloqueando Azure Site Recovery. Saiba [mais](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) sobre as exclusões de pasta necessárias para Azure site Recovery.
-
-### <a name="missing-app-consistent-recovery-points-error-78144"></a>Pontos de recuperação consistentes com o aplicativo ausentes [erro 78144]
-
- Isso ocorre devido a problemas com o VSS (serviço de cópias de sombra de volume). Para resolver este problema: 
- 
-- Verifique se a versão instalada do agente de Azure Site Recovery é pelo menos 9.22.2. 
-- Verifique se o provedor VSS está instalado como um serviço nos serviços do Windows e verifique também o MMC do serviço de componente para verificar se Azure Site Recovery provedor VSS está listado.
-- Se o provedor VSS não estiver instalado, consulte o [artigo solução de problemas de falha na instalação](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- Se o VSS estiver desabilitado,
-    - Verifique se o tipo de inicialização do serviço do provedor do VSS está definido como **automático**.
-    - Reinicie os seguintes serviços:
-        - Serviço VSS
-        - Azure Site Recovery o provedor de VSS
-        - Serviço VDS
-
-- Se você estiver executando cargas de trabalho do SQL ou do Exchange, verifique se há falhas nos logs desses gravadores de aplicativos. Erros frequentes e sua resolução são capturados nos seguintes artigos:
-    -  [A opção de fechamento automático do banco de dados SQL Server está definida como TRUE](https://support.microsoft.com/help/4504104)
-    - [SQL Server 2008 R2 gerando um erro sem nova tentativa](https://support.microsoft.com/help/4504103)
-    - [Problema conhecido no SQL Server 2016 e 2017](https://support.microsoft.com/help/4493364)
-    - [Problema comum com os Exchange Servers 2013 e 2016](https://support.microsoft.com/help/4037535)
-
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Computadores de origem com variação alta [erro 78188]
 
@@ -100,7 +80,7 @@ Para resolver o problema:
     - Assim que a URL SAS for revogada, vá para a folha de configuração do disco gerenciado e aumente o tamanho para que a ASR dê suporte à taxa de rotatividade observada no disco de origem
 - Se a rotatividade observada for temporária, aguarde algumas horas para que o carregamento de dados pendente seja atualizado e crie pontos de recuperação.
 - Se o disco contiver dados não críticos, como logs temporários, dados de teste, etc., considere mover esses dados em outro lugar ou excluir completamente este disco da replicação
-- Se o problema continuar a persistir, use o Site Recovery planejador de [implantação](site-recovery-deployment-planner.md#overview) para ajudar a planejar a replicação.
+- Se o problema continuar a persistir, use o Site Recovery [planejador de implantação](site-recovery-deployment-planner.md#overview) para ajudar a planejar a replicação.
 
 ### <a name="source-machines-with-no-heartbeat-error-78174"></a>Computadores de origem sem pulsação [erro 78174]
 
@@ -138,8 +118,21 @@ Para resolver o problema, use as seguintes etapas para verificar o status do ser
     - Verifique os logs no local para obter detalhes do erro:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. Para registrar o destino mestre no servidor de configuração, navegue até a pasta **%ProgramData%\ASR\Agent**e execute o seguinte no prompt de comando:
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>ID do erro 78144-nenhum ponto de recuperação consistente com o aplicativo disponível para a VM nos últimos ' XXX ' minutos
+
+Foram feitas melhorias no agente de mobilidade [9,23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9,27](site-recovery-whats-new.md#update-rollup-39) versões para lidar com comportamentos de falha na instalação do VSS. Verifique se você está nas versões mais recentes para obter a melhor orientação sobre a solução de falhas do VSS.
 
 Alguns dos problemas mais comuns estão listados abaixo
 
@@ -197,6 +190,6 @@ Verifique se o tipo de inicialização do serviço do provedor do VSS está defi
         - Azure Site Recovery o provedor de VSS
         - Serviço VDS
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se precisar de mais ajuda, poste sua pergunta no [Fórum de Azure site Recovery](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr). Temos uma comunidade ativa, e um de nossos engenheiros pode ajudá-lo.

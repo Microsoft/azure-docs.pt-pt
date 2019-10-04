@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0a718786cc7c72ef4ee9573c3c3e40401c53a315
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308072"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827616"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Perguntas mais frequentes
 
@@ -193,7 +193,7 @@ Para obter informações sobre proteção contra malware, consulte [Microsoft an
 
 ### <a name="how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster"></a>Como fazer criar um keytab para um cluster de ESP do HDInsight?
 
-Crie um Kerberos keytab para seu nome de usuário de domínio. Posteriormente, você pode usar esse keytab para autenticar em clusters remotos ingressados no domínio sem inserir uma senha. Observe que o nome de domínio está em letras maiúsculas:
+Crie um Kerberos keytab para seu nome de usuário de domínio. Posteriormente, você pode usar esse keytab para autenticar em clusters remotos ingressados no domínio sem inserir uma senha. O nome de domínio está em letras maiúsculas:
 
 ```shell
 ktutil
@@ -310,14 +310,14 @@ Você usa scripts persistentes para personalizar novos nós de trabalho adiciona
 
 Você pode usar os seguintes pontos de extremidade REST para efetuar pull das informações necessárias no formato JSON. Use cabeçalhos de autenticação básica para fazer as solicitações.
 
-- Tez visualização da consulta: *https:\//\<nome do cluster >. azurehdinsight. net/WS/v1/Timeline/HIVE_QUERY_ID/*
-- Tez DAG exibição: *https:\//\<nome do cluster >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
+- Tez Visualização da Consulta: *https: \/ @ no__t-2 @ no__t-3cluster nome >. azurehdinsight. n/WS/v1/Timeline/HIVE_QUERY_ID/*
+- Tez DAG exibição: *https: \/ @ no__t-2 @ no__t-3cluster name >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Como fazer recuperar os detalhes de configuração do cluster HDI usando um usuário Azure Active Directory?
 
 Para negociar tokens de autenticação apropriados com o usuário do AAD, percorra o gateway usando o seguinte formato:
 
-* https://`<cluster dnsname>`. azurehdinsight.NET/API/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Como fazer usar a API RESTful Ambari para monitorar o desempenho do YARN?
 
@@ -352,6 +352,10 @@ Se você chamar o comando de fora da rede virtual ou de uma rede virtual não em
 ### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>Quanto custa para implantar um cluster HDInsight?
 
 Para obter mais informações sobre preços e perguntas frequentes relacionadas à cobrança, consulte a página de [preços do Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) .
+
+### <a name="when-does-hdinsight-billing-start--stop"></a>Quando o início da cobrança do HDInsight & parar?
+
+A faturação do cluster do HDInsight tem início quando o cluster é criado e termina quando é eliminado. A cobrança é classificada em pro por minuto.
 
 ### <a name="how-do-i-cancel-my-subscription"></a>Como fazer cancelar minha assinatura?
 

@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e846db86ce95bd32d21727a4a5ec3195458cb9eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013095"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936881"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -93,7 +93,7 @@ A tabela a seguir mostra um exemplo de quebra de custos e pagamentos para demons
 
 |**Listas da Microsoft**|**$100 por mês**|
 |:---|:---|
-|A Microsoft paga a você 80% do seu custo de licença <br>**Para aplicativos SaaS qualificados, a Microsoft paga 90% do seu custo de licença*|$80 por mês <br>*$* 90, 0 por mês *|
+|A Microsoft paga a você 80% do seu custo de licença <br>**para aplicativos SaaS qualificados, a Microsoft paga 90% do seu custo de licença*|$80 por mês <br>*$* 90, 0 por mês *|
 
 - Neste exemplo, a Microsoft fatura $100 para o cliente para sua licença de software e paga $80 para o Publicador.
 - Os parceiros qualificados para a **taxa reduzida de serviço do Marketplace** verão uma taxa de transação reduzida nas ofertas de SaaS de maio de 2019 até junho de 2020. Nesse cenário, a Microsoft cobra $100 pela sua licença de software e paga $90 para o Publicador.
@@ -244,19 +244,19 @@ Os componentes principais da sua proposta de valor devem incluir as seguintes in
 
 Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML para formatar a descrição. 
 
-1. Se você quiser criar parágrafos, adicione `<p>` no implorando do texto e adicione `</p>` ao final.
+1. Se você quiser criar parágrafos, adicione `<p>` no implorando do texto e adicione `</p>` no final.
 
     **Exemplo**: 
 
-    `<p>`Este é o primeiro parágrafo. `</p>` <br>
-    `<p>`Este é o meu segundo parágrafo. `</p>` <br>
+    `<p>` Este é o primeiro parágrafo. `</p>` <br>
+    `<p>` é o meu segundo parágrafo. `</p>` <br>
 
     O anterior ficaria assim:
 
     <p> Este é o primeiro parágrafo. </p>
     <p> Este é o meu segundo parágrafo. </p>
 
-1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das `<li>` marcas abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as `<li>` marcas `</li>` e) nas `<ul>` marcas e `</ul>` . Certifique-se de adicionar `<ul></ul>`o. 
+1. Se você quiser adicionar uma **lista de itens com marcadores**, coloque o texto dentro das marcas `<li>` abaixo. Você pode copiar e colar mais itens com marcadores (itens entre as marcas `<li>` e `</li>`) nas marcas `<ul>` e `</ul>`. Certifique-se de adicionar o `<ul></ul>`. 
 
     **Exemplo**:
 
@@ -275,34 +275,34 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
         <li> Adicionar texto aqui </li> 
     </ul> 
 
-1. Para conteúdo em **negrito** , `<b>` adicione no início do texto que você deseja negrito e adicione `</b>` ao final do texto que você deseja colocar em negrito. 
+1. Para conteúdo em **negrito** , adicione `<b>` no início do texto que você deseja negrito e adicione `</b>` no final do texto que você deseja colocar em negrito. 
 
-    **Exemplo**: `<b>`AVALIAÇÃO GRATUITA`</b>`
+    **Exemplo**: AVALIAÇÃO GRATUITA `<b>` `</b>`
     
     O anterior faria com que as palavras de avaliação gratuita fossem em negrito na descrição da oferta na vitrine. 
 
     **AVALIAÇÃO GRATUITA**
 
-1. Para adicionar **quebras de linha** entre o conteúdo `<br>` , adicione antes do conteúdo que você deseja iniciar em uma nova linha. Se você quiser deixar um espaço e certificar-se de que o conteúdo começa em uma nova `<br><br>` linha, adicione antes do conteúdo. 
+1. Para adicionar **quebras de linha** entre o conteúdo, adicione `<br>` antes do conteúdo que você deseja iniciar em uma nova linha. Se você quiser deixar um espaço e certificar-se de que o conteúdo começa em uma nova linha, adicione `<br><br>` antes do conteúdo. 
 
     **Exemplo**:
 
-    Esta é uma linha de texto. `<br>`Esta é uma linha de texto que será iniciada em uma nova linha. `<br><br>`Esta é uma linha que iniciará duas linhas abaixo. 
+    Esta é uma linha de texto. `<br>` é uma linha de texto que será iniciada em uma nova linha. `<br><br>` é uma linha que iniciará duas linhas abaixo. 
 
     O anterior ficaria assim:
 
     Esta é uma linha de texto. <br> Esta é uma linha de texto que será iniciada em uma nova linha. <br><br> Esta é uma linha que iniciará duas linhas abaixo. 
 
-1. Se você quiser **aumentar o tamanho do texto**, primeiro escolha a quantidade desejada para o texto. Use os exemplos a seguir. Depois de selecionar o tamanho do texto, adicione as marcas correspondentes `<H*></H*>` ao início e ao final do texto. 
+1. Se você quiser **aumentar o tamanho do texto**, primeiro escolha a quantidade desejada para o texto. Use os exemplos a seguir. Depois de selecionar o tamanho do texto, adicione as marcações `<H*></H*>` correspondentes ao início e ao final do texto. 
 
     **Exemplo**:
 
-    `<h1>`Este é o título 1`</h1>` <br>
-    `<h2>`Este é o título 2`</h2>` <br>
-    `<h3>`Este é o título 3`</h3>` <br>
-    `<h4>`Este é o título 4`</h4>` <br>
-    `<h5>`Este é o título 5`</h5>` <br>
-    `<h6>`Este é o título 6`</h6>` 
+    `<h1>`This é Heading 1 @ no__t-1 <br>
+    `<h2>`This é heading 2 @ no__t-1 <br>
+    `<h3>`This é heading 3 @ no__t-1 <br>
+    `<h4>`This é heading 4 @ no__t-1 <br>
+    `<h5>`This é título 5 @ no__t-1 <br>
+    `<h6>`This é título 6 @ no__t-1 
 
     O anterior ficaria assim:
 
@@ -409,6 +409,9 @@ As ofertas de SaaS por meio do Marketplace comercial permitem que você forneça
 A capacidade de configurar uma avaliação gratuita está disponível para cada plano em sua oferta. Basta navegar até os preços e a disponibilidade de cada oferta e marcar a caixa para permitir uma avaliação de um mês.
 
 ![Caixa de seleção de avaliação gratuita de um mês](./media/free-trial-enable.png)
+
+>[!Note]
+>Depois que sua oferta de transação for publicada com uma avaliação gratuita, ela não poderá ser desabilitada para esse plano. Verifique se essa configuração está correta para a primeira publicação para evitar ter que recriar o plano.
 
 Para obter informações sobre assinaturas de clientes que participam atualmente de uma avaliação gratuita, use a nova propriedade `isFreeTrial`de API, que será marcada como verdadeira ou falsa. Consulte a [API obter assinatura de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) para obter mais informações.
 

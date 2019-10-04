@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 6a92ee6fe53b1676c493c54510dd0f6c4b4b5dc9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bee4b108d2747e8c386abe41dc61b5b19aecf4f5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079573"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828692"
 ---
 # <a name="encrypt-virtual-disks-on-a-windows-vm"></a>Criptografar discos virtuais em uma VM do Windows
-Para segurança e conformidade aprimoradas da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Os discos são criptografados usando chaves de criptografia que são protegidas em um Azure Key Vault. Você controla essas chaves de criptografia e pode auditar seu uso. Este artigo descreve como criptografar discos virtuais em uma VM do Windows usando Azure PowerShell. Você também pode [criptografar uma VM do Linux usando o CLI do Azure](../linux/encrypt-disks.md).
+Para segurança e conformidade aprimoradas da VM (máquina virtual), os discos virtuais no Azure podem ser criptografados. Os discos são criptografados usando chaves de criptografia que são protegidas em um Azure Key Vault. Você controla essas chaves de criptografia e pode auditar seu uso. Este artigo descreve como criptografar discos virtuais em uma VM do Windows usando Azure PowerShell. Você também pode [criptografar uma VM do Linux usando o CLI do Azure](../linux/disk-encryption-overview.md).
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
@@ -60,11 +60,11 @@ Atualmente, a criptografia de disco não tem suporte nos seguintes cenários:
 
 
 ## <a name="create-an-azure-key-vault-and-keys"></a>Criar uma Azure Key Vault e chaves
-Antes de começar, verifique se a versão mais recente do módulo Azure PowerShell foi instalada. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Nos exemplos de comando a seguir, substitua todos os parâmetros de exemplo pelos seus próprios nomes, local e valores de chave, como MyResource, *myKeyVault*, *myVM*e assim por diante.
+Antes de começar, verifique se a versão mais recente do módulo Azure PowerShell foi instalada. Para obter mais informações, veja [How to install and configure Azure PowerShell (Como instalar e configurar o Azure PowerShell)](/powershell/azure/overview). Nos exemplos de comando a seguir, substitua todos os parâmetros de exemplo pelos seus próprios nomes, local e valores de chave, como *MyResource*, *myKeyVault*, *myVM*e assim por diante.
 
 A primeira etapa é criar um Azure Key Vault para armazenar suas chaves de criptografia. Os Azure Key Vaults podem armazenar chaves, segredos ou senhas que permitem implementá-los com segurança em seus aplicativos e serviços. Para a criptografia de disco virtual, você criará um Key Vault para armazenar uma chave de criptografia que é usada para criptografar ou descriptografar seus discos virtuais. 
 
-Habilite o provedor de Azure Key Vault em sua assinatura do Azure com [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)e crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um nome de grupo de recursos MyResource Group no local *leste dos EUA* :
+Habilite o provedor de Azure Key Vault em sua assinatura do Azure com [Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)e crie um grupo de recursos com [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). O exemplo a seguir cria um nome de grupo de recursos *MyResource* Group no local *leste dos EUA* :
 
 ```azurepowershell-interactive
 $rgName = "myResourceGroup"
@@ -74,7 +74,7 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.KeyVault"
 New-AzResourceGroup -Location $location -Name $rgName
 ```
 
-A Azure Key Vault que mantém as chaves criptográficas e os recursos de computação associados como armazenamento e a própria VM devem estar na mesma região. Crie um Azure Key Vault com [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) e habilite o Key Vault para uso com a criptografia de disco. Especifique um nome de Key Vault exclusivo para keyvaultname da seguinte maneira:
+A Azure Key Vault que mantém as chaves criptográficas e os recursos de computação associados como armazenamento e a própria VM devem estar na mesma região. Crie um Azure Key Vault com [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault) e habilite o Key Vault para uso com a criptografia de disco. Especifique um nome de Key Vault exclusivo para *Keyvaultname* da seguinte maneira:
 
 ```azurepowershell-interactive
 $keyVaultName = "myKeyVault$(Get-Random)"
@@ -144,6 +144,6 @@ OsVolumeEncryptionSettings : Microsoft.Azure.Management.Compute.Models.DiskEncry
 ProgressMessage            : OsVolume: Encrypted, DataVolumes: Encrypted
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter mais informações sobre como gerenciar um Azure Key Vault, consulte [configurar um Key Vault para máquinas virtuais](key-vault-setup.md).
 * Para obter mais informações sobre a criptografia de disco, como preparar uma VM personalizada criptografada para carregar no Azure, consulte [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).

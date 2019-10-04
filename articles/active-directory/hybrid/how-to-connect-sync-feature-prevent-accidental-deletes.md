@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135785"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827133"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização de Azure AD Connect: Impedir eliminações acidentais
 Este tópico descreve o recurso impedir exclusões acidentais (evitando exclusões acidentais) no Azure AD Connect.
@@ -35,18 +35,18 @@ Os cenários comuns quando você vê muitas exclusões incluem:
 * Todos os objetos numa UO são eliminados.
 * O nome de uma UO foi alterado para que todos os objetos na mesma sejam considerados como estando fora do âmbito para a sincronização.
 
-O valor padrão de 500 objetos pode ser alterado com o PowerShell `Enable-ADSyncExportDeletionThreshold`usando, que faz parte do módulo ad Sync instalado com Azure Active Directory Connect. Você deve configurar esse valor para se ajustar ao tamanho da sua organização. Como o Agendador de sincronização é executado a cada 30 minutos, o valor é o número de exclusões vistas em 30 minutos.
+O valor padrão de 500 objetos pode ser alterado com o PowerShell usando `Enable-ADSyncExportDeletionThreshold`, que faz parte do módulo AD Sync instalado com Azure Active Directory Connect. Você deve configurar esse valor para se ajustar ao tamanho da sua organização. Como o Agendador de sincronização é executado a cada 30 minutos, o valor é o número de exclusões vistas em 30 minutos.
 
 Se houver muitas exclusões em etapas para serem exportadas para o Azure AD, a exportação será interrompida e você receberá um email como este:
 
 ![Impedir exclusão acidental de email](./media/how-to-connect-sync-feature-prevent-accidental-deletes/email.png)
 
-> *Olá (contato técnico). Em (hora) o serviço de Sincronização de Identidades detectou que o número de exclusões excedeu o limite de exclusão configurado para o (nome da organização). Um total de objetos (número) foram enviados para exclusão nesta Sincronização de Identidades execução. Isso atingiu ou excedeu o valor de limite de exclusão configurado de objetos (número). Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Consulte impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.*
+> *Hello (contato técnico). Em (hora) o serviço de Sincronização de Identidades detectou que o número de exclusões excedeu o limite de exclusão configurado para o (nome da organização). Um total de objetos (número) foram enviados para exclusão nesta Sincronização de Identidades execução. Isso atingiu ou excedeu o valor de limite de exclusão configurado de objetos (número). Precisamos que você forneça a confirmação de que essas exclusões devem ser processadas antes de continuarmos. Consulte impedindo exclusões acidentais para obter mais informações sobre o erro listado nesta mensagem de email.*
 >
 > 
 
-Você também pode ver o status `stopped-deletion-threshold-exceeded` ao examinar a interface do usuário do **Synchronization Service Manager** para o perfil de exportação.
-![Impedir que exclusões acidentais sincronizem a interface do usuário Service Manager](./media/how-to-connect-sync-feature-prevent-accidental-deletes/syncservicemanager.png)
+Você também pode ver o status `stopped-deletion-threshold-exceeded` quando procura na interface do usuário do **Synchronization Service Manager** para o perfil de exportação.
+![Prevent acidentalmente exclui a sincronização Service Manager interface do usuário @ no__t-1
 
 Se isso era inesperado, investigue e tome as medidas corretivas. Para ver quais objetos estão prestes a serem excluídos, faça o seguinte:
 
@@ -58,17 +58,18 @@ Se isso era inesperado, investigue e tome as medidas corretivas. Para ver quais 
 
 ![Pesquisar espaço do conector](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] Se você não tiver certeza de que todas as exclusões são desejadas e deseja descer uma rota mais segura. Você pode usar o cmdlet do PowerShell `Enable-ADSyncExportDeletionThreshold` : para definir um novo limite em vez de desabilitar o limite que pode permitir exclusões indesejadas. 
+[!NOTE] Se você não tiver certeza de que todas as exclusões são desejadas e deseja descer uma rota mais segura. Você pode usar o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold` para definir um novo limite em vez de desabilitar o limite que pode permitir exclusões indesejadas. 
 
+## <a name="if-all-deletes-are-desired"></a>Se todas as exclusões forem desejadas
 Se todas as exclusões forem desejadas, faça o seguinte:
 
-1. Para recuperar o limite de exclusão atual, execute o cmdlet `Get-ADSyncExportDeletionThreshold`do PowerShell. Forneça uma conta de administrador global do Azure AD e uma senha. O valor padrão é 500.
-2. Para desabilitar temporariamente essa proteção e permitir que essas exclusões passem, execute o cmdlet do `Disable-ADSyncExportDeletionThreshold`PowerShell:. Forneça uma conta de administrador global do Azure AD e uma senha.
+1. Para recuperar o limite de exclusão atual, execute o cmdlet do PowerShell `Get-ADSyncExportDeletionThreshold`. Forneça uma conta de administrador global do Azure AD e uma senha. O valor padrão é 500.
+2. Para desabilitar temporariamente essa proteção e permitir que essas exclusões passem, execute o cmdlet do PowerShell: `Disable-ADSyncExportDeletionThreshold`. Forneça uma conta de administrador global do Azure AD e uma senha.
    ![Credenciais](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. Com o conector de Azure Active Directory ainda selecionado, selecione a ação **executar** e selecione **Exportar**.
 4. Para reabilitar a proteção, execute o cmdlet do PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Substitua 500 pelo valor que você observou ao recuperar o limite de exclusão atual. Forneça uma conta de administrador global do Azure AD e uma senha.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: Entender e personalizar a sincronização](how-to-connect-sync-whatis.md)

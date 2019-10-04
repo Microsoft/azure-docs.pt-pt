@@ -6,14 +6,14 @@ author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241787"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827354"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o AKS (serviço kubernetes do Azure)
 
@@ -25,7 +25,7 @@ Para obter uma lista completa das regiões disponíveis, consulte [regiões e di
 
 ## <a name="does-aks-support-node-autoscaling"></a>O AKS dá suporte ao dimensionamento automático de nós?
 
-Sim, a capacidade de dimensionar automaticamente os nós de agente horizontalmente no AKS está disponível atualmente na versão prévia. Consulte [dimensionar automaticamente um cluster para atender às demandas de aplicativos no AKs][aks-cluster-autoscaler] para obter instruções. O dimensionamento automático do AKS é baseado no dimensionador automático do [kubernetes][auto-scaler].
+Sim, a capacidade de dimensionar automaticamente os nós de agente horizontalmente no AKS está disponível atualmente na versão prévia. Consulte [dimensionar automaticamente um cluster para atender às demandas de aplicativos no AKs][aks-cluster-autoscaler] para obter instruções. O dimensionamento automático do AKS é baseado no [dimensionador][auto-scaler]automático do kubernetes.
 
 ## <a name="can-i-deploy-aks-into-my-existing-virtual-network"></a>Posso implantar o AKS em minha rede virtual existente?
 
@@ -59,7 +59,9 @@ Para nós do Windows Server (atualmente em visualização no AKS), Windows Updat
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Por que dois grupos de recursos são criados com o AKS?
 
-Cada implantação do AKS abrange dois grupos de recursos:
+O AKS baseia-se em vários recursos de infraestrutura do Azure, incluindo conjuntos de dimensionamento de máquinas virtuais, redes virtuais e Managed disks. Isso permite que você aproveite muitos dos principais recursos da plataforma Azure no ambiente kubernetes gerenciado fornecido pelo AKS. Por exemplo, a maioria dos tipos de máquina virtual do Azure pode ser usada diretamente com AKS e as reservas do Azure podem ser usadas para receber descontos nesses recursos automaticamente.
+
+Para habilitar essa arquitetura, cada implantação AKS abrange dois grupos de recursos:
 
 1. Você cria o primeiro grupo de recursos. Esse grupo contém apenas o recurso de serviço kubernetes. O provedor de recursos AKS cria automaticamente o segundo grupo de recursos durante a implantação. Um exemplo do segundo grupo de recursos é *MC_myResourceGroup_myAKSCluster_eastus*. Para obter informações sobre como especificar o nome desse segundo grupo de recursos, consulte a próxima seção.
 1. O segundo grupo de recursos, conhecido como *grupo de recursos de nó*, contém todos os recursos de infraestrutura associados ao cluster. Esses recursos incluem as VMs do nó kubernetes, a rede virtual e o armazenamento. Por padrão, o grupo de recursos de nó tem um nome como *MC_myResourceGroup_myAKSCluster_eastus*. O AKS exclui automaticamente o recurso de nó sempre que o cluster é excluído, portanto, ele só deve ser usado para recursos que compartilham o ciclo de vida do cluster.
@@ -159,7 +161,7 @@ Você pode, mas AKS não recomenda isso. As atualizações devem idealmente ser 
 
 Não, exclua/remova todos os nós em um estado de falha ou removidos do cluster antes de atualizar.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Executei uma exclusão de cluster, mas veja o erro`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Executei uma exclusão de cluster, mas veja o erro `[Errno 11001] getaddrinfo failed` 
 
 Normalmente, isso é causado por usuários que têm um ou mais NSGs (grupos de segurança de rede) que ainda estão em uso e associados ao cluster.  Remova-os e tente excluir novamente.
 

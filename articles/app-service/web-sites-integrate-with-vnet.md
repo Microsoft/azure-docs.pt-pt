@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210111"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827583"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
-Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). [Redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não é da Internet.  
+Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). As [redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não seja da Internet.  
 
 O serviço de Azure App tem duas variações. 
 
@@ -171,13 +171,13 @@ Se você estiver criando apenas o gateway para uso com a integração VNet do se
 Para habilitar a integração VNet em seu aplicativo: 
 
 1. Vá para seu aplicativo na portal do Azure e abra configurações do aplicativo e selecione rede > integração VNet. O ASP deve estar em um SKU Standard ou melhor para usar o recurso de integração VNet. 
- ![Interface do usuário de integração VNet][1]
+ interface do usuário de integração do @no__t 0VNet @ no__t-1
 
 1. Selecione **Adicionar VNet**. 
- ![Adicionar integração de VNet][2]
+ Integração de VNet de @no__t 0Add @ no__t-1
 
 1. Selecione sua VNet. 
-  ![Selecione sua VNet][8]
+  ![Select sua VNet @ no__t-1
   
 Seu aplicativo será reiniciado após esta última etapa.  
 
@@ -204,7 +204,7 @@ As informações disponíveis para você na interface do usuário de integraçã
 * Servidores DNS – mostra os servidores DNS configurados com sua VNet.
 * Endereços IP roteados para a VNet – mostra os blocos de endereços roteados usados para direcionar o tráfego para a VNet 
 
-A única operação que você pode executar na exibição do aplicativo de sua integração VNet é desconectar seu aplicativo da VNet à qual ele está atualmente conectado. Para desconectar seu aplicativo de uma VNet,selecione desconectar. Seu aplicativo será reiniciado quando você se desconectar de uma VNet. A desconexão não altera sua VNet. A sub-rede ou o gateway não é removido. Se você quiser excluir sua VNet, primeiro você precisa desconectar seu aplicativo da VNet e excluir os recursos nele, como gateways. 
+A única operação que você pode executar na exibição do aplicativo de sua integração VNet é desconectar seu aplicativo da VNet à qual ele está atualmente conectado. Para desconectar seu aplicativo de uma VNet, selecione **Desconectar**. Seu aplicativo será reiniciado quando você se desconectar de uma VNet. A desconexão não altera sua VNet. A sub-rede ou o gateway não é removido. Se você quiser excluir sua VNet, primeiro você precisa desconectar seu aplicativo da VNet e excluir os recursos nele, como gateways. 
 
 Para acessar a interface do usuário de integração da VNet ASP, abra sua interface do usuário ASP e selecione **rede**.  Em integração de VNet, selecione **clique aqui para configurar** para abrir a interface do usuário de status do recurso de rede.
 
@@ -226,7 +226,7 @@ Os aplicativos podem acessar recursos locais integrando-se com o VNets que têm 
 Não há nenhuma configuração adicional necessária para que o recurso de integração VNet regional alcance por meio de sua VNet e para o local. Você simplesmente precisa conectar sua VNet ao local usando o ExpressRoute ou uma VPN site a site. 
 
 > [!NOTE]
-> O recurso de integração VNet do gateway necessário não integra um aplicativo a uma VNet que tem um gateway de ExpressRoute. Mesmo que o gateway de ExpressRoute esteja configurado no [modo][VPNERCoex] de coexistência, a integração VNet não funciona. Se você precisar acessar recursos por meio de uma conexão do ExpressRoute, poderá usar o recurso de integração VNet regional ou um [ambiente do serviço de aplicativo][ASE], que é executado em sua VNet. 
+> O recurso de integração VNet do gateway necessário não integra um aplicativo a uma VNet que tem um gateway de ExpressRoute. Mesmo que o gateway de ExpressRoute esteja configurado no [modo de coexistência][VPNERCoex] , a integração VNet não funciona. Se você precisar acessar recursos por meio de uma conexão do ExpressRoute, poderá usar o recurso de integração VNet regional ou um [ambiente do serviço de aplicativo][ASE], que é executado em sua VNet. 
 > 
 > 
 
@@ -240,7 +240,7 @@ Se estiver usando a integração VNet necessária do gateway com o emparelhament
 1. Vá para o plano do serviço de aplicativo > rede > interface do usuário de integração VNet no Portal.  Selecione a VNet à qual seu aplicativo se conecta. Na seção roteamento, adicione o intervalo de endereços da VNet emparelhada com a VNet à qual seu aplicativo está conectado.  
 
 
-## <a name="pricing-details"></a>Detalhes de preços
+## <a name="pricing-details"></a>Detalhes dos preços
 O recurso de integração VNet regional não tem nenhum custo adicional para uso além dos encargos do tipo de preço ASP.
 
 Há três encargos relacionados ao uso do recurso de integração VNet exigido pelo gateway:
@@ -277,13 +277,13 @@ Se esses itens não responderem a seus problemas, veja primeiro algo como:
 **Integração de VNet regional**
 * seu destino é um endereço RFC 1918
 * Há um NSG bloqueando a saída de sua sub-rede de integração
-* Se estiver entrando no ExpressRoute ou em uma VPN, o gateway local será configurado para rotear o tráfego de volta para o Azure? Se você puder acessar pontos de extremidade em sua VNet, mas não local, isso será bom para verificar.
+* Se estiver indo pelo ExpressRoute ou por uma VPN, o gateway local será configurado para rotear o tráfego de volta para o Azure? Se você puder acessar pontos de extremidade em sua VNet, mas não local, isso será bom para verificar.
 
 **Integração VNet necessária do gateway**
 * é o intervalo de endereços de ponto a site nos intervalos RFC 1918 (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * O gateway é mostrado como estando ativo no portal? Se o seu gateway estiver inativo, ative-o novamente.
 * Os certificados são mostrados como estando em sincronia ou você suspeita que a configuração de rede foi alterada?  Se os certificados estiverem fora de sincronia ou se você suspeitar de que houve uma alteração na configuração da VNet que não foi sincronizada com suas ASPs, pressione "sincronizar rede".
-* Se estiver entrando no ExpressRoute ou em uma VPN, o gateway local será configurado para rotear o tráfego de volta para o Azure? Se você puder acessar pontos de extremidade em sua VNet, mas não local, isso será bom para verificar.
+* Se estiver indo pelo ExpressRoute ou por uma VPN, o gateway local será configurado para rotear o tráfego de volta para o Azure? Se você puder acessar pontos de extremidade em sua VNet, mas não local, isso será bom para verificar.
 
 A depuração de problemas de rede é um desafio porque não é possível ver o que está bloqueando o acesso a uma combinação de hosts específicos: porta. Algumas das causas incluem:
 
@@ -298,7 +298,7 @@ Lembre-se de que você não sabe qual endereço seu aplicativo realmente usará.
 
 As etapas de depuração adicionais incluem:
 
-* Conecte-se a uma VM em sua VNet e tente acessar a porta do host de recursos: a partir daí. Para testar o acesso TCP, use o comando do PowerShell **Test-** NetConnection. A sintaxe é:
+* Conecte-se a uma VM em sua VNet e tente acessar a porta do host de recursos: a partir daí. Para testar o acesso TCP, use o comando do PowerShell **Test-NetConnection**. A sintaxe é:
 
       test-netconnection hostname [optional: -Port]
 
@@ -306,7 +306,7 @@ As etapas de depuração adicionais incluem:
 
 #### <a name="on-premises-resources"></a>Recursos locais ####
 
-Se seu aplicativo não puder acessar um recurso local, verifique se você pode acessar o recurso de sua VNet. Use o comando **Test-** NetConnection do PowerShell para verificar o acesso a TCP. Se sua VM não conseguir acessar o recurso local, sua conexão VPN ou ExpressRoute poderá não estar configurada corretamente.
+Se seu aplicativo não puder acessar um recurso local, verifique se você pode acessar o recurso de sua VNet. Use o comando **Test-NetConnection** do PowerShell para verificar o acesso a TCP. Se sua VM não conseguir acessar o recurso local, sua conexão VPN ou ExpressRoute poderá não estar configurada corretamente.
 
 Se a VM hospedada na VNet puder acessar seu sistema local, mas seu aplicativo não puder, a causa provavelmente será um dos seguintes motivos:
 
@@ -343,6 +343,6 @@ Você pode integrar o serviço de aplicativo com uma rede virtual do Azure usand
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

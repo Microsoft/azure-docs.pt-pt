@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 551918373f8292d798980600d6e0d43add55bd18
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224514"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828277"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Pré-requisitos do Azure Disk Encryption
 
@@ -70,6 +70,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | Ubuntu | 18, 4| Disco de SO e dados |
 | Ubuntu | 16.04| Disco de SO e dados |
 | Ubuntu | 14.04.5</br>[com o kernel ajustado do Azure atualizado para 4,15 ou posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco de SO e dados |
+| RHEL | 7,7 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7,6 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.5 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 7.4 | Sistema operacional e disco de dados (veja a observação abaixo) |
@@ -77,6 +78,7 @@ As distribuições do servidor Linux que não são endossadas pelo Azure não d�
 | RHEL | 7.2 | Sistema operacional e disco de dados (veja a observação abaixo) |
 | RHEL | 6.8 | Disco de dados (veja a observação abaixo) |
 | RHEL | 6.7 | Disco de dados (veja a observação abaixo) |
+| CentOS | 7,7 | Disco de SO e dados |
 | CentOS | 7,6 | Disco de SO e dados |
 | CentOS | 7.5 | Disco de SO e dados |
 | CentOS | 7.4 | Disco de SO e dados |
@@ -181,7 +183,7 @@ O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta da linha de comandos para ger
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Fluxo de trabalho dos pré-requisitos para o Key Vault
-Se já estiver familiarizado com os pré-requisitos do Key Vault e o Azure AD para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter mais informações sobre como utilizar o script de pré-requisitos, consulte a [encriptar um início rápido de VM](azure-disk-encryption-linux-powershell-quickstart.md) e o [apêndice de encriptação de disco do Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Se já estiver familiarizado com os pré-requisitos do Key Vault e o Azure AD para a encriptação de disco do Azure, pode utilizar o [script do PowerShell de pré-requisitos de Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Para obter mais informações sobre como utilizar o script de pré-requisitos, consulte a [encriptar um início rápido de VM](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) e o [apêndice de encriptação de disco do Azure](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Se necessário, crie um grupo de recursos.
 2. Criar um cofre de chaves. 

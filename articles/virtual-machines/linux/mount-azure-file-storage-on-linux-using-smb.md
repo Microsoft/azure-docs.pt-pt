@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091831"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828402"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montar o armazenamento de arquivos do Azure em VMs Linux usando SMB
 
@@ -33,7 +33,7 @@ Este guia requer que você esteja executando o CLI do Azure versão 2.0.4 ou pos
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos chamado MyResource Group no local *leste dos EUA* .
+Crie um grupo de recursos chamado *MyResource* Group no local *leste dos EUA* .
 
 ```bash
 az group create --name myResourceGroup --location eastus
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 
-Crie uma nova conta de armazenamento, dentro do grupo de recursos que você criou, usando [AZ Storage Account Create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento denominada *mySTORAGEACCT\<número aleatório >* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser `$RANDOM` exclusivos, usando acrescenta um número ao final para torná-lo exclusivo.
+Crie uma nova conta de armazenamento, dentro do grupo de recursos que você criou, usando [AZ Storage Account Create](/cli/azure/storage/account). Este exemplo cria uma conta de armazenamento denominada *mySTORAGEACCT @ no__t-1random number >* e coloca o nome dessa conta de armazenamento na variável **STORAGEACCT**. Os nomes de conta de armazenamento devem ser exclusivos, usando `$RANDOM` acrescenta um número ao final para torná-lo exclusivo.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -99,7 +99,7 @@ Monte o compartilhamento de arquivos do Azure no diretório local.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-O comando acima usa o comando [Mount](https://linux.die.net/man/8/mount) para montar o compartilhamento de arquivos do Azure e as opções específicas para o [CIFS](https://linux.die.net/man/8/mount.cifs). Especificamente, as opções file_mode e dir_mode definem arquivos e diretórios como `0777`permissão. A `0777` permissão fornece permissões de leitura, gravação e execução para todos os usuários. Você pode alterar essas permissões substituindo os valores por outras [permissões de chmod](https://en.wikipedia.org/wiki/Chmod). Você também pode usar outras opções de [CIFS](https://linux.die.net/man/8/mount.cifs) , como GID ou UID. 
+O comando acima usa o comando [Mount](https://linux.die.net/man/8/mount) para montar o compartilhamento de arquivos do Azure e as opções específicas para o [CIFS](https://linux.die.net/man/8/mount.cifs). Especificamente, as opções file_mode e dir_mode definem arquivos e diretórios para permissão `0777`. A permissão `0777` fornece permissões de leitura, gravação e execução para todos os usuários. Você pode alterar essas permissões substituindo os valores por outras [permissões de chmod](https://en.wikipedia.org/wiki/Chmod). Você também pode usar outras opções de [CIFS](https://linux.die.net/man/8/mount.cifs) , como GID ou UID. 
 
 
 ## <a name="persist-the-mount"></a>Persistir a montagem
@@ -111,9 +111,9 @@ Quando você reinicializa a VM do Linux, o compartilhamento SMB montado é desmo
 ```
 Para aumentar a segurança em ambientes de produção, você deve armazenar suas credenciais fora do fstab.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Usando Cloud-init para personalizar uma VM do Linux durante a criação](using-cloud-init.md)
 - [Adicionar um disco a uma VM do Linux](add-disk.md)
-- [Criptografar discos em uma VM Linux usando o CLI do Azure](encrypt-disks.md)
+- [Azure Disk Encryption para VMs Linux](disk-encryption-overview.md)
 

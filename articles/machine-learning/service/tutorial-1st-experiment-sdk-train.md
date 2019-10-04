@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 6287f51d4fa0a1e4c2fb27b7cde873262ad6b3fe
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327231"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828021"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -35,21 +35,12 @@ O único pré-requisito é executar a parte um deste tutorial, o [ambiente de in
 
 Nesta parte do tutorial, você executa o código no bloco de anotações `tutorials/tutorial-1st-experiment-sdk-train.ipynb` Jupyter de exemplo aberto no final da parte 1. Este artigo percorre o mesmo código que está no bloco de anotações.
 
-## <a name="launch-jupyter-web-interface"></a>Iniciar interface da Web do Jupyter
+## <a name="open-the-notebook"></a>Abrir o bloco de anotações
 
-1. Na página do seu espaço de trabalho no portal do Azure, selecione **VMs do notebook** à esquerda.
+1. Entre na página de [aterrissagem do espaço de trabalho](https://ml.azure.com/).
 
-1. Selecione **Jupyter** na coluna **URI** para a VM que você criou na parte um deste tutorial.
+1. Abra o **tutorial-1º-experimento-SDK-Train. ipynb** em sua pasta, conforme mostrado na [parte um](tutorial-1st-experiment-sdk-setup.md#open).
 
-    ![Iniciar o servidor do Jupyter Notebook](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
-
-   O link inicia o servidor do bloco de anotações e abre a página da Web do Jupyter notebook em uma nova guia do navegador.  Esse link funcionará apenas para a pessoa que cria a VM. Cada usuário do espaço de trabalho deve criar sua própria VM.
-
-1. Na página da Web do Jupyter notebook, selecione o Top FolderName, que tem seu nome de usuário.  
-
-   Essa pasta existe na conta de [armazenamento](concept-workspace.md#resources) do espaço de trabalho em vez de na própria VM do notebook.  Se você excluir a VM do notebook, ainda manterá todo o seu trabalho.  Quando você criar uma nova VM de bloco de anotações mais tarde, ela carregará essa mesma pasta. Se você compartilhar seu espaço de trabalho com outras pessoas, ele verá sua pasta e você verá seus.
-
-1. Abra o `samples-*` subdiretório e, em seguida, abra o `tutorials/tutorial-1st-experiment-sdk-train.ipynb`bloco de anotações `.yml` Jupyter, **não** o arquivo de mesmo nome. 
 
 > [!Warning]
 > **Não** crie um *novo* bloco de anotações na interface Jupyter! O notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` é inclusivo de **todos os códigos e dados necessários** para este tutorial.
@@ -60,7 +51,7 @@ Nesta parte do tutorial, você executa o código no bloco de anotações `tutori
 > O restante deste artigo contém o mesmo conteúdo que você vê no bloco de anotações.  
 >
 > Alterne para o notebook Jupyter agora se você quiser ler ao executar o código. 
-> Para executar uma única célula de código em um bloco de anotações, clique na célula de código e pressione **Shift + Enter**. Ou então, execute o bloco de anotações inteiro escolhendo a **célula > executar tudo** no menu superior.
+> Para executar uma única célula de código em um bloco de anotações, clique na célula de código e pressione **Shift + Enter**. Ou então, execute o bloco de anotações inteiro escolhendo **executar tudo** na barra de ferramentas superior.
 
 Importe a `Workspace` classe e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config().` que procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`o. Em um servidor de bloco de anotações de nuvem, o arquivo é automaticamente no diretório raiz.
 
@@ -138,11 +129,11 @@ Após a conclusão do treinamento, chame a `experiment` variável para buscar um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para o portal do Azure</td><td>Link para a documentação</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para portal do Azure</td><td>Link para a documentação</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Exibir resultados de treinamento no portal
 
-Após o **link para o portal do Azure** , você será levado para a página principal do experimento. Aqui você vê todas as execuções individuais no experimento. Todos os valores personalizados registrados (`alpha_value` e `rmse`, nesse caso) tornam-se campos para cada execução e também ficam disponíveis para os gráficos e blocos na parte superior da página do experimento. Para adicionar uma métrica registrada a um gráfico ou bloco, passe o mouse sobre ela, clique no botão Editar e localize sua métrica personalizada registrada em log.
+Seguindo o **link para Portal do Azure** leva você para a página principal do experimento. Aqui você vê todas as execuções individuais no experimento. Todos os valores personalizados registrados (`alpha_value` e `rmse`, nesse caso) tornam-se campos para cada execução e também ficam disponíveis para os gráficos e blocos na parte superior da página do experimento. Para adicionar uma métrica registrada a um gráfico ou bloco, passe o mouse sobre ela, clique no botão Editar e localize sua métrica personalizada registrada em log.
 
 Ao treinar modelos em escala em centenas e milhares de execuções separadas, essa página facilita a visualização de todos os modelos treinados, especificamente de como eles foram treinados e como suas métricas exclusivas foram alteradas ao longo do tempo.
 
@@ -182,7 +173,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Use a melhor ID de execução para buscar a execução individual usando `Run` o Construtor junto com o objeto experimento. Em seguida `get_file_names()` , chame para ver todos os arquivos disponíveis para download nesta execução. Nesse caso, você carregou apenas um arquivo para cada execução durante o treinamento.
+Use a melhor ID de execução para buscar a execução individual usando o Construtor `Run` juntamente com o objeto experimento. Em seguida `get_file_names()` , chame para ver todos os arquivos disponíveis para download nesta execução. Nesse caso, você carregou apenas um arquivo para cada execução durante o treinamento.
 
 ```python
 from azureml.core import Run

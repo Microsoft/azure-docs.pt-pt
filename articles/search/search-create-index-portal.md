@@ -1,25 +1,25 @@
 ---
 title: Criar um índice de Azure Search no portal do Azure-Azure Search
-description: Saiba como criar um índice para Azure Search usando os designers de índice do portal interno.
+description: Saiba como criar um índice para Azure Search usando um designer de índice do portal interno.
 manager: nitinme
 author: heidisteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 10/02/2019
 ms.author: heidist
-ms.openlocfilehash: fec81cd9660348d492b1dabd24ac689f2b06e880
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638816"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937270"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Criar um índice de Azure Search no portal
 
-O Azure Search inclui um designer de índice interno no portal útil para protótipos ou a criação de um [índice de pesquisa](search-what-is-an-index.md) hospedado em seu serviço de Azure Search. A ferramenta é usada para construção de esquema. Quando você salva a definição, um índice vazio se torna totalmente expresso em Azure Search. A forma como você o carrega com dados pesquisáveis cabe a você.
+O Azure Search inclui um designer de índice interno no portal útil para protótipos ou a criação de um [índice de pesquisa](search-what-is-an-index.md) hospedado em seu serviço de Azure Search. A ferramenta é usada para construção de esquema. Quando você salva a definição, um índice vazio se torna totalmente expresso em Azure Search. A forma como você o carrega com conteúdo pesquisável cabe a você.
 
-O designer de índice é apenas uma abordagem para a criação de um índice. Programaticamente, você pode criar um índice usando as APIs do [.net](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md) .
+O designer de índice é apenas uma abordagem para a criação de um índice. Como alternativa, você pode criar e carregar um índice usando o [Assistente de importação de dados](search-get-started-portal.md). O assistente só funciona com índices que ele cria. Programaticamente, você pode criar um índice usando as APIs do [.net](search-create-index-dotnet.md) ou [REST](search-create-index-rest-api.md) .
 
 ## <a name="start-index-designer"></a>Iniciar o designer de índice
 
@@ -27,7 +27,7 @@ O designer de índice é apenas uma abordagem para a criação de um índice. Pr
 
 2. Clique no link **Adicionar índice** na barra de comandos na parte superior da página.
 
-   ![Adicionar link de índice na barra de comandos](media/search-create-index-portal/add-index.png "Adicionar link de índice na barra de comandos")
+   ![Link Adicionar índice na barra de comandos](media/search-create-index-portal/add-index.png "Adicionar link de índice na barra de comandos")
 
 3. Atribua um nome ao índice do Azure Search. Os nomes de índice são referenciados em operações de indexação e consulta. O nome do índice passa a fazer parte do URL do ponto final utilizado nas ligações ao índice e para enviar pedidos HTTP na API REST do Azure Search.
 
@@ -41,15 +41,17 @@ A composição do índice inclui uma *coleção de Campos* que define os dados p
 
 1. Adicione campos para especificar completamente os documentos que serão carregados, definindo um [tipo de dados](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para cada um. Por exemplo, se os documentos consistem em um *Hotel-ID*, *Hotel-Name*, *Address*, *City*e *Region*, crie um campo correspondente para cada um no índice. Examine as [diretrizes de design na seção abaixo](#design) para obter ajuda com a configuração de atributos.
 
-2. Especifique um campo de *chave* do tipo EDM. String. Os valores para esse campo devem identificar exclusivamente cada documento. Por predefinição, o campo tem o nome *id*, mas pode alterá-lo, desde que a cadeia satisfaça as [regras de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Por exemplo, se a coleção Fields incluir o *Hotel-ID*, você escolheria isso para sua chave. Um campo de chave é obrigatório para todos os índices do Azure Search e tem de ser uma cadeia.
+1. Se os dados de entrada forem hierárquicos por natureza, o esquema deverá incluir [tipos complexos](search-howto-complex-data-types.md) para representar as estruturas aninhadas. O conjunto de dados de exemplo interno, hotéis, ilustra os tipos complexos usando um endereço (contém vários subcampos) que têm uma relação um-para-um com cada hotel e uma coleção complexa de salas, em que várias salas são associadas a cada hotel. 
 
-3. Defina atributos em cada campo. O designer de índice exclui todos os atributos que são inválidos para o tipo de dados, mas não sugere o que incluir. Revise as diretrizes na próxima seção para entender a finalidade dos atributos.
+1. Especifique um campo de *chave* do tipo EDM. String. Um campo de chave é obrigatório para todos os índices do Azure Search e tem de ser uma cadeia. Os valores para esse campo devem identificar exclusivamente cada documento. Por predefinição, o campo tem o nome *id*, mas pode alterá-lo, desde que a cadeia satisfaça as [regras de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Por exemplo, se a coleção Fields incluir o *Hotel-ID*, você escolheria isso para sua chave. 
+
+1. Defina atributos em cada campo. O designer de índice exclui todos os atributos que são inválidos para o tipo de dados, mas não sugere o que incluir. Revise as diretrizes na próxima seção para entender a finalidade dos atributos.
 
     A documentação da API do Azure Search inclui exemplos de código com um índice de *hotéis* simples. Na captura de tela abaixo, você pode ver a definição do índice, incluindo o analisador de idioma francês especificado durante a definição do índice, que você pode recriar como um exercício de prática no Portal.
 
-    ![Índice de demonstração de hotéis](media/search-create-index-portal/field-definitions.png "Índice de demonstração de hotéis")
+    ![](media/search-create-index-portal/field-definitions.png "Índice") de demonstração de hotéis do índice de demonstração de hotéis
 
-4. Quando terminar, clique em **criar** para salvar e criar o índice.
+1. Quando terminar, clique em **criar** para salvar e criar o índice.
 
 <a name="design"></a>
 

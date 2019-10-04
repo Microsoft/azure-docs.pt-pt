@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 8cdfe82888cca471aa5aae6717a16f62000c4ad5
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69657846"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839216"
 ---
-| Resource | Livre | Partilhado | Básica | Standard | Premium (v2) | Plano Isolado </th> |
+| Resource | Livre | Partilhado | Básica | Standard | Premium (v2) | Isolado </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Aplicativos Web, móveis ou de API](https://azure.microsoft.com/services/app-service/) por [Azure app plano de serviço](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup> |Ilimitado<sup>2</sup>|
 | [Plano do Serviço de Aplicações](../articles/app-service/overview-hosting-plans.md) |10 por região |10 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos |100 por grupo de recursos|
@@ -42,7 +42,7 @@ ms.locfileid: "69657846"
 <sup>2</sup> O número real de aplicativos que você pode hospedar nesses computadores depende da atividade dos aplicativos, do tamanho das instâncias de máquina e da utilização de recursos correspondente.  
 <sup>3</sup> As instâncias dedicadas podem ter tamanhos diferentes. Para obter mais informações, consulte [preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup> Mais permissões são permitidas mediante solicitação.  
-<sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo em todos os aplicativos no mesmo plano do serviço de aplicativo.  
+<sup>5</sup> O limite de armazenamento é o tamanho total do conteúdo em todos os aplicativos no mesmo plano do serviço de aplicativo. O tamanho total do conteúdo de todos os aplicativos em todos os planos do serviço de aplicativo em um único grupo de recursos e região não pode exceder 500 GB.  
 <sup>6</sup> Esses recursos são restritos por recursos físicos nas instâncias dedicadas (o tamanho da instância e o número de instâncias).  
 <sup>7</sup> Se você dimensionar um aplicativo na camada básica para duas instâncias, terá 350 conexões simultâneas para cada uma das duas instâncias. Para a camada Standard e superior, não há limites teóricos para os soquetes da Web, mas outros fatores podem limitar o número de soquetes da Web. Por exemplo, as solicitações simultâneas máximas permitidas `maxConcurrentRequestsPerCpu`(definidas por) são: 7.500 por VM pequena, 15.000 por VM média (7.500 x 2 núcleos) e 75.000 por VM grande (18.750 x 4 núcleos).  
 <sup>8</sup> Execute executáveis personalizados e/ou scripts sob demanda, em um agendamento ou continuamente como uma tarefa em segundo plano em sua instância do serviço de aplicativo. Sempre Ativo é necessário para a execução contínua do WebJobs. É necessário o Azure Scheduler, Gratuito ou Padrão, para WebJobs agendados. Não há nenhum limite predefinido para o número de trabalhos Web que podem ser executados em uma instância do serviço de aplicativo. Há limites práticos que dependem do que o código do aplicativo está tentando fazer.  

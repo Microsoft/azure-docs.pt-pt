@@ -5,16 +5,15 @@ manager: nitinme
 author: MarkHeff
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 260f6a6141903ea1fd7edcfe2e031091bba322be
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b40cd63062e961848eb1ab6b956e63a83a634817
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744747"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936938"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Destina Chamar API de Serviços Cognitivos em um pipeline de indexação de Azure Search
 
@@ -68,9 +67,9 @@ Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a ap
 
 O pipeline de melhoramento solicita conteúdo das origens de dados do Azure. Os dados de origem devem ter origem num tipo de origem de dados suportado de um [indexador do Azure Search](search-indexer-overview.md). Para este exercício, vamos utilizar o armazenamento de blobs para demonstrar os vários tipos de conteúdo.
 
-1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, clique em **BLOBs**e, em seguida, clique em **+ contêiner**.
+1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, cliqueem BLOBs e, em seguida, clique em **+ contêiner**.
 
-1. [Crie um contêiner de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) para conter dados de exemplo. Você pode definir o nível de acesso público para qualquer um de seus valores válidos. Este tutorial pressupõe que o nome do contêiner seja "Basic-demo-data-PR".
+1. [Crie um contêiner](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) de BLOBs para conter dados de exemplo. Você pode definir o nível de acesso público para qualquer um de seus valores válidos. Este tutorial pressupõe que o nome do contêiner seja "Basic-demo-data-PR".
 
 1. Depois que o contêiner for criado, abra-o e selecione **carregar** na barra de comandos para carregar os [dados de exemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4).
 
@@ -96,15 +95,15 @@ O [SDK do .net Azure Search](https://aka.ms/search-sdk) consiste em algumas bibl
 
 Para este projeto, será necessário instalar a versão 9 do `Microsoft.Azure.Search` pacote NuGet e o pacote NuGet mais recente. `Microsoft.Extensions.Configuration.Json`
 
-Instale o `Microsoft.Azure.Search` pacote NuGet usando o console do Gerenciador de pacotes no Visual Studio. Para abrir o console do Gerenciador de pacotes, selecione **ferramentas** > **Gerenciador** > de pacotes NuGet**console do Gerenciador de pacotes**. Para obter o comando a ser executado, navegue até a [página Microsoft. Azure. Search NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Search), selecione versão 9 e copie o comando Package Manager. No console do Gerenciador de pacotes, execute este comando.
+Instale o `Microsoft.Azure.Search` pacote NuGet usando o console do Gerenciador de pacotes no Visual Studio. Para abrir o console do Gerenciador de pacotes, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**. Para obter o comando a ser executado, navegue até a [página Microsoft. Azure. Search NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Search), selecione versão 9 e copie o comando Package Manager. No console do Gerenciador de pacotes, execute este comando.
 
-Para instalar o `Microsoft.Extensions.Configuration.Json` pacote NuGet no Visual Studio, selecione **ferramentas** > **Gerenciador** > de pacotes NuGet**gerenciar pacotes NuGet para solução...** . Selecione procurar e pesquise o `Microsoft.Extensions.Configuration.Json` pacote NuGet. Depois de encontrá-lo, selecione o pacote, selecione o projeto, confirme se a versão é a versão estável mais recente e, em seguida, selecione instalar.
+Para instalar o pacote NuGet `Microsoft.Extensions.Configuration.Json` no Visual Studio, selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **gerenciar pacotes NuGet para a solução...** . Selecione procurar e pesquise o pacote NuGet `Microsoft.Extensions.Configuration.Json`. Depois de encontrá-lo, selecione o pacote, selecione o projeto, confirme se a versão é a versão estável mais recente e, em seguida, selecione instalar.
 
 ## <a name="add-azure-search-service-information"></a>Adicionar informações do serviço Azure Search
 
-Para se conectar ao serviço de Azure Search, você precisará adicionar as informações do serviço de pesquisa ao seu projeto. Clique com o botão direito do mouse em seu projeto na Gerenciador de soluções e selecione **Adicionar** > **novo item...** . Nomeie o arquivo `appsettings.json` e selecione **Adicionar**. 
+Para se conectar ao serviço de Azure Search, você precisará adicionar as informações do serviço de pesquisa ao seu projeto. Clique com o botão direito do mouse em seu projeto na Gerenciador de Soluções e selecione **adicionar** > **novo item...** . Nomeie o arquivo `appsettings.json` e selecione **Adicionar**. 
 
-Esse arquivo precisará ser incluído no diretório de saída. Para fazer isso, clique com o `appsettings.json` botão direito do mouse em e selecione **Propriedades**. Altere o valor de **copiar para diretório de saída** para **cópia mais recente**.
+Esse arquivo precisará ser incluído no diretório de saída. Para fazer isso, clique com o botão direito do mouse em `appsettings.json` e selecione **Propriedades**. Altere o valor de **copiar para diretório de saída** para **cópia mais recente**.
 
 Copie o JSON abaixo em seu novo arquivo JSON.
 
@@ -299,7 +298,7 @@ LanguageDetectionSkill languageDetectionSkill = new LanguageDetectionSkill(
 
 ### <a name="text-split-skill"></a>Habilidade de divisão de texto
 
-A habilidade de **divisão** abaixo dividirá o texto por páginas e limitará o comprimento da página a 4.000 `String.Length`caracteres conforme medido por. O algoritmo tentará dividir o texto em partes que tenham no máximo `maximumPageLength` tamanho. Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de frase, de modo que o tamanho da parte pode ser um pouco menor `maximumPageLength`do que.
+A habilidade de **divisão** abaixo dividirá o texto por páginas e limitará o comprimento da página a 4.000 caracteres conforme medido por `String.Length`. O algoritmo tentará dividir o texto em partes que tenham no máximo `maximumPageLength` tamanho. Nesse caso, o algoritmo fará o melhor para quebrar a frase em um limite de frase, de modo que o tamanho da parte pode ser um pouco menor `maximumPageLength`do que.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -326,9 +325,9 @@ SplitSkill splitSkill = new SplitSkill(
 
 ### <a name="entity-recognition-skill"></a>Habilidade de reconhecimento de entidade
 
-Esta `EntityRecognitionSkill` instância está definida para reconhecer o tipo `organization`de categoria. A habilidade de **reconhecimento de entidade** também pode reconhecer `person` tipos `location`de categoria e.
+Esta `EntityRecognitionSkill` instância está definida para reconhecer o tipo `organization`de categoria. A habilidade de **reconhecimento de entidade** também pode reconhecer os tipos de categoria `person` e `location`.
 
-Observe que o campo "contexto" é definido como ```"/document/pages/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada para cada ```"/document/pages"```página em.
+Observe que o campo "contexto" é definido como ```"/document/pages/*"``` com um asterisco, o que significa que a etapa de enriquecimento é chamada para cada página em ```"/document/pages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -355,7 +354,7 @@ EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
 
 ### <a name="key-phrase-extraction-skill"></a>Habilidade de extração de frases-chave
 
-Assim como `EntityRecognitionSkill` a instância que acabou de ser criada, a **extração de frases-chave** habilidade é chamada para cada página do documento.
+Como a instância `EntityRecognitionSkill` que acabou de ser criada, a **extração de frases-chave** habilidade é chamada para cada página do documento.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -425,7 +424,7 @@ Neste exercício, utiliza os seguintes campos e tipos de campo:
 
 Os campos para esse índice são definidos usando uma classe de modelo. Cada propriedade da classe do modelo tem atributos que determinam os comportamentos relacionados com a pesquisa do campo de índice correspondente. 
 
-Adicionaremos a classe de modelo a um novo C# arquivo. Clique com o botão direito do mouse no projeto e selecione **Adicionar** > **novo item...** , selecione "classe" `DemoIndex.cs`e nomeie o arquivo e, em seguida, selecione **Adicionar**.
+Adicionaremos a classe de modelo a um novo C# arquivo. Clique com o botão direito do mouse no projeto e selecione **adicionar** > **novo item...** , selecione "classe" e nomeie o arquivo `DemoIndex.cs` e, em seguida, selecione **Adicionar**.
 
 Certifique-se de indicar que você deseja usar tipos dos `Microsoft.Azure.Search` namespaces e. `Microsoft.Azure.Search.Models`
 
@@ -574,7 +573,7 @@ O código define ```"maxFailedItems"``` como-1, o que instrui o mecanismo de ind
 
 Observe também que ```"dataToExtract"``` o está definido ```"contentAndMetadata"```como. Esta instrução informa o indexador para extrair automaticamente o conteúdo a partir de formatos de ficheiros diferentes, bem como de metadados relativos a cada ficheiro.
 
-Quando o conteúdo é extraído, pode definir `imageAction` para extrair texto das imagens existentes na origem de dados. ```"imageAction"``` O```"generateNormalizedImages"``` conjunto de configuração, combinado com as habilidades de OCR e de mesclagem de texto, diz ao indexador para extrair texto das imagens (por exemplo, a palavra "Stop" de um sinal de parada de tráfego) e inseri-la como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (tal como uma imagem num PDF) como às imagens existentes na origem de dados, por exemplo, um ficheiro JPG.
+Quando o conteúdo é extraído, pode definir `imageAction` para extrair texto das imagens existentes na origem de dados. O ```"imageAction"``` definido como configuração de ```"generateNormalizedImages"```, combinado com a habilidade de OCR e a habilidade de mesclagem de texto, diz ao indexador para extrair texto das imagens (por exemplo, a palavra "Stop" de um sinal de parada de tráfego) e inseri-la como parte do campo de conteúdo. Este comportamento aplica-se tanto às imagens incorporadas nos documentos (tal como uma imagem num PDF) como às imagens existentes na origem de dados, por exemplo, um ficheiro JPG.
 
 ## <a name="check-indexer-status"></a>Verificar o estado do indexador
 

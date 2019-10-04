@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 5b97081cad352a6f6dcbf92b879584e3efa8f4ff
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 4ee622c944c5ccd39331ab395eca7b6ff9692b35
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802862"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836074"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-java"></a>Início rápido: Publicar uma base de dados de conhecimento no QnA Maker usando Java
 

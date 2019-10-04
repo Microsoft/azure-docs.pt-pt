@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676493"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842777"
 ---
-# <a name="automatically-scale-session-hosts"></a>Dimensionar automaticamente os hosts de sessão
+# <a name="scale-session-hosts-dynamically"></a>Dimensionar hosts de sessão dinamicamente
 
 Para muitas implantações de área de trabalho virtual do Windows no Azure, os custos da máquina virtual representam uma parte significativa do custo total de implantação de área de trabalho virtual do Windows. Para reduzir os custos, é melhor desligar e desalocar VMs (máquinas virtuais) do host de sessão fora do horário de pico de uso e, em seguida, reiniciá-las durante o horário de pico de uso.
 

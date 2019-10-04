@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102214"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828764"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Como provisionar uma máquina virtual do Windows SQL Server no portal do Azure
 
@@ -38,7 +38,7 @@ Ao criar uma máquina virtual SQL Server, você pode selecionar uma das várias 
 
 1. Selecione **SQL do Azure** no menu à esquerda da portal do Azure. Se o **SQL do Azure** não estiver na lista, selecione **todos os serviços**e, em seguida, digite SQL do Azure na caixa de pesquisa. Adicional Selecione a estrela ao lado de **Azure SQL** para que ela seja favorita e adicione-a como um item no painel de navegação à esquerda. 
 1. Selecione **+ Adicionar** para abrir a página **selecionar opção de implantação do SQL** . Você pode exibir informações adicionais selecionando **Mostrar detalhes**. 
-1. Digite `2017` a caixa de pesquisa de imagem SQL Server no bloco **máquinas virtuais do SQL** e selecione **licença de SQL Server gratuita: SQL Server desenvolvedor 2017 no Windows Server 2016** na lista suspensa. 
+1. Digite `2017` na caixa de pesquisa de imagem de SQL Server no bloco **máquinas virtuais do SQL** e, em seguida, selecione licença de **Free SQL Server: SQL Server desenvolvedor 2017 no Windows Server 2016 @ no__t-0 da lista suspensa. 
 
 
    ![Selecionar imagem da VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -54,17 +54,6 @@ Ao criar uma máquina virtual SQL Server, você pode selecionar uma das várias 
 
 1. Selecione **Criar**.
 
-
-## <a id="configure"></a>Opções de configuração
-
-Há várias guias para configurar uma máquina virtual SQL Server. Para a finalidade deste guia, iremos nos concentrar no seguinte: 
-
-| Passo | Descrição |
-| --- | --- |
-| **Noções básicas** |[Configurar as definições básicas](#1-configure-basic-settings) |
-| **Recursos opcionais** |[Configurar funcionalidades opcionais](#2-configure-optional-features) |
-| **Definições do SQL Server** |[Configurar definições do SQL Server](#3-configure-sql-server-settings) |
-| **Examinar + criar** | [Reveja o resumo](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Configurar definições básicas
 
@@ -142,8 +131,6 @@ Na guia **monitoramento** , configure o monitoramento e o desligamento automáti
 
 Na guia **configurações de SQL Server** , defina configurações e otimizações específicas para SQL Server. As configurações que você pode definir para SQL Server incluem o seguinte:
 
-
-
 | Definição |
 | --- |
 | [Conetividade](#connectivity) |
@@ -208,24 +195,19 @@ Para obter mais informações, consulte o artigo [Configurar a Integração do C
 
 ### <a name="storage-configuration"></a>Configuração do armazenamento
 
-Na guia **configurações de SQL Server** , em **configuração de armazenamento**, selecione **Alterar configuração** para especificar os requisitos de armazenamento.
+Na guia **configurações de SQL Server** , em **configuração de armazenamento**, selecione **Alterar configuração** para abrir a página configuração de armazenamento otimizado para desempenho e especifique os requisitos de armazenamento.
 
-
-> [!NOTE]
-> Se tiver configurado manualmente a VM para utilizar o armazenamento standard, esta opção não estará disponível. A otimização de armazenamento automática só está disponível para o Premium Storage.
-
-> [!TIP]
-> O número de paragens e os limites superiores de cada controlo de deslize dependem do tamanho da VM que selecionou. Quanto maiores e mais poderosas, mais aumentadas verticalmente podem ser as VMs.
-
-Pode especificar os requisitos como operações de entrada/saída por segundo (IOPs), débito em MB/s e tamanho de armazenamento total. Configure estes valores, utilizando as escalas deslizantes. Pode alterar estas definições de armazenamento com base na carga de trabalho. O portal calcula automaticamente o número de discos a ligar e configurar com base nestes requisitos.
+![Configuração de armazenamento da VM do SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Em **Armazenamento otimizado para**, selecione uma das seguintes opções:
 
 * **Geral** é a predefinição e suporta a maioria das cargas de trabalho.
-* O processamento **Transacional** otimiza o armazenamento para cargas de trabalho OLTP de bases de dados tradicionais.
+* O **processamento transacional** otimiza o armazenamento para cargas de trabalho OLTP tradicionais do banco de dados.
 * O **Armazenamento de dados** otimiza o armazenamento para cargas de trabalho analíticas e de relatórios.
 
-![Configuração de armazenamento da VM do SQL](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![Configuração de armazenamento da VM do SQL](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+Você pode optar por deixar os valores em padrão ou pode alterar manualmente a topologia de armazenamento para atender às suas necessidades de IOPS. Para obter mais informações, consulte [configuração de armazenamento](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### <a name="sql-server-license"></a>Licença do SQL Server
 Se você for um cliente do Software Assurance, poderá utilizar o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/) para trazer sua própria licença de SQL Server e salvar os recursos. 
@@ -298,6 +280,6 @@ As seções a seguir mostram como se conectar pela Internet à sua instância de
   > Este exemplo usa a porta comum 1433. No entanto, esse valor precisará ser modificado se uma porta diferente (como 1401) tiver sido especificada durante a implantação da VM de SQL Server. 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para outras informações sobre como utilizar o SQL Server no Azure, consulte o artigo [SQL Server em Virtual Machines do Azure](virtual-machines-windows-sql-server-iaas-overview.md) e as [Perguntas Mais Frequentes](virtual-machines-windows-sql-server-iaas-faq.md).

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
-ms.translationtype: MT
+ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233246"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839620"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -100,11 +100,11 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 3. Na seção **configurações** , selecione **Configurações avançadas**.
 4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
-    -   LogicalDisk (\*)\|% de espaço livre
-    -   LogicalDisk (C:)\\Méd. Comprimento da Fila de Discos
-    -   Memória (\*)\\MBytes disponíveis
-    -   Informações do processador\*(\\) tempo do processador
-    -   Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada
+    -   LogicalDisk (\*) \|% de espaço livre
+    -   LogicalDisk (C:) \\Avg. Comprimento da fila de discos
+    -   Memória (\*) \\Available Mbytes
+    -   Informações do processador (\*) \\Processor tempo
+    -   Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
 
 Saiba mais sobre os contadores de desempenho em [fontes de dados de desempenho do Windows e do Linux no Azure monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -134,11 +134,11 @@ Para certificar-se de que seu espaço de trabalho Log Analytics tem os contadore
 3. Depois disso, vá para **dados** > **contadores de desempenho do Windows**.
 4. Verifique se os seguintes contadores estão pré-configurados:
 
-   - LogicalDisk (\*)\|% de espaço livre: Exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
-   - LogicalDisk (C:)\\Méd. Comprimento da fila de disco: O comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
-   - Memória (\*)\\MBytes disponíveis: A memória disponível para o sistema em megabytes.
-   - Informações do processador\*(\\) tempo do processador: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
-   - Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada
+   - LogicalDisk (\*) \|% de espaço livre: Exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
+   - LogicalDisk (C:) \\Avg. Comprimento da fila de disco: O comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
+   - Memória (\*) \\Available Mbytes: A memória disponível para o sistema em megabytes.
+   - Informações do processador (\*) \\Processor tempo: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
+   - Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Conectar-se a VMs em seu espaço de trabalho Log Analytics
 
@@ -175,13 +175,13 @@ Para definir o URI de redirecionamento:
 2.  Vá para a página Visão geral e copie a URL que encontrar.
 3.  Navegue até **registros do aplicativo** e selecione o aplicativo que você deseja implantar.
 4.  No painel esquerdo, em gerenciar seção, selecione **autenticação**.
-5.  Insira o URI de redirecionamento desejado na caixa de texto **URI** de redirecionamento e, em seguida, selecione **salvar** no canto superior esquerdo do menu.
+5.  Insira o URI de redirecionamento desejado na caixa de texto **URI de redirecionamento** e, em seguida, selecione **salvar** no canto superior esquerdo do menu.
 6. Selecione **Web** no menu suspenso em tipo.
 7. Insira a URL na página Visão geral do aplicativo e adicione **/Security/SignIn-callback** ao final dela. Por exemplo: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    ![A página URI de redirecionamento](media/redirect-uri-page.png)
 
-8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo era `contosoapp45`, então, a URL associada é <https://contosoapp45.azurewebsites.net>).
+8. Agora, vá para os recursos do Azure, selecione o recurso serviços de Azure App com o nome fornecido no modelo e navegue até a URL associada a ele. (Por exemplo, se o nome do aplicativo usado no modelo foi `contosoapp45`, a URL associada será <https://contosoapp45.azurewebsites.net>).
 9. Entre usando a conta de usuário do Azure Active Directory apropriada.
 10.   Selecione **Aceitar**.
 
@@ -189,8 +189,8 @@ Para definir o URI de redirecionamento:
 
 Antes de disponibilizar a ferramenta de diagnóstico para seus usuários, verifique se eles têm as seguintes permissões:
 
-- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/azure/azure-monitor/platform/roles-permissions-security).
--  Os usuários também precisam de acesso de leitura para o locatário da área de trabalho virtual do Windows (função leitor do RDS). Para obter mais informações, consulte [acesso delegado na visualização da área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
+- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+-  Os usuários também precisam de acesso de leitura para o locatário da área de trabalho virtual do Windows (função leitor do RDS). Para obter mais informações, consulte [acesso delegado na área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
 
 Você também precisa dar aos seus usuários as seguintes informações:
 
@@ -203,7 +203,7 @@ Depois de entrar na sua conta usando as informações que você recebeu da sua o
 
 ### <a name="how-to-read-activity-search-results"></a>Como ler os resultados da pesquisa de atividade
 
-As atividades são classificadas por carimbo de data/hora, com a atividade mais recente primeiro. Se os resultados retornarem um erro, primeiro verifique se é um erro de serviço. Para erros de serviço, crie um tíquete de suporte com as informações de atividade para nos ajudar a depurar o problema. Todos os outros tipos de erro geralmente podem ser resolvidos pelo usuário ou pelo administrador. Para obter uma lista dos cenários de erro mais comuns e como resolvê-los, consulte [identificar problemas com o recurso de diagnóstico](diagnostics-role-service.md#common-error-scenarios).
+As atividades são classificadas por carimbo de data/hora, com a atividade mais recente primeiro. Se os resultados retornarem um erro, primeiro verifique se é um erro de serviço. Para erros de serviço, crie um tíquete de suporte com as informações de atividade para nos ajudar a depurar o problema. Todos os outros tipos de erro geralmente podem ser resolvidos pelo usuário ou pelo administrador. Para obter uma lista dos cenários de erro mais comuns e como resolvê-los, consulte [identificar e diagnosticar problemas](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Os erros de serviço são chamados de "erros externos" na documentação vinculada. Isso será alterado quando atualizarmos a referência do PowerShell.
@@ -226,25 +226,25 @@ Você também pode interagir com os usuários no host da sessão:
 
 ### <a name="windows-performance-counter-thresholds"></a>Limites do contador de desempenho do Windows
 
-- LogicalDisk (\*)\|% de espaço livre:
+- LogicalDisk (\*) \|% de espaço livre:
 
     - Exibe o percentual do total de espaço utilizável no disco lógico que é gratuito.
     - Os Menos de 20% é marcado como não íntegro.
 
-- LogicalDisk (C:)\\Méd. Comprimento da fila de disco:
+- LogicalDisk (C:) \\Avg. Comprimento da fila de disco:
 
     - Representa as condições do sistema de armazenamento.
     - Os Maior que 5 é marcado como não íntegro.
 
-- Memória (\*)\\MBytes disponíveis:
+- Memória (\*) \\Available Mbytes:
 
     - A memória disponível para o sistema.
     - Os Menos de 500 megabytes marcados como não íntegros.
 
-- Informações do processador\*(\\) tempo do processador:
+- Informações do processador (\*) \\Processor tempo:
 
     - Os Maior que 80% é marcado como não íntegro.
 
-- [Atraso de entrada do usuário por\*sessão\\() atraso máximo de entrada](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-2max](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Os Mais de 2000 MS está marcado como não íntegro.

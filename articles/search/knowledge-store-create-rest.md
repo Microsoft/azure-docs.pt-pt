@@ -4,16 +4,15 @@ description: Crie um repositório de conhecimento Azure Search para persistir ap
 author: lobrien
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: e28fa919c4c656b9ceb1d34806c3ef08aec2df2c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 26dc66474eecffd7f5a34bcfcaf93fd49f59606c
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719927"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936505"
 ---
 # <a name="create-an-azure-search-knowledge-store-using-rest"></a>Criar um repositório de conhecimento Azure Search usando REST
 

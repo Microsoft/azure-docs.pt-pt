@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: f118f27d870f4c69a3bf568bacb3765fefee34c0
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 9ce4b25d26c0294cf7618b5851c0956af7687ee7
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907121"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837553"
 ---
 [!INCLUDE [Prerequisites](prerequisites-java.md)]
 
@@ -24,7 +24,7 @@ mkdir detect-sample
 cd detect-sample
 ```
 
-Em seguida, você vai inicializar um projeto gradle. Esse comando criará arquivos de Build essenciais para gradle, o mais importante `build.gradle.kts`, o, que é usado em tempo de execução para criar e configurar seu aplicativo. Execute este comando em seu diretório de trabalho:
+Em seguida, você vai inicializar um projeto gradle. Esse comando criará arquivos de Build essenciais para gradle, o mais importante, o `build.gradle.kts`, que é usado em tempo de execução para criar e configurar seu aplicativo. Execute este comando em seu diretório de trabalho:
 
 ```console
 gradle init --type basic
@@ -34,7 +34,7 @@ Quando for solicitado a escolher uma **DSL**, selecione **Kotlin**.
 
 ## <a name="configure-the-build-file"></a>Configurar o arquivo de compilação
 
-Localize `build.gradle.kts` -o e abra-o com seu IDE ou editor de texto favorito. Em seguida, copie nesta configuração de compilação:
+Localize `build.gradle.kts` e abra-o com seu IDE ou editor de texto favorito. Em seguida, copie nesta configuração de compilação:
 
 ```
 plugins {
@@ -88,7 +88,7 @@ public class Detect {
 }
 ```
 
-Adicione essas linhas à `Detect` classe. Você notará que a chave de assinatura e o ponto de extremidade estão sendo lidos de variáveis de ambiente:
+Adicione essas linhas à classe `Detect`. Você notará que a chave de assinatura e o ponto de extremidade estão sendo lidos de variáveis de ambiente:
 
 ```java
 private static String subscriptionKey = System.getenv("TRANSLATOR_TEXT_SUBSCRIPTION_KEY");
@@ -100,7 +100,7 @@ Se você estiver usando uma assinatura de vários serviços cognitivas, também 
 
 ## <a name="create-a-client-and-build-a-request"></a>Criar um cliente e criar uma solicitação
 
-Adicione essa linha à `Detect` classe para instanciar o: `OkHttpClient`
+Adicione essa linha à classe `Detect` para instanciar o `OkHttpClient`:
 
 ```java
 // Instantiates the OkHttpClient.
@@ -170,7 +170,10 @@ gradle run
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
+
+> [!NOTE]
+> Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

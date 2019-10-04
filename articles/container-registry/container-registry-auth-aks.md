@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: danlep
-ms.openlocfilehash: f80956ec401737766f7a85540e90be70b9d621e7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: dc5276227913d2da6e52ee3c0fb493b98e86688a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114692"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827766"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure
 
@@ -21,7 +21,7 @@ Quando você estiver usando o ACR (registro de contêiner do Azure) com o AKS (s
 
 Você só precisa configurar um desses métodos de autenticação. A abordagem mais comum é [conceder acesso usando a entidade de serviço AKs](#grant-aks-access-to-acr). Se você tiver necessidades específicas, poderá, opcionalmente, [conceder acesso usando segredos do kubernetes](#access-with-kubernetes-secret).
 
-Este artigo pressupõe que você já criou um cluster AKs e pode acessar o cluster com o cliente de linha de `kubectl` comando. Se, em vez disso, você quiser criar um cluster e configurar o acesso a um registro de contêiner no [momento da criação do cluster, consulte o tutorial: Implante um cluster](../aks/tutorial-kubernetes-deploy-cluster.md) AKs ou [autentique com o registro de contêiner do Azure do serviço kubernetes do Azure (versão prévia)](../aks/cluster-container-registry-integration.md).
+Este artigo pressupõe que você já criou um cluster AKs e pode acessar o cluster com o cliente de linha de `kubectl` comando. Se, em vez disso, você quiser criar um cluster e configurar o acesso a um registro de contêiner no momento da criação do cluster, consulte [Tutorial: Implante um cluster AKS @ no__t-0 ou [autentique com o registro de contêiner do Azure do serviço kubernetes do Azure](../aks/cluster-container-registry-integration.md).
 
 ## <a name="grant-aks-access-to-acr"></a>Conceder acesso AKS ao ACR
 

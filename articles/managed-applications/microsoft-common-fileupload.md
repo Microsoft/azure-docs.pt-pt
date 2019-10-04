@@ -1,6 +1,6 @@
 ---
-title: Elemento de interface do Usuário de FileUpload do Azure | Documentos da Microsoft
-description: Descreve o elemento de interface do Usuário de Microsoft.Common.FileUpload para o portal do Azure.
+title: Elemento de interface do usuário do Azure FileUpload | Microsoft Docs
+description: Descreve o elemento Microsoft. Common. FileUpload da interface do usuário para portal do Azure.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: 92a5f7c058904015cb22a239b7e7c4938ae1fdae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044653"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828006"
 ---
-# <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.FileUpload
-Um controlo que permite que um usuário especificar um ou mais ficheiros para carregar.
+# <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft. Common. FileUpload
+Um controle que permite que um usuário especifique um ou mais arquivos a serem carregados.
 
-## <a name="ui-sample"></a>Exemplo de interface do Usuário
+## <a name="ui-sample"></a>Exemplo de interface do usuário
 ![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
 ## <a name="schema"></a>Esquema
@@ -48,22 +48,22 @@ Um controlo que permite que um usuário especificar um ou mais ficheiros para ca
 ```
 
 ## <a name="remarks"></a>Observações
-- `constraints.accept` Especifica os tipos de ficheiros que são mostrados na caixa de diálogo de arquivo do navegador. Consulte a [especificação do HTML5](https://www.w3.org/TR/html5/forms.html#attr-input-accept) para os valores permitidos. O valor predefinido é **nulo**.
-- Se `options.multiple` está definido como **true**, o utilizador tem permissão para selecionar mais de um ficheiro na caixa de diálogo de arquivo do navegador. O valor predefinido é **false**.
-- Este elemento suporta carregar arquivos em dois modos com base no valor de `options.uploadMode`. Se **ficheiro** for especificado, o resultado tem o conteúdo do ficheiro como um blob. Se **url** for especificada, em seguida, o ficheiro é carregado para uma localização temporária, e o resultado tem o URL do blob. Blobs temporários serão removidos após 24 horas. O valor predefinido é **ficheiro**.
-- Um ficheiro carregado está protegido. O URL de saída inclui um [SAS token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acessar o arquivo durante a implementação.
-- O valor de `options.openMode` determina como o arquivo é lido. Se o ficheiro deve ser texto simples, especifique **texto**; mais, especifique **binário**. O valor predefinido é **texto**.
-- Se `options.uploadMode` está definido como **arquivo** e `options.openMode` está definida como **binário**, a saída é codificada em base64.
-- `options.encoding` Especifica a codificação a utilizar ao ler o ficheiro. O valor predefinido é **UTF-8**e é utilizado apenas quando `options.openMode` está definido como **texto**.
+- `constraints.accept` especifica os tipos de arquivos que são mostrados na caixa de diálogo arquivo do navegador. Consulte a [especificação do HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **NULL**.
+- Se `options.multiple` for definido como **true**, o usuário poderá selecionar mais de um arquivo na caixa de diálogo de arquivo do navegador. O valor predefinido é **false**.
+- Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se o **arquivo** for especificado, a saída terá o conteúdo do arquivo como um blob. Se a **URL** for especificada, o arquivo será carregado em um local temporário e a saída terá a URL do blob. Os BLOBs temporários serão limpos após 24 horas. O valor padrão é **File**.
+- Um arquivo carregado está protegido. A URL de saída inclui um [token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acessar o arquivo durante a implantação.
+- O valor de `options.openMode` determina como o arquivo é lido. Se for esperado que o arquivo seja de texto sem formatação, especifique o **texto**; caso contrário, especifique **Binary**. O valor padrão é **Text**.
+- Se `options.uploadMode` for definido como **File** e `options.openMode` for definido como **Binary**, a saída será codificada na base64.
+- `options.encoding` especifica a codificação a ser usada ao ler o arquivo. O valor padrão é **UTF-8**e é usado somente quando `options.openMode` é definido como **Text**.
 
 ## <a name="sample-output"></a>Resultado da amostra
-Se options.multiple é false e options.uploadMode é o arquivo, o resultado tem o conteúdo do arquivo como uma cadeia de caracteres do JSON:
+Se options. Multiple for false e Options. uploadmode for File, a saída terá o conteúdo do arquivo como uma cadeia de caracteres JSON:
 
 ```json
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Se options.multiple for verdadeira and'options.uploadMode é o arquivo, em seguida, o resultado tem o conteúdo dos arquivos como uma matriz JSON:
+Se options. Multiple for true and'options. uploadmode for File, a saída terá o conteúdo dos arquivos como uma matriz JSON:
 
 ```json
 [
@@ -74,13 +74,13 @@ Se options.multiple for verdadeira and'options.uploadMode é o arquivo, em segui
 ]
 ```
 
-Se options.multiple é false e options.uploadMode é o url, em seguida, o resultado tem um URL como uma cadeia de caracteres do JSON:
+Se options. Multiple for false e Options. uploadmode for URL, a saída terá uma URL como uma cadeia de caracteres JSON:
 
 ```json
 "https://myaccount.blob.core.windows.net/pictures/profile.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d"
 ```
 
-Se options.multiple é verdadeiro e options.uploadMode é o url, em seguida, a saída tem uma lista de URLs como uma matriz JSON:
+Se options. Multiple for true e Options. uploadmode for URL, a saída terá uma lista de URLs como uma matriz JSON:
 ```json
 [
   "https://myaccount.blob.core.windows.net/pictures/profile1.jpg?sv=2013-08-15&st=2013-08-16&se=2013-08-17&sr=c&sp=r&rscd=file;%20attachment&rsct=binary &sig=YWJjZGVmZw%3d%3d&sig=a39%2BYozJhGp6miujGymjRpN8tsrQfLo9Z3i8IRyIpnQ%3d",
@@ -89,9 +89,9 @@ Se options.multiple é verdadeiro e options.uploadMode é o url, em seguida, a s
 ]
 ```
 
-Ao testar um CreateUiDefinition, alguns navegadores (como o Google Chrome) truncam URLs geradas pelo elemento Microsoft.Common.FileUpload na consola do browser. Se pretender com o botão direito ligações individuais para copiar os URLs completos.
+Ao testar um CreateUiDefinition, alguns navegadores (como Google Chrome) truncam URLs geradas pelo elemento Microsoft. Common. FileUpload no console do navegador. Talvez seja necessário clicar com o botão direito do mouse em links individuais para copiar as URLs completas.
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+## <a name="next-steps"></a>Passos seguintes
+* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

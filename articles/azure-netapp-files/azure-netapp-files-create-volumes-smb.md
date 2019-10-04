@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 10/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299657"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827514"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -68,7 +68,11 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
     Consulte as [diretrizes para Azure NetApp files planejamento de rede](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) para topologias de rede com suporte.
 
-    Os NSGs (grupos de segurança de rede) e os firewalls devem ter regras configuradas adequadamente para permitir solicitações de tráfego de Active Directory e DNS.
+    Os NSGs (grupos de segurança de rede) e os firewalls devem ter regras configuradas adequadamente para permitir solicitações de tráfego de Active Directory e DNS. 
+
+* O Azure NetApp Files sub-rede delegada deve ser capaz de alcançar todos os controladores de domínio de Active Directory Domain Services (ADDS) no domínio, incluindo todos os controladores de domínio locais e remotos. Caso contrário, pode ocorrer interrupção do serviço.  
+
+    Se você tiver controladores de domínio inacessíveis por meio da sub-rede Azure NetApp Files delegada, poderá enviar uma solicitação de suporte do Azure para alterar o escopo de **global** (padrão) para o **site**.  Azure NetApp Files precisa se comunicar somente com controladores de domínio no site em que reside o espaço de endereço de sub-rede delegado Azure NetApp Files.
 
     Consulte [projetando a topologia do site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) sobre serviços e sites do AD. 
 

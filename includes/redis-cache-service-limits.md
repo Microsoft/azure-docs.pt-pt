@@ -4,16 +4,16 @@ ms.service: redis-cache
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: wesmc
-ms.openlocfilehash: 77019068279261a36f8ba40247e5f5694ca77892
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1ab6243be39bf30bc060ed5745fbf600924743a9
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184663"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839236"
 ---
 | Recurso | Limite |
 | --- | --- |
-| Tamanho da cache |530 GB |
+| Tamanho da cache |1.2 TB |
 | Bases de Dados |64 |
 | Máximo de clientes conectados |40,000 |
 | Cache do Azure para réplicas Redis, para alta disponibilidade |1 |

@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 53bed3fe50afef260ac44f73a9f82e6894015c90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349005"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937311"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Práticas recomendadas para usar Power BI para consultar e Visualizar dados de Data Explorer do Azure
 
@@ -34,7 +34,7 @@ Ao trabalhar com terabytes de dados brutos novos, siga estas diretrizes para man
 
    * Use [consistência fraca para melhorar o paralelismo](/azure/kusto/concepts/queryconsistency). Isso pode afetar a atualização dos dados.
 
-* **Segmentações efetivas** – você pode usar [segmentações](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) de dados de sincronização para impedir que os relatórios carreguem os mesmos antes de estar pronto. Depois de estruturar o conjunto de dados, coloque todos os visuais e marque todas as segmentações, você pode selecionar a segmentação de sincronização para carregar apenas os dados necessários.
+* **Segmentações de dados efetivos** – use as [segmentações de sincronização](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) para impedir que os relatórios carreguem os mesmos antes de você estar pronto. Depois de estruturar o conjunto de dados, coloque todos os visuais e marque todas as segmentações, você pode selecionar a segmentação de sincronização para carregar apenas os dados necessários.
 
 * **Usar filtros** -use o máximo de filtros de Power bi possível para concentrar a pesquisa de data Explorer do Azure nos fragmentos de dados relevantes.
 
@@ -104,7 +104,7 @@ Na janela **editar consultas** , @no__t **página inicial**-2**Editor avançado*
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
     ```
 
-1. Substitua a parte relevante da consulta pelo parâmetro. Dividir a consulta em várias partes e concatena-las de volta usando o sinal de &, juntamente com o parâmetro.
+1. Substitua a parte relevante da consulta pelo parâmetro. Divida a consulta em várias partes e as concatene novamente usando um e comercial (&), juntamente com o parâmetro.
 
    Por exemplo, na consulta acima, pegaremos a parte `State == 'ALABAMA'` e a dividiremos em: `State == '` e `'` e colocaremos o parâmetro `State` entre eles:
    
@@ -138,7 +138,7 @@ Você pode usar um parâmetro de consulta em qualquer etapa de consulta que ofer
 
 ### <a name="dont-use-power-bi-data-refresh-scheduler-to-issue-control-commands-to-kusto"></a>Não use Power BI Agendador de atualização de dados para emitir comandos de controle para Kusto
 
-O Power BI inclui um Agendador de atualização de dados que pode emitir consultas periodicamente em uma fonte de dados. Esse mecanismo não deve ser usado para agendar comandos de controle para Kusto, pois Power BI assume que todas as consultas são somente leitura.
+O Power BI inclui um Agendador de atualização de dados que pode emitir consultas periodicamente em uma fonte de dados. Esse mecanismo não deve ser usado para agendar comandos de controle para Kusto porque Power BI assume que todas as consultas são somente leitura.
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI pode enviar somente consultas curtas (&lt;2000 caracteres) para Kusto
 

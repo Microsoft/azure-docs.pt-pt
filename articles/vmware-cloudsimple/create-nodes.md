@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 5806198968d98fea4c5cbf8731358ca4041f0935
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: eb033425d18b472c9da1a2d6a1bb6f166702905e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972877"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828168"
 ---
 # <a name="provision-nodes-for-azure-vmware-solution-by-cloudsimple"></a>Provisionar nós para a solução do Azure VMware por CloudSimple
 
@@ -40,12 +40,12 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 7. Insira o prefixo para identificar os nós.
 8. Selecione o local dos recursos do nó.
 9. Selecione o local dedicado para hospedar os recursos do nó.
-10. Selecione o tipo de nó. Você pode escolher a [opção CS28 ou CS36](cloudsimple-node.md). A última opção inclui a capacidade máxima de computação e memória.
+10. Selecione o [tipo de nó](cloudsimple-node.md).
 11. Selecione o número de nós a serem provisionados.
 12. Selecione **revisão + criar**.
 13. Examine as configurações. Para modificar as configurações, clique em **anterior**.
 14. Selecione **Criar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar nuvem privada](create-private-cloud.md)

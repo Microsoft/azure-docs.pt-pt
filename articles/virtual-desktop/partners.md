@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673008"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937509"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -33,9 +33,9 @@ A Citrix estende o valor da área de trabalho virtual do Windows com ferramentas
 
 ![Logotipo do VMware](./media/partners/vmware.png)
 
-A VMware horizonte Cloud no Microsoft Azure oferece às organizações a capacidade de conectar sua própria instância do Microsoft Azure ao plano de controle de nuvem simples e intuitivo, criando uma solução segura, abrangente e hospedada na nuvem para fornecimento virtualizado Aplicativos e áreas de trabalho do Windows. Com o lançamento da área de trabalho virtual do Windows, a VMware estabeleceu uma parceria com a Microsoft para ampliar a funcionalidade da área de trabalho virtual do Windows para clientes que usam a nuvem do horizonte no Microsoft Azure.
-
-Como um provedor aprovado, o VMware horizonte Cloud em Microsoft Azure clientes Obtém todos os benefícios da área de trabalho virtual do Windows, como Windows 10 Enterprise para várias sessões, Windows 7 com atualizações de segurança estendidas gratuitas por até três anos e FSLogix recursos, além de todos os recursos modernos de classe empresarial da nuvem de horizonte, como suporte a um ponto de extremidade amplo; Agente global, otimizado para nuvem, opções e configurações de área de trabalho flexíveis, gerenciamento de ambiente do usuário e suporte para ambientes híbridos. 
+A VMware horizonte Cloud no Microsoft Azure oferece às organizações a capacidade de conectar sua própria instância do Microsoft Azure ao plano de controle de nuvem simples e intuitivo, criando uma solução segura, abrangente e hospedada na nuvem para fornecimento virtualizado Aplicativos e áreas de trabalho do Windows. Com o lançamento da área de trabalho virtual do Windows, a VMware estabeleceu uma parceria com a Microsoft para ampliar a funcionalidade da área de trabalho virtual do Windows para clientes que usam a nuvem do horizonte no Microsoft Azure. Essa funcionalidade estará disponível no Tech Preview no final de 2019.
+ 
+Como um provedor aprovado, os benefícios da área de trabalho virtual do Windows serão estendidos para a nuvem do VMware horizonte em Microsoft Azure clientes, incluindo Windows 10 Enterprise para várias sessões, Windows 7 com atualizações de segurança estendidas gratuitas por até três anos e FSLogix. Além disso, os clientes receberão os recursos de classe empresarial da nuvem de horizonte, como um amplo suporte a pontos de extremidade; Agente global e otimizado para nuvem; opções e configurações flexíveis da área de trabalho; gerenciamento de ambiente do usuário; e suporte para ambientes híbridos.
 
 - [Registre-se para a visualização técnica da nuvem do horizonte no Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Acesse o site do parceiro](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -93,7 +93,7 @@ O Nerdio é uma plataforma de automação de ti do Azure que torna mais fácil i
 O Nerdio estende o valor da área de trabalho virtual do Windows, facilitando o provisionamento de recursos do Azure e simplifique a implantação. Com o Nerdio para Azure, ele pode implantar e gerenciar automaticamente um ambiente completo do Azure, incluindo a área de trabalho virtual do Windows, em menos de duas horas.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Acesse o site do parceiro](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Acesse o site do parceiro](https://getnerdio.com/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 

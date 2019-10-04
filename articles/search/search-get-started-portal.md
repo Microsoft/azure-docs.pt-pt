@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884561"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936972"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Início rápido: Criar um índice de Azure Search usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70884561"
 > * [Python](search-get-started-python.md)
 > * [C#](search-get-started-dotnet.md)
 
-Para um avanço rápido nos conceitos de Azure Search, experimente as ferramentas internas no portal do Azure. Os assistentes e editores não oferecem paridade total com as APIs REST e .NET, mas você pode começar rapidamente com uma introdução sem código, escrevendo consultas interessantes em relação a dados de exemplo em minutos.
+Para um avanço rápido nos conceitos de Azure Search, experimente as ferramentas internas no portal do Azure. Os assistentes e os editores não oferecem paridade total com as APIs do .NET e REST, mas você pode começar rapidamente com uma introdução sem código, escrevendo consultas interessantes em um índice em minutos.
 
 > [!div class="checklist"]
 > * Comece com um conjunto de dados de exemplo público gratuito hospedado no Azure
@@ -53,7 +53,7 @@ As seções no painel de serviço mostram quantos índices, indexadores e fontes
 
 As consultas de pesquisa iteram num [*índice*](search-what-is-an-index.md) que contém dados pesquisáveis, metadados e construções adicionais que otimizam determinados comportamentos de pesquisa.
 
-Neste tutorial, utilizamos um conjunto de dados de exemplo incorporado que pode ser pesquisado com um [*indexador*](search-indexer-overview.md) através do assistente para **Importar dados**. Um indexador é um crawler específico da origem que pode ler metadados e conteúdo de origens de dados suportadas pelo Azure. Normalmente, os indexadores são usados programaticamente, mas no portal, você pode acessá-los por meio do assistente de **importação de dados** . 
+Para este tutorial, usamos um conjunto de dados de exemplo interno que pode ser rastreado usando um [*indexador*](search-indexer-overview.md) por meio do assistente de [ **importação de dados** ](search-import-data-portal.md). Um indexador é um crawler específico da origem que pode ler metadados e conteúdo de origens de dados suportadas pelo Azure. Normalmente, os indexadores são usados programaticamente, mas no portal, você pode acessá-los por meio do assistente de **importação de dados** . 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Etapa 1-iniciar o assistente de importação de dados e criar uma fonte de dados
 
@@ -273,7 +273,7 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode utilizar as ferramentas programáticas para explorar mais o Azure Search:
 

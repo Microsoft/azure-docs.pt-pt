@@ -1,6 +1,6 @@
 ---
-title: Como ver o principal de serviço de uma identidade gerida no portal do Azure
-description: Obter instruções passo a passo para visualizar o principal de serviço de uma identidade gerida no portal do Azure.
+title: Como exibir a entidade de serviço de uma identidade gerenciada no portal do Azure
+description: Instruções passo a passo para exibir a entidade de serviço de uma identidade gerenciada no portal do Azure.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -15,36 +15,39 @@ ms.workload: identity
 ms.date: 11/29/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f6139062c4d302284cc653606ae838206d3691a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0a8db0254f85980022115cab5d73f7f329b57001
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60290739"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827559"
 ---
-# <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Ver o principal de serviço de uma identidade gerida no portal do Azure
+# <a name="view-the-service-principal-of-a-managed-identity-in-the-azure-portal"></a>Exibir a entidade de serviço de uma identidade gerenciada no portal do Azure
 
-Identidades geridas para recursos do Azure fornece serviços do Azure com uma identidade gerida automaticamente no Azure Active Directory. Pode utilizar esta identidade para autenticar a qualquer serviço que suporta a autenticação do Azure AD, sem ter credenciais em seu código. 
+Identidades gerenciadas para recursos do Azure fornecem serviços do Azure com uma identidade gerenciada automaticamente no Azure Active Directory. Você pode usar essa identidade para autenticar em qualquer serviço que ofereça suporte à autenticação do Azure AD, sem ter credenciais em seu código. 
 
-Neste artigo, irá aprender a ver o principal de serviço de uma identidade gerida no portal do Azure.
+Neste artigo, você aprenderá a exibir a entidade de serviço de uma identidade gerenciada usando o portal do Azure.
+
+ > [!NOTE] 
+ > As entidades de serviço são aplicativos empresariais. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com identidades geridas para recursos do Azure, veja a [secção Descrição geral](overview.md).
-- Se ainda não tiver uma conta do Azure, [Inscreva-se numa conta gratuita](https://azure.microsoft.com/free/).
-- Ativar [identidade do sistema atribuído numa máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicação](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
+- Se você ainda não tiver uma conta do Azure, [Inscreva-se para obter uma conta gratuita](https://azure.microsoft.com/free/).
+- Habilite [a identidade atribuída pelo sistema em uma máquina virtual](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) ou [aplicativo](/azure/app-service/overview-managed-identity#adding-a-system-assigned-identity).
 
-## <a name="view-the-service-principal"></a>Ver o principal de serviço
+## <a name="view-the-service-principal"></a>Exibir a entidade de serviço
 
-Este procedimento explica como ver o principal de serviço de uma VM com a identidade de sistema atribuído ativada (os mesmos passos aplicam-se para uma aplicação).
+Este procedimento demonstra como exibir a entidade de serviço de uma VM com a identidade atribuída pelo sistema habilitada (as mesmas etapas se aplicam a um aplicativo).
 
-1. Clique em **do Azure Active Directory** e, em seguida, clique em **aplicações empresariais**.
-2. Sob **tipo de aplicação**, escolha **todos os aplicativos**.
-3. Na caixa de filtro de pesquisa, escreva o nome da VM ou aplicação que tem a identidade gerida ativada ou escolhê-lo na lista apresentada.
+1. Clique em **Azure Active Directory** e em **aplicativos empresariais**.
+2. Em **tipo de aplicativo**, escolha **todos os aplicativos**.
+3. Na caixa filtro de pesquisa, digite o nome da VM ou do aplicativo que tem identidade gerenciada habilitada ou escolha-a na lista apresentada.
 
-   ![Ver o principal de serviço de identidade gerida no portal](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
+   ![Exibir entidade de serviço de identidade gerenciada no portal](./media/how-to-view-managed-identity-service-principal-portal/view-managed-identity-service-principal-portal.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Identidades geridas para os recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview)
 

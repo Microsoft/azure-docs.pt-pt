@@ -6,16 +6,16 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bf2e289ad12f459c37a93ad3936c30339ecf663d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: a4d8cd9f8198002b0b9ade8fe5058de1fcacc68f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907529"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937359"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup e restauração no banco de dados do Azure para PostgreSQL-servidor único
 
-O banco de dados do Azure para PostgreSQL cria automaticamente backups de servidor e os armazena em armazenamento com redundância geográfica ou local configurado pelo usuário. Os backups podem ser usados para restaurar o servidor para um ponto no tempo. O backup e a restauração são uma parte essencial de qualquer estratégia de continuidade de negócios, pois eles protegem seus dados contra a corrupção ou exclusão acidental.
+O banco de dados do Azure para PostgreSQL cria automaticamente backups de servidor e os armazena em armazenamento com redundância geográfica ou local configurado pelo usuário. As cópias de segurança podem ser utilizadas para restaurar o servidor para um ponto no tempo. O backup e a restauração são uma parte essencial de qualquer estratégia de continuidade de negócios, pois eles protegem seus dados contra a corrupção ou exclusão acidental.
 
 ## <a name="backups"></a>Cópias de segurança
 
@@ -25,7 +25,7 @@ O banco de dados do Azure para PostgreSQL usa backups completos, diferenciais e 
 
 Geralmente, os backups completos ocorrem semanalmente, os backups diferenciais ocorrem duas vezes por dia e os backups de log de transações ocorrem a cada cinco minutos. O primeiro backup completo é agendado imediatamente após a criação de um servidor. O backup inicial pode levar mais tempo em um servidor restaurado grande. O ponto mais antigo no tempo no qual um novo servidor pode ser restaurado é a hora em que o backup completo inicial é concluído.
 
-### <a name="backup-redundancy-options"></a>Opções de redundância de backup
+### <a name="backup-redundancy-options"></a>Opções de redundância de cópia de segurança
 
 O banco de dados do Azure para PostgreSQL fornece a flexibilidade para escolher entre o armazenamento de backup com redundância local ou com redundância geográfica nas camadas de Uso Geral e com otimização de memória. Quando os backups são armazenados no armazenamento de backup com redundância geográfica, eles não são armazenados apenas na região em que o servidor está hospedado, mas também são replicados em um [Data Center emparelhado](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Isso fornece melhor proteção e capacidade de restaurar o servidor em uma região diferente em caso de desastre. A camada básica oferece apenas armazenamento de backup com redundância local.
 
@@ -50,7 +50,7 @@ Há dois tipos de restauração disponíveis:
 O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos de banco de dados, o tamanho do log de transações, a largura de banda da rede e o número total de bancos de dados recuperados na mesma região ao mesmo tempo. O tempo de recuperação geralmente é inferior a 12 horas.
 
 > [!IMPORTANT]
-> Os servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem aproveitar os bloqueios de [Gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Os servidores excluídos **não podem** ser restaurados. Se você excluir o servidor, todos os bancos de dados que pertencem ao servidor também serão excluídos e não poderão ser recuperados. Para proteger os recursos do servidor, após a implantação, da exclusão acidental ou de alterações inesperadas, os administradores podem aproveitar os [bloqueios de gerenciamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
@@ -75,8 +75,8 @@ Após uma restauração de qualquer mecanismo de recuperação, você deve execu
 - Verifique se os logons apropriados e as permissões no nível do banco de dados estão em vigor
 - Configurar alertas, conforme adequado
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como restaurar usando [o portal do Azure](howto-restore-server-portal.md).
 - Saiba como restaurar usando [o CLI do Azure](howto-restore-server-cli.md).
-- Para saber mais sobre continuidade de negócios, consulte [visão geral](concepts-business-continuity.md)da continuidade de negócios.
+- Para saber mais sobre continuidade de negócios, consulte [visão geral da continuidade de negócios](concepts-business-continuity.md).

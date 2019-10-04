@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329412"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937147"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Central de segurança do Azure para linha de base IoT e verificações personalizadas
 
@@ -32,7 +32,7 @@ Uma linha de base estabelece o comportamento padrão para cada dispositivo e tor
 
 ## <a name="baseline-custom-checks"></a>Verificações personalizadas de linha de base
 
-As verificações personalizadas de linha de base estabelecem uma lista personalizada de verificações para cada linha de base de dispositivo usando a identidade do módulo "/" do dispositivo. 
+As verificações personalizadas de linha de base estabelecem uma lista personalizada de verificações para cada linha de base de dispositivo usando a **identidade do módulo** "/" do dispositivo. 
 
 ## <a name="setting-baseline-properties"></a>Definindo propriedades de linha de base
 
@@ -67,8 +67,8 @@ Para configurar verificações personalizadas de linha de base:
 | Name| State | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **valor booleano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
-|baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **Cadeia de caracteres**, **nulo** |Valor padrão: **PT5H** |Caminho completo da configuração XML de linha de base|
-|baselineCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **Cadeia de caracteres**, **nulo** |Valor padrão: **PT5H** |`sha256sum` do arquivo de configuração XML. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |
+|baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **Cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|
+|baselineCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **Cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |`sha256sum` do arquivo de configuração XML. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |
 
 Para examinar exemplos de linha de base adicionais, consulte [exemplo de linha de base personalizado-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e [exemplo de linha de base personalizado-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 

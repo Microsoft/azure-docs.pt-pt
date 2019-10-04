@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 875db0d34932dca1c7eae7e3650acf01856c6413
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 2c1473083c4fdb025588a7c4b410860a5f18dd5a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934432"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937067"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Sobre a Cópia de Segurança do SQL Server em VMs do Azure
 
@@ -45,9 +45,9 @@ Antes de começar, verifique o seguinte:
 **Suporte** | **Detalhes**
 --- | ---
 **Implantações com suporte** | As VMs do Azure do SQL Marketplace e do não Marketplace (SQL Server instaladas manualmente) têm suporte.
-**Áreas geográficas com suporte** | Sudeste da Austrália (ASE), Austrália oriental (AE) <br> Sul do Brasil (BRS)<br> Canadá central (CNC), leste do Canadá (CE)<br> Ásia Oriental do Sul (SEA), Ásia Oriental (EA) <br> Leste dos EUA (EUS), leste dos EUA 2 (EUS2), Oeste EUA Central (WCUS), oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) EUA Central do Norte (NCUS) EUA Central (CUS) EUA Central do Sul (SCUS) <br> Índia central (INC.), sul da Índia (INS) <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia central (KRC), sul da Coreia (KRS) <br> Europa Setentrional (NE), Europa Ocidental <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov Arizona, US Gov-Virgínia, US Gov Texas, US DoD Central, US DoD Leste
-**Sistemas operativos suportados** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Atualmente, não há suporte para o Linux.
-**Versões SQL Server com suporte** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPS, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014 SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Áreas geográficas com suporte** | Sudeste da Austrália (ASE), Austrália oriental (AE), Austrália Central (AC), Austrália Central 2 (AC) <br> Sul do Brasil (BRS)<br> Canadá central (CNC), leste do Canadá (CE)<br> Ásia Oriental do Sul (SEA), Ásia Oriental (EA) <br> Leste dos EUA (EUS), leste dos EUA 2 (EUS2), Oeste EUA Central (WCUS), oeste dos EUA (WUS); Oeste dos EUA 2 (WUS 2) EUA Central do Norte (NCUS) EUA Central (CUS) EUA Central do Sul (SCUS) <br> Índia central (INC.), sul da Índia (INS), Índia ocidental <br> Leste do Japão (JPE), oeste do Japão (JPW) <br> Coreia central (KRC), sul da Coreia (KRS) <br> Europa Setentrional (NE), Europa Ocidental <br> Sul do Reino Unido (UKS), Oeste do Reino Unido (UKW) <br> US Gov Arizona, US Gov-Virgínia, US Gov Texas, US DoD Central, US DoD Leste <br> Norte da Alemanha, Centro-oeste da Alemanha <br>
+Norte da Suíça, Oeste da Suíça **sistemas operacionais com suporte** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Atualmente, não há suporte para o Linux.
+**Versões de SQL Server com suporte** | SQL Server 2017, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 e SPS, conforme detalhado [aqui](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014 SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Versões do .NET com suporte** | .NET Framework 4.5.2 e acima instalados na VM
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Suporte para SQL Server 2008 e SQL Server 2008 R2
@@ -91,17 +91,17 @@ Dependendo dos tipos de preferência de backup e backups (completo/diferencial/l
 
 **Tipo de backup** | **Node**
     --- | ---
-    Completo | Primário
-    Diferencial | Primário
-    registo |  Primário
-    Copiar somente completo |  Primário
+    Completo | Principal
+    Diferencial | Principal
+    registo |  Principal
+    Copiar somente completo |  Principal
 
 - **Preferência de backup: Somente secundário**
 
 **Tipo de backup** | **Node**
 --- | ---
-Completo | Primário
-Diferencial | Primário
+Completo | Principal
+Diferencial | Principal
 registo |  Secundário
 Copiar somente completo |  Secundário
 
@@ -109,8 +109,8 @@ Copiar somente completo |  Secundário
 
 **Tipo de backup** | **Node**
 --- | ---
-Completo | Primário
-Diferencial | Primário
+Completo | Principal
+Diferencial | Principal
 registo |  Secundário
 Copiar somente completo |  Secundário
 
@@ -118,8 +118,8 @@ Copiar somente completo |  Secundário
 
 **Tipo de backup** | **Node**
 --- | ---
-Completo | Primário
-Diferencial | Primário
+Completo | Principal
+Diferencial | Principal
 registo |  Secundário
 Copiar somente completo |  Secundário
 
@@ -229,7 +229,7 @@ catch
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba mais sobre como](backup-sql-server-database-azure-vms.md) fazer backup de bancos de dados do SQL Server.
 * [Saiba mais sobre como](restore-sql-database-azure-vm.md) restaurar bancos de dados de SQL Server de backup.

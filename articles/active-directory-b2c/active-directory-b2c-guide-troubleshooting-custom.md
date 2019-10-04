@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4893025b7d54dad1f1da6c5967d3c1dec99b499b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963740"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826909"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solucionar problemas Azure AD B2C políticas personalizadas e estrutura de experiência de identidade
 
@@ -39,30 +39,28 @@ A validação do arquivo de política XML é executada automaticamente no carreg
 
 Os erros comuns de validação incluem o seguinte:
 
-> Trecho de erro:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
+> Trecho de erro: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
 * O valor de ClaimType pode estar incorreto ou não existir no esquema.
 * Os valores de ClaimType devem ser definidos em pelo menos um dos arquivos na política.
     Por exemplo: `<ClaimType Id="issuerUserId">`
 * Se ClaimType for definido no arquivo de extensões, mas ele também for usado em um valor TechnicalProfile no arquivo base, o carregamento do arquivo base resultará em um erro.
 
-> Trecho de erro:`...makes a reference to a ClaimsTransformation with id...`
+> Trecho de erro: `...makes a reference to a ClaimsTransformation with id...`
 
 * As causas desse erro podem ser as mesmas para o erro ClaimType.
 
-> Trecho de erro:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+> Trecho de erro: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Verifique se o valor de tenantid nos `<TrustFrameworkPolicy\>` elementos `<BasePolicy\>` e corresponde ao seu locatário de Azure ad B2C de destino.
+* Verifique se o valor de Tenantid nos elementos `<TrustFrameworkPolicy\>` e `<BasePolicy\>` correspondem ao seu locatário de Azure AD B2C de destino.
 
 ## <a name="troubleshoot-the-runtime"></a>Solucionar problemas do tempo de execução
 
-* Use **executar agora** e `https://jwt.ms` para testar suas políticas independentemente de seu aplicativo Web ou móvel. Este site age como um aplicativo de terceira parte confiável. Ele exibe o conteúdo do JSON Web token (JWT) que é gerado pela sua política de Azure AD B2C. Para criar um aplicativo de teste, navegue até **Azure ad B2C** \> **aplicativos** na portal do Azure e adicione um aplicativo com os seguintes valores:
+* Use **executar agora** e `https://jwt.ms` para testar suas políticas independentemente de seu aplicativo Web ou móvel. Este site age como um aplicativo de terceira parte confiável. Ele exibe o conteúdo do JSON Web token (JWT) que é gerado pela sua política de Azure AD B2C.
 
-  * **Nome**: TestApp
-  * **Aplicativo Web/API Web**: Não
-  * **Cliente nativo**: Não
+    Para criar um aplicativo de teste que possa redirecionar para `https://jwt.ms` para inspeção de token:
 
-  Em seguida, `https://jwt.ms` adicione como uma **URL de resposta**.
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Para rastrear a troca de mensagens entre o navegador do cliente e Azure AD B2C, use o [Fiddler](https://www.telerik.com/fiddler). Ele pode ajudá-lo a obter uma indicação de onde o percurso do usuário está falhando em suas etapas de orquestração.
 
@@ -70,7 +68,7 @@ Os erros comuns de validação incluem o seguinte:
 
 ## <a name="recommended-practices"></a>Práticas recomendadas
 
-**Mantenha várias versões de seus cenários. Agrupe-os em um projeto com seu aplicativo.** A base, as extensões e os arquivos de terceira parte confiável são diretamente dependentes uns dos outros. Salve-os como um grupo. À medida que novos recursos são adicionados às suas políticas, mantenha versões de trabalho separadas. Preparar versões de trabalho em seu próprio sistema de arquivos com o código do aplicativo com o qual interagem. Seus aplicativos podem invocar várias políticas de terceira parte confiável diferentes em um locatário. Eles podem se tornar dependentes das declarações que esperam de suas políticas de Azure AD B2C.
+**Keep várias versões de seus cenários. Agrupe-os em um projeto com seu aplicativo.** A base, as extensões e os arquivos de terceira parte confiável são diretamente dependentes uns dos outros. Salve-os como um grupo. À medida que novos recursos são adicionados às suas políticas, mantenha versões de trabalho separadas. Preparar versões de trabalho em seu próprio sistema de arquivos com o código do aplicativo com o qual interagem. Seus aplicativos podem invocar várias políticas de terceira parte confiável diferentes em um locatário. Eles podem se tornar dependentes das declarações que esperam de suas políticas de Azure AD B2C.
 
 **Desenvolva e teste perfis técnicos com jornadas conhecidos do usuário.** Use as políticas testadas do pacote inicial para configurar seus perfis técnicos. Teste-os separadamente antes de incorporá-los a seus próprios percursos do usuário.
 

@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 10/02/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 3531d00825cfd866c81039ce9d97522a2088f5f7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 302f9cd515677c928e1f70febe7938f05ee687ce
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012245"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845514"
 ---
 Este artigo pressupõe uma autenticação de familiaridade com suas APIs de gerenciamento de gêmeos digital do Azure.
 

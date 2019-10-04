@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 10161d6b1d944857aa45d5152c77e107a208d98d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: f9b9341be32e5707ef646bd6d08d9d7ec92a8575
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012241"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827677"
 ---
 A tabela a seguir descreve as funções que estão disponíveis no Azure digital gêmeos:
 
@@ -21,7 +21,7 @@ A tabela a seguir descreve as funções que estão disponíveis no Azure digital
 | --- | --- | --- |
 | Administrador de espaço | *Criar*, *ler*, *Atualizar*e *excluir* a permissão para o espaço especificado e todos os nós abaixo. Permissão global. | 98e44ad7-28d4-4007-853b-b9968ad132d1 |
 | Administrador de Utilizadores| *Criar*, *ler*, *Atualizar*e *excluir* permissão para usuários e objetos relacionados ao usuário. Permissão de *leitura* para espaços. | dfaac54c-f583-4dd2-b45d-8d4bbc0aa1ac |
-| Administrador de Dispositivos | *Criar*, *ler*, *Atualizar*e *excluir* permissão para dispositivos e objetos relacionados ao dispositivo. Permissão de *leitura* para espaços. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
+| Administrador do dispositivo | *Criar*, *ler*, *Atualizar*e *excluir* permissão para dispositivos e objetos relacionados ao dispositivo. Permissão de *leitura* para espaços. | 3cdfde07-bc16-40d9-bed3-66d49a8f52ae |
 | Administrador de chaves | Permissão para *criar*, *ler*, *Atualizar*e *excluir* as chaves de acesso. Permissão de *leitura* para espaços. | 5a0b1afc-e118-4068-969f-b50efb8e5da6 |
 | Administrador de token |  Permissão de *leitura* e *atualização* para chaves de acesso. Permissão de *leitura* para espaços. | 38a3bb21-5424-43b4-b0bf-78ee228840c3 |
 | Utilizador |  Permissão de *leitura* para espaços, sensores e usuários, que inclui seus objetos relacionados correspondentes. | b1ffdb77-c635-4e7e-ad25-948237d85b30 |

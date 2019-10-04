@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7b33484084b4ada5aeaf89eb90167658ade15ad8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899790"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828564"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança de máquinas virtuais do Azure
 Este artigo fornece uma visão geral dos principais recursos de segurança do Azure que podem ser usados com máquinas virtuais.
@@ -56,7 +56,7 @@ Quando você implanta e habilita o Microsoft antimalware para o Azure, os seguin
 * **Proteção ativa**: Relata metadados de telemetria para o Azure sobre ameaças detectadas e recursos suspeitos para garantir uma resposta rápida. Permite a entrega de assinatura síncrona em tempo real por meio do Microsoft Active Protection System (MAPS).
 * **Relatórios de amostras**: Fornece e relata exemplos para o serviço Microsoft antimalware para Azure para ajudar a refinar o serviço e habilitar a solução de problemas.
 * **Exclusões**: Permite que os administradores de aplicativos e serviços configurem determinados arquivos, processos e unidades para excluí-los da proteção e da verificação de desempenho e outros motivos.
-* **Coleta de eventos**de AntiMalware: Registra a integridade do serviço Antimalware, atividades suspeitas e ações de correção executadas no log de eventos do sistema operacional e as coleta em sua conta de armazenamento do Azure.
+* **Coleta de eventos de antimalware**: Registra a integridade do serviço Antimalware, atividades suspeitas e ações de correção executadas no log de eventos do sistema operacional e as coleta em sua conta de armazenamento do Azure.
 
 Saiba mais sobre o software antimalware para ajudar a proteger suas máquinas virtuais:
 
@@ -86,7 +86,7 @@ Saiba mais:
 
 Melhorar a segurança de chave pode aprimorar as proteções de criptografia e autenticação. Você pode simplificar o gerenciamento e a segurança de seus segredos e chaves críticos armazenando-os em Azure Key Vault.
 
-O Key Vault oferece a opção de armazenar as suas chaves em módulos de hardware de segurança (HSMs) com certificação pela norma FIPS 140-2 de Nível 2. Suas chaves de criptografia SQL Server para backup ou Transparent [Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas em Key Vault com quaisquer chaves ou segredos de seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados por meio de [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+O Key Vault oferece a opção de armazenar as suas chaves em módulos de hardware de segurança (HSMs) com certificação pela norma FIPS 140-2 de Nível 2. Suas chaves de criptografia SQL Server para backup ou [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx) podem ser armazenadas em Key Vault com quaisquer chaves ou segredos de seus aplicativos. As permissões e o acesso a esses itens protegidos são gerenciados por meio de [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Saiba mais:
 
@@ -102,7 +102,7 @@ A solução é integrada com Azure Key Vault para ajudá-lo a controlar e gerenc
 Saiba mais:
 
 * [Azure Disk Encryption para VMs IaaS](/azure/security/azure-security-disk-encryption-overview)
-* [Quickstart: Criptografar uma VM IaaS do Windows com Azure PowerShell](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [Quickstart: Criptografar uma VM IaaS do Windows com Azure PowerShell @ no__t-0
 
 ## <a name="virtual-machine-backup"></a>Cópia de segurança da máquina virtual
 
@@ -164,14 +164,14 @@ As máquinas virtuais do Azure são certificadas para FISMA, FedRAMP, HIPAA, PCI
 
 Saiba mais:
 
-* [Central de confiabilidade da Microsoft: Regulamenta](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [Nuvem confiável: Segurança, privacidade e conformidade do Microsoft Azure](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* Central de confiabilidade do @no__t 0Microsoft: Conformidade @ no__t-0
+* Nuvem de @no__t 0Trusted: Segurança Microsoft Azure, privacidade e conformidade @ no__t-0
 
 ## <a name="confidential-computing"></a>Computação confidencial
 
 Embora a computação confidencial não seja tecnicamente parte da segurança da máquina virtual, o tópico da segurança da máquina virtual pertence ao assunto de "computação" de nível superior. A computação confidencial pertence dentro da categoria de segurança de "computação".
 
-A computação confidencial garante que quando os dados estiverem "descriptografados", que são necessários para um processamento eficiente, os dados serão protegidos dentro de https://en.wikipedia.org/wiki/Trusted_execution_environment um ambiente de execução confiável (também conhecido como enclave), um exemplo do que é mostrado na figura abaixo .  
+A computação confidencial garante que, quando os dados estiverem "descriptografados", que são necessários para um processamento eficiente, os dados serão protegidos dentro de um ambiente de execução confiável https://en.wikipedia.org/wiki/Trusted_execution_environment (o "t", também conhecido como enclave), um exemplo do que é mostrado na figura abaixo.  
 
 TEEs garantir que não haja nenhuma maneira de exibir dados ou as operações dentro de fora, mesmo com um depurador. Eles até mesmo garantem que apenas código autorizado tenha permissão para acessar dados. Se o código for alterado ou adulterado, as operações serão negadas e o ambiente será desabilitado. O "t" aplica essas proteções em toda a execução de código dentro dela.
 

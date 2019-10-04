@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877689"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845537"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Visão geral dos nós do CloudSimple
 
@@ -36,13 +36,14 @@ Os nós adquiridos fornecem capacidade pré-paga. A compra de nós ajuda você a
 
 Os seguintes tipos de nós estão disponíveis para compra ou reserva.
 
-| SKU | CS28-nó | CS36-nó |
-|-----|-------------|-------------|
-| CPU | 2x 2,2 GHz, 28 núcleos (56 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) |
-| RAM | 256 GB | 512 GB |
-| Disco de cache |  1,6-TB NVMe | 3,2-TB NVMe |
-| Disco de capacidade | 5,625 TB brutos | 11,25 TB brutos |
-| Tipo de armazenamento | Todos os flash | Todos os flash |
+| SKU           | CS28-nó                 | CS36-nó                 | CS36m-nó                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Região        | Leste dos EUA, oeste dos EUA            | Leste dos EUA, oeste dos EUA            | Europa Ocidental                 |
+| CPU           | 2x 2,2 GHz, 28 núcleos (56 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) | 2x 2,3 GHz, 36 núcleos (72 HT) |
+| RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
+| Disco de Cache    | 1,6-TB NVMe                 | 3,2-TB NVMe                 | 3,2-TB NVMe                 |
+| Disco de capacidade | 5,625 TB brutos                | 11,25 TB brutos                | 15,36 TB brutos                |
+| Tipo de Armazenamento  | Todos os flash                   | Todos os flash                   | Todos os flash                   |
 
 ## <a name="limits"></a>Limites
 
@@ -55,7 +56,7 @@ Os limites de nó a seguir se aplicam a nuvens privadas.
 | Número máximo de nós em uma nuvem privada | 64 |
 | Número mínimo de nós em um novo cluster | 3 |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [comprar nós](create-nodes.md)
 * Saiba mais sobre [nuvens privadas](cloudsimple-private-cloud.md)

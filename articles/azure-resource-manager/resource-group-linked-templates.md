@@ -4,20 +4,20 @@ description: Descreve como utilizar modelos ligados num modelo Azure Resource Ma
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194376"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827338"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar ligados e aninhados modelos durante a implantação de recursos do Azure
 
-Para implantar sua solução, pode utilizar um modelo único ou um modelo principal com muitos modelos relacionados. O modelo relacionado pode ser um arquivo separado que está ligado a partir do modelo de principal ou um modelo que esteja aninhado dentro do modelo principal.
+Para implantar sua solução, pode utilizar um modelo único ou um modelo principal com muitos modelos relacionados. Os modelos relacionados podem ser arquivos separados que estão vinculados ao do modelo principal ou modelos que são aninhados no modelo principal.
 
-Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único arquivo. Para cenários avançados, modelos ligados permitem-lhe dividir a solução para os componentes-alvo e reutilizar os modelos.
+Para pequenas e médias soluções, é mais fácil de compreender e manter um único modelo. Pode ver todos os recursos e os valores num único arquivo. Para cenários avançados, os modelos vinculados permitem dividir a solução em componentes de destino. Você pode facilmente reutilizar esses modelos para outros cenários.
 
 Ao utilizar modelos ligados, criar um modelo principal que recebe os valores de parâmetro durante a implementação. O modelo principal contém todos os modelos ligados e transmite valores para esses modelos, conforme necessário.
 
@@ -27,7 +27,7 @@ Para obter um tutorial, veja [Tutorial: criar modelos do Azure Resource Manager 
 > Para modelos vinculados ou aninhados, você só pode usar o modo de implantação [incremental](deployment-modes.md) .
 >
 
-## <a name="link-or-nest-a-template"></a>Associar ou aninhar um modelo
+## <a name="deployments-resource"></a>Recurso de implantações
 
 Para ligar a outro modelo, adicione uma **implementações** recursos ao seu modelo principal.
 
@@ -47,7 +47,7 @@ Para ligar a outro modelo, adicione uma **implementações** recursos ao seu mod
 
 As propriedades que fornecer para o recurso de implantação variam consoante quer esteja a criar uma ligação para um modelo externo ou aninhar um modelo inline no modelo principal.
 
-### <a name="nested-template"></a>Modelo aninhado
+## <a name="nested-template"></a>Modelo aninhado
 
 Para aninhar o modelo dentro do modelo principal, utilize o **modelo** propriedade e especifique a sintaxe do modelo.
 
@@ -94,9 +94,17 @@ Para aninhar o modelo dentro do modelo principal, utilize o **modelo** proprieda
 
 O modelo aninhado requer o [as mesmas propriedades](resource-group-authoring-templates.md) como um modelo padrão.
 
-### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
+## <a name="external-template"></a>Modelo externo
 
-Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLink** e **parametersLink**. Quando cria uma ligação a um modelo, o serviço de Gestor de recursos tem de ser capaz de aceder ao mesmo. Não é possível especificar um ficheiro local ou um ficheiro que só está disponível na sua rede local. Apenas pode fornecer um valor URI que inclui qualquer um **http** ou **https**. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e utilizar o URI para esse item.
+Para vincular a um modelo externo, use a propriedade **templateLink** . Não é possível especificar um ficheiro local ou um ficheiro que só está disponível na sua rede local. Apenas pode fornecer um valor URI que inclui qualquer um **http** ou **https**. O Gerenciador de recursos deve ser capaz de acessar o modelo.
+
+Uma opção é colocar o seu modelo ligado numa conta de armazenamento e utilizar o URI para esse item.
+
+Você pode fornecer os parâmetros para o modelo externo em um arquivo externo ou embutido.
+
+### <a name="external-parameters"></a>Parâmetros externos
+
+Ao fornecer um arquivo de parâmetro externo, use a propriedade **parametersLink** :
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLi
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ Para ligar a um modelo externo e o ficheiro de parâmetros, utilize **templateLi
 
 Não é necessário fornecer o `contentVersion` propriedade do modelo ou parâmetros. Se não fornecer um valor de versão do conteúdo, a versão atual do modelo é implementada. Se fornecer um valor para a versão do conteúdo, tem de corresponder a versão no modelo ligado; caso contrário, a implementação falhar com um erro.
 
-### <a name="external-template-and-inline-parameters"></a>Parâmetros de modelo e inline externos
+### <a name="inline-parameters"></a>Parâmetros embutidos
 
 Em alternativa, pode fornecer o parâmetro inline. Não é possível utilizar parâmetros inline e uma ligação para um ficheiro de parâmetros. A implementação falhar com um erro quando ambos `parametersLink` e `parameters` são especificados.
 
-Transmita um valor a partir do modelo de principal para o modelo ligado, utilize **parâmetros**.
+Para passar um valor do modelo principal para o modelo vinculado, use a propriedade **Parameters** .
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ O modelo principal implanta o modelo ligado e obtém o valor retornado. Tenha em
 }
 ```
 
-Como outros tipos de recursos, pode definir as dependências entre o modelo ligado e outros recursos. Por conseguinte, quando outros recursos requerem um valor de saída do modelo ligado, certifique-se do que modelo ligado é implementado antes-los. Ou, quando o modelo ligado depende de outros recursos, certifique-se de que outros recursos são implementados antes do modelo ligado.
+Como outros tipos de recursos, pode definir as dependências entre o modelo ligado e outros recursos. Quando outros recursos exigirem um valor de saída do modelo vinculado, verifique se o modelo vinculado está implantado antes deles. Ou, quando o modelo ligado depende de outros recursos, certifique-se de que outros recursos são implementados antes do modelo ligado.
 
 O exemplo seguinte mostra um modelo que implementa um endereço IP público e devolve o ID de recurso:
 

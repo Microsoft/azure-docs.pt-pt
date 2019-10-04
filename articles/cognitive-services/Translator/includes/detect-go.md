@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c2408d8ea8fb6458761ef1d853d5dde52ac2311
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907153"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837532"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Criar a função principal
 
-Este exemplo tentará ler sua chave de assinatura tradução de texto e o ponto de extremidade dessas variáveis `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` de `TRANSLATOR_TEXT_ENDPOINT`ambiente: e. Se você não estiver familiarizado com as variáveis de ambiente, poderá `subscriptionKey` definir `endpoint` e como cadeias de caracteres e comentar as instruções condicionais.
+Este exemplo tentará ler sua chave de assinatura Tradução de Texto e o ponto de extremidade dessas variáveis de ambiente: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` e `TRANSLATOR_TEXT_ENDPOINT`. Se você não estiver familiarizado com as variáveis de ambiente, poderá definir `subscriptionKey` e `endpoint` como cadeias de caracteres e comentar as instruções condicionais.
 
 Copie este código para o seu projeto:
 
@@ -78,9 +78,9 @@ func detect(subscriptionKey string, uri string) {
 }
 ```
 
-Em seguida, vamos construir a URL. A URL é criada usando os `Parse()` métodos `Query()` e.
+Em seguida, vamos construir a URL. A URL é criada usando os métodos `Parse()` e `Query()`.
 
-Copie esse código para a `detect` função.
+Copie esse código para a função `detect`.
 
 ```go
 // Build the request URL. See: https://golang.org/pkg/net/url/#example_URL_Parse
@@ -94,7 +94,7 @@ u.RawQuery = q.Encode()
 
 ## <a name="create-a-struct-for-your-request-body"></a>Criar uma estrutura para o corpo da solicitação
 
-Em seguida, crie uma estrutura anônima para o corpo da solicitação e codifique-a `json.Marshal()`como JSON com. Adicione este código à `detect` função.
+Em seguida, crie uma estrutura anônima para o corpo da solicitação e codifique-a como JSON com `json.Marshal()`. Adicione este código à função `detect`.
 
 ```go
 // Create an anonymous struct for your request body and encode it to JSON
@@ -131,7 +131,7 @@ Se você estiver usando uma assinatura de vários serviços cognitivas, também 
 
 ## <a name="handle-and-print-the-response"></a>Manipular e imprimir a resposta
 
-Adicione esse código à `detect` função para decodificar a resposta JSON e, em seguida, Formatar e imprimir o resultado.
+Adicione esse código à função `detect` para decodificar a resposta JSON e, em seguida, Formatar e imprimir o resultado.
 
 ```go
 // Decode the JSON response
@@ -156,7 +156,11 @@ Se quiser comparar o seu código com o nosso, o exemplo completo está disponív
 
 ## <a name="sample-response"></a>Resposta de amostra
 
-Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+Depois de executar o exemplo, você deverá ver o seguinte impresso no terminal:
+
+> [!NOTE]
+> Localize a abreviação de país/região nesta [lista de idiomas](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+
 
 ```json
 [
@@ -183,7 +187,7 @@ Localize a abreviação de país/região nesta [lista de idiomas](https://docs.m
 ]
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Dê uma olhada na referência da API para entender tudo o que você pode fazer com o API de Tradução de Texto.
 

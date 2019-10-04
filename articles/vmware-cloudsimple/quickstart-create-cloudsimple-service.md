@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39395c9d082bc40836c14ee4c0d328341f96edca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816122"
+ms.locfileid: "71828913"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Início rápido-criar solução VMware do Azure por serviço CloudSimple
 
@@ -77,7 +77,7 @@ Para configurar a capacidade paga conforme o uso para um ambiente de nuvem priva
 7. Insira o prefixo para identificar os nós.
 8. Selecione o local dos recursos do nó.
 9. Selecione o local dedicado para hospedar os recursos do nó.
-10. Selecione o tipo de nó. Você pode escolher a [opção CS28 ou CS36](cloudsimple-node.md). A última opção inclui a capacidade máxima de computação e memória.
+10. Selecione o [tipo de nó](cloudsimple-node.md).
 11. Selecione o número de nós a serem provisionados.
 12. Selecione **revisão + criar**.
 13. Examine as configurações. Para modificar as configurações, clique em **anterior**.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: af775a57356af304aa27453baffa518788d0f5e7
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326554"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937136"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar SDK de mensagens de segurança
 
@@ -203,6 +203,19 @@ async def send_security_message_async(message_content):
     await device_client.disconnect()
 ```
 
+#### <a name="java-api"></a>API de Java
+
+```java
+public void SendSecurityMessage(string message)
+{
+    ModuleClient client = new ModuleClient("<connection_string>", IotHubClientProtocol.MQTT);
+    Message msg = new Message(message);
+    msg.setAsSecurityMessage();
+    EventCallback callback = new EventCallback();
+    string context = "<user_context>";
+    client.sendEventAsync(msg, callback, context);
+}
+```
 
 
 ## <a name="next-steps"></a>Passos seguintes

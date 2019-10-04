@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900470"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937234"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Práticas recomendadas do Azure para segurança de rede
 Este artigo discute uma coleção de práticas recomendadas do Azure para aprimorar sua segurança de rede. Essas práticas recomendadas derivam de nossa experiência com a rede do Azure e as experiências de clientes como você.
@@ -63,7 +63,7 @@ Ao usar grupos de segurança de rede para controle de acesso à rede entre sub-r
 **Prática recomendada**: Evite redes virtuais e sub-redes pequenas para garantir a simplicidade e a flexibilidade.   
 **Detalhe**: A maioria das organizações adiciona mais recursos do que o planejado inicialmente e a realocação de endereços é muito trabalhoso. O uso de sub-redes pequenas adiciona um valor de segurança limitado e o mapeamento de um grupo de segurança de rede para cada sub-rede adiciona sobrecarga. Defina sub-redes em larga escala para garantir que você tenha flexibilidade para o crescimento.
 
-**Prática recomendada**: Simplifique o gerenciamento de regras do grupo de segurança de rede definindo [grupos de segurança de aplicativos](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Prática recomendada**: Simplifique o gerenciamento de regras do grupo de segurança de rede definindo [grupos de segurança de aplicativos](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
 **Detalhe**: Defina um grupo de segurança de aplicativo para listas de endereços IP que você ache que podem ser alterados no futuro ou que sejam usados em vários grupos de segurança de rede. Não se esqueça de nomear os grupos de segurança de aplicativos claramente para que outras pessoas possam entender seu conteúdo e finalidade.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Adote uma abordagem de confiança zero
@@ -209,5 +209,5 @@ Os pontos finais de serviço oferecem as seguintes vantagens:
 
 Para saber mais sobre os pontos de extremidade de serviço e os serviços do Azure e as regiões para os quais os pontos de extremidade de serviço estão disponíveis, consulte [pontos de extremidade de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Veja [padrões e práticas recomendadas de segurança do Azure](best-practices-and-patterns.md) para obter mais práticas recomendadas de segurança para usar ao projetar, implantar e gerenciar suas soluções de nuvem usando o Azure.

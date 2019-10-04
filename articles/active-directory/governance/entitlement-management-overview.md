@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241702"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827145"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>O que é a gestão de direitos do Azure AD? (Pré-visualização)
 
@@ -122,8 +122,8 @@ Para entender melhor o gerenciamento de direitos e sua documentação, você dev
 | Termo ou conceito | Descrição |
 | --- | --- |
 | gerenciamento de direitos | Um serviço que atribui, revoga e administra pacotes de acesso. |
-| pacote de acesso | Uma coleção de permissões e políticas para recursos que os usuários podem solicitar. Um pacote do Access sempre está contido em um catálogo. |
-| solicitação de acesso | Uma solicitação para acessar um pacote de acesso. Normalmente, uma solicitação passa por um fluxo de trabalho. |
+| pacote de acesso | Um pacote de recursos que uma equipe ou projeto precisa e é regido por políticas. Um pacote do Access sempre está contido em um catálogo. |
+| solicitação de acesso | Uma solicitação para acessar os recursos em um pacote do Access. Normalmente, uma solicitação passa por um fluxo de trabalho. |
 | policy | Um conjunto de regras que define o ciclo de vida de acesso, como como os usuários obtêm acesso, quem pode aprovar e por quanto tempo os usuários têm acesso. As políticas de exemplo incluem acesso de funcionário e acesso externo. |
 | catalog | Um contêiner de recursos relacionados e pacotes de acesso. |
 | Catálogo geral | Um catálogo interno que está sempre disponível. Para adicionar recursos ao catálogo geral, o requer determinadas permissões. |
@@ -148,11 +148,11 @@ Seu locatário deve ter pelo menos tantas licenças Azure AD Premium P2 quanto v
 - Um usuário ao qual foi atribuído um pacote do Access. 
 - Um usuário que gerencia pacotes de acesso.
 
-Como parte das licenças para usuários Membros, você também pode permitir que vários usuários convidados interajam com o gerenciamento de direitos. Para obter informações sobre como calcular o número de usuários convidados que você pode incluir, consulte Diretrizes de licenciamento de [colaboração B2B Azure Active Directory](../b2b/licensing-guidance.md).
+Como parte das licenças para usuários Membros, você também pode permitir que vários usuários convidados interajam com o gerenciamento de direitos. Para obter informações sobre como calcular o número de usuários convidados que você pode incluir, consulte [diretrizes de licenciamento de colaboração B2B Azure Active Directory](../b2b/licensing-guidance.md).
 
 Para obter informações sobre como atribuir licenças a seus usuários, consulte [atribuir ou remover licenças usando o portal de Azure Active Directory](../fundamentals/license-users-groups.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tutorial: Criar seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
 - [Cenários comuns](entitlement-management-scenarios.md)

@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 9c9d02eeead4ccbed372e9a55d9b551da83caa39
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 7af40404550fb78af891563d8256f23620781b24
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642296"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841536"
 ---
 # <a name="understanding-the-ip-address-of-your-iot-hub"></a>Noções básicas sobre o endereço IP do Hub IoT
 
@@ -34,3 +34,6 @@ Esse endereço IP pode ser alterado sem aviso prévio. Em um cenário de failove
 
 Tente criar regras de firewall e filtragem com base no nome ou domínio do host do Hub IoT. Se você só pode permitir o tráfego de saída para endereços específicos, pesquise o endereço IP do Hub IoT regularmente e atualize suas regras de firewall.
 
+## <a name="support-for-ipv6"></a>Suporte para IPv6 
+
+No momento, não há suporte para IPv6 no Hub IoT.

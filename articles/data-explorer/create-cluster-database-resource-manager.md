@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b8aa87b871b86a8dab3b1984b638366a42708483
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329438"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936900"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usando um modelo de Azure Resource Manager
 
@@ -110,7 +110,7 @@ Você pode implantar o modelo de Azure Resource Manager [usando o portal do Azur
 
     ![Implementar no Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-Você pode [Editar e implantar o modelo no portal do Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando o formulário.
+    Você pode [Editar e implantar o modelo no portal do Azure](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) usando o formulário.
 
 1. Conclua as seções **básicas** e **configurações** . Selecione nomes de banco de dados e cluster exclusivos.
 Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco de dados.
@@ -142,7 +142,7 @@ Leva alguns minutos para criar um cluster de Data Explorer do Azure e um banco d
 
 #### <a name="verify-the-deployment-using-powershell"></a>Verificar a implantação usando o PowerShell
 
-Para verificar a implantação, use o seguinte script de Azure PowerShell.  Se o Cloud Shell ainda estiver aberto, você não precisará copiar/executar a primeira linha (Read-Host). Para obter mais informações sobre como gerenciar recursos de Data Explorer do Azure no PowerShell, leia [AZ. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Fazer alterações relevantes
+Para verificar a implantação, use o seguinte script de Azure PowerShell.  Se o Cloud Shell ainda estiver aberto, você não precisará copiar/executar a primeira linha (Read-Host). Para obter mais informações sobre como gerenciar recursos de Data Explorer do Azure no PowerShell, leia [AZ. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -163,7 +163,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 Exclua os recursos no portal do Azure seguindo as etapas em [limpar recursos](create-cluster-database-portal.md#clean-up-resources).
 
-### <a name="clean-up-resources-using-powershell"></a>Limpar recursos usando o PowerShell
+### <a name="clean-up-resources-using-powershell"></a>Limpar os recursos com o PowerShell
 
 Se o Cloud Shell ainda estiver aberto, você não precisará copiar/executar a primeira linha (Read-Host).
 
