@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 07/29/2019
   ms.author: aahi
-  ms.openlocfilehash: 3a95cedb76c25b8e22e0d93c60221015e5836506
-  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.openlocfilehash: 9b90900b7d09f9a8f94e57941cccf366c440690f
+  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71300479"
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71827776"
 landingContent:
 - title: Acerca da API de Análise de Texto
   linkLists:
@@ -132,7 +132,7 @@ landingContent:
     - text: Biblioteca de cliente Go
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
     - text: Azure PowerShell
-      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services"
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices
     - text: CLI do Azure
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
 - title: Utilizar contentores do Docker

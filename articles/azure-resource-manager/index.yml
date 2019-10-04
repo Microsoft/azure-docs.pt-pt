@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 09/25/2019
-  ms.openlocfilehash: 4981000d942bfa49503a63ce2a82ec994efc3c6e
-  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.openlocfilehash: 5ce4115713315f41176819fdbd306e604706d9db
+  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71299500"
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71827494"
 landingContent:
 - title: Acerca do Resource Manager
   linkLists:
@@ -76,7 +76,7 @@ landingContent:
   - linkListType: reference
     links:
     - text: Modelos de Início Rápido do Azure
-      url: /resources/templates/
+      url: template-deployment-overview.md
 - title: Implementar modelos
   linkLists:
   - linkListType: how-to-guide

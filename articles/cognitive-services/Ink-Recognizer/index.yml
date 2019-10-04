@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2019
   ms.author: aahi
-  ms.openlocfilehash: 985cdb6492445c89462e79cc2931d28bc34abb58
-  ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+  ms.openlocfilehash: 7aee03f6f82c6c07e3af51a19344ba7716c66a23
+  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71219525"
+  ms.lasthandoff: 10/02/2019
+  ms.locfileid: "71827874"
 landingContent:
 - title: Acerca da API do Reconhecedor de Tinta Digital
   linkLists:
@@ -50,7 +50,7 @@ landingContent:
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: CLI do Azure
-      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
 - title: Amostras
   linkLists:
   - linkListType: learn

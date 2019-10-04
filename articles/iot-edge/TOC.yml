@@ -135,14 +135,14 @@
           href: how-to-update-iot-edge.md
     - name: Aprovisionamento automático com DPS
       items:
-        - name: Atestado de chave simétrica
-          href: how-to-auto-provision-symmetric-keys.md
         - name: Atestado de TPM
           items:
             - name: Linux
               href: how-to-auto-provision-simulated-device-linux.md
             - name: Windows
               href: how-to-auto-provision-simulated-device-windows.md
+        - name: Atestado de chave simétrica
+          href: how-to-auto-provision-symmetric-keys.md
     - name: Programar e depurar módulos personalizados
       items:
         - name: Visual Studio 2019
