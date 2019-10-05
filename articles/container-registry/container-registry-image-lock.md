@@ -6,14 +6,14 @@ author: dlepow
 manager: gwallace
 ms.service: container-registry
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 09/30/2019
 ms.author: danlep
-ms.openlocfilehash: 7a313353ee1c7afae10fd7af84570565037e40ab
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 1ef6d5366e5db07a7f03bac251c24b1ff76a13e9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310654"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949507"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloquear uma imagem de contêiner em um registro de contêiner do Azure
 
@@ -21,9 +21,12 @@ Em um registro de contêiner do Azure, você pode bloquear uma versão de imagem
 
 Este artigo requer que você execute o CLI do Azure no Azure Cloud Shell ou localmente (versão 2.0.55 ou posterior recomendada). Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure][azure-cli].
 
+> [!IMPORTANT]
+> Este artigo não se aplica ao bloqueio de um registro inteiro, por exemplo, usando **configurações > bloqueios** nos comandos portal do Azure ou `az lock` no CLI do Azure. O bloqueio de um recurso de registro não impede que você crie, atualize ou exclua dados em repositórios. O bloqueio de um registro afeta apenas as operações de gerenciamento, como adicionar ou excluir replicações, ou excluir o próprio registro. Mais informações em [Bloquear recursos para evitar alterações inesperadas](../azure-resource-manager/resource-group-lock-resources.md).
+
 ## <a name="scenarios"></a>Cenários
 
-Por padrão, uma imagem marcada no registro de contêiner do Azure é *mutável*, portanto, com as permissões apropriadas, você pode atualizar repetidamente e enviar por push uma imagem com a mesma marca para um registro. As imagens de contêiner também [](container-registry-delete.md) podem ser excluídas conforme necessário. Esse comportamento é útil quando você desenvolve imagens e precisa manter um tamanho para o registro.
+Por padrão, uma imagem marcada no registro de contêiner do Azure é *mutável*, portanto, com as permissões apropriadas, você pode atualizar repetidamente e enviar por push uma imagem com a mesma marca para um registro. As imagens de contêiner também podem ser [excluídas](container-registry-delete.md) conforme necessário. Esse comportamento é útil quando você desenvolve imagens e precisa manter um tamanho para o registro.
 
 No entanto, ao implantar uma imagem de contêiner na produção, talvez você precise de uma imagem de contêiner *imutável* . Uma imagem imutável é aquela que você não pode excluir ou substituir acidentalmente. Use o comando [AZ ACR Repository Update][az-acr-repository-update] para definir atributos de repositório para que você possa:
 
@@ -67,7 +70,7 @@ az acr repository update \
 
 ### <a name="lock-an-image-by-manifest-digest"></a>Bloquear uma imagem por Resumo do manifesto
 
-Para bloquear uma imagem myrepositório/MyImage identificada pelo resumo do manifesto (SHA-256 hash, `sha256:...`representado como), execute o comando a seguir. (Para localizar o resumo do manifesto associado a uma ou mais marcas de imagem, execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] .)
+Para bloquear uma imagem *myrepositório/MyImage* identificada pelo resumo do manifesto (SHA-256 hash, representado como `sha256:...`), execute o comando a seguir. (Para localizar o resumo do manifesto associado a uma ou mais marcas de imagem, execute o comando [AZ ACR Repository show-manifestas][az-acr-repository-show-manifests] .)
 
 ```azurecli
 az acr repository update \
@@ -143,7 +146,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu a usar o comando [AZ ACR Repository Update][az-acr-repository-update] para impedir a exclusão ou a atualização de versões de imagem em um repositório. Para definir atributos adicionais, consulte a referência do comando [AZ ACR Repository Update][az-acr-repository-update] .
 

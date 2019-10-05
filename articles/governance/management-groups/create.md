@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1b53d8a15e6ca1d4fc5a8ed6d58e526fadd12466
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337789"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949008"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Criar grupos de gerenciamento para organização de recursos e gerenciamento
 
@@ -31,9 +31,13 @@ Você pode criar o grupo de gerenciamento usando o portal, o PowerShell ou o CLI
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Selecione **todos os serviços** > **grupos de gerenciamento**.
+1. Selecione **todos os serviços** > **Gerenciamento + governança**.
 
-1. Na página principal, selecione **novo grupo de gerenciamento**.
+1. Selecionar **Gerenciamento de custos + cobrança**
+
+1. Na página Gerenciamento de custos + cobrança-grupos de gerenciamento, selecione **grupos de gerenciamento**
+
+1. Selecione **+ Adicionar grupo de gerenciamento**.
 
    ![Página para trabalhar com grupos de gerenciamento](./media/main.png)
 

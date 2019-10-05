@@ -1,46 +1,46 @@
 ---
-title: Servidor único do Advanced Threat Protection - base de dados do Azure para PostgreSQL-
-description: Proteção avançada contra ameaças Deteta atividades anómalas da base de dados, indicando potenciais ameaças de segurança para a base de dados.
+title: Conceitos de proteção avançada contra ameaças-banco de dados do Azure para PostgreSQL-servidor único
+description: Saiba como usar a proteção avançada contra ameaças para detectar atividades anormais de banco de dados que indicam possíveis ameaças de segurança ao banco de dados.
 author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 81f42183276f95ddfb24fbdc388fef59acbe680e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 61c0e666458018d4e03d5560e417d28d0efadb27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073529"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950083"
 ---
-# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças na base de dados do Azure para PostgreSQL - servidor único
+# <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Proteção avançada contra ameaças no banco de dados do Azure para PostgreSQL-servidor único
 
-A Proteção Avançada Contra Ameaças para Base de Dados do Azure para PostgreSQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares para aceder ou explorar as suas bases de dados.
-
-> [!NOTE]
-> Proteção avançada contra ameaças está em pré-visualização pública.
-
-Proteção contra ameaças faz parte da oferta de proteção contra ameaças avançadas (ATP), que é um pacote unificado para os recursos de segurança avançada. Proteção avançada contra ameaças podem ser acessada e gerenciada através do [portal do Azure](https://portal.azure.com) ou utilizando [REST API](/rest/api/postgresql/serversecurityalertpolicies). A funcionalidade está disponível para os servidores de fins gerais e memória otimizada.
+O Advanced Threat Protection da Base de Dados do Azure para PostgreSQL deteta atividades anómalas que indicam tentativas potencialmente perigosas e invulgares de acesso ou exploração das bases de dados.
 
 > [!NOTE]
-> A funcionalidade de proteção avançada contra ameaças está **não** disponíveis nas regiões de cloud soberana e seguir o Azure government: US Gov Texas, EUA Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Alemanha Central, Alemanha norte, leste da China, leste da China 2. Visite [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
+> A proteção avançada contra ameaças está em visualização pública.
+
+A proteção contra ameaças faz parte da oferta de proteção de ameaças avançada (ATP), que é um pacote unificado para recursos avançados de segurança. A proteção avançada contra ameaças pode ser acessada e gerenciada por meio do [portal do Azure](https://portal.azure.com) ou usando a [API REST](/rest/api/postgresql/serversecurityalertpolicies). O recurso está disponível para servidores Uso Geral e com otimização de memória.
+
+> [!NOTE]
+> O recurso proteção avançada contra ameaças **não** está disponível nas seguintes regiões do Azure governamental e do soberanas Cloud: US Gov Texas, US Gov Arizona, US Gov Iowa, US, gov Virgínia, US DoD Leste, US DoD Central, Alemanha central, Norte da Alemanha, Leste da China, Leste da China 2. Visite os [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/) para disponibilidade geral do produto.
 
 ## <a name="what-is-advanced-threat-protection"></a>O que é a proteção avançada contra ameaças?
 
-Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL fornece uma nova camada de segurança, o que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem ao fornecer alertas de segurança relativamente a atividades anómalas. Os utilizadores recebem um alerta após a atividades suspeitas da base de dados e potenciais vulnerabilidades, bem como os padrões de acesso e consultas de base de dados anómalas. Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL integra alertas no [Centro de segurança do Azure](https://azure.microsoft.com/services/security-center/), que inclui detalhes de atividade suspeita e recomenda ação sobre como investigar e mitigar a ameaça. Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL facilita lidar com potenciais ameaças à base de dados sem a necessidade de ser um especialista em segurança ou gerir sistemas de monitorização de segurança avançada. 
+A proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL fornece uma nova camada de segurança, que permite que os clientes detectem e respondam a ameaças potenciais à medida que ocorrem, fornecendo alertas de segurança em atividades anormais. Os usuários recebem um alerta sobre atividades suspeitas de banco de dados e possíveis vulnerabilidades, bem como padrões de consultas e acessos de banco de dados anormais. A proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL integra alertas com a [central de segurança do Azure](https://azure.microsoft.com/services/security-center/), que inclui detalhes de atividades suspeitas e recomenda ações sobre como investigar e atenuar a ameaça. A proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL torna simples lidar com ameaças potenciais ao banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar sistemas de monitoramento de segurança avançados. 
 
 ![Conceito de proteção avançada contra ameaças](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
 
-## <a name="advanced-threat-protection-alerts"></a>Alertas de proteção contra ameaças avançadas 
-Proteção avançada contra ameaças para a base de dados do Azure para PostgreSQL Deteta atividades anómalas que indiquem tentativas invulgares e potencialmente prejudiciais de acesso ou exploração de bases de dados e ele pode acionar os seguintes alertas:
-- **Acesso a partir de uma localização invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor PostgreSQL, em que alguém iniciou sessão para a base de dados do Azure para o servidor PostgreSQL a partir de uma localização geográfica invulgar. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso a partir do Centro de dados do Azure invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor PostgreSQL, em que alguém iniciou sessão para o servidor de um centro de dados do Azure invulgar que foi visto neste servidor durante o período recente. Em alguns casos, o alerta Deteta uma ação legítima (sua nova aplicação no Azure, Power BI, base de dados para o Editor de consultas do PostgreSQL). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
-- **Acesso a partir de principal invulgar**: Este alerta é acionado quando ocorre uma alteração no padrão de acesso à base de dados do Azure para o servidor PostgreSQL, em que alguém iniciou sessão no servidor com um principal invulgar (base de dados Azure para PostgreSQL utilizador). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso a partir de uma aplicação potencialmente prejudicial**: Este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder a base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
-- **Base de dados do Azure de força bruta para credenciais de PostgreSQL**: Este alerta é acionado quando existe um número anormalmente elevado de inícios de sessão falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
+## <a name="advanced-threat-protection-alerts"></a>Alertas do Advanced Threat Protection 
+A proteção avançada contra ameaças para o banco de dados do Azure para PostgreSQL detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados e pode disparar os seguintes alertas:
+- **Acesso de local incomum**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no banco de dados do Azure para o servidor PostgreSQL de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso de data center incomuns do Azure**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no servidor de um data center do Azure incomum que foi visto nesse servidor durante o período recente. Em alguns casos, o alerta detecta uma ação legítima (seu novo aplicativo no Azure, Power BI, editor de consultas do banco de dados do Azure para PostgreSQL). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
+- **Acesso de entidade de segurança não familiar**: Esse alerta é disparado quando há uma alteração no padrão de acesso para o servidor do banco de dados do Azure para PostgreSQL, em que alguém fez logon no servidor usando uma entidade de segurança incomum (usuário do banco de dados do Azure para PostgreSQL). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso de um aplicativo potencialmente prejudicial**: Esse alerta é disparado quando um aplicativo potencialmente prejudicial é usado para acessar o banco de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
+- **Banco de dados do Azure de força bruta para credenciais do PostgreSQL**: Esse alerta é disparado quando há um grande número anormal de logons com falha com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [Centro de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
-* Para obter mais informações sobre os preços, consulte o [base de dados do Azure para a página de preços do PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/) 
-* Configurar [base de dados do Azure para PostgreSQL Advanced Threat Protection](howto-database-threat-protection-portal.md) no portal do Azure  
+* Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+* Para obter mais informações sobre preços, consulte a [página de preços do banco de dados do Azure para PostgreSQL](https://azure.microsoft.com/pricing/details/postgresql/) 
+* Configurar a [proteção avançada contra ameaças do banco de dados do Azure para PostgreSQL](howto-database-threat-protection-portal.md) usando o portal do Azure  

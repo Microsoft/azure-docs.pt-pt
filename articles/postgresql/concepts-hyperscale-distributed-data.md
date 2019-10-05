@@ -1,18 +1,18 @@
 ---
 title: Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
-description: Tabelas e fragmentos distribuídos no grupo de servidores.
+description: Saiba mais sobre tabelas distribuídas, tabelas de referência, tabelas locais e fragmentos no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: acc07086f4eaac523cb27e1361cb9cc6d380c695
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998029"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947493"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distributed data in Azure database for PostgreSQL – Citus (hiperescala)
 
@@ -51,7 +51,7 @@ Um bom candidato para tabelas locais seria pequenas tabelas administrativas que 
 
 A seção anterior descreveu como as tabelas distribuídas são armazenadas como fragmentos em nós de trabalho. Esta seção aborda mais detalhes técnicos.
 
-A `pg_dist_shard` tabela de metadados no coordenador contém uma linha para cada fragmento de cada tabela distribuída no sistema. A linha corresponde a uma ID de fragmento com um intervalo de inteiros em um espaço de hash (shardminvalue, shardmaxvalue).
+A tabela de metadados `pg_dist_shard` no coordenador contém uma linha para cada fragmento de cada tabela distribuída no sistema. A linha corresponde a uma ID de fragmento com um intervalo de inteiros em um espaço de hash (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Se o nó de coordenador quiser determinar qual fragmento contém uma linha `github_events`, ele faz hash do valor da coluna de distribuição na linha. Em seguida, o nó verifica\'qual intervalo de s de fragmentos contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
+Se o nó de coordenador quiser determinar qual fragmento contém uma linha de `github_events`, ele aplicará hash ao valor da coluna de distribuição na linha. Em seguida, o nó verifica qual intervalo @ no__t-0s de fragmento contém o valor de hash. Os intervalos são definidos de forma que a imagem da função de hash seja sua União não-junção.
 
 ### <a name="shard-placements"></a>Posicionamentos de fragmentos
 
-Suponha que o fragmento 102027 esteja associado à linha em questão. A linha é lida ou gravada em uma tabela `github_events_102027` chamada em um dos trabalhadores. Qual trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o Worker é conhecido como o posicionamento do fragmento.
+Suponha que o fragmento 102027 esteja associado à linha em questão. A linha é lida ou gravada em uma tabela chamada `github_events_102027` em um dos trabalhadores. Qual trabalhador? Isso é determinado inteiramente pelas tabelas de metadados. O mapeamento do fragmento para o Worker é conhecido como o posicionamento do fragmento.
 
-O nó coordenador reescreve as consultas em fragmentos que se referem a tabelas específicas `github_events_102027` como e executa esses fragmentos nos trabalhadores apropriados. Veja um exemplo de uma consulta executada nos bastidores para localizar o nó que contém a ID de fragmento 102027.
+O nó coordenador reescreve consultas em fragmentos que se referem a tabelas específicas como `github_events_102027` e executa esses fragmentos nos trabalhadores apropriados. Veja um exemplo de uma consulta executada nos bastidores para localizar o nó que contém a ID de fragmento 102027.
 
 ```sql
 SELECT

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124472"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949674"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console serial do Azure para Linux
 
@@ -46,7 +46,7 @@ Para obter a documentação do console serial para Windows, consulte [console se
 
 - Para configurações específicas para distribuições do Linux, consulte [console serial disponibilidade de distribuição do Linux](#serial-console-linux-distribution-availability).
 
-- A instância do conjunto de dimensionamento de máquinas virtuais ou VM deve ser configurada para a saída serial em `ttys0`. Esse é o padrão para as imagens do Azure, mas você desejará fazer uma verificação dupla em imagens personalizadas. Detalhes [abaixo](#custom-linux-images).
+- A instância do conjunto de dimensionamento de máquinas virtuais ou VM deve ser configurada para a saída serial no `ttys0`. Esse é o padrão para as imagens do Azure, mas você desejará fazer uma verificação dupla em imagens personalizadas. Detalhes [abaixo](#custom-linux-images).
 
 
 > [!NOTE]
@@ -69,11 +69,11 @@ SUSE        | As imagens SLES mais recentes disponíveis no Azure têm o acesso 
 Oracle Linux        | O acesso ao Console serial habilitado por padrão.
 
 ### <a name="custom-linux-images"></a>Imagens personalizadas do Linux
-Para habilitar o console serial para sua imagem de VM Linux personalizada, habilite o acesso ao console no arquivo */etc/inittab* para executar `ttyS0`um terminal. Por exemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Talvez você também precise gerar um Getty em ttyS0. Isso pode ser feito com `systemctl start serial-getty@ttyS0.service`.
+Para habilitar o console serial para sua imagem de VM Linux personalizada, habilite o acesso ao console no arquivo */etc/inittab* para executar um terminal em `ttyS0`. Por exemplo: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Talvez você também precise gerar um Getty em ttyS0. Isso pode ser feito com `systemctl start serial-getty@ttyS0.service`.
 
 Você também vai querer adicionar ttyS0 como o destino para a saída serial. Para obter mais informações sobre como configurar uma imagem personalizada para trabalhar com o console serial, consulte os requisitos gerais do sistema em [criar e carregar um VHD do Linux no Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-Se você estiver criando um kernel personalizado, considere habilitar estes sinalizadores de kernel `CONFIG_SERIAL_8250=y` : `CONFIG_MAGIC_SYSRQ_SERIAL=y`e. O arquivo de configuração normalmente está localizado no caminho */boot/* .
+Se você estiver criando um kernel personalizado, considere habilitar estes sinalizadores de kernel: `CONFIG_SERIAL_8250=y` e `CONFIG_MAGIC_SYSRQ_SERIAL=y`. O arquivo de configuração normalmente está localizado no caminho */boot/* .
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Cenários comuns para acessar o console serial
 
@@ -119,16 +119,14 @@ Utilize o **separador** chave no teclado para navegar na interface de consola de
 A consola de série tem suporte de leitor de ecrã incorporado. Navegação com um leitor de ecrã ativado, permitirá que o texto alternativo para o botão selecionado atualmente a ser lido em voz alta pelo leitor de ecrã.
 
 ## <a name="known-issues"></a>Problemas conhecidos
-Estamos cientes de alguns problemas com a consola de série. Aqui está uma lista desses problemas e os passos para a mitigação. Esses problemas e atenuações se aplicam tanto a VMs quanto a instâncias do conjunto de dimensionamento de máquinas virtuais.
+Estamos cientes de alguns problemas com o console serial e o sistema operacional da VM. Aqui está uma lista desses problemas e etapas para mitigação para VMs Linux. Esses problemas e atenuações se aplicam tanto a VMs quanto a instâncias do conjunto de dimensionamento de máquinas virtuais. Se eles não corresponderem ao erro que você está vendo, consulte os erros comuns do serviço de console serial em [erros comuns do console serial](./serial-console-errors.md).
 
 Problema                           |   Mitigação
 :---------------------------------|:--------------------------------------------|
 Premir **Enter** depois da faixa de ligação não causa um prompt de início de sessão a apresentar. | Para obter mais informações, consulte [Hitting introduza não faz nada](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Esse problema pode ocorrer se você estiver executando uma VM personalizada, um dispositivo protegido ou uma configuração do GRUB que faz com que o Linux falhe na conexão com a porta serial.
-Console serial texto só ocupa uma parte do tamanho da tela (geralmente, depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não haverá nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM não terá conhecimento do tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o `resize` comando e, em seguida, execute. `resize`
+Console serial texto só ocupa uma parte do tamanho da tela (geralmente, depois de usar um editor de texto). | Os consoles seriais não dão suporte à negociação sobre o tamanho da janela ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), o que significa que não haverá nenhum sinal SIGWINCH enviado para atualizar o tamanho da tela e a VM não terá conhecimento do tamanho do seu terminal. Instale o xterm ou um utilitário semelhante para fornecer o comando `resize` e execute `resize`.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
-Console serial não funciona com um firewall de conta de armazenamento. | Console serial por design não pode funcionar com firewalls de conta de armazenamento habilitados na conta de armazenamento de diagnóstico de inicialização.
-Console serial não funciona com uma conta de armazenamento usando Azure Data Lake Storage Gen2 com namespaces hierárquicos. | Esse é um problema conhecido com namespaces hierárquicos. Para atenuar, verifique se a conta de armazenamento do diagnóstico de inicialização da VM não foi criada usando Azure Data Lake Storage Gen2. Essa opção só pode ser definida na criação da conta de armazenamento. Talvez seja necessário criar uma conta de armazenamento de diagnóstico de inicialização separada sem Azure Data Lake Storage Gen2 habilitado para atenuar esse problema.
-Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do grub anexando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha GRUB_CMDLINE_LINUX `/etc/default/grub`no, recriando `grub2-mkconfig -o /boot/grub2/grub.cfg`grub com e reinicializando.
+Entrada de teclado irregular em imagens SLES BYOS. A entrada do teclado é reconhecida apenas esporadicamente. | Isso é um problema com o pacote Plymouth. Plymouth não deve ser executado no Azure porque você não precisa de uma tela inicial e Plymouth interfere na capacidade da plataforma de usar o console serial. Remova Plymouth com `sudo zypper remove plymouth` e reinicialize. Como alternativa, modifique a linha de kernel da configuração do GRUB acrescentando `plymouth.enable=0` ao final da linha. Você pode fazer isso [editando a entrada de inicialização no momento da inicialização](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles)ou editando a linha GRUB_CMDLINE_LINUX em `/etc/default/grub`, recriando o grub com o `grub2-mkconfig -o /boot/grub2/grub.cfg` e, em seguida, reinicializando.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -168,7 +166,7 @@ R. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máq
 
 R. Sim. Como o console serial não requer chaves SSH, você só precisa configurar uma combinação de nome de usuário/senha. Você pode fazer isso selecionando **Redefinir senha** no portal do Azure e usando essas credenciais para entrar no console serial.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Use o console serial para [acessar o grub e o modo de usuário único](serial-console-grub-single-user-mode.md).
 * Use o console serial para [chamadas NMI e SysRq](serial-console-nmi-sysrq.md).
 * Saiba como usar o console serial para [habilitar o grub em vários distribuições](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).

@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300688"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947890"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Depurar seu aplicativo Service Fabric usando o Visual Studio
 > [!div class="op_single_selector"]
@@ -76,14 +76,10 @@ Se seus aplicativos Service Fabric estiverem em execução em um Cluster Service
 
 > [!NOTE]
 > O recurso requer [Service Fabric sdk 2,0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) e [SDK do Azure para .NET 2,9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > A depuração remota destina-se a cenários de desenvolvimento/teste e não a ser usada em ambientes de produção, devido ao impacto nos aplicativos em execução.
-> 
-> 
 
 1. Navegue até o cluster no **Cloud Explorer**. Clique com o botão direito do mouse e escolha **Habilitar depuração**
    
@@ -128,8 +124,6 @@ Você também é capaz de transmitir rastreamentos diretamente de um nó de clus
 > [!WARNING]
 > Os rastreamentos de streaming destinam-se a cenários de desenvolvimento/teste e não a serem usados em ambientes de produção, devido ao impacto nos aplicativos em execução.
 > Em um cenário de produção, você deve contar com o encaminhamento de eventos usando Diagnóstico do Azure.
-> 
-> 
 
 1. Navegue até o cluster no **Cloud Explorer**. Clique com o botão direito do mouse e escolha **habilitar rastreamentos de streaming**
    

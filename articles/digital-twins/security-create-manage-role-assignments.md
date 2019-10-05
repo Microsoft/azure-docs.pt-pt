@@ -1,20 +1,20 @@
 ---
 title: Criar e gerenciar atribuições de função – gêmeos digital do Azure | Microsoft Docs
 description: Saiba mais sobre como criar e gerenciar atribuições de função no Azure digital gêmeos.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827708"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949831"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Criar e gerenciar atribuições de função no gêmeos digital do Azure
 
@@ -39,9 +39,9 @@ A tabela a seguir descreve cada atributo:
 | Atributo | Name | Requerido | Tipo | Descrição |
 | --- | --- | --- | --- | --- |
 | roleId | Identificador de definição de função | Sim | Cadeia | A ID exclusiva da atribuição de função desejada. Encontre definições de função e seu identificador consultando a API do sistema ou revisando a tabela abaixo. |
-| objectId | Identificador de objeto | Sim | Cadeia | Uma ID de Azure Active Directory, ID de objeto da entidade de serviço ou nome de domínio. A que ou a quem a atribuição de função está atribuída. A atribuição de função deve ser formatada de acordo com seu tipo associado. Para o `DomainName` objectidtype, ObjectID deve começar com o `“@”` caractere. |
+| objectId | Identificador de objeto | Sim | Cadeia | Uma ID de Azure Active Directory, ID de objeto da entidade de serviço ou nome de domínio. A que ou a quem a atribuição de função está atribuída. A atribuição de função deve ser formatada de acordo com seu tipo associado. Para o @no__tid-0 objectIdtype, objectId deve começar com o caractere de `“@”`. |
 | objectIdType | Tipo de identificador de objeto | Sim | Cadeia | O tipo de identificador de objeto usado. Consulte **ObjectIdTypes com suporte** abaixo. |
-| path | Caminho do espaço | Sim | Cadeia | O caminho de acesso completo para `Space` o objeto. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para o grafo inteiro, `"/"`especifique. Esse caractere designa a raiz, mas seu uso não é recomendado. Sempre siga o princípio de privilégios mínimos. |
+| path | Caminho do espaço | Sim | Cadeia | O caminho de acesso completo para o objeto `Space`. Um exemplo é `/{Guid}/{Guid}`. Se um identificador precisar da atribuição de função para o grafo inteiro, especifique `"/"`. Esse caractere designa a raiz, mas seu uso não é recomendado. Sempre siga o princípio de privilégios mínimos. |
 | tenantId | Identificador do locatário | Varia | Cadeia | Na maioria dos casos, uma ID de locatário Azure Active Directory. Não permitido para `DeviceId` e `TenantId` ObjectIdTypes. Necessário para `UserId` e `ServicePrincipalId` ObjectIdTypes. Opcional para o ObjectIdid DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definição de função com suporte
@@ -52,7 +52,7 @@ Cada atribuição de função associa uma definição de função a uma entidade
 
 ### <a name="supported-object-identifier-types"></a>Tipos de identificador de objeto com suporte
 
-Anteriormente, o atributo objectidtype foi introduzido.
+Anteriormente, o atributo **objectidtype** foi introduzido.
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
@@ -168,7 +168,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | YOUR_ACCESS_TYPE |  True | Cadeia |   *Ler*, *criar*, *Atualizar*ou *excluir* |
 | YOUR_RESOURCE_TYPE | True | Cadeia |  *Dispositivo*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *Extended*, *ponto de extremidade*, *keystore*, *correspondente*, *ontologia*, *relatório*,  *RoleDefinition*, *sensor*, *SensorExtendedProperty*, *espaço*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *sistema* , *UerDefinedFunction*, *User*, *UserBlobMetadata*ou *extendeproperty* |
 
-Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho e o recurso especificados.
+Uma solicitação bem-sucedida retornará um booliano `true` ou `false` para indicar se o tipo de acesso foi atribuído ao usuário para o caminho e o recurso fornecidos.
 
 ### <a name="get-role-assignments-by-path"></a>Obter atribuições de função por caminho
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71813811"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959660"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Depurar e solucionar problemas de pipelines do Machine Learning
 
@@ -27,7 +27,7 @@ As seções a seguir fornecem uma visão geral das armadilhas comuns ao criar pi
 
 Uma das falhas mais comuns em um pipeline é que um script anexado (script de limpeza de dados, script de pontuação, etc.) não está em execução como pretendido, ou contém erros de tempo de execução no contexto de computação remota que são difíceis de Depurar em seu espaço de trabalho no portal do Azure. 
 
-Os pipelines propriamente ditos não podem ser executados localmente, mas o teste de unidade dos scripts subjacentes é uma maneira fácil de garantir que seus scripts estejam fazendo o que você espera isoladamente, sem esperar pela duração completa da execução do pipeline. Alguns trabalhos de desenvolvimento são necessários para fazer isso:
+Os pipelines propriamente ditos não podem ser executados localmente, mas a execução dos scripts em isolamento no computador local permite que você depure mais rápido porque não precisa esperar o processo de compilação do ambiente e da computação. Alguns trabalhos de desenvolvimento são necessários para fazer isso:
 
 * Se os seus dados estiverem em um armazenamento em nuvem, será necessário baixar os dados e disponibilizá-los para o script. Usar uma pequena amostra de seus dados é uma boa maneira de reduzir o tempo de execução e obter rapidamente comentários sobre o comportamento do script
 * Se você estiver tentando simular uma etapa intermediária de pipeline, talvez seja necessário criar manualmente os tipos de objeto que o script específico está esperando na etapa anterior
@@ -38,6 +38,9 @@ Quando você tiver uma configuração de script para ser executada no seu ambien
 * Anexando uma configuração de depuração personalizada
 * Pausando a execução e inspecionando o estado do objeto
 * Captura de tipo ou erros lógicos que não serão expostos até o tempo de execução
+
+> [!TIP] 
+> Depois que você puder verificar se o script está sendo executado conforme o esperado, uma boa próxima etapa é executar o script em um pipeline de etapa única antes de tentar executá-lo em um pipeline com várias etapas.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Depurando scripts do contexto remoto
 

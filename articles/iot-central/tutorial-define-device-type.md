@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099611"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960538"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Tutorial: Definir um novo tipo de dispositivo em seu aplicativo de IoT Central do Azure
 
@@ -75,7 +75,7 @@ Para concluir este tutorial, precisa de uma aplicação do Azure IoT Central. Se
 
      Para obter mais informações, veja [criar um início rápido da aplicação](quick-deploy-iot-central.md).
 
-## <a name="create-a-device-template"></a>Criar um modelo de dispositivo
+## <a name="create-a-device-template"></a>Criar um modelo do dispositivo
 
 Como construtor, pode criar e editar os modelos de dispositivos na sua aplicação. Quando cria um modelo de dispositivo, o Azure IoT Central gera um dispositivo simulado a partir do modelo. O dispositivo simulado gera telemetria que permite testar o comportamento do seu aplicativo antes de conectar um dispositivo real.
 
@@ -365,10 +365,10 @@ Pode utilizar _comandos_ para ativar um operador para executar comandos diretame
     | Nome a Apresentar         | Comando Echo    |
     | Nome do Campo           | echo            |
     | Tempo Limite Predefinido      | 30              |
-    | Tipo a Apresentar         | text            |
+    | Tipo de Dados         | text            |
     | Descrição          | Comando do Dispositivo  |  
 
-    Você pode adicionar entradas adicionais ao comando selecionando **+** campos de **entrada**.
+    Você pode adicionar entradas adicionais ao comando selecionando **+** para **campos de entrada**.
 
     ![Preparar para adicionar uma definição](./media/tutorial-define-device-type/commandsecho1.png)
 

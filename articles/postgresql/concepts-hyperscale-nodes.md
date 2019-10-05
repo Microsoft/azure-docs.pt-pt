@@ -1,28 +1,28 @@
 ---
-title: Nós na base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
-description: Os dois tipos de nós num grupo de servidores.
+title: Nós no banco de dados do Azure para PostgreSQL – hiperescala (Citus) (visualização)
+description: Saiba mais sobre os dois tipos de nós, coordenador e trabalhadores, em um grupo de servidores no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: c6b948ed63f43f1597103d123be5ed39f42bd276
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 097fcdb3a7e53bb63db9dc2d352d754062df7be6
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077279"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947561"
 ---
-# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Nós na base de dados do Azure para PostgreSQL – Hiperescala (Citus) (pré-visualização)
+# <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus-preview"></a>Nós no banco de dados do Azure para PostgreSQL – hiperescala (Citus) (visualização)
 
-A Hiperescala (Citus) (pré-visualização) que aloja o tipo de permite que a base de dados do Azure para servidores PostgreSQL (denominados nós) para coordenar entre si numa arquitetura de "nada partilhado". Os nós num grupo de servidor coletivamente armazenar mais dados e utilizam mais núcleos de CPU do que seria possível num único servidor. A arquitetura também permite que a base de dados Dimensionar ao adicionar mais nós para o grupo de servidor.
+O tipo de Hospedagem de hiperescala (Citus) (visualização) permite que os servidores do banco de dados do Azure para PostgreSQL (chamados de nós) se coordenem entre si em uma arquitetura "nada compartilhado". Os nós em um grupo de servidores contêm, coletivamente, mais dados e usam mais núcleos de CPU do que seria possível em um único servidor. A arquitetura também permite que o banco de dados seja dimensionado adicionando mais nós ao grupo de servidores.
 
-## <a name="coordinator-and-workers"></a>Coordenador e funções de trabalho
+## <a name="coordinator-and-workers"></a>Coordenador e trabalhadores
 
-Todos os grupos de servidor tem um nó coordenador e várias funções de trabalho. Aplicações enviam suas consultas para o nó coordenador, que retransmite-lo para os operadores de relevantes e acumula seus resultados. Aplicações não são possível ligar diretamente às funções de trabalho.
+Cada grupo de servidores tem um nó de coordenador e vários trabalhadores. Os aplicativos enviam suas consultas para o nó de coordenador, que os retransmite para os trabalhadores relevantes e acumula seus resultados. Os aplicativos não podem se conectar diretamente aos trabalhadores.
 
-Para cada consulta, o coordenador ou encaminha o mesmo para um nó de trabalho única ou processa-lo em vários dependendo se os dados necessários residem num único nó ou múltiplos. O coordenador de decide o que fazer por tabelas de metadados de consultoria. Estas tabelas controlam os nomes DNS e estado de funcionamento de nós de trabalho e a distribuição dos dados em todos os nós.
+Para cada consulta, o coordenador roteia-o para um único nó de trabalho ou paralelize-o entre vários dependendo de se os dados necessários residem em um único nó ou em vários. O coordenador decide o que fazer por meio das tabelas de metadados de consultoria. Essas tabelas acompanham os nomes DNS e a integridade dos nós de trabalho e a distribuição de dados entre nós.
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba como armazenam nós [em dados distribuídos](concepts-hyperscale-distributed-data.md)
+## <a name="next-steps"></a>Passos seguintes
+- Saiba como os nós armazenam [dados distribuídos](concepts-hyperscale-distributed-data.md)

@@ -1,20 +1,20 @@
 ---
 title: Como depurar UDFs no Azure digital gêmeos | Microsoft Docs
 description: Diretrizes sobre como depurar UDFs no gêmeos digital do Azure.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: df12d6866f5e9e6bf492e228e32b0b10f7266eb4
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843838"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949892"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Como depurar funções definidas pelo usuário no Azure digital gêmeos
 
@@ -43,7 +43,7 @@ Uma vez configurado, você poderá selecionar todas as categorias de log, métri
 
 Para rastrear a telemetria do sensor, verifique se as configurações de diagnóstico estão habilitadas para sua instância de gêmeos digital do Azure. Em seguida, verifique se todas as categorias de log desejadas estão selecionadas. Por fim, confirme se os logs desejados estão sendo enviados aos logs de Azure Monitor.
 
-Para fazer a correspondência de uma mensagem de telemetria do sensor com seus respectivos logs, você pode especificar uma ID de correlação nos dados do evento que estão sendo enviados. Para fazer isso, defina a `x-ms-client-request-id` Propriedade como um GUID.
+Para fazer a correspondência de uma mensagem de telemetria do sensor com seus respectivos logs, você pode especificar uma ID de correlação nos dados do evento que estão sendo enviados. Para fazer isso, defina a propriedade `x-ms-client-request-id` como um GUID.
 
 Depois de enviar telemetria, abra Azure Monitor log Analytics para consultar logs usando a ID de correlação do conjunto:
 
@@ -63,7 +63,7 @@ AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-Se você habilitar o registro em log para a função definida pelo usuário, esses logs aparecerão na instância do log `UserDefinedFunction`Analytics com a categoria. Para recuperá-los, insira a seguinte condição de consulta no log Analytics:
+Se você habilitar o registro em log para a função definida pelo usuário, esses logs aparecerão na instância do log Analytics com a categoria `UserDefinedFunction`. Para recuperá-los, insira a seguinte condição de consulta no log Analytics:
 
 ```Kusto
 AzureDiagnostics
@@ -173,7 +173,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Esse cenário surge porque o identificador usado se refere a um sensor enquanto o tipo de objeto de topologia `Space`especificado é.
+Esse cenário surge porque o identificador usado se refere a um sensor, enquanto o tipo de objeto de topologia especificado é `Space`.
 
 **Corrigir** Exemplo
 
@@ -185,7 +185,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification));
 ```
 
-A maneira mais fácil de não encontrar esse problema é usar o `Notify` método no objeto de metadados.
+A maneira mais fácil de não encontrar esse problema é usar o método `Notify` no objeto de metadados.
 
 Exemplo:
 

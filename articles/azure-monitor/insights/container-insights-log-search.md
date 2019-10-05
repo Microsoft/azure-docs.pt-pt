@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989819"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948054"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar logs de Azure Monitor para contêineres
 
@@ -42,7 +42,7 @@ Exemplos de registos que são recolhidos pelo Monitor do Azure para contentores 
 | Métricas de desempenho para a parte de contentores de cluster do Kubernetes | Desempenho &#124; onde ObjectName = = "K8SContainer" | CounterName &#40; CpuRequestNanoCores, MemoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, RestartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, myValue, TimeGenerated, dePath, SourceSystem | 
 | Métricas Personalizadas |`InsightsMetrics` | Computador, nome, namespace, origem, SourceSystem, marcas<sup>1</sup>, TimeGenerated, tipo, VA, _ResourceId | 
 
-<sup>1</sup> a propriedade *Tags* representa [várias dimensões](../platform/data-platform-metrics.md#multi-dimensional-metrics) para a métrica correspondente. Para obter informações adicionais sobre as métricas coletadas e armazenadas `InsightsMetrics` na tabela e uma descrição das propriedades do registro, consulte [visão geral do InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+<sup>1</sup> a propriedade *Tags* representa [várias dimensões](../platform/data-platform-metrics.md#multi-dimensional-metrics) para a métrica correspondente. Para obter informações adicionais sobre as métricas coletadas e armazenadas na tabela `InsightsMetrics` e uma descrição das propriedades do registro, consulte [visão geral do InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
 
 >[!NOTE]
 >O suporte para Prometheus é um recurso em visualização pública no momento.
@@ -69,8 +69,9 @@ Muitas vezes é útil criar consultas que começam com um ou dois exemplos em, e
 | ContainerImageInventory<br> &#124;resumir AggregatedValue = count () by imagem, ImageTag, está em execução | Inventário de imagens | 
 | **Selecione a opção de exibição de gráfico de linha**:<br> Desempenho<br> &#124;onde ObjectName = = "K8SContainer" e CounterName = = "cpuUsageNanoCores" &#124; resumir AvgCPUUsageNanoCores = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Contentor da CPU | 
 | **Selecione a opção de exibição de gráfico de linha**:<br> Desempenho<br> &#124;onde ObjectName = = "K8SContainer" e CounterName = = "memoryRssBytes" &#124; resumir AvgUsedRssMemoryBytes = avg(CounterValue) por bin (TimeGenerated, 30m), InstanceName | Memória de contentor |
+| InsightsMetrics<br> &#124;WHERE name = = "requests_count"<br> &#124;resumir Val = Any (Val) por TimeGenerated = bin (TimeGenerated, 1m)<br> &#124;classificar por TimeGenerated ASC<br> &#124;projeto RequestsPerMinute = Val-anterior (Val), TimeGenerated <br> &#124;renderizar barChart  | Solicitações por minuto com métricas personalizadas |
 
-O exemplo a seguir é uma consulta de métricas Prometheus. As métricas coletadas são contagens e, para determinar quantos erros ocorreram em um período de tempo específico, precisamos subtrair da contagem. O conjunto de registros é particionado por *partitionKey*, ou seja, para cada conjunto exclusivo de *Name*, *hostname*e *OperationType*, executamos uma subconsulta nesse conjunto que ordena os logs pelo TimeGenerated, um processo que torna possível  Localize o *TimeGenerated* anterior e a contagem registrada para esse horário, para determinar uma taxa.
+O exemplo a seguir é uma consulta de métricas Prometheus. As métricas coletadas são contagens e, para determinar quantos erros ocorreram em um período de tempo específico, precisamos subtrair da contagem. O conjunto de registros é particionado por *partitionKey*, ou seja, para cada conjunto exclusivo de *Name*, *hostname*e *OperationType*, executamos uma subconsulta nesse conjunto que ordena os logs pelo *TimeGenerated*, um processo que torna possível Localize o *TimeGenerated* anterior e a contagem registrada para esse horário, para determinar uma taxa.
 
 ```
 let data = InsightsMetrics 

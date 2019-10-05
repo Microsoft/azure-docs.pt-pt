@@ -1,29 +1,29 @@
 ---
 title: Habilitar aplicativos multilocatários com o Azure digital gêmeos | Microsoft Docs
 description: Como configurar aplicativos de Azure Active Directory multilocatário para o gêmeos digital do Azure.
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
-ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 10/02/2019
+ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976885"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958795"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Habilitar aplicativos multilocatários com o gêmeos digital do Azure
 
-Os desenvolvedores de soluções que criam no Azure digital gêmeos podem descobrir que desejam dar suporte a vários clientes com um único serviço ou solução. Na verdade, os aplicativos multilocatário estão entre as configurações mais comuns do Azure digital gêmeos.
+Os desenvolvedores de soluções que criam no Azure digital gêmeos podem descobrir que desejam dar suporte a vários clientes com um único serviço ou solução. Na verdade, os aplicativos *multilocatário* estão entre as configurações mais comuns do Azure digital gêmeos.
 
 Este documento descreve como configurar um aplicativo gêmeos digital do Azure para dar suporte a vários locatários e clientes do Azure Active Directory.
 
 ## <a name="multitenancy"></a>Multilocação
 
-Um recurso multilocatário é uma instância provisionada única que dá suporte a vários clientes. Cada cliente tem seus próprios dados e privilégios independentes. A experiência de cada cliente é isolada entre si, de modo que sua "exibição" do aplicativo seja distinta.
+Um recurso *multilocatário* é uma instância provisionada única que dá suporte a vários clientes. Cada cliente tem seus próprios dados e privilégios independentes. A experiência de cada cliente é isolada entre si, de modo que sua "exibição" do aplicativo seja distinta.
 
 Para saber mais sobre multilocação, leia [aplicativos multilocatários no Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications).
 
@@ -57,20 +57,16 @@ Para resolver o cenário do problema anterior, as ações a seguir são necessá
   1. Abrir **assinaturas**.
   1. Selecione a assinatura que tem o locatário Azure Active Directory a ser usado no aplicativo do **desenvolvedor**.
 
-     ![Assinaturas de Azure Active Directory][1]
+     [assinaturas de Active Directory @no__t 1Azure](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Selecione **provedores de recursos**.
   1. Procure **Microsoft. IoTSpaces**.
   1. Selecione **Registar**.
 
-     ![Provedores de recursos de Azure Active Directory][2]
+     [![Azure Active Directory provedores de recursos](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre como usar funções definidas pelo usuário com o gêmeos digital do Azure, leia [como criar funções definidas pelo usuário do Azure digital gêmeos](./how-to-user-defined-functions.md).
 
 - Para saber como usar o controle de acesso baseado em função para proteger ainda mais o aplicativo com as atribuições de função, leia [como criar e gerenciar o controle de acesso baseado em função gêmeos do Azure digital](./security-create-manage-role-assignments.md).
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png

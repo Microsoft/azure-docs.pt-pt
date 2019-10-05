@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d6976e872223cbb66682b9a02ce343487bec35d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240266"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959968"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações em seu ambiente com a solução Controle de Alterações
 
@@ -134,7 +134,7 @@ A recursão permite que você especifique curingas para simplificar o rastreamen
 * Caracteres curinga são necessários para acompanhar vários arquivos
 * Se você estiver usando caracteres curinga, eles só poderão ser usados no último segmento de um caminho. (como `c:\folder\*file*` ou `/etc/*.conf`)
 * Se uma variável de ambiente tiver um caminho inválido, a validação terá êxito, mas esse caminho falhará quando o inventário for executado.
-* Evite caminhos `c:\*.*` gerais, como ao definir o caminho, pois isso resultaria em muitas pastas sendo atravessadas.
+* Evite caminhos gerais como `c:\*.*` ao definir o caminho, pois isso resultaria em muitas pastas sendo atravessadas.
 
 ## <a name="configure-file-content-tracking"></a>Configurar o rastreamento de conteúdo do arquivo
 
@@ -176,7 +176,7 @@ Outras limitações:
 Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
 
 * As atualizações de hotfix não são coletadas no Windows Server 2016 Core RS3 machines.
-* Os daemons do Linux podem mostrar um estado alterado mesmo que não houvesse nenhuma alteração. Isso se deve ao modo como `SvcRunLevels` o campo é capturado.
+* Os daemons do Linux podem mostrar um estado alterado mesmo que não houvesse nenhuma alteração. Isso se deve ao modo como o campo `SvcRunLevels` é capturado.
 
 ## <a name="change-tracking-data-collection-details"></a>Detalhes da coleta de dados de Controle de Alterações
 
@@ -221,42 +221,25 @@ O agente só controla as alterações, isso otimiza o desempenho do agente. Defi
 A finalidade de monitorar alterações nas chaves do registro é identificar pontos de extensibilidade onde o código de terceiros e o malware podem ser ativados. A lista a seguir mostra a lista de chaves de registro pré-configuradas. Essas chaves estão configuradas, mas não habilitadas. Para controlar essas chaves do registro, você deve habilitar cada uma delas.
 
 > [!div class="mx-tdBreakAll"]
-> |  |
-> |---------|
-> |**HKey\_local\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.    |
-> |**HKey\_local\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora scripts que são executados na inicialização.     |
-> |**HKey\_local\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown**    |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora scripts que são executados no desligamento.     |
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as chaves que são carregadas antes de o usuário entrar em sua conta do Windows. A chave é usada para programas de 32 bits em execução em computadores de 64 bits.    |
-> |**HKey\_local\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora alterações nas configurações do aplicativo.     |
-> |**HKey\_local\_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.|
-> |**HKEY\_LOCAL\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora o registro do manipulador de sobreposição de ícone.|
-|**HKEY\_LOCAL\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora o registro do manipulador de sobreposição de ícone para programas de 32 bits em execução em computadores de 64 bits.|
-> |**HKey\_local\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Objects Helper**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação.|
-> |**HKey\_local\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Objects Helper**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação para programas de 32 bits executados em computadores de 64 bits.|
-> |**HKey\_local\_MACHINE\Software\Microsoft\Internet Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados.|
-> |**HKey\_local\_MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados para programas de 32 bits em execução em computadores de 64 bits.|
-> |**HKey\_local\_MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc. Semelhante à seção [Drivers] no sistema. Arquivo INI.|
-> |**HKey\_local\_MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc para programas de 32 bits em execução em computadores de 64 bits. Semelhante à seção [Drivers] no sistema. Arquivo INI.|
-> |**HKey\_local\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora a lista de DLLs de sistema conhecidas ou comumente usadas; Esse sistema impede que as pessoas explorem as permissões de diretório de aplicativo fracas descartando as versões do cavalo de Troia das DLLs do sistema.|
-> |**HKey\_local\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Monitora a lista de pacotes capazes de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operacional Windows.|
+> |Chave do Registo | Objetivo |
+> |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Monitora scripts que são executados na inicialização.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitora scripts que são executados no desligamento.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitora as chaves que são carregadas antes de o usuário entrar em sua conta do Windows. A chave é usada para programas de 32 bits em execução em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitora alterações nas configurações do aplicativo.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora as entradas comuns de inicialização automática que se conectam diretamente ao Windows Explorer e geralmente são executadas em processo com o Explorer. exe.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora o registro do manipulador de sobreposição de ícone.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitora o registro do manipulador de sobreposição de ícone para programas de 32 bits em execução em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitora novos plug-ins de objeto auxiliar de navegador para o Internet Explorer. Usado para acessar o Modelo de Objeto do Documento (DOM) da página atual e para controlar a navegação para programas de 32 bits executados em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Monitora novas extensões do Internet Explorer, como menus de ferramentas personalizadas e botões de barra de ferramenta personalizados para programas de 32 bits em execução em computadores de 64 bits.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc. Semelhante à seção [Drivers] no sistema. Arquivo INI.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Monitora os drivers de 32 bits associados a wavemapper, wave1 e wave2, MSACM. imaadpcm,. MSADPCM,. msgsm610 e vidc para programas de 32 bits em execução em computadores de 64 bits. Semelhante à seção [Drivers] no sistema. Arquivo INI.
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitora a lista de DLLs de sistema conhecidas ou comumente usadas; Esse sistema impede que as pessoas explorem as permissões de diretório de aplicativo fracas descartando as versões do cavalo de Troia das DLLs do sistema.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitora a lista de pacotes capazes de receber notificações de eventos do Winlogon, o modelo de suporte de logon interativo para o sistema operacional Windows.
 
 ## <a name="network-requirements"></a>Requisitos da rede
 
@@ -298,11 +281,11 @@ A tabela a seguir fornece pesquisas de log de exemplo para registros de alteraç
 
 Um recurso importante de Controle de Alterações e inventário é a capacidade de alertar sobre o estado de configuração e quaisquer alterações no estado de configuração do ambiente híbrido.
 
-No exemplo a seguir, a captura de tela mostra que `C:\windows\system32\drivers\etc\hosts` o arquivo foi modificado em um computador. Esse arquivo é importante porque o arquivo de hosts é usado pelo Windows para resolver nomes de host para endereços IP e tem precedência sobre mesmo DNS, o que pode resultar em problemas de conectividade ou no redirecionamento de tráfego para sites mal-intencionados ou perigosos.
+No exemplo a seguir, a captura de tela mostra que o arquivo `C:\windows\system32\drivers\etc\hosts` foi modificado em um computador. Esse arquivo é importante porque o arquivo de hosts é usado pelo Windows para resolver nomes de host para endereços IP e tem precedência sobre mesmo DNS, o que pode resultar em problemas de conectividade ou no redirecionamento de tráfego para sites mal-intencionados ou perigosos.
 
 ![Um gráfico mostrando a alteração do arquivo de hosts](./media/change-tracking/changes.png)
 
-Para analisar essa alteração ainda mais, vá para pesquisa de logs em **log Analytics**. Uma vez na pesquisa de logs, procure alterações de conteúdo no arquivo de hosts `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`com a consulta. Essa consulta procura alterações que incluíram uma alteração de conteúdo de arquivo para arquivos cujo caminho totalmente qualificado contém a palavra "hosts". Você também pode solicitar um arquivo específico alterando a parte do caminho para sua forma totalmente qualificada ( `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`como).
+Para analisar essa alteração ainda mais, vá para pesquisa de logs em **log Analytics**. Uma vez na pesquisa de logs, pesquise alterações de conteúdo no arquivo de hosts com a consulta `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Essa consulta procura alterações que incluíram uma alteração de conteúdo de arquivo para arquivos cujo caminho totalmente qualificado contém a palavra "hosts". Você também pode solicitar um arquivo específico alterando a parte do caminho para sua forma totalmente qualificada (como `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 Depois que a consulta retornar os resultados desejados, clique no botão **nova regra de alerta** na experiência de pesquisa de logs para abrir a página de criação de alertas. Você também pode navegar até essa experiência por meio de **Azure monitor** no portal do Azure. Na experiência de criação de alerta, Verifique nossa consulta novamente e modifique a lógica de alerta. Nesse caso, você deseja que o alerta seja disparado se houver até mesmo uma alteração detectada em todos os computadores do ambiente.
 
@@ -320,14 +303,14 @@ Enquanto os alertas sobre alterações no arquivo de hosts são uma boa aplicaç
 
 |Consulta  |Descrição  |
 |---------|---------|
-|ConfigurationChange <br>&#124;em que ConfigChangeType = = "Files" e FileSystemPath contém "\\c\\:\\Windows\\system32 drivers"|Útil para controlar alterações em arquivos críticos do sistema|
-|ConfigurationChange <br>&#124;onde Fields contém "FileContentChecksum" e FileSystemPath = = "c:\\Windows\\system32\\drivers\\etc\\. hosts"|Útil para controlar as modificações nos principais arquivos de configuração|
+|ConfigurationChange <br>&#124;em que ConfigChangeType = = "Files" e FileSystemPath contém "c: \\Windows @ no__t-2system32 @ no__t-3Drivers @ no__t-4"|Útil para controlar alterações em arquivos críticos do sistema|
+|ConfigurationChange <br>&#124;onde Fields contém "FileContentChecksum" e FileSystemPath = = "c: \\Windows @ no__t-2system32 @ no__t-3Drivers @ no__t-4etc @ no__t-5hosts"|Útil para controlar as modificações nos principais arquivos de configuração|
 |ConfigurationChange <br>&#124;em que ConfigChangeType = = "WindowsServices" e SvcName contêm "W3SVC" e SvcState = = "Stopped"|Útil para controlar alterações em serviços críticos do sistema|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|Útil para controlar alterações em serviços críticos do sistema|
 |ConfigurationChange <br>&#124;em que ConfigChangeType = = "software" e ChangeCategory = = "Added"|Útil para ambientes que precisam bloquear configurações de software|
 |ConfigurationData <br>&#124;onde SoftwareName contém "agente de monitoramento" e CurrentVersion! = "8.0.11081.0"|Útil para ver quais computadores têm uma versão de software desatualizada ou não compatível instalada. Ele relata o último estado de configuração relatado, não as alterações.|
-|ConfigurationChange <br>&#124;em que RegistryKey = = "\\HKEY_LOCAL_MACHINE\\software\\Microsoft\\Windows\\CurrentVersion QualityCompat"| Útil para controlar alterações em chaves antivírus cruciais|
-|ConfigurationChange <br>&#124;em que RegistryKey contém "\\HKEY_LOCAL_MACHINE\\System\\CurrentControlSet\\Services\\SharedAccess\\Parameters firewallpolicy"| Útil para controlar alterações nas configurações de firewall|
+|ConfigurationChange <br>&#124;em que RegistryKey = = @ "HKEY_LOCAL_MACHINE @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4CurrentVersion @ no__t-5QualityCompat"| Útil para controlar alterações em chaves antivírus cruciais|
+|ConfigurationChange <br>&#124;onde RegistryKey contém @ "HKEY_LOCAL_MACHINE @ no__t-1SYSTEM @ no__t-2CurrentControlSet @ no__t-3Services @ no__t-4SharedAccess @ no__t-5Parameters @ no__t-6FirewallPolicy"| Útil para controlar alterações nas configurações de firewall|
 
 ## <a name="next-steps"></a>Passos seguintes
 

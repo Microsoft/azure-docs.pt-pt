@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5388b157ebea78a69355eb745492910f260be3ad
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823656"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948210"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Entender a retenção de dados no Azure Time Series Insights
 
@@ -32,13 +32,13 @@ Cada um de seus ambientes de série temporal do Azure tem uma configuração que
 
 Além disso, o ambiente de série temporal do Azure tem uma configuração de **comportamento de limite de armazenamento excedido** . Ele controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher ao configurá-lo:
 
-- **Limpar dados antigos** os  
+- **Limpar dados antigos** (padrão)  
 - **Pausar entrada**
 
 > [!NOTE]
 > Por padrão, ao criar um novo ambiente, a retenção é configurada para **limpar dados antigos**. Essa configuração pode ser alternada conforme necessário após a hora de criação usando o portal do Azure, na página **Configurar** do ambiente de time Series insights.
 
-Para obter informações sobre como alternar os comportamentos de retenção, examine Configurando a [retenção em time Series insights](time-series-insights-how-to-configure-retention.md).
+Para obter informações sobre como alternar os comportamentos de retenção, examine [Configurando a retenção em time Series insights](time-series-insights-how-to-configure-retention.md).
 
 Compare o comportamento de retenção de dados:
 
@@ -75,7 +75,7 @@ Sempre que a taxa diária de entrada do ambiente excede 0,166 GB por dia, os dad
 
 ### <a name="example-three"></a>Exemplo três
 
-Considere um ambiente com o comportamento de retenção configurado para pausar a **entrada**. Neste exemplo, o **período de retenção de dados** é configurado para 60 dias. A **capacidade** é definida como três (3) unidades de S1. Suponha que esse ambiente tenha entrada de dados de 2 GB por dia. Nesse ambiente, a entrada é pausada quando a capacidade máxima é atingida.
+Considere um ambiente com o comportamento de retenção configurado para **pausar a entrada**. Neste exemplo, o **período de retenção de dados** é configurado para 60 dias. A **capacidade** é definida como três (3) unidades de S1. Suponha que esse ambiente tenha entrada de dados de 2 GB por dia. Nesse ambiente, a entrada é pausada quando a capacidade máxima é atingida.
 
 Nesse momento, o ambiente mostra o mesmo conjunto de dados até que a entrada seja retomada ou até que a **entrada continuar** esteja habilitada (o que limparia os mais antigos para liberar espaço para novos dados).
 
@@ -89,12 +89,12 @@ Quando a entrada for retomada:
 
 Nos hubs de eventos afetados, considere ajustar a propriedade de **retenção de mensagem** para minimizar a perda de dados ao pausar a entrada ocorre em time Series insights.
 
-[![Retenção de mensagens do hub de eventos.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[retenção de mensagens de Hub @no__t 1Event.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Se nenhuma propriedade estiver configurada na origem`timeStampPropertyName`do evento (), Time Series insights usa como padrão o carimbo de data/hora de chegada no Hub de eventos como o eixo X. Se `timeStampPropertyName` o estiver configurado para ser algo mais, o ambiente procurará o `timeStampPropertyName` configurado no pacote de dados quando os eventos forem analisados.
+Se nenhuma propriedade estiver configurada na origem do evento (`timeStampPropertyName`), Time Series Insights usa como padrão o carimbo de data/hora de chegada no Hub de eventos como o eixo X. Se `timeStampPropertyName` estiver configurado para ser algo mais, o ambiente procurará o @no__t configurado-1 no pacote de dados quando os eventos forem analisados.
 
 Se você precisar dimensionar seu ambiente para acomodar capacidade adicional ou aumentar a duração da retenção, consulte [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md) para obter mais informações.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter informações sobre como configurar ou alterar as configurações de retenção de dados, examine Configurando a [retenção em time Series insights](time-series-insights-how-to-configure-retention.md).
+- Para obter informações sobre como configurar ou alterar as configurações de retenção de dados, examine [Configurando a retenção em time Series insights](time-series-insights-how-to-configure-retention.md).

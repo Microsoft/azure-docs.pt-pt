@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: c566dc28338a47c1bf24066436c21544eb7c5c7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9c97723687484e8af82d63b6fb4999401a69fb2c
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072440"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958536"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Como implementar a recuperação de desastre usando o backup e a restauração do serviço no gerenciamento de API do Azure
 
@@ -35,7 +35,7 @@ Este guia mostra como automatizar as operações de backup e restauração e com
 > A operação de backup não captura dados de log previamente agregados usados em relatórios mostrados na folha de análise no portal do Azure.
 
 > [!WARNING]
-> Cada backup expira após 30 dias. Se você tentar restaurar um backup depois que o período de expiração de 30 dias tiver expirado, a restauração falhará com uma `Cannot restore: backup expired` mensagem.
+> Cada backup expira após 30 dias. Se você tentar restaurar um backup depois que o período de expiração de 30 dias tiver expirado, a restauração falhará com uma mensagem `Cannot restore: backup expired`.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -66,7 +66,7 @@ Todas as tarefas que você faz em recursos usando o Azure Resource Manager devem
 
 4. Insira um nome para o aplicativo.
 5. Para o tipo de aplicativo, selecione **nativo**.
-6. Insira uma URL `http://resources` de espaço reservado como para o **URI**de redirecionamento, pois é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
+6. Insira uma URL de espaço reservado como `http://resources` para o **URI de redirecionamento**, pois é um campo obrigatório, mas o valor não é usado posteriormente. Clique na caixa de seleção para salvar o aplicativo.
 7. Clique em **Criar**.
 
 ### <a name="add-an-application"></a>Adicionar uma Aplicação
@@ -113,14 +113,14 @@ namespace GetTokenResourceManagerRequests
 }
 ```
 
-Substitua `{tenant id}`, `{application id}` e`{redirect uri}` usando as seguintes instruções:
+Substitua `{tenant id}`, `{application id}` e `{redirect uri}` usando as seguintes instruções:
 
-1. Substitua `{tenant id}` pela ID de locatário do aplicativo de Azure Active Directory que você criou. Você pode acessar a ID clicando em **registros de aplicativo** -> **pontos de extremidade**.
+1. Substitua `{tenant id}` pela ID de locatário do aplicativo de Azure Active Directory que você criou. Você pode acessar a ID clicando em **Registros de aplicativo** -> **pontos de extremidade**.
 
     ![Pontos Finais][api-management-endpoint]
 
-2. Substitua `{application id}` pelo valor obtido navegando até a página **configurações** .
-3. Substitua o `{redirect uri}` pelo valor da guia **URIs** de redirecionamento do seu aplicativo Azure Active Directory.
+2. Substitua `{application id}` pelo valor que você obtém navegando até a página de **configurações** .
+3. Substitua o `{redirect uri}` pelo valor da guia **URIs de redirecionamento** do seu aplicativo Azure Active Directory.
 
     Depois que os valores forem especificados, o exemplo de código deverá retornar um token semelhante ao exemplo a seguir:
 
@@ -149,10 +149,10 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 posição
 
--   `subscriptionId`-ID da assinatura que contém o serviço de gerenciamento de API do qual você está tentando fazer backup
--   `resourceGroupName`-nome do grupo de recursos do serviço de gerenciamento de API do Azure
+-   `subscriptionId`-ID da assinatura que contém o serviço de gerenciamento de API que você está tentando fazer backup
+-   `resourceGroupName`-nome do grupo de recursos do seu serviço de gerenciamento de API do Azure
 -   `serviceName`-o nome do serviço de gerenciamento de API no qual você está fazendo um backup especificado no momento da criação
--   `api-version`-substituir por`2018-06-01-preview`
+-   `api-version`-substituir por `2018-06-01-preview`
 
 No corpo da solicitação, especifique o nome da conta de armazenamento do Azure de destino, a chave de acesso, o nome do contêiner de BLOB e o nome do backup:
 
@@ -165,9 +165,9 @@ No corpo da solicitação, especifique o nome da conta de armazenamento do Azure
 }
 ```
 
-Defina o valor do cabeçalho `Content-Type` de solicitação como `application/json`.
+Defina o valor do cabeçalho de solicitação `Content-Type` como `application/json`.
 
-Backup é uma operação de longa execução que pode levar mais de um minuto para ser concluída. Se a solicitação tiver êxito e o processo de backup tiver iniciado, `202 Accepted` você receberá um código `Location` de status de resposta com um cabeçalho. Faça as solicitações ' Get ' para a URL no `Location` cabeçalho para descobrir o status da operação. Enquanto o backup estiver em andamento, você continuará a receber um código de status ' 202 aceito '. Um código de `200 OK` resposta indica a conclusão bem-sucedida da operação de backup.
+Backup é uma operação de longa execução que pode levar mais de um minuto para ser concluída. Se a solicitação tiver êxito e o processo de backup tiver iniciado, você receberá um código de status de resposta `202 Accepted` com um cabeçalho `Location`. Faça as solicitações ' GET ' para a URL no cabeçalho `Location` para descobrir o status da operação. Enquanto o backup estiver em andamento, você continuará a receber um código de status ' 202 aceito '. Um código de resposta de `200 OK` indica a conclusão bem-sucedida da operação de backup.
 
 Observe as seguintes restrições ao fazer uma solicitação de backup:
 
@@ -192,8 +192,8 @@ posição
 
 -   `subscriptionId`-ID da assinatura que contém o serviço de gerenciamento de API no qual você está restaurando um backup
 -   `resourceGroupName`-nome do grupo de recursos que contém o serviço de gerenciamento de API do Azure no qual você está restaurando um backup
--   `serviceName`-o nome do serviço de gerenciamento de API que está sendo restaurado em especificado no momento da criação
--   `api-version`-substituir por`2018-06-01-preview`
+-   `serviceName`-o nome do serviço de gerenciamento de API que está sendo restaurado no especificado no momento da criação
+-   `api-version`-substituir por `2018-06-01-preview`
 
 No corpo da solicitação, especifique o local do arquivo de backup. Ou seja, adicione o nome da conta de armazenamento do Azure, a chave de acesso, o nome do contêiner de BLOB e o nome do backup:
 
@@ -206,9 +206,9 @@ No corpo da solicitação, especifique o local do arquivo de backup. Ou seja, ad
 }
 ```
 
-Defina o valor do cabeçalho `Content-Type` de solicitação como `application/json`.
+Defina o valor do cabeçalho de solicitação `Content-Type` como `application/json`.
 
-Restore é uma operação de execução demorada que pode levar até 30 ou mais minutos para ser concluída. Se a solicitação for bem-sucedida e o processo de restauração tiver iniciado, `202 Accepted` você receberá um código `Location` de status de resposta com um cabeçalho. Faça as solicitações ' Get ' para a URL no `Location` cabeçalho para descobrir o status da operação. Enquanto a restauração estiver em andamento, você continuará recebendo o código de status ' 202 aceito '. Um código de `200 OK` resposta indica a conclusão bem-sucedida da operação de restauração.
+Restore é uma operação de execução demorada que pode levar até 30 ou mais minutos para ser concluída. Se a solicitação for bem-sucedida e o processo de restauração tiver iniciado, você receberá um código de status de resposta `202 Accepted` com um cabeçalho `Location`. Faça as solicitações ' GET ' para a URL no cabeçalho `Location` para descobrir o status da operação. Enquanto a restauração estiver em andamento, você continuará recebendo o código de status ' 202 aceito '. Um código de resposta de `200 OK` indica a conclusão bem-sucedida da operação de restauração.
 
 > [!IMPORTANT]
 > **A SKU** do serviço que está sendo restaurado **deve corresponder** à SKU do serviço de backup que está sendo restaurado.
@@ -218,16 +218,15 @@ Restore é uma operação de execução demorada que pode levar até 30 ou mais 
 <!-- Dummy comment added to suppress markdown lint warning -->
 
 > [!NOTE]
-> As operações de backup e restauração também podem ser executadas com os comandos _backup-AzApiManagement_ e _Restore-AzApiManagement_ do PowerShell, respectivamente.
+> As operações de backup e restauração também podem ser executadas com os comandos [_backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) e [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) do PowerShell, respectivamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Confira os seguintes recursos para obter orientações diferentes sobre o processo de backup/restauração.
 
 -   [Replicar contas de gerenciamento de API do Azure](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 -   [Automatizar a Cópia de Segurança da Gestão de API e restaurar com o Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
--   [Gerenciamento de API do Azure: Fazendo backup e restaurando a](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)configuração
-    _a abordagem detalhada por Stuart não corresponde à orientação oficial, mas é interessante._
+-   Gerenciamento de API [Azure: Fazendo backup e restaurando a configuração @ no__t-0 @ no__t-1_a abordagem detalhada por Stuart não corresponde à orientação oficial, mas é interessante._
 
 [backup an api management service]: #step1
 [restore an api management service]: #step2

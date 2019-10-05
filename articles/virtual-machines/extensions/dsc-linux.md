@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084692"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960397"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensão de DSC para Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 A DSC (configuração de estado desejado) é uma plataforma de gerenciamento que permite gerenciar sua infraestrutura de ti e de desenvolvimento com a configuração como código.
+
+> ! Observe que a extensão de DSC para Linux e a [extensão de máquina virtual Azure monitor para Linux](/virtual-machines/extensions/oms-linux) atualmente apresentam um conflito e não tem suporte em uma configuração lado a lado.  Isso significa que você não deve usar as duas soluções juntas na mesma VM.
 
 A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão instala o OMI e o agente DSC em máquinas virtuais do Azure. A extensão DSC também pode executar as seguintes ações
 
@@ -39,7 +41,7 @@ A extensão DSCForLinux é publicada e tem suporte da Microsoft. A extensão ins
 
 ### <a name="operating-system"></a>Sistema operativo
 
-A extensão do Linux do DSC dá suporte a todas as distribuições do [Linux endossadas no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , exceto:
+A extensão do Linux do DSC dá suporte a todas as [distribuições do Linux endossadas no Azure](/virtual-machines/linux/endorsed-distros) , exceto:
 
 | Distribuição | Version |
 |---|---|
@@ -284,7 +286,7 @@ Para obter mais detalhes sobre Azure Resource Manager modelo, visite [criação 
 ## <a name="azure-cli-deployment"></a>Implementação de CLI do Azure
 
 ### <a name="21-using-azure-cliazure-cli"></a>2.1. Usando [**CLI do Azure**] [Azure-CLI]
-Antes de implantar a extensão DSCForLinux, você deve configurar `public.json` o `protected.json`e o, de acordo com os diferentes cenários na seção 3.
+Antes de implantar a extensão DSCForLinux, você deve configurar o `public.json` e o `protected.json`, de acordo com os diferentes cenários na seção 3.
 
 #### <a name="211-classic"></a>2.1.1. Clássica
 O modo clássico também é chamado de modo de gerenciamento de serviços do Azure. Você pode alternar para ele executando:
@@ -316,7 +318,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> No modo de Azure Resource Manager `azure vm extension list` , o não está disponível por enquanto.
+> No modo de Azure Resource Manager, o `azure vm extension list` não está disponível por enquanto.
 >
 
 ### <a name="22-using-azure-powershellazure-powershell"></a>2.2. Usando [**Azure PowerShell**] [Azure-PowerShell]
@@ -427,5 +429,5 @@ Em alguns casos, a extensão do DSC do Linux falha ao instalar o OMI quando a ve
 
 Se precisar de mais ajuda a qualquer momento neste artigo, pode contactar os especialistas do Azure sobre o [fóruns do Azure do MSDN e Stack Overflow](https://azure.microsoft.com/support/community/). Em alternativa, pode enviar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione o suporte de Get. Para informações sobre como utilizar o suporte do Azure, leia os [FAQ do suporte Microsoft Azure](https://azure.microsoft.com/support/faq/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre extensões, consulte [recursos e extensões de máquina virtual para Linux](features-linux.md).

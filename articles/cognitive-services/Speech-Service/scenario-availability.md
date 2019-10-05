@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 94fd415909e86a43916ee2f510732a6a6d9c5ed3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552956"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959031"
 ---
 # <a name="scenario-availability"></a>Disponibilidade do cenário
 
@@ -26,6 +26,10 @@ O SDK do serviço de fala apresenta muitos cenários em uma ampla variedade de l
 - **Conversão de texto em fala (TTS)**
   - C++/Windows & Linux
   - C#/Windows & UWP & Unity
+  - Java (JRE e Android)
+  - Python
+  - Swift
+  - Objective-C
   - A API REST de TTS pode ser usada em todas as outras situações.
 - **Ativar palavra (palavra-chave spotter/KWS)**
   - C++/Windows & Linux
@@ -46,4 +50,4 @@ O SDK do serviço de fala apresenta muitos cenários em uma ampla variedade de l
 - **Entrada de áudio compactada por codec**
   - C++/Linux
   - C#/Linux
-  - Java/Linux & Android
+  - Java/Linux, Android e iOS

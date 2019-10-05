@@ -15,24 +15,18 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be5d6eb443d90d3413510576a9609fe43df7caa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: e51ad8faecd935ea999b1287e542e4b14d55290a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499619"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948232"
 ---
 # <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Examinar o acesso a grupos ou aplicativos nas revisões de acesso do Azure AD
 
 O Azure Active Directory (AD do Azure) simplifica como as empresas gerenciam o acesso a grupos e aplicativos no Azure AD e outros serviços online da Microsoft com um recurso chamado revisões de acesso do Azure AD.
 
 Este artigo descreve como um revisor designado executa uma revisão de acesso para membros de um grupo ou usuários com acesso a um aplicativo.
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-- Azure AD Premium P2
-
-Para obter mais informações, consulte [quais usuários devem ter licenças?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Abrir a revisão de acesso
 
@@ -77,7 +71,7 @@ Há duas maneiras de aprovar ou negar o acesso:
 
 1. Examine a lista de usuários para decidir se deseja aprovar ou negar o acesso contínuo.
 
-1. Para aprovar ou negar o acesso de um único usuário, clique na linha para abrir uma janela a fim de especificar a ação a ser tomada. Para aprovar ou negar acesso para vários usuários, adicione marcas de seleção ao lado dos usuários e, em seguida, clique no botão revisar **X usuário (s)** para abrir uma janela para especificar a ação a ser tomada.
+1. Para aprovar ou negar o acesso de um único usuário, clique na linha para abrir uma janela a fim de especificar a ação a ser tomada. Para aprovar ou negar acesso para vários usuários, adicione marcas de seleção ao lado dos usuários e, em seguida, clique no botão **revisar X usuário (s)** para abrir uma janela para especificar a ação a ser tomada.
 
 1. Clique em **aprovar** ou **negar**. Se não tiver certeza, você pode clicar em **não saber**. Isso fará com que o usuário Mantenha seu acesso, mas a seleção será refletida nos logs de auditoria.
 

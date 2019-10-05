@@ -1,9 +1,9 @@
 ---
-title: Recursos de suporte do Azure Application Insights - as funções do Azure | Documentos da Microsoft
-description: O Application Insights funcionalidades suportadas para as funções do Azure
+title: Informações do Aplicativo Azure-Azure Functions recursos com suporte | Microsoft Docs
+description: Application Insights recursos com suporte para Azure Functions
 services: application-insights
 documentationcenter: .net
-author: MS-TimothyMothra
+author: TimothyMothra
 manager: ''
 ms.service: application-insights
 ms.workload: TBD
@@ -12,63 +12,63 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 0199d8f0c4a76a10fffcab7cf2819643d0ac2d68
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67075350"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959887"
 ---
-# <a name="application-insights-for-azure-functions-supported-features"></a>Recursos do Application Insights para as funções do Azure suportados
+# <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights para Azure Functions recursos com suporte
 
-Ofertas de funções do Azure [integração incorporada](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) com o Application Insights, que está disponível por meio da Interface de ILogger. Segue-se a lista de recursos atualmente suportados. Reveja o guia das funções do Azure para o [introdução ao](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+O Azure Functions oferece [integração interna](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) com o Application insights, que está disponível por meio da interface ILogger. Abaixo está a lista de recursos com suporte no momento. Examine o guia Azure Functions ' para [começar](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
 
 ## <a name="supported-features"></a>Funcionalidades suportadas
 
 | Funções do Azure                       | V1                | V2 (Ignite 2018)  | 
 |-----------------------------------    |---------------    |------------------ |
-| **O Application Insights SDK para .NET**   | **2.5.0**       | **2.9.1**         |
+| **SDK do .NET Application Insights**   | **2.5.0**       | **2.9.1**         |
 | | | | 
-| **Recolha automática de**        |                 |                   |               
-| &bull; Pedidos                     | Sim             | Sim               | 
-| &bull; Exceções                   | Sim             | Sim               | 
-| &bull; Contadores de desempenho         | Sim             | Sim               |
-| &bull; Dependências                   |                   |                   |               
+| **Coleção automática de**        |                 |                   |               
+| Solicitações &bull;                     | Sim             | Sim               | 
+| Exceções &bull;                   | Sim             | Sim               | 
+| Contadores de desempenho &bull;         | Sim             | Sim               |
+| Dependências &bull;                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; EventHub  |                 | Sim               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 ServiceBus|                 | Sim               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 EventHub  |                 | Sim               | 
 | &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
 | | | | 
-| **Funcionalidades suportadas**                |                   |                   |               
+| **Recursos com suporte**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; Proteger o canal de controlo|                 | Sim               | 
-| &bull; Amostragem                     | Sim             | Sim               | 
-| &bull; Heartbeats                   |                 | Sim               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 canal de controle seguro|                 | Sim               | 
+| Amostragem de &bull;                     | Sim             | Sim               | 
+| Pulsações de &bull;                   |                 | Sim               | 
 | | | | 
-| **Correlação**                       |                   |                   |               
-| &bull; serviceBus                     |                   | Sim               | 
-| &bull; eventHub                       |                   | Sim               | 
+| **Exata**                       |                   |                   |               
+| &bull; ServiceBus                     |                   | Sim               | 
+| &bull; EventHub                       |                   | Sim               | 
 | | | | 
 | **Configurável**                      |                   |                   |           
-| &bull;Totalmente configurável.<br/>Ver [as funções do Azure](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Ver [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
+| &bull;Fully configurável.<br/>Consulte [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) para obter instruções.<br/>Consulte [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) para todas as opções.               |                   | Sim                   | 
 
 
 ## <a name="performance-counters"></a>Contadores de Desempenho
 
-A recolha de contadores de desempenho automática só funcionam máquinas do Windows.
+A coleta automática de contadores de desempenho só funcionam em computadores Windows.
 
 
-## <a name="live-metrics--secure-control-channel"></a>Métricas em direto e o canal de controlo de segurança
+## <a name="live-metrics--secure-control-channel"></a>Métricas ao vivo & canal de controle seguro
 
-Os critérios de filtros personalizados que especificar são enviados de volta para o componente de métricas em direto no Application Insights SDK. Os filtros poderiam potencialmente conter informações confidenciais, como customerIDs. Pode fazer o canal seguro com uma chave secreta da API. Ver [Proteja o canal de controlo](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
+Os critérios de filtros personalizados especificados são enviados de volta ao componente de métricas em tempo real no SDK do Application Insights. Potencialmente, os filtros podem conter informações confidenciais, como customerIDs. Você pode tornar o canal seguro com uma chave de API secreta. Consulte [proteger o canal de controle](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel) para obter instruções.
 
 ## <a name="sampling"></a>Amostragem
 
-As funções do Azure permite a amostragem por predefinição na respetiva configuração. Para obter mais informações, consulte [amostragem configurar](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
+Azure Functions habilita a amostragem por padrão em sua configuração. Para obter mais informações, consulte [Configurar a amostragem](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#configure-sampling).
 
-Se o seu projeto utiliza uma dependência sobre o Application Insights SDK para fazer a telemetria manual de controlo, poderá ter um comportamento estranho se a configuração de amostragem é diferente da configuração de amostragem das funções. 
+Se o seu projeto usar uma dependência no SDK do Application Insights para fazer o acompanhamento manual de telemetria, você poderá enfrentar um comportamento estranho se a configuração de amostragem for diferente da configuração de amostragem das funções. 
 
-Recomendamos que utilize a mesma configuração de como as funções. Com o **v2 funções**, pode obter a mesma configuração usando injeção de dependência em seu construtor:
+É recomendável usar a mesma configuração que as funções. Com o **Functions v2**, você pode obter a mesma configuração usando a injeção de dependência em seu construtor:
 
 ```csharp
 using Microsoft.ApplicationInsights;

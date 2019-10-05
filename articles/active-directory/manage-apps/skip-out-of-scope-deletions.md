@@ -1,6 +1,6 @@
 ---
 title: Ignorar a exclusão de usuários fora do escopo | Microsoft Docs
-description: Saiba como substituir o comportamento padrão de exclusão de usuários fora do escopo.
+description: Saiba como substituir o comportamento padrão de desprovisionamento de usuários de escopo.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 10/03/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a753d8cce3f3b610abab2f78d54d76a05d8bc5cb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815948"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958640"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorar a exclusão de contas de usuário que saem do escopo
 
@@ -53,7 +53,7 @@ Como essa configuração é amplamente usada com o *WORKDAY para Active Director
 No Microsoft Graph Explorer, execute a seguinte consulta GET substituindo [servicePrincipalName] pelo **servicePrincipalName** extraído da [etapa 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
+   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
    ![OBTER consulta de trabalho](./media/skip-out-of-scope-deletions/skip-03.png)

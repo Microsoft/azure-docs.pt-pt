@@ -2,18 +2,19 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: digital-twins
-author: kingdomofends
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 10/02/2019
-ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: 302f9cd515677c928e1f70febe7938f05ee687ce
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 7f40cf10d6357afd6944e7f4a28a20b9b407f698
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845514"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949124"
 ---
 Este artigo pressupõe uma autenticação de familiaridade com suas APIs de gerenciamento de gêmeos digital do Azure.
 

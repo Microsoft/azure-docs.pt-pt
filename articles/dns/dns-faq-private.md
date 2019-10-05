@@ -5,28 +5,28 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: fca7359f9fa54899bb72be3b939e1a1839dbfbd1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: cb0cc5e99cc07728d475a9f9e54c7eb6a8c7554e
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155714"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959899"
 ---
 # <a name="azure-private-dns-faq"></a>FAQ do DNS Privado do Azure
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+Veja a seguir as perguntas frequentes sobre o DNS privado do Azure.
 
 ## <a name="does-azure-dns-support-private-domains"></a>O DNS do Azure dá suporte a domínios privados?
 
-Há suporte para domínios privados usando o recurso de zonas de DNS privado do Azure. As zonas de DNS privado são gerenciadas usando as mesmas ferramentas que as zonas DNS do Azure voltadas para a Internet. Elas são resolvidas somente de dentro de suas redes virtuais especificadas. Para obter mais informações, consulte a [visão geral](private-dns-overview.md).
+Os domínios privados têm suporte usando o recurso zonas do Azure DNS privado. DNS privado zonas podem ser resolvidas somente de redes virtuais especificadas. Para obter mais informações, consulte a [visão geral](private-dns-overview.md).
 
 Para obter informações sobre outras opções de DNS interno no Azure, consulte [resolução de nomes para VMs e instâncias de função](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
-## <a name="will-azure-dns-private-zones-work-across-azure-regions"></a>Zonas Privadas do DNS do Azure funcionará nas regiões do Azure?
+## <a name="will-azure-private-dns-zones-work-across-azure-regions"></a>As zonas do Azure DNS privado funcionarão nas regiões do Azure?
 
-Sim. As zonas privadas têm suporte para a resolução de DNS entre redes virtuais em regiões do Azure. As zonas privadas funcionam mesmo sem emparelhar explicitamente as redes virtuais. Todas as redes virtuais devem ser especificadas como redes virtuais de resolução para a zona privada. Talvez você precise que as redes virtuais sejam emparelhadas para o tráfego TCP/HTTP fluir de uma região para outra.
+Sim. As zonas privadas têm suporte para a resolução de DNS entre redes virtuais em regiões do Azure. As zonas privadas funcionam mesmo sem emparelhar explicitamente as redes virtuais. Todas as redes virtuais devem estar vinculadas à zona DNS privada.
 
 ## <a name="is-connectivity-to-the-internet-from-virtual-networks-required-for-private-zones"></a>A conectividade com a Internet de redes virtuais é necessária para zonas privadas?
 
@@ -34,11 +34,11 @@ Não. As zonas privadas funcionam junto com as redes virtuais. Você os usa para
 
 ## <a name="can-the-same-private-zone-be-used-for-several-virtual-networks-for-resolution"></a>A mesma zona privada pode ser usada para várias redes virtuais para resolução?
 
-Sim. Você pode associar até 1000 redes virtuais a uma única zona privada.
+Sim. Você pode vincular uma zona DNS privada com milhares de redes virtuais. Para obter mais informações, consulte [limites de DNS do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits)
 
-## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-linked-virtual-network-to-a-private-zone"></a>Uma rede virtual que pertence a uma assinatura diferente pode ser adicionada como uma rede virtual vinculada a uma zona privada?
+## <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-linked-to-a-private-zone"></a>Uma rede virtual que pertence a uma assinatura diferente pode ser vinculada a uma zona privada?
 
-Sim. Você deve ter a permissão de operação de gravação nas redes virtuais e na zona DNS privada. A permissão de gravação pode ser concedida a várias funções de RBAC. Por exemplo, a função de RBAC de colaborador de rede clássica tem permissões de gravação para redes virtuais. Para obter mais informações sobre as funções RBAC, consulte [controle de acesso baseado em função](../role-based-access-control/overview.md).
+Sim. Você deve ter a permissão de operação de gravação nas redes virtuais e na zona DNS privada. A permissão de gravação pode ser concedida a várias funções de RBAC. Por exemplo, a função de RBAC de colaborador de rede clássica tem permissões de gravação para redes virtuais e a função de colaborador de zonas de DNS privado tem permissões de gravação nas zonas DNS privadas. Para obter mais informações sobre as funções RBAC, consulte [controle de acesso baseado em função](../role-based-access-control/overview.md).
 
 ## <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-you-delete-the-virtual-machine"></a>Os registros DNS da máquina virtual automaticamente registrados em uma zona privada serão excluídos automaticamente quando você excluir a máquina virtual?
 
@@ -58,39 +58,27 @@ Sim. Para desvincular uma rede virtual vinculada de uma zona privada, você atua
 
 ## <a name="what-happens-when-we-delete-a-linked-virtual-network-thats-linked-to-a-private-zone-do-we-have-to-manually-update-the-private-zone-to-unlink-the-virtual-network-as-a-linked-virtual-network-from-the-zone"></a>O que acontece quando excluímos uma rede virtual vinculada que está vinculada a uma zona privada? Precisamos atualizar manualmente a zona privada para desvincular a rede virtual como uma rede virtual vinculada da zona?
 
-Sim. Quando você exclui uma rede virtual vinculada sem desvinculá-la de uma zona privada primeiro, sua operação de exclusão é realizada com sucesso. Mas a rede virtual não será desvinculada automaticamente da sua zona privada, se houver. Você deve desvincular manualmente a rede virtual da zona privada. Por esse motivo, desvincule sua rede virtual da sua zona privada antes de excluí-la.
+Não. Quando você exclui uma rede virtual vinculada sem desvinculá-la de uma zona privada primeiro, sua operação de exclusão é realizada com sucesso e os links para a zona DNS são automaticamente apagados.
 
 ## <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>A resolução de DNS usando o FQDN padrão (internal.cloudapp.net) ainda funcionará mesmo quando uma zona privada (por exemplo, private.contoso.com) estiver vinculada a uma rede virtual?
 
-Sim. As zonas privadas não substituem as resoluções de DNS padrão usando a zona internal.cloudapp.net fornecida pelo Azure. Ele é oferecido como um recurso ou aprimoramento adicional. Se você se basear no internal.cloudapp.net fornecido pelo Azure ou em sua própria zona privada, use o FQDN da zona que você deseja resolver.
+Sim. As zonas privadas não substituem a zona de internal.cloudapp.net fornecida pelo Azure padrão. Se você se basear no internal.cloudapp.net fornecido pelo Azure ou em sua própria zona privada, use o FQDN da zona que você deseja resolver.
 
 ## <a name="will-the-dns-suffix-on-virtual-machines-within-a-linked-virtual-network-be-changed-to-that-of-the-private-zone"></a>O sufixo DNS em máquinas virtuais em uma rede virtual vinculada será alterado para o da zona privada?
 
 Não. O sufixo DNS nas máquinas virtuais em sua rede virtual vinculada permanece como o sufixo padrão fornecido pelo Azure ("*. internal.cloudapp.net"). Você pode alterar manualmente esse sufixo DNS em suas máquinas virtuais para a da zona privada.
+Para obter orientação sobre como alterar esse sufixo, consulte [usar o DNS dinâmico para registrar nomes de host em seu próprio servidor DNS](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-ddns#windows-clients)
 
-## <a name="what-are-the-usage-limits-for-azure-private-dns"></a>Quais são os limites de uso do Azure DNS privado?
+## <a name="what-are-the-usage-limits-for-azure-dns-private-zones"></a>Quais são os limites de uso para as zonas privadas do DNS do Azure?
 
-Os limites padrão a seguir se aplicam quando você usa o Azure DNS privado.
-
-| Resource | Limite predefinido |
-| --- | --- |
-|Zonas de DNS privado por assinatura|1000|
-|Conjuntos de registros por zona de DNS privado|25,000|
-|Registros por conjunto de registros|20|
-|Links de rede virtual por zona DNS privada|1000|
-|Links de redes virtuais por zonas DNS privadas com o registro automático habilitado|100|
-|Número de zonas DNS privadas às quais uma rede virtual pode ser vinculada com o registro automático habilitado|1|
-|Número de zonas DNS privadas que uma rede virtual pode obter vinculada|1000|
-
-## <a name="is-there-portal-support-for-private-zones"></a>Há suporte do portal para zonas privadas?
-
-Sim, e as zonas privadas que já foram criadas por meio de APIs, PowerShell, CLI e SDKs são visíveis na portal do Azure.
+Consulte [limites de DNS do Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-dns-limits) para obter detalhes sobre os limites de uso para zonas privadas do DNS do Azure.
 
 ## <a name="why-dont-my-existing-private-dns-zones-show-up-in-new-portal-experience"></a>Por que minhas zonas DNS privadas existentes aparecem na nova experiência do portal?
 
-Como parte da versão de atualização de visualização, enviamos um novo modelo de recurso para zonas DNS privadas. Suas zonas DNS privadas existentes precisarão ser migradas para o novo modelo de recurso antes que elas possam aparecer na nova experiência do Portal. Consulte abaixo para obter instruções sobre como migrar para o novo modelo de recurso.
+Se sua zona DNS privada existente tiver sido criada usando a API de visualização, você deverá migrar essas zonas para o novo modelo de recurso. DNS privado zonas criadas usando a API de visualização não aparecerão na nova experiência do Portal. Consulte abaixo para obter instruções sobre como migrar para o novo modelo de recurso.
 
 ## <a name="how-do-i-migrate-my-existing-private-dns-zones-to-the-new-model"></a>Como fazer migrar minhas zonas DNS privadas existentes para o novo modelo?
+
 É altamente recomendável que você migre para o novo modelo de recurso assim que possível. O modelo de recurso herdado terá suporte, no entanto, outros recursos não serão desenvolvidos sobre esse modelo. No futuro, pretendemos substituí-lo em favor do novo modelo de recurso. Para obter orientação sobre como migrar suas zonas DNS privadas existentes para o novo modelo de recurso, consulte[Guia de migração para zonas privadas do DNS do Azure](private-dns-migration-guide.md).
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -1,19 +1,19 @@
 ---
-title: Processamento de dados e funções definidas pelo usuário com o Azure digital gêmeos | Microsoft Docs
+title: Processamento de dados e funções definidas pelo usuário – gêmeos digital do Azure | Microsoft Docs
 description: Visão geral do processamento de dados, correspondências e funções definidas pelo usuário com o gêmeos digital do Azure.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178264"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949980"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Processamento de dados e funções definidas pelo utilizador
 
@@ -23,7 +23,7 @@ O Azure digital gêmeos oferece recursos avançados de computação. Os desenvol
 
 Depois que os dispositivos enviam dados de telemetria para o Azure digital gêmeos, os desenvolvedores podem processar dados em quatro fases: *validar*, *corresponder*, *computar*e *distribuir*.
 
-[![Fluxo de processamento de dados do Azure digital gêmeos](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[fluxo de processamento de dados do 1Azure digital gêmeos @no__t](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. A fase validar transforma a mensagem de telemetria de entrada em um formato de [objeto de transferência de dados](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) comumente compreendido. Essa fase também executa a validação do dispositivo e do sensor.
 1. A fase de correspondência localiza as funções apropriadas definidas pelo usuário a serem executadas. Os correspondentes predefinidos localizam as funções definidas pelo usuário com base no dispositivo, no sensor e nas informações de espaço da mensagem de telemetria de entrada.
@@ -34,17 +34,17 @@ Depois que os dispositivos enviam dados de telemetria para o Azure digital gême
 
 O processamento de dados no Azure digital gêmeos consiste em definir três objetos: *correspondências*, *funções definidas pelo usuário*e *atribuições de função*.
 
-[![Objetos de processamento de dados do gêmeos digital do Azure](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[objetos de processamento de dados 1Azure digital gêmeos @no__t](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Correspondências
 
 Os correspondentes definem um conjunto de condições que avaliam as ações que ocorrem com base na telemetria do sensor de entrada. As condições para determinar a correspondência podem incluir propriedades do sensor, do dispositivo pai do sensor e do espaço pai do sensor. As condições são expressas como comparações em relação a um [caminho JSON](https://jsonpath.com/) , conforme descrito neste exemplo:
 
-- Todos os sensores de **temperatura** de DataType representados pelo valor da cadeia de caracteres de escape`\"Temperature\"`
+- Todos os sensores de **temperatura** de DataType representados pelo valor de cadeia de caracteres de escape `\"Temperature\"`
 - Tendo `01` em sua porta
-- Que pertencem a dispositivos com o **fabricante** da chave de propriedade estendida definido como o valor da cadeia de caracteres de escape`\"GoodCorp\"`
-- Que pertencem a espaços do tipo especificado pela cadeia de caracteres de escape`\"Venue\"`
-- Que são descendentes de **spaceid** pai`DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Que pertencem a dispositivos com o **fabricante** da chave de propriedade estendida definido como o valor da cadeia de caracteres de escape `\"GoodCorp\"`
+- Que pertencem a espaços do tipo especificado pela cadeia de caracteres de escape `\"Venue\"`
+- Que são descendentes do **spaceid** pai `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
@@ -83,9 +83,9 @@ Os correspondentes definem um conjunto de condições que avaliam as ações que
 > [!IMPORTANT]
 > - Os caminhos JSON diferenciam maiúsculas de minúsculas.
 > - A carga JSON é a mesma que a carga retornada por:
->   - `/sensors/{id}?includes=properties,types`para o sensor.
->   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`para o dispositivo pai do sensor.
->   - `/spaces/{id}?includes=properties,types,location,timezone`para o espaço pai do sensor.
+>   - `/sensors/{id}?includes=properties,types` para o sensor.
+>   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` para o dispositivo pai do sensor.
+>   - `/spaces/{id}?includes=properties,types,location,timezone` para o espaço pai do sensor.
 > - As comparações diferenciam maiúsculas de minúsculas.
 
 ### <a name="user-defined-functions"></a>Funções definidas pelo utilizador

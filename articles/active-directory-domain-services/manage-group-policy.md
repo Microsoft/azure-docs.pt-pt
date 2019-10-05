@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c6d7b3403209710c9086b90abcb0e2ce61a0e8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612645"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958551"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrar Política de Grupo em um domínio Azure AD Domain Services gerenciado
 
@@ -39,13 +39,16 @@ Para concluir este artigo, você precisa dos seguintes recursos e privilégios:
     * Se necessário, conclua o tutorial para [criar uma VM do Windows Server e associá-la a um domínio gerenciado][create-join-windows-vm].
 * Uma conta de usuário que é membro do grupo de *Administradores de DC do Azure ad* em seu locatário do Azure AD.
 
+> [!NOTE]
+> Como não há [acesso aos controladores de domínio no Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop), você não pode criar e usar um repositório central para modelos administrativos de diretiva de grupo em um domínio gerenciado. O [SYSVOL não está incluído na sincronização de Azure ad Connect local](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), portanto, você também não pode criar um repositório central local e sincronizá-lo para o Azure AD DS por meio do Azure AD.
+
 ## <a name="install-group-policy-management-tools"></a>Instalar ferramentas de gerenciamento de Política de Grupo
 
 Para criar e configurar o objeto de Política de Grupo (GPOs), você precisa instalar as ferramentas de gerenciamento de Política de Grupo. Essas ferramentas podem ser instaladas como um recurso no Windows Server. Para obter mais informações sobre como instalar as ferramentas administrativas em um cliente Windows, consulte instalar o [ferramentas de administração de servidor remoto (RSAT)][install-rsat].
 
 1. Entre na sua VM de gerenciamento. Para obter as etapas sobre como se conectar usando o portal do Azure, consulte [conectar-se a uma VM do Windows Server][connect-windows-server-vm].
 1. **Gerenciador do servidor** deve abrir por padrão quando você entra na VM. Se não estiver, no menu **Iniciar** , selecione **Gerenciador do servidor**.
-1. No painel painel da janela **Gerenciador do servidor** , selecione **adicionar funções e recursos**.
+1. No painel *painel* da janela **Gerenciador do servidor** , selecione **adicionar funções e recursos**.
 1. Na página **antes de começar** do *Assistente para adicionar funções e recursos*, selecione **Avançar**.
 1. Para o *tipo de instalação*, deixe a opção de instalação baseada em **função ou recurso** marcada e selecione **Avançar**.
 1. Na página **seleção de servidor** , escolha a VM atual no pool de servidores, como *MyVM.contoso.com*, e selecione **Avançar**.

@@ -1,19 +1,19 @@
 ---
 title: Limites do serviço de visualização pública do Azure digital gêmeos | Microsoft Docs
 description: Entenda os limites do serviço de visualização pública gêmeos do Azure.
-author: dwalthermsft
-manager: deshner
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
-ms.author: dwalther
-ms.openlocfilehash: d182a4aea00581b044b5734a5b7d6831f9e55c45
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 10/03/2019
+ms.openlocfilehash: 88a66506b5102a4efaeefe1c7033b337dff9889a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638472"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949250"
 ---
 # <a name="public-preview-service-limits"></a>Limites do serviço de pré-visualização pública
 

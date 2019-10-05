@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219347"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950351"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -169,7 +169,10 @@ Essa função está disponível para atribuição somente como um administrador 
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[Leitores de diretório](#directory-readers-permissions)
 
-Essa é uma função que deve ser atribuída somente a aplicativos herdados que não dão suporte à [estrutura de consentimento](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Não o atribua aos usuários.
+Os usuários nessa função podem ler informações básicas do diretório. Essa função deve ser usada para:
+* Conceder a um conjunto específico de usuários convidados acesso de leitura em vez de concedê-lo a todos os usuários convidados.
+* Conceder a um conjunto específico de usuários não administradores acesso ao portal do Azure quando "restringir o acesso ao portal do AD do Azure somente aos administradores" estiver definido como "Sim".
+* Conceder acesso às entidades de serviço ao diretório em que Directory. Read. All não é uma opção.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Contas de sincronização de diretório](#directory-synchronization-accounts-permissions)
 

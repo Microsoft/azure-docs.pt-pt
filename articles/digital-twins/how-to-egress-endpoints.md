@@ -1,19 +1,19 @@
 ---
 title: Saída e pontos de extremidade no Azure digital gêmeos | Microsoft Docs
 description: Diretrizes sobre como criar pontos de extremidade com o gêmeos digital do Azure.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
-ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.date: 10/02/2019
+ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013931"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959105"
 ---
 # <a name="egress-and-endpoints"></a>Saída e pontos de extremidade
 
@@ -356,7 +356,7 @@ Sempre que o sistema estiver em um estado de espera de retirada, atualizar as ch
 
 Quando um ponto de extremidade fica inacessível, o sistema entra em um tempo de espera de retirada exponencial de até 30 minutos. Os eventos são descartados em cada tempo de espera de retirada disparada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba [como usar o Azure digital gêmeos Swagger](how-to-use-swagger.md).
 

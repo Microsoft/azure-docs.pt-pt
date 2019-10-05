@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 5506e4e4bb41725fd8791d3c6e47bb0b94584923
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718654"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959426"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -48,9 +48,9 @@ Neste tutorial, ficará a saber como:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)] 
 
-Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, [consulte início rápido: Criar um perfil e um ponto de](cdn-create-new-endpoint.md)extremidade da CDN do Azure.
+Antes de concluir os passos neste tutorial, tem primeiro de criar um perfil da CDN e, pelo menos, um ponto final da CDN. Para obter mais informações, consulte [Quickstart: Crie um perfil da CDN do Azure e o ponto de extremidade @ no__t-0.
 
-Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto final da CDN. Para obter mais informações, [consulte Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure) 
+Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto final da CDN. Para obter mais informações, consulte [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md) (Adicionar um domínio personalizado ao ponto final da CDN do Azure) 
 
 > [!IMPORTANT]
 > Os certificados gerenciados por CDN não estão disponíveis para domínios raiz ou Apex. Se o domínio personalizado da CDN do Azure for um domínio raiz ou Apex, você deverá usar o recurso traga seu próprio certificado. 
@@ -62,7 +62,7 @@ Além disso, tem de associar um domínio personalizado da CDN do Azure no ponto 
 Para ativar o protocolo HTTPS para entrega de conteúdos de forma segura num domínio personalizado da CDN do Azure, deve utilizar um certificado SSL. Pode optar por utilizar um certificado gerido pela CDN do Azure ou utilizar o seu próprio certificado.
 
 
-# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Opção 1 (padrão): Habilitar HTTPS com um certificado gerenciado por CDN](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
+# <a name="option-1-default-enable-https-with-a-cdn-managed-certificatetaboption-1-default-enable-https-with-a-cdn-managed-certificate"></a>[Option 1 (padrão): Habilitar HTTPS com um certificado gerenciado por CDN @ no__t-0
 
 Quando utiliza um certificado gerida pela CDN, a funcionalidade HTTPS pode ser ativada com apenas alguns cliques. A CDN do Azure processa inteiramente as tarefas de gestão do certificado, tais como o aprovisionamento e a renovação. Depois de ativar a funcionalidade, o processo é iniciado imediatamente. Se o domínio personalizado já estiver mapeado para o ponto final da CDN, não será necessária mais nenhuma ação. A CDN do Azure vai processar os passos e concluir o pedido automaticamente. No entanto, se o domínio personalizado estiver mapeado noutro local, terá de utilizar o e-mail para validar a propriedade do domínio.
 
@@ -91,7 +91,7 @@ Para ativar o HTTPS num domínio personalizado, siga estes passos:
 6. Avance para [Validar o domínio](#validate-the-domain).
 
 
-# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Opção 2: Habilitar HTTPS com seu próprio certificado](#tab/option-2-enable-https-with-your-own-certificate)
+# <a name="option-2-enable-https-with-your-own-certificatetaboption-2-enable-https-with-your-own-certificate"></a>[Option 2: Habilitar HTTPS com seu próprio certificado @ no__t-0
 
 > [!IMPORTANT]
 > Essa opção está disponível somente com os perfis **CDN do Azure da Microsoft** e **CDN do Azure da Verizon** . 
@@ -190,7 +190,7 @@ A validação automática normalmente leva algumas horas. Se você não vir seu 
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>O domínio personalizado não está mapeado para o ponto final da CDN
 
 >[!NOTE]
->Se você estiver usando a **CDN do Azure da Akamai**, o CNAME a seguir deverá ser configurado para habilitar a validação automatizada de domínio. "_acme-Challenge. <custom domain hostname> -> CNAME-> <custom domain hostname>.ak-acme-challenge.azureedge.net "
+>Se você estiver usando a **CDN do Azure da Akamai**, o CNAME a seguir deverá ser configurado para habilitar a validação automatizada de domínio. "_acme-Challenge. &lt;Custom domínio hostname @ no__t-1-> CNAME-> &lt;custom domínio hostname&gt;.ak-acme-challenge.azureedge.net"
 
 Se a entrada de registro CNAME contiver o subdomínio cdnverify, siga o restante das instruções nesta etapa.
 
@@ -330,5 +330,5 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como configurar a colocação em cache no seu ponto final da CDN.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definir regras de cache da CDN do Azure](cdn-caching-rules-tutorial.md)
+> [Tutorial: Definir regras de cache da CDN do Azure @ no__t-0
 

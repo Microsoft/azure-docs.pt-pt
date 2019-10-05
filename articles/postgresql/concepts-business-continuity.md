@@ -1,17 +1,17 @@
 ---
 title: Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
-description: Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL.
+description: Este artigo descreve a continuidade dos negócios (restauração pontual, data center interrupção, restauração geográfica) ao usar o banco de dados do Azure para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: c346360c125d9316aed81ceeedbe265fd09465c1
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 3623611bcd22486d90651c6e8b6880c6de1de0c5
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907508"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950101"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade de negócios com o banco de dados do Azure para PostgreSQL-servidor único
 
@@ -51,9 +51,9 @@ O recurso de restauração geográfica restaura o servidor usando backups com re
 > A restauração geográfica só será possível se você tiver provisionado o servidor com o armazenamento de backup com redundância geográfica. Se desejar alternar de localmente redundante para backups com redundância geográfica para um servidor existente, você deverá fazer um despejo usando pg_dump do seu servidor existente e restaurá-lo para um servidor recém-criado configurado com backups com redundância geográfica.
 
 ## <a name="cross-region-read-replicas"></a>Réplicas de leitura entre regiões
-Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas assincronamente usando a tecnologia de replicação física do PostgreSQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura](concepts-read-replicas.md)de réplicas. 
+Você pode usar réplicas de leitura entre regiões para aprimorar sua continuidade de negócios e planejamento de recuperação de desastre. As réplicas de leitura são atualizadas assincronamente usando a tecnologia de replicação física do PostgreSQL. Saiba mais sobre réplicas de leitura, regiões disponíveis e como fazer failover do [artigo conceitos de leitura de réplicas](concepts-read-replicas.md). 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre os [backups automatizados no banco de dados do Azure para PostgreSQL](concepts-backup.md). 
 - Saiba como restaurar usando [o portal do Azure](howto-restore-server-portal.md) ou [o CLI do Azure](howto-restore-server-cli.md).
-- Saiba mais sobre réplicas de [leitura no banco de dados do Azure para PostgreSQL](concepts-read-replicas.md).
+- Saiba mais sobre [réplicas de leitura no banco de dados do Azure para PostgreSQL](concepts-read-replicas.md).

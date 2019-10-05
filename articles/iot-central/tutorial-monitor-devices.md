@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875462"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960425"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Utilizar o Azure IoT Central para monitorizar os seus dispositivos
 
@@ -41,7 +41,7 @@ Antes de começar, o construtor deve concluir os três tutoriais do construtor p
 
 O Azure IoT Central envia notificações sobre os dispositivos como mensagens de e-mail. O construtor adicionou uma regra para enviar uma notificação se a temperatura num dispositivo de ar condicionado ligado exceder um limiar. Verifique os e-mails enviados para a conta que o construtor escolheu para receber notificações.
 
-Abra a mensagem de e-mail que recebeu no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). No e-mail, escolha **Clique aqui para abrir o seu dispositivo**:
+Abra a mensagem de e-mail que recebeu no final do tutorial [Configurar regras e ações para o seu dispositivo](tutorial-configure-rules.md). No email, selecione o link para o dispositivo ao lado de **nome do dispositivo** na seção **detalhes** :
 
 ![Email de notificação de alerta](media/tutorial-monitor-devices/email.png)
 
@@ -63,7 +63,7 @@ O gráfico no dashboard mostra um desenho da temperatura do dispositivo. Você t
 
 Para alterar a temperatura ideal do dispositivo, utilize a página **Definições**:
 
-1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo confirma a alteração das configurações, o status da configuração é alteradopara sincronizado:
+1. Escolha **Definições**. Altere **Definir Temperatura** para 75. Escolha **Atualizar** para enviar a nova temperatura ideal para o dispositivo. Quando o dispositivo confirma a alteração das configurações, o status da configuração é alterado para **sincronizado**:
 
     ![Atualizar definições](media/tutorial-monitor-devices/change_settings.png)
 

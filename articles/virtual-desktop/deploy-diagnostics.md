@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839620"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947609"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -51,14 +51,22 @@ Esta seção mostrará como usar o PowerShell para criar o aplicativo Azure Acti
 >As permissões de API são área de trabalho virtual do Windows, Log Analytics e permissões de API Microsoft Graph são adicionadas ao aplicativo Azure Active Directory.
 
 1. Abra o PowerShell como administrador.
-2. Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **Create ad app Registration for Diagnostics. ps1** no PowerShell.
-3.  Quando o script solicitar que você nomeie seu aplicativo, insira um nome de aplicativo exclusivo.
-4.  O script solicitará que você entre com uma conta administrativa. Insira as credenciais de um usuário com [acesso de administrador delegado](delegated-access-virtual-desktop.md). O administrador deve ter direitos de proprietário ou de colaborador de RDS.
+2. Entre no Azure com uma conta que tenha permissões de proprietário ou colaborador na assinatura do Azure que você gostaria de usar para a ferramenta de diagnóstico:
+   ```powershell
+   Login-AzAccount
+   ```
+3. Entre no Azure AD com a mesma conta:
+   ```powershell
+   Connect-AzureAD
+   ```
+4. Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateADAppRegistrationforDiagnostics. ps1** no PowerShell.
+5.  Quando o script solicitar que você nomeie seu aplicativo, insira um nome de aplicativo exclusivo.
+
 
 Depois que o script for executado com êxito, ele deverá mostrar as seguintes medidas em sua saída:
 
 -  Uma mensagem que confirma que seu aplicativo agora tem uma atribuição de função de entidade de serviço.
--  A ID do cliente de impressão e a chave secreta do cliente que você precisará para quando implantar a ferramenta de diagnóstico.
+-  A ID do cliente e a chave secreta do cliente que você precisará para quando implantar a ferramenta de diagnóstico.
 
 Agora que você registrou seu aplicativo, é hora de configurar seu espaço de trabalho Log Analytics.
 
@@ -76,7 +84,7 @@ Você pode executar um script do PowerShell para criar um Log Analytics espaço 
 Para executar o script do PowerShell:
 
 1.  Abra o PowerShell como administrador.
-2.  Vá para o [repositório do GitHub RDS-templates](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **Create LogAnalyticsWorkspace for Diagnostics. ps1** no PowerShell.
+2.  Vá para o [repositório do GitHub de modelos de RDS](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) e execute o script **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** no PowerShell.
 3. Insira os seguintes valores para os parâmetros:
 
     - Para **ResourceGroupName**, insira o nome para o grupo de recursos.

@@ -1,19 +1,19 @@
 ---
 title: Navegar pelas APIs do Azure digital gêmeos | Microsoft Docs
 description: Saiba como padrões comuns de consulta das APIs de gerenciamento de gêmeos digital do Azure.
-author: kingdomofends
-manager: philmea
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: v-adgera
-ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b01b83ab0e673254da19888210d9678e313acca2
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172824"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949863"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Como usar as APIs de gerenciamento de gêmeos digital do Azure
 
@@ -31,7 +31,7 @@ A lista a seguir mostra os componentes das APIs do digital gêmeos.
 
 * [/Resources](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Resources): Essas APIs ajudam a configurar recursos, como um hub IoT, para sua instância de gêmeos digital.
 
-* [/Types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Essas APIs permitem que você associe tipos estendidos a seus objetos gêmeos digitais para adicionar características específicas a esses objetos. Esses tipos permitem a filtragem fácil e o agrupamento de objetos na interface do usuário e as funções personalizadas que processam os dados de telemetria. Os exemplos de tipos estendidos são o DeviceType, o *SensorType*, o *SensorDataType*, o *spacetype*, o *SpaceSubType*, o *SpaceBlobType*, o *SpaceResourceType*e assim por diante.
+* [/Types](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Types): Essas APIs permitem que você associe tipos estendidos a seus objetos gêmeos digitais para adicionar características específicas a esses objetos. Esses tipos permitem a filtragem fácil e o agrupamento de objetos na interface do usuário e as funções personalizadas que processam os dados de telemetria. Os exemplos de tipos estendidos são o *DeviceType*, o *SensorType*, o *SensorDataType*, o *spacetype*, o *SpaceSubType*, o *SpaceBlobType*, o *SpaceResourceType*e assim por diante.
 
 * [/ontologies](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Ontologies): Essas APIs ajudam você a gerenciar ontologies, que são coleções de tipos estendidos. Ontologies fornece nomes para tipos de objeto de acordo com o espaço físico que eles representam. Por exemplo, o *BACnet* ontologia fornece nomes específicos para *tipos de sensor*, *tipo*de datatipos, *datasubtypes*e *dataunittypes*. Ontologies são gerenciados e criados pelo serviço. Os usuários podem carregar e descarregar o ontologies. Quando um ontologia é carregado, todos os seus nomes de tipo associados são habilitados e prontos para serem provisionados no grafo espacial. 
 
@@ -74,17 +74,17 @@ As APIs do digital gêmeos dão suporte à filtragem e navegação em todo o gra
 
 ### <a name="examples"></a>Exemplos
 
-A lista a seguir mostra alguns exemplos de navegação por meio das APIs [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) . Observe que o espaço `YOUR_MANAGEMENT_API_URL` reservado refere-se ao URI das APIs do digital gêmeos no `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`formato, `YOUR_INSTANCE_NAME` em que é o nome da instância do gêmeos digital do `YOUR_LOCATION` Azure e é a região em que sua instância está hospedada.
+A lista a seguir mostra alguns exemplos de navegação por meio das APIs [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) . Observe que o espaço reservado `YOUR_MANAGEMENT_API_URL` refere-se ao URI das APIs do digital gêmeos no formato `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, em que `YOUR_INSTANCE_NAME` é o nome da instância do gêmeos digital do Azure e `YOUR_LOCATION` é a região em que a instância está hospedada.
 
-- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1`Retorna todos os dispositivos anexados a espaços raiz.
-- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4`Retorna todos os dispositivos conectados a espaços de níveis 2, 3 ou 4.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId`Retorna todos os dispositivos diretamente anexados a myspaceid.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down`Retorna todos os dispositivos conectados a myspaceid ou um de seus descendentes.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true`Retorna todos os dispositivos anexados a descendentes de myspaceid, excluindo myspaceid.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true`Retorna todos os dispositivos anexados a filhos imediatos de myspaceid.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true`Retorna todos os dispositivos anexados a um dos ancestrais de myspaceid.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5`Retorna todos os dispositivos anexados a descendentes de myspaceid que estão no nível menor ou igual a 5.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true`Retorna todos os dispositivos anexados a espaços que estão no mesmo nível que myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1` retorna todos os dispositivos anexados a espaços raiz.
+- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4` retorna todos os dispositivos conectados aos espaços dos níveis 2, 3 ou 4.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId` retorna todos os dispositivos diretamente anexados a myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down` retorna todos os dispositivos conectados a myspaceid ou um de seus descendentes.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true` retorna todos os dispositivos anexados a descendentes de myspaceid, excluindo myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true` retorna todos os dispositivos anexados a filhos imediatos de myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true` retorna todos os dispositivos conectados a um dos ancestrais de myspaceid.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5` retorna todos os dispositivos anexados a descendentes de myspaceid que estão no nível menor ou igual a 5.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true` retorna todos os dispositivos anexados a espaços que estão no mesmo nível que myspaceid.
 
 
 ## <a name="odata-support"></a>Suporte a OData
@@ -110,7 +110,7 @@ A lista a seguir descreve várias consultas com sintaxe de OData válida:
 - `YOUR_MANAGEMENT_API_URL/users?$top=4&$filter=endswith(LastName,’k’)&$orderby=LastName`
 - `YOUR_MANAGEMENT_API_URL/spaces?$orderby=Name desc&$top=3&$filter=substringof('Floor’,Name)`
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender alguns padrões comuns de consulta de API, leia [como consultar as APIs do Azure digital gêmeos para tarefas comuns](./how-to-query-common-apis.md).
 

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845709"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948171"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ajuste de desempenho com o índice columnstore clusterizado ordenado  
 
@@ -44,6 +44,43 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 > [!NOTE] 
 > Em uma tabela CCI ordenada, novos dados resultantes de DML ou operações de carregamento de dados não são classificados automaticamente.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  
+
+## <a name="query-performance"></a>Desempenho de consultas
+
+O lucro de desempenho de uma consulta de um CCI ordenado depende dos padrões de consulta, do tamanho dos dados, da forma como os dados são classificados, da estrutura física dos segmentos e do DWU e da classe de recursos escolhidos para a execução da consulta.  Os usuários devem revisar todos esses fatores antes de escolher as colunas de ordenação ao criar uma tabela de CCI ordenada.
+
+Consultas com todos esses padrões normalmente são executadas mais rapidamente com o CCI ordenado.  
+1. As consultas têm predicados de igualdade, desigualdade ou intervalo
+1. As colunas de predicado e as colunas de CCI ordenadas são as mesmas.  
+1. As colunas de predicado são usadas na mesma ordem que o ordinal de coluna de colunas CCI ordenadas.  
+ 
+Neste exemplo, a tabela T1 tem um índice columnstore clusterizado ordenado na sequência de Col_C, Col_B e Col_A.
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+O desempenho da consulta 1 pode se beneficiar mais do CCI ordenado do que as outras 3 consultas. 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
 
 ## <a name="data-loading-performance"></a>Desempenho do carregamento de dados
 
@@ -85,7 +122,7 @@ A criação de um CCI ordenado é uma operação offline.  Para tabelas sem part
 
 ## <a name="examples"></a>Exemplos
 
-**UM. Para verificar as colunas ordenadas e o ordinal do pedido:**
+**A. Para verificar as colunas ordenadas e o ordinal de ordem:**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 

@@ -1,19 +1,19 @@
 ---
-title: Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial | Microsoft Docs
+title: Entender os modelos de objeto gêmeos do Azure e o grafo de inteligência espacial | Microsoft Docs
 description: Utilize Azure Digital Twins para modelar relações entre pessoas, lugares e dispositivos
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177064"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950017"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial
 
@@ -23,7 +23,7 @@ Os modelos de objeto gêmeos digital descrevem conceitos, categorias e proprieda
 
 Com os modelos de objetos do digital gêmeos e um ontologia no lugar, você pode preencher um _grafo espacial_. Grafos espaciais são representações virtuais das muitas relações entre espaços, dispositivos e pessoas que são relevantes para uma solução de IoT. Este diagrama mostra um exemplo de um grafo espacial que usa um ontologia de construção inteligente.
 
-[![Criação de grafo espacial digital gêmeos](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[compilação de grafo espacial de @no__t 1Digital gêmeos](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 O grafo espacial reúne espaços, dispositivos, sensores e usuários. Cada uma é vinculada de uma forma que modela o mundo real. Neste exemplo, o local 43 tem quatro andares, cada um com muitas áreas diferentes. Os usuários estão associados às estações de trabalho e recebem acesso a partes do grafo. Um administrador tem os direitos de fazer alterações no grafo espacial, enquanto um visitante tem direitos para exibir apenas determinados dados de compilação.
 
@@ -31,28 +31,28 @@ O grafo espacial reúne espaços, dispositivos, sensores e usuários. Cada uma �
 
 Os modelos de objetos do digital gêmeos dão suporte a essas principais categorias de objetos:
 
-- Os **espaços** são locais virtuais ou físicos, por exemplo `Tenant`, `Customer` `Region`,, e `Venue`.
-- Os **dispositivos** são partes físicas ou virtuais de equipamentos, por exemplo `AwesomeCompany Device` , `Raspberry Pi 3`e.
-- **Sensores** são objetos que detectam eventos, por exemplo `AwesomeCompany Temperature Sensor` , `AwesomeCompany Presence Sensor`e.
+- Os **espaços** são locais virtuais ou físicos, por exemplo, `Tenant`, `Customer`, `Region` e `Venue`.
+- Os **dispositivos** são partes virtuais ou físicas de equipamentos, por exemplo, `AwesomeCompany Device` e `Raspberry Pi 3`.
+- **Sensores** são objetos que detectam eventos, por exemplo, `AwesomeCompany Temperature Sensor` e `AwesomeCompany Presence Sensor`.
 - **Os usuários** identificam o occupants e suas características.
 
 Outras categorias de objetos são:
 
-- Os **recursos** são anexados a um espaço e normalmente representam os recursos do Azure a serem usados por objetos no grafo espacial, `IoTHub`por exemplo,.
-- Os **BLOBs** são anexados a objetos (como espaços, dispositivos, sensores e usuários). Eles são usados como arquivos com tipo MIME e metadados, por exemplo `maps` `pictures`,, e `manuals`.
-- Os **tipos estendidos** são enumerações extensíveis que aumentam as entidades com características `SpaceType` específicas `SpaceSubtype`, por exemplo, e.
-- **Ontologies** representa um conjunto de tipos estendidos, por exemplo `Default`, `Building` `BACnet`,, e `EnergyGrid`.
+- Os **recursos** são anexados a um espaço e normalmente representam os recursos do Azure a serem usados por objetos no grafo espacial, por exemplo, `IoTHub`.
+- Os **BLOBs** são anexados a objetos (como espaços, dispositivos, sensores e usuários). Eles são usados como arquivos com tipo MIME e metadados, por exemplo, `maps`, `pictures` e `manuals`.
+- Os **tipos estendidos** são enumerações extensíveis que aumentam as entidades com características específicas, por exemplo `SpaceType` e `SpaceSubtype`.
+- **Ontologies** representa um conjunto de tipos estendidos, por exemplo, `Default`, `Building`, `BACnet` e `EnergyGrid`.
 - **As chaves de propriedade e os valores** são características personalizadas de espaços, dispositivos, sensores e usuários. Eles podem ser usados junto com características internas, por exemplo, `DeltaProcessingRefreshTime` como chave e `10` como valor.
-- As **funções** são conjuntos de permissões atribuídas a usuários e dispositivos no grafo espacial, por exemplo `Space Administrator` `User Administrator`,, e `Device Administrator`.
+- As **funções** são conjuntos de permissões atribuídas a usuários e dispositivos no grafo espacial, por exemplo, `Space Administrator`, `User Administrator` e `Device Administrator`.
 - As **atribuições de função** são a associação entre uma função e um objeto no grafo espacial. Por exemplo, um usuário ou uma entidade de serviço pode receber permissão para gerenciar um espaço no grafo espacial.
 - Os **repositórios de chaves de segurança** fornecem as chaves de segurança para todos os dispositivos na hierarquia em um determinado objeto de espaço para permitir que o dispositivo se comunique com segurança com o gêmeos digital.
-- **Funções definidas pelo usuário** (UDFs) permitir processamento de telemetria de sensor personalizável dentro do grafo espacial. Por exemplo, um UDF pode:
+- As UDFs ( **funções definidas pelo usuário** ) permitem o processamento de telemetria de sensor personalizável dentro do grafo espacial. Por exemplo, um UDF pode:
   - Defina um valor de sensor.
   - Execute a lógica personalizada com base nas leituras do sensor e defina a saída como um espaço.
   - Anexe metadados a um espaço.
   - Enviar notificações quando condições predefinidas forem atendidas. Atualmente, as UDFs podem ser escritas em JavaScript.
 - Os **correspondências** são objetos que determinam quais UDFs são executados para uma determinada mensagem de telemetria.
-- Os **pontos de extremidade** são os locais onde as mensagens de telemetria e os eventos de gêmeos digital podem `Event Hub`ser roteados `Event Grid`, por exemplo `Service Bus`,, e.
+- Os **pontos de extremidade** são os locais onde as mensagens de telemetria e os eventos de gêmeos digital podem ser roteados, por exemplo, `Event Hub`, `Service Bus` e `Event Grid`.
 
 ## <a name="spatial-intelligence-graph"></a>Gráfico de inteligência espacial
 

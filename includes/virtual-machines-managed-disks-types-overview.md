@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997696"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955874"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais tipos de disco estão disponíveis no Azure?
 
@@ -27,7 +27,7 @@ A tabela a seguir fornece uma comparação de ultra discos, unidades de estado s
 |---------|---------|---------|---------|---------|
 |Tipo de disco   |SSD   |SSD   |SSD   |HDD   |
 |Cenário   |Cargas de trabalho com uso intensivo de e/s, como SAP HANA, bancos de dados de camada superior (por exemplo, SQL, Oracle) e outras cargas de trabalho de transações pesadas.   |Cargas de trabalho confidenciais de produção e de desempenho   |Servidores Web, aplicativos empresariais com pouco uso e desenvolvimento/teste   |Backup, não crítico, acesso infrequente   |
-|Tamanho do disco   |65.536 Gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
+|Tamanho máximo do disco   |65.536 Gibibyte (GiB)    |32.767 GiB    |32.767 GiB   |32.767 GiB   |
 |Taxa de transferência máxima   |2\.000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |IOPS Máx.   |160.000    |20,000   |6,000   |2\.000   |
 

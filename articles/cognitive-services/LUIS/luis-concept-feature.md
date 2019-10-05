@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624577"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949603"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Recursos da lista de frases em seu aplicativo LUIS
 
@@ -46,14 +46,7 @@ As listas de frases não são vinculadas a uma entidade ou intenção específic
 
 Depois de inserir algumas palavras ou frases, use o recurso **recomendado** para localizar valores relacionados. Revise os valores relacionados antes de adicioná-los aos valores da lista de frases.
 
-|Tipo de lista|Objetivo|
-|--|--|
-|Intercambiáveis|Sinônimos ou palavras que, quando alterados para outra palavra na lista, têm a mesma intenção e extração de entidade.|
-|Não intercambiável|Vocabulário do aplicativo, específico ao seu aplicativo, mais do que geralmente outras palavras nesse idioma.|
-
-### <a name="interchangeable-lists"></a>Listas intercambiáveis
-
-Uma lista de frases intercambiáveis é para valores que são sinônimos. Por exemplo, se você quiser todos os corpos de água encontrados e tiver exemplo declarações como: 
+Uma lista de frases é para valores que são sinônimos. Por exemplo, se você quiser todos os corpos de água encontrados e tiver exemplo declarações como: 
 
 * Quais cidades estão próximas aos grandes lagos? 
 * Qual estrada é executada junto com o Lake Havasu?
@@ -65,17 +58,7 @@ Cada expressão deve ser determinado para a intenção e as entidades, independe
 * Qual estrada é executada junto com [bodyOfWater]?
 * Onde o [bodyOfWater] inicia e termina? 
 
-Como as palavras ou frases do corpo de água são sinônimos e podem ser usadas de forma intercambiável no declarações, use a configuração **intercambiável** na lista de frases. 
-
-### <a name="non-interchangeable-lists"></a>Listas não intercambiáveis
-
-Uma lista de frases não intercambiáveis é um sinal que aumenta a detecção para LUIS. A lista de frases indica palavras ou frases que são mais significativas do que outras palavras. Isso ajuda a determinar a detecção de intenção e entidade. Por exemplo, digamos que você tenha um domínio de assunto como viagem que seja global (o que significa entre culturas, mas ainda em uma única linguagem). Há palavras e frases que são importantes para o aplicativo, mas não são sinônimos. 
-
-Para outro exemplo, use uma lista de frases não intercambiáveis para palavras raras, proprietárias e estrangeiras. LUIS pode não ser possível reconhecer palavras raras e proprietárias, como palavras estrangeiras (fora da cultura da aplicação). A definição não intercambiáveis indica que o conjunto de palavras raro constitui uma classe que deve aprender a reconhecer o LUIS, mas não são sinónimos ou intercambiáveis entre si.
-
-Não adicione cada palavra ou frase possível a uma lista de frases, adicione algumas palavras ou frases de cada vez e, em seguida, retreine e publique. 
-
-À medida que a lista de frases cresce ao longo do tempo, você pode achar que alguns termos têm muitas formas (sinônimos). Divida-os em outra lista de frases que seja intercambiável. 
+Porque as palavras ou frases do corpo da água são sinônimos e podem ser usadas de forma intercambiável no declarações. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

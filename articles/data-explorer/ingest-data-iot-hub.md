@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 83f5339dbc4f093ba0b7287b53c053e319f928c9
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937395"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947855"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingerir dados do Hub IoT para o Azure Data Explorer (versão prévia)
 
@@ -76,11 +76,11 @@ Agora você se conecta ao Hub IoT do Azure Data Explorer. Quando essa conexão �
 
     **Definição** | **Descrição do campo**
     |---|---|
-    | Nome de ligação de dados | O nome da ligação que quer criar no Azure Data Explorer.
-    | IoT Hub | Nome do Hub IoT. |
-    | Política de acesso partilhado | O nome da política de acesso compartilhado. Deve ter permissões de leitura. |
-    | Grupo de consumidores |  O grupo de consumidores definido no ponto de extremidade interno do Hub IoT. |
-    | Propriedades do sistema de eventos | As propriedades do sistema de eventos do Hub IoT. Caso haja vários registros por mensagem de evento, as propriedades do sistema serão adicionadas ao primeiro. |
+    | Nome de ligação de dados | O nome da conexão que você deseja criar no Azure Data Explorer
+    | IoT Hub | Nome do Hub IoT |
+    | Política de acesso partilhado | O nome da política de acesso compartilhado. Deve ter permissões de leitura |
+    | Grupo de consumidores |  O grupo de consumidores definido no ponto de extremidade interno do Hub IoT |
+    | Propriedades do sistema de eventos | As [Propriedades do sistema de eventos do Hub IOT](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) se houver vários registros por mensagem de evento, as propriedades do sistema serão adicionadas ao primeiro.|
     | | 
 
     > [!NOTE]
@@ -94,7 +94,7 @@ Agora você se conecta ao Hub IoT do Azure Data Explorer. Quando essa conexão �
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Tabela | *TestTable* | A tabela que você criou em **TestDB**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV e TXT. |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOHSV, SCSV, TSV, TSVE e TXT. |
     | Mapeamento de colunas | *TestMapping* | O mapeamento que você criou em **TestDB**, que MAPEIA dados JSON de entrada para os nomes de coluna e tipos de dados de **TestDB**. Necessário para JSON, JSON MULTILINHA e AVRO, e opcional para outros formatos.|
     | | |
 

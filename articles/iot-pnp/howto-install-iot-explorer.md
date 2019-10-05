@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932482"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960576"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
@@ -29,7 +29,7 @@ Este artigo mostra como:
 Para usar a ferramenta do Azure IoT Explorer, você precisa de:
 
 - Um hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [a criação de um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar a ferramenta do Azure IoT Explorer. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo. Certifique-se de substituir `{YourIoTHubName}` os `{YourDeviceID}` espaços reservados e pelos seus valores:
+- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo. Certifique-se de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos valores:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -65,29 +65,27 @@ Alterar as prioridades de origem:
 
 Você pode arrastar e soltar uma das fontes de definição de modelo para uma classificação diferente na lista. Se houver um conflito, as fontes de definição com classificações maiores substituirão as fontes pelas classificações mais baixas.
 
-### <a name="overview-page"></a>Página de visão geral
+### <a name="view-devices"></a>Ver dispositivos
 
-#### <a name="device-overview"></a>Visão geral do dispositivo
+Depois que a ferramenta se conectar ao Hub IoT, ela exibirá a página de lista de **dispositivos** que lista as identidades de dispositivo registradas com o Hub IOT. Você pode expandir qualquer entrada na lista para ver mais informações.
 
-Depois que a ferramenta se conectar ao Hub IoT, ela exibirá uma página de visão geral que lista todas as identidades de dispositivo registradas com o Hub IoT do Azure. Selecione um dispositivo para exibir mais detalhes.
+Na página lista de **dispositivos** , você pode:
 
-#### <a name="device-management"></a>Gestão de dispositivos
-
-- Para registrar um novo dispositivo com o Hub, selecione **Adicionar**. Insira uma ID de dispositivo. Use as configurações padrão para gerar automaticamente as chaves de autenticação e habilitar a conexão com o Hub.
-- Para excluir uma identidade de dispositivo, selecione **excluir**. Examine os detalhes do dispositivo antes de concluir esta ação para certificar-se de que você está excluindo a identidade correta do dispositivo.
-- A ferramenta dá suporte à consulta `capabilityID` por `interfaceID`e. Adicione seu `capabilityID` ou `interfaceID` como um parâmetro para consultar seus dispositivos.
+- Selecione **Adicionar** para registrar um novo dispositivo com o Hub. Em seguida, insira uma ID do dispositivo. Use as configurações padrão para gerar automaticamente chaves de autenticação e habilitar a conexão com o Hub.
+- Selecione um dispositivo e, em seguida, selecione **excluir** para excluir uma identidade de dispositivo. Examine os detalhes do dispositivo antes de concluir esta ação para certificar-se de que você está excluindo a identidade correta do dispositivo.
+- Consulta por `capabilityID` e `interfaceID`. Adicione seu `capabilityID` ou `interfaceID` como um parâmetro para consultar seus dispositivos.
 
 ## <a name="interact-with-a-device"></a>Interagir com um dispositivo
 
-Clique duas vezes em um dispositivo na página Visão geral para exibir o próximo nível de detalhe. Há duas seções: **Dispositivo** e e/ou **digital**.
+Na página lista de **dispositivos** , selecione um valor na coluna **ID do dispositivo** para exibir a página de detalhes do dispositivo registrado. Para o dispositivo, há duas seções: **Dispositivo** e e/ou **digital**.
 
 ### <a name="device"></a>Dispositivo
 
-Esta seção inclui as guias **identidade do dispositivo**, **telemetria**e **dispositivos de entrelaçamento** .
+Esta seção inclui as guias **identidade do dispositivo**, **dispositivo**e **telemetria** .
 
-- Você pode exibir e atualizar as informações de identidade do dispositivo na guia **identidade do dispositivo** .
-- Se um dispositivo estiver conectado e enviando dados ativamente, você poderá exibir a telemetria na guia **telemetria** .
-- Você pode acessar as informações de FileUp do dispositivo na guia de **dispositivo de entrelaçamento** .
+- Você pode exibir e atualizar as informações de [identidade do dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) na guia **identidade do dispositivo** .
+- Você pode acessar as informações de FileUp do [dispositivo](../iot-hub/iot-hub-devguide-device-twins.md) na guia de **dispositivo de entrelaçamento** .
+- Se um dispositivo estiver conectado e enviando dados ativamente, você poderá exibir a [telemetria](../iot-hub/iot-hub-devguide-messages-read-builtin.md) na guia **telemetria** .
 
 ### <a name="digital-twin"></a>Entrelaçar digital
 
@@ -118,6 +116,6 @@ Para enviar um comando para um dispositivo, vá para a página **comandos** :
 
 Para exibir a telemetria da interface selecionada, acesse sua página de **telemetria** .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo de instruções, você aprendeu a instalar e usar o Azure IoT Explorer para interagir com seus dispositivos de Plug and Play de IoT. Uma próxima etapa sugerida é aprender a [instalar e usar a extensão CLI do Azure](./howto-install-pnp-cli.md).

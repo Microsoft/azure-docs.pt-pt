@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
+ms.lasthandoff: 10/04/2019
 ms.locfileid: "70736013"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referência de script Azure Data Factory-JSON
@@ -47,11 +47,11 @@ A tabela a seguir descreve as propriedades dentro da definição de JSON do pipe
 
 | Propriedade | Descrição | Requerido
 -------- | ----------- | --------
-| name | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com um número de letra ou um sublinhado\_()</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":",\\""</li></ul> |Sim |
+| name | Nome do pipeline. Especifique um nome que represente a ação que a atividade ou o pipeline está configurado para fazer<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com um número de letra ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sim |
 | description |Texto que descreve a atividade ou o pipeline usado para | Não |
 | activities | Contém uma lista de atividades. | Sim |
-| start |Data/hora de início do pipeline. Deve estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, uma hora ESTIMAda. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é a 06 est.<br/><br/>As propriedades Start e End juntas especificam o período ativo para o pipeline. As fatias de saída são produzidas somente com neste período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade end, deverá especificar o valor da Propriedade Start.<br/><br/>As horas de início e de término podem estar vazias para criar um pipeline. Você deve especificar os dois valores para definir um período ativo para que o pipeline seja executado. Se você não especificar os horários de início e término ao criar um pipeline, poderá defini-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
-| end |Data/hora de término do pipeline. Se especificado deve estar no formato ISO. Por exemplo: 2014-10-14T17:32:41 <br/><br/>É possível especificar uma hora local, por exemplo, uma hora ESTIMAda. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é a 06 est.<br/><br/>Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor para a propriedade end. |Não <br/><br/>Se você especificar um valor para a propriedade Start, deverá especificar o valor da Propriedade End.<br/><br/>Consulte Observações para a propriedade **Iniciar** . |
+| start |Data/hora de início do pipeline. Deve estar no [formato ISO](https://en.wikipedia.org/wiki/ISO_8601). Por exemplo: 2014-10-14T16:32:41. <br/><br/>É possível especificar uma hora local, por exemplo, uma hora ESTIMAda. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é a 06 EST.<br/><br/>As propriedades Start e End juntas especificam o período ativo para o pipeline. As fatias de saída são produzidas somente com neste período ativo. |Não<br/><br/>Se você especificar um valor para a propriedade end, deverá especificar o valor da Propriedade Start.<br/><br/>As horas de início e de término podem estar vazias para criar um pipeline. Você deve especificar os dois valores para definir um período ativo para que o pipeline seja executado. Se você não especificar os horários de início e término ao criar um pipeline, poderá defini-los usando o cmdlet Set-AzDataFactoryPipelineActivePeriod mais tarde. |
+| end |Data/hora de término do pipeline. Se especificado deve estar no formato ISO. Por exemplo: 2014-10-14T17:32:41 <br/><br/>É possível especificar uma hora local, por exemplo, uma hora ESTIMAda. Aqui está um exemplo: `2016-02-27T06:00:00**-05:00`, que é a 06 EST.<br/><br/>Para executar o pipeline indefinidamente, especifique 9999-09-09 como o valor para a propriedade end. |Não <br/><br/>Se você especificar um valor para a propriedade Start, deverá especificar o valor da Propriedade End.<br/><br/>Consulte Observações para a propriedade **Iniciar** . |
 | isPaused |Se definido como true, o pipeline não é executado. Valor padrão = false. Você pode usar essa propriedade para habilitar ou desabilitar. |Não |
 | pipelineMode |O método para o agendamento de execuções para o pipeline. Os valores permitidos são: Scheduled (padrão), OneTime.<br/><br/>' Scheduled ' indica que o pipeline é executado em um intervalo de tempo especificado de acordo com seu período ativo (hora de início e término). ' OneTime ' indica que o pipeline é executado apenas uma vez. Pipelines de OneTime depois de criados não podem ser modificados/atualizados no momento. Consulte [pipeline de OneTime](data-factory-create-pipelines.md#onetime-pipeline) para obter detalhes sobre a configuração de OneTime. |Não |
 | expirationTime |Duração do tempo após a criação para a qual o pipeline é válido e deve permanecer provisionado. Se não houver execuções ativas, com falha ou pendentes, o pipeline será excluído automaticamente assim que atingir o tempo de expiração. |Não |
@@ -85,7 +85,7 @@ A tabela a seguir descreve as propriedades na definição de JSON da atividade:
 
 | Etiqueta | Descrição | Requerido |
 | --- | --- | --- |
-| name |Nome da atividade. Especifique um nome que represente a ação que a atividade está configurada para fazer<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com um número de letra ou um sublinhado\_()</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":",\\""</li></ul> |Sim |
+| name |Nome da atividade. Especifique um nome que represente a ação que a atividade está configurada para fazer<br/><ul><li>Número máximo de caracteres: 260</li><li>Deve começar com um número de letra ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", "\\"</li></ul> |Sim |
 | description |Texto que descreve para que a atividade é usada. |Não |
 | type |Especifica o tipo da atividade. Consulte as seções [armazenamento de dados](#data-stores) e atividades de transformação de [dados](#data-transformation-activities) para diferentes tipos de atividades. |Sim |
 | inputs |Tabelas de entrada usadas pela atividade<br/><br/>`// one input table`<br/>`"inputs":  [ { "name": "inputtable1"  } ],`<br/><br/>`// two input tables` <br/>`"inputs":  [ { "name": "inputtable1"  }, { "name": "inputtable2"  } ],` |Não para atividades HDInsightStreaming e SqlServerStoredProcedure <br/> <br/> Sim para todos os outros |
@@ -167,7 +167,7 @@ Tenha em atenção os seguintes pontos:
 
 Consulte a seção [armazenamentos de dados](#data-stores) neste artigo para obter exemplos de JSON que mostram como usar um armazenamento de dados como fonte e/ou coletor.
 
-Para obter uma explicação completa da criação desse pipeline, [consulte o tutorial: Copiar dados do armazenamento de BLOBs para](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)o banco de dados SQL.
+Para obter uma explicação completa da criação desse pipeline, consulte [Tutorial: Copie os dados do armazenamento de BLOBs para o SQL Database @ no__t-0.
 
 ### <a name="sample-transformation-pipeline"></a>Pipeline de transformação de exemplos
 No pipeline de exemplo seguinte, existe uma atividade do tipo **HDInsightHive** na secção **activities**. Neste exemplo, a [atividade Hive do HDInsight](data-factory-hive-activity.md) transforma dados de um armazenamento de Blobs do Azure mediante a execução de um ficheiro de script de Hive num cluster do Hadoop para o Azure HDInsight.
@@ -221,11 +221,11 @@ Tenha em atenção os seguintes pontos:
 
 * Na secção “activities”, existe apenas uma atividade cujo **type** está definido como **HDInsightHive**.
 * O ficheiro do Script de ramo de registo **partitionweblogs.hql** é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService, denominado **AzureStorageLinkedService**) e na pasta **script** no contentor **adfgetstarted**.
-* A seção **define** é usada para especificar as configurações de tempo de execução que são passadas para o script do hive como `${hiveconf:inputtable}`valores de configuração do hive (por exemplo, `${hiveconf:partitionedtable}`).
+* A seção **define** é usada para especificar as configurações de tempo de execução que são passadas para o script do hive como valores de configuração do hive (por exemplo `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
 Consulte a seção [atividades de transformação de dados](#data-transformation-activities) neste artigo para obter exemplos de JSON que definem atividades de transformação em um pipeline.
 
-Para obter uma explicação completa da criação desse pipeline, [consulte o tutorial: Crie seu primeiro pipeline para processar dados usando o cluster](data-factory-build-your-first-pipeline.md)Hadoop.
+Para obter uma explicação completa da criação desse pipeline, consulte [Tutorial: Crie seu primeiro pipeline para processar dados usando o cluster do Hadoop @ no__t-0.
 
 ## <a name="linked-service"></a>Serviço ligado
 A estrutura de alto nível para uma definição de serviço vinculada é a seguinte:
@@ -298,10 +298,10 @@ Cada coluna na seção **estrutura** contém as seguintes propriedades:
 | --- | --- | --- |
 | name |Nome da coluna. |Sim |
 | type |Tipo de dados da coluna.  |Não |
-| culture |Cultura baseada em .net a ser usada quando o tipo é especificado e é `Datetime` do `Datetimeoffset`tipo .net ou. A predefinição é `en-us`. |Não |
-| format |Cadeia de caracteres de formato a ser usada quando o tipo é especificado `Datetime` e `Datetimeoffset`é do tipo .net ou. |Não |
+| culture |Cultura baseada em .NET a ser usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. |Não |
+| format |Cadeia de caracteres de formato a ser usada quando o tipo é especificado e é o tipo .NET `Datetime` ou `Datetimeoffset`. |Não |
 
-No exemplo a seguir, o DataSet tem três colunas `slicetimestamp`, `projectname`e `pageviews` e são do tipo: String, String e decimal respectivamente.
+No exemplo a seguir, o DataSet tem três colunas `slicetimestamp`, `projectname` e `pageviews` e são do tipo: String, String e decimal respectivamente.
 
 ```json
 structure:
@@ -356,7 +356,7 @@ A menos que um conjunto de um DataSet esteja sendo produzido por Azure Data Fact
 
 | Name | Descrição | Requerido | Default Value |
 | --- | --- | --- | --- |
-| dataDelay |Tempo para atrasar a verificação na disponibilidade dos dados externos para a fatia determinada. Por exemplo, se os dados estiverem disponíveis por hora, a verificação para ver os dados externos está disponível e a fatia correspondente está pronta pode ser atrasada com o uso de datadelay.<br/><br/>Aplica-se somente ao momento atual.  Por exemplo, se for 1:00 PM no momento e esse valor for de 10 minutos, a validação começará às 1:10 PM.<br/><br/>Essa configuração não afeta fatias no passado (fatias com hora de término da fatia + data Delay < agora) são processadas sem nenhum atraso.<br/><br/>Um tempo maior que 23:59 horas precisa ser especificado usando `day.hours:minutes:seconds` o formato. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1,00:00:00. Se você usar o 24:00:00, ele será tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
+| dataDelay |Tempo para atrasar a verificação na disponibilidade dos dados externos para a fatia determinada. Por exemplo, se os dados estiverem disponíveis por hora, a verificação para ver os dados externos está disponível e a fatia correspondente está pronta pode ser atrasada com o uso de datadelay.<br/><br/>Aplica-se somente ao momento atual.  Por exemplo, se for 1:00 PM no momento e esse valor for de 10 minutos, a validação começará às 1:10 PM.<br/><br/>Essa configuração não afeta fatias no passado (fatias com hora de término da fatia + data Delay < agora) são processadas sem nenhum atraso.<br/><br/>Um tempo maior que 23:59 horas precisa ser especificado usando o formato `day.hours:minutes:seconds`. Por exemplo, para especificar 24 horas, não use 24:00:00; em vez disso, use 1,00:00:00. Se você usar o 24:00:00, ele será tratado como 24 dias (24.00:00:00). Por 1 dia e 4 horas, especifique 1:04:00:00. |Não |0 |
 | retryInterval |O tempo de espera entre uma falha e a próxima tentativa de repetição. Se uma tentativa falhar, a próxima tentativa será após retryInterval. <br/><br/>Se for 1:00 PM no momento, começaremos a primeira tentativa. Se a duração para concluir a primeira verificação de validação for de 1 minuto e a operação falhar, a próxima tentativa será de 1:00 + 1 min (duração) + 1 min (intervalo de repetição) = 1:02 PM. <br/><br/>Para fatias no passado, não há nenhum atraso. A repetição ocorre imediatamente. |Não |00:01:00 (1 minuto) |
 | retryTimeout |O tempo limite para cada tentativa de repetição.<br/><br/>Se essa propriedade for definida como 10 minutos, a validação precisará ser concluída dentro de 10 minutos. Se demorar mais de 10 minutos para executar a validação, a nova tentativa atingirá o tempo limite.<br/><br/>Se todas as tentativas para a validação atingirem o tempo limite, a fatia será marcada como TimedOut. |Não |00:10:00 (10 minutos) |
 | maximumRetry |Número de vezes para verificar a disponibilidade dos dados externos. O valor máximo permitido é 10. |Não |3 |
@@ -458,7 +458,7 @@ Para definir um conjunto de uma série de BLOBs do Azure, defina o **tipo** do c
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | folderPath |Caminho para o contentor e a pasta no armazenamento de Blobs. Exemplo: myblobcontainer\myblobfolder\ |Sim |
-| fileName |Nome do blob. o nome do arquivo é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no blob específico.<br/><br/>Quando fileName não for especificado, Copy incluirá todos os BLOBs no folderPath para o conjunto de dados de entrada.<br/><br/>Quando filename não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Nome do blob. o nome do arquivo é opcional e diferencia maiúsculas de minúsculas.<br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no blob específico.<br/><br/>Quando fileName não for especificado, Copy incluirá todos os BLOBs no folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath e um nome de arquivo dinâmico para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -591,7 +591,7 @@ Para definir um Azure Data Lake Store serviço vinculado, defina o tipo do servi
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como: **AzureDataLakeStore** | Sim |
-| dataLakeStoreUri | Especifique as informações sobre a conta de Azure Data Lake Store. Ele está no seguinte formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou. `adl://[accountname].azuredatalakestore.net/` | Sim |
+| dataLakeStoreUri | Especifique as informações sobre a conta de Azure Data Lake Store. Ele está no seguinte formato: `https://[accountname].azuredatalakestore.net/webhdfs/v1` ou `adl://[accountname].azuredatalakestore.net/`. | Sim |
 | subscriptionId | ID de assinatura do Azure à qual Data Lake Store pertence. | Necessário para o sink |
 | resourceGroupName | Nome do grupo de recursos do Azure ao qual Data Lake Store pertence. | Necessário para o sink |
 | servicePrincipalId | Especifique o ID de cliente. da aplicação | Sim (para autenticação de entidade de serviço) |
@@ -641,7 +641,7 @@ Para definir um conjunto de Azure Data Lake Store, defina o **tipo** do conjunto
 | Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
 | folderPath |Caminho para o contêiner e a pasta no repositório de Azure Data Lake. |Sim |
-| fileName |Nome do arquivo no repositório de Azure Data Lake. o nome do arquivo é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, Copy inclui todos os arquivos em folderPath para o conjunto de dados de entrada.<br/><br/>Quando filename não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| fileName |Nome do arquivo no repositório de Azure Data Lake. o nome do arquivo é opcional e diferencia maiúsculas de minúsculas. <br/><br/>Se você especificar um nome de arquivo, a atividade (incluindo a cópia) funcionará no arquivo específico.<br/><br/>Quando fileName não for especificado, Copy inclui todos os arquivos em folderPath para o conjunto de dados de entrada.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: `Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy é uma propriedade opcional. Você pode usá-lo para especificar um folderPath e um nome de arquivo dinâmico para dados de série temporal. Por exemplo, folderPath pode ser parametrizado para cada hora dos dados. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -837,7 +837,7 @@ Se você estiver copiando dados de um Azure Cosmos DB, defina o **tipo de origem
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| query |Especifique a consulta para ler os dados. |Cadeia de caracteres de consulta com suporte pelo Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução SQL que é executada:`select <columns defined in structure> from mycollection` |
+| query |Especifique a consulta para ler os dados. |Cadeia de caracteres de consulta com suporte pelo Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a instrução SQL executada: `select <columns defined in structure> from mycollection` |
 | nestingSeparator |Caractere especial para indicar que o documento está aninhado |Qualquer caractere. <br/><br/>Azure Cosmos DB é um repositório NoSQL para documentos JSON, em que estruturas aninhadas são permitidas. Azure Data Factory permite que o usuário denotasse hierarquia via nestingSeparator, que é "." nos exemplos acima. Com o separador, a atividade de cópia gerará o objeto "nome" com três elementos filhos primeiro, meio e último, de acordo com "nome. primeiro", "nome. meio" e "nome. último" na definição da tabela. |Não |
 
 #### <a name="example"></a>Exemplo
@@ -883,7 +883,7 @@ Se você estiver copiando dados para Azure Cosmos DB, defina o **tipo de coletor
 
 | **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
 | --- | --- | --- | --- |
-| nestingSeparator |Um caractere especial no nome da coluna de origem para indicar que o documento aninhado é necessário. <br/><br/>Por exemplo acima: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Name": {<br/>    "First": João<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor padrão `.` é (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor padrão `.` é (ponto). |
+| nestingSeparator |Um caractere especial no nome da coluna de origem para indicar que o documento aninhado é necessário. <br/><br/>Por exemplo acima: `Name.First` na tabela de saída produz a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Name": {<br/>    "First": João<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor padrão é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor padrão é `.` (ponto). |
 | writeBatchSize |Número de solicitações paralelas para Azure Cosmos DB serviço para criar documentos.<br/><br/>Você pode ajustar o desempenho ao copiar dados de/para Azure Cosmos DB usando essa propriedade. Você pode esperar um melhor desempenho ao aumentar o writeBatchSize porque mais solicitações paralelas para Azure Cosmos DB são enviadas. No entanto, você precisará evitar a limitação que pode gerar a mensagem de erro: "A taxa de solicitação é grande".<br/><br/>A limitação é decidida por vários fatores, incluindo o tamanho dos documentos, o número de termos em documentos, a política de indexação da coleção de destino, etc. Para operações de cópia, você pode usar uma coleção melhor (por exemplo, S3) para ter a maior taxa de transferência disponível (2.500 unidades de solicitação/segundo). |Integer |Não (padrão: 5) |
 | writeBatchTimeout |Tempo de espera para a operação ser concluída antes de atingir o tempo limite. |TimeSpan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
 
@@ -1823,7 +1823,7 @@ Para definir um serviço vinculado do MySQL, defina o **tipo** do serviço vincu
 | server |Nome do servidor MySQL. |Sim |
 | database |Nome do banco de dados MySQL. |Sim |
 | schema |Nome do esquema no banco de dados. |Não |
-| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são `Basic`:. |Sim |
+| authenticationType |Tipo de autenticação usado para se conectar ao banco de dados MySQL. Os valores possíveis são: `Basic`. |Sim |
 | userName |Especifique o nome de usuário para se conectar ao banco de dados MySQL. |Sim |
 | password |Especifique a senha da conta de usuário que você especificou. |Sim |
 | gatewayName |Nome do gateway que o serviço de Data Factory deve usar para se conectar ao banco de dados MySQL local. |Sim |
@@ -2005,7 +2005,7 @@ Se você estiver copiando dados de um Oracle Database, defina o **tipo de origem
 
 | Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| oracleReaderQuery |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable` <br/><br/>Se não for especificado, a instrução SQL que é executada:`select * from MyTable` |Não (se **TableName** de **DataSet** for especificado) |
+| oracleReaderQuery |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `select * from MyTable` <br/><br/>Se não for especificado, a instrução SQL executada: `select * from MyTable` |Não (se **TableName** de **DataSet** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -2178,7 +2178,7 @@ Se você estiver copiando dados de um banco de dado PostgreSQL, defina o **tipo 
 
 | Propriedade | Descrição | Valores permitidos | Requerido |
 | --- | --- | --- | --- |
-| query |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: "consulta": "selecionar * de \"MySchema\".\" MyTable\"". |Não (se **TableName** de **DataSet** for especificado) |
+| query |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: "consulta": "select * from \"MySchema @ no__t-1. \"MyTable @ no__t-3". |Não (se **TableName** de **DataSet** for especificado) |
 
 #### <a name="example"></a>Exemplo
 
@@ -3326,8 +3326,8 @@ Você pode vincular um sistema de arquivos local a um data factory do Azure com 
 
 | Cenário | Host na definição de serviço vinculado | folderPath na definição de DataSet |
 | --- | --- | --- |
-| Pasta local no computador do gateway de Gerenciamento de Dados: <br/><br/>Exemplos: D:\\ \* ou D:\folder\subfolder\\* |D:\\ \\ (para gerenciamento de dados gateway 2,0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gerenciamento de Dados gateway 2,0) |. \\ oupasta\\subpasta (para gerenciamento de dados gateway 2,0 e versões posteriores)\\ \\ <br/><br/>D:\\ \\\\ou d:\\subpasta dapasta\\(para a versão do gateway abaixo de 2,0)\\ |
-| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\\\\\\\compartilhamento\\de meuservidor\\ |. \\ oupasta\\subpasta \\ \\ |
+| Pasta local no computador do gateway de Gerenciamento de Dados: <br/><br/>Exemplos: D: \\ @ no__t-1 ou D:\folder\subfolder @ no__t-2 @ no__t-3 |D: \\ @ no__t-1 (para Gerenciamento de Dados gateway 2,0 e versões posteriores) <br/><br/> localhost (para versões anteriores do que Gerenciamento de Dados gateway 2,0) |. \\ @ no__t-1 ou pasta @ no__t-2 @ no__t-3subfolder (para Gerenciamento de Dados gateway 2,0 e versões posteriores) <br/><br/>D: \\ @ no__t-1 ou D: \\ @ no__t-3folder @ no__t-4 @ no__t-5subfolder (para a versão do gateway abaixo de 2,0) |
+| Pasta remota partilhada: <br/><br/>Exemplos: \\ \\myserver\\partilhar\\ \* ou \\ \\myserver\\partilhar\\pasta\\subpasta\\* |\\ @ no__t-1 @ no__t-2 @ no__t-3myserver @ no__t-4 @ no__t-5share |. \\ @ no__t-1 ou pasta @ no__t-2 @ no__t-3subfolder |
 
 
 #### <a name="example-using-username-and-password-in-plain-text"></a>Exemplo: Usando nome de usuário e senha em texto sem formatação
@@ -3371,8 +3371,8 @@ Para definir um conjunto de um sistema de arquivos, defina o **tipo** do conjunt
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | folderPath |Especifica o subcaminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Consulte amostra de serviço vinculado e definições de conjunto de exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim |
-| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt`Exemplo Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são `*` : (vários caracteres) `?` e (caractere único).<br/><br/>Exemplo 1: "FileFilter": "*. log"<br/>Exemplo 2: "FileFilter": 2016-1-?. localizado<br/><br/>Observe que FileFilter é aplicável a um conjunto de dados de FileShare de entrada. |Não |
+| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt` (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos. <br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/><br/>Exemplo 1: "FileFilter": "*. log"<br/>Exemplo 2: "FileFilter": 2016-1-?. localizado<br/><br/>Observe que FileFilter é aplicável a um conjunto de dados de FileShare de entrada. |Não |
 | partitionedBy |Você pode usar partitionedBy para especificar um folderPath/fileName dinâmico para dados de série temporal. Um exemplo é folderPath parametrizado para cada hora dos dados. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**; e os níveis com suporte são: **Ideal** e **mais rápido**. consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -3637,8 +3637,8 @@ Para definir um conjunto de texto de FTP, defina o **tipo** do conjunto de um co
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | folderPath |Sub-caminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Consulte amostra de serviço vinculado e definições de conjunto de exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim
-| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt`Exemplo Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são `*` : (vários caracteres) `?` e (caractere único).<br/><br/>Exemplos 1:`"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> FileFilter é aplicável a um conjunto de dados de FileShare de entrada. Não há suporte para essa propriedade com HDFS. |Não |
+| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt` (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> FileFilter é aplicável a um conjunto de dados de FileShare de entrada. Não há suporte para essa propriedade com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser usado para especificar um nome de arquivo folderPath dinâmico para dados de série temporal. Por exemplo, folderPath parametrizado para cada hora dos dados. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**; e os níveis com suporte são: **Ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -3778,8 +3778,8 @@ Para definir um conjunto de conjuntos de um HDFS, defina o **tipo** do conjunto 
 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
-| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\subpasta, especifique\\subpasta Folder\\e para d:\samplefolder, especifique d\\:\\pastadeexemplo.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim |
-| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt`(por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
+| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Por exemplo: para pasta\subpasta, especifique a pasta @ no__t-0 @ no__t-1subfolder e para d:\samplefolder, especifique d: \\ @ no__t-3samplefolder.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim |
+| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
 | partitionedBy |partitionedBy pode ser usado para especificar um nome de arquivo folderPath dinâmico para dados de série temporal. Exemplo: folderPath parametrizado para cada hora dos dados. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -3874,7 +3874,7 @@ Para definir um serviço vinculado do SFTP, defina o **tipo** do serviço vincul
 
 #### <a name="example-using-basic-authentication"></a>Exemplo: Usando a autenticação básica
 
-Para usar a autenticação básica, `authenticationType` defina `Basic`como e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
+Para usar a autenticação básica, defina `authenticationType` como `Basic` e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
@@ -3923,13 +3923,13 @@ Para usar a autenticação básica, `authenticationType` defina `Basic`como e es
 
 #### <a name="using-ssh-public-key-authentication"></a>**Usando a autenticação de chave pública SSH:**
 
-Para usar a autenticação básica, `authenticationType` defina `SshPublicKey`como e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
+Para usar a autenticação básica, defina `authenticationType` como `SshPublicKey` e especifique as propriedades a seguir, além das genéricas do conector SFTP introduzidas na última seção:
 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | username |Usuário que tem acesso ao servidor SFTP |Sim |
-| privateKeyPath | Especifique o caminho absoluto para o arquivo de chave privada que o gateway pode acessar. | Especifique o ou `privateKeyPath` `privateKeyContent`o. <br><br> Aplica-se somente ao copiar dados de um servidor SFTP local. |
-| privateKeyContent | Uma cadeia de caracteres serializada do conteúdo da chave privada. O assistente de cópia pode ler o arquivo de chave privada e extrair automaticamente o conteúdo da chave privada. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade privateKeyPath em vez disso. | Especifique o ou `privateKeyPath` `privateKeyContent`o. |
+| privateKeyPath | Especifique o caminho absoluto para o arquivo de chave privada que o gateway pode acessar. | Especifique o `privateKeyPath` ou o `privateKeyContent`. <br><br> Aplica-se somente ao copiar dados de um servidor SFTP local. |
+| privateKeyContent | Uma cadeia de caracteres serializada do conteúdo da chave privada. O assistente de cópia pode ler o arquivo de chave privada e extrair automaticamente o conteúdo da chave privada. Se você estiver usando qualquer outra ferramenta/SDK, use a propriedade privateKeyPath em vez disso. | Especifique o `privateKeyPath` ou o `privateKeyContent`. |
 | passPhrase | Especifique a frase secreta/senha para descriptografar a chave privada se o arquivo de chave estiver protegido por uma frase secreta. | Sim se o arquivo de chave privada for protegido por uma frase secreta. |
 
 ```json
@@ -3979,8 +3979,8 @@ Para definir um conjunto de conjuntos de um SFTP, defina o **tipo** do conjunto 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
 | folderPath |Sub-caminho para a pasta. Use o caractere de escape ' \ ' para caracteres especiais na cadeia de caracteres. Consulte amostra de serviço vinculado e definições de conjunto de exemplos.<br/><br/>Você pode combinar essa propriedade com **partitionBy** para ter caminhos de pasta com base em data/hora de início/término da fatia. |Sim |
-| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt`Exemplo Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são `*` : (vários caracteres) `?` e (caractere único).<br/><br/>Exemplos 1:`"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> FileFilter é aplicável a um conjunto de dados de FileShare de entrada. Não há suporte para essa propriedade com HDFS. |Não |
+| fileName |Especifique o nome do arquivo no **FolderPath** se você quiser que a tabela se refira a um arquivo específico na pasta. Se você não especificar nenhum valor para essa propriedade, a tabela apontará para todos os arquivos na pasta.<br/><br/>Quando fileName não for especificado para um conjunto de resultados de saída, o nome do arquivo gerado estaria no seguinte formato: <br/><br/>`Data.<Guid>.txt` (exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
+| fileFilter |Especifique um filtro a ser usado para selecionar um subconjunto de arquivos no folderPath em vez de todos os arquivos.<br/><br/>Os valores permitidos são: `*` (vários caracteres) e `?` (caractere único).<br/><br/>Exemplos 1: `"fileFilter": "*.log"`<br/>Exemplo 2: `"fileFilter": 2016-1-?.txt"`<br/><br/> FileFilter é aplicável a um conjunto de dados de FileShare de entrada. Não há suporte para essa propriedade com HDFS. |Não |
 | partitionedBy |partitionedBy pode ser usado para especificar um nome de arquivo folderPath dinâmico para dados de série temporal. Por exemplo, folderPath parametrizado para cada hora dos dados. |Não |
 | format | Há suporte para os seguintes tipos de formato: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Definir o **tipo** propriedade em formato para um dos seguintes valores. Para obter mais informações, consulte [formato de texto](data-factory-supported-file-and-compression-formats.md#text-format), [formato Json](data-factory-supported-file-and-compression-formats.md#json-format), [formato Avro](data-factory-supported-file-and-compression-formats.md#avro-format), [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format), e [formato Parquet](data-factory-supported-file-and-compression-formats.md#parquet-format) secções. <br><br> Se quiser **copiar ficheiros como-é** entre arquivos baseados em ficheiros (binário cópia), ignore a secção de formato em ambas as definições do conjunto de dados de entrada e saída. |Não |
 | compression | Especifica o tipo e o nível de compressão dos dados. Os tipos com suporte são: **Gzip**, **deflate**, **bzip2**e **ZipDeflate**. Os níveis com suporte são: **Ideal** e **mais rápido**. Para obter mais informações, consulte [formatos de arquivo e compactação em Azure data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
@@ -4078,7 +4078,7 @@ Para definir um serviço vinculado de HTTP, defina o **tipo** do serviço vincul
 | encryptedCredential | Credencial criptografada para acessar o ponto de extremidade HTTP. Gerado automaticamente quando você configura as informações de autenticação no assistente de cópia ou na caixa de diálogo pop-up do ClickOnce. | Não. Aplique somente ao copiar dados de um servidor HTTP local. |
 
 #### <a name="example-using-basic-digest-or-windows-authentication"></a>Exemplo: Usando a autenticação básica, Digest ou Windows
-Defina `authenticationType` como `Basic`, `Digest`ou eespecifiqueaspropriedadesaseguir,alémdasgenéricasdoconectorhttpintroduzidasacima:`Windows`
+Defina `authenticationType` como `Basic`, `Digest` ou `Windows` e especifique as propriedades a seguir, além das genéricas do conector HTTP introduzidas acima:
 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
@@ -4102,15 +4102,15 @@ Defina `authenticationType` como `Basic`, `Digest`ou eespecifiqueaspropriedadesa
 
 #### <a name="example-using-clientcertificate-authentication"></a>Exemplo: Usando a autenticação ClientCertificate
 
-Para usar a autenticação básica, `authenticationType` defina `ClientCertificate`como e especifique as propriedades a seguir, além das genéricas do conector http introduzidas acima:
+Para usar a autenticação básica, defina `authenticationType` como `ClientCertificate` e especifique as propriedades a seguir, além das genéricas do conector HTTP introduzidas acima:
 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
-| embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo de troca de informações pessoais (PFX). | Especifique o ou `embeddedCertData` `certThumbprint`o. |
-| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplicar somente ao copiar dados de uma origem HTTP local. | Especifique o ou `embeddedCertData` `certThumbprint`o. |
+| embeddedCertData | O conteúdo codificado na Base64 de dados binários do arquivo de troca de informações pessoais (PFX). | Especifique o `embeddedCertData` ou o `certThumbprint`. |
+| certThumbprint | A impressão digital do certificado que foi instalado no repositório de certificados do computador do gateway. Aplicar somente ao copiar dados de uma origem HTTP local. | Especifique o `embeddedCertData` ou o `certThumbprint`. |
 | password | Senha associada ao certificado. | Não |
 
-Se você usar `certThumbprint` o para autenticação e o certificado estiver instalado no repositório pessoal do computador local, será necessário conceder a permissão de leitura para o serviço de gateway:
+Se você usar `certThumbprint` para autenticação e o certificado estiver instalado no repositório pessoal do computador local, será necessário conceder a permissão de leitura para o serviço do gateway:
 
 1. Inicie o MMC (console de gerenciamento Microsoft). Adicione o snap-in de **certificados** que tem como destino o **computador local**.
 2. Expanda **certificados**, **pessoal**e clique em **certificados**.
@@ -4159,7 +4159,7 @@ Para definir um conjunto de um DataSet, defina o **tipo** do conjunto de um como
 
 | Propriedade | Descrição | Requerido |
 |:--- |:--- |:--- |
-| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não for especificado, somente a URL especificada na definição de serviço vinculado será usada. <br><br> Para construir a URL dinâmica, você pode usar [Data Factory funções e variáveis do sistema](data-factory-functions-variables.md), `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`por exemplo:. | Não |
+| relativeUrl | Uma URL relativa para o recurso que contém os dados. Quando o caminho não for especificado, somente a URL especificada na definição de serviço vinculado será usada. <br><br> Para construir a URL dinâmica, você pode usar [Data Factory funções e variáveis do sistema](data-factory-functions-variables.md), por exemplo: `"relativeUrl": "$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)"`. | Não |
 | requestMethod | Método http. Os valores permitidos são **Get** ou **post**. | Não. A predefinição é `GET`. |
 | additionalHeaders | Cabeçalhos de solicitação HTTP adicionais. | Não |
 | requestBody | Corpo da solicitação HTTP. | Não |
@@ -4593,7 +4593,7 @@ Para definir um serviço vinculado do Salesforce, defina o **tipo** do serviço 
 
 | Propriedade | Descrição | Requerido |
 | --- | --- | --- |
-| environmentUrl | Especifique a URL da instância do Salesforce. <br><br> -O padrão é "https\/:/login.Salesforce.com". <br> -Para copiar dados da área restrita, especifique https://test.salesforce.com"". <br> -Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio]. My. Salesforce. com". |Não |
+| environmentUrl | Especifique a URL da instância do Salesforce. <br><br> -O padrão é "https: \//login. Salesforce. com". <br> -Para copiar dados da área restrita, especifique "https://test.salesforce.com". <br> -Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domínio]. My. Salesforce. com". |Não |
 | username |Especifique um nome de usuário para a conta de usuário. |Sim |
 | password |Especifique uma senha para a conta de usuário. |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Consulte [obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como redefinir/obter um token de segurança. Para saber mais sobre os tokens de segurança em geral, consulte [segurança e a API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm). |Sim |
@@ -4837,7 +4837,7 @@ A tabela a seguir fornece descrições para as propriedades usadas na definiçã
 | Propriedade | Descrição | Necessário |
 | --- | --- | --- |
 | type |A propriedade Type deve ser definida como **HDInsightOnDemand**. |Sim |
-| clusterSize |Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós de cabeçalho junto com o número de nós de trabalho que você especifica para essa propriedade. Os nós são de tamanho Standard_D3 que tem 4 núcleos, portanto, um cluster de quatro nós de trabalho leva 24 núcleos (4\*4 = 16 núcleos para nós de trabalho, mais 2\*4 = 8 núcleos para nós de cabeçalho). Confira [Criar clusters Hadoop baseados em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard_D3. |Sim |
+| clusterSize |Número de nós de trabalho/dados no cluster. O cluster HDInsight é criado com 2 nós de cabeçalho junto com o número de nós de trabalho que você especifica para essa propriedade. Os nós são de tamanho Standard_D3 que tem 4 núcleos, portanto, um cluster de quatro nós de trabalho usa 24 núcleos (4 @ no__t-04 = 16 núcleos para nós de trabalho, mais 2 @ no__t-14 = 8 núcleos para nós de cabeçalho). Confira [Criar clusters Hadoop baseados em Linux no HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md) para obter detalhes sobre a camada Standard_D3. |Sim |
 | TimeToLive |O tempo ocioso permitido para o cluster HDInsight sob demanda. Especifica por quanto tempo o cluster HDInsight sob demanda permanece ativo após a conclusão de uma atividade de execução se não houver nenhum outro trabalho ativo no cluster.<br/><br/>Por exemplo, se uma execução de atividade demorar 6 minutos e TimeToLive for definido como 5 minutos, o cluster permanecerá ativo por 5 minutos após os 6 minutos de processamento da execução da atividade. Se outra execução de atividade for executada com a janela de 6 minutos, ela será processada pelo mesmo cluster.<br/><br/>A criação de um cluster HDInsight sob demanda é uma operação cara (pode levar algum tempo), portanto, use essa configuração conforme necessário para melhorar o desempenho de um data factory reutilizando um cluster HDInsight sob demanda.<br/><br/>Se você definir o valor TimeToLive como 0, o cluster será excluído assim que a atividade for executada no processo. Por outro lado, se você definir um valor alto, o cluster poderá permanecer ocioso desnecessariamente, resultando em altos custos. Portanto, é importante que você defina o valor apropriado com base em suas necessidades.<br/><br/>Vários pipelines podem compartilhar a mesma instância do cluster HDInsight sob demanda se o valor da Propriedade TimeToLive estiver definido adequadamente |Sim |
 | version |Versão do cluster HDInsight. Para obter detalhes, consulte [versões do HDInsight com suporte no Azure data Factory](data-factory-compute-linked-services.md#supported-hdinsight-versions-in-azure-data-factory). |Não |
 | linkedServiceName |O serviço vinculado do armazenamento do Azure a ser usado pelo cluster sob demanda para armazenar e processar dados. <p>No momento, você não pode criar um cluster HDInsight sob demanda que usa um Azure Data Lake Store como armazenamento. Se você quiser armazenar os dados de resultado do processamento do HDInsight em um Azure Data Lake Store, use uma atividade de cópia para copiar os dados do armazenamento de BLOBs do Azure para o Azure Data Lake Store.</p>  | Sim |
@@ -5335,7 +5335,7 @@ Você pode especificar as propriedades a seguir em uma definição de JSON da at
 Tenha em atenção os seguintes pontos:
 
 - A propriedade **Type** é definida como **HDInsightSpark**.
-- O **rootPath** é definido como **adfspark\\pyFiles** , em que adfspark é o contêiner de blob do Azure e pyFiles é a pasta Ok nesse contêiner. Neste exemplo, o armazenamento de BLOBs do Azure é aquele associado ao cluster do Spark. Você pode carregar o arquivo para um armazenamento do Azure diferente. Se você fizer isso, crie um serviço vinculado do armazenamento do Azure para vincular essa conta de armazenamento ao data factory. Em seguida, especifique o nome do serviço vinculado como um valor para a propriedade **sparkJobLinkedService** . Consulte Propriedades da atividade do Spark para obter detalhes sobre essa propriedade e outras propriedades com suporte na atividade do Spark.
+- O **rootPath** é definido como **adfspark @ no__t-2pyFiles,** em que adfspark é o contêiner de blob do Azure e pyFiles é a pasta Ok nesse contêiner. Neste exemplo, o armazenamento de BLOBs do Azure é aquele associado ao cluster do Spark. Você pode carregar o arquivo para um armazenamento do Azure diferente. Se você fizer isso, crie um serviço vinculado do armazenamento do Azure para vincular essa conta de armazenamento ao data factory. Em seguida, especifique o nome do serviço vinculado como um valor para a propriedade **sparkJobLinkedService** . Consulte Propriedades da atividade do Spark para obter detalhes sobre essa propriedade e outras propriedades com suporte na atividade do Spark.
 - O **entryFilePath** é definido como **Test.py**, que é o arquivo Python.
 - A propriedade **getDebugInfo** é definida como **Always**, o que significa que os arquivos de log sempre são gerados (êxito ou falha).
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121602"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960023"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o SSO do SAML para o JIRA da Microsoft
 
@@ -60,8 +60,8 @@ Para começar, você precisa dos seguintes itens:
 
 ## <a name="supported-versions-of-jira"></a>Versões com suporte do JIRA
 
-* JIRA Core e software: 6,4 a 8,0
-* JIRA Service Desk 3.0.0 a 3.5.0
+* JIRA Core e software: 6,4 a 8.2.4
+* JIRA Service Desk 3.0.0 to 4.2.1
 * O JIRA também dá suporte a 5,2. Para obter mais detalhes, clique em [Microsoft Azure Active Directory logon único para JIRA 5,2](jira52microsoft-tutorial.md)
 
 > [!NOTE]
@@ -109,11 +109,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<domain:port>/plugins/servlet/saml/auth`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
-    b. Na caixa **identificador** , digite uma URL usando o seguinte padrão:`https://<domain:port>/`
+    b. Na caixa **identificador** , digite uma URL usando o seguinte padrão: `https://<domain:port>/`
 
-    c. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://<domain:port>/plugins/servlet/saml/auth`
+    c. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com o identificador, a URL de resposta e a URL de logon reais. A porta é opcional, caso seja uma URL nomeada. Esses valores são recebidos durante a configuração do plug-in Jira, que é explicada posteriormente no tutorial.
@@ -181,11 +181,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 5. Depois que o plug-in for instalado, ele aparecerá na seção Complementos **instalados pelo usuário** da seção **gerenciar complemento** . Clique em **Configurar** para configurar o novo plug-in.
 
-    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon13.png)
+    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Execute as seguintes etapas na página de configuração:
 
-    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon53.png)
+    ![Configurar o início de sessão único](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Verifique se há apenas um certificado mapeado no aplicativo para que não haja nenhum erro na resolução dos metadados. Se houver vários certificados, ao resolver os metadados, o administrador receberá um erro.
@@ -195,6 +195,8 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
     1. Copie o **identificador, a URL de resposta e** os valores de URL de logon e cole-os nas caixas de caixa de **entrada identificador, URL de resposta e URL de logon** , respectivamente na seção **domínio e URLs do SSO do SAML do JIRA da Microsoft** em portal do Azure.
 
     1. Em **nome do botão de logon** , digite o nome do botão que sua organização deseja que os usuários vejam na tela de logon.
+    
+    1. Na **Descrição do botão de logon** , digite a descrição do botão que sua organização deseja que os usuários vejam na tela de logon.
 
     1. Em **locais de ID de usuário SAML** , selecione a ID de usuário **está no elemento nameidentifier da instrução Subject ou a** **ID de usuário está em um elemento Attribute**.  Essa ID deve ser a ID de usuário JIRA. Se a ID de usuário não for correspondida, o sistema não permitirá que os usuários entrem.
 
@@ -212,7 +214,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
     1. Habilite a caixa de seleção **forçar logon do Azure** , se você quiser entrar apenas por meio de credenciais do Azure AD.
     
        > [!Note]
-       > Para habilitar o formulário de logon padrão para logon de administrador na página de logon quando forçar logon do Azure estiver habilitado, adicione o parâmetro de consulta na URL do navegador.
+       >Para habilitar o formulário de logon padrão para logon de administrador na página de logon quando forçar logon do Azure estiver habilitado, adicione o parâmetro de consulta na URL do navegador.
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. Clique no botão **salvar** para salvar as configurações.
@@ -244,11 +246,11 @@ Para permitir que os usuários do Azure AD entrem no servidor local do JIRA, ele
 
     ![Adicionar funcionário](./media/jiramicrosoft-tutorial/user4.png) 
 
-    a. Na caixa de texto **endereço de email** , digite o endereço de email B.simon@contoso.comdo usuário como.
+    a. Na caixa de texto **endereço de email** , digite o endereço de email do usuário, como B.simon@contoso.com.
 
     b. Na caixa de texto **nome completo** , digite o nome completo do usuário, como B. Simon.
 
-    c. Na caixa de texto **username** , digite o email do usuário B.simon@contoso.comcomo.
+    c. Na caixa de texto **username** , digite o email do usuário, como B.simon@contoso.com.
 
     d. Na caixa de texto **senha** , digite a senha do usuário.
 

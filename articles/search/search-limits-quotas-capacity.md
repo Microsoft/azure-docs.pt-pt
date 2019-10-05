@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327154"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947787"
 ---
 # <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
 Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou **otimizado para armazenamento** .
@@ -45,7 +45,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 ## <a name="index-limits"></a>Limites de índice
 
-| Resource | Livre | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | ERROS DE L2 |
+| Resource | Livre | Básico @ no__t-0<sup>1</sup>  | S1 | S2 | S3 | S3 @ NO__T-0HD | L1 | ERROS DE L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |10 |10 |
 | Máximo de campos simples por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -82,9 +82,9 @@ Se o portal indicar um limite de documento, o serviço foi criado antes de 2017 
 
 Para serviços sujeitos a limites de documentos, os limites máximos a seguir se aplicam:
 
-|  Livre | Básica | S1 | S2 | S3 | S3&nbsp;HD |
+|  Livre | Básica | S1 | S2 | S3 | S3 @ NO__T-0HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1&nbsp;milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
+|  10,000 |1 @ no__t-0million |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
 
 Se o serviço tiver limites que estão bloqueando você, crie um novo serviço e Republique todo o conteúdo para esse serviço. Não há nenhum mecanismo para reprovisionar o serviço diretamente em um novo hardware nos bastidores.
 
@@ -105,7 +105,7 @@ Para manter o tamanho do documento inativo, lembre-se de excluir dados não cons
 Existem tempos de execução máximos para fornecer balanceamento e estabilidade ao serviço como um todo, mas conjuntos de dados maiores podem precisar de mais tempo de indexação do que o máximo permitido. Se um trabalho de indexação não puder ser concluído dentro do tempo máximo permitido, tente executá-lo em um agendamento. O Agendador mantém o controle do status de indexação. Se um trabalho de indexação agendado for interrompido por algum motivo, o indexador poderá escolher onde ele parou na próxima execução agendada.
 
 
-| Resource | Gratuito&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |ERROS DE L2 |
+| Resource | @ No__t livre-0<sup>1</sup> | Básico @ no__t-0<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |ERROS DE L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |10 |10 |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
@@ -115,7 +115,7 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 | Tempo máximo de execução <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |24 horas |24 horas |
 | Tempo máximo de execução para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |Duas horas |Duas horas |Duas horas |Duas horas |N/A  |Duas horas |Duas horas |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexador de blob: máximo de caracteres de conteúdo extraídos de um blob |32,000 |64,000 |4&nbsp;milhões |4&nbsp;milhões |4&nbsp;milhões |N/A |4&nbsp;milhões |4&nbsp;milhões |
+| Indexador de blob: máximo de caracteres de conteúdo extraídos de um blob |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |N/A |4 @ no__t-0million |4 @ no__t-0million |
 
 <sup>1</sup> os serviços gratuitos têm o tempo máximo de execução do indexador de 3 minutos para fontes de BLOB e 1 minuto para todas as outras fontes de dados. Para a indexação de ia que chama serviços cognitivas, os serviços gratuitos são limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito pelo pipeline de enriquecimento.
 
@@ -146,7 +146,19 @@ Para as camadas de armazenamento otimizado, você deve esperar uma taxa de trans
 
 ## <a name="data-limits-cognitive-search"></a>Limites de dados (pesquisa cognitiva)
 
-Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, use a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ter de 1 a 50.000 caracteres, conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, use a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+
+## <a name="throttling-limits"></a>Limites de limitação
+
+As solicitações de consulta e indexação de pesquisa são limitadas conforme o sistema se aproxima da capacidade de pico. A limitação se comporta de forma diferente para APIs diferentes. As APIs de consulta (pesquisa/sugestão/preenchimento automático) e as APIs de indexação são restringidas dinamicamente com base na carga do serviço. As APIs de índice têm limites de taxa de solicitação estáticos. 
+
+Limites de solicitação de taxa estática para operações relacionadas a um índice:
+
++ Listar índices (GET/indexes): 5 por segundo por unidade de pesquisa
++ Obter índice (GET/Indexes/myindex): 10 por segundo por unidade de pesquisa
++ CREATE INDEX (POST/indexes): 12 por minuto por unidade de pesquisa
++ Criar ou atualizar índice (PUT/Indexes/myindex): 6 por segundo por unidade de pesquisa
++ Excluir índice (excluir/Indexes/myindex): 12 por minuto por unidade de pesquisa 
 
 ## <a name="api-request-limits"></a>Limites de solicitação de API
 * Máximo de 16 MB por solicitação <sup>1</sup>

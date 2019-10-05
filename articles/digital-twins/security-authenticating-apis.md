@@ -1,19 +1,19 @@
 ---
 title: Entender a autenticação de API usando o gêmeos digital do Azure | Microsoft Docs
 description: Saiba como se conectar e autenticar com APIs usando o gêmeos digital do Azure.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: lyhughes
-ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: c75db8d1885c8680dd316952a5f67e11dc26edb1
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719157"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949788"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conectar e autenticar com APIs
 

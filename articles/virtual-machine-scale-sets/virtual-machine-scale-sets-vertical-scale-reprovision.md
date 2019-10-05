@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: d12fde33ec9d55c891c801f1b89143b4db6f8ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 87d2b19f6143f567782778e35c8511f233d8b0e8
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035761"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958151"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento automático vertical com conjuntos de dimensionamento de máquinas virtuais
 
-Este artigo descreve como dimensionar verticalmente os conjuntos de dimensionamento de [máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/) do Azure com ou sem reprovisionamento. Para o dimensionamento vertical de VMs que não estão em conjuntos de dimensionamento, consulte [dimensionar verticalmente a máquina virtual do Azure com a automação do Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Este artigo descreve como dimensionar verticalmente os [conjuntos de dimensionamento de máquinas virtuais](https://azure.microsoft.com/services/virtual-machine-scale-sets/) do Azure com ou sem reprovisionamento. 
 
 O dimensionamento vertical, também conhecido como *scale up* e *Scale down*, significa aumentar ou diminuir os tamanhos de VM (máquina virtual) em resposta a uma carga de trabalho. Compare esse comportamento com o [dimensionamento horizontal](virtual-machine-scale-sets-autoscale-overview.md), também conhecido como *scale out* e *Scale horizontal*, em que o número de VMs é alterado dependendo da carga de trabalho.
 
@@ -124,7 +124,7 @@ Depois de importar os runbooks, adicione um webhook ao runbook para que ele poss
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adicionar um alerta ao conjunto de dimensionamento de máquinas virtuais
 
-Abaixo está um script do PowerShell que mostra como adicionar um alerta a um conjunto de dimensionamento de máquinas virtuais. Consulte o seguinte artigo para obter o nome da métrica na qual o alerta será acionado: [Azure monitor métricas comuns](../azure-monitor/platform/autoscale-common-metrics.md)de dimensionamento automático.
+Abaixo está um script do PowerShell que mostra como adicionar um alerta a um conjunto de dimensionamento de máquinas virtuais. Consulte o seguinte artigo para obter o nome da métrica na qual o alerta será acionado: [Azure monitor métricas comuns de dimensionamento](../azure-monitor/platform/autoscale-common-metrics.md)automático.
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com

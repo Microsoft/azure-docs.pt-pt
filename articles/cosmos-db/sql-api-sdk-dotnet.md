@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 8017f02e694f5c9e2cd677c7b1f28c5de973d077
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f8c38c46bd60834c166721f62088d8edb2c722a9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932577"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949586"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB SDK do .NET para a API do SQL: Download e notas de versão
 > [!div class="op_single_selector"]
@@ -44,6 +44,14 @@ ms.locfileid: "70932577"
 
 > [!NOTE]
 > Se você estiver usando .NET Framework, consulte a versão mais recente 3. x do [SDK do .net](sql-api-sdk-dotnet-standard.md), que tem como alvo .net Standard. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Adição de suporte para matrizes e objetos em consultas ordenar por
+* Manipular colisões de chave de partição efetivas
+* Adicionado suporte a LINQ para vários operadores OrderBy com o operador ThenBy
+* As configurações de serialização personalizadas agora são aplicadas a todas as operações Upsert e Replace
+* Correção do problema de deadlock AysncCache para que ele funcione com um Agendador de tarefas de thread único
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -348,7 +356,7 @@ ms.locfileid: "70932577"
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Adicionado suporte para modificar políticas de indexação.
   * Novo método ReplaceDocumentCollectionAsync no DocumentClient
-  * Nova Propriedade IndexTransformationProgress em ResourceResponse\<T > para acompanhar a porcentagem de progresso das alterações de política de índice
+  * Nova Propriedade IndexTransformationProgress no ResourceResponse @ no__t-0T > para acompanhar a porcentagem de progresso das alterações de política de índice
   * Documentcollection. IndexingPolicy agora é mutável
 * Adicionado suporte para indexação espacial e consulta.
   * Novo namespace Microsoft. Azure. Documents. Spatial para serializar/desserializar tipos espaciais como ponto e polígono
@@ -390,6 +398,7 @@ Todas as solicitações para Azure Cosmos DB usando um SDK desativado são rejei
 
 | Version | Data de lançamento | Data de retirada |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |23 de setembro de 2019 |--- |
 | [2.6.0](#2.6.0) |30 de agosto de 2019 |--- |
 | [2.5.1](#2.5.1) |02 de julho de 2019 |--- |
 | [2.4.1](#2.4.1) |20 de junho de 2019 |--- |

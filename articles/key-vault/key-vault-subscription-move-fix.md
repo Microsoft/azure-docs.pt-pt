@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 2159b5b515e22458edf3ba0eb5b6f23f3f37ce95
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 87025767725142cc2f861ff8b390d6ea916f8e38
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990111"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947722"
 ---
 # <a name="change-a-key-vault-tenant-id-after-a-subscription-move"></a>Alterar um ID do inquilino do cofre de chaves após a movimentação de uma subscrição
 
@@ -45,6 +45,8 @@ Como esse cofre estava no locatário A antes da movimentação, o valor original
 
 Agora que o cofre está associado à ID de locatário correta e as entradas de política de acesso antigas foram removidas, defina novas entradas de política de acesso com [set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy).
 
-## <a name="next-steps"></a>Passos Seguintes
+Se você estiver usando o MSI, também precisará atualizar a identidade do MSI, já que a identidade antiga não estará mais no locatário do AAD correto.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Se tiver perguntas sobre o Cofre de Chaves do Azure, visite os [Fóruns do Cofre de Chaves do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=AzureKeyVault).

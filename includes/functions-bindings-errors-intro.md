@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: f771b6b0416c5777c1ebde7e2cf2c4ffc6f375ff
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155280"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955875"
 ---
 Os erros gerados em um Azure Functions podem vir de qualquer uma das seguintes origens:
 
@@ -23,7 +23,7 @@ Seguir as práticas sólidas de tratamento de erros é importante para evitar a 
 - [Habilitar Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Usar tratamento de erro estruturado](#use-structured-error-handling)
 - [Design para Idempotência](../articles/azure-functions/functions-idempotent.md)
-- Implementar políticas de repetição (quando apropriado)
+- [Implementar políticas de repetição](../articles/azure-functions/functions-reliable-event-processing.md) (quando apropriado)
 
 ### <a name="use-structured-error-handling"></a>Usar tratamento de erro estruturado
 

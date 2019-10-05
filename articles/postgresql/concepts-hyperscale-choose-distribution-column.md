@@ -1,18 +1,18 @@
 ---
 title: Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
-description: Boas opções para colunas de distribuição em cenários comuns de hiperescala
+description: Saiba como escolher colunas de distribuição em cenários comuns de hiperescala no banco de dados do Azure para PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b0d1f343aa9b125ab0a5a9ab559d0788253037aa
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998197"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947598"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Escolher colunas de distribuição no banco de dados do Azure para PostgreSQL – Citus (hiperescala)
 
@@ -28,7 +28,7 @@ A arquitetura multilocatário usa uma forma de modelagem de banco de dados hier�
 
 O Citus (hiperscale) inspeciona consultas para ver qual ID de locatário eles envolvem e localiza o fragmento de tabela correspondente. Ele roteia a consulta para um único nó de trabalho que contém o fragmento. A execução de uma consulta com todos os dados relevantes colocados no mesmo nó é chamada de colocalização.
 
-O diagrama a seguir ilustra a colocação no modelo de dados multilocatário. Ele contém duas tabelas, contas e campanhas, cada uma distribuída pelo `account_id`. As caixas sombreadas representam fragmentos. Os fragmentos verdes são armazenados juntos em um nó de trabalho, e os fragmentos azuis são armazenados em outro nó de trabalho. Observe como uma consulta de junção entre contas e campanhas tem todos os dados necessários juntos em um nó quando ambas as tabelas são restritas à\_mesma ID de conta.
+O diagrama a seguir ilustra a colocação no modelo de dados multilocatário. Ele contém duas tabelas, contas e campanhas, cada uma distribuída por `account_id`. As caixas sombreadas representam fragmentos. Os fragmentos verdes são armazenados juntos em um nó de trabalho, e os fragmentos azuis são armazenados em outro nó de trabalho. Observe como uma consulta de junção entre contas e campanhas tem todos os dados necessários juntos em um nó quando ambas as tabelas são restritas à mesma conta @ no__t-0id.
 
 ![Colocalização multilocatário](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
@@ -37,9 +37,9 @@ As consultas no modelo multilocatário estão no escopo de um locatário. Por ex
 
 #### <a name="best-practices"></a>Melhores práticas
 
--   **Particione tabelas distribuídas por uma\_coluna de ID de locatário comum.** Por exemplo, em um aplicativo SaaS em que os locatários são empresas,\_a ID do locatário provavelmente será a\_ID da empresa.
+-   **Particione tabelas distribuídas por uma coluna @ no__t-1ID de locatário comum.** Por exemplo, em um aplicativo SaaS em que os locatários são empresas, o locatário @ no__t-0id provavelmente será a empresa @ no__t-1ID.
 -   **Converta pequenas tabelas de locatário cruzado para tabelas de referência.** Quando vários locatários compartilham uma pequena tabela de informações, distribua-o como uma tabela de referência.
--   **Restringir o filtro de todas as consultas\_de aplicativo por ID de locatário.** Cada consulta deve solicitar informações para um locatário por vez.
+-   **Restringir filtro de todas as consultas de aplicativo por locatário @ no__t-1ID.** Cada consulta deve solicitar informações para um locatário por vez.
 
 Leia o [tutorial de vários locatários](./tutorial-design-database-hyperscale-multi-tenant.md) para obter um exemplo de como criar esse tipo de aplicativo.
 
@@ -75,4 +75,4 @@ O erro mais comum em modelar informações de série temporal em Citus (hiperesc
 Leia o [tutorial de série temporal](https://aka.ms/hyperscale-tutorial-timeseries) para obter um exemplo de como criar esse tipo de aplicativo.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba como [](concepts-hyperscale-colocation.md) a colocalização entre os dados distribuídos ajuda as consultas a serem executadas rapidamente.
+- Saiba como a [colocalização](concepts-hyperscale-colocation.md) entre os dados distribuídos ajuda as consultas a serem executadas rapidamente.

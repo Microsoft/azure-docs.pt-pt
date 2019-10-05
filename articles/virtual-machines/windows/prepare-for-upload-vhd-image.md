@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 3922388aaa7dd244b74404e50001e9c87870728d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: 86ce2ada9ebd19c88414fab33a62dda5ba41ecb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937481"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949660"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
 
@@ -56,7 +56,7 @@ Depois de converter o disco, crie uma VM que usa o disco. Inicie e entre na VM p
 2. Na página **localizar disco rígido virtual** , selecione seu disco virtual.
 3. Na página **escolher ação** , selecione **converter** > **Avançar**.
 4. Se você precisar converter do VHDX, selecione **VHD** > **Avançar**.
-5. Se você precisar converter de um disco de expansão dinâmica, selecione **tamanho** > fixo**Avançar**.
+5. Se você precisar converter de um disco de expansão dinâmica, selecione **tamanho fixo** > **Avançar**.
 6. Localize e selecione um caminho para salvar o novo arquivo VHD.
 7. Selecione **Concluir**.
 
@@ -83,16 +83,15 @@ Na VM que você planeja carregar no Azure, execute os seguintes comandos em uma 
 
 1. Remova qualquer rota persistente estática na tabela de roteamento:
    
-   * Para exibir a tabela de rotas, `route print` execute no prompt de comando.
-   * Verifique as `Persistence Routes` seções. Se houver uma rota persistente, use o `route delete` comando para removê-la.
+   * Para exibir a tabela de rotas, execute `route print` no prompt de comando.
+   * Verifique as seções `Persistence Routes`. Se houver uma rota persistente, use o comando `route delete` para removê-la.
 2. Remova o proxy WinHTTP:
    
     ```PowerShell
     netsh winhttp reset proxy
     ```
 
-    Se a VM precisar trabalhar com um proxy específico, adicione uma exceção de proxy ao endereço IP do Azure ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
-)) para que a VM possa se conectar ao Azure:
+    Se a VM precisar trabalhar com um proxy específico, adicione uma exceção de proxy ao endereço IP do Azure ([168.63.129.16 @ no__t-1) para que a VM possa se conectar ao Azure:
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -100,7 +99,7 @@ Na VM que você planeja carregar no Azure, execute os seguintes comandos em uma 
     netsh winhttp set proxy $proxyAddress $proxyBypassList
     ```
 
-3. Defina a política SAN de disco [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)como:
+3. Defina a política SAN de disco como [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -112,10 +111,10 @@ Na VM que você planeja carregar no Azure, execute os seguintes comandos em uma 
     exit   
     ```
 
-4. Defina a hora UTC (tempo Universal Coordenado) para o Windows. Defina também o tipo de inicialização do serviço de tempo do`w32time`Windows ( `Automatic`) para:
+4. Defina a hora UTC (tempo Universal Coordenado) para o Windows. Defina também o tipo de inicialização do serviço de tempo do Windows (`w32time`) como `Automatic`:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
@@ -124,12 +123,12 @@ Na VM que você planeja carregar no Azure, execute os seguintes comandos em uma 
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. Verifique se as variáveis `TEMP` de ambiente e `TMP` estão definidas com seus valores padrão:
+6. Verifique se as variáveis de ambiente `TEMP` e `TMP` estão definidas com seus valores padrão:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
     ```
 
 ## <a name="check-the-windows-services"></a>Verificar os serviços do Windows
@@ -153,56 +152,56 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Verifique se as seguintes configurações estão definidas corretamente para acesso remoto:
 
 >[!NOTE] 
->Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`. Você pode ignorar essa mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
+>Você pode receber uma mensagem de erro ao executar `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Você pode ignorar essa mensagem com segurança. Isso significa apenas que o domínio não está enviando essa configuração por Push por meio de um objeto Política de Grupo.
 
 1. O protocolo RDP (RDP) está habilitado:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "fDenyTSConnections" -Value 0 -Type DWord -Force
     ```
    
 2. A porta RDP está configurada corretamente. A porta padrão é 3389:
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "PortNumber" -Value 3389 -Type DWord -Force
     ```
     Quando você implanta uma VM, as regras padrão são criadas na porta 3389. Se você quiser alterar o número da porta, faça isso depois que a VM for implantada no Azure.
 
 3. O ouvinte está escutando em cada interface de rede:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "LanAdapter" -Value 0 -Type DWord -Force
    ```
 4. Configure o modo NLA (autenticação em nível de rede) para as conexões RDP:
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "SecurityLayer" -Value 1 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -Force
      ```
 
 5. Defina o valor Keep-Alive:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" -Value 1  -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "KeepAliveEnable" -Value 1  -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "KeepAliveInterval" -Value 1  -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "KeepAliveTimeout" -Value 1 -Type DWord -Force
     ```
 6. Reconectar
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" -Value 1 -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "fDisableAutoReconnect" -Value 0 -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "fInheritReconnectSame" -Value 1 -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "fReconnectSame" -Value 0 -Type DWord -Force
     ```
 7. Limitar o número de conexões simultâneas:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "MaxInstanceCount" -Value 4294967295 -Type DWord -Force
     ```
 8. Remova todos os certificados autoassinados vinculados ao ouvinte RDP:
     
@@ -234,7 +233,7 @@ Verifique se as seguintes configurações estão definidas corretamente para ace
 2. Execute o seguinte comando no PowerShell para permitir o WinRM por meio dos três perfis de firewall (domínio, privado e público) e habilite o serviço remoto do PowerShell:
    
    ```PowerShell
-    Enable-PSRemoting -force
+    Enable-PSRemoting -Force
 
     Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -Enabled True
    ```
@@ -293,16 +292,16 @@ Verifique se a VM está íntegra, segura e RDP acessível:
 
     ```powershell
     # Set up the guest OS to collect a kernel dump on an OS crash event
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name CrashDumpEnabled -Type DWord -Force -Value 2
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name DumpFile -Type ExpandString -Force -Value "%SystemRoot%\MEMORY.DMP"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name NMICrashDump -Type DWord -Force -Value 1
 
     # Set up the guest OS to collect user mode dumps on a service crash event
     $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
     if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
-    New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
-    New-ItemProperty -Path $key -name CrashCount -Type DWord -force -Value 10
-    New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
+    New-ItemProperty -Path $key -Name DumpFolder -Type ExpandString -Force -Value "c:\CrashDumps"
+    New-ItemProperty -Path $key -Name CrashCount -Type DWord -Force -Value 10
+    New-ItemProperty -Path $key -Name DumpType -Type DWord -Force -Value 2
     Set-Service -Name WerSvc -StartupType Manual
     ```
 4. Verifique se o repositório do Instrumentação de Gerenciamento do Windows (WMI) é consistente:
@@ -310,7 +309,7 @@ Verifique se a VM está íntegra, segura e RDP acessível:
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Se o repositório estiver corrompido, [consulte WMI: O repositório está corrompido ou não](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not).
+    Se o repositório estiver corrompido, consulte [WMI: Corrupção de repositório ou não @ no__t-0.
 
 5. Verifique se nenhum outro aplicativo está usando a porta 3389. Essa porta é usada para o serviço RDP no Azure. Para ver quais portas são usadas na VM, execute `netstat -anob`:
 
@@ -407,14 +406,14 @@ Se você quiser criar apenas uma VM de um disco, não precisará usar o Sysprep.
 - [Criar uma VM de um disco especializado](create-vm-specialized.md)
 - [Criar uma VM com base em um disco VHD especializado](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Se você quiser criar uma imagem generalizada, precisará executar o Sysprep. Para obter mais informações, [consulte como usar o Sysprep: Uma introdução](https://technet.microsoft.com/library/bb457073.aspx). 
+Se você quiser criar uma imagem generalizada, precisará executar o Sysprep. Para obter mais informações, consulte [How para usar o Sysprep: Uma introdução @ no__t-0. 
 
 Nem toda função ou aplicativo instalado em um computador baseado no Windows dá suporte a imagens generalizadas. Portanto, antes de executar esse procedimento, verifique se o Sysprep dá suporte à função do computador. Para obter mais informações, consulte [suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### <a name="generalize-a-vhd"></a>Generalizar um VHD
 
 >[!NOTE]
-> Depois de executar `sysprep.exe` as etapas a seguir, desative a VM. Não ative-a novamente até criar uma imagem a partir dela no Azure.
+> Depois de executar `sysprep.exe` nas etapas a seguir, desative a VM. Não ative-a novamente até criar uma imagem a partir dela no Azure.
 
 1. Entre na VM do Windows.
 1. Execute o **prompt de comando** como administrador. 
@@ -422,15 +421,15 @@ Nem toda função ou aplicativo instalado em um computador baseado no Windows d�
 1. Na caixa de diálogo **Ferramenta de Preparação do Sistema**, selecione **Entrar na Experiência 1ª Execução (OOBE) do Sistema** e certifique-se de que a caixa de verificação **Generalizar** está selecionada.
 
     ![Ferramenta de preparação do sistema](media/prepare-for-upload-vhd-image/syspre.png)
-1. Em **Opções**de desligamento, selecione **desligar**.
+1. Em **Opções de desligamento**, selecione **desligar**.
 1. Selecione **OK**.
-1. Quando o Sysprep for concluído, desligue a VM. Não use reinicialização para desligar a VM.
+1. Quando o Sysprep for concluído, desligue a VM. Não use **reinicialização** para desligar a VM.
 
 Agora o VHD está pronto para ser carregado. Para obter mais informações sobre como criar uma VM de um disco generalizado, consulte [carregar um VHD generalizado e usá-lo para criar uma nova VM no Azure](sa-upload-generalized.md).
 
 
 >[!NOTE]
-> Não há suporte para um arquivo *Unattend. xml* personalizado. Embora possamos dar suporte à `additionalUnattendContent` Propriedade, que fornece apenas suporte limitado para adicionar as opções [Microsoft-Windows-Shell-Setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no arquivo *Unattend. xml* que o agente de provisionamento do Azure usa. Você pode usar, por exemplo, [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Não há suporte para um arquivo *Unattend. xml* personalizado. Embora possamos dar suporte à propriedade `additionalUnattendContent`, que fornece apenas suporte limitado para adicionar as opções [Microsoft-Windows-Shell-Setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) no arquivo *Unattend. xml* que o agente de provisionamento do Azure usa. Você pode usar, por exemplo, [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) para adicionar FirstLogonCommands e LogonCommands. Para obter mais informações, consulte [AdditionalUnattendContent FirstLogonCommands example](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-the-recommended-configurations"></a>Concluir as configurações recomendadas
@@ -440,7 +439,7 @@ As configurações a seguir não afetam o carregamento do VHD. No entanto, é al
 * Depois de criar a VM no Azure, recomendamos que você coloque o arquivo de paginação no *volume da unidade temporal* para melhorar o desempenho. Você pode configurar o posicionamento do arquivo da seguinte maneira:
 
    ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   Se um disco de dados estiver anexado à VM, a letra do volume da unidade temporal normalmente será *D*. Essa designação pode ser diferente, dependendo de suas configurações e do número de unidades disponíveis.
   * Recomendamos desabilitar os bloqueadores de script que podem ser fornecidos pelo software antivírus. Eles podem interferir e bloquear os scripts do agente de provisionamento do Windows executados quando você implanta uma nova VM a partir de sua imagem.

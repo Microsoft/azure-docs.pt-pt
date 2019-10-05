@@ -1,94 +1,94 @@
 ---
-title: Exportar o modelo Azure Resource Manager com o portal do Azure
-description: Utilize o portal do Azure para exportar um modelo Azure Resource Manager a partir de recursos na sua subscrição.
+title: Exportar o modelo de Azure Resource Manager usando o portal do Azure
+description: Use portal do Azure para exportar um modelo de Azure Resource Manager de recursos em sua assinatura.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296314"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959707"
 ---
-# <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Exportação única e vários recurso para o modelo no portal do Azure
+# <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e de vários recursos para um modelo no portal do Azure
 
-Para auxiliar a criação de modelos Azure Resource Manager, pode exportar um modelo a partir de recursos existentes. O modelo exportado ajuda-o a compreender a sintaxe JSON e propriedades que implementar os recursos. Para automatizar Implantações futuras, comece com o modelo exportado e modificá-lo para o seu cenário.
+Para ajudar na criação de modelos de Azure Resource Manager, você pode exportar um modelo de recursos existentes. O modelo exportado ajuda a entender a sintaxe JSON e as propriedades que implantam seus recursos. Para automatizar implantações futuras, comece com o modelo exportado e modifique-o para seu cenário.
 
-O Resource Manager permite-lhe escolher um ou mais recursos para exportação para um modelo. Pode focalizar exatamente os recursos que necessários no modelo.
+O Gerenciador de recursos permite que você escolha um ou mais recursos para exportar para um modelo. Você pode se concentrar exatamente nos recursos de que precisa no modelo.
 
-Este artigo mostra como exportar modelos através do portal. Também pode utilizar [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), ou [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+Este artigo mostra como exportar modelos por meio do Portal. Você também pode usar [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [API REST](/rest/api/resources/resourcegroups/exporttemplate).
 
-## <a name="choose-the-right-export-option"></a>Escolha a opção de exportação certo
+## <a name="choose-the-right-export-option"></a>Escolha a opção de exportação à direita
 
 Existem duas formas de exportar um modelo:
 
-* **Exportar a partir do grupo de recursos ou recurso**. Esta opção gera um novo modelo a partir de recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Pode exportar um grupo de recursos inteiro ou recursos específicos dentro do grupo de recursos.
+* **Exportar do recurso ou grupo de recursos**. Essa opção gera um novo modelo a partir de recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Você pode exportar um grupo de recursos inteiro ou recursos específicos dentro desse grupo de recursos.
 
-* **Exportar antes da implantação ou a partir do histórico**. Esta opção recupera uma cópia exata de um modelo utilizado para a implementação.
+* **Exportar antes da implantação ou do histórico**. Essa opção recupera uma cópia exata de um modelo usado para implantação.
 
-Dependendo da opção escolhida, os Modelos exportados tem qualidades diferentes.
+Dependendo da opção escolhida, os modelos exportados têm qualidades diferentes.
 
-| Do grupo de recursos ou recursos | Antes da implantação ou a partir do histórico |
+| Do grupo de recursos ou recurso | Antes da implantação ou do histórico |
 | --------------------- | ----------------- |
-| Modelo é instantâneo do estado atual dos recursos. Ele inclui quaisquer alterações manuais efetuadas após a implementação. | Modelo mostra apenas o estado dos recursos no momento da implantação. Quaisquer alterações manuais efetuadas após a implementação não estão incluídos. |
-| Pode selecionar quais os recursos de um grupo de recursos para exportar. | Todos os recursos para uma implementação específica são incluídos. Não é possível escolher um subconjunto desses recursos ou adicionar recursos que foram adicionados ao mesmo tempo diferente. |
-| Modelo inclui todas as propriedades para os recursos, incluindo algumas propriedades que normalmente não faria definir durante a implementação. Pode querer remover ou limpar estas propriedades antes de reutilizar o modelo. | Modelo inclui apenas as propriedades necessárias para a implementação. O modelo está pronto para utilizar. |
-| Modelo provavelmente não inclui todos os parâmetros que necessários para reutilização. A maioria dos valores de propriedade são codificados no modelo. Para Reimplementar o modelo em outros ambientes, terá de adicionar parâmetros que aumentam a capacidade de configurar os recursos. | Modelo inclui parâmetros que facilitam a voltar a implementar em ambientes diferentes. |
+| O modelo é um instantâneo do estado atual dos recursos. Ele inclui quaisquer alterações manuais feitas após a implantação. | O modelo mostra apenas o estado dos recursos no momento da implantação. As alterações manuais feitas após a implantação não são incluídas. |
+| Você pode selecionar quais recursos de um grupo de recursos para exportar. | Todos os recursos para uma implantação específica estão incluídos. Você não pode escolher um subconjunto desses recursos ou adicionar recursos que foram adicionados em um momento diferente. |
+| O modelo inclui todas as propriedades para os recursos, incluindo algumas propriedades que normalmente não seriam definidas durante a implantação. Talvez você queira remover ou limpar essas propriedades antes de reutilizar o modelo. | O modelo inclui apenas as propriedades necessárias para a implantação. O modelo está pronto para uso. |
+| O modelo provavelmente não inclui todos os parâmetros necessários para reutilização. A maioria dos valores de propriedade são embutidos em código no modelo. Para reimplantar o modelo em outros ambientes, você precisa adicionar parâmetros que aumentam a capacidade de configurar os recursos. | O modelo inclui parâmetros que facilitam a reimplantação em ambientes diferentes. |
 
-Exportar o modelo a partir de um grupo de recursos ou recurso, quando:
+Exporte o modelo de um grupo de recursos ou recurso, quando:
 
-* Precisa capturar as alterações aos recursos que foram feitas após a implementação original.
-* Pretende selecionar quais os recursos são exportados.
+* Você precisa capturar as alterações nos recursos que foram feitos após a implantação original.
+* Você deseja selecionar quais recursos são exportados.
 
-Exportar o modelo antes da implantação ou a partir do histórico, quando:
+Exporte o modelo antes da implantação ou do histórico, quando:
 
-* Quer um modelo de fácil reutilização.
-* Não precisa de incluem as alterações efetuadas após a implementação original.
+* Você deseja um modelo fácil de usar.
+* Você não precisa incluir as alterações feitas após a implantação original.
 
-## <a name="export-template-from-resource-group"></a>Exportar modelo de grupo de recursos
+## <a name="export-template-from-resource-group"></a>Exportar modelo do grupo de recursos
 
 Para exportar um ou mais recursos de um grupo de recursos:
 
-1. Selecione o grupo de recursos que contém os recursos que pretende exportar.
+1. Selecione o grupo de recursos que contém os recursos que você deseja exportar.
 
-1. Para exportar todos os recursos no grupo de recursos, Selecionar tudo e, em seguida **exportar modelo**. O **exportar modelo** opção torna-se ativada apenas depois de selecionar pelo menos um recurso.
+1. Para exportar todos os recursos no grupo de recursos, selecione todos e, em seguida, **Exportar modelo**. A opção **Exportar modelo** só será habilitada depois que você selecionar pelo menos um recurso.
 
    ![Exportar todos os recursos](./media/export-template-portal/select-all-resources.png)
 
-1. Ao escolher recursos específicos para a exportação, selecione as caixas de verificação junto a esses recursos. Em seguida, selecione **exportar modelo**.
+1. Para selecionar recursos específicos para exportação, marque as caixas de seleção ao lado desses recursos. Em seguida, selecione **Exportar modelo**.
 
-   ![Selecionar recursos a exportar](./media/export-template-portal/select-resources.png)
+   ![Selecionar recursos para exportar](./media/export-template-portal/select-resources.png)
 
-1. O modelo exportado é apresentado e está disponível para download.
+1. O modelo exportado é exibido e está disponível para download.
 
    ![Mostrar modelo](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Exportar modelo de recurso
+## <a name="export-template-from-resource"></a>Exportar modelo do recurso
 
 Para exportar um recurso:
 
-1. Selecione o grupo de recursos que contém o recurso que pretende exportar.
+1. Selecione o grupo de recursos que contém o recurso que você deseja exportar.
 
-1. Selecione o recurso para exportar.
+1. Selecione o recurso a ser exportado.
 
-   ![Selecione o recurso](./media/export-template-portal/select-link-resource.png)
+   ![Selecionar o recurso](./media/export-template-portal/select-link-resource.png)
 
-1. Para esse recurso, selecione **exportar modelo** no painel esquerdo.
+1. Para esse recurso, selecione **Exportar modelo** no painel esquerdo.
 
-   ![Exportar recursos](./media/export-template-portal/export-single-resource.png)
+   ![Exportar recurso](./media/export-template-portal/export-single-resource.png)
 
-1. O modelo exportado é apresentado e está disponível para download. O modelo contém apenas o único recurso.
+1. O modelo exportado é exibido e está disponível para download. O modelo contém apenas o recurso único.
 
 ## <a name="export-template-before-deployment"></a>Exportar modelo antes da implantação
 
-1. Selecione o serviço do Azure que pretende implementar.
+1. Selecione o serviço do Azure que você deseja implantar.
 
 1. Preencha os valores para o novo serviço.
 
-1. Após passar na validação, mas antes de iniciar a implementação, selecione **transferir um modelo para automatização**.
+1. Depois de passar na validação, mas antes de iniciar a implantação, selecione **baixar um modelo para automação**.
 
    ![Transferir modelo](./media/export-template-portal/download-before-deployment.png)
 
@@ -96,27 +96,27 @@ Para exportar um recurso:
 
    ![Mostrar modelo](./media/export-template-portal/show-template-before-deployment.png)
 
-## <a name="export-template-after-deployment"></a>Exportar modelo após a implementação
+## <a name="export-template-after-deployment"></a>Exportar modelo após a implantação
 
-Pode exportar o modelo que foi utilizado para implementar recursos existentes. O modelo, que obtém é exatamente o que foi utilizado para implementação.
+Você pode exportar o modelo que foi usado para implantar recursos existentes. O modelo obtido é exatamente aquele que foi usado para implantação.
 
-1. Selecione o grupo de recursos que pretende exportar.
+1. Selecione o grupo de recursos que você deseja exportar.
 
-1. Selecione a ligação em **implementações**.
+1. Selecione o link em **implantações**.
 
-   ![Selecione o histórico de implementação](./media/export-template-portal/select-deployment-history.png)
+   ![Selecionar histórico de implantação](./media/export-template-portal/select-deployment-history.png)
 
-1. Selecione uma das implementações do histórico de implementação.
+1. Selecione uma das implantações do histórico de implantação.
 
-   ![Selecione a implementação](./media/export-template-portal/select-details.png)
+   ![Selecionar implantação](./media/export-template-portal/select-details.png)
 
-1. Selecione **modelo**. O modelo utilizado para esta implementação é apresentado e está disponível para download.
+1. Selecione **modelo**. O modelo usado para essa implantação é exibido e está disponível para download.
 
-   ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
+   ![Seleccionar modelo](./media/export-template-portal/show-template-from-history.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como exportar modelos que tenham [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), ou [REST API](/rest/api/resources/resourcegroups/exporttemplate).
-- Para obter a sintaxe do modelo do Resource Manager, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](./resource-group-authoring-templates.md).
-- Para saber como desenvolver modelos, veja a [tutoriais passo a passo](/azure/azure-resource-manager/).
-- Para ver os esquemas de modelo do Azure Resource Manager, consulte [referência de modelo](/azure/templates/).
+- Saiba como exportar modelos com [CLI do Azure](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)ou [API REST](/rest/api/resources/resourcegroups/exporttemplate).
+- Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

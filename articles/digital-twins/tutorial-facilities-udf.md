@@ -2,18 +2,19 @@
 title: 'Tutorial: Monitorizar um espaço com o Azure Digital Twins | Microsoft Docs'
 description: Saiba como provisionar seus recursos espaciais e monitorar as condições de trabalho com o gêmeos digital do Azure usando as etapas deste tutorial.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.author: alinast
-ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300052"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949075"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutorial: Provisione sua criação e monitore condições de trabalho com o Azure digital gêmeos Preview
 
@@ -46,14 +47,14 @@ Você pode definir um conjunto de condições específicas para monitorar nos da
 
 No projeto de exemplo **ocupação-início rápido** , abra o arquivo **src\actions\provisionSample.YAML** em Visual Studio Code. Repare na secção que começa com o tipo **matchers**. Cada entrada sob esse tipo cria uma correspondência com o **nome**especificado. O correspondente monitorará um sensor do tipo **Datatypevalue**. Observe como ele se relaciona ao espaço chamado sala de *foco a1*, que tem um nó de **dispositivos** que contém alguns sensores. Para provisionar um correspondente que rastreará um desses sensores, certifique-se de que seu **tipo** de dados corresponde ao **DataType**do sensor. 
 
-Adicione o seguinte correspondente abaixo dos correspondentes existentes. Verifique se as chaves estão alinhadas e se os espaços não são substituídos por guias. Essas linhas também estão presentes no arquivo *provisionSample. YAML* como linhas comentadas. Você pode remover os comentários removendo o `#` caractere na frente de cada linha.
+Adicione o seguinte correspondente abaixo dos correspondentes existentes. Verifique se as chaves estão alinhadas e se os espaços não são substituídos por guias. Essas linhas também estão presentes no arquivo *provisionSample. YAML* como linhas comentadas. Você pode remover os comentários removendo o caractere `#` na frente de cada linha.
 
 ```yaml
       - name: Matcher Temperature
         dataTypeValue: Temperature
 ```
 
-Esse correspondente acompanhará o `SAMPLE_SENSOR_TEMPERATURE` sensor que você adicionou no [primeiro tutorial](tutorial-facilities-setup.md). 
+Esse correspondente rastreará o sensor `SAMPLE_SENSOR_TEMPERATURE` que você adicionou no [primeiro tutorial](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Criar uma função definida Pelo utilizador
 
@@ -182,9 +183,9 @@ Veja também a secção com o nome **roleassignments**. Ele atribui a função d
 
 1. Depois que sua conta for autenticada, o aplicativo começará a criar um grafo espacial de exemplo conforme configurado em *provisionSample. YAML*. Aguarde até que o provisionamento seja concluído. Levará alguns minutos. Depois disso, observe as mensagens na janela de comando e observe como o grafo espacial é criado. Observe como o aplicativo cria um hub IoT no nó raiz ou no `Venue`.
 
-1. Na saída na janela de comando, copie o valor de `ConnectionString`, `Devices` na seção, para a área de transferência. Você precisará desse valor para simular a conexão do dispositivo na próxima seção.
+1. Na saída na janela de comando, copie o valor de `ConnectionString`, na seção `Devices`, para a área de transferência. Você precisará desse valor para simular a conexão do dispositivo na próxima seção.
 
-    [![Exemplo de provisionamento](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
+    [exemplo de @no__t 1Provision](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Se você receber uma mensagem de erro semelhante a "a operação de e/s foi anulada devido a uma saída de thread ou a uma solicitação de aplicativo" no meio do provisionamento, tente executar o comando novamente. Isso pode acontecer se o cliente HTTP esgotou o tempo limite de um problema de rede.
@@ -205,7 +206,7 @@ Nesta seção, você usará o projeto chamado *dispositivo-conectividade* no exe
 
    a. **DeviceConnectionString**: Atribua o valor de `ConnectionString` na janela de saída da seção anterior. Copie essa cadeia de caracteres completamente, dentro das aspas, para que o simulador possa se conectar corretamente com o Hub IoT.
 
-   b. **HardwareID** na matriz de **sensores** : Como você está simulando eventos de sensores provisionados para sua instância de gêmeos digital do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao `sensors` nó do arquivo *provisionSample. YAML* .
+   b. **HardwareID** na matriz de **sensores** : Como você está simulando eventos de sensores provisionados para sua instância de gêmeos digital do Azure, a ID de hardware e os nomes dos sensores nesse arquivo devem corresponder ao nó `sensors` do arquivo *provisionSample. YAML* .
 
       Adicione uma nova entrada para o sensor de temperatura. O nó de **sensores** em *appSettings. JSON* deve ser semelhante ao seguinte:
 
@@ -245,9 +246,9 @@ A função definida pelo utilizador é executada sempre que a sua instância rec
 
 A janela saída mostra como a função definida pelo usuário é executada e intercepta eventos da simulação de dispositivo. 
 
-   [![Saída para o UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![Output para o UDF](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
-Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A `GetAvailableAndFreshSpaces` função imprime a mensagem no console.
+Se a condição monitorada for atendida, a função definida pelo usuário definirá o valor do espaço com a mensagem relevante, como vimos [anteriormente](#create-a-user-defined-function). A função `GetAvailableAndFreshSpaces` imprime a mensagem no console.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -265,7 +266,7 @@ Se pretender parar a explorar duplos Digital do Azure neste momento, fique à vo
 Agora que você provisionou seus espaços e criou uma estrutura para disparar notificações personalizadas, você pode ir para um dos seguintes tutoriais:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Receber notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos](tutorial-facilities-events.md)
+> [Tutorial: Receba notificações de seus espaços de gêmeos digitais do Azure usando aplicativos lógicos @ no__t-0
 
 > [!div class="nextstepaction"]
-> [Tutorial: Visualize e analise eventos de seus espaços de gêmeos digitais do Azure usando Time Series Insights](tutorial-facilities-analyze.md)
+> [Tutorial: Visualize e analise eventos de seus espaços de gêmeos digitais do Azure usando Time Series Insights @ no__t-0

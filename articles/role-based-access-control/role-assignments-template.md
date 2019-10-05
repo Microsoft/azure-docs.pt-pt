@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b7f701cd3ce07099d80bca40e506108bcc9a9da9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178111"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950067"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
 
@@ -33,7 +33,7 @@ No RBAC, para conceder acesso, crie uma atribuição de função. O modelo a seg
 Para usar o modelo, você deve fazer o seguinte:
 
 - Criar um novo arquivo JSON e copiar o modelo
-- Substituir `<your-principal-id>` pelo identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função. O identificador tem o formato:`11111111-1111-1111-1111-111111111111`
+- Substitua `<your-principal-id>` pelo identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função. O identificador tem o formato: `11111111-1111-1111-1111-111111111111`
 
 ```json
 {
@@ -159,6 +159,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
 ```
 
+> [!NOTE]
+> Esse modelo não é idempotente, a menos que o mesmo valor `roleNameGuid` seja fornecido como um parâmetro para cada implantação do modelo. Se nenhum `roleNameGuid` for fornecido, por padrão, um novo GUID será gerado em cada implantação e implantações subsequentes falharão com um erro de `Conflict: RoleAssignmentExists`.
+
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Criar uma atribuição de função em um escopo de recurso
 
 Se você precisar criar uma atribuição de função no nível de um recurso, o formato da atribuição de função será diferente. Você fornece o namespace do provedor de recursos e o tipo de recurso do recurso ao qual atribuir a função. Você também inclui o nome do recurso no nome da atribuição de função.
@@ -180,8 +183,6 @@ Para usar o modelo, você deve especificar as seguintes entradas:
 
 - O identificador exclusivo de um usuário, grupo ou aplicativo ao qual atribuir a função
 - A função a ser atribuída
-- Um identificador exclusivo que será usado para a atribuição de função ou você poderá usar o identificador padrão
-
 
 ```json
 {
@@ -203,13 +204,6 @@ Para usar o modelo, você deve especificar as seguintes entradas:
             ],
             "metadata": {
                 "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -238,7 +232,7 @@ Para usar o modelo, você deve especificar as seguintes entradas:
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -267,12 +261,12 @@ Veja a seguir um exemplo de atribuição de função de colaborador para um usu�
 
 ## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Criar uma atribuição de função para uma nova entidade de serviço
 
-Se você criar uma nova entidade de serviço e tentar atribuir imediatamente uma função a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma nova identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade de serviço no mesmo modelo de Azure Resource Manager, a atribuição de função poderá falhar. O motivo dessa falha é provavelmente um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve definir a `principalType` Propriedade como `ServicePrincipal` ao criar a atribuição de função.
+Se você criar uma nova entidade de serviço e tentar atribuir imediatamente uma função a essa entidade de serviço, essa atribuição de função poderá falhar em alguns casos. Por exemplo, se você criar uma nova identidade gerenciada e, em seguida, tentar atribuir uma função a essa entidade de serviço no mesmo modelo de Azure Resource Manager, a atribuição de função poderá falhar. O motivo dessa falha é provavelmente um atraso de replicação. A entidade de serviço é criada em uma região; no entanto, a atribuição de função pode ocorrer em uma região diferente que ainda não tenha replicado a entidade de serviço. Para resolver esse cenário, você deve definir a propriedade `principalType` como `ServicePrincipal` ao criar a atribuição de função.
 
 O modelo a seguir demonstra:
 
 - Como criar uma nova entidade de serviço de identidade gerenciada
-- Como especificar o`principalType`
+- Como especificar o `principalType`
 - Como atribuir a função de colaborador a essa entidade de serviço em um escopo de grupo de recursos
 
 Para usar o modelo, você deve especificar as seguintes entradas:
@@ -335,7 +329,7 @@ Veja a seguir um exemplo da atribuição de função de colaborador para uma nov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Criar e implantar modelos de Azure Resource Manager usando o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Quickstart: Criar e implantar modelos de Azure Resource Manager usando o portal do Azure @ no__t-0
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 - [Criar grupos de recursos e recursos no nível da assinatura](../azure-resource-manager/deploy-to-subscription.md)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

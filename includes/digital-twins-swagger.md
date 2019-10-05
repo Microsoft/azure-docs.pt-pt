@@ -2,18 +2,19 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: digital-twins
-author: kingdomofends
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 10/02/2019
-ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: b8f6e13fc7de06729cbc2165a5b8847cb86e1b41
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: bfcebacf6d8240f067cecc7828c299504b49b44b
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845524"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949112"
 ---
 > [!TIP]
 > Uma visualização de espiadas do Swagger é fornecida para demonstrar o conjunto de recursos da API.

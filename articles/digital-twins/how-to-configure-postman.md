@@ -1,19 +1,19 @@
 ---
 title: Como configurar o postmaster para o Azure digital gêmeos | Microsoft Docs
 description: Como configurar o postmaster para o Azure digital gêmeos.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-adgera
-ms.openlocfilehash: f04946dffd66dcd44743197a0ca8f0fe21624285
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 14e6a52f86586eaae019d9658c2f813a15fc3474
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71844513"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949215"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Como configurar o postmaster para o Azure digital gêmeos
 
@@ -39,11 +39,11 @@ Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão 
     
     1. `Azure Digital Twins`. Selecione a API de **gêmeos digital do Azure** .
 
-        [![API de pesquisa ou gêmeos digital do Azure](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
+        [API ![Search ou gêmeos digital do Azure](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
     1. Como alternativa, pesquise `Azure Smart Spaces Service`. Selecione a API de **serviço de espaços inteligentes do Azure** .
 
-        [![Pesquisar a API para espaços inteligentes do Azure](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
+        [API ![Search para espaços inteligentes do Azure](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
     > [!IMPORTANT]
     > O nome e a ID da API do Azure AD que serão exibidos dependerá do seu locatário:
@@ -69,7 +69,7 @@ Configure seu aplicativo Azure Active Directory para usar o fluxo de concessão 
 
 1. Copie e mantenha a **ID do aplicativo** de seu Azure Active Directory aplicativo. Ele é usado nas etapas a seguir.
 
-   [![ID do aplicativo Azure Active Directory](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
+   [![Azure Active Directory ID do aplicativo](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
 
 
 ## <a name="obtain-an-oauth-20-token"></a>Obter um token 2,0 do OAuth

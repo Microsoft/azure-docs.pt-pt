@@ -6,16 +6,16 @@ keywords: ferramentas de ciência de dados, máquina de virtual de ciência de d
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.openlocfilehash: 5dbaf969420f066698a07b8d137d2ba44fc99080
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 10/3/2019
+ms.openlocfilehash: df112889fd7cd8ad1574147072b6e13137945462
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208129"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947545"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na máquina de Virtual de ciência de dados
 
@@ -23,7 +23,7 @@ Com um Máquina Virtual de Ciência de Dados (DSVM), você pode criar sua análi
 
 As ferramentas de plataforma de dados a seguir têm suporte no DSVM.
 
-## <a name="sql-server-2016-developer-edition"></a>SQL Server 2016 Developer Edition
+## <a name="sql-server-2017-developer-edition"></a>SQL Server 2017 Developer Edition
 
 | | |
 | ------------- | ------------- |
@@ -39,13 +39,13 @@ As ferramentas de plataforma de dados a seguir têm suporte no DSVM.
 
 ### <a name="setup"></a>Configurar
 
-O servidor de banco de dados já está pré-configurado e os serviços do Windows relacionados ao SQL Server `SQL Server (MSSQLSERVER)`(como) são definidos para serem executados automaticamente. A única etapa manual envolve habilitar a análise no banco de dados usando Microsoft Machine Learning Server. Você pode fazer isso executando o comando a seguir como uma ação única no SQL Server Management Studio (SSMS). Execute este comando depois de fazer logon como o administrador do computador, abra uma nova consulta no SSMS e verifique se o banco de dados `master`selecionado é:
+O servidor de banco de dados já está pré-configurado e os serviços do Windows relacionados a SQL Server (como `SQL Server (MSSQLSERVER)`) estão definidos para serem executados automaticamente. A única etapa manual envolve habilitar a análise no banco de dados usando Microsoft Machine Learning Server. Você pode fazer isso executando o comando a seguir como uma ação única no SQL Server Management Studio (SSMS). Execute este comando depois de fazer logon como o administrador do computador, abra uma nova consulta no SSMS e verifique se o banco de dados selecionado é `master`:
 
         CREATE LOGIN [%COMPUTERNAME%\SQLRUserGroup] FROM WINDOWS 
 
         (Replace %COMPUTERNAME% with your VM name.)
        
-Para executar SQL Server Management Studio, você pode pesquisar por "SQL Server Management Studio" na lista de programas ou usar o Windows Search para localizá-lo e executá-lo. Quando solicitado a fornecer credenciais, selecione **autenticação do Windows** e use o nome do ```localhost``` computador ou no campo **nome do SQL Server** .
+Para executar SQL Server Management Studio, você pode pesquisar por "SQL Server Management Studio" na lista de programas ou usar o Windows Search para localizá-lo e executá-lo. Quando solicitado a fornecer credenciais, selecione **autenticação do Windows** e use o nome do computador ou ```localhost``` no campo **nome do SQL Server** .
 
 ### <a name="how-to-use-and-run-it"></a>Como usá-lo e executá-lo
 
@@ -55,7 +55,7 @@ Além disso, o DSVM vem com drivers ODBC e JDBC para se comunicar com SQL Server
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Como ele é configurado e instalado no DSVM? 
 
- O SQL Server é instalado da maneira padrão. Podem ser encontrados em `C:\Program Files\Microsoft SQL Server`. A instância Machine Learning Server no banco de dados é encontrada `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`em. O DSVM também tem uma instância de Machine Learning Server autônoma separada, que é instalada `C:\Program Files\Microsoft\R Server\R_SERVER`em. Essas duas instâncias de Machine Learning Server não compartilham bibliotecas.
+ O SQL Server é instalado da maneira padrão. Podem ser encontrados em `C:\Program Files\Microsoft SQL Server`. A instância Machine Learning Server no banco de dados é encontrada em `C:\Program Files\Microsoft SQL Server\MSSQL13.MSSQLSERVER\R_SERVICES`. O DSVM também tem uma instância de Machine Learning Server autônoma separada, que é instalada em `C:\Program Files\Microsoft\R Server\R_SERVER`. Essas duas instâncias de Machine Learning Server não compartilham bibliotecas.
 
 
 ## <a name="apache-spark-2x-standalone"></a>Apache Spark 2.x (autónomo)
@@ -69,7 +69,7 @@ Além disso, o DSVM vem com drivers ODBC e JDBC para se comunicar com SQL Server
 | Ferramentas relacionadas no DSVM       | PySpark, Scala<br/>Jupyter (Spark/PySpark Kernels)<br/>Microsoft Machine Learning Server, Sparkr, Sparklyr <br />Apache Drill      |
 
 ### <a name="how-to-use-it"></a>Como a utilizar
-Você pode enviar trabalhos do Spark na linha de comando executando o `spark-submit` comando `pyspark` ou. Também pode criar um bloco de notas do Jupyter através da criação de um novo bloco de notas com o kernel do Spark.
+Você pode enviar trabalhos do Spark na linha de comando executando o comando `spark-submit` ou `pyspark`. Também pode criar um bloco de notas do Jupyter através da criação de um novo bloco de notas com o kernel do Spark.
 
 Você pode usar o Spark do R usando bibliotecas como Sparkr, Sparklyr e Microsoft Machine Learning Server, que estão disponíveis no DSVM. Consulte os ponteiros de exemplos na tabela anterior.
 
@@ -91,7 +91,7 @@ Antes de executar em um contexto do Spark em Microsoft Machine Learning Server n
 
 Você pode interromper os serviços relacionados ao Hadoop quando não precisar mais deles executando ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```.
 
-Um exemplo que demonstra como desenvolver e testar o Sra em um contexto do Spark remoto (que é a instância autônoma do Spark no DSVM) é fornecido e está disponível `/dsvm/samples/MRS` no diretório.
+Um exemplo que demonstra como desenvolver e testar o Sra em um contexto do Spark remoto (que é a instância autônoma do Spark no DSVM) é fornecido e está disponível no diretório `/dsvm/samples/MRS`.
 
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Como ele é configurado e instalado no DSVM? 
@@ -103,7 +103,7 @@ Um exemplo que demonstra como desenvolver e testar o Sra em um contexto do Spark
 
 As bibliotecas para acessar dados do armazenamento de BLOBs do Azure ou Azure Data Lake Storage, usando as bibliotecas de aprendizado de máquina do Microsoft MMLSpark, são pré-instalados em $SPARK _HOME/JARs. Estes JARs são carregados automaticamente quando Spark é iniciado. Por padrão, o Spark usa dados no disco local. 
 
-Para que a instância do Spark no DSVM acesse dados armazenados no armazenamento de BLOBs ou Azure data Lake Storage, você deve criar `core-site.xml` e configurar o arquivo com base no modelo encontrado em $Spark _Home/conf/Core-site. xml. Template. Você também deve ter as credenciais apropriadas para acessar o armazenamento de BLOBs e Azure Data Lake Storage. (Observe que os arquivos de modelo usam espaços reservados para o armazenamento de BLOBs e configurações de Azure Data Lake Storage.)
+Para a instância do Spark no DSVM acessar dados armazenados no armazenamento de BLOBs ou Azure Data Lake Storage, você deve criar e configurar o arquivo de `core-site.xml` com base no modelo encontrado em $SPARK _HOME/conf/Core-site. xml. Template. Você também deve ter as credenciais apropriadas para acessar o armazenamento de BLOBs e Azure Data Lake Storage. (Observe que os arquivos de modelo usam espaços reservados para o armazenamento de BLOBs e configurações de Azure Data Lake Storage.)
 
 Para obter informações mais detalhadas sobre como criar Azure Data Lake Storage credenciais de serviço, consulte [autenticação com Azure data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Depois que as credenciais para armazenamento de BLOB ou Azure Data Lake Storage são inseridas no arquivo Core-site. xml, você pode fazer referência aos dados armazenados nessas fontes por meio do prefixo URI de wasb://ou adl://.
 

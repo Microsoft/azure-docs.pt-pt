@@ -2,18 +2,19 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 08/16/2019
-ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: fcb4b3d54e1e62a7f197f2f499e2b176bb707fd8
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 690ff402c632bfc28f1a9a218677e9772f5a3200
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843834"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949918"
 ---
 1. No [portal do Azure](https://portal.azure.com), abra **Azure Active Directory** no painel esquerdo e, em seguida, abra o painel **Propriedades** . Copie o **ID do diretório** para um ficheiro temporário. Você usará esse valor para configurar um aplicativo de exemplo na próxima seção.
 
@@ -23,11 +24,11 @@ ms.locfileid: "71843834"
 
 1. Dê um nome amigável para esse registro de aplicativo na caixa **nome** . Escolha o **tipo de aplicativo** como **nativo**e o **URI de redirecionamento** como `https://microsoft.com`. Selecione **Criar**.
 
-    [![Criar painel](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)](./media/digital-twins-permissions-legacy/aad-app-reg-create.png#lightbox)
+    [painel ![Create](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)](./media/digital-twins-permissions-legacy/aad-app-reg-create.png#lightbox)
 
 1.  Abra o aplicativo registrado e copie o valor do campo **ID do aplicativo** para um arquivo temporário. Esse valor identifica seu aplicativo Azure Active Directory. Você usará a ID do aplicativo para configurar o aplicativo de exemplo nas seções a seguir.
 
-    [![ID do aplicativo Azure Active Directory](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png#lightbox)
+    [![Azure Active Directory ID do aplicativo](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png#lightbox)
 
 1. Abra o painel de registro do aplicativo. Selecione **configurações** > **permissões necessárias**e, em seguida:
 

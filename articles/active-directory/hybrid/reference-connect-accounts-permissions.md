@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/25/2019
+ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812604"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960238"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Contas e permissões
 
@@ -48,10 +48,10 @@ Além dessas três contas usadas para executar o Azure AD Connect, você também
 
 - **Conta SA do SQL (opcional)** : usada para criar o banco de dados AdSync ao usar a versão completa do SQL Server.  Esse SQL Server pode ser local ou remoto para a instalação do Azure AD Connect.  Essa conta pode ser a mesma conta que o administrador corporativo.  O provisionamento do banco de dados agora pode ser executado fora da banda pelo administrador do SQL e, em seguida, instalado pelo administrador do Azure AD Connect com direitos de proprietário do banco de dados.  Para obter informações sobre isso, consulte [instalar Azure ad Connect usando permissões de administrador do SQL delegado](how-to-connect-install-sql-delegation.md)
 
-<<<<<<< HEAD
+
 >[!IMPORTANT]
 > A partir da compilação 1.4. # # #. # não há mais suporte para usar um administrador corporativo ou uma conta de administrador de domínio como a conta do conector de AD DS.  Se você tentar inserir uma conta que seja um administrador corporativo ou administrador de domínio ao especificar **usar conta existente**, receberá um erro.
-=======
+
 > [!NOTE]
 > Há suporte para gerenciar as contas administrativas usadas em Azure AD Connect de uma floresta administrativa ESAE (também conhecida como "floresta vermelha").
 > As florestas administrativas dedicadas permitem que as organizações hospedem contas administrativas, estações de trabalho e grupos em um ambiente que tenha controles de segurança mais fortes do que o ambiente de produção.
@@ -134,7 +134,7 @@ Veja a seguir um resumo das páginas do assistente de instalação personalizada
 >[!IMPORTANT]
 >Um novo módulo do PowerShell chamado ADSyncConfig. psm1 foi introduzido com Build **1.1.880.0** (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões de Active Directory corretas para a conta do conector de AD DS do Azure.
 >
->Para obter mais informações [, consulte Azure ad Connect: Configurar a permissão de conta do conector de AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+>Para obter mais informações, consulte [Azure AD Connect: Configurar a permissão de conta do conector de AD DS @ no__t-0
 
 A conta que você especificar na página **conectar seus diretórios** deve estar presente no Active Directory antes da instalação.  Azure AD Connect versão 1.1.524.0 e posterior tem a opção de permitir que o assistente de Azure AD Connect crie a **conta do conector de AD DS** usada para se conectar ao Active Directory.  
 
@@ -249,9 +249,9 @@ O nome do servidor em que a conta é usada pode ser identificado na segunda part
 
 A conta é criada com uma senha longa e complexa que não expira. Ele recebe uma função especial **contas de sincronização de diretório** que tem apenas permissões para executar tarefas de sincronização de diretório. Esta função interna especial não pode ser concedida fora do assistente de Azure AD Connect. O portal do Azure mostra essa conta com a função **usuário**.
 
-Há um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Há um limite de 20 contas de serviço de sincronização no Azure AD. Para obter a lista de contas de serviço do Azure AD existentes no Azure AD, execute o seguinte cmdlet do PowerShell do Azure AD: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Para remover contas de serviço do Azure AD não usadas, execute o seguinte cmdlet do PowerShell do Azure AD:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Para remover contas de serviço do Azure AD não usadas, execute o seguinte cmdlet do PowerShell do Azure AD: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
 >Antes de usar os comandos do PowerShell acima, você precisará instalar o [módulo Azure Active Directory PowerShell for Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e conectar-se à sua instância do AD do Azure usando [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)

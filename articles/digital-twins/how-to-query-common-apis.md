@@ -1,19 +1,19 @@
 ---
 title: Padrões de consulta comuns do Azure digital gêmeos | Microsoft Docs
 description: Aprenda padrões comuns de consulta das APIs de gerenciamento de gêmeos digitais do Azure.
-author: kingdomofends
-manager: philmea
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: v-adgera
-ms.openlocfilehash: 55b0676ce0a0dc6d4347ddcadf43b7b650f0f9a1
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 1d1c0e2f12d5a971cf08933e5d469093eb1f6d52
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172799"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949879"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>Como consultar as APIs do Azure digital gêmeos para tarefas comuns
 
@@ -56,7 +56,7 @@ Esta seção mostra as consultas de exemplo para obter mais informações sobre 
     YOUR_MANAGEMENT_API_URL/propertykeys?spaceId=YOUR_SPACE_ID
     ```
 
-- Obtenha espaços com a chave de propriedade chamada *AreaInSqMeters* e seu valor é 30. Você também pode fazer operações de cadeia de caracteres, por exemplo, obter espaços contendo `name = X contains Y`a chave de propriedade com.
+- Obtenha espaços com a chave de propriedade chamada *AreaInSqMeters* e seu valor é 30. Você também pode fazer operações de cadeia de caracteres, por exemplo, obter espaços contendo a chave de propriedade com `name = X contains Y`.
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?propertyKey=AreaInSqMeters&propertyValue=30

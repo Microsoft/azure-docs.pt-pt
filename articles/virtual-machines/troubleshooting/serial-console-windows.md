@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: ebf7b712dda19b396b044235bf194a5dd402ffac
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9fbe6768014550a3746085406e9039e83185c20f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996424"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949691"
 ---
 # <a name="azure-serial-console-for-windows"></a>Console serial do Azure para Windows
 
@@ -104,7 +104,7 @@ Se precisar de ativar Windows prompts de carregador de arranque apresentar na co
 
 1.  Introduza `cmd` para criar um canal que tem uma instância CMD.
 
-1.  Insira `ch -si 1` ou pressione `<esc>+<tab>` as teclas de atalho para alternar para o canal que está executando a instância cmd.
+1.  Insira `ch -si 1` ou pressione as teclas de atalho `<esc>+<tab>` para alternar para o canal que está executando a instância CMD.
 
 1.  Prima **Enter**e, em seguida, introduza credenciais de início de sessão com permissões administrativas.
 
@@ -124,7 +124,7 @@ A consola de série pode ser utilizada para enviar um NMI para uma máquina virt
 Para obter informações sobre como configurar o Windows para criar um arquivo de despejo de pane ao receber um NMI, consulte [como gerar um arquivo de despejo de pane, utilizando um NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Utilizar teclas de função na consola de série
-Teclas de função estão ativadas para utilização para a consola de série em VMs do Windows. A tecla F8 na lista pendente de consola de série fornece a conveniência da introdução facilmente o menu de definições avançadas de inicialização, mas a consola de série é compatível com todas as outras teclas de função. Talvez seja necessário pressionar **FN** + **F1** (ou F2, F3, etc.) no teclado, dependendo do computador do qual você está usando o console serial.
+Teclas de função estão ativadas para utilização para a consola de série em VMs do Windows. A tecla F8 na lista pendente de consola de série fornece a conveniência da introdução facilmente o menu de definições avançadas de inicialização, mas a consola de série é compatível com todas as outras teclas de função. Talvez seja necessário pressionar **Fn** + **F1** (ou F2, F3, etc.) no teclado, dependendo do computador no qual você está usando o console serial.
 
 ### <a name="use-wsl-in-serial-console"></a>Utilizar WSL na consola de série
 O subsistema Windows para Linux (WSL) foi ativado para o Windows Server 2019 ou posterior, pelo que também é possível ativar WSL para uso dentro da consola de série, se estiver a executar o Windows Server 2019 ou posterior. Isso pode ser benéfico para os utilizadores que também tem uma familiaridade com os comandos de Linux. Para obter instruções ativar WSL para o Windows Server, consulte a [guia de instalação](https://docs.microsoft.com/windows/wsl/install-on-server).
@@ -175,11 +175,11 @@ Cenário          | Ações na consola de série
 Regras de firewall incorreta | Aceda a seriais regras de firewall de Windows de consola e correção.
 Danos/verificação de sistema de ficheiros | Aceder à consola de série e recuperar o sistema de ficheiros.
 Problemas de configuração de RDP | Aceder à consola de série e alterar as definições. Para obter mais informações, consulte a [documentação de RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
-Bloqueio de rede para baixo do sistema | Aceda à consola de série do portal do Azure para gerir o sistema. Alguns comandos de rede estão listados [em comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
+Bloqueio de rede para baixo do sistema | Aceda à consola de série do portal do Azure para gerir o sistema. Alguns comandos de rede são listados em comandos [Windows: CMD e PowerShell @ no__t-0.
 Interagir com o carregador de inicialização | Acesso BCD através da consola de série. Para obter informações, consulte [habilitar o menu de arranque do Windows na consola de série do](#enable-the-windows-boot-menu-in-the-serial-console).
 
 ## <a name="known-issues"></a>Problemas conhecidos
-Estamos cientes de alguns problemas com a consola de série. Aqui está uma lista desses problemas e os passos para a mitigação. Esses problemas e atenuações se aplicam tanto a VMs quanto a instâncias do conjunto de dimensionamento de máquinas virtuais.
+Estamos cientes de alguns problemas com o console serial e o sistema operacional da VM. Aqui está uma lista desses problemas e etapas para mitigação de VMs do Windows. Esses problemas e atenuações se aplicam tanto a VMs quanto a instâncias do conjunto de dimensionamento de máquinas virtuais. Se eles não corresponderem ao erro que você está vendo, consulte os erros comuns do serviço de console serial em [erros comuns do console serial](./serial-console-errors.md).
 
 Problema                             |   Mitigação
 :---------------------------------|:--------------------------------------------|
@@ -189,8 +189,6 @@ Não é possível escreva na linha SAC perguntar se a depuração de kernel est�
 Colar no PowerShell nos resultados de SAC num caractere de terceiro, se o conteúdo original tinha um caractere repetido. | Para obter uma solução, executar `Remove-Module PSReadLine` descarregar o módulo de PSReadLine da sessão atual. Esta ação não irá eliminar ou desinstalar o módulo.
 Algumas entradas de teclado produzem estranha SAC saída (por exemplo, **[R**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) seqüências de escape não são suportadas pela linha de comandos da SAC.
 Colar longas seqüências de caracteres não funciona. | A consola de série limita o comprimento de cadeias de caracteres colado no terminal para 2048 carateres para evitar sobrecarregar a largura de banda da porta serial.
-Console serial não funciona com uma conta de armazenamento usando Azure Data Lake Storage Gen2 com namespaces hierárquicos. | Esse é um problema conhecido com namespaces hierárquicos. Para atenuar, verifique se a conta de armazenamento do diagnóstico de inicialização da VM não foi criada usando Azure Data Lake Storage Gen2. Essa opção só pode ser definida na criação da conta de armazenamento. Talvez seja necessário criar uma conta de armazenamento de diagnóstico de inicialização separada sem Azure Data Lake Storage Gen2 habilitado para atenuar esse problema.
-
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -218,7 +216,7 @@ R. A imagem é provavelmente mal configurada para acesso à consola de série. P
 
 R. Sim, é! Consulte o [console serial para conjuntos de dimensionamento de máquinas virtuais](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter um guia detalhado para comandos cmd e PowerShell que você pode usar no Windows SAC, consulte [comandos do Windows: CMD e PowerShell](serial-console-cmd-ps-commands.md).
+## <a name="next-steps"></a>Passos seguintes
+* Para obter um guia detalhado para comandos CMD e PowerShell que você pode usar no Windows SAC, consulte comandos do [Windows: CMD e PowerShell @ no__t-0.
 * Também está disponível para a consola de série [Linux](serial-console-linux.md) VMs.
 * Saiba mais sobre [diagnósticos de arranque](boot-diagnostics.md).
