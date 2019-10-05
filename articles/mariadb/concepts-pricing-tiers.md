@@ -1,17 +1,17 @@
 ---
 title: Tipos de preço do banco de dados do Azure para MariaDB
-description: Este artigo descreve os tipos de preço do banco de dados do Azure para MariaDB.
+description: Saiba mais sobre os vários tipos de preço do banco de dados do Azure para MariaDB, incluindo gerações de computação, tipo de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
 author: jan-eng
 ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: b1b9353feb9142dd0709b89cffb942ec5efaf936
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ca9552ee60237158bd570ede4a13dbc349b6d1d1
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179168"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973568"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Banco de dados do Azure para tipos de preço MariaDB
 
@@ -22,7 +22,7 @@ Você pode criar um banco de dados do Azure para o MariaDB Server em um dos trê
 | Geração de computação | Geração 5 |Geração 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Memória por vCore | 2 GB | 5 GB | 10 GB |
-| Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
 | Período de retenção do backup do banco de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
@@ -47,7 +47,7 @@ O armazenamento que você provisiona é a quantidade de capacidade de armazename
 |    | **Básica** | **Uso Geral** | **Otimizado para memória** |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento standard do Azure | Armazenamento Premium do Azure | Armazenamento Premium do Azure |
-| Tamanho de armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
+| Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 4 TB | 5 GB a 4 TB |
 | Tamanho do incremento de armazenamento | 1 GB | 1 GB | 1 GB |
 | IOPS | Variável |3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 6000 | 3 IOPS/GB<br/>IOPS mín. 100<br/>IOPS máx. 6000 |
 
@@ -62,7 +62,7 @@ Você pode monitorar o consumo de e/s no portal do Azure ou usando comandos CLI 
 
 ### <a name="reaching-the-storage-limit"></a>Alcançando o limite de armazenamento
 
-Os servidores com menos de 100 GB de armazenamento provisionado serão marcados como somente leitura se o armazenamento livre for inferior a 512MB ou 5% do tamanho de armazenamento provisionado. Servidores com mais de 100 GB de armazenamento provisionado são marcados como somente leitura quando o armazenamento livre é menor que 5 GB.
+Os servidores com menos de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 512 MB ou 5% do tamanho de armazenamento aprovisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
 Por exemplo, se você tiver provisionado 110 GB de armazenamento e a utilização real passar de 105 GB, o servidor será marcado como somente leitura. Como alternativa, se você tiver provisionado 5 GB de armazenamento, o servidor será marcado como somente leitura quando o armazenamento livre atingir menos de 256 MB.
 

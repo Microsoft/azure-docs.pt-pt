@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: cd00f49aea08e5c94a9206b64f66f4424ef3ca04
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057639"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972672"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -60,7 +60,7 @@ az account list-locations \
 
 Depois de ter o local do Azure, crie um novo grupo de recursos no CLI do Azure usando o comando [AZ Group Create](/cli/azure/group#az-group-create) .
 
-No exemplo a seguir, substitua o local `westus2` do Azure por um dos locais do Azure disponíveis para sua assinatura.
+No exemplo a seguir, substitua o local do Azure `westus2` por um dos locais do Azure disponíveis para sua assinatura.
 
 ```azurecli-interactive
 az group create \
@@ -75,7 +75,7 @@ az group create \
 Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com o tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) desejado. Você usará essa e outras informações como parâmetros ao criar o recurso.
 
 > [!NOTE]
-> Muitos serviços cognitivas têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como o SKU para seu recurso.
+> Muitos serviços cognitivas têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como a SKU para seu recurso.
 
 ### <a name="vision"></a>Visão
 
@@ -111,7 +111,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 |--------------------|---------------------|
 | Compreensão do formulário | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
-| Criador de FAQ          | `QnAMaker`          |
+| QnA Maker          | `QnAMaker`          |
 | Análise de Texto     | `TextAnalytics`     |
 | Tradução de Texto   | `TextTranslation`   |
 
@@ -133,7 +133,7 @@ az cognitiveservices account list-kinds
 
 Para criar e assinar um novo recurso de serviços cognitivas, use o comando [AZ cognitivaservices Account Create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Esse comando adiciona um novo recurso cobrável ao grupo de recursos criado anteriormente. Ao criar o novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com seu tipo de preço (ou SKU) e um local do Azure:
 
-Você pode criar um recurso F0 (gratuito) para o detector de anomalias `anomaly-detector-resource` , chamado com o comando a seguir.
+Você pode criar um recurso F0 (gratuito) para o detector de anomalias, chamado `anomaly-detector-resource` com o comando a seguir.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -170,6 +170,16 @@ Os tipos de preço (e o valor que você recebe é cobrado) baseiam-se no número
 * recursos de serviço habilitados no tipo de preço.
 * O custo de uma quantidade predefinida de transações. Ficar acima desse valor causará um encargo extra, conforme especificado nos [detalhes de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) do seu serviço.
 
+## <a name="get-current-quota-usage-for-your-resource"></a>Obter o uso de cota atual para seu recurso
+
+Use o comando [AZ cognitivaservices Account List-Usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) para obter o uso de seu recurso de serviço cognitiva.
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

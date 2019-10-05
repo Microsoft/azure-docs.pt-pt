@@ -4,21 +4,20 @@ description: Configure a sua conta de utilizador para blocos de notas do Azure u
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc93f55a3349498fa82095c2bc2b3178e234c107
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632145"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973146"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Sua conta de utilizador para blocos de notas do Azure
 
@@ -43,7 +42,7 @@ Se tiver certeza, selecione o **criar um** comando na linha de comandos de conta
 ![Comando para criar uma nova conta Microsoft](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> Se tentar criar uma nova conta com um endereço de e-mail que já tem uma conta associada à mesma, pode ver a mensagem "não é possível inscrever-se aqui com um profissional ou escolar endereço de e-mail. Utilize um endereço pessoal, como o Gmail ou Yahoo!, ou obtenha um novo e-mail do Outlook." Nesse caso, tente iniciar sessão com o endereço de e-mail profissional sem criar uma nova conta.
+> Se você tentar criar uma nova conta com um endereço de email que já tenha uma conta associada a ela, você poderá ver a mensagem "não é possível inscrever-se aqui com um endereço de email corporativo ou de estudante. Use um email pessoal, como Gmail ou Yahoo!, ou obtenha um novo email do Outlook. Nesse caso, tente entrar com o endereço de email de trabalho sem criar uma nova conta.
 
 Para contas de criança, o acesso aos blocos de notas do Azure é bloqueado por predefinição. Iniciar sessão com uma conta de menor apresenta o erro mostrado abaixo:
 

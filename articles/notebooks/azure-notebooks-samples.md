@@ -4,21 +4,20 @@ description: Exemplos são uma excelente forma de experimentar os blocos de nota
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8e4c817437c22d15e60cf48d5976c30433e83d75
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631832"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970031"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detetar e utilizar blocos de notas de exemplo
 
@@ -39,9 +38,9 @@ Depois de identificar um bloco de notas que gostaria de explorar, aqui estão al
 - Física instrução do [departamento física na faculdade Imperial de Londres](https://notebooks.azure.com/cvanbreu/libraries)
 - [O Azure Machine Learning exemplos de introdução](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
-- [How to: Configurar e gerir projetos](configure-manage-azure-notebooks-projects.md)
-- [How to: Trabalhar com arquivos de dados](work-with-project-data-files.md)
-- [How to: Aceder a recursos de dados](access-data-resources-jupyter-notebooks.md)
-- [How to: Utilizar o Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [How to: Configurar e gerenciar projetos @ no__t-0
+- [How to: Trabalhar com arquivos de dados @ no__t-0
+- [How to: Acessar recursos de dados @ no__t-0
+- [How to: Usar os serviços de Azure Machine Learning @ no__t-0

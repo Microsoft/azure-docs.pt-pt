@@ -4,21 +4,20 @@ description: Como aceder a ficheiros, REST APIs, bases de dados e diferentes rec
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3dd1dde067a2ec745d7d60a78a50ab34ea30d0dd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e1284072db8ca8aa7a49bd3c4d52f54e5d09420a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359813"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970264"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Aceder a dados na cloud num bloco de notas
 
@@ -80,12 +79,12 @@ Ao trabalhar com o Cosmos DB, pode utilizar o [azure-cosmos DB-table](https://py
 
 O Azure fornece uma série de outros tipos de base de dados que pode utilizar. Os artigos abaixo fornecem orientações para aceder a essas bases de dados a partir de Python:
 
-- [Banco de dados do Azure para PostgreSQL: Usar o Python para conectar e consultar dados](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Quickstart: Usar o cache Redis do Azure com Python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Banco de dados do Azure para MySQL: Usar o Python para conectar e consultar dados](https://docs.microsoft.com/azure/mysql/connect-python)
+- Banco de dados [Azure para PostgreSQL: Usar o Python para conectar e consultar dados @ no__t-0
+- [Quickstart: Usar o cache Redis do Azure com Python @ no__t-0
+- Banco de dados [Azure para MySQL: Usar o Python para conectar e consultar dados @ no__t-0
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Assistente para copiar para a fábrica de dados do Azure](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [How to: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [How to: Trabalhar com arquivos de dados do projeto @ no__t-0

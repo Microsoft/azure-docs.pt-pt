@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 10/2/2019
+ms.date: 10/4/2019
 ms.author: ellacroi
-ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 1c6e381f5f05bc285b50521c9a57e8b5189a7478
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827991"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969570"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Perguntas frequentes do Microsoft Commercial Marketplace
 
@@ -60,7 +60,7 @@ Com o Azure Marketplace, os clientes podem descobrir aplicativos técnicos criad
 As ofertas do Azure Marketplace podem ser adquiridas por meio de:
 
 * [A vitrine baseada na Web](https://azuremarketplace.microsoft.com/marketplace/apps)
-* [O portal do Azure] [Portal do Azure]
+* [O portal do Azure][azure portal]
 * [A CLI (interface de linha de comando) do Azure](/cli/azure/?view=azure-cli-latest)
 
 >[!Note]
@@ -96,11 +96,11 @@ As transações podem ser realizadas nas 17 moedas a seguir: AUD, BRL, CAD, CHF,
 
 ### <a name="deploying-a-solution-from-azure-marketplace"></a>Implementar um solução do Azure Marketplace
 
-**Implantei uma VM (máquina virtual) do Azure Marketplace em uma assinatura e agora quero migrar a assinatura de uma conta do Azure para outra. Há suporte para isso atualmente?**
+**I implantou uma VM (máquina virtual) do Azure Marketplace em uma assinatura e agora quero migrar a assinatura de uma conta do Azure para outra. Há suporte para isso atualmente?**
 
 Para migrar uma assinatura do Azure, incluindo VMs e serviços do Azure Marketplace, exclua ou cancele qualquer assinatura anterior do Azure antes de associar à nova conta do Azure. Quando a migração for concluída, as taxas de uso resultantes serão cobradas usando o método de pagamento da nova conta registrada.
 
-**Quero migrar uma assinatura de máquina virtual (VM) do Azure Marketplace para o meu Enterprise Agreement. Há suporte para isso atualmente?**
+**I deseja migrar uma assinatura de máquina virtual (VM) do Azure Marketplace para o meu Enterprise Agreement. Há suporte para isso atualmente?**
 
 Para migrar uma assinatura de máquina virtual (VM) do Azure Marketplace para um Enterprise Agreement, pare ou cancele qualquer assinatura anterior antes da migração. Depois que a migração de sua conta do Azure e as assinaturas associadas estiverem concluídas, você poderá adquirir novamente a VM ou o serviço do Azure Marketplace.  As tarifas de uso resultantes são cobradas trimestralmente sob seu Enterprise Agreement.
 
@@ -130,7 +130,7 @@ A assinatura do Azure está incluída no preço da solução ISV (fornecedores i
 
 + *Por usuário:* As assinaturas de SaaS podem ser cobradas por usuário com base em uma cobrança mensal ou anual. 
 
-Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) da solução no ou dentro do [Azure portal].
+Os detalhes de preços específicos da oferta podem ser encontrados na página de detalhes da solução no [https://azure.microsoft.com/pricing/](https://azure.microsoft.com/pricing/) ou no [Azure portal].
 
 > [!Note]
 > Com exceção de tarifas mensais, os encargos de uso do Azure são aplicáveis a todos os modelos de preços, salvo indicação em contrário.
@@ -171,7 +171,7 @@ Sim, para clientes de Enterprise Agreement (EA), o administrador de registro pod
 
 **Quais métodos de pagamento têm suporte para compras do Marketplace comercial?**
 
-Os clientes podem comprar ofertas do Azure Marketplace e Microsoft AppSource usando cartões de crédito. Se você tiver uma assinatura do Azure existente, as compras do Azure Marketplace usarão o método de pagamento configurado na conta e aparecerão na mesma fatura como um item de linha separado. Algumas ofertas consomem o compromisso monetário do Azure, mas a maioria das compras do ommercial Marketplace não desenha Enterprise Agreement compromissos, embora o consumo de infraestrutura do Azure seja.
+Os clientes podem comprar ofertas do Azure Marketplace e Microsoft AppSource usando cartões de crédito. Se você tiver uma assinatura do Azure existente, as compras do Azure Marketplace usarão o método de pagamento configurado na conta e aparecerão na mesma fatura como um item de linha separado. Algumas ofertas consomem o compromisso monetário do Azure, mas a maioria das compras do Marketplace comercial não desenha Enterprise Agreement compromissos, embora o consumo de infraestrutura do Azure seja.
 
 **Posso aplicar créditos de assinatura do Azure ou fundos de compromisso monetário em minha conta em relação às ofertas do Azure Marketplace?**
 
@@ -338,7 +338,7 @@ Os leads são clientes que estão implantando seus produtos do Marketplace. Se s
 
 **Onde posso obter ajuda para configurar meu destino de Lead?**
 
-Saiba mais em [portal do Cloud Partner-obtenha](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) a documentação de leads do cliente ou envie um [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) tíquete de suporte pelo selecionando seu tipo de oferta e gerenciamento de Lead.
+Saiba mais em [portal do Cloud Partner-obtenha a documentação de leads do cliente](./cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads.md) ou envie um tíquete de suporte por meio de [https://aka.ms/marketplacepublishersupport](https://aka.ms/marketplacepublishersupport) , selecionando seu tipo de oferta e gerenciamento de leads.
 
 **Eu preciso configurar um destino de Lead para publicar uma oferta no Marketplace?**
 
@@ -375,15 +375,15 @@ Para obter mais informações, consulte [excluindo uma oferta](./cloud-partner-p
 
 *Aplicativos do O365:*
 
-1.  Entre no com sua conta de desenvolvimento. <https://sellerdashboard.microsoft.com>
+1.  Entre no <https://sellerdashboard.microsoft.com> com sua conta de desenvolvedor.
 1.  Retire o suplemento.
 
     > [!NOTE]
     > Os aplicativos desaparecem de uma listagem existente após 90 dias.
 
-*Power BI aplicativos:*
+**Por que minhas alterações não são refletidas na oferta?**
 
-Contactar [Anjana Sompur (slalom Consulting LLC)](mailto:v-ansomp@microsoft.com).
+As alterações feitas no Partner Center são atualizadas apenas no sistema e armazenam os frontais depois que você republicou a oferta. Certifique-se de que você enviou a oferta para publicação após qualquer modificação.
 
 ### <a name="benefits-and-go-to-market-gtm-resources"></a>Benefícios e recursos para o mercado (GTM)
 
@@ -463,6 +463,16 @@ As transações podem ser realizadas nas 17 moedas a seguir: AUD, BRL, CAD, CHF,
 **Qual é a diferença entre a camada gratuita e a avaliação gratuita de software?**
 
 Uma oferta de assinatura de camada gratuita é perpétuamente gratuita.  Uma oferta de avaliação de software gratuita (Experimente agora) é uma assinatura paga, somente gratuitamente por um período de tempo limitado.
+
+**Qual é o processo para validar o fluxo de provisionamento e compra de ponta a ponta?**
+
+Durante o processo de publicação, você receberá acesso a uma visualização da sua oferta. O acesso é restrito aos usuários que você especificou na guia Visualização, e essa é uma oferta ao vivo que não é visível para outras pessoas. Você pode comprar isso e testar o processo; no entanto, você será cobrado pelo valor total de acordo com a configuração da sua oferta.
+
+Para concluir uma compra por um preço muito baixo, a Microsoft sugere publicar um plano privado para você mesmo definido com um preço que você pode aceitar como o custo do teste. Há suporte para zero, mas não refletirá a experiência completa como uma assinatura paga.
+
+**A Microsoft fornecerá um reembolso fora das políticas padrão?**
+
+Sim, após a solicitação por meio do tíquete de suporte, a Microsoft processará créditos para seu cliente se você julgar apropriado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

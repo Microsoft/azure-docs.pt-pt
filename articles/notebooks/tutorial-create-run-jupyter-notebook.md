@@ -4,21 +4,20 @@ description: Como criar uma execução de um bloco de notas do Jupyter em blocos
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 827338c299b19d04245d7114a99d946d0332c82f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751751"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973051"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: criar e executar um bloco de notas do Jupyter com Python
 
@@ -40,7 +39,7 @@ O bloco de notas concluído pode ser encontrado no [GitHub - exemplos de blocos 
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-    - **Nome do projeto**: Exemplo de regressão linear - críquete Chirps
+    - **Nome do projeto**: Exemplo de regressão linear – Cricket chirps
     - **ID do projeto**: exemplo de regressão linear
     - **Projeto público**: (limpo)
     - **Criar um README.md**: (limpo)
@@ -49,7 +48,7 @@ O bloco de notas concluído pode ser encontrado no [GitHub - exemplos de blocos 
 
 ## <a name="create-the-data-file"></a>Criar o ficheiro de dados
 
-O modelo de regressão linear que criar no bloco de notas desenha dados a partir de um ficheiro no seu projeto chamado *cricket_chirps.csv*. Pode criar este ficheiro copiando-o a partir [GitHub - exemplos de blocos de notas do Azure](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), ou ao introduzir os dados diretamente. As secções seguintes descrevem as duas abordagens.
+O modelo de regressão linear que criar no bloco de notas desenha dados a partir de um ficheiro no seu projeto chamado *cricket_chirps.csv*. Você pode criar esse arquivo copiando-o de [exemplos do GitHub-Azure notebooks](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)ou inserindo os dados diretamente. As secções seguintes descrevem as duas abordagens.
 
 ### <a name="upload-the-data-file"></a>Carregue o ficheiro de dados
 
@@ -128,7 +127,7 @@ Com o ficheiro de dados pronto e o conjunto de ambiente de projeto, pode criar e
 1. Uma vez que tem um *Requirements. txt* ficheiro as definições de ambiente, verá a mensagem, "aguardar o seu contentor concluir a ser preparada." Pode selecionar **OK** para fechar a mensagem e continuar a trabalhar no bloco de notas; não é possível executar células de código, no entanto, até que o ambiente é totalmente configurado.
 1. O bloco de notas abre-se na interface do Jupyter com uma célula de código vazio único como predefinição.
 
-    [![Vista inicial de um novo bloco de notas em blocos de notas do Azure](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Initial exibição de um novo bloco de anotações no Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Realizar uma visita guiada da interface do bloco de notas
 
@@ -144,7 +143,7 @@ Menu de R (C) com os comandos para trabalhar com o bloco de notas.
 (F) indica se o bloco de notas é confiável (a predefinição é **não é fidedigna**).
 (G) o kernel utilizado para executar o bloco de notas, juntamente com um indicador de atividade.
 
-[![Principais áreas de interface do Usuário da interface do Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[áreas de interface do usuário ![Primary da interface Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter fornece uma apresentação incorporada dos principais elementos da interface do Usuário. Começar a visita guiada ao selecionar o **ajudar** > **Tour de Interface do usuário** comando e ao clicar nos pop-ups.
 
@@ -411,15 +410,15 @@ Quando tiver terminado com um bloco de notas, utilizar o **arquivo** > **fechar 
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Depurar os blocos de notas com o Visual Studio Code
 
-Se as células de código em seu bloco de anotações não se comportam como esperado, pode ter bugs de código ou outros defeitos. No entanto, além de usar `print` instruções para mostrar o valor das variáveis, um ambiente típico do Jupyter não oferece qualquer facilidade de depuração.
+Se as células de código em seu bloco de anotações não se comportam como esperado, pode ter bugs de código ou outros defeitos. No entanto, além de usar instruções `print` para mostrar o valor de variáveis, um ambiente típico do Jupyter não oferece nenhuma característica de depuração.
 
-Felizmente, pode baixar o bloco de notas *.ipynb* de ficheiros, em seguida, abra-o no Visual Studio Code com a extensão de Python. A extensão importa diretamente um bloco de notas como um arquivo de código único, preservando as células de Markdown nos comentários. Depois de ter importado o bloco de notas, pode utilizar o depurador do Visual Studio Code para percorrer seu código, definir pontos de interrupção, examinar o estado e assim por diante. Depois de efetuar as correções para o seu código, em seguida, exportar a *.ipynb* de ficheiros do Visual Studio Code e carregá-lo novamente para blocos de notas do Azure.
+Felizmente, você pode baixar o arquivo *. ipynb* do notebook e, em seguida, abri-lo no Visual Studio Code usando a extensão do Python. A extensão importa diretamente um bloco de anotações como um único arquivo de código, preservando suas células de redução em comentários. Depois de importar o bloco de anotações, você poderá usar o depurador de Visual Studio Code para percorrer seu código, definir pontos de interrupção, examinar o estado e assim por diante. Depois de fazer correções no código, exporte o arquivo *. ipynb* de Visual Studio Code e carregue-o novamente no Azure notebooks.
 
-Para obter mais informações, consulte [depurar um bloco de notas do Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Visual Studio Code.
+Para obter mais informações, consulte [depurar um notebook Jupyter](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) na documentação do Visual Studio Code.
 
-Consulte também [Visual Studio Code - suporte de Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para recursos adicionais do Visual Studio Code para blocos de notas do Jupyter.
+Consulte também [suporte a Visual Studio Code-Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) para obter recursos adicionais de Visual Studio Code para notebooks Jupyter.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Explore os blocos de notas de exemplo](azure-notebooks-samples.md)
 

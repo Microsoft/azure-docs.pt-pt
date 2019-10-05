@@ -1,17 +1,17 @@
 ---
-title: Versões com suporte no banco de dados do Azure para MySQL
-description: Descreve as versões com suporte no banco de dados do Azure para MySQL.
+title: Versões com suporte – banco de dados do Azure para MySQL
+description: Saiba quais versões do MySQL Server têm suporte no banco de dados do Azure para o serviço MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 25251b617522840412a4868331e155285f64a18c
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f9c7278e60c8342aa7d5b68ab8da7143abaf4c89
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962590"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970522"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados do Azure para versões do servidor MySQL com suporte
 
@@ -48,8 +48,8 @@ Consulte as notas de [versão](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/n
 ## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e upgrades
 O serviço gerencia automaticamente a aplicação de patch para atualizações de versão de correção de bugs. Por exemplo, 5.7.20 para 5.7.21.  
 
-Atualmente, não há suporte para atualizações de versões secundárias e principais. Por exemplo, não há suporte para a atualização do MySQL 5,6 para o MySQL 5,7. Se você quiser atualizar de 5,6 para 5,7, faça um [despejo e restaure](./concepts-migrate-dump-restore.md) -o para um servidor que foi criado com a nova versão do mecanismo.
+Atualmente, não há suporte para as atualizações das versões principais e secundárias. Por exemplo, não há suporte para a atualização do MySQL 5.6 para o MySQL 5.7. Se quiser atualizar da 5.6 para a 5.7, efetue [uma captura e um restauro](./concepts-migrate-dump-restore.md) para um servidor que foi criado com a nova versão do motor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter informações sobre cotas e limitações de recursos específicas com base em sua **camada de serviço**, consulte [camadas de serviço](./concepts-pricing-tiers.md)

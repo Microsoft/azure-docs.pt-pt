@@ -6,18 +6,16 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 1f9fb786933d03b27be47c9f778a5f1575ca17c2
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69970896"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972696"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementar recursos com modelos do Resource Manager e do Azure PowerShell
 
 Saiba como usar Azure PowerShell com modelos do Resource Manager para implantar seus recursos no Azure. Para obter mais informações sobre os conceitos de implantação e gerenciamento de suas soluções do Azure, consulte [visão geral de Azure Resource Manager](resource-group-overview.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-scope"></a>Escopo da implantação
 
@@ -78,7 +76,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque o modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você não quiser que seu modelo seja acessível publicamente, você pode protegê-lo armazenando-o em um contêiner de armazenamento privado. Para obter informações sobre como implantar um modelo que requer um token SAS (assinatura de acesso compartilhado), consulte [implantar modelo privado com o token SAS](resource-manager-powershell-sas-token.md). Para percorrer um tutorial, consulte [o tutorial: Integre Azure Key Vault no Implantação de modelo](./resource-manager-tutorial-use-key-vault.md)do Resource Manager.
+O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona para a maioria dos cenários porque o modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se você não quiser que seu modelo seja acessível publicamente, você pode protegê-lo armazenando-o em um contêiner de armazenamento privado. Para obter informações sobre como implantar um modelo que requer um token SAS (assinatura de acesso compartilhado), consulte [implantar modelo privado com o token SAS](resource-manager-powershell-sas-token.md). Para percorrer um tutorial, consulte [Tutorial: Integre Azure Key Vault no Gerenciador de recursos Implantação de modelo @ no__t-0.
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Implantar do Azure cloud Shell
 
@@ -97,44 +95,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 Para colar o código no Shell, clique com o botão direito do mouse dentro do Shell e selecione **colar**.
 
-## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando a implantação falhar
-
-Esse recurso também é conhecido como *reversão em caso de erro*. Quando uma implantação falha, você pode reimplantar automaticamente uma implantação bem-sucedida anterior do seu histórico de implantação. Para especificar a reimplantação, use o `-RollbackToLastDeployment` parâmetro `-RollBackDeploymentName` ou no comando de implantação. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Há várias limitações e restrições:
-
-- A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
-- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e as configurações de recurso são definidas para o estado anterior. Certifique-se de compreender totalmente os [modos de implantação](./deployment-modes.md).
-- A reimplantação afeta apenas os recursos, as alterações de dados não são afetadas.
-- Esse recurso só tem suporte em implantações de grupo de recursos, não em implantações de nível de assinatura. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
-
-Para usar essa opção, suas implantações devem ter nomes exclusivos para que possam ser identificadas no histórico. Se você não tiver nomes exclusivos, a implantação com falha atual poderá substituir a implantação bem-sucedida anteriormente no histórico. Você só pode usar essa opção com implantações de nível raiz. Implantações de um modelo aninhado não estão disponíveis para reimplantação.
-
-Para reimplantar a última implantação bem-sucedida, adicione o `-RollbackToLastDeployment` parâmetro como um sinalizador.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -Name ExampleDeployment02 `
-  -ResourceGroupName $resourceGroupName `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -RollbackToLastDeployment
-```
-
-Para reimplantar uma implantação específica, use o `-RollBackDeploymentName` parâmetro e forneça o nome da implantação.
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -Name ExampleDeployment02 `
-  -ResourceGroupName $resourceGroupName `
-  -TemplateFile c:\MyTemplates\azuredeploy.json `
-  -RollBackDeploymentName ExampleDeployment01
-```
-
-A implantação especificada deve ter êxito.
-
 ## <a name="pass-parameter-values"></a>Passar valores de parâmetro
 
 Para passar valores de parâmetro, você pode usar parâmetros embutidos ou um arquivo de parâmetro.
 
 ### <a name="inline-parameters"></a>Parâmetros embutidos
 
-Para passar parâmetros embutidos, forneça os nomes do parâmetro com o `New-AzResourceGroupDeployment` comando. Por exemplo, para passar uma cadeia de caracteres e uma matriz para um modelo, use:
+Para passar parâmetros embutidos, forneça os nomes do parâmetro com o comando `New-AzResourceGroupDeployment`. Por exemplo, para passar uma cadeia de caracteres e uma matriz para um modelo, use:
 
 ```powershell
 $arrayParam = "value1", "value2"
@@ -220,7 +187,7 @@ Test-AzResourceGroupDeployment : After parsing a value an unexpected character w
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para distribuir com segurança seu serviço para mais de uma região, consulte [Deployment Manager do Azure](deployment-manager-overview.md).
+- Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
 - Para especificar como lidar com recursos que existem no grupo de recursos, mas que não estão definidos no modelo, consulte [Azure Resource Manager modos de implantação](deployment-modes.md).
 - Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para obter informações sobre como implantar um modelo que requer um token SAS, consulte [implantar o modelo privado com o token SAS](resource-manager-powershell-sas-token.md).

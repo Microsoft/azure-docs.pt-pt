@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 8e732496c4523646f02ef461b7d3c52314c28dae
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 19852fe3a6925ada3dea141a1472683ee264f6d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932836"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973300"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Migrar para uma chave de criação de recursos do Azure
 
@@ -63,9 +63,9 @@ Você pode atrasar o processo de migração cancelando a janela. Periodicamente,
 
 * **Opcionalmente**, faça backup dos aplicativos da lista de aplicativos do portal do Luis exportando cada aplicativo ou usando a [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)de exportação.
 * **Opcionalmente**, salve a lista de collaborator's de cada aplicativo. Essa lista de emails é fornecida como parte do processo de migração.
-* **Necessário**, você precisa ter uma [assinatura do Azure](https://azure.microsoft.com/free/). Uma parte do processo de assinatura requer informações de cobrança. No entanto, você pode usar o`F0`tipo de preço gratuito () ao usar o Luis. 
+* **Necessário**, você precisa ter uma [assinatura do Azure](https://azure.microsoft.com/free/). Uma parte do processo de assinatura requer informações de cobrança. No entanto, você pode usar o tipo de preço gratuito (`F0`) ao usar o LUIS. 
 
-A **criação de seu aplicativo Luis é gratuita**, indicada pela `F0` camada. Saiba [mais sobre os tipos de preço](luis-boundaries.md#key-limits).
+A **criação de seu aplicativo Luis é gratuita**, indicada pela camada `F0`. Saiba [mais sobre os tipos de preço](luis-boundaries.md#key-limits).
 
 Se você não tiver uma assinatura do Azure, [Inscreva-](https://azure.microsoft.com/free/)se. 
 
@@ -99,6 +99,10 @@ Você pode optar por exportar um aplicativo no qual você é um colaborador e, e
 O proprietário do aplicativo precisa [Adicionar seu email ao recurso de criação do Azure como um colaborador](luis-how-to-collaborate.md#add-contributor-to-azure-authoring-resource). 
 
 Após o processo de migração, todos os aplicativos que você possui estão disponíveis na página **meus aplicativos** do portal do Luis.  
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+As chaves de criação do LUIS só ficam visíveis no portal do LUIS após a conclusão do processo de migração. Se você criar as chaves de criação, como com a CLI do LUIS, o usuário ainda precisará concluir o processo de migração. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

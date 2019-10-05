@@ -1,6 +1,6 @@
 ---
-title: Adicione a ação de consulta no logic apps | Documentos da Microsoft
-description: Descrição geral da ação de consulta para realizar ações como a matriz de filtro.
+title: Adicionar a ação de consulta nos aplicativos lógicos | Microsoft Docs
+description: Visão geral da ação de consulta para executar ações como a matriz de filtro.
 services: ''
 documentationcenter: ''
 author: jeffhollan
@@ -9,78 +9,77 @@ editor: ''
 tags: connectors
 ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
 ms.service: logic-apps
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60538248"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973757"
 ---
-# <a name="get-started-with-the-query-action"></a>Comece com a ação de consulta
-Ao utilizar a ação de consulta, pode trabalhar com lotes e matrizes para executar fluxos de trabalho para:
+# <a name="get-started-with-the-query-action"></a>Introdução à ação de consulta
+Usando a ação de consulta, você pode trabalhar com lotes e matrizes para realizar fluxos de trabalho para:
 
-* Crie uma tarefa para todos os registos de alta prioridade a partir de uma base de dados.
-* Guarde todos os anexos em PDF para e-mails para um blob do Azure.
+* Crie uma tarefa para todos os registros de alta prioridade de um banco de dados.
+* Salve todos os anexos em PDF para emails em um blob do Azure.
 
-Para começar a utilizar a ação de consulta numa aplicação lógica, consulte o artigo [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Para começar a usar a ação de consulta em um aplicativo lógico, consulte [criar um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="use-the-query-action"></a>Utilize a ação de consulta
-Uma ação é uma operação que é executada pelo fluxo de trabalho que está definido numa aplicação lógica. 
-[Saiba mais sobre as ações](../connectors/apis-list.md).  
+## <a name="use-the-query-action"></a>Usar a ação de consulta
+Uma ação é uma operação que é executada pelo fluxo de trabalho que é definido em um aplicativo lógico. 
+[Saiba mais sobre ações](../connectors/apis-list.md).  
 
-A ação de consulta tem atualmente uma operação, chamada da matriz de filtro, que é exposta no designer. Isto permite-lhe consultar uma matriz e retornar um conjunto de resultados filtrados.
+A ação de consulta atualmente tem uma operação, chamada de matriz de filtro, que é exposta no designer. Isso permite consultar uma matriz e retornar um conjunto de resultados filtrados.
 
-Eis como pode adicioná-lo numa aplicação lógica:
+Veja como você pode adicioná-lo em um aplicativo lógico:
 
-1. Selecione o **novo passo** botão.
-2. Escolher **adicionar uma ação**.
-3. Na caixa de pesquisa de ação, escreva **filtro** à lista de **matriz de filtro** ação.
+1. Selecione o botão **nova etapa** .
+2. Escolha **Adicionar uma ação**.
+3. Na caixa de pesquisa de ação, digite **filtro** para listar a ação **Filtrar matriz** .
    
-    ![Selecione a ação de consulta](./media/connectors-native-query/using-action-1.png)
-4. Selecione uma matriz a filtrar. (A captura de ecrã seguinte mostra a matriz de resultados de uma pesquisa do Twitter.)
-5. Crie uma condição para avaliar em cada item. (Filtra tweets de utilizadores que têm mais de 100 seguidores de captura de ecrã seguinte.)
+    ![Selecionar a ação de consulta](./media/connectors-native-query/using-action-1.png)
+4. Selecione uma matriz para filtrar. (A captura de tela a seguir mostra a matriz de resultados de uma pesquisa do Twitter.)
+5. Crie uma condição a ser avaliada em cada item. (A captura de tela a seguir filtra tweets de usuários que têm mais de 100 seguidores.)
    
     ![Concluir a ação de consulta](./media/connectors-native-query/using-action-2.png)
    
-    A ação produzirá uma nova matriz que contém apenas os resultados que cumprem os requisitos de filtro.
-6. Clique no canto superior esquerdo da barra de ferramentas para guardar e a aplicação lógica irá guardar e publicar (ativar).
+    A ação produzirá uma nova matriz que contém apenas os resultados que atenderam aos requisitos de filtro.
+6. Clique no canto superior esquerdo da barra de ferramentas para salvar e seu aplicativo lógico será salvo e publicado (ativado).
 
-\* Se estiver chamando um ponto final HTTP e receber uma resposta JSON, utilize o _Parse JSON_ ação para analisar a resposta JSON. Sem realizar este passo _matriz de filtro_ verá apenas o corpo e não compreender a estrutura do JSON payload.
+\* se você estiver chamando um ponto de extremidade HTTP e recebendo uma resposta JSON, use a ação _analisar JSON_ para analisar a resposta JSON. Sem levar essa etapa, o _filtro da matriz_ verá apenas o corpo e não entenderá a estrutura da carga JSON.
 
 ## <a name="query-action"></a>Ação de consulta
-Aqui estão os detalhes para a ação que este conector suporta. O conector tem uma ação possível.
+Aqui estão os detalhes da ação com a qual este conector dá suporte. O conector tem uma ação possível.
 
-| Ação | Descrição |
+| Action | Descrição |
 | --- | --- |
-| Matriz de filtro |Avalia uma condição para cada item numa matriz e retorna os resultados |
+| Filtrar matriz |Avalia uma condição para cada item em uma matriz e retorna os resultados |
 
 ## <a name="action-details"></a>Detalhes da ação
-A ação de consulta vem com uma ação possível. As tabelas seguintes descrevem os campos de entrada necessários e opcionais para a ação e os detalhes de resultado correspondente, que estão associados com a ação.
+A ação de consulta vem com uma ação possível. As tabelas a seguir descrevem os campos de entrada obrigatórios e opcionais para a ação e os detalhes de saída correspondentes associados ao uso da ação.
 
-### <a name="filter-array"></a>Matriz de filtro
-Seguem-se os campos de entrada para a ação, o que faz uma solicitação de saída de HTTP.
-A * significa que é um campo obrigatório.
+### <a name="filter-array"></a>Filtrar matriz
+Veja a seguir os campos de entrada para a ação, que faz uma solicitação de saída HTTP.
+Um * significa que é um campo obrigatório.
 
 | Display name | Nome da propriedade | Descrição |
 | --- | --- | --- |
-| De * |from |A matriz a filtrar |
-| Condição * |onde |A condição para avaliar para cada item |
+| Terem |from |A matriz a ser filtrada |
+| Problema |onde |A condição a ser avaliada para cada item |
 
 <br>
 
-### <a name="output-details"></a>Detalhes de saída
-Seguem-se detalhes de saída para a resposta HTTP.
+### <a name="output-details"></a>Detalhes da saída
+A seguir estão os detalhes de saída para a resposta HTTP.
 
 | Nome da propriedade | Tipo de dados | Descrição |
 | --- | --- | --- |
-| Matriz filtrado |array |Uma matriz que contém um objeto para cada resultado filtrado |
+| Matriz filtrada |array |Uma matriz que contém um objeto para cada resultado filtrado |
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora, experimente a plataforma e [criar uma aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pode explorar os outros conectores disponíveis no logic apps examinando nossos [lista APIs](apis-list.md).
+## <a name="next-steps"></a>Passos seguintes
+Agora, experimente a plataforma e [crie um aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Você pode explorar os outros conectores disponíveis em aplicativos lógicos examinando nossa [lista de APIs](apis-list.md).
 

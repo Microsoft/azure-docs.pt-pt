@@ -1,21 +1,21 @@
 ---
 title: Repositório de Consultas no banco de dados do Azure para MariaDB
-description: Este artigo descreve o recurso Repositório de Consultas no banco de dados do Azure para MariaDB
+description: Saiba mais sobre o recurso Repositório de Consultas no banco de dados do Azure para MariaDB para ajudá-lo a acompanhar o desempenho ao longo do tempo.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 5d4d01f9f85c78d0e864ec9d11c1d8cd43542e57
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: ee0a3c41edd144c1220cdc9b5a5463b43bef5551
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950624"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973560"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
-**Aplica-se a:**  banco de dados do Azure para MariaDB 10,2
+**Aplica-se a:** banco de dados  Azure para MariaDB 10,2
 
 > [!IMPORTANT]
 > Repositório de Consultas está em versão prévia.
@@ -37,7 +37,7 @@ Repositório de Consultas é um recurso opcional, portanto, ele não está ativo
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitar Repositório de Consultas usando o portal do Azure
 
 1. Entre no portal do Azure e selecione o banco de dados do Azure para o servidor MariaDB.
-1. Selecione **parâmetros** de servidor na seção **configurações** do menu.
+1. Selecione **parâmetros de servidor** In as **configurações** section do menu.
 1. Procure o parâmetro query_store_capture_mode.
 1. Defina o valor como todos e **salve**.
 
@@ -52,8 +52,8 @@ Aguarde até 20 minutos para que o primeiro lote de dados persista no banco de d
 
 Repositório de Consultas tem duas lojas:
 
-- Um repositório de estatísticas de tempo de execução para manter as informações de estatísticas de execução de consulta.
-- Um repositório de estatísticas de espera para manter informações de estatísticas de espera.
+- O armazenamento de estatísticas de tempo de execução para manter as informações de estatísticas de execução de consulta.
+- O repositório de estatísticas de espera para manter informações de estatísticas de espera.
 
 Para minimizar o uso de espaço, as estatísticas de execução de tempo de execução no repositório de estatísticas de tempo de execução são agregadas em uma janela de tempo fixa e configurável. As informações contidas nesses repositórios são visíveis consultando as exibições do repositório de consultas.
 
@@ -78,8 +78,8 @@ Aqui estão alguns exemplos de como você pode obter mais informações sobre su
 | **Observações** | **ação** |
 |---|---|
 |Esperas de bloqueio altas | Verifique os textos de consulta para as consultas afetadas e identifique as entidades de destino. Examine Repositório de Consultas outras consultas que modificam a mesma entidade, que é executada com frequência e/ou têm alta duração. Depois de identificar essas consultas, considere alterar a lógica do aplicativo para melhorar a simultaneidade ou usar um nível de isolamento menos restritivo. |
-|Esperas de e/s de buffer alto | Localize as consultas com um alto número de leituras físicas em Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de e/s das consultas. Verifique as **recomendações** de desempenho para o servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
-|Esperas de memória alta | Localize as principais consultas de consumo de memória no Repositório de Consultas. Essas consultas provavelmente estão atrasando o progresso das consultas afetadas. Verifique as **recomendações** de desempenho para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
+|Esperas de e/s de buffer alto | Localize as consultas com um alto número de leituras físicas em Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de e/s das consultas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
+|Esperas de memória alta | Localize as principais consultas de consumo de memória no Repositório de Consultas. Essas consultas provavelmente estão atrasando o progresso das consultas afetadas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
 
 ## <a name="configuration-options"></a>Opções de configuração
 
@@ -87,16 +87,16 @@ Quando o Repositório de Consultas está habilitado, ele salva os dados em janel
 
 As opções a seguir estão disponíveis para configurar parâmetros de Repositório de Consultas.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Amplitude** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
-| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Nota: Se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | TODOS | NENHUM, TUDO |
+| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Nota: Se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | OS | NENHUM, TUDO |
 | query_store_capture_interval | O intervalo de captura do repositório de consultas em minutos. Permite especificar o intervalo no qual as métricas de consulta são agregadas | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Ativar ou desativar o para capturar todas as consultas do utilitário que estão sendo executadas no sistema. | NO | SIM, NÃO |
 | query_store_retention_period_in_days | Janela de tempo em dias para manter os dados no repositório de consultas. | 7 | 1 - 30 |
 
 As opções a seguir se aplicam especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Amplitude** |
+| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Permite ativar/desativar as estatísticas de espera. | NENHUM | NENHUM, TUDO |
 | query_store_wait_sampling_frequency | Altera a frequência de amostragem de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |
@@ -108,7 +108,7 @@ Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um va
 
 ## <a name="views-and-functions"></a>Exibições e funções
 
-Exiba e gerencie Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no banco de dados **MySQL** .
+Exiba e gerencie Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no **mysql** database.
 
 As consultas são normalizadas examinando sua estrutura depois de remover literais e constantes. Se duas consultas forem idênticas, exceto valores literais, elas terão o mesmo hash.
 
@@ -171,11 +171,11 @@ Essa exibição retorna dados de eventos de espera em Repositório de Consultas.
 
 ## <a name="limitations-and-known-issues"></a>Limitações e problemas conhecidos
 
-- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` ativado, repositório de consultas não poderá capturar dados.
-- Repositório de consultas funcionalidade poderá ser interrompida se encontrar consultas longas de Unicode\>(= 6000 bytes).
+- Se um servidor MariaDB tiver o parâmetro `default_transaction_read_only` em, Repositório de Consultas não poderá capturar dados.
+- Repositório de Consultas funcionalidade poderá ser interrompida se encontrar consultas longas em Unicode (\> = 6000 bytes).
 - O período de retenção para estatísticas de espera é de 24 horas.
-- Estatísticas de espera usa a captura de ti de exemplo uma fração de eventos. A frequência pode ser modificada usando o `query_store_wait_sampling_frequency`parâmetro.
+- Estatísticas de espera usa a captura de ti de exemplo uma fração de eventos. A frequência pode ser modificada usando o parâmetro `query_store_wait_sampling_frequency`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre as [informações de desempenho de consulta](concepts-query-performance-insight.md)

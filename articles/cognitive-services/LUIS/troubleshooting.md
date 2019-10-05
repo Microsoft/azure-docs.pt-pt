@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3907a244bc2d85e7225f94b15150298fd80a032f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382346"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971973"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Reconhecimento vocal (FAQ)
 
@@ -220,6 +220,10 @@ Consulte corrigir o código de status HTTP [403](#i-received-an-http-403-error-s
 
 Consulte corrigir o código de status HTTP [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) e [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) para saber mais.
 
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>Criei uma chave de criação, mas ela não está sendo exibida no portal do LUIS. O que aconteceu?
+
+As chaves de criação estão disponíveis no portal do LUIS após [a migração para a experiência de chave de criação](luis-migration-authoring.md).  
+
 ## <a name="app-management"></a>Gestão de aplicações
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como posso transferir um log de expressões de utilizador?
@@ -267,11 +271,11 @@ O primeiro problema é isolar se o problema está relacionado a LUIS ou acontece
 #### <a name="resolve-issue-in-luis"></a>Resolver o problema em LUIS
 Passe o mesmo expressão para LUIS do [ponto de extremidade Luis](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint). Se você receber um erro, resolva o problema em LUIS até que o erro não seja mais retornado. Erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.`-Esse problema indica que você precisa alterar de uma chave de criação para uma [chave de ponto de extremidade](luis-how-to-azure-subscription.md) ou precisa alterar as camadas de [serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.`-esse problema indica que você precisa alterar de uma chave de criação para uma [chave de ponto de extremidade](luis-how-to-azure-subscription.md) ou você precisa alterar as camadas de [serviço](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver problema no serviço de bot do Azure
 
-Se você estiver usando o serviço de bot do Azure e o problema for que o **teste no Web Chat** retorna `Sorry, my bot code is having an issue`, verifique seus logs:
+Se você estiver usando o serviço de bot do Azure e o problema é que o **teste no Web Chat** retorna `Sorry, my bot code is having an issue`, verifique os logs:
 
 1. Na portal do Azure, para o bot, na seção **Gerenciamento de bot** , selecione **Compilar**.
 1. Abra o editor de código online. 

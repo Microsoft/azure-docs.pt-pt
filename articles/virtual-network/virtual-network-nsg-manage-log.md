@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 07b196b8e7081a6cce1ae87297528c1711b3b8bb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259446"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972770"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>Log de diagnóstico para um grupo de segurança de rede
 
 Um NSG (grupo de segurança de rede) inclui regras que permitem ou negam o tráfego para uma sub-rede de rede virtual, interface de rede ou ambos. Ao habilitar o log de diagnóstico para um NSG, você pode registrar em log as seguintes categorias de informações:
 
-* **Circunstância** As entradas são registradas para as quais as regras NSG são aplicadas às VMs, com base no endereço MAC. O status dessas regras é coletado a cada 60 segundos.
-* **Contador de regras:** Contém entradas para quantas vezes cada regra NSG é aplicada para negar ou permitir o tráfego.
+* **Circunstância** As entradas são registradas para as quais as regras NSG são aplicadas às VMs, com base no endereço MAC.
+* **Contador de regras:** Contém entradas para quantas vezes cada regra NSG é aplicada para negar ou permitir o tráfego. O status dessas regras é coletado a cada 60 segundos.
 
 Os logs de diagnóstico estão disponíveis somente para NSGs implantados por meio do modelo de implantação Azure Resource Manager. Não é possível habilitar o log de diagnóstico para o NSGs implantado por meio do modelo de implantação clássico. Para uma melhor compreensão dos dois modelos, consulte [noções básicas sobre modelos de implantação do Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -50,14 +50,14 @@ Você pode usar o [portal do Azure](#azure-portal), o [PowerShell](#powershell)o
     | ---------                                                                                   |---------                                                       |
     | Name                                                                                        | Um nome de sua escolha.  Por exemplo: *myNsgDiagnostics*      |
     | **Arquivar em uma conta de armazenamento**, **transmitir para um hub de eventos**e **Enviar para log Analytics** | Você pode selecionar quantos destinos quiser. Para saber mais sobre cada um, consulte [destinos de log](#log-destinations).                                                                                                                                           |
-    | FAÇAM                                                                                         | Selecione uma ou ambas as categorias de log. Para saber mais sobre os dados registrados para cada categoria, consulte [categorias de log](#log-categories).                                                                                                                                             |
+    | LOG                                                                                         | Selecione uma ou ambas as categorias de log. Para saber mais sobre os dados registrados para cada categoria, consulte [categorias de log](#log-categories).                                                                                                                                             |
 6. Exibir e analisar logs. Para obter mais informações, consulte [Exibir e analisar logs](#view-and-analyze-logs).
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` no seu computador para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para entrar no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/powershell)ou executando o PowerShell do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se você executar o PowerShell do seu computador, precisará do módulo Azure PowerShell, versão 1.0.0 ou posterior. Execute `Get-Module -ListAvailable Az` em seu computador para localizar a versão instalada. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Se você estiver executando o PowerShell localmente, também precisará executar `Connect-AzAccount` para entrar no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
 Para habilitar o log de diagnóstico, você precisa da ID de um NSG existente. Se você não tiver um NSG existente, poderá criar um com [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
@@ -88,13 +88,13 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-Se você quiser apenas registrar dados para uma categoria ou outro, em vez de ambos, adicione a `-Categories` opção ao comando anterior, seguido por *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você quiser fazer logon em um [destino](#log-destinations) diferente de um espaço de trabalho log Analytics, use os parâmetros apropriados para uma [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure ou Hub de [eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Se você quiser apenas registrar dados para uma categoria ou outro, em vez de ambos, adicione a opção `-Categories` ao comando anterior, seguida por *NetworkSecurityGroupEvent* ou *NetworkSecurityGroupRuleCounter*. Se você quiser fazer logon em um [destino](#log-destinations) diferente de um espaço de trabalho log Analytics, use os parâmetros apropriados para uma [conta de armazenamento](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure ou Hub de [eventos](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Exibir e analisar logs. Para obter mais informações, consulte [Exibir e analisar logs](#view-and-analyze-logs).
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/bash)ou executando o CLI do Azure do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se você executar a CLI do seu computador, precisará da versão 2.0.38 ou posterior. Execute `az --version` no seu computador para localizar a versão instalada. Se você precisar atualizar, consulte [instalar CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Se você estiver executando a CLI localmente, também precisará executar `az login` para entrar no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
+Você pode executar os comandos a seguir no [Azure cloud Shell](https://shell.azure.com/bash)ou executando o CLI do Azure do seu computador. O Azure Cloud Shell é um shell interativo gratuito. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta. Se você executar a CLI do seu computador, precisará da versão 2.0.38 ou posterior. Execute `az --version` em seu computador para localizar a versão instalada. Se você precisar atualizar, consulte [instalar CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Se você estiver executando a CLI localmente, também precisará executar `az login` para entrar no Azure com uma conta que tenha as [permissões necessárias](virtual-network-network-interface.md#permissions).
 
 Para habilitar o log de diagnóstico, você precisa da ID de um NSG existente. Se você não tiver um NSG existente, poderá criar um com [AZ Network NSG Create](/cli/azure/network/nsg#az-network-nsg-create).
 
@@ -199,11 +199,10 @@ O log do contador de regras contém informações sobre cada regra aplicada aos 
 ## <a name="view-and-analyze-logs"></a>Exibir e analisar logs
 
 Para saber como exibir dados de log de diagnóstico, consulte [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se você enviar dados de diagnóstico para:
-- **Logs de Azure monitor**: Você pode usar a [solução de análise](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
-) do grupo de segurança de rede para obter informações avançadas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede em uma máquina virtual.
+- **Logs de Azure monitor**: Você pode usar a solução do grupo de segurança [network Analytics @ no__t-1 para obter informações avançadas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede em uma máquina virtual.
 - **Conta de armazenamento do Azure**: Os dados são gravados em um arquivo PT1H. JSON. Você pode encontrar:
-  - Log de eventos no seguinte caminho:`insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
-  - Log do contador de regras no seguinte caminho:`insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Log de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
+  - Log do contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
 ## <a name="next-steps"></a>Passos seguintes
 

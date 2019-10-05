@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ter mais de 800 inst�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 10/4/2019
 ms.author: tomfitz
-ms.openlocfilehash: eec448dcbf1c550b6b0a0ee0f17505fd6ddd3c74
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194733"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973312"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -41,6 +41,10 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * instantâneos
 * virtualMachines
 
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+
+* containerGroups
+
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 * registries/buildTasks
@@ -68,7 +72,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
-* services
+* serviços
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -81,6 +85,14 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 * integrationAccounts
 * fluxos
+
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/volumes
+* netAppAccounts/capacityPools/volumes/mountTargets
+* netAppAccounts/capacityPools/volumes/instantâneos
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -133,6 +145,15 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 
 * gratuitas
 
+## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+
+* aplicações
+* containerGroups
+* gateways
+* às
+* segredos
+* volumes
+
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
@@ -142,6 +163,6 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * apiManagementAccounts/apis
 * sites
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista completa de cotas e limites, confira [assinatura do Azure e limites de serviço, cotas e restrições](../azure-subscription-service-limits.md).

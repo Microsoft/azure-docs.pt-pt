@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd43e919cc0b2bcf1d130c7e616b7da064abcc65
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: bef9d0490ce9109a960b69febf2970a289c25e40
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971019"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973400"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
@@ -96,48 +96,13 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando a implantação falhar
-
-Esse recurso também é conhecido como *reversão em caso de erro*. Quando uma implantação falha, você pode reimplantar automaticamente uma implantação bem-sucedida anterior do seu histórico de implantação. Para especificar a reimplantação, use `--rollback-on-error` o parâmetro no comando de implantação. Essa funcionalidade será útil se você tiver um estado válido conhecido para sua implantação de infraestrutura e quiser reverter para esse estado. Há várias limitações e restrições:
-
-- A reimplantação é executada exatamente como foi executada anteriormente com os mesmos parâmetros. Você não pode alterar os parâmetros.
-- A implantação anterior é executada usando o [modo completo](./deployment-modes.md#complete-mode). Todos os recursos não incluídos na implantação anterior são excluídos e as configurações de recurso são definidas para o estado anterior. Certifique-se de compreender totalmente os [modos de implantação](./deployment-modes.md).
-- A reimplantação afeta apenas os recursos, as alterações de dados não são afetadas.
-- Esse recurso só tem suporte em implantações de grupo de recursos, não em implantações de nível de assinatura. Para obter mais informações sobre a implantação em nível de assinatura, consulte [criar grupos de recursos e recursos no nível da assinatura](./deploy-to-subscription.md).
-
-Para usar essa opção, suas implantações devem ter nomes exclusivos para que possam ser identificadas no histórico. Se você não tiver nomes exclusivos, a implantação com falha atual poderá substituir a implantação bem-sucedida anteriormente no histórico. Você só pode usar essa opção com implantações de nível raiz. Implantações de um modelo aninhado não estão disponíveis para reimplantação.
-
-Para reimplantar a última implantação bem-sucedida, adicione o `--rollback-on-error` parâmetro como um sinalizador.
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS \
-  --rollback-on-error
-```
-
-Para reimplantar uma implantação específica, use o `--rollback-on-error` parâmetro e forneça o nome da implantação.
-
-```azurecli-interactive
-az group deployment create \
-  --name ExampleDeployment02 \
-  --resource-group ExampleGroup \
-  --template-file storage.json \
-  --parameters storageAccountType=Standard_GRS \
-  --rollback-on-error ExampleDeployment01
-```
-
-A implantação especificada deve ter êxito.
-
 ## <a name="parameters"></a>Parâmetros
 
 Para passar valores de parâmetro, você pode usar parâmetros embutidos ou um arquivo de parâmetro.
 
 ### <a name="inline-parameters"></a>Parâmetros embutidos
 
-Para passar parâmetros embutidos, forneça os valores `parameters`em. Por exemplo, para passar uma cadeia de caracteres e uma matriz para um modelo é um shell bash, use:
+Para passar parâmetros embutidos, forneça os valores em `parameters`. Por exemplo, para passar uma cadeia de caracteres e uma matriz para um modelo é um shell bash, use:
 
 ```azurecli
 az group deployment create \
@@ -146,7 +111,7 @@ az group deployment create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Se você estiver usando CLI do Azure com prompt de comando do Windows (CMD) ou PowerShell, passe a matriz no formato `exampleArray="['value1','value2']"`:.
+Se você estiver usando CLI do Azure com prompt de comando do Windows (CMD) ou PowerShell, passe a matriz no formato: `exampleArray="['value1','value2']"`.
 
 Você também pode obter o conteúdo do arquivo e fornecer esse conteúdo como um parâmetro embutido.
 
@@ -174,7 +139,7 @@ Em vez de passar parâmetros como valores embutidos em seu script, você pode ac
 
 Para obter mais informações sobre o arquivo de parâmetro, consulte [criar arquivo de parâmetro do Resource Manager](resource-manager-parameter-files.md).
 
-Para passar um arquivo de parâmetro local, `@` use para especificar um arquivo local chamado Storage. Parameters. JSON.
+Para passar um arquivo de parâmetro local, use `@` para especificar um arquivo local chamado Storage. Parameters. JSON.
 
 ```azurecli-interactive
 az group deployment create \
@@ -237,7 +202,7 @@ Se o modelo tiver um erro de sintaxe, o comando retornará um erro indicando que
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Os exemplos neste artigo implantam recursos em um grupo de recursos em sua assinatura padrão. Para usar uma assinatura diferente, consulte [gerenciar várias assinaturas do Azure](/cli/azure/manage-azure-subscriptions-azure-cli).
+- Para reverter para uma implantação bem-sucedida quando você receber um erro, consulte [reverter em caso de erro para a implantação bem-sucedida](rollback-on-error.md).
 - Para especificar como lidar com recursos que existem no grupo de recursos, mas que não estão definidos no modelo, consulte [Azure Resource Manager modos de implantação](deployment-modes.md).
 - Para entender como definir parâmetros em seu modelo, consulte [entender a estrutura e a sintaxe de modelos de Azure Resource Manager](resource-group-authoring-templates.md).
 - Para obter dicas sobre como resolver erros comuns de implantação, consulte [solucionar erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).

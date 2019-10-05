@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266879"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973004"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Perguntas frequentes sobre discos de VM IaaS do Azure e discos Premium gerenciados e não gerenciados
 
@@ -219,7 +219,7 @@ Sim, o backup do Azure agora está disponível.
 Você pode criar SSD Standard discos usando modelos de Azure Resource Manager, SDK, PowerShell ou CLI. Abaixo estão os parâmetros necessários no modelo do Resource Manager para criar SSD Standard discos:
 
 * *apiVersion* para Microsoft. Compute deve ser definido como `2018-04-01` (ou posterior)
-* Especifique *managedDisk. storageAccountType* como`StandardSSD_LRS`
+* Especificar *managedDisk. storageAccountType* como `StandardSSD_LRS`
 
 O exemplo a seguir mostra a seção *Properties. storageProfile. osDisk* para uma VM que usa SSD Standard discos:
 
@@ -293,6 +293,10 @@ Sim
 **O Azure Criptografia do Serviço de Armazenamento habilitado por padrão quando crio um disco gerenciado?**
 
 Sim.
+
+**O volume de inicialização é criptografado por padrão em um disco gerenciado?**
+
+Sim. Por padrão, todos os discos gerenciados são criptografados, incluindo o disco do sistema operacional.
 
 **Quem gerencia as chaves de criptografia?**
 

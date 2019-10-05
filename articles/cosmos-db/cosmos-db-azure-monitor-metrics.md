@@ -1,17 +1,17 @@
 ---
 title: Obter Azure Cosmos DB métricas de Azure Monitor
-description: ''
+description: Saiba como exibir diferentes categorias de Azure Cosmos DB métricas de Azure Monitor usando portal do Azure.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: 762c910336fa2b50a46eda23cf66d8a7aa383c52
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 905eca99c137af2fd40a1243de8fabd15314477c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241227"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973744"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>Monitorar e depurar Azure Cosmos DB métricas de Azure Monitor
 
@@ -23,11 +23,11 @@ Este artigo descreve as diferentes métricas de Azure Cosmos DB que você pode e
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Monitor** na barra de navegação à esquerda e selecione métricas.
+1. Selecione **Monitor** na barra de navegação à esquerda e selecione **métricas**.
 
    ![Painel de métricas no Azure Monitor](./media/cosmos-db-azure-monitor-metrics/monitor-metrics-blade.png)
 
-1. No painel de métricas > **selecione um recurso** > escolha a **assinatura**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione **contas de Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **aplicar**. 
+1. No painel de **métricas** > **selecione um recurso** > escolha a **assinatura**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione **contas de Azure Cosmos DB**, escolha uma das contas existentes do Azure Cosmos e selecione **aplicar**. 
 
    ![Escolha uma conta de Cosmos DB para exibir as métricas](./media/cosmos-db-azure-monitor-metrics/select-cosmosdb-account.png)
 
@@ -72,7 +72,7 @@ Você pode agrupar as métricas usando a opção **aplicar divisão** . Por exem
 |---|---|---|---| ---| ---| ---|
 | AvailableStorage (armazenamento disponível) |Bytes (total) | Armazenamento total disponível relatado com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 MIN| Armazenamento disponível| Usado para monitorar a capacidade de armazenamento disponível (aplicável somente para coleções de armazenamento fixa) a granularidade mínima deve ser de 5 minutos.| 
 | Datautilization (uso de dados) |Bytes (total) |Uso total de dados relatados com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 MIN |Tamanho dos dados | Usado para monitorar o uso total de dados no contêiner e na região, a granularidade mínima deve ser de 5 minutos.|
-| IndexUsage (uso de índice) | Bytes (total) |Uso total do índice relatado com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 MIN| Tamanho do Índice| Usado para monitorar o uso total de dados no contêiner e na região, a granularidade mínima deve ser de 5 minutos. |
+| IndexUsage (uso de índice) | Bytes (total) |Uso total do índice relatado com granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 MIN| Tamanho do índice| Usado para monitorar o uso total de dados no contêiner e na região, a granularidade mínima deve ser de 5 minutos. |
 | DocumentQuota (cota de documentos) | Bytes (total) | Cota de armazenamento total relatada à granularidade de 5 minutos por região.| DatabaseName, CollectionName, região| 5 MIN |Capacidade de Armazenamento| Usado para monitorar a cota total no contêiner e na região, a granularidade mínima deve ser de 5 minutos.|
 | DocumentCount (contagem de documentos) | Contagem (total) |Contagem total de documentos relatados à granularidade de 5 minutos por região| DatabaseName, CollectionName, região| 5 MIN |Contagem de documentos|Usado para monitorar a contagem de documentos no contêiner e na região, a granularidade mínima deve ser de 5 minutos.|
 
@@ -98,7 +98,7 @@ Você pode agrupar as métricas usando a opção **aplicar divisão** . Por exem
 | CassandraRequestCharges (encargos de solicitação do Cassandra) | Contagem (Sum, min, Max, AVG) | Unidades de solicitação consumidas por API do Cassandra solicitações| DatabaseName, CollectionName, Region, OperationType, ResourceType| Todos| Usado para monitorar RUs usado por minuto por uma conta de API do Cassandra.|
 | CassandraConnectionClosures (fechamentos de conexão do Cassandra) |Contagem (contagem) |Número de conexões Cassandra fechadas| ClosureReason, região| Todos | Usado para monitorar a conectividade entre os clientes do e o API do Cassandra de Azure Cosmos DB.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Exibir e monitorar métricas de Azure Cosmos DB painel de métricas de conta](use-metrics.md)
 

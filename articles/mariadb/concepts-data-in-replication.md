@@ -1,17 +1,17 @@
 ---
-title: Replicar dados para o Azure Database para MariaDB.
-description: Este artigo descreve a replicação de dados do Azure para MariaDB.
+title: Replicar dados para o Azure Database para MariaDB
+description: Saiba mais sobre como usar a replicação de dados para sincronizar de um servidor externo no banco de dados do Azure para o serviço MariaDB.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 3ceb8b4f3c2c50ac0ac3bd12831b5497f9a05afb
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 826a6db289bf8b938e85d270f91836b3d8790206
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993033"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973644"
 ---
 # <a name="replicate-data-into-azure-database-for-mariadb"></a>Replicar dados para o Azure Database para MariaDB
 
@@ -34,7 +34,7 @@ O [*banco de dados do sistema MySQL*](https://mariadb.com/kb/en/library/the-mysq
 - Cada tabela tem de ter uma chave primária.
 - O servidor mestre deve usar o mecanismo InnoDB.
 - O usuário deve ter permissões para configurar o log binário e criar novos usuários no servidor mestre.
-- Se o servidor mestre tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio `mariadb.az_replication_change_master` foi incluído no procedimento armazenado. Consulte os [exemplos](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) a seguir e o `master_ssl_ca` parâmetro.
+- Se o servidor mestre tiver o SSL habilitado, verifique se o certificado de autoridade de certificação SSL fornecido para o domínio foi incluído no procedimento armazenado `mariadb.az_replication_change_master`. Consulte os [exemplos](https://docs.microsoft.com/azure/mariadb/howto-data-in-replication#link-the-master-and-replica-servers-to-start-data-in-replication) a seguir e o parâmetro `master_ssl_ca`.
 - Confirme se o endereço IP do servidor mestre foi adicionado às regras de firewall do servidor de réplica do Azure Database for MariaDB. Atualize as regras de firewall com o [portal do Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-portal) ou a [CLI do Azure](https://docs.microsoft.com/azure/mariadb/howto-manage-firewall-cli).
 - Verifique se o computador que aloja o servidor mestre permite tráfego de entrada e de saída na porta 3306.
 - Verifique se o servidor mestre tem um **endereço IP público**, se o DNS está acessível publicamente ou se tem um FQDN (nome de domínio totalmente qualificado).

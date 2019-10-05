@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b2973a8e826ab8cc8da29f1ec9678d6a6e4fa975
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097901"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971857"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Visualização – dimensionar automaticamente um cluster para atender às demandas do aplicativo no serviço de kubernetes do Azure (AKS)
 
@@ -90,21 +90,21 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
+  ---enable-vmss \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
 ```
 
 > [!NOTE]
-> Se você especificar uma *--kubernetes-Version* durante a `az aks create`execução, essa versão deverá atender ou exceder o número de versão mínimo necessário, conforme descrito na seção anterior [antes de começar](#before-you-begin) .
+> Se você especificar uma *--kubernetes-Version* ao executar `az aks create`, essa versão deverá atender ou exceder o número de versão mínimo necessário, conforme descrito na seção anterior [antes de começar](#before-you-begin) .
 
 Leva alguns minutos para criar o cluster e definir as configurações de dimensionamento de clusters.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Alterar as configurações de dimensionamento de clusters
 
 > [!IMPORTANT]
-> Se você tiver o recurso de *vários pools de agentes* habilitado em sua assinatura, pule para a [seção dimensionamento automático com vários pools de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters com vários pools de agentes habilitados exigem `az aks nodepool` o uso do conjunto de comandos para alterar propriedades específicas `az aks`do pool de nós em vez de. As instruções abaixo pressupõem que você não habilitou vários pools de nós. Para verificar se ele está habilitado, execute `az feature  list -o table` e `Microsoft.ContainerService/multiagentpoolpreview`procure.
+> Se você tiver o recurso de *vários pools de agentes* habilitado em sua assinatura, pule para a [seção dimensionamento automático com vários pools de agentes](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters com vários pools de agentes habilitados exigem o uso do comando `az aks nodepool` definido para alterar propriedades específicas do pool de nós em vez de `az aks`. As instruções abaixo pressupõem que você não habilitou vários pools de nós. Para verificar se ele está habilitado, execute `az feature  list -o table` e procure `Microsoft.ContainerService/multiagentpoolpreview`.
 
 Na etapa anterior para criar um cluster AKS ou atualizar um pool de nós existente, a contagem de nós mínimos do cluster de dimensionamento foi definida como *1*e a contagem máxima de nós foi definida como *3*. À medida que o aplicativo exigir alteração, talvez seja necessário ajustar a contagem de nós do dimensionamento de clusters.
 
@@ -159,7 +159,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-O dimensionador automática de cluster pode ser desabilitado com [AZ AKs nodepool Update][az-aks-nodepool-update] e `--disable-cluster-autoscaler` passando o parâmetro.
+O dimensionador automática de cluster pode ser desabilitado com [AZ AKs nodepool Update][az-aks-nodepool-update] e passando o parâmetro `--disable-cluster-autoscaler`.
 
 ```azurecli-interactive
 az aks nodepool update \

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815473"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973790"
 ---
 # <a name="what-is-the-qna-maker-service"></a>O que é o serviço de QnA Maker?
 
@@ -81,25 +81,12 @@ O QnA Maker fornece criação, treinamento e publicação junto com as permissõ
 
 **Etapa 2**: Crie uma base de dados de conhecimento no portal de [QnA Maker](https://www.qnamaker.ai) . Adicione [arquivos e URLs](../concepts/data-sources-supported.md) para criar a base de dados de conhecimento.  
 
-**Etapa 3**: Publique sua base de dados de conhecimento e teste de seu [](../quickstarts/get-answer-from-kb-using-curl.md) ponto de extremidade personalizado usando ondulação ou [postmaster](../quickstarts/get-answer-from-kb-using-postman.md). 
+**Etapa 3**: Publique sua base de dados de conhecimento e teste de seu ponto de extremidade personalizado usando [ondulação](../quickstarts/get-answer-from-kb-using-curl.md) ou [postmaster](../quickstarts/get-answer-from-kb-using-postman.md). 
 
 **Etapa 4**: Em seu aplicativo cliente, chame programaticamente o ponto de extremidade da base de dados de conhecimento e leia a resposta JSON para mostrar a melhor resposta ao usuário.  
-
-## <a name="news-and-updates"></a>Notícias e atualizações
-
-Saiba o que há de novo no QnA Maker.
-
-* Junho de 2019
-    * Modelo de classificação aprimorado para francês, italiano, alemão, espanhol, Português
-* Abril de 2019
-    * Suporte à extração de conteúdo do site
-    * Suporte a documentos do SharePoint
-* Março de 2019
-    * Aprendizagem ativa 
-    * Modelo de classificação NLP aprimorado para inglês, 
 
 ## <a name="next-steps"></a>Passos seguintes
 QnA Maker fornece tudo o que você precisa para criar, gerenciar e implantar sua base de dados de conhecimento personalizada. 
 
 > [!div class="nextstepaction"]
-> [Criar o serviço Criador de FAQ](../how-to/set-up-qnamaker-service-azure.md)
+> [Examine as alterações mais recentes](../whats-new.md)

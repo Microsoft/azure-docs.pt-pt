@@ -15,28 +15,31 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 09/24/2019
 ms.author: phillee
 keywords: VisualStudio
-ms.openlocfilehash: 4664007bf892b2ae445d6b5174e4f346944e620b
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 3cdec1bb9d4cb44c4cead6d2d208d661bf5da6ae
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272301"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971866"
 ---
 # <a name="visual-studio-images-on-azure"></a>Imagens do Visual Studio no Azure
 Usar o Visual Studio em uma VM (máquina virtual) do Azure pré-configurada é uma maneira rápida e fácil de passar de nada para um ambiente de desenvolvimento ativo e em execução. As imagens do sistema com diferentes configurações do Visual Studio estão disponíveis no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images%3Bmicrosoft%3Bwindows&page=1&subcategories=application-infrastructure).
 
 Novo no Azure? [Crie uma conta gratuita](https://azure.microsoft.com/free).
 
+> [!NOTE]
+> Nem todas as assinaturas são eligble para implantar imagens do Windows 10. Para obter mais informações, consulte [usar o cliente do Windows no Azure para cenários de desenvolvimento/teste](https://docs.microsoft.com/azure/virtual-machines/windows/client-images)
+
 ## <a name="what-configurations-and-versions-are-available"></a>Quais configurações e versões estão disponíveis?
 As imagens para as versões principais mais recentes, o Visual Studio 2019, o Visual Studio 2017 e o Visual Studio 2015, podem ser encontradas no Azure Marketplace.  Para cada versão principal lançada, você verá a versão originalmente "lançada para a Web" (RTW) e as versões atualizadas mais recentes.  Cada uma dessas versões oferece a Visual Studio Enterprise e as edições da Comunidade do Visual Studio.  Essas imagens são atualizadas pelo menos a cada mês para incluir as atualizações mais recentes do Visual Studio e do Windows.  Embora os nomes das imagens permaneçam os mesmos, a descrição de cada imagem inclui a versão do produto instalada e a data "a partir de" da imagem.
 
 | Versão de lançamento                                                                                                                                                | Edições              | Versão do produto   |
 |:--------------------------------------------------------------------------------------------------------------------------------------------------------------:|:---------------------:|:-----------------:|
-| [Visual Studio 2019: Mais recente (versão 16,2)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, comunidade | 16.3.0 da versão    |
+| [Visual Studio 2019: Mais recente (versão 16,2) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019latest?tab=Overview) | Enterprise, comunidade | 16.3.0 da versão    |
 | [Visual Studio 2019: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio2019?tab=Overview)                         | Enterprise, comunidade | 16.0.8 da versão    |
-| [Visual Studio 2017: Mais recente (versão 15,9)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, comunidade | 15.9.16 da versão   |
+| [Visual Studio 2017: Mais recente (versão 15,9) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)           | Enterprise, comunidade | 15.9.16 da versão   |
 | [Visual Studio 2017: RTW](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)                             | Enterprise, comunidade | 15.0.25 da versão   |
-| [Visual Studio 2015: Mais recente (atualização 3)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, comunidade | 14.0.25431.01 da versão |
+| [Visual Studio 2015: Mais recente (atualização 3) ](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftvisualstudio.visualstudio?tab=Overview)               | Enterprise, comunidade | 14.0.25431.01 da versão |
 
 > [!NOTE]
 > De acordo com a política de serviço da Microsoft, a versão lançada originalmente (RTW) do Visual Studio 2015 expirou para manutenção. O Visual Studio 2015 atualização 3 é a única versão restante oferecida para a linha de produtos Visual Studio 2015.
@@ -94,7 +97,7 @@ Para obter mais informações, consulte [entrar no Visual Studio](/visualstudio/
 
 O espectro de ambientes de desenvolvimento é enorme, e há um custo real associado à criação de ambientes mais complexos. Independentemente da configuração do seu ambiente, você pode salvar ou capturar sua VM configurada como uma "imagem base" para uso futuro ou para outros membros da sua equipe. Em seguida, ao inicializar uma nova VM, você a provisiona a partir da imagem base em vez da imagem do Azure Marketplace.
 
-Um resumo rápido: Use a ferramenta de preparação do sistema (Sysprep) e desligue a VM em execução e, em seguida, Capture *(Figura 1)* a VM como uma imagem por meio da interface do usuário no portal do Azure. O Azure salva `.vhd` o arquivo que contém a imagem na conta de armazenamento de sua escolha. A nova imagem é exibida como um recurso de imagem na lista de recursos da sua assinatura.
+Um resumo rápido: Use a ferramenta de preparação do sistema (Sysprep) e desligue a VM em execução e, em seguida, Capture *(Figura 1)* a VM como uma imagem por meio da interface do usuário no portal do Azure. O Azure salva o arquivo `.vhd` que contém a imagem na conta de armazenamento de sua escolha. A nova imagem é exibida como um recurso de imagem na lista de recursos da sua assinatura.
 
 <img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center> *(Figura 1) Capture uma imagem por meio da interface do usuário do portal do Azure.* </center>
 

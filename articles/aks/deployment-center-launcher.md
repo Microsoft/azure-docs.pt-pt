@@ -2,19 +2,18 @@
 title: Centro de implantação para kubernetes do Azure
 description: A central de implantação no Azure DevOps simplifica a configuração de um pipeline DevOps do Azure robusto para seu aplicativo
 ms.author: puagarw
-ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 35484566890f3bfd964e3fda337bfb3666d1da6c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618719"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972982"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Centro de implantação para kubernetes do Azure
 
@@ -66,7 +65,7 @@ Neste tutorial, irá:
 
     - **Azure Repos**: Escolha um repositório de seu projeto e organização existentes.
 
-        ![Repositórios do Azure](media/deployment-center-launcher/azure-repos.gif)
+        ![Azure Repos](media/deployment-center-launcher/azure-repos.gif)
 
     - **GitHub**: Autorize e selecione o repositório para sua conta do GitHub.
 
@@ -123,11 +122,11 @@ A central de implantação cria e configura automaticamente a relação entre su
 
 1. Para editar o pipeline de liberação, selecione **Editar**.
 
-1. Selecione  descartar na lista **artefatos** . Nas etapas anteriores, o pipeline de construção que você examinou produz a saída usada para o artefato. 
+1. Selecione **descartar** na lista **artefatos** . Nas etapas anteriores, o pipeline de construção que você examinou produz a saída usada para o artefato. 
 
 1. Selecione o gatilho de **implantação contínua** à direita da opção **drop** . Este pipeline de lançamento tem um gatilho de CD habilitado que executa uma implantação sempre que um novo artefato de compilação está disponível. Você também pode desabilitar o gatilho para exigir a execução manual de suas implantações.
 
-1. Para examinar todas as tarefas de seu pipeline, selecione **tarefas**. A versão define o ambiente do gaveta, configura o `imagePullSecrets` parâmetro, instala as ferramentas do Helm e implanta os gráficos do Helm no cluster kubernetes.
+1. Para examinar todas as tarefas de seu pipeline, selecione **tarefas**. A versão define o ambiente do gaveta, configura o parâmetro `imagePullSecrets`, instala as ferramentas do Helm e implanta os gráficos do Helm no cluster kubernetes.
 
 1. Para exibir o histórico de versões, selecione **Exibir versões**.
 
@@ -141,6 +140,6 @@ A central de implantação cria e configura automaticamente a relação entre su
 
 Você pode excluir os recursos relacionados que criou quando não precisa mais deles. Use a funcionalidade excluir no painel DevOps Projects.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Pode modificar estes pipelines de compilação e de lançamento para satisfazer as necessidades da sua equipa. Ou você pode usar esse modelo de CI/CD como um modelo para seus outros pipelines.

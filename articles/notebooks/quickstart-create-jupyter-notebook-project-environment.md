@@ -4,21 +4,20 @@ description: Crie um novo projeto em blocos de notas do Azure que está configur
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754025"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973072"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Início rápido: Criar um projeto com um ambiente personalizado
 
@@ -38,7 +37,7 @@ Um projeto em blocos de notas do Azure é uma coleção de arquivos, como blocos
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-    - **Nome do projeto**: Com um ambiente personalizado do projeto
+    - **Nome do projeto**: Projeto com um ambiente personalizado
     - **ID do projeto**: ambiente de projeto personalizado
     - **Projeto público**: (limpo)
     - **Criar um README.md**: (limpo)

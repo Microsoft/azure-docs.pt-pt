@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937024"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973338"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funções de cadeia de caracteres para modelos de Azure Resource Manager
 
@@ -331,7 +331,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| Exibir | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| exibir | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>Contém
 
@@ -1097,7 +1097,7 @@ Você só pode usar essa função dentro de uma expressão para o valor padrão 
 
 A função newGuid difere da função [GUID](#guid) porque ela não assume nenhum parâmetro. Quando você chama o GUID com o mesmo parâmetro, ele retorna o mesmo identificador a cada vez. Use o GUID quando precisar gerar com confiança o mesmo GUID para um ambiente específico. Use newGuid quando precisar de um identificador diferente a cada vez, como a implantação de recursos em um ambiente de teste.
 
-Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implantação anterior incluir um parâmetro que usa newGuid, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
+Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa newGuid, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
 Em um ambiente de teste, talvez seja necessário implantar repetidamente os recursos que só moram por um curto período de tempo. Em vez de construir nomes exclusivos, você pode usar newGuid com [uniquestring](#uniquestring) para criar nomes exclusivos.
 
@@ -1364,7 +1364,7 @@ Retorna uma matriz de cadeias de caracteres que contém as subcadeias da cadeia 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
 | inputString |Sim |Cadeia de caracteres |A cadeia de caracteres a ser dividida. |
-| Delimitador |Sim |String ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
+| delimitador |Sim |String ou matriz de cadeias de caracteres |O delimitador a ser usado para dividir a cadeia de caracteres. |
 
 ### <a name="return-value"></a>Valor de retorno
 
@@ -1824,7 +1824,7 @@ O resultado do exemplo anterior com os valores predefinidos é:
 
 | Nome | Tipo | Value |
 | ---- | ---- | ----- |
-| Exibir | Cadeia | Um dois três |
+| exibir | Cadeia | Um dois três |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -2110,7 +2110,7 @@ Retorna o valor DateTime (UTC) atual no formato especificado. Se nenhum formato 
 
 Você só pode usar essa função dentro de uma expressão para o valor padrão de um parâmetro. O uso dessa função em qualquer outro lugar em um modelo retorna um erro. A função não é permitida em outras partes do modelo porque ela retorna um valor diferente cada vez que é chamada. Implantar o mesmo modelo com os mesmos parâmetros não produziria com confiança os mesmos resultados.
 
-Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails)e a implantação anterior incluir um parâmetro que usa UtcNow, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
+Se você usar a [opção para reimplantar uma implantação bem-sucedida anterior](rollback-on-error.md)e a implantação anterior incluir um parâmetro que usa UtcNow, o parâmetro não será reavaliado. Em vez disso, o valor do parâmetro da implantação anterior é automaticamente reutilizado na implantação de reversão.
 
 Tenha cuidado ao reimplantar um modelo que dependa da função utcNow para um valor padrão. Quando você reimplanta e não fornece um valor para o parâmetro, a função é reavaliada. Se você quiser atualizar um recurso existente em vez de criar um novo, passe o valor do parâmetro da implantação anterior.
 

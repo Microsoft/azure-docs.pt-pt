@@ -4,27 +4,27 @@ description: Como exportar dados de seu aplicativo de IoT Central do Azure para 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/08/2019
+ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 7366072dbf6b000981899a56ca1c8cfe6af6f04a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+manager: corywink
+ms.openlocfilehash: 7ee9d2bf32fcec5f5f4435fe09916f437d6323ee
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876056"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971692"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportar seus dados para o armazenamento de BLOBs do Azure
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 *Este tópico se aplica aos administradores do.*
 
-Este artigo descreve como usar o recurso de exportação de dados contínuos no Azure IoT Central para exportar dados periodicamente para sua **conta de armazenamento de BLOBs do Azure**. Você pode exportar **medidas**, **dispositivos**e **modelos de dispositivo** para arquivos no formato Apache Avro. Os dados exportados podem ser usados para a análise de caminho frio, como modelos de treinamento em Azure Machine Learning ou análise de tendência de longo prazo no Microsoft Power BI.
+Este artigo descreve como usar o recurso de exportação de dados contínuos no Azure IoT Central para exportar dados periodicamente para sua **conta de armazenamento de BLOBs do Azure** ou **Azure data Lake Storage Gen2 conta de armazenamento**. Você pode exportar **medidas**, **dispositivos**e **modelos de dispositivo** para arquivos no formato JSON ou Apache Avro. Os dados exportados podem ser usados para a análise de caminho frio, como modelos de treinamento em Azure Machine Learning ou análise de tendência de longo prazo no Microsoft Power BI.
 
 > [!Note]
-> Mais uma vez, ao ativar a exportação de dados contínuas, você obtém apenas os dados desse momento em diante. Atualmente, os dados não podem ser recuperados por um horário quando a exportação de dados contínuas estava desativada. Para manter mais dados históricos, ative a exportação contínua de dados antecipadamente.
+> Ao ativar a exportação de dados contínuas, você obtém apenas os dados desse momento em diante. Atualmente, os dados não podem ser recuperados por um horário quando a exportação de dados contínuas estava desativada. Para manter mais dados históricos, ative a exportação contínua de dados antecipadamente.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -36,17 +36,15 @@ Este artigo descreve como usar o recurso de exportação de dados contínuos no 
 
 Se você não tiver um armazenamento existente para exportar para o, siga estas etapas:
 
-## <a name="create-storage-account"></a>Criar conta de armazenamento
-
-1. Crie uma [nova conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode aprender mais em [documentos do armazenamento do Azure](https://aka.ms/blobdocscreatestorageaccount).
-2. Para o tipo de conta, escolha **uso geral** ou **armazenamento**de BLOBs.
-3. Escolha uma assinatura. 
+1. Crie uma [nova conta de armazenamento no portal do Azure](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Você pode saber mais sobre como criar novas [contas de armazenamento de BLOBs do Azure](https://aka.ms/blobdocscreatestorageaccount) ou [contas de armazenamento Azure data Lake Storage v2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
 
     > [!Note] 
-    > Agora, você pode exportar dados para outras assinaturas que não são **iguais** às do seu aplicativo de IOT central pago conforme o uso. Nesse caso, você se conectará usando uma cadeia de conexão.
+    > Se você optar por exportar dados para uma conta de armazenamento ADLS v2, deverá escolher **tipo de conta** como **BlobStorage**. 
 
-4. Crie um contêiner em sua conta de armazenamento. Vá para sua conta de armazenamento. Em **serviço blob**, selecione **procurar BLOBs**. Selecione **+ contêiner** na parte superior para criar um novo contêiner
+    > [!Note] 
+    > Você pode exportar dados para contas de armazenamento em assinaturas diferentes daquela para seu aplicativo de IoT Central pré-pago. Nesse caso, você se conectará usando uma cadeia de conexão.
 
+2. Crie um contêiner em sua conta de armazenamento. Vá para sua conta de armazenamento. Em **serviço blob**, selecione **procurar BLOBs**. Selecione **+ contêiner** na parte superior para criar um novo contêiner.
 
 ## <a name="set-up-continuous-data-export"></a>Configurar a exportação de dados contínuas
 
@@ -54,19 +52,17 @@ Agora que você tem um destino de armazenamento para o qual exportar dados, siga
 
 1. Entre no seu aplicativo IoT Central.
 
-2. No menu à esquerda, selecione **exportação de dados contínuas**.
+2. No menu à esquerda, selecione **exportação de dados**.
 
     > [!Note]
-    > Se você não vir a exportação de dados contínua no menu à esquerda, você não é um administrador em seu aplicativo. Converse com um administrador para configurar a exportação de dados.
-
-    ![Criar novo hub de eventos CDE](media/howto-export-data/export_menu1.png)
+    > Se você não vir a exportação de dados no menu à esquerda, você não é um administrador em seu aplicativo. Converse com um administrador para configurar a exportação de dados.
 
 3. Selecione o botão **+ novo** no canto superior direito. Escolha o **armazenamento de BLOBs do Azure** como o destino de sua exportação. 
 
     > [!NOTE] 
     > O número máximo de exportações por aplicativo é cinco. 
 
-    ![Criar nova exportação de dados contínuas](media/howto-export-data/export_new1.png)
+    ![Criar nova exportação de dados contínuas](media/howto-export-data/export-new2.png)
 
 4. Na caixa de listagem suspensa, selecione o namespace da **conta de armazenamento**. Você também pode escolher a última opção na lista que é **Inserir uma cadeia de conexão**. 
 
@@ -76,60 +72,67 @@ Agora que você tem um destino de armazenamento para o qual exportar dados, siga
     > [!NOTE] 
     > Para aplicativos de avaliação de 7 dias, a única maneira de configurar a exportação de dados contínuas é por meio de uma cadeia de conexão. Isso ocorre porque os aplicativos de avaliação de 7 dias não têm uma assinatura do Azure associada.
 
-    ![Criar novo hub de eventos CDE](media/howto-export-data/export-create-blob.png)
+    ![Criar nova exportação para o blob](media/howto-export-data/export-create-blob2.png)
 
-5. Adicional Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para seu:
-    - Conta de armazenamento, vá para a conta de armazenamento no portal do Azure.
-        - Em **configurações**, selecione **chaves de acesso**
-        - Copie a cadeia de conexão key1 ou a cadeia de conexão Key2
+5. Adicional Se você escolher **Inserir uma cadeia de conexão**, uma nova caixa será exibida para que você cole a cadeia de conexão. Para obter a cadeia de conexão para sua conta de armazenamento, vá para a conta de armazenamento no portal do Azure:-em **configurações**, selecione **chaves de acesso** – Copie a cadeia de conexão key1 ou a cadeia de conexão Key2
  
-6. Escolha um contêiner na caixa de listagem suspensa.
+6. Escolha um contêiner na caixa de listagem suspensa. Se você não tiver um contêiner, vá para sua conta de armazenamento no portal do Azure:
+    - Em **serviço blob**, selecione **BLOBs**. Clique em **+ contêiner** e dê um nome ao seu contêiner. Escolha um nível de acesso público para seus dados (qualquer um funcionará com a exportação de dados contínua). Saiba mais nos [documentos do armazenamento do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
-7. Em **dados a serem**exportados, especifique cada tipo de dados a serem exportados definindo o tipo como **ativado**.
+7. Escolha o **formato de dados** que você prefere: Formato JSON ou [Apache Avro](https://avro.apache.org/docs/current/index.html) .
 
-6. Para ativar a exportação de dados contínuas, verifique se a **exportação de dados** está **ativada**. Selecione **Guardar**.
+8. Em **dados a serem exportados**, especifique cada tipo de dados a serem exportados definindo o tipo como **ativado**.
 
-   ![Configurar exportação de dados contínuas](media/howto-export-data/export-list-blob.png)
+9. Para ativar a exportação de dados contínuas, verifique se a alternância de **exportação de dados** está **ativada**. Selecione **Guardar**.
 
-7. Depois de alguns minutos, seus dados aparecerão no destino escolhido.
+   ![Configurar exportação de dados contínuas](media/howto-export-data/export-list-blob2.png)
+
+10. Depois de alguns minutos, seus dados aparecerão na sua conta de armazenamento.
 
 
-## <a name="export-to-azure-blob-storage"></a>Exportar para o armazenamento de BLOBs do Azure
+## <a name="path-structure"></a>Estrutura do caminho
 
-Medidas, dispositivos e dados de modelos de dispositivo são exportados para sua conta de armazenamento uma vez por minuto, com cada arquivo que contém o lote de alterações desde o último arquivo exportado. Os dados exportados estão no formato [Apache Avro](https://avro.apache.org/docs/current/index.html) e serão exportados em para três pastas. Os caminhos padrão em sua conta de armazenamento são:
-- Mensagens: {Container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Dispositivos: {Container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Modelos de dispositivo: {Container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+Medidas, dispositivos e dados de modelos de dispositivo são exportados para sua conta de armazenamento uma vez por minuto, com cada arquivo que contém o lote de alterações desde o último arquivo exportado. Os dados exportados são colocados em três pastas no formato JSON ou Avro. Os caminhos padrão em sua conta de armazenamento são:
+- Mensagens: {Container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Dispositivos: {Container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Modelos de dispositivo: {Container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+
+Você pode procurar os arquivos exportados no portal do Azure navegando até o arquivo e escolhendo a guia **Editar blob** .
+
+## <a name="data-format"></a>Formato de dados 
 
 ### <a name="measurements"></a>Medições
 
 Os dados de medidas exportados têm todas as novas mensagens recebidas por IoT Central de todos os dispositivos durante esse tempo. Os arquivos exportados usam o mesmo formato que os arquivos de mensagem exportados pelo [Roteamento de mensagens do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) para o armazenamento de BLOBs.
 
 > [!NOTE]
-> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos do dispositivo. Correlacione cada registro de mensagem usando o **connectionDeviceId** que corresponde ao DeviceID do registro do dispositivo.
+> Verifique se os dispositivos estão enviando mensagens com `contentType: application/JSON` e `contentEncoding:utf-8` (ou `utf-16`, `utf-32`). Consulte a [documentação do Hub IOT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) para obter um exemplo.
+
+> [!NOTE]
+> Os dispositivos que enviam as medidas são representados por IDs de dispositivo (consulte as seções a seguir). Para obter os nomes dos dispositivos, exporte os instantâneos do dispositivo. Correlacione cada registro de mensagem usando o **connectionDeviceId** que corresponde ao **DeviceID** do registro do dispositivo.
 
 O exemplo a seguir mostra um registro em um arquivo Avro decodificado:
 
 ```json
-{
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
-    "Properties": {},
-    "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
-    },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
+{ 
+  "EnqueuedTimeUtc":"2019-06-11T00:00:08.2250000Z",
+  "Properties":{},
+  "SystemProperties":{ 
+    "connectionDeviceId":"<deviceId>",
+    "connectionAuthMethod":"{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "connectionDeviceGenerationId":"<generationId>",
+    "enqueuedTime":"2019-06-11T00:00:08.2250000Z"
+  },
+  "Body":"{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
 }
 ```
 
 ### <a name="devices"></a>Dispositivos
 
 Quando a exportação de dados contínuas é ativada pela primeira vez, um único instantâneo com todos os dispositivos é exportado. Cada dispositivo inclui:
-- `id`do dispositivo no IoT Central
-- `name`do dispositivo
-- `deviceId`do [serviço de provisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
+- `id` do dispositivo no IoT Central
+- `name` do dispositivo
+- `deviceId` do [serviço de provisionamento de dispositivos](https://aka.ms/iotcentraldocsdps)
 - Informações do modelo do dispositivo
 - Valores de propriedade
 - Definindo valores
@@ -144,42 +147,42 @@ Um novo instantâneo é gravado uma vez por minuto. O instantâneo inclui:
 >
 > O modelo de dispositivo ao qual cada dispositivo pertence é representado por uma ID de modelo de dispositivo. Para obter o nome do modelo de dispositivo, exporte os instantâneos de modelo de dispositivo.
 
-Um registro no arquivo Avro decodificado pode ser semelhante a:
+Os arquivos exportados contêm uma única linha por registro. O exemplo a seguir mostra um registro no formato Avro, decodificado:
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
+{ 
+  "id":"<id>",
+  "name":"Refrigerator 2",
+  "simulated":true,
+  "deviceId":"<deviceId>",
+  "deviceTemplate":{ 
+    "id":"<template id>",
+    "version":"1.0.0"
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":"New York",
+      "maintCon":true,
+      "tempThresh":20
     },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
-        },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
+    "device":{ 
+      "lastReboot":"2018-02-09T22:22:47.156Z"
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":0
+    }
+  }
 }
 ```
 
-### <a name="device-templates"></a>Modelos de dispositivo
+### <a name="device-templates"></a>Modelos do dispositivo
 
 Quando a exportação de dados contínuas é ativada pela primeira vez, um único instantâneo com todos os modelos de dispositivo é exportado. Cada modelo de dispositivo inclui:
-- `id`do modelo de dispositivo
-- `name`do modelo de dispositivo
-- `version`do modelo de dispositivo
+- `id` do modelo de dispositivo
+- `name` do modelo de dispositivo
+- `version` do modelo de dispositivo
 - Tipos de dados de medição e valores mín./máx.
 - Tipos de dados de propriedade e valores padrão.
 - Definindo tipos de dados e valores padrão.
@@ -192,79 +195,79 @@ Um novo instantâneo é gravado uma vez por minuto. O instantâneo inclui:
 > [!NOTE]
 > Modelos de dispositivo excluídos desde o último instantâneo não são exportados. Atualmente, os instantâneos não têm indicadores para modelos de dispositivo excluídos.
 
-Um registro no arquivo Avro decodificado pode ter a seguinte aparência:
+Os arquivos exportados contêm uma única linha por registro. O exemplo a seguir mostra um registro no formato Avro, decodificado:
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
-            }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
-            }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
+{ 
+  "id":"<id>",
+  "name":"Refrigerated Vending Machine",
+  "version":"1.0.0",
+  "measurements":{ 
+    "telemetry":{ 
+      "humidity":{ 
+        "dataType":"double",
+        "name":"Humidity"
+      },
+      "magnetometerX":{ 
+        "dataType":"double",
+        "name":"Magnetometer X"
+      },
+      "magnetometerY":{ 
+        "dataType":"double",
+        "name":"Magnetometer Y"
+      },
+      "magnetometerZ":{ 
+        "dataType":"double",
+        "name":"Magnetometer Z"
+      }
     },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
+    "states":{ 
+      "connectivity":{ 
+        "dataType":"enum",
+        "name":"Connectivity"
+      }
     },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
+    "events":{ 
+      "opened":{ 
+        "name":"Door Opened",
+        "category":"informational"
+      }
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":{ 
+        "dataType":"double",
+        "name":"Fan Speed",
+        "initialValue":0
+      }
+    }
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":{ 
+        "dataType":"string",
+        "name":"Location",
+        "initialValue":"Seattle"
+      },
+      "maintCon":{ 
+        "dataType":"boolean",
+        "name":"Maintenance Contract",
+        "initialValue":true
+      },
+      "tempThresh":{ 
+        "dataType":"double",
+        "name":"Temperature Alert Threshold",
+        "initialValue":30
+      }
+    },
+    "device":{ 
+      "lastReboot":{ 
+        "dataType":"dateTime",
+        "name":"Last Reboot"
+      }
+    }
+  }
 }
 ```
 
@@ -642,7 +645,7 @@ function load(filePath) {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você sabe como exportar seus dados, continue para a próxima etapa:
 

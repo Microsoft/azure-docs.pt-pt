@@ -1,5 +1,5 @@
 ---
-title: Script da CLI do Azure - Alterar configurações do servidor
+title: CLI do Azure script – alterar as configurações do servidor (MySQL)
 description: Este script de exemplo da CLI lista todas as configurações de servidor disponíveis e atualiza o valor de innodb_lock_wait_timeout.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: cda5f3b9d2918a70e1572e331e0f11845187891a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: faeebc2b4c963b46a0cbb805269078dee562a3f4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60343244"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970630"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Listar e atualizar configurações do servidor da Base de Dados do Azure para MySQL com a CLI do Azure
 Este script de exemplo da CLI lista todos os parâmetros de configuração disponíveis, bem como os respetivos valores permitidos para o servidor da Base de Dados do Azure para MySQL e define *innodb_lock_wait_timeout* para um valor diferente do que está predefinido.
@@ -42,7 +42,7 @@ Este script utiliza os comandos descritos na tabela seguinte:
 | [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) | Mostra a configuração do servidor da Base de Dados do Azure para MySQL. |
 | [az group delete](/cli/azure/group#az-group-delete) | Elimina um grupo de recursos, incluindo todos os recursos aninhados. |
 
-## <a name="next-steps"></a>Passos Seguintes
-- Ler mais informações sobre a CLI do Azure: [Documentação da CLI do Azure](/cli/azure).
-- Experimente scripts adicionais: [Exemplos da CLI do Azure para a base de dados do Azure para MySQL](../sample-scripts-azure-cli.md)
+## <a name="next-steps"></a>Passos seguintes
+- Leia mais informações sobre o CLI do Azure: [CLI do Azure documentação](/cli/azure).
+- Experimente scripts adicionais: [Exemplos de CLI do Azure para o banco de dados do Azure para MySQL](../sample-scripts-azure-cli.md)
 - Para obter mais informações sobre os parâmetros de servidor, veja [Como Configurar Parâmetros de Servidor na Base de Dados do Azure para MySQL](../howto-server-parameters.md).

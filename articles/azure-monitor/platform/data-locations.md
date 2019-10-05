@@ -1,45 +1,44 @@
 ---
-title: Monitorização de localizações de dados no Azure Monitor | Documentos da Microsoft
-description: Descreve as diferentes localizações onde os dados de monitorização são armazenados no Azure, incluindo a plataforma de dados do Azure Monitor.
+title: Monitorando locais de dados no Azure Monitor | Microsoft Docs
+description: Descreve os diferentes locais em que os dados de monitoramento são armazenados no Azure, incluindo a plataforma de dados Azure Monitor.
 documentationcenter: ''
 author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
 ms.author: bwren
-ms.openlocfilehash: 1d92973e32e9c694b1d0488753b9a701e7d71a5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6f6071bc1d3d7514d22658a07810690ec8a8056b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416908"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972749"
 ---
-# <a name="monitoring-data-locations-in-azure-monitor"></a>Localizações de dados de monitorização no Azure Monitor
+# <a name="monitoring-data-locations-in-azure-monitor"></a>Monitorando locais de dados no Azure Monitor
 
-Monitor do Azure se baseia numa [plataforma de dados](data-platform.md) de [registos](data-platform-logs.md) e [métricas](data-platform-metrics.md) conforme descrito no [plataforma de dados do Azure Monitor](data-platform.md). A monitorização dos dados dos recursos do Azure pode ser escrita para outras localizações no entanto, qualquer um antes de eles são copiados para o Azure Monitor ou para dar suporte a cenários adicionais. 
+O Azure Monitor é baseado em [uma plataforma de dados](data-platform.md) de [logs](data-platform-logs.md) e [métricas](data-platform-metrics.md) , conforme descrito em [Azure monitor plataforma de dados](data-platform.md). No entanto, os dados de monitoramento dos recursos do Azure podem ser gravados em outros locais, seja antes de serem copiados para Azure Monitor ou para oferecer suporte a cenários adicionais. 
 
-## <a name="monitoring-data-locations"></a>Localizações de dados de monitorização
+## <a name="monitoring-data-locations"></a>Locais de dados de monitoramento
 
-A tabela seguinte identifica as diferentes localizações onde os dados no Azure de monitorização é enviado e os diferentes métodos para acessá-lo.
+A tabela a seguir identifica os diferentes locais em que os dados de monitoramento no Azure são enviados e os diferentes métodos para acessá-los.
 
 | Location | Descrição | Métodos de acesso |
 |:---|:---|:---|:--|
-| Métricas de Monitor do Azure | Série de tempo base de dados que está otimizada para analisar os dados de horários. | [Explorador de métricas](metrics-getting-started.md)<br>[API de métricas de Monitor do Azure](/rest/api/monitor/metrics) |
-| Registos do Azure Monitor    | Inicie a sessão de área de trabalho de análise baseada no Explorador de dados do Azure que fornece uma linguagem de consulta poderosa de análise avançados e de motor. | [Log Analytics](../log-query/portals.md)<br>[API do log Analytics](https://dev.loganalytics.io/)<br>[API do Application Insights](https://dev.applicationinsights.io/reference/get-query) |
-| Registo de atividades | Dados de registo de Atividades são mais útil quando enviado para os registos do Azure Monitor para analisá-los com outros dados, mas também são recolhido por conta própria, de modo que pode ser exibido diretamente no portal do Azure. | [Portal do Azure](activity-log-view.md#azure-portal)<br>[API de eventos de Monitor do Azure](/rest/api/monitor/eventcategories) |
-| Storage do Azure | Algumas origens de dados irão escrever diretamente no armazenamento do Azure e necessita de configuração para mover dados para os registos. Também pode enviar dados para o armazenamento do Azure para arquivar e para integração com sistemas externos.  | [Análise de Armazenamento](/rest/api/storageservices/storage-analytics)<br>[Explorador de Servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Explorador de armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
-| Hubs de Eventos | Envie dados para os Hubs de eventos do Azure para transmitir para outros locais. | [Captura para o armazenamento](../../event-hubs/event-hubs-capture-overview.md)  |
-| Azure Monitor para VMs | Monitor do Azure para VMs armazena dados de estado de funcionamento da carga de trabalho num local personalizado que é utilizado pela sua experiência de monitorização no portal do Azure. | [Portal do Azure](../insights/vminsights-overview.md)<br>[Monitor de carga de trabalho REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)<br>[O Azure Resource health REST API](https://docs.microsoft.com/rest/api/resourcehealth/)  |
-| Alertas | Alertas criados pelo Azure Monitor. | [Portal do Azure](alerts-managing-alert-instances.md)<br>[REST API de gestão de alertas](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) |
+| Métricas de Azure Monitor | O banco de dados de série temporal que é otimizado para analisar data com carimbo de hora. | [Metrics Explorer](metrics-getting-started.md)<br>[API de métricas Azure Monitor](/rest/api/monitor/metrics) |
+| Registos do Azure Monitor    | Log Analytics espaço de trabalho baseado no Azure Data Explorer que fornece um avançado mecanismo de análise e uma linguagem de consulta avançada. | [Log Analytics](../log-query/portals.md)<br>[API de Log Analytics](https://dev.loganalytics.io/)<br>[API de Application Insights](https://dev.applicationinsights.io/reference/get-query) |
+| Registo de atividades | Os dados do log de atividades são mais úteis quando enviados para Azure Monitor logs para analisá-los com outros dados, mas também são coletados por conta própria para que possam ser exibidos diretamente no portal do Azure. | [Azure portal](activity-log-view.md#azure-portal)<br>[API de eventos de Azure Monitor](/rest/api/monitor/eventcategories) |
+| Storage do Azure | Algumas fontes de dados serão gravadas diretamente no armazenamento do Azure e exigem configuração para mover dados para logs. Você também pode enviar dados para o armazenamento do Azure para arquivamento e para integração com sistemas externos.  | [Análise de Armazenamento](/rest/api/storageservices/storage-analytics)<br>[Explorador de Servidores](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)<br>[Explorador de Armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) |
+| Hubs de Eventos | Envie dados para os hubs de eventos do Azure para transmiti-los para outros locais. | [Capturar para armazenamento](../../event-hubs/event-hubs-capture-overview.md)  |
+| Azure Monitor para VMs | O Azure Monitor para VMs armazena dados de integridade da carga de trabalho em um local personalizado que é usado por sua experiência de monitoramento no portal do Azure. | [Azure portal](../insights/vminsights-overview.md)<br>[API REST do monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)<br>[API REST do Azure Resource Health](https://docs.microsoft.com/rest/api/resourcehealth/)  |
+| Alertas | Alertas criados por Azure Monitor. | [Azure portal](alerts-managing-alert-instances.md)<br>[API REST de gerenciamento de alertas](https://docs.microsoft.com/rest/api/monitor/alertsmanagement/alerts) |
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte as origens diferentes das [dados de monitorização recolhidos pelo Azure Monitor](data-sources.md).
-- Saiba mais sobre o [tipos de dados recolhidos pelo Azure Monitor](data-platform.md) e como visualizar e analisar estes dados.
+- Consulte as diferentes fontes de [monitoramento de dados coletadas por Azure monitor](data-sources.md).
+- Saiba mais sobre os [tipos de dados de monitoramento coletados por Azure monitor](data-platform.md) e como exibir e analisar esses dados.

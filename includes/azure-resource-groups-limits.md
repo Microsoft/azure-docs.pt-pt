@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1190798b234f9c73e02fda41c03ffa296246be63
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69626384"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975332"
 ---
 | Resource | Limite predefinido | Limite máximo |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "69626384"
 | Comprimento da chave de marca |512 |512 |
 | Comprimento do valor da marca |256 |256 |
 
-<sup>1</sup> Se você atingir o limite de 800 implantações por grupo de recursos, exclua as implantações do histórico que não são mais necessárias. A exclusão de uma entrada do histórico de implantação não afeta os recursos implantados. Você pode excluir entradas do histórico com [AZ Group Deployment Delete](/cli/azure/group/deployment) para CLI do Azure ou [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) no PowerShell.  Para um script do PowerShell que automatiza a exclusão de implantações em um cenário de CI/CD (integração contínua e entrega contínua), consulte [Remove-Deployments. ps1](https://gist.github.com/bmoore-msft/ed33fb940dafb09380174b7fca57651f).
+<sup>1</sup> Se você atingir o limite de 800 implantações por grupo de recursos, exclua as implantações do histórico que não são mais necessárias. A exclusão de uma entrada do histórico de implantação não afeta os recursos implantados. Para obter mais informações, consulte [resolver erro quando a contagem de implantação exceder 800](../articles/azure-resource-manager/deployment-quota-exceeded.md).
 
 #### <a name="template-limits"></a>Limites de modelo
 

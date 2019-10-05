@@ -1,9 +1,9 @@
 ---
-title: Publicar uma aplicação Web para uma VM do Azure a partir do Visual Studio
-description: Publicar uma aplicação ASP.NET Web para uma Máquina Virtual do Azure a partir do Visual Studio
+title: Publicar um aplicativo Web em uma VM do Azure por meio do Visual Studio
+description: Publicar um aplicativo Web ASP.NET em uma máquina virtual do Azure por meio do Visual Studio
 services: virtual-machines-windows
 author: ghogen
-manager: douge
+manager: jillfra
 tags: azure-service-management
 ms.assetid: 70267837-3629-41e0-bb58-2167ac4932b3
 ms.prod: visual-studio-dev15
@@ -13,120 +13,120 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 4b8e3ddf1cf5d61f730ce01a35ee0813b47ad2d2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6e5db9b4e46019aa386057d51d956ff11d90f498
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66305920"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970868"
 ---
-# <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar uma aplicação ASP.NET Web para uma VM do Azure a partir do Visual Studio
+# <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publicar um aplicativo Web ASP.NET em uma VM do Azure por meio do Visual Studio
 
-Este documento descreve como publicar uma aplicação web do ASP.NET para uma máquina virtual do Azure (VM) a utilizar o **máquinas virtuais do Microsoft Azure** funcionalidade de publicação no Visual Studio 2019.  
+Este documento descreve como publicar um aplicativo Web ASP.NET em uma VM (máquina virtual) do Azure usando o recurso de publicação **máquinas virtuais do Microsoft Azure** no Visual Studio 2019.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para usar o Visual Studio para publicar um projeto do ASP.NET para uma VM do Azure, a VM tem de ser corretamente definida.
+Para usar o Visual Studio para publicar um projeto ASP.NET em uma VM do Azure, a VM deve ser configurada corretamente.
 
-- Máquina tem de ser configurada para executar uma aplicação web ASP.NET e WebDeploy instalado.
+- O computador deve ser configurado para executar um aplicativo Web ASP.NET e ter o WebDeploy instalado.
 
-- A VM tem de ter um nome DNS configurado. Para obter mais informações, consulte [criar um nome de domínio completamente qualificado no portal do Azure para uma VM do Windows](portal-create-fqdn.md).
+- A VM deve ter um nome DNS configurado. Para obter mais informações, consulte [criar um nome de domínio totalmente qualificado no portal do Azure para uma VM do Windows](portal-create-fqdn.md).
 
-## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicar a aplicação web ASP.NET para a VM do Azure com o Visual Studio
-A seguinte secção descreve como publicar uma aplicação web ASP.NET existente para uma máquina virtual do Azure.
+## <a name="publish-your-aspnet-web-app-to-the-azure-vm-using-visual-studio"></a>Publicar seu aplicativo Web ASP.NET na VM do Azure usando o Visual Studio
+A seção a seguir descreve como publicar um aplicativo Web ASP.NET existente em uma máquina virtual do Azure.
 
-1. Abra a sua solução de aplicação web no Visual Studio 2019.
-2. Com o botão direito do rato no Explorador de soluções e escolha **publicar...**
+1. Abra sua solução de aplicativo Web no Visual Studio 2019.
+2. Clique com o botão direito do mouse no projeto em Gerenciador de Soluções e escolha **publicar...**
 3. Use a seta à direita da página para percorrer as opções de publicação até encontrar **máquinas virtuais do Microsoft Azure**.  
 
-   ![Publicar Page - seta para a direita]
+   ![Página de publicação-seta para a direita]
 
-4. Selecione o **máquinas virtuais do Microsoft Azure** ícone e selecione **Publish**.
+4. Selecione o ícone de **máquinas virtuais do Microsoft Azure** e selecione **publicar**.
 
-   ![Publicar Page - ícone de Máquina Virtual do Microsoft Azure]
+   ![Publicar página-ícone de máquina virtual Microsoft Azure]
 
-5. Escolha a conta apropriada (com a subscrição do Azure ligada à máquina virtual).  
-   - Se tem sessão iniciada Visual Studio, a lista de conta é preenchida com todas as suas contas autenticadas.  
-   - Se não tiver entrado, ou se a conta de que precisa não estiver listada, escolha "Adicionar uma conta..." e siga as instruções para iniciar sessão.  
+5. Escolha a conta apropriada (com a assinatura do Azure conectada à sua máquina virtual).  
+   - Se você estiver conectado ao Visual Studio, a lista conta será preenchida com todas as suas contas autenticadas.  
+   - Se você não estiver conectado, ou se a conta que você precisa não estiver listada, escolha "adicionar uma conta..." e siga os prompts para fazer logon.  
    ![Seletor de conta do Azure]  
 
-6. Selecione a VM adequada na lista de máquinas de virtuais existentes.
+6. Selecione a VM apropriada na lista de máquinas virtuais existentes.
 
    > [!Note]
-   > Preencher essa lista pode demorar algum tempo.
+   > Preencher essa lista pode levar algum tempo.
 
-   ![Seletor VM do Azure]
+   ![Seletor de VM do Azure]
 
-7. Clique em OK para começar a publicar.
+7. Clique em OK para iniciar a publicação.
 
-8. Quando lhe forem pedidas credenciais, forneça o nome de utilizador e palavra-passe de uma conta de utilizador na VM que esteja configurada com direitos de publicação de destino. Estas credenciais são, normalmente, o nome de utilizador administrador e a palavra-passe utilizada ao criar a VM.  
+8. Quando solicitado a fornecer credenciais, forneça o nome de usuário e a senha de uma conta de utilizador na VM de destino configurada com direitos de publicação. Essas credenciais normalmente são o nome de usuário e a senha do administrador usados ao criar a VM.  
 
-   ![Início de sessão de WebDeploy]
+   ![Logon no WebDeploy]
 
 9. Aceite o certificado de segurança.
 
    ![Erro de certificado]
 
-10. Assista a janela de saída para verificar o progresso da operação de publicação.
+10. Assista à janela de saída para verificar o progresso da operação de publicação.
 
-    ![Janela de saída]
+    ![Janela de Saída]
 
-11. Se publicação for bem sucedida, inicia um browser para abrir o URL do site publicado recentemente.
+11. Se a publicação for bem-sucedida, um navegador será iniciado para abrir a URL do site publicado recentemente.
 
 **Êxito!**
 
-Agora publicou com êxito a aplicação web a uma máquina virtual do Azure.
+Agora você publicou com êxito seu aplicativo Web em uma máquina virtual do Azure.
 
-## <a name="publish-page-options"></a>Página Opções de publicação
+## <a name="publish-page-options"></a>Opções de publicar página
 
-Depois de concluir o Assistente de publicação, a página de publicação é aberta o documento bem com o novo perfil de publicação selecionado.
+Depois de concluir o assistente de publicação, a página de publicação é aberta no documento bem com o novo perfil de publicação selecionado.
 
-### <a name="re-publish"></a>Voltar a publicar
+### <a name="re-publish"></a>Publicar novamente
 
-Para publicar atualizações à sua aplicação web, selecione o **publicar** botão na página de publicação.  
-- Se lhe for pedido, introduza o nome de utilizador e palavra-passe.  
-- Publicação começa de imediato.
+Para publicar atualizações em seu aplicativo Web, selecione o botão **publicar** na página publicar.  
+- Se solicitado, insira o nome de usuário e a senha.  
+- A publicação começa imediatamente.
 
-![Página de publicação - botão publicar]
+![Página publicar – botão publicar]
 
-### <a name="modify-publish-profile-settings"></a>Modificar definições de perfil de publicação
+### <a name="modify-publish-profile-settings"></a>Modificar configurações de perfil de publicação
 
-Para ver e modificar as definições de perfil de publicação, selecione **definições...** .  
+Para exibir e modificar as configurações do perfil de publicação, selecione **configurações...** .  
 
-![Publicar Page - botão Definições]
+![Página publicar – botão Configurações]
 
-As definições de devem ter um aspeto semelhante ao seguinte:  
+Suas configurações devem ter uma aparência semelhante a esta:  
 
-![Definições - página de ligação de publicação]
+![Configurações de publicação – página conexão]
 
-#### <a name="save-user-name-and-password"></a>Guarde o nome de utilizador e palavra-passe
-- Evite fornecer informações de autenticação, sempre que publicar. Para tal, preencher a **nome de utilizador** e **palavra-passe** campos e selecione o **guardar palavra-passe** caixa.
-- Utilize o **validar ligação** botão para confirmar que introduziu as informações corretas.
+#### <a name="save-user-name-and-password"></a>Salvar nome de usuário e senha
+- Evite fornecer informações de autenticação toda vez que publicar. Para fazer isso, preencha os campos **nome de usuário** e **senha** e selecione a caixa **salvar senha** .
+- Use o botão **validar conexão** para confirmar que você inseriu as informações corretas.
 
-#### <a name="deploy-to-clean-web-server"></a>Implementar para limpar o servidor web
+#### <a name="deploy-to-clean-web-server"></a>Implantar no servidor Web limpo
 
-- Se pretender certificar-se de que o servidor web tem uma cópia limpa do aplicativo web após cada carregamento e que não existem outros ficheiros restantes de uma implementação anterior, pode verificar o **remover ficheiros adicionais no destino** caixa de seleção do  **Definições** separador.
+- Se você quiser garantir que o servidor Web tenha uma cópia limpa do aplicativo Web após cada upload e que nenhum outro arquivo seja deixado de uma implantação anterior, marque a caixa de seleção **remover arquivos adicionais no destino** na guia **configurações** .
 
-- Aviso: Publicação com esta definição elimina todos os ficheiros que existem no servidor web (diretório wwwroot). Certifique-se de que sabe o estado da máquina antes de publicar com esta opção ativada. 
+- Aviso: A publicação com essa configuração exclui todos os arquivos existentes no servidor Web (diretório wwwroot). Verifique se você conhece o estado do computador antes de publicar com essa opção habilitada. 
 
-![Definições - página de definições de publicação]
+![Configurações de publicação – página Configurações]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Configurar CI/CD para implantação automatizada para VM do Azure
+### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Configurar CI/CD para implantação automatizada na VM do Azure
 
-Para definir um pipeline de entrega contínua com Pipelines do Azure, veja [implementar uma máquina de Virtual do Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Para configurar um pipeline de entrega contínua com Azure Pipelines, consulte [implantar em uma máquina virtual do Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png
 [VM Overview - DNS Configured]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSConfigured.png
-[Publicar Page - seta para a direita]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
-[Publicar Page - ícone de Máquina Virtual do Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
+[Página de publicação-seta para a direita]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageRightArrow.png
+[Publicar página-ícone de máquina virtual Microsoft Azure]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageMicrosoftAzureVirtualMachineIcon.png
 [Seletor de conta do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectAccount.png
-[Seletor VM do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
-[Início de sessão de WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
+[Seletor de VM do Azure]: ../../../includes/media/publish-web-app-from-visual-studio/ChooseVM-SelectVM.png
+[Logon no WebDeploy]: ../../../includes/media/publish-web-app-from-visual-studio/WebDeployLogin.png
 [Erro de certificado]: ../../../includes/media/publish-web-app-from-visual-studio/CertificateError.png
-[Janela de saída]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
-[Página de publicação - botão publicar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
-[Publicar Page - botão Definições]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
-[Definições - página de ligação de publicação]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
-[Definições - página de definições de publicação]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png
+[Janela de Saída]: ../../../includes/media/publish-web-app-from-visual-studio/OutputWindow.png
+[Página publicar – botão publicar]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPagePublishButton.png
+[Página publicar – botão Configurações]: ../../../includes/media/publish-web-app-from-visual-studio/PublishPageSettingsButton.png
+[Configurações de publicação – página conexão]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsConnectionPage.png
+[Configurações de publicação – página Configurações]: ../../../includes/media/publish-web-app-from-visual-studio/PublishSettingsSettingsPage.png

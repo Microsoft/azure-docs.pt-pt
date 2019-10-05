@@ -1,17 +1,17 @@
 ---
-title: Criar e gerir réplicas de leitura na base de dados do Azure para MySQL
-description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o Portal.
+title: Criar & gerenciar réplicas de leitura (portal do Azure)-banco de dados do Azure para MySQL
+description: Saiba como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o portal do Azure.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309490"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972882"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o portal do Azure
 
@@ -136,6 +136,6 @@ Para excluir um servidor mestre do portal do Azure, use as seguintes etapas:
 
    ![Selecionar intervalo de tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [ler réplicas](concepts-read-replicas.md)

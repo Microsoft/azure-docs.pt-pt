@@ -7,19 +7,19 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: cf04efd8dac3ba4d252701d79c65b1bf56619fe0
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf971d71c2566d91bc5a2490d47521725c62b17d
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968247"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973412"
 ---
 # <a name="deploy-service-fabric-application-with-system-assigned-managed-identity-preview"></a>Implantar Service Fabric aplicativo com identidade gerenciada atribuída pelo sistema (versão prévia)
 
 Para acessar o recurso de identidade gerenciada para aplicativos Service Fabric do Azure, primeiro você deve habilitar o serviço de token de identidade gerenciado no cluster. Esse serviço é responsável pela autenticação de Service Fabric aplicativos usando suas identidades gerenciadas e pela obtenção de tokens de acesso em seu nome. Quando o serviço estiver habilitado, você poderá vê-lo em Service Fabric Explorer na seção **sistema** no painel esquerdo, executando sob o nome **Fabric:/System/ManagedIdentityTokenService** ao lado de outros serviços do sistema.
 
 > [!NOTE] 
-> A implantação de aplicativos Service Fabric com identidades gerenciadas tem suporte a `"2019-06-01-preview"`partir da versão da API. Você também pode usar a mesma versão de API para tipo de aplicativo, versão de tipo de aplicativo e recursos de serviço. O tempo de execução mínimo com suporte Service Fabric é 6,5 CU2.
+> A implantação de aplicativos Service Fabric com identidades gerenciadas tem suporte a partir da versão de API `"2019-06-01-preview"`. Você também pode usar a mesma versão de API para tipo de aplicativo, versão de tipo de aplicativo e recursos de serviço. O tempo de execução mínimo com suporte Service Fabric é 6,5 CU2. No additoin, o ambiente de compilação/pacote também deve ter o SDK do .NET da it em CU2 ou superior
 
 ## <a name="system-assigned-managed-identity"></a>Identidade gerenciada atribuída pelo sistema
 
@@ -47,7 +47,7 @@ Para habilitar o aplicativo com uma identidade gerenciada atribuída pelo sistem
       }
     }
 ```
-Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada e os provedores de recursos de Service Fabric, respectivamente, que esse recurso deve ter uma`system assigned`identidade gerenciada implícita ().
+Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada e os provedores de recursos de Service Fabric, respectivamente, que esse recurso deve ter uma identidade gerenciada (`system assigned`) implícita.
 
 ### <a name="application-and-service-package"></a>Pacote de aplicativo e serviço
 
@@ -76,9 +76,9 @@ Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada 
         </ServiceManifestImport>
       ```
 
-    Esse elemento atribui a identidade do aplicativo ao serviço; sem essa atribuição, o serviço não será capaz de acessar a identidade do aplicativo. No trecho acima, a `SystemAssigned` identidade (que é uma palavra-chave reservada) é mapeada para a definição do serviço sob o nome `WebAdmin`amigável.
+    Esse elemento atribui a identidade do aplicativo ao serviço; sem essa atribuição, o serviço não será capaz de acessar a identidade do aplicativo. No trecho acima, a identidade `SystemAssigned` (que é uma palavra-chave reservada) é mapeada para a definição do serviço sob o nome amigável `WebAdmin`.
 
-3. Atualize o manifesto do serviço para adicionar um elemento **ManagedIdentity** dentro da seção de **recursos** com o nome correspondente ao `ServiceIdentityRef` valor da configuração `IdentityBindingPolicy` da definição no manifesto do aplicativo:
+3. Atualize o manifesto do serviço para adicionar um elemento **ManagedIdentity** dentro da seção de **recursos** com o nome correspondente ao valor da configuração `ServiceIdentityRef` da definição de `IdentityBindingPolicy` no manifesto do aplicativo:
 
     **Manifesto. xml**
 
@@ -90,7 +90,7 @@ Essa propriedade declara (para Azure Resource Manager e a identidade gerenciada 
         </ManagedIdentities>
       </Resources>
     ```
-    Esse é o mapeamento equivalente de uma identidade para um serviço, conforme descrito acima, mas da perspectiva da definição de serviço. A identidade é referenciada aqui por seu nome amigável`WebAdmin`(), conforme declarado no manifesto do aplicativo.
+    Esse é o mapeamento equivalente de uma identidade para um serviço, conforme descrito acima, mas da perspectiva da definição de serviço. A identidade é referenciada aqui por seu nome amigável (`WebAdmin`), conforme declarado no manifesto do aplicativo.
 
 ## <a name="next-steps"></a>Próximos Passos
 * Examinar o [suporte de identidade gerenciada](./concepts-managed-identity.md) no Azure Service Fabric

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: cherylmc
-ms.openlocfilehash: 063ca5307468da90eb905323f6b145dfdb6654fe
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: fa08ea44722b2def684c269c3f9a0a30a4890a12
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959080"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970908"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Sobre as definições de configuração do gateway de VPN
 
@@ -140,7 +140,7 @@ Antes de criar um gateway de VPN, você deve criar uma sub-rede de gateway. A su
 
 Quando cria a sub-rede do gateway, especifica o número de endereços IP que a sub-rede contém. Os endereços IP na sub-rede de gateway são alocados para as VMs de gateway e serviços de gateway. Algumas configurações requerem mais endereços IP do que outras. 
 
-Ao planejar o tamanho da sub-rede do gateway, consulte a documentação da configuração que você planeja criar. Por exemplo, a configuração de gateway ExpressRoute/VPN coexistente requer uma sub-rede de gateway maior do que a maioria das outras configurações. Além disso, talvez você queira garantir que sua sub-rede de gateway contenha endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede de gateway tão pequena quanto/29, recomendamos que você crie uma sub-rede de gateway de/28 ou maior (/28,/27,/26 etc.). Isso irá acomodar a maioria das configurações.
+Ao planejar o tamanho da sub-rede do gateway, consulte a documentação da configuração que você planeja criar. Por exemplo, a configuração de gateway ExpressRoute/VPN coexistente requer uma sub-rede de gateway maior do que a maioria das outras configurações. Além disso, talvez você queira garantir que sua sub-rede de gateway contenha endereços IP suficientes para acomodar possíveis configurações adicionais futuras. Embora seja possível criar uma sub-rede de gateway tão pequena quanto/29, recomendamos que você crie uma sub-rede de gateway de/27 ou maior (/27,/26, etc.) se tiver o espaço de endereço disponível para fazer isso. Isso irá acomodar a maioria das configurações.
 
 O exemplo do PowerShell do Gerenciador de recursos a seguir mostra uma sub-rede de gateway chamada GatewaySubnet. Você pode ver a notação CIDR especifica a/27, que permite endereços IP suficientes para a maioria das configurações que existem atualmente.
 

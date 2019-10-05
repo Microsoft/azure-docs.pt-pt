@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: overview
 ms.date: 09/27/2019
-ms.openlocfilehash: e8f0eeabd4e869b3812f2d690d2665a8ec31cd14
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: eef8ddf31f038afffddfa6b818c266c1cb4a3d44
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950152"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973678"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Quais ferramentas estão incluídas no Máquina Virtual de Ciência de Dados do Azure?
 
@@ -81,6 +81,9 @@ A seguir, incluímos uma lista atualizada de ferramentas incluídas no Máquina 
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Horovod](https://github.com/horovod/horovod) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (0.16.1) | [Horovod DSVM](./dsvm-deep-learning-ai-frameworks.md#horovod) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Keras](https://keras.io) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> 2\.2.4 | [Keras DSVM](./dsvm-deep-learning-ai-frameworks.md#keras) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Microsoft cognitive Toolkit (CNTK)](https://docs.microsoft.com/en-us/cognitive-toolkit/) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> 2\.5.1 | [CNTK DSVM](./dsvm-deep-learning-ai-frameworks.md#microsoft-cognitive-toolkit-cntk) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MXNet](https://mxnet.apache.org/) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> 1\.3.0 | [MXNet DSVM](./dsvm-deep-learning-ai-frameworks.md#mxnet) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MXNet servidor de modelo](https://github.com/awslabs/mxnet-model-server#quick-start) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br> 1\.0.1 | [Servidor de modelo MXNet no DSVM](./dsvm-deep-learning-ai-frameworks.md#mxnet-model-server) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [NVIDIA System Management Interface (NVIDIA-SMI)](https://developer.nvidia.com/nvidia-system-management-interface) |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span></br>| [NVIDIA-SMI no DSVM](./dsvm-deep-learning-ai-frameworks.md#nvidia-system-management-interface-nvidia-smi) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [PyTorch](https://pytorch.org) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> 1\.2.0 | [PyTorch DSVM](./dsvm-deep-learning-ai-frameworks.md#pytorch) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorFlow](https://www.tensorflow.org) |<span class='green-check'>&#9989;</span></br> (1,13) |<span class='green-check'>&#9989;</span></br> (1,13) | [TensorFlow DSVM](./dsvm-deep-learning-ai-frameworks.md#tensorflow) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorFlow servindo](https://www.tensorflow.org/tfx/guide/serving) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> 1\.12.0 | [TensorFlow servindo na DSVM](./dsvm-deep-learning-ai-frameworks.md#tensorflow-serving) |

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 08/02/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: dbfa7ff6e30b64fe1025114590c1b1a8824e6cdf
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 6c59513c2c84b5f280e8200411b53848768eaf29
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780152"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970798"
 ---
 1. No portal, clique em **Criar um recurso**.
 2. Na caixa de pesquisa, escreva **Gateway de rede Local** e, em seguida, prima **Enter** para procurar. Isto irá devolver uma lista de resultados. Clique em **Gateway de rede Local** e, em seguida, clique no botão **Criar** para abrir a página **Criar gateway de rede local**.
@@ -28,6 +28,6 @@ ms.locfileid: "68780152"
    - **Definir configurações de BGP:** Use somente ao configurar o BGP. Caso contrário, não selecione esta opção.
    - **Scriçõe** Verifique se a assinatura correta está sendo exibida.
    - **Grupo de recursos:** Selecione o grupo de recursos que você deseja usar. Pode criar um novo grupo de recursos ou selecionar um que já tenha criado.
-   - **Local** Selecione o local em que esse objeto será criado. Poderá selecionar a mesma localização em que a VNet se encontra, mas não tem obrigatoriamente de o fazer.
+   - **Localização:** O local é o mesmo que a **região** em outras configurações. Selecione o local em que esse objeto será criado. Poderá selecionar a mesma localização em que a VNet se encontra, mas não tem obrigatoriamente de o fazer.
 
 4. Quando tiver terminado de especificar os valores, clique no botão **Criar** na parte inferior da página para criar o gateway de rede local.

@@ -6,10 +6,9 @@ metadata:
   description: 'Saiba como criar, executar e partilhar blocos de notas Jupyter através do serviço alojado do Azure Notebooks.'
   services: notebooks
   author: kraigb
-  manager: douge
+  manager: barbkess
   ms.service: azure-notebooks
   ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 12/04/2018
   ms.author: kraigb

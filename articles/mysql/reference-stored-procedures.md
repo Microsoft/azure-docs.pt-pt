@@ -1,19 +1,19 @@
 ---
-title: Banco de dados do Azure para procedimentos armazenados do MySQL
-description: Este artigo apresenta procedimentos armazenados específicos para o banco de dados do Azure para MySQL.
+title: Procedimentos armazenados de gerenciamento do banco de dados do Azure para MySQL
+description: Saiba quais procedimentos armazenados no banco de dados do Azure para MySQL são úteis para ajudá-lo a configurar a replicação de dados, definir o fuso horário e eliminar as consultas.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.openlocfilehash: f01a0bf68e510133058dc0075f27cfcf6241c7a8
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 34598278ac7f432c5976de86eaf5dcf477c7e81a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156179"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970329"
 ---
-# <a name="azure-database-for-mysql-stored-procedures"></a>Banco de dados do Azure para procedimentos armazenados do MySQL
+# <a name="azure-database-for-mysql-management-stored-procedures"></a>Procedimentos armazenados de gerenciamento do banco de dados do Azure para MySQL
 
 Os procedimentos armazenados estão disponíveis no banco de dados do Azure para servidores MySQL para ajudar a gerenciar seu servidor MySQL. Isso inclui o gerenciamento de conexões do seu servidor, consultas e configuração do Replicação de Dados.  
 
@@ -39,9 +39,9 @@ Os procedimentos armazenados a seguir estão disponíveis no banco de dados do A
 
 |**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Nota de uso**|
 |-----|-----|-----|-----|
-|*MySQL. AZ _Kill*|processlist_id|N/A|Equivalente a [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
-|*MySQL. AZ _kill_query*|processlist_id|N/A|Equivalente a [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Command. Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|
-|*MySQL. AZ _load_timezone*|N/A|N/A|Carrega tabelas de fuso horário para permitir `time_zone` que o parâmetro seja definido para valores nomeados (ex. "EUA/Pacífico").|
+|*MySQL. AZ _Kill*|processlist_id|N/A|Equivalente ao comando [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) . Encerrará a conexão associada ao processlist_id fornecido depois de encerrar qualquer instrução que a conexão estiver executando.|
+|*MySQL. AZ _kill_query*|processlist_id|N/A|Equivalente ao comando [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) . Encerrará a instrução que a conexão está executando no momento. Deixa a própria conexão ativa.|
+|*MySQL. AZ _load_timezone*|N/A|N/A|Carrega tabelas de fuso horário para permitir que o parâmetro `time_zone` seja definido para valores nomeados (ex.: "EUA/Pacífico").|
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba como configurar [replicação de dados](howto-data-in-replication.md)

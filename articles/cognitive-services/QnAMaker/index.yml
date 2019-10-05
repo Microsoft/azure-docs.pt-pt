@@ -11,12 +11,12 @@ metadata:
   services: cognitive-services
   title: Documentação do Criador de FAQ
   description: O Criador de FAQ é um serviço de API com base na cloud, que cria uma camada de conversação, perguntas e respostas com os seus dados. O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos. O serviço Criador de FAQ responde às perguntas em linguagem natural dos seus utilizadores, correspondendo-as à melhor resposta possível de FAQ da sua Base de Dados de Conhecimento.
-  ms.openlocfilehash: 8e47211194be3653c3d0ba060b573bad446162ba
-  ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+  ms.openlocfilehash: 091d2007d115c5e08904af6081d0f67b2eb60071
+  ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71155095"
+  ms.lasthandoff: 10/05/2019
+  ms.locfileid: "71971455"
 landingContent:
 - title: Acerca do Criador de FAQ
   linkLists:
@@ -26,6 +26,10 @@ landingContent:
       url: overview/overview.md
     - text: Portal do Criador de FAQ
       url: https://www.qnamaker.ai
+  - linkListType: whats-new
+    links:
+    - text: Novidades
+      url: whats-new.md
   - linkListType: concept
     links:
     - text: Ciclo de vida de desenvolvimento
@@ -45,7 +49,7 @@ landingContent:
   - linkListType: get-started
     links:
     - text: 'Início Rápido: Criar uma nova base de dados de conhecimento'
-      url: how-to/create-knowledge-base.md
+      url: quickstarts/create-publish-knowledge-base.md
     - text: 'Início Rápido: Adicionar perguntas e respostas'
       url: quickstarts/add-question-metadata-portal.md
   - linkListType: how-to-guide

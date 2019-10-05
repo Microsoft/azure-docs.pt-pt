@@ -10,12 +10,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: conceptual
 ms.date: 10/1/2019
-ms.openlocfilehash: fd38bf1f7741c4d610ef43a12d90533d4ac7b703
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: db95788b0f2c041157bdc16000d0328c042e86d5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802418"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973698"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Estruturas de aprendizado profundo e de ia para o Azure VM de Ciência de Dados
 Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
@@ -26,8 +26,8 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | ------------- | ------------- |
 | Versão (ões) com suporte | |
 | Edições DSVM com suporte      | Linux (Ubuntu)     |
-| Como é ele configurado / instalado no DSVM?  | Caffe está instalado no `/opt/caffe`.   Os exemplos estão `/opt/caffe/examples`em.|
-| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do browser abre-se com blocos de notas de exemplo. Os binários são instalados no /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,5, que é ativado por padrão. Para alternar para o Python 2,7, `source activate root` execute para alternar para o ambiente Anaconda.|    
+| Como é ele configurado / instalado no DSVM?  | Caffe está instalado no `/opt/caffe`.   Os exemplos estão em `/opt/caffe/examples`.|
+| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do browser abre-se com blocos de notas de exemplo. Os binários são instalados no /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,5, que é ativado por padrão. Para alternar para o Python 2,7, execute `source activate root` para alternar para o ambiente Anaconda.|    
 
 ## <a name="caffe2httpsgithubcomcaffe2caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
@@ -83,6 +83,33 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Edições DSVM com suporte      | Windows e Linux   |
 | Como é ele configurado / instalado no DSVM?  | O CNTK é instalado no Python 3,6 no [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) e no Python 3,5 no [Linux](./dsvm-languages.md#python-linux-edition)) |
 | Como executá-lo      | Componentes Ative o ambiente correto e execute o Python. <br/>Jupyter Conecte-se a [Jupyter](provision-vm.md) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório CNTK para obter exemplos. |
+
+## <a name="mxnethttpsmxnetapacheorg"></a>[MXNet](https://mxnet.apache.org/)
+|    |           |
+| ------------- | ------------- |
+| Versão (ões) com suporte | 1.3.0 |
+| Edições DSVM com suporte      | Windows e Linux   |
+| Como é ele configurado / instalado no DSVM?  | O MXNet é instalado no `C:\dsvm\tools\mxnet` no Windows e no `/dsvm/tools/mxnet` no Ubuntu. As associações do Python são instaladas no Python 3,6 no [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) e no Python 3,5 no [Linux](./dsvm-languages.md#python-linux-edition)) as associações do R também estão incluídas no Ubuntu DSVM. |
+| Como executá-lo      | Componentes Ative o ambiente Conda correto e, em seguida, execute `import mxnet`. <br/>Jupyter Conecte-se ao [Jupyter](provision-vm.md#access-the-dsvm) ou [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, abra o diretório `mxnet` para obter exemplos. |
+
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[Servidor de modelo MXNet](https://github.com/awslabs/mxnet-model-server#quick-start)
+
+|    |           |
+| ------------- | ------------- |
+| Versão (ões) com suporte | 1.0.1 |
+| Edições DSVM com suporte      | Windows e Linux   |
+| Como é ele configurado / instalado no DSVM?  | O MXNet Model Server está instalado no Python 3,6 no [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition) e no Python 3,5 no [Linux](./dsvm-languages.md#python-linux-edition)) |
+| Como executá-lo      | Componentes Execute `sudo systemctl stop jupyterhub` para interromper o serviço JupyterHub primeiro, pois ambos escutam na mesma porta. Em seguida, ative o ambiente Conda correto e execute `mxnet-model-server --start --models squeezenet=https://s3.amazonaws.com/model-server/model_archive_1.0/squeezenet_v1.1.mar` |
+
+## <a name="nvidia-system-management-interface-nvidia-smihttpsdevelopernvidiacomnvidia-system-management-interface"></a>[Interface de gerenciamento do sistema NVidia (NVIDIA-SMI)](https://developer.nvidia.com/nvidia-system-management-interface)
+
+|    |           |
+| ------------- | ------------- |
+| Versão (ões) com suporte |  |
+| Edições DSVM com suporte      | Windows e Linux   |
+| Para quê? | Ferramenta NVIDIA para consultar a atividade GPU |
+| Como é ele configurado / instalado no DSVM?  | `nvidia-smi` está no caminho do sistema. |
+| Como executá-lo      | Em uma máquina virtual **com GPU**, abra um prompt de comando (no Windows) ou um terminal (no Linux) e execute `nvidia-smi`. |
 
 ## <a name="pytorchhttpspytorchorg"></a>[PyTorch](https://pytorch.org/)
 

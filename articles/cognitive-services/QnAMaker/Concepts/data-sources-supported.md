@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1a9f3eb0ea79a0cd79850e721d081b00dc582a31
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4bd1386c68f3173c19b282c1e01ecff545c4bcd7
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695284"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972054"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origens de dados para o conteúdo de QnA Maker
 
@@ -30,13 +30,13 @@ A tabela abaixo resume os tipos de conteúdo e formatos de arquivo que são supo
 |Tipo de Fonte|Tipo de Conteúdo| Exemplos|
 |--|--|--|
 |URL|FAQs<br> (Simples, com seções ou com uma home page de tópicos)<br>Páginas de suporte <br> (Artigos de instruções de página única, artigos de solução de problemas etc.)|[Perguntas frequentes simples](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[Perguntas frequentes com links](https://www.microsoft.com/software-download/faq),<br> [Página de perguntas frequentes com tópicos](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[Artigo de suporte](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
-|PDF / DOC|FAQs<br> Manual do produto,<br> folhetos<br> Documentos<br> Política de panfleto,<br> Guia de suporte,<br> QnA estruturado,<br> Diante.|[Estruturado QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual de produto de exemplo. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo de semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo White Paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Exemplo de multi-Turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
+|PDF / DOC|FAQs<br> Manual do produto,<br> Folhetos<br> Documentos<br> Política de panfleto,<br> Guia de suporte,<br> QnA estruturado,<br> diante.|[Estruturado QnA. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Manual de produto de exemplo. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Exemplo de semi-Structured. doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Exemplo White Paper. pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf),<br>[Exemplo de multi-Turn. docx](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)|
 |\* Excel|Ficheiro de QnA estruturado<br> (incluindo RTF, suporte a HTML)|[Exemplo QnA FAQ.xls](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/QnA%20Maker%20Sample%20FAQ.xlsx)|
 |\* TXT/TSV|Ficheiro de QnA estruturado|[Exemplo chit-chat.tsv](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/Scenario_Responses_Friendly.tsv)|
 
-Os **arquivos TSV e XLS**, das bases de dados de conhecimento exportadas, só podem ser usados pela importação dos arquivos da página **configurações** no portal de QnA Maker. Eles não podem ser usados como fontes de dados durante a criação da base de conhecimento ou no recurso Adicionar arquivo ou URL na página **configurações** . 
+### <a name="import-and-export-knowledge-base"></a>Importar e exportar base de dados de conhecimento
 
-Saiba mais sobre como usar [documentos com várias]()transformações. 
+Os **arquivos TSV e XLS**, das bases de dados de conhecimento exportadas, só podem ser usados pela importação dos arquivos da página **configurações** no portal de QnA Maker. Eles não podem ser usados como fontes de dados durante a criação da base de conhecimento ou no recurso **+ Adicionar arquivo** ou **+ Adicionar URL** na página **configurações** . 
 
 ## <a name="data-source-locations"></a>Localizações de origem de dados
 
@@ -193,12 +193,12 @@ A seguir está a lista de formatos de redução que você pode usar em QnA Maker
 |Objetivo|Formato|Redução de exemplo|Composição<br>conforme exibido no bot de chat|
 |--|--|--|--|
 Uma nova linha entre duas frases.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![Formatar nova linha entre duas frases](../media/qnamaker-concepts-datasources/format-newline.png)|
-|Cabeçalhos de H1 a H6, o número de `#` denota o cabeçalho. 1 `#` é o H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![Formatar com cabeçalhos de redução](../media/qnamaker-concepts-datasources/format-headers.png)<br>![Formatar com cabeçalhos de redução H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Cabeçalhos de H1 a H6, o número de `#` denota qual cabeçalho. 1 `#` é o H1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![Formatar com cabeçalhos de redução](../media/qnamaker-concepts-datasources/format-headers.png)<br>![Formatar com cabeçalhos de redução H1 a H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
 |Itálico |`*text*`|`How do I create a bot with *QnA Maker*?`|![Formatar com itálico](../media/qnamaker-concepts-datasources/format-italics.png)|
 |Cadeia de caracteres (negrito)|`**text**`|`How do I create a bot with **QnA Maker**?`|![Formatar com marcação forte para negrito](../media/qnamaker-concepts-datasources/format-strong.png)|
 |URL para o link|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![formato da URL (hiperlink)](../media/qnamaker-concepts-datasources/format-url.png)|
 |\* URL para imagem pública|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![formato da URL da imagem pública ](../media/qnamaker-concepts-datasources/format-image-url.png)|
-|Rasurado|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato de tachado](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Risca|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![formato de tachado](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |Negrito e itálico|`***text***`|`How can I create a ***QnA Maker*** bot?`|![formato para negrito e itálico](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |URL em negrito para o link|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![formato para URL em negrito](../media/qnamaker-concepts-datasources/format-bold-url.png)|
 |URL de itálico para o link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![formato para URL de itálico](../media/qnamaker-concepts-datasources/format-url-italics.png)|
@@ -213,10 +213,10 @@ Se você deseja adicionar conteúdo usando atualizar/substituir APIs da base de 
 
 | Preservar HTML  | Representação na solicitação de API  | Representação em KB |
 |-----------|---------|-------------------------|
-| Sim | \&lt; br\&gt; | &lt;br&gt; |
-| Sim | \&lt; H3\&gt; header\&lt;/H3\&gt; | &lt;/H3&gt;de&lt;cabeçalho H3&gt; |
+| Sim | \&LT; br @ no__t-1gt; | &lt;br @ no__t-1 |
+| Sim | \&LT; H3 @ no__t-1gt; header @ no__t-2LT;/H3 @ no__t-3GT; | &lt;h3 @ no__t-1header @ no__t-2/H3 @ no__t-3 |
 
-Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar a barra invertida, por exemplo\\:\\'\\r\\n '\\e ' T'\\
+Além disso, CR LF (\r\n) são convertidas em \n no KB. A LF (\n) é mantida como está. Se você quiser escapar qualquer sequência de escape como um \t ou \n, poderá usar uma barra invertida, por exemplo: ' \\ @ no__t-1R @ no__t-2 @ no__t-3N ' e ' \\ @ no__t-5T '
 
 ## <a name="editing-your-knowledge-base-locally"></a>Editando sua base de dados de conhecimento localmente
 

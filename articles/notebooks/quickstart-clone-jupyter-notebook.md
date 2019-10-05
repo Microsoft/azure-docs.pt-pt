@@ -4,21 +4,20 @@ description: Clonar um bloco de notas do Jupyter partir de um repositório do Gi
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e180192ed8375e00464ed9ec96080cde10295e5c
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: ed239c470a49fc045bd436668f83dff32eac3a66
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754047"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970126"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Início rápido: Clonar um bloco de notas
 
@@ -34,19 +33,19 @@ A clonagem, cria uma cópia de um bloco de notas do GitHub na sua conta de bloco
 
     ![Meu link de projetos na parte superior da janela do browser](media/quickstarts/my-projects-link.png)
 
-1. Sobre o **meus projetos** página, selecione o botão de seta para cima (atalho de teclado: U; o botão aparece como **carregar repositório do GitHub** quando a janela do navegador é amplo o bastante):
+1. Na página **meus projetos** , selecione o botão de seta para cima (atalho de teclado: T o botão aparece como **carregar o repositório GitHub** quando a janela do navegador é grande o suficiente):
 
-    ![Carregar o comando de repositório do GitHub na página meus projetos](media/quickstarts/upload-github-repo-command.png)
+    ![Comando carregar repositório do GitHub na página meus projetos](media/quickstarts/upload-github-repo-command.png)
 
-1. Na **carregar repositório do GitHub** que aparece, introduza ou defina os seguintes detalhes, em seguida, selecione **importação**:
+1. No **repositório GitHub de upload** que aparece, insira ou defina os seguintes detalhes e, em seguida, selecione **importar**:
 
-   - **Repositório do GitHub**: Microsoft/cognitivos-services-blocos de notas (este nome clona os blocos de notas do Jupyter para os serviços cognitivos do Azure no [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **Repositório GitHub**: Microsoft/cognitiva-Services-notebooks (esse nome clona os notebooks Jupyter para serviços cognitivas do Azure em [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Clonar recursivamente**: (limpo)
-   - **Nome do projeto**: Clone de serviços cognitivos
+   - **Nome do projeto**: Clone de serviços cognitivas
    - **ID do projeto**: clone de serviços cognitivos
    - **Público**: (limpo)
 
-     ![Carregar o pop-up de repositório do GitHub para recolher informações do repositório](media/quickstarts/upload-github-repo-popup.png)
+     ![Carregar pop-up do repositório do GitHub para coletar informações do repositório](media/quickstarts/upload-github-repo-popup.png)
 
 1. Seja paciente, enquanto o processo for concluído; um repositório de clonagem pode demorar alguns minutos.
 

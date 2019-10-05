@@ -1,6 +1,6 @@
 ---
-title: Utilize as máquinas de virtuais de ciência de dados do Azure
-description: Ligue-se para uma Máquina Virtual do Azure de ciência de dados (DSVM) para expandir o poder de computação disponível para blocos de notas do Azure.
+title: Usar máquinas virtuais de ciência de dados do Azure
+description: Conecte-se a uma Máquina Virtual de Ciência de Dados do Azure (DSVM) para estender a capacidade de computação disponível para Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: getroyer
@@ -9,65 +9,64 @@ ms.assetid: 0ccc2529-e17f-4221-b7c7-9496d6a731cc
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f06475708adaf1324eedbd8e315fe4d731339be
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441196"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970107"
 ---
-# <a name="use-azure-data-science-virtual-machines"></a>Utilize as máquinas de virtuais de ciência de dados do Azure
+# <a name="use-azure-data-science-virtual-machines"></a>Usar máquinas virtuais de ciência de dados do Azure
 
-Por predefinição, os projetos de executar no **computação gratuita** escalão, o que está limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Pode ignorar estas limitações ao utilizar uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Para esse fim, a melhor opção é uma Máquina Virtual de ciência de dados do Azure (DSVM) com o **Máquina Virtual de ciência de dados para Linux (Ubuntu)** imagem. Tal uma DSVM vem pré-configurada com tudo o que precisa para blocos de notas do Azure e é apresentado automaticamente no **executar** na lista pendente em blocos de notas do Azure.
+Por padrão, os projetos são executados na camada de **computação gratuita** , que é limitada a 4 GB de memória e 1 GB de dados para evitar abusos. Você pode ignorar essas limitações usando uma máquina virtual diferente que você provisionou em uma assinatura do Azure. Para essa finalidade, a melhor opção é uma Máquina Virtual de Ciência de Dados do Azure (DSVM) usando a imagem do **máquina virtual de ciência de dados para Linux (Ubuntu)** . Tal DSVM vem pré-configurado com tudo o que você precisa para Azure Notebooks e aparece automaticamente na lista suspensa **executar** no Azure notebooks.
 
 > [!Note]
-> Blocos de notas do Azure só é suportada em DSVMs criadas com a imagem de Linux Ubuntu on. Blocos de notas não são suportados nas imagens do Windows 2012, Windows 2016 ou CentOS do Linux.
+> Só há suporte para Azure Notebooks no DSVMs criado com a imagem do Linux Ubuntu. Não há suporte para blocos de anotações em imagens do Windows 2012, do Windows 2016 ou do Linux CentOS.
 
-## <a name="create-a-dsvm-instance"></a>Criar uma instância DSVM
+## <a name="create-a-dsvm-instance"></a>Criar uma instância do DSVM
 
-Para criar uma nova instância DSVM, siga as instruções [criar uma VM de ciência de dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Para obter mais informações, incluindo os detalhes dos preços, consulte [máquinas de virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Para criar uma nova instância do DSVM, siga as instruções em [criar um VM de ciência de dados do Ubuntu](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Para obter mais informações, incluindo detalhes de preços, consulte [máquinas virtuais de ciência de dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Ligar a DSVM
 
-Assim que for criado a DSVM, selecione o **executar** na lista pendente nos blocos de notas do Azure dashboard do projeto e selecione a instância DSVM apropriada. A lista pendente mostra instâncias DSVM se as condições seguintes forem verdadeiras:
+Quando você tiver criado o DSVM, selecione a lista suspensa **executar** no painel Azure notebooks projeto e selecione a instância DSVM apropriada. A lista suspensa mostra instâncias de DSVM se as seguintes condições forem verdadeiras:
 
-- Tem sessão iniciada em blocos de notas do Azure com uma conta que utiliza o Azure Active Directory (AAD), como uma conta da empresa.
-- Sua conta está ligada a uma subscrição do Azure.
-- Tiver uma ou mais máquinas virtuais nessa subscrição, com, pelo menos, acesso de leitor, que utiliza a máquina de Virtual de ciência de dados de imagem do Linux (Ubuntu).)
+- Você está conectado ao Azure Notebooks com uma conta que usa o AAD (Azure Active Directory), como uma conta da empresa.
+- Sua conta está conectada a uma assinatura do Azure.
+- Você tem uma ou mais máquinas virtuais nessa assinatura, com pelo menos acesso de leitor, que usa a imagem do Máquina Virtual de Ciência de Dados para Linux (Ubuntu).)
 
-![Instâncias de Máquina Virtual de ciência de dados na lista pendente no dashboard do projeto](media/project-compute-tier-dsvm.png)
+![Máquina Virtual de Ciência de Dados instâncias na lista suspensa no painel do projeto](media/project-compute-tier-dsvm.png)
 
-Quando seleciona uma instância DSVM, blocos de notas do Azure pode solicitar-lhe as credenciais de máquina específica que utilizou quando criou a VM.
+Quando você seleciona uma instância de DSVM, Azure Notebooks pode solicitar as credenciais de computador específicas usadas quando você criou a VM.
 
-Se qualquer uma das condições não forem cumpridas, ainda pode ligar ao DSVM. Na lista pendente, selecione o **computação direto** opção, que pede-lhe um nome (para mostrar na lista), endereço IP da VM e porta (normalmente, a porta predefinida para o qual escuta JupyterHub, 8000) e as credenciais VM:
+Se qualquer uma das condições não for atendida, você ainda poderá se conectar ao DSVM. Na lista suspensa, selecione a opção de **computação direta** , que solicita um nome (para mostrar na lista), o endereço IP e a porta da VM (geralmente 8000, a porta padrão para a qual o JupyterHub escuta) e as credenciais da VM:
 
-![Linha de comandos para recolher informações do servidor para a opção de computação direto](media/project-compute-tier-direct.png)
+![Solicitar a coleta de informações do servidor para a opção de computação direta](media/project-compute-tier-direct.png)
 
-Obter estes valores a partir da página da DSVM no portal do Azure.
+Você obtém esses valores da página DSVM no portal do Azure.
 
-## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Aceder a ficheiros de blocos de notas do Azure da DSVM
+## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Acessando Azure Notebooks arquivos do DSVM
 
-Acesso do sistema de ficheiros é suportada para versões DSVM 19.06.15 ou posterior. Para verificar a versão, primeiro ligar à sua DSVM através de SSH, em seguida, execute o seguinte comando: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (tem de utilizar o endereço IP exato mostrado aqui). O número de versão é mostrado no resultado para "versão".
+O acesso ao sistema de arquivos tem suporte para DSVM versões 19.06.15 ou posteriores. Para verificar a versão, primeiro conecte-se ao seu DSVM via SSH e execute o seguinte comando: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (você deve usar o endereço IP exato mostrado aqui). O número de versão é mostrado na saída de "Version".
 
-Para preservar a paridade de caminhos de arquivo com o **computação gratuita** escalão, é possível apenas abrir um projeto ao mesmo tempo numa DSVM do. Para abrir um novo projeto, tem de encerrar o projeto aberto pela primeira vez.
+Para preservar a paridade de caminhos de arquivo com a camada de **computação gratuita** , você pode abrir apenas um projeto por vez em um DSVM. Para abrir um novo projeto, você deve desligar primeiro o projeto aberto.
 
-Quando um projeto é executado numa VM, os ficheiros estão montados no diretório raiz do servidor do Jupyter (o diretório mostrado na JupyterHub), substituindo os arquivos de blocos de notas do Azure padrão. Quando encerrar a VM com o **encerramento** botão do bloco de notas da interface do Usuário, blocos de notas do Azure restaura os arquivos padrão.
+Quando um projeto é executado em uma VM, os arquivos são montados no diretório raiz do servidor Jupyter (o diretório mostrado em JupyterHub), substituindo os arquivos de Azure Notebooks padrão. Quando você desliga a VM usando o botão de **desligamento** na interface do usuário do notebook, Azure notebooks restaura os arquivos padrão.
 
-![Botão de encerramento em blocos de notas do Azure](media/shutdown.png)
+![Botão de desligamento no Azure Notebooks](media/shutdown.png)
 
-## <a name="create-new-dsvm-users"></a>Criar novos utilizadores DSVM
+## <a name="create-new-dsvm-users"></a>Criar novos usuários do DSVM
 
-Se vários usuários compartilham uma DSVM, pode evitar o bloqueio entre si através da criação e utilização de um utilizador DSVM para cada utilizador de bloco de notas:
+Se vários usuários compartilharem um DSVM, você poderá evitar o bloqueio uns aos outros criando e usando um usuário do DSVM para cada usuário do notebook:
 
-1. Sobre o [Portal do Azure](https://portal.azure.com), navegue até à sua máquina virtual.
-1. Sob **suporte + resolução de problemas** na margem esquerda, selecione **Repor palavra-passe**.
-1. Introduza um novo nome de utilizador e palavra-passe e selecione **atualização**. (Nomes de utilizador existentes não são afetados.)
-1. Repita o passo anterior para os usuários.
+1. No [portal do Azure](https://portal.azure.com), navegue até sua máquina virtual.
+1. Em **suporte + solução de problemas** na margem esquerda, selecione **Redefinir senha**.
+1. Insira um novo nome de usuário e senha e selecione **Atualizar**. (Nomes de já existentes não são afetados.)
+1. Repita a etapa anterior para quaisquer usuários adicionais.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as DSVMs no [introdução ao Azure dados máquinas virtuais de ciência](/azure/machine-learning/data-science-virtual-machine/overview).
+Saiba mais sobre o DSVMs na [introdução às máquinas virtuais de ciência de dados do Azure](/azure/machine-learning/data-science-virtual-machine/overview).

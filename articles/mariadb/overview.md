@@ -1,18 +1,18 @@
 ---
 title: Descrição geral do serviço de base de dados relacional da Azure Database for MariaDB
-description: Descrição geral do serviço de base de dados relacional da Azure Database for MariaDB.
+description: Saiba mais sobre o banco de dados do Azure para o serviço MariaDB, um serviço de banco de dados relacional no Microsoft Cloud baseado no MySQL Community Edition.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 08/13/2019
-ms.openlocfilehash: 20f6ff518daae71856446415099ae4cb095ff728
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 2a23cf4edef268c4690806117b3dac588848a420
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013616"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973486"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é a Azure Database for MariaDB?
 
@@ -68,7 +68,7 @@ Também pode utilizar os seguintes pontos de contacto:
 - Para corrigir um problema na sua conta, [crie um pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através nos [Fóruns de Comentários do Azure](https://feedback.azure.com/forums/915439-azure-database-for-mariadb).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que já leu uma introdução ao Azure Database for MariaDB, está pronto para:
 - Veja a página de [preços](https://azure.microsoft.com/pricing/details/mariadb/) para ver as comparações de preços e as calculadoras. 

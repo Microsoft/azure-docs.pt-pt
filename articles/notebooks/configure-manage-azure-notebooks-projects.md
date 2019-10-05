@@ -4,40 +4,39 @@ description: Como gerir metadados de projeto, arquivos de projeto, passos de con
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596737"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973135"
 ---
 # <a name="manage-and-configure-projects"></a>Gerir e configurar projetos
 
 Um projeto em blocos de notas do Azure é, essencialmente, uma configuração da máquina de virtual de Linux subjacente no qual executar blocos de notas do Jupyter, juntamente com uma pasta de ficheiros e metadados descritivos. Dashboard do projeto em blocos de notas do Azure permite-lhe gerir os ficheiros e caso contrário, configure características do projeto:
 
-- A escala de computação em que o projeto é executado, que pode ser o escalão gratuito ou de uma máquina virtual do Azure.
-- Metadados de projeto, que incluem um nome, descrição, um identificador que é usado quando o projeto de partilha e se o projeto é pública ou privada.
-- Bloco de notas do projeto, dados e outros ficheiros, o que pode gerir, como qualquer outro sistema de ficheiros.
-- Ambiente de um projeto, que gere através de scripts de inicialização ou diretamente por meio de terminal.
-- Registos, o que pode aceder através do terminal.
+- A camada de computação na qual o projeto é executado, que pode ser a camada gratuita ou uma máquina virtual do Azure.
+- Metadados do projeto, que incluem um nome, uma descrição, um identificador que é usado ao compartilhar o projeto e se o projeto é público ou privado.
+- O bloco de anotações, os dados e outros arquivos do projeto, que você gerencia como qualquer outro sistema de arquivos.
+- O ambiente de um projeto, que você gerencia por meio dos scripts de inicialização ou diretamente por meio do terminal.
+- Logs, que você acessa por meio do terminal.
 
 > [!Note]
-> As funcionalidades de gestão e configuração descritas aqui só estão disponíveis para o proprietário do projeto que criou o projeto inicialmente. No entanto, pode, clonar o projeto para a sua própria conta, caso em que se tornar o proprietário e pode configurar o projeto conforme pretendido.
+> Os recursos de gerenciamento e configuração descritos aqui estão disponíveis apenas para o proprietário do projeto que criou o projeto inicialmente. No entanto, você pode clonar o projeto em sua própria conta, caso em que você se torna o proprietário e pode configurar o projeto conforme desejado.
 
 Blocos de notas do Azure inicia a máquina virtual subjacente sempre que executar um bloco de notas ou outro ficheiro. O servidor automaticamente guarda ficheiros e encerra após 60 minutos de inatividade. Também pode parar o servidor em qualquer altura com o **encerramento** comando (atalho de teclado: h).
 
-## <a name="compute-tier"></a>Escalão de computação
+## <a name="compute-tier"></a>Camada de computação
 
-Por predefinição, os projetos de executar no **computação gratuita** escalão, o que está limitado a 4 GB de memória e 1 GB de dados para evitar abusos. Pode ignorar estas limitações e aumentar o poder de computação através da utilização de uma máquina virtual diferente que já aprovisionados numa subscrição do Azure. Para obter mais informações, consulte [como utilizar máquinas de virtuais de ciência de dados](use-data-science-virtual-machine.md).
+Por padrão, os projetos são executados na camada de **computação gratuita** , que é limitada a 4 GB de memória e 1GB de dados para evitar abusos. Você pode ignorar essas limitações e aumentar a capacidade de computação usando uma máquina virtual diferente que você provisionou em uma assinatura do Azure. Para obter mais informações, consulte [como usar máquinas virtuais de ciência de dados](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Editar metadados do projeto
 
@@ -46,7 +45,7 @@ No dashboard do projeto, selecione **definições do projeto**, em seguida, sele
 | Definição | Descrição |
 | --- | --- |
 | Nome do projeto | Um nome amigável para o seu projeto que blocos de notas do Azure utiliza para fins de exibição. Por exemplo, "Hello World no Python". |
-| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto. Este ID pode utilizar apenas letras, números e hífenes, está limitado a 30 carateres e não pode ser um [reservado ID do projeto](create-clone-jupyter-notebooks.md#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
+| ID do Projeto | Um identificador personalizado que se tornará parte do URL que utilizar para partilhar um projeto. Essa ID pode usar apenas letras, números e hifens, é limitada a 30 caracteres e não pode ser uma [ID de projeto reservada](create-clone-jupyter-notebooks.md#reserved-project-ids). Se tiver dúvidas sobre o que usar, uma convenção comum é utilizar uma versão em minúsculas do nome do seu projeto em que os espaços são transformados em hífenes, por exemplo, "meu-bloco de notas-project" (truncado se necessário, para ajustar o limite de comprimento). |
 | Projeto público | Se definido, permite que qualquer pessoa com a ligação para acessar o projeto. Ao criar um projeto privado, desmarque esta opção. |
 | Ocultar clones | Se definido, outros utilizadores não podem ver uma lista de clones que foram feitos para este projeto. Ocultar clones é útil para os projetos que são partilhados com muitas pessoas que não fazem parte da mesma organização, tal como quando utiliza um bloco de notas para ensinar uma classe. |
 
@@ -71,7 +70,7 @@ O **+ novo** comando (atalho de teclado: n) cria novos ficheiros ou pastas. Ao u
 
 ### <a name="upload-files"></a>Carregar ficheiros
 
-O **carregar** comando fornece duas opções para importar dados a partir de outras localizações: **Partir do URL** e **do computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
+O comando **upload** fornece duas opções para importar dados de outros locais: **Da URL** e **do computador**. Para obter mais informações, consulte [trabalhar com arquivos de dados em projetos de bloco de notas do Azure](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Selecione a comandos específicos de ficheiro
 
@@ -132,11 +131,11 @@ Para adicionar um passo, selecione **+ adicionar**, em seguida, selecione um tip
 
 As informações que, em seguida, do projeto dependem do tipo de operação que escolheu:
 
-- **Requirements. txt**: Na segunda lista pendente, selecione um *Requirements. txt* ficheiros que já se encontra no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
+- **Requirements. txt**: Na segunda lista suspensa, selecione um arquivo *requirements. txt* que já está no projeto. Em seguida, selecione uma versão de Python a terceiro na lista pendente que é apresentada. Ao utilizar um *Requirements. txt* execuções de blocos de notas do Azure, de ficheiros `pip install -r` com o *Requirements. txt* quando a partir de um servidor de ficheiros. Não precisa de instalar explicitamente os pacotes a partir do bloco de notas.
 
-- **Script de shell**: Na segunda lista pendente, selecione um script de shell de bash no projeto (normalmente, um ficheiro com o *. SH* extensão) que contém todos os comandos que pretende executar para inicializar o ambiente.
+- **Script de shell**: Na segunda lista suspensa, selecione um script de shell bash no projeto (normalmente um arquivo com a extensão *. sh* ) que contém os comandos que você deseja executar para inicializar o ambiente.
 
-- **Environment.yml**: Na segunda lista pendente, selecione um *environments.yml* ficheiro para projetos Python usando um ambiente de conda.
+- **Environment. yml**: Na segunda lista suspensa, selecione um arquivo *Environments. yml* para projetos do Python usando um ambiente Conda.
 
 Quando tiver terminado de adicionar passos, selecione **guardar**.
 
@@ -189,7 +188,7 @@ Também pode utilizar o comando a partir de uma célula de código num bloco de 
 !cat .nb.log
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [How to: Trabalhar com arquivos de dados do projeto](work-with-project-data-files.md)
+- [How to: Trabalhar com arquivos de dados do projeto @ no__t-0
 - [Aceder a dados na cloud num bloco de notas](access-data-resources-jupyter-notebooks.md)

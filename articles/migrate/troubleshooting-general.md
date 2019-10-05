@@ -1,17 +1,18 @@
 ---
 title: Solucionar problemas de migrações para Azure | Microsoft Docs
 description: Fornece uma visão geral dos problemas conhecidos no serviço de migrações para Azure, bem como dicas de solução de problemas para erros comuns.
-author: rayne-wiselman
+author: musa-57
+ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: raynew
-ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.author: hamusa
+ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067811"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970641"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Resolver problemas do Azure Migrate
 
@@ -87,8 +88,8 @@ Para excluir um projeto na versão mais antiga do migrações para Azure:
 ### <a name="delete-a-workspace"></a>Eliminar uma área de trabalho
 
 Navegue até o espaço de trabalho Log Analytics anexado ao projeto.
-* Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na avaliação do **Essentials** > **Server**.
-       ![Espaço de trabalho da LA](./media/troubleshooting-general/loganalytics-workspace.png)
+* Se você não tiver excluído o projeto de migrações para Azure, poderá encontrar o link para o espaço de trabalho na**avaliação de servidor**do **Essentials** > .
+       Espaço de trabalho ![LA @ no__t-1
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
@@ -111,7 +112,7 @@ Se você receber o erro "o arquivo de manifesto fornecido é inválido: Entrada 
 2. Se a implantação ainda falhar e você estiver usando o VMware vSphere cliente para implantar o arquivo OVF, tente implantá-lo por meio do cliente Web vSphere. Se a implantação ainda falhar, tente usar um navegador da Web diferente.
 3. Se você estiver usando o cliente Web vSphere e tentando implantá-lo no vCenter Server 6,5 ou 6,7, tente implantar o OVA diretamente no host ESXi:
    - Conecte-se diretamente ao host ESXi (em vez de vCenter Server) com o cliente Web (*endereço IP do host*do https://< >/UI).
-   - Em**inventário** **doméstico** > , selecione **arquivo** > **implantar modelo de OVF**. Navegue até o OVA e conclua a implantação.
+   - Em **início** > **inventário**, selecione **arquivo** > **implantar modelo OVF**. Navegue até o OVA e conclua a implantação.
 4. Se a implantação ainda falhar, entre em contato com o suporte para migrações para Azure.
 
 ## <a name="appliance-cant-connect-to-the-internet"></a>O dispositivo não pode se conectar à Internet
@@ -200,7 +201,7 @@ Se você tiver implantado um dispositivo que descobre continuamente seu ambiente
 - Leva até 30 minutos para que os dados de descoberta coletados pelo dispositivo sejam refletidos no Portal.
 - Se você não vir informações atualizadas após 30 minutos, atualize os dados seguindo estas etapas:
 
-    1. Em **servidores** > **migração do Azure migrar servidor**, selecione **visão geral**.
+    1. Em **servidores** > **avaliação do servidor de migrações para Azure**, selecione **visão geral**.
     2. Em **gerenciar**, selecione **integridade do agente**
     3. Selecione **Atualizar agente**.
     1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
@@ -210,7 +211,7 @@ Se você tiver implantado um dispositivo que descobre continuamente seu ambiente
 - Leva até 30 minutos para que os dados de descoberta coletados pelo dispositivo sejam refletidos no Portal.
 - Se você não vir informações atualizadas após 30 minutos, atualize os dados seguindo estas etapas:
 
-    1. Em **servidores** > **migração do Azure migrar servidor**, selecione **visão geral**.
+    1. Em **servidores** > **avaliação do servidor de migrações para Azure**, selecione **visão geral**.
     2. Em **gerenciar**, selecione **integridade do agente**
     3. Selecione **Atualizar agente**.
     1. Aguarde a conclusão da operação de atualização. Agora você deve ver informações atualizadas.
@@ -332,7 +333,7 @@ Depois de instalar os agentes de visualização de dependência em VMs locais, a
 
 Para VMs do Windows:
 1. No painel de controle, inicie o MMA.
-2. Nas **Propriedades** > de Microsoft Monitoring Agent**log Analytics do Azure (OMS)** , verifique se o **status** do espaço de trabalho está verde.
+2. Nas **Propriedades de Microsoft Monitoring Agent** > **log Analytics do Azure (OMS)** , verifique se o **status** do espaço de trabalho está verde.
 3. Se o status não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
 
       ![Caixa de diálogo Propriedades de MMA](./media/troubleshooting-general/mma-status.png)

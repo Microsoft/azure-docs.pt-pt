@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 164d1db1a80ef577792740f67a27a856a4ba4c3b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262035"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972918"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
 O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](data-platform.md) que inclui [logs](data-platform-logs.md) e [métricas](data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.
@@ -35,7 +34,7 @@ Fontes de dados de monitoramento de aplicativos do Azure podem ser organizadas e
 ### <a name="azure"></a>Azure
 A tabela a seguir descreve brevemente as camadas de aplicativo que são específicas para o Azure. Seguindo o link para obter mais detalhes sobre cada uma das seções abaixo.
 
-| Escalão | Descrição | Método de coleta |
+| Camada | Descrição | Método de coleta |
 |:---|:---|:---|
 | [Locatário do Azure](#azure-tenant) | Dados sobre a operação de serviços do Azure no nível do locatário, como Azure Active Directory. | Exiba os dados do AAD no portal ou configure a coleção para Azure Monitor usando uma configuração de diagnóstico de locatário. |
 | [Subscrição do Azure](#azure-subscription) | Dados relacionados à integridade e ao gerenciamento de serviços entre recursos em sua assinatura do Azure, como o Resource Manager e a integridade do serviço. | Exibir no portal ou configurar a coleta para Azure Monitor usando um perfil de log. |
@@ -44,7 +43,7 @@ A tabela a seguir descreve brevemente as camadas de aplicativo que são específ
 ### <a name="azure-other-cloud-or-on-premises"></a>Azure, outra nuvem ou local 
 A tabela a seguir descreve brevemente as camadas de aplicativo que podem estar no Azure, em outra nuvem ou no local. Seguindo o link para obter mais detalhes sobre cada uma das seções abaixo.
 
-| Escalão | Descrição | Método de coleta |
+| Camada | Descrição | Método de coleta |
 |:---|:---|:---|
 | [Sistema operacional (convidado)](#operating-system-guest) | Dados sobre o sistema operacional em recursos de computação. | Instale o agente de Log Analytics para coletar fontes de dados do cliente no Azure Monitor e no agente de dependência para coletar dependências que dão suporte a Azure Monitor para VMs.<br>Para máquinas virtuais do Azure, instale a extensão de diagnóstico do Azure para coletar logs e métricas em Azure Monitor. |
 | [Código do aplicativo](#application-code) | Dados sobre o desempenho e a funcionalidade do aplicativo e do código reais, incluindo rastreamentos de desempenho, logs de aplicativos e telemetria de usuários. | Instrumente seu código para coletar dados em Application Insights. |
@@ -61,8 +60,8 @@ A telemetria relacionada ao seu locatário do Azure é coletada de serviços de 
 | Destination | Descrição | Referência |
 |:---|:---|:---|
 | Registos do Azure Monitor | Configure os logs do Azure AD a serem coletados no Azure Monitor para analisá-los com outros dados de monitoramento. | [Integrar logs do Azure AD com logs de Azure Monitor (versão prévia)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Storage do Azure | Exportar logs do Azure AD para o armazenamento do Azure para arquivamento. | [Tutorial: Arquivar logs do Azure AD em uma conta de armazenamento do Azure (versão prévia)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Hub de Eventos | Transmita logs do Azure AD para outros locais usando os hubs de eventos. | [Tutorial: Transmita logs de Azure Active Directory para um hub de eventos do](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)Azure (versão prévia). |
+| Storage do Azure | Exportar logs do Azure AD para o armazenamento do Azure para arquivamento. | [Tutorial: Arquivar logs do Azure AD em uma conta de armazenamento do Azure (versão prévia) ](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Hub de Eventos | Transmita logs do Azure AD para outros locais usando os hubs de eventos. | [Tutorial: Transmita logs de Azure Active Directory para um hub de eventos do Azure (versão prévia) ](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
@@ -104,7 +103,7 @@ A maioria dos serviços do Azure enviará [métricas de plataforma](data-platfor
 | Registos do Azure Monitor | Copie métricas de plataforma para os logs para tendência e outras análises usando Log Analytics. | [O diagnóstico do Azure direto para Log Analytics](resource-logs-collect-workspace.md) |
 | Hubs de Eventos | Transmita métricas para outros locais usando os hubs de eventos. |[Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](stream-monitoring-data-event-hubs.md) |
 
-### <a name="resource-logs"></a>Logs de recursos
+### <a name="resource-logs"></a>Registos do recurso
 [Os logs de recursos](resource-logs-overview.md) fornecem informações sobre a operação _interna_ de um recurso do Azure.  Os logs de recursos são criados automaticamente, mas você deve criar uma configuração de diagnóstico para especificar um destino para que eles sejam coletados para cada recurso.
 
 Os requisitos de configuração e o conteúdo dos logs de recursos variam por tipo de recurso e nem todos os serviços ainda os criam. Consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](diagnostic-logs-schema.md) para obter detalhes sobre cada serviço e links para os procedimentos de configuração detalhados. Se o serviço não estiver listado neste artigo, esse serviço não criará logs de recursos no momento.

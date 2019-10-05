@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a4aac8afb7974be402ee98bb65c920133d4c118f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 36b449c4c4ca30eb658c9519ce8e870a4f1fab32
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947692"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970731"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
@@ -39,7 +39,7 @@ Você pode treinar um modelo usando apenas dados de dicionário. Para fazer isso
 - Os dicionários não são um substituto para treinar um modelo usando dados de treinamento. É recomendável evitá-los e permitir que o sistema Aprenda com seus dados de treinamento. No entanto, quando frases ou substantivos compostos devem ser renderizados como estão, use um dicionário.
 - O dicionário de frases deve ser usado com moderação. Então, lembre-se de que, quando uma frase dentro de uma sentença é substituída, o contexto dentro dessa sentença é perdido ou limitado para a tradução do restante da sentença. O resultado é que, embora a frase ou palavra dentro da frase seja traduzida de acordo com o dicionário fornecido, a qualidade geral da tradução da sentença geralmente será prejudicada.
 - O dicionário de frases funciona bem para substantivos compostos como nomes de produtos ("Microsoft SQL Server"), nomes próprios ("cidade de Hamburgo") ou recursos do produto ("tabela dinâmica"). Ele não funciona igualmente bem para verbos ou adjetivos porque eles geralmente são altamente formas flexionadass na origem ou no idioma de destino. As práticas recomendadas são evitar entradas de dicionário de frase para qualquer coisa, exceto os substantivos compostos.
-- Ao usar um dicionário, a capitalização e a pontuação são importantes. As entradas de dicionário só corresponderão a palavras e frases que tenham a mesma capitalização e pontuação que a entrada encontrada no dicionário. Suas traduções refletirão a capitalização e a pontuação fornecidas no lado de destino do arquivo de dicionário. Por exemplo, você treinou um modelo em inglês para espanhol usando um dicionário que especificou "Olá" no arquivo de origem a ser convertido em "Buenos dias" no arquivo de destino. Quando você solicitar tradução de uma frase que inclua "Olá", o sistema pesquisará seu dicionário primeiro e encontrará uma correspondência ("Olá") e retornaria "Buenos dias" na tradução final.
+- Ao usar um dicionário de frases, as letras maiúsculas e as pontuações são importantes. As entradas de dicionário só corresponderão a palavras e frases na sentença de entrada que usam exatamente as mesmas maiúsculas e minúsculas especificadas no arquivo de dicionário de origem. Além disso, as traduções refletirão a capitalização e a pontuação fornecidas no arquivo do dicionário de destino. Por exemplo, se você tiver treinado um sistema em inglês para espanhol que usa um dicionário de frases que especifica "US" no arquivo de origem e "EE. UU ". no arquivo de destino. Quando você solicitar a tradução de uma frase que inclua a palavra "US" (não capitalizado), isso não corresponderia ao dicionário. No entanto, se você solicitar a tradução de uma frase que contenha a palavra "US" (em maiúscula), ela corresponderia ao dicionário e a tradução conteria "EE. UU ". Observe que a capitalização e a pontuação na tradução podem ser diferentes das especificadas no arquivo de destino do dicionário e podem ser diferentes das maiúsculas e minúsculas na origem. Ele segue as regras do idioma de destino.
 - Se uma palavra aparecer mais de uma vez em um arquivo de dicionário, o sistema sempre usará a última entrada fornecida. Portanto, o dicionário não deve conter várias traduções da mesma palavra.
 
 ## <a name="next-steps"></a>Passos seguintes

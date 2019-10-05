@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f9b624ffcc04963046ad817bb2bc9c025161506
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300256"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971800"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -48,7 +48,7 @@ Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Mak
 Para obter os detalhes do ponto de extremidade:
 1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. Em **minhas bases de dados de conhecimento**, selecione **Exibir código** para sua base de dados de conhecimento.
-    ![Captura de tela de minhas bases de dados de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    ![Screenshot de minhas bases de dados de conhecimento @ no__t-1
 1. Obtenha os detalhes do ponto de extremidade do GenerateAnswer.
 
     ![Captura de tela dos detalhes do ponto de extremidade](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ Você chama GenerateAnswer com uma solicitação HTTP POST. Para obter um exempl
 A solicitação POST usa:
 
 * [Parâmetros de URI](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters) necessários
-* [Propriedade de cabeçalho](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)necessária `Authorization`,, para segurança
+* [Propriedade de cabeçalho](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)necessária, `Authorization`, para segurança
 * [Propriedades do corpo](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)necessárias. 
 
 A URL GenerateAnswer tem o seguinte formato: 
@@ -73,7 +73,7 @@ A URL GenerateAnswer tem o seguinte formato:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Lembre-se de definir a propriedade do `Authorization` cabeçalho HTTP com um valor da `EndpointKey` cadeia de caracteres com um espaço à direita, depois a chave do ponto de extremidade encontrada na página **configurações** .
+Lembre-se de definir a propriedade de cabeçalho HTTP de `Authorization` com um valor da cadeia de caracteres `EndpointKey` com um espaço à direita, em seguida, a chave do ponto de extremidade foi encontrada na página de **configurações** .
 
 Um exemplo de corpo JSON é semelhante a:
 
@@ -161,7 +161,7 @@ O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Sample
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usar metadados para filtrar respostas por marcas de metadados personalizadas
 
-A adição de metadados permite filtrar as respostas por essas marcas de metadados. Adicione a coluna de metadados do menu de **Opções de exibição** . Adicione metadados à sua base de dados de conhecimento selecionando o ícone de metadados **+** para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
+A adição de metadados permite filtrar as respostas por essas marcas de metadados. Adicione a coluna de metadados do menu de **Opções de exibição** . Adicione metadados à sua base de dados de conhecimento selecionando o ícone metadados **+** para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
 
 ![Captura de tela da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -219,9 +219,9 @@ A resposta para o GenerateAnswer contém as informações de metadados correspon
 
 ## <a name="match-questions-only-by-text"></a>Somente correspondência de perguntas, por texto
 
-Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da postagem da solicitação GenerateAnswer.
+Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da POSTAgem da solicitação GenerateAnswer.
 
-Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste usando. `isTest=true`
+Você pode pesquisar os KB publicados, usando `isTest=false`, ou na KB de teste usando `isTest=true`.
 
 ```json
 {
@@ -249,4 +249,4 @@ Você pode pesquisar os KB publicados, usando `isTest=false`ou na KB de teste us
 A página **publicar** também fornece informações para gerar uma resposta com o [postmaster](../Quickstarts/get-answer-from-kb-using-postman.md) e a [ondulação](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
-> [Criar uma base de dados de conhecimento](./create-knowledge-base.md)
+> [Criar um bot da base de dados de conhecimento](../tutorials/integrate-qnamaker-luis.md)

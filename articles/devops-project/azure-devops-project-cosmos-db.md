@@ -2,19 +2,19 @@
 title: 'Tutorial: Implantar aplicativos node. js fornecidos por Azure Cosmos DB com Azure DevOps Projects'
 description: Projetos de DevOps do Azure torna mais fácil começar a utilizar no Azure. Com DevOps Projects, você pode implantar seu aplicativo node. js que é alimentado por Azure Cosmos DB ao aplicativo Web do Windows em algumas etapas rápidas.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 38fc4aa04269924ad0acd529e961dd3228ec236e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884408"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969665"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>Implantar aplicativos node. js fornecidos por Azure Cosmos DB com DevOps Projects
 

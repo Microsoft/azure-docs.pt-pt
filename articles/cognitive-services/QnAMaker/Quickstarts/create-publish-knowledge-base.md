@@ -8,18 +8,20 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: cafc1e2f3f195301a6c0f9485ebaa10111b08c7d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: aab64822730531acdcf5f3d91ed8bf028ce7cfd4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803056"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971936"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
 
 Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. Este artigo inclui um exemplo de criação de uma base de dados de conhecimento QnA Maker de uma página da Web de perguntas frequentes simples, para responder a perguntas sobre a recuperação de chave do BitLocker.
+
+Inclua uma personalidade Chit para tornar seu conhecimento mais atraente com seus usuários.
 
 [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
@@ -28,61 +30,79 @@ Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus
 > [!div class="checklist"]
 > * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-qna-maker-knowledge-base"></a>Criar uma Base de Dados de Conhecimento do Criador de FAQ
+## <a name="create-a-new-qna-maker-knowledge-base"></a>Criar uma nova base de dados de conhecimento QnA Maker
 
 1. Entre no portal do [QnAMaker.ai](https://QnAMaker.ai) com suas credenciais do Azure.
 
 1. No portal de QnA Maker, selecione **criar uma base de dados de conhecimento**.
 
-   ![Captura de tela do portal de QnA Maker](../media/qna-maker-create-kb.png)
+1. Na página **criar** , selecione **criar um serviço QnA**. Será direcionado para o [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar um serviço do Criador de FAQ na sua subscrição. 
 
-1. Na pagina **Criar**, no passo 1, selecione **Criar um serviço do Criador de FAQ**. Será direcionado para o [portal do Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) para configurar um serviço do Criador de FAQ na sua subscrição. Se o portal do Azure exceder o tempo limite, selecione **Tentar novamente** no site. Depois de estabelecer ligação, o dashboard do Azure é apresentado.
-
-1. Depois de criar um novo serviço do Criador de FAQ no Azure com êxito, volte a qnamaker.ai/criar. Selecione seu serviço de QnA Maker nas listas suspensas na etapa 2. Se você criou um novo serviço de QnA Maker, certifique-se de atualizar a página.
+1. No portal de QnA Maker, selecione o serviço de QnA Maker nas listas suspensas. Se você criou um novo serviço de QnA Maker, certifique-se de atualizar a página.
 
    ![Captura de tela da seleção de uma base de dados de conhecimento do serviço QnA Maker](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. Na etapa 3, nomeie sua base de dados de conhecimento **meu exemplo QnA KB**.
+1. Nomeie sua base de dados de conhecimento **meu exemplo QnA KB**.
 
-1. Para adicionar conteúdo à sua base de conhecimento, selecione três tipos de fontes de dados. No passo 4, em **Preencher a sua BDC**, adicione o URL [FAQ de Recuperação do BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) à **caixa**.
+1. Adicione um documento do Word de exemplo como uma URL: 
 
-   ![Captura de tela da adição de fontes de dados](../media/qnamaker-quickstart-kb/add-datasources.png)
+    `https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/troubleshooting`
 
-1. No passo 5, selecione **Criar a sua BDC**.
+1. Selecione `+ Add URL`.
 
-1. Enquanto QnA Maker cria a base de dados de conhecimento, uma janela pop-up é exibida. O processo de extração demora alguns minutos a ler a página HTML e a identificar as perguntas e as respostas.
+1. Adicione o  **_Professional_ Chit-Chat** à sua KB. 
 
-1. Depois que QnA Maker cria com êxito a base de dados de conhecimento, a página **da base de dados de conhecimento** é aberta. Você pode editar o conteúdo da base de dados de conhecimento nesta página.
+1. Selecione **criar a sua BDC**.
 
-## <a name="edit-the-knowledge-base"></a>Editar a base de dados de conhecimento
+    O processo de extração leva alguns minutos para ler o documento e identificar perguntas e respostas.
 
-1. No portal de QnA Maker, na seção **Editar** , selecione **Adicionar par de QnA** para adicionar uma nova linha à base de dados de conhecimento. Em **Pergunta**, introduza **Olá.** Em **Resposta**, introduza **Hello. Pergunte-me perguntas sobre o BitLocker.**
+    Depois que QnA Maker cria com êxito a base de dados de conhecimento, a página **da base de dados de conhecimento** é aberta. Você pode editar o conteúdo da base de dados de conhecimento nesta página.
 
-    ![Captura de tela do portal de QnA Maker](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+## <a name="add-a-new-question-and-answer-set"></a>Adicionar uma nova pergunta e um conjunto de respostas
 
-1. No canto superior direito, selecione **Guardar e preparar** para guardar as edições e preparar o modelo do Criador de FAQ. As edições só são mantidas se tiverem sido guardadas.
+1. No portal de QnA Maker, na página **Editar** , selecione **Adicionar par de QnA**.
+1. Adicione a seguinte pergunta: 
+
+    `How many Azure services are used by a knowledge base?`
+
+1. Adicione a resposta formatada com _redução_:
+
+    ` * Azure QnA Maker service\n* Azure Search\n* Azure web app\n* Azure app plan`
+
+    ![ Adicione a pergunta como texto e a resposta formatada com redução.](../media/qnamaker-create-publish-knowledge-base/add-question-and-answer.png)
+
+    O símbolo de redução, `*`, é usado para pontos de marcador. O `\n` é usado para uma nova linha.  
+
+    A página **Editar** mostra a redução. Ao usar o painel de **teste** mais tarde, você verá a redução exibida corretamente. 
+
+## <a name="save-and-train"></a>Guardar e preparar
+
+No canto superior direito, selecione **Guardar e preparar** para guardar as edições e preparar o modelo do Criador de FAQ. As edições só são mantidas se tiverem sido guardadas.
 
 ## <a name="test-the-knowledge-base"></a>Testar a base de dados de conhecimento
 
-1. No portal de QnA Maker, no canto superior direito, selecione **testar** para testar se as alterações feitas entraram em vigor. Digite `hi there` na caixa e selecione Enter. Deverá ver a resposta que criou como resposta.
+1. No portal de QnA Maker, no canto superior direito, selecione **testar** para testar se as alterações feitas entraram em vigor. 
+1. Insira um exemplo de consulta de usuário na caixa de texto. 
 
-1. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é usada para testar suas alterações na base de dados de conhecimento antes que elas sejam publicadas.
+    `How many Azure services are used by a knowledge base?`  
 
-    ![Captura de tela do painel de teste](../media/qnamaker-quickstart-kb/inspect.png)
+    ![ Insira um exemplo de consulta de usuário na caixa de texto. ](../media/qnamaker-create-publish-knowledge-base/test-panel-in-qna-maker.png)
 
-1. Selecione **Testar** novamente para fechar a pop-up **Testar**.
+1. Selecione **Inspecionar** para analisar a resposta de forma mais detalhada. A janela de teste é usada para testar suas alterações na base de dados de conhecimento antes de publicar sua base de dados de conhecimento.
+
+1. Selecione **testar** novamente para fechar o painel de **teste** .
 
 ## <a name="publish-the-knowledge-base"></a>Publicar a base de dados de conhecimento
 
-Quando você publica uma base de dados de conhecimento, o conteúdo de perguntas e respostas de sua base de dados de conhecimento se move do índice de teste para um índice de produção no Azure Search.
+Quando você publica uma base de dados de conhecimento, o conteúdo da sua base de dados de conhecimento passa do índice `test` para um índice `prod` no Azure Search.
 
 ![Captura de tela da movimentação do conteúdo da sua base de dados de conhecimento](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 
-1. No portal de QnA Maker, no menu ao lado de **Editar**, selecione **publicar**. Depois, para confirmar, selecione **Publicar** na página.
+1. No portal de QnA Maker, selecione **publicar**. Depois, para confirmar, selecione **Publicar** na página.
 
-1. O serviço Criador de FAQ é agora publicado com êxito. Pode utilizar o ponto final na sua aplicação ou código de bot.
+    O serviço Criador de FAQ é agora publicado com êxito. Pode utilizar o ponto final na sua aplicação ou código de bot.
 
-    ![Captura de tela de publicação bem-sucedida](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Captura de tela de publicação bem-sucedida](../media/qnamaker-create-publish-knowledge-base/publish-knowledge-base-to-endpoint.png)
 
 ## <a name="create-a-bot"></a>Criar um bot
 
@@ -97,16 +117,36 @@ Ao fazer alterações na base de dados de conhecimento e republicar, você não 
 
     ![Captura de tela da criação de um bot](../media/qnamaker-create-publish-knowledge-base/create-bot-from-published-knowledge-base-page.png)
 
-1. Uma nova guia do navegador é aberta para o portal do Azure, com a página de criação do serviço de bot do Azure. Configure o serviço de bot do Azure. Para obter mais informações sobre essas definições de configuração, consulte [criar um bot QnA com o serviço de bot do Azure v4](../tutorials/create-qna-bot.md).
+1. Uma nova guia do navegador é aberta para o portal do Azure, com a página de criação do serviço de bot do Azure. Configure o serviço de bot do Azure. 
     
     * Não altere as configurações a seguir no portal do Azure ao criar o bot. Eles são preenchidos previamente para sua base de dados de conhecimento existente: 
         * Chave de autenticação QnA
         * Plano e local do serviço de aplicativo
-        * Storage do Azure
-    * O bot e o QnA Maker podem compartilhar o plano do serviço de aplicativo Web, mas não podem compartilhar o aplicativo Web. Isso significa que o **nome do aplicativo** deve ser diferente do nome do aplicativo usado quando você criou o serviço de QnA Maker. 
+    * O bot e o QnA Maker podem compartilhar o plano do serviço de aplicativo Web, mas não podem compartilhar o aplicativo Web. Isso significa que o **nome do aplicativo** para o bot deve ser diferente do nome do aplicativo para o serviço de QnA Maker. 
 
+1. Depois que o bot for criado, abra o recurso de **serviço bot** . 
+1. Em **Gerenciamento de bot**, selecione **testar no Web Chat**.
+1. No prompt de chat de **Digite sua mensagem**, digite:
+
+    `Azure services?`
+
+    O bot de chat responde com uma resposta de sua base de dados de conhecimento. 
+
+    ![Insira uma consulta de usuário no bate-papo da Web de teste.](../media/qnamaker-create-publish-knowledge-base/test-web-chat.png)
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Limpe os recursos do QnA Maker e do bot Framework no portal do Azure. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
+Para obter mais informações:
+
+* [Formato de redução nas respostas](../concepts/data-sources-supported.md)
+* [Testando sua redução](../concepts/data-sources-supported.md#testing-your-markdown)
+* QnA Maker [fontes de dados](../Concepts/data-sources-supported.md). 
+* [Definições de configuração de recurso de bot](../tutorials/create-qna-bot.md).
+
 > [!div class="nextstepaction"]
-> [Criar uma base de dados de conhecimento](../How-To/create-knowledge-base.md)
+> [Adicionar perguntas com metadados](add-question-metadata-portal.md)
+

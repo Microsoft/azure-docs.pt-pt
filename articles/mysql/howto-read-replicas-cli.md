@@ -1,17 +1,17 @@
 ---
-title: Criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL-CLI do Azure, API REST
-description: Este artigo descreve como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o CLI do Azure, a API REST
+title: Criar & gerenciar réplicas de leitura-banco de dados do Azure para MySQL
+description: Saiba como configurar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o CLI do Azure ou a API REST.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/14/2019
-ms.openlocfilehash: 5bec4e7284e78506372d395bf022055fa31998e3
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 741b50bdb2ec9c8d29a9f759e46209856de3a49c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993540"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970316"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Como criar e gerenciar réplicas de leitura no banco de dados do Azure para MySQL usando o CLI do Azure e a API REST
 
@@ -44,7 +44,7 @@ O `az mysql server replica create` comando requer os seguintes parâmetros:
 | nome | mydemoreplicaserver | O nome do novo servidor de réplica, que é criado. |
 | source-server | mydemoserver | O nome ou ID do servidor mestre existente para replicar a partir do. |
 
-Para criar uma réplica de leitura entre regiões, use `--location` o parâmetro. O exemplo de CLI abaixo cria a réplica no oeste dos EUA.
+Para criar uma réplica de leitura entre regiões, use o parâmetro `--location`. O exemplo de CLI abaixo cria a réplica no oeste dos EUA.
 
 ```azurecli-interactive
 az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
@@ -133,7 +133,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 > [!NOTE]
 > Para saber mais sobre em quais regiões você pode criar uma réplica, visite o [artigo conceitos de leitura de réplica](concepts-read-replicas.md). 
 
-Se você não tiver definido `azure.replication_support` o parâmetro para **réplica** em um servidor mestre de uso geral ou com otimização de memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
+Se você não tiver definido o parâmetro `azure.replication_support` como **réplica** em um servidor mestre com otimização de uso geral ou memória e reiniciado o servidor, você receberá um erro. Conclua essas duas etapas antes de criar uma réplica.
 
 Uma réplica é criada usando as mesmas configurações de computação e armazenamento que o mestre. Depois que uma réplica é criada, várias configurações podem ser alteradas independentemente do servidor mestre: geração de computação, vCores, armazenamento e período de retenção de backup. O tipo de preço também pode ser alterado de forma independente, exceto para ou da camada básica.
 
@@ -175,6 +175,6 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [ler réplicas](concepts-read-replicas.md)

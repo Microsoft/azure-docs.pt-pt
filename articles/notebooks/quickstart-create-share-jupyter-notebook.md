@@ -4,21 +4,20 @@ description: Rapidamente criar e executar um bloco de notas do Jupyter nos bloco
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751792"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970165"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Início rápido: Criar e partilhar um bloco de notas
 
@@ -34,7 +33,7 @@ ms.locfileid: "66751792"
 
 1. Na **criar novo projeto** pop-up apresentado, introduza ou defina os seguintes detalhes, em seguida, selecione **criar**:
 
-   - **Nome do projeto**: Olá, mundo no Python
+   - **Nome do projeto**: Olá, Mundo em Python
    - **ID do projeto**: hello-world-python
    - **Projeto público**: (limpo)
    - **Criar um README.md**: (limpo)
@@ -93,7 +92,7 @@ ms.locfileid: "66751792"
 
     ![Guardar o ícone na barra de ferramentas de bloco de notas do Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Selecione o **arquivo** > **fechar e parar** comando de menu para parar o servidor e fechar a janela do browser.
+1. Selecione o **comando de menu** > **fechar e parar** para parar o servidor e fechar a janela do navegador.
 
 ## <a name="share-the-notebook"></a>Partilhar o bloco de notas
 

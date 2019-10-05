@@ -4,10 +4,12 @@
   items:
     - name: O que é o Criador de FAQ?
       href: Overview/overview.md
+    - name: Novidades
+      href: whats-new.md
 - name: Inícios rápidos
   items:
     - name: Criar uma nova base de dados de conhecimento
-      href: How-To/create-knowledge-base.md
+      href: quickstarts/create-publish-knowledge-base.md
     - name: Adicionar perguntas com metadados
       href: quickstarts/add-question-metadata-portal.md
     - name: Obter resposta

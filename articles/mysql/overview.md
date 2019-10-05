@@ -1,20 +1,20 @@
 ---
 title: Visão geral do serviço de banco de dados relacional do banco de dados do Azure para MySQL
-description: Visão geral do serviço de banco de dados relacional do banco de dados do Azure para MySQL.
-ms.service: mysql
+description: Saiba mais sobre o serviço de banco de dados do Azure para MySQL, um serviço de banco de dados relacional no Microsoft Cloud baseado no MySQL Community Edition.
 author: ajlam
+ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/13/2019
-ms.openlocfilehash: 1299f82c28181d1c24f68a0d36ba13c6b40d21ee
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 03fe0b091939b3281d0cc0cb5e35bf055fb307e1
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013410"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970382"
 ---
-# <a name="what-is-azure-database-for-mysql"></a>O que é o banco de dados do Azure para MySQL?
+# <a name="what-is-azure-database-for-mysql"></a>O que é a Base de Dados do Azure para MySQL?
 
 O banco de dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud baseado no [MySQL Community Edition](https://www.mysql.com/products/community/) (disponível no mecanismo de banco de dados licença do GPLv2), versões 5,6, 5,7 e 8,0. O banco de dados do Azure para MySQL fornece:
 
@@ -55,7 +55,7 @@ O serviço banco de dados do Azure para MySQL usa a criptografia de armazenament
 Por padrão, o serviço de banco de dados do Azure para MySQL é configurado para exigir [segurança de conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento pela rede. A imposição de ligações SSL entre a base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
 
 ## <a name="contacts"></a>Contactos
-Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MySQL, envie um email para a equipe do banco de dados do Azure para MySQL ([ @Ask BD do Azure para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Tenha em atenção que não se trata de um alias de suporte técnico.
+Para perguntas ou sugestões que você pode ter sobre como trabalhar com o banco de dados do Azure para MySQL, envie um email para a equipe do banco de dados do Azure para MySQL ([@Ask BD do Azure para MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Este endereço de email não é um alias de suporte técnico.
 
 Além disso, considere os seguintes pontos de contacto, conforme adequado:
 
@@ -63,9 +63,9 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 - Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora que você leu uma introdução ao banco de dados do Azure para MySQL e respondeu à pergunta "o que é o banco de dados do Azure para MySQL?", você está pronto para:
+## <a name="next-steps"></a>Passos seguintes
+Agora que você leu uma introdução ao banco de dados do Azure para MySQL e respondeu à pergunta "o que é o banco de dados do Azure para MySQL?" Você está pronto para:
 
 - Consulte a página de preços para ver as comparações de preços e as calculadoras. [Preços](https://azure.microsoft.com/pricing/details/mysql/)
 - Comece por criar o seu primeiro servidor. [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Crie seu primeiro aplicativo usando o idioma de sua preferência: [Python](./connect-python.md)[node. js](./connect-nodejs.md)[](./connect-java.md)[](./connect-go.md) [](./connect-php.md)[Java Ruby](./connect-ruby.md)PHP[.net (C#)](./connect-csharp.md)ir |  |  |  |  |  | 
+- Crie seu primeiro aplicativo usando o idioma de sua preferência: [Python](./connect-python.md) | [node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [php](./connect-php.md) | [.net (C#)](./connect-csharp.md)2[go](./connect-go.md)

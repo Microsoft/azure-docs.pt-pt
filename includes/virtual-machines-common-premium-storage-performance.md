@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036033"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975331"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -76,7 +76,7 @@ Em seguida, meça os requisitos de desempenho máximo do seu aplicativo durante 
 | Min. Latência | | | |
 | Latência média | | | |
 | Um máximo de CPU | | | |
-| CPU Média | | | |
+| Média de CPU | | | |
 | Um máximo de Memória | | | |
 | Memória média | | | |
 | Profundidade da fila | | | |
@@ -84,7 +84,7 @@ Em seguida, meça os requisitos de desempenho máximo do seu aplicativo durante 
 > [!NOTE]
 > Você deve considerar o dimensionamento desses números com base no futuro crescimento esperado do seu aplicativo. É uma boa ideia planejar o crescimento antecipadamente, pois pode ser mais difícil alterar a infraestrutura para melhorar o desempenho mais tarde.
 
-Se você tiver um aplicativo existente e quiser mudar para o armazenamento Premium, primeiro crie a lista de verificação acima para o aplicativo existente. Em seguida, crie um protótipo do seu aplicativo no armazenamento Premium e projete o aplicativo com base nas diretrizes descritas em otimizando o *desempenho do aplicativo* em uma seção posterior deste documento. O próximo artigo descreve as ferramentas que você pode usar para reunir as medidas de desempenho.
+Se você tiver um aplicativo existente e quiser mudar para o armazenamento Premium, primeiro crie a lista de verificação acima para o aplicativo existente. Em seguida, crie um protótipo do seu aplicativo no armazenamento Premium e projete o aplicativo com base nas diretrizes descritas em *otimizando o desempenho do aplicativo* em uma seção posterior deste documento. O próximo artigo descreve as ferramentas que você pode usar para reunir as medidas de desempenho.
 
 ### <a name="counters-to-measure-application-performance-requirements"></a>Contadores para medir os requisitos de desempenho do aplicativo
 
@@ -100,8 +100,8 @@ Os contadores PerfMon estão disponíveis para processador, memória e, cada dis
 | **Latência** |Tempo total para concluir uma solicitação de e/s de disco. |Média de disco s/leitura <br> Média de disco s/gravação |expressões <br> svctm |
 | **Tamanho de e/s** |O tamanho dos problemas de solicitações de e/s para os discos de armazenamento. |Média de bytes de disco/leitura <br> Média de bytes de disco/gravação |avgrq-sz |
 | **Profundidade da fila** |Número de solicitações de e/s pendentes aguardando para serem lidas ou gravadas no disco de armazenamento. |Comprimento da fila de disco atual |avgqu-sz |
-| **Maximizar. Memória** |Quantidade de memória necessária para executar o aplicativo sem problemas |% Bytes confirmados em uso |Usar vmstat |
-| **Maximizar. CPU** |Quantidade de CPU necessária para executar o aplicativo sem problemas |% De tempo do processador |% util |
+| **Max. Memória @ no__t-0 |Quantidade de memória necessária para executar o aplicativo sem problemas |% Bytes confirmados em uso |Usar vmstat |
+| **Max. CPU** |Quantidade de CPU necessária para executar o aplicativo sem problemas |% De tempo do processador |% util |
 
 Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [Perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
 
@@ -135,12 +135,12 @@ Para obter mais informações sobre tamanhos de VM e sobre IOPS, taxa de transfe
 
 ## <a name="nature-of-io-requests"></a>Natureza das solicitações de e/s
 
-Uma solicitação de e/s é uma unidade de operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de e/s, aleatória ou sequencial, leitura ou gravação, pequena ou grande, ajudará você a determinar os requisitos de desempenho do seu aplicativo. É importante entender a natureza das solicitações de e/s para tomar as decisões certas ao projetar sua infraestrutura de aplicativo.
+Uma solicitação de e/s é uma unidade de operação de entrada/saída que seu aplicativo executará. Identificar a natureza das solicitações de e/s, aleatória ou sequencial, leitura ou gravação, pequena ou grande, ajudará você a determinar os requisitos de desempenho do seu aplicativo. É importante entender a natureza das solicitações de e/s para tomar as decisões certas ao projetar sua infraestrutura de aplicativo. O IOs deve ser distribuído uniformemente para obter o melhor desempenho possível.
 
 O tamanho de e/s é um dos fatores mais importantes. O tamanho de e/s é o tamanho da solicitação de operação de entrada/saída gerada pelo seu aplicativo. O tamanho de e/s tem um impacto significativo no desempenho, especialmente no IOPS e na largura de banda que o aplicativo é capaz de alcançar. A fórmula a seguir mostra a relação entre IOPS, tamanho de e/s e largura de banda/taxa de transferência.  
     ![](media/premium-storage-performance/image1.png)
 
-Alguns aplicativos permitem que você altere seu tamanho de e/s, enquanto alguns aplicativos não têm. Por exemplo, SQL Server determina o tamanho de e/s ideal e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle fornece um parâmetro chamado [tamanho\_do\_bloco DB](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) usando o qual você pode configurar o tamanho da solicitação de e/s do banco de dados.
+Alguns aplicativos permitem que você altere seu tamanho de e/s, enquanto alguns aplicativos não têm. Por exemplo, SQL Server determina o tamanho de e/s ideal e não fornece aos usuários nenhum botão para alterá-lo. Por outro lado, o Oracle fornece um parâmetro chamado [DB @ no__t-1Bloqueie @ no__t-2SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) usando o qual é possível configurar o tamanho da solicitação de e/s do banco de dados.
 
 Se você estiver usando um aplicativo, que não permite alterar o tamanho de e/s, use as diretrizes neste artigo para otimizar o KPI de desempenho que é mais relevante para seu aplicativo. Por exemplo,
 
@@ -189,15 +189,15 @@ Por exemplo, suponha que um requisito de aplicativo seja um máximo de 4.000 IOP
 *Custo da operação*  
 Em muitos casos, é possível que o custo geral da operação usando o armazenamento Premium seja menor do que o uso do armazenamento padrão.
 
-Por exemplo, considere um aplicativo que requer 16.000 IOPS. Para atingir esse desempenho, você precisará de uma\_VM IaaS do Azure padrão D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento padrão de 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de $1570. O custo mensal de 32 discos de armazenamento padrão será $1638. O custo mensal total estimado será de $3208.
+Por exemplo, considere um aplicativo que requer 16.000 IOPS. Para atingir esse desempenho, você precisará de uma VM IaaS do Azure padrão @ no__t-0D14, que pode fornecer um máximo de IOPS de 16.000 usando discos de 1 TB de armazenamento Standard de 32. Cada disco de armazenamento Standard de 1 TB pode alcançar um máximo de 500 IOPS. O custo estimado dessa VM por mês será de $1570. O custo mensal de 32 discos de armazenamento padrão será $1638. O custo mensal total estimado será de $3208.
 
-No entanto, se você tiver hospedado o mesmo aplicativo no armazenamento Premium, será necessário um tamanho de VM menor e menos discos de armazenamento Premium, reduzindo assim o custo geral. Uma VM\_DS13 padrão pode atender ao requisito de 16.000 IOPS usando quatro discos p30. A VM DS13 tem um máximo de IOPS de 25.600 e cada disco p30 tem um IOPS máximo de 5.000. Em geral, essa configuração pode atingir 5.000 x 4 = IOPS de 20.000. O custo estimado dessa VM por mês será de $1003. O custo mensal de quatro discos de armazenamento p30 Premium será $544.34. O custo mensal total estimado será de $1544.
+No entanto, se você tiver hospedado o mesmo aplicativo no armazenamento Premium, será necessário um tamanho de VM menor e menos discos de armazenamento Premium, reduzindo assim o custo geral. Uma VM @ no__t-0DS13 padrão pode atender ao requisito de 16.000 IOPS usando quatro discos p30. A VM DS13 tem um máximo de IOPS de 25.600 e cada disco p30 tem um IOPS máximo de 5.000. Em geral, essa configuração pode atingir 5.000 x 4 = IOPS de 20.000. O custo estimado dessa VM por mês será de $1003. O custo mensal de quatro discos de armazenamento p30 Premium será $544.34. O custo mensal total estimado será de $1544.
 
 A tabela a seguir resume a divisão de custo desse cenário para o armazenamento Standard e Premium.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Custo da VM por mês** |$1570.58 (padrão\_D14) |$1003.66 (Standard\_DS13) |
+| **Custo da VM por mês** |$1570.58 (padrão @ no__t-0D14) |$1003.66 (padrão @ no__t-0DS13) |
 | **Custo de discos por mês** |$1638.40 (32 x 1 TB de discos) |$544.34 (4 x p30 discos) |
 | **Custo geral por mês** |$3,208.98 |$1,544.34 |
 
@@ -209,13 +209,9 @@ Ao executar o Linux com o armazenamento Premium, verifique as atualizações mai
 
 ## <a name="premium-storage-disk-sizes"></a>Tamanhos de disco de armazenamento Premium
 
-O armazenamento Premium do Azure oferece oito tamanhos de disco de GA e três tamanhos de disco que estão na versão prévia, no momento. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho correto do disco de armazenamento Premium, dependendo dos requisitos do aplicativo e do tamanho da VM de alta escala. A tabela a seguir mostra os 11 tamanhos de discos e seus recursos. Os tamanhos P4, P6, P15, P60, P70 e P80 atualmente só têm suporte para Managed Disks.
+O armazenamento Premium do Azure oferece uma variedade de tamanhos para que você possa escolher um que melhor atenda às suas necessidades. Cada tamanho de disco tem um limite de escala diferente para IOPS, largura de banda e armazenamento. Escolha o tamanho correto do disco de armazenamento Premium, dependendo dos requisitos do aplicativo e do tamanho da VM de alta escala. A tabela a seguir mostra os tamanhos dos discos e seus recursos. Os tamanhos P4, P6, P15, P60, P70 e P80 atualmente só têm suporte para Managed Disks.
 
-| Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamanho do disco           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1\.024 GiB (1 TiB)    | 2\.048 GiB (2 TiB)    | 4\.095 GiB (4 TiB)    | 8\.192 GiB (8 TiB)    | 16.384 GiB (16 TiB)    | 32.767 GiB (32 TiB)    |
-| IOPs por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500              | 15,000              | 20,000              |
-| Débito por disco | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Quantos discos você escolher depende do tamanho do disco escolhido. Você pode usar um único disco P50 ou vários discos P10 para atender aos requisitos do aplicativo. Leve em consideração as considerações listadas abaixo ao fazer a escolha.
 
@@ -284,9 +280,9 @@ Por exemplo, você pode aplicar essas diretrizes para SQL Server em execução n
 
 Para todos os SSDs ou ultra discos Premium com cache definido como **ReadOnly** ou **None**, você deve desabilitar "barreiras" ao montar o sistema de arquivos. Você não precisa de barreiras nesse cenário porque as gravações nos discos de armazenamento Premium são duráveis para essas configurações de cache. Quando a solicitação de gravação for concluída com êxito, os dados foram gravados no repositório persistente. Para desabilitar "barreiras", use um dos métodos a seguir. Escolha uma para o sistema de arquivos:
   
-* Para **reiserFS**, para desabilitar as barreiras, use `barrier=none` a opção de montagem. (Para habilitar as barreiras, `barrier=flush`use.)
-* Para **ext3/ext4**, para desabilitar as barreiras, use `barrier=0` a opção de montagem. (Para habilitar as barreiras, `barrier=1`use.)
-* Para **xfs**, para desabilitar as barreiras, use `nobarrier` a opção de montagem. (Para habilitar as barreiras, `barrier`use.)
+* Para **reiserFS**, para desabilitar as barreiras, use a opção de montagem `barrier=none`. (Para habilitar as barreiras, use `barrier=flush`.)
+* Para **ext3/ext4**, para desabilitar as barreiras, use a opção de montagem `barrier=0`. (Para habilitar as barreiras, use `barrier=1`.)
+* Para **xfs**, para desabilitar as barreiras, use a opção de montagem `nobarrier`. (Para habilitar as barreiras, use `barrier`.)
 * Para discos de armazenamento Premium com cache definido como **ReadWrite**, habilite as barreiras para durabilidade de gravação.
 * Para que os rótulos de volume persistam depois de reiniciar a VM, você deve atualizar o/etc/fstab com as referências de UUID (identificador universal exclusivo) para os discos. Para obter mais informações, consulte [Adicionar um disco gerenciado a uma VM do Linux](../articles/virtual-machines/linux/add-disk.md).
 
@@ -385,5 +381,5 @@ Para um volume distribuído, mantenha uma profundidade de fila alta o suficiente
 
 O armazenamento Premium do Azure provisiona o número especificado de IOPS e taxa de transferência, dependendo dos tamanhos de VM e tamanhos de disco que você escolher. Sempre que seu aplicativo tentar gerar IOPS ou taxa de transferência acima desses limites do que a VM ou o disco pode lidar, o armazenamento Premium o reduzirá. Isso se manifesta na forma de degradação do desempenho em seu aplicativo. Isso pode significar maior latência, taxa de transferência mais baixa ou IOPS menor. Se o armazenamento Premium não for limitado, o aplicativo poderá falhar completamente, excedendo o que seus recursos são capazes de alcançar. Portanto, para evitar problemas de desempenho devido à limitação, sempre provisione recursos suficientes para seu aplicativo. Leve em consideração o que discutimos nas seções tamanhos de VM e tamanhos de disco acima. O parâmetro de comparação é a melhor maneira de descobrir quais recursos serão necessários para hospedar seu aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 

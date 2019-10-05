@@ -3,8 +3,8 @@ title: Criar um aplicativo Python no serviço Linux-Azure App | Microsoft Docs
 description: Implemente em minutos a sua primeira aplicação Hello World Python no Serviço de Aplicações do Azure no Linux.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,18 +14,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ffa202a717c75462cd2d715a7883756d49f5a9f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071010"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972099"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Criar um aplicativo Python no serviço de Azure App no Linux (versão prévia)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de início rápido mostra como implantar um aplicativo Python sobre a imagem interna do Python (versão prévia) no serviço de aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-Pode seguir os passos deste artigo num computador Mac, Windows ou Linux.
+O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de início rápido mostra como implantar um aplicativo Python sobre a imagem interna do Python no serviço de aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -106,7 +104,7 @@ O comando `az webapp up` executa as seguintes ações:
 
 - Cria uma aplicação com o nome especificado.
 
-- Compacte arquivos de [implantação](https://docs.microsoft.com/azure/app-service/deploy-zip) do diretório de trabalho atual para o aplicativo.
+- [Compacte](https://docs.microsoft.com/azure/app-service/deploy-zip) arquivos de implantação do diretório de trabalho atual para o aplicativo.
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
@@ -162,15 +160,13 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-
-A imagem interna do Python no serviço de aplicativo no Linux está atualmente em versão prévia e você pode personalizar o comando usado para iniciar seu aplicativo. Em alternativa, também pode criar aplicações Python de produção com um contentor personalizado.
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Python com PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Aplicativo Python com PostgreSQL @ no__t-0
 
 > [!div class="nextstepaction"]
 > [Configurar o aplicativo Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Implantar do repositório de contêiner privado](tutorial-custom-docker-image.md)
+> [Tutorial: Implantar do repositório de contêiner privado @ no__t-0

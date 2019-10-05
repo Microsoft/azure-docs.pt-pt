@@ -4,21 +4,20 @@ description: Iniciar sessão em blocos de notas do Azure e defina um ID de utili
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0c12c8673ff61dcca62c72addcbf0d9b33c2c252
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751718"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973067"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Início rápido: Iniciar sessão e definir um ID de utilizador
 
@@ -35,7 +34,7 @@ Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem d
     ![Criar novo comando de conta da Microsoft no início de sessão de linha de comandos](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > Se tentar criar uma nova conta com um endereço de e-mail que já tem uma conta associada à mesma, pode ver a mensagem "não é possível inscrever-se aqui com um profissional ou escolar endereço de e-mail. Utilize um endereço pessoal, como o Gmail ou Yahoo!, ou obtenha um novo e-mail do Outlook." Nesse caso, tente iniciar sessão com o endereço de e-mail profissional sem criar uma nova conta.
+    > Se você tentar criar uma nova conta com um endereço de email que já tenha uma conta associada a ela, você poderá ver a mensagem "não é possível inscrever-se aqui com um endereço de email corporativo ou de estudante. Use um email pessoal, como Gmail ou Yahoo!, ou obtenha um novo email do Outlook. Nesse caso, tente entrar com o endereço de email de trabalho sem criar uma nova conta.
 
 1. Introduza a palavra-passe quando lhe for pedido.
 
@@ -56,7 +55,7 @@ Embora possa exibir sempre o blocos de notas do Azure sem iniciar sessão, tem d
     ![Vista inicial de uma página de perfil de blocos de notas do Azure](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> Se vir a mensagem, "ID de utilizador já está em utilização," tente outro ID. IDs de utilizador são exclusivos em todas as contas de blocos de notas do Azure e blocos de notas do Azure também se reserva determinados IDs de utilizador, tais como nomes de marca de Microsoft.
+> Se você vir a mensagem "a ID de usuário já está em uso", tente uma ID diferente. As IDs de usuário são exclusivas em todas as contas de Azure Notebooks e Azure Notebooks também reserva determinadas IDs de usuário, como nomes de marca da Microsoft.
 
 ## <a name="sign-out"></a>Terminar sessão
 
@@ -64,7 +63,7 @@ Para terminar sessão, selecione o seu nome de utilizador no canto superior dire
 
 ![Localização do comando de fim de sessão em blocos de notas do Azure](media/accounts/sign-out-command.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar e partilhar um bloco de notas](quickstart-create-share-jupyter-notebook.md)
+> [Quickstart: Criar e compartilhar um bloco de anotações @ no__t-0

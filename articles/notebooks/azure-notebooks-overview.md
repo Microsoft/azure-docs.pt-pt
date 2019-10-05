@@ -4,27 +4,26 @@ description: Execute blocos de notas do Jupyter na cloud com o serviço de bloco
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d9a1a92c0b008244c7db4ec23d5a28888b042a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60634325"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973171"
 ---
 # <a name="overview-of-azure-notebooks"></a>Descrição geral dos blocos de notas do Azure
 
 O Azure Notebooks é um serviço alojado gratuito que serve para desenvolver e executar blocos de notas Jupyter na cloud sem instalação. [Jupyter](https://jupyter.org/) (anteriormente denominado IPython) é um projeto de código-fonte aberto que lhe permite facilmente combinar o texto de Markdown, código executável, dados persistentes, gráficos e visualizações para uma tela partilháveis única, o *bloco de notas* (imagem cortesia jupyter.org):
 
-[![Exemplos de blocos de notas do Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Examples de blocos de anotações do Jupyter](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Devido a esta poderosa combinação de código, gráficos e texto explicativo, Jupyter tornou conhecido por muitos usos, incluindo instruções de ciência de dados, limpeza de dados e transformação, simulação numérica, modelação estatística e o desenvolvimento de modelos de Machine learning.
 
@@ -55,11 +54,11 @@ Em resumo, blocos de notas do Azure ajuda-o a realizar seu trabalho com mais efi
 
 ## <a name="pricing-and-quotas"></a>Preços e quotas
 
-Blocos de notas do Azure é um serviço gratuito, mas cada projeto é limitado a 4GB de dados de 1GB de memória e para evitar abusos. Os usuários legítimos que excederem estes limites veem um desafio de Captcha para continuar a executar blocos de notas.
+Azure Notebooks é um serviço gratuito, mas cada projeto é limitado a 4 GB de memória e 1GB de dados para evitar abusos. Os usuários legítimos que excederem estes limites veem um desafio de Captcha para continuar a executar blocos de notas.
 
-Para disponibilizar todos os limites, inicie sessão em blocos de notas do Azure com uma conta com o Azure Active Directory (por exemplo, uma conta empresarial). Se essa conta estiver associada uma subscrição do Azure, pode ligar a quaisquer instâncias de máquina de Virtual de ciência de dados do Azure nessa subscrição. Para obter mais informações, consulte [gerir e configurar projetos - camada de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
+Para liberar todos os limites, entre Azure Notebooks com uma conta usando Azure Active Directory (como uma conta corporativa). Se essa conta estiver associada a uma assinatura do Azure, você poderá se conectar a qualquer instância do Azure Máquina Virtual de Ciência de Dados dentro dessa assinatura. Para obter mais informações, consulte [gerenciar e configurar projetos – camada de computação](configure-manage-azure-notebooks-projects.md#compute-tier).
 
-Servidores de bloco de anotações são existência garantidas por no máximo de 8 horas. Na maioria dos casos, o contentor não está sujeito a este limite e continua a ser executado para além desse tempo, mas, ocasionalmente, podem ser desligados sessões de longa duração para a estabilidade do sistema.
+Os servidores de notebook têm a garantia de existir por no máximo 8 horas. Na maioria dos casos, o contêiner não está sujeito a esse limite e continua a ser executado além desse tempo, mas sessões de longa duração podem ocasionalmente ser desligadas para a estabilidade do sistema.
 
 ## <a name="available-kernels-and-environments"></a>Kernels disponíveis e ambientes
 
@@ -68,12 +67,12 @@ Para cada bloco de notas, selecione o kernel (ou seja, o ambiente de tempo de ex
 - Python 2.7 + Anaconda2 5.3.0
 - Python 3.6 + Anaconda3 5.3.0
 - Python 3.5 + Anaconda3-4.2.0 (vão ser preteridos)
-- R 3.4.1 + Microsoft R abrir 3.4.1
+- R 3.4.1 + Microsoft R Open 3.4.1
 - F#4.1.9
 
 Blocos de notas do Azure também inclui pacotes adicionais para além das distribuições de bases. Os kernels do Python, por exemplo, incluem a numpy, pandas, scikit-saiba, matplotlib e bokeh bibliotecas.
 
-Também pode personalizar um projeto para criar um ambiente para todos os blocos de notas desse projeto. Para obter mais informações, consulte [início rápido: Criar um projeto com um ambiente personalizado](quickstart-create-jupyter-notebook-project-environment.md).
+Também pode personalizar um projeto para criar um ambiente para todos os blocos de notas desse projeto. Para obter mais informações, consulte [Quickstart: Crie um projeto com um ambiente personalizado @ no__t-0.
 
 Além das distribuições de bases, os blocos de notas do Azure vem pré-instalada com muitos pacotes adicionais que são úteis para os cientistas de dados. Também pode instalar seus próprios pacotes usando o processo normal para cada idioma.
 
@@ -81,11 +80,11 @@ Além das distribuições de bases, os blocos de notas do Azure vem pré-instala
 
 Blocos de notas do Azure é pré-configurado com as seguintes extensões de Jupyter:
 
-- [AUMENTAR](https://github.com/damianavila/RISE): Uma extensão de apresentação de slides do Jupyter (também conhecido como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do bloco de notas](present-jupyter-notebooks-slideshow.md).
-- [JupyterLab](https://github.com/jupyterlab/jupyterlab): Um ambiente computacional completa para trabalhar com blocos de notas do Jupyter.
-- [Altair](https://github.com/ellisonbg/altair): Uma biblioteca de visualização de estatísticas declarativa para Python.
-- [BQPlot](https://github.com/bloomberg/bqplot): Uma estrutura de desenho interativa para blocos de notas do Jupyter.
-- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): Widgets HTML interativos para blocos de notas do Jupyter.
+- [AUMENTO](https://github.com/damianavila/RISE): Uma extensão de apresentação de slides Jupyter (também conhecida como live_reveal). Para obter mais informações, consulte [executar uma apresentação de slides do bloco de notas](present-jupyter-notebooks-slideshow.md).
+- [JupyterLab](https://github.com/jupyterlab/jupyterlab): Um ambiente computacional completo para trabalhar com notebooks Jupyter.
+- [Altair](https://github.com/ellisonbg/altair): Uma biblioteca de visualização estatística declarativa para Python.
+- [BQPlot](https://github.com/bloomberg/bqplot): Uma estrutura de plotagem interativa para notebooks Jupyter.
+- [IpyWidgets](https://github.com/jupyter-widgets/ipywidgets): Widgets HTML interativos para notebooks Jupyter.
 
 ## <a name="issues-and-getting-help"></a>Problemas e obter ajuda
 
