@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 7c47b233e508c22ef7b380acfb7720ad763d8de3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 95cf19d4a782f9e4c866d31fac0da74aebff5d2d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241113"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976780"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Início rápido: Executar a primeira consulta do Resource Graph com o Azure PowerShell
 
@@ -24,7 +23,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="add-the-resource-graph-module"></a>Adicionar o módulo do Resource Graph
 
-Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Esse módulo pode ser usado com o PowerShell instalado localmente, com [Azure cloud Shell](https://shell.azure.com)ou com a [imagem](https://hub.docker.com/_/microsoft-powershell)do Docker do PowerShell.
+Para ativar o Azure PowerShell para consultar o Azure Resource Graph, tem de adicionar o módulo. Esse módulo pode ser usado com o PowerShell instalado localmente, com [Azure cloud Shell](https://shell.azure.com)ou com a [imagem do Docker do PowerShell](https://hub.docker.com/_/microsoft-powershell).
 
 ### <a name="base-requirements"></a>Requisitos de base
 
@@ -88,7 +87,7 @@ Com o módulo Azure PowerShell adicionado ao seu ambiente escolhido, é altura d
 Quando a consulta final é executada várias vezes, partindo do princípio de que nada no seu ambiente está a mudar, os resultados devolvidos serão consistentes e conforme o esperado – ordenados pela propriedade **Nome**, mas continuam a ser limitados aos cinco resultados principais.
 
 > [!NOTE]
-> Se a consulta não retornar resultados de uma assinatura à qual você já tem acesso, observe que `Search-AzGraph` o cmdlet usa como padrão as assinaturas no contexto padrão. Para ver a lista de IDs de assinatura que fazem parte do contexto padrão, execute `(Get-AzContext).Account.ExtendedProperties.Subscriptions` -a se desejar pesquisar em todas as assinaturas às quais você tem acesso, uma pode definir o PSDefaultParameterValues para `Search-AzGraph` o cmdlet executando`$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
+> Se a consulta não retornar resultados de uma assinatura à qual você já tem acesso, observe que o cmdlet `Search-AzGraph` usa como padrão as assinaturas no contexto padrão. Para ver a lista de IDs de assinatura que fazem parte do contexto padrão, execute este `(Get-AzContext).Account.ExtendedProperties.Subscriptions` se desejar pesquisar em todas as assinaturas às quais você tem acesso, uma pode definir o PSDefaultParameterValues para o cmdlet `Search-AzGraph` executando `$PSDefaultParameterValues=@{"Search-AzGraph:Subscription"= $(Get-AzSubscription).ID}`
    
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -105,7 +104,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 > [!NOTE]
 > Este comando não elimina o ficheiro do módulo que transferiu anteriormente. Apenas o remove da sessão do PowerShell.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
 - Aprender a [explorar recursos](./concepts/explore-resources.md)

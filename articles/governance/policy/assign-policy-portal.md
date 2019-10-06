@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 6db0879152dfcfd37719c8d22f836da6db7ed79d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5bbacb83e4275a513c53094c40508c3f13136658
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000900"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981514"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Início rápido: Criar uma atribuição de política para identificar recursos sem conformidade
 
@@ -96,7 +95,7 @@ Para remover a atribuição de criado, siga estes passos:
 
    ![Excluir uma atribuição da página conformidade](./media/assign-policy-portal/delete-assignment.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, atribuiu uma definição de política a um âmbito e avaliou o respetivo relatório de conformidade.
 A definição de política valida que todos os recursos no âmbito estão em conformidade e identifica quais não estão.

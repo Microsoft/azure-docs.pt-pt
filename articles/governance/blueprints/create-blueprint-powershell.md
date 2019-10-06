@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: quickstart
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: d2069819203e821b42ea2f70e38f27b49053639e
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 6a1ef5aece030ac359e9c5811c815bec5ed57d27
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910045"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978521"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início rápido: Definir e atribuir um Azure Blueprint com o PowerShell
 
@@ -137,7 +136,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'roleContributor' -ArtifactFile .\artifacts\roleContributor.json
      ```
 
-1. Adicione a atribuição de política no momento da subscrição. O **artefatofile** define o _tipo_ de artefato, as propriedades que se alinham a uma definição de política ou iniciativa e configura a atribuição de política para usar os parâmetros de plano gráfico definidos para configurar durante a atribuição do Blueprint. Este exemplo usa a _marca Apply e seu valor padrão para a_ política interna de grupos de recursos com um GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`de.
+1. Adicione a atribuição de política no momento da subscrição. O **artefatofile** define o _tipo_ de artefato, as propriedades que se alinham a uma definição de política ou iniciativa e configura a atribuição de política para usar os parâmetros de plano gráfico definidos para configurar durante a atribuição do Blueprint. Este exemplo usa a _marca Apply e seu valor padrão para a_ política interna de grupos de recursos com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - Arquivo JSON-\artifacts\policyTags.json
 
@@ -167,7 +166,7 @@ O primeiro passo na definição de um padrão de conformidade é compor um esque
      New-AzBlueprintArtifact -Blueprint $blueprint -Name 'policyTags' -ArtifactFile .\artifacts\policyTags.json
      ```
 
-1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo usa a _marca Apply e seu valor padrão para a_ política interna de grupos de recursos com um GUID `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`de.
+1. Adicione outra atribuição de política para a etiqueta de Armazenamento (reutilizando o parâmetro _storageAccountType_) na subscrição. Este artefacto de atribuição de política adicional demonstra que um parâmetro definido no esquema é utilizável por mais do que um artefacto. No exemplo, o **storageAccountType** é utilizado para definir uma etiqueta no grupo de recursos. Este valor apresenta informações sobre a conta de armazenamento que é criada no passo seguinte. Este exemplo usa a _marca Apply e seu valor padrão para a_ política interna de grupos de recursos com um GUID de `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - Arquivo JSON-\artifacts\policyStorageTags.json
 
@@ -315,7 +314,7 @@ O valor para `{BlueprintVersion}` é uma cadeia de letras, números e hífenes (
 
 ## <a name="assign-a-blueprint"></a>Atribuir um esquema
 
-Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuível a uma assinatura. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se o plano gráfico for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura. O parâmetro **Blueprint** especifica o plano gráfico a ser atribuído. Para fornecer parâmetros de nome, localização, identidade, bloqueio e plano gráfico, use os parâmetros correspondentes do PowerShell `New-AzBlueprintAssignment` no cmdlet ou forneça-os no arquivo JSON do parâmetro **assignmentfile** .
+Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuível a uma assinatura. Atribua o esquema que criou a uma das subscrições na hierarquia do grupo de gestão. Se o plano gráfico for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura. O parâmetro **Blueprint** especifica o plano gráfico a ser atribuído. Para fornecer parâmetros de nome, localização, identidade, bloqueio e plano gráfico, use os parâmetros correspondentes do PowerShell no cmdlet `New-AzBlueprintAssignment` ou forneça-os no arquivo JSON do parâmetro **assignmentfile** .
 
 1. Execute a implementação do esquema, atribuindo-o a uma subscrição. Como os parâmetros de **colaboradores** e **proprietários** exigem uma matriz de ObjectIDs das entidades de segurança para receber a atribuição de função, use [Azure Active Directory API do Graph](../../active-directory/develop/active-directory-graph-api.md) para coletar as ObjectIDs para uso no **assignmentfile** para seus próprios usuários, grupos ou entidades de serviço.
 
@@ -372,7 +371,7 @@ Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuíve
    - Identidade gerenciada atribuída pelo usuário
 
      Uma atribuição de Blueprint também pode usar uma [identidade gerenciada atribuída pelo usuário](../../active-directory/managed-identities-azure-resources/overview.md).
-     Nesse caso, a parte de **identidade** do arquivo de atribuição JSON é alterada da seguinte maneira. Substitua `{tenantId}`, `{subscriptionId}`, e`{yourRG}`por seu tenantid, SubscriptionId, nome do grupo de recursos e o nome da sua identidade gerenciada atribuída pelo usuário, respectivamente. `{userIdentity}`
+     Nesse caso, a parte de **identidade** do arquivo de atribuição JSON é alterada da seguinte maneira. Substitua `{tenantId}`, `{subscriptionId}`, `{yourRG}` e `{userIdentity}` por seu tenantid, SubscriptionId, nome do grupo de recursos e o nome da sua identidade gerenciada atribuída pelo usuário, respectivamente.
 
      ```json
      "identity": {
@@ -391,7 +390,7 @@ Depois que um plano gráfico é publicado usando o PowerShell, ele é atribuíve
 
 ## <a name="unassign-a-blueprint"></a>Anular a atribuição de um esquema
 
-Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de plano gráfico, `Remove-AzBlueprintAssignment` use o cmdlet:
+Pode remover um esquema de uma subscrição. A remoção é, muitas vezes, feita quando os recursos de artefacto já não são precisos. Quando um esquema é removido, os artefactos atribuídos como parte desse esquema são deixados para trás. Para remover uma atribuição de plano gráfico, use o cmdlet `Remove-AzBlueprintAssignment`:
 
 assignMyBlueprint
 

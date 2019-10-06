@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: b5fb0c4de82d5ff5f5290127ec529787cabad64a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 83446facc734c0bfa24b7e78916d652467d01415
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258347"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978687"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Início rápido: Explorar o Azure Time Series Insights
 
@@ -24,7 +24,7 @@ Este guia de início rápido do Azure Time Series Insights Explorer ajuda você 
 
 Azure Time Series Insights é um serviço de análise, armazenamento e visualização totalmente gerenciado que simplifica como explorar e analisar bilhões de eventos de IoT simultaneamente. Ele fornece uma exibição global de seus dados para que você possa validar rapidamente sua solução de IoT e evitar um tempo de inatividade dispendioso para dispositivos críticos. Azure Time Series Insights ajuda a descobrir tendências ocultas, detectar anomalias e realizar análises de causa raiz quase em tempo real.
 
-Para flexibilidade adicional, você pode adicionar Azure Time Series Insights a um aplicativo preexistente por meio de suas [APIs REST](./time-series-insights-update-tsq.md) poderosas e [SDK de cliente](./tutorial-create-tsi-sample-spa.md). Você pode usar as APIs para armazenar, consultar e consumir dados de série temporal em um aplicativo cliente de sua escolha. Você também pode usar o SDK do cliente para adicionar componentes de interface do usuário ao seu aplicativo existente.
+Para flexibilidade adicional, você pode adicionar Azure Time Series Insights a um aplicativo preexistente por meio de suas [APIs REST](./time-series-insights-update-tsq.md) poderosas e [SDK de cliente](https://github.com/microsoft/tsiclient). Você pode usar as APIs para armazenar, consultar e consumir dados de série temporal em um aplicativo cliente de sua escolha. Você também pode usar o SDK do cliente para adicionar componentes de interface do usuário ao seu aplicativo existente.
 
 Este início rápido do Time Series Insights Explorer oferece um tour guiado de recursos que estão em disponibilidade geral.
 
@@ -39,45 +39,45 @@ Este início rápido do Time Series Insights Explorer oferece um tour guiado de 
 
 1. A página Quick Tour Time Series Insights é exibida. Selecione **Avançar** para iniciar o tour rápido.
 
-   [![Selecione Avançar](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Select próximo](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>Explore o ambiente de demonstração
 
 1. O **painel de seleção de tempo** é exibido. Utilize este painel para selecionar um intervalo de tempo para visualizar.
 
-   [![Painel de seleção de tempo](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [painel de seleção de ![Time](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Selecione um intervalo de tempo e arraste-o na região. Em seguida, selecione **Pesquisar**.
 
-   [![Selecionar um intervalo de tempo](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![Select um período de tempo](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
    O Time Series Insights apresenta uma visualização de gráfico para o intervalo de tempo especificado. Você pode executar várias ações no gráfico de linhas. Por exemplo, você pode filtrar, fixar, classificar e empilhar.
 
    Para retornar ao **painel de seleção de tempo**, selecione a seta para baixo conforme mostrado:
 
-   [![Tipo](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
 1. Selecione **Adicionar** no **painel termos** para adicionar um novo termo de pesquisa.
 
-   [![Adicionar item](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [item de ![Add](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
 1. No gráfico, pode selecionar uma região, clicar com o botão direito na região e selecionar **Explorar Eventos**.
 
-   [![Explorar eventos](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [Eventos de ![Explore](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
    Uma grade de seus dados brutos é exibida na região que você está explorando.
 
-   [![Exibição de grade](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [exibição de @no__t 1Grid](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Selecionar e filtrar dados
 
 1. Edite seus termos para alterar os valores no gráfico. Adicione outro termo para fazer a correlação cruzada de diferentes tipos de valores.
 
-   [![Adicionar um termo](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![Add um termo](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
 1. Insira um termo de filtro na caixa **série de filtro** para filtragem da série improvisadas. Para o guia de introdução, introduza **Station5** para correlacionar entre si a temperatura e a pressão dessa estação.
 
-   [![Série de filtros](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [série ![Filter](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 Depois de concluir o guia de introdução, pode experimentar com o conjunto de dados de exemplo para criar visualizações diferentes.
 

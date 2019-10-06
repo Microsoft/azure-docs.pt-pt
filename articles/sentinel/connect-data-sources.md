@@ -1,5 +1,5 @@
 ---
-title: Conectar fontes de dados ao Azure Sentinel? | Microsoft Docs
+title: Conectar fontes de dados ao Azure Sentinel | Microsoft Docs
 description: Saiba como conectar fontes de dados ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: d8d3e52882a5cde9b00bf07ded933ae4d45b454b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d4605ad448916d788fd0a7089835a9ad3828697e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240171"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980411"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -99,7 +99,7 @@ Como alternativa, você pode implantar o agente manualmente em uma VM do Azure e
 | SigninLogs | [Conectar o Azure AD](connect-azure-active-directory.md)  | L | |
 | AzureFirewall |[Diagnóstico do Azure](../firewall/tutorial-diagnostics.md) | L | |
 | InformationProtectionLogs_CL  | [Relatórios da proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Conectar a proteção de informações do Azure](connect-azure-information-protection.md)  | L | Isso geralmente usa a função **InformationProtectionEvents** além do tipo de dados. Para obter mais informações, consulte [como modificar os relatórios e criar consultas personalizadas](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
-| AzureNetworkAnalytics_CL  | [Esquema de análise de tráfego](../network-watcher/traffic-analytics.md) [Análise de tráfego](../network-watcher/traffic-analytics.md)  | | |
+| AzureNetworkAnalytics_CL  | [](../network-watcher/traffic-analytics.md) [Análise de tráfego](../network-watcher/traffic-analytics.md) do esquema de análise de tráfego  | | |
 | CommonSecurityLog  | [Conectar CEF](connect-common-event-format.md)  | L | |
 | OfficeActivity | [Conectar o Office 365](connect-office-365.md) | L | |
 | SecurityEvents | [Conectar eventos de segurança do Windows](connect-windows-security-events.md)  | L | Para pastas de trabalho de protocolos inseguros, consulte [configuração de pasta de trabalho de protocolos não seguros](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |

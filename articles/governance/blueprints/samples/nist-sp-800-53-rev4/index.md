@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: f71d21149fa842b005d81b1f222b78244def6c20
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 09249b7f8acb171eb63cdc88b647ebf2048c7358
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231672"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980939"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>Descrição geral do exemplo de esquema NIST SP 800-53 R4
 

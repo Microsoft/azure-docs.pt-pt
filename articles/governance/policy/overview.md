@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b0c2d8060756c23cc69325ab88803d0423ba45b9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002300"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980779"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Visão geral do serviço de Azure Policy
 

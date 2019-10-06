@@ -1,18 +1,17 @@
 ---
-title: Exemplos de consulta avançada
+title: Exemplos de consultas avançadas
 description: Use o grafo de recursos do Azure para executar algumas consultas avançadas, incluindo capacidade do conjunto de dimensionamento de máquinas virtuais, listagem de todas as marcas usadas e correspondência de máquinas virtuais com expressões regulares.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 668dfc908418792c1258d112fbdfb640e85abbe2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239022"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980276"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avançadas do Azure Resource Graph
 
@@ -70,7 +69,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Máquinas virtuais correspondidas por regex
 
-Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_). A **Regex \@ corresponde** nos permite definir o Regex para corresponder, que é. `^Contoso(.*)[0-9]+$`
+Esta consulta procura máquinas virtuais que correspondam a uma [expressão regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conhecida como _regex_). A **correspondência regex \@** nos permite definir o Regex para corresponder, que é `^Contoso(.*)[0-9]+$`.
 Essa definição de regex é explicada como:
 
 - `^` – A correspondência tem de começar no início da cadeia de caracteres.
@@ -100,7 +99,7 @@ Search-AzGraph -Query "where type =~ 'microsoft.compute/virtualmachines' and nam
 
 ## <a name="displaynames"></a>Incluir os nomes de locatário e assinatura com displaynames
 
-Essa consulta usa o novo parâmetro **include** com opção displaynames para adicionar **subscriptionDisplayName** e **tenantDisplayName** aos resultados. Esse parâmetro só está disponível para CLI do Azure e Azure PowerShell.
+Essa consulta usa o novo parâmetro **include** com opção _displaynames_ para adicionar **subscriptionDisplayName** e **tenantDisplayName** aos resultados. Esse parâmetro só está disponível para CLI do Azure e Azure PowerShell.
 
 ```azurecli-interactive
 az graph query -q "limit 1" --include displayNames
@@ -114,7 +113,7 @@ Search-AzGraph -Query "limit 1" -Include DisplayNames
 > Se a consulta não usar o **Project** para especificar as propriedades retornadas, **subscriptionDisplayName** e **tenantDisplayName** serão incluídos automaticamente nos resultados.
 > Se a consulta usar o **Project**, cada um dos campos _DisplayName_ deverá ser incluído explicitamente no **projeto** ou não será retornado nos resultados, mesmo quando o parâmetro **include** for usado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver exemplos de [Consultas de introdução](starter.md)
 - Saber mais sobre a [linguagem de consulta](../concepts/query-language.md)

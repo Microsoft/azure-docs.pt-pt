@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: c0b9f18d71d01bf3659c3ed79a249dd0c9e14595
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 16d4f618aadd1e2157cdf06ca292f069f415d1b6
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968405"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981632"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Descrição geral da amostra do esquema de PBMM Federal do Canadá
 

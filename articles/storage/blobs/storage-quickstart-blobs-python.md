@@ -7,12 +7,12 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d371026b932a0870798a32b3102102836962b78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203966"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981210"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Início rápido: Carregar, baixar e listar BLOBs com o Python
 
@@ -50,7 +50,7 @@ Na aplicação, indique o nome da conta de armazenamento e a chave de conta para
 
 1. Abra o ficheiro *example.py* no Explorador de Soluções no seu IDE.
 
-1. Substitua os `accountname` valores `accountkey` e pelo nome da conta de armazenamento e pela chave:
+1. Substitua os valores `accountname` e `accountkey` pelo nome da conta de armazenamento e pela chave:
 
     ```python
     block_blob_service = BlockBlobService(
@@ -96,8 +96,8 @@ O programa de exemplo cria um arquivo de teste na pasta *documentos* , carrega o
 
 1. Antes de continuar, vá para a pasta *documentos* e verifique os dois arquivos.
 
-    * *QuickStart_\<universal – identificador exclusivo\>*
-    * *QuickStart_\<universal – identificador\>exclusivo _DOWNLOADED*
+    * *QuickStart_ @ no__t-1universally-identificador exclusivo @ no__t-2*
+    * *QuickStart_ @ no__t-1universally-identificador exclusivo @ no__t-2_DOWNLOADED*
 
 1. Pode abri-los e ver que são idênticos.
 
@@ -169,7 +169,7 @@ Pode utilizar diversos métodos de carregamento com o armazenamento de Blobs. Po
 
 ### <a name="list-the-blobs-in-a-container"></a>Listar os blobs num contentor
 
-O código a seguir cria `generator` um para `list_blobs` o método. O código percorre a lista de BLOBs no contêiner e imprime seus nomes no console.
+O código a seguir cria um `generator` para o método `list_blobs`. O código percorre a lista de BLOBs no contêiner e imprime seus nomes no console.
 
 ```python
 # List the blobs in the container.
@@ -182,8 +182,8 @@ for blob in generator:
 ### <a name="download-the-blobs"></a>Transferir os blobs
 
 
-Baixe BLOBs em seu disco local usando o `get_blob_to_path` método.
-O código a seguir baixa o blob que você carregou anteriormente. O sistema acrescenta *_DOWNLOADED* ao nome do blob para que você possa ver os dois arquivos no disco local. "
+Baixe BLOBs em seu disco local usando o método `get_blob_to_path`.
+O código a seguir baixa o blob que você carregou anteriormente. O sistema acrescenta *_DOWNLOADED* ao nome do blob para que você possa ver os dois arquivos no disco local.
 
 ```python
 # Download the blob(s).

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 8b765f0b7a8e3e610f849ebe92a14f1498c4b959
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208480"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981254"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: Executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
 
@@ -28,10 +27,10 @@ Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Geren
 
 1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **Explorador de grafo de recursos**.
 
-1. Na parte **consulta 1** da janela, insira a consulta `project name, type | limit 5` e selecione **Executar consulta**.
+1. Na parte da **consulta 1** da janela, insira a consulta `project name, type | limit 5` e selecione **Executar consulta**.
 
    > [!NOTE]
-   > Como esse exemplo de consulta não fornece um modificador de `order by`classificação como, a execução dessa consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação.
+   > Como esse exemplo de consulta não fornece um modificador de classificação, como `order by`, a execução dessa consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação.
 
 1. Examine a resposta de consulta na guia **resultados** . Selecione a guia **mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e a duração da consulta. Os erros, se houver, são exibidos nessa guia.
 
@@ -40,13 +39,13 @@ Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Geren
    > [!NOTE]
    > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
-1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, `limit` em seguida, para os cinco `project name, type | order by name asc | limit 5`primeiros resultados:. Em seguida, selecione **Executar consulta**.
+1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` aos cinco primeiros resultados: `project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar consulta**.
 
 Quando a consulta final é executada várias vezes, supondo que nada em seu ambiente esteja sendo alterado, os resultados retornados são consistentes e conforme esperado – ordenados pela propriedade **Name** , mas ainda limitados aos cinco primeiros resultados.
 
 ### <a name="schema-browser"></a>Navegador de esquema
 
-O navegador de esquema está localizado no painel esquerdo do Gerenciador de gráficos de recursos. Esta lista de recursos mostra todos os _tipos_ de recursos dos recursos do Azure com suporte do grafo de recursos do Azure e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou subpropriedades mostra Propriedades filho que podem ser usadas para criar uma consulta de gráfico de recursos. Selecionar o tipo de recurso `where type =="<resource type>"` coloca na caixa de consulta. A seleção de uma das propriedades filho `where <propertyName> == "INSERT_VALUE_HERE"` é adicionada à caixa de consulta. O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Certifique-se de _substituir\_o\_valor de inserção aqui_ pelo seu próprio valor, ajustar a consulta com condições, operadores e funções para atingir os resultados pretendidos.
+O navegador de esquema está localizado no painel esquerdo do Gerenciador de gráficos de recursos. Esta lista de recursos mostra todos os _tipos_ de recursos dos recursos do Azure com suporte do grafo de recursos do Azure e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou subpropriedades mostra Propriedades filho que podem ser usadas para criar uma consulta de gráfico de recursos. Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. A seleção de uma das propriedades filho adiciona `where <propertyName> == "INSERT_VALUE_HERE"` na caixa consulta. O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Certifique-se de substituir _Insert @ no__t-1VALUE @ no__t-2HERE_ por seu próprio valor, ajuste a consulta com condições, operadores e funções para atingir os resultados pretendidos.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico a partir da consulta de grafo de recursos
 
@@ -88,11 +87,11 @@ Para fornecer exemplos de consultas de grafo de recursos e como o Gerenciador de
 
 - [Gerenciador de gráficos de recursos-Dashboard de exemplo #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Exemplo de imagem para o Dashboard de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  [imagem ![Example para o painel de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
 
 - [Gerenciador de gráficos de recursos-Dashboard de exemplo #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Exemplo de imagem para o Dashboard de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  [imagem ![Example para o painel de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
 > As contagens e os gráficos no exemplo acima capturas de tela do painel variam de acordo com o ambiente do Azure.
@@ -115,7 +114,7 @@ Se você quiser remover os painéis de gráfico de recursos de exemplo de seu am
 
 1. Selecione **excluir** no menu do painel na parte superior do painel e selecione **OK** para confirmar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Obter mais informações sobre a [linguagem de consulta](./concepts/query-language.md)
 - Aprender a [explorar recursos](./concepts/explore-resources.md)

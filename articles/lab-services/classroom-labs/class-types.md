@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: c6a424ed6036016839f03f50f90ad5d911b05fad
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 0e8b203240b4b2d6b67534ab52a7cd4ccf5df571
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710005"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976586"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>Visão geral dos tipos de classe-Azure Lab Services
 Azure Lab Services permite que você configure rapidamente ambientes de laboratório de sala de aula na nuvem. Os artigos nesta seção fornecem orientação sobre como configurar vários tipos de laboratórios de sala de aula usando Azure Lab Services.
@@ -34,6 +34,13 @@ Você pode configurar um laboratório para ensinar o script de Shell no Linux. O
 Os alunos que tomam essas classes de script obtêm uma máquina virtual Linux para aprender as noções básicas do Linux e também se familiarizarem com os scripts do shell bash. A máquina virtual Linux vem com o acesso à área de trabalho remota habilitado e com os editores de texto [gedit](https://help.gnome.org/users/gedit/stable/) e [Visual Studio Code](https://code.visualstudio.com/) instalados.
 
 Para obter informações detalhadas sobre como configurar esse tipo de laboratório, consulte [shell scripting no Linux](class-type-shell-scripting-linux.md).
+
+## <a name="ethical-hacking"></a>Ethical Hacking 
+Você pode configurar um laboratório para uma classe que se concentre no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar. 
+
+Em uma aula de Ethical Hacking, os alunos podem aprender técnicas modernas de defesa contra vulnerabilidades. Cada aluno Obtém uma máquina virtual do host do Windows Server que tem duas máquinas virtuais aninhadas – uma máquina virtual com imagem **Metaspoiltable** e outra máquina com a imagem do [Kali Linux](https://www.kali.org/) . A máquina virtual Metasploitable é usada para fins de exploração e a máquina virtual Kali fornece acesso às ferramentas necessárias para executar tarefas forenses.
+
+Para obter informações detalhadas sobre como configurar esse tipo de laboratório, consulte [configurar um laboratório para ensinar a aula ética de hackers](class-type-ethical-hacking.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 

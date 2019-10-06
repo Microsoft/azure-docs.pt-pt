@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 390d07a473cff86d8870a7ec8229c6343f62c4e7
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bd89ee1f449f4598eaf2fcea567709162644a512
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232646"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981478"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Descrição geral do exemplo de esquema PCI-DSS v3.2.1
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/09/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: c6b8b65d594551f45026fb66520b4a47b3086ee6
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8bd9693bc10414c8d799403cc62f0406ea52faa8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232790"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978366"
 ---
 # <a name="overview-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>Descrição geral do exemplo de esquema CIS Microsoft Azure Foundations Benchmark
 

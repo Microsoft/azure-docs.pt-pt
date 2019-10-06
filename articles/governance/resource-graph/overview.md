@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 05/06/2019
 ms.topic: overview
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 6721769b0ab6df4165281d9b5b75c0e1332ed1dc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001657"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976807"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Visão geral do serviço de grafo de recursos do Azure
 
@@ -26,8 +25,8 @@ O grafo de recursos do Azure é um serviço no Azure projetado para estender o g
 Nesta documentação, vamos abordar cada funcionalidade de forma detalhada.
 
 > [!NOTE]
-> O grafo de recursos do Azure capacita a barra de pesquisa de portal do Azure, a nova experiência de procurar todos os recursos e a_diferença visual_do [histórico](../policy/how-to/determine-non-compliance.md#change-history-preview)
-> de alterações do Azure Policy. Ele foi projetado para ajudar os clientes a gerenciar ambientes em larga escala.
+> O grafo de recursos do Azure capacita a barra de pesquisa de portal do Azure, a nova experiência de "todos os recursos" e o [histórico de alterações](../policy/how-to/determine-non-compliance.md#change-history-preview)do Azure Policy 
+> _diferença visual_. Ele foi projetado para ajudar os clientes a gerenciar ambientes em larga escala.
 
 [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
 
@@ -73,7 +72,7 @@ Forneça seu caso comercial e selecione a caixa de seleção ' a Microsoft pode 
 
 O grafo de recursos limita as consultas no nível de usuário. A resposta do serviço contém os seguintes cabeçalhos HTTP:
 
-- `x-ms-user-quota-remaining`(int): A cota de recursos restante para o usuário. Esse valor é mapeado para a contagem de consultas.
+- `x-ms-user-quota-remaining` (int): A cota de recursos restante para o usuário. Esse valor é mapeado para a contagem de consultas.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de cota de um usuário seja redefinido
 
 Para obter mais informações, consulte [diretrizes para solicitações limitadas](./concepts/guidance-for-throttled-requests.md).

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: dd6bc10f762387aec113f20e335058080a976921
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 5fa0e9e70ea08928fab3bf67a696a1e493d47999
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71220037"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980888"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Descrição geral do exemplo de esquema SWIFT CSP-CSCF v2020
 
