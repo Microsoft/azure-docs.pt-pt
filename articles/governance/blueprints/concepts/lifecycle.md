@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 154e66366d4a687e60d7bddd28278414e3a4ccd7
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678992"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981038"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Entender o ciclo de vida de um Azure Blueprint
 
@@ -46,18 +45,18 @@ Publicar um plano gráfico com o [portal do Azure](../create-blueprint-portal.md
 
 ## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Criando e editando uma nova versão do Blueprint
 
-Uma versão **publicada** de um plano gráfico não pode ser alterada. No entanto, uma nova versão do Blueprint pode ser adicionada ao plano gráfico existente e modificada conforme necessário. Faça alterações em um plano gráfico existente editando-o. Quando as novas alterações são salvas, o plano gráfico agora tem **alterações**não publicadas. Essas alterações são uma nova versão de **rascunho** do plano gráfico.
+Uma versão **publicada** de um plano gráfico não pode ser alterada. No entanto, uma nova versão do Blueprint pode ser adicionada ao plano gráfico existente e modificada conforme necessário. Faça alterações em um plano gráfico existente editando-o. Quando as novas alterações são salvas, o plano gráfico agora tem **alterações não publicadas**. Essas alterações são uma nova versão de **rascunho** do plano gráfico.
 
 Edite um plano gráfico com o [portal do Azure](../create-blueprint-portal.md#edit-a-blueprint).
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicando uma nova versão do Blueprint
 
-Cada versão editada de um plano gráfico deve ser **publicada** antes que possa ser atribuída. Quando foram feitas **alterações** não publicadas em um plano gráfico,mas não publicadas, o botão **publicar Blueprint** está disponível na página Editar Blueprint. Se o botão não estiver visível, o plano gráfico já foi **publicado** e não tem **alterações**não publicadas.
+Cada versão editada de um plano gráfico deve ser **publicada** antes que possa ser atribuída. Quando foram feitas **alterações não publicadas** em um plano gráfico, mas não **publicadas**, o botão **publicar Blueprint** está disponível na página Editar Blueprint. Se o botão não estiver visível, o plano gráfico já foi **publicado** e não tem **alterações não publicadas**.
 
 > [!NOTE]
-> Um único Blueprint pode ter várias versões publicadas que podem ser atribuídas a assinaturas.
+> Um único Blueprint pode ter várias versões **publicadas** que podem ser atribuídas a assinaturas.
 
-Para publicar um plano gráfico com **alterações**não publicadas, use as mesmas etapas para publicar um novo plano gráfico.
+Para publicar um plano gráfico com **alterações não publicadas**, use as mesmas etapas para publicar um novo plano gráfico.
 
 ## <a name="deleting-a-specific-version-of-the-blueprint"></a>Excluindo uma versão específica do Blueprint
 
@@ -110,7 +109,7 @@ Se o plano gráfico não for mais necessário, ele poderá não ser atribuído d
 > [!NOTE]
 > Todos os recursos implantados pela atribuição Blueprint permanecem em vigor, mas não são mais protegidos pelas plantas do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).

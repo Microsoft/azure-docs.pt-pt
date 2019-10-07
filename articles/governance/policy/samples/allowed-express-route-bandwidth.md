@@ -1,20 +1,19 @@
 ---
-title: Exemplo - permitido largura de banda do ExpressRoute
-description: Esta definição de política de exemplo requer que o ExpressRoute usar um conjunto especificado de larguras de banda.
+title: Exemplo-largura de banda de ExpressRoute permitida
+description: Essa definição de política de exemplo requer que o ExpressRoute use um conjunto de larguras de banda especificado.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 169f6d41df8ca01d82e41bd27ca37e80f26c4055
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 27e09169ef076bad174eaebccdabc3b0cc531dbf
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547285"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980825"
 ---
-# <a name="sample---allowed-expressroute-bandwidth"></a>Exemplo - permitido largura de banda do ExpressRoute
+# <a name="sample---allowed-expressroute-bandwidth"></a>Exemplo-largura de banda de ExpressRoute permitida
 
 Esta política requer que o ExpressRoute utilize um conjunto especificado de larguras de banda. Especifica uma matriz de SKUs que podem ser especificados para o ExpressRoute.
 
@@ -28,7 +27,7 @@ Pode implementar este modelo através do [portal do Azure](#deploy-with-the-port
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fexpress-route-bandwidthInMbps%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fexpress-route-bandwidthInMbps%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
@@ -67,6 +66,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

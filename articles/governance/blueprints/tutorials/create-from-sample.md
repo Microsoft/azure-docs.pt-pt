@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f3250052a7e26b5d8ef7cb1d411f9d9252089875
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232626"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980729"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Tutorial: Criar um ambiente a partir de um exemplo de Blueprint
 
@@ -46,7 +45,7 @@ Primeiro, implemente o exemplo Blueprint. A importação cria uma nova especific
    - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome _dois-RGS-with-role-assignments_.
    - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento ou a assinatura para salvar sua cópia do exemplo.
 
-1. Selecione a guia artefatos na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Este exemplo define dois grupos de recursos, com nomes de exibição de _ProdRG_ e _PreProdRG_. O nome final e o local de cada grupo de recursos são definidos durante a atribuição do Blueprint. O grupo de recursos _ProdRG_ é atribuído à função _colaborador_ e o grupo de recursos _PreProdRG_ recebe as funções _proprietário_ e _leitores_ . As funções atribuídas na definição são estáticas, mas o usuário, aplicativo ou grupo ao qual a função é atribuída é definido durante a atribuição do Blueprint.
 
@@ -96,7 +95,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
    - Identidade Gerida
 
-     Deixe a opção padrão _atribuído pelo sistema_ . Para obter mais informações, [](../../../active-directory/managed-identities-azure-resources/overview.md)consulte identidades gerenciadas.
+     Deixe a opção padrão _atribuído pelo sistema_ . Para obter mais informações, consulte [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - Parâmetros de artefacto
 
@@ -132,23 +131,23 @@ A atribuição Blueprint cria e controla os artefatos definidos na definição d
 
    Vemos que o nome do grupo de recursos é **ProductionRG** e não o nome de exibição do artefato _ProdRG_. Esse nome corresponde ao valor definido durante a atribuição de Blueprint.
 
-1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia atribuições de **função** .
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia **atribuições de função** .
 
    Aqui, vemos que sua conta recebeu a função _colaborador_ no escopo deste _recurso_. A atribuição de plano de _atribuição-dois-RGS-com-atribuições de função_ tem a função _proprietário_ como foi usada para criar o grupo de recursos. Essas permissões também são usadas para gerenciar recursos com bloqueios de Blueprint configurados.
 
 1. Na barra de navegação portal do Azure, selecione **atribuição-dois-RGS-com-atribuições de função** para voltar uma página e, em seguida, selecione o grupo de recursos **PreProductionRG** .
 
-1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia atribuições de **função** .
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia **atribuições de função** .
 
    Aqui, vemos que sua conta recebeu as funções de _proprietário_ e de _leitor_ , ambas no escopo deste _recurso_. A atribuição Blueprint também tem a função de _proprietário_ como o primeiro grupo de recursos.
 
-1. Selecione a guia atribuições de negação.
+1. Selecione a guia **atribuições de negação** .
 
-   A atribuição de Blueprint criou uma [atribuição](../../../role-based-access-control/deny-assignments.md) de negação no grupo de recursos implantado para impor o modo de bloqueio de Blueprint _somente leitura_ . A atribuição Deny impede que alguém com direitos apropriados na guia atribuições de _função_ faça ações específicas. A atribuição de negação afeta _todas as entidades de segurança_.
+   A atribuição de Blueprint criou uma [atribuição de negação](../../../role-based-access-control/deny-assignments.md) no grupo de recursos implantado para impor o modo de bloqueio de Blueprint _somente leitura_ . A atribuição Deny impede que alguém com direitos apropriados na guia _atribuições de função_ faça ações específicas. A atribuição de negação afeta _todas as entidades de segurança_.
 
 1. Selecione a atribuição negar e selecione a página **permissões negadas** à esquerda.
 
-   A atribuição de negação está impedindo todas **\*** as operações com a configuração de **ação** e, mas permite acesso de leitura, excluindo  **\*/Read** por meio de **ações**.
+   A atribuição de negação está impedindo todas as operações com a **\*** e a configuração de **ação** , mas permite acesso de leitura, excluindo **\*/ler** via **ações**.
 
 1. No portal do Azure navegação estrutural, selecione **iam (PreProductionRG-Access Control)** . Em seguida, selecione a página **visão geral** à esquerda e, em seguida, o botão **excluir grupo de recursos** . Insira o nome _PreProductionRG_ para confirmar a exclusão e selecione **excluir** na parte inferior do painel.
 
@@ -171,7 +170,7 @@ A remoção da atribuição não remove os artefatos implantados.
 
 1. Selecione **grupos de recursos** no menu do Azure e, em seguida, selecione **ProductionRG**.
 
-1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia atribuições de **função** .
+1. Selecione a página **controle de acesso (iam)** à esquerda e, em seguida, a guia **atribuições de função** .
 
 A segurança de cada grupo de recursos ainda tem as atribuições de função implantadas, mas a atribuição de Blueprint não tem mais acesso de _proprietário_ .
 
@@ -183,9 +182,9 @@ Ao concluir este tutorial, exclua os seguintes recursos:
 
 - _ProductionRG_ do grupo de recursos
 - _PreProductionRG_ do grupo de recursos
-- Definição de Blueprint _dois-RGS_ com atribuições de função
+- Definição de Blueprint _dois-RGS com atribuições de função_
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [ciclo de vida do Blueprint](../concepts/lifecycle.md)
 - Compreender como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md)

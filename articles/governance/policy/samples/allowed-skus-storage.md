@@ -1,20 +1,19 @@
 ---
-title: Exemplo - SKUs permitido para as contas de armazenamento e máquinas virtuais
-description: Esta definição de política de exemplo requer que as contas de armazenamento e máquinas virtuais utilizam SKUs aprovados.
+title: Exemplos de SKUs permitidos para contas de armazenamento e máquinas virtuais
+description: Esta definição de política de exemplo requer que contas de armazenamento e máquinas virtuais usem SKUs aprovados.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e84462a930ffad202def1da1e2c923371dde9d58
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61333517"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980609"
 ---
-# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemplo - SKUs permitido para as contas de armazenamento e máquinas virtuais
+# <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemplos de SKUs permitidos para contas de armazenamento e máquinas virtuais
 
 Esta política requer que as contas de armazenamento e as máquinas virtuais utilizem SKUs aprovados. Utiliza políticas incorporadas para garantir SKUs aprovados. Especifique uma matriz de SKUs de máquinas virtuais aprovadas e uma matriz de SKUs de contas de armazenamento aprovadas.
 
@@ -28,7 +27,7 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal) ou
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
@@ -71,6 +70,6 @@ az policy assignment delete --name <assignmentName>
 az policy set-definition delete --name "skus-for-multiple-types"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

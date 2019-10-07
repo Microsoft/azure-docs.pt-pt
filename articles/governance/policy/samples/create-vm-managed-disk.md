@@ -1,20 +1,19 @@
 ---
-title: Exemplo - auditar o disco gerido de VM não utilizar
-description: Esta definição de json de exemplo audita quando é criada uma máquina virtual que não utilizam discos geridos.
+title: Exemplo-a VM de auditoria não está usando o disco gerenciado
+description: Essa definição de exemplo JSON audita quando uma máquina virtual é criada e não usa discos gerenciados.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 8f1823ecfad7b78dc6360ffdfb517b0dbe858b53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20552ef0a56a0fc7136efa80561812ee4b5dad9b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545389"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980551"
 ---
-# <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>Exemplo - auditoria quando não utiliza a VM de disco gerido
+# <a name="sample---audit-when-vm-does-not-use-managed-disk"></a>Exemplo – auditar quando a VM não usa o disco gerenciado
 
 Faz uma auditoria quando é criada uma máquina virtual que não utiliza discos geridos.
 
@@ -28,7 +27,7 @@ Pode implementar este modelo através do [portal do Azure](#deploy-with-the-port
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-non-managed-disk-vm%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FCompute%2Faudit-non-managed-disk-vm%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
@@ -67,6 +66,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

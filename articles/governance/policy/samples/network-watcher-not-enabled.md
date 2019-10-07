@@ -1,20 +1,19 @@
 ---
-title: Exemplo - se o observador de rede não está ativado para a região de auditoria
-description: Esta definição de política de exemplo Audita o observador de rede não está ativado para uma região especificada
+title: Exemplo – auditar se o observador de rede não estiver habilitado para a região
+description: Esta definição de política de exemplo audita se o observador de rede não está habilitado para uma região especificada
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7614b000f69eb74c83084aec0849a2741c82cd5a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 94d4bbd70c21713fa366907b3fe8cec8543350eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511352"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981376"
 ---
-# <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>Exemplo - se o observador de rede não está ativado para a região de auditoria
+# <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>Exemplo – auditar se o observador de rede não estiver habilitado para a região
 
 Esta política faz uma auditoria se o Observador de Rede não estiver ativado para uma região especificada. Especifica o nome da região para verificar se o Observador de Rede está ativado.
 
@@ -28,7 +27,7 @@ Pode implementar este modelo através do [portal do Azure](#deploy-with-the-port
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
@@ -67,6 +66,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

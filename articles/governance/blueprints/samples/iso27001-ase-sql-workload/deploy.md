@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: fb68b2f78e48dabf5b1377b7c811840a85604f53
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 4804e10488c537dbf997aba0ec49f784bc67457d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802423"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981595"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar a amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL
 
@@ -41,14 +40,14 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 1. Na página **Guia de introdução** à esquerda, selecione o botão **criar** em _criar um plano gráfico_.
 
-1. Encontre o **ISO 27001: Exemplo de Blueprint de** carga de trabalho do ase/SQL em _outros exemplos_ e selecione **usar este exemplo**.
+1. Localize o **ISO 27001: Teste de carga de trabalho do ASE/SQL @ no__t-0 em _outros exemplos_ e selecione **usar este exemplo**.
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
    - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo de especificação de esquema de carga de trabalho do ISO 27001 ASE/SQL.
    - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -115,34 +114,34 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|Log Analytics Grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
+|Log Analytics Grupo de recursos|Resource group|Name|**Locked** – concatena o **nome da organização** com `-workload-log-rg` para tornar o grupo de recursos exclusivo.|
 |Log Analytics Grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Escalão do serviço|Define a camada do espaço de trabalho Log Analytics. O valor padrão é _PerNode_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo do Log Analytics|Modelo do Resource Manager|Location|Região usada para criar o espaço de trabalho Log Analytics. O valor padrão é _oeste dos EUA 2_.|
-|Grupo de recursos de rede|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
+|Grupo de recursos de rede|Resource group|Name|**Locked** – concatena o **nome da organização** com `-workload-net-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos de rede|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
 |Modelo do Grupo de Segurança de Rede|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
-|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|IP privado do Azure Firewall|Configura o IP privado do [Firewall do Azure](../../../../firewall/overview.md). Deve ser parte da notação CIDR definida em _ISO 27001: Parâmetro de_ artefato de serviços compartilhados **prefixo de endereço de sub-rede do firewall do Azure**. O valor padrão é _10.0.4.4_.|
+|Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|IP privado do Azure Firewall|Configura o IP privado do [Firewall do Azure](../../../../firewall/overview.md). Deve ser parte da notação CIDR definida em _ISO 27001: Serviços compartilhados @ no__t-0 parâmetro de artefato **do firewall do Azure prefixo de endereço de sub-rede**. O valor padrão é _10.0.4.4_.|
 |Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|ID da Subscrição dos Serviços partilhados|Valor usado para habilitar o emparelhamento VNET entre uma carga de trabalho e os serviços compartilhados.|
 |Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo do endereço da Rede Virtual|A notação CIDR para a rede virtual. O valor padrão é _10.1.0.0/16_.|
 |Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Prefixo do endereço de sub-rede predefinido|A notação CIDR para a sub-rede padrão da rede virtual. O valor padrão é _10.1.0.0/16_.|
 |Modelo de rede virtual e de tabela de rotas|Modelo do Resource Manager|Adiciona o endereço IP|O endereço IP da primeira adiciona VM. Esse valor é usado como DNS de VNET personalizado.|
-|Key Vault grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-kv-rg` para tornar o grupo de recursos exclusivo.|
+|Key Vault grupo de recursos|Resource group|Name|**Locked** – concatena o **nome da organização** com `-workload-kv-rg` para tornar o grupo de recursos exclusivo.|
 |Key Vault grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
 |Modelo do Key Vault|Modelo do Resource Manager|ID do objeto do AAD|O identificador de objeto do AAD da conta que requer acesso à instância de Key Vault. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , selecione o ícone "clique para copiar" ao lado da _ID do objeto_.|
 |Modelo do Key Vault|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo do Key Vault|Modelo do Resource Manager|SKU do Key Vault|Especifica a SKU do Key Vault que é criado. O valor padrão é _Premium_.|
 |Modelo do Key Vault|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|O nome de usuário usado para acessar o SQL Server do Azure. Deve corresponder ao mesmo valor de propriedade no **modelo de banco de dados SQL do Azure**. O valor padrão é _SQL-admin-user_.|
-|Grupo de recursos do banco de dados SQL do Azure|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
+|Grupo de recursos do banco de dados SQL do Azure|Resource group|Name|**Locked** – concatena o **nome da organização** com `-workload-azsql-rg` para tornar o grupo de recursos exclusivo.|
 |Grupo de recursos do banco de dados SQL do Azure|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Nome do administrador do SQL Server do Azure|Nome de usuário para o SQL Server do Azure. Deve corresponder ao mesmo valor de propriedade no **modelo de Key Vault**. O valor padrão é _SQL-admin-user_.|
-|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (Key Vault ID do recurso)|A ID de recurso do Key Vault. Use "/Subscription/{SubscriptionId}/resourceGroups/{orgName}-Workload-kV/Providers/Microsoft.KeyVault/Vaults/{orgName}-Workload-kV" e substitua `{subscriptionId}` pela sua ID de assinatura `{orgName}` e pelo **nome da organização** parâmetro Blueprint.|
+|Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (Key Vault ID do recurso)|A ID de recurso do Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" e substitua `{subscriptionId}` pela sua ID de assinatura e `{orgName}` pelo plano de **nome da organização** meter.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Senha de administrador do Azure SQL Server (nome do Key Vault segredo)|Nome de usuário do administrador do SQL Server. Deve corresponder ao valor na propriedade de **modelo Key Vault** o **nome de usuário do administrador do Azure SQL Server**.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Retenção do registo em dias|Retenção de dados em dias. O valor padrão é _365_.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|ID do objeto de administrador do AAD|ID de objeto do AAD do usuário que será atribuído como um administrador de Active Directory. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , selecione o ícone "clique para copiar" ao lado da _ID do objeto_.|
 |Modelo da Base de Dados SQL do Azure|Modelo do Resource Manager|Logon de administrador do AAD|Atualmente, as contas da Microsoft (como live.com ou outlook.com) não podem ser definidas como administrador. Somente usuários e grupos de segurança em sua organização podem ser definidos como administrador. Nenhum valor padrão e não pode ser deixado em branco. Para localizar esse valor no portal do Azure, procure e selecione "usuários" em _Serviços_. Use a caixa _nome_ para filtrar o nome da conta e selecione essa conta. Na página _perfil do usuário_ , copie o _nome de usuário_.|
-|Ambiente do Serviço de Aplicativo grupo de recursos|Resource group|Name|**Bloqueado** – concatena o **nome da organização** com `-workload-ase-rg` para tornar o grupo de recursos exclusivo.|
+|Ambiente do Serviço de Aplicativo grupo de recursos|Resource group|Name|**Locked** – concatena o **nome da organização** com `-workload-ase-rg` para tornar o grupo de recursos exclusivo.|
 |Ambiente do Serviço de Aplicativo grupo de recursos|Resource group|Location|**Locked** -usa o parâmetro Blueprint.|
 |Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Nome de domínio|Nome do Active Directory criado pelo exemplo. O valor padrão é _contoso.com_.|
 |Modelo do Ambiente do Serviço de Aplicações|Modelo do Resource Manager|Local do ASE|Ambiente do Serviço de Aplicativo local. O valor padrão é _oeste dos EUA 2_.|
@@ -153,7 +152,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 Agora que você analisou as etapas para implantar o exemplo de esquema de carga de trabalho do banco de dados do Ambiente do Serviço de Aplicativo/SQL ISO 27001, visite os seguintes artigos para saber mais sobre o mapeamento de arquitetura e controle:
 
 > [!div class="nextstepaction"]
-> [ISO 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL-visão geral](./index.md)
+> [Iso 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL-visão geral](./index.md)
 > [ISO 27001 ambiente do serviço de aplicativo/esquema de carga de trabalho do banco de dados SQL](./control-mapping.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:

@@ -1,20 +1,19 @@
 ---
-title: Exemplo - aplicar etiqueta e respetivo valor predefinido
-description: Esta definição de política de exemplo acrescenta um nome de etiqueta especificada e um valor, se marca não fornecido.
+title: Exemplo – aplicar marca e seu valor padrão
+description: Essa definição de política de exemplo acrescenta um nome e valor de marca especificados, se essa marca não for fornecida.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5c1de3713d2d7a2b2914b7b9bff9fa8b01320
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549704"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977597"
 ---
-# <a name="sample---apply-tag-and-its-default-value"></a>Exemplo - aplicar etiqueta e respetivo valor predefinido
+# <a name="sample---apply-tag-and-its-default-value"></a>Exemplo – aplicar marca e seu valor padrão
 
 Esta política acrescenta um nome de etiqueta e um valor especificado, se essa etiqueta não for fornecida. Especifica o nome de etiqueta e o valor a aplicar.
 
@@ -23,7 +22,7 @@ Pode implementar esta política de exemplo com:
 - O [portal do Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
-- [API REST](#rest-api)
+- [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -52,8 +51,8 @@ O JSON que define os parâmetros da política, utilizado pela CLI do Azure e o A
 
 |Name |Type |Campo |Descrição |
 |---|---|---|---|
-|tagName |String |etiquetas |Nome da etiqueta, como costCenter|
-|tagValue |String |etiquetas |Valor da etiqueta, como headquarter|
+|tagName |Cadeia |tags |Nome da etiqueta, como costCenter|
+|tagValue |Cadeia |tags |Valor da etiqueta, como headquarter|
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
@@ -73,8 +72,8 @@ No parâmetro deste exemplo, um _tagName_ de **costCenter** e um _tagValue_ de *
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Implementar a política de exemplo para o Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
-[![implementar a política de exemplo para o Azure Gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -217,12 +216,12 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 | Serviço | Grupo | Operação | Notas |
 |---|---|---|---|
-| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Alternativa: [Criar grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Opcional [Criar no grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
 | Gestão de Recursos | Atribuições de Política | [Eliminar](/rest/api/resources/policyassignments/delete) | Remove uma atribuição do Azure Policy existente. |
-| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Alternativa: [Eliminar grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Opcional [Excluir no grupo de gerenciamento](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [exemplos do Azure Policy](index.md) adicionais
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md)

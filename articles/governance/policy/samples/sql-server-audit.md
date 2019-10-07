@@ -1,22 +1,19 @@
 ---
-title: Exemplo - definições de auditoria de auditoria SQL Server
-description: Esta definição de política de exemplo Audita as definições de auditoria do SQL server com auditIfNotExists.
-services: azure-policy
+title: Exemplo-auditoria SQL Server configurações de auditoria
+description: Esta definição de política de exemplo audita as configurações de auditoria do SQL Server com auditIfNotExists.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-origin.date: 04/27/2018
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/23/2019
+ms.author: dacoulte
+ms.openlocfilehash: c548d1e0e9f21f482a0cfc4b19c482e040d7f298
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60926733"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980359"
 ---
-# <a name="sample---audit-sql-server-audit-settings"></a>Exemplo – auditoria definições de auditoria do SQL server
+# <a name="sample---audit-sql-server-audit-settings"></a>Exemplo – auditar configurações de auditoria do SQL Server
 
 Esta política incorporada fará uma auditoria ao SQL Server para verificar se as definições de auditoria estão ativadas.
 
@@ -66,7 +63,7 @@ Ao atribuir uma política, selecione **Auditar as Definições de Auditoria ao N
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-```powershell
+```azurepowershell-interactive
 $definition = Get-AzPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9
 
 New-AzPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -PolicyParameter '{"setting": {"value":"enabled"}}' -Scope <scope>
@@ -76,7 +73,7 @@ New-AzPolicyAssignment -name "SQL Audit audit" -PolicyDefinition $definition -Po
 
 Execute o seguinte comando para remover a atribuição de política.
 
-```powershell
+```azurepowershell-interactive
 Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 ```
 
@@ -84,7 +81,7 @@ Remove-AzPolicyAssignment -Name "SQL Audit audit" -Scope <scope>
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-```cli
+```azurecli-interactive
 az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6fb4358-5bf4-4ad7-ba82-2cd2f41ce5e9 --params '{"setting": {"value":"enabled"}}'
 ```
 
@@ -92,10 +89,10 @@ az policy assignment create --scope <scope> --name "SQL Audit audit" --policy a6
 
 Execute o seguinte comando para remover a atribuição de política.
 
-```cli
+```azurecli-interactive
 az policy assignment delete --name "SQL Audit audit" --resource-group myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

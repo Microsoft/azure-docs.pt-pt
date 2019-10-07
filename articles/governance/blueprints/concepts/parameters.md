@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004075"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981057"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Criando plantas dinâmicas por meio de parâmetros
 
@@ -62,7 +61,7 @@ Um valor de parâmetro definido na definição de um plano gráfico é chamado d
 
 1. Clique em um plano gráfico existente e, em seguida, clique em **Editar Blueprint** ou clique em **+ criar plano gráfico** e preencha as informações na guia **noções básicas** .
 
-1. Clique **em Avançar: Artefatos** ou clique na guia **artefatos** .
+1. Clique em **Seguinte: Artefatos @ no__t-0 ou clique na guia **artefatos** .
 
 1. Os artefatos adicionados ao plano gráfico com opções de parâmetro exibem **X de parâmetros Y preenchidos** na coluna **parâmetros** . Clique na linha de artefato para editar os parâmetros de artefato.
 
@@ -135,11 +134,11 @@ O exemplo de API REST a seguir cria um artefato de atribuição de função no B
   }
   ```
 
-Neste exemplo, a propriedade **principalIds** usa o parâmetro de nível de planta de **proprietários** usando um valor `[parameters('owners')]`de. Definir um parâmetro em um artefato usando um parâmetro de nível Blueprint ainda é um exemplo de um **parâmetro estático**. O parâmetro de nível do plano gráfico não pode ser definido durante a atribuição do Blueprint e será o mesmo valor em cada atribuição.
+Neste exemplo, a propriedade **principalIds** usa o parâmetro de nível de planta de **proprietários** usando um valor de `[parameters('owners')]`. Definir um parâmetro em um artefato usando um parâmetro de nível Blueprint ainda é um exemplo de um **parâmetro estático**. O parâmetro de nível do plano gráfico não pode ser definido durante a atribuição do Blueprint e será o mesmo valor em cada atribuição.
 
 ##### <a name="artifact-level-parameter"></a>Parâmetro de nível de artefato
 
-A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa um valor reto em `parameters()` vez de usar a função. O exemplo a seguir cria dois parâmetros estáticos, **TagName** e **tagValue**. O valor em cada um é fornecido diretamente e não usa uma chamada de função.
+A criação de **parâmetros estáticos** em um artefato é semelhante, mas usa um valor reto em vez de usar a função `parameters()`. O exemplo a seguir cria dois parâmetros estáticos, **TagName** e **tagValue**. O valor em cada um é fornecido diretamente e não usa uma chamada de função.
 
 - URI da API REST
 
@@ -185,7 +184,7 @@ O oposto de um parâmetro estático é um **parâmetro dinâmico**. Esse parâme
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Definindo parâmetros dinâmicos da API REST
 
-A configuração de **parâmetros dinâmicos** durante a atribuição é feita inserindo-se o valor diretamente. Em vez de usar uma função, como [Parameters ()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Os artefatos de um grupo de recursos são definidos com as propriedades "nome do modelo", **nome**e **local** . Todos os outros parâmetros do artefato incluído são definidos em **parâmetros** com um par de **\<\>** chaves de nome e **valor** . Se o Blueprint estiver configurado para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
+A configuração de **parâmetros dinâmicos** durante a atribuição é feita inserindo-se o valor diretamente. Em vez de usar uma função, como [Parameters ()](../reference/blueprint-functions.md#parameters), o valor fornecido é uma cadeia de caracteres apropriada. Os artefatos de um grupo de recursos são definidos com as propriedades "nome do modelo", **nome**e **local** . Todos os outros parâmetros do artefato incluído são definidos em **parâmetros** com um par de chaves **\<name @ no__t-3** e **valor** . Se o Blueprint estiver configurado para um parâmetro dinâmico que não é fornecido durante a atribuição, a atribuição falhará.
 
 - URI da API REST
 
@@ -236,7 +235,7 @@ A configuração de **parâmetros dinâmicos** durante a atribuição é feita i
   }
   ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a lista de [funções de plantas](../reference/blueprint-functions.md).
 - Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).

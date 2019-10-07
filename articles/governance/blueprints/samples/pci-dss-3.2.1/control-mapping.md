@@ -7,19 +7,18 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 2ec299a79f852c553763439290b014a91d3a9414
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: fca86163cdfc8790da007a1f0f9264534b512cdd
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918591"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981493"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle do exemplo de especificação técnica PCI-DSS v 3.2.1
 
 O artigo a seguir fornece detalhes sobre como a amostra do plano gráfico PCI-DSS v 3.2.1 do Azure é mapeada para os controles PCI-DSS v 3.2.1. Para obter mais informações sobre os controles, consulte [PCI-DSS v 3.2.1](https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf).
 
-Os seguintes mapeamentos são para os controles **PCI-DSS v 3.2.1:2018** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione  **\[a\] auditoria de visualização PCI v 3.2.1: controles de 2018 e implante extensões de VM específicas para dar suporte à** iniciativa de política interna de requisitos de auditoria.
+Os seguintes mapeamentos são para os controles **PCI-DSS v 3.2.1:2018** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione os **controles de \[Preview @ no__t-2 Audit PCI v 3.2.1:2018 e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
 
 > [!IMPORTANT]
 > Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/pci-dss-3.2.1/control-mapping.md).
@@ -101,12 +100,12 @@ O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-l
 
 Este projeto ajuda a impor senhas fortes atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam as VMs do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização das VMs em violação da política de força da senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Versão\]prévia: Auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Versão\]prévia: Auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Versão\]prévia: Auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
+- \[Preview @ no__t-1: Auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: Auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
+- \[Preview @ no__t-1: Auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
 
 ## <a name="103-and-1054-audit-generation"></a>Geração de auditoria 10,3 e 10.5.4
 
@@ -127,13 +126,13 @@ Este projeto ajuda você a gerenciar e controlar sua rede atribuindo definiçõe
 - Localizações permitidas
 - Localizações permitidas para os grupos de recursos
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico PCI-DSS v 3.2.1, visite os seguintes artigos para saber mais sobre a visão geral e como implantar este exemplo:
 
 > [!div class="nextstepaction"]
 > [PCI-DSS v 3.2.1 Blueprint-visão geral](./index.md)
-> [PCI-DSS v 3.2.1 Blueprint-etapas de implantação](./deploy.md)
+> [PCI-DSS v 3.2.1 Blueprint – implantar etapas](./deploy.md)
 
 ## <a name="addition-articles-about-blueprints-and-how-to-use-them"></a>Artigos adicionais sobre esquemas e como utilizá-los:
 

@@ -7,19 +7,18 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 654ae2da9bcdb6d73de47730aff6870c2e3dfaeb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 823b890f1898de5006b965ffa19520016aceb121
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001529"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980883"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
 
 O artigo a seguir fornece detalhes sobre como os exemplos do plano gráfico do Reino Unido e do Reino Unido NHS são mapeados para os controles OFFICIAL e NHS do Reino Unido. Para obter mais informações sobre os controles, consulte [oficial do Reino Unido](https://www.gov.uk/government/publications/government-security-classifications).
 
-Os mapeamentos a seguir são para os controles **oficial do Reino Unido** e **NHS do Reino Unido** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione  **\[os\] controles de auditoria visualização oficial do Reino Unido e NHS do Reino Unido e implante extensões de VM específicas para dar suporte à** iniciativa de política interna de requisitos de auditoria.
+Os mapeamentos a seguir são para os controles **oficial do Reino Unido** e **NHS do Reino Unido** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione os **controles \[Preview @ no__t-2 Audit UK e UK NHS e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
 
 > [!IMPORTANT]
 > Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
@@ -91,27 +90,27 @@ Esse projeto também atribui definições de Azure Policy para auditar contas qu
 
 Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
-- \[Versão\]prévia: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
+- \[Preview @ no__t-1: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
 
 Este projeto ajuda a impor senhas fortes atribuindo definições de Azure Policy que auditam as VMs do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização das VMs em violação da política de força da senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-- \[Versão\]prévia: Auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão\]prévia: Auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Versão\]prévia: Auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[Versão\]prévia: Auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Versão\]prévia: Auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
+- \[Preview @ no__t-1: Auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Preview @ no__t-1: Auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: Auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
+- \[Preview @ no__t-1: Auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
+- \[Preview @ no__t-1: Auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
 
 Este projeto também ajuda a controlar o acesso aos recursos do Azure atribuindo definições de Azure Policy. Essas políticas usam a auditoria do uso de tipos de recursos e configurações que podem permitir acesso mais permissivo aos recursos. Compreender os recursos que estão em violação dessas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos do Azure de acesso sejam restritos a usuários autorizados.
 
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Linux que têm contas sem senhas
-- \[Versão\]prévia: Implantar requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas
-- \[Versão\]prévia: Auditar VMs do Linux que têm contas sem senhas
-- \[Versão\]prévia: Auditar VMs do Linux que permitem conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Linux que têm contas sem senhas
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: Auditar VMs do Linux que têm contas sem senhas
+- \[Preview @ no__t-1: Auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
 - As máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
 - Auditar VMs que não usam discos gerenciados
@@ -148,7 +147,7 @@ Esse projeto também atribui definições de Azure Policy para auditar contas qu
 
 Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
-- \[Versão\]prévia: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
+- \[Preview @ no__t-1: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
 
 ## <a name="13-audit-information-for-users"></a>13 informações de auditoria para usuários
 
@@ -157,17 +156,17 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows
 - Implantar o observador de rede quando redes virtuais forem criadas
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle dos planos gráficos do Reino Unido e do Reino Unido NHS, visite os artigos a seguir para saber mais sobre a visão geral e como implantar este exemplo:
 
 > [!div class="nextstepaction"]
-> [Plantas oficiais do Reino Unido e do Reino Unido de NHS-visão geral](./index.md)
-> do Reino Unido[e do Reino Unido do RU NHS-etapas de implantação](./deploy.md)
+> [Plantas NHSis do Reino Unido e do Reino Unido-visão geral](./index.md)
+> [ru Official e plantas de NHS do Reino Unido-etapas de implantação](./deploy.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 

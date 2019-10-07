@@ -6,19 +6,18 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: df764de2c91961a17c966de4305ae32302e03171
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9ec44b4207cb3489205a646429f7fdd5ff2f3f90
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918656"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981582"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Mapeamento de controle do exemplo de plano gráfico dos serviços compartilhados ISO 27001
 
 O artigo a seguir fornece detalhes sobre como a amostra do plano gráfico dos serviços compartilhados do ISO 27001 do Azure é mapeada para os controles ISO 27001. Para obter mais informações sobre os controles, consulte [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
-Os mapeamentos a seguir são para os controles **ISO 27001:2013** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione  **\[os controles ISO 27001:2013 de auditoria de versão prévia\] e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+Os mapeamentos a seguir são para os controles **ISO 27001:2013** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione os **controles de auditoria ISO 27001:2013 de \[Preview @ no__t-2 e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
 
 > [!IMPORTANT]
 > Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-shared/control-mapping.md).
@@ -27,24 +26,24 @@ Os mapeamentos a seguir são para os controles **ISO 27001:2013** . Use a navega
 
 Ter apenas um proprietário de assinatura do Azure não permite redundância administrativa. Por outro lado, ter muitos proprietários de assinatura do Azure pode aumentar o potencial de uma violação por meio de uma conta de proprietário comprometida. Este projeto ajuda a manter um número apropriado de proprietários de assinatura do Azure atribuindo duas definições de [Azure Policy](../../../policy/overview.md) que auditam o número de proprietários para assinaturas do Azure. O gerenciamento de permissões de proprietário de assinatura pode ajudá-lo a implementar a separação apropriada de tarefas.
 
-- \[Versão\]prévia: Auditar o número mínimo de proprietários de uma assinatura
-- \[Versão\]prévia: Auditar o número máximo de proprietários de uma assinatura
+- \[Preview @ no__t-1: Auditar o número mínimo de proprietários de uma assinatura
+- \[Preview @ no__t-1: Auditar o número máximo de proprietários de uma assinatura
 
 ## <a name="a821-classification-of-information"></a>Uma classificação. 8.2.1 de informações
 
 O [serviço de avaliação de vulnerabilidades do SQL](https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment) do Azure pode ajudá-lo a descobrir dados confidenciais armazenados em seus bancos de dados e inclui recomendações para classificá-los. Este projeto atribui uma definição de [Azure Policy](../../../policy/overview.md) para auditar que vulnerabilidades identificadas durante a verificação da avaliação de vulnerabilidade do SQL são corrigidas.
 
-- \[Versão\]prévia: Monitorar resultados da avaliação de vulnerabilidade do SQL na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar resultados da avaliação de vulnerabilidade do SQL na central de segurança do Azure
 
 ## <a name="a912-access-to-networks-and-network-services"></a>A. 9.1.2 acesso a redes e serviços de rede
 
 O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para gerenciar quem tem acesso aos recursos do Azure. Este projeto ajuda você a controlar o acesso aos recursos do Azure atribuindo sete definições de [Azure Policy](../../../policy/overview.md) . Essas políticas usam a auditoria do uso de tipos de recursos e configurações que podem permitir acesso mais permissivo aos recursos.
 Compreender os recursos que estão em violação dessas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos do Azure de acesso sejam restritos a usuários autorizados.
 
-- \[Versão\]prévia: Implantar a extensão de VM para auditar contas de VM Linux sem senhas
-- \[Versão\]prévia: Implantar a extensão de VM para auditar a VM do Linux permitindo conexões remotas de contas sem senhas
-- \[Versão\]prévia: Auditar contas de VM do Linux sem senhas
-- \[Versão\]prévia: Auditar a VM do Linux permitindo conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar contas de VM Linux sem senhas
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar a VM do Linux permitindo conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: Auditar contas de VM do Linux sem senhas
+- \[Preview @ no__t-1: Auditar a VM do Linux permitindo conexões remotas de contas sem senhas
 - Auditar o uso de contas de armazenamento clássicas
 - Auditar o uso de máquinas virtuais clássicas
 - Auditar VMs que não usam discos gerenciados
@@ -53,10 +52,10 @@ Compreender os recursos que estão em violação dessas políticas pode ajudá-l
 
 Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atribuindo quatro definições de [Azure Policy](../../../policy/overview.md) para auditar contas externas com permissões de proprietário e/ou gravação e contas com permissões de proprietário e/ou gravação que não têm autenticação multifator habilitada. O Azure implementa o RBAC (controle de acesso baseado em função) para gerenciar quem tem acesso aos recursos do Azure. Esse projeto também atribui três definições de Azure Policy para auditar o uso da autenticação Azure Active Directory para servidores SQL e Service Fabric. Usar Azure Active Directory autenticação permite o gerenciamento de permissões simplificado e o gerenciamento centralizado de identidades de usuários de banco de dados e outros serviços da Microsoft. Esse projeto também atribui uma definição de Azure Policy para auditar o uso de regras personalizadas de RBAC. Entender onde as regras personalizadas do RBAC são implementadas pode ajudá-lo a verificar a necessidade e a implementação adequada, pois as regras personalizadas de RBAC são propensas a erros.
 
-- \[Versão\]prévia: Auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Auditar contas externas com permissões de proprietário em uma assinatura
-- \[Versão\]prévia: Auditar contas externas com permissões de escrita numa subscrição
+- \[Preview @ no__t-1: Auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Auditar contas externas com permissões de proprietário em uma assinatura
+- \[Preview @ no__t-1: Auditar contas externas com permissões de escrita numa subscrição
 - Auditar o provisionamento de um administrador de Azure Active Directory para o SQL Server
 - Auditar o uso de Azure Active Directory para autenticação de cliente no Service Fabric
 - Auditar o uso de regras personalizadas de RBAC
@@ -65,68 +64,68 @@ Este projeto ajuda a restringir e controlar direitos de acesso privilegiado atri
 
 Este projeto atribui três definições de [Azure Policy](../../../policy/overview.md) para auditar contas que não têm a autenticação multifator habilitada. A autenticação multifator ajuda a manter as contas seguras mesmo que uma parte das informações de autenticação seja comprometida. Ao monitorar contas sem a autenticação multifator habilitada, você pode identificar contas que podem ser mais prováveis de serem comprometidas. Esse plano gráfico também atribui duas definições de Azure Policy que auditam as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Essa configuração permite que você adote ações corretivas para garantir que os autenticadores não sejam comprometidos.
 
-- \[Versão\]prévia: Auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Contas de auditoria com permissões de leitura que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Implantar extensão de VM para auditar permissões de arquivo de senha de VM Linux
-- \[Versão\]prévia: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
+- \[Preview @ no__t-1: Auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Contas de auditoria com permissões de leitura que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Implantar extensão de VM para auditar permissões de arquivo de senha de VM Linux
+- \[Preview @ no__t-1: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A. 9.2.5 revisão dos direitos de acesso do usuário
 
 O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando o portal do Azure, você pode revisar quem tem acesso aos recursos do Azure e suas permissões. Este projeto atribui quatro definições de [Azure Policy](../../../policy/overview.md) para auditar contas que devem ser priorizadas para revisão, incluindo contas depreciadas e contas externas com permissões elevadas.
 
-- \[Versão\]prévia: Auditar contas preteridas em uma assinatura
-- \[Versão\]prévia: Auditar contas preteridas com permissões de proprietário em uma assinatura
-- \[Versão\]prévia: Auditar contas externas com permissões de proprietário em uma assinatura
-- \[Versão\]prévia: Auditar contas externas com permissões de escrita numa subscrição
+- \[Preview @ no__t-1: Auditar contas preteridas em uma assinatura
+- \[Preview @ no__t-1: Auditar contas preteridas com permissões de proprietário em uma assinatura
+- \[Preview @ no__t-1: Auditar contas externas com permissões de proprietário em uma assinatura
+- \[Preview @ no__t-1: Auditar contas externas com permissões de escrita numa subscrição
 
 ## <a name="a926-removal-or-adjustment-of-access-rights"></a>Remoção ou ajuste de direitos de acesso de. 9.2.6
 
 O Azure implementa o RBAC ( [controle de acesso baseado em função](../../../../role-based-access-control/overview.md) ) para ajudá-lo a gerenciar quem tem acesso aos recursos no Azure. Usando [Azure Active Directory](../../../../active-directory/fundamentals/active-directory-whatis.md) e RBAC, você pode atualizar funções de usuário para refletir alterações organizacionais. Quando necessário, as contas podem ser impedidas de entrar (ou removidas), o que remove imediatamente os direitos de acesso aos recursos do Azure. Este projeto atribui duas definições de [Azure Policy](../../../policy/overview.md) para auditar a conta depreciada que deve ser considerada para remoção.
 
-- \[Versão\]prévia: Auditar contas preteridas em uma assinatura
-- \[Versão\]prévia: Auditar contas preteridas com permissões de proprietário em uma assinatura
+- \[Preview @ no__t-1: Auditar contas preteridas em uma assinatura
+- \[Preview @ no__t-1: Auditar contas preteridas com permissões de proprietário em uma assinatura
 
 ## <a name="a942-secure-log-on-procedures"></a>Procedimentos de logon seguro do. 9.4.2
 
 Este projeto atribui três definições de Azure Policy para auditar contas que não têm a autenticação multifator habilitada. A autenticação multifator do Azure fornece segurança adicional, exigindo uma segunda forma de autenticação e fornece autenticação forte. Ao monitorar contas sem a autenticação multifator habilitada, você pode identificar contas que podem ser mais prováveis de serem comprometidas.
 
-- \[Versão\]prévia: Auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Contas de auditoria com permissões de leitura que não são habilitadas para MFA em uma assinatura
-- \[Versão\]prévia: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Auditar contas com permissões de proprietário que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Contas de auditoria com permissões de leitura que não são habilitadas para MFA em uma assinatura
+- \[Preview @ no__t-1: Contas de auditoria com permissões de gravação que não são habilitadas para MFA em uma assinatura
 
 ## <a name="a943-password-management-system"></a>Um sistema de gerenciamento de senhas. 9.4.3
 
 Este projeto ajuda a impor senhas fortes atribuindo 10 definições de [Azure Policy](../../../policy/overview.md) que auditam as VMs do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização das VMs em violação da política de força da senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Versão\]prévia: Implantar a extensão de VM para auditar a VM Windows impõe requisitos de complexidade de senha
-- \[Versão\]prévia: Implantar a extensão de VM para auditar a senha máxima da VM Windows duração de 70 dias
-- \[Versão\]prévia: Implantar a extensão de VM para auditar a duração mínima da senha do Windows VM 1 dia
-- \[Versão\]prévia: Implantar a extensão de VM para auditar as senhas de VM Windows devem ter pelo menos 14 caracteres
-- \[Versão\]prévia: Implantar a extensão de VM para auditar a VM do Windows não deve permitir 24 senhas anteriores
-- \[Versão\]prévia: Auditar a VM do Windows impõe requisitos de complexidade de senha
-- \[Versão\]prévia: Auditar a senha máxima da VM do Windows duração de 70 dias
-- \[Versão\]prévia: Auditar a duração mínima da senha do Windows na VM 1 dia
-- \[Versão\]prévia: Auditar as senhas de VM do Windows devem ter pelo menos 14 caracteres
-- \[Versão\]prévia: Auditar a VM do Windows não deve permitir 24 senhas anteriores
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar a VM Windows impõe requisitos de complexidade de senha
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar a senha máxima da VM Windows duração de 70 dias
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar a duração mínima da senha do Windows VM 1 dia
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar as senhas de VM Windows devem ter pelo menos 14 caracteres
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar a VM do Windows não deve permitir 24 senhas anteriores
+- \[Preview @ no__t-1: Auditar a VM do Windows impõe requisitos de complexidade de senha
+- \[Preview @ no__t-1: Auditar a senha máxima da VM do Windows duração de 70 dias
+- \[Preview @ no__t-1: Auditar a duração mínima da senha do Windows na VM 1 dia
+- \[Preview @ no__t-1: Auditar as senhas de VM do Windows devem ter pelo menos 14 caracteres
+- \[Preview @ no__t-1: Auditar a VM do Windows não deve permitir 24 senhas anteriores
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>Uma política. 10.1.1 sobre o uso de controles de criptografia
 
 Este projeto ajuda a impor a política sobre o uso de controles cryptograph atribuindo 13 definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas.
 Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as políticas atribuídas por este projeto exigem criptografia para contas de armazenamento de BLOBs e contas de armazenamento do data Lake; exigir Transparent Data Encryption em bancos de dados SQL; auditar criptografia ausente em contas de armazenamento, bancos de dados SQL, discos de máquina virtual e variáveis de conta de automação; auditar conexões inseguras para contas de armazenamento, aplicativos de funções, aplicativos Web, aplicativos de API e cache Redis; auditar a criptografia de senha de máquina virtual fraca; e auditar a comunicação de Service Fabric não criptografada.
 
-- \[Versão\]prévia: Auditoria de acesso somente HTTPS para um Aplicativo de funções
-- \[Versão\]prévia: Auditar o acesso somente HTTPS para um aplicativo Web
-- \[Versão\]prévia: Auditar o acesso somente HTTPS para um aplicativo de API
-- \[Versão\]prévia: Auditoria de criptografia de blob ausente para contas de armazenamento
-- \[Versão\]prévia: Implantar a extensão de VM para auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
-- \[Versão\]prévia: Auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
-- \[Versão\]prévia: Monitorar discos de VM não criptografados na central de segurança do Azure
+- \[Preview @ no__t-1: Auditoria de acesso somente HTTPS para um Aplicativo de funções
+- \[Preview @ no__t-1: Auditar o acesso somente HTTPS para um aplicativo Web
+- \[Preview @ no__t-1: Auditar o acesso somente HTTPS para um aplicativo de API
+- \[Preview @ no__t-1: Auditoria de criptografia de blob ausente para contas de armazenamento
+- \[Preview @ no__t-1: Implantar a extensão de VM para auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
+- \[Preview @ no__t-1: Auditar a VM do Windows não deve armazenar senhas usando criptografia reversível
+- \[Preview @ no__t-1: Monitorar discos de VM não criptografados na central de segurança do Azure
 - Habilitação de auditoria de criptografia de variáveis de conta de automação
 - Auditoria de habilitação de somente conexões seguras para o cache Redis
 - Auditar a transferência segura para contas de armazenamento
 - Auditar a configuração da propriedade ClusterProtectionLevel para EncryptAndSign em Service Fabric
-- Estado de encriptação de dados transparentes de auditoria
+- Auditar o estado de encriptação de dados transparente
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 
 ## <a name="a1241-event-logging"></a>Um log de eventos. 12.4.1
@@ -134,10 +133,10 @@ Entender onde os recursos do Azure podem ter configurações criptográficas nã
 Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atribuindo sete definições de [Azure Policy](../../../policy/overview.md) que auditam as configurações de log nos recursos do Azure.
 Os logs de diagnóstico fornecem informações sobre as operações que foram executadas nos recursos do Azure.
 
-- \[Versão\]prévia: Auditoria de Dependency Agent implantação – imagem de VM (SO) não listada
-- \[Versão\]prévia: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de Dependency Agent implantação – imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
@@ -146,10 +145,10 @@ Os logs de diagnóstico fornecem informações sobre as operações que foram ex
 
 Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atribuindo sete definições de Azure Policy que auditam as configurações de log nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações que foram executadas nos recursos do Azure.
 
-- \[Versão\]prévia: Auditoria de Dependency Agent implantação – imagem de VM (SO) não listada
-- \[Versão\]prévia: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de Dependency Agent implantação – imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
@@ -158,10 +157,10 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atrib
 
 Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atribuindo sete definições de Azure Policy que auditam as configurações de log nos recursos do Azure. Os logs do Azure dependem de relógios internos sincronizados para criar um registro de eventos correlacionado ao tempo entre recursos.
 
-- \[Versão\]prévia: Auditoria de Dependency Agent implantação – imagem de VM (SO) não listada
-- \[Versão\]prévia: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de Dependency Agent implantação – imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de Dependency Agent implantação no VMSS – imagem da VM (SO) não listada
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Auditoria de implantação de agente de Log Analytics em VMSS-imagem de VM (SO) não listada
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
@@ -170,31 +169,31 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados, atrib
 
 O controle de aplicativo adaptável é uma solução da central de segurança do Azure que ajuda a controlar quais aplicativos podem ser executados em suas VMs localizadas no Azure. Este projeto atribui uma definição de Azure Policy que monitora as alterações no conjunto de aplicativos permitidos. Esse recurso ajuda a controlar a instalação de software e aplicativos em VMs do Azure.
 
-- \[Versão\]prévia: Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure
 
 ## <a name="a1261-management-of-technical-vulnerabilities"></a>A. 12.6.1 gerenciamento de vulnerabilidades técnicas
 
 Este projeto ajuda a gerenciar as vulnerabilidades do sistema de informações atribuindo cinco definições de [Azure Policy](../../../policy/overview.md) que monitoram atualizações de sistema ausentes, vulnerabilidades de sistema operacional, vulnerabilidades de SQL e vulnerabilidades de máquina virtual no Central de segurança do Azure. A central de segurança do Azure fornece recursos de relatório que permitem que você tenha informações em tempo real sobre o estado de segurança dos recursos do Azure implantados.
 
-- \[Versão\]prévia: Monitorar Endpoint Protection ausentes na central de segurança do Azure
-- \[Versão\]prévia: Monitorar atualizações do sistema ausentes na central de segurança do Azure
-- \[Versão\]prévia: Monitorar vulnerabilidades do sistema operacional na central de segurança do Azure
-- \[Versão\]prévia: Monitorar resultados da avaliação de vulnerabilidade do SQL na central de segurança do Azure
-- \[Versão\]prévia: Monitorar vulnerabilidades de VM na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar Endpoint Protection ausentes na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar atualizações do sistema ausentes na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar vulnerabilidades do sistema operacional na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar resultados da avaliação de vulnerabilidade do SQL na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar vulnerabilidades de VM na central de segurança do Azure
 
 ## <a name="a1262-restrictions-on-software-installation"></a>A. 12.6.2 restrições na instalação do software
 
 O controle de aplicativo adaptável é uma solução da central de segurança do Azure que ajuda a controlar quais aplicativos podem ser executados em suas VMs localizadas no Azure. Este projeto atribui uma definição de Azure Policy que monitora as alterações no conjunto de aplicativos permitidos. As restrições de instalação de software podem ajudá-lo a reduzir a probabilidade de introdução de vulnerabilidades de software.
 
-- \[Versão\]prévia: Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure
 
 ## <a name="a1311-network-controls"></a>Controles de rede A. 13.1.1
 
 Este projeto ajuda você a gerenciar e controlar redes atribuindo uma definição de [Azure Policy](../../../policy/overview.md) que monitora grupos de segurança de rede com regras permissivas. As regras que são muito permissivas podem permitir o acesso à rede indesejado e devem ser examinadas. Esse projeto também atribui três definições de Azure Policy que monitoram pontos de extremidade desprotegidos, aplicativos e contas de armazenamento. Pontos de extremidade e aplicativos que não são protegidos por um firewall e contas de armazenamento com acesso irrestrito podem permitir o acesso não intencional às informações contidas no sistema de informações.
 
-- \[Versão\]prévia: Monitorar o acesso à rede permissivo na central de segurança do Azure
-- \[Versão\]prévia: Monitorar pontos de extremidade de rede desprotegidos na central de segurança do Azure
-- \[Versão\]prévia: Monitorar aplicativo Web desprotegido na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar o acesso à rede permissivo na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar pontos de extremidade de rede desprotegidos na central de segurança do Azure
+- \[Preview @ no__t-1: Monitorar aplicativo Web desprotegido na central de segurança do Azure
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 
 ## <a name="a1321-information-transfer-policies-and-procedures"></a>A. 13.2.1 procedimentos e políticas de transferência de informações
@@ -204,12 +203,12 @@ O plano gráfico ajuda a garantir que a transferência de informações com os s
 - Auditoria de habilitação de somente conexões seguras para o cache Redis
 - Auditar a transferência segura para contas de armazenamento
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou o mapeamento de controle do plano gráfico de serviços compartilhados ISO 27001, visite os seguintes artigos para saber mais sobre a arquitetura e como implantar esse exemplo:
 
 > [!div class="nextstepaction"]
-> [Projeto de serviços compartilhados ISO 27001-visão geral](./index.md)
+> [Projeto de serviços compartilhados iso 27001-visão geral](./index.md)
 > [ISO 27001 projeto de serviços compartilhados – etapas de implantação](./deploy.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:

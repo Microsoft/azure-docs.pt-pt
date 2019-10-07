@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735428"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981097"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -59,7 +59,7 @@ Veja os que têm suporte se você quiser fazer backup de computadores locais:
 **Limite** | **Detalhes**
 --- | ---
 **Discos de dados de VM do Azure** | Limite de 16
-**Tamanho do disco de dados da VM do Azure** | Discos individuais podem ter até 4.095 GB
+**Tamanho do disco de dados da VM do Azure** | Dá suporte ao backup de máquinas virtuais com cada tamanho de disco de até 30 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup da VM do Azure
 
@@ -146,7 +146,7 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 **Período de retenção máximo** | Depende da frequência da cópia de segurança
 **Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de arquivos; 448 para servidores de aplicativos <br/><br/>Pontos de recuperação de fita ilimitados para o DPM local
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Examine a matriz de suporte](backup-support-matrix-iaas.md) para o backup de VM do Azure.
 

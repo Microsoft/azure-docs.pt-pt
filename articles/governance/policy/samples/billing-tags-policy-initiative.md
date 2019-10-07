@@ -1,20 +1,19 @@
 ---
-title: Exemplo - iniciativa de política de etiquetas de faturação
-description: Este conjunto de definição de política de exemplo requer os valores de etiqueta especificados para o nome de produto e o Centro de custo.
+title: Exemplo-iniciativa de política de marcas de cobrança
+description: Este conjunto de definições de política de exemplo requer valores de marca especificados para o centro de custo e o nome do produto.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 5b084bd5a1b34dc2ce8ac8abb2a4af03a22262d2
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f2190b5759c53d645c1d0150004271ba04669c94
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65787335"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981404"
 ---
-# <a name="sample---billing-tags-policy-initiative"></a>Exemplo - iniciativa de política de etiquetas de faturação
+# <a name="sample---billing-tags-policy-initiative"></a>Exemplo-iniciativa de política de marcas de cobrança
 
 Este conjunto de políticas exige valores de etiqueta especificados para o nome do produto e o centro de custos. Utiliza políticas incorporadas para aplicar e impor etiquetas necessárias. O utilizador especifica os valores necessários para as etiquetas.
 
@@ -24,7 +23,7 @@ Este conjunto de políticas exige valores de etiqueta especificados para o nome 
 
 [!code-json[main](../../../../policy-templates/samples/PolicyInitiatives/multiple-billing-tags/azurepolicyset.json "Billing Tags Policy Initiative")]
 
-Pode implementar este modelo com [PowerShell](#deploy-with-powershell).
+Você pode implantar esse modelo com o [PowerShell](#deploy-with-powershell).
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
@@ -64,6 +63,6 @@ foreach ($r in $resources) {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

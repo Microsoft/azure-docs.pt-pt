@@ -9,12 +9,12 @@ ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 6144fd58a98376f9091fc7045d0e60e99feda709
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: a6f2b2875ea58ff89d59f577f7cb27d97e07b28e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841858"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981227"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutorial: Criar um ambiente do Azure Time Series Insights
 
@@ -196,4 +196,4 @@ Neste tutorial, ficou a saber como:
 Agora que você sabe como criar seu próprio ambiente de Time Series Insights, saiba como criar um aplicativo Web que consome dados de um ambiente de Time Series Insights:
 
 > [!div class="nextstepaction"]
-> [Criar uma aplicação Web de página única do Azure Time Series Insights](tutorial-create-tsi-sample-spa.md)
+> [Consulte amostras de visualização do SDK de cliente hospedado](https://tsiclientsample.azurewebsites.net/)

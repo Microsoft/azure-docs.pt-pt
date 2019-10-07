@@ -6,19 +6,18 @@ ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 9f0da666128d4c33063d7e136579075eba58712c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 50c278cd22d8901560a83561f38084622bc86865
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309458"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980917"
 ---
 # <a name="control-mapping-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Mapeamento de controle da amostra do CSP do SWIFT-CSCF v2020 Blueprint
 
 O artigo a seguir fornece detalhes sobre como o exemplo do Azure Blueprints SWIFT CSP – CSCF v2020 Blueprint mapeia para o CSP SWIFT-CSCF v2020 Controls. Para obter mais informações sobre os controles, consulte [Swift CSP-CSCF v2020](https://www.swift.com/myswift/customer-security-programme-csp).
 
-Os seguintes mapeamentos são para os controles **CSCF v2020 do CSP Swift** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione **a\] \[visualização: Audit Swift CSP – CSCF v2020 Controls e implante extensões de VM específicas para dar suporte** à iniciativa de política interna de requisitos de auditoria.
+Os seguintes mapeamentos são para os controles **CSCF v2020 do CSP Swift** . Use a navegação à direita para ir diretamente para um mapeamento de controle específico. Muitos dos controles mapeados são implementados com uma iniciativa de [Azure Policy](../../../policy/overview.md) . Para examinar a iniciativa completa, abra a **política** no portal do Azure e selecione a página **definições** . Em seguida, localize e selecione o ** @ no__t-1Preview @ no__t-2: Audit SWIFT CSP – CSCF v2020 Controls e implante extensões de VM específicas para dar suporte aos requisitos de auditoria @ no__t-0 iniciativa de política interna.
 
 > [!IMPORTANT]
 > Cada controle abaixo é associado a uma ou mais definições de [Azure Policy](../../../policy/overview.md) . Essas políticas podem ajudá-lo a [avaliar a conformidade](../../../policy/how-to/get-compliance-data.md) com o controle; no entanto, muitas vezes não há uma correspondência completa ou 1:1 entre um controle e uma ou mais políticas. Como tal, em **conformidade** com Azure Policy refere-se apenas às próprias políticas; Isso não garante que você esteja totalmente em conformidade com todos os requisitos de um controle. Além disso, o padrão de conformidade inclui controles que não são abordados por nenhuma definição de Azure Policy no momento. Portanto, a conformidade em Azure Policy é apenas uma visão parcial do seu status de conformidade geral. As associações entre controles e definições de Azure Policy para esta amostra do Blueprint de conformidade podem mudar ao longo do tempo. Para exibir o histórico de alterações, consulte o [histórico de confirmação do GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/swift-2020/control-mapping.md).
@@ -76,8 +75,8 @@ O recurso de classificação e descoberta de dados do Advanced Data Security par
 
 Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo definições de [Azure Policy](../../../policy/overview.md) para monitores que a depuração remota para o aplicativo de serviço Azure app está desativada e definições de política que auditam máquinas virtuais Linux que permitem Remote conexões de contas sem senhas. Esse projeto também atribui uma definição de Azure Policy que ajuda a monitorar o acesso irrestrito a contas de armazenamento. O monitoramento desses indicadores pode ajudá-lo a garantir que os métodos de acesso remoto estejam em conformidade com sua política de segurança.
 
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs Linux que permitem conexões remotas de contas sem senhas
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs Linux que permitem conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas
 - Auditar o acesso irrestrito à rede para contas de armazenamento
 - A depuração remota deve ser desativada para o aplicativo de API
 - A depuração remota deve ser desativada para Aplicativo de funções
@@ -87,11 +86,11 @@ Este projeto ajuda você a monitorar e controlar o acesso remoto atribuindo defi
 
 Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de trabalho Log Analytics habilitando a configuração e o gerenciamento centralizados. Este projeto ajuda a garantir que os eventos sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente de log Analytics em máquinas virtuais do Azure.
 
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows
 
 ## <a name="22-27-and-64-response-to-audit-processing-failures"></a>Resposta 2,2, 2,7 e 6,4 para falhas de processamento de auditoria
 
@@ -105,21 +104,21 @@ Este projeto atribui definições de [Azure Policy](../../../policy/overview.md)
 
 Os dados de log coletados pelo Azure Monitor são armazenados em um espaço de trabalho Log Analytics habilitando a análise e relatórios centralizados. Este projeto ajuda a garantir que os eventos sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam e impõem a implantação do agente de log Analytics em máquinas virtuais do Azure.
 
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows
 
 ## <a name="13-22-27-64-and-65a-audit-generation"></a>1,3, 2,2, 2,7, 6,4 e 6.5 uma geração de auditoria
 
 Este projeto ajuda a garantir que os eventos do sistema sejam registrados por meio da atribuição de definições de [Azure Policy](../../../policy/overview.md) que auditam as configurações de log nos recursos do Azure. Essas definições de política auditam e impõem a implantação do agente de Log Analytics em máquinas virtuais do Azure e a configuração de configurações de auditoria para outros tipos de recursos do Azure. Essas definições de política também auditam a configuração dos logs de diagnóstico para fornecer informações sobre as operações executadas nos recursos do Azure. Além disso, a auditoria e a segurança avançada de dados são configuradas em servidores SQL.
 
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
@@ -162,29 +161,29 @@ Este projeto ajuda a restringir e controlar o acesso atribuindo uma definição 
 
 Este projeto atribui definições de [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais Linux que permitem conexões remotas de contas sem senhas e/ou têm permissões incorretas definidas no arquivo passwd. Este projeto também atribui definições de política que auditam a configuração do tipo de criptografia de senha para máquinas virtuais do Windows. O monitoramento desses indicadores ajuda a garantir que os autenticadores de sistema estejam em conformidade com a política de identificação e autenticação da sua organização.
 
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs Linux que não têm as permissões de arquivo passwd definidas como 0644
-- \[Versão\]prévia: Implantar requisitos para auditar VMs Linux que não têm as permissões de arquivo passwd definidas como 0644
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Linux que têm contas sem senhas
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Linux que têm contas sem senhas
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que não armazenam senhas usando criptografia reversível
-- \[Versão\]prévia: Implantar requisitos para auditar VMs do Windows que não armazenam senhas usando criptografia reversível
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs Linux que não têm as permissões de arquivo passwd definidas como 0644
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs Linux que não têm as permissões de arquivo passwd definidas como 0644
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Linux que têm contas sem senhas
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Linux que têm contas sem senhas
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que não armazenam senhas usando criptografia reversível
+- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não armazenam senhas usando criptografia reversível
 
 ## <a name="23-and-41-authenticator-management--password-based-authentication"></a>Gerenciamento de autenticador 2,3 e 4,1 | Autenticação baseada em senha
 
 Este projeto ajuda a impor senhas fortes atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam as máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização de máquinas virtuais em violação da política de força de senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário de máquina virtual estejam em conformidade com a política de senha da sua organização.
 
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que permitem reutilização das 24 senhas anteriores
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Versão\]prévia: Mostrar resultados de auditoria de VMs do Windows que não armazenam senhas usando criptografia reversível
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
-- \[Versão\]prévia: Implantar pré-requisitos para auditar VMs do Windows que não armazenam senhas usando criptografia reversível
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que permitem reutilização das 24 senhas anteriores
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que não têm uma duração mínima de senha de 1 dia
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
+- \[Preview @ no__t-1: Mostrar resultados de auditoria de VMs do Windows que não armazenam senhas usando criptografia reversível
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
+- \[Preview @ no__t-1: Implantar pré-requisitos para auditar VMs do Windows que não armazenam senhas usando criptografia reversível
 
 ## <a name="22-and-27-vulnerability-scanning"></a>Verificação de vulnerabilidades 2,2 e 2,7
 
@@ -274,11 +273,11 @@ Este projeto ajuda a gerenciar o Endpoint Protection, incluindo a proteção de 
 
 Este projeto ajuda você a monitorar o sistema ao auditar e impor o registro em log e a segurança de dados nos recursos do Azure. Especificamente, as políticas atribuiram auditoria e impõem a implantação do agente de Log Analytics e configurações de segurança aprimoradas para bancos de dados SQL, contas de armazenamento e recursos de rede. Esses recursos podem ajudá-lo a detectar comportamento anormal e indicadores de ataques para que você possa tomar as medidas apropriadas.
 
-- \[Versão\]prévia: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
-- \[Versão\]prévia: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs Linux
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
-- \[Versão\]prévia: Implantar o agente de Log Analytics para VMs do Windows
+- \[Preview @ no__t-1: Implantação de agente de Log Analytics de auditoria-imagem de VM (SO) não listada
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows
+- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows
 - A segurança de dados avançada deve estar ativada nos seus servidores SQL
 - As configurações avançadas de segurança de dados para o SQL Server devem conter um endereço de email para receber alertas de segurança
 - Os logs de diagnóstico no Azure Stream Analytics devem ser habilitados
@@ -301,8 +300,8 @@ A proteção avançada contra ameaças para o armazenamento do Azure detecta ten
 Agora que você analisou o mapeamento de controle do CSCF v2020 Blueprint do SWIFT CSP, visite os seguintes artigos para saber mais sobre o plano gráfico e como implantar esse exemplo:
 
 > [!div class="nextstepaction"]
-> [Swift CSP-CSCF v2020 Blueprint – Overview](./index.md)
-> [Swift CSP-CSCF v2020 Blueprint – implantar etapas](./deploy.md)
+> O [CSP do Swift-CSCF v2020 Blueprint-visão geral](./index.md)
+> [Swift CSP-CSCF V2020 Blueprint – implantar etapas](./deploy.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 

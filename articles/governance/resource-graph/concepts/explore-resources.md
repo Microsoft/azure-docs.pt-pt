@@ -1,18 +1,17 @@
 ---
-title: Explore os recursos do Azure
+title: Explorar os seus recursos do Azure
 description: Aprenda a usar a linguagem de consulta do grafo de recursos para explorar seus recursos e descobrir como eles estão conectados.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 148d69b96291737088a1472a9affd8bb9e43ab1b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: e6a43db764a3dbc001e132ef5e321f20aa36041f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241132"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981261"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorar os seus recursos do Azure com o Resource Graph
 
@@ -40,7 +39,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit
 ```
 
 > [!NOTE]
-> O cmdlet `Search-AzGraph` Azure PowerShell retorna um **PSCustomObject** por padrão. Para que a saída tenha a mesma aparência que é retornada por CLI do Azure, o `ConvertTo-Json` cmdlet é usado. O valor padrão para **profundidade** é _2_. Configurá-lo como _100_ deve converter todos os níveis retornados.
+> O cmdlet Azure PowerShell `Search-AzGraph` retorna um **PSCustomObject** por padrão. Para que a saída tenha a mesma aparência que é retornada por CLI do Azure, o cmdlet `ConvertTo-Json` é usado. O valor padrão para **profundidade** é _2_. Configurá-lo como _100_ deve converter todos os níveis retornados.
 
 Os resultados JSON são estruturados semelhantes ao exemplo a seguir:
 
@@ -304,7 +303,7 @@ az graph query -q="where type =~ 'Microsoft.Network/publicIPAddresses' | where i
 Search-AzGraph -Query "where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saber mais sobre a [linguagem de consulta](query-language.md)
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md)

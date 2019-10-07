@@ -1,29 +1,28 @@
 ---
-title: Exemplo - localizações permitido
-description: Esta definição de política de exemplo requer que todos os recursos são implementados para as localizações aprovadas.
+title: Exemplos de locais permitidos
+description: Esta definição de política de exemplo requer que todos os recursos sejam implantados nos locais aprovados.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: 2823cee863941926fffe332295328d6ecfb54001
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c4a23b355a4d7841c42d03042399635a55bac03
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546374"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980642"
 ---
-# <a name="sample---allowed-region-locations"></a>Exemplo - região localizações permitido
+# <a name="sample---allowed-region-locations"></a>Exemplo-locais de região permitidos
 
-Esta política permite-lhe restringir as localizações de que sua organização pode especificar durante a implantação de recursos. Utilize para impor os requisitos de geoconformidade. Exclui grupos de recursos, Microsoft.AzureActiveDirectory/b2cDirectories e recursos que utilizem a região "global". Especifique uma matriz de localizações permitidas.
+Essa política permite restringir os locais que sua organização pode especificar ao implantar recursos. Use o para impor seus requisitos de conformidade geográfica. Exclui grupos de recursos, Microsoft. AzureActiveDirectory/b2cDirectories e recursos que usam a região ' global '. Especifique uma matriz de locais permitidos.
 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
-- [API REST](#rest-api)
+- [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -54,12 +53,12 @@ O JSON que define os parâmetros da política, utilizado pela CLI do Azure e o A
 
 |Name |Type |Campo |Descrição |
 |---|---|---|---|
-|listOfAllowedLocations |Array |localizações |A lista de localizações permitidas|
+|listOfAllowedLocations |Array |locations |A lista de locais permitidos|
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
 
-No parâmetro neste exemplo, apenas os _eualeste2_ ou _westus_ localizações serão permitidas.
+Neste parâmetro de exemplo, somente os locais _eastus2_ ou _westus_ serão permitidos.
 
 ```json
 {
@@ -74,8 +73,8 @@ No parâmetro neste exemplo, apenas os _eualeste2_ ou _westus_ localizações se
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
-[![implementar a política de exemplo para o Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fallowed-locations%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -218,12 +217,12 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 | Serviço | Grupo | Operação | Notas |
 |---|---|---|---|
-| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Alternativa: [Criar grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Opcional [Criar no grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
 | Gestão de Recursos | Atribuições de Política | [Eliminar](/rest/api/resources/policyassignments/delete) | Remove uma atribuição do Azure Policy existente. |
-| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Alternativa: [Eliminar grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Opcional [Excluir no grupo de gerenciamento](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [exemplos do Azure Policy](index.md) adicionais
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md)

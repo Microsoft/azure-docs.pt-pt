@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257180"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978233"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Solucionar erros usando plantas do Azure
 
@@ -59,13 +58,13 @@ Os parâmetros de plano gráfico que são funções são processados antes de se
 
 #### <a name="cause"></a>Causa
 
-Passar um parâmetro Blueprint que usa uma função, `[resourceGroup().tags.myTag]`como, para um artefato resulta no resultado processado da função que está sendo definida no artefato em vez da função dinâmica.
+Passar um parâmetro Blueprint que usa uma função, como `[resourceGroup().tags.myTag]`, para um artefato resulta no resultado processado da função que está sendo definida no artefato em vez da função dinâmica.
 
 #### <a name="resolution"></a>Resolução
 
-Para passar uma função por meio de como um parâmetro, escape toda a `[` cadeia de caracteres de tal forma que `[[resourceGroup().tags.myTag]`o parâmetro Blueprint se parece com. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
+Para passar uma função por meio de como um parâmetro, escape toda a cadeia de caracteres com `[`, de modo que o parâmetro Blueprint é semelhante a `[[resourceGroup().tags.myTag]`. O caractere de escape faz com que plantas tratem o valor como uma cadeia de caracteres ao processar o plano gráfico. Em seguida, os planos gráficos colocam a função no artefato, permitindo que ele seja dinâmico conforme o esperado. Para obter mais informações, consulte [sintaxe e expressões em modelos de Azure Resource Manager](../../../azure-resource-manager/template-expressions.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

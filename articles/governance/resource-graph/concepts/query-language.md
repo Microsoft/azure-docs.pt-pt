@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54bb0b4f21752b91ceb9d4004c153ff4d95006aa
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231508"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976764"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do grafo de recursos do Azure
 
@@ -56,7 +55,7 @@ Aqui está a lista de funções com suporte no grafo de recursos:
 
 Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser encapsulados ou ter escape na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
 
-- `.`-Encapsular o nome da propriedade como tal:`['propertyname.withaperiod']`
+- `.`-encapsular o nome da propriedade como tal: `['propertyname.withaperiod']`
   
   Exemplo de consulta que encapsula a propriedade _OData. Type_:
 
@@ -64,27 +63,27 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$`-Escape o caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
+- `$`-escapar do caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
   - **bash** - `\`
 
-    Exemplo de consulta que escapa o  _\$tipo_ de propriedade no bash:
+    Exemplo de consulta que escapa a propriedade _\$type_ no bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** -não escapar do `$` caractere.
+  - **cmd** -não escapar do caractere `$`.
 
   - **PowerShell** - ``` ` ```
 
-    Exemplo de consulta que escapa o  _\$tipo_ de propriedade no PowerShell:
+    Exemplo de consulta que escapa a propriedade _\$type_ no PowerShell:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o idioma em uso em [consultas de início](../samples/starter.md)
 - Consulte usos avançados em [consultas avançadas](../samples/advanced.md)

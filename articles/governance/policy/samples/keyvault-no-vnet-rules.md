@@ -1,29 +1,28 @@
 ---
-title: Exemplo - cofres de chaves de auditoria para não existem pontos finais de rede virtual
-description: Esta definição de política de exemplo audita cofres do Key Vault para detetar instâncias que tenham sem pontos finais de serviço de rede virtual.
+title: Exemplo – cofres de chave de auditoria para nenhum ponto de extremidade de rede virtual
+description: Esta definição de política de exemplo audita Key Vault cofres para detectar instâncias que não têm pontos de extremidade de serviço de rede virtual.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ccfba0eae8d3c51cf153f58d554dc09b574d3873
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60506999"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976970"
 ---
-# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exemplo - cofres do Key Vault com não existem pontos de extremidade de rede virtual
+# <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Amostras-Key Vault cofres sem pontos de extremidade de rede virtual
 
-Esta política audita para os cofres de Cofre de chaves que não existem pontos finais de rede virtual. Utilize para impor os requisitos de segurança. Para obter mais informações, consulte [pontos finais de serviço de rede virtual no Cofre de chaves](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
+Essa política audita para Key Vault cofres que não têm pontos de extremidade de rede virtual. Use o para impor seus requisitos de segurança. Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual no Key Vault](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)
 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
-- [API REST](#rest-api)
+- [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -50,8 +49,8 @@ Esta definição de política de exemplo não tem parâmetros definidos.
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
-[![implementar a política de exemplo para o Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -180,12 +179,12 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 | Serviço | Grupo | Operação | Notas |
 |---|---|---|---|
-| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Alternativa: [Criar grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Opcional [Criar no grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
 | Gestão de Recursos | Atribuições de Política | [Eliminar](/rest/api/resources/policyassignments/delete) | Remove uma atribuição do Azure Policy existente. |
-| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Alternativa: [Eliminar grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Opcional [Excluir no grupo de gerenciamento](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja os [exemplos do Azure Policy](index.md) adicionais
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md)

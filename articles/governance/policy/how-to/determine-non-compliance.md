@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161982"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978098"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinar as causas da não conformidade
 
@@ -94,7 +93,7 @@ A matriz a seguir mapeia cada possível _motivo_ para a [condição](../concepts
 |O valor atual deve ser maior ou igual ao valor de destino. |greaterOrEquals ou **não** menos |
 |O valor atual deve ser maior que o valor de destino. |maior ou **não** lessOrEquals |
 |O valor atual deve ser menor ou igual ao valor de destino. |lessOrEquals ou **não** é maior |
-|O valor atual deve existir. |Existe |
+|O valor atual deve existir. |existe |
 |O valor atual deve estar no valor de destino. |in ou **not** notIn |
 |O valor atual deve ser semelhante ao valor de destino. |Like ou **não** like |
 |O valor atual deve diferenciar maiúsculas de minúsculas no valor de destino. |corresponder ou **não** corresponder |
@@ -192,7 +191,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Histórico de alterações (versão prévia)
+## <a name="a-namechange-historychange-history-preview"></a>Histórico de <a name="change-history"/>Change (versão prévia)
 
 Como parte de uma nova **Visualização pública**, os últimos 14 dias de histórico de alterações estão disponíveis para todos os recursos do Azure que dão suporte à [exclusão de modo completo](../../../azure-resource-manager/complete-mode-deletion.md). O histórico de alterações fornece detalhes sobre quando uma alteração foi detectada e uma _diferença visual_ para cada alteração. Uma detecção de alteração é disparada quando as propriedades do Resource Manager são adicionadas, removidas ou alteradas.
 
@@ -219,7 +218,7 @@ Os dados do histórico de alterações são fornecidos pelo [grafo de recursos d
 - Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
-- Entenda como [criar políticas](programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](programmatically-create.md).
 - Saiba como [obter dados de conformidade](getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

@@ -6,27 +6,24 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a01cee2ba803a048e426507b57b96d0833743636
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181382"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981424"
 ---
-# <a name="azure-policy-assignment-structure"></a>Azure Policy estrutura de atribuição
+# <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
 As atribuições de política são usadas pelo Azure Policy para definir quais recursos são atribuídos durante políticas ou iniciativas. A atribuição de política pode determinar os valores dos parâmetros para esse grupo de recursos no momento da atribuição, possibilitando a reutilização de definições de política que abordam as mesmas propriedades de recurso com necessidades diferentes de conformidade.
 
-O esquema utilizado pela política do Azure pode ser encontrado aqui: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
-Você usa JSON para criar uma atribuição de política. A definição de política contém elementos para:
+Você usa JSON para criar uma atribuição de política. A atribuição de política contém elementos para:
 
 - Nome a apresentar
 - description
 - do IdP
 - modo de imposição
-- Definição de política
+- definição de política
 - parameters
 
 Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
@@ -76,7 +73,7 @@ Se **imposiçãomode** não for especificado em uma definição de política ou 
 ## <a name="policy-definition-id"></a>ID de definição de política
 
 Este campo deve ser o nome do caminho completo de uma definição de política ou uma definição de iniciativa.
-`policyDefinitionId`é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./definition-structure.md#initiatives) .
+`policyDefinitionId` é uma cadeia de caracteres e não uma matriz. É recomendável que, em vez disso, várias políticas sejam atribuídas juntas, para usar uma [iniciativa](./definition-structure.md#initiatives) .
 
 ## <a name="parameters"></a>Parâmetros
 
@@ -94,12 +91,12 @@ Esse design torna possível reutilizar uma definição de política ou iniciativ
 }
 ```
 
-Neste exemplo, os parâmetros definidos anteriormente na definição de política são `prefix` e. `suffix` Essa atribuição de política específica `prefix` define como **depta** e `suffix` to **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições de política, oferecendo flexibilidade.
+Neste exemplo, os parâmetros definidos anteriormente na definição de política são `prefix` e `suffix`. Essa atribuição de política específica define `prefix` para o **depta** e `suffix` a **-LC**. A mesma definição de política é reutilizável com um conjunto diferente de parâmetros para um departamento diferente, reduzindo a duplicação e a complexidade das definições de política, oferecendo flexibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
-- Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

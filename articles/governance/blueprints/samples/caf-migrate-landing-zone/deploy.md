@@ -6,14 +6,13 @@ ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: 520eded941f625bf90204213188ac1afc94d3111
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802573"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981671"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
 
@@ -43,7 +42,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
    - **Nome do plano gráfico** Forneça um nome para sua cópia do exemplo de plano gráfico da zona de aterrissagem de migração do CAF.
    - **Local de definição** Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -109,12 +108,12 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Implantar zona de aterrissagem de vNET|Modelo do Resource Manager|IPAddress_Space|**Bloqueado** -forneça o primeiro exemplo de dois octetos, 10,0|
-|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|ID de objeto de usuário ou grupo **bloqueado** para conceder permissões para no Key Vault|
-|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
-|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
-|Implantar migrações para Azure|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
+|Implementar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|ID de objeto de usuário ou grupo **bloqueado** para conceder permissões para no Key Vault|
+|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
+|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
+|Implementar Azure Migrate|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de aterrissagem, visite os seguintes artigos para saber mais sobre a arquitetura:
 

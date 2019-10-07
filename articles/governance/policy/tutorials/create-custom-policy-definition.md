@@ -1,61 +1,60 @@
 ---
 title: Criar uma definição de política personalizada
-description: Crie uma definição de política personalizada do Azure Policy para impor regras de negócio personalizada.
+description: Crie uma definição de política personalizada para Azure Policy para impor regras de negócio personalizadas.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 240d0fa388fbdfdd3d29d735aed708a096440740
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979674"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980356"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
-Uma definição de política personalizada permite aos clientes definir suas próprias regras para utilizar o Azure. Muitas vezes, impõem estas regras:
+Uma definição de política personalizada permite que os clientes definam suas próprias regras para usar o Azure. Essas regras geralmente se aplicam:
 
 - Práticas de segurança
 - Gestão de custos
-- Regras específicas da organização (como de nomenclatura ou localizações)
+- Regras específicas da organização (como nomes ou locais)
 
-Seja qual for o driver de negócios para a criação de uma política personalizada, os passos são os mesmos para definir a nova política personalizada.
+Seja qual for o driver de negócios para criar uma política personalizada, as etapas serão as mesmas para definir a nova política personalizada.
 
-Antes de criar uma política personalizada, verifique os [exemplos de política](../samples/index.md) se uma política que atende às suas necessidades já existe.
+Antes de criar uma política personalizada, verifique os [exemplos de política](../samples/index.md) para ver se uma política que corresponde às suas necessidades já existe.
 
-A abordagem para criar uma política personalizada segue estes passos:
+A abordagem para criar uma política personalizada segue estas etapas:
 
 > [!div class="checklist"]
-> - Identificar os requisitos de negócios
-> - Mapear cada requisito para uma propriedade de recursos do Azure
+> - Identificar seus requisitos de negócios
+> - Mapear cada requisito para uma propriedade de recurso do Azure
 > - Mapear a propriedade para um alias
-> - Determinar qual efeito a utilizar
+> - Determinar qual efeito usar
 > - Compor a definição de política
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="identify-requirements"></a>Identificar os requisitos
+## <a name="identify-requirements"></a>Identificar requisitos
 
-Antes de criar a definição de política, é importante compreender a intenção da política. Para este tutorial, vamos utilizar um requisito comum de segurança empresarial como o objetivo para ilustrar as etapas envolvidas:
+Antes de criar a definição de política, é importante entender a intenção da política. Para este tutorial, usaremos um requisito de segurança empresarial comum como o objetivo de ilustrar as etapas envolvidas:
 
-- Cada conta de armazenamento tem de estar ativada para HTTPS
-- Cada conta de armazenamento tem de ser desativada para HTTP
+- Cada conta de armazenamento deve ser habilitada para HTTPS
+- Cada conta de armazenamento deve ser desabilitada para HTTP
 
-Os seus requisitos devem identificar claramente ambas a "para ser" e os Estados de recursos "não deve ser".
+Seus requisitos devem identificar claramente os Estados de recurso "para serem" e "não ser".
 
-Embora definimos o estado esperado do recurso, que ainda não foram definidas, o que queremos fizemos com recursos não compatíveis. Política do Azure suporta um número de [efeitos](../concepts/effects.md). Para este tutorial, vamos definir o requisito de negócio como impedir a criação de recursos, caso não estejam em conformidade com as regras de negócio. Para cumprir este objetivo, usaremos o [negar](../concepts/effects.md#deny) efeito. Queremos também a opção para suspender a política para atribuições específicas. Como tal, vamos utilizar o [desativada](../concepts/effects.md#disabled) efeitos e o efeito de tornar um [parâmetro](../concepts/definition-structure.md#parameters) na definição de política.
+Enquanto definimos o estado esperado do recurso, ainda não definimos o que queremos fazer com recursos sem conformidade. Azure Policy dá suporte a vários [efeitos](../concepts/effects.md). Para este tutorial, definiremos o requisito de negócios como prevenção de criação de recursos se eles não estiverem em conformidade com as regras de negócio. Para atender a essa meta, usaremos o efeito de [negação](../concepts/effects.md#deny) . Também queremos a opção de suspender a política para atribuições específicas. Dessa forma, usaremos o efeito [desabilitado](../concepts/effects.md#disabled) e fazemos o efeito de um [parâmetro](../concepts/definition-structure.md#parameters) na definição de política.
 
-## <a name="determine-resource-properties"></a>Determinar as propriedades de recurso
+## <a name="determine-resource-properties"></a>Determinar propriedades do recurso
 
-Com base no requisito de negócio, o recurso do Azure para fazer auditoria com o Azure Policy é uma conta de armazenamento. No entanto, não sabemos as propriedades para utilizar na definição de política. O Azure Policy é avaliada em relação a representação JSON do recurso, portanto precisamos entender as propriedades disponíveis esse recurso.
+Com base no requisito de negócios, o recurso do Azure para auditar com Azure Policy é uma conta de armazenamento. No entanto, não sabemos as propriedades a serem usadas na definição de política. Azure Policy é avaliada em relação à representação JSON do recurso, portanto, precisaremos entender as propriedades disponíveis nesse recurso.
 
-Existem várias formas de determinar as propriedades de um recurso do Azure. Vamos examinar cada uma para este tutorial:
+Há várias maneiras de determinar as propriedades de um recurso do Azure. Vamos examinar cada um para este tutorial:
 
 - Modelos do Resource Manager
-  - Exportar o recurso existente
+  - Exportar recurso existente
   - Experiência de criação
   - Modelos de início rápido (GitHub)
   - Documentos de referência de modelo
@@ -63,16 +62,16 @@ Existem várias formas de determinar as propriedades de um recurso do Azure. Vam
 
 ### <a name="resource-manager-templates"></a>Modelos do Resource Manager
 
-Existem várias formas de considerar uma [modelo do Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que pretende para gerir.
+Há várias maneiras de examinar um modelo do [Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) que inclui a propriedade que você está procurando gerenciar.
 
 #### <a name="existing-resource-in-the-portal"></a>Recurso existente no portal
 
-A forma mais simples de localizar as propriedades é examinar um recurso existente do mesmo tipo. Recursos já configurados com a definição que deseja impor também fornecem o valor de comparação.
-Examinar os **exportar modelo** página (sob **definições**) no portal do Azure para esse recurso específico.
+A maneira mais simples de localizar Propriedades é examinar um recurso existente do mesmo tipo. Os recursos já configurados com a configuração que você deseja impor também fornecem o valor a ser comparado.
+Examine a página **Exportar modelo** (em **configurações**) no portal do Azure para esse recurso específico.
 
-![Exportar modelo de página de recursos existentes](../media/create-custom-policy-definition/export-template.png)
+![Exportar página de modelo no recurso existente](../media/create-custom-policy-definition/export-template.png)
 
-Fazendo isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
+Fazer isso para uma conta de armazenamento revela um modelo semelhante a este exemplo:
 
 ```json
 ...
@@ -116,13 +115,13 @@ Fazendo isso para uma conta de armazenamento revela um modelo semelhante a este 
 ...
 ```
 
-Sob **propriedades** é um valor chamado **supportsHttpsTrafficOnly** definido como **false**. Esta propriedade parece que poderá ser a propriedade que estamos procurando. Além disso, o **tipo** do recurso é **Storage/storageaccounts**. O tipo permite-na limitar a política únicos recursos deste tipo.
+Em **Propriedades** é um valor chamado **supportsHttpsTrafficOnly** definido como **false**. Essa propriedade parece que ela pode ser a propriedade que estamos procurando. Além disso, o **tipo** do recurso é **Microsoft. Storage/storageAccounts**. O tipo nos permite limitar a política a apenas recursos desse tipo.
 
 #### <a name="create-a-resource-in-the-portal"></a>Criar um recurso no portal
 
-Outra forma através do portal é a experiência de criação de recursos. Ao criar uma conta de armazenamento através do portal, uma opção no **avançadas** é separador **transferência de segurança necessária**. Esta propriedade tem _desativada_ e _ativado_ opções. O ícone de informações tem texto adicional que confirme que esta opção é, provavelmente, a propriedade que queremos. No entanto, o portal não forneça o nome da propriedade neste ecrã.
+Outra maneira por meio do portal é a experiência de criação de recursos. Ao criar uma conta de armazenamento por meio do portal, uma opção na guia **avançado** é a **transferência de segurança necessária**. Esta propriedade tem opções _desabilitadas_ e _habilitadas_ . O ícone de informações tem texto adicional que confirma que essa opção é provavelmente a propriedade que desejamos. No entanto, o portal não nos informa o nome da propriedade nesta tela.
 
-Sobre o **revisão + criar** separador, é de um link na parte inferior da página para **transferir um modelo para a automatização**. Selecionar a ligação é aberto o modelo que cria o recurso que foi configurados. Neste caso, vemos duas informações cruciais:
+Na guia **revisar + criar** , um link está na parte inferior da página para **baixar um modelo de automação**. Selecionar o link abre o modelo que cria o recurso que configuramos. Nesse caso, vemos duas partes principais de informações:
 
 ```json
 ...
@@ -137,28 +136,28 @@ Sobre o **revisão + criar** separador, é de um link na parte inferior da pági
 ...
 ```
 
-Estas informações nos informa o tipo de propriedade e também confirma **supportsHttpsTrafficOnly** é a propriedade que estamos procurando.
+Essa informação informa o tipo de propriedade e também confirma que **supportsHttpsTrafficOnly** é a propriedade que estamos procurando.
 
 #### <a name="quickstart-templates-on-github"></a>Modelos de início rápido no GitHub
 
-O [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) no GitHub tem centenas de modelos do Resource Manager criados para diferentes recursos. Estes modelos podem ser uma excelente forma de localizar a propriedade de recurso que está procurando. Algumas propriedades podem parecem ser o que precisa, mas controlar algo mais.
+Os [modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates) no GitHub têm centenas de modelos do Resource Manager criados para diferentes recursos. Esses modelos podem ser uma ótima maneira de localizar a propriedade de recurso que você está procurando. Algumas propriedades podem parecer que você está procurando, mas controlar algo mais.
 
-#### <a name="resource-reference-docs"></a>Documentos de referência do recurso
+#### <a name="resource-reference-docs"></a>Documentos de referência de recurso
 
-Para validar **supportsHttpsTrafficOnly** é a propriedade de corrigir, verifique a referência de modelo do Resource Manager para o [recurso de conta de armazenamento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) no fornecedor de armazenamento.
-O objecto de propriedades tem uma lista de parâmetros válidos. Selecionar o [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) ligação mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao precisa para cumprir os requisitos de negócios.
+Para validar **supportsHttpsTrafficOnly** é a propriedade correta, verifique a referência de modelo do Resource Manager para o [recurso de conta de armazenamento](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) no provedor de armazenamento.
+O objeto Properties tem uma lista de parâmetros válidos. Selecionar o link [StorageAccountPropertiesCreateParameters-Object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) mostra uma tabela de propriedades aceitáveis. **supportsHttpsTrafficOnly** está presente e a descrição corresponde ao que estamos procurando para atender aos requisitos de negócios.
 
 ### <a name="azure-resource-explorer"></a>Explorador de Recursos do Azure
 
-Outra forma de explorar os recursos do Azure é através da [Explorador de recursos do Azure](https://resources.azure.com) (pré-visualização). Essa ferramenta usa o contexto da sua subscrição, por isso terá de autenticar para o Web site com as suas credenciais do Azure. Uma vez autenticado, pode navegar por fornecedores, subscrições, grupos de recursos e recursos.
+Outra maneira de explorar os recursos do Azure é por meio do [Azure Resource Explorer](https://resources.azure.com) (versão prévia). Essa ferramenta usa o contexto de sua assinatura, portanto, você precisa se autenticar no site com suas credenciais do Azure. Depois de autenticado, você pode navegar por provedores, assinaturas, grupos de recursos e recursos.
 
-Localize um recurso de conta de armazenamento e ver as propriedades. Vemos o **supportsHttpsTrafficOnly** propriedade aqui também. Selecionar o **documentação** separador, podemos ver que a descrição de propriedade corresponde a que Descobrimos nos documentos de referência anteriormente.
+Localize um recurso de conta de armazenamento e examine as propriedades. Vemos também a propriedade **supportsHttpsTrafficOnly** aqui. Selecionando a guia **documentação** , vemos que a descrição da propriedade corresponde ao que encontramos nos documentos de referência anteriormente.
 
-## <a name="find-the-property-alias"></a>Encontrar o alias de propriedade
+## <a name="find-the-property-alias"></a>Localizar o alias da propriedade
 
-Identificámos que a propriedade de recurso, mas é necessário mapear essa propriedade para um [alias](../concepts/definition-structure.md#aliases).
+Identificamos a Propriedade Resource, mas precisamos mapear essa propriedade para um [alias](../concepts/definition-structure.md#aliases).
 
-Existem algumas formas de determinar os aliases para um recurso do Azure. Vamos examinar cada uma para este tutorial:
+Há algumas maneiras de determinar os aliases para um recurso do Azure. Vamos examinar cada um para este tutorial:
 
 - CLI do Azure
 - Azure PowerShell
@@ -166,7 +165,7 @@ Existem algumas formas de determinar os aliases para um recurso do Azure. Vamos 
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-Na CLI do Azure, o `az provider` grupo de comandos é utilizado para procurar os aliases de recursos. Vamos filtrar para o **Microsoft. Storage** espaço de nomes com base em detalhes sobre o recurso do Azure, temos anteriormente.
+No CLI do Azure, o grupo de comandos `az provider` é usado para pesquisar aliases de recursos. Vamos filtrar o namespace **Microsoft. Storage** com base nos detalhes que obtivemos sobre o recurso do Azure anteriormente.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -175,11 +174,11 @@ Na CLI do Azure, o `az provider` grupo de comandos é utilizado para procurar os
 az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" --query "resourceTypes[].aliases[].name"
 ```
 
-Nos resultados, podemos ver um suportados pelas contas de armazenamento com o nome de alias **supportsHttpsTrafficOnly**. Esta existência deste alias significa que podemos escrever a política para impor a nossos requisitos de negócios!
+Nos resultados, vemos um alias com suporte nas contas de armazenamento chamadas **supportsHttpsTrafficOnly**. Essa existência desse alias significa que podemos escrever a política para impor nossos requisitos de negócios!
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é utilizado para procurar os aliases de recursos. Vamos filtrar para o **Microsoft. Storage** espaço de nomes com base em detalhes sobre o recurso do Azure, temos anteriormente.
+Em Azure PowerShell, o cmdlet `Get-AzPolicyAlias` é usado para pesquisar aliases de recursos. Vamos filtrar o namespace **Microsoft. Storage** com base nos detalhes que obtivemos sobre o recurso do Azure anteriormente.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell
@@ -188,11 +187,11 @@ No Azure PowerShell, o `Get-AzPolicyAlias` cmdlet é utilizado para procurar os 
 (Get-AzPolicyAlias -NamespaceMatch 'Microsoft.Storage').Aliases
 ```
 
-Como a CLI do Azure, os resultados mostram um suportados pelas contas de armazenamento com o nome de alias **supportsHttpsTrafficOnly**.
+Assim como CLI do Azure, os resultados mostram um alias com suporte das contas de armazenamento chamadas **supportsHttpsTrafficOnly**.
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Gráfico de recursos do Azure](../../resource-graph/overview.md) é um novo serviço em pré-visualização. Permite que outro método localizar as propriedades de recursos do Azure. Eis uma consulta de exemplo para observar uma única conta de armazenamento com o gráfico de recursos:
+O [grafo de recursos do Azure](../../resource-graph/overview.md) é um novo serviço na versão prévia. Ele permite que outro método encontre Propriedades de recursos do Azure. Aqui está um exemplo de consulta para examinar uma única conta de armazenamento com o grafo de recursos:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -207,7 +206,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Os resultados semelhante-se de que o que vemos nos modelos do Resource Manager e através do Explorador de recursos do Azure. No entanto, também podem incluir resultados de gráfico de recursos do Azure [alias](../concepts/definition-structure.md#aliases) detalha por _projekci_ o _aliases_ matriz:
+Os resultados são semelhantes ao que vemos nos modelos do Resource Manager e por meio do Azure Resource Explorer. No entanto, os resultados do grafo de recursos do Azure também podem incluir detalhes de [alias](../concepts/definition-structure.md#aliases) _projetando_ a matriz de _aliases_ :
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -223,7 +222,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1 | p
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
 ```
 
-Este é o resultado de exemplo de uma conta de armazenamento para aliases:
+Aqui está um exemplo de saída de uma conta de armazenamento para aliases:
 
 ```json
 "aliases": {
@@ -305,18 +304,18 @@ Este é o resultado de exemplo de uma conta de armazenamento para aliases:
 }
 ```
 
-Gráfico de recursos do Azure (pré-visualização) pode ser utilizado através de [Cloud Shell](https://shell.azure.com), tornando-o uma forma rápida e fácil de explorar as propriedades dos seus recursos.
+O grafo de recursos do Azure (visualização) pode ser usado por meio de [Cloud Shell](https://shell.azure.com), tornando-o uma maneira rápida e fácil de explorar as propriedades de seus recursos.
 
-## <a name="determine-the-effect-to-use"></a>Determinar o efeito para utilizar
+## <a name="determine-the-effect-to-use"></a>Determinar o efeito a ser usado
 
-Decidir o que fazer com os seus recursos em não conformidades é tão importante quanto a decidir o que avaliar em primeiro lugar. Cada resposta possível para um recurso de conformidade é chamada um [efeito](../concepts/effects.md).
-Os controles de efeito se o recurso de conformidade é iniciado, bloqueado, tem dados acrescentado, ou tem uma implementação associados a ele para colocar o recurso de volta ao estado compatível.
+Decidir o que fazer com seus recursos sem conformidade é tão importante quanto decidir o que deve ser avaliado em primeiro lugar. Cada resposta possível a um recurso sem conformidade é chamada de [efeito](../concepts/effects.md).
+O efeito controla se o recurso sem conformidade é registrado, bloqueado, tem dados anexados ou tem uma implantação associada a ele para colocar o recurso de volta em um estado compatível.
 
-No nosso exemplo, a negação é o efeito que Desejamos que não queremos recursos incompatíveis criados no nosso ambiente do Azure. Auditoria é uma boa primeira opção para um efeito de política determinar o que é o impacto de uma política antes de defini-la para negar. Uma forma de alterar o efeito por atribuição mais fácil de fazer é parametrizar o efeito. Ver [parâmetros](#parameters) abaixo para obter os detalhes sobre como.
+Para nosso exemplo, DENY é o efeito que desejamos, pois não queremos que recursos não compatíveis sejam criados em nosso ambiente do Azure. A auditoria é uma boa primeira opção para um efeito de política para determinar qual é o impacto de uma política antes de defini-la como Deny. Uma maneira de alterar o efeito por atribuição é mais fácil é parametrizar o efeito. Consulte os [parâmetros](#parameters) abaixo para obter detalhes sobre como.
 
-## <a name="compose-the-definition"></a>A definição de composição
+## <a name="compose-the-definition"></a>Compor a definição
 
-Agora, temos os detalhes de propriedade e o alias para o que estamos a planear gerir. Em seguida, iremos irá compor a regra de política em si. Se ainda não estiver familiarizado com a linguagem de política, referenciar [estrutura de definição de política](../concepts/definition-structure.md) para saber como estruturar a definição de política. Este é um modelo em branco da aparência uma definição de política:
+Agora temos os detalhes da propriedade e o alias para o que planejamos gerenciar. Em seguida, vamos compor a própria regra de política. Se você ainda não estiver familiarizado com a linguagem de política, consulte a [estrutura de definição de política](../concepts/definition-structure.md) de referência para saber como estruturar a definição de política. Aqui está um modelo vazio do que é uma definição de política:
 
 ```json
 {
@@ -341,7 +340,7 @@ Agora, temos os detalhes de propriedade e o alias para o que estamos a planear g
 
 ### <a name="metadata"></a>Metadados
 
-Os primeiros três componentes são metadados de política. Esses componentes são fáceis de fornecer valores para uma vez que sabemos o que estamos a criar a regra para. [Modo](../concepts/definition-structure.md#mode) se principalmente de etiquetas e a localização do recurso. Pois não é necessário limitar a avaliação para recursos que suportam etiquetas, vamos utilizar o _todos os_ valor **modo**.
+Os três primeiros componentes são metadados de política. Esses componentes são fáceis de fornecer valores para, pois sabemos de que estamos criando a regra. O [modo](../concepts/definition-structure.md#mode) é basicamente sobre as marcas e o local do recurso. Como não precisamos limitar a avaliação a recursos que dão suporte a marcas, usaremos o valor _All_ para o **modo**.
 
 ```json
 "displayName": "Deny storage accounts not using only HTTPS",
@@ -351,7 +350,7 @@ Os primeiros três componentes são metadados de política. Esses componentes s�
 
 ### <a name="parameters"></a>Parâmetros
 
-Embora não tenhamos usado um parâmetro para alterar a avaliação, queremos usar um parâmetro para permitir que a alteração da **efeito** para resolução de problemas. Vamos definir uma **effectType** parâmetro e a limitá-la à única **negar** e **desativado**. Estas duas opções de corresponder ao nossos requisitos de negócios. O bloco de parâmetros terminado este aspeto:
+Embora não tenhamos usado um parâmetro para alterar a avaliação, queremos usar um parâmetro para permitir a alteração do **efeito** para a solução de problemas. Vamos definir um parâmetro **effecttype** e limitá-lo para somente **Deny** e **Disabled**. Essas duas opções correspondem a nossos requisitos de negócios. O bloco de parâmetros concluído é semelhante a este exemplo:
 
 ```json
 "parameters": {
@@ -370,14 +369,14 @@ Embora não tenhamos usado um parâmetro para alterar a avaliação, queremos us
 },
 ```
 
-### <a name="policy-rule"></a>Regra de política
+### <a name="policy-rule"></a>regra de política
 
-Compor a [regra de política](../concepts/definition-structure.md#policy-rule) é a etapa final na criação de nossa definição de política personalizada. Identificámos duas instruções para testar para:
+Compor a [regra de política](../concepts/definition-structure.md#policy-rule) é a etapa final na criação de nossa definição de política personalizada. Identificamos duas instruções para teste:
 
-- Que a conta de armazenamento **tipo** é **Storage/storageaccounts**
-- Que a conta de armazenamento **supportsHttpsTrafficOnly** não é **verdadeiro**
+- Se o **tipo** de conta de armazenamento é **Microsoft. Storage/storageAccounts**
+- Que a conta de armazenamento **supportsHttpsTrafficOnly** não é **verdadeira**
 
-Uma vez que precisamos ambas estas instruções para ser verdade, vamos utilizar o **tudo** [operador lógico](../concepts/definition-structure.md#logical-operators). Vamos passar a **effectType** parâmetro para o efeito em vez de fazer uma declaração estática. Nossa regra concluída é semelhante a este exemplo:
+Como precisamos que essas duas instruções sejam verdadeiras, usaremos o [operador lógico](../concepts/definition-structure.md#logical-operators) **allOf** . Vamos passar o parâmetro **effecttype** para o efeito em vez de fazer uma declaração estática. Nossa regra concluída é semelhante a este exemplo:
 
 ```json
 "if": {
@@ -399,7 +398,7 @@ Uma vez que precisamos ambas estas instruções para ser verdade, vamos utilizar
 
 ### <a name="completed-definition"></a>Definição concluída
 
-Com todas as três partes da política definida, aqui está nossa definição concluída:
+Com todas as três partes da política definidas, aqui está nossa definição concluída:
 
 ```json
 {
@@ -442,22 +441,22 @@ Com todas as três partes da política definida, aqui está nossa definição co
 }
 ```
 
-A definição completa pode ser utilizada para criar uma nova política. Portal e cada SDK (CLI do Azure, Azure PowerShell e REST API) aceite a definição de formas diferentes, por isso, reveja os comandos de cada um para validar a utilização correta. Em seguida, atribuí-la, usando o efeito parametrizado, para recursos adequados para gerir a segurança das suas contas de armazenamento.
+A definição concluída pode ser usada para criar uma nova política. O portal e cada SDK (CLI do Azure, Azure PowerShell e API REST) aceitam a definição de maneiras diferentes, portanto, examine os comandos para cada um para validar o uso correto. Em seguida, atribua-o, usando o efeito com parâmetros, aos recursos apropriados para gerenciar a segurança de suas contas de armazenamento.
 
 ## <a name="review"></a>Rever
 
 Neste tutorial conseguiu realizar com êxito as seguintes tarefas:
 
 > [!div class="checklist"]
-> - Identificar os requisitos de negócio
-> - Mapeado cada requisito para uma propriedade de recursos do Azure
-> - Mapeado a propriedade para um alias
-> - Determinar o efeito de usar
-> - Composto a definição de política
+> - Identificado seus requisitos de negócios
+> - Mapeado cada requisito para uma propriedade de recurso do Azure
+> - Mapeou a propriedade para um alias
+> - Determinado o efeito a ser usado
+> - Composição da definição de política
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Em seguida, utilize a definição de política personalizada para criar e atribuir uma política:
+Em seguida, use sua definição de política personalizada para criar e atribuir uma política:
 
 > [!div class="nextstepaction"]
 > [Criar e atribuir uma definição de política](../how-to/programmatically-create.md#create-and-assign-a-policy-definition)

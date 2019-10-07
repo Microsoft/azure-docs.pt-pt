@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6820daf34e63fd48e83c645e7509a3256bc8435b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c8c270681794621b2a12671d4bcf350cd6cc4d8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066993"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981121"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Usar um certificado SSL no código do aplicativo no serviço Azure App
 
@@ -44,7 +44,7 @@ Copie a impressão digital do certificado e veja [tornar o certificado acessíve
 
 Há suporte para certificados públicos no formato *. cer* . Para carregar um certificado público, o <a href="https://portal.azure.com" target="_blank">portal do Azure</a>e navegar até seu aplicativo.
 
-Clique em **configurações** > SSL**certificados públicos (. cer)**  > **carregar certificado público** do painel de navegação esquerdo do seu aplicativo.
+Clique em **configurações SSL** > **certificados públicos (. cer)**  > **carregar certificado público** do painel de navegação esquerdo do seu aplicativo.
 
 Em **nome**, digite um nome para o certificado. No **arquivo de certificado cer**, selecione o arquivo cer.
 
@@ -62,7 +62,7 @@ Depois que o certificado for importado, copie a impressão digital do certificad
 
 ## <a name="make-the-certificate-accessible"></a>Tornar o certificado acessível
 
-Para usar um certificado carregado ou importado no código do aplicativo, torne sua impressão digital `WEBSITE_LOAD_CERTIFICATES` acessível com a configuração do aplicativo, executando o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+Para usar um certificado carregado ou importado no código do aplicativo, torne sua impressão digital acessível com a configuração de aplicativo `WEBSITE_LOAD_CERTIFICATES`, executando o seguinte comando no <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -71,7 +71,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 Para tornar todos os certificados acessíveis, defina o valor como `*`.
 
 > [!NOTE]
-> Essa configuração coloca os certificados especificados no repositório [User\My atual](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) para a maioria dos tipos de preço, mas na camada **isolada** (ou seja, o aplicativo é executado em um [ambiente do serviço de aplicativo](environment/intro.md)), ele coloca os certificados no [Machine\My local](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) armazenadas.
+> Essa configuração coloca os certificados especificados no repositório [User\My atual](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) para a maioria dos tipos de preço, mas se seu aplicativo estiver em execução na camada **isolada** (ou seja, o aplicativo é executado em um [ambiente do serviço de aplicativo](environment/intro.md)), talvez seja necessário fazer check-in no [local Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) Store em vez disso.
 >
 
 ![Definir configuração de aplicativo](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
@@ -82,7 +82,7 @@ Os certificados configurados agora estão prontos para serem usados pelo seu có
 
 ## <a name="load-the-certificate-in-code"></a>Carregar o certificado no código
 
-Depois que o certificado estiver acessível, acesse- C# o no código pela impressão digital do certificado. O código a seguir carrega um certificado com a `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`impressão digital.
+Depois que o certificado estiver acessível, acesse- C# o no código pela impressão digital do certificado. O código a seguir carrega um certificado com a impressão digital `E661583E8FABEF4C0BEF694CBC41C28FB81CD870`.
 
 ```csharp
 using System;
@@ -112,13 +112,13 @@ certStore.Close();
 
 Se você precisar carregar um arquivo de certificado do diretório do aplicativo, é melhor carregá-lo usando [FTPS](deploy-ftp.md) em vez do [git](deploy-local-git.md), por exemplo. Você deve manter dados confidenciais como um certificado privado fora do controle do código-fonte.
 
-Embora você esteja carregando o arquivo diretamente no seu código .NET, a biblioteca ainda verifica se o perfil do usuário atual está carregado. Para carregar o perfil do usuário atual, defina `WEBSITE_LOAD_USER_PROFILE` a configuração do aplicativo com o seguinte comando na <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Embora você esteja carregando o arquivo diretamente no seu código .NET, a biblioteca ainda verifica se o perfil do usuário atual está carregado. Para carregar o perfil de usuário atual, defina a configuração de aplicativo `WEBSITE_LOAD_USER_PROFILE` com o comando a seguir na <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 ```
 
-Quando essa configuração é definida, o exemplo C# a seguir carrega um certificado `mycert.pfx` chamado do `certs` diretório do repositório do aplicativo.
+Quando essa configuração é definida, o exemplo C# a seguir carrega um certificado chamado `mycert.pfx` do diretório `certs` do repositório do aplicativo.
 
 ```csharp
 using System;

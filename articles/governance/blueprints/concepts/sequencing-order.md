@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231917"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981021"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Entender a sequência de implantação em plantas do Azure
 
-Os planos gráficos do Azure usam uma **ordem** de sequenciamento para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de plano gráfico. Este artigo explica os seguintes conceitos:
+Os planos gráficos do Azure usam uma **ordem de sequenciamento** para determinar a ordem de criação de recursos ao processar a atribuição de uma definição de plano gráfico. Este artigo explica os seguintes conceitos:
 
 - A ordem de sequenciamento padrão usada
 - Como personalizar o pedido
@@ -48,7 +47,7 @@ Dentro de cada artefato do **grupo de recursos** , a ordem de sequência a segui
 
 Ao compor grandes definições de Blueprint, pode ser necessário que os recursos sejam criados em uma ordem específica. O padrão de uso mais comum desse cenário é quando uma definição de Blueprint inclui vários modelos de Azure Resource Manager. Os planos gráficos manipulam esse padrão, permitindo que a ordem de sequenciamento seja definida.
 
-A ordenação é realizada definindo uma `dependsOn` Propriedade no JSON. A definição do Blueprint, para grupos de recursos e objetos de artefato dão suporte a essa propriedade. `dependsOn`é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
+A ordenação é realizada definindo uma propriedade `dependsOn` no JSON. A definição do Blueprint, para grupos de recursos e objetos de artefato dão suporte a essa propriedade. `dependsOn` é uma matriz de cadeia de caracteres de nomes de artefatos que o artefato específico precisa ser criado antes de ser criado.
 
 > [!NOTE]
 > Ao criar objetos BluePrints, cada recurso de artefato obtém seu nome do nome de arquivo, se estiver usando o [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact)ou o ponto de extremidade de URL, se estiver usando a [API REST](/rest/api/blueprints/artifacts/createorupdate).
@@ -56,7 +55,7 @@ A ordenação é realizada definindo uma `dependsOn` Propriedade no JSON. A defi
 
 ### <a name="example---ordered-resource-group"></a>Exemplo-grupo de recursos ordenados
 
-Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn`, junto com um grupo de recursos padrão. Nesse caso, o artefato chamado **assignPolicyTags** será processado antes do grupo de recursos **ordered-RG** .
+Este exemplo de definição de Blueprint tem um grupo de recursos que definiu uma ordem de sequenciamento personalizada declarando um valor para `dependsOn`, juntamente com um grupo de recursos padrão. Nesse caso, o artefato chamado **assignPolicyTags** será processado antes do grupo de recursos **ordered-RG** .
 **Standard-RG** será processado de acordo com a ordem de sequenciamento padrão.
 
 ```json
@@ -141,11 +140,11 @@ O artefato do modelo de nível de assinatura, dependendo do grupo de recursos **
 
 Durante o processo de criação, uma classificação topológica é usada para criar o grafo de dependência dos artefatos de plantas. A verificação verifica se há suporte para cada nível de dependência entre grupos de recursos e artefatos.
 
-Se uma dependência de artefato for declarada que não alteraria a ordem padrão, nenhuma alteração será feita. Um exemplo é um grupo de recursos que depende de uma política de nível de assinatura. Outro exemplo é uma atribuição de política filho ' Standard-RG ' do grupo de recursos que depende da atribuição de função filho ' Standard-RG ' do grupo de recursos. Em ambos os casos, `dependsOn` o não teria alterado a ordem de sequenciamento padrão e nenhuma alteração seria feita.
+Se uma dependência de artefato for declarada que não alteraria a ordem padrão, nenhuma alteração será feita. Um exemplo é um grupo de recursos que depende de uma política de nível de assinatura. Outro exemplo é uma atribuição de política filho ' Standard-RG ' do grupo de recursos que depende da atribuição de função filho ' Standard-RG ' do grupo de recursos. Em ambos os casos, o `dependsOn` não teria alterado a ordem de sequenciamento padrão e nenhuma alteração seria feita.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](resource-locking.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

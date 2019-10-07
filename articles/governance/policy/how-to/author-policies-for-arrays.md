@@ -1,36 +1,35 @@
 ---
-title: Políticas de autor para propriedades de matriz em recursos do Azure
-description: Aprenda a criar parâmetros de matriz, criar regras para a matriz de expressões de idioma, avaliar o alias [*] e a acrescentar elementos numa matriz existente com as regras de definição de política do Azure.
+title: Políticas de autor para propriedades de matriz nos recursos do Azure
+description: Aprenda a criar parâmetros de matriz, criar regras para expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos a uma matriz existente com regras de definição de Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 479f77791a0b035f2d1de6085dfb12f5196288ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5b90eb975d0d495723a70095b447d37e051fc0b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65979335"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978043"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz em recursos do Azure
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
-Propriedades do Gestor de recursos do Azure normalmente são definidas como cadeias de caracteres e booleanos. Quando existe uma relação um-para-muitos, propriedades complexas em vez disso, são definidas como matrizes. No Azure Policy, as matrizes são utilizadas de várias maneiras diferentes:
+Azure Resource Manager propriedades são normalmente definidas como cadeias de caracteres e boolianos. Quando existe uma relação um-para-muitos, as propriedades complexas são definidas como matrizes. Em Azure Policy, as matrizes são usadas de várias maneiras diferentes:
 
-- O tipo de um [parâmetro de definição de](../concepts/definition-structure.md#parameters), para fornecer várias opções
-- Parte de um [regra de política](../concepts/definition-structure.md#policy-rule) utilizando as condições **no** ou **notIn**
-- Parte de uma regra de política que avalia o [ \[ \* \] alias](../concepts/definition-structure.md#understanding-the--alias) para avaliar os cenários específicos, como **None**, **qualquer**, ou  **Todos os**
-- Na [acrescentar efeito](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
+- O tipo de um [parâmetro de definição](../concepts/definition-structure.md#parameters), para fornecer várias opções
+- Parte de uma [regra de política](../concepts/definition-structure.md#policy-rule) usando as condições **em** ou **notIn**
+- Parte de uma regra de política que avalia o [alias \[ @ no__t-2 @ no__t-3](../concepts/definition-structure.md#understanding-the--alias) para avaliar cenários específicos, como **None**, **any**ou **All**
+- No [efeito de acréscimo](../concepts/effects.md#append) para substituir ou adicionar a uma matriz existente
 
-Este artigo abrange cada utilização pela política do Azure e fornece várias definições de exemplo.
+Este artigo aborda cada uso por Azure Policy e fornece várias definições de exemplo.
 
-## <a name="parameter-arrays"></a>Matrizes de parâmetro
+## <a name="parameter-arrays"></a>Matrizes de parâmetros
 
 ### <a name="define-a-parameter-array"></a>Definir uma matriz de parâmetros
 
-Definir um parâmetro como uma matriz permite a flexibilidade de política quando mais de um valor é necessário.
-Esta definição de política permite que qualquer localização única para o parâmetro **allowedLocations** e assume a predefinição _eualeste2_:
+A definição de um parâmetro como uma matriz permite a flexibilidade da política quando mais de um valor é necessário.
+Essa definição de política permite qualquer local único para o parâmetro **allowedLocations** e o padrão _eastus2_:
 
 ```json
 "parameters": {
@@ -46,9 +45,9 @@ Esta definição de política permite que qualquer localização única para o p
 }
 ```
 
-Como **tipo** foi _cadeia de caracteres_, apenas pode ser definido um valor quando atribuir a política. Se for atribuída esta política, os recursos no âmbito só são permitidos numa única região do Azure. Tem de permitir para obter uma lista de opções aprovadas, como permitir que a maioria das definições de políticas _eualeste2_, _eastus_, e _westus2_.
+Como o **tipo** era _String_, apenas um valor pode ser definido ao atribuir a política. Se essa política for atribuída, os recursos no escopo só serão permitidos em uma única região do Azure. A maioria das definições de políticas precisa permitir uma lista de opções aprovadas, como permitir _eastus2_, _eastus_e _westus2_.
 
-Para criar a definição de política para permitir que várias opções, utilize o _matriz_ **tipo**. A mesma política pode ser reescrita da seguinte forma:
+Para criar a definição de política para permitir várias opções, use o **tipo**de _matriz_ . A mesma política pode ser reescrita da seguinte maneira:
 
 ```json
 "parameters": {
@@ -71,17 +70,17 @@ Para criar a definição de política para permitir que várias opções, utiliz
 ```
 
 > [!NOTE]
-> Depois de uma definição de política é guardada, o **tipo** propriedade num parâmetro não pode ser alterada.
+> Quando uma definição de política é salva, a propriedade **Type** em um parâmetro não pode ser alterada.
 
-Esta nova definição de parâmetro demora mais de um valor durante a atribuição de política. Com a propriedade de matriz **allowedValues** definido, os valores disponíveis durante a atribuição são mais limitadas para a lista predefinida de opções. Usar **allowedValues** é opcional.
+Essa nova definição de parâmetro usa mais de um valor durante a atribuição de política. Com a propriedade de matriz **allowedValues** definida, os valores disponíveis durante a atribuição são limitados ainda mais à lista predefinida de opções. O uso de **allowedValues** é opcional.
 
-### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Transmita os valores para uma matriz de parâmetros durante a atribuição
+### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passar valores para uma matriz de parâmetros durante a atribuição
 
-Ao atribuir a política através do portal do Azure, um parâmetro de **tipo** _matriz_ é apresentado como uma única caixa de texto. A sugestão diz "utilizar; para separar os valores. (por exemplo, Londres; New York) ". Para passar os valores de localização permitido de _eualeste2_, _eastus_, e _westus2_ para o parâmetro, utilize a seguinte cadeia:
+Ao atribuir a política por meio do portal do Azure, um parâmetro do **tipo** _matriz_ é exibido como uma única caixa de texto. A dica diz "usar; para separar valores. (por exemplo, Londres; Nova York) ". Para passar os valores de local permitidos de _eastus2_, _eastus_e _westus2_ para o parâmetro, use a seguinte cadeia de caracteres:
 
 `eastus2;eastus;westus2`
 
-O formato para o valor do parâmetro é diferente ao utilizar a CLI do Azure, Azure PowerShell ou a API REST. Os valores são transmitidos através de uma cadeia de caracteres do JSON que também inclui o nome do parâmetro.
+O formato do valor do parâmetro é diferente ao usar CLI do Azure, Azure PowerShell ou a API REST. Os valores são passados por meio de uma cadeia de caracteres JSON que também inclui o nome do parâmetro.
 
 ```json
 {
@@ -95,18 +94,18 @@ O formato para o valor do parâmetro é diferente ao utilizar a CLI do Azure, Az
 }
 ```
 
-Para usar essa cadeia de caracteres com cada SDK, utilize os seguintes comandos:
+Para usar essa cadeia de caracteres com cada SDK, use os seguintes comandos:
 
-- CLI do Azure: Comando [criação da atribuição de política de az](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) com o parâmetro **params**
+- CLI do Azure: Comando [AZ Policy atribuition Create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) com **parâmetros de parâmetro**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com o parâmetro **PolicyParameter**
-- REST API: Na _colocar_ [crie](/rest/api/resources/policyassignments/create) operação como parte do corpo do pedido como o valor do **properties.parameters** propriedade
+- API REST: Na operação _Put_ [criar](/rest/api/resources/policyassignments/create) como parte do corpo da solicitação como o valor da propriedade **Properties. Parameters**
 
 ## <a name="policy-rules-and-arrays"></a>Regras de política e matrizes
 
 ### <a name="array-conditions"></a>Condições de matriz
 
-A regra de política [condições](../concepts/definition-structure.md#conditions) que um _matriz_
-**tipo** do parâmetro pode ser utilizado com está limitado a `in` e `notIn`. Realizar a seguinte definição de política com a condição `equals` como exemplo:
+As [condições](../concepts/definition-structure.md#conditions) de regra de política que um**tipo** de parâmetro de _matriz_
+ pode ser usada com o são limitadas a `in` e `notIn`. Use a seguinte definição de política com a condição `equals` como um exemplo:
 
 ```json
 {
@@ -134,18 +133,18 @@ A regra de política [condições](../concepts/definition-structure.md#condition
 }
 ```
 
-A tentar criar esta definição de política por meio das oportunidades de potenciais de portais do Azure a um erro como esta mensagem de erro:
+A tentativa de criar essa definição de política por meio do portal do Azure leva a um erro como esta mensagem de erro:
 
-- "A política '{GUID}' não foi possível parametrizar devido a erros de validação. Verifique se os parâmetros de política estão definidos corretamente. A exceção interna "avaliação do resultado da expressão de linguagem [parameters('allowedLocations')] é o tipo"Array", tipo esperado é 'String' '."
+- "A política ' {GUID} ' não pôde ser parametrizada devido a erros de validação. Verifique se os parâmetros da política estão definidos corretamente. O resultado da avaliação da exceção interna da expressão de linguagem ' [Parameters (' allowedLocations ')] ' é do tipo ' array ', o tipo esperado é ' String '. '. "
 
-A esperada **tipo** da condição `equals` é _cadeia_. Uma vez que **allowedLocations** é definido como **tipo** _matriz_, o motor de política avalia a expressão de linguagem e emite o erro. Com o `in` e `notIn` condição, o mecanismo da diretiva espera que o **tipo** _matriz_ na expressão de linguagem. Para resolver esta mensagem de erro, altere `equals` a um `in` ou `notIn`.
+O **tipo** de condição esperado `equals` é _cadeia de caracteres_. Como **allowedLocations** é definido como _matriz_de tipo, o mecanismo de política avalia a expressão de idioma e gera o erro. Com a condição `in` e `notIn`, o mecanismo de política espera a _matriz_ de **tipo** na expressão de idioma. Para resolver essa mensagem de erro, altere `equals` para `in` ou `notIn`.
 
-### <a name="evaluating-the--alias"></a>Avaliar o alias [*]
+### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
 
-Aliases que tenham **[\*]** anexado ao respetivo nome indicar o **tipo** é um _matriz_. Em vez de avaliar o valor da matriz inteira, **[\*]** torna possível avaliar a cada elemento da matriz. Existem três cenários por item avaliação é útil para: Nenhum, qualquer um e tudo.
+Os aliases que têm **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: Nenhum, nenhum e todos.
 
-Os acionadores de motor de política do **efeito** na **, em seguida,** apenas quando o **se** regra avalia como verdadeiro.
-Esse fato é importante compreender no contexto do modo como a **[\*]** avalia cada elemento individual da matriz.
+O mecanismo de política aciona o **efeito** em **seguida** somente quando a regra **If** é avaliada como true.
+Esse fato é importante entender no contexto de como **[\*]** avalia cada elemento individual da matriz.
 
 A regra de política de exemplo para a tabela de cenário abaixo:
 
@@ -166,7 +165,7 @@ A regra de política de exemplo para a tabela de cenário abaixo:
 }
 ```
 
-O **ipRules** matriz é o seguinte para a tabela de cenário abaixo:
+A matriz **ipRules** é a seguinte para a tabela de cenário abaixo:
 
 ```json
 "ipRules": [
@@ -181,35 +180,35 @@ O **ipRules** matriz é o seguinte para a tabela de cenário abaixo:
 ]
 ```
 
-Para cada exemplo de condição abaixo, substitua `<field>` com `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
+Para cada exemplo de condição abaixo, substitua `<field>` por `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
 
-Os resultados seguintes são o resultado da combinação da condição e a regra de política de exemplo e a matriz de valores existentes acima:
+Os resultados a seguir são o resultado da combinação da condição e a regra de política de exemplo e a matriz de valores existentes acima:
 
 |Condição |Resultado |Explicação |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliada como false (127.0.0.1! = 127.0.0.1) e outro como true (127.0.0.1! = 192.168.1.1), pelo que a **notEquals** condição for _falso_ e o efeito não é acionado. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Efeito de política |Ambos os elementos de matriz avaliar como VERDADEIRO (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), pelo que a **notEquals** condição for _verdadeiro_ e o efeito é acionado. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito de política |Um elemento de matriz é avaliada como true (127.0.0.1 = = 127.0.0.1) e outro como false (127.0.0.1 = = 192.168.1.1), pelo que a **é igual a** condição for _falso_. O operador lógico é avaliada como true (**não** _falso_), por isso, o efeito é acionado. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito de política |Ambos os elementos de matriz avaliar como false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), pelo que a **é igual a** condição for _falso_. O operador lógico é avaliada como true (**não** _falso_), por isso, o efeito é acionado. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito de política |Um elemento de matriz é avaliada como false (127.0.0.1! = 127.0.0.1) e outro como true (127.0.0.1! = 192.168.1.1), pelo que a **notEquals** condição for _falso_. O operador lógico é avaliada como true (**não** _falso_), por isso, o efeito é acionado. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Ambos os elementos de matriz avaliar como VERDADEIRO (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), pelo que a **notEquals** condição for _verdadeiro_. O operador lógico é avaliada como false (**não** _verdadeiro_), por isso, o efeito não é acionado. |
-|`{<field>,"Equals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliada como true (127.0.0.1 = = 127.0.0.1) e outro como false (127.0.0.1 = = 192.168.1.1), pelo que a **é igual a** condição for _falso_ e o efeito não é acionado. |
-|`{<field>,"Equals":"10.0.4.1"}` |Nada |Ambos os elementos de matriz avaliar como false (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), pelo que a **é igual a** condição for _falso_ e o efeito não é acionado. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_ e o efeito não é disparado. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Efeito de política |Ambos os elementos da matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição não é **igual** a _true_ e o efeito é disparado. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Efeito de política |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Efeito de política |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Efeito de política |Um elemento de matriz é avaliado como falso (127.0.0.1! = 127.0.0.1) e outro como verdadeiro (127.0.0.1! = 192.168.1.1), portanto, a condição não é **igual** a _false_. O operador lógico é avaliado como verdadeiro (**não** _falso_), portanto, o efeito é disparado. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nada |Ambos os elementos de matriz são avaliados como verdadeiros (10.0.4.1! = 127.0.0.1 e 10.0.4.1! = 192.168.1.1), portanto, a condição de não é **igual** a _true_. O operador lógico é avaliado como falso (**não** _verdadeiro_), portanto, o efeito não é disparado. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nada |Um elemento de matriz é avaliado como verdadeiro (127.0.0.1 = = 127.0.0.1) e outro como falso (127.0.0.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nada |Ambos os elementos da matriz são avaliados como falso (10.0.4.1 = = 127.0.0.1 e 10.0.4.1 = = 192.168.1.1), portanto, a condição **Equals** é _false_ e o efeito não é disparado. |
 
-## <a name="the-append-effect-and-arrays"></a>O efeito de acréscimo e matrizes
+## <a name="the-append-effect-and-arrays"></a>As matrizes e o efeito de acréscimo
 
-O [acrescentar efeito](../concepts/effects.md#append) tem um comportamento diferente dependendo se o **details.field** é um **[\*]** alias ou não.
+O [efeito de acréscimo](../concepts/effects.md#append) comporta-se de maneira diferente dependendo de se o **Details. Field** é um alias **[\*]** ou não.
 
-- Quando não uma **[\*]** alias, acrescentar substitui a matriz inteira com o **valor** propriedade
-- Quando um **[\*]** alias, Acrescentar adiciona a **valor** propriedade para o existente de matriz ou cria a nova matriz
+- Quando não é um alias **[\*]** , Append substitui toda a matriz pela propriedade **Value**
+- Quando um alias **[\*]** , Append adiciona a propriedade **Value** à matriz existente ou cria a nova matriz
 
-Para obter mais informações, consulte a [acrescentar exemplos](../concepts/effects.md#append-examples).
+Para obter mais informações, consulte os [exemplos de acréscimo](../concepts/effects.md#append-examples).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Reveja exemplos em [exemplos do Azure Policy](../samples/index.md).
+- Examine exemplos em [exemplos de Azure Policy](../samples/index.md).
 - Reveja a [estrutura de definição do Azure Policy](../concepts/definition-structure.md).
 - Veja [Compreender os efeitos do Policy](../concepts/effects.md).
-- Compreender como [criar políticas programaticamente](programmatically-create.md).
-- Saiba como [remediar recursos incompatíveis](remediate-resources.md).
-- Revisão que um grupo de gestão é com [organizar os recursos com grupos de gestão do Azure](../../management-groups/overview.md).
+- Entenda como [criar políticas programaticamente](programmatically-create.md).
+- Saiba como [corrigir recursos sem conformidade](remediate-resources.md).
+- Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

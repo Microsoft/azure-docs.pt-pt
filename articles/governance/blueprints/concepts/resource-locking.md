@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232943"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981053"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Entender o bloqueio de recursos em plantas do Azure
 
-A criação de ambientes consistentes em escala só será verdadeiramente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em plantas do Azure. Para ver um exemplo de bloqueio de recursos e aplicaçãode atribuições de negação, consulte o tutorial [protegendo novos recursos](../tutorials/protect-new-resources.md) .
+A criação de ambientes consistentes em escala só será verdadeiramente valiosa se houver um mecanismo para manter essa consistência. Este artigo explica como o bloqueio de recursos funciona em plantas do Azure. Para ver um exemplo de bloqueio de recursos e aplicação de _atribuições de negação_, consulte o tutorial [protegendo novos recursos](../tutorials/protect-new-resources.md) .
 
 ## <a name="locking-modes-and-states"></a>Modos de bloqueio e Estados
 
@@ -49,11 +48,11 @@ Quando a atribuição é removida, os bloqueios criados por plantas são removid
 
 ## <a name="how-blueprint-locks-work"></a>Como os bloqueios de plantas funcionam
 
-Uma ação [](../../../role-based-access-control/deny-assignments.md) negar atribuições de negação de RBAC será aplicada aos recursos de artefato durante a atribuição de um plano gráfico se a atribuição tiver selecionado a opção **somente leitura** ou **não excluir** . A ação Deny é adicionada pela identidade gerenciada da atribuição Blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Essa medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio Blueprint fora dos planos gráficos.
+Uma ação negar [atribuições de negação](../../../role-based-access-control/deny-assignments.md) de RBAC será aplicada aos recursos de artefato durante a atribuição de um plano gráfico se a atribuição tiver selecionado a opção **somente leitura** ou **não excluir** . A ação Deny é adicionada pela identidade gerenciada da atribuição Blueprint e só pode ser removida dos recursos de artefato pela mesma identidade gerenciada. Essa medida de segurança impõe o mecanismo de bloqueio e impede a remoção do bloqueio Blueprint fora dos planos gráficos.
 
 ![Atribuição de negação de plano gráfico no grupo de recursos](../media/resource-locking/blueprint-deny-assignment.png)
 
-As [Propriedades de atribuição](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de negação de cada modo são as seguintes:
+As [Propriedades de atribuição de negação](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) de cada modo são as seguintes:
 
 |Modo |Permissões. ações |Permissões. \ ações |Entidades de segurança [i]. Escreva |ExcludePrincipals [i]. Sessão | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
@@ -65,7 +64,7 @@ As [Propriedades de atribuição](../../../role-based-access-control/deny-assign
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir uma entidade de segurança de uma atribuição de negação
 
-Em alguns cenários de design ou segurança, pode ser necessário excluir uma entidade da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) criada pela atribuição Blueprint. Isso é feito na API REST adicionando até cinco valores à matriz **excludedPrincipals** na propriedade Locks ao [criar a atribuição](/rest/api/blueprints/assignments/createorupdate).
+Em alguns cenários de design ou segurança, pode ser necessário excluir uma entidade da atribuição de [negação](../../../role-based-access-control/deny-assignments.md) criada pela atribuição Blueprint. Isso é feito na API REST adicionando até cinco valores à matriz **excludedPrincipals** na propriedade **Locks** ao [criar a atribuição](/rest/api/blueprints/assignments/createorupdate).
 Este é um exemplo de um corpo de solicitação que inclui **excludedPrincipals**:
 
 ```json
@@ -108,10 +107,10 @@ Este é um exemplo de um corpo de solicitação que inclui **excludedPrincipals*
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Siga o tutorial [proteger novos recursos](../tutorials/protect-new-resources.md) .
-- Saiba mais sobre o [ciclo de vida do plano gráfico](lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).
 - Saiba como [atualizar as atribuições existentes](../how-to/update-existing-assignments.md).

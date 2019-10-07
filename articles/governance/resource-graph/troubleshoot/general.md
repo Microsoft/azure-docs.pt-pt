@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000532"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976614"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solucionar erros usando o grafo de recursos do Azure
 
@@ -69,11 +68,11 @@ Os clientes que consultam a API REST do grafo de recursos do Azure obtêm uma re
 
 #### <a name="cause"></a>Causa
 
-A API REST do grafo de recursos do Azure `Content-Type` dá suporte apenas a um **aplicativo/JSON**. Algumas ferramentas REST ou agentes assumem o padrão de **text/plain**, que não é suportado pela API REST.
+A API REST do grafo de recursos do Azure só dá suporte a um `Content-Type` de **Application/JSON**. Algumas ferramentas REST ou agentes assumem o padrão de **text/plain**, que não é suportado pela API REST.
 
 #### <a name="resolution"></a>Resolução
 
-Valide se a ferramenta ou o agente que você está usando para consultar o grafo de recursos do Azure `Content-Type` tem o cabeçalho da API REST configurado para **Application/JSON**.
+Valide se a ferramenta ou o agente que você está usando para consultar o grafo de recursos do Azure tem o cabeçalho da API REST `Content-Type` configurado para **Application/JSON**.
 ### <a name="rest-403"></a>Cenário Nenhuma permissão de leitura para todas as assinaturas na lista
 
 #### <a name="issue"></a>Problema
@@ -88,7 +87,7 @@ Se o cliente não tiver permissão de leitura para todas as assinaturas fornecid
 
 Inclua pelo menos uma assinatura na lista de assinaturas que o cliente que está executando a consulta tenha pelo menos acesso de leitura ao. Para obter mais informações, consulte [permissões no grafo de recursos do Azure](../overview.md#permissions-in-azure-resource-graph).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não tiver visto seu problema ou não conseguir resolver o problema, visite um dos seguintes canais para obter mais suporte:
 

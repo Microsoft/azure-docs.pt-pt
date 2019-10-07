@@ -1,51 +1,50 @@
 ---
 title: Documentação de orientação para pedidos limitados
-description: Aprenda a criar consultas melhor para evitar pedidos para o gráfico de recursos do Azure de a ser limitada.
+description: Aprenda a criar consultas melhores para evitar que as solicitações para o grafo de recursos do Azure sejam limitadas.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/19/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: c644d230846d9c644c3845348431eef36c8279c8
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276902"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980326"
 ---
-# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Documentação de orientação para pedidos limitados no gráfico de recursos do Azure
+# <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Diretrizes para solicitações limitadas no grafo de recursos do Azure
 
-Durante a criação programática e frequente a utilização de dados de gráfico de recursos do Azure, deve haver consideração de impactos como limitação os resultados das consultas. Os dados de forma a alteração é solicitada pode ajudá-lo e manter o fluxo de dados oportunos sobre os recursos do Azure e evitar a limitação de sua organização.
+Ao criar uso programático e frequente de dados do grafo de recursos do Azure, deve-se considerar como a limitação afeta os resultados das consultas. Alterar a maneira como os dados são solicitados pode ajudar você e sua organização a evitar a limitação e manter o fluxo de dados oportunos sobre os recursos do Azure.
 
-Este artigo abrange quatro áreas e padrões relacionados com a criação de consultas no gráfico de recursos do Azure:
+Este artigo aborda quatro áreas e padrões relacionados à criação de consultas no grafo de recursos do Azure:
 
-- Compreender os cabeçalhos de limitação
-- Consultas de criação de batches
-- Impressionante de consultas
+- Entender os cabeçalhos de limitação
+- Consultas em lote
+- Consultas de sobredisposição
 - O impacto da paginação
 
-## <a name="understand-throttling-headers"></a>Compreender os cabeçalhos de limitação
+## <a name="understand-throttling-headers"></a>Entender os cabeçalhos de limitação
 
-Gráfico de recursos do Azure aloca o número de quota para cada utilizador com base numa janela de tempo. Por exemplo, um usuário pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem a ser limitada. O valor da quota é determinado por diversos fatores e está sujeitas a alterações.
+O grafo de recursos do Azure aloca o número da cota para cada usuário com base em uma janela de tempo. Por exemplo, um usuário pode enviar no máximo 15 consultas dentro de cada janela de 5 segundos sem ser limitado. O valor da cota é determinado por muitos fatores e está sujeito a alterações.
 
-Em cada resposta de consulta, o gráfico de recursos do Azure adiciona dois cabeçalhos de limitação:
+Em cada resposta de consulta, o grafo de recursos do Azure adiciona dois cabeçalhos de limitação:
 
-- `x-ms-user-quota-remaining` (int): A quota de recursos restantes para o utilizador. Este valor é mapeado para a contagem de consulta.
-- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de quota de um utilizador é reposto.
+- `x-ms-user-quota-remaining` (int): A cota de recursos restante para o usuário. Esse valor é mapeado para a contagem de consultas.
+- `x-ms-user-quota-resets-after` (hh:mm:ss): A duração de tempo até que o consumo de cota de um usuário seja redefinido.
 
-Para ilustrar como funcionam os cabeçalhos, vamos examinar uma resposta de consulta que tenha o cabeçalho e os valores dos `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
+Para ilustrar como os cabeçalhos funcionam, vamos examinar uma resposta de consulta que tem o cabeçalho e os valores de `x-ms-user-quota-remaining: 10` e `x-ms-user-quota-resets-after: 00:00:03`.
 
-- Dentro de 3 segundos que se seguem, no máximo 10 consultas podem ser enviadas sem a ser limitada.
-- Em 3 segundos, os valores dos `x-ms-user-quota-remaining` e `x-ms-user-quota-resets-after` será reposto para `15` e `00:00:05` , respetivamente.
+- Nos próximos 3 segundos, no máximo 10 consultas podem ser enviadas sem limitação.
+- Em 3 segundos, os valores de `x-ms-user-quota-remaining` e `x-ms-user-quota-resets-after` serão redefinidos para `15` e `00:00:05`, respectivamente.
 
-Para ver um exemplo de uso de cabeçalhos para _término_ nos pedidos de consulta, consulte o exemplo na [consulta em paralelo](#query-in-parallel).
+Para ver um exemplo de como usar os cabeçalhos para _retirada_ em solicitações de consulta, consulte o exemplo em [consulta em paralelo](#query-in-parallel).
 
-## <a name="batching-queries"></a>Consultas de criação de batches
+## <a name="batching-queries"></a>Consultas em lote
 
-Criação de batches de consultas por subscrição, grupo de recursos ou ao recurso individual é mais eficiente do que a paralelização de consultas. O custo de quota de uma consulta maior, muitas vezes, é menor que o custo de quota de muitas consultas de pequenas e direcionadas. O tamanho do lote é recomendado para ser inferior a _300_.
+O envio em lote de consultas por assinatura, grupo de recursos ou recurso individual é mais eficiente do que paralelizar consultas. O custo de cota de uma consulta maior geralmente é menor do que o custo de cota de muitas consultas pequenas e direcionadas. O tamanho do lote é recomendado para ser menor que _300_.
 
-- Exemplo de uma abordagem mal otimizado
+- Exemplo de uma abordagem mal otimizada
 
   ```csharp
   // NOT RECOMMENDED
@@ -66,7 +65,7 @@ Criação de batches de consultas por subscrição, grupo de recursos ou ao recu
   }
   ```
 
-- Exemplo #1 uma abordagem de criação de batches otimizada
+- Exemplo #1 de uma abordagem de envio em lote otimizada
 
   ```csharp
   // RECOMMENDED
@@ -89,7 +88,7 @@ Criação de batches de consultas por subscrição, grupo de recursos ou ao recu
   }
   ```
 
-- Exemplo #2 uma abordagem de criação de batches otimizada
+- Exemplo #2 de uma abordagem de envio em lote otimizada
 
   ```csharp
   // RECOMMENDED
@@ -113,23 +112,23 @@ Criação de batches de consultas por subscrição, grupo de recursos ou ao recu
   }
   ```
 
-## <a name="staggering-queries"></a>Impressionante de consultas
+## <a name="staggering-queries"></a>Consultas de sobredisposição
 
-Por conta da forma limitação é imposta, recomendamos que as consultas para ser escalonada. Ou seja, em vez de enviar 60 consultas ao mesmo tempo, escalonar as consultas em quatro janelas de 5 segundos:
+Devido à maneira como a limitação é imposta, recomendamos que as consultas sejam escalonadas. Ou seja, em vez de enviar consultas 60 ao mesmo tempo, escalonar as consultas em quatro janelas de 5 segundos:
 
-- Agenda de consulta não-escalonadas
+- Agendamento de consulta não escalonado
 
-  | Contagem de consulta         | 60  | 0    | 0     | 0     |
+  | Contagem de consultas         | 60  | 0    | 0     | 0     |
   |---------------------|-----|------|-------|-------|
-  | Intervalo de tempo (seg) | 0-5 | 5-10 | 10-15 | 15-20 |
+  | Intervalo de tempo (s) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-- Escalonadas agenda de consulta
+- Agenda de consulta escalonada
 
-  | Contagem de consulta         | 15  | 15   | 15    | 15    |
+  | Contagem de consultas         | 15  | 15   | 15    | 15    |
   |---------------------|-----|------|-------|-------|
-  | Intervalo de tempo (seg) | 0-5 | 5-10 | 10-15 | 15-20 |
+  | Intervalo de tempo (s) | 0-5 | 5-10 | 10-15 | 15-20 |
 
-Segue-se um exemplo de respeitar os cabeçalhos de limitação ao consultar o gráfico de recursos do Azure:
+Abaixo está um exemplo de como respeitar cabeçalhos de limitação ao consultar o grafo de recursos do Azure:
 
 ```csharp
 while (/* Need to query more? */)
@@ -153,7 +152,7 @@ while (/* Need to query more? */)
 
 ### <a name="query-in-parallel"></a>Consulta em paralelo
 
-Apesar do processamento em lote recomenda-se ao longo da paralelização, há ocasiões em que consultas não podem ser facilmente em lotes. Nestes casos, talvez queira consultar o gráfico de recursos do Azure através do envio de várias consultas de forma paralela. Segue-se um exemplo de como _término_ com base nos cabeçalhos em tais cenários de limitação:
+Embora o envio em lote seja recomendado sobre a paralelização, há ocasiões em que as consultas não podem ser facilmente agrupadas em lote. Nesses casos, talvez você queira consultar o grafo de recursos do Azure enviando várias consultas de maneira paralela. Veja abaixo um exemplo de como fazer a _retirada_ com base nos cabeçalhos de limitação em tais cenários:
 
 ```csharp
 IEnumerable<IEnumerable<string>> queryBatches = /* Batches of queries  */
@@ -187,11 +186,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 ## <a name="pagination"></a>Paginação
 
-Uma vez que o gráfico de recursos do Azure devolve um máximo de 1000 entradas numa resposta de consulta única, se pretender [paginar](./work-with-data.md#paging-results) suas consultas para obter o conjunto de dados completo, que está procurando. No entanto, alguns clientes de gráfico de recursos do Azure lidar com paginação diferente das outras pessoas.
+Como o grafo de recursos do Azure retorna no máximo 1000 entradas em uma única resposta de consulta, talvez seja necessário [paginar](./work-with-data.md#paging-results) suas consultas para obter o conjunto de dado completo que você está procurando. No entanto, alguns clientes do grafo de recursos do Azure manipulam a paginação diferente de outras
 
 - SDK C#
 
-  Ao utilizar o SDK de ResourceGraph, terá de lidar com a paginação, transmitindo o token de ignorar a ser retornado da resposta da consulta anterior para a próxima consulta paginada. Esse design significa que precisa coletar os resultados de todas as chamadas paginadas e combiná-los em conjunto no final. Neste caso, cada consulta paginada que enviar usa uma quota de consulta:
+  Ao usar o SDK do ResourceGraph, você precisa manipular a paginação passando o token Skip que está sendo retornado da resposta de consulta anterior para a próxima consulta paginada. Esse design significa que você precisa coletar resultados de todas as chamadas paginadas e combiná-las no final. Nesse caso, cada consulta paginada enviada usa uma cota de consulta:
 
   ```csharp
   var results = new List<object>();
@@ -214,9 +213,9 @@ Uma vez que o gráfico de recursos do Azure devolve um máximo de 1000 entradas 
   }
   ```
 
-- CLI do Azure / Azure PowerShell
+- CLI do Azure/Azure PowerShell
 
-  Ao utilizar a CLI do Azure ou do Azure PowerShell, as consultas para o gráfico de recursos do Azure são automaticamente paginadas para obtenção de no máximo de 5000 entradas. Os resultados da consulta retornam uma lista combinada de entradas de todas as chamadas paginadas. Neste caso, dependendo do número de entradas no resultado da consulta, uma única consulta paginada pode consumir mais do que uma quota de consulta. Por exemplo, no exemplo a seguir, uma única execução da consulta pode consumir até cinco quota de consulta:
+  Ao usar CLI do Azure ou Azure PowerShell, as consultas para o grafo de recursos do Azure são paginadas automaticamente para buscar no máximo 5000 entradas. Os resultados da consulta retornam uma lista combinada de entradas de todas as chamadas paginadas. Nesse caso, dependendo do número de entradas no resultado da consulta, uma única consulta paginada pode consumir mais de uma cota de consulta. Por exemplo, no exemplo a seguir, uma única execução da consulta pode consumir até cinco cotas de consulta:
 
   ```azurecli-interactive
   az graph query -q 'project id, name, type' -top 5000
@@ -226,19 +225,19 @@ Uma vez que o gráfico de recursos do Azure devolve um máximo de 1000 entradas 
   Search-AzGraph -Query 'project id, name, type' -Top 5000
   ```
 
-## <a name="still-get-throttled"></a>Ainda são limitados?
+## <a name="still-get-throttled"></a>Ainda fica limitado?
 
-Se estiver obtendo otimizado depois executamos as recomendações acima, contacte a equipa em [ resourcegraphsupport@microsoft.com ](mailto:resourcegraphsupport@microsoft.com).
+Se você estiver ficando limitado depois de exercer as recomendações acima, entre em contato com a equipe em [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com).
 
 Forneça estes detalhes:
 
-- Suas necessidades de controlador específico de casos de utilização e comerciais de um limite de limitação maior.
-- Número de recursos tem acesso a? O número da são devolvidos por uma consulta única?
-- Quais são os tipos de recursos está interessado em?
-- O que é o seu padrão de consulta? X consultas por segundos de Y etc.
+- Seu caso de uso específico e o driver de negócios precisam de um limite de limitação mais alto.
+- A quantos recursos você tem acesso? Quantos dos são retornados de uma única consulta?
+- Em que tipos de recursos você está interessado?
+- Qual é seu padrão de consulta? X consultas por Y segundos etc.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o idioma utilizado na [consultas Starter](../samples/starter.md).
-- Consulte avançada usa [avançadas consultas](../samples/advanced.md).
-- Aprenda a [explore os recursos](explore-resources.md).
+- Consulte o idioma em uso em [consultas de início](../samples/starter.md).
+- Consulte usos avançados em [consultas avançadas](../samples/advanced.md).
+- Aprenda a [explorar os recursos](explore-resources.md).

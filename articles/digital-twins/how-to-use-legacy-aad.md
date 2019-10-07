@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.openlocfilehash: 204b048dad348e37d44399025c5cd7a9526dbd2d
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 10/03/2019
+ms.openlocfilehash: c7cf8b042c079aa67ff62a00955d60c27f0e72d4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949937"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978588"
 ---
 # <a name="register-your-azure-digital-twins-app-with-azure-active-directory-legacy"></a>Registrar seu aplicativo gêmeos digital do Azure com Azure Active Directory herdado
 

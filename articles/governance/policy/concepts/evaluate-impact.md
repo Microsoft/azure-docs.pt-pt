@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b24a0e9f3f557ea2ac425db7caeed63959d18dd8
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 2aee31d3e874f709d5ec30ed4ddc0ba0445d4130
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181408"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980750"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Avaliar o impacto de uma nova política do Azure
 
@@ -37,8 +36,8 @@ Por esse motivo, as definições de política devem ser tão definidas e focadas
 
 ## <a name="audit-existing-resources"></a>Auditar recursos existentes
 
-Antes de procurar gerenciar recursos novos ou atualizados com sua nova definição de política, é melhor ver como ele avalia um subconjunto limitado de recursos existentes, como um grupo de recursos de teste. Use o [modo](./assignment-structure.md#enforcement-mode)
-de imposição_desabilitado_ (DoNotEnforce) em sua atribuição de política para impedir que o [efeito](./effects.md) de disparar ou entradas do log de atividades seja criado.
+Antes de procurar gerenciar recursos novos ou atualizados com sua nova definição de política, é melhor ver como ele avalia um subconjunto limitado de recursos existentes, como um grupo de recursos de teste. Use o [modo de imposição](./assignment-structure.md#enforcement-mode)
+_desabilitado_ (DoNotEnforce) em sua atribuição de política para impedir que o [efeito](./effects.md) do disparo ou das entradas do log de atividades seja criado.
 
 Esta etapa lhe dá a chance de avaliar os resultados de conformidade da nova política nos recursos existentes sem afetar o fluxo de trabalho. Verifique se nenhum recurso compatível está marcado como não compatível (_falso positivo_) e se todos os recursos que você espera que não estejam em conformidade estão marcados corretamente.
 Depois que o subconjunto inicial de recursos é validado como esperado, expanda lentamente a avaliação para todos os recursos existentes.
@@ -74,7 +73,7 @@ A implementação e a atribuição da definição de política não é a etapa f
 
 - Saiba mais sobre a [estrutura de definição de política](./definition-structure.md).
 - Saiba mais sobre a [estrutura de atribuição de política](./assignment-structure.md).
-- Entenda como [criar políticas](../how-to/programmatically-create.md)programaticamente.
+- Entenda como [criar políticas programaticamente](../how-to/programmatically-create.md).
 - Saiba como [obter dados de conformidade](../how-to/getting-compliance-data.md).
 - Saiba como [corrigir recursos sem conformidade](../how-to/remediate-resources.md).
 - Examine o que é um grupo de gerenciamento e [Organize seus recursos com grupos de gerenciamento do Azure](../../management-groups/overview.md).

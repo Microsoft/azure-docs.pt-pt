@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: e5697d00c2b0a869667d74e93c3ccae593bf200b
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bf1fdca5476f66249eb5b73bbcbf5913142eb0d3
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231944"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978485"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Como atualizar uma atribuição de plano gráfico existente
 
@@ -46,7 +45,7 @@ Quando um plano gráfico é atribuído, a atribuição pode ser atualizada. Há 
 
 A implantação das atribuições atualizadas segue algumas regras importantes. Essas regras determinam o que acontece porque os recursos já foram implantados. A alteração solicitada e o tipo de recurso de artefato que está sendo implantado ou atualizado determinam quais ações são executadas.
 
-- Atribuições de Função
+- Atribuições de Funções
   - Se a função ou o destinatário da função (usuário, grupo ou aplicativo) for alterado, uma nova atribuição de função será criada. As atribuições de função implantadas anteriormente são deixadas em vigor.
 - Atribuições de Política
   - Se os parâmetros da atribuição de política forem alterados, a atribuição existente será atualizada.
@@ -65,9 +64,9 @@ Não há limite de quantas vezes uma atribuição pode ser atualizada. Se ocorre
 - Um objeto já existente
 - Uma alteração sem suporte pelo Azure Resource Manager
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [ciclo de vida do plano gráfico](../concepts/lifecycle.md).
+- Saiba mais sobre o [ciclo de vida do esquema](../concepts/lifecycle.md).
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](../concepts/parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](../concepts/sequencing-order.md).
 - Saiba como utilizar o [bloqueio de recursos de esquema](../concepts/resource-locking.md).
