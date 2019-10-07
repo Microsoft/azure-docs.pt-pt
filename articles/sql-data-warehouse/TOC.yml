@@ -139,6 +139,12 @@
           items:
             - name: Guia de otimização do desempenho
               href: performance-tuning-ordered-CCI.md
+            - name: Criar tabela
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+            - name: CTAS
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+            - name: Criar e alterar o índice
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
         - name: Colocação em cache dos resultados
           items:
             - name: Definir para uma base de dados

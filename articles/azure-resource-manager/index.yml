@@ -12,12 +12,12 @@ metadata:
   author: mumian
   ms.author: jgao
   ms.date: 09/25/2019
-  ms.openlocfilehash: 5ce4115713315f41176819fdbd306e604706d9db
-  ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+  ms.openlocfilehash: 33e3fb270b1b907af9288794d35028fb410652b6
+  ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71827494"
+  ms.lasthandoff: 10/04/2019
+  ms.locfileid: "71959627"
 landingContent:
 - title: Acerca do Resource Manager
   linkLists:
@@ -51,6 +51,8 @@ landingContent:
       url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
   - linkListType: tutorial
     links:
+    - text: Tutoriais para principiantes
+      url: template-tutorial-create-first-template.md
     - text: Implementar várias instâncias
       url: resource-manager-tutorial-create-multiple-instances.md
     - text: Definir a ordem de implementação

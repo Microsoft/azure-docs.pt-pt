@@ -85,7 +85,7 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Implementar aplicações no Azure AD DS
+    - name: Implementar aplicações
       items:
         - name: Implementar o Proxy de Aplicações do Azure AD
           href: deploy-azure-app-proxy.md
@@ -95,11 +95,17 @@
       items:
         - name: Erros comuns
           href: troubleshoot.md
-        - name: Erros de inquilino não correspondentes
+        - name: Problemas de associações a domínios
+          href: troubleshoot-domain-join.md
+        - name: Bloqueios de conta
+          href: troubleshoot-account-lockout.md
+        - name: Problemas de início de sessão
+          href: troubleshoot-sign-in.md
+        - name: Resolva os erros de inquilino não correspondentes
           href: mismatched-tenant-error.md
         - name: Domínios suspensos
           href: suspension.md
-        - name: Secure LDAP
+        - name: Problemas relativos ao Secure LDAP
           href: tshoot-ldaps.md
         - name: Problemas conhecidos
           items:

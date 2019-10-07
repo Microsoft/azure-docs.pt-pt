@@ -6,52 +6,73 @@
       href: resource-group-overview.md
     - name: Descrição geral do modelo
       href: template-deployment-overview.md
-- name: Inícios rápidos
-  expanded: true
-  items:
-    - name: Criar modelos - portal
-      href: resource-manager-quickstart-create-templates-use-the-portal.md
-    - name: Criar modelos - VS Code
-      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-    - name: Criar modelos - Visual Studio
-      href: vs-azure-tools-update-deploy-script-to-az-powershell.md
-    - name: Criar modelos - IntelliJ IDEA
-      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutoriais
   items:
-    - name: Utilizar referência de modelo
-      href: resource-manager-tutorial-create-encrypted-storage-accounts.md
-    - name: Criar múltiplas instâncias
-      displayName: 'iteration,copy'
-      href: resource-manager-tutorial-create-multiple-instances.md
-    - name: Definir a ordem de implementação de recursos
-      displayName: 'dependent resources, dependency'
-      href: resource-manager-tutorial-create-templates-with-dependent-resources.md
-    - name: Condições de utilização
-      href: resource-manager-tutorial-use-conditions.md
-    - name: Integrar Key Vault
-      displayName: secrets
-      href: resource-manager-tutorial-use-key-vault.md
-    - name: Criar modelos ligados
-      href: resource-manager-tutorial-create-linked-templates.md
-    - name: Implementar extensões de VM
-      displayName: virtual machine extensions
-      href: resource-manager-tutorial-deploy-vm-extensions.md
-    - name: Implementar extensões de SQL
-      href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
-    - name: Proteger artefactos
-      href: resource-manager-tutorial-secure-artifacts.md
-    - name: Integração contínua com os Pipelines do Azure
-      displayName: DevOps
-      href: resource-manager-tutorial-use-azure-pipelines.md
-    - name: Utilize as práticas recomendadas de implementação segura
-      displayName: adm
-      href: deployment-manager-tutorial.md
-    - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
-      displayName: adm
-      href: deployment-manager-tutorial-health-check.md
-    - name: Resolver problemas da implementação de modelos
-      href: resource-manager-tutorial-troubleshoot.md
+    - name: Principiante
+      items:
+        - name: 1 - Criar o primeiro modelo
+          href: template-tutorial-create-first-template.md
+        - name: 2 - Adicionar recurso
+          href: template-tutorial-add-resource.md
+        - name: 3 - Adicionar parâmetros
+          href: template-tutorial-add-parameters.md
+        - name: 4 - Adicionar funções de modelos
+          href: template-tutorial-add-functions.md
+        - name: 5 - Adicionar variáveis
+          href: template-tutorial-add-variables.md
+        - name: 6 - Adicionar saídas
+          href: template-tutorial-add-outputs.md
+        - name: 7 - Utilizar um modelo exportado
+          href: template-tutorial-export-template.md
+        - name: 8 - Utilizar o Modelo de início rápido
+          href: template-tutorial-quickstart-template.md
+        - name: 9 - Adicionar etiquetas
+          href: template-tutorial-add-tags.md
+        - name: 10 - Utilizar o ficheiro de parâmetros
+          href: template-tutorial-use-parameter-file.md
+    - name: Avançado
+      items:
+        - name: Criar modelos - portal
+          href: resource-manager-quickstart-create-templates-use-the-portal.md
+        - name: Criar modelos - VS Code
+          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+        - name: Criar modelos - Visual Studio
+          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+        - name: Criar modelos - IntelliJ IDEA
+          href: resource-manager-quickstart-create-templates-use-intellij.md
+        - name: Utilizar referência de modelo
+          href: resource-manager-tutorial-create-encrypted-storage-accounts.md
+        - name: Criar múltiplas instâncias
+          displayName: 'iteration,copy'
+          href: resource-manager-tutorial-create-multiple-instances.md
+        - name: Definir a ordem de implementação de recursos
+          displayName: 'dependent resources, dependency'
+          href: resource-manager-tutorial-create-templates-with-dependent-resources.md
+        - name: Condições de utilização
+          href: resource-manager-tutorial-use-conditions.md
+        - name: Integrar Key Vault
+          displayName: secrets
+          href: resource-manager-tutorial-use-key-vault.md
+        - name: Criar modelos ligados
+          href: resource-manager-tutorial-create-linked-templates.md
+        - name: Implementar extensões de VM
+          displayName: virtual machine extensions
+          href: resource-manager-tutorial-deploy-vm-extensions.md
+        - name: Implementar extensões de SQL
+          href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
+        - name: Proteger artefactos
+          href: resource-manager-tutorial-secure-artifacts.md
+        - name: Integração contínua com os Pipelines do Azure
+          displayName: DevOps
+          href: resource-manager-tutorial-use-azure-pipelines.md
+        - name: Utilize as práticas recomendadas de implementação segura
+          displayName: adm
+          href: deployment-manager-tutorial.md
+        - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
+          displayName: adm
+          href: deployment-manager-tutorial-health-check.md
+        - name: Resolver problemas da implementação de modelos
+          href: resource-manager-tutorial-troubleshoot.md
 - name: Amostras
   items:
     - name: Modelos do Resource Manager
@@ -76,8 +97,8 @@
           href: deployment-manager-health-check.md
     - name: Implementação clássica e Resource Manager
       href: resource-manager-deployment-model.md
-    - name: Controlos de segurança incorporados
-      href: azure-resource-manager-security-controls.md
+    - name: Atributos de segurança comuns do Azure
+      href: azure-resource-manager-security-attributes.md
 - name: Procedimento
   items:
     - name: Criar modelos
@@ -221,8 +242,6 @@
           href: resource-manager-common-deployment-errors.md
         - name: AccountNameInvalid
           href: resource-manager-storage-account-name-errors.md
-        - name: DeploymentQuotaExceeded
-          href: deployment-quota-exceeded.md
         - name: InvalidTemplate
           href: resource-manager-invalid-template-errors.md
         - name: Problemas de implementação do Linux

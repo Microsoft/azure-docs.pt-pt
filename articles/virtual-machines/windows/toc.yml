@@ -198,6 +198,14 @@
           href: compute-benchmark-scores.md
         - name: Quotas de vCPU
           href: quotas.md
+        - name: Instâncias reservadas
+          items:
+            - name: Pré-pagamento de VMs
+              href: prepay-reserved-vm-instances.md
+            - name: O que são as reservas do Azure?
+              href: ../../billing/billing-save-compute-costs-reservations.md
+            - name: Flexibilidade do tamanho da instância de VM
+              href: reserved-vm-instance-size-flexibility.md
     - name: Anfitriões dedicados
       href: dedicated-hosts.md
     - name: Manutenção e atualizações
@@ -359,14 +367,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Criar alertas de registos
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Gerir os custos
-      items:
-        - name: Pré-pagamento de VMs - reservas do Azure
-          href: prepay-reserved-vm-instances.md
-        - name: O que são as reservas do Azure?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibilidade do tamanho da instância de VM
-          href: reserved-vm-instance-size-flexibility.md
     - name: Utilizar Imagens
       items:
         - name: Imagens partilhadas
@@ -422,8 +422,6 @@
         - name: Criar um grupo de colocação em proximidade
           href: proximity-placement-groups.md
         - name: Dimensionar verticalmente
-          href: vertical-scaling-automation.md
-        - name: Criar uma VM na zona de disponibilidade
           items:
             - name: PowerShell
               href: create-powershell-availability-zone.md

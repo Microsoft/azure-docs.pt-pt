@@ -6,14 +6,13 @@ ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: 98ade4e5c8a14c2d4f5c2a22c2c973fac844861f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 544e5e5eb9884a91fde3898464aa7ce839658a80
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802548"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981699"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implantar a estrutura de adoção do Microsoft Cloud para a amostra do Azure Foundation Blueprint
 
@@ -41,7 +40,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
    - **Nome do plano gráfico**: Forneça um nome para sua cópia do exemplo do CAF Foundation Blueprint.
    - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **em Avançar: Artefatos** na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -111,11 +110,11 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 |SKUs de máquinas virtuais permitidas|Atribuição de política|Policy_Allowed-VMs-SKUs|SKUs de máquinas virtuais permitidas|
 |Anexar marca CostCenter a grupos de recursos|Atribuição de política|Policy_CostCenter_Tag|Anexar a marca CostCenter e seu valor do grupo de recursos|
 |Tipos de recursos que você não deseja permitir em seu ambiente|Atribuição de política|_Allowed de política-tipos de recurso|Quais recursos do Azure você deseja permitir em seu ambiente|
-|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -grupo ou usuário <Object ID> do Azure AD ao qual conceder permissões no Key Vault|
-|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
-|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
+|Implementar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -o grupo ou o usuário do Azure ad <Object ID> para conceder permissões ao no Key Vault|
+|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
+|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você analisou as etapas para implantar a amostra do CAF Foundation Blueprint, visite o seguinte artigo para saber mais sobre a arquitetura:
 

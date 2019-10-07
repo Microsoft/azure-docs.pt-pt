@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Configurar GPU para o Windows Virtual Desktop
       href: configure-vm-gpu.md
-    - name: Dimensionar automaticamente os hosts de sessão
+    - name: Dimensionar os anfitriões de sessão de forma dinâmica
       href: set-up-scaling-script.md
     - name: Personalizar o feed para utilizadores do Windows Virtual Desktop
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 'Descrição geral da resolução de problemas, comentários e suporte'
       href: troubleshoot-set-up-overview.md
-    - name: Identificar problemas com a funcionalidade de diagnóstico
+    - name: Identificar e diagnosticar problemas
       href: diagnostics-role-service.md
     - name: Criação de inquilinos e conjuntos de anfitriões
       href: troubleshoot-set-up-issues.md

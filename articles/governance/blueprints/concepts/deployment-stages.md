@@ -1,64 +1,63 @@
 ---
 title: Fases da implementação de um esquema
-description: Conheça as etapas que os serviços do Azure esquema atravessa durante uma implantação.
+description: Conheça as etapas pelas quais os serviços de Azure Blueprint passam durante uma implantação.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: d7000813b51fb9c9aae9a21cbded3ae0028e83f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4645edde5163f1c8bca787416f5465e5a8f2d355
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60684697"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978529"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fases da implementação de um esquema
 
-Quando um plano gráfico é implementado, uma série de ações é que o serviço de esquemas do Azure para implementar os recursos definidos no esquema. Este artigo fornece detalhes sobre o que envolve a cada passo.
+Quando um plano gráfico é implantado, uma série de ações é realizada pelo serviço de plantas do Azure para implantar os recursos definidos no plano gráfico. Este artigo fornece detalhes sobre o que cada etapa envolve.
 
-Implementação do esquema é acionada ao atribuir um plano gráfico para uma subscrição ou [a atualizar uma atribuição existente](../how-to/update-existing-assignments.md). Durante a implantação, planos gráficos realiza as seguintes etapas de alto nível:
+A implantação Blueprint é disparada atribuindo um plano gráfico a uma assinatura ou [atualizando uma atribuição existente](../how-to/update-existing-assignments.md). Durante a implantação, os planos gráficos assumem as seguintes etapas de alto nível:
 
 > [!div class="checklist"]
-> - Planos gráficos foram concedidos direitos de proprietário
-> - O objeto de atribuição do esquema é criado
-> - Opcional - esquemas cria **atribuído ao sistema** identidade gerida
-> - A identidade gerida implementa artefactos de esquema
-> - Esquema de serviço e **atribuído ao sistema** são revogados direitos de identidade gerida
+> - Direitos de proprietário concedidos aos plantas
+> - O objeto de atribuição Blueprint é criado
+> - Opcional-os planos gráficos criam identidade gerenciada **atribuída pelo sistema**
+> - A identidade gerenciada implanta artefatos do Blueprint
+> - O serviço Blueprint e direitos de identidade gerenciada **atribuídos pelo sistema** são revogados
 
-## <a name="blueprints-granted-owner-rights"></a>Planos gráficos foram concedidos direitos de proprietário
+## <a name="blueprints-granted-owner-rights"></a>Direitos de proprietário concedidos aos plantas
 
-O principal de serviço do Azure esquemas recebe direitos de proprietário para a subscrição atribuída ou subscrições. A função concedida permite planos gráficos criar e revogar mais tarde, o [atribuído ao sistema de identidade gerido](../../../active-directory/managed-identities-azure-resources/overview.md).
+A entidade de serviço de plantas do Azure recebe direitos de proprietário para a assinatura ou assinaturas atribuídas. A função concedida permite que plantas criem e, posteriormente, revogam a [identidade gerenciada atribuída pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md).
 
-Os direitos são concedidos automaticamente se a atribuição é feita através do portal. No entanto, se a atribuição é feita através da API REST, conceder os direitos tem de ser com uma API separada chamar. O AppId de esquema do Azure é `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mas o principal de serviço varia por inquilino. Uso [API do Azure Active Directory Graph](../../../active-directory/develop/active-directory-graph-api.md) e o ponto final REST [servicePrincipals](/graph/api/resources/serviceprincipal) para obter o principal de serviço. Em seguida, conceder os esquemas do Azure a _proprietário_ função através do [Portal](../../../role-based-access-control/role-assignments-portal.md), [da CLI do Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md), ou uma [modelo do Resource Manager](../../../role-based-access-control/role-assignments-template.md).
+Os direitos serão concedidos automaticamente se a atribuição for feita por meio do Portal. No entanto, se a atribuição for feita por meio da API REST, a concessão dos direitos precisará ser feita com uma chamada à API separada. O Azure Blueprint AppId é `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, mas a entidade de serviço varia de acordo com o locatário. Use [Azure Active Directory API do Graph](../../../active-directory/develop/active-directory-graph-api.md) e os serviços [de ponto de](/graph/api/resources/serviceprincipal) extremidade REST para obter a entidade de serviço. Em seguida, conceda ao Azure plantas a função de _proprietário_ por meio do [portal](../../../role-based-access-control/role-assignments-portal.md), [CLI do Azure](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [API REST](../../../role-based-access-control/role-assignments-rest.md)ou um [modelo do Resource Manager](../../../role-based-access-control/role-assignments-template.md).
 
-O serviço de planos gráficos diretamente não implementa os recursos.
+O serviço de plantas não implanta diretamente os recursos.
 
-## <a name="the-blueprint-assignment-object-is-created"></a>O objeto de atribuição do esquema é criado
+## <a name="the-blueprint-assignment-object-is-created"></a>O objeto de atribuição Blueprint é criado
 
-Um utilizador, grupo ou principal de serviço atribui um plano gráfico para uma subscrição. Existe o objeto de atribuição ao nível da subscrição em que o esquema foi atribuído. Recursos criados pela implementação não são feitos no contexto da entidade de implementação.
+Um usuário, grupo ou entidade de serviço atribui um plano gráfico a uma assinatura. O objeto de atribuição existe no nível de assinatura em que o plano gráfico foi atribuído. Os recursos criados pela implantação não são feitos no contexto da entidade de implantação.
 
-Ao criar a atribuição do esquema, o tipo de [identidade gerida](../../../active-directory/managed-identities-azure-resources/overview.md) está selecionada. A predefinição é um **atribuído ao sistema** identidade gerida. R **atribuído ao utilizador** identidade gerida pode ser escolhida. Quando utilizar um **atribuído ao utilizador** geridos identidade, tem de ser definido e concedida permissões para que seja criada a atribuição do esquema.
+Ao criar a atribuição Blueprint, o tipo de [identidade gerenciada](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionado. O padrão é uma identidade gerenciada **atribuída pelo sistema** . Uma identidade gerenciada **atribuída pelo usuário** pode ser escolhida. Ao usar uma identidade gerenciada **atribuída pelo usuário** , ela deve ser definida e ter permissões concedidas antes que a atribuição Blueprint seja criada.
 
-## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Opcional - esquemas cria atribuído de sistema de identidade gerida
+## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Opcional-os planos gráficos criam identidade gerenciada atribuída pelo sistema
 
-Quando [atribuído ao sistema de identidade gerido](../../../active-directory/managed-identities-azure-resources/overview.md) está selecionada durante a atribuição, esquemas cria a identidade e concede a identidade gerida a [proprietário](../../../role-based-access-control/built-in-roles.md#owner) função. Se um [atribuição existente é atualizada](../how-to/update-existing-assignments.md), esquemas utiliza a identidade gerida criada anteriormente.
+Quando a [identidade gerenciada atribuída pelo sistema](../../../active-directory/managed-identities-azure-resources/overview.md) é selecionada durante a atribuição, plantas cria a identidade e concede à identidade gerenciada a função de [proprietário](../../../role-based-access-control/built-in-roles.md#owner) . Se uma [atribuição existente for atualizada](../how-to/update-existing-assignments.md), os planos gráficos usarão a identidade gerenciada criada anteriormente.
 
-A identidade gerida relacionados com a atribuição do esquema é utilizada para implementar ou voltar a implementar os recursos definidos no esquema. Este projeto evita as atribuições de inadvertidamente interferindo entre si.
-Esta estrutura também suporta o [bloqueio do recurso](./resource-locking.md) funcionalidade ao controlar a segurança de cada recurso implementado do plano gráfico.
+A identidade gerenciada relacionada à atribuição Blueprint é usada para implantar ou reimplantar os recursos definidos no plano gráfico. Esse design evita que as atribuições interfiram inadvertidamente entre si.
+Esse design também dá suporte ao recurso de [bloqueio de recursos](./resource-locking.md) controlando a segurança de cada recurso implantado do plano gráfico.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>A identidade gerida implementa artefactos de esquema
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>A identidade gerenciada implanta artefatos do Blueprint
 
-A identidade gerida, em seguida, aciona as implementações do Resource Manager dos artefactos no esquema a definidos no [ordem de sequenciamento](./sequencing-order.md). A ordem pode ser ajustada para garantir que os artefactos dependentes de outros artefatos são implementados na ordem correta.
+Em seguida, a identidade gerenciada dispara as implantações do Resource Manager dos artefatos dentro do plano gráfico na [ordem de sequenciamento](./sequencing-order.md)definida. A ordem pode ser ajustada para garantir que os artefatos dependentes de outros artefatos sejam implantados na ordem correta.
 
-Uma falha de acesso por uma implementação é, muitas vezes, o resultado do nível de acesso concedido à identidade gerida. O serviço de planos gráficos gere o ciclo de vida de segurança do **atribuído ao sistema** identidade gerida. No entanto, o utilizador é responsável por gerenciar os direitos e o ciclo de vida de um **atribuído ao utilizador** identidade gerida.
+Uma falha de acesso por uma implantação é geralmente o resultado do nível de acesso concedido à identidade gerenciada. O serviço de plantas gerencia o ciclo de vida de segurança da identidade gerenciada **atribuída pelo sistema** . No entanto, o usuário é responsável por gerenciar os direitos e o ciclo de vida de uma identidade gerenciada **atribuída pelo usuário** .
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Serviço de esquema e os direitos de identidade gerida atribuído de sistema são revogados
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>O serviço Blueprint e direitos de identidade gerenciada atribuídos pelo sistema são revogados
 
-Assim que as implementações são concluídas, esquemas revoga os direitos do **atribuído ao sistema** identidade gerida da subscrição. Em seguida, o serviço de planos gráficos revoga seus direitos da subscrição. Remoção de direitos impede que os esquemas de se tornar um proprietário permanente numa subscrição.
+Depois que as implantações forem concluídas, as plantas revogarão os direitos da identidade gerenciada **atribuída pelo sistema** da assinatura. Em seguida, o serviço de plantas revoga seus direitos da assinatura. A remoção de direitos impede que plantas se tornem um proprietário permanente em uma assinatura.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Compreenda como utilizar [parâmetros estáticos e dinâmicos](parameters.md).
 - Aprenda a personalizar a [ordem de sequenciação do esquema](sequencing-order.md).

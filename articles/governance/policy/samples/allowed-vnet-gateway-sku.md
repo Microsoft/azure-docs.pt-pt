@@ -1,20 +1,19 @@
 ---
-title: Exemplo - permitido SKUs de gateway de rede virtual
-description: Esta definição de política de exemplo requer que os gateways de rede virtual utilizam um tipo SKU e o gateway de aprovados.
+title: Exemplo – SKUs de gateway de rede virtual permitidos
+description: Esta definição de política de exemplo requer que os gateways de rede virtual usem um tipo de SKU e gateway aprovado.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 3338117f44639fd8342c4275016461db16a76686
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0ec66dff07d6c0a39517768e7a856d87e346bd90
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60545616"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977649"
 ---
-# <a name="sample---allowed-virtual-network-gateway-skus"></a>Exemplo - permitido SKUs de gateway de rede virtual
+# <a name="sample---allowed-virtual-network-gateway-skus"></a>Exemplo – SKUs de gateway de rede virtual permitidos
 
 Esta política requer que os gateways de rede virtual utilizem um tipo de SKU e gateway aprovado. Especifica uma matriz de SKUs aprovados e uma matriz de tipos de gateway aprovados.
 
@@ -28,7 +27,7 @@ Pode implementar este modelo através do [portal do Azure](#deploy-with-the-port
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
-[![Implementar a política de exemplo para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fvirtual-network-gateway-skus%2Fazurepolicy.json)
+[![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fvirtual-network-gateway-skus%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
 
@@ -67,6 +66,6 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 az group delete --name myResourceGroup --yes
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Veja mais exemplos na página [Exemplos do Azure Policy](index.md)

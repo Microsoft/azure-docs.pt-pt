@@ -140,6 +140,8 @@
               href: vpn-gateway-howto-openvpn-clients.md
         - name: Configurar um túnel de dispositivo VPN AlwaysOn
           href: vpn-gateway-howto-always-on-device-tunnel.md
+        - name: Configurar um túnel de utilizador VPN AlwaysOn
+          href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Anunciar rotas personalizadas para clientes P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
     - name: Criar um gateway de VNet com redundância entre zonas nas Zonas de Disponibilidade do Azure

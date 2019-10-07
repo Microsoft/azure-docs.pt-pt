@@ -9,6 +9,8 @@
   items:
     - name: Introdução
       href: video-indexer-get-started.md
+    - name: Convidar utilizadores
+      href: invite-users.md
 - name: Tutoriais
   items:
     - name: Utilizar a API do Video Indexer

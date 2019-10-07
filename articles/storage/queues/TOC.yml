@@ -33,7 +33,7 @@
       items:
         - name: Descrição geral da segurança
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Encriptação de contas de armazenamento
+        - name: Encriptação do Armazenamento do Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Autorização
           href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
@@ -132,7 +132,7 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Utilizar a API REST do Armazenamento do Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-        - name: Configurar chaves geridas pelo cliente para a encriptação do serviço
+        - name: Utilizar chaves geridas pelo cliente para encriptação
           items:
             - name: Portal
               href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
