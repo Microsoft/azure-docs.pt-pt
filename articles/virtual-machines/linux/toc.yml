@@ -111,6 +111,14 @@
           href: acu.md
         - name: Quotas de vCPU
           href: quotas.md
+        - name: Instâncias reservadas
+          items:
+            - name: Pré-pagamento de VMs
+              href: prepay-reserved-vm-instances.md
+            - name: O que são as reservas do Azure?
+              href: ../../billing/billing-save-compute-costs-reservations.md
+            - name: Flexibilidade do tamanho da instância de VM
+              href: reserved-vm-instance-size-flexibility.md
         - name: Pontuações de referência
           href: compute-benchmark-scores.md
     - name: Distribuições aprovadas
@@ -302,16 +310,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Criar alertas de registos
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Gerir os custos
-      items:
-        - name: Pré-pagamento de VMs - reservas do Azure
-          href: prepay-reserved-vm-instances.md
-        - name: Pré-pagamento dos planos de software do Azure
-          href: prepay-suse-software-charges.md
-        - name: O que são as reservas do Azure?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibilidade do tamanho da instância de VM
-          href: reserved-vm-instance-size-flexibility.md
     - name: Utilizar Imagens
       items:
         - name: Galerias de imagens partilhadas
@@ -378,8 +376,6 @@
           href: manage-availability.md
         - name: Criar um grupo de colocação em proximidade
           href: proximity-placement-groups.md
-        - name: Dimensionar verticalmente
-          href: vertical-scaling-automation.md
         - name: Criar uma VM na zona de disponibilidade
           href: create-cli-availability-zone.md
     - name: Utilizar ferramentas de automatização

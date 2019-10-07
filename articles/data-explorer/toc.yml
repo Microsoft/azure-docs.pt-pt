@@ -114,22 +114,34 @@
           href: sisense.md
     - name: Gerir
       items:
-        - name: Verificar estado de funcionamento do cluster
-          href: check-cluster-health.md
-        - name: Selecionar o cluster SKU de VM
-          href: manage-cluster-choose-sku.md
-        - name: Gerir dimensionamento horizontal do cluster
-          href: manage-cluster-horizontal-scaling.md
-        - name: Gerir dimensionamento vertical do cluster
-          href: manage-cluster-vertical-scaling.md
-        - name: Gerir a segurança do cluster
-          href: manage-cluster-security.md
-        - name: Gerir permissões da base de dados
-          href: manage-database-permissions.md
-        - name: Eliminar dados
-          href: delete-data.md
-        - name: Lidar com dados duplicados
-          href: dealing-with-duplicates.md
+        - name: Cluster
+          items:
+            - name: Selecionar o cluster SKU de VM
+              href: manage-cluster-choose-sku.md
+            - name: Gerir dimensionamento horizontal do cluster
+              href: manage-cluster-horizontal-scaling.md
+            - name: Gerir dimensionamento vertical do cluster
+              href: manage-cluster-vertical-scaling.md
+            - name: Gerir a segurança do cluster
+              href: manage-cluster-security.md
+            - name: Verificar estado de funcionamento do cluster
+              href: check-cluster-health.md
+        - name: Base de Dados
+          items:
+            - name: Gerir permissões da base de dados
+              href: manage-database-permissions.md
+            - name: Políticas
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: Dados
+          items:
+            - name: Eliminar dados
+              href: delete-data.md
+            - name: Lidar com dados duplicados
+              href: dealing-with-duplicates.md
     - name: Monitorizar
       items:
         - name: Utilizar registos de diagnósticos para monitorizar a ingestão
