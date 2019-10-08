@@ -92,8 +92,6 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Anexar ou desanexar uma galeria de imagens partilhadas
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-            - name: Ativar a virtualização aninhada numa VM de modelo
-              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Criar e configurar laboratórios de sala de aula (formador)
           items:
             - name: Criar e gerir laboratórios de sala de aula
@@ -112,6 +110,8 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Definir ou repor palavras-passe de máquinas virtuais
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Ativar a virtualização aninhada numa VM de modelo
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
           items:
             - name: Aceder a laboratórios de sala de aula
