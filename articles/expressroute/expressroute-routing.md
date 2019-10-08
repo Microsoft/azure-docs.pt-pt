@@ -10,7 +10,7 @@ ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
 ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/07/2019
 ms.locfileid: "72001311"
