@@ -1,77 +1,109 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Documentação do Site Recovery
+### YamlMime:Landing
+title: Documentação do Azure Site Recovery
+summary: Utilize o Azure Site Recovery para fazer a recuperação após desastre de máquinas e cargas de trabalho no local para o Azure e de VMs do Azure para uma região secundária do Azure. Com a replicação para o Azure implementada, pode orquestrar a ativação pós-falha quando ocorrem falhas e continuar a aceder a cargas de trabalho e aplicações no Azure. Quando a localização primária ficar disponível novamente, pode fazer a reativação pós-falha conforme as suas necessidades.
 metadata:
-  title: 'Documentação do Azure Site Recovery - Tutoriais, Referência da API | Microsoft Docs'
-  meta.description: Learn how to set up cloud disaster recovery and business continuity for physical servers and virtual machines by deploying and managing replication.
-  services: site-recovery
-  author: carmonmills
-  manager: carmonm
+  title: Documentação do Azure Site Recovery
+  description: Utilize o Azure Site Recovery para fazer a recuperação após desastre de máquinas e cargas de trabalho no local para o Azure e de VMs do Azure para uma região secundária do Azure. Com a replicação para o Azure implementada, pode orquestrar a ativação pós-falha quando ocorrem falhas e continuar a aceder a cargas de trabalho e aplicações no Azure. Quando a localização primária ficar disponível novamente, pode fazer a reativação pós-falha conforme as suas necessidades.
   ms.service: site-recovery
   ms.topic: landing-page
-  ms.date: 11/27/2018
-  ms.author: carmonm
-abstract:
-  description: 'O Azure Site Recovery orquestra e gere a recuperação após desastre para VMs do Azure, VMs no local e servidores físicos. Saiba como replicar e fazer a ativação e reativação pós-falha com os nossos inícios rápidos e tutoriais.'
-sections:
-  - title: Inícios rápidos de cinco minutos
-    items:
-      - type: paragraph
-        text: Configurar rapidamente a recuperação após desastre para uma VM do Azure
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/site-recovery/media/index/portal.svg
-            text: Portal do Azure
-            href: /azure/site-recovery/azure-to-azure-quickstart
-  - title: Tutoriais passo a passo
-    items:
-      - type: paragraph
-        text: Saiba como configurar a recuperação após desastre para VMs e servidores físicos.
-      - type: text
-        html: <h3>Azure para o Azure</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="azure-to-azure-tutorial-enable-replication">Configurar a recuperação após desastre</a>
-          - html: <a href="azure-to-azure-tutorial-dr-drill">Executar um teste de recuperação após desastre</a>
-          - html: <a href="azure-to-azure-tutorial-failover-failback">Ativar a ativação pós-falha e a reativação pós-falha</a>
-      - type: text
-        html: <h3>VMware</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-          - html: <a href="tutorial-prepare-on-premises-vmware">Preparar o VMware no local</a>
-          - html: <a href="tutorial-vmware-to-azure">Configurar a recuperação após desastre</a>
-          - html: <a href="tutorial-dr-drill-azure">Executar um teste de recuperação após desastre</a>
-          - html: <a href="vmware-azure-tutorial-failover-failback">Executar uma ativação pós-falha e uma reativação pós-falha</a>
-      - type: text
-        html: <h3>Hyper-V</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-          - html: <a href="tutorial-prepare-on-premises-hyper-v">Prepara Hyper-V no local</a>
-          - html: <a href="tutorial-hyper-v-to-azure">Configurar a recuperação após desastre em VMs do Hyper-V</a>
-          - html: <a href="tutorial-hyper-v-vmm-to-azure">Configurar recuperação após desastre para as VMs de Hyper-V geridas pelo System Center VMM</a>
-          - html: <a href="tutorial-dr-drill-azure">Executar um teste de recuperação após desastre</a>
-          - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Executar uma ativação pós-falha e uma reativação pós-falha</a>
-      - type: text
-        html: <h3>Migrar para o Azure</h3>
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrar máquinas no local</a> ou <a href="tutorial-migrate-aws-to-azure">Instâncias do AWS para o Azure</a>
-  - title: Referência
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de Comandos
-            html: <p><a href="/powershell/module/az.recoveryservices/">O Azure PowerShell</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/site-recovery/">Referência da API REST</a></p>
+  ms.collection: collection
+  author: rayne-wiselman
+  ms.author: raynew
+  ms.date: 10/07/2019
+  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
+  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 10/07/2019
+  ms.locfileid: "72001090"
+landingContent:
+- title: Sobre o Site Recovery
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: O que é a Recuperação de Sites?
+      url: ./site-recovery-overview.md
+    - text: Novidades no Site Recovery
+      url: ./site-recovery-whats-new.md
+- title: Recuperação após desastre de VMs do Azure
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Experimente a recuperação após desastre de uma VM do Azure
+      url: ./azure-to-azure-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: Recuperação após desastre de VMs do Azure
+      url: ./azure-to-azure-tutorial-enable-replication.md
+    - text: Mover VMs do Azure para outra região
+      url: ./azure-to-azure-tutorial-migrate.md
+  - linkListType: learn
+    links:
+    - text: Arquitetura da recuperação após desastre de VMs do Azure
+      url: ./azure-to-azure-architecture.md
+    - text: Matriz de suporte do Azure para o Azure
+      url: ./azure-to-azure-support-matrix.md
+    - text: Perguntas comuns
+      url: ./azure-to-azure-common-questions.md
+    - text: Sobre mover VMs do Azure
+      url: ./azure-to-azure-move-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: Rede da recuperação após desastre de VMs do Azure
+      url: ./azure-to-azure-about-networking.md
+    - text: Recuperação após desastre após a migração para o Azure
+      url: ./azure-to-azure-replicate-after-migration.md
+- title: Recuperação após desastre de máquinas no local
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Recuperação após desastre de VMs VMware
+      url: ./tutorial-prepare-azure.md
+    - text: Recuperação após desastre de VMs Hyper-V
+      url: ./tutorial-prepare-azure-for-hyperv.md
+    - text: Recuperação após desastre de servidores físicos
+      url: ./physical-azure-disaster-recovery.md
+  - linkListType: deploy
+    links:
+    - text: Matriz de suporte do VMware
+      url: ./vmware-physical-azure-support-matrix.md
+    - text: Matriz de suporte do Hyper-V
+      url: ./hyper-v-azure-support-matrix.md
+  - linkListType: learn
+    links:
+    - text: Arquitetura da recuperação após desastre do VMware
+      url: ./vmware-azure-architecture.md
+    - text: Descrição geral da recuperação após desastre do VMware
+      url: ./vmware-azure-about-disaster-recovery.md
+    - text: Perguntas comuns sobre a recuperação após desastre do VMware
+      url: ./vmware-azure-common-questions.md
+    - text: Arquitetura da recuperação após desastre do Hyper-V
+      url: ./hyper-v-azure-architecture.md
+  - linkListType: how-to-guide
+    links:
+    - text: Recuperação após desastre do VMware à escala
+      url: ./vmware-physical-large-deployment.md
+    - text: Planear a capacidade do VMware
+      url: ./site-recovery-plan-capacity-vmware.md
+    - text: Planear a capacidade do Hyper-V
+      url: ./hyper-v-deployment-planner-overview.md
+- title: Gerir
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir atualizações do Site Recovery
+      url: service-updates-how-to.md
+    - text: Monitorizar o Site Recovery
+      url: site-recovery-monitor-and-troubleshoot.md
+    - text: Monitorizar o Site Recovery com os registos do Azure Monitor
+      url: monitor-log-analytics.md
+- title: Participar
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Pedir uma funcionalidade de serviço
+      url: https://feedback.azure.com/forums/256299-site-recovery
+    - text: Faça uma pergunta no fórum
+      url: https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr
+    - text: Azure Tech Community
+      url: https://techcommunity.microsoft.com/t5/Azure/ct-p/Azure

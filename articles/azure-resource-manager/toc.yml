@@ -71,6 +71,8 @@
         - name: Utilizar a verificação de estado de funcionamento no Gestor de Implementação
           displayName: adm
           href: deployment-manager-tutorial-health-check.md
+        - name: Atualizar o script de Implementação do VS para o Az Powershell
+          href: vs-azure-tools-update-deploy-script-to-az-powershell.md
         - name: Resolver problemas da implementação de modelos
           href: resource-manager-tutorial-troubleshoot.md
 - name: Amostras
@@ -132,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: Criar múltiplas instâncias
           href: resource-group-create-multiple.md
-        - name: Criar grupos de recursos e recursos na subscrição
-          displayName: subscription level deployment
+        - name: Recursos ao nível da subscrição
           href: deploy-to-subscription.md
     - name: Implementar modelos
       items:
@@ -141,14 +142,17 @@
           displayName: deployment
           href: resource-group-template-deploy-portal.md
         - name: Implementar - CLI
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-cli.md
         - name: Implementar - PowerShell
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy.md
         - name: Implementar - API REST
-          displayName: 'deployment,rollback on error,redeploy'
+          displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: Implementar novamente depois do erro
+          displayName: rollback
+          href: rollback-on-error.md
         - name: Proteger modelos com o token de SAS
           href: secure-template-with-sas-token.md
         - name: Implementar para vários grupos de recursos ou subscrições

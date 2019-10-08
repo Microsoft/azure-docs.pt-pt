@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105489"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308091"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -31,7 +31,7 @@ Quando são adicionados novos Proprietários de Conta (AO) a uma inscrição do 
 
 Após a criação de um departamento por um administrador do EA do Azure, o administrador corporativo do Azure pode adicionar administradores de departamento e associar cada um deles a um departamento. Um administrador de departamento pode criar novas contas. São necessárias novas contas para que as subscrições do EA do Azure sejam criadas.
 
-Para obter mais informações sobre como adicionar um departamento, veja Criar um departamento do EA do Azure.
+Para obter mais informações sobre como adicionar um administrador de departamento, veja [Criar um administrador de departamento do EA do Azure](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## <a name="enterprise-user-roles"></a>Funções de utilizador corporativo
 
@@ -124,14 +124,14 @@ Não há tempo de inatividade durante a transferência da conta. Pode ser conclu
 
 Ao pedir uma transferência de inscrição, forneça as seguintes informações:
 
-- Relativamente à inscrição de origem, o número de inscrição e a conta a ser transferida
-- Relativamente à inscrição de destino, o número de inscrição para que se transfere
+- Relativamente à inscrição de origem, o número de inscrição e a conta a transferir.
+- Relativamente à inscrição de destino, o número de inscrição para o qual transferir.
 - Relativamente à data efetiva da transferência de inscrição, pode ser uma data na ou após a data de início da inscrição de destino. A data escolhida não pode afetar a utilização de nenhuma fatura de utilização excedida já emitida.
 
 Outros pontos a ter em mente antes de uma transferência de inscrição:
 
-- É necessária a aprovação de um administrador de EA para a inscrição de origem e de destino
-  - Em alguns casos, a Microsoft poderá pedir aprovação adicional de um administrador de EA da inscrição de origem
+- É necessária a aprovação de um administrador de EA para as inscrições de origem e de destino.
+  - Em alguns casos, a Microsoft poderá pedir aprovação adicional de um administrador de EA da inscrição de origem.
 - Se uma transferência de inscrição não atender aos seus requisitos, considere uma transferência de conta.
 - Apenas as contas que especificar serão transferidas. Pode pedir a transferência de todas as suas contas.
 - A inscrição de origem retém o estado como Ativo/Expandido. Pode continuar com a inscrição até que expire.
@@ -208,7 +208,7 @@ Se uma notificação não for recebida por um utilizador, verifique se as defini
 6. Adicione um contacto, se necessário, e clique em **Adicionar**.
 7. Clique em **Guardar**.
 
-![Exemplo que mostra Adicionar contacto para adicionar um ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Exemplo que mostra a caixa Adicionar Contacto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Oferta do Azure Sponsorship
 A oferta do Azure Sponsorship é uma conta do Microsoft Azure patrocinada limitada. Está disponível apenas por convite por e-mail para um número de clientes limitado que são selecionados pela Microsoft. Se for elegível para a oferta do Microsoft Azure Sponsorship, receberá um convite por e-mail para o seu ID de conta.

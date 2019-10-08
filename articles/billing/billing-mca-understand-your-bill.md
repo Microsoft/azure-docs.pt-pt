@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: ee250589133abb1944ff17e39dc650cbae4279c6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 8ab6cf061531a1ef3c72b2f36d25932c7498d291
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490683"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345281"
 ---
 # <a name="understand-charges-on-your-microsoft-customer-agreement-invoice"></a>Compreender os custos na fatura do Contrato de Cliente da Microsoft
 
@@ -28,7 +28,7 @@ Este artigo aplica-se a uma conta de faturação para um Contrato de Cliente da 
 
 1. Inicie sessão no [portal do Azure](https://www.azure.com).
 
-2. Procure **Gestão de Custos + Faturação**.
+2. Escreva **Gestão de Custos + Faturação**.
 
     ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
@@ -73,7 +73,7 @@ Na conta de faturação de um Contrato de Cliente da Microsoft, os custos são e
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Procure **Gestão de Custos + Faturação**.
+2. Escreva **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 
@@ -93,7 +93,7 @@ Ao identificar custos pendentes, conseguirá compreender os custos ao analisar i
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Procure **Gestão de Custos + Faturação**.
+2. Escreva **Gestão de Custos + Faturação**.
 
    ![Captura de ecrã a mostrar a pesquisa da opção Gestão de Custos + Faturação no portal do Azure](./media/billing-understand-your-bill-mca/billing-search-cost-management-billing.png)
 

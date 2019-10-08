@@ -94,7 +94,8 @@
               href: concepts-connectivity-architecture.md
         - name: Continuidade do negócio
           items:
-            - name: Descrição geral
+            - name: Introdução à continuidade de negócio
+              displayName: 'backup, restore, backups, restores, georestore, geo-restore, outage'
               href: concepts-business-continuity.md
             - name: Cópia de segurança e restauro
               href: concepts-backup.md

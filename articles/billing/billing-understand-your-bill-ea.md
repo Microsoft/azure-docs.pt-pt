@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f89d7935af10ebb477125c598a01278a4ceef0bd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490291"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326933"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Compreenda a faturação do Contrato Enterprise do Azure
 
@@ -28,10 +28,10 @@ O crédito da sua organização inclui a alocação monetária. A alocação mon
 
 Esta secção não se aplica a clientes do Azure na Austrália, Japão ou Singapura. Caso se encontre num destes países/regiões, veja [Faturas para outros clientes](#invoices-for-other-customers).
 
-Recebe uma fatura do Azure quando ocorre uma das seguintes situações durante o período de faturação:
+Receberá uma fatura do Azure quando ocorrer qualquer uma das seguintes situações durante o período de faturação:
 
 - **Utilização excedida do serviço**: os custos de utilização da sua organização excedem o seu saldo de crédito.
-- **Custos faturados em separado**: os serviços que sua organização utilizou não são cobertos pelo crédito. É faturado pelo seguintes serviços, independentemente do seu saldo de crédito:
+- **Custos faturados em separado**: os serviços que sua organização utilizou não são cobertos pelo crédito. É faturado pelos seguintes serviços independentemente do seu saldo de crédito:
     - Canónico
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -43,7 +43,7 @@ Recebe uma fatura do Azure quando ocorre uma das seguintes situações durante o
     - Visual Studio Enterprise (Anual)
     - Visual Studio Professional (Mensal)
     - Visual Studio Professional (Anual)
-- **Custos do Marketplace**: as compras e a utilização do Azure Marketplace não são cobertas pelo crédito da sua organização. Portanto, será faturado pelos custos do Marketplace, independentemente do seu saldo de crédito. No Enterprise Portal, um Administrador do Enterprise pode ativar e desativar compras do Marketplace.
+- **Custos do Marketplace**: as compras e a utilização do Azure Marketplace não são cobertas pelo crédito da sua organização. Portanto, será faturado pelos custos do Marketplace independentemente do seu saldo de crédito. No Enterprise Portal, um Administrador do Enterprise pode ativar e desativar compras do Marketplace.
 
 ## <a name="review-charges-for-most-customers"></a>Analisar os custos para a maioria dos clientes
 Esta secção não se aplica a clientes do Azure na Austrália, Japão ou Singapura. Caso se encontre num destes países, veja [Faturas para outros clientes](#review-charges-for-other-customers).
@@ -66,10 +66,10 @@ Compare o montante total combinado mostrado no Enterprise Portal em **Relatório
 
 Esta seção aplica-se apenas a clientes do Azure na Austrália, Japão ou Singapura.
 
-Recebe uma ou mais faturas do Azure quando ocorre o seguinte:
+Receberá uma ou mais faturas do Azure quando ocorrer qualquer uma das seguintes situações:
 
 - **Utilização excedida do serviço**: os custos de utilização da sua organização excedem o seu saldo de crédito.
-- **Custos faturados em separado**: os serviços que sua organização utilizou não são cobertos pelo crédito. É faturado pelo seguintes serviços, independentemente do seu saldo de crédito:
+- **Custos faturados em separado**: os serviços que sua organização utilizou não são cobertos pelo crédito. Será faturado pelos seguintes serviços:
     - Canónico
     - Citrix XenApp Essentials
     - Citrix XenDesktop
@@ -87,7 +87,7 @@ Quando tem custos referentes a utilização excedida de serviço e custos que s�
 
 ## <a name="review-charges-for-other-customers"></a>Analisar os custos para outros clientes
 
-Esta seção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
+Esta secção aplica-se apenas se estiver na Austrália, no Japão ou em Singapura.
 
 Para analisar e verificar os custos presentes na fatura, tem de ser um Administrador do Enterprise. Para obter mais informações, veja [Compreender as funções administrativas do Contrato Enterprise no Azure](billing-understand-ea-roles.md). Se não souber quem é o Administrador do Enterprise da sua organização, [contacte o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -115,7 +115,7 @@ A tabela a seguir lista os termos e as descrições apresentados na fatura e no 
 
 ### <a name="marketplace-invoice"></a>Fatura do Marketplace
 
-Esta seção aplica-se apenas se estiver na Austrália, Japão ou Singapura.
+Esta secção aplica-se apenas se estiver na Austrália, no Japão ou em Singapura.
 
 Compare o total do Azure Marketplace em **Relatórios** > **Resumo de Utilização** no Enterprise Portal com a sua fatura do marketplace. A fatura do Marketplace diz respeito apenas a compras e utilização do Azure Marketplace. Os montantes no **Resumo da Utilização** não incluem impostos.
 
