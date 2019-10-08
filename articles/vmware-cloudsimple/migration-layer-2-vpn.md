@@ -137,7 +137,7 @@ As etapas a seguir mostram como buscar a ID do roteador lógico da instância do
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Buscar a ID de comutador lógico necessária para L2VPN
 
 1. Entre no [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Selecione comutadores de**troca** > de **rede** >  **> *** * < opção \Logical > \ * * > **visão geral**.
+2. Selecione comutadores de**troca** > de **rede** >  **>**  **<\opção Logical >\ ** > **visão geral**.
 3. Anote o UUID do comutador lógico de ampliação, que é necessário ao configurar o L2VPN.
 
     ![obter saída de roteador lógico](media/l2vpn-fetch-switch01.png)
