@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202777"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996718"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança do Azure.
@@ -37,24 +37,24 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Exibir alertas e regras de proteção de rede adaptável
 
-1. Na central de segurança, selecione rede **sistema** -> de**rede adaptável**. As VMs de rede são listadas em três guias separadas:
-   * **Recursos**não íntegros: VMs que atualmente têm recomendações e alertas que foram disparados executando o algoritmo de proteção de rede adaptável. 
+1. Na central de segurança, selecione **rede** -> **proteção de rede adaptável**. As VMs de rede são listadas em três guias separadas:
+   * **Recursos não íntegros**: VMs que atualmente têm recomendações e alertas que foram disparados executando o algoritmo de proteção de rede adaptável. 
    * **Recursos íntegros**: VMs sem alertas e recomendações.
-   * **Recursos**não verificados: VMs para as quais o algoritmo de proteção de rede adaptável não pode ser executado devido a um dos seguintes motivos:
+   * **Recursos não verificados**: VMs para as quais o algoritmo de proteção de rede adaptável não pode ser executado devido a um dos seguintes motivos:
       * As **VMs são VMs clássicas**: Há suporte apenas para VMs Azure Resource Manager.
       * **Não há dados suficientes disponíveis**: Para gerar recomendações precisas de proteção de tráfego, a central de segurança requer pelo menos 30 dias de dados de tráfego.
       * **A VM não está protegida pelo ASC Standard**: Somente as VMs definidas como o tipo de preço Standard da central de segurança são elegíveis para esse recurso.
 
      ![recursos não íntegros](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. Na guia **recursos** não íntegros, selecione uma VM para exibir os alertas e as regras de proteção recomendadas a serem aplicadas.
+2. Na guia **recursos não íntegros** , selecione uma VM para exibir os alertas e as regras de proteção recomendadas a serem aplicadas.
 
     ![protegendo alertas](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Examinar e aplicar regras recomendadas de proteção de rede adaptável
 
-1. Na guia **recursos** não íntegros, selecione uma VM. Os alertas e as regras de proteção recomendadas são listados.
+1. Na guia **recursos não íntegros** , selecione uma VM. Os alertas e as regras de proteção recomendadas são listados.
 
      ![regras de proteção](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
@@ -131,9 +131,9 @@ Você pode adicionar uma regra "permitir" que não foi recomendada pela central 
 
 ### Excluir uma regra <a name ="delete-rule"></a>
 
-Quando necessário, você pode excluir uma regra recomendada. Por exemplo, você pode determinar que a aplicação de uma regra sugerida poderia bloquear o tráfego legítimo.
+Quando necessário, você pode excluir uma regra recomendada para a sessão atual. Por exemplo, você pode determinar que a aplicação de uma regra sugerida poderia bloquear o tráfego legítimo.
 
-*Para excluir uma regra de proteção de rede adaptável:*
+*Para excluir uma regra de proteção de rede adaptável para sua sessão atual:*
 
 1. Na guia **regras** , clique nos três pontos (...) no final da linha da regra e clique em **excluir**.  
 

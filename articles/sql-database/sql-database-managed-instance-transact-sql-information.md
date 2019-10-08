@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 704c1cdf95424bffa19e0946d13fa45d1b520753
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 9a043d07004870c00c656b655d56a1526f8993d8
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959939"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000490"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Diferenças de T-SQL de instância gerenciada, limitações e problemas conhecidos
 
@@ -110,7 +110,7 @@ Uma instância gerenciada não pode acessar compartilhamentos de arquivos e past
 
 Consulte [criar](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) certificado e [certificado de backup](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
-**Solução alternativa**: Script para o certificado ou a chave privada, armazene como arquivo. SQL e crie a partir do binário:
+**Solução alternativa**: Em vez de criar backup de certificado e restaurar o backup, [obtenha o conteúdo binário do certificado e a chave privada, armazene-o como arquivo. SQL e crie a partir do binário](https://docs.microsoft.com/sql/t-sql/functions/certencoded-transact-sql#b-copying-a-certificate-to-another-database):
 
 ```sql
 CREATE CERTIFICATE  
@@ -539,7 +539,7 @@ As seguintes variáveis, funções e exibições retornam resultados diferentes:
 
 O tamanho máximo de arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O tamanho máximo de `tempdb` em uma camada de Comercialmente Crítico é limitado pelo tamanho do armazenamento da instância. o tamanho do arquivo de log `Tempdb` é limitado a 120 GB nas camadas Uso Geral e Comercialmente Crítico. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
 
-### <a name="error-logs"></a>Registos de erro
+### <a name="error-logs"></a>Registos de erros
 
 Uma instância gerenciada coloca informações detalhadas nos logs de erros. Há muitos eventos internos do sistema que são registrados no log de erros do. Use um procedimento personalizado para ler logs de erro que filtram algumas entradas irrelevantes. Para obter mais informações, consulte [instância gerenciada – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 

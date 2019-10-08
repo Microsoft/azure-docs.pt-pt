@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 8d094113107d8c49e34779cf8be62ecd71cb8cce
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 3bf90812abcef30b6bf300ba00ebd9f4186229cb
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937194"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000397"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usando dados de referência para pesquisas no Stream Analytics
 
@@ -60,7 +60,7 @@ Azure Stream Analytics examina automaticamente os blobs de dados de referência 
 > 
 > Uma exceção a isso é quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é iniciado pela primeira vez. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora de início do trabalho especificada. Isso é feito para garantir que haja um conjunto de dados de referência **não vazio** quando o trabalho for iniciado. Se não for possível encontrar um, o trabalho exibirá o seguinte diagnóstico: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser usado para orquestrar a tarefa de criar os BLOBs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. O Data Factory dá suporte [à conexão com um grande número de armazenamentos de dados locais e baseados em nuvem](../data-factory/copy-activity-overview.md) e na movimentação fácil de dados em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para Stream Analytics que se atualiza em uma agenda predefinida, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser usado para orquestrar a tarefa de criar os BLOBs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. O Data Factory dá suporte [à conexão com um grande número de armazenamentos de dados locais e baseados em nuvem](../data-factory/copy-activity-overview.md) e na movimentação fácil de dados em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para Stream Analytics que se atualiza em uma agenda predefinida, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Dicas sobre como atualizar dados de referência de BLOB
 
@@ -96,8 +96,8 @@ Você pode usar [instância gerenciada do banco de dados SQL do Azure](https://d
 |Nome de utilizador|O nome de usuário associado ao seu banco de dados SQL do Azure.|
 |Palavra-passe|A senha associada ao banco de dados SQL do Azure.|
 |Atualizar periodicamente|Essa opção permite que você escolha uma taxa de atualização. Escolher "ativado" permitirá que você especifique a taxa de atualização em DD: HH: MM.|
-|Consulta de instantâneos|Essa é a opção de consulta padrão que recupera os dados de referência do banco de dado SQL.|
-|Consulta delta|Para cenários avançados com grandes conjuntos de dados e uma taxa de atualização curta, escolha Adicionar uma consulta Delta.|
+|Consulta de instantâneo|Essa é a opção de consulta padrão que recupera os dados de referência do banco de dado SQL.|
+|Consulta Delta|Para cenários avançados com grandes conjuntos de dados e uma taxa de atualização curta, escolha Adicionar uma consulta Delta.|
 
 ## <a name="size-limitation"></a>Limitação de tamanho
 
@@ -115,7 +115,7 @@ Suporte para compressão não está disponível para os dados de referência.
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Quickstart: Criar um trabalho de Stream Analytics usando o portal do Azure @ no__t-0
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

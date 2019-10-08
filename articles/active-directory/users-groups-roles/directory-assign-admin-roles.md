@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 27b5a8a7667419e0e3345fb453eefd840368b643
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950351"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001686"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -398,13 +398,13 @@ Os usuários nessa função podem solucionar problemas de comunicação no Micro
 
 ### <a name="user-administratoruser-administrator-permissions"></a>[Administrador de Utilizadores](#user-administrator-permissions)
 
-Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (veja abaixo) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuário, gerenciar tíquetes de suporte e monitorar a integridade do serviço.
+Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (veja abaixo) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuário, gerenciar tíquetes de suporte e monitorar a integridade do serviço. Os administradores de usuários não têm permissão para gerenciar algumas propriedades de usuário para usuários na maioria das funções de administrador. As funções que são exceções a essa restrição são listadas na tabela a seguir.
 
 | | |
 | --- | --- |
 |Permissões gerais|<p>Criar usuários e grupos</p><p>Criar e gerenciar exibições de usuário</p><p>Gerenciar tíquetes de suporte do Office<p>Atualizar políticas de expiração de senha|
 |<p>Em todos os usuários, incluindo todos os administradores</p>|<p>Gerenciar licenças</p><p>Gerenciar todas as propriedades de usuário, exceto o nome principal do usuário</p>
-|Somente em usuários que não são administradores ou em qualquer uma das seguintes funções de administrador limitadas:<ul><li>Leitores de Diretórios<li>Emitente de Convites<li>Administrador de assistência técnica<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Excluir e restaurar</p><p>Desabilitar e habilitar</p><p>Invalidar tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome principal do usuário</p><p>Repor palavra-passe</p><p>Atualizar chaves de dispositivo (FIDO)</p>
+|Somente em usuários que não são administradores ou em qualquer uma das seguintes funções de administrador limitadas:<ul><li>Leitores de Diretórios<li>Emitente de Convites<li>Administrador de assistência técnica<li>Leitor do Centro de Mensagens<li>Leitor de Relatórios<li>Administrador de Utilizadores|<p>Excluir e restaurar</p><p>Desabilitar e habilitar</p><p>Invalidar tokens de atualização</p><p>Gerenciar todas as propriedades de usuário, incluindo o nome principal do usuário</p><p>Repor palavra-passe</p><p>Atualizar chaves de dispositivo (FIDO)</p>|
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar senhas para pessoas que podem ter acesso a informações confidenciais ou privadas ou configuração crítica dentro e fora do Azure Active Directory. Alterar a senha de um usuário pode significar a capacidade de assumir a identidade e as permissões desse usuário. Por exemplo:

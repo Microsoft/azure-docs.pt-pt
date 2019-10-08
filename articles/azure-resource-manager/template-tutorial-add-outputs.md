@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: beb2e6a16a303f633b36709fee2a60cca160d1b6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963808"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001533"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Tutorial: Adicionar saídas ao seu modelo do Resource Manager
 
@@ -49,7 +49,7 @@ Ele usa a função de [referência](resource-group-template-functions-resource.m
 
 Por fim, ele retorna a propriedade **primaryEndpoints** da conta de armazenamento
 
-## <a name="deploy-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 Você está pronto para implantar o modelo e examinar o valor retornado.
 
@@ -93,7 +93,7 @@ Na saída do comando de implantação, você verá um objeto semelhante a:
 
 ## <a name="review-your-work"></a>Examine seu trabalho
 
-Você fez muito nos últimos seis tutoriais. Vamos reservar um momento para examinar o que você fez. Você criou um modelo com parâmetros que são fáceis de fornecer. O modelo é reutilizável em ambientes diferentes porque permite a personalização e cria dinamicamente os valores necessários. Ele retorna informações sobre a conta de armazenamento que você pode usar em seu script.
+Você fez muito nos últimos seis tutoriais. Vamos reservar um momento para examinar o que você fez. Você criou um modelo com parâmetros que são fáceis de fornecer. O modelo é reutilizável em ambientes diferentes porque permite a personalização e cria dinamicamente os valores necessários. Ele também retorna informações sobre a conta de armazenamento que você pode usar em seu script.
 
 Agora, vamos examinar o grupo de recursos e o histórico de implantação.
 

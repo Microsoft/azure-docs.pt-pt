@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ddc577af945c01b94dae5a75725082e4e6689fd9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697148"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996969"
 ---
 # <a name="what-is-azure-network-watcher"></a>O que é o Observador de Rede do Azure?
 
-O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure.
+O Observador de Rede do Azure oferece ferramentas para monitorizar, diagnosticar, ver métricas e ativar ou desativar registos de recursos numa rede virtual do Azure. O observador de rede foi projetado para monitorar e reparar a integridade da rede de produtos IaaS (infraestrutura como serviço) que incluem máquinas virtuais, redes virtuais, gateways de aplicativo, balanceadores de carga, etc. Nota: Ele não se destina e não funcionará para monitoramento de PaaS ou análise da Web. 
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -97,11 +97,11 @@ Saiba mais sobre os registos de fluxo do NSG ao concluir o tutorial [Registar o 
 
 ### <a name="view-diagnostic-logs-for-network-resources"></a>Ver registos de diagnóstico de recursos de rede
 
-Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Pode ver os registos de diagnóstico com ferramentas como o Microsoft Power BI e o Azure Monitor registos. Para saber mais sobre como analisar os registos de diagnóstico de rede do Azure, veja [soluções de rede do Azure nos registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Pode ativar o registo de diagnóstico para recursos de rede do Azure, como grupos de segurança de rede, endereços IP públicos, balanceadores de carga, gateways de rede virtual e gateways de aplicação. A capacidade de *registos de diagnóstico* oferece uma interface única para ativar e desativar os registos de diagnóstico de recursos de rede para qualquer recurso de rede existente que gere um registo de diagnóstico. Você pode exibir os logs de diagnóstico usando ferramentas como o Microsoft Power BI e os logs de Azure Monitor. Para saber mais sobre como analisar os logs de diagnóstico de rede do Azure, confira [soluções de rede do Azure em logs de Azure monitor](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
-## <a name="network-watcher-automatic-enablement"></a>Ativação automática de observador de rede
-Quando cria ou atualiza uma rede virtual na sua subscrição, o observador de rede será ativado automaticamente na região da sua rede Virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede. Para obter mais informações, consulte [observador de rede criar](network-watcher-create.md).
+## <a name="network-watcher-automatic-enablement"></a>Habilitação automática do observador de rede
+Quando você cria ou atualiza uma rede virtual em sua assinatura, o observador de rede será habilitado automaticamente na região da sua rede virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede. Para obter mais informações, consulte [criação do observador de rede](network-watcher-create.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Tem agora uma descrição geral do Observador de Rede do Azure. Para começar a utilizar o Observador de Rede, utilize a verificação de fluxo de IP para diagnosticar um problema de comunicação comum de e para uma máquina virtual. Para saber como, veja o início rápido [Diagnose a virtual machine network traffic filter problem](diagnose-vm-network-traffic-filtering-problem.md) (Diagnosticar problemas de filtro de tráfego de rede de uma máquina virtual).

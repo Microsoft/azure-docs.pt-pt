@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e55755e3edcc54d0d75c937c4d18b845b0282833
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 4fdd99b3e9efc108960217cddfc8a397eadf99b6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972741"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001583"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Gerenciar Azure Resource Manager grupos de recursos usando CLI do Azure
 
@@ -78,7 +78,7 @@ Consulte [implantar recursos em um grupo de recursos existente](./manage-resourc
 
 ## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
 
-Você pode criar um grupo de recursos e implantar recursos no grupo usando um modelo do Resource Manager. Para obter mais informações, consulte [Criar grupo de recursos e implantar recursos](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Você pode criar um grupo de recursos e implantar recursos no grupo usando um modelo do Resource Manager. Para obter mais informações, consulte [Criar grupo de recursos e implantar recursos](./deploy-to-subscription.md#resource-group-and-resources).
 
 ## <a name="redeploy-when-deployment-fails"></a>Reimplantar quando a implantação falhar
 

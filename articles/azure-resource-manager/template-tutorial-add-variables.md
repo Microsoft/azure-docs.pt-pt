@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9fc6e57a7e002cd4ffcf62c7779fb2626ce9c839
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963801"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001462"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutorial: Adicionar variáveis ao modelo do Resource Manager
 
@@ -47,13 +47,13 @@ Você também está familiarizado com a função [resourcegroup](resource-group-
 
 A função [uniquestring](resource-group-template-functions-string.md#uniquestring) cria um valor de hash de 13 caracteres. O valor retornado é determinado pelos parâmetros que você passa. Para este tutorial, você usa a ID do grupo de recursos como a entrada para o valor de hash. Isso significa que você pode implantar esse modelo em grupos de recursos diferentes e obter um valor de cadeia de caracteres exclusivo diferente. No entanto, você obterá o mesmo valor se implantar no mesmo grupo de recursos.
 
-A função [concat](resource-group-template-functions-string.md#concat) usa valores e os combina. Para essa variável, ele usa uma cadeia de caracteres de um parâmetro e a cadeia de caracteres da função uniquestring e os combina em uma cadeia de caracteres.
+A função [concat](resource-group-template-functions-string.md#concat) usa valores e os combina. Para essa variável, ela usa a cadeia de caracteres do parâmetro e a cadeia de caracteres da função uniquestring e as combina em uma cadeia de caracteres.
 
-O parâmetro **storagePrefix** permite que você passe o prefixo que ajuda a identificar contas de armazenamento. Você pode criar sua própria convenção de nomenclatura que facilite a identificação das contas de armazenamento após a implantação de uma longa lista de recursos.
+O parâmetro **storagePrefix** permite que você passe um prefixo que ajuda a identificar contas de armazenamento. Você pode criar sua própria convenção de nomenclatura que facilite a identificação das contas de armazenamento após a implantação de uma longa lista de recursos.
 
 Por fim, observe que o nome de armazenamento agora está definido como a variável em vez de um parâmetro.
 
-## <a name="deploy-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 Vamos implantar o modelo. A implantação desse modelo é mais fácil do que os modelos anteriores, pois você fornece apenas o prefixo para o nome de armazenamento.
 

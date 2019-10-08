@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914671"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001394"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizar compilações de imagem de contêiner e manutenção com tarefas ACR
 
@@ -27,7 +27,7 @@ Os contêineres fornecem novos níveis de virtualização, isolando dependência
 
 As tarefas ACR dão suporte a vários cenários para criar e manter imagens de contêiner e outros artefatos. Consulte as seções a seguir neste artigo para obter detalhes.
 
-* **[Tarefa rápida](#quick-task)** – crie e envie por push uma única imagem de contêiner para um registro de contêiner sob demanda, no Azure, sem a necessidade de uma instalação de mecanismo do Docker local. Imagine `docker build` ,`docker push` na nuvem.
+* **[Tarefa rápida](#quick-task)** – crie e envie por push uma única imagem de contêiner para um registro de contêiner sob demanda, no Azure, sem a necessidade de uma instalação de mecanismo do Docker local. Considere `docker build`, `docker push` na nuvem.
 * **Tarefas disparadas automaticamente** – habilite um ou mais *gatilhos* para criar uma imagem:
   * **[Disparar na atualização do código-fonte](#trigger-task-on-source-code-update)** 
   * **[Disparar na atualização da imagem base](#automate-os-and-framework-patching)** 
@@ -44,7 +44,7 @@ O ciclo de desenvolvimento de loop interno, o processo iterativo de escrever có
 
 Antes de confirmar sua primeira linha de código, o recurso de [tarefa rápida](container-registry-tutorial-quick-task.md) de tarefas de ACR pode fornecer uma experiência de desenvolvimento integrada descarregando suas compilações de imagem de contêiner para o Azure. Com tarefas rápidas, você pode verificar suas definições de compilação automatizadas e detectar possíveis problemas antes de confirmar seu código.
 
-Usando o formato `docker build` conhecido, o comando [AZ ACR Build][az-acr-build] no CLI do Azure usa um [contexto](#context-locations) (o conjunto de arquivos a serem compilados), envia as tarefas de ACR e, por padrão, empurra a imagem interna para o registro após a conclusão.
+Usando o conhecido formato `docker build`, o comando [AZ ACR Build][az-acr-build] no CLI do Azure usa um [contexto](#context-locations) (o conjunto de arquivos a ser compilado), envia as tarefas de ACR e, por padrão, envia a imagem interna ao registro após a conclusão.
 
 Para obter uma introdução, consulte o guia de início rápido para [criar e executar uma imagem de contêiner](container-registry-quickstart-task-cli.md) no registro de contêiner do Azure.  
 
@@ -63,12 +63,12 @@ As tarefas ACR dão suporte aos seguintes gatilhos quando você define um reposi
 
 | Acionador | Habilitado por padrão |
 | ------- | ------------------ |
-| Consolidar | Sim |
+| Consolidação | Sim |
 | Solicitação pull | Não |
 
 Para configurar o gatilho, você fornece à tarefa um PAT (token de acesso pessoal) para definir o webhook no GitHub ou no repositório DevOps do Azure.
 
-Saiba como disparar compilações na confirmação do código-fonte no segundo tutorial de tarefas do ACR, automatizar compilações de [imagem de contêiner com tarefas de registro de contêiner do Azure](container-registry-tutorial-build-task.md).
+Saiba como disparar compilações na confirmação do código-fonte no segundo tutorial de tarefas do ACR, [automatizar compilações de imagem de contêiner com tarefas de registro de contêiner do Azure](container-registry-tutorial-build-task.md).
 
 ## <a name="automate-os-and-framework-patching"></a>Automatize a aplicação de patch do sistema operacional e da estrutura
 
@@ -78,7 +78,7 @@ As imagens de contêiner podem ser amplamente categorizadas em imagens de *base*
 
 Quando uma imagem do sistema operacional ou do App Framework é atualizada pelo mantenedor upstream, por exemplo, com um patch crítico de segurança do sistema operacional, você também deve atualizar suas imagens base para incluir a correção crítica. Cada imagem do aplicativo também deve ser recriada para incluir essas correções upstream agora incluídas na sua imagem base.
 
-Como as tarefas do ACR detectam dinamicamente as dependências da imagem base quando ele cria uma imagem de contêiner, ele pode detectar quando a imagem base de uma imagem de aplicativo é atualizada. Com uma [tarefa de compilação](container-registry-tutorial-base-image-update.md#create-a-task)pré-configurada, as tarefas de ACR recompilam **automaticamente cada imagem de aplicativo** para você. Com essa detecção e recriação automáticas, as tarefas ACR poupam o tempo e o esforço normalmente necessários para rastrear e atualizar manualmente cada uma das imagens de aplicativo que fazem referência à imagem base atualizada.
+Como as tarefas do ACR detectam dinamicamente as dependências da imagem base quando ele cria uma imagem de contêiner, ele pode detectar quando a imagem base de uma imagem de aplicativo é atualizada. Com uma [tarefa de compilação](container-registry-tutorial-base-image-update.md#create-a-task)pré-configurada, as tarefas de ACR **recompilam automaticamente cada imagem de aplicativo** para você. Com essa detecção e recriação automáticas, as tarefas ACR poupam o tempo e o esforço normalmente necessários para rastrear e atualizar manualmente cada uma das imagens de aplicativo que fazem referência à imagem base atualizada.
 
 Para compilações de imagem de um Dockerfile, uma tarefa ACR rastreia uma atualização de imagem base quando a imagem base está em um dos seguintes locais:
 
@@ -124,11 +124,12 @@ A tabela a seguir mostra alguns exemplos de locais de contexto com suporte para 
 | Branch mestre do GitHub | Arquivos dentro da ramificação mestre (ou outro padrão) de um repositório do GitHub.  | `https://github.com/gituser/myapp-repo.git` |
 | Branch do GitHub | Branch específico de um repositório GitHub.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Subpasta do GitHub | Arquivos dentro de uma subpasta em um repositório GitHub. O exemplo mostra a combinação de uma especificação de ramificação e subpasta. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Subpasta DevOps do Azure | Arquivos dentro de uma subpasta em um repositório do Azure. O exemplo mostra a combinação de especificação de ramificação e subpasta. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball remoto | Arquivos em um arquivo compactado em um servidor webremoto. | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>Plataformas de imagem
 
-Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64. Especifique a `--platform` marca para criar imagens do Windows ou imagens do Linux para outras arquiteturas. Especifique o sistema operacional e, opcionalmente, uma arquitetura com suporte no formato de sistema operacional `--platform Linux/arm`/arquitetura (por exemplo,). Para arquiteturas ARM, especifique opcionalmente uma variante no formato do sistema operacional/arquitetura/variante (por `--platform Linux/arm64/v8`exemplo,):
+Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64. Especifique a marca `--platform` para criar imagens do Windows ou imagens do Linux para outras arquiteturas. Especifique o sistema operacional e, opcionalmente, uma arquitetura com suporte no formato de sistema operacional/arquitetura (por exemplo, `--platform Linux/arm`). Para arquiteturas ARM, especifique opcionalmente uma variante no formato do sistema operacional/arquitetura/variante (por exemplo, `--platform Linux/arm64/v8`):
 
 | OS | Arquitetura|
 | --- | ------- | 
@@ -139,7 +140,7 @@ Por padrão, as tarefas ACR criam imagens para o SO Linux e a arquitetura AMD64.
 
 Cada execução de tarefa gera a saída de log que você pode inspecionar para determinar se as etapas da tarefa foram executadas com êxito. Se você usar o comando [AZ ACR Build](/cli/azure/acr#az-acr-build), [AZ ACR Run](/cli/azure/acr#az-acr-run)ou [AZ ACR Task execute](/cli/azure/acr/task#az-acr-task-run) para disparar a tarefa, a saída do log para a execução da tarefa será transmitida ao console e também será armazenada para recuperação posterior. Quando uma tarefa é disparada automaticamente, por exemplo, por uma confirmação de código-fonte ou uma atualização de imagem base, os logs de tarefa são armazenados somente. Exiba os logs de uma tarefa executada no portal do Azure ou use o comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) .
 
-Por padrão, os dados e logs para tarefas executadas em um registro são mantidos por 30 dias e, em seguida, limpos automaticamente. Se você quiser arquivar os dados para uma execução de tarefa, habilite o arquivamento usando o comando [AZ ACR Task Update-Run](/cli/azure/acr/task#az-acr-task-update-run) . O exemplo a seguir habilita o arquivamento para a tarefa executar *CF11* no registro myregistry.
+Por padrão, os dados e logs para tarefas executadas em um registro são mantidos por 30 dias e, em seguida, limpos automaticamente. Se você quiser arquivar os dados para uma execução de tarefa, habilite o arquivamento usando o comando [AZ ACR Task Update-Run](/cli/azure/acr/task#az-acr-task-update-run) . O exemplo a seguir habilita o arquivamento para a tarefa executar *CF11* no registro *myregistry*.
 
 ```azurecli
 az acr task update-run --registry myregistry --run-id cf11 --no-archive false

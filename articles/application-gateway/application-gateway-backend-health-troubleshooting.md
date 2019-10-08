@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: surmb
-ms.openlocfilehash: 8f90cc3b41eab1847b0d4483b92a282d46af765b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 71e1f8be2af5556d86996175e8a1ddbccc9c7de1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309295"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001664"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Solucionar problemas de integridade de back-end no gateway de aplicativo
 ==================================================
@@ -81,13 +81,13 @@ Depois que você receber um status de servidor back-end não íntegro para todos
 A mensagem exibida na coluna **detalhes** fornece informações mais detalhadas sobre o problema e, com base neles, você pode começar a solucionar o problema.
 
 > [!NOTE]
-> A solicitação de investigação padrão é enviada no formato de \<protocolo\>://127.0.0.1:\<Port\>/. Por exemplo, http://127.0.0.1:80 para uma investigação http na porta 80. Somente os códigos de status HTTP de 200 a 399 são considerados íntegros. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o gateway de aplicativo teste em um protocolo diferente, nome de host ou caminho e reconheça um código de status diferente como íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
+> A solicitação de investigação padrão é enviada no formato de \<protocol @ no__t-1://127.0.0.1: \<port @ no__t-3/. Por exemplo, http://127.0.0.1:80 para uma investigação http na porta 80. Somente os códigos de status HTTP de 200 a 399 são considerados íntegros. O protocolo e a porta de destino são herdados das configurações de HTTP. Se você quiser que o gateway de aplicativo teste em um protocolo diferente, nome de host ou caminho e reconheça um código de status diferente como íntegro, configure uma investigação personalizada e associe-a às configurações de HTTP.
 
 <a name="error-messages"></a>Mensagens de erro
 ------------------------
 #### <a name="backend-server-timeout"></a>Tempo limite do servidor de back-end
 
-**Mensagem:** O tempo gasto pelo back-end para responder à\'investigação de integridade do gateway de aplicativo é maior do que o limite de tempo na configuração de investigação.
+**Mensagem:** O tempo gasto pelo back-end para responder à investigação de integridade do Application Gateway @ no__t-0s é maior que o limite de tempo limite na configuração de investigação.
 
 **Faz** Depois que o gateway de aplicativo envia uma solicitação de investigação HTTP (S) para o servidor de back-end, ele aguarda uma resposta do servidor back-end por um período configurado. Se o servidor back-end não responder dentro do período configurado (o valor de tempo limite), ele será marcado como não íntegro até que ele comece a responder dentro do período de tempo limite configurado novamente.
 
@@ -131,7 +131,7 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 **Solução:** Se você receber esse erro, siga estas etapas:
 
-1.  Verifique se você pode se conectar ao servidor de back-end na porta mencionada nas configurações de HTTP usando um navegador ou o PowerShell. Por exemplo, execute o seguinte comando:`Test-NetConnection -ComputerName
+1.  Verifique se você pode se conectar ao servidor de back-end na porta mencionada nas configurações de HTTP usando um navegador ou o PowerShell. Por exemplo, execute o seguinte comando: `Test-NetConnection -ComputerName
     www.bing.com -Port 443`
 
 1.  Se a porta mencionada não for a porta desejada, insira o número da porta correto para que o gateway de aplicativo se conecte ao servidor de back-end
@@ -155,7 +155,7 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
     ```
 1.  Se você não encontrar problemas com NSG ou UDR, verifique o servidor back-end para problemas relacionados a aplicativos que estão impedindo clientes de estabelecer uma sessão TCP nas portas configuradas. Algumas coisas a serem verificadas:
 
-    a.  Abra um prompt de comando (Win + R\> -cmd), `netstat`digite e selecione Enter.
+    a.  Abra um prompt de comando (Win + R-\> cmd), insira `netstat` e selecione Enter.
 
     b.  Verifique se o servidor está escutando na porta configurada. Por exemplo:
     ```
@@ -168,15 +168,15 @@ Verifique também se algum NSG/UDR/firewall está bloqueando o acesso ao IP e à
 
 #### <a name="http-status-code-mismatch"></a>Incompatibilidade de código de status HTTP
 
-**Mensagem:** O código de status da\'resposta http s de back-end não correspondeu à configuração de investigação. Esperado: {HTTPStatusCode0} recebido: {HTTPStatusCode1}.
+**Mensagem:** O código de status da resposta HTTP do back-end @ no__t-0s não correspondeu à configuração de investigação. Esperado: {HTTPStatusCode0} recebido: {HTTPStatusCode1}.
 
-**Faz** Depois que a conexão TCP tiver sido estabelecida e um handshake SSL for feito (se o SSL estiver habilitado), o gateway de aplicativo enviará a investigação como uma solicitação HTTP GET para o servidor de back-end. Conforme descrito anteriormente, a \<investigação padrão será o protocolo\>://127.0.0.1:\<Port\>/e considerará os códigos de status de resposta no Rage 200 a 399 como íntegro. Se o servidor retornar qualquer outro código de status, ele será marcado como não íntegro com essa mensagem.
+**Faz** Depois que a conexão TCP tiver sido estabelecida e um handshake SSL for feito (se o SSL estiver habilitado), o gateway de aplicativo enviará a investigação como uma solicitação HTTP GET para o servidor de back-end. Conforme descrito anteriormente, a investigação padrão será \<protocol @ no__t-1://127.0.0.1: \<port @ no__t-3/, e considerará códigos de status de resposta no Rage 200 a 399 como íntegro. Se o servidor retornar qualquer outro código de status, ele será marcado como não íntegro com essa mensagem.
 
 **Solução:** Dependendo do código de resposta do servidor de back-end, você pode executar as etapas a seguir. Alguns dos códigos de status comuns estão listados aqui:
 
 | **Ao** | **Ações** |
 | --- | --- |
-| Incompatibilidade de código de status de investigação: 401 recebido | Verifique se o servidor back-end requer autenticação. As investigações do gateway de aplicativo não podem passar credenciais para autenticação neste momento. Permita que \"http 401\" em um código de status de investigação corresponda ou teste a um caminho em que o servidor não exija autenticação. | |
+| Incompatibilidade de código de status de investigação: 401 recebido | Verifique se o servidor back-end requer autenticação. As investigações do gateway de aplicativo não podem passar credenciais para autenticação neste momento. Permita que \"HTTP 401 @ no__t-1 em um código de status de investigação corresponda ou teste a um caminho em que o servidor não requer autenticação. | |
 | Incompatibilidade de código de status de investigação: 403 recebido | Acesso proibido. Verifique se o acesso ao caminho é permitido no servidor de back-end. | |
 | Incompatibilidade de código de status de investigação: 404 recebido | Página não encontrada. Verifique se o caminho do nome do host está acessível no servidor de back-end. Altere o nome do host ou o parâmetro de caminho para um valor acessível. | |
 | Incompatibilidade de código de status de investigação: 405 recebido | As solicitações de investigação para o gateway de aplicativo usam o método HTTP GET. Verifique se o servidor permite esse método. | |
@@ -189,7 +189,7 @@ Para criar uma investigação personalizada, siga [estas etapas](https://docs.mi
 
 #### <a name="http-response-body-mismatch"></a>Incompatibilidade de corpo de resposta HTTP
 
-**Mensagem:** O corpo da resposta\'http s de back-end não correspondeu à configuração de investigação. O corpo da resposta recebida não contém {String}.
+**Mensagem:** O corpo da resposta HTTP de back-end @ no__t-0s não correspondeu à configuração de investigação. O corpo da resposta recebida não contém {String}.
 
 **Faz** Ao criar uma investigação personalizada, você tem a opção de marcar um servidor de back-end como íntegro, combinando uma cadeia de caracteres do corpo da resposta. Por exemplo, você pode configurar o gateway de aplicativo para aceitar "não autorizado" como uma cadeia de caracteres para corresponder. Se a resposta do servidor back-end para a solicitação de investigação contiver a cadeia de caracteres **não autorizada**, ela será marcada como íntegra. Caso contrário, ele será marcado como não íntegro com esta mensagem.
 
@@ -218,7 +218,7 @@ Para que um certificado SSL seja confiável, esse certificado do servidor back-e
 
 1.  Insira `certmgr.msc` e selecione Enter. Você também pode procurar por Gerenciador de certificados no menu **Iniciar** .
 
-1.  Localize o certificado, normalmente em `\Certificates - Current User\\Personal\\Certificates\`e abra-o.
+1.  Localize o certificado, normalmente em `\Certificates - Current User\\Personal\\Certificates\`, e abra-o.
 
 1.  Selecione o certificado raiz e, em seguida, selecione **Exibir certificado**.
 
@@ -259,20 +259,22 @@ OpenSSL> s_client -connect 10.0.0.4:443 -servername www.example.com -showcerts
 ```
 Se a saída não mostrar a cadeia completa do certificado que está sendo retornado, exporte o certificado novamente com a cadeia completa, incluindo o certificado raiz. Configure esse certificado em seu servidor de back-end. 
 
-CONECTADO (00000188) \
-profundidade = 0 ou = controle de domínio validado, \*CN =. example.com \
-erro de verificação: num = 20: não é possível obter o certificado do emissor local \
-verificar retorno: 1 \
-profundidade = 0 ou = controle de domínio validado, \*CN =. example.com \
-verificar erro: num = 21: não é possível verificar o primeiro certificado \
-verificar retorno: 1 \
-\-\-\-\
-Cadeia de certificados \
- 0 s:/OU = controle de domínio validado/CN = *. example. com \
-   i:/C = US/St = Arizona/L = Scottsdale/O = GoDaddy. com, Inc./ou =http://certs.godaddy.com/repository//CN=Go Daddy Secure Certificate Authority-G2 \
-\-----INICIAR O-----DE CERTIFICADO \
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
-\----------DE CERTIFICADO FINAL
+```
+  CONNECTED(00000188)\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=20:unable to get local issuer certificate\
+  verify return:1\
+  depth=0 OU = Domain Control Validated, CN = \*.example.com\
+  verify error:num=21:unable to verify the first certificate\
+  verify return:1\
+  \-\-\-\
+  Certificate chain\
+   0 s:/OU=Domain Control Validated/CN=*.example.com\
+     i:/C=US/ST=Arizona/L=Scottsdale/O=GoDaddy.com, Inc./OU=http://certs.godaddy.com/repository//CN=Go Daddy Secure Certificate Authority - G2\
+  \-----BEGIN CERTIFICATE-----\
+  xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\
+  \-----END CERTIFICATE-----
+```
 
 #### <a name="backend-certificate-invalid-common-name-cn"></a>Nome comum inválido do certificado de back-end (CN)
 
@@ -317,7 +319,7 @@ Para Linux usando OpenSSL:
 
 #### <a name="backend-certificate-is-invalid"></a>O certificado de back-end é inválido
 
-**Mensagem:** O certificado de back-end é inválido. A data atual não está dentro \"do intervalo\" válido \"de e\" válido até a data do certificado.
+**Mensagem:** O certificado de back-end é inválido. A data atual não está dentro do \"Valid de @ no__t-1 e \"Valid para o intervalo de datas @ no__t-3 no certificado.
 
 **Faz** Cada certificado é fornecido com um intervalo de validade e a conexão HTTPS não será segura, a menos que o certificado SSL do servidor seja válido. Os dados atuais devem estar dentro do intervalo **válido de** e **válido para** . Se não for, o certificado será considerado inválido e isso criará um problema de segurança no qual o gateway de aplicativo marca o servidor de back-end como não íntegro.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: 0663e97dabe8b5f50ee9605f0bc9319c7a2aa13c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 356bfc28984ecc1bc6990c10378a3df155593e94
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201236"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996702"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da central de segurança para aumentar a segurança
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Ele fornece visibilidade e controle sobre as cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar os ataques cibernéticos em rápida evolução.
@@ -45,10 +45,10 @@ Para obter a camada Standard:
 4. Selecione **Standard** para atualizar.
 5. Clique em **Guardar**.
 
-(Os preços na imagem são apenas para fins de exemplo.) ![Preços da central de segurança](./media/security-center-pricing/get-standard.png)
+(Os preços na imagem são apenas para fins de exemplo.) 0Security-preço do centro de @no__t @ no__t-1
 
 > [!NOTE]
-> Para ativar todas as funcionalidades do Centro de Segurança, tem de aplicar o escalão de preço Standard à subscrição que contém as máquinas virtuais aplicáveis. A configuração dos preços para uma área de trabalho não ativa o acesso à VM just-in-time, os controlos de aplicação adaptáveis e as deteções de rede para os recursos do Azure.
+> Para ativar todas as funcionalidades do Centro de Segurança, tem de aplicar o escalão de preço Standard à subscrição que contém as máquinas virtuais aplicáveis. A configuração de preços para um espaço de trabalho não permite o acesso just-in-time à VM, controles de aplicativos adaptáveis e detecções de rede para recursos do Azure.
 >
 >
 
@@ -64,7 +64,7 @@ A central de segurança oferece proteção avançada contra ameaças e seguranç
 Neste artigo, você foi apresentado aos preços da central de segurança. Para saber mais sobre a segurança avançada da camada Standard e a proteção avançada contra ameaças, consulte:
 
 - [Deteção avançada de ameaças](security-center-threat-report.md)
-- [Controle de acesso de VM just in time](security-center-just-in-time.md)
+- [Controle de acesso da VM just-in-time](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

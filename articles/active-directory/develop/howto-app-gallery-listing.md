@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958659"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001747"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -36,7 +36,7 @@ Este artigo mostra como listar um aplicativo na Galeria de aplicativos Azure Act
 - Uma pesquisa rápida localiza seu aplicativo na galeria.
 - Os clientes do Azure AD gratuitos, básicos e Premium podem usar essa integração.
 - Os clientes mútuos recebem um tutorial de configuração passo a passo.
-- Os clientes que usam o sistema para SCIM (gerenciamento de identidade entre domínios) podem usar o provisionamento para o mesmo aplicativo.
+- Os clientes que usam o sistema para[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(gerenciamento de identidade entre domínios) podem usar o provisionamento para o mesmo aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

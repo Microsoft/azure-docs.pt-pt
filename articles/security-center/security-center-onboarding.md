@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201846"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996294"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Integração ao Standard da central de segurança do Azure para segurança aprimorada
 Atualize para a central de segurança Standard para aproveitar o gerenciamento de segurança aprimorado e a proteção contra ameaças para suas cargas de trabalho de nuvem híbrida.  Você pode experimentar o padrão gratuito. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/security-center/) da central de segurança para obter mais informações.
@@ -48,7 +48,7 @@ Para atualizar uma assinatura ou um espaço de trabalho para o Standard:
    -    Pode atualizar as subscrições e áreas de trabalho que não são elegíveis para avaliação.
    -    Pode selecionar as áreas de trabalho e subscrições elegíveis para iniciar a avaliação.
 3.  Clique em **Iniciar avaliação** para iniciar a avaliação nas subscrições selecionadas.
-  ![Selecionar assinatura](./media/security-center-onboarding/select-subscription.png)
+  assinatura ![Select @ no__t-1
 
 
    > [!NOTE]
@@ -111,7 +111,7 @@ Neste artigo, você aprendeu a integrar recursos do Azure e não Azure a fim de 
 
 - [Ativar a recolha de dados](security-center-enable-data-collection.md)
 - [Relatório de informações sobre ameaças](security-center-threat-report.md)
-- [Acesso à VM just in time](security-center-just-in-time.md)
+- [Acesso just-in-time à VM](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1ef6dd913958f963cb62b4014c09a47903831aa
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963850"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001477"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutorial: Usar modelos de início rápido do Azure
 
@@ -31,7 +31,7 @@ No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json)]
 
-Esse modelo funciona para implantar contas de armazenamento e planos do serviço de aplicativo, mas talvez você queira adicionar um site a ela. Você pode usar modelos predefinidos para descobrir rapidamente o JSON necessário para implantar um recurso.
+Esse modelo funciona para implantar contas de armazenamento e planos do serviço de aplicativo, mas talvez você queira adicionar um site a ele. Você pode usar modelos predefinidos para descobrir rapidamente o JSON necessário para implantar um recurso.
 
 ## <a name="find-a-template"></a>Localizar um modelo
 
@@ -50,7 +50,7 @@ Mescle o modelo de início rápido com o modelo existente:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
 
-O nome do webapp precisa ser exclusivo no Azure. Para evitar a existência de nomes duplicados, a variável **webAppPortalName** foi atualizada de **"webAppPortalName": "[Concat (Parameters (' webappname '), '-webapp ')]"** para **"webAppPortalName": "[Concat (Parameters (' webapp '), uniquestring (resourcegroup (). ID)] "** .
+O nome do WebApp deve ser exclusivo no Azure. Para evitar a existência de nomes duplicados, a variável **webAppPortalName** foi atualizada de **"webAppPortalName": "[Concat (Parameters (' webappname '), '-webapp ')]"** para **"webAppPortalName": "[Concat (Parameters (' webapp '), uniquestring (resourcegroup (). ID)] "** .
 
 Adicione uma vírgula no final da definição de `Microsoft.Web/serverfarms` para separar a definição de recurso da definição de `Microsoft.Web/sites`.
 

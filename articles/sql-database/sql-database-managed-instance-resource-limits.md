@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 74fd8abbe78395a75d9c0a49eb717fb8ceecd11e
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71935611"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982776"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Visão geral dos limites de recursos de instância gerenciada do banco de dados SQL
 
@@ -58,12 +58,15 @@ A quantidade de espaço OLTP na memória na camada de serviço [comercialmente c
 
 ## <a name="service-tier-characteristics"></a>Características da camada de serviço
 
-A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-service-tier-general-purpose.md) e [comercialmente crítico](sql-database-service-tier-business-critical.md). Essas camadas fornecem [recursos diferentes](sql-database-service-tiers-general-purpose-business-critical.md), conforme descrito na tabela a seguir:
+A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-service-tier-general-purpose.md) e [comercialmente crítico](sql-database-service-tier-business-critical.md). Essas camadas fornecem [recursos diferentes](sql-database-service-tiers-general-purpose-business-critical.md), conforme descrito na tabela a seguir.
+
+> [!Important]
+> Comercialmente Crítico camada de serviço fornece uma cópia interna adicional da instância (réplica secundária) que pode ser usada para a carga de trabalho somente leitura. Se você puder separar consultas de leitura/gravação e consultas de somente leitura/análise/relatório, você receberá duas vezes vCores e memória pelo mesmo preço. A réplica secundária pode atrasar alguns segundos atrás da instância primária, portanto, ela foi projetada para descarregar a carga de trabalho de relatório/análise que não precisa de um estado de dados atual exato. Na tabela a seguir, as **consultas somente leitura** são as consultas que são executadas na réplica secundária.
 
 | **Funcionalidade** | **Uso Geral** | **Comercialmente Crítico** |
 | --- | --- | --- |
-| Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 |
-| Memória máxima | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 20,4 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 20,4 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. |
+| Número de vCores @ no__t-0 | Gen4: 8, 16, 24<br/>Gen5 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Same número de vCores é dedicado para consultas somente leitura. |
+| Memória máxima | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 20,4 GB-408 GB (5.1 GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB-168 GB (7 GB/vCore)<br/>Gen5 20,4 GB-408 GB (5.1 GB/vCore) para consultas de leitura/gravação<br/>+ 20,4 GB adicionais-408 GB (5.1 GB/vCore) para consultas somente leitura.<br/>Adicione mais vCores para obter mais memória. |
 | Tamanho máximo de armazenamento de instância (reservado) | -2 TB para 4 vCores (somente Gen5)<br/>-8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5 <br/>-1 TB para 4, 8, 16 vCores<br/>-2 TB para 24 vCores<br/>-4 TB para 32, 40, 64, 80 vCores |
 | Tamanho máx. da base de dados | Até o tamanho da instância disponível no momento (máximo de 2 TB-8 TB, dependendo do número de vCores). | Até o tamanho da instância disponível no momento (máximo de 1 TB-4 TB, dependendo do número de vCores). |
 | Tamanho máximo de tempDB | Limitado a 24 GB/vCore (96-1.920 GB) e ao tamanho do armazenamento de instância disponível no momento.<br/>Adicione mais vCores para obter mais espaço de TempDB. | Até o tamanho do armazenamento de instância disponível no momento. O tamanho do arquivo de log de TempDB está limitado atualmente a 24 GB/vCore. |
@@ -71,11 +74,11 @@ A instância gerenciada tem duas camadas de serviço: [Uso geral](sql-database-s
 | Número máximo de arquivos de banco de dados por instância | Até 280, a menos que o limite de tamanho do armazenamento de instância ou [do espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 arquivos por banco de dados, a menos que o limite de tamanho do armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do arquivo de dados | Limitado ao tamanho de armazenamento da instância disponível no momento (máx. 2 TB-8 TB) e ao [espaço de alocação do armazenamento em disco Premium do Azure](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instância disponível no momento (até 1 TB-4 TB). |
 | Tamanho máximo do arquivo de log | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. | Limitado a 2 TB e tamanho de armazenamento de instância disponível no momento. |
-| IOPS de dados/log (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[Aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
+| IOPS de dados/log (aproximado) | Até 30-40 K IOPS por instância *, 500-7500 por arquivo<br/>\*[aumentar o tamanho do arquivo para obter mais IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Adicione mais vCores para obter melhor desempenho de e/s. |
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 22 MB/s | 4 MB/s por vCore<br/>Máximo de 48 MB/s |
-| Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Não limitado. |
+| Taxa de transferência de dados (aproximada) | 100-250 MB/s por arquivo<br/>\*[aumentar o tamanho do arquivo para obter melhor desempenho de e/s](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 MS |
-| OLTP dentro da memória | Não suportado | Disponível |
+| OLTP dentro da memória | Não suportado | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | [Réplicas somente leitura](sql-database-read-scale-out.md) | 0 | 1 (incluído no preço) |
 
@@ -139,9 +142,9 @@ A tabela a seguir mostra os **limites regionais padrão** para os tipos de assin
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional e Plataformas MSDN|2|32|
 
-\*No planejamento de implantações, leve em consideração que a camada de serviço de Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore do que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
+\* em implantações de planejamento, leve em consideração que a camada de serviço Comercialmente Crítico (BC) requer quatro (4) vezes mais capacidade de vCore que a camada de serviço de Uso Geral (GP). Por exemplo: 1 GP vCore = 1 unidade vCore e 1 BC vCore = 4 unidades vCore. Para simplificar a análise de consumo em relação aos limites padrão, resuma as unidades vCore em todas as sub-redes na região em que as instâncias gerenciadas são implantadas e compare os resultados com os limites de unidade de instância para o tipo de assinatura. O limite **máximo de unidades vCore** aplica-se a cada assinatura em uma região. Não há limite por sub-redes individuais, exceto que a soma de todos os vCores implantados em várias sub-redes deve ser menor ou igual ao **número máximo de unidades vCore**.
 
-\*\*Os limites de maior sub-rede e vCore estão disponíveis nas seguintes regiões: Leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
+\* @ no__t-1 sub-rede maior e limites de vCore estão disponíveis nas seguintes regiões: Leste da Austrália, leste dos EUA, leste dos EUA 2, Europa Setentrional, Sul EUA Central, Sudeste Asiático, Sul do Reino Unido, Europa Ocidental, oeste dos EUA 2.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>Obtendo uma cota maior para a instância gerenciada do SQL
 

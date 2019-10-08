@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: fce8c75dadbb255a357b85bf85049423f50d18ec
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338777"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996347"
 ---
 # <a name="working-with-security-policies"></a>Trabalhar com políticas de segurança
 
 Este artigo explica como as políticas de segurança são configuradas e como exibi-las na central de segurança. A central de segurança do Azure atribui automaticamente suas [políticas de segurança internas](security-center-policy-definitions.md) em cada assinatura que está integrada. Você pode configurá-los no [Azure Policy](../governance/policy/overview.md), que também permite que você defina políticas em grupos de gerenciamento e em várias assinaturas.
 
-Para obter instruções sobre como definir políticas usando o PowerShell, [consulte início rápido: Crie uma atribuição de política para identificar recursos sem conformidade usando o módulo](../governance/policy/assign-policy-powershell.md)Azure PowerShell.
+Para obter instruções sobre como definir políticas usando o PowerShell, consulte [Quickstart: Crie uma atribuição de política para identificar recursos sem conformidade usando o módulo Azure PowerShell @ no__t-0.
 
 >[!NOTE]
 > A central de segurança iniciou sua integração com o Azure Policy. Os clientes existentes serão migrados automaticamente para a nova iniciativa interna no Azure Policy, em vez das políticas de segurança anteriores na central de segurança. Essa alteração não afetará seus recursos ou ambiente, exceto a presença da nova iniciativa no Azure Policy.
@@ -225,15 +225,15 @@ Este exemplo mostra como remover uma atribuição:
 |Encriptação SQL |Monitorar banco de dados SQL não criptografado na central de segurança do Azure |sqlEncryptionMonitoringEffect| 
 |Auditoria do SQL |Monitorar banco de dados SQL não auditado na central de segurança do Azure |sqlAuditingMonitoringEffect|
 |Atualizações do sistema |Monitorar atualizações do sistema ausentes na central de segurança do Azure |systemUpdatesMonitoringEffect|
-|Encriptação do armazenamento |Auditoria de criptografia de blob ausente para contas de armazenamento |storageEncryptionMonitoringEffect|
-|Acesso à rede JIT |Monitorar o acesso possível de rede JIT (just in time) na central de segurança do Azure |jitNetworkAccessMonitoringEffect |
+|Encriptação do armazenamento |Auditar encriptação por blob em falta para contas de armazenamento |storageEncryptionMonitoringEffect|
+|Acesso à rede JIT |Monitorar um possível acesso JIT (just-in-time) de rede na central de segurança do Azure |jitNetworkAccessMonitoringEffect |
 |Controlos de aplicação adaptável |Monitorar a lista de permissões de aplicativo possíveis na central de segurança do Azure |adaptiveApplicationControlsMonitoringEffect|
 |Grupos de segurança de rede |Monitorar o acesso à rede permissivo na central de segurança do Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurações de segurança |Monitorar vulnerabilidades do sistema operacional na central de segurança do Azure |systemConfigurationsMonitoringEffect| 
-|Proteção de ponto final |Monitorar Endpoint Protection ausentes na central de segurança do Azure |endpointProtectionMonitoringEffect |
+|Proteção de ponto final |Monitorizar o Endpoint Protection em falta no Centro de Segurança do Azure |endpointProtectionMonitoringEffect |
 |Encriptação de discos |Monitorar discos de VM não criptografados na central de segurança do Azure |diskEncryptionMonitoringEffect|
-|Avaliação de vulnerabilidades |Monitorar vulnerabilidades de VM na central de segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
-|Firewall de aplicações Web |Monitorar aplicativo Web desprotegido na central de segurança do Azure |webApplicationFirewallMonitoringEffect |
+|Avaliação de vulnerabilidades |Monitorizar Vulnerabilidades de VM no Centro de Segurança do Azure |vulnerabilityAssessmentMonitoringEffect|
+|Firewall de aplicação Web |Monitorar aplicativo Web desprotegido na central de segurança do Azure |webApplicationFirewallMonitoringEffect |
 |Firewall da próxima geração |Monitorar pontos de extremidade de rede desprotegidos na central de segurança do Azure| |
 
 

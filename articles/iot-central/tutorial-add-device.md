@@ -9,26 +9,23 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 96b8090bd0e178be53cb49f42438951645def5d9
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 2673d0d2c1cb174316e99a79a10a67347e2bc031
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960499"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001344"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adicionar um dispositivo real à aplicação do Azure IoT Central
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-Este tutorial mostra como adicionar e configurar um dispositivo real à aplicação do Microsoft Azure IoT Central. 
-_* você não precisa de seu próprio dispositivo externo para concluir este tutorial. O "dispositivo real" será criado como um aplicativo codificado em execução no ambiente de linha de comando._ 
+Este tutorial mostra como adicionar e configurar um *dispositivo real* ao seu aplicativo Microsoft Azure IOT central. Neste tutorial, você codificará o dispositivo real usando o Node. js e executará o código em um computador desktop. Você não precisa de um dispositivo IoT separado, como um dispositivo Raspberry Pi ou MXChip IoT DevKit para concluir este tutorial.
 
 Este tutorial é constituído por duas partes:
 
 * Primeiro, como operador, vai aprender a adicionar e configurar um dispositivo real na aplicação do Azure IoT Central. No final desta parte, pode obter uma cadeia de ligação para utilizar na segunda parte.
 * Em seguida, como programador de dispositivos, vai obter informações sobre o código no dispositivo real. Vai adicionar a cadeia de ligação da primeira parte ao código de exemplo.
-
-
 
 Neste tutorial, ficará a saber como:
 
@@ -99,7 +96,7 @@ Os passos seguintes mostram como preparar o exemplo em [Node.js](https://nodejs.
 
    ![Página do dispositivo que mostra a ligação para informações de ligação](media/tutorial-add-device/connectionlink.png)
 
-1. Na página **conexão do dispositivo** , anote a **ID do escopo**, a **ID do dispositivo** e os valores de **chave primária** . Você usará esses valores posteriormente neste tutorial.
+1. Na página **conexão do dispositivo** , anote a **ID do escopo**, a **ID do dispositivo**e os valores de **chave primária** . Você usará esses valores posteriormente neste tutorial.
 
    ![Detalhes da ligação](media/tutorial-add-device/device-connect.png)
 

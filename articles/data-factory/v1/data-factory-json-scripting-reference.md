@@ -12,10 +12,10 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 69218cedcd5d775fe6e499086663aa124f6bfe25
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70736013"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Referência de script Azure Data Factory-JSON
@@ -1388,7 +1388,7 @@ Se você estiver copiando dados para um Azure Search índice, defina o **tipo de
 
 Para obter mais informações, consulte o artigo [conector Azure Search](data-factory-azure-search-connector.md#copy-activity-properties) .
 
-## <a name="azure-table-storage"></a>Armazenamento de Tabelas do Azure
+## <a name="azure-table-storage"></a>Table Storage do Azure
 
 ### <a name="linked-service"></a>Serviço ligado
 Há dois tipos de serviços vinculados: Serviço vinculado do armazenamento do Azure e serviço vinculado de SAS do armazenamento do Azure.
@@ -4743,7 +4743,7 @@ Para definir um conjunto de uma Web, defina o **tipo** do conjunto de um como **
 
 | Propriedade | Descrição | Necessário |
 |:--- |:--- |:--- |
-| type |tipo do conjunto de um. deve ser definido como **Webtable** |Sim |
+| type |Tipo do conjunto de um. deve ser definido como **Webtable** |Sim |
 | path |Uma URL relativa para o recurso que contém a tabela. |Não. Quando o caminho não for especificado, somente a URL especificada na definição de serviço vinculado será usada. |
 | index |O índice da tabela no recurso. Consulte a seção obter índice de uma tabela em uma página HTML para obter as etapas para obter o índice de uma tabela em uma página HTML. |Sim |
 

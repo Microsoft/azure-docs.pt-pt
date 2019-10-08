@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 407148dadb774c72ef252ba0044655c2e219985f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963752"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001493"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutorial: Adicionar parâmetros ao seu modelo do Resource Manager
 
@@ -33,7 +33,7 @@ No final do tutorial anterior, seu modelo tinha o seguinte JSON:
 
 Talvez você tenha notado que há um problema com esse modelo. O nome da conta de armazenamento é embutido em código. Você só pode usar esse modelo para implantar a mesma conta de armazenamento a cada vez. Para implantar uma conta de armazenamento com um nome diferente, você precisaria criar um novo modelo, que obviamente não é uma maneira prática de automatizar suas implantações.
 
-## <a name="make-template-reusable"></a>Tornar o modelo reutilizável
+## <a name="make-your-template-reusable"></a>Tornar seu modelo reutilizável
 
 Para tornar seu modelo reutilizável, vamos adicionar um parâmetro que você pode usar para passar um nome de conta de armazenamento. O JSON realçado no exemplo a seguir mostra o que mudou em seu modelo. O parâmetro **storagename** é identificado como uma cadeia de caracteres. O comprimento máximo é definido como 24 caracteres para evitar qualquer nome muito longo.
 
@@ -41,7 +41,7 @@ Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 Vamos implantar o modelo. O exemplo a seguir implanta o modelo com CLI do Azure ou PowerShell. Observe que você fornece o nome da conta de armazenamento como um dos valores no comando de implantação. Para o nome da conta de armazenamento, forneça o mesmo nome usado no tutorial anterior.
 
@@ -87,7 +87,7 @@ O modelo anterior sempre implantou uma conta de armazenamento Standard_LRS. Talv
 
 O parâmetro **storageSKU** tem um valor padrão. Esse valor é usado quando um valor não é especificado durante a implantação. Ele também tem uma lista de valores permitidos. Esses valores correspondem aos valores necessários para criar uma conta de armazenamento. Você não quer que os usuários do seu modelo transmitam SKUs que não funcionam.
 
-## <a name="redeploy-template"></a>Reimplementar o modelo
+## <a name="redeploy-the-template"></a>Reimplantar o modelo
 
 Você está pronto para implantar novamente. Como o SKU padrão é definido como **Standard_LRS**, você não precisa fornecer um valor para esse parâmetro.
 

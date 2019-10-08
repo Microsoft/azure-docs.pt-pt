@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: travisw
 ms.openlocfilehash: c676e98eb812a31d6fb8d7cc0f58929f803c868e
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70382069"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Início rápido: Criar um assistente virtual de voz-primeiro com o SDK de fala, UWP
@@ -39,7 +39,7 @@ Este início rápido requer:
 
 ## <a name="optional-get-started-fast"></a>Opcional: Comece rapidamente
 
-Este guia de início rápido descreverá, passo a passo, como fazer um aplicativo cliente se conectar ao bot habilitado para fala. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste guia de início rápido está disponível nos [exemplos](https://aka.ms/csspeech/samples) `quickstart` do SDK de fala na pasta.
+Este guia de início rápido descreverá, passo a passo, como fazer um aplicativo cliente se conectar ao bot habilitado para fala. Se você preferir se aprofundar diretamente no, o código-fonte completo e pronto para compilar usado neste guia de início rápido está disponível nos [exemplos do SDK de fala](https://aka.ms/csspeech/samples) na pasta `quickstart`.
 
 ## <a name="create-a-visual-studio-project"></a>Criar um projeto do Visual Studio
 
@@ -108,7 +108,7 @@ O modo de exibição de Design é atualizado para mostrar a interface do usuári
 
 Em seguida, você adiciona a fonte code-behind para que o aplicativo funcione conforme o esperado. A fonte code-behind inclui:
 
-- `using`instruções para os `Speech` namespaces e `Speech.Dialog`
+- instruções `using` para os namespaces `Speech` e `Speech.Dialog`
 - Uma implementação simples para garantir o acesso ao microfone, com fio a um manipulador de botão
 - Auxiliares básicos da interface do usuário para apresentar mensagens e erros no aplicativo
 - Um ponto de chegada para o caminho do código de inicialização que será preenchido posteriormente
@@ -117,7 +117,7 @@ Em seguida, você adiciona a fonte code-behind para que o aplicativo funcione co
 
 Para adicionar a origem code-behind, siga estas etapas:
 
-1. Em **Gerenciador de soluções**, abra o arquivo `MainPage.xaml.cs`de origem code-behind. (Está agrupado em `MainPage.xaml`.)
+1. No **Gerenciador de soluções**, abra o arquivo de origem code-behind `MainPage.xaml.cs`. (Está agrupado em `MainPage.xaml`.)
 
 1. Substitua o conteúdo do arquivo pelo seguinte trecho de código:
 
@@ -289,7 +289,7 @@ Para adicionar a origem code-behind, siga estas etapas:
     }
     ```
 
-1. Adicione o seguinte trecho de código ao corpo do método `InitializeDialogServiceConnector`de. Esse código cria o `DialogServiceConnector` com suas informações de assinatura.
+1. Adicione o seguinte trecho de código ao corpo do método de `InitializeDialogServiceConnector`. Esse código cria o `DialogServiceConnector` com as informações de sua assinatura.
 
     ```csharp
     // create a DialogServiceConfig by providing a bot secret key 
@@ -315,9 +315,9 @@ Para adicionar a origem code-behind, siga estas etapas:
    > [!NOTE]
    > Para obter informações sobre como configurar o bot e recuperar um segredo de canal, consulte a documentação do bot Framework para [o canal de fala de linha direta](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Substitua as cadeias `YourSpeechSubscriptionKey`de caracteres `YourServiceRegion` `YourChannelSecret`, e pelos seus próprios valores para o bot, a assinatura de fala e a [região](regions.md).
+1. Substitua as cadeias de caracteres `YourChannelSecret`, `YourSpeechSubscriptionKey` e `YourServiceRegion` por seus próprios valores para o bot, a assinatura de fala e a [região](regions.md).
 
-1. Acrescente o trecho de código a seguir ao final do corpo do método `InitializeDialogServiceConnector`de. Esse código configura manipuladores para eventos com os quais `DialogServiceConnector` conta com o para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações.
+1. Acrescente o trecho de código a seguir ao final do corpo do método de `InitializeDialogServiceConnector`. Esse código configura manipuladores para eventos que dependem de `DialogServiceConnector` para comunicar suas atividades de bot, resultados de reconhecimento de fala e outras informações.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -372,7 +372,7 @@ Para adicionar a origem code-behind, siga estas etapas:
     };
     ```
 
-1. Adicione o trecho de código a seguir ao corpo do `ListenButton_ButtonClicked` método `MainPage` na classe. Esse código configura `DialogServiceConnector` para escutar, pois você já estabeleceu a configuração e registrou os manipuladores de eventos.
+1. Adicione o trecho de código a seguir ao corpo do método `ListenButton_ButtonClicked` na classe `MainPage`. Esse código configura `DialogServiceConnector` para escutar, pois você já estabeleceu a configuração e registrou os manipuladores de eventos.
 
     ```csharp
     if (connector == null)
@@ -407,7 +407,7 @@ Para adicionar a origem code-behind, siga estas etapas:
 
 Agora você está pronto para criar e testar seu aplicativo.
 
-1. Na barra de menus, escolha **Compilar** > compilar**solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
+1. Na barra de menus, escolha **compilar** > **Compilar solução** para compilar o aplicativo. Agora o código deverá ser compilado sem erros.
 
 1. Escolha **depurar** > **Iniciar Depuração** (ou pressione **F5**) para iniciar o aplicativo. A janela **HelloWorld** é exibida.
 
@@ -421,7 +421,7 @@ Agora você está pronto para criar e testar seu aplicativo.
 <!--
     ![Successful bot response](media/voice-first-virtual-assistants/quickstart-cs-uwp-bot-successful-turn.png)
 -->
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Create and deploy a basic bot](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0) (Criar e implementar um bot básico)

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 4a3f37c232fcd7a0fcbdac051ed36916ef5c2868
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 35f11ee9bce4dc7c68e12749f69d2f2e4253d4bc
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326667"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996241"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usandoC#
 
@@ -38,40 +38,50 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
 
 1. Instale o [pacote NuGet Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
 
+## <a name="authentication"></a>Authentication
+Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter o `Directory (tenant) ID`, `Application ID` e `Client Secret`.
+
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster de Data Explorer do Azure
 
 1. Crie seu cluster usando o seguinte código:
 
     ```csharp
-    var resourceGroupName = "testrg";
-    var clusterName = "mykustocluster";
-    var location = "Central US";
-    var sku = new AzureSku("D13_v2", 5);
-    var cluster = new Cluster(location, sku);
-
-    var authenticationContext = new AuthenticationContext("https://login.windows.net/{tenantName}");
-    var credential = new ClientCredential(clientId: "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx", clientSecret: "xxxxxxxxxxxxxx");
+    var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
+    var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
+    var clientSecret = "xxxxxxxxxxxxxx";//Client Secret
+    var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+    var authenticationContext = new AuthenticationContext($"https://login.windows.net/{tenantId}");
+    var credential = new ClientCredential(clientId, clientSecret);
     var result = await authenticationContext.AcquireTokenAsync(resource: "https://management.core.windows.net/", clientCredential: credential);
 
     var credentials = new TokenCredentials(result.AccessToken, result.AccessTokenType);
 
     var kustoManagementClient = new KustoManagementClient(credentials)
     {
-        SubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
+        SubscriptionId = subscriptionId
     };
 
-    kustoManagementClient.Clusters.CreateOrUpdate(resourceGroupName, clusterName, cluster);
+    var resourceGroupName = "testrg";
+    var clusterName = "mykustocluster";
+    var location = "Central US";
+    var skuName = "Standard_D13_v2";
+    var tier = "Standard";
+    var capacity = 5;
+    var sku = new AzureSku(skuName, tier, capacity);
+    var cluster = new Cluster(location, sku);
+    await kustoManagementClient.Clusters.CreateOrUpdateAsync(resourceGroupName, clusterName, cluster);
     ```
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
    | clusterName | *mykustocluster* | O nome desejado do cluster.|
-   | sku | *D13_v2* | A SKU que será usada para o cluster. |
+   | skuName | *Standard_D13_v2* | A SKU que será usada para o cluster. |
+   | tier | *Standard* | A camada de SKU. |
+   | capacidade | *automática* | O número de instâncias do cluster. |
    | resourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
 
-    Há parâmetros opcionais adicionais que você pode usar, como a capacidade do cluster.
-
-1. Definir [suas credenciais](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+    > [!NOTE]
+    > **Criar um cluster** é uma operação de execução demorada, portanto, é altamente recomendável usar CreateOrUpdateAsync, em vez de CreateOrUpdate. 
 
 1. Execute o seguinte comando para verificar se o cluster foi criado com êxito:
 
@@ -79,7 +89,7 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
-Se o resultado contiver `ProvisioningState` com o `Succeeded` valor, o cluster foi criado com êxito.
+Se o resultado contiver `ProvisioningState` com o valor de `Succeeded`, o cluster foi criado com êxito.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar o banco de dados no cluster de Data Explorer do Azure
 
@@ -91,7 +101,7 @@ Se o resultado contiver `ProvisioningState` com o `Succeeded` valor, o cluster f
     var databaseName = "mykustodatabase";
     var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
-    kustoManagementClient.Databases.CreateOrUpdate(resourceGroupName, clusterName, databaseName, database);
+    await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
 
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
@@ -100,7 +110,7 @@ Se o resultado contiver `ProvisioningState` com o `Succeeded` valor, o cluster f
    | databaseName | *mykustodatabase* | O nome do seu banco de dados.|
    | resourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
    | softDeletePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
-   | HotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |
+   | hotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |
 
 2. Execute o seguinte comando para ver o banco de dados que você criou:
 

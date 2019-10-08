@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc633780d8b816d8fc2e313bb1955a5719979efe
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240874"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000327"
 ---
 # <a name="what-is-passwordless"></a>O que é o modo sem palavra-passe?
 
@@ -28,7 +28,7 @@ A autenticação multifator (MFA) é uma ótima maneira de proteger sua organiza
 
 Cada organização tem necessidades diferentes quando se trata de autenticação. Atualmente, a Microsoft oferece o Windows Hello para nossos computadores Windows. Estamos adicionando as chaves de segurança Microsoft Authenticator aplicativo e FIDO2 à família de senha.
 
-## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator aplicativo
+## <a name="microsoft-authenticator-app"></a>Aplicação Microsoft Authenticator
 
 Permitir que o telefone do funcionário se torne um método de autenticação com senha. Talvez você já esteja usando o aplicativo Microsoft Authenticator como uma opção de autenticação multifator conveniente, além de uma senha. Mas agora ele está disponível como uma opção sem senha.
 
@@ -62,10 +62,10 @@ Os provedores a seguir oferecem chaves de segurança FIDO2 de fatores forma dife
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
 | HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
-| Ensurity | [https://ensurity.com/contact-us.html](https://ensurity.com/contact-us.html) |
+| Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
-Se você for um fornecedor e quiser obter seu dispositivo nesta lista, entre em contato [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)com.
+Se você for um fornecedor e quiser obter seu dispositivo na lista, entre em contato com [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com).
 
 As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
 
@@ -78,7 +78,7 @@ As chaves de segurança do FIDO2 são uma ótima opção para empresas que são 
    - Microsoft Authenticator aplicativo: Funcionará em cenários em que a autenticação do Azure AD é usada, inclusive em todos os navegadores, durante a instalação do OOBE (pronto para uso) do Windows e com aplicativos móveis integrados em qualquer sistema operacional.
    - Chaves de segurança: Funcionará na tela de bloqueio para o Windows 10 versão 1809 ou superior e a Web em navegadores com suporte, como o Microsoft Edge.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Habilitar as opções de passwordlesss de chave de segurança do FIDO2 em sua organização](howto-authentication-passwordless-security-key.md)
 

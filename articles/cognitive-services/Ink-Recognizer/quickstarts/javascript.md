@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 5e3b97faaed84f2c07ea70ddb73bd8e8c9efa71d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212659"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996907"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Início rápido: Reconhecer tinta digital com a API REST do reconhecedor de tinta e o JavaScript
 
@@ -34,12 +34,13 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
 - Um navegador da Web
 - Os dados de traço de tinta de exemplo para este guia de início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
+### <a name="create-an-ink-recognizer-resource"></a>Criar um recurso de reconhecimento de tinta
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+[!INCLUDE [creating an ink recognizer resource](../includes/setup-instructions.md)]
 
 ## <a name="create-a-new-application"></a>Criar uma nova aplicação
 
-1. Em seu IDE ou editor favorito, crie um novo `.html` arquivo. Em seguida, adicione o HTML básico a ele para o código que adicionaremos mais tarde.
+1. Em seu IDE ou editor favorito, crie um novo arquivo `.html`. Em seguida, adicione o HTML básico a ele para o código que adicionaremos mais tarde.
     
     ```html
     <!DOCTYPE html>
@@ -56,9 +57,9 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
     </html>
     ```
 
-2. Dentro da `<body>` marca, adicione o seguinte HTML:
+2. Na marca `<body>`, adicione o seguinte HTML:
     1. Duas áreas de texto para exibir a solicitação e a resposta JSON.
-    2. Um botão para chamar a `recognizeInk()` função que será criada posteriormente.
+    2. Um botão para chamar a função `recognizeInk()` que será criada posteriormente.
     
     ```HTML
     <!-- <body>-->
@@ -74,11 +75,11 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
 
 ## <a name="load-the-example-json-data"></a>Carregar os dados JSON de exemplo
 
-1. Dentro da `<script>` marca, crie uma variável para o sampleJson. Em seguida, crie uma função `openFile()` JavaScript denominada que abra um explorador de arquivos para que você possa selecionar o arquivo JSON. Quando o `Recognize ink` botão for clicado, ele chamará essa função e começará a ler o arquivo.
-2. Use a `FileReader` `onload()` função de um objeto para processar o arquivo de forma assíncrona. 
-    1. Substitua quaisquer `\n` caracteres `\r` ou no arquivo por uma cadeia de caracteres vazia. 
+1. Na marca `<script>`, crie uma variável para o sampleJson. Em seguida, crie uma função JavaScript denominada `openFile()` que abre um explorador de arquivos para que você possa selecionar o arquivo JSON. Quando o botão `Recognize ink` for clicado, ele chamará essa função e começará a ler o arquivo.
+2. Use uma função `onload()` do objeto `FileReader` para processar o arquivo de forma assíncrona. 
+    1. Substitua os caracteres `\n` ou `\r` no arquivo por uma cadeia de caracteres vazia. 
     2. Use `JSON.parse()` para converter o texto em JSON válido
-    3. Atualize a `request` caixa de texto no aplicativo. Use `JSON.stringify()` para formatar a cadeia de caracteres JSON. 
+    3. Atualize a caixa de texto `request` no aplicativo. Use `JSON.stringify()` para formatar a cadeia de caracteres JSON. 
     
     ```javascript
     var sampleJson = "";
@@ -97,7 +98,7 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
 
 ## <a name="send-a-request-to-the-ink-recognizer-api"></a>Enviar uma solicitação para a API do reconhecedor de tinta
 
-1. Dentro da `<script>` marca, crie uma função chamada `recognizeInk()`. Essa função chamará posteriormente a API e atualizará a página com a resposta. Adicione o código das etapas a seguir nessa função. 
+1. Na marca `<script>`, crie uma função chamada `recognizeInk()`. Essa função chamará posteriormente a API e atualizará a página com a resposta. Adicione o código das etapas a seguir nessa função. 
         
     ```javascript
     function recognizeInk() {
@@ -105,18 +106,17 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
     }
     ```
 
-    1. Crie variáveis para a URL do ponto de extremidade, a chave de assinatura e o JSON de exemplo. Em seguida, `XMLHttpRequest` crie um objeto para enviar a solicitação de API. 
+    1. Crie variáveis para a URL do ponto de extremidade, a chave de assinatura e o JSON de exemplo. Em seguida, crie um objeto `XMLHttpRequest` para enviar a solicitação de API. 
         
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
         // Your endpoint can be found in the Azure portal. For example: "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-        var SERVER_ADDRESS = "YOUR-SUBSCRIPTION-URL";
+        var SERVER_ADDRESS = process.env["INK_RECOGNITION_ENDPOINT"];
         var ENDPOINT_URL = SERVER_ADDRESS + "/inkrecognizer/v1.0-preview/recognize";
-        // Replace the subscriptionKey string value with your valid subscription key.
-        var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
+        var SUBSCRIPTION_KEY = process.env["INK_RECOGNITION_SUBSCRIPTION_KEY"];
         var xhttp = new XMLHttpRequest();
         ```
-    2. Crie a função de retorno para `XMLHttpRequest` o objeto. Essa função analisará a resposta da API de uma solicitação bem-sucedida e a exibirá no aplicativo. 
+    2. Crie a função de retorno para o objeto `XMLHttpRequest`. Essa função analisará a resposta da API de uma solicitação bem-sucedida e a exibirá no aplicativo. 
             
         ```javascript
         function returnFunction(xhttp) {
@@ -133,7 +133,7 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
         }
         ```
 
-    4. Crie uma função para a propriedade do `onreadystatechange` objeto de solicitação. Quando o estado de preparação do objeto de solicitação for alterado, as funções de retorno e de erro acima serão aplicadas.
+    4. Crie uma função para a propriedade `onreadystatechange` do objeto de solicitação. Quando o estado de preparação do objeto de solicitação for alterado, as funções de retorno e de erro acima serão aplicadas.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -147,7 +147,7 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
         };
         ```
     
-    5. Enviar a solicitação de API. Adicione sua chave de assinatura ao `Ocp-Apim-Subscription-Key` cabeçalho e `content-type` defina como`application/json`
+    5. Enviar a solicitação de API. Adicione sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key` e defina o `content-type` como `application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

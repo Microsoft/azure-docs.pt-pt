@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033328"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001706"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatizar o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory
 
@@ -56,18 +56,15 @@ Algumas motivações comuns para usar esse recurso incluem:
 
 O **serviço de provisionamento do Azure ad** provisiona usuários para aplicativos SaaS e outros sistemas conectando-se aos pontos de extremidade da API de gerenciamento de usuários fornecidos por cada fornecedor de aplicativos. Esses pontos de extremidade da API de gerenciamento de usuários permitem que o Azure AD crie, atualize e remova programaticamente usuários. Para os aplicativos selecionados, o serviço de provisionamento também pode criar, atualizar e remover objetos adicionais relacionados à identidade, como grupos e funções.
 
-![](./media/user-provisioning/provisioning0.PNG)
-Serviço*de provisionamento do Azure ad Figura 1: O serviço de provisionamento do Azure AD*
+Serviço de provisionamento do AD ![Azure @ no__t-1 @ no__t-2Figure 1: O serviço de provisionamento do Azure AD @ no__t-0
 
-![Fluxo de trabalho](./media/user-provisioning/provisioning1.PNG)
-*de provisionamento de usuário de saída Figura 2: Fluxo de trabalho de provisionamento de usuário "de saída" do Azure AD para aplicativos SaaS populares*
+fluxo de trabalho de provisionamento de usuário do @no__t 0Outbound @ no__t-1 @ no__t-2Figure 2: Fluxo de trabalho de provisionamento de usuário "de saída" do Azure AD para aplicativos SaaS populares @ no__t-0
 
-![Fluxo de trabalho](./media/user-provisioning/provisioning2.PNG)
-*de provisionamento de usuário de entrada Figura 3: Fluxo de trabalho de provisionamento de usuário "de entrada" de aplicativos de gerenciamento de capital humano (HCM) populares para Azure Active Directory e o Windows Server Active Directory*
+fluxo de trabalho de provisionamento de usuário do @no__t 0Inbound @ no__t-1 @ no__t-2Figure 3: Fluxo de trabalho de provisionamento de usuário "de entrada" de aplicativos de gerenciamento de capital humano (HCM) populares para Azure Active Directory e o Windows Server Active Directory @ no__t-0
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quais aplicativos e sistemas posso usar com o provisionamento automático de usuário do Azure AD?
 
-O Azure AD apresenta suporte integrado para muitos sistemas de recursos humanos e aplicativos SaaS populares e suporte genérico para aplicativos que implementam partes específicas do padrão SCIM 2,0.
+O Azure AD apresenta suporte integrado para muitos sistemas de recursos humanos e aplicativos SaaS populares e suporte genérico para aplicativos que implementam partes específicas do [padrão SCIM 2,0](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
 ### <a name="pre-integrated-applications"></a>Aplicativos previamente integrados
 
@@ -93,7 +90,7 @@ Use o portal de Azure Active Directory para configurar o serviço de provisionam
 1. Escolha **+ novo aplicativo** para adicionar um aplicativo. Adicione um dos seguintes, dependendo do seu cenário:
 
    - A opção **Adicionar seu próprio aplicativo** dá suporte a integrações scim de desenvolvimento personalizado.
-   - Todos os aplicativos na seção **Adicionar da Galeria** > **aplicativos em destaque** dão suporte ao provisionamento automático. Consulte a [lista de tutoriais de aplicativos para o provisionamento de usuários](../saas-apps/tutorial-list.md) para outros.
+   - Todos os aplicativos na seção **Adicionar da galeria** > **aplicativos em destaque** dão suporte ao provisionamento automático. Consulte a [lista de tutoriais de aplicativos para o provisionamento de usuários](../saas-apps/tutorial-list.md) para outros.
 
 1. Forneça todos os detalhes e selecione **Adicionar**. O novo aplicativo é adicionado à lista de aplicativos empresariais e é aberto na tela de gerenciamento de aplicativos.
 1. Selecione **provisionamento** para gerenciar as configurações de provisionamento de conta de usuário para o aplicativo.

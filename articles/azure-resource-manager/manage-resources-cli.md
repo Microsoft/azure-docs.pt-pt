@@ -1,6 +1,6 @@
 ---
-title: Gerir recursos do Azure com a CLI do Azure | Documentos da Microsoft
-description: Utilize a CLI do Azure e Azure Resource Manager para gerir os recursos.
+title: Gerenciar recursos do Azure usando o CLI do Azure | Microsoft Docs
+description: Use CLI do Azure e o gerenciamento de recursos do Azure para gerenciar seus recursos.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,29 +8,29 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 3293d08f63cf573c7833fae5dd15bfe3119fd6c7
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 78dd51c023bc46ed09219acc3df7e4ee7006ac2b
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206519"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001546"
 ---
-# <a name="manage-azure-resources-by-using-azure-cli"></a>Gerir recursos do Azure com a CLI do Azure
+# <a name="manage-azure-resources-by-using-azure-cli"></a>Gerenciar recursos do Azure usando o CLI do Azure
 
-Saiba como utilizar a CLI do Azure com [do Azure Resource Manager](resource-group-overview.md) para gerir os recursos do Azure. Para gerir grupos de recursos, veja [grupos de recursos de gerir o Azure com CLI do Azure](./manage-resource-groups-cli.md).
+Saiba como usar CLI do Azure com [Azure Resource Manager](resource-group-overview.md) para gerenciar os recursos do Azure. Para gerenciar grupos de recursos, consulte [gerenciar grupos de recursos do Azure usando CLI do Azure](./manage-resource-groups-cli.md).
 
-Outros artigos sobre a gestão de recursos:
+Outros artigos sobre o gerenciamento de recursos:
 
-- [Gerir recursos do Azure com o portal do Azure](./manage-resources-portal.md)
-- [Gerir recursos do Azure com o Azure PowerShell](./manage-resources-powershell.md)
+- [Gerenciar recursos do Azure usando o portal do Azure](./manage-resources-portal.md)
+- [Gerenciar recursos do Azure usando o Azure PowerShell](./manage-resources-powershell.md)
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>Implementar recursos no grupo de recursos existente
+## <a name="deploy-resources-to-an-existing-resource-group"></a>Implantar recursos em um grupo de recursos existente
 
-Pode implementar recursos do Azure diretamente com o Azure PowerShell ou implementar um modelo do Resource Manager para criar recursos do Azure.
+Você pode implantar recursos do Azure diretamente usando Azure PowerShell ou implantar um modelo do Resource Manager para criar recursos do Azure.
 
-### <a name="deploy-a-resource"></a>Implementar um recurso
+### <a name="deploy-a-resource"></a>Implantar um recurso
 
-O script seguinte cria uma conta de armazenamento.
+O script a seguir cria uma conta de armazenamento.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -43,9 +43,9 @@ az storage account create --resource-group $resourceGroupName --name $storageAcc
 az storage account show --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
-### <a name="deploy-a-template"></a>Implementar um modelo
+### <a name="deploy-a-template"></a>Implantar um modelo
 
-O seguinte script cria implementar um modelo de início rápido para criar uma conta de armazenamento. Para obter mais informações, consulte [início rápido: Criar modelos Azure Resource Manager com o Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+O script a seguir cria uma implantação de um modelo de início rápido para criar uma conta de armazenamento. Para obter mais informações, consulte [Quickstart: Crie modelos de Azure Resource Manager usando Visual Studio Code @ no__t-0.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -55,19 +55,19 @@ read location &&
 az group deployment create --resource-group $resourceGroupName --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-Para obter mais informações, consulte [implementar recursos com modelos do Resource Manager e a CLI do Azure](./resource-group-template-deploy-cli.md).
+Para obter mais informações, consulte [implantar recursos com modelos e CLI do Azure do Resource Manager](./resource-group-template-deploy-cli.md).
 
-## <a name="deploy-a-resource-group-and-resources"></a>Implementar um grupo de recursos e recursos
+## <a name="deploy-a-resource-group-and-resources"></a>Implantar um grupo de recursos e recursos
 
-Pode criar um grupo de recursos e implementar recursos no grupo. Para obter mais informações, consulte [criar o grupo de recursos e implementar recursos](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Você pode criar um grupo de recursos e implantar recursos no grupo. Para obter mais informações, consulte [Criar grupo de recursos e implantar recursos](./deploy-to-subscription.md#resource-group-and-resources).
 
-## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Implementar recursos em várias subscrições ou grupos de recursos
+## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Implantar recursos em várias assinaturas ou grupos de recursos
 
-Normalmente, implementa todos os recursos no seu modelo para um grupo de recursos. No entanto, existem cenários onde pretende implementar um conjunto de recursos em conjunto, mas colocá-los em diferentes grupos de recursos ou subscrições. Para obter mais informações, consulte [recursos do Azure implementar a várias subscrições ou grupos de recursos](./resource-manager-cross-resource-group-deployment.md).
+Normalmente, você implanta todos os recursos em seu modelo em um único grupo de recursos. No entanto, há cenários em que você deseja implantar um conjunto de recursos juntos, mas colocá-los em diferentes grupos de recursos ou assinaturas. Para obter mais informações, consulte [implantar recursos do Azure em várias assinaturas ou grupos de recursos](./resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="delete-resources"></a>Eliminar recursos
 
-O script seguinte mostra como eliminar uma conta de armazenamento.
+O script a seguir mostra como excluir uma conta de armazenamento.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -77,11 +77,11 @@ read storageAccountName &&
 az storage account delete --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
-Para obter mais informações sobre como o Azure Resource Manager ordena a eliminação de recursos, consulte [eliminação do grupo de recursos do Azure Resource Manager](./resource-group-delete.md).
+Para obter mais informações sobre como Azure Resource Manager ordena a exclusão de recursos, consulte [Azure Resource Manager exclusão de grupo de recursos](./resource-group-delete.md).
 
 ## <a name="move-resources"></a>Mover recursos
 
-O script seguinte mostra como remover uma conta de armazenamento de um grupo de recursos para outro grupo de recursos.
+O script a seguir mostra como remover uma conta de armazenamento de um grupo de recursos para outro grupo de recursos.
 
 ```azurecli-interactive
 echo "Enter the source Resource Group name:" &&
@@ -98,9 +98,9 @@ Para obter mais informações, consulte [Mover recursos para um novo grupo de re
 
 ## <a name="lock-resources"></a>Bloquear recursos
 
-Bloqueio evita que outros utilizadores na sua organização acidentalmente eliminem ou modifiquem recursos críticos, como o recurso, grupo de recursos ou subscrição do Azure. 
+O bloqueio impede que outros usuários em sua organização excluam ou modifiquem acidentalmente recursos críticos, como assinatura do Azure, grupo de recursos ou recurso. 
 
-O seguinte script bloqueia uma conta de armazenamento, pelo que não é possível eliminar a conta.
+O script a seguir bloqueia uma conta de armazenamento para que a conta não possa ser excluída.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -110,7 +110,7 @@ read storageAccountName &&
 az lock create --name LockSite --lock-type CanNotDelete --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts 
 ```
 
-O script seguinte obtém todos os bloqueios para uma conta de armazenamento:
+O script a seguir obtém todos os bloqueios para uma conta de armazenamento:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -120,7 +120,7 @@ read storageAccountName &&
 az lock list --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --parent ""
 ```
 
-O script seguinte elimina um bloqueio de uma conta de armazenamento:
+O script a seguir exclui um bloqueio de uma conta de armazenamento:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -135,15 +135,15 @@ Para obter mais informações, consulte [Bloquear recursos com o Azure Resource 
 
 ## <a name="tag-resources"></a>Etiquetar recursos
 
-Ajuda a organizar logicamente o seu grupo de recursos e recursos de marcação. Para obter informações, consulte [utilizar etiquetas para organizar os recursos do Azure](./resource-group-using-tags.md#azure-cli).
+A marcação ajuda a organizar o grupo de recursos e os recursos logicamente. Para obter informações, consulte [usando marcas para organizar os recursos do Azure](./resource-group-using-tags.md#azure-cli).
 
 ## <a name="manage-access-to-resources"></a>Gerir o acesso aos recursos
 
-[O controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) é a forma de gerir o acesso a recursos no Azure. Para obter mais informações, consulte [gerir o acesso com RBAC e a CLI do Azure](../role-based-access-control/role-assignments-cli.md).
+[O controlo de acesso baseado em funções (RBAC)](../role-based-access-control/overview.md) é a forma de gerir o acesso a recursos no Azure. Para obter mais informações, consulte [gerenciar o acesso usando RBAC e CLI do Azure](../role-based-access-control/role-assignments-cli.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter o Azure Resource Manager, veja [descrição geral do Azure Resource Manager](./resource-group-overview.md).
-- Para obter a sintaxe do modelo do Resource Manager, veja [compreender a estrutura e a sintaxe de modelos Azure Resource Manager](./resource-group-authoring-templates.md).
-- Para saber como desenvolver modelos, veja a [tutoriais passo a passo](/azure/azure-resource-manager/).
-- Para ver os esquemas de modelo do Azure Resource Manager, consulte [referência de modelo](/azure/templates/).
+- Para saber Azure Resource Manager, consulte [Azure Resource Manager visão geral](./resource-group-overview.md).
+- Para saber mais sobre a sintaxe do modelo do Resource Manager, consulte [entender a estrutura e a sintaxe dos modelos de Azure Resource Manager](./resource-group-authoring-templates.md).
+- Para saber como desenvolver modelos, consulte os tutoriais passo a [passo](/azure/azure-resource-manager/).
+- Para exibir os esquemas de modelo de Azure Resource Manager, consulte [referência de modelo](/azure/templates/).

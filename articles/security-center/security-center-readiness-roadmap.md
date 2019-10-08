@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200977"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996686"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Plano de Preparação do Centro de Segurança do Azure
 Este documento fornece um plano de preparação que irá ajudá-lo a começar a utilizar o Centro de Segurança do Azure.
@@ -89,23 +89,23 @@ Artigos
 
 ## <a name="advanced-cloud-defense"></a>Defesa de cloud avançada
 
-As VMs do Azure podem tirar partido das capacidades avançadas de defesa da cloud no Centro de Segurança. Estas capacidades incluem acesso à máquina virtual (VM) just-in-time e controlos de aplicação adaptáveis.
+As VMs do Azure podem tirar partido das capacidades avançadas de defesa da cloud no Centro de Segurança. Esses recursos incluem o acesso à VM (máquina virtual) just-in-time e os controles de aplicativo adaptáveis.
 
 Utilize os seguintes recursos para aprender a utilizar estas capacidades no Centro de Segurança.
 
 Os meus vídeos  
-* [Centro de Segurança do Azure – acesso de VM Just-in-Time](https://youtu.be/UOQb2FcdQnU)
+* [Central de segurança do Azure – acesso à VM just-in-time](https://youtu.be/UOQb2FcdQnU)
 * [Centro de Segurança do Azure - Controlos de Aplicação Adaptáveis](https://youtu.be/wWWekI1Y9ck)
 
 Artigos    
-* [Gerir o acesso da máquina virtual com just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Gerenciar o acesso à máquina virtual usando just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Controlos de Aplicação Adaptáveis do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Atividades práticas
 
 * [Laboratório prático do Centro de Segurança](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Playbook de recomendações da Firewall de Aplicações Web (WAF) no Centro de Segurança](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Manual de Procedimentos do Centro de Segurança do Azure: Alertas de segurança](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Manual de Procedimentos do Centro de Segurança do Azure: Alertas de segurança @ no__t-0
 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Página de Documentação do Centro de Segurança](https://docs.microsoft.com/azure/security-center/)

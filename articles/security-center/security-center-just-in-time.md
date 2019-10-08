@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202012"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996386"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gerenciar o acesso à máquina virtual usando just-in-time
 
@@ -118,7 +118,7 @@ De ASC, você pode configurar uma política JIT e solicitar o acesso a uma VM us
 
 Para solicitar acesso a uma VM por meio de ASC:
 
-1. Em **acesso à VM just in time**, selecione a guia **configurada** .
+1. Em **acesso à VM just-in-time**, selecione a guia **configurada** .
 
 2. Em **máquina virtual**, clique nas VMs às quais você deseja solicitar acesso. Isso coloca uma marca de seleção ao lado da VM.
 
@@ -149,7 +149,7 @@ Para editar uma política just-in-time existente de uma VM:
 
 1. Selecione **Editar**.
 1. Em **configuração de acesso à VM JIT**, você pode editar as configurações existentes de uma porta já protegida ou adicionar uma nova porta personalizada. 
-  ![acesso à VM JIT](./media/security-center-just-in-time/edit-policy.png)
+  acesso à VM ![jit @ no__t-1
 
 ## <a name="audit-jit-access-activity-in-asc"></a>Auditar atividade de acesso JIT em ASC
 
@@ -227,7 +227,7 @@ O recurso de acesso da VM just-in-time pode ser usado por meio da API da central
 
 ## <a name="jit-vm-access-via-powershell"></a>Acesso à VM JIT por meio do PowerShell
 
-Para usar a solução de acesso da VM just-in-time por meio do PowerShell, use os cmdlets do PowerShell da central `Set-AzJitNetworkAccessPolicy`de segurança do Azure oficiais e, especificamente.
+Para usar a solução de acesso da VM just-in-time por meio do PowerShell, use os cmdlets do PowerShell da central de segurança do Azure oficiais e, especificamente, `Set-AzJitNetworkAccessPolicy`.
 
 O exemplo a seguir define uma política de acesso de VM just-in-time em uma VM específica e define o seguinte:
 

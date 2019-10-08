@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3f427726a128eed426a64bc533075ba0cdde9544
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241095"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982843"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Instalar e atualizar Servidor de Backup do Azure
 
@@ -61,7 +61,7 @@ Se você não quiser executar o servidor base no Azure, poderá executar o servi
 | Windows Server 2016 e SPs mais recentes |64 bits |Standard, Datacenter, Essentials  |
 
 
-Você pode eliminar a duplicação do armazenamento do DPM usando a eliminação de duplicação do Windows Server. Saiba mais sobre como [o DPM e a eliminação](https://technet.microsoft.com/library/dn891438.aspx) de duplicação funcionam juntos quando implantados em VMs do Hyper-V.
+Você pode eliminar a duplicação do armazenamento do DPM usando a eliminação de duplicação do Windows Server. Saiba mais sobre como [o DPM e a eliminação de duplicação](https://technet.microsoft.com/library/dn891438.aspx) funcionam juntos quando implantados em VMs do Hyper-V.
 
 > [!NOTE]
 > O Servidor de Backup do Azure foi projetado para ser executado em um servidor dedicado e de finalidade única. Não é possível instalar o Servidor de Backup do Azure em:
@@ -180,15 +180,18 @@ Quando o processo de extração for concluído, marque a caixa para iniciar o *S
 
     **Configuração do SSRS com o SQL 2017**
 
-    Ao usar sua própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS, Verifique se a propriedade IsInitialized do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
+    Ao usar sua própria instância do SQL 2017, você precisa configurar manualmente o SSRS. Após a configuração do SSRS, verifique se a propriedade *IsInitialized* do SSRS está definida como *true*. Quando definido como true, MABS pressupõe que o SSRS já está configurado e ignorará a configuração do SSRS.
 
     Use os seguintes valores para a configuração do SSRS: 
     - Conta de serviço: ' Usar conta interna ' deve ser serviço de rede
-    - URL do serviço Web: ' Diretório virtual ' deve ser ReportServer_<SQLInstanceName>
-    - Banco DatabaseName deve ser ReportServer $<SQLInstanceName>
-    - URL do portal da Web: ' Diretório virtual ' deve ser Reports_<SQLInstanceName>
+    - URL do serviço Web: ' Diretório virtual ' deve ser ReportServer_ @ no__t-0
+    - Banco DatabaseName deve ser ReportServer $ <SQLInstanceName>
+    - URL do portal da Web: ' Diretório virtual ' deve ser Reports_ @ no__t-0
 
     [Saiba mais](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) sobre a configuração do SSRS.
+
+    > [!NOTE]
+    > O licenciamento para SQL Server usado como o banco de dados do MABS é regido pelos [termos do Microsoft Online Services](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST). De acordo com o OST, SQL Server agrupadas com MABS podem ser usadas somente como o banco de dados para MABS.
 
 4. Forneça um local para a instalação de arquivos do Backup do Microsoft Azure Server e clique em **Avançar**.
 
@@ -235,7 +238,7 @@ O MABS usa o agente de proteção do System Center Data Protection Manager. [Aqu
 
 As seções a seguir descrevem como atualizar agentes de proteção para computadores cliente.
 
-1. Na console do administrador servidor de backup, selecione**agentes**de **Gerenciamento** > .
+1. Na Console do Administrador do servidor de backup, selecione **gerenciamento** > **agentes**.
 
 2. No painel de exibição, selecione os computadores cliente para os quais você deseja atualizar o agente de proteção.
 
@@ -270,7 +273,7 @@ Aqui estão as etapas se você precisar mover MABS para um novo servidor, manten
 9. Do SQL restaurar o DPMDB
 10. Na linha de comando do administrador no novo CD do servidor para Backup do Microsoft Azure local de instalação e pasta bin
 
-    Exemplo de caminho: C:\Windows\System32 > CD "C:\Arquivos de Programas\microsoft Azure Backup\DPM\DPM\bin\"
+    Exemplo de caminho: C:\Windows\System32 > CD "C:\Arquivos de Programas\microsoft Azure Backup\DPM\DPM\bin @ no__t-0
 
 11. Para o backup do Azure, execute DPMSYNC-SYNC
 
@@ -278,7 +281,7 @@ Aqui estão as etapas se você precisar mover MABS para um novo servidor, manten
 
 ## <a name="network-connectivity"></a>Conectividade de rede
 
-Servidor de Backup do Azure requer conectividade com o serviço de backup do Azure para que o produto funcione com êxito. Para validar se o computador tem a conectividade com o Azure, use ```Get-DPMCloudConnection``` o cmdlet no console do servidor de backup do Azure PowerShell. Se a saída do cmdlet for TRUE, a conectividade existirá, caso contrário, não haverá conectividade.
+Servidor de Backup do Azure requer conectividade com o serviço de backup do Azure para que o produto funcione com êxito. Para validar se o computador tem a conectividade com o Azure, use o cmdlet ```Get-DPMCloudConnection``` no console do Servidor de Backup do Azure PowerShell. Se a saída do cmdlet for TRUE, a conectividade existirá, caso contrário, não haverá conectividade.
 
 Ao mesmo tempo, a assinatura do Azure precisa estar em um estado íntegro. Para descobrir o estado da sua assinatura e gerenciá-la, entre no portal de [assinatura](https://account.windowsazure.com/Subscriptions).
 
@@ -307,10 +310,10 @@ Depois que a conectividade com o Azure tiver sido restaurada no computador Servi
 
 ### <a name="handling-subscription-states"></a>Manipulando Estados de assinatura
 
-É possível fazer uma assinatura do Azure de um estado expirado ou desprovisionado para o estado *ativo* . No entanto, isso tem algumas implicações no comportamento do produto enquanto o estado não está *ativo*:
+É possível fazer uma assinatura do Azure de um estado *expirado* ou *desprovisionado* para o estado *ativo* . No entanto, isso tem algumas implicações no comportamento do produto enquanto o estado não está *ativo*:
 
-* Uma assinatura desprovisionada perde a funcionalidade para o período em que é desprovisionada. Na ativação *ativa*, a funcionalidade do produto de backup/restauração é reativada. Os dados de backup no disco local também poderão ser recuperados se forem mantidos com um período de retenção suficientemente grande. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a assinatura entra no estado desprovisionado.
-* Uma assinatura expirada perde apenas a funcionalidade para até que ela tenha sido *ativada* novamente. Todos os backups agendados para o período em que a assinatura *expirou* não serão executados.
+* Uma assinatura *desprovisionada* perde a funcionalidade para o período em que é desprovisionada. Na ativação *ativa*, a funcionalidade do produto de backup/restauração é reativada. Os dados de backup no disco local também poderão ser recuperados se forem mantidos com um período de retenção suficientemente grande. No entanto, os dados de backup no Azure ficam irrecuperáveis quando a assinatura entra no estado *desprovisionado* .
+* Uma assinatura *expirada* perde apenas a funcionalidade para até que ela tenha sido *ativada* novamente. Todos os backups agendados para o período em que a assinatura *expirou* não serão executados.
 
 ## <a name="upgrade-mabs"></a>Atualizar MABS
 

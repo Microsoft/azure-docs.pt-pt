@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 9bc0d1b31ebeaecce8b4be8699cf87811047b6f9
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123265"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001311"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -67,7 +67,7 @@ Tem de utilizar endereços IP públicos da sua propriedade para configurar as se
 ### <a name="ip-addresses-used-for-azure-public-peering"></a>Endereços IP utilizados para peering público do Azure
 
 > [!NOTE]
-> Peering público do Azure não é avialable para circuitos de novo.
+> O emparelhamento público do Azure não está disponível para novos circuitos.
 > 
 
 Tem de utilizar endereços IP públicos da sua propriedade para configurar as sessões de BGP. A Microsoft tem de poder verificar a propriedade dos endereços IP através dos Registos de Internet de Encaminhamento e dos Registos de Encaminhamento de Internet. 
@@ -196,11 +196,11 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Coreia do Sul | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Coreia do Sul Central | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
 | **África do Sul**| |
-| Norte da África do Sul | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
-| Oeste da África do Sul | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
+| África do Sul, Norte | 12076:51034 | 12076:52034 | 12076:53034 | 12076:54034 |
+| África do Sul, Oeste | 12076:51035 | 12076:52035 | 12076:53035 | 12076:54035 |
 | **DOS EAU**| |
-| Norte dos E.A.U. | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
-| E.A.U. Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
+| Norte dos EAU | 12076:51036 | 12076:52036 | 12076:53036 | 12076:54036 |
+| EAU Central | 12076:51037 | 12076:52037 | 12076:53037 | 12076:54037 |
 
 
 Todas as rotas anunciadas a partir da Microsoft serão etiquetadas com o valor da comunidade adequado. 
