@@ -70,7 +70,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>Configurar a API Web
 
-1. Abra o arquivo *B2C-WebApi/**appSettings. JSON*** no Visual Studio ou Visual Studio Code.
+1. Abra o arquivo *B2C-WebApi/**appSettings. JSON** no* Visual Studio ou Visual Studio Code.
 1. Modifique o `AzureAdB2C` bloco para refletir o nome do locatário, a ID do aplicativo da API Web, o nome da sua política de inscrição/entrada e os escopos definidos anteriormente. O bloco deve ser semelhante ao exemplo a seguir (com os `Tenant` valores `ClientId` apropriados e):
 
     ```json
