@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 8ed3b8e507a93f75b036b3a97eb34395ce525314
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2f9b7b148900e827f4bfb17de1ef3cf05d8bbf10
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202933"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169162"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Criar um serviço de vínculo privado usando Azure PowerShell
 Este artigo mostra como criar um serviço de vínculo privado no Azure usando Azure PowerShell.
@@ -76,7 +76,7 @@ $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name $lbFrontName -PrivateIpAd
 $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name $lbBackendName 
 $probe = New-AzLoadBalancerProbeConfig -Name 'myHealthProbe' -Protocol Http -Port 80 `
   -RequestPath / -IntervalInSeconds 360 -ProbeCount 5
-$rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $feip -BackendAddressPool  $bepool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+$rule = New-AzLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP -BackendAddressPool  $beaddresspool -Probe $probe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 $NRPLB = New-AzLoadBalancer -ResourceGroupName $rgName -Name $lbName -Location $location -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $probe -LoadBalancingRule $rule -Sku Standard 
 ```
 ## <a name="create-a-private-link-service"></a>Criar um serviço de vínculo privado
@@ -115,7 +115,7 @@ Em seguida, demonstraremos como mapear esse serviço para um ponto de extremidad
 
 ## <a name="create-a-private-endpoint"></a>Criar um Ponto Final Privado
 ### <a name="create-a-virtual-network"></a>Criar uma rede virtual
-Crie uma rede virtual para seu ponto de extremidade privado com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual chamada *vnetPE* no grupo de recursos chamado *MyResource*Group:
+Crie uma rede virtual para seu ponto de extremidade privado com [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork). Este exemplo cria uma rede virtual chamada *vnetPE*@no__t 1in grupo de recursos chamado *MyResource*Group:
  
 ```azurepowershell
 $virtualNetworkNamePE = "vnetPE"
@@ -147,7 +147,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peNam
 ```
  
 ### <a name="get-private-endpoint"></a>Obter ponto de extremidade privado
-Obtenha o endereço IP do ponto de extremidade privado `Get-AzPrivateEndpoint` com como a seguir:
+Obtenha o endereço IP do ponto de extremidade privado com `Get-AzPrivateEndpoint` da seguinte maneira:
 
 ```azurepowershell
 # Get Private Endpoint and its IP Address 

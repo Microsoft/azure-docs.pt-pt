@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828220"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173407"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Banco de dados SQL do Azure sem servidor (visualização)
 
@@ -28,7 +28,7 @@ A camada de computação sem servidor para um banco de dados individual é param
 
 ![cobrança sem servidor](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance-configuration"></a>Configuração do desempenho
+### <a name="performance-configuration"></a>Configuração de desempenho
 
 - O **vCores mínimo** e o **máximo de vCores** são parâmetros configuráveis que definem o intervalo de capacidade de computação disponível para o banco de dados. Os limites de memória e e/s são proporcionais ao intervalo vCore especificado.  
 - O **atraso de pausa** automática é um parâmetro configurável que define o período de tempo que o banco de dados deve ficar inativo antes de ser pausado automaticamente. O banco de dados é retomado automaticamente quando ocorre o próximo logon ou outra atividade.  Como alternativa, a autopausa pode ser desabilitada.
@@ -66,9 +66,9 @@ A tabela a seguir resume as distinções entre a camada de computação sem serv
 | | **Computação sem servidor** | **Computação provisionada** |
 |:---|:---|:---|
 |**Padrão de uso do banco de dados**| Uso intermitente e imprevisível com menor utilização média de computação ao longo do tempo. |  Padrões de uso mais regulares com maior utilização média de computação ao longo do tempo ou a vários bancos de dados usando pools elásticos.|
-| **Esforço de gerenciamento de desempenho** |Canto|Altos|
+| **Esforço de gerenciamento de desempenho** |canto|Altos|
 |**Escala de computação**|Automático|Manual|
-|**Capacidade de resposta de computação**|Inferior após períodos inativos|Imediato|
+|**Capacidade de resposta de computação**|Inferior após períodos inativos|Implantação|
 |**Granularidade da cobrança**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modelo de compra e camada de serviço
@@ -126,7 +126,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Funcionalidade|Gatilho de retomada|
 |---|---|
-|Autenticação e autorização|Iniciar Sessão|
+|Autenticação e autorização|Iniciar sessão|
 |Deteção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Deteção e classificação de dados|Adicionando, modificando, excluindo ou exibindo rótulos de sensibilidade|
 |Auditoria|Exibindo registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
@@ -155,7 +155,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 1. Especifique o nome do objetivo de serviço. O objetivo do serviço prescreve a camada de serviço, a geração de hardware e o vCores máximo. A tabela a seguir mostra as opções de objetivo de serviço:
 
-   |Nome do objetivo de serviço|Escalão do serviço|Geração de hardware|vCores máximos|
+   |Nome do objetivo de serviço|Camada de serviços|Geração de hardware|VCores máx.|
    |---|---|---|---|
    |GP_S_Gen5_1|Fins Gerais|Gen5|1|
    |GP_S_Gen5_2|Fins Gerais|Gen5|2|
@@ -171,7 +171,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
    |Parâmetro|Opções de valor|Valor predefinido|
    |---|---|---|---|
-   |vCores mínimos|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCores|
+   |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCores|
    |Atraso de autopausa|Máximo 60 minutos (1 hora)<br>Maior 10080 minutos (7 dias)<br>Incrementos 60 minutos<br>Desabilitar autopausa:-1|60 minutos|
 
 > [!NOTE]
@@ -181,7 +181,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 #### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
-Consulte [início rápido: Crie um banco de dados individual no banco de dados SQL](sql-database-single-database-get-started.md)do Azure usando o portal do Azure.
+Consulte [Quickstart: Crie um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure @ no__t-0.
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
@@ -229,19 +229,19 @@ Um banco de dados sem servidor pode ser movido para uma camada de computação p
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
-Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o `MaxVcore` argumento.
+Modificar o vCores máximo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Mínimo de vCores
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
-Modificar o vCores mínimo é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o `MinVcore` argumento.
+Modificar o mínimo de vCores é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `MinVcore`.
 
 ### <a name="autopause-delay"></a>Atraso de autopausa
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
-Modificar o atraso de autopausa é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o `AutoPauseDelayInMinutes` argumento.
+Modificar o atraso de autopausa é executado usando o comando [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) no PowerShell usando o argumento `AutoPauseDelayInMinutes`.
 
 ## <a name="monitoring"></a>Monitorização
 
@@ -314,7 +314,7 @@ Nesse caso, o banco de dados é cobrado para computação e armazenamento durant
 
 Mais precisamente, a fatura de computação neste exemplo é calculada da seguinte maneira:
 
-|Intervalo de Tempo|vCores usado por segundo|GB usados a cada segundo|Dimensão de computação cobrada|segundos de vCore cobrados com o intervalo de tempo|
+|Intervalo de tempo|vCores usado por segundo|GB usados a cada segundo|Dimensão de computação cobrada|segundos de vCore cobrados com o intervalo de tempo|
 |---|---|---|---|---|
 |0:00-1:00|4|9|vCores usado|4 vCores * 3600 segundos = 14400 vCore segundos|
 |1:00-2:00|1|12|Memória usada|12 GB * 1/3 * 3600 segundos = 14400 vCore segundos|
@@ -326,9 +326,9 @@ Suponha que o preço unitário de computação seja $0.000073/vCore/segundo.  Em
 
 ## <a name="available-regions"></a>Regiões disponíveis
 
-A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Austrália Central, Leste da China, Norte da China, sul da França, Alemanha central, Alemanha nordeste, Índia ocidental, sul da Coreia, oeste da África do Sul, Norte do Reino Unido, Sul do Reino Unido, Oeste do Reino Unido e EUA Central ocidental.
+A camada de computação sem servidor está disponível em todo o mundo, exceto as seguintes regiões: Leste da China, Norte da China, Alemanha central, Alemanha nordeste, Norte do Reino Unido, Sul do Reino Unido 2, Oeste EUA Central e US Gov central (Iowa).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para começar, consulte [início rápido: Crie um banco de dados individual no banco de dados SQL](sql-database-single-database-get-started.md)do Azure usando o portal do Azure.
+- Para começar, consulte [Quickstart: Crie um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure @ no__t-0.
 - Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

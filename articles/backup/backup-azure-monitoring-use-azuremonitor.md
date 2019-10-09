@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954629"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177722"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar em escala usando Azure Monitor
 
@@ -59,7 +59,7 @@ Depois que os dados estiverem dentro do espaço de trabalho Log Analytics, [impl
 
 Depois que o modelo for implantado, a solução para monitoramento e relatórios no backup do Azure aparecerá na região de resumo do espaço de trabalho. Para ir até o resumo, siga um destes caminhos:
 
-- **Azure monitor**: Na seção insights, selecione **mais** e, em seguida, escolha o espaço de trabalho relevante.
+- **Azure monitor**: Na seção **insights** , selecione **mais** e, em seguida, escolha o espaço de trabalho relevante.
 - **Espaços de trabalho do log Analytics**: Selecione o espaço de trabalho relevante e, em **geral**, selecione **Resumo do espaço de trabalho**.
 
 ![Os blocos de monitoramento e relatório de Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
@@ -209,8 +209,8 @@ Os grafos padrão fornecem a você Kusto consultas para cenários básicos nos q
 Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log Analytics com algum retardo. Cada evento chega no espaço de trabalho de Log Analytics de *20 a 30 minutos* após ser enviado por push do cofre dos serviços de recuperação. Aqui estão mais detalhes sobre o retardo:
 
 - Em todas as soluções, os alertas internos do serviço de backup são enviados por push assim que são criados. Eles geralmente aparecem no espaço de trabalho Log Analytics após 20 a 30 minutos.
-- Em todas as soluções, trabalhos de backup ad hoc e trabalhos de restauração são enviados porPush assim que forem concluídos.
-- Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendadossão enviados assim que forem concluídos.
+- Em todas as soluções, trabalhos de backup ad hoc e trabalhos de restauração são enviados por push assim que forem *concluídos*.
+- Para todas as soluções, exceto backup do SQL, os trabalhos de backup agendados são enviados assim que forem *concluídos*.
 - Para o backup do SQL, como os backups de log podem ocorrer a cada 15 minutos, as informações para todos os trabalhos de backup agendados concluídos, incluindo logs, são colocadas em lote e enviadas a cada 6 horas.
 - Em todas as soluções, outras informações, como o item de backup, a política, os pontos de recuperação, o armazenamento e assim por diante, são enviadas pelo menos *uma vez por dia.*
 - Uma alteração na configuração de backup (como alteração de política ou política de edição) dispara um envio por push de todas as informações de backup relacionadas.
@@ -218,7 +218,7 @@ Os dados de diagnóstico do cofre são bombeados para o espaço de trabalho Log 
 ## <a name="using-the-recovery-services-vaults-activity-logs"></a>Usando os logs de atividade do cofre dos serviços de recuperação
 
 > [!CAUTION]
-> As etapas a seguir se aplicam somente a backups de *VM do Azure.* Você não pode usar estas etapas para soluções como o agente de backup do Azure, backups do SQL no Azure ou arquivos do Azure.
+> As etapas a seguir se aplicam somente a *backups de VM do Azure.* Você não pode usar estas etapas para soluções como o agente de backup do Azure, backups do SQL no Azure ou arquivos do Azure.
 
 Você também pode usar logs de atividade para obter notificações para eventos como o êxito do backup. Para começar, siga estas etapas:
 
@@ -247,11 +247,11 @@ Você pode exibir todos os alertas criados de logs de atividade e Log Analytics 
 Embora você possa obter notificações por meio de logs de atividade, é altamente recomendável usar Log Analytics em vez de logs de atividade para monitoramento em escala. Veja o porquê:
 
 - **Cenários limitados**: As notificações pelos logs de atividades se aplicam somente aos backups de VM do Azure. As notificações devem ser configuradas para cada cofre de serviços de recuperação.
-- **Ajuste de definição**: A atividade de backup agendada não se ajusta à definição mais recente dos logs de atividade. Em vez disso, ele se alinha com [os logs de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Esse alinhamento causa efeitos inesperados quando os dados que fluem pelo canal do log de atividades são alterados.
+- **Ajuste de definição**: A atividade de backup agendada não se ajusta à definição mais recente dos logs de atividade. Em vez disso, ele se alinha com [os logs de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Esse alinhamento causa efeitos inesperados quando os dados que fluem pelo canal do log de atividades são alterados.
 - **Problemas com o canal do log de atividades**: Nos cofres dos serviços de recuperação, os logs de atividade que são bombeados do backup do Azure seguem um novo modelo. Infelizmente, essa alteração afeta a geração de logs de atividades no Azure governamental, no Azure Alemanha e no Azure China 21Vianet. Se os usuários desses serviços de nuvem criarem ou configurarem quaisquer alertas dos logs de atividade no Azure Monitor, os alertas não serão disparados. Além disso, em todas as regiões públicas do Azure, se um usuário [coletar logs de atividade dos serviços de recuperação em um espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs), esses logs não aparecerão.
 
 Use um espaço de trabalho Log Analytics para monitoramento e alertas em escala para todas as suas cargas que são protegidas pelo backup do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para criar consultas personalizadas, consulte [modelo de dados do log Analytics](backup-azure-log-analytics-data-model.md).

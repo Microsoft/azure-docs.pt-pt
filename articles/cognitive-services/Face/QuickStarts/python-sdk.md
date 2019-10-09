@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: pafarley
-ms.openlocfilehash: f237af58bb98f667d4481a88bbb4daa77657468c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 617e9a40c253d98c32ae8b4c9426f3148c23d125
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966916"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176141"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Início rápido: Biblioteca de cliente facial para Python
 
@@ -29,7 +29,7 @@ Use a biblioteca de cliente facial para Python para:
 * Verificar faces
 * Tirar um instantâneo para a migração de dados
 
-[](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python) | [Exemplos](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0) [de PiPy (pacote de](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | -fonte de biblioteca de documentação de referência)
+[Documentação de referência](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)@no__t-[1 código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-face) | [pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-face/) | [amostras](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=Face&sort=0)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,11 +45,11 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exibir seu recurso no [portal do Azure](https://portal.azure.com/)
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave `FACE_SUBSCRIPTION_KEY`, denominada.
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada `FACE_SUBSCRIPTION_KEY`.
  
 ### <a name="create-a-new-python-application"></a>Criar uma aplicação Python nova
 
-Crie um novo script&mdash;Python*QuickStart-File.py*, por exemplo. Em seguida, abra-o em seu editor preferido ou IDE e importe as bibliotecas a seguir.
+Crie um novo script Python @ no__t-0*QuickStart-File.py*, por exemplo. Em seguida, abra-o em seu editor preferido ou IDE e importe as bibliotecas a seguir.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_imports)]
 
@@ -65,7 +65,7 @@ Em seguida, crie variáveis para o ponto de extremidade e a chave do Azure do re
 Você pode instalar a biblioteca de cliente com:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Face
+pip install --upgrade azure-cognitiveservices-vision-face
 ```
 
 ## <a name="object-model"></a>Modelo de objeto
@@ -97,7 +97,7 @@ Esses trechos de código mostram como realizar as seguintes tarefas com a biblio
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
 > [!NOTE]
-> Este início rápido pressupõe que você [criou uma variável de ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para sua chave de `FACE_SUBSCRIPTION_KEY`face, chamada.
+> Este início rápido pressupõe que você [criou uma variável de ambiente](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) para sua chave de face, chamada `FACE_SUBSCRIPTION_KEY`.
 
 Crie uma instância de um cliente com o ponto de extremidade e a chave. Crie um objeto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) com sua chave e use-o com seu ponto de extremidade para criar um objeto [FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) .
 
@@ -147,7 +147,7 @@ O código a seguir cria um **Person** com três objetos **Person** diferentes. E
 
 Para percorrer esse cenário, você precisa salvar as seguintes imagens no diretório raiz do seu projeto: https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
-Esse grupo de imagens contém três conjuntos de imagens de face correspondentes a três pessoas diferentes. O código definirá três objetos **Person** e os associará a arquivos de imagem que `woman`começam `man`com, `child`e.
+Esse grupo de imagens contém três conjuntos de imagens de face correspondentes a três pessoas diferentes. O código definirá três objetos **Person** e os associará a arquivos de imagem que começam com `woman`, `man` e `child`.
 
 Depois de configurar suas imagens, defina um rótulo na parte superior do script para o objeto **Person** que você criará.
 
@@ -178,7 +178,7 @@ O código a seguir usa uma imagem com várias faces e procura encontrar a identi
 
 ### <a name="get-a-test-image"></a>Obter uma imagem de teste
 
-O código a seguir procura na raiz do seu projeto uma imagem _Test-Image-Person-Group. jpg_ e detecta as faces na imagem. Você pode encontrar essa imagem com as imagens usadas para o gerenciamento do Person https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images:.
+O código a seguir procura na raiz do seu projeto uma imagem _Test-Image-Person-Group. jpg_ e detecta as faces na imagem. Você pode encontrar essa imagem com as imagens usadas para o gerenciamento do **Person** : https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/Face/images.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_identify_testimage)]
 
@@ -246,7 +246,7 @@ O restante das operações de instantâneo ocorre em uma função assíncrona.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait)]
 
-    Esse código usa a `wait_for_operation` função, que você deve definir separadamente:
+    Esse código usa a função `wait_for_operation`, que você deve definir separadamente:
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_waitforop)]
 
@@ -254,7 +254,7 @@ O restante das operações de instantâneo ocorre em uma função assíncrona.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_apply)]
 
-1. Novamente, use a `wait_for_operation` função para consultar a ID até que a operação seja concluída.
+1. Novamente, use a função `wait_for_operation` para consultar a ID até que a operação seja concluída.
 
     [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_snapshot_wait2)]
 
@@ -262,7 +262,7 @@ Depois de concluir essas etapas, você poderá acessar suas construções de dad
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo com o `python` comando no seu arquivo de início rápido.
+Execute o aplicativo com o comando `python` em seu arquivo de início rápido.
 
 ```console
 python quickstart-file.py

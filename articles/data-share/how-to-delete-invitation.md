@@ -1,17 +1,17 @@
 ---
 title: Excluir um convite na visualização do compartilhamento de dados do Azure
-description: Eliminar um convite
+description: Saiba como excluir um convite para um destinatário de compartilhamento de dados na visualização do compartilhamento de dados do Azure.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: eacc4e5edb196d512d3b27b2a0acc72a82e8f0b9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6bb247833a9cd9f2c767b27b655a434f573860c0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327201"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166390"
 ---
 # <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share-preview"></a>Como excluir um convite para um destinatário na visualização do compartilhamento de dados do Azure
 

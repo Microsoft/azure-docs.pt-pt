@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5506e4e4bb41725fd8791d3c6e47bb0b94584923
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: bacd26cdba24e7ad503a3ae58d5c77d5a3311537
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959426"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177752"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -132,7 +132,9 @@ Dê permissão à CDN do Azure para aceder aos certificados (segredos) na conta 
 
 3. Selecione **permissões de certificado**e marque as caixas de seleção obter **e** **listar** para permitir que a CDN execute essas permissões para obter e listar os certificados.
 
-4. Selecione **OK**. 
+4. Selecione **permissões de segredo**e marque as caixas de seleção para **obter** e **listar** para permitir que a CDN execute essas permissões para obter e listar os segredos.
+
+5. Selecione **OK**. 
 
     A CDN do Azure pode agora aceder a este cofre de chaves e aos certificados (segredos) que estão armazenados neste cofre de chaves.
  

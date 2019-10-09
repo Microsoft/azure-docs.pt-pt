@@ -1,6 +1,6 @@
 ---
 title: Configurar autenticação do Facebook – serviço de Azure App
-description: Saiba como configurar a autenticação do Facebook para seu aplicativo do serviço de aplicativo.
+description: Saiba como configurar a autenticação do Facebook para seu aplicativo do serviço de aplicativo
 services: app-service
 documentationcenter: ''
 author: mattchenderson
@@ -14,53 +14,70 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 410d769d0d9abe3a0a0f9c45e3cf67bb94ec9f4d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: fb8497f3b9b887e2fd06b350bcc25ac8faaa7b43
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232072"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176998"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Como configurar a sua aplicação do Serviço de Aplicações para utilizar o início de sessão do Facebook
+# <a name="configure-your-app-service-app-to-use-facebook-login"></a>Configurar seu aplicativo do serviço de aplicativo para usar o logon do Facebook
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
-Este tópico mostra como configurar o serviço de Azure App para usar o Facebook como um provedor de autenticação.
+Este artigo mostra como configurar Azure App serviço para usar o Facebook como um provedor de autenticação.
 
-Para concluir o procedimento neste tópico, você deve ter uma conta do Facebook que tenha um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, acesse [Facebook.com].
+Para concluir o procedimento neste artigo, você precisa de uma conta do Facebook que tenha um endereço de email verificado e um número de telefone celular. Para criar uma nova conta do Facebook, acesse [Facebook.com].
 
 ## <a name="register"> </a>Registrar seu aplicativo com o Facebook
-1. Navegue até o site de [desenvolvedores do Facebook] e entre com suas credenciais de conta do Facebook.
-3. Adicional Se você não tiver uma conta do Facebook para desenvolvedores,clique em introdução e siga as etapas de registro.
-4. Clique em **meus aplicativos** > **Adicionar novo aplicativo**.
-5. Em **nome de exibição**, digite um nome exclusivo para seu aplicativo. Forneça também seu **email de contato**e, em seguida, clique em **criar ID do aplicativo** e conclua a verificação de segurança. O painel do desenvolvedor para seu novo aplicativo do Facebook é aberto.
-6. Clique **em painel** > **de** > logon do Facebook configurar Web. > 
-1. No painel de navegação à esquerda, em **logon do Facebook**, clique em **configurações**.
-1. Em **URIs**de redirecionamento OAuth `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback` válidos, digite e substitua  *\<o nome de aplicativo >* pelo nome do seu aplicativo de serviço de Azure app. Clique em **salvar alterações**.
-8. No painel de navegação à esquerda, clique em **configurações** > **básico**. No campo **segredo do aplicativo** , clique em **Mostrar**. Copie os valores da **ID do aplicativo** e do **segredo do aplicativo**. Você os usará posteriormente para configurar seu aplicativo do serviço de aplicativo no Azure.
-   
+
+1. Vá para o site de [desenvolvedores do Facebook] e entre com suas credenciais de conta do Facebook.
+
+   Se você não tiver uma conta do Facebook para desenvolvedores, **selecione introdução** e siga as etapas de registro.
+1. Selecione **meus aplicativos** > **Adicionar novo aplicativo**.
+1. No campo **nome de exibição** :
+   1. Digite um nome exclusivo para seu aplicativo.
+   1. Forneça seu **email de contato**.
+   1. Selecione **criar ID do aplicativo**.
+   1. Conclua a verificação de segurança.
+
+   O painel do desenvolvedor para seu novo aplicativo do Facebook é aberto.
+1. Selecione **painel** > **logon do Facebook** > **Configurar**o  > **Web**.
+1. No painel de navegação esquerdo, em **logon do Facebook**, selecione **configurações**.
+1. No campo **URIs de redirecionamento OAuth válidos** , insira `https://<app-name>.azurewebsites.net/.auth/login/facebook/callback`. Lembre-se de substituir `<app-name>` pelo nome do seu aplicativo de serviço de Azure App.
+1. Selecione **salvar alterações**.
+1. No painel esquerdo, selecione **configurações** > **básico**. 
+1. No campo **segredo do aplicativo** , selecione **Mostrar**. Copie os valores da **ID do aplicativo** e do **segredo do aplicativo**. Você os usará posteriormente para configurar seu aplicativo do serviço de aplicativo no Azure.
+
    > [!IMPORTANT]
    > O segredo do aplicativo é uma credencial de segurança importante. Não compartilhe esse segredo com ninguém ou distribua-o em um aplicativo cliente.
-   > 
-   > 
-9. A conta do Facebook que você usou para registrar o aplicativo é um administrador do aplicativo. Neste ponto, somente os administradores podem entrar nesse aplicativo. Para autenticar outras contas do Facebook, clique em **revisão do aplicativo** e habilite **tornar \<seu nome de aplicativo > público** para habilitar o acesso público geral usando a autenticação do Facebook.
+   >
+
+1. A conta do Facebook que você usou para registrar o aplicativo é um administrador do aplicativo. Neste ponto, somente os administradores podem entrar neste aplicativo.
+
+   Para autenticar outras contas do Facebook, selecione **revisão do aplicativo** e habilite **Make \<your-App-Name > público** para permitir que o público geral acesse o aplicativo usando a autenticação do Facebook.
 
 ## <a name="secrets"> </a>Adicionar informações do Facebook ao seu aplicativo
-1. Entre no [Azure portal] e navegue até o aplicativo do serviço de aplicativo. Clique em **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
-2. Clique em **Facebook**, Cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente, opcionalmente, habilite todos os escopos necessários para seu aplicativo e clique em **OK**.
-   
-    ![][0]
-   
-    Por padrão, o serviço de aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo e às APIs do site. Você deve autorizar os usuários no código do aplicativo.
-3. Adicional Para restringir o acesso ao seu site somente para os usuários autenticados pelo Facebook, defina **a ação a ser tomada quando a solicitação não for autenticada** no **Facebook**. Isso requer que todas as solicitações sejam autenticadas e todas as solicitações não autenticadas sejam redirecionadas para o Facebook para autenticação.
- 
-> [!CAUTION]
-> Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que querem um home page publicamente disponível, como em muitos aplicativos de página única. Para tais aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível, com o aplicativo iniciando o logon manualmente, conforme descrito [aqui](overview-authentication-authorization.md#authentication-flow).
 
-4. Quando terminar de configurar a autenticação, clique em **salvar**.
+1. Entre no [Azure portal] e navegue até o aplicativo do serviço de aplicativo.
+1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
+1. Selecione **Facebook**e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
+1. Selecione **OK**.
+
+   ![Captura de tela das configurações do Facebook do aplicativo móvel][0]
+
+    Por padrão, o serviço de aplicativo fornece autenticação, mas não restringe o acesso autorizado ao conteúdo e às APIs do site. Você precisa autorizar usuários em seu código de aplicativo.
+1. Adicional Para restringir o acesso somente aos usuários autenticados pelo Facebook, defina **a ação a ser tomada quando a solicitação não for autenticada** no **Facebook**. Quando você define essa funcionalidade, seu aplicativo requer que todas as solicitações sejam autenticadas. Ele também redireciona todas as solicitações não autenticadas para o Facebook para autenticação.
+
+   > [!CAUTION]
+   > Restringir o acesso dessa maneira se aplica a todas as chamadas para seu aplicativo, o que pode não ser desejável para aplicativos que têm um home page publicamente disponível, como em muitos aplicativos de página única. Para tais aplicativos, **Permitir solicitações anônimas (nenhuma ação)** pode ser preferível para que o aplicativo inicie manualmente a autenticação em si. Para obter mais informações, consulte [fluxo de autenticação](overview-authentication-authorization.md#authentication-flow).
+
+1. Selecione **Guardar**.
 
 Agora você está pronto para usar o Facebook para autenticação em seu aplicativo.
 
-## <a name="related-content"> </a>Conteúdo relacionado
+## <a name="related-content"> </a>Passos seguintes
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Images. -->

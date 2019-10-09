@@ -1,17 +1,17 @@
 ---
 title: O que é a versão prévia do compartilhamento de dados do Azure
-description: Uma visão geral da visualização do compartilhamento de dados do Azure
+description: Saiba como compartilhar dados de maneira simples e segura com vários clientes e parceiros usando a visualização do compartilhamento de dados do Azure.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 11f32b1f1349ef0f9826f95832648e6949cc2f8c
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 6ba6e9df7b3fd2992891f4b085581c51fe900744
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68421395"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169078"
 ---
 # <a name="what-is-azure-data-share-preview"></a>O que é a Pré-visualização do Azure Data Share?
 

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ff539311139d7e9823a2d7db2f5d8ee56f9231b6
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 59708be1de53ab231ccb6dc89bd56c795734fccc
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338646"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176826"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>O que é o RBAC (controle de acesso baseado em função) para recursos do Azure?
 
@@ -106,7 +106,7 @@ E o que acontece se você tiver várias atribuições de função sobrepostas? O
 
 ![Atribuições de função múltipla](./media/overview/rbac-multiple-roles.png)
 
-## <a name="deny-assignments"></a>Negar atribuições
+## <a name="deny-assignments"></a>Atribuições de negação
 
 Anteriormente, o RBAC era um modelo apenas de permissão sem negação, mas agora suporta atribuições de negação de forma limitada. De forma semelhante a uma atribuição de função, uma *atribuição de negação* anexa um conjunto de ações Deny a um usuário, grupo, entidade de serviço ou identidade gerenciada em um determinado escopo, com a finalidade de negar o acesso. Uma atribuição de função define um conjunto de ações que são *permitidas*, enquanto uma atribuição de negação define um conjunto de ações que *não são permitidas*. Por outras palavras, as atribuições de negação impedem os utilizadores de executarem ações especificadas, mesmo que uma atribuição de função lhes conceda acesso. As atribuições de negação têm precedência sobre as atribuições de funções. Para obter mais informações, consulte [entender as atribuições de negação para recursos do Azure](deny-assignments.md).
 
@@ -136,7 +136,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure](check-access.md)
+- [Quickstart: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure @ no__t-0
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 - [Compreender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- [Adoção da nuvem corporativa: Gerenciamento de acesso a recursos no Azure](/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access)
+- Adoção de nuvem de @no__t 0Enterprise: Gerenciamento de acesso a recursos no Azure @ no__t-0

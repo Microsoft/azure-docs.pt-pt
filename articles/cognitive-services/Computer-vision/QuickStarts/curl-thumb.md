@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0d430f7c9a6e9d59b20cd1420b65f70d9c6994d5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 350bc95e08aa994e4cb70db6bf1f08d53bbec5a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141443"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177295"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: Gerar uma miniatura usando a API REST Pesquisa Visual Computacional e a ondulação
 
@@ -38,7 +38,7 @@ Para executar o exemplo, siga os seguintes passos:
 1. Copie o código seguinte para um editor.
 1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
 1. Substitua `<File>` pelo caminho e nome de ficheiro para guardar a miniatura.
-1. Altere o URL de Pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) para utilizar a localização onde obteve as suas chaves de subscrição, se necessário.
+1. Altere o URL de Pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) para utilizar a localização onde obteve as suas chaves de subscrição, se necessário.
 1. Opcionalmente, altere a imagem (`{\"url\":\"...`) a analisar.
 1. Abra uma janela de comando num computador com o cURL instalado.
 1. Cole o código na janela e execute o comando.
@@ -54,21 +54,21 @@ Para criar e executar o exemplo, siga os seguintes passos:
 1. Faça as alterações seguintes ao comando, se for necessário:
     1. Substitua o valor de `<subscriptionKey>` pela chave de subscrição.
     1. Substitua o valor de `<thumbnailFile>` pelo nome do ficheiro e o caminho no qual pretende guardar a miniatura.
-    1. Substitua a primeira parte da URL de solicitação (`westcentralus`) pelo texto em sua própria URL de ponto de extremidade.
+    1. Substitua a primeira parte da URL da solicitação (`westcentralus`) pelo texto em sua própria URL de ponto de extremidade.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Opcionalmente, altere o URL da imagem no corpo do pedido (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) pelo URL de uma imagem diferente a partir da qual pretende gerar uma miniatura.
 1. Abra uma janela da linha de comandos.
 1. Cole o comando a partir do editor de texto na janela da linha de comandos e, em seguida, execute o comando.
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
 Uma resposta de êxito escreve a imagem em miniatura para o ficheiro especificado em `<thumbnailFile>`. Se o pedido falhar, a resposta contém um código de erro e uma mensagem para ajudar a determinar o que correu mal. Se a solicitação parecer ter sucesso, mas a miniatura criada não for um arquivo de imagem válido, pode ser que sua chave de assinatura não seja válida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a API da Pesquisa Visual Computacional de como analisar uma imagem, detectar celebridades e pontos de referência, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

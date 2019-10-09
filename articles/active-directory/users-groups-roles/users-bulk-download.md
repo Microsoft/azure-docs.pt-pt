@@ -13,20 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cc8fd4e063896bbd8843a54f0a01058462c618
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901454"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174200"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Baixar uma lista de usuários (versão prévia) no portal Azure Active Directory
 
 O Azure Active Directory (AD do Azure) dá suporte a operações de importação (criação) de usuário em massa.
-
-## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
-
-Cada atividade em massa para criar uma lista de usuários pode ser executada por até uma hora. Isso permite a criação e o download de uma lista de pelo menos 500.000 usuários.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
@@ -46,7 +42,11 @@ Você pode ver o status de suas solicitações em massa pendentes na página **r
 
    ![Verificar o status do carregamento na página de resultados de operações em massa](./media/users-bulk-download/bulk-center.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="bulk-download-service-limits"></a>Limites do serviço de download em massa
+
+Cada atividade em massa para criar uma lista de usuários pode ser executada por até uma hora. Isso permite a criação e o download de uma lista de pelo menos 500.000 usuários.
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Adicionar usuários em massa](users-bulk-add.md)
 - [Excluir usuários em massa](users-bulk-delete.md)

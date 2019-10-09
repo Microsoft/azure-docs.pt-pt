@@ -1,23 +1,26 @@
 ---
-title: Iniciar seu aplicativo Spring Cloud a partir do código-fonte
+title: 'Início rápido: Iniciar seu aplicativo Spring Cloud a partir do código-fonte'
 description: Saiba como iniciar seu aplicativo de nuvem Spring do Azure diretamente do seu código-fonte
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 9/27/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a161b38ab6d23ad86df1ef7e843640276ba486bf
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038811"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170541"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>Iniciar seu aplicativo Spring Cloud a partir do código-fonte
 
 O Azure Spring Cloud permite que você inicie seu aplicativo diretamente do código-fonte Java ou de um JAR predefinido. Este artigo orienta você pelas etapas necessárias.
 
-## <a name="initial-requirements"></a>Requisitos iniciais
+## <a name="prerequisites"></a>Pré-requisitos
+
+>[!Note]
+> Antes de iniciar este guia de início rápido, verifique se sua assinatura do Azure tem acesso ao Azure Spring Cloud.  Como um serviço de visualização, pedimos que você entre em contato conosco para que possamos adicionar sua assinatura à nossa lista de permissões.  Se você quiser explorar os recursos do Azure Spring Cloud, [fill este formulário @ no__t-1.
 
 Antes de começar, verifique se sua assinatura do Azure tem as dependências necessárias:
 

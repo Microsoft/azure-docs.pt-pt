@@ -1,17 +1,17 @@
 ---
 title: Funções e requisitos para a visualização do compartilhamento de dados do Azure
-description: Funções e requisitos para a visualização do compartilhamento de dados do Azure
+description: Saiba mais sobre as funções de controle de acesso e os requisitos para provedores de dados e consumidores de dados para compartilhar dados na visualização do compartilhamento de dados do Azure.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307344"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166383"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Funções e requisitos para a visualização do compartilhamento de dados do Azure
 
@@ -30,9 +30,9 @@ Veja abaixo um resumo das funções atribuídas à identidade gerenciada por rec
 | |  |  |
 |---|---|---|
 |**Tipo de armazenamento**|**Conta de armazenamento de origem Provedor de Dados**|**Conta de armazenamento de destino de consumidor de dados**|
-|Armazenamento de Blobs do Azure| Leitor de Dados do Armazenamento de Blobs | Contribuinte de Dados do Armazenamento de Blobs
-|Azure Data Lake Gen1 | Owner | Não Suportada
-|Azure Data Lake Gen2 | Leitor de Dados do Armazenamento de Blobs | Contribuinte de Dados do Armazenamento de Blobs
+|Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
+|Azure Data Lake Gen1 | Owner | Não suportado
+|Azure Data Lake Gen2 | Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
 |
 ### <a name="data-providers"></a>Provedores de dados 
 Para adicionar um DataSet a um compartilhamento de dados do Azure, a identidade gerenciada por recurso de compartilhamento de dados de provedores precisa ser adicionada à função de leitor de dados de blob de armazenamento. Isso é feito automaticamente pelo serviço de compartilhamento de dados do Azure, se o usuário estiver adicionando DataSets via Azure e for um proprietário da conta de armazenamento, ou for membro de uma função personalizada que tenha a permissão Microsoft. Authorization/role/Write atribuída. 

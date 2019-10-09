@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 859bb580f5fa974eec70c120297f094247fa2a9b
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 92d6af41e55429f1b788de68940bc9b033c51ad6
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967188"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167039"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-nodejs"></a>Início rápido: Enviar telemetria de um dispositivo para um hub IoT e lê-lo com um aplicativo de back-end (Node. js)
 
@@ -59,41 +59,41 @@ Transfira o projeto Node.js de exemplo de https://github.com/Azure-Samples/azure
 
 1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
-   **MyNodeDevice**: O nome do dispositivo que você está registrando. Use **MyNodeDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyNodeDevice**: Esse é o nome do dispositivo que você está registrando. É recomendável usar **MyNodeDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyNodeDevice
     ```
 
-1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de ligação do dispositivo_ que acabou de registar:
+1. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar:
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyNodeDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyNodeDevice --output table
     ```
 
     Anote a cadeia de ligação do dispositivo, que se parece com:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Irá utilizar este valor mais adiante no guia de início rápido.
+    Você usará esse valor posteriormente no início rápido.
 
 1. Também precisa de uma _cadeia de ligação do serviço_ para permitir que a aplicação back-end se ligue ao seu hub IoT e obtenha as mensagens. O seguinte comando obtém a cadeia de ligação do serviço do seu hub IoT:
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --name YourIoTHubName --policy-name service --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --policy-name service --output table
     ```
 
     Anote a cadeia de ligação do serviço, que se parece com:
 
    `HostName={YourIoTHubName}.azure-devices.net;SharedAccessKeyName=service;SharedAccessKey={YourSharedAccessKey}`
 
-    Irá utilizar este valor mais adiante no guia de início rápido. A cadeia de ligação do serviço é diferente da cadeia de ligação de dispositivo.
+    Você usará esse valor posteriormente no início rápido. Essa cadeia de conexão de serviço é diferente da cadeia de conexão do dispositivo que você anotou na etapa anterior.
 
 ## <a name="send-simulated-telemetry"></a>Enviar telemetria simulada
 
@@ -103,7 +103,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 1. Abra o ficheiro **SimulatedDevice.js** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.js**.
+    Substitua o valor da variável `connectionString` pela cadeia de conexão do dispositivo anotada anteriormente. Em seguida, salve as alterações em **SimulatedDevice. js**.
 
 1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e execute a aplicação de dispositivo simulado:
 
@@ -124,7 +124,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 1. Abra o ficheiro **ReadDeviceToCloudMessages.js** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connectionString` pela cadeia de ligação do serviço que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **ReadDeviceToCloudMessages.js**.
+    Substitua o valor da variável `connectionString` pela cadeia de conexão de serviço anotada anteriormente. Em seguida, salve as alterações em **ReadDeviceToCloudMessages. js**.
 
 1. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e executar a aplicação back-end:
 
@@ -143,9 +143,9 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub com uma aplicação Node.js e leu a telemetria do hub com uma simples aplicação back-end.
+Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, enviou telemetria simulada para o Hub usando um aplicativo node. js e leu a telemetria do Hub usando um aplicativo de back-end simples.
 
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Controlar um dispositivo conectado a um hub IoT](quickstart-control-device-node.md)
+> [Quickstart: Controlar um dispositivo conectado a um hub IoT @ no__t-0

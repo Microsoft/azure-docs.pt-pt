@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2019
-ms.openlocfilehash: 1c77c0a83762dacf2e98d2401a3926a0d7b082eb
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001172"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174544"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorar e cancelar execuções de treinamento em Python
 
@@ -189,7 +189,7 @@ print(local_script_run.get_status())
 Para cancelar uma execução usando a CLI, use o comando a seguir. Substitua `runid` pela ID da execução
 
 ```azurecli-interactive
-az ml run cancel -r runid
+az ml run cancel -r runid -w workspace_name -e experiment_name
 ```
 
 Para obter mais informações, consulte [AZ ml Run Cancel](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-cancel).

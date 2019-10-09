@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: 07714575bb4adfccf5d72a093874852c1bfebcc8
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843789"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178011"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para derivar informações de vendas
 
@@ -175,7 +175,7 @@ Para verificar se os pipelines foram executados, você pode executar uma das seg
 - Vá para a seção **Monitor** em seu data Factory por meio do Portal.
 - Em Gerenciador de Armazenamento do Azure, vá para sua conta de armazenamento do Data Lake Storage Gen 2. Vá para o sistema de arquivos `files` e, em seguida, vá para a pasta `transformed` e verifique seu conteúdo para ver se o pipeline foi bem-sucedido.
 
-Para obter outras maneiras de transformar dados usando o HDInsight, consulte [Este artigo sobre como usar Jupyter Notebook](/spark/apache-spark-load-data-run-query.md).
+Para obter outras maneiras de transformar dados usando o HDInsight, consulte [Este artigo sobre como usar Jupyter Notebook](/azure/hdinsight/spark/apache-spark-load-data-run-query).
 
 ### <a name="create-a-table-on-the-interactive-query-cluster-to-view-data-on-power-bi"></a>Crie uma tabela no cluster de consulta interativa para exibir dados em Power BI
 

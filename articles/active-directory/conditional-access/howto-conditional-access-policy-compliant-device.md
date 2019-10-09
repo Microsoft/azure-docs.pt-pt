@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da1a5f54e5e989f661770d518a6753b831b59bd4
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 1963d0ad741099fcb6602beb58f62b0eabf01aa0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69990517"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170052"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: Exigir dispositivos em conformidade
 
@@ -33,23 +33,23 @@ Essas informações de conformidade de política são encaminhadas ao Azure AD, 
 
 As etapas a seguir ajudarão a criar uma política de acesso condicional para exigir que os dispositivos que acessam os recursos sejam marcados como em conformidade com as políticas de conformidade do Intune da sua organização.
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **acesso condicional**.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue até **Azure Active Directory** **acesso condicional** > .
 1. Selecione **nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**
    1. Em **incluir**, selecione **todos os usuários**.
    1. Em **excluir**, selecione **usuários e grupos** e escolha o acesso de emergência da sua organização ou contas de vidro. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **todos os aplicativos de nuvem**.
+1. Em **aplicativos de nuvem ou ações** > **incluir**, selecione **todos os aplicativos de nuvem**.
    1. Se você precisar excluir aplicativos específicos de sua política, poderá selecioná-los na guia **excluir** em **selecionar aplicativos de nuvem excluídos** e escolher **selecionar**.
    1. Selecione **Done** (Concluído).
-1. Em**concessão**de **controles** > de acesso, selecione **exigir que o dispositivo seja marcado como compatível**.
+1. Em **controles de acesso** > **Grant**, selecione **exigir que o dispositivo seja marcado como compatível**.
    1. Selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Políticas comuns de acesso condicional](concept-conditional-access-policy-common.md)
 

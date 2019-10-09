@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212861"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173488"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Adicionar runbooks de automação do Azure aos planos de recuperação
 
@@ -112,14 +112,14 @@ O blog de Aman Sharma na [coleta de nuvens](http://harvestingclouds.com) tem um 
 ## <a name="customize-the-recovery-plan"></a>Personalizar o plano de recuperação
 
 1. No cofre, selecione **planos de recuperação (site Recovery)**
-2. Para criar um plano de recuperação, clique em **+ plano de recuperação**. [Saiba mais](/site-recovery-create-recovery-plans.md). Se você já tiver um plano de recuperação, selecione para abri-lo.
+2. Para criar um plano de recuperação, clique em **+ plano de recuperação**. [Saiba mais](site-recovery-create-recovery-plans.md). Se você já tiver um plano de recuperação, selecione para abri-lo.
 3. Na página plano de recuperação, clique em **Personalizar**.
 
     ![Clique no botão Personalizar](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Clique nas reticências (...) ao lado **do grupo 1: Iniciar**adição > de**ação post**.
+2. Clique nas reticências (...) ao lado de **Group 1: Inicie o @ no__t-0 @ no__t-1**Adicionar post action**.
 3. Em **Inserir ação**, verifique se o **script** está selecionado e especifique um nome para o script (**Olá, mundo**).
-4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado ao **grupo 1: Pós-etapas**.
+4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado a **Group 1: Pós-etapas @ no__t-0.
 
 
 ## <a name="reuse-a-runbook-script"></a>Reutilizar um script de runbook

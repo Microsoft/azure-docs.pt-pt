@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 4f2aa4b848172ab8b6a7e74de7dc1bc5f80639a1
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.author: atsenthi
+ms.openlocfilehash: cae701e34c3934e8ba8a289e7804e8852f6b5288
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335641"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167396"
 ---
 # <a name="capacity-planning-for-service-fabric-applications"></a>Planejamento de capacidade para aplicativos Service Fabric
 Este documento ensina como estimar a quantidade de recursos (CPUs, RAM, armazenamento em disco) de que você precisa para executar seus aplicativos de Service Fabric do Azure. É comum que os requisitos de recursos sejam alterados ao longo do tempo. Normalmente, você precisa de poucos recursos à medida que desenvolve/testa seu serviço e, em seguida, exige mais recursos à medida que passa para a produção e seu aplicativo cresce em popularidade. Ao projetar seu aplicativo, considere os requisitos de longo prazo e faça escolhas que permitam a escala do seu serviço para atender à alta demanda do cliente.
@@ -59,7 +59,7 @@ Agora, com base em todas essas informações, a planilha mostra que você pode o
 
 ![Planilha para cálculo de custo][Image1]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Confira [particionamento Service Fabric serviços][10] para saber mais sobre como particionar seu serviço.
 
 <!--Image references-->

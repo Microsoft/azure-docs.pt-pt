@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: overview
 ms.date: 10/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 0f54f218c630129049182e00ad3c53624172a5f0
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: c58e6b2a0c0de8295df65b44fbdeaeb2d4461948
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039078"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166539"
 ---
 # <a name="what-is-azure-spring-cloud"></a>O que é o Azure Spring Cloud?
 
@@ -19,7 +19,7 @@ O Azure Spring Cloud facilita a implantação de aplicativos de microatendimento
 
 Como parte do ecossistema do Azure, o Azure Spring Cloud permite uma ligação fácil com outros serviços do Azure, incluindo armazenamento, bancos de dados, monitoramento e muito mais.
 
-O Azure Spring Cloud está atualmente em versão prévia.  Para obter acesso a esse serviço enquanto estiver em versão prévia, entre em contato conosco por email: azure-spring-cloud@service.microsoft.com.
+O Azure Spring Cloud está atualmente em versão prévia.  Para obter acesso a esse serviço enquanto estiver em visualização, [fill este formulário @ no__t-1.
 
 Para começar, conclua o início rápido do Spring Cloud usando o [CLI do Azure](spring-cloud-quickstart-launch-app-cli.md), o [portal do Azure](spring-cloud-quickstart-launch-app-portal.md)ou o [Maven](spring-cloud-quickstart-launch-app-maven.md).
 

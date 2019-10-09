@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: true
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: ed7e0df77abb39c07bea8946381247539afb3134
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070962"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177016"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 
@@ -56,15 +58,9 @@ source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
 
-# In PowerShell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
 ```
 
-Abra um navegador da Web e vá para o aplicativo de exemplo `http://localhost:5000/`em.
+Abra um navegador da Web e vá para o aplicativo de exemplo em `http://localhost:5000/`.
 
 Pode ver a mensagem **Olá, mundo!** da aplicação de exemplo apresentada na página.
 
@@ -104,7 +100,7 @@ Checking connectivity... done.
 
 Mude para o diretório que contém o código de exemplo e execute o comando `az webapp up`.
 
-No exemplo a seguir, substitua `<app-name>` por um nome de aplicativo exclusivo globalmente (os*caracteres `a-z`válidos `0-9`são, `-`e* ).
+No exemplo a seguir, substitua `<app-name>` por um nome de aplicativo exclusivo globalmente (os*caracteres válidos são `a-z`, `0-9` e `-`* ).
 
 ```bash
 cd python-docs-hello-world
@@ -169,7 +165,7 @@ return "Hello Azure!"
 
 Salve as alterações e saia do editor. Utilize o comando `^S` para guardar e `^Q` para sair.
 
-Reimplante o aplicativo usando o [`az webapp up`](/cli/azure/webapp#az-webapp-up) comando. Substitua o nome do aplicativo para `<app-name>`e especifique um local para `<location-name>` (usando um dos valores mostrados no [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) comando).
+Reimplante o aplicativo usando o comando [`az webapp up`](/cli/azure/webapp#az-webapp-up) . Substitua o nome do aplicativo por `<app-name>` e especifique um local para `<location-name>` (usando um dos valores mostrados no comando [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) ).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>
@@ -195,13 +191,13 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Web Python (Django) com PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Aplicativo Web Python (Django) com PostgreSQL @ no__t-0
 
 > [!div class="nextstepaction"]
 > [Configurar o aplicativo Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Executar aplicativo Python no contêiner personalizado](tutorial-custom-docker-image.md)
+> [Tutorial: Executar aplicativo Python no contêiner personalizado @ no__t-0

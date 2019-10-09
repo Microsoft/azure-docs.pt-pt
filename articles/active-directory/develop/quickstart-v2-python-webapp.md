@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 587e7a82e2a9cde8ff6d08274928ab22aa969061
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 85a1de992be7b5bbdcec8fd415f60ae10190c11a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309615"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170032"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Início rápido: Adicionar entrada com a Microsoft a um aplicativo Web Python
 
@@ -37,7 +37,7 @@ Quando você tiver concluído o guia, seu aplicativo aceitará entradas de conta
 Para executar este exemplo, será necessário:
 
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) ou [Python 3 +](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [solicitações](https://2.python-requests.org/en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [solicitações](https://requests.kennethreitz.org//en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
 - Um locatário do Azure Active Directory (Azure AD). Para obter mais informações sobre como obter um locatário do Azure AD, consulte [como obter um locatário do Azure AD.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
@@ -67,7 +67,7 @@ Para executar este exemplo, será necessário:
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome**, introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por exemplo `python-webapp`.
 >      - Em **tipos de conta com suporte**, selecione **contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
->      - Na seção **URI** de redirecionamento, na lista suspensa, selecione a plataforma **da Web** e defina o valor como `http://localhost:5000/getAToken`.
+>      - Na seção **URI de redirecionamento** , na lista suspensa, selecione a plataforma **da Web** e defina o valor como `http://localhost:5000/getAToken`.
 >      - Selecione **Registar**. Na página **visão geral** do aplicativo, observe o valor da **ID do aplicativo (cliente)** para uso posterior.
 > 1. No menu à esquerda, escolha **certificados & segredos** e clique em **novo segredo do cliente** na seção **segredos do cliente** :
 >
@@ -82,7 +82,7 @@ Para executar este exemplo, será necessário:
 >
 > Para que o exemplo de código para este guia de início rápido funcione, você precisa:
 >
-> 1. Adicione uma URL de resposta `http://localhost:5000/getAToken`como.
+> 1. Adicione uma URL de resposta como `http://localhost:5000/getAToken`.
 > 1. Crie um segredo do cliente.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -130,6 +130,6 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 Saiba mais sobre os aplicativos Web que conectam usuários e que chama APIs da Web:
 
 > [!div class="nextstepaction"]
-> [Cenário: Aplicativos Web que conectam usuários](scenario-web-app-sign-user-overview.md)
+> [Cenário: Aplicativos Web que entram em usuários @ no__t-0
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

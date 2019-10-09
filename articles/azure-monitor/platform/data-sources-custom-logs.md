@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327470"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177622"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Logs personalizados no Azure Monitor
 
@@ -74,7 +74,7 @@ Se um delimitador de carimbo de data/hora for usado, a Propriedade TimeGenerated
 4. Altere o delimitador que é usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
 5. Clique em **Seguinte**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passo 3: Adicionar caminhos da coleção de registos
+### <a name="step-3-add-log-collection-paths"></a>Passo 3: Adicionar caminhos de coleção de logs
 Você deve definir um ou mais caminhos no agente onde ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log, ou pode especificar um caminho com um curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
 
 Por exemplo, um aplicativo pode criar um arquivo de log todos os dias com a data incluída no nome como em log20100316. txt. Um padrão para tal log pode ser *log\*.txt* que se aplicaria a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
@@ -146,7 +146,7 @@ Fornecemos um dos arquivos de log e podemos ver os eventos que serão coletados.
 
 ![Carregar e analisar um log de exemplo](media/data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Adicionar caminhos da coleção de registos
+### <a name="add-log-collection-paths"></a>Adicionar caminhos de coleção de logs
 Os arquivos de log estarão localizados em *C:\MyApp\Logs*.  Um novo arquivo será criado todos os dias com um nome que inclui a data no padrão *appaaaammdd. log*.  Um padrão suficiente para esse log seria *C:\MyApp\Logs @ no__t-1\*.log*.
 
 ![Caminho da coleção de logs](media/data-sources-custom-logs/collection-path.png)
@@ -172,7 +172,7 @@ Embora os logs personalizados sejam úteis se seus dados se ajustarem aos crité
 Nos casos em que os dados não podem ser coletados com logs personalizados, considere as seguintes estratégias alternativas:
 
 - Use um script personalizado ou outro método para gravar dados em [eventos do Windows](data-sources-windows-events.md) ou [syslog](data-sources-syslog.md) que são coletados pelo Azure monitor. 
-- Envie os dados diretamente para Azure Monitor usando a [API do coletor de dados http](data-collector-api.md). Um exemplo de uso de runbooks na automação do Azure é fornecido em [coletar dados de log no Azure monitor com um runbook de automação do Azure](runbook-datacollect.md).
+- Envie os dados diretamente para Azure Monitor usando a [API do coletor de dados http](data-collector-api.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte [analisar dados de texto em Azure monitor](../log-query/parse-text.md) para que os métodos analisem cada entrada de log importada em várias propriedades.

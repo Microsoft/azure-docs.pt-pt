@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 4e4a2b1df178d884e02ab5029f2e76a0376a7653
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846566"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170303"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Resolução de problemas genéricos de desempenho da Máquina Virtual do Azure que executa o Linux ou o Windows
 
@@ -28,7 +28,7 @@ Este artigo descreve a solução de problemas de desempenho genérico da VM (má
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoramento de máquinas virtuais IAAS do Azure
 
-Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#change-settings-for-an-existing-resource). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
+Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview#collecting-resource-logs). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
 
 ![O monitoramento não está habilitado](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  

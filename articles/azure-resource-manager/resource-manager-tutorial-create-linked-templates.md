@@ -10,19 +10,19 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/18/2019
+ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 869e59aea9b78c44b1a920e58ecefab5e0ca4920
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802060"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169419"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos de Azure Resource Manager vinculados
 
-Saiba como criar modelos ligados do Azure Resource Manager. Com os modelos ligados, pode ter um modelo para chamar outro modelo. É ótimo para modelos de modulação. Neste tutorial, você usa o mesmo modelo usado no [tutorial: Crie modelos de Azure Resource Manager com recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)dependentes, que cria uma máquina virtual, uma rede virtual e outros recursos dependentes, incluindo uma conta de armazenamento. Separar a criação de recursos da conta de armazenamento a um modelo ligado.
+Saiba como criar modelos ligados do Azure Resource Manager. Com os modelos ligados, pode ter um modelo para chamar outro modelo. É ótimo para modelos de modulação. Neste tutorial, você usa o mesmo modelo usado em [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0, que cria uma máquina virtual, uma rede virtual e outros recursos dependentes, incluindo uma conta de armazenamento. Separar a criação de recursos da conta de armazenamento a um modelo ligado.
 
 Chamar um modelo vinculado é como fazer uma chamada de função.  Você também aprende como passar valores de parâmetro para o modelo vinculado e como obter "valores de retorno" do modelo vinculado.
 
@@ -53,11 +53,11 @@ Para concluir este artigo, precisa de:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, [consulte Tutorial: Integre Azure Key Vault no Implantação de modelo](./resource-manager-tutorial-use-key-vault.md)do Resource Manager. Também recomendamos que atualize a palavra-passe a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre Azure Key Vault no Gerenciador de recursos Implantação de modelo @ no__t-0. Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Os Modelos de Início Rápido do Azure são um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Este é o mesmo modelo usado no [tutorial: Crie modelos de Azure Resource Manager com recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)dependentes. Guarde duas cópias do mesmo modelo para serem utilizadas como:
+Os Modelos de Início Rápido do Azure são um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Esse é o mesmo modelo usado em [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0. Guarde duas cópias do mesmo modelo para serem utilizadas como:
 
 * **O modelo principal**: crie todos os recursos exceto a conta de armazenamento.
 * **O modelo ligado**: crie a conta de armazenamento.
@@ -83,7 +83,7 @@ Os Modelos de Início Rápido do Azure são um repositório de modelos do Resour
 
 ## <a name="create-the-linked-template"></a>Criar o modelo ligado
 
-O modelo ligado cria uma conta de armazenamento. O modelo vinculado pode ser usado como um modelo autônomo para criar uma conta de armazenamento. Neste tutorial, o modelo vinculado usa dois parâmetros e passa um valor de volta para o modelo principal. Esse valor de "retorno" é definido no `outputs` elemento.
+O modelo ligado cria uma conta de armazenamento. O modelo vinculado pode ser usado como um modelo autônomo para criar uma conta de armazenamento. Neste tutorial, o modelo vinculado usa dois parâmetros e passa um valor de volta para o modelo principal. Esse valor de "retorno" é definido no elemento `outputs`.
 
 1. Abra **vinculadotemplate. JSON** em Visual Studio Code se o arquivo não estiver aberto.
 2. Efetue as seguintes alterações:
@@ -166,7 +166,7 @@ O modelo ligado cria uma conta de armazenamento. O modelo vinculado pode ser usa
 
 ## <a name="upload-the-linked-template"></a>Carregar o modelo ligado
 
-O modelo de principal e o modelo ligado tem de ser acessível a partir de onde executar a implementação. Neste tutorial, você usa o método de implantação do Cloud Shell conforme usado no [tutorial: Crie modelos de Azure Resource Manager com recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)dependentes. O modelo principal (azuredeploy.json) é carregado para o shell. O modelo ligado (linkedTemplate.json) tem de ser partilhados em algum lugar de forma segura. O script do PowerShell a seguir cria uma conta de armazenamento do Azure, carrega o modelo para a conta de armazenamento e, em seguida, gera um token SAS para conceder acesso limitado ao arquivo de modelo. Para simplificar o tutorial, o script baixa um modelo vinculado completo de um local compartilhado. Se pretender utilizar o modelo ligado que criou, pode utilizar o [Cloud shell](https://shell.azure.com) carregue o modelo ligado e, em seguida, modificar o script a utilizar o seu próprio modelo ligado.
+O modelo de principal e o modelo ligado tem de ser acessível a partir de onde executar a implementação. Neste tutorial, você usa o método de implantação do Cloud shell como usado em [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0. O modelo principal (azuredeploy.json) é carregado para o shell. O modelo ligado (linkedTemplate.json) tem de ser partilhados em algum lugar de forma segura. O script do PowerShell a seguir cria uma conta de armazenamento do Azure, carrega o modelo para a conta de armazenamento e, em seguida, gera um token SAS para conceder acesso limitado ao arquivo de modelo. Para simplificar o tutorial, o script baixa um modelo vinculado completo de um repositório github. Se pretender utilizar o modelo ligado que criou, pode utilizar o [Cloud shell](https://shell.azure.com) carregue o modelo ligado e, em seguida, modificar o script a utilizar o seu próprio modelo ligado.
 
 > [!NOTE]
 > O script limita o token SAS para serem utilizados nos oito horas. Se precisar de mais tempo para concluir este tutorial, aumente o tempo de expiração.
@@ -179,7 +179,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -259,7 +259,7 @@ O modelo principal chama-se azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -281,7 +281,7 @@ O modelo principal chama-se azuredeploy.json.
 
 ## <a name="configure-dependency"></a>Configurar a dependência
 
-Lembre- [se do tutorial: Criar modelos de Azure Resource Manager com recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md)dependentes, o recurso de máquina virtual depende da conta de armazenamento:
+Lembre-se de [Tutorial: Criar modelos de Azure Resource Manager com recursos dependentes @ no__t-0, o recurso de máquina virtual depende da conta de armazenamento:
 
 ![Diagrama de dependência de modelos do Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 

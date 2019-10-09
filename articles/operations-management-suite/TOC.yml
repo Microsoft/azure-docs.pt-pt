@@ -110,10 +110,6 @@
           href: ../azure-monitor/insights/solutions-resources-views.md
         - name: Melhores práticas
           href: ../azure-monitor/insights/solutions-best-practices.md
-    - name: Cenários de gestão
-      items:
-        - name: Recolher dados de análise a partir de runbooks
-          href: ../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json
 - name: Recursos
   items:
     - name: Mapa do Azure

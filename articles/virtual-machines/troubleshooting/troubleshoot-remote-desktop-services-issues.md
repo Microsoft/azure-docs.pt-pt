@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087100"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168957"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Serviços de Área de Trabalho Remota não está iniciando em uma VM do Azure
 
@@ -65,7 +65,7 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
 
 ### <a name="use-serial-console"></a>Usar o console serial
 
-1. Acesse o [console serial](serial-console-windows.md) selecionando **suporte &**  > solução de problemas**console serial**. Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
+1. Acesse o [console serial](serial-console-windows.md) selecionando **suporte & solução de problemas** > **console serial**. Se o recurso estiver habilitado na VM, você poderá conectar a VM com êxito.
 
 2. Crie um novo canal para uma instância CMD. Insira **cmd** para iniciar o canal e obter o nome do canal.
 
@@ -113,7 +113,7 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>O serviço do TermService foi interrompido devido a um problema de acesso negado
 
 1. Ligar à [consola de série](serial-console-windows.md) e abra uma instância do PowerShell.
-2. Transferir a ferramenta de Monitor do processo executando o seguinte script:
+2. Baixe a ferramenta Process Monitor executando o seguinte script:
 
    ```
    remove-module psreadline  
@@ -141,16 +141,16 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
    procmon /Terminate 
    ```
 
-5. Colete o arquivo **c:\temp\ProcMonTrace.PML**:
+5. Colete o arquivo **c:\temp\ProcMonTrace.PML**:
 
     1. [Anexar um disco de dados para a VM](../windows/attach-managed-disk-portal.md
 ).
     2. Utilize a consola de série, pode copiar o ficheiro para o novo disco. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Neste comando, F é a letra de unidade do disco de dados anexados.
     3. Desanexe a unidade de dados e anexe-a em uma VM em funcionamento que tenha o Process Monitor ubstakke instalado.
 
-6. Abra **ProcMonTrace. PML** usando o Process Monitor na VM de trabalho. Em seguida, filtrar por **resultado é o acesso NEGADO**, conforme mostrado na captura de ecrã seguinte:
+6. Abra **ProcMonTrace. PML** usando o Process Monitor na VM de trabalho. Em seguida, filtrar por **resultado é acesso negado**, conforme mostrado na seguinte captura de tela:
 
-    ![Filtrar por resultado no Monitor do processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filtrar por resultado no monitor de processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Corrigi as chaves do Registro, pastas ou ficheiros que estão na saída. Normalmente, esse problema é causado quando a conta de início de sessão que é utilizada no serviço não tem permissão de ACL de acesso esses objetos. Para saber a permissão de ACL correta para a conta de entrada, você pode verificar em uma VM íntegra. 

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: ed9ea8f9c340331fd9b8fcc014ab1af88e7b3bae
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: aa388a688e76b0ba69231d8a11aa1bfa686f7f51
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599230"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166541"
 ---
 # <a name="resource-governance"></a>Governação de recursos
 
@@ -30,16 +30,16 @@ Quando você estiver executando vários serviços no mesmo nó ou cluster, é po
 
 ## <a name="resource-governance-metrics"></a>Métricas de governança de recursos
 
-A governança de recursos tem suporte em Service Fabric de acordo com o [pacote de serviço](service-fabric-application-model.md). Os recursos atribuídos ao pacote de serviço podem ser divididos ainda mais entre pacotes de código. Os limites de recursos especificados também significam a reserva dos recursos. O Service Fabric dá suporte à especificação de CPU e memória por pacote de serviço, [](service-fabric-cluster-resource-manager-metrics.md)com duas métricas internas:
+A governança de recursos tem suporte em Service Fabric de acordo com o [pacote de serviço](service-fabric-application-model.md). Os recursos atribuídos ao pacote de serviço podem ser divididos ainda mais entre pacotes de código. Os limites de recursos especificados também significam a reserva dos recursos. O Service Fabric dá suporte à especificação de CPU e memória por pacote de serviço, com duas [métricas](service-fabric-cluster-resource-manager-metrics.md)internas:
 
-* *CPU* (nome `servicefabric:/_CpuCores`da métrica): Um núcleo lógico que está disponível no computador host. Todos os núcleos em todos os nós são ponderados da mesma.
+* *CPU* (nome da métrica `servicefabric:/_CpuCores`): Um núcleo lógico que está disponível no computador host. Todos os núcleos em todos os nós são ponderados da mesma.
 
-* *Memória* do (nome `servicefabric:/_MemoryInMB`da métrica): A memória é expressa em megabytes e é mapeada para a memória física que está disponível no computador.
+* *Memória* (nome da métrica `servicefabric:/_MemoryInMB`): A memória é expressa em megabytes e é mapeada para a memória física que está disponível no computador.
 
 Para essas duas métricas, o [Gerenciador de recursos de cluster](service-fabric-cluster-resource-manager-cluster-description.md) controla a capacidade total do cluster, a carga em cada nó no cluster e os recursos restantes no cluster. Essas duas métricas são equivalentes a qualquer outro usuário ou métrica personalizada. Todos os recursos existentes podem ser usados com eles:
 
 * O cluster pode ser [balanceado](service-fabric-cluster-resource-manager-balancing.md) de acordo com essas duas métricas (comportamento padrão).
-* O cluster pode ser [](service-fabric-cluster-resource-manager-defragmentation-metrics.md) desfragmentado de acordo com essas duas métricas.
+* O cluster pode ser [desfragmentado](service-fabric-cluster-resource-manager-defragmentation-metrics.md) de acordo com essas duas métricas.
 * Ao [descrever um cluster, a](service-fabric-cluster-resource-manager-cluster-description.md)capacidade em buffer pode ser definida para essas duas métricas.
 
 Não há suporte para o [relatório de carga dinâmica](service-fabric-cluster-resource-manager-metrics.md) para essas métricas, e as cargas para essas métricas são definidas no momento da criação.
@@ -133,7 +133,7 @@ Os limites de governança de recursos são especificados no manifesto do aplicat
   </ServiceManifestImport>
 ```
 
-Neste exemplo, o pacote de serviço chamado de **Packager** Obtém um núcleo nos nós onde ele é colocado. Esse pacote de serviço contém dois pacotes de código (**CodeA1** e **CodeA2**) e ambos especificam o `CpuShares` parâmetro. A proporção do CpuShares 512:256 divide o núcleo entre os dois pacotes de código.
+Neste exemplo, o pacote de serviço chamado de **Packager** Obtém um núcleo nos nós onde ele é colocado. Esse pacote de serviço contém dois pacotes de código (**CodeA1** e **CodeA2**) e ambos especificam o parâmetro `CpuShares`. A proporção do CpuShares 512:256 divide o núcleo entre os dois pacotes de código.
 
 Portanto, neste exemplo, CodeA1 Obtém dois terços de um núcleo e CodeA2 Obtém um terço de um núcleo (e uma reserva de garantia flexível do mesmo). Se CpuShares não for especificado para pacotes de código, Service Fabric dividirá os núcleos igualmente entre eles.
 
@@ -209,7 +209,7 @@ Esses recursos podem ser combinados com CPU e memória. Aqui está um exemplo de
     </ServiceManifestImport>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o Gerenciador de recursos de cluster, leia [introdução ao Gerenciador de recursos de cluster Service Fabric](service-fabric-cluster-resource-manager-introduction.md).
-* Para saber mais sobre o modelo de aplicativo, pacotes de serviço e pacotes de código – e como as réplicas são mapeadas para eles, leia modelar [um aplicativo em Service Fabric](service-fabric-application-model.md).
+* Para saber mais sobre o modelo de aplicativo, pacotes de serviço e pacotes de código – e como as réplicas são mapeadas para eles, leia [modelar um aplicativo em Service Fabric](service-fabric-application-model.md).

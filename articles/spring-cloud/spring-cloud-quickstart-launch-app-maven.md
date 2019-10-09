@@ -9,19 +9,19 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d2b9592656d00b38c18b8c9e07540ccb5913766c
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 01140e94e8d0cc47570824970801bdd0043324d7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039057"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166522"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Início rápido: Iniciar um aplicativo de nuvem Spring do Azure usando o plug-in Maven
 
 O plug-in Maven do Azure Spring Cloud permite que você crie e atualize facilmente seus aplicativos de serviço de nuvem do Azure Spring. Ao definir previamente uma configuração, você pode implantar aplicativos em seu serviço de nuvem do Azure Spring existente. Neste artigo, usamos um aplicativo de exemplo chamado PiggyMetrics para demonstrar esse recurso.
 
 >[!Note]
-> Antes de iniciar este guia de início rápido, verifique se sua assinatura do Azure tem acesso ao Azure Spring Cloud.  Como um serviço de visualização, solicitamos que os clientes entrem em contato conosco para que possamos adicionar sua assinatura à nossa lista de permissões.  Se você quiser explorar os recursos do Azure Spring Cloud, entre em contato conosco por email: azure-spring-cloud@service.microsoft.com.
+> Antes de iniciar este guia de início rápido, verifique se sua assinatura do Azure tem acesso ao Azure Spring Cloud.  Como um serviço de visualização, solicitamos que os clientes entrem em contato conosco para que possamos adicionar sua assinatura à nossa lista de permissões.  Se você quiser explorar os recursos do Azure Spring Cloud, [fill este formulário @ no__t-1.
 
 >[!TIP]
 > O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo.  Ele tem ferramentas comuns do Azure pré-instalados, incluindo as versões mais recentes do git, JDK, Maven e o CLI do Azure. Se você estiver conectado à sua assinatura do Azure, inicie o [Azure cloud Shell](https://shell.azure.com) do Shell.Azure.com.  Você pode saber mais sobre Azure Cloud Shell [lendo nossa documentação](../cloud-shell/overview.md)

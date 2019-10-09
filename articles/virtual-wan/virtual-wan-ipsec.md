@@ -1,27 +1,31 @@
 ---
-title: As políticas IPsec padrão Virtual WAN do Azure | Documentos da Microsoft
-description: Este artigo fornece informações sobre as políticas de IPsec para Virtual WAN.
+title: Políticas de IPsec padrão de WAN virtual do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre diretivas IPsec para WAN virtual.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: fcc9979b9f6d2efcdcbb575f3fd149d8df9c20b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5533e35a632f2d58bd8af8f52aafa11d1b677cb9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307216"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168398"
 ---
-# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Políticas de padrão WAN virtual para conectividade IPsec
+# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Políticas padrão de WAN virtual para conectividade IPsec
 
-Este artigo mostra as combinações de política de IPsec suportadas.
+Este artigo mostra as combinações de política IPsec com suporte.
 
-## <a name="default-ipsec-policies"></a>Políticas predefinidas de IPsec
+## <a name="default-ipsec-policies"></a>Políticas IPsec padrão
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="custom-ipsec-policies"></a>Políticas de IPsec personalizadas
 
-Para obter mais informações sobre o Virtual WAN, consulte [sobre a Azure Virtual WAN](virtual-wan-about.md) e o [FAQ de WAN Virtual do Azure](virtual-wan-faq.md).
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
+
+## <a name="next-steps"></a>Passos seguintes
+
+Para obter mais informações sobre WAN virtual, consulte [sobre a WAN virtual do Azure](virtual-wan-about.md) e as [perguntas frequentes sobre a WAN virtual do Azure](virtual-wan-faq.md).

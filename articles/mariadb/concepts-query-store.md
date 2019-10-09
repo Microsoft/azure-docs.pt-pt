@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023676"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166221"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
@@ -104,7 +104,7 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 > [!NOTE]
 > Atualmente, o **query_store_capture_mode** substitui essa configuração, o que significa que **query_store_capture_mode** e **query_store_wait_sampling_capture_mode** precisam ser habilitados para que todas as estatísticas de espera funcionem. Se **query_store_capture_mode** for desativado, as estatísticas de espera serão desativadas, já que as estatísticas de espera utilizam o performance_schema habilitado e o query_text capturado pelo repositório de consultas.
 
-Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um valor diferente para um parâmetro.
+Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um valor diferente para um parâmetro.
 
 ## <a name="views-and-functions"></a>Exibições e funções
 

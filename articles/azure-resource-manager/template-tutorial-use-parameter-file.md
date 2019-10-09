@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d06006e72405a53361d0551cf773488ec809762
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963822"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177557"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Usar arquivos de parâmetro para implantar o modelo do Resource Manager
 
@@ -51,9 +51,9 @@ Esse arquivo é o arquivo de parâmetro para o ambiente de produção. Observe q
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Use CLI do Azure ou Azure PowerShell para implantar um modelo.
+Use CLI do Azure ou Azure PowerShell para implantar o modelo.
 
-Como teste final de seu modelo, vamos criar dois novos grupos de recursos. Um para o ambiente de desenvolvimento e no para o ambiente de produção.
+Como um teste final do modelo, vamos criar dois novos grupos de recursos. Um para o ambiente de desenvolvimento e outro para o ambiente de produção.
 
 Primeiro, implantaremos no ambiente de desenvolvimento.
 
@@ -83,7 +83,7 @@ az group deployment create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.dev.json
+  --parameters azuredeploy.parameters.dev.json
 ```
 
 ---
@@ -114,14 +114,14 @@ az group deployment create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.prod.json
+  --parameters azuredeploy.parameters.prod.json
 ```
 
 ---
 
-## <a name="verify-deployment"></a>Verificar a implementação
+## <a name="verify-the-deployment"></a>Verificar a implementação
 
-Você pode verificar a implantação explorando o grupo de recursos do portal do Azure.
+Você pode verificar a implantação explorando os grupos de recursos do portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. No menu à esquerda, selecione **grupos de recursos**.

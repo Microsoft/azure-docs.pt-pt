@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: bb6a975d2a2fc2cc3e65fa8969f8b005be8b1417
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299709"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176666"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implantar um módulo de segurança em seu dispositivo IoT Edge
 
@@ -48,7 +48,7 @@ Use as etapas a seguir para implantar um módulo de segurança da central de seg
     - Verifique se a auditoria está ativa executando o seguinte comando: 
    
     `sudo systemctl status auditd`<br>
-    - A resposta esperada é:`active (running)` 
+    - A resposta esperada é: `active (running)` 
         
 
 ### <a name="deployment-using-azure-portal"></a>Implantação usando portal do Azure
@@ -70,7 +70,7 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
 
 #### <a name="step-1-add-modules"></a>Passo 1: Adicionar módulos
 
-1. Na guia **Adicionar módulos** , na área **módulos de implantação** , clique em **AzureSecurityCenterforIoT**. 
+1. Na guia **Adicionar módulos** , na área **módulos de implantação** , clique na opção **Configurar** para **AzureSecurityCenterforIoT**. 
    
 1. Altere o **nome** para **azureiotsecurity**.
 1. Altere o **URI da imagem** para **MCR.Microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
@@ -95,10 +95,13 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
 1. Verifique se **definir propriedades desejadas do módulo Set** está selecionado e altere o objeto de configuração para:
       
     ``` json
-    "desired": {
-        "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration": {
-          } 
-        }
+    { 
+       "properties.desired":{ 
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
+
+          }
+       }
+    }
     ```
 
 1. Clique em **Guardar**.
@@ -110,13 +113,25 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
          
     ``` json
     { 
-    "HostConfig":{
-                    "PortBindings":{
-                    "8883/tcp": [{"HostPort": "8883"}],
-                    "443/tcp": [{"HostPort": "443"}],
-                    "5671/tcp": [{"HostPort": "5671"}]
-                    }
-        }
+       "HostConfig":{ 
+          "PortBindings":{ 
+             "8883/tcp":[ 
+                { 
+                   "HostPort":"8883"
+                }
+             ],
+             "443/tcp":[ 
+                { 
+                   "HostPort":"443"
+                }
+             ],
+             "5671/tcp":[ 
+                { 
+                   "HostPort":"5671"
+                }
+             ]
+          }
+       }
     }
     ```
 1. Clique em **Guardar**.
@@ -125,16 +140,15 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
 
 #### <a name="step-2-specify-routes"></a>Passo 2: Especificar rotas 
 
-1. Na guia **especificar rotas** , verifique se você tem uma rota (explícita ou implícita) que encaminhará as mensagens do módulo **azureiotsecurity** para **$upstream**. 
-1. Clique em **Seguinte**.
+1. Na guia **especificar rotas** , verifique se você tem uma rota (explícita ou implícita) que encaminhará as mensagens do módulo **azureiotsecurity** para **$upstream** de acordo com os exemplos a seguir, somente clique em **Avançar**. 
 
-    ~~~Default implicit route
-    "route": "FROM /messages/* INTO $upstream" 
-    ~~~
+~~~Default implicit route
+"route": "FROM /messages/* INTO $upstream" 
+~~~
 
-    ~~~Explicit route
-    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-    ~~~
+~~~Explicit route
+"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+~~~
 
 #### <a name="step-3-review-deployment"></a>Passo 3: Implementação de revisão
 
@@ -166,7 +180,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
 
    `sudo docker logs azureiotsecurity`
    
-1. Para logs mais detalhados, adicione a seguinte variável de ambiente à implantação do módulo `logLevel=Debug`azureiotsecurity:.
+1. Para logs mais detalhados, adicione a seguinte variável de ambiente à implantação do módulo **azureiotsecurity** : `logLevel=Debug`.
 
 ## <a name="next-steps"></a>Passos seguintes
 

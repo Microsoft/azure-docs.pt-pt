@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3ef8ab4b24d223f372ae3704b00ba6ff090fb039
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200956"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169992"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acesso condicional: Bloquear a autenticação legada
 
@@ -26,21 +26,21 @@ Devido ao maior risco associado aos protocolos de autenticação herdados, a Mic
 
 As etapas a seguir ajudarão a criar uma política de acesso condicional para bloquear as solicitações de autenticação herdadas.
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **acesso condicional**.
+1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
+1. Navegue até **Azure Active Directory** **acesso condicional** > .
 1. Selecione **nova política**.
 1. Dê um nome à sua política. Recomendamos que as organizações criem um padrão significativo para os nomes de suas políticas.
 1. Em **atribuições**, selecione **usuários e grupos**
    1. Em **incluir**, selecione **todos os usuários**.
    1. Em **excluir**, selecione **usuários e grupos** e escolha as contas que devem manter a capacidade de usar a autenticação herdada. 
    1. Selecione **Done** (Concluído).
-1. Em **aplicativos de nuvem ou ações** > **incluem**, selecione **todos os aplicativos de nuvem**.
+1. Em **aplicativos de nuvem ou ações** > **incluir**, selecione **todos os aplicativos de nuvem**.
    1. Se você precisar excluir aplicativos específicos de sua política, poderá selecioná-los na guia **excluir** em **selecionar aplicativos de nuvem excluídos** e escolher **selecionar**.
    1. Selecione **Done** (Concluído).
-1. Em **condições** > **aplicativos de cliente (versão prévia)** , defina **Configurar** como **Sim**.
-   1. Marque somente as > caixas **aplicativos móveis e clientes de área de trabalho** **outros clientes**.
+1. Em **condições** > **aplicativos cliente (versão prévia)** , defina **Configurar** como **Sim**.
+   1. Marque apenas as caixas **aplicativos móveis e clientes de área de trabalho** > **outros clientes**.
    2. Selecione **Done** (Concluído).
-1. Em**concessão**de **controles** > de acesso, selecione **bloquear acesso**.
+1. Em **controles de acesso** > **Grant**, selecione **bloquear acesso**.
    1. Selecione **selecionar**.
 1. Confirme suas configurações e defina **habilitar política** como **ativado**.
 1. Selecione **criar** para criar para habilitar a política.

@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959013"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168496"
 ---
 # <a name="virtual-wan-partners"></a>Parceiros de WAN virtual
 
@@ -215,11 +215,13 @@ Seu dispositivo SDWAN/VPN local ou a configuração de SD-WAN deve corresponder 
 * Algoritmo de integridade do IPsec
 * Grupo PFS
 
-### <a name="default"></a>Políticas padrão para conectividade IPsec 
+### <a name="default"></a>Políticas padrão para conectividade IPsec
 
-Ao trabalhar com políticas padrão, o Azure pode atuar como iniciador e Respondente durante uma configuração de túnel IPsec. Não há suporte apenas para o Azure como respondente.
+[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+### <a name="custom"></a>Políticas personalizadas para conectividade IPsec
+
+[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

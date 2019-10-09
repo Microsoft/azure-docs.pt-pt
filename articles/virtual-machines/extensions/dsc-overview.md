@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: c759567e4d8c183452eccbbdca8459c8993d1361
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7e309237589dfaf037114401172fc8f928a30077
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092426"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176654"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de configuração de estado desejado do Azure
 
 O agente de VM do Azure e as extensões associadas fazem parte dos serviços de infraestrutura Microsoft Azure. As extensões de VM são componentes de software que estendem a funcionalidade da VM e simplificam várias operações de gerenciamento de VM.
 
 O caso de uso primário para a extensão DSC (configuração de estado desejado) do Azure é inicializar uma VM para o [serviço de configuração de estado da automação do Azure (DSC)](../../automation/automation-dsc-overview.md).
-O serviço fornece [benefícios](/powershell/dsc/metaconfig#pull-service) que incluem o gerenciamento contínuo da configuração da VM e a integração com outras ferramentas operacionais, como o monitoramento do Azure.
+O serviço fornece [benefícios](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service) que incluem o gerenciamento contínuo da configuração da VM e a integração com outras ferramentas operacionais, como o monitoramento do Azure.
 Usar a extensão para registrar VMs no serviço fornece uma solução flexível que até funciona em assinaturas do Azure.
 
 Você pode usar a extensão DSC independentemente do serviço DSC de Automação.
@@ -39,7 +39,7 @@ Este artigo fornece informações sobre os dois cenários: usando a extensão de
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - **Computador local**: Para interagir com a extensão de VM do Azure, você deve usar o portal do Azure ou o SDK do Azure PowerShell.
-- **Agente convidado**: A VM do Azure configurada pela configuração DSC deve ser um sistema operacional compatível com o Windows Management Framework (WMF) 4,0 ou posterior. Para obter a lista completa de versões de sistema operacional com suporte, consulte o [histórico de versão da extensão DSC](/powershell/dsc/azuredscexthistory).
+- **Agente convidado**: A VM do Azure configurada pela configuração DSC deve ser um sistema operacional compatível com o Windows Management Framework (WMF) 4,0 ou posterior. Para obter a lista completa de versões de sistema operacional com suporte, consulte o [histórico de versão da extensão DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termos e conceitos
 
@@ -51,7 +51,7 @@ Este guia pressupõe familiaridade com os seguintes conceitos:
 
 ## <a name="architecture"></a>Arquitetura
 
-A extensão DSC do Azure usa a estrutura do agente de VM do Azure para fornecer, aplicar e relatar configurações de DSC em execução em VMs do Azure. A extensão DSC aceita um documento de configuração e um conjunto de parâmetros. Se nenhum arquivo for fornecido, um [script de configuração padrão](#default-configuration-script) será inserido com a extensão. O script de configuração padrão é usado somente para definir metadados no [Configuration Manager local](/powershell/dsc/metaconfig).
+A extensão DSC do Azure usa a estrutura do agente de VM do Azure para fornecer, aplicar e relatar configurações de DSC em execução em VMs do Azure. A extensão DSC aceita um documento de configuração e um conjunto de parâmetros. Se nenhum arquivo for fornecido, um [script de configuração padrão](#default-configuration-script) será inserido com a extensão. O script de configuração padrão é usado somente para definir metadados no [Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaConfig).
 
 Quando a extensão é chamada pela primeira vez, ela instala uma versão do WMF usando a seguinte lógica:
 
@@ -59,11 +59,11 @@ Quando a extensão é chamada pela primeira vez, ela instala uma versão do WMF 
 - Se a propriedade **wmfVersion** for especificada, essa versão do WMF será instalada, a menos que essa versão seja incompatível com o sistema operacional da VM.
 - Se nenhuma propriedade **wmfVersion** for especificada, a versão mais recente aplicável do WMF será instalada.
 
-A instalação do WMF requer uma reinicialização. Após a reinicialização, a extensão baixa o arquivo. zip especificado na propriedade **modulesUrl** , se fornecido. Se esse local estiver no armazenamento de BLOBs do Azure, você poderá especificar um token SAS na propriedade **sasToken** para acessar o arquivo. Depois que o. zip é baixado e desempacotado, a função de configuração definida em **configurationFunction** é executada para gerar um arquivo. mof. Em seguida, a `Start-DscConfiguration -Force` extensão é executada usando o arquivo. mof gerado. A extensão captura a saída e a grava no canal de status do Azure.
+A instalação do WMF requer uma reinicialização. Após a reinicialização, a extensão baixa o arquivo. zip especificado na propriedade **modulesUrl** , se fornecido. Se esse local estiver no armazenamento de BLOBs do Azure, você poderá especificar um token SAS na propriedade **sasToken** para acessar o arquivo. Depois que o. zip é baixado e desempacotado, a função de configuração definida em **configurationFunction** é executada para gerar um arquivo. mof. Em seguida, a extensão é executada `Start-DscConfiguration -Force` usando o arquivo. mof gerado. A extensão captura a saída e a grava no canal de status do Azure.
 
 ### <a name="default-configuration-script"></a>Script de configuração padrão
 
-A extensão DSC do Azure inclui um script de configuração padrão que deve ser usado quando você carrega uma VM para o serviço de DSC de Automação do Azure. Os parâmetros de script são alinhados com as propriedades configuráveis do [Configuration Manager local](/powershell/dsc/metaconfig). Para parâmetros de script, consulte [script de configuração padrão](dsc-template.md#default-configuration-script) na [extensão de configuração de estado desejado com modelos de Azure Resource Manager](dsc-template.md). Para obter o script completo, consulte o [modelo de início rápido do Azure no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+A extensão DSC do Azure inclui um script de configuração padrão que deve ser usado quando você carrega uma VM para o serviço de DSC de Automação do Azure. Os parâmetros de script são alinhados com as propriedades configuráveis do [Configuration Manager local](/powershell/scripting/dsc/managing-nodes/metaConfig). Para parâmetros de script, consulte [script de configuração padrão](dsc-template.md#default-configuration-script) na [extensão de configuração de estado desejado com modelos de Azure Resource Manager](dsc-template.md). Para obter o script completo, consulte o [modelo de início rápido do Azure no GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
 ## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informações para registrar com o serviço de configuração de estado da automação do Azure (DSC)
 
@@ -82,7 +82,7 @@ Essas informações podem ser vistas na [portal do Azure](../../automation/autom
 
 Para o nome da configuração do nó, verifique se a configuração do nó existe na configuração de estado do Azure.  Caso contrário, a implantação da extensão retornará uma falha.  Verifique também se você está usando o nome da *configuração do nó* e não a configuração.
 Uma configuração é definida em um script que é usado [para compilar a configuração de nó (arquivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
-O nome será sempre a configuração seguida por um ponto `.` `localhost` e um nome de computador específico.
+O nome será sempre a configuração seguida por um período `.` e `localhost` ou um nome de computador específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensão de DSC em modelos do Resource Manager
 
@@ -102,14 +102,14 @@ O cmdlet **Get-AzVMDscExtension** recupera o status da extensão de DSC de uma V
 
 O cmdlet **Get-AzVMDscExtensionStatus** recupera o status da configuração DSC que é imposta pelo manipulador de extensão de DSC. Essa ação pode ser executada em uma única VM ou em um grupo de VMs.
 
-O cmdlet **Remove-AzVMDscExtension** remove o manipulador de extensão de uma VM específica. Esse cmdlet não remove a configuração, desinstala o WMF ou altera as configurações aplicadas na VM. Ele remove apenas o manipulador de extensão. 
+O cmdlet **Remove-AzVMDscExtension** remove o manipulador de extensão de uma VM específica. Esse cmdlet não *Remove a* configuração, desinstala o WMF ou altera as configurações aplicadas na VM. Ele remove apenas o manipulador de extensão. 
 
 Informações importantes sobre os cmdlets de extensão DSC do Resource Manager:
 
 - Os cmdlets Azure Resource Manager são síncronos.
 - Os parâmetros *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *version*e *Location* são todos necessários.
 - *ArchiveResourceGroupName* é um parâmetro opcional. Você pode especificar esse parâmetro quando sua conta de armazenamento pertencer a um grupo de recursos diferente daquele em que a VM é criada.
-- Use a opção AutoUpdate para atualizar automaticamente o manipulador de extensão para a versão mais recente quando ele estiver disponível. Esse parâmetro tem o potencial de causar reinicializações na VM quando uma nova versão do WMF é lançada.
+- Use a opção **AutoUpdate** para atualizar automaticamente o manipulador de extensão para a versão mais recente quando ele estiver disponível. Esse parâmetro tem o potencial de causar reinicializações na VM quando uma nova versão do WMF é lançada.
 
 ### <a name="get-started-with-cmdlets"></a>Introdução aos cmdlets
 
@@ -184,7 +184,7 @@ O portal coleta a seguinte entrada:
 
 - **Módulos de configuração ou script**: Este campo é obrigatório (o formulário não foi atualizado para o [script de configuração padrão](#default-configuration-script)). Os módulos de configuração e os scripts exigem um arquivo. ps1 que tenha um script de configuração ou um arquivo. zip com um script de configuração. ps1 na raiz. Se você usar um arquivo. zip, todos os recursos dependentes deverão ser incluídos nas pastas de módulo no. zip. Você pode criar o arquivo. zip usando o cmdlet **Publish-AzureVMDscConfiguration-OutputArchivePath** que está incluído no SDK do Azure PowerShell. O arquivo. zip é carregado no armazenamento de BLOBs do usuário e protegido por um token SAS.
 
-- **Nome qualificado do módulo da configuração**: Você pode incluir várias funções de configuração em um arquivo. ps1. Insira o nome do script Configuration. ps1 seguido \\ de e o nome da função de configuração. Por exemplo, se o seu script. ps1 tiver o nome Configuration. ps1 e a configuração for **IisInstall**, insira **Configuration. ps1\IisInstall**.
+- **Nome qualificado do módulo da configuração**: Você pode incluir várias funções de configuração em um arquivo. ps1. Insira o nome do script Configuration. ps1 seguido por \\ e o nome da função de configuração. Por exemplo, se o seu script. ps1 tiver o nome Configuration. ps1 e a configuração for **IisInstall**, insira **Configuration. ps1\IisInstall**.
 
 - **Argumentos de configuração**: Se a função de configuração usar argumentos, insira-os aqui no formato **argumentName1 = value1, argumentName2 = value2**. Esse formato é um formato diferente no qual argumentos de configuração são aceitos em cmdlets do PowerShell ou modelos do Resource Manager.
 
@@ -194,17 +194,17 @@ O portal coleta a seguinte entrada:
 
 - **Coleta de dados**: Determina se a extensão coletará a telemetria. Para obter mais informações, consulte [coleta de dados de extensão de DSC do Azure](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Versão**: Especifica a versão da extensão DSC a ser instalada. Para obter informações sobre versões, consulte [histórico de versão da extensão DSC](/powershell/dsc/azuredscexthistory).
+- **Versão**: Especifica a versão da extensão DSC a ser instalada. Para obter informações sobre versões, consulte [histórico de versão da extensão DSC](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 - **Versão secundária de atualização automática**: Esse campo é mapeado para a opção de **atualização** automática nos cmdlets e permite que a extensão seja atualizada automaticamente para a versão mais recente durante a instalação. **Sim** instruirá o manipulador de extensão a usar a versão mais recente disponível e **não** forçará a **versão** especificada a ser instalada. Selecionar **Sim** nem **não** é o mesmo que selecionar **não**.
 
 ## <a name="logs"></a>Registos
 
-Os logs para a extensão são armazenados no seguinte local:`C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
+Os logs para a extensão são armazenados no seguinte local: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre o DSC do PowerShell, acesse o [centro de documentação do PowerShell](/powershell/dsc/overview).
+- Para obter mais informações sobre o DSC do PowerShell, acesse o [centro de documentação do PowerShell](/powershell/scripting/dsc/overview/overview).
 - Examine o [modelo do Resource Manager para a extensão de DSC](dsc-template.md).
 - Para obter mais funcionalidade que você pode gerenciar usando a DSC do PowerShell e para obter mais recursos de DSC, procure a [Galeria do PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - Para obter detalhes sobre como passar parâmetros confidenciais em configurações, consulte [gerenciar credenciais com segurança com o manipulador de extensão de DSC](dsc-credentials.md).

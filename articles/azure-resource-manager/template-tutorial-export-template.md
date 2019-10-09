@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53c93b4e0184468ddee75613b48b887c9d07f751
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0564763b05dd44eb908ec00f98a97e9d4970099f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963794"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177587"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Usar modelo exportado do portal do Azure
 
@@ -46,13 +46,13 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
     - **Nome**: Insira um nome para o plano do serviço de aplicativo.
     - **Sistema operacional**: selecione **Linux**.
     - **Região**: selecione um local do Azure. Por exemplo, **E.U.A. Central**.
-    - **Tipo de preço**: para economizar custos, altere a SKU para **básico**.
+    - **Tipo de preço**: para economizar custos, altere a SKU para **básico B1** (em desenvolvimento/teste).
 
     ![Portal do modelo de exportação de modelos do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Selecione **revisar e criar**.
 1. Selecione **Criar**. Leva alguns minutos para criar o recurso.
 
-## <a name="export-template"></a>Exportar modelo
+## <a name="export-the-template"></a>Exportar o modelo
 
 1. Selecione **ir para o recurso**.
 
@@ -62,7 +62,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 
     ![Modelo de exportação de modelo do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   O recurso exportar modelo usa o estado atual de um recurso e gera um modelo para implantá-lo. A exportação de um modelo pode ser útil para obter rapidamente o JSON de que você precisa para implantar um recurso.
+   O recurso exportar modelo usa o estado atual de um recurso e gera um modelo para implantá-lo. Exportar um modelo pode ser uma maneira útil de obter rapidamente o JSON de que você precisa para implantar um recurso.
 
 1. Copie a definição **Microsoft. Web/serverfarms** e a definição de parâmetro para seu modelo.
 
@@ -71,7 +71,7 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 > [!IMPORTANT]
 > Normalmente, o modelo exportado é mais detalhado do que você pode desejar ao criar um modelo. Por exemplo, o objeto SKU no modelo exportado tem cinco Propriedades. Esse modelo funciona, mas você poderia simplesmente usar a propriedade **Name** . Você pode começar com o modelo exportado e, em seguida, modificá-lo como desejar para atender às suas necessidades.
 
-## <a name="revise-existing-template"></a>Revisar modelo existente
+## <a name="revise-the-existing-template"></a>Revisar o modelo existente
 
 O modelo exportado fornece a você a maior parte do JSON que você precisa, mas você precisa personalizá-lo para seu modelo. Preste atenção especial às diferenças em parâmetros e variáveis entre o modelo e o modelo exportado. Obviamente, o processo de exportação não conhece os parâmetros e as variáveis que você já definiu em seu modelo.
 
@@ -81,7 +81,7 @@ Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
 Use CLI do Azure ou Azure PowerShell para implantar um modelo.
 

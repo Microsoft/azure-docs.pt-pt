@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44ae433040c2c9cab47567cb663d4e588311a4a1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140757"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177406"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carregar dados de forma incremental a partir de várias tabelas no SQL Server para uma base de dados SQL do Azure
 Neste tutorial, vai criar um pipeline do Azure Data Factory que carrega dados delta a partir de várias tabelas no SQL Server local para uma base de dados SQL do Azure.    
@@ -280,7 +280,7 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 1. Introduza **MySelfHostedIR** em **Nome** e clique em **Seguinte**. 
 
    ![Nome do IR autoalojado](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Clique **em clique aqui para iniciar a instalação expressa para este computador** na **opção 1: Seção de** instalação expressa. 
+1. Clique **em clique aqui para iniciar a instalação expressa para este computador** no **Option 1: Instalação expressa @ no__t-0 seção. 
 
    ![Clicar na ligação de Configuração Rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Na janela **Configuração Rápida do Integration Runtime (Autoalojado)** , clique em **Fechar**. 
@@ -386,7 +386,7 @@ Neste passo, vai criar conjuntos de dados para representar a origem de dados, o 
    ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. Depois de clicar em **Concluir**, verá **@dataset().SinkTableName** como o nome da tabela.
+ 1. Depois de clicar em **concluir**, você verá **\@dataset (). SinkTableName** como o nome da tabela.
    
    ![Conjunto de Dados de Sink - ligação](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -494,7 +494,7 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
 
     1. Na propriedade **DataSet** , para o parâmetro **SinkTableName** , insira `@{item().TABLE_NAME}`.
     1. Para a propriedade **nome do procedimento armazenado** , digite `@{item().StoredProcedureNameForMergeOperation}`.
-    1. Para Propriedade do **tipo** de tabela `@{item().TableType}`, digite.
+    1. Para propriedade de **tipo de tabela** , digite `@{item().TableType}`.
 
 
         ![Atividade Copiar - parâmetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
@@ -724,7 +724,7 @@ project_table   2017-10-01 00:00:00.000
 
 Tenha em atenção que os valores de limite de tamanho de ambas as tabelas foram atualizados.
      
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, executou os passos seguintes: 
 
 > [!div class="checklist"]

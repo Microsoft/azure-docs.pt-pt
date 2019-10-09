@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051830"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177657"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -94,14 +94,14 @@ Depois de ter preparado suas ferramentas de ITSM, siga as etapas abaixo para cri
 
 1. Vá para **todos os recursos**, procure por **YourWorkspaceName (assistência técnica)** .
 2. Em **fontes de dados do espaço de trabalho** no painel esquerdo, clique em **conexões de ITSM**.
-   ![Conexões de ITSM](media/itsmc-overview/itsm-connections.png)
+   conexões ![ITSM @ no__t-1
 
    Esta página exibe a lista de conexões.
 3. Clique em **adicionar ligação**.
 
    ![Adicionar conexão de ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
-4. Especifique as configurações de conexão, conforme descrito em Configurando [o artigo conexão ITSMC com seus produtos/serviços de ITSM](../../azure-monitor/platform/itsmc-connections.md).
+4. Especifique as configurações de conexão, conforme descrito em [Configurando o artigo conexão ITSMC com seus produtos/serviços de ITSM](../../azure-monitor/platform/itsmc-connections.md).
 
    > [!NOTE]
    >
@@ -184,7 +184,7 @@ ServiceDeskWorkItemType_s="Incident"
 **Campos**
 
 - ServiceDeskConnectionName
-- ID do Service Desk
+- ID da central de serviços
 - State
 - Urgência
 - Impacto
@@ -211,7 +211,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 **Campos**
 - ServiceDeskConnectionName
-- ID do Service Desk
+- ID da central de serviços
 - Criado por
 - Fechado por
 - Source
@@ -255,7 +255,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Category_s | Category |
 | Title_s|  Descrição resumida |
 | Description_s|  Notas |
-| CreatedDate_t|  Aberturas |
+| CreatedDate_t|  Feito |
 | ClosedDate_t| Fechado|
 | ResolvedDate_t|Resolvido|
 | Computer  | Item de configuração |
@@ -265,7 +265,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| CreatedBy_s | Pedido por |
+| CreatedBy_s | Solicitado por |
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição resumida |
@@ -297,7 +297,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando ociosas por um longo período. Caso contrário, relate o problema.
 3. Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados em itens de configuração ou produtos de ITSM não forem criados/vinculados a itens de trabalho ou para outras informações genéricas, procure nos seguintes locais:
    -  ITSMC: A solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como erro para obter mais informações.
-   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando o `*`ServiceDeskLog_CL`*`de consulta.
+   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL @ no__t-2.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
 1.  No caso de problemas com a implantação de aplicativo Web, verifique se você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.
@@ -307,7 +307,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Contacte-nos
 
-Para quaisquer consultas ou comentários sobre o Conector de Gerenciamento de Serviços de TI, entre em contato [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)conosco em.
+Para quaisquer consultas ou comentários sobre o Conector de Gerenciamento de Serviços de TI, entre em contato conosco em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Adicione produtos/serviços de ITSM a conector de gerenciamento de serviços de ti](../../azure-monitor/platform/itsmc-connections.md).

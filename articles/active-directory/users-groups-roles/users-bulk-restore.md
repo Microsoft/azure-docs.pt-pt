@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f53ade09c5e2e7db0499122526a1de482af9378f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901623"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174264"
 ---
 # <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Restauração em massa de usuários excluídos (visualização) no Azure Active Directory
 
@@ -26,18 +26,22 @@ O Azure Active Directory (AD do Azure) dá suporte a operações de criação e 
 
 ## <a name="to-bulk-restore-users"></a>Para usuários de restauração em massa
 
-1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização.
+1. [Entre em sua organização do Azure ad](https://aad.portal.azure.com) com uma conta que seja um administrador de usuário na organização do Azure AD.
 1. No Azure AD, selecione **usuários** > **excluídos**.
 1. Na página **usuários excluídos** , selecione **restauração em massa** para carregar um arquivo CSV válido de propriedades dos usuários a serem restaurados.
 
    ![Selecione o comando restauração em massa na página usuários excluídos](./media/users-bulk-restore/bulk-restore.png)
 
-1. Quando você terminar de editar o arquivo CSV ou se tiver um de seus próprios pronto para carregar, selecione o arquivo em **carregar o arquivo CSV** a ser validado.
+1. Abra o arquivo CSV e adicione uma linha para cada usuário que você deseja restaurar. O único valor necessário é **ObjectID**. Em seguida, guarde o ficheiro.
 
    ![Selecione um arquivo CSV local no qual você lista os usuários que deseja adicionar](./media/users-bulk-restore/upload-button.png)
 
-1. Quando o conteúdo do arquivo for validado, corrija as informações do arquivo e envie o arquivo novamente se houver erros. O envio de um arquivo válido inicia o trabalho de carregamento de dados automaticamente.
-1. Depois que o arquivo CSV passar na validação, selecione **Enviar** para iniciar o trabalho do lote do Azure que restaura os usuários. Se houver erros, você poderá baixar e exibir o arquivo de resultados na página resultados da operação em massa. O arquivo contém o motivo de cada erro.
+1. Na página **restauração em massa (versão prévia)** , em **carregar o arquivo CSV**, navegue até o arquivo. Quando você seleciona o arquivo e clica em **Enviar**, a validação do arquivo CSV é iniciada.
+1. Quando o conteúdo do arquivo for validado, você verá o **arquivo carregado com êxito**. Se houver erros, você deverá corrigi-los antes de poder enviar o trabalho.
+1. Quando o arquivo passar na validação, selecione **Enviar** para iniciar a operação em massa do Azure que restaura os usuários.
+1. Quando a operação de restauração for concluída, você verá uma notificação de que a operação em massa foi bem-sucedida.
+
+Se houver erros, você poderá baixar e exibir o arquivo de resultados na página **resultados da operação em massa** . O arquivo contém o motivo de cada erro.
 
 ## <a name="check-status"></a>Verificar o estado
 

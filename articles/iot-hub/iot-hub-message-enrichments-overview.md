@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873186"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177998"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Aprimoramentos de mensagem para mensagens do Hub IoT do dispositivo para a nuvem (versão prévia)
 
-Os aprimoramentos de *mensagens* são a capacidade do Hub IOT de *carimbar* mensagens com informações adicionais antes que as mensagens sejam enviadas para o ponto de extremidade designado. Um motivo para usar os aprimoramentos de mensagem é incluir dados que possam ser usados para simplificar o processamento de downstream. Por exemplo, enriquecer mensagens de telemetria do dispositivo com uma marca de dispositivo de Altova pode reduzir a carga em clientes para fazer chamadas à API do dispositivo.
+Os *aprimoramentos de mensagens* são a capacidade do Hub IOT de *carimbar* mensagens com informações adicionais antes que as mensagens sejam enviadas para o ponto de extremidade designado. Um motivo para usar os aprimoramentos de mensagem é incluir dados que possam ser usados para simplificar o processamento de downstream. Por exemplo, enriquecer mensagens de telemetria do dispositivo com uma marca de dispositivo de Altova pode reduzir a carga em clientes para fazer chamadas à API do dispositivo.
 
 ![Fluxo de aprimoramentos de mensagens](./media/iot-hub-message-enrichments-overview/message-enrichments-flow.png)
 
@@ -29,7 +29,7 @@ Um enriquecimento de mensagem tem três elementos principais:
 
 * Um ou mais [pontos de extremidade](iot-hub-devguide-endpoints.md) para os quais o enriquecimento deve ser aplicado.
 
-A **chave** é uma cadeia de caracteres. Uma chave só pode conter caracteres alfanuméricos ou estes caracteres especiais: hífen`-`(), sublinhado (`_`) e ponto`.`final ().
+A **chave** é uma cadeia de caracteres. Uma chave só pode conter caracteres alfanuméricos ou estes caracteres especiais: hífen (`-`), sublinhado (`_`) e período (`.`).
 
 O **valor** pode ser qualquer um dos seguintes exemplos:
 
@@ -58,7 +58,7 @@ Você também pode adicionar aprimoramentos às mensagens que estão sendo publi
 
 Os aprimoramentos são aplicados por ponto de extremidade. Se você especificar cinco aprimoramentos a serem carimbados para um ponto de extremidade específico, todas as mensagens que vão para esse ponto de extremidade serão carimbadas com os mesmos cinco aprimoramentos.
 
-Para ver como experimentar os aprimoramentos de mensagens, consulte o tutorial de aprimoramentos de [mensagem](tutorial-message-enrichments.md)
+Para ver como experimentar os aprimoramentos de mensagens, consulte o [tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md)
 
 ## <a name="limitations"></a>Limitações
 
@@ -90,8 +90,8 @@ Essa funcionalidade está disponível na versão prévia e está disponível em 
 
 Confira estes artigos para obter mais informações sobre como rotear mensagens para um hub IoT:
 
-* [Tutorial de aprimoramentos de mensagens](tutorial-message-enrichments.md)
+* [Tutorial de aprimoramentos de mensagem](tutorial-message-enrichments.md)
 
 * [Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade](iot-hub-devguide-messages-d2c.md)
 
-* [Tutorial: Roteamento do Hub IoT](tutorial-routing.md)
+* [Tutorial: Roteamento do Hub IoT @ no__t-0

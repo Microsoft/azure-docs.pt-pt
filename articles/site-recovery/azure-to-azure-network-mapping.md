@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907877"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178102"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configurar o mapeamento de rede e o endereçamento IP para VNets
 
@@ -33,7 +33,7 @@ Mapeie as redes da seguinte maneira:
 3. Em **Adicionar mapeamento de rede**, selecione os locais de origem e de destino. Em nosso exemplo, a VM de origem está em execução na região de Ásia Oriental e é replicada para a região sudeste asiático.
 
     ![Selecionar origem e destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Agora, crie um mapeamento de rede no diretório oposto. Em nosso exemplo, a fonte agora será Sudeste Asiático e o destino será Ásia Oriental.
+3. Agora, crie um mapeamento de rede na direção oposta. Em nosso exemplo, a fonte agora será Sudeste Asiático e o destino será Ásia Oriental.
 
     ![Painel Adicionar mapeamento de rede – selecione os locais de origem e de destino para a rede de destino](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -93,7 +93,7 @@ A rede de destino não é a VNet de failover | -O endereço IP de destino será 
 - Você pode modificar o endereço IP de destino nas configurações de **computação e rede** da VM.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Examine as [diretrizes de rede](site-recovery-azure-to-azure-networking-guidance.md) para a recuperação de desastres de VM do Azure.
 - [Saiba mais](site-recovery-retain-ip-azure-vm-failover.md) sobre a retenção de endereços IP após o failover.

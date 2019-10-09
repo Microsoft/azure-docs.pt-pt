@@ -10,12 +10,12 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 09/11/2019
-  ms.openlocfilehash: 8a33d1b9661ef84294a35c51ecd42a59dde68f23
-  ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+  ms.openlocfilehash: 042a58a2ba6900f0a97698e9fe37fdfb22552578
+  ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/17/2019
-  ms.locfileid: "71075066"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72169722"
 landingContent:
 - title: Sobre o Ansible no Azure
   linkLists:
@@ -23,10 +23,12 @@ landingContent:
     links:
     - text: Sobre o Ansible no Azure
       url: ansible-overview.md
-  - linkListType: architecture
+  - linkListType: reference
     links:
-    - text: Módulo Ansible e matriz de versão
-      url: ansible-matrix.md
+    - text: Versões e funcionalidades
+      url: ./ansible-matrix.md
+    - text: Todos os módulos para o Azure
+      url: https://docs.ansible.com/ansible/latest/modules/list_of_cloud_modules#azure
 - title: Instalar e Configurar o Ansible
   linkLists:
   - linkListType: quickstart

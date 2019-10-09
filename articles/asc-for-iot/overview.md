@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: adb1b840fd733353e449224c9ac752e94329bde6
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 36514c342f8ed8d988f26fcb69daf30c42ee5cf3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326735"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176640"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Introdução ao Centro de Segurança do Azure para IoT
 

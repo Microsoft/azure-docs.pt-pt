@@ -10,17 +10,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: b865bca5db11c4a34a1be4deb2e3145d73599e81
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 4d9c3954aea5fe64439190a2a0886fd8300c4cf9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059282"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178050"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
 
-Este artigo demonstra como usar o [node. js](https://nodejs.org) para se conectar a um banco de dados SQL do Azure. Você pode usar instruções T-SQL para consultar dados.
+Este guia de início rápido demonstra como usar o [node. js](https://nodejs.org) para se conectar a um banco de dados SQL do Azure. Você pode usar instruções T-SQL para consultar dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -151,7 +151,7 @@ Abra uma linha de comandos e crie uma pasta com o nome *sqltest*. Abra a pasta q
 
 1. Verifique se as 20 primeiras linhas são retornadas e feche a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Controlador Microsoft Node.js para SQL Server](/sql/connect/node-js/node-js-driver-for-sql-server)
 

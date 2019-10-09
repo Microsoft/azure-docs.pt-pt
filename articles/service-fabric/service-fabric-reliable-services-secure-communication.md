@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
-ms.author: chackdan
-ms.openlocfilehash: 193df34a092d9feea3e0cf370fe38543395dad92
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: c252ec31a64fa3a11973db7a8de0a440d8eed6f5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871734"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166565"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Proteger comunicações remotas de serviço C# em um serviço
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ A segurança é um dos aspectos mais importantes da comunicação. A estrutura d
 
 Para ajudar a proteger um serviço quando você estiver usando a comunicação C# remota do serviço com serviços, siga estas etapas:
 
-1. Crie uma interface, `IHelloWorldStateful`, que define os métodos que estarão disponíveis para uma chamada de procedimento remoto em seu serviço. Seu serviço usará `FabricTransportServiceRemotingListener`, que é declarado `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` no namespace. Essa é uma `ICommunicationListener` implementação que fornece recursos de comunicação remota.
+1. Crie uma interface, `IHelloWorldStateful`, que define os métodos que estarão disponíveis para uma chamada de procedimento remoto em seu serviço. Seu serviço usará `FabricTransportServiceRemotingListener`, que é declarado no namespace `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Essa é uma implementação `ICommunicationListener` que fornece recursos de comunicação remota.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -129,7 +129,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
        }
        ```
 
-        Se você adicionar uma `TransportSettings` seção no arquivo Settings. xml, `FabricTransportRemotingListenerSettings` o carregará todas as configurações desta seção por padrão.
+        Se você adicionar uma seção `TransportSettings` no arquivo Settings. xml, `FabricTransportRemotingListenerSettings` carregará todas as configurações desta seção por padrão.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -150,7 +150,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
             };
         }
         ```
-3. Quando você chama métodos em um serviço protegido usando a pilha de comunicação remota, em vez de `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` usar a classe para criar um proxy de `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`serviço, use. Passe, que contém `SecurityCredentials`. `FabricTransportRemotingSettings`
+3. Quando você chama métodos em um serviço protegido usando a pilha de comunicação remota, em vez de usar a classe `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` para criar um proxy de serviço, use `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Passe `FabricTransportRemotingSettings`, que contém `SecurityCredentials`.
 
     ```csharp
 
@@ -180,7 +180,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
 
     ```
 
-    Se o código do cliente estiver sendo executado como parte de um serviço, você `FabricTransportRemotingSettings` poderá carregar do arquivo Settings. xml. Crie uma seção HelloWorldClientTransportSettings semelhante ao código de serviço, conforme mostrado anteriormente. Faça as seguintes alterações no código do cliente:
+    Se o código do cliente estiver sendo executado como parte de um serviço, você poderá carregar `FabricTransportRemotingSettings` do arquivo Settings. xml. Crie uma seção HelloWorldClientTransportSettings semelhante ao código de serviço, conforme mostrado anteriormente. Faça as seguintes alterações no código do cliente:
 
     ```csharp
     ServiceProxyFactory serviceProxyFactory = new ServiceProxyFactory(
@@ -195,7 +195,7 @@ Para ajudar a proteger um serviço quando você estiver usando a comunicação C
 
     Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo client_name. Settings. xml no mesmo local em que o client_name. exe é. Em seguida, crie uma seção TransportSettings nesse arquivo.
 
-    Semelhante ao serviço, se você adicionar uma `TransportSettings` seção em Client Settings. xml/client_name. Settings. xml, `FabricTransportRemotingSettings` o carregará todas as configurações desta seção por padrão.
+    Semelhante ao serviço, se você adicionar uma seção `TransportSettings` em configurações do cliente. xml/client_name. Settings. xml, `FabricTransportRemotingSettings` carregará todas as configurações desta seção por padrão.
 
     Nesse caso, o código anterior é ainda mais simplificado:  
 

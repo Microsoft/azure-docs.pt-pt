@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: a808216b62459869e9adfd88afc60ee53259221d
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: cb115b8658850fc85f93fc7a9508a82ecee920d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838665"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166445"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Início rápido: Enviar telemetria para um hub IoT do Azure e lê-lo com um aplicativo Java
 
@@ -67,39 +67,41 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
 1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
+   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
-   **MyJavaDevice**: O nome do dispositivo que você está registrando. Use **MyJavaDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyJavaDevice**: Esse é o nome do dispositivo que você está registrando. É recomendável usar **MyJavaDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyJavaDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
     ```
 
-2. Execute os seguintes comandos no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar: * * nomedoseuhubiot: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
+2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar:
+
+    **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyJavaDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
     ```
 
     Anote a cadeia de ligação do dispositivo, que se parece com:
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyJavaDevice;SharedAccessKey={YourSharedAccessKey}`
 
-    Irá utilizar este valor mais adiante no guia de início rápido.
+    Você usará esse valor posteriormente no início rápido.
 
 3. Você também precisa do _ponto de extremidade compatível_com os hubs de eventos, o _caminho compatível_com os hubs de eventos e a _chave primária de serviço_ do Hub IOT para permitir que o aplicativo de back-end se conecte ao seu hub IOT e recupere as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
-     \* * Nomedoseuhubiot: Substitua esse espaço reservado abaixo pelo nome que você escolher para o Hub IoT.
+     **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
 
     ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
 
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
+    az iot hub show --query properties.eventHubEndpoints.events.path --name {YourIoTHubName}
 
-    az iot hub policy show --name service --query primaryKey --hub-name YourIoTHubName
+    az iot hub policy show --name service --query primaryKey --hub-name {YourIoTHubName}
     ```
 
-    Tome nota destes três valores, que irá utilizar mais tarde neste guia de início rápido.
+    Anote esses três valores, que você usará posteriormente no guia de início rápido.
 
 ## <a name="send-simulated-telemetry"></a>Enviar telemetria simulada
 
@@ -109,7 +111,7 @@ A aplicação de dispositivo simulado liga-se a um ponto final específico do di
 
 2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/SimulatedDevice.java** num editor de texto à sua escolha.
 
-    Substitua o valor da variável `connString` pela cadeia de ligação do dispositivo que anotou anteriormente. Em seguida, guarde as alterações feitas ao ficheiro **SimulatedDevice.java**.
+    Substitua o valor da variável `connString` pela cadeia de conexão do dispositivo anotada anteriormente. Em seguida, salve as alterações em **SimulatedDevice. java**.
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compile a aplicação de dispositivo simulado:
 
@@ -137,8 +139,8 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
     | Variável | Value |
     | -------- | ----------- |
-    | `eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto final compatível com o hub de eventos que anotou anteriormente. |
-    | `eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com o Hub de Eventos que anotou anteriormente. |
+    | `eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto de extremidade compatível com os hubs de eventos anotado anteriormente. |
+    | `eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com os hubs de eventos anotado anteriormente. |
     | `iotHubSasKey`                | Substitua o valor da variável pela chave primária de serviço anotada anteriormente. |
 
 3. Na janela do terminal local, execute os seguintes comandos para instalar as bibliotecas exigidas e compilar a aplicação back-end:
@@ -163,9 +165,9 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, configurou um hub IoT, registou um dispositivo, enviou telemetria simulada para o hub com uma aplicação Java e leu a telemetria do hub com uma simples aplicação back-end.
+Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, enviou telemetria simulada para o Hub usando um aplicativo Java e leu a telemetria do Hub usando um aplicativo de back-end simples.
 
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Controlar um dispositivo conectado a um hub IoT](quickstart-control-device-java.md)
+> [Quickstart: Controlar um dispositivo conectado a um hub IoT @ no__t-0

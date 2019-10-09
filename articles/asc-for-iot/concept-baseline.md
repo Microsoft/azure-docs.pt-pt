@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: ce5a0625a16c5a02d03ee74f894c585820414fa4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937147"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176621"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Central de segurança do Azure para linha de base IoT e verificações personalizadas
 
@@ -55,7 +55,7 @@ Para configurar verificações personalizadas de linha de base:
         "baselineCustomChecksFilePath": {
           "value" : "/home/user/full_path.xml"
         },
-        "baselineCustomChecksFilePath": {
+        "baselineCustomChecksFileHash": {
           "value" : "#hashexample!"
         }
       }

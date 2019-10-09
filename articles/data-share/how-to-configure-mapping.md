@@ -1,41 +1,41 @@
 ---
-title: Configurar um mapeamento de conjunto de dados
-description: Configurar um mapeamento de conjunto de dados
+title: Configurar um mapeamento de conjunto de dados na visualização do compartilhamento de data do Azure
+description: Saiba como configurar um mapeamento de conjunto de dados para um compartilhamento recebido usando o Azure data share Preview.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 581e1eef5f1d64e68a6501f56ce60218281c605d
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 035235116240bdc6de3bc689c2430fee018b202d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789244"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169139"
 ---
-# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share-preview"></a>Como configurar um mapeamento de conjunto de dados para uma partilha de recebido na pré-visualização de partilha de dados do Azure
+# <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share-preview"></a>Como configurar um mapeamento de conjunto de dados para um compartilhamento recebido na visualização do compartilhamento de data do Azure
 
-Este artigo explica como configurar um mapeamento de conjunto de dados para uma partilha recebido com a pré-visualização de partilha de dados do Azure. Vai querer fazer isso, se aceitar um convite de partilha de dados, mas optou por "Accept e configurar mais tarde". Caso contrário, pode simplesmente querer alterar a conta de armazenamento de destino para os seus dados recebidos. 
+Este artigo explica como configurar um mapeamento de conjunto de dados para um compartilhamento recebido usando o Azure data share Preview. Você desejará fazer isso se tiver aceitado um convite de compartilhamento de dados, mas tiver optado por "aceitar e configurar mais tarde". Caso contrário, talvez você queira simplesmente alterar a conta de armazenamento de destino para os dados recebidos. 
 
-## <a name="navigate-to-a-received-data-share"></a>Navegue para uma partilha de dados recebidos
+## <a name="navigate-to-a-received-data-share"></a>Navegar até um compartilhamento de dados recebido
 
-No serviço de partilha de dados do Azure, navegue para a partilha de recebido e selecione o **detalhes** separador. 
+No serviço de compartilhamento de dados do Azure, navegue até o compartilhamento recebido e selecione a guia **detalhes** . 
 
-![Mapeamento do conjunto de dados](./media/dataset-mapping.png "mapeamento do conjunto de dados") 
+![](./media/dataset-mapping.png "Mapeamento do conjunto") de conjunto de DataSet 
 
-Marque a caixa junto ao conjunto de dados que pretende atribuir um destino para e clique em **+ o mapa para destino**. Terá de anular o mapeamento primeiro se já tiver configurado uma conta de armazenamento de destino e se pretender alterar o mapeamento para uma conta de armazenamento diferente. 
+Marque a caixa ao lado do conjunto de um para o qual você deseja atribuir um destino e clique em **+ mapear para o destino**. Talvez seja necessário desmapear primeiro se você já tiver configurado uma conta de armazenamento de destino e desejar alterar o mapeamento para uma conta de armazenamento diferente. 
 
-![Mapa de destino](./media/dataset-map-target.png "mapa para o destino") 
+![Mapear para]o mapa de destino(./media/dataset-map-target.png "para o destino") 
 
 ## <a name="select-a-new-storage-account"></a>Selecione uma nova conta de armazenamento 
 
-Selecione uma conta de armazenamento que gostaria de ter os dados para apresentar o. Tenha em atenção que todos os dados que já existe em qualquer já mapeou a contas de armazenamento não será movida automaticamente para a nova conta de armazenamento.
+Selecione uma conta de armazenamento na qual você deseja que os dados entrem. Observe que todos os dados que já existem em todas as contas de armazenamento mapeadas anteriormente não serão automaticamente movidos para a nova conta de armazenamento.
 
-![Conta de armazenamento de destino](./media/map-target.png "armazenamento de destino") 
+![](./media/map-target.png "Armazenamento de destino") da conta de armazenamento de destino 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber como começar a partilha de dados, avance para o [partilhar os seus dados](share-your-data.md) tutorial.
+Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
 
 
 

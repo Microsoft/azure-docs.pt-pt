@@ -1,23 +1,23 @@
 ---
 title: Terminologia da visualização do compartilhamento de dados do Azure
-description: Terminologia da visualização do compartilhamento de dados do Azure
+description: Saiba mais sobre os termos comuns usados para descrever os recursos usados na visualização do compartilhamento de dados do Azure (provedor de dados, consumidor de dados, compartilhamento de dados, assinatura de compartilhamento, instantâneo, convite, destinatário.)
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844698"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166280"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Conceitos da visualização do compartilhamento de dados do Azure 
 
 A visualização do compartilhamento de dados do Azure apresenta uma nova terminologia relacionada ao compartilhamento de dados. Este artigo explica alguns termos usados com frequência que você pode ver em todo o serviço. 
 
-## <a name="data-provider"></a>Fornecedor de dados
+## <a name="data-provider"></a>Provedor de dados
 
 Um provedor de dados é a organização que está compartilhando dados com seus consumidores. Normalmente, o provedor de dados pode ser um proprietário ou um curador dos dados. Os provedores de dados desejam compartilhar dados de vários tipos. Alguns exemplos de dados que um provedor de dados talvez queira compartilhar incluem dados brutos, como ponto de vendas ou dados de série temporal. Um provedor de dados também pode querer compartilhar dados pré-configurados previamente processados que já contenham análises e ideias. 
 
@@ -47,7 +47,7 @@ Um provedor de dados pode habilitar uma configuração de instantâneo para um c
 
 Se um provedor de dados habilitar essa configuração, um intervalo de recorrência poderá ser selecionado. O intervalo de recorrência pode ser por hora ou por dia. 
 
-Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que inclui todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
+Um consumidor de dados tem a opção de aceitar esse agendamento de instantâneo para receber atualizações incrementais, que incluem todos os dados que foram alterados desde a primeira geração de um novo instantâneo. 
 
 ## <a name="invitation"></a>Convite
 
@@ -55,13 +55,13 @@ Um provedor de dados pode convidar vários destinatários para seu compartilhame
 
 Um provedor de dados pode excluir um convite após ele ser enviado se ele não tiver sido aceito. Se o provedor de dados excluir um convite e ele ainda não tiver sido aceito, o consumidor de dados não poderá aceitá-lo. 
 
-Os convites podem ser reenviados até 5 vezes por dia. 
+Os convites podem ser reenviados até cinco vezes por dia. 
 
 ## <a name="recipient"></a>Destinatário
 
 Um destinatário é alguém que recebe um convite para um compartilhamento de dados. Normalmente, um provedor de dados adicionará destinatários ao compartilhamento de dados que eles criam. Depois que o destinatário de um convite aceitar o convite, ele se tornará um consumidor de dados.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber como começar a compartilhar dados, continue no tutorial [compartilhar seus dados](share-your-data.md) .
 

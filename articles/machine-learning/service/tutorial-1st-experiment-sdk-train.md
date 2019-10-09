@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Treinar seu primeiro modelo de ML'
+title: 'Tutorial: Treine seu primeiro modelo do Azure ML no Python'
 titleSuffix: Azure Machine Learning
 description: Neste tutorial, você aprende os padrões de design básico em Azure Machine Learning e treina um modelo scikit simples com base no conjunto de dados diabetes.
 services: machine-learning
@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828021"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173294"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 
 O único pré-requisito é executar a parte um deste tutorial, o [ambiente de instalação e o espaço de trabalho](tutorial-1st-experiment-sdk-setup.md).
 
-Nesta parte do tutorial, você executa o código no bloco de anotações `tutorials/tutorial-1st-experiment-sdk-train.ipynb` Jupyter de exemplo aberto no final da parte 1. Este artigo percorre o mesmo código que está no bloco de anotações.
+Nesta parte do tutorial, você executa o código no bloco de anotações Jupyter de exemplo `tutorials/tutorial-1st-experiment-sdk-train.ipynb` aberto no final da parte um. Este artigo percorre o mesmo código que está no bloco de anotações.
 
 ## <a name="open-the-notebook"></a>Abrir o bloco de anotações
 
@@ -53,7 +53,7 @@ Nesta parte do tutorial, você executa o código no bloco de anotações `tutori
 > Alterne para o notebook Jupyter agora se você quiser ler ao executar o código. 
 > Para executar uma única célula de código em um bloco de anotações, clique na célula de código e pressione **Shift + Enter**. Ou então, execute o bloco de anotações inteiro escolhendo **executar tudo** na barra de ferramentas superior.
 
-Importe a `Workspace` classe e carregue as informações de assinatura do arquivo `config.json` usando a função `from_config().` que procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`o. Em um servidor de bloco de anotações de nuvem, o arquivo é automaticamente no diretório raiz.
+Importe a classe `Workspace` e carregue suas informações de assinatura do arquivo `config.json` usando a função `from_config().` isso procura o arquivo JSON no diretório atual por padrão, mas você também pode especificar um parâmetro de caminho para apontar para o arquivo usando `from_config(path="your/file/path")`. Em um servidor de bloco de anotações de nuvem, o arquivo é automaticamente no diretório raiz.
 
 Se o código a seguir solicitar autenticação adicional, basta colar o link em um navegador e inserir o token de autenticação.
 
@@ -72,7 +72,7 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>Carregue dados e prepare-se para treinamento
 
-Para este tutorial, você usa o conjunto de dados diabetes, que é um conjunto de dados previamente normalizado incluído no scikit-learn. Esse conjunto de dados usa recursos como idade, sexo e BMI para prever a progressão de doença diabetes. Carregue os dados da `load_diabetes()` função estática e divida-os em conjuntos de treinamento e teste usando. `train_test_split()` Essa função separa os dados para que o modelo tenha dados não vistos a serem usados para testar o treinamento a seguir.
+Para este tutorial, você usa o conjunto de dados diabetes, que é um conjunto de dados previamente normalizado incluído no scikit-learn. Esse conjunto de dados usa recursos como idade, sexo e BMI para prever a progressão de doença diabetes. Carregue os dados da função estática `load_diabetes()` e divida-os em conjuntos de treinamento e teste usando `train_test_split()`. Essa função separa os dados para que o modelo tenha dados não vistos a serem usados para testar o treinamento a seguir.
 
 
 ```python
@@ -118,12 +118,12 @@ for alpha in alphas:
 
 O código acima realiza o seguinte:
 
-1. Para cada valor de hiperparâmetro alfa na `alphas` matriz, uma nova execução é criada dentro do experimento. O valor alfa é registrado em log para diferenciar entre cada execução.
+1. Para cada valor de hiperparâmetro alfa na matriz `alphas`, uma nova execução é criada dentro do experimento. O valor alfa é registrado em log para diferenciar entre cada execução.
 1. Em cada execução, um modelo de saliência é instanciado, treinado e usado para executar previsões. O erro raiz-Mean-quadrado-é calculado para os valores reais versus previstos e, em seguida, conectado à execução. Neste ponto, a execução tem metadados anexados para o valor alfa e a precisão RMSE.
 1. Em seguida, o modelo para cada execução é serializado e carregado na execução. Isso permite que você baixe o arquivo de modelo da execução no Portal.
 1. Ao final de cada iteração, a execução é concluída chamando `run.complete()`.
 
-Após a conclusão do treinamento, chame a `experiment` variável para buscar um link para o experimento no Portal.
+Após a conclusão do treinamento, chame a variável `experiment` para buscar um link para o experimento no Portal.
 
 ```python
 experiment
@@ -133,13 +133,13 @@ experiment
 
 ## <a name="view-training-results-in-portal"></a>Exibir resultados de treinamento no portal
 
-Seguindo o **link para Portal do Azure** leva você para a página principal do experimento. Aqui você vê todas as execuções individuais no experimento. Todos os valores personalizados registrados (`alpha_value` e `rmse`, nesse caso) tornam-se campos para cada execução e também ficam disponíveis para os gráficos e blocos na parte superior da página do experimento. Para adicionar uma métrica registrada a um gráfico ou bloco, passe o mouse sobre ela, clique no botão Editar e localize sua métrica personalizada registrada em log.
+Seguindo o **link para Portal do Azure** leva você para a página principal do experimento. Aqui você vê todas as execuções individuais no experimento. Todos os valores personalizados registrados (`alpha_value` e `rmse`, neste caso) se tornam campos para cada execução e também ficam disponíveis para os gráficos e blocos na parte superior da página do experimento. Para adicionar uma métrica registrada a um gráfico ou bloco, passe o mouse sobre ela, clique no botão Editar e localize sua métrica personalizada registrada em log.
 
 Ao treinar modelos em escala em centenas e milhares de execuções separadas, essa página facilita a visualização de todos os modelos treinados, especificamente de como eles foram treinados e como suas métricas exclusivas foram alteradas ao longo do tempo.
 
 ![Página principal do experimento no portal](./media/tutorial-quickstart/experiment-main.png)
 
-Clicar em um link de número de execução `RUN NUMBER` na coluna leva você até a página para cada execução individual. Os **detalhes** da guia padrão mostram informações mais detalhadas sobre cada execução. Navegue até a guia **saídas** e você verá o `.pkl` arquivo para o modelo que foi carregado para a execução durante cada iteração de treinamento. Aqui você pode baixar o arquivo de modelo, em vez de ter que retreiná-lo manualmente.
+Clicar em um link de número de execução na coluna `RUN NUMBER` leva você até a página para cada execução individual. Os **detalhes** da guia padrão mostram informações mais detalhadas sobre cada execução. Navegue até a guia **saídas** e você verá o arquivo `.pkl` para o modelo que foi carregado para a execução durante cada iteração de treinamento. Aqui você pode baixar o arquivo de modelo, em vez de ter que retreiná-lo manualmente.
 
 ![Página executar detalhes no portal](./media/tutorial-quickstart/model-download.png)
 
@@ -173,7 +173,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Use a melhor ID de execução para buscar a execução individual usando o Construtor `Run` juntamente com o objeto experimento. Em seguida `get_file_names()` , chame para ver todos os arquivos disponíveis para download nesta execução. Nesse caso, você carregou apenas um arquivo para cada execução durante o treinamento.
+Use a melhor ID de execução para buscar a execução individual usando o Construtor `Run` juntamente com o objeto experimento. Em seguida, chame `get_file_names()` para ver todos os arquivos disponíveis para download nesta execução. Nesse caso, você carregou apenas um arquivo para cada execução durante o treinamento.
 
 ```python
 from azureml.core import Run

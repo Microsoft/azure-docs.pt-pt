@@ -8,16 +8,16 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: ece85feff3c6eff9fc2348de70842204986952d5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 6e74830a3a62ea54c5d8e7f9815fe2ba6eed6d58
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855630"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166499"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O driver do sistema de arquivos de blob do Azure (ABFS): Um driver de armazenamento do Azure dedicado para Hadoop
 
-Um dos principais métodos de acesso para dados no Azure Data Lake Storage Gen2 é por meio do [sistema de arquivos do Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 permite que os usuários do armazenamento de BLOBs do Azure acessem um novo driver, o driver do `ABFS`sistema de arquivos do blob do Azure ou o. O ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Usando esse driver, muitos aplicativos e estruturas podem acessar dados no armazenamento de BLOBs do Azure sem qualquer código explicitamente referenciando Data Lake Storage Gen2.
+Um dos principais métodos de acesso para dados no Azure Data Lake Storage Gen2 é por meio do [sistema de arquivos do Hadoop](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 permite que os usuários do armazenamento de BLOBs do Azure acessem um novo driver, o driver do sistema de arquivos do blob do Azure ou o `ABFS`. O ABFS faz parte do Apache Hadoop e está incluído em muitas das distribuições comerciais do Hadoop. Usando esse driver, muitos aplicativos e estruturas podem acessar dados no armazenamento de BLOBs do Azure sem qualquer código explicitamente referenciando Data Lake Storage Gen2. 
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Funcionalidade anterior: O driver de Azure Storage Blob do Windows
 
@@ -31,7 +31,7 @@ No entanto, há algumas funções que o driver ainda deve executar:
 
 ### <a name="uri-scheme-to-reference-data"></a>Esquema de URI para dados de referência
 
-Consistente com outras implementações de sistema de arquivos no Hadoop, o driver ABFS define seu próprio esquema de URI para que os recursos (diretórios e arquivos) possam ser endereçados de forma distinta. O esquema de URI está documentado em [usar o URI de Azure data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md). A estrutura do URI é:`abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Consistente com outras implementações de sistema de arquivos no Hadoop, o driver ABFS define seu próprio esquema de URI para que os recursos (diretórios e arquivos) possam ser endereçados de forma distinta. O esquema de URI está documentado em [usar o URI de Azure data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md). A estrutura do URI é: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 Usando o formato de URI acima, as ferramentas e estruturas padrão do Hadoop podem ser usadas para fazer referência a esses recursos:
 
@@ -52,7 +52,7 @@ O driver ABFS dá suporte a duas formas de autenticação para que o aplicativo 
 
 ### <a name="configuration"></a>Configuração
 
-Todas as configurações do driver ABFS são armazenadas no <code>core-site.xml</code> arquivo de configuração. Em distribuições do Hadoop com [Ambari](https://ambari.apache.org/), a configuração também pode ser gerenciada usando o portal da Web ou a API REST do Ambari.
+Todas as configurações do driver ABFS são armazenadas no arquivo de configuração <code>core-site.xml</code>. Em distribuições do Hadoop com [Ambari](https://ambari.apache.org/), a configuração também pode ser gerenciada usando o portal da Web ou a API REST do Ambari.
 
 Detalhes de todas as entradas de configuração com suporte são especificados na [documentação oficial do Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html).
 
@@ -60,7 +60,7 @@ Detalhes de todas as entradas de configuração com suporte são especificados n
 
 O driver ABFS está totalmente documentado na [documentação oficial do Hadoop](https://hadoop.apache.org/docs/r3.2.0/hadoop-azure/abfs.html)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar um cluster Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md)
 - [Utilizar o URI do Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8c882d819771473db2cf1c91fb39912883d144d
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963745"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177575"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adicionar marcas em seu modelo do Resource Manager
 
@@ -35,15 +35,15 @@ Depois de implantar esses recursos, talvez seja necessário controlar os custos 
 
 ## <a name="add-tags"></a>Adicionar etiquetas
 
-Você marca os recursos para adicionar valores que ajudam a identificar seu uso. Por exemplo, você pode adicionar marcas que marcam o ambiente e o projeto. Você pode adicionar marcas que identificam um centro de custo ou a equipe que possui o recurso. Adicione quaisquer valores que façam sentido para sua organização.
+Você marca os recursos para adicionar valores que ajudam a identificar seu uso. Por exemplo, você pode adicionar marcas que listam o ambiente e o projeto. Você pode adicionar marcas que identificam um centro de custo ou a equipe que possui o recurso. Adicione quaisquer valores que façam sentido para sua organização.
 
 O exemplo a seguir realça as alterações no modelo. Copie o arquivo inteiro e substitua o modelo pelo seu conteúdo.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-template"></a>Implementar o modelo
+## <a name="deploy-the-template"></a>Implementar o modelo
 
-É hora de implantar o modelo e examinar o valor retornado.
+É hora de implantar o modelo e examinar os resultados.
 
 Se você não tiver criado o grupo de recursos, consulte [Criar grupo de recursos](template-tutorial-create-first-template.md#create-resource-group). O exemplo supõe que você definiu a variável **TemplateFile** como o caminho para o arquivo de modelo, conforme mostrado no [primeiro tutorial](template-tutorial-create-first-template.md#deploy-template).
 

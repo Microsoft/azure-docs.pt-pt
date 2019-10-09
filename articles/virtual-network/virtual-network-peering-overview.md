@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035280"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177663"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -90,7 +90,7 @@ Para saber mais sobre as permissões necessárias para criar um peering de rede 
 
 Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize uma ligação de peering de rede virtual. Para obter mais informações sobre o VNet Peering e os preços do Global VNet Peering, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 
-O trânsito de gateway é uma propriedade de emparelhamento que permite que uma rede virtual utilize um gateway de VPN/ExpressRoute em uma rede virtual emparelhada para conectividade entre locais ou VNet a VNet. Para obter mais detalhes, consulte cobranças de [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou encargos de gateway de ExpressRoute e [encargos de emparelhamento VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
+O trânsito de gateway é uma propriedade de emparelhamento que permite que uma rede virtual utilize um gateway de VPN/ExpressRoute em uma rede virtual emparelhada para conectividade entre locais ou VNet a VNet. O tráfego para o gateway (entrada ou saída) na VNet emparelhada incorrerá em encargos de emparelhamento VNet. Para obter mais detalhes, consulte cobranças de [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou encargos de gateway de ExpressRoute e [encargos de emparelhamento VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>Passos seguintes
 

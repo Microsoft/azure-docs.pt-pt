@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815883"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175996"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -38,7 +38,7 @@ Este tutorial mostra como realizar as seguintes tarefas:
 > * Iniciar um execução de pipeline
 > * Monitorizar o pipeline e execuções de atividades
 
-Este tutorial utiliza o .NET SDK. Você pode usar outros mecanismos para interagir com Azure Data Factory. Para obter Data Factory guias de início rápido, consulte [início rápido de 5 minutos](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+Este tutorial utiliza o .NET SDK. Você pode usar outros mecanismos para interagir com Azure Data Factory. Para obter Data Factory guias de início rápido, consulte [início rápido de 5 minutos](/azure/data-factory/quickstart-create-data-factory-portal).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -77,7 +77,7 @@ Criar um C# aplicativo de console .net:
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas** > **Gerenciador**depacotesNuGetconsoledoGerenciadordepacotes. > 
+1. Selecione **ferramentas** > **Gerenciador de pacotes NuGet** > **console do Gerenciador de pacotes**.
 1. No **console do Gerenciador de pacotes**, execute os seguintes comandos para instalar pacotes. Consulte [pacote do NuGet Microsoft. Azure. Management. datafactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter detalhes.
 
    ```powershell

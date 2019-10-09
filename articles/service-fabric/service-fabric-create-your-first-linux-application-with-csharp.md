@@ -1,6 +1,6 @@
 ---
-title: Criar a sua primeira aplicação do Azure Service Fabric no Linux com c# | Documentos da Microsoft
-description: Saiba como criar e implementar uma aplicação de Service Fabric com c# e .NET Core 2.0.
+title: Criar seu primeiro aplicativo de Service Fabric do Azure no C#Linux usando | Microsoft Docs
+description: Saiba como criar e implantar um aplicativo Service Fabric usando C# o e o .net Core 2,0.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
-ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394324"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167306"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -100,7 +100,7 @@ Os parâmetros desses comandos encontram-se nos manifestos gerados dentro do pac
 Após a implementação da aplicação, abra um browser e navegue até [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) em [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Em seguida, expanda o nó **Aplicações** e repare que há, agora, uma entrada para o tipo de aplicação e outra para a primeira instância desse tipo.
 
 > [!IMPORTANT]
-> Para implementar a aplicação a um cluster Linux seguro no Azure, terá de configurar um certificado para validar a sua aplicação com o tempo de execução do Service Fabric. Se o fizer, permite que os seus serviços de Reliable Services comunicar com o tempo de execução do Service Fabric subjacente APIs. Para obter mais informações, consulte [configurar uma aplicação de Reliable Services para executar em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Para implantar o aplicativo em um cluster do Linux seguro no Azure, você precisa configurar um certificado para validar seu aplicativo com o tempo de execução de Service Fabric. Isso permite que seus serviços de Reliable Services se comuniquem com as APIs de tempo de execução de Service Fabric subjacentes. Para saber mais, confira [configurar um aplicativo Reliable Services para ser executado em clusters do Linux](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Iniciar o cliente de teste e executar uma ativação pós-falha
@@ -108,7 +108,7 @@ Os projetos de ator não fazem nada só por si. Precisam de outro serviço ou cl
 
 1. Execute o script com o utilitário watch para ver o resultado do serviço de ator.
 
-   Em caso de MAC OS X, terá de copiar a pasta de myactorsvcTestClient na mesma localização dentro do contentor ao executar os seguintes comandos adicionais.
+   No caso do MAC OS X, você precisa copiar a pasta myactorsvcTestClient para o mesmo local dentro do contêiner executando os seguintes comandos adicionais.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

@@ -5,98 +5,139 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: 9a64c6e476910ab4fe983fa949680f05fdded3ae
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 030ea87018e1a2d438e3e4d728af76e429efda08
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70161850"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169024"
 ---
-# <a name="azure-iot-sdks-platform-support"></a>Suporte à plataforma de SDKs do Azure IoT
+# <a name="azure-iot-device-sdks-platform-support"></a>Suporte à plataforma de SDKs do dispositivo IoT do Azure
 
-Os [SDKs do IOT do Azure](iot-hub-devguide-sdks.md) são um conjunto de bibliotecas para interagir com o Hub IOT e o serviço de provisionamento de dispositivos com amplo suporte a linguagens e plataformas. Os SDKs são executados em plataformas mais comuns, e os desenvolvedores podem portar o SDK do C para uma plataforma específica seguindo as [diretrizes](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)de portabilidade. 
+A Microsoft se esforça para expandir continuamente o universo de dispositivos compatíveis com o Hub IoT do Azure. A Microsoft publica SDKs de dispositivo de software livre no GitHub para ajudar a conectar dispositivos ao Hub IoT do Azure e ao serviço de provisionamento de dispositivos. Os SDKs do dispositivo estão disponíveis para C, .NETC#(), Java, Node. js e Python. A Microsoft testa cada SDK para garantir que ele seja executado nas configurações com suporte detalhadas para ele na seção [Microsoft SDKs e suporte à plataforma de dispositivo](#microsoft-sdks-and-device-platform-support) .
 
-A Microsoft dá suporte a uma variedade de sistemas operacionais/plataformas/estruturas e pode ser estendida usando o SDK do Azure IoT C. Alguns têm suporte oficialmente pela equipe, agrupados em camadas que representam o nível de suporte que os usuários podem esperar. *Plataformas com suporte total* significa que a Microsoft:
+Além dos SDKs do dispositivo, a Microsoft fornece vários outros caminhos para capacitar clientes e desenvolvedores a conectarem seus dispositivos à IoT do Azure:
 
-- Compila e executa continuamente testes de ponta a ponta em relação ao mestre e às versões com suporte do LTS.  Para fornecer cobertura de teste entre diferentes versões, geralmente testamos a versão mais recente do LTS e a versão mais popular.  Outras versões da mesma plataforma podem ter suporte por meio da compatibilidade de versão da plataforma.
-- Fornece orientações de instalação ou pacotes, se aplicável.
-- Dá suporte total às plataformas no GitHub.
+* A Microsoft colabora com várias empresas parceiras para ajudá-las a publicar kits de desenvolvimento, com base no SDK do Azure IoT C, para suas plataformas de hardware.
 
-Além disso, uma lista de parceiros tem portado nosso SDK do C para mais plataformas e está mantendo a PAL (camada de abstração de plataforma). O [Catálogo de dispositivos Azure Certified para IOT](https://catalog.azureiotsolutions.com/) também apresenta uma lista de plataformas de sistema operacional nas quais vários SDKs foram testados. Os SDKs também se baseiam regularmente nessas plataformas, com testes e suporte limitados:
+* A Microsoft trabalha com parceiros confiáveis da Microsoft para fornecer um conjunto em constante expansão de dispositivos que foram testados e certificados para o Azure IoT. Para obter uma lista atual desses dispositivos, consulte o [Catálogo de dispositivos Azure Certified para IOT](https://catalog.azureiotsolutions.com/).
 
-* MBED2
-* Arduino
-* Windows CE 2013 (preterido em 2018 de outubro)
-* .NET Standard 1,3 com o .NET Core 2,1 e .NET Framework 4,7
-* Xamarin iOS, Android, UWP
+* A Microsoft fornece uma PAL (camada de abstração de plataforma) no SDK do dispositivo C do Hub IoT do Azure que ajuda os desenvolvedores a portar facilmente o SDK para sua plataforma. Para saber mais, Confira as [diretrizes de portabilidade do SDK do C](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
 
-## <a name="supported-platforms"></a>Plataformas suportadas
+Este tópico fornece informações sobre os SDKs da Microsoft e as configurações de plataforma às quais eles dão suporte, bem como cada uma das outras opções listadas acima.
 
-Há várias plataformas com suporte.
+## <a name="microsoft-sdks-and-device-platform-support"></a>Microsoft SDKs e suporte a plataforma de dispositivo
+
+A Microsoft publica SDKs de código aberto no GitHub para os seguintes idiomas: C, .NET (C#), Node. js, Java e Python. Os SDKs e suas dependências são listados nesta seção. Os SDKs têm suporte em qualquer plataforma de dispositivo que satisfaça essas dependências.
+
+Para cada um dos SDKs listados, Microsoft:
+
+* Compila e executa continuamente testes de ponta a ponta em relação à ramificação mestre do SDK relevante no GitHub em várias plataformas populares.  Para fornecer cobertura de teste entre diferentes versões do compilador, geralmente testamos a versão mais recente do LTS e a versão mais popular.
+
+* Fornece diretrizes de instalação ou pacotes de instalação, se aplicável.
+
+* Dá suporte total aos SDKs no GitHub com código de software livre, um caminho para contribuições de clientes e envolvimento da equipe de produto com problemas do GitHub.
 
 ### <a name="c-sdk"></a>SDK DO C
 
-| OS                  | Arquea | Compiler             | Biblioteca TLS       |
-|---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | gcc-5.4.0            | OpenSSL-1.0.2 g |
-| Ubuntu 18, 4 LTS    | X64  | gcc-7,3              | WolfSSL – 1.13    |
-| Ubuntu 18, 4 LTS    | X64  | Clang 6.0. X          | OpenSSL – 1.1.0 g  |
-| OSX 10.13.4         | x64  | 9\.4.1 do XCode          | OSX nativo        |
-| Windows Server 2016 | x64  | Visual Studio 14.0.X | SChannel          |
-| Windows Server 2016 | x86  | Visual Studio 14.0.X | SChannel          |
-| Stretch do Debian 9    | x64  | gcc-7,3              | OpenSSL – 1.1.0 f  |
+O [SDK do dispositivo C do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-c) é testado com o e oferece suporte às seguintes configurações.
+
+| OS                  | Biblioteca TLS                  | Requisitos adicionais                                                                     |
+|---------------------|------------------------------|---------------------------------------------------------------------------------------------|
+| Linux               | OpenSSL, WolfSSL ou BearSSL | Berkeley Sockets</br></br>Interface do sistema operacional portátil (POSIX)                       |
+| iOS 12,2            | OpenSSL ou o OSX nativo        | XCode emulado no OSX 10.13.4                                                               |
+| Família Windows 10   | SChannel                     |                                                                                             |
+| Mbed OS 5,4         | Mbed TLS 2                   | [Kit de desenvolvimento de IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/)                  |
+| SO do Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>SDK Python
 
-| OS                  | Arquea | Compiler   | Biblioteca TLS |
-|---------------------|------|------------|-------------|
-| Windows Server 2016 | x86  | Python 2.7 | OpenSSL     |
-| Windows Server 2016 | x64  | Python 2.7 | OpenSSL     |
-| Windows Server 2016 | x86  | Python 3,5 | OpenSSL     |
-| Windows Server 2016 | x64  | Python 3,5 | OpenSSL     |
-| Ubuntu 18, 4 LTS    | x86  | Python 2.7 | OpenSSL     |
-| Ubuntu 18, 4 LTS    | x86  | Python 3,4 | OpenSSL     |
-| MacOS High Sierra   | x64  | Python 2.7 | OpenSSL     |
+O [SDK do dispositivo Python do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-python) é testado com o e oferece suporte às seguintes configurações.
+
+| OS                  | Compiler                       |
+|---------------------|--------------------------------|
+| Linux               | Python 2,7, 3,4, 3,5, 3,6, 3,7 |
+| MacOS High Sierra   | Python 2,7, 3,4, 3,5, 3,6, 3,7 |
+| Família Windows 10   | Python 2,7, 3,4, 3,5, 3,6, 3,7 |
 
 ### <a name="net-sdk"></a>SDK .NET
 
-| OS                  | Arquea | Framework            | Standard          |
-|---------------------|------|----------------------|-------------------|
-| Ubuntu 16.04 LTS    | X64  | .NET Core 2.1        | .NET Standard 2,0 |
-| Windows Server 2016 | X64  | .NET Core 2.1        | .NET Standard 2,0 |
-| Windows Server 2016 | X64  | .NET Framework 4,7   | .NET Standard 2,0 |
-| Windows Server 2016 | X64  | .NET Framework 4.5.1 | N/A               |
+O [SDK do dispositivo .net (C#) do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-csharp) é testado com o e oferece suporte às seguintes configurações.
+
+| OS                                   | Standard                                                   |
+|--------------------------------------|------------------------------------------------------------|
+| Linux                                | .NET Core 2.1                                              |
+| SKUs do Windows 10 desktop e Server   | .NET Core 2,1, .NET Framework 4.5.1 ou .NET Framework 4,7 |
 
 ### <a name="nodejs-sdk"></a>SDK Node.js
 
-| OS                                           | Arquea | Versão do nó    |
-|----------------------------------------------|------|-----------------|
-| Ubuntu 16, 4 LTS (usando a imagem do Docker do node 6) | X64  | LTS e atual |
-| Windows Server 2016                          | X64  | LTS e atual |
+O [SDK do dispositivo node. js do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-node) é testado com o e oferece suporte às seguintes configurações.
+
+| OS                  | Versão do nó    |
+|---------------------|-----------------|
+| Linux               | LTS e atual |
+| Família Windows 10   | LTS e atual |
 
 ### <a name="java-sdk"></a>SDK Java
 
-| OS                  | Arquea | Versão de Java |
-|---------------------|------|--------------|
-| Ubuntu 16.04 LTS    | X64  | Java 8       |
-| Windows Server 2016 | X64  | Java 8       |
-| API do Android 28 | X64  | Java 8       |
-| Coisas do Android | X64  | Java 8      |
+O [SDK do dispositivo Java do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-java) é testado com o e oferece suporte às seguintes configurações.
 
-## <a name="partner-supported-platforms"></a>Plataformas com suporte do parceiro
+| OS                     | Versão do Java |
+|------------------------|--------------|
+| API do Android 28         | Java 8       |
+| Linux x64             | Java 8       |
+| Família Windows 10 x64  | Java 8       |
 
-Os clientes podem estender nosso suporte de plataforma ao portar o SDK do Azure IoT C, especificamente criando a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com parceiros para fornecer suporte estendido. Uma lista de parceiros portou o SDK do C para mais plataformas e mantém a PAL.
+## <a name="partner-supported-development-kits"></a>Kits de desenvolvimento com suporte para parceiros
+
+A Microsoft trabalha com vários parceiros para fornecer kits de desenvolvimento para várias arquiteturas de microprocessador. Esses parceiros portaram o SDK do Azure IoT C para sua plataforma. Os parceiros criam e mantêm a PAL (camada de abstração de plataforma) do SDK. A Microsoft trabalha com esses parceiros para fornecer suporte estendido.
 
 | Partner             | Dispositivos                            | Ligação                     | Suporte |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Modem de IoT do Qualcomm MDM9206 LTE     | [SDK do Qualcomm LTE para IoT](https://developer.qualcomm.com/software/lte-iot-sdk) | [Fórum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST-eletrônicos | Série STM32L4 <br/> Série STM32F4 <br/>  Série STM32F7 <br/>  Kit de descoberta do STM32L4 para o nó IoT    | [X-CUBE-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-CUBE-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Suporte](https://www.st.com/content/st_com/en/support/support-home.html)
+| ST-eletrônicos | Série STM32L4 <br/> Série STM32F4 <br/>  Série STM32F7 <br/>  Kit de descoberta do STM32L4 para o nó IoT    | [X-CUBE-AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Suporte](https://www.st.com/content/st_com/en/support/support-home.html)
 | Texas Instruments   | LaunchPad CC3220SF </br> LaunchPad CC3220S </br> LaunchPad CC3235SF </br> LaunchPad CC3235S </br> LaunchPad MSP432E4 | [Plug-in do Azure IoT para SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [Fórum de TI E2E](https://e2e.ti.com) <br/> [Fórum de TI E2E para CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [Fórum de TI E2E para MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="porting-the-microsoft-azure-iot-c-sdk"></a>Portando o SDK do Microsoft Azure IoT C
+
+Se a plataforma do dispositivo não estiver coberta por uma das seções anteriores, considere a possibilidade de portar o SDK do Azure IoT C. Portar o SDK do C envolve principalmente a implementação da PAL (camada de abstração de plataforma) do SDK. A PAL define primitivos que fornecem a cola entre o dispositivo e as funções de nível superior no SDK. Para obter mais informações, consulte [diretrizes de portabilidade](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md).
+
+## <a name="microsoft-partners-and-certified-azure-iot-devices"></a>Parceiros da Microsoft e dispositivos do Azure IoT certificados
+
+A Microsoft trabalha com vários parceiros para expandir continuamente o universo IoT do Azure com os dispositivos testados e certificados pelo IoT do Azure.
+
+* Para procurar dispositivos do Azure IoT Certified, consulte [Microsoft Azure Certified para IOT catálogo de dispositivos](https://catalog.azureiotsolutions.com/).
+
+* Para saber mais sobre os parceiros confiáveis da Microsoft ou para saber como se tornar um parceiro confiável da Microsoft, confira [Microsoft Azure certificados Internet das coisas parceiros confiáveis](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/).
+
+## <a name="connecting-to-iot-hub-without-an-sdk"></a>Conectando-se ao Hub IoT sem um SDK
+
+Se não for possível usar um dos SDKs de dispositivo do Hub IoT, você poderá se conectar diretamente ao Hub IoT usando as [APIs REST do Hub IOT](https://docs.microsoft.com/en-us/rest/api/iothub/) de qualquer aplicativo capaz de enviar e receber solicitações e respostas HTTPS.
+
+## <a name="support-and-other-resources"></a>Suporte e outros recursos
+
+Se você tiver problemas ao usar os SDKs do dispositivo IoT do Azure, há várias maneiras de buscar o suporte. Você pode tentar um dos seguintes canais:
+
+**Relatando bugs** – os bugs nos SDKs do dispositivo podem ser relatados na página problemas do projeto do GitHub relevante. Correções rapidamente se tornam do projeto para atualizações de produtos.
+
+* [Problemas do SDK C do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-c/issues)
+
+* [Problemas do SDK do .NETC#() do Hub IOT do Azure](https://github.com/Azure/azure-iot-sdk-csharp/issues)
+
+* [Problemas do SDK do Java do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-java/issues)
+
+* [Problemas do SDK do node. js do Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-node/issues)
+
+* [Problemas do SDK do Python no Hub IoT do Azure](https://github.com/Azure/azure-iot-sdk-python/issues)
+
+**Equipe de suporte ao cliente da Microsoft** – os usuários que têm um [plano de suporte](https://azure.microsoft.com/support/plans/) podem envolver a equipe de suporte ao cliente da Microsoft criando uma nova solicitação de suporte diretamente do [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+
+**Solicitações de recursos** – as solicitações de recurso do Azure IOT são controladas por meio da [página de voz do usuário](https://feedback.azure.com/forums/321918-azure-iot)do produto.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * [SDKs de dispositivos e de serviços](iot-hub-devguide-sdks.md)
 * [Diretrizes de portabilidade](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)

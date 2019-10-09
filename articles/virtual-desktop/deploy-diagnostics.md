@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947609"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177774"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -109,7 +109,7 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
     -   LogicalDisk (\*) \|% de espaço livre
-    -   LogicalDisk (C:) \\Avg. Comprimento da fila de discos
+    -   LogicalDisk (C:) \\Avg. Comprimento da fila de disco
     -   Memória (\*) \\Available Mbytes
     -   Informações do processador (\*) \\Processor tempo
     -   Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
@@ -197,7 +197,7 @@ Para definir o URI de redirecionamento:
 
 Antes de disponibilizar a ferramenta de diagnóstico para seus usuários, verifique se eles têm as seguintes permissões:
 
-- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Os usuários precisam de acesso de leitura para o log Analytics. Para obter mais informações, consulte Introdução [às funções, permissões e segurança com Azure monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Os usuários também precisam de acesso de leitura para o locatário da área de trabalho virtual do Windows (função leitor do RDS). Para obter mais informações, consulte [acesso delegado na área de trabalho virtual do Windows](delegated-access-virtual-desktop.md).
 
 Você também precisa dar aos seus usuários as seguintes informações:

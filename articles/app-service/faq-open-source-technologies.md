@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121225"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169688"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de software livre para aplicativos Web no Azure
 
@@ -33,13 +33,13 @@ Este artigo tem respostas para perguntas frequentes sobre problemas com tecnolog
 Para ativar o registro em log do PHP:
 
 1. Entre no site do [kudu](https://*yourwebsitename*.scm.azurewebsites.net).
-2. No menu superior, selecione **console** > de depuração**cmd**.
+2. No menu superior, selecione **console de depuração** > **cmd**.
 3. Selecione a pasta do **site** .
 4. Selecione a pasta **wwwroot** .
-5. Selecione o **+** ícone e, em seguida, selecione **novo arquivo**.
+5. Selecione o ícone **+** e, em seguida, selecione **novo arquivo**.
 6. Defina o nome do arquivo para **. User. ini**.
 7. Selecione o ícone de lápis ao lado de **. User. ini**.
-8. No arquivo, adicione este código:`log_errors=on`
+8. No arquivo, adicione este código: `log_errors=on`
 9. Selecione **Guardar**.
 10. Selecione o ícone de lápis ao lado de **wp-config. php**.
 11. Altere o texto para o código a seguir:
@@ -78,7 +78,7 @@ Para alterar a versão do aplicativo node. js, você pode usar uma das seguintes
   O processo de implantação do controle do código-fonte do Azure envolve as seguintes etapas:
   1. Move o conteúdo para o aplicativo Web do Azure.
   2. Cria um script de implantação padrão, se não houver um (arquivos Deploy. cmd e. Deployment) na pasta raiz do aplicativo Web.
-  3. Executa um script de implantação no qual ele cria um arquivo iisnode. yml se você mencionar a versão do node. js no arquivo Package. JSON > mecanismo`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Executa um script de implantação no qual ele cria um arquivo iisnode. yml se você mencionar a versão do node. js no arquivo Package. JSON > mecanismo `"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. O arquivo iisnode. yml tem a seguinte linha de código:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -144,7 +144,7 @@ Para resolver o erro:
 
 1. Remova o arquivo sqljdbc*. jar da sua pasta app/lib.
 2. Se você estiver usando o Tomcat personalizado ou o servidor Web Tomcat do Azure Marketplace, copie esse arquivo. jar para a pasta lib do Tomcat.
-3. Se você estiver habilitando Java do portal do Azure (selecione**servidor Tomcat**do **Java 1,8** > ), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath ao arquivo Web. config:
+3. Se você estiver habilitando o Java do portal do Azure (selecione **java 1,8** > **servidor Tomcat**), copie o arquivo JAR sqljdbc. * na pasta que é paralela ao seu aplicativo. Em seguida, adicione a seguinte configuração de classpath ao arquivo Web. config:
 
     ```xml
     <httpPlatform>
@@ -187,24 +187,24 @@ O serviço de aplicativo não tem um recurso de email interno. Para obter alguma
 
 Se você migrou recentemente para o Azure, o WordPress pode redirecionar para a URL de domínio antiga. Isso é causado por uma configuração no banco de dados MySQL.
 
-O WordPress Buddy + é uma extensão de site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+O WordPress Buddy + é uma extensão de site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Como alternativa, se você preferir atualizar manualmente a URL de redirecionamento usando consultas SQL ou phpMyAdmin, consulte [WordPress: Redirecionando para a URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/)incorreta.
+Como alternativa, se você preferir atualizar manualmente a URL de redirecionamento usando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionando para a URL incorreta @ no__t-0.
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como fazer alterar minha senha de entrada do WordPress?
 
-Se você esqueceu sua senha de entrada do WordPress, você pode usar o WordPress Buddy + para atualizá-la. Para redefinir sua senha, instale o WordPress Buddy + extensão de site do Azure e conclua as etapas descritas em [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+Se você esqueceu sua senha de entrada do WordPress, você pode usar o WordPress Buddy + para atualizá-la. Para redefinir sua senha, instale o WordPress Buddy + extensão de site do Azure e conclua as etapas descritas em [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Não consigo entrar no WordPress. Como fazer resolver isso?
 
-Se você estiver bloqueado fora do WordPress após a instalação recente de um plug-in, você poderá ter um plug-in com falha. O WordPress Buddy + é uma extensão de site do Azure que pode ajudá-lo a desabilitar plug-ins no WordPress. Para obter mais informações, consulte [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+Se você estiver bloqueado fora do WordPress após a instalação recente de um plug-in, você poderá ter um plug-in com falha. O WordPress Buddy + é uma extensão de site do Azure que pode ajudá-lo a desabilitar plug-ins no WordPress. Para obter mais informações, consulte [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>Como fazer migrar meu banco de dados do WordPress?
 
 Você tem várias opções para migrar o banco de dados MySQL que está conectado ao seu site do WordPress:
 
 * Programadores: Use o [prompt de comando ou phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Não desenvolvedores: Usar o [WordPress Buddy +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Não desenvolvedores: Usar o [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como fazer ajudar a tornar o WordPress mais seguro?
 

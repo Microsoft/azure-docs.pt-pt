@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o Azure Service Bus tópicos e subscrições com node. js | Documentos da Microsoft
-description: Saiba como utilizar subscrições e tópicos do Service Bus no Azure a partir de uma aplicação node. js.
+title: Como usar os tópicos e as assinaturas do barramento de serviço do Azure com o Node. js | Microsoft Docs
+description: Saiba como usar os tópicos e as assinaturas do barramento de serviço no Azure de um aplicativo node. js.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -14,40 +14,40 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 7686014adb989494e6df277de4137b76c3125696
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f927274e1e866a9cba72330280316cc5ee7d8047
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65992138"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178065"
 ---
-# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Como utilizar tópicos do Service Bus e as subscrições com node. js e o pacote/service-bus do azure
-> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote de node. js"]
+# <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Como usar os tópicos e as assinaturas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
+> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
 > - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-topics-subscriptions.md)
 > - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md)
 
-Neste tutorial, irá aprender a escrever um programa de node. js para enviar mensagens para um tópico do Service Bus e receber mensagens de uma subscrição do Service Bus com o novo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote. Esse pacote usa o mais rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md) ao passo que o antigo [azure sb](https://www.npmjs.com/package/azure-sb) pacote utilizado [APIs de tempo de execução de REST do Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
+Neste tutorial, você aprenderá a escrever um programa node. js para enviar mensagens para um tópico do barramento de serviço e receber mensagens de uma assinatura do barramento de serviço usando o novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) . Esse pacote usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se não tiver um tópico e uma subscrição para trabalhar com, siga os passos no [portal do Azure de utilização para criar um barramento de serviço tópicos e subscrições](service-bus-quickstart-topics-subscriptions-portal.md) artigo para criá-los. Aponte a cadeia de ligação para a sua instância do Service Bus e os nomes do tópico e uma subscrição que criou. Iremos utilizar estes valores nos exemplos.
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se você não tiver um tópico e uma assinatura para trabalhar com o, siga as etapas no artigo [usar portal do Azure para criar tópicos e assinaturas do barramento de serviço](service-bus-quickstart-topics-subscriptions-portal.md) para criá-los. Anote a cadeia de conexão para sua instância do barramento de serviço e os nomes do tópico e da assinatura que você criou. Usaremos esses valores nos exemplos.
 
 > [!NOTE]
-> - Este tutorial funciona com exemplos que pode copiar e executados utilizando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação node. js, consulte [criar e implementar uma aplicação node. js para um Web site do Azure](../app-service/app-service-web-get-started-nodejs.md), ou [serviço Cloud de node. js com o Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - A nova [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote não suporta a criação de assinaturas e topcis ainda. Utilize o [ @azure/arm-servicebus ](https://www.npmjs.com/package/@azure/arm-servicebus) se quiser criar programaticamente o pacote.
+> - Este tutorial funciona com exemplos que você pode copiar e executar usando o [NodeJS](https://nodejs.org/). Para obter instruções sobre como criar um aplicativo node. js, consulte [criar e implantar um aplicativo node. js em um site do Azure](../app-service/app-service-web-get-started-nodejs.md)ou [serviço de nuvem do node. js usando o Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - O novo pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) não oferece suporte à criação de topcis e assinaturas ainda. Use o pacote [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) se desejar criá-los programaticamente.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o NPM (Node Package Manager, Gestor de Pacotes do Nó) para instalar o pacote
-Para instalar o pacote npm para o Service Bus, abra um prompt de comando que tem `npm` no seu caminho, altere o diretório para a pasta onde pretende ter seus exemplos e, em seguida, execute este comando.
+Para instalar o pacote NPM para o barramento de serviço, abra um prompt de comando que tenha `npm` em seu caminho, altere o diretório para a pasta onde você deseja ter seus exemplos e, em seguida, execute este comando.
 
 ```bash
 npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-topic"></a>Enviar mensagens para um tópico
-Interagir com um barramento de serviço tópico começa com a instanciar o [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) classe e seu uso para instanciar o [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient) classe. Assim que tiver o cliente de tópico, pode criar um remetente e a utilização de uma [enviar](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) método nele para enviar mensagens.
+Interagir com um tópico do barramento de serviço começa com a instanciação da classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e sua utilização para instanciar a classe [TopicClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/topicclient) . Depois de ter o tópico cliente, você pode criar um remetente e usar o método [Send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) nele para enviar mensagens.
 
-1. Abra o seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um ficheiro chamado `send.js` e cole o abaixo código nele. Este código envia 10 mensagens para o seu tópico.
+1. Abra seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
+2. Crie um arquivo chamado `send.js` e cole o código abaixo nele. Esse código enviará 10 mensagens para o tópico.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus"); 
@@ -84,20 +84,20 @@ Interagir com um barramento de serviço tópico começa com a instanciar o [Serv
       console.log("Error occurred: ", err);
     });
     ```
-3. Introduza a cadeia de ligação e o nome do seu tópico no código anterior.
-4. Em seguida, execute o comando `node send.js` numa linha de comandos para executar este ficheiro. 
+3. Insira a cadeia de conexão e o nome do seu tópico no código acima.
+4. Em seguida, execute o comando `node send.js` em um prompt de comando para executar esse arquivo. 
 
-Parabéns! Que acabou de enviar mensagens a uma fila do Service Bus.
+Parabéns! Você acabou de enviar mensagens para uma fila do barramento de serviço.
 
-As mensagens de algumas propriedades padrão como ter `label` e `messageId` que pode definir quando enviar. Se quiser definir quaisquer propriedades personalizadas, utilize o `userProperties`, que é um objeto json que pode armazenar pares chave-valor dos seus dados personalizados.
+As mensagens têm algumas propriedades padrão como `label` e `messageId` que você pode definir ao enviar. Se você quiser definir qualquer propriedade personalizada, use o `userProperties`, que é um objeto JSON que pode conter pares de chave-valor de seus dados personalizados.
 
-Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). Não existe nenhum limite no número de mensagens contidas num tópico, mas existe um limite do tamanho total das mensagens contidas num tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus](service-bus-quotas.md).
+Os tópicos do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). Não há limite para o número de mensagens mantidas em um tópico, mas há um limite no tamanho total das mensagens mantidas por um tópico. O tamanho do tópico é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte [cotas do barramento de serviço](service-bus-quotas.md).
 
-## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma subscrição
-Interagir com um barramento de serviço de subscrição começa com a instanciar o [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) classe e seu uso para instanciar o [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient) classe. Assim que tiver o cliente de subscrição, pode criar um receptor e a utilização de uma [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) método no mesmo para receber mensagens.
+## <a name="receive-messages-from-a-subscription"></a>Receber mensagens de uma assinatura
+Interagir com uma assinatura do barramento de serviço começa com a instanciação da classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e sua utilização para instanciar a classe [SubscriptionClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient) . Depois de ter o cliente de assinatura, você pode criar um receptor e usar o método [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) para receber mensagens.
 
-1. Abra o seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um ficheiro chamado `recieve.js` e cole o abaixo código nele. Esse código tentará-se receber 10 mensagens da sua subscrição. A contagem real que receberá depende o número de mensagens na subscrição e latência de rede.
+1. Abra seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
+2. Crie um arquivo chamado `recieve.js` e cole o código abaixo nele. Esse código tentará receber 10 mensagens de sua assinatura. A contagem real que você recebe depende do número de mensagens na assinatura e na latência de rede.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -110,7 +110,7 @@ Interagir com um barramento de serviço de subscrição começa com a instanciar
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const subscriptionClient = sbClient.createSubscriptionClient(topicName, subscriptionName);
-      const receiver = subscriptionClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = subscriptionClient.createReceiver(ReceiveMode.receiveAndDelete);
       
       try {
         const messages = await receiver.receiveMessages(10);
@@ -127,32 +127,32 @@ Interagir com um barramento de serviço de subscrição começa com a instanciar
       console.log("Error occurred: ", err);
     });
     ```
-3. Introduza os nomes do seu tópico e uma subscrição e a cadeia de ligação no código anterior.
-4. Em seguida, execute o comando `node receiveMessages.js` numa linha de comandos para executar este ficheiro.
+3. Insira a cadeia de conexão e os nomes de seu tópico e assinatura no código acima.
+4. Em seguida, execute o comando `node receiveMessages.js` em um prompt de comando para executar esse arquivo.
 
-Parabéns! Acabou de receber mensagens de uma subscrição do Service Bus.
+Parabéns! Você acabou de receber mensagens de uma assinatura do barramento de serviço.
 
-O [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) método usa um `ReceiveMode` que é uma enum com valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se utilizar o `PeekLock` modo utilizando qualquer um dos `complete()`, `abandon()`, `defer()`, ou `deadletter()` métodos na mensagem.
+O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/subscriptionclient#createreceiver-receivemode-) usa um `ReceiveMode`, que é um enum com os valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [Peeklock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se de [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se usar o modo `PeekLock` usando qualquer um dos métodos `complete()`, `abandon()`, `defer()` ou `deadletter()` na mensagem.
 
-## <a name="subscription-filters-and-actions"></a>Filtros de subscrição e ações
-Service Bus suporta [filtros e as ações em subscrições](topic-filters.md), que permite-lhe filtrar as mensagens de entrada para uma subscrição e editar as respetivas propriedades.
+## <a name="subscription-filters-and-actions"></a>Filtros de assinatura e ações
+O barramento de serviço dá suporte a [filtros e ações em assinaturas](topic-filters.md), o que permite filtrar as mensagens de entrada para uma assinatura e editar suas propriedades.
 
-Assim que tiver uma instância de um `SubscriptionClient` pode utilizar o abaixo métodos para obter, adicionar e remover regras na subscrição para controlar os filtros e ações.
+Depois de ter uma instância de um `SubscriptionClient`, você pode usar os métodos abaixo para obter, adicionar e remover regras na assinatura para controlar os filtros e as ações.
 
 - getRules
 - addRule
 - removeRule
 
-Cada subscrição tem uma regra predefinida que utiliza o filtro de true para permitir que todas as mensagens recebidas. Quando adiciona uma nova regra, não se esqueça de remover o filtro predefinido por ordem para o filtro na nova regra para trabalhar. Se uma subscrição não tem regras, em seguida, não irá receber nenhuma mensagem.
+Cada assinatura tem uma regra padrão que usa o filtro verdadeiro para permitir todas as mensagens de entrada. Ao adicionar uma nova regra, lembre-se de remover o filtro padrão para que o filtro em sua nova regra funcione. Se uma assinatura não tiver regras, ele não receberá mensagens.
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
 ## <a name="next-steps"></a>Próximos Passos
-Para obter mais informações, consulte os seguintes recursos.
+Para saber mais, confira os recursos a seguir.
 
 - [Filas, tópicos e subscrições](service-bus-queues-topics-subscriptions.md)
-- Veja outros [Nodejs exemplos do Service Bus no GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
+- Fazer check-out [de outros exemplos de NodeJS para o barramento de serviço no GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
 
 
