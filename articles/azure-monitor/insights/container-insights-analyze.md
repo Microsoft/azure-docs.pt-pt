@@ -105,8 +105,8 @@ A página padrão é aberta quando você seleciona**cluster**do **insights** > .
 
 Os gráficos de desempenho exibem quatro métricas de desempenho:
 
-- **Utilização de CPU do nó: &nbsp;%** Uma perspectiva agregada da utilização da CPU para todo o cluster. Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados. 
-- Utilização de memória do nó: **&nbsp;%** Uma perspectiva agregada de utilização de memória para todo o cluster. Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados. 
+- **Utilização de CPU do nó&nbsp;%** : Uma perspectiva agregada da utilização da CPU para todo o cluster. Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados. 
+- Utilização de memória do nó **&nbsp;%** : Uma perspectiva agregada de utilização de memória para todo o cluster. Para filtrar os resultados para o intervalo de tempo, selecione **AVG**, **min**, **50 º**, **90 º**, **95 º**ou **Max** no seletor de percentils acima do gráfico. Os filtros podem ser usados individualmente ou combinados. 
 - **Contagem de nós**: Uma contagem de nós e status de kubernetes. Os status dos nós de cluster representados são total, pronto e não pronto. Eles podem ser filtrados individualmente ou combinados no seletor acima do gráfico. 
 - **Contagem de Pod ativo**: Uma contagem de Pod e o status de kubernetes. Os status dos pods representados são total, pendente, em execução, desconhecido, com êxito ou falha. Eles podem ser filtrados individualmente ou combinados no seletor acima do gráfico. 
 
