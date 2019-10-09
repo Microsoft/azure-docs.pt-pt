@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 7455ad33660a0af004a3a3ad982e929fc4b3031e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e3e82c971fee7f7dd95e6f9ef72631e8e82ebe7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851128"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025260"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Adicionar notificações por push ao seu aplicativo do Windows
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center está investindo em serviços novos e integrados central para o desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem. Confira [app Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) hoje.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -43,7 +43,7 @@ Se você não usar o projeto baixado do servidor de início rápido, será neces
 
 Você precisa enviar seu aplicativo para a Microsoft Store e, em seguida, configurar o projeto de servidor para integrar com o [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) para enviar por push.
 
-1. No Visual Studio Gerenciador de soluções, clique com o botão direito do mouse no projeto de aplicativo UWP, clique em **armazenar** > **aplicativo associado com a loja...** .
+1. No Visual Studio Gerenciador de Soluções, clique com o botão direito do mouse no projeto de aplicativo UWP, clique em **armazenar** > **associar aplicativo à loja...** .
 
     ![Associar o aplicativo ao Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
@@ -65,7 +65,7 @@ Você precisa enviar seu aplicativo para a Microsoft Store e, em seguida, config
 
 ## <a id="update-service"></a>Atualizar o servidor para enviar notificações por push
 
-Use o procedimento abaixo que corresponda ao tipo&mdash;de projeto de back-end do [.net](#dotnet) ou [back-end do node. js](#nodejs).
+Use o procedimento abaixo que corresponda ao tipo de projeto de back-end @ no__t-0either [.net backend](#dotnet) ou o [back-end do node. js](#nodejs).
 
 ### <a name="dotnet"></a>Projeto de back-end .NET
 
@@ -171,7 +171,7 @@ Use o procedimento abaixo que corresponda ao tipo&mdash;de projeto de back-end d
 ## <a id="update-app"></a>Adicionar notificações por push ao seu aplicativo
 Em seguida, seu aplicativo deve se registrar para notificações por push na inicialização. Quando você já tiver habilitado a autenticação, certifique-se de que o usuário entra antes de tentar se registrar para notificações por push.
 
-1. Abra o arquivo de projeto **app.XAML.cs** e adicione as `using` seguintes instruções:
+1. Abra o arquivo de projeto **app.XAML.cs** e adicione as seguintes instruções `using`:
 
     ```csharp
     using System.Threading.Tasks;
@@ -194,7 +194,7 @@ Em seguida, seu aplicativo deve se registrar para notificações por push na ini
 
     Esse código recupera o ChannelURI para o aplicativo do WNS e, em seguida, registra esse ChannelURI com seu aplicativo móvel do serviço de aplicativo.
 
-3. Na parte superior do manipulador de eventos onlaunched no **app.XAML.cs**, adicione o modificador **Async** à definição do método e adicione a chamada a seguir ao novo método **InitNotificationsAsync** , como no exemplo a seguir:
+3. Na parte superior do manipulador de eventos **Onlaunched** no **app.XAML.cs**, adicione o modificador **Async** à definição do método e adicione a chamada a seguir ao novo método **InitNotificationsAsync** , como no exemplo a seguir:
 
     ```csharp
     protected async override void OnLaunched(LaunchActivatedEventArgs e)

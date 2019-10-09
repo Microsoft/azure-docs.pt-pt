@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 657c23ad410d7aade17b3153f02ba0138edf4250
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5146675b6eefd11fc1e6875ed9009ece92753ffb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60825086"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028107"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementar o plug-in da interface de rede de contentores da Rede Virtual do Azure
 
@@ -95,10 +95,10 @@ Conclua os seguintes passos para instalar o plug-in em todas as máquinas virtua
 1. [Transfira e instale o plug-in](#download-and-install-the-plug-in).
 2. Pré-aloque um conjunto de endereços IP de rede virtual em todas as máquinas virtuais a partir do qual os endereços IP serão alocados a Pods. Todas as máquinas virtuais do Azure incluem um endereço IP privado primário de rede virtual em cada interface de rede. O conjunto de endereços IP para Pods é adicionado como endereços secundários (*ipconfigs*) na interface de rede da máquina virtual, através de uma das seguintes opções:
 
-   - **CLI**: [atribuir vários endereços IP com a CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
-   - **PowerShell**: [atribuir vários endereços IP com o PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-   - **Portal**: [atribuir vários endereços IP com o portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
-   - **Modelo Azure Resource Manager**: [atribuir vários endereços IP através de modelos](virtual-network-multiple-ip-addresses-template.md)
+   - **CLI**: [atribuir vários endereços IP usando o CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
+   - **PowerShell**: [atribuir vários endereços IP usando o PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+   - **Portal**: [ATRIBUA vários endereços IP usando o portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
+   - **Modelo de Azure Resource Manager**: [atribuir vários endereços IP usando modelos](virtual-network-multiple-ip-addresses-template.md)
 
    Certifique-se de que adiciona endereços IP suficientes para todos os Pods que pretende colocar na máquina virtual.
 
@@ -157,12 +157,12 @@ O ficheiro de configuração de rede CNI é descrito no formato JSON. Por predef
 
 #### <a name="settings-explanation"></a>Explicação das definições
 
-- **cniVersion**: Os plug-ins CNI de rede Virtual do Azure suportam versões 0.3.0 e 0.3.1 do [CNI spec](https://github.com/containernetworking/cni/blob/master/SPEC.md).
-- **name**: Nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
-- **type**: Nome da rede Plug-in. Defina como *vnet do azure*.
-- **Modo**: Modo operacional. Este campo é opcional. O único modo suportado é "bridge". Para obter mais informações, consulte [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
-- **ponte**: Nome da ponte que será utilizado para ligar contentores a uma rede virtual. Este campo é opcional. Se for omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface principal.
-- **tipo de ipam**: Nome do IPAM Plug-in. Sempre definido como *azure-vnet-ipam*.
+- **cniVersion**: Os plug-ins CNI de rede virtual do Azure dão suporte às versões 0.3.0 e 0.3.1 da [especificação CNI](https://github.com/containernetworking/cni/blob/master/SPEC.md).
+- **nome**: Nome da rede. Esta propriedade pode ser definida para qualquer valor exclusivo.
+- **tipo**: Nome do plug-in de rede. Definido como *azure-vnet*.
+- **modo**: Modo operacional. Este campo é opcional. O único modo suportado é "bridge". Para obter mais informações, consulte [modos operacionais](https://github.com/Azure/azure-container-networking/blob/master/docs/network.md).
+- **ponte**: Nome da ponte que será usada para conectar contêineres a uma rede virtual. Este campo é opcional. Se for omitido, o plug-in escolhe automaticamente um nome exclusivo, com base no índice de interface principal.
+- **tipo de IPAM**: Nome do plug-in do IPAM. Sempre definido como *azure-vnet-ipam*.
 
 ## <a name="download-and-install-the-plug-in"></a>Transferir e instalar o plug-in
 

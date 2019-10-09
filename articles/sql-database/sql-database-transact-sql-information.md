@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fbc4628ff3d3d7d90f7ec2c47c87f7afa3e9cd43
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566289"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028827"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o banco de dados SQL
 
@@ -57,11 +57,11 @@ Além das instruções Transact-SQL relacionadas aos recursos sem suporte descri
 - Funções: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Hardware: Sintaxe relacionada a configurações de servidor relacionadas a hardware: como memória, threads de trabalho, afinidade de CPU, sinalizadores de rastreamento. Use camadas de serviço e tamanhos de computação em vez disso.
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`,e nomes de quatro partes `OPENDATASOURCE`
+- nomes `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` e quatro partes
 - .NET Framework: Integração CLR com o SQL Server
 - Pesquisa semântica
 - Credenciais do servidor: Em vez disso, use [as credenciais no escopo do banco de dados](https://msdn.microsoft.com/library/mt270260.aspx) .
-- Itens de nível de servidor: Funções de servidor `sys.login_token`,. `GRANT`, `REVOKE`, e `DENY` das permissões ao nível do servidor não estão disponíveis, apesar de algumas serem substituídas por permissões ao nível da base de dados. Algumas DMVs ao nível do servidor útil têm DMVs equivalentes ao nível da base de dados.
+- Itens de nível de servidor: Funções de servidor, `sys.login_token`. `GRANT`, `REVOKE`, e `DENY` das permissões ao nível do servidor não estão disponíveis, apesar de algumas serem substituídas por permissões ao nível da base de dados. Algumas DMVs ao nível do servidor útil têm DMVs equivalentes ao nível da base de dados.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
@@ -74,18 +74,18 @@ Além das instruções Transact-SQL relacionadas aos recursos sem suporte descri
 - Sinalizadores de rastreamento: Alguns itens do sinalizador de rastreio foram movidos para modos de compatibilidade.
 - Depuração do Transact-SQL
 - Gatilhos Gatilhos no escopo do servidor ou no logon
-- `USE`privacidade Para alterar o contexto do banco de dados para um banco de dados diferente, você deve fazer uma nova conexão com o novo banco de dados.
+- instrução `USE`: Para alterar o contexto do banco de dados para um banco de dados diferente, você deve fazer uma nova conexão com o novo banco de dados.
 
 ## <a name="full-transact-sql-reference"></a>Referência do Transact-SQL completa
 
-Para obter mais informações sobre a gramática, o uso e os exemplos do Transact-SQL, consulte [referência de Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) em manuais online do SQL Server.
+Para obter mais informações sobre a gramática, o uso e os exemplos do Transact-SQL, consulte [referência de Transact-SQL (mecanismo de banco de dados)](https://msdn.microsoft.com/library/bb510741.aspx) in manuais online do SQL Server.
 
 ### <a name="about-the-applies-to-tags"></a>Sobre as etiquetas "Aplica-se a"
 
-A referência do Transact-SQL inclui artigos relacionados a SQL Server versões 2008 para o presente. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server e indicando aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O artigo [Criar grupo](https://msdn.microsoft.com/library/ff878399.aspx) de disponibilidade indica que a instrução se aplica a **SQL Server (começando com 2012)** . A instrução não é aplicável ao SQL Server 2008, ao SQL Server 2008 R2, à Base de Dados SQL do Azure, ao Azure SQL Data Warehouse ou ao Parallel Data Warehouse.
+A referência do Transact-SQL inclui artigos relacionados a SQL Server versões 2008 para o presente. Abaixo do título do artigo há uma barra de ícones, listando as quatro plataformas SQL Server e indicando aplicabilidade. Por exemplo, os grupos de disponibilidade foram introduzidos no SQL Server 2012. O [grupo de disponibilidade CREATE](https://msdn.microsoft.com/library/ff878399.aspx) article indica que a instrução se aplica a **SQL Server (começando com 2012)** . A instrução não é aplicável ao SQL Server 2008, ao SQL Server 2008 R2, à Base de Dados SQL do Azure, ao Azure SQL Data Warehouse ou ao Parallel Data Warehouse.
 
 Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Em alguns casos, o assunto geral de um artigo pode ser usado em um produto, mas há pequenas diferenças entre os produtos. As diferenças são indicadas em pontos médios no artigo, conforme apropriado. Por exemplo, o artigo criar gatilho está disponível no banco de dados SQL. Mas a opção **All Server** para gatilhos no nível do servidor indica que os gatilhos no nível do servidor não podem ser usados no banco de dados SQL. Em vez disso, use gatilhos de nível de banco de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter uma lista dos recursos com suporte e sem suporte pelo banco de dados SQL, consulte [comparação de recursos do banco de dados SQL do Azure](sql-database-features.md). A lista nesta página complementa o artigo diretrizes e recursos e se concentra nas instruções Transact-SQL.

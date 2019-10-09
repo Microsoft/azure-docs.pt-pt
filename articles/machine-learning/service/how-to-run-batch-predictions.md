@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 910974eac6a67c9c9fe68c502f2876ef68bb94eb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034297"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028530"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Executar previsões de lote em conjuntos de dados grandes com pipelines de Azure Machine Learning
 
@@ -52,7 +52,7 @@ As etapas a seguir configuram os recursos necessários para executar um pipeline
 
 - Acessar o arquivo de dados que já tenha o pré-preparadas com o modelo, etiquetas de entrada e imagens para classificar (isso já está configurado para).
 - Configure um arquivo de dados para armazenar as saídas.
--  `DataReference`Configure objetos para apontarem para os dados nos armazenamentos anteriores.
+- Configure @ no__t-0 @ no__t-1objects para apontar para os dados nos armazenamentos anteriores.
 - Configure máquinas de computação ou clusters em que executará as etapas do pipeline.
 
 ### <a name="access-the-datastores"></a>Acesso os arquivos de dados
@@ -77,7 +77,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 Em seguida, configure para usar o repositório de armazenamento padrão para as saídas.
 
-Quando você cria seu espaço de trabalho, os  [arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)e o [armazenamento](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) de BLOBs são anexados ao espaço de trabalho por padrão. O arquivos do Azure é o repositório de armazenamento padrão para um espaço de trabalho, mas você também pode usar o armazenamento de BLOBs como um armazenamento de repositório. Para obter mais informações, consulte [Opções de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Quando você cria seu espaço de trabalho, o [arquivo do Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)@no__t o [armazenamento de BLOBs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction)do 1and  are anexado ao espaço de trabalho por padrão. O arquivos do Azure é o repositório de armazenamento padrão para um espaço de trabalho, mas você também pode usar o armazenamento de BLOBs como um armazenamento de repositório. Para obter mais informações, consulte [Opções de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -87,7 +87,7 @@ def_data_store = ws.get_default_datastore()
 
 Agora, referenciar os dados no seu pipeline como entradas para passos de pipeline.
 
-Uma origem de dados num pipeline é representada por um [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objeto.  `DataReference`O objeto aponta para dados que residem no, ou que podem ser acessados de um repositório de armazenamento. Você precisa `DataReference`  de objetos para o diretório usado para imagens de entrada, o diretório no qual o modelo pretreinado está armazenado, o diretório para rótulos e o diretório de saída.
+Uma origem de dados num pipeline é representada por um [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objeto. O @ no__t-0 @ no__t-1object aponta para dados que residem no, ou que podem ser acessados por meio de um datastore. Você precisa de `DataReference` @ no__t-1objects para o diretório usado para imagens de entrada, o diretório no qual o modelo pretreinado está armazenado, o diretório para rótulos e o diretório de saída.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -154,7 +154,7 @@ Antes de poder utilizar o modelo pretrained, terá de transferir o modelo e regi
 
 ### <a name="download-the-pretrained-model"></a>Transferir o modelo pretrained
 
-Transferir o pré-preparadas com modelo de imagem digitalizada (InceptionV3) a partir do <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Em seguida, extraia `models` -o para a subpasta.
+Transferir o pré-preparadas com modelo de imagem digitalizada (InceptionV3) a partir do <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Em seguida, extraia-o para a subpasta `models`.
 
 ```python
 import os
@@ -193,7 +193,7 @@ model = Model.register(
 >[!Warning]
 >O código a seguir é apenas uma amostra do que está contido no [batch_score. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) usado pelo [bloco de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). Você precisará criar seu próprio script de Pontuação para seu cenário.
 
-O `batch_score.py` script aceita imagens de entrada *dataset_path*, pré-preparadas com modelos no *model_dir,* e produz *resultados label.txt* para *output_dir*.
+O script `batch_score.py` usa imagens de entrada em *dataset_path*, modelos pretreinados em *model_dir* e gera *Results-Label. txt* para *output_dir*.
 
 ```python
 # Snippets from a sample scoring script
@@ -267,7 +267,7 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="specify-the-parameter-for-your-pipeline"></a>Especifique o parâmetro para o pipeline
 
-Crie um parâmetro de pipeline usando um objeto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) com um valor padrão.
+Crie um parâmetro de pipeline usando um [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object com um valor padrão.
 
 ```python
 from azureml.pipeline.core.graph import PipelineParameter

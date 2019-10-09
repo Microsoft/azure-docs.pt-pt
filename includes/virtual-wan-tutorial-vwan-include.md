@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/27/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c1f83303c3f186b37c1c5c06e61c2263420c0cfa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184162"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028035"
 ---
-1. Navegue para a página de Virtual WAN. Uma forma de navegar para a página é para ir para **todos os serviços**e, em seguida, procure Virtual WAN.
-1. Clique em **+Adicionar** para abrir a página **Criar WAN**.
-1. Sobre o **criar WAN** página, preencha os campos seguintes:
+1. Navegue até a página WAN virtual. No portal, clique em **Criar um recurso**. Digite **Wan virtual** na caixa de pesquisa e selecione Enter.
+1. Selecione **Wan virtual** nos resultados. Na página WAN virtual, clique em **criar**.
+1. Na página **criar Wan** , preencha os seguintes campos:
 
-   * **Name** (Nome) - selecione o nome que pretende dar à WAN.
+   * **Nome** -digite o nome que você deseja chamar para sua Wan.
    * **Subscription** (subscrição) - selecione a subscrição que quer utilizar.
    * **Resource Group** (Grupo de Recursos) - crie um novo ou utilize um já existente.
    * **Resource Location** (Localização de Recurso) - escolha a localização de um recurso no menu pendente. Uma WAN é um recurso global e não reside numa região específica. Contudo, tem de selecionar uma região para poder gerir e localizar mais facilmente o recurso WAN que criou.

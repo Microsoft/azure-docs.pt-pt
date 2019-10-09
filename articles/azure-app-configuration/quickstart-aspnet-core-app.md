@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a2764c8e634fd8d827cba9fa7ec9cb61cc6c40af
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076317"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035296"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar um aplicativo ASP.NET Core com a configuração Azure App
 
@@ -53,13 +53,13 @@ Você usa a [CLI (interface de linha de comando) do .NET Core](https://docs.micr
 
 2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicativo Web ASP.NET Core MVC:
 
-        dotnet new mvc
+        dotnet new mvc --no-https
 
 ## <a name="add-secret-manager"></a>Adicionar Gerenciador de segredo
 
-Para usar o Gerenciador de segredo, `UserSecretsId` adicione um elemento ao seu arquivo *. csproj* .
+Para usar o Gerenciador de segredo, adicione um elemento `UserSecretsId` ao seu arquivo *. csproj* .
 
-- Abra o arquivo *. csproj* . Adicione um `UserSecretsId` elemento como mostrado aqui. Você pode usar o mesmo GUID ou pode substituir esse valor pelo seu próprio. Guarde o ficheiro.
+- Abra o arquivo *. csproj* . Adicione um elemento `UserSecretsId`, como mostrado aqui. Você pode usar o mesmo GUID ou pode substituir esse valor pelo seu próprio. Guarde o ficheiro.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -81,9 +81,9 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Adicione uma referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` pacote NuGet executando o seguinte comando:
+1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` executando o seguinte comando:
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
 
 2. Execute o seguinte comando para restaurar os pacotes para seu projeto:
 
@@ -98,9 +98,9 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     > [!IMPORTANT]
-    > Alguns shells truncarão a cadeia de conexão, a menos que seja colocado entre aspas. Verifique se a saída do `dotnet user-secrets` comando mostra toda a cadeia de conexão. Se não estiver, execute novamente o comando, colocando a cadeia de conexão entre aspas.
+    > Alguns shells truncarão a cadeia de conexão, a menos que seja colocado entre aspas. Verifique se a saída do comando `dotnet user-secrets` mostra a cadeia de conexão inteira. Se não estiver, execute novamente o comando, colocando a cadeia de conexão entre aspas.
 
-    O Gerenciador de segredo é usado apenas para testar o aplicativo Web localmente. Quando o aplicativo é implantado no [serviço Azure app](https://azure.microsoft.com/services/app-service/web), por exemplo, você usa uma configuração de aplicativo cadeias de **conexão** no serviço de aplicativo em vez de com o Gerenciador de segredo para armazenar a cadeia de conexão.
+    O Gerenciador de segredo é usado apenas para testar o aplicativo Web localmente. Quando o aplicativo é implantado no [serviço Azure app](https://azure.microsoft.com/services/app-service/web), por exemplo, você usa uma configuração de aplicativo **cadeias de conexão** no serviço de aplicativo em vez de com o Gerenciador de segredo para armazenar a cadeia de conexão.
 
     Esse segredo é acessado com a API de configuração. Dois-pontos (:) funciona no nome da configuração com a API de configuração em todas as plataformas com suporte. Consulte [configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
@@ -110,7 +110,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-5. Atualize o `CreateWebHostBuilder` método para usar a configuração do aplicativo chamando `config.AddAzureAppConfiguration()` o método.
+5. Atualize o método `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -185,7 +185,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou um novo repositório de configuração de aplicativo e o utilizou com um aplicativo Web ASP.NET Core por meio do [provedor de configuração de aplicativo](https://go.microsoft.com/fwlink/?linkid=2074664). Para saber mais sobre como usar a configuração de aplicativo, prossiga para o próximo tutorial que demonstra como configurar seu aplicativo Web para atualizar dinamicamente as definições de configuração.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e7dc1e6c1bb1ca81ada59cb3dae8fecbc6452b7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240029"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029782"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar dados do firewall do aplicativo Web da Microsoft
 
@@ -40,10 +40,10 @@ Depois que o Firewall do aplicativo Web da Microsoft for implantado e estiver ob
     
 1. No portal do Azure Sentinel, selecione **conectores de dados**.
 1. Na página conectores de dados, selecione o bloco **WAF** .
-1. Vá para [recurso](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) de gateway de aplicativo e escolha seu WAF.
-    1. Selecione **configurações de diagnóstico**.
-    1. Selecione **+ Adicionar configuração de diagnóstico** na tabela.
-    1. Na página **configurações de diagnóstico** , digite um **nome** e selecione **Enviar para log Analytics**.
+1. Vá para [recurso de gateway de aplicativo](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) and escolha seu WAF.
+    1. Selecione **configurações de diagnóstico**.
+    1. Selecione **+ Adicionar configuração de diagnóstico** na tabela.
+    1. Na página **configurações de diagnóstico** , digite um **nome** e selecione **Enviar para log Analytics**.
     1. Em **log Analytics espaço de trabalho** , selecione o espaço de trabalho do Azure Sentinel.
     1. Selecione os tipos de log que você deseja analisar. Recomendamos: ApplicationGatewayAccessLog e ApplicationGatewayFirewallLog.
 1. Para usar o esquema relevante no Log Analytics para os alertas de firewall do aplicativo Web da Microsoft, procure **AzureDiagnostics**.

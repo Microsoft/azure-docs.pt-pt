@@ -1,6 +1,6 @@
 ---
-title: Adicionar notificações push à sua aplicação xamarin. IOS com o serviço de aplicações do Azure
-description: Saiba como utilizar o serviço de aplicações do Azure para enviar notificações push à sua aplicação xamarin. IOS
+title: Adicionar notificações por push ao seu aplicativo Xamarin. iOS com o serviço Azure App
+description: Saiba como usar Azure App serviço para enviar notificações por push para seu aplicativo Xamarin. iOS
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -14,51 +14,51 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 9edd5e755b4a42fe881a0863bb284039299ec713
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 27c20d3d3c84455130c8fd978eaeb076781846ef
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446275"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024984"
 ---
-# <a name="add-push-notifications-to-your-xamarinios-app"></a>Adicionar notificações push à aplicação xamarin. IOS
+# <a name="add-push-notifications-to-your-xamarinios-app"></a>Adicionar notificações por push ao seu aplicativo Xamarin. iOS
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-push) hoje mesmo.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 ## <a name="overview"></a>Descrição geral
 
-Neste tutorial, adicionar notificações push para o [início rápido do xamarin. IOS](app-service-mobile-xamarin-ios-get-started.md) do projeto para que uma notificação push é enviada para o dispositivo sempre que um registro é inserido.
+Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Xamarin. Ios](app-service-mobile-xamarin-ios-get-started.md) para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
 
-Se não utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Ver [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
+Se você não usar o projeto baixado do servidor de início rápido, será necessário o pacote de extensão de notificação por push. Consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter mais informações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Concluir o [guia de introdução do xamarin. IOS](app-service-mobile-xamarin-ios-get-started.md) tutorial.
-* Um dispositivo iOS físico. Notificações push não são suportadas pelo simulador do iOS.
+* Conclua o tutorial de [início rápido do Xamarin. Ios](app-service-mobile-xamarin-ios-get-started.md) .
+* Um dispositivo iOS físico. Notificações por push não são suportadas pelo simulador de iOS.
 
-## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Registar a aplicação para notificações push no portal de programador da Apple
+## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Registrar o aplicativo para notificações por push no portal do desenvolvedor da Apple
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Configurar a sua aplicação móveis para enviar notificações push
+## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Configurar seu aplicativo móvel para enviar notificações por push
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a name="update-the-server-project-to-send-push-notifications"></a>Atualizar o projeto de servidor para enviar notificações push
+## <a name="update-the-server-project-to-send-push-notifications"></a>Atualizar o projeto de servidor para enviar notificações por push
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="configure-your-xamarinios-project"></a>Configurar o seu projeto xamarin. IOS
+## <a name="configure-your-xamarinios-project"></a>Configurar seu projeto do Xamarin. iOS
 
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à aplicação
 
-1. Na **QSTodoService**, adicione a seguinte propriedade para que **AppDelegate** pode adquirir o cliente móvel:
+1. No **QSTodoService**, adicione a seguinte propriedade para que o **AppDelegate** possa adquirir o cliente móvel:
 
     ```csharp
     public MobileServiceClient GetClient {
@@ -73,14 +73,14 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
     }
     ```
 
-2. Adicione as seguintes `using` instrução na parte superior do **AppDelegate.cs** ficheiro.
+2. Adicione a seguinte instrução `using` à parte superior do arquivo **AppDelegate.cs** .
 
     ```csharp
     using Microsoft.WindowsAzure.MobileServices;
     using Newtonsoft.Json.Linq;
     ```
 
-3. Na **AppDelegate**, substituir o **FinishedLaunching** eventos:
+3. No **AppDelegate**, substitua o evento **FinishedLaunching** :
 
    ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -99,9 +99,9 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
     }
     ```
 
-4. No mesmo ficheiro, substitua o `RegisteredForRemoteNotifications` eventos. Nesse código que está a registar para obter uma notificação de modelo simples que será enviada em todas as plataformas suportadas pelo servidor.
+4. No mesmo arquivo, substitua o evento `RegisteredForRemoteNotifications`. Nesse código, você está se registrando para uma notificação de modelo simples que será enviada em todas as plataformas com suporte pelo servidor.
 
-    Para obter mais informações sobre modelos com os Hubs de notificação, consulte [modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+    Para obter mais informações sobre modelos com hubs de notificação, consulte [modelos](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -122,7 +122,7 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
     }
     ```
 
-5. Em seguida, substituir a **DidReceivedRemoteNotification** eventos:
+5. Em seguida, substitua o evento **DidReceivedRemoteNotification** :
 
    ```csharp
     public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
@@ -142,17 +142,17 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
     }
     ```
 
-A aplicação foi atualizada para suportar notificações push.
+Seu aplicativo agora está atualizado para dar suporte a notificações por push.
 
-## <a name="test"></a>Notificações de push de teste na sua aplicação
+## <a name="test"></a>Testar notificações por push em seu aplicativo
 
-1. Prima a **execute** botão para compilar o projeto e iniciar a aplicação no dispositivo iOS com capacidade para, em seguida, clique em **OK** para aceitar notificações push.
+1. Pressione o botão **executar** para compilar o projeto e iniciar o aplicativo em um dispositivo com capacidade para IOS e clique em **OK** para aceitar notificações por push.
 
    > [!NOTE]
-   > Tem de aceitar explicitamente notificações push da sua aplicação. Este pedido ocorre apenas na primeira vez que a aplicação é executada.
+   > Você deve aceitar explicitamente as notificações por push do seu aplicativo. Essa solicitação ocorre apenas na primeira vez em que o aplicativo é executado.
 
-2. Na aplicação, escreva uma tarefa e, em seguida, clique no sinal de adição ( **+** ) ícone.
-3. Certifique-se de que uma notificação é recebida, em seguida, clique em **OK** para dispensar a notificação.
-4. Repita o passo 2 e imediatamente fechar a aplicação, em seguida, certifique-se de que é mostrada uma notificação.
+2. No aplicativo, digite uma tarefa e, em seguida, clique no ícone de adição ( **+** ).
+3. Verifique se uma notificação foi recebida e clique em **OK** para ignorar a notificação.
+4. Repita a etapa 2 e feche imediatamente o aplicativo e, em seguida, verifique se uma notificação é mostrada.
 
-Concluiu com êxito este tutorial.
+Você concluiu este tutorial com êxito.

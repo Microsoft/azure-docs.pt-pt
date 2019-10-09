@@ -2,18 +2,18 @@
 title: 'Tutorial: Carregar dados e executar consultas no cluster Apache Spark no Azure HDInsight'
 description: Tutorial-saiba como carregar dados e executar consultas interativas em clusters do Spark no Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735280"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027785"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight
 
@@ -30,23 +30,23 @@ Um cluster do Apache Spark no HDInsight. Consulte [criar um cluster apache Spark
 
 ## <a name="create-a-jupyter-notebook"></a>Criar um bloco de notas do Jupyter
 
-O Jupyter Notebook é um ambiente de bloco de notas interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples. 
+O Jupyter Notebook é um ambiente de bloco de notas interativo que suporta várias linguagens de programação. O bloco de notas permite-lhe interagir com os seus dados, combinar código com texto markdown e realizar visualizações simples.
 
-1. Edite a `https://SPARKCLUSTER.azurehdinsight.net/jupyter` URL substituindo `SPARKCLUSTER` pelo nome do seu cluster Spark. Em seguida, insira a URL editada em um navegador da Web. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
+1. Edite a URL `https://SPARKCLUSTER.azurehdinsight.net/jupyter` substituindo `SPARKCLUSTER` pelo nome do cluster do Spark. Em seguida, insira a URL editada em um navegador da Web. Se lhe for pedido, introduza as credenciais de início de sessão do cluster.
 
-2. Na página da Web do Jupyter, selecione **novo** > **PySpark** para criar um bloco de anotações. 
+2. Na página da Web do Jupyter, selecione **novo** > **PySpark** para criar um bloco de anotações.
 
    ![Crie um Bloco de Notas Jupyter para executar a consulta interativa do Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Create a Jupyter Notebook to run interactive Spark SQL query")
 
-   Um novo bloco de anotações é criado e aberto com o nome sem título`Untitled.ipynb`().
+   Um novo bloco de anotações é criado e aberto com o nome sem título (`Untitled.ipynb`).
 
     > [!NOTE]  
     > Ao utilizar o kernel do PySpark para criar um bloco de notas, a sessão `spark` é criada automaticamente quando executa a primeira célula de código. Não precisa de criar explicitamente a sessão.
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Criar um pacote de dados a partir de um ficheiro CSV
 
-As aplicações podem criar pacotes de dados diretamente a partir de ficheiros ou pastas para o armazenamento remoto, como o Armazenamento do Azure ou o Azure Data Lake Storage; ou de uma tabela do Hive; ou de outras origens de dados suportadas pelo Spark, como o Cosmos DB, a DB SQL do Azure, DW, etc. A seguinte captura de ecrã mostra um instantâneo do ficheiro HVAC.csv utilizado neste tutorial. O ficheiro CSV é fornecido com todos os clusters do Spark no HDInsight. Os dados ilustram as variações de temperatura de alguns edifícios.
-    
+Os aplicativos podem criar quadros de molduras diretamente de arquivos ou pastas no armazenamento remoto, como o armazenamento do Azure ou o Azure Data Lake Storage; de uma tabela Hive; ou de outras fontes de dados com suporte no Spark, como Cosmos DB, BD SQL do Azure, DW e assim por diante. A seguinte captura de ecrã mostra um instantâneo do ficheiro HVAC.csv utilizado neste tutorial. O ficheiro CSV é fornecido com todos os clusters do Spark no HDInsight. Os dados ilustram as variações de temperatura de alguns edifícios.
+
 ![Instantâneo de dados para a consulta SQL interativa de Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para a consulta SQL interativa de Spark")
 
 1. Cole o código a seguir em uma célula vazia do notebook Jupyter e pressione **Shift + Enter** para executar o código. O código importa os tipos necessários para este cenário:
@@ -60,7 +60,7 @@ As aplicações podem criar pacotes de dados diretamente a partir de ficheiros o
 
     ![Estado da consulta interativa do Spark SQL](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status of interactive Spark SQL query")
 
-2. Execute o seguinte código para criar um pacote de dados e uma tabela temporária (**hvac**) ao utilizar o seguinte código. 
+2. Execute o seguinte código para criar um pacote de dados e uma tabela temporária (**hvac**) ao utilizar o seguinte código.
 
     ```python
     # Create a dataframe and table from sample data
@@ -89,11 +89,11 @@ Após a criação da tabela, pode executar uma consulta interativa nos dados.
 
 3. Na barra de menus do bloco de anotações, navegue até **arquivo** > **salvar e ponto de verificação**.
 
-4. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Caso contrário, desligue o bloco de anotações para liberar os recursos do cluster: na barra de menus do bloco de anotações, navegue até **arquivo** >  **fechar e parar**.
+4. Se tenciona iniciar o [próximo tutorial](apache-spark-use-bi-tools.md) agora, deixe o bloco de notas aberto. Caso contrário, desligue o bloco de anotações para liberar os recursos de cluster: na barra de menus do bloco de anotações, navegue até **arquivo** >  **fechar e parar**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Com o HDInsight, seus blocos de anotações de dados e Jupyter são armazenados no armazenamento do Azure ou Azure Data Lake Storage, para que você possa excluir um cluster com segurança quando ele não estiver em uso. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
+Com o HDInsight, seus blocos de anotações de dados e Jupyter são armazenados no armazenamento do Azure ou Azure Data Lake Storage, para que você possa excluir um cluster com segurança quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes mais do que os encargos de armazenamento, ele faz sentido econômico excluir clusters quando eles não estiverem em uso. Se tenciona começar já a trabalhar no próximo tutorial, convém manter o cluster.
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
@@ -101,7 +101,7 @@ Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, está a eliminar o cluster do Spark no HDInsight e a conta de armazenamento predefinida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, você aprendeu a criar um dataframe a partir de um arquivo CSV e a executar consultas interativas do Spark SQL em um cluster Apache Spark no Azure HDInsight. Avance para o próximo artigo para ver como os dados registrados no Apache Spark podem ser obtidos em uma ferramenta de análise de BI, como Power BI.
 

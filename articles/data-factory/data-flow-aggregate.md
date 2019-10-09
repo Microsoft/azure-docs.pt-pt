@@ -6,23 +6,23 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 0201cbdd05cd8aae4afb92b459bf58fb5ff6a142
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314235"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026972"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação Agregação no fluxo de dados de mapeamento 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 A transformação agregação é onde você definirá agregações de colunas em seus fluxos de dados. Usando o construtor de expressões, você pode definir diferentes tipos de agregações como SUM, MIN, MAX e COUNT que podem ser agrupados por colunas computadas ou existentes.
 
 ## <a name="group-by"></a>Agrupar por
 Selecione uma coluna existente ou crie uma nova coluna computada para usar como uma cláusula Group by para sua agregação. Para usar uma coluna existente, selecione a coluna desejada na lista suspensa. Para criar uma nova coluna computada, passe o mouse sobre a cláusula e clique em ' coluna computada '. Isso abrirá o [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md). Depois de criar a coluna computada, insira o nome da coluna de saída no campo ' nome como '. Se você quiser adicionar uma cláusula Group by adicional, passe o mouse sobre uma cláusula existente e clique em ' + '.
 
-![Grupos de transformação agregados por configurações](media/data-flow/agg.png "Grupos de transformação agregados por configurações")
+![Grupo de transformação agregado por]configurações(media/data-flow/agg.png "grupo de transformação agregado por configurações")
 
 > [!NOTE]
 > Uma cláusula Group by é opcional em uma transformação Agregação.
@@ -42,8 +42,8 @@ Escolha a guia ' agregações ' para criar expressões de agregação. Você pod
 As transformações agregadas são bastante equivalentes às consultas SELECT de agregação SQL. As colunas que não estão incluídas em sua cláusula Group by ou funções de agregação não fluirão para a saída da transformação Agregação. Se houver outras colunas que você deseja incluir com a saída de linhas agregadas, você deverá:
 
 * Use uma função de agregação para incluir essa coluna adicional, como Last () ou First ()
-* Ingresse novamente as colunas antes da agregação usando o [padrão](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/)de autojunção.
+* Ingresse novamente as colunas antes da agregação usando o [padrão de autojunção](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Definir a agregação baseada em janela usando a [transformação janela](data-flow-window.md)
