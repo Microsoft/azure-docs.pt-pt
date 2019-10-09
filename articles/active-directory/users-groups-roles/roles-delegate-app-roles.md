@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382493"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025507"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registro de aplicativo no Azure Active Directory
 
@@ -61,10 +61,10 @@ Em alguns casos, os aplicativos empresariais criados na Galeria de aplicativos i
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Para atribuir um proprietário a um aplicativo empresarial
 
-1. Entre na  [sua organização do Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)com uma conta qualificada para o administrador de aplicativos ou o administrador de aplicativos de nuvem para a organização.
-1. Na [página](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) registros de aplicativo da organização, selecione um aplicativo para abrir a página Visão geral do aplicativo.
-1. Selecione **proprietários** para ver a lista de proprietários do aplicativo.
-1. Selecione **Adicionar** para selecionar um ou mais proprietários a serem adicionados ao aplicativo.
+1. Entre em [sua organização do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) Com uma conta qualificada para o administrador de aplicativos ou o administrador de aplicativos de nuvem para a organização.
+1. Na [página Registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Para a organização, selecione um aplicativo para abrir a página Visão geral do aplicativo.
+1. Selecione **proprietários** para ver a lista de proprietários do aplicativo.
+1. Selecione **Adicionar** para selecionar um ou mais proprietários a serem adicionados ao aplicativo.
 
 > [!IMPORTANT]
 > Os usuários e as entidades de serviço podem ser proprietários de registros do aplicativo. Somente os usuários podem ser proprietários de aplicativos empresariais. Os grupos não podem ser atribuídos como proprietários de ambos.
@@ -102,7 +102,7 @@ Dicas ao criar e usar funções personalizadas para delegar o gerenciamento de a
 
 Para obter mais informações sobre as noções básicas de funções personalizadas, consulte a [visão geral das funções personalizadas](roles-custom-overview.md), bem como como [criar uma função personalizada](roles-create-custom.md) e como [atribuir uma função](roles-assign-powershell.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Subtipos de registro de aplicativo e permissões](roles-custom-available-permissions.md)
 - [Referência de função de administrador do Azure AD](directory-assign-admin-roles.md)

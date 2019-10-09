@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf25ce318415a8aa36bca8d4cd7380e4e8e67ca
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743460"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035716"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o netdocuments
 
@@ -82,9 +82,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    
+    c. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `http://netdocuments.com/VAULT`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e a URL de resposta reais. A ID do repositório é um valor que começa com **CA-** seguido por 8 códigos de caracteres associados ao repositório do netdocuments. Você pode verificar o [documento suporte a identidade federada do Netdocuments](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) para obter mais informações. Como alternativa, você pode entrar em contato com a [equipe de suporte ao cliente do Netdocuments](https://support.netdocuments.com/hc/) para obter esses valores se tiver dificuldades com a configuração usando as informações acima. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -139,7 +141,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 3. Clique em **Adicionar e remover usuários e grupos**.
    
-    ![Repositório] do (./media/netdocuments-tutorial/ic795047.png "Repositório") do
+    ![](./media/netdocuments-tutorial/ic795047.png "Repositório") de repositório
 
 4. Clique em **Configurar opções de autenticação avançadas**.
     
@@ -147,7 +149,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 5. Na caixa de diálogo **identidade federada** , execute as seguintes etapas:
    
-    ![Identidade federada](./media/netdocuments-tutorial/ic795049.png "Identidade federada")
+    ![](./media/netdocuments-tutorial/ic795049.png "Identidade federada") de identidade federada
    
     a. Como **tipo de servidor de identidade federada**, selecione **serviços de Federação do Active Directory (AD FS)** .
    
@@ -166,15 +168,15 @@ No caso do netdocuments, o provisionamento é uma tarefa manual.
 
 2. No menu na parte superior, clique em **admin**.
    
-    ![Administrador] do (./media/netdocuments-tutorial/ic795051.png "Administrador") do
+    ![](./media/netdocuments-tutorial/ic795051.png "Administrador") de administrador
 
 3. Clique em **Adicionar e remover usuários e grupos**.
    
-    ![Repositório] do (./media/netdocuments-tutorial/ic795047.png "Repositório") do
+    ![](./media/netdocuments-tutorial/ic795047.png "Repositório") de repositório
 
 4. Na caixa de texto **endereço de email** , digite o endereço de email de uma conta de Azure Active Directory válida que você deseja provisionar e clique em **Adicionar usuário**.
    
-    ![Endereço de email](./media/netdocuments-tutorial/ic795053.png "Endereço de email")
+    ![](./media/netdocuments-tutorial/ic795053.png "Endereço") de email de email
    
     >[!NOTE]
     >O titular da conta Azure Active Directory receberá um email que inclui um link para confirmar a conta antes que ela se torne ativa. Você pode usar qualquer outra ferramenta de criação de conta de usuário do netdocuments ou APIs fornecidas pelo netdocuments para provisionar Azure Active Directory contas de usuário.

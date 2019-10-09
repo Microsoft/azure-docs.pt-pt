@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 676a41b64b79be6b11c3ef22b34d3de0e37e2a92
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240095"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023803"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início rápido: Introdução ao Azure Sentinel
 
@@ -72,14 +72,14 @@ As pastas de trabalho internas fornecem dados integrados de suas fontes de dados
       ![Painel PAL alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Você pode personalizar as pastas de trabalho editando o botão ![](./media/qs-get-visibility/edit-query-button.png)de consulta principal. Você pode clicar no botão ![](./media/qs-get-visibility/go-to-la-button.png) de botão para ir para [log Analytics para editar a consulta lá](../azure-monitor/log-query/get-started-portal.md)e pode selecionar as reticências (...) e selecionar **personalizar dados de bloco**, o que permite editar o filtro de tempo principal ou remover o blocos específicos da pasta de trabalho.
+Você pode personalizar as pastas de trabalho editando a consulta principal ![button @ no__t-1. Você pode clicar no botão ![button @ no__t-1 para ir para [log Analytics editar a consulta lá](../azure-monitor/log-query/get-started-portal.md)e pode selecionar as reticências (...) e selecionar **personalizar dados de bloco**, o que permite editar o filtro de tempo principal ou remover os blocos específicos de a pasta de trabalho.
 
-Para obter mais informações sobre como trabalhar com consultas [, consulte Tutorial: Dados visuais no Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Para obter mais informações sobre como trabalhar com consultas, consulte [Tutorial: Dados visuais no Log Analytics @ no__t-0
 
 ### <a name="add-a-new-tile"></a>Adicionar um novo bloco
 
 Se você quiser adicionar um novo bloco, poderá adicioná-lo a uma pasta de trabalho existente, ou seja, um que você criar ou uma pasta de trabalho interna do Azure Sentinel. 
-1. Em log Analytics, crie um bloco usando as instruções encontradas no [tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. Em Log Analytics, crie um bloco usando as instruções encontradas em [Tutorial: Dados visuais em Log Analytics @ no__t-0. 
 2. Depois que o bloco for criado, em **PIN**, selecione a pasta de trabalho na qual você deseja que o bloco apareça.
 
 ## <a name="create-new-workbooks"></a>Criar novas pastas de trabalho
@@ -122,11 +122,11 @@ Gere detecções nas fontes de [dados que você conectou ao Azure Sentinel](conn
 
 Ao criar uma nova detecção, aproveite as detecções internas criadas pelos pesquisadores de segurança da Microsoft que são adaptadas às fontes de dados conectadas.
 
-Para exibir todas as detecções prontas para uso, vá para **análise** e, em seguida, modelos de **regra**. Esta guia contém todas as regras internas do Azure Sentinel.
+Para exibir todas as detecções prontas para uso, vá para **análise** e, em seguida, modelos de **regra**. Esta guia contém todas as regras internas do Azure Sentinel.
 
    ![Use detecções internas para encontrar ameaças com o Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
-Para obter mais informações sobre como obter as detecções prontas para uso, consulte [tutorial: Obtenha a análise](tutorial-detect-threats-built-in.md)interna.
+Para obter mais informações sobre como obter as detecções prontas para uso, consulte [Tutorial: Obtenha a análise interna @ no__t-0.
  
 ## <a name="next-steps"></a>Passos seguintes
 Neste guia de início rápido, você aprendeu a começar a usar o Azure Sentinel. Continue no tutorial sobre [como detectar ameaças](tutorial-detect-threats-built-in.md).

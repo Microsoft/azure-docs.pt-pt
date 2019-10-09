@@ -1,40 +1,40 @@
 ---
-title: Transformação de dados fábrica mapeamento de fluxo que existem dados do Azure
-description: Como verificar a existência de linhas existentes com dados de mapeamento de fábrica de dados de fluxos com a transformação de Exists
+title: Transformação do fluxo de dados de mapeamento de Azure Data Factory existe
+description: Como verificar as linhas existentes usando o mapeamento de data factory fluxos de dados com a transformação Exists
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b98b7afb21f2f50d44ba93ed793b6efb20f75164
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b488a079b2da1bcf0dd064025ed251a1dc25213
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235975"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029397"
 ---
-# <a name="mapping-data-flow-exists-transformation"></a>Mapeamento de fluxo de dados existe transformação
+# <a name="mapping-data-flow-exists-transformation"></a>Transformação de fluxo de dados de mapeamento existe
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A transformação de Exists é uma transformação que interrompe ou permite linhas nos seus dados a fluir através de filtragem de linha. Existe transformar é semelhante à ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```. Após a transformação existe, as linhas resultantes do seu fluxo de dados irão optar por incluir todas as linhas onde os valores de coluna da origem 1 existem na origem 2 ou não existem na origem 2.
 
-![Definições de existe](media/data-flow/exists.png "existe 1")
+A transformação Exists é uma transformação de filtragem de linha que interrompe ou permite que as linhas em seus dados fluam. A transformação Exists é semelhante a ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```. Após a transformação Exists, as linhas resultantes do fluxo de dados incluirão todas as linhas em que os valores de coluna da origem 1 existem na origem 2 ou não existem na origem 2.
 
-Escolha a segunda origem para sua Exists, de modo a que o fluxo de dados pode comparar valores de 1 de Stream contra Stream 2.
+![As configurações existentes](media/data-flow/exists.png "existem 1")
 
-Selecione a coluna a partir de 1 de origem e de origem 2 cujos valores que pretende procurar contra Exists ou não existe.
+Escolha a segunda fonte para o seu Exists para que o fluxo de dados possa comparar valores do fluxo 1 com o fluxo 2.
 
-## <a name="multiple-exists-conditions"></a>Existe de várias condições
+Selecione a coluna da origem 1 e da origem 2 cujos valores você deseja verificar para que exista ou não exista.
 
-Junto a cada linha nas suas condições de coluna para Exists, encontrará um + início de sessão disponíveis quando focaliza alcançar a linha. Isso permitirá que adicionar várias linhas para condições de Exists. Cada condição adicional é um "E".
+## <a name="multiple-exists-conditions"></a>Várias condições existentes
+
+Ao lado de cada linha em suas condições de coluna para existir, você encontrará um sinal de + disponível quando passar o mouse sobre a linha de alcance. Isso permitirá que você adicione várias linhas para as condições existentes. Cada condição adicional é um "e".
 
 ## <a name="custom-expression"></a>Expressão personalizada
 
-![Definições personalizadas de existe](media/data-flow/exists1.png "existe personalizado")
+![Existem configurações personalizadas](media/data-flow/exists1.png "existentes")
 
-Pode clicar em "Expressão personalizada", em vez disso, criar uma expressão de forma livre como sua existe ou não-existe condição. Selecionar esta caixa permitirá que escreva sua própria expressão como uma condição.
+Você pode clicar em "expressão personalizada" para, em vez disso, criar uma expressão de forma livre como sua condição EXISTS ou NOT-EXISTS. Marcar essa caixa permitirá que você digite sua própria expressão como uma condição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-São semelhantes [Lookup](data-flow-lookup.md) e [associar](data-flow-join.md).
+As transformações semelhantes são [Lookup](data-flow-lookup.md) e [Join](data-flow-join.md).

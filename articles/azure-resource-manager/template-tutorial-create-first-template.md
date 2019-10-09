@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7996f564aaa78313304bf3bc11f549d24fce82a4
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963857"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029545"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>Tutorial: Criar e implementar o seu primeiro modelo do Azure Resource Manager
 
@@ -133,7 +133,7 @@ New-AzResourceGroupDeployment `
 # <a name="azure-clitabazure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 ```azurecli
-templateFile="{provide-the-path-to-the-template-file}"
+$templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \

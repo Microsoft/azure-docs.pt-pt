@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262888"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023595"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -43,6 +43,11 @@ Para utilizar o provedor de recursos da VM do SQL, você também deve registrar 
   > [!NOTE]
   > Não há requisitos de licenciamento adicionais associados ao registro com o provedor de recursos. O registro com o provedor de recursos de VM do SQL oferece um método simplificado para atender à necessidade de notificar a Microsoft de que o Benefício Híbrido do Azure foi habilitado no lugar do gerenciamento de formulários de registro de licenciamento para cada recurso. 
 
+Para obter mais informações sobre os benefícios de usar o provedor de recursos de VM do SQL, consulte o seguinte vídeo [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) : 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Beneficie-se do provedor de recursos da VM do SQL ao instalar automaticamente SQL Server no Azure – vídeo do Microsoft Channel 9"></iframe>
+
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para registrar sua VM SQL Server com o provedor de recursos, você precisará do seguinte: 
@@ -61,7 +66,7 @@ O registro com o provedor de recursos de VM do SQL no modo leve garantirá a con
 
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
-Use o trecho de código a seguir para se registrar com o provedor de recursos da VM do SQL se a extensão de IaaS SQL Server já estiver instalada na VM. Você precisa fornecer o tipo de licença de SQL Server que deseja ao registrar com o provedor de recursos de VM do SQL: pago conforme o uso (`PAYG`) ou benefício híbrido do Azure (`AHUB`). 
+Use o trecho de código a seguir para se registrar com o provedor de recursos da VM do SQL se a extensão de IaaS SQL Server já estiver instalada na VM. Você precisa fornecer o tipo de licença de SQL Server que deseja ao registrar com o provedor de recursos de VM do SQL: pago conforme o uso (`PAYG`) ou Benefício Híbrido do Azure (`AHUB`). 
 
 Registre a VM SQL Server usando o seguinte trecho de código do PowerShell:
 
@@ -159,7 +164,7 @@ Você pode verificar se sua VM de SQL Server já foi registrada com o provedor d
 
 ### <a name="command-line"></a>Linha de comandos
 
-Verifique o status atual de registro da VM SQL Server usando o AZ CLI ou o PowerShell. `ProvisioningState`mostrará `Succeeded` se o registro foi bem-sucedido. 
+Verifique o status atual de registro da VM SQL Server usando o AZ CLI ou o PowerShell. `ProvisioningState` mostrará `Succeeded` se o registro tiver sido bem-sucedido. 
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
 

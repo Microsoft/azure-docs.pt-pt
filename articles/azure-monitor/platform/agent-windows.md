@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 5e1fe6252f396a4585b5d7d7190728b79229d5c7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6c8d25a9df49323866e99487ef6c648dede40ec4
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073979"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033949"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>Conectar computadores Windows ao Azure Monitor
 
@@ -51,15 +51,19 @@ Antes de instalar o agente de Log Analytics para Windows, você precisa da ID e 
 5. Copie e cole em seu editor favorito, a **ID do espaço de trabalho** e a **chave primária**.    
    
 ## <a name="configure-agent-to-use-tls-12"></a>Configurar o agente para usar o TLS 1,2
-Para configurar o uso do protocolo [TLS 1,2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) para a comunicação entre o agente do Windows e o serviço de log Analytics, você pode seguir as etapas abaixo para habilitar o antes de o agente ser instalado na máquina virtual ou depois.   
+Para configurar o uso do protocolo [TLS 1,2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) para a comunicação entre o agente do Windows e o serviço de log Analytics, você pode seguir as etapas abaixo para habilitar o antes de o agente ser instalado na máquina virtual ou depois.
+
+>[!NOTE]
+>Se você estiver configurando uma VM que executa o Windows Server 2008 SP2 x64 para usar o TLS 1,2, primeiro será necessário instalar a seguinte [atualização de suporte à assinatura de código SHA-2](https://support.microsoft.com/help/4474419/sha-2-code-signing-support-update) antes de executar as etapas abaixo. 
+>
 
 1. Localize a seguinte subchave do registro: **HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols**
 2. Crie uma subchave em **protocolos** para TLS 1,2 **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1,2**
 3. Crie uma subchave do **cliente** na subchave da versão do protocolo TLS 1,2 criada anteriormente. Por exemplo, **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**.
 4. Crie os seguintes valores DWORD em **HKLM\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2 \ Client**:
 
-    * **Habilitado** [Valor = 1]
-    * **DisabledByDefault** [Valor = 0]  
+    * **Habilitado** [valor = 1]
+    * **DisabledByDefault** [valor = 0]  
 
 Configure o .NET Framework 4,6 ou posterior para dar suporte à criptografia segura, pois ele está desabilitado por padrão. A [criptografia forte](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) usa protocolos de rede mais seguros, como o TLS 1,2, e bloqueia protocolos que não são seguros. 
 
@@ -106,7 +110,7 @@ A tabela a seguir realça os parâmetros específicos com suporte na instalaçã
 |OPINSIGHTS_PROXY_USERNAME               | Nome de usuário para acessar um proxy autenticado |
 |OPINSIGHTS_PROXY_PASSWORD               | Senha para acessar um proxy autenticado |
 
-1. Para extrair os arquivos de instalação do agente, em uma execução `MMASetup-<platform>.exe /c` de prompt de comandos com privilégios elevados, será solicitado que você forneça o caminho para o qual extrair os arquivos.  Como alternativa, você pode especificar o caminho passando os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.  
+1. Para extrair os arquivos de instalação do agente, em um prompt de comando com privilégios elevados, execute `MMASetup-<platform>.exe /c` e ele solicitará o caminho para o qual extrair os arquivos.  Como alternativa, você pode especificar o caminho passando os argumentos `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Para instalar silenciosamente o agente e configurá-lo para relatar a um espaço de trabalho na nuvem comercial do Azure, na pasta na qual você extraiu os arquivos de instalação para o tipo: 
    
      ```dos
@@ -125,7 +129,7 @@ A tabela a seguir realça os parâmetros específicos com suporte na instalaçã
 
 Você pode usar o exemplo de script a seguir para instalar o agente usando o DSC de Automação do Azure.   Se você não tiver uma conta de automação, consulte Introdução à [automação do Azure](/azure/automation/) para entender os requisitos e as etapas para criar uma conta de automação necessária antes de usar DSC de automação.  Se você não estiver familiarizado com DSC de Automação, consulte [introdução ao DSC de automação](../../automation/automation-dsc-getting-started.md).
 
-O exemplo a seguir instala o agente de 64 bits, identificado pelo `URI` valor. Você também pode usar a versão de 32 bits substituindo o valor do URI. Os URIs para ambas as versões são:
+O exemplo a seguir instala o agente de 64 bits, identificado pelo valor `URI`. Você também pode usar a versão de 32 bits substituindo o valor do URI. Os URIs para ambas as versões são:
 
 - Agente de bits do Windows 64- https://go.microsoft.com/fwlink/?LinkId=828603
 - Agente de bits do Windows 32- https://go.microsoft.com/fwlink/?LinkId=828604
@@ -134,11 +138,11 @@ O exemplo a seguir instala o agente de 64 bits, identificado pelo `URI` valor. V
 >[!NOTE]
 >Este exemplo de procedimento e script não oferece suporte à atualização do agente já implantado em um computador Windows.
 
-As versões de 32 bits e 64 bits do pacote do agente têm códigos de produto diferentes e novas versões lançadas também têm um valor exclusivo.  O código do produto é um GUID que é a identificação principal de um aplicativo ou produto e é representado pela propriedade Windows Installer **ProductCode** .  O `ProductId` valor no script **MMAgent. ps1** deve corresponder ao código do produto do pacote do instalador do agente de 32 bits ou 64 bits.
+As versões de 32 bits e 64 bits do pacote do agente têm códigos de produto diferentes e novas versões lançadas também têm um valor exclusivo.  O código do produto é um GUID que é a identificação principal de um aplicativo ou produto e é representado pela propriedade Windows Installer **ProductCode** .  O valor `ProductId` no script **MMAgent. ps1** deve corresponder ao código do produto do pacote do instalador do agente de 32 bits ou 64 bits.
 
 Para recuperar o código do produto do pacote de instalação do agente diretamente, você pode usar o Orca. exe a partir dos [componentes de SDK do Windows para os desenvolvedores de Windows Installer](https://msdn.microsoft.com/library/windows/desktop/aa370834%28v=vs.85%29.aspx) que é um componente do Windows Software Development Kit ou usando o PowerShell após um [ script de exemplo](https://www.scconfigmgr.com/2014/08/22/how-to-get-msi-file-information-with-powershell/) escrito por um MVP (Microsoft valioso Professional).  Para qualquer abordagem, você precisa primeiro extrair o arquivo **MOMAgent. msi** do pacote de instalação do MMASetup.  Isso é mostrado anteriormente na primeira etapa na seção [instalar o agente usando a linha de comando](#install-the-agent-using-the-command-line).  
 
-1. Importe o módulo DSC xPSDesiredStateConfiguration de [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) para a automação do Azure.  
+1. Importe o módulo DSC do xPSDesiredStateConfiguration do [https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration](https://www.powershellgallery.com/packages/xPSDesiredStateConfiguration) para a automação do Azure.  
 2.  Crie ativos de variável de automação do Azure para *OPSINSIGHTS_WS_ID* e *OPSINSIGHTS_WS_KEY*. Defina *OPSINSIGHTS_WS_ID* como sua ID do espaço de trabalho log Analytics e defina *OPSINSIGHTS_WS_KEY* como a chave primária do seu espaço de trabalho.
 3.  Copie o script e salve-o como MMAgent. ps1.
 
@@ -178,7 +182,7 @@ Para recuperar o código do produto do pacote de instalação do agente diretame
 
     ```
 
-4. Atualize o `ProductId` valor no script com o código do produto extraído da versão mais recente do pacote de instalação do agente usando os métodos recomendados anteriormente. 
+4. Atualize o valor `ProductId` no script com o código do produto extraído da versão mais recente do pacote de instalação do agente usando os métodos recomendados anteriormente. 
 5. [Importe o script de configuração MMAgent. ps1](../../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) para sua conta de automação. 
 5. [Atribua um computador ou nó do Windows](../../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) à configuração. Dentro de 15 minutos, o nó verifica sua configuração e o agente é enviado por push para o nó.
 

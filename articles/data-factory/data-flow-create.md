@@ -1,44 +1,44 @@
 ---
-title: Criar fábrica de dados do Azure, mapeamento de fluxo de dados
-description: Como criar um Azure Data Factory mapeamento de fluxo de dados
+title: Criar Azure Data Factory fluxo de dados de mapeamento
+description: Como criar um fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ebc026add9dfd85d7cbe312a8cfffd3e365f82
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235666"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026876"
 ---
-# <a name="create-azure-data-factory-data-flow"></a>Criar fluxo de dados de fábrica de dados do Azure
+# <a name="create-azure-data-factory-data-flow"></a>Criar Azure Data Factory fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Fluxos de dados de mapeamento no ADF proporcionam uma forma para transformar dados em escala sem necessidade de qualquer codificação. Pode criar uma tarefa de transformação de dados no estruturador de fluxo de dados com a construção de uma série de transformações. Comece com qualquer número de transformações de origem seguido os passos de transformação de dados. Em seguida, conclua o fluxo de dados com o sink para firmar os resultados num destino.
 
-Comece por criar primeiro uma nova fábrica de dados V2 a partir do portal do Azure. Depois de criar a fábrica de novo, clique no mosaico "Criar e monitorizar" para iniciar a IU do Data Factory.
+O mapeamento de fluxos de dados no ADF fornece uma maneira de transformar dados em escala sem qualquer codificação necessária. Você pode criar um trabalho de transformação de dados no designer de fluxo de dados construindo uma série de transformações. Comece com qualquer número de transformações de origem seguidas pelas etapas de transformação de dados. Em seguida, conclua seu fluxo de dados com o coletor para colocar os resultados em um destino.
 
-![Opções de fluxo de dados](media/data-flow/v2portal.png "criar fluxo de dados")
+Comece pela primeira vez criando uma nova Data Factory v2 do portal do Azure. Depois de criar sua nova fábrica, clique no bloco "criar & Monitor" para iniciar a interface do usuário do Data Factory.
 
-Assim que estiver na IU do Data Factory, pode utilizar fluxos de dados de exemplo. Os exemplos estão disponíveis a partir da Galeria de modelo do ADF. No ADF, crie "Pipeline de modelo" e selecione a categoria de fluxo de dados a partir da galeria do modelo.
+(media/data-flow/v2portal.png "Criação de fluxo de dados") de opções de fluxo de ![dados]
 
-![Opções de fluxo de dados](media/data-flow/template.png "criar fluxo de dados")
+Quando estiver na interface do usuário do Data Factory, você poderá usar fluxos de dados de exemplo. Os exemplos estão disponíveis na Galeria de modelos do ADF. No ADF, crie "pipeline do modelo" e selecione a categoria de fluxo de dados na Galeria de modelos.
 
-Será solicitado para introduzir as suas informações de conta de armazenamento de Blobs do Azure.
+(media/data-flow/template.png "Criação de fluxo de dados") de opções de fluxo de ![dados]
 
-![Opções de fluxo de dados](media/data-flow/template2.png "fluxo de dados criar 2")
+Você será solicitado a inserir as informações da conta de armazenamento de BLOBs do Azure.
 
-[Os dados usados para estes exemplos podem ser encontrados aqui](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Transferir os dados de exemplo e armazenar os ficheiros nas suas contas de armazenamento de Blobs do Azure, para que pode executar os exemplos.
+Fluxo de dados de ![Opções de fluxo de dados](media/data-flow/template2.png "criar 2")
+
+[Os dados usados para esses exemplos podem ser encontrados aqui](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Baixe os dados de exemplo e armazene os arquivos em suas contas de armazenamento de BLOBs do Azure para que você possa executar os exemplos.
 
 ## <a name="create-new-data-flow"></a>Criar novo fluxo de dados
 
-O recurso de criar "sinal de adição" botão na IU do ADF para criar fluxos de dados de utilização.
+Use o botão criar recurso "sinal de adição" na interface do usuário do ADF para criar fluxos de dados.
 
 ![Opções de fluxo de dados](media/data-flow/newresource.png "novo recurso")
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Comece a criar a sua transformação de dados com um [transformação de origem](data-flow-source.md).
+Comece a criar sua transformação de dados com uma [transformação de origem](data-flow-source.md).

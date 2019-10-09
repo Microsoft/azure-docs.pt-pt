@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211966"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030650"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Tutorial: Notificações por push para aplicativos iOS Swift que usam a API REST dos hubs de notificação
 
@@ -75,7 +75,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
 
 1. Ao definir as opções para o novo projeto:
 
-   1. Especifique o **nome do produto** (PushDemo) e o identificador`com.<organization>`da **organização** () que você usou ao definir o **identificador do pacote** no portal do desenvolvedor da Apple.
+   1. Especifique o **nome do produto** (PushDemo) e o **identificador da organização** (`com.<organization>`) que você usou ao definir o **identificador do pacote** no portal do desenvolvedor da Apple.
 
    1. Escolha a **equipe** para a qual a **ID do aplicativo** foi configurada.
 
@@ -91,7 +91,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
 
    | Chave                            | Type                     | Value                     |
    |--------------------------------| -------------------------| --------------------------|
-   | notificationHubKey             | Cadeia                   | \<> hubKey                  |
+   | notificationHubKey             | Cadeia                   | \<hubKey >                  |
    | notificationHubKeyName         | Cadeia                   | \<hubKeyName>              |
    | notificationHubName            | Cadeia                   | \<hubName>                 |
    | notificationHubNamespace       | Cadeia                   | \<hubNamespace>            |
@@ -100,7 +100,7 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
 
    ![Resumo do Essentials dos hubs de notificação](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   Você também pode encontrar os valores **notificationHubKeyName** e **notificationHubKey** navegando até **políticas de acesso** e selecionando a respectiva **política**de acesso `DefaultFullSharedAccessSignature`, como. Depois disso, copie da **cadeia de conexão primária** o valor prefixado `SharedAccessKeyName=` com `notificationHubKeyName` for e `notificationHubKey`o valor prefixado com `SharedAccessKey=` para.
+   Você também pode encontrar os valores **notificationHubKeyName** e **notificationHubKey** navegando até **políticas de acesso** e selecionando a respectiva **política de acesso**, como `DefaultFullSharedAccessSignature`. Depois disso, copie da **cadeia de conexão primária** o valor prefixado com `SharedAccessKeyName=` para `notificationHubKeyName` e o valor prefixado com `SharedAccessKey=` para o `notificationHubKey`.
 
    A cadeia de conexão deve estar no seguinte formato:
 
@@ -108,15 +108,15 @@ Nesta seção, você criará o aplicativo iOS que se conectará ao Hub de notifi
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   Para simplificar, especifique `DefaultFullSharedAccessSignature` para que você possa usar o token para enviar notificações. Na prática, `DefaultListenSharedAccessSignature` o seria uma opção melhor para situações em que você deseja receber notificações.
+   Para simplificar, especifique `DefaultFullSharedAccessSignature` para que você possa usar o token para enviar notificações. Na prática, o `DefaultListenSharedAccessSignature` seria uma opção melhor para situações em que você deseja apenas receber notificações.
 
 1. Em **navegador de projeto**, selecione o **nome do projeto** e, em seguida, selecione a guia **geral** .
 
-1. Localize a **identidade** e defina o valor do **identificador de pacote** para que `com.<organization>.PushDemo`ele corresponda, que é o valor usado para a **ID do aplicativo** de uma etapa anterior.
+1. Localize a **identidade** e defina o valor do **identificador de pacote** para que ele corresponda a `com.<organization>.PushDemo`, que é o valor usado para a ID do **aplicativo** de uma etapa anterior.
 
 1. Localize **assinatura**e, em seguida, selecione a **equipe** apropriada para sua **conta de desenvolvedor da Apple**. O valor da **equipe** deve corresponder ao que você criou para seus certificados e perfis.
 
-1. O Xcode deve extrair automaticamente o valor apropriado do **perfil de provisionamento** com base no **identificador do pacote**. Se você não vir o novo valor do **perfil de provisionamento** , tente atualizar os perfis para a **identidade de assinatura** selecionando**preferências** > do **Xcode** > modo de exibição de**conta** >  **Detalhes**. Selecione **identidade de assinatura**e, em seguida, selecione o botão **Atualizar** no canto inferior direito para baixar os perfis.
+1. O Xcode deve extrair automaticamente o valor apropriado do **perfil de provisionamento** com base no **identificador do pacote**. Se você não vir o novo valor do **perfil de provisionamento** , tente atualizar os perfis para a **identidade de assinatura** selecionando o **Xcode** > **preferências** > **conta**do  > **Exibir detalhes**. Selecione **identidade de assinatura**e, em seguida, selecione o botão **Atualizar** no canto inferior direito para baixar os perfis.
 
 1. Selecione a guia **recursos** e verifique se as **notificações por push** estão habilitadas.
 
@@ -285,7 +285,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 O próprio processo envolve as mesmas seis etapas principais:  
 
 1. Computando a expiração no formato de [hora de época do UNIX](https://en.wikipedia.org/wiki/Unix_time) , o que significa o número de segundos decorridos desde o tempo universal coordenado por meia-noite, 1º de janeiro de 1970.
-1. Formatando o **ResourceUrl** que representa o recurso que você está tentando acessar para que ele seja codificado por percentual e minúscula. O **ResourceUrl** tem o formulário `'https://<namespace>.servicebus.windows.net/<hubName>'`.
+1. Formatando o **ResourceUrl** que representa o recurso que você está tentando acessar para que ele seja codificado por percentual e minúscula. O **ResourceUrl** tem a forma `'https://<namespace>.servicebus.windows.net/<hubName>'`.
 1. Preparando o **StringToSign**, que é formatado como `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
 1. Computação e codificação Base64 da **assinatura** usando o hash HMAC-SHA256 do valor **StringToSign** . O valor de hash é usado com a parte da **chave** da **cadeia de conexão** para a respectiva **regra de autorização**.
 1. Formatando a **assinatura** codificada em base64 para que ela seja codificada por porcentagem.
@@ -297,7 +297,7 @@ Para os fins deste exemplo Swift, você usará a biblioteca **CommonCrypto** de 
 
 Para adicionar e configurar o cabeçalho de ponte:
 
-1. No Xcode, selecione **arquivo** > **novo** > arquivo de**cabeçalho**de**arquivo** > . Nomeie o arquivo de cabeçalho **BridgingHeader. h**.
+1. No Xcode, selecione **arquivo** > **novo**arquivo de**cabeçalho**do**arquivo**de  >  @no__t. Nomeie o arquivo de cabeçalho **BridgingHeader. h**.
 
 1. Edite o arquivo para importar **CommonHMAC. h**:
 
@@ -313,11 +313,11 @@ Para adicionar e configurar o cabeçalho de ponte:
 
 1. Atualize as configurações de **compilação** do destino para fazer referência ao cabeçalho de ponte:
 
-   1. Abra a guia **configurações** de construção e role para baixo até a seção do **compilador** Swift.
+   1. Abra a guia **configurações de construção** e role para baixo até a seção do **compilador Swift** .
 
-   1. Verifique se a opção de  **cabeçalho de compatibilidade instalar objetivo-C**está definida como **Sim**.
+   1. Verifique se a opção de **cabeçalho de compatibilidade instalar objetivo-C** está definida como **Sim**.
 
-   1. Insira o caminho `'<ProjectName>/BridgingHeader.h'` do arquivo na opção de **cabeçalho** ponte Objective-C. Este é o caminho do arquivo para nosso cabeçalho de ponte.
+   1. Insira o caminho do arquivo `'<ProjectName>/BridgingHeader.h'` na opção de **cabeçalho ponte Objective-C** . Este é o caminho do arquivo para nosso cabeçalho de ponte.
 
    Se você não encontrar essas opções, verifique se você tem a exibição **todos** selecionada, em vez de **básica** ou **personalizada**.
 

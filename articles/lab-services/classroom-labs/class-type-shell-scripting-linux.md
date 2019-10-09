@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 083a7e7ad4ac40a7782936e664a9136d0452e93d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694669"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030666"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Configurar um laboratório para ensinar scripts de Shell no Linux
 Este artigo mostra como configurar um laboratório para ensinar o script de Shell no Linux. O script é uma parte útil da administração do sistema que permite aos administradores evitar tarefas repetitivas. Neste cenário de exemplo, a classe abrange scripts de bash tradicionais e scripts aprimorados. Scripts aprimorados são scripts que combinam comandos de bash e Ruby. Essa abordagem permite que o Ruby transmita dados e bash comandos para interagir com o Shell. 
@@ -83,9 +83,11 @@ Esta seção mostra como instalar alguns editores de texto. Gedit é o editor de
 ## <a name="cost"></a>Custo 
 Se você quiser estimar o custo deste laboratório, poderá usar o exemplo a seguir:
  
-Para uma classe de 25 alunos com 20 horas de tempo de classe agendada e 10 horas de cota para a casa ou as atribuições, o preço do laboratório seria: 25 alunos * (20 + 10) horas * 20 unidades de laboratório * 0, 1 USD por hora = 150 USD
+Para uma classe de 25 alunos com 20 horas de tempo de classe agendada e 10 horas de cota para a casa ou as atribuições, o preço do laboratório seria: 
 
-Para obter mais detalhes sobre os preços, encontre o seguinte documento: [Preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+25 alunos * (20 + 10) horas * 20 unidades de laboratório * 0, 1 USD por hora = 150 USD
+
+Para obter mais informações sobre os preços, encontre o seguinte documento: [Preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusão
 Este artigo descreveu as etapas para criar um laboratório para classes de script. Embora este artigo se concentre na configuração das ferramentas de script do Ruby no computador Linux, a mesma configuração pode ser usada para outras classes de script, como Python no Linux.

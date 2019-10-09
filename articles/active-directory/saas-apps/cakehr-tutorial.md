@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acedc081166c84935e3abfde8401b55c64156a7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174583"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026434"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com CakeHR
 
@@ -85,9 +85,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<yourcakedomain>.cake.hr/`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<yourcakedomain>.cake.hr/`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://<yourcakedomain>.cake.hr/services/saml/consume`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://<yourcakedomain>.cake.hr/services/saml/consume`
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e a URL de resposta reais. Contate a [equipe de suporte ao cliente do CakeHR](mailto:info@cake.hr) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
@@ -137,15 +137,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 1. Abra uma nova janela do navegador da Web e entre no site da empresa do CakeHR como um administrador.
 
-2. No canto superior direito da página, clique em **perfil** e, em seguida, navegue até **configurações**.
+2. No canto superior direito da página, clique em **perfil** e, em seguida, navegue até **configurações**.
 
     ![Configuração do CakeHR](./media/cakehr-tutorial/config01.png)
 
-3. No lado esquerdo da barra de menus, clique em **integrações** >do **SAML SSO** e execute as seguintes etapas:
+3. No lado esquerdo da barra de menus, clique em **integrações** > **SSO do SAML** e execute as seguintes etapas:
 
      ![Configuração do CakeHR](./media/cakehr-tutorial/config02.png)
 
-     a. Na caixa de texto **ID da entidade** , `cake.hr`digite.
+     a. Na caixa de texto **ID da entidade** , digite `cake.hr`.
 
      b. Na caixa de texto **URL de autenticação** , Cole o valor da **URL de logon**copiado de portal do Azure.
 
@@ -163,7 +163,7 @@ Para permitir que os usuários do Azure AD entrem no CakeHR, eles devem ser prov
 
 1. Entre no CakeHR como um administrador de segurança.
 
-2. No lado esquerdo da barra de menus, clique em Adicionar **empresa** >. ****
+2. No lado esquerdo da barra de menus, clique em **empresa** > **Adicionar**.
 
     ![Configuração do CakeHR](./media/cakehr-tutorial/config03.png)
 
@@ -173,7 +173,7 @@ Para permitir que os usuários do Azure AD entrem no CakeHR, eles devem ser prov
 
     a. Na caixa de texto **nome completo** , digite o nome do usuário, como B. Simon.
 
-    b. Na caixa de texto **email de trabalho** , insira o email do `B.Simon@contoso.com`usuário como.
+    b. Na caixa de texto **email de trabalho** , insira o email do usuário, como `B.Simon@contoso.com`.
 
     c. Clique em **criar conta**.
 

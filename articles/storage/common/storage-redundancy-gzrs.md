@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 99def93a20a365dd0ff5fc27e9c52909ee30bd83
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720360"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028131"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Crie aplicativos de armazenamento do Azure altamente disponíveis com GZRS (armazenamento com redundância de zona geográfica) (visualização)
 
@@ -31,11 +31,11 @@ GZRS e RA-GZRS estão disponíveis atualmente para visualização nas seguintes 
 
 - Norte da Europa
 - Europa Ocidental
-- Leste dos E.U.A.
-- E.U.A Leste 2
-- Centro dos E.U.A.
+- E.U.A Leste
+- Este dos EUA 2
+- Centro dos EUA
 
-A Microsoft continua a habilitar GZRS e RA-GZRS em regiões adicionais do Azure. Verifique a página  [atualizações de serviço do Azure](https://azure.microsoft.com/updates/)regularmente para obter informações sobre as regiões com suporte.
+A Microsoft continua a habilitar GZRS e RA-GZRS em regiões adicionais do Azure. Verifique as [atualizações de serviço do Azure](https://azure.microsoft.com/updates/) Page regularmente para obter informações sobre as regiões com suporte.
 
 Para obter informações sobre preços de visualização, consulte preços de visualização do GZRS para [BLOBs](https://azure.microsoft.com/pricing/details/storage/blobs), [arquivos](https://azure.microsoft.com/pricing/details/storage/files/), [filas](https://azure.microsoft.com/pricing/details/storage/queues/)e [tabelas](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -49,11 +49,11 @@ Quando os dados são gravados em uma conta de armazenamento com GZRS ou RA-GZRS 
 > [!IMPORTANT]
 > A replicação assíncrona envolve um atraso entre a hora em que os dados são gravados na região primária e quando eles são replicados para a região secundária. No caso de um desastre regional, as alterações que ainda não foram replicadas para a região secundária poderão ser perdidas se esses dados não puderem ser recuperados da região primária.
 
-Ao criar uma conta de armazenamento, você especifica como os dados dessa conta serão replicados e também especifica a região primária dessa conta. A região secundária emparelhada para uma conta replicada geograficamente é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre regiões com suporte do Azure, consulte [continuidade de negócios e recuperação de desastres (BCDR): Regiões](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)emparelhadas do Azure. Para obter informações sobre como criar uma conta de armazenamento usando GZRS ou RA-GZRS, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
+Ao criar uma conta de armazenamento, você especifica como os dados dessa conta serão replicados e também especifica a região primária dessa conta. A região secundária emparelhada para uma conta replicada geograficamente é determinada com base na região primária e não pode ser alterada. Para obter informações atualizadas sobre regiões com suporte do Azure, consulte @ no__t-0Business Continuity and Disaster Recovery (BCDR): Regiões emparelhadas do Azure @ no__t-0. Para obter informações sobre como criar uma conta de armazenamento usando GZRS ou RA-GZRS, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Usar RA-GZRS para alta disponibilidade
 
-Quando você habilita o RA-GZRS para sua conta de armazenamento, seus dados podem ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *– secundário* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o serviço `myaccount.blob.core.windows.net`blob for, o ponto de `myaccount-secondary.blob.core.windows.net`extremidade secundário será. As chaves de acesso para sua conta de armazenamento são as mesmas para os pontos de extremidade primários e secundários.
+Quando você habilita o RA-GZRS para sua conta de armazenamento, seus dados podem ser lidos do ponto de extremidade secundário, bem como do ponto de extremidade primário para sua conta de armazenamento. O ponto de extremidade secundário acrescenta o sufixo *– secundário* ao nome da conta. Por exemplo, se o ponto de extremidade primário para o serviço blob for @ no__t-0, o ponto de extremidade secundário será @ no__t-1. As chaves de acesso para sua conta de armazenamento são as mesmas para os pontos de extremidade primários e secundários.
 
 Para aproveitar o RA-GZRS no caso de uma interrupção regional, você deve projetar seu aplicativo com antecedência para lidar com esse cenário. Seu aplicativo deve ler e gravar no ponto de extremidade primário, mas alternar para o uso do ponto de extremidade secundário no caso de a região primária ficar indisponível. Para obter orientação sobre como projetar para alta disponibilidade com o RA-GZRS, consulte [criando aplicativos altamente disponíveis usando ra-GZRS ou ra-grs](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
@@ -115,7 +115,7 @@ Uma migração manual pode resultar em tempo de inatividade do aplicativo. Se a 
 
 Durante uma migração ao vivo, você pode usar sua conta de armazenamento enquanto os dados são migrados entre as contas de armazenamento de origem e de destino. Durante o processo de migração ao vivo, sua conta continua a atender seu SLA quanto à durabilidade e disponibilidade. Não há nenhum tempo de inatividade ou perda de dados causado pela migração ao vivo.
 
-Somente as contas de uso geral v2 dão suporte a GZRS/RA-GZRS, portanto, antes de enviar uma solicitação de migração ao vivo para GZRS/RA-GZRS, você deve atualizar sua conta para a finalidade geral v2. Para obter mais informações, consulte  [visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview)e [atualização para uma conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+Somente as contas de uso geral v2 dão suporte a GZRS/RA-GZRS, portanto, antes de enviar uma solicitação de migração ao vivo para GZRS/RA-GZRS, você deve atualizar sua conta para a finalidade geral v2. Para obter mais informações, consulte [visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) and [atualizar para uma conta de armazenamento v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
 Depois que a migração for concluída, a configuração de replicação da conta de armazenamento será atualizada para **armazenamento com redundância de zona geográfica (GZRS)** ou **armazenamento com redundância de acesso de leitura (ra-GZRS)** . Pontos de extremidade de serviço, chaves de acesso, SAS (assinaturas de acesso compartilhado) e quaisquer outras opções de configuração de conta permanecem inalterados e intactos.
 
@@ -125,7 +125,7 @@ Tenha em mente as seguintes restrições na migração ao vivo:
 - Sua conta deve conter dados.
 - Você só pode migrar dados dentro da mesma região.
 - Somente os tipos de conta de armazenamento Standard dão suporte à migração dinâmica. As contas de armazenamento Premium devem ser migradas manualmente.
-- Não há suporte para a migração dinâmica de uma conta GZRS ou RA-GZRS para uma conta LRS, GRS ou RA-GRS. Será necessário mover os dados manualmente para uma conta de armazenamento nova ou existente.
+- Não há suporte para a migração dinâmica de uma conta GZRS ou RA-GZRS para uma conta LRS, GRS ou RA-GRS. Terá de mover os dados manualmente para uma conta de armazenamento nova ou existente.
 - Você pode solicitar uma migração dinâmica de RA-GRS para RA-GZRS. No entanto, não há suporte para a migração de RA-GRS para GZRS. Nesse caso, você deve solicitar uma migração ao vivo para RA-GZRS e, em seguida, converter manualmente a conta de armazenamento para usar o GZRS.
 - O Managed disks dá suporte apenas a LRS e não pode ser migrado para GZRS ou RA-GZRS. Para integração com conjuntos de disponibilidade, consulte [introdução aos Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - Você pode armazenar instantâneos e imagens para SSD Standard Managed Disks no armazenamento HDD Standard e [escolher entre as opções lRS, ZRS, GZRS e ra-GZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -133,23 +133,23 @@ Tenha em mente as seguintes restrições na migração ao vivo:
 
 Para solicitar uma migração ao vivo, use o [portal do Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). No portal, selecione a conta de armazenamento para migrar para GZRS ou RA-GZRS e siga estas instruções:
 
-1. Selecione **nova solicitação de suporte**.
-2. Conclua os **conceitos básicos** com base nas informações da sua conta. Na seção **serviço** , selecione **Gerenciamento** de conta de armazenamento e especifique a conta a ser migrada.
-3. Selecione  **Seguinte**.
-4. Especifique os valores a seguir na seção **problema** :
+1. Selecione **nova solicitação de suporte**.
+2. Conclua os **conceitos básicos** com base nas informações da sua conta. Na seção **serviço** , selecione **Gerenciamento de conta de armazenamento** e especifique a conta a ser migrada.
+3. Selecione **Seguinte**.
+4. Especifique os valores a seguir na seção **problema** :
     - **Gravidade**: Deixe o valor padrão como está.
-    - **Tipo de problema**: Selecione **migração de dados**.
-    - **Categoria**: Selecione **migrar para (ra-) GZRS em uma região**.
-    - **Título**: Digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
-    - **Detalhes**: Digite detalhes adicionais nos **detalhes** box, por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região \_ @ no__t-3". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região \_ @ no__t-1".
-5. Selecione  **Seguinte**.
-6. Verifique se as informações de contato estão corretas na folha **informações** de contato.
-7. Selecione **criar**.
+    - **Tipo de problema**: Selecione **migração de dados**.
+    - **Categoria**: Selecione **migrar para (ra-) GZRS em uma região**.
+    - **Título**: Digite um título descritivo, por exemplo, **(ra-) GZRS de migração de conta**.
+    - **Detalhes**: Digite detalhes adicionais na caixa de **detalhes** , por exemplo, "Eu gostaria de migrar para GZRS de [lRS, grs] na região \_ @ no__t-2". ou "Eu gostaria de migrar para o RA-GZRS de [LRS, RA-GRS] na região \_ @ no__t-1".
+5. Selecione **Seguinte**.
+6. Verifique se as informações de contato estão corretas na folha **informações de contato** .
+7. Selecione **Criar**.
 
 Um representante de suporte entrará em contato com você para fornecer assistência.
 
 ## <a name="see-also"></a>Consulte também
 
 - [Replicação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-- [LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-- [Armazenamento com redundância de zona (ZRS): Aplicativos de armazenamento do Azure altamente disponíveis](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- 0Locally-armazenamento com redundância de @no__t (LRS): Redundância de dados de baixo custo para o armazenamento do Azure @ no__t-0
+- 0Zone-ZRS (armazenamento com redundância de @no__t): Aplicativos de armazenamento do Azure altamente disponíveis @ no__t-0 

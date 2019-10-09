@@ -1,35 +1,35 @@
 ---
-title: Acesso registos do servidor na base de dados do Azure para MariaDB com CLI do Azure
-description: Este artigo descreve como aceder os registos do servidor na base de dados do Azure para MariaDB com o utilitário de linha de comandos da CLI do Azure.
+title: Acessar logs de servidor no banco de dados do Azure para MariaDB usando CLI do Azure
+description: Este artigo descreve como acessar os logs de servidor no banco de dados do Azure para MariaDB usando o utilitário de linha de comando CLI do Azure.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: 9fff9f13e5ce6bf8a7805f7794d3e71eb4030104
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67065691"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023609"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e aceder aos registos de servidor com a CLI do Azure
-Pode baixar a base de dados do Azure para os registos de servidor da MariaDB com a CLI do Azure, o utilitário de linha de comandos do Azure.
+# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Configurar e acessar logs de servidor usando CLI do Azure
+Você pode baixar o banco de dados do Azure para logs do MariaDB Server usando CLI do Azure, o utilitário de linha de comando do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para seguir este guia de procedimentos, terá de:
-- [Base de dados do Azure para MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md)
-- O [CLI do Azure](/cli/azure/install-azure-cli) ou o Azure Cloud Shell no browser
+Para percorrer este guia de instruções, você precisa de:
+- [Banco de dados do Azure para servidor MariaDB](quickstart-create-mariadb-server-database-using-azure-cli.md)
+- O [CLI do Azure](/cli/azure/install-azure-cli) ou Azure cloud Shell no navegador
 
-## <a name="configure-logging-for-azure-database-for-mariadb"></a>Configure o registo da base de dados do Azure para MariaDB
-Pode configurar o servidor de acesso ao registo de consulta lenta de MariaDB, efetuando os seguintes passos:
-1. Ativar o registo, definindo a **lenta\_consulta\_log** parâmetro on.
-2. Ajustar a outros parâmetros, tal como **longa\_consulta\_tempo** e **log\_lenta\_administrador\_instruções**.
+## <a name="configure-logging-for-azure-database-for-mariadb"></a>Configurar o log do banco de dados do Azure para MariaDB
+Você pode configurar o servidor para acessar o log de consulta lenta do MariaDB executando as seguintes etapas:
+1. Ative o registro em log definindo o parâmetro **@ no__t-1query @ no__t-2log com lentidão** como on.
+2. Ajuste outros parâmetros, como **Long @ no__t-1query @ no__t-2time** e **log @ no__t-4slow @ no__t-5admin @ no__t-6statements**.
 
-Para saber como definir o valor desses parâmetros através da CLI do Azure, veja [como configurar parâmetros de servidor](howto-configure-server-parameters-cli.md).
+Para saber como definir o valor desses parâmetros por meio de CLI do Azure, consulte [como configurar parâmetros de servidor](howto-configure-server-parameters-cli.md).
 
-Por exemplo, o seguinte comando da CLI ativa o registo de consulta lenta, define o tempo de consulta longo para 10 segundos e, em seguida, desativa o registo da instrução administrador lenta. Por fim, ele apresenta uma lista de opções de configuração para sua revisão.
+Por exemplo, o comando da CLI a seguir ativa o log de consultas lentas, define o tempo de consulta longa como 10 segundos e, em seguida, desativa o registro em log da instrução de administrador lenta. Por fim, ele lista as opções de configuração para sua análise.
 ```azurecli-interactive
 az mariadb server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 az mariadb server configuration set --name long_query_time --resource-group myresourcegroup --server mydemoserver --value 10
@@ -37,20 +37,20 @@ az mariadb server configuration set --name log_slow_admin_statements --resource-
 az mariadb server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Registos de lista para a base de dados do Azure para MariaDB server
-Para listar os ficheiros de registo de consulta lenta disponíveis para o seu servidor, execute o [lista de registos do servidor de mariadb az](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) comando.
+## <a name="list-logs-for-azure-database-for-mariadb-server"></a>Listar logs do banco de dados do Azure para o servidor MariaDB
+Para listar os arquivos de log de consulta lenta disponíveis para seu servidor, execute o comando [AZ MariaDB Server-logs List](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-list) .
 
-Pode listar os ficheiros de registo para o servidor **mydemoserver.mariadb.database.azure.com** sob o grupo de recursos **myresourcegroup**. Em seguida, direcionar a lista de ficheiros de registo para um arquivo de texto chamado **log\_arquivos\_txt**.
+Você pode listar os arquivos de log para o servidor **mydemoserver.MariaDB.Database.Azure.com** no grupo de recursos **MyResource**Group. Em seguida, direcione a lista de arquivos de log para um arquivo de texto chamado **log @ no__t-1files\_list.txt**.
 ```azurecli-interactive
 az mariadb server-logs list --resource-group myresourcegroup --server mydemoserver > log_files_list.txt
 ```
-## <a name="download-logs-from-the-server"></a>Transferir registos do servidor
-Com o [az mariadb server-logs download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) de comando, pode transferir ficheiros de registo individuais para o seu servidor.
+## <a name="download-logs-from-the-server"></a>Baixar logs do servidor
+Com o comando [AZ MariaDB Server-logs download](/cli/azure/mariadb/server-logs#az-mariadb-server-logs-download) , você pode baixar arquivos de log individuais para seu servidor.
 
-Utilize o exemplo seguinte para transferir o ficheiro de registo específico para o servidor **mydemoserver.mariadb.database.azure.com** sob o grupo de recursos **myresourcegroup** ao seu ambiente local.
+Use o exemplo a seguir para baixar o arquivo de log específico para o servidor **mydemoserver.MariaDB.Database.Azure.com** no grupo de recursos **MyResource** Group para seu ambiente local.
 ```azurecli-interactive
 az mariadb server-logs download --name mysql-slow-mydemoserver-2018110800.log --resource-group myresourcegroup --server mydemoserver
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-- Saiba mais sobre [registos de consulta lenta na base de dados do Azure para MariaDB](concepts-server-logs.md).
+## <a name="next-steps"></a>Passos seguintes
+- Saiba mais sobre [logs de consulta lentos no banco de dados do Azure para MariaDB](concepts-server-logs.md).

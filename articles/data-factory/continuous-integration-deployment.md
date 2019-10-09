@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 4386a7adba17eefe3c373697597abdb7d69c476a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265989"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030616"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>CI/CD (integração e entrega contínuas) no Azure Data Factory
 
@@ -118,11 +118,11 @@ Veja abaixo um guia para configurar uma versão Azure Pipelines, que automatiza 
 
     d.  Na lista suspensa ação, selecione **criar ou atualizar grupo de recursos**.
 
-    e.  Selecionar **...** no campo **modelo** . Procure a Azure Resource Manager modelo criar por meio da etapa **Importar modelo do ARM** em [criar um modelo do Resource Manager para cada ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment). Procure esse arquivo na pasta `<FactoryName>` `adf_publish` da ramificação.
+    e.  Selecionar **...** no campo **modelo** . Procure a Azure Resource Manager modelo criar por meio da etapa **Importar modelo do ARM** em [criar um modelo do Resource Manager para cada ambiente](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment). Procure esse arquivo na pasta `<FactoryName>` da ramificação `adf_publish`.
 
     f.  Selecionar **...** no **campo parâmetros do modelo.** para escolher o arquivo de parâmetros. Escolha o arquivo correto dependendo se você criou uma cópia ou se está usando o arquivo padrão *ARMTemplateParametersForFactory. JSON*.
 
-    g.  Selecionar **...** ao lado do campo **Substituir parâmetros do modelo** e preencha as informações do data Factory de destino. Para credenciais provenientes do Key Vault, insira o nome do segredo entre aspas duplas. Por exemplo, se o nome do segredo for `cred1`, insira `"$(cred1)"`para seu valor.
+    g.  Selecionar **...** ao lado do campo **Substituir parâmetros do modelo** e preencha as informações do data Factory de destino. Para credenciais provenientes do Key Vault, insira o nome do segredo entre aspas duplas. Por exemplo, se o nome do segredo for `cred1`, insira `"$(cred1)"`Para seu valor.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -176,7 +176,7 @@ Há duas maneiras de lidar com os segredos:
 
 #### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Conceder permissões para o agente de Azure Pipelines
 
-A tarefa Azure Key Vault poderá falhar com um erro de acesso negado se as permissões adequadas não estiverem presentes. Baixe os logs da versão e localize o `.ps1` arquivo com o comando para conceder permissões ao agente de Azure pipelines. Você pode executar o comando diretamente ou pode copiar a ID da entidade de segurança do arquivo e adicionar a política de acesso manualmente no portal do Azure. **Obter** e **listar** são as permissões mínimas necessárias.
+A tarefa Azure Key Vault poderá falhar com um erro de acesso negado se as permissões adequadas não estiverem presentes. Baixe os logs da versão e localize o arquivo `.ps1` com o comando para conceder permissões ao agente de Azure Pipelines. Você pode executar o comando diretamente ou pode copiar a ID da entidade de segurança do arquivo e adicionar a política de acesso manualmente no portal do Azure. **Obter** e **listar** são as permissões mínimas necessárias.
 
 ### <a name="update-active-triggers"></a>Atualizar gatilhos ativos
 
@@ -196,7 +196,7 @@ A implantação poderá falhar se você tentar atualizar os gatilhos ativos. Par
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-Você pode seguir etapas semelhantes (com a `Start-AzDataFactoryV2Trigger` função) para reiniciar os gatilhos após a implantação.
+Você pode seguir etapas semelhantes (com a função `Start-AzDataFactoryV2Trigger`) para reiniciar os gatilhos após a implantação.
 
 > [!IMPORTANT]
 > Em cenários de integração e implantação contínuas, o tipo de Integration Runtime em ambientes diferentes deve ser o mesmo. Por exemplo, se você tiver um IR ( *autohospedado* Integration Runtime) no ambiente de desenvolvimento, o mesmo ir deverá ser do tipo *auto-hospedado* em outros ambientes, como o teste e a produção também. Da mesma forma, se você estiver compartilhando tempos de execução de integração em vários estágios, precisará configurar os tempos de execução de integração como *vinculados internamente* em todos os ambientes, como desenvolvimento, teste e produção.
@@ -328,21 +328,21 @@ Se você estiver no modo GIT, poderá substituir as propriedades padrão em seu 
 * Você usa CI/CD automatizado e deseja alterar algumas propriedades durante a implantação do Resource Manager, mas as propriedades não são parametrizadas por padrão.
 * Sua fábrica é tão grande que o modelo padrão do Resource Manager é inválido porque ele tem mais do que os parâmetros máximos permitidos (256).
 
-Sob essas condições, para substituir o modelo de parametrização padrão, crie um arquivo chamado *ARM-template-Parameters-Definition. JSON* na pasta raiz do repositório. O nome do arquivo deve corresponder exatamente. Data Factory tenta ler esse arquivo de qualquer ramificação que você esteja no portal de Azure Data Factory, não apenas da ramificação de colaboração. Você pode criar ou editar o arquivo de um Branch privado, no qual você pode testar suas alterações usando o **modelo de ARM de exportação** na interface do usuário. Em seguida, você pode mesclar o arquivo no Branch de colaboração. Se nenhum arquivo for encontrado, o modelo padrão será usado.
+Sob essas condições, para substituir o modelo de parametrização padrão, crie um arquivo chamado *ARM-template-Parameters-Definition. JSON* na pasta raiz do repositório. O nome do arquivo deve corresponder exatamente. Data Factory tenta ler esse arquivo de qualquer ramificação que você esteja no portal de Azure Data Factory, não apenas da ramificação de colaboração. Você pode criar ou editar o arquivo de um Branch privado, no qual você pode testar suas alterações usando o **modelo de ARM de exportação** na interface do usuário. Em seguida, você pode mesclar o arquivo no Branch de colaboração. Se nenhum arquivo for encontrado, o modelo padrão será usado.
 
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Sintaxe de um arquivo de parâmetros personalizado
 
 Aqui estão algumas diretrizes para usar ao criar o arquivo de parâmetros personalizados. O arquivo consiste em uma seção para cada tipo de entidade: gatilho, pipeline, serviço vinculado, conjunto de serviços, tempo de execução de integração e assim por diante.
 * Insira o caminho da propriedade sob o tipo de entidade relevante.
-* Quando você define um nome de propriedade como\*' ' ', você indica que deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer qualquer exceção a isso.
-* Quando você define o valor de uma propriedade como uma cadeia de caracteres, você indica que deseja parametrizar a propriedade. Use o formato `<action>:<name>:<stype>`.
-   *  `<action>` pode ser um dos seguintes caracteres:
-      * `=` significa manter o valor atual como o valor padrão para o parâmetro.
-      * `-` significa que não mantenha o valor padrão para o parâmetro.
-      * `|` é um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
-   * `<name>` é o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um `-` caractere, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para. `AzureStorage1_connectionString`
-   * `<stype>` é o tipo de parâmetro. `string`Se `<stype>`estiverembranco,o tipo padrão será. Valores com suporte `string`: `bool` `number` ,`object`,, e `securestring`.
+* Quando você define um nome de propriedade como ' \* ' ', você indica que deseja parametrizar todas as propriedades abaixo dele (somente até o primeiro nível, não recursivamente). Você também pode fornecer qualquer exceção a isso.
+* Quando você define o valor de uma propriedade como uma cadeia de caracteres, você indica que deseja parametrizar a propriedade. Use o formato @ no__t-0.
+   *  `<action>` @ no__t-1can ser um dos seguintes caracteres:
+      * `=` @ no__t-1means manter o valor atual como o valor padrão para o parâmetro.
+      * `-` @ no__t-1means não mantém o valor padrão para o parâmetro.
+      * `|` @ no__t-1is um caso especial para segredos de Azure Key Vault para cadeias de conexão ou chaves.
+   * `<name>` @ no__t-1is o nome do parâmetro. Se estiver em branco, ele usará o nome da propriedade. Se o valor começar com um caractere `-`, o nome será reduzido. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria reduzido para `AzureStorage1_connectionString`.
+   * `<stype>` @ no__t-1is o tipo de parâmetro. Se @ no__t-0 @ no__t-1is em branco, o tipo padrão será `string`. Valores com suporte: `string`, `bool`, `number`, `object` e `securestring`.
 * Ao especificar uma matriz no arquivo de definição, você indica que a propriedade correspondente no modelo é uma matriz. Data Factory itera através de todos os objetos na matriz usando a definição especificada no objeto Integration Runtime da matriz. O segundo objeto, uma cadeia de caracteres, torna-se o nome da propriedade, que é usado como o nome do parâmetro para cada iteração.
 * Não é possível ter uma definição específica para uma instância de recurso. Qualquer definição se aplica a todos os recursos desse tipo.
 * Por padrão, todas as cadeias de caracteres seguras, como segredos de Key Vault e cadeias de caracteres seguras, como cadeias de conexão, chaves e tokens, são parametrizadas.
@@ -414,27 +414,27 @@ Abaixo está uma explicação de como o modelo acima é construído, dividido po
 
 #### <a name="pipelines"></a>Pipelines
     
-* Qualquer propriedade no caminho Activities/typeproperties/waitTimeInSeconds é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código `waitTimeInSeconds` chamada (por exemplo, `Wait` a atividade) é parametrizada como um número, com um nome padrão. Mas ele não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Gerenciador de recursos.
-* Da mesma forma, uma `headers` propriedade chamada (por exemplo, `Web` em uma atividade) é parametrizada `object` com tipo (JObject). Ele tem um valor padrão, que é o mesmo valor que na fábrica de origem.
+* Qualquer propriedade no caminho Activities/typeproperties/waitTimeInSeconds é parametrizada. Qualquer atividade em um pipeline que tenha uma propriedade de nível de código chamada `waitTimeInSeconds` (por exemplo, a atividade `Wait`) é parametrizada como um número, com um nome padrão. Mas ele não terá um valor padrão no modelo do Resource Manager. Será uma entrada obrigatória durante a implantação do Gerenciador de recursos.
+* Da mesma forma, uma propriedade chamada `headers` (por exemplo, em uma atividade `Web`) é parametrizada com o tipo `object` (JObject). Ele tem um valor padrão, que é o mesmo valor que na fábrica de origem.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* Todas as propriedades no caminho `typeProperties` são parametrizadas com seus respectivos valores padrão. Por exemplo, há duas propriedades em Propriedades de tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com seus respectivos valores e tipos padrão (objeto).
+* Todas as propriedades no caminho `typeProperties` são parametrizadas com seus respectivos valores padrão. Por exemplo, há duas propriedades em Propriedades do tipo **IntegrationRuntimes** : `computeProperties` e `ssisProperties`. Ambos os tipos de propriedade são criados com seus respectivos valores e tipos padrão (objeto).
 
-#### <a name="triggers"></a>Ativadores
+#### <a name="triggers"></a>Acionadores
 
-* Em `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor padrão e é do tipo`string`. Ele tem o nome de parâmetro padrão `<entityName>_properties_typeProperties_maxConcurrency`de.
-* A `recurrence` Propriedade também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a `interval` Propriedade, que é parametrizada como um tipo numérico, e com o nome do parâmetro com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`sufixo. Da mesma forma `freq` , a propriedade é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto `freq` , a propriedade é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo, `<entityName>_freq`.
+* Em `typeProperties`, duas propriedades são parametrizadas. O primeiro é `maxConcurrency`, que é especificado para ter um valor padrão e é do tipo @ no__t-1. Ele tem o nome de parâmetro padrão de `<entityName>_properties_typeProperties_maxConcurrency`.
+* A propriedade `recurrence` também é parametrizada. Sob ele, todas as propriedades nesse nível são especificadas para serem parametrizadas como cadeias de caracteres, com valores padrão e nomes de parâmetro. Uma exceção é a propriedade `interval`, que é parametrizada como um tipo numérico, e com o nome do parâmetro sufixado com `<entityName>_properties_typeProperties_recurrence_triggerSuffix`. Da mesma forma, a propriedade `freq` é uma cadeia de caracteres e é parametrizada como uma cadeia de caracteres. No entanto, a propriedade `freq` é parametrizada sem um valor padrão. O nome é reduzido e sufixado. Por exemplo, `<entityName>_freq`.
 
 #### <a name="linkedservices"></a>LinkedServices
 
-* Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer personalização específica de tipo. Neste exemplo, todos os serviços vinculados do `AzureDataLakeStore`tipo, um modelo específico será aplicado e, para todos os outros ( \*via), um modelo diferente será aplicado.
-* A `connectionString` propriedade será parametrizada como um `securestring` valor, não terá um valor padrão e terá um nome de parâmetro abreviado com `connectionString`sufixo.
-* A propriedade `secretAccessKey` é um `AzureKeyVaultSecret` (por exemplo, em um `AmazonS3` serviço vinculado). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
+* Os serviços vinculados são exclusivos. Como os serviços vinculados e os conjuntos de linhas têm uma ampla gama de tipos, você pode fornecer personalização específica de tipo. Neste exemplo, todos os serviços vinculados do tipo `AzureDataLakeStore`, um modelo específico será aplicado e, para todos os outros (via \*), um modelo diferente será aplicado.
+* A propriedade `connectionString` será parametrizada como um valor de `securestring`, não terá um valor padrão e terá um nome de parâmetro abreviado com `connectionString`.
+* A propriedade `secretAccessKey` é um `AzureKeyVaultSecret` (por exemplo, em um serviço vinculado `AmazonS3`). Ele é parametrizado automaticamente como um Azure Key Vault segredo e buscado a partir do cofre de chaves configurado. Você também pode parametrizar o cofre de chaves em si.
 
 #### <a name="datasets"></a>Conjuntos de dados
 
-* Embora a personalização específica de tipo esteja disponível para conjuntos de valores, a configuração pode ser fornecida sem \*ter explicitamente uma configuração de nível. No exemplo acima, todas as propriedades de DataSet `typeProperties` em são parametrizadas.
+* Embora a personalização específica de tipo esteja disponível para conjuntos de valores, a configuração pode ser fornecida sem ter explicitamente uma configuração de nível \*. No exemplo acima, todas as propriedades de DataSet em `typeProperties` são parametrizadas.
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão
 
@@ -545,7 +545,7 @@ Veja abaixo o modelo de parametrização padrão atual. Se você só precisa adi
 }
 ```
 
-Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar uma ID de cluster interativo do databricks interativo para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que o arquivo abaixo é o mesmo que o arquivo acima, `existingClusterId` exceto para incluído no campo propriedades `Microsoft.DataFactory/factories/linkedServices`do.
+Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametrização padrão. Só queremos adicionar uma ID de cluster interativo do databricks interativo para um serviço vinculado do databricks ao arquivo de parâmetros. Observe que o arquivo abaixo é o mesmo que o arquivo acima, exceto para `existingClusterId` incluído no campo de propriedades de `Microsoft.DataFactory/factories/linkedServices`.
 
 ```json
 {
@@ -657,11 +657,11 @@ Veja abaixo um exemplo de como adicionar um único valor ao modelo de parametriz
 
 Se você configurou CI/CD (integração e implantação contínuas) para suas fábricas de dados, poderá encontrar os limites do modelo de Azure Resource Manager à medida que sua fábrica aumentar. Um exemplo de limite é o número máximo de recursos em um modelo do Resource Manager. Para acomodar grandes fábricas, juntamente com a geração do modelo completo do Resource Manager para uma fábrica, Data Factory agora gera modelos vinculados do Resource Manager. Com esse recurso, toda a carga de fábrica é dividida em vários arquivos, de forma que você não fique em limites.
 
-Se você tiver configurado o Git, os modelos vinculados serão gerados e salvos junto com os modelos completos do `adf_publish` Resource Manager na ramificação em `linkedTemplates`uma nova pasta chamada.
+Se você tiver configurado o Git, os modelos vinculados serão gerados e salvos junto com os modelos completos do Resource Manager na ramificação `adf_publish` em uma nova pasta chamada `linkedTemplates`.
 
 ![Pasta de modelos do Resource Manager vinculado](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
-Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado `ArmTemplate_master.json`, e os modelos filho são nomeados com `ArmTemplate_0.json`o `ArmTemplate_1.json`padrão, e assim por diante. Para usar modelos vinculados em vez do modelo completo do Resource Manager, atualize sua tarefa de CI/CD `ArmTemplate_master.json` para apontar `ArmTemplateForFactory.json` para, em vez de (o modelo completo do Resource Manager). O Gerenciador de recursos também exige que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [implantando modelos ARM vinculados com o VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
+Os modelos vinculados do Resource Manager geralmente têm um modelo mestre e um conjunto de modelos filho vinculados ao mestre. O modelo pai é chamado de `ArmTemplate_master.json`, e os modelos filho são nomeados com o padrão `ArmTemplate_0.json`, `ArmTemplate_1.json` e assim por diante. Para usar modelos vinculados em vez do modelo completo do Resource Manager, atualize sua tarefa de CI/CD para apontar para `ArmTemplate_master.json` em vez de `ArmTemplateForFactory.json` (o modelo completo do Resource Manager). O Gerenciador de recursos também exige que você carregue os modelos vinculados em uma conta de armazenamento para que eles possam ser acessados pelo Azure durante a implantação. Para obter mais informações, consulte [implantando modelos ARM vinculados com o VSTS](https://blogs.msdn.microsoft.com/najib/2018/04/22/deploying-linked-arm-templates-with-vsts/).
 
 Lembre-se de adicionar os scripts de Data Factory em seu pipeline de CI/CD antes e depois da tarefa de implantação.
 
@@ -703,7 +703,7 @@ Se você estiver usando a integração do git com seu data factory e tiver um pi
 
 -   **Key Vault**. Ao usar Azure Key Vault serviços vinculados, você pode aproveitar ainda mais as vantagens dele mantendo cofres de chaves separados para ambientes diferentes. Você também pode configurar níveis de permissão separados para cada um deles. Por exemplo, talvez você não queira que os membros da equipe tenham permissões para os segredos de produção. Se você seguir essa abordagem, é recomendável manter os mesmos nomes de segredo em todos os estágios. Se você mantiver os mesmos nomes, não precisará alterar seus modelos do Resource Manager em ambientes de CI/CD, pois a única coisa que muda é o nome do cofre de chaves, que é um dos parâmetros do modelo do Resource Manager.
 
-## <a name="unsupported-features"></a>Funcionalidades não suportadas
+## <a name="unsupported-features"></a>Recursos sem suporte
 
 - Por design _, o ADF não permite_ confirmações de seleção de Cherry ou publicação seletiva de recursos. As publicações incluirão **todas** as alterações feitas no data Factory
 

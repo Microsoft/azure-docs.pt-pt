@@ -1,6 +1,6 @@
 ---
-title: Adicionar notificações push à sua aplicação Android com as aplicações móveis | Documentos da Microsoft
-description: Saiba como utilizar aplicações móveis para enviar notificações push à aplicação Android.
+title: Adicionar notificações por push ao seu aplicativo Android com aplicativos móveis | Microsoft Docs
+description: Saiba como usar aplicativos móveis para enviar notificações por push para seu aplicativo Android.
 services: app-service\mobile
 documentationcenter: android
 manager: crdun
@@ -14,37 +14,37 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 529aa8327d31cdda044178b6d03035b602744db2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3185447e4e465fe49849bb4280f2af9bbe852e19
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443664"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027694"
 ---
-# <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações push à sua aplicação Android
+# <a name="add-push-notifications-to-your-android-app"></a>Adicionar notificações por push ao seu aplicativo Android
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-get-started-push) hoje mesmo.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 ## <a name="overview"></a>Descrição geral
 
-Neste tutorial, adicionar notificações push para o [início rápido do Android] do projeto para que uma notificação push é enviada para o dispositivo sempre que um registro é inserido.
+Neste tutorial, você adicionará notificações por push ao projeto de [início rápido do Android] para que uma notificação por push seja enviada ao dispositivo toda vez que um registro for inserido.
 
-Se não utilizar o projeto de servidor de início rápido transferido, terá do pacote de extensão de notificação push. Para obter mais informações, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Se você não usar o projeto baixado do servidor de início rápido, precisará do pacote de extensão de notificação por push. Para obter mais informações, consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário o seguinte:
+Você precisa do seguinte:
 
-* Um IDE, dependendo de back-end do seu projeto:
+* Um IDE, dependendo do back-end do seu projeto:
 
-  * [Android Studio](https://developer.android.com/sdk/index.html) se esta aplicação tem um back-end de node. js.
-  * [O Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou posterior se esta aplicação tem um back-end de .NET da Microsoft.
-* Android 2.3 ou posterior, o repositório Google revisão 27 ou posterior e serviços do Google Play 9.0.2 ou posterior para Firebase Cloud Messaging.
-* Concluir o [início rápido do Android].
+  * [Android Studio](https://developer.android.com/sdk/index.html) se esse aplicativo tiver um back-end node. js.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) ou posterior se este aplicativo tiver um back-end Microsoft .net.
+* Android 2,3 ou posterior, Google Repository revisão 27 ou posterior e Google Play Services 9.0.2 ou posterior para o firebase Cloud Messaging.
+* Conclua o [início rápido do Android].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Criar um projeto que suporte o Firebase Cloud Messaging
 
@@ -54,47 +54,47 @@ Se não utilizar o projeto de servidor de início rápido transferido, terá do 
 
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
-## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações push
+## <a name="configure-azure-to-send-push-notifications"></a>Configurar o Azure para enviar notificações por push
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a name="enable-push-notifications-for-the-server-project"></a>Ative as notificações push para o projeto de servidor
+## <a name="enable-push-notifications-for-the-server-project"></a>Habilitar notificações por push para o projeto do servidor
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Adicionar notificações push à aplicação
 
-Nesta secção, atualizar a sua aplicação Android do cliente para processar as notificações push.
+Nesta seção, você atualizará seu aplicativo cliente Android para lidar com notificações por push.
 
-### <a name="verify-android-sdk-version"></a>Verificar a versão do Android SDK
+### <a name="verify-android-sdk-version"></a>Verificar versão SDK do Android
 
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-O próximo passo é instalar serviços do Google Play. Firebase Cloud Messaging tem alguns requisitos de nível de API mínimos para desenvolvimento e teste, o que o **minSdkVersion** propriedade no manifesto têm de cumprir.
+A próxima etapa é instalar Google Play Services. O firebase Cloud Messaging tem alguns requisitos mínimos de nível de API para desenvolvimento e teste, que a propriedade **minSdkVersion** no manifesto deve obedecer.
 
-Se estiver a testar com um dispositivo mais antigo, consulte [Adicionar Firebase ao seu projeto Android] para determinar como baixa pode definir este valor e defini-la corretamente.
+Se você estiver testando com um dispositivo mais antigo, consulte [Adicionar o firebase ao seu projeto do Android] para determinar o quanto você pode definir esse valor e defini-lo adequadamente.
 
-### <a name="add-firebase-cloud-messaging-to-the-project"></a>Adicionar Firebase Cloud Messaging para o projeto
+### <a name="add-firebase-cloud-messaging-to-the-project"></a>Adicionar o firebase Cloud Messaging ao projeto
 
 [!INCLUDE [Add Firebase Cloud Messaging](../../includes/app-service-mobile-add-firebase-cloud-messaging.md)]
 
-### <a name="add-code"></a>Adicione código
+### <a name="add-code"></a>Adicionar código
 
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## <a name="test-the-app-against-the-published-mobile-service"></a>Testar a aplicação contra o serviço móvel publicado
+## <a name="test-the-app-against-the-published-mobile-service"></a>Testar o aplicativo no serviço móvel publicado
 
-Pode testar a aplicação ao anexar diretamente um telemóvel Android com um cabo USB ou com um dispositivo virtual no emulador.
+Você pode testar o aplicativo anexando diretamente um telefone Android a um cabo USB ou usando um dispositivo virtual no emulador.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora que concluiu este tutorial, considere continuar em uma das seguintes tutoriais:
+Agora que você concluiu este tutorial, considere continuar com um dos seguintes tutoriais:
 
-* [Adicionar autenticação à sua aplicação Android](app-service-mobile-android-get-started-users.md).
-  Saiba como adicionar autenticação para o projeto de início rápido todolist no Android através de um fornecedor de identidade com suporte.
-* [Permitir sincronização offline para a aplicação Android](app-service-mobile-android-get-started-offline-data.md).
-  Saiba como adicionar suporte offline à sua aplicação utilizando um back-end de aplicações móveis. Com a sincronização offline, os usuários podem interagir com uma aplicação móvel&mdash;visualizar, adicionar ou modificar dados&mdash;, mesmo quando não existe nenhuma ligação de rede.
+* [Adicione autenticação ao seu aplicativo Android](app-service-mobile-android-get-started-users.md).
+  Saiba como adicionar autenticação ao projeto de início rápido de tarefas pendentes no Android usando um provedor de identidade com suporte.
+* [Habilite a sincronização offline para seu aplicativo Android](app-service-mobile-android-get-started-offline-data.md).
+  Saiba como adicionar suporte offline ao seu aplicativo usando um back-end de aplicativos móveis. Com a sincronização offline, os usuários podem interagir com um aplicativo móvel @ no__t-0viewing, adicionando ou modificando dados @ no__t-1even quando não há conexão de rede.
 
 <!-- URLs -->
 [Início rápido do Android]: app-service-mobile-android-get-started.md
-[Adicionar Firebase ao seu projeto Android]: https://firebase.google.com/docs/android/setup
+[Adicionar o firebase ao seu projeto do Android]: https://firebase.google.com/docs/android/setup

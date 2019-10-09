@@ -1,36 +1,22 @@
 ---
-title: Bibliotecas do processo de negócio | O Azure Marketplace
-description: Explicação de bibliotecas do processo de negócios e metodologias.
+title: Bibliotecas de processos empresariais | Azure Marketplace
+description: Este artigo de CPP foi substituído e vinculado ao artigo do PC; Foi "explicação das bibliotecas e metodologias de processos de negócios".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 870e77f3390c820278970f5ffda002b4826b82a4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: f29d82a187027c3eee9d89258b6cf6c166089e70
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935628"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034404"
 ---
-# <a name="business-process-libraries"></a>Bibliotecas do processo de negócio
+# <a name="business-process-libraries"></a>Bibliotecas de processos empresariais
 
-As bibliotecas de processo de negócio são nada além de guias de tarefa dos seus cenários de ponta. A biblioteca de processos de negócios deve foram alinhadas diretamente com o seu conteúdo de marketing. Cada processo de negócios na biblioteca do processo de negócios deve ter uma [gravação de tarefa](https://docs.microsoft.com/dynamics365/operations/dev-itpro/user-interface/task-recorder) associados a ele. Se tiver de processos que estão fora do Dynamics 365 para operações, anexe um Visio para sua biblioteca BPM.
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento do Dynamics 365 para ofertas de finanças e operações. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-Ver [Modelador de processo de negócios](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/business-process-modeler-libraries-lcs-solutions) para obter mais informações.
-
-## <a name="methodologies"></a>Metodologias
-
-Serviços de ciclo de vida (LCS) para o Microsoft Dynamics fornece metodologias que pode utilizar para garantir uma experiência de projeto de implementação mais previsível e repetível. Pode utilizar uma das metodologias fornecidas ou criar os seus próprios. Com uma metodologia, pode controlar e relatar o andamento facilmente.
-
-Uma metodologia é composta por fases, tarefas e etapas. Cada fase pode ter qualquer número de tarefas, alguns dos quais são obrigatórios. Quando todas as tarefas numa fase forem concluídas, a fase de pode ser marcada como concluída. Também pode criar um marco para quando prevê uma fase para serem concluídas. As metodologias seguintes estão incluídas num projeto de LCS:
-
-- Implementação
-- Passo-se de que
-- Aprenda a desenvolver
-- Migrar e criar soluções
-- Consumir de soluções
-
-Ver [metodologias de LCS](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lifecycle-services/create-methodology) para obter mais informações.
+Antes de criar uma nova oferta do Dynamics 365 for Operations, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abra o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.

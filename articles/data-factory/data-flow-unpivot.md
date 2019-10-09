@@ -1,57 +1,57 @@
 ---
-title: Transformação anular dinamização de fluxo de dados de mapeamento de fábrica de dados do Azure
-description: Transformação anular dinamização de fluxo de dados de mapeamento de fábrica de dados do Azure
+title: Transformação não dinâmica do fluxo de dados de mapeamento de Azure Data Factory
+description: Transformação não dinâmica do fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fedf96ec178aae0615129421bdae7721a66105
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348317"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029943"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Transformação anular dinamização de fábrica de dados do Azure
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory transformação não dinâmica
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Utilize Unpivot no fluxo de dados de mapeamento ADF como uma forma de transformar um conjunto de dados unnormalized numa versão mais normalizada ao expandir os valores de várias colunas num único Registro em vários registos com os mesmos valores numa única coluna.
 
-![Anular dinamização de transformação](media/data-flow/unpivot1.png "anular dinamização das opções de 1")
+Use o fluxo de dados de mapeamento do AAD no ADF como uma maneira de transformar um conjunto de dado não normalizado em uma versão mais normalizada expandindo valores de várias colunas em um único registro em vários registros com os mesmos valores em uma única coluna.
+
+![](media/data-flow/unpivot1.png "Opções não dinâmicas") de transformação não dinâmica 1
 
 ## <a name="ungroup-by"></a>Desagrupar por
 
-![Anular dinamização de transformação](media/data-flow/unpivot5.png "anular dinamização das opções de 2")
+![](media/data-flow/unpivot5.png "Opções não dinâmicas") de transformação não dinâmica 2
 
-Em primeiro lugar, defina as colunas que deseja agrupar por para a agregação de pivot. Definir uma ou mais colunas para ungrouping com a + início de sessão junto à lista de colunas.
+Primeiro, defina as colunas que você deseja agrupar para a agregação dinâmica. Defina uma ou mais colunas para desagrupar com o sinal de + ao lado da lista de colunas.
 
-## <a name="unpivot-key"></a>Anular dinamização de chave
+## <a name="unpivot-key"></a>Chave não dinâmica
 
-![Anular dinamização de transformação](media/data-flow/unpivot6.png "anular dinamização das opções de 3")
+![](media/data-flow/unpivot6.png "Opções não dinâmicas") de transformação não dinâmica 3
 
-A chave de pivô é a coluna que ADF será dinâmico da linha a coluna. Por predefinição, cada valor exclusivo no conjunto de dados para este campo será dinâmico a uma coluna. No entanto, pode, opcionalmente, introduza os valores do conjunto de dados que pretende passar para os valores de coluna.
+A chave dinâmica é a coluna que o ADF dinamizará da linha para a coluna. Por padrão, cada valor exclusivo no conjunto de valores para esse campo será dinamizado para uma coluna. No entanto, opcionalmente, você pode inserir os valores do conjunto de um que você deseja dinamizar para valores de coluna.
 
-## <a name="unpivoted-columns"></a>Colunas convertidas em valores
+## <a name="unpivoted-columns"></a>Colunas não dinâmicas
 
-![Anular dinamização de transformação](media/data-flow//unpivot7.png "anular dinamização das opções de 4")
+![](media/data-flow//unpivot7.png "Opções não dinâmicas") de transformação não dinâmica 4
 
-Por último, escolha a agregação de que deseja usar para os valores articulados e como gostaria que as colunas a apresentar na nova projeção de saída da transformação.
+Por fim, escolha a agregação que você deseja usar para os valores dinâmicos e como deseja que as colunas sejam exibidas na nova projeção de saída da transformação.
 
-(Opcional) Pode definir um padrão de nomenclatura com um prefixo, intermediária e sufixo para ser adicionado a cada novo nome de coluna de entre os valores de linha.
+Adicional Você pode definir um padrão de nomenclatura com um prefixo, meio e sufixo a ser adicionado a cada novo nome de coluna dos valores de linha.
 
-Por exemplo, dinamização "vendas" por "Região" simplesmente daria novos valores de coluna de cada valor de vendas. Por exemplo: "25", "50", "1000", ... No entanto, se definir um valor de prefixo de "Vendas", em seguida, "Vendas" terá o prefixo para os valores.
+Por exemplo, dinamizar "vendas" por "Region" simplesmente lhe dará novos valores de coluna de cada valor de vendas. Por exemplo: "25", "50", "1000",... No entanto, se você definir um valor de prefixo de "vendas", então "vendas" será prefixado para os valores.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
-Definir a disposição de coluna como "Normal" será agrupar todas as colunas articuladas com os respetivos valores agregados. Definir a disposição de colunas para "Lateral" irá se alternam entre a coluna e valor.
+Definir a organização da coluna como "normal" agrupará todas as colunas dinâmicas com seus valores agregados. A definição da organização das colunas como "lateral" será alternada entre a coluna e o valor.
 
-![Anular dinamização de transformação](media/data-flow//unpivot7.png "anular dinamização das opções de 5")
+![](media/data-flow//unpivot7.png "Opções não dinâmicas") de transformação não dinâmica 5
 
-O conjunto de resultado final dados convertidas em valores mostra os totais de colunas convertidas em valores agora em valores de linha separado.
+O conjunto de resultados de dados não dinâmicos final mostra os totais de coluna agora não dinâmicos em valores de linha separados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Utilize o [dinamizar transformação](data-flow-pivot.md) às linhas dinâmicas às colunas.
+Use a [transformação dinâmica](data-flow-pivot.md) para dinamizar linhas para colunas.

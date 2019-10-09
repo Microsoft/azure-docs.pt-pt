@@ -1,36 +1,36 @@
 ---
-title: Nós de movimentação de fluxo de dados de fábrica de dados do Azure
-description: Como mover nós num Azure Data Factory mapeamento dados diagrama de fluxo de
+title: Azure Data Factory nós de movimentação de fluxo de dados
+description: Como mover nós em um diagrama de fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 951a5d4fcbd561b085b0377bde48e820dc8972a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 853fff955a953052b94ad4e7e1dd55371069c30b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519958"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030185"
 ---
-# <a name="mapping-data-flow-move-nodes"></a>Nós de movimentação de fluxo de dados de mapeamento
+# <a name="mapping-data-flow-move-nodes"></a>Mapeando nós de movimentação de fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Agregar as opções de transformação](media/data-flow/agghead.png "cabeçalho agregador")
 
-A superfície de design de fluxo de dados do Azure Data Factory é uma superfície de "construção" onde cria dados fluxos cima para baixo, à esquerda para a direita. Há uma caixa de ferramentas anexada a cada transformação com uma vantagem (+) símbolo. Se concentrar na lógica de negócio em vez de ligar nós através de limites num ambiente do DAG de forma livre.
+(media/data-flow/agghead.png "Cabeçalho do agregador") de ![Opções de transformação Agregação]
 
-Então, sem um paradigma de arrastar e soltar, a forma de "Mover" um nó de transformação, é alterar o fluxo de entrada. Em vez disso, deve ir transformações em torno ao alterar o "fluxo de entrada".
+A superfície de design do fluxo de dados Azure Data Factory é uma superfície de "construção" onde você cria fluxos de dados de cima para baixo, da esquerda para a direita. Há uma caixa de ferramentas anexada a cada transformação com um símbolo de mais (+). Concentre-se em sua lógica de negócios em vez de conectar nós por meio de bordas em um ambiente de DAG de forma livre.
+
+Portanto, sem um paradigma de arrastar e soltar, a maneira de "mover" um nó de transformação é alterar o fluxo de entrada. Em vez disso, você moverá transformações ao alterar o "fluxo de entrada".
 
 ## <a name="streams-of-data-inside-of-data-flow"></a>Fluxos de dados dentro do fluxo de dados
 
-No fluxo de dados do Azure Data Factory, os fluxos de representam o fluxo de dados. No painel de definições de transformação, verá um campo de "Entrada Steam". Isto indica o fluxo de dados de entrada é a manutenção dessa transformação. Pode alterar a localização física do seu nó de transformação no gráfico ao clicar no nome de entrada Stream e selecionar outro fluxo de dados. A transformação atual juntamente com todas as transformações subseqüentes desse fluxo, em seguida, irá mudar para a nova localização.
+No fluxo de dados Azure Data Factory, os fluxos representam o fluxo de dados. No painel configurações de transformação, você verá um campo "fluxo de entrada". Isso informa qual fluxo de dados de entrada está alimentando a transformação. Você pode alterar o local físico do nó de transformação no grafo clicando no nome do fluxo de entrada e selecionando outro fluxo de dados. A transformação atual, juntamente com todas as transformações subsequentes nesse fluxo, passará para o novo local.
 
-Se estiver a mover uma transformação com transformações de um ou mais depois dela, o novo local em que o fluxo de dados ser associado através de um novo ramo.
+Se você estiver movendo uma transformação com uma ou mais transformações depois dela, o novo local no fluxo de dados será ingressado por meio de uma nova ramificação.
 
-Se tiver sem as transformações subseqüentes depois do nó que selecionou, em seguida, apenas essa transformação irá mudar para a nova localização.
+Se você não tiver transformações subsequentes após o nó selecionado, somente essa transformação será movida para o novo local.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de concluir o design de fluxo de dados, ative o botão de depuração e testá-lo no modo de depuração ou diretamente no [designer de fluxo de dados](concepts-data-flow-debug-mode.md) ou [depuração de pipeline](control-flow-execute-data-flow-activity.md).
+Depois de concluir o design do fluxo de dados, ative o botão de depuração e teste-o no modo de depuração diretamente no [Designer de fluxo de dados](concepts-data-flow-debug-mode.md) ou na depuração de [pipeline](control-flow-execute-data-flow-activity.md).

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: ee0a3c41edd144c1220cdc9b5a5463b43bef5551
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973560"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023676"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Monitorar o desempenho do banco de dados do Azure para MariaDB com o Repositório de Consultas
 
-**Aplica-se a:** banco de dados  Azure para MariaDB 10,2
+**Aplica-se a:** Banco de dados do Azure para MariaDB 10,2
 
 > [!IMPORTANT]
 > Repositório de Consultas está em versão prévia.
@@ -37,14 +37,14 @@ Repositório de Consultas é um recurso opcional, portanto, ele não está ativo
 ### <a name="enable-query-store-using-the-azure-portal"></a>Habilitar Repositório de Consultas usando o portal do Azure
 
 1. Entre no portal do Azure e selecione o banco de dados do Azure para o servidor MariaDB.
-1. Selecione **parâmetros de servidor** In as **configurações** section do menu.
+1. Selecione **parâmetros de servidor** na seção **configurações** do menu.
 1. Procure o parâmetro query_store_capture_mode.
-1. Defina o valor como todos e **salve**.
+1. Defina o valor como todos e **salve**.
 
 Para habilitar as estatísticas de espera no seu Repositório de Consultas:
 
 1. Procure o parâmetro query_store_wait_sampling_capture_mode.
-1. Defina o valor como todos e **salve**.
+1. Defina o valor como todos e **salve**.
 
 Aguarde até 20 minutos para que o primeiro lote de dados persista no banco de dado MySQL.
 
@@ -78,8 +78,8 @@ Aqui estão alguns exemplos de como você pode obter mais informações sobre su
 | **Observações** | **ação** |
 |---|---|
 |Esperas de bloqueio altas | Verifique os textos de consulta para as consultas afetadas e identifique as entidades de destino. Examine Repositório de Consultas outras consultas que modificam a mesma entidade, que é executada com frequência e/ou têm alta duração. Depois de identificar essas consultas, considere alterar a lógica do aplicativo para melhorar a simultaneidade ou usar um nível de isolamento menos restritivo. |
-|Esperas de e/s de buffer alto | Localize as consultas com um alto número de leituras físicas em Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de e/s das consultas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
-|Esperas de memória alta | Localize as principais consultas de consumo de memória no Repositório de Consultas. Essas consultas provavelmente estão atrasando o progresso das consultas afetadas. Verifique as **recomendações de desempenho** Para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
+|Esperas de e/s de buffer alto | Localize as consultas com um alto número de leituras físicas em Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de e/s das consultas. Verifique as **recomendações de desempenho** para o servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
+|Esperas de memória alta | Localize as principais consultas de consumo de memória no Repositório de Consultas. Essas consultas provavelmente estão atrasando o progresso das consultas afetadas. Verifique as **recomendações de desempenho** para seu servidor no portal para ver se há recomendações de índice que otimizarão essas consultas.|
 
 ## <a name="configuration-options"></a>Opções de configuração
 
@@ -98,7 +98,7 @@ As opções a seguir se aplicam especificamente às estatísticas de espera.
 
 | **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Permite ativar/desativar as estatísticas de espera. | NENHUM | NENHUM, TUDO |
+| query_store_wait_sampling_capture_mode | Permite ativar/desativar as estatísticas de espera. | NONE | NENHUM, TUDO |
 | query_store_wait_sampling_frequency | Altera a frequência de amostragem de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |
 
 > [!NOTE]
@@ -108,7 +108,7 @@ Use o [portal do Azure](howto-server-parameters.md) para obter ou definir um va
 
 ## <a name="views-and-functions"></a>Exibições e funções
 
-Exiba e gerencie Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no **mysql** database.
+Exiba e gerencie Repositório de Consultas usando as seguintes exibições e funções. Qualquer pessoa na [função pública selecionar privilégio](howto-create-users.md#create-additional-admin-users) pode usar essas exibições para ver os dados em repositório de consultas. Essas exibições estão disponíveis somente no banco de dados **MySQL** .
 
 As consultas são normalizadas examinando sua estrutura depois de remover literais e constantes. Se duas consultas forem idênticas, exceto valores literais, elas terão o mesmo hash.
 
@@ -123,14 +123,14 @@ Essa exibição retorna todos os dados em Repositório de Consultas. Há uma lin
 | `timestamp_id` | timestamp| NO| Carimbo de data/hora em que a consulta é executada. Isso se baseia na configuração do query_store_interval|
 | `query_digest_text`| longtext| NO| O texto de consulta normalizado após a remoção de todos os literais|
 | `query_sample_text` | longtext| NO| Primeira aparência da consulta real com literais|
-| `query_digest_truncated` | bit| SIM| Se o texto da consulta foi truncado. O valor será Sim se a consulta tiver mais de 1 KB|
+| `query_digest_truncated` | bit| OK| Se o texto da consulta foi truncado. O valor será Sim se a consulta tiver mais de 1 KB|
 | `execution_count` | bigint(20)| NO| O número de vezes que a consulta foi executada para esta ID de carimbo de data/hora durante o período de intervalo configurado|
 | `warning_count` | bigint(20)| NO| Número de avisos que esta consulta gerou durante a|
 | `error_count` | bigint(20)| NO| Número de erros que esta consulta gerou durante o intervalo|
-| `sum_timer_wait` | double| SIM| Tempo de execução total desta consulta durante o intervalo|
-| `avg_timer_wait` | double| SIM| Tempo médio de execução para esta consulta durante o intervalo|
-| `min_timer_wait` | double| SIM| Tempo mínimo de execução para esta consulta|
-| `max_timer_wait` | double| SIM| Tempo de execução máximo|
+| `sum_timer_wait` | double| OK| Tempo de execução total desta consulta durante o intervalo|
+| `avg_timer_wait` | double| OK| Tempo médio de execução para esta consulta durante o intervalo|
+| `min_timer_wait` | double| OK| Tempo mínimo de execução para esta consulta|
+| `max_timer_wait` | double| OK| Tempo de execução máximo|
 | `sum_lock_time` | bigint(20)| NO| Quantidade total de tempo gasto para todos os bloqueios para esta execução de consulta durante esta janela de tempo|
 | `sum_rows_affected` | bigint(20)| NO| Número de linhas afetadas|
 | `sum_rows_sent` | bigint(20)| NO| Número de linhas enviadas ao cliente|

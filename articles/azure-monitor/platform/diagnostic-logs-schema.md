@@ -8,29 +8,29 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: robb
 ms.subservice: logs
-ms.openlocfilehash: fdcfcbaf99d48a345d2be4da297be1c9139da15c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 70dd4af16746ecf54310dffcb854c3c0857283ba
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308120"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033867"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure
 
 [Azure monitor logs de diagnóstico](../../azure-monitor/platform/resource-logs-overview.md) são logs emitidos pelos serviços do Azure que descrevem a operação desses serviços ou recursos. Todos os logs de diagnóstico disponíveis por meio do Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos.
 
-Uma combinação do tipo de recurso (disponível na `resourceId` Propriedade) e a `category` identificação exclusiva de um esquema. Este artigo descreve o esquema de nível superior para logs de diagnóstico e links para o Schemata para cada serviço.
+Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e o `category` identificam exclusivamente um esquema. Este artigo descreve o esquema de nível superior para logs de diagnóstico e links para o Schemata para cada serviço.
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de logs de diagnóstico de nível superior
 
 | Name | Obrigatório/opcional | Descrição |
 |---|---|---|
-| time | Requerido | O carimbo de data/hora (UTC) do evento. |
-| resourceId | Requerido | A ID de recurso do recurso que emitiu o evento. Para serviços de locatário, esse é o formato/Tenants/Tenant-ID/Providers/Provider-Name. |
+| time | Necessário | O carimbo de data/hora (UTC) do evento. |
+| resourceId | Necessário | A ID de recurso do recurso que emitiu o evento. Para serviços de locatário, esse é o formato/Tenants/Tenant-ID/Providers/Provider-Name. |
 | tenantId | Necessário para logs de locatário | A ID de locatário do locatário de Active Directory ao qual esse evento está vinculado. Essa propriedade é usada somente para logs em nível de locatário, ela não aparece em logs de nível de recurso. |
-| operationName | Requerido | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, esse será o nome da operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modelados na forma de uma operação do Resource Manager, mesmo que não sejam operações reais documentadas do Resource`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`Manager () |
+| operationName | Necessário | O nome da operação representada por este evento. Se o evento representar uma operação RBAC, esse será o nome da operação RBAC (por exemplo, Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Normalmente modelados na forma de uma operação do Resource Manager, mesmo que não sejam operações reais documentadas do Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | A versão de API associada à operação, se a operationName tiver sido executada usando uma API (por exemplo, `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Se não houver nenhuma API que corresponda a essa operação, a versão representará a versão dessa operação, caso as propriedades associadas à operação sejam alteradas no futuro. |
-| category | Requerido | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar logs em um recurso específico. As propriedades que aparecem dentro do blob de propriedades de um evento são as mesmas dentro de uma categoria de log e tipo de recurso específicos. As categorias de log típicas são "auditoria" "operacional" "execução" e "solicitação". |
+| category | Necessário | A categoria de log do evento. Categoria é a granularidade na qual você pode habilitar ou desabilitar logs em um recurso específico. As propriedades que aparecem dentro do blob de propriedades de um evento são as mesmas dentro de uma categoria de log e tipo de recurso específicos. As categorias de log típicas são "auditoria" "operacional" "execução" e "solicitação". |
 | resultType | Opcional | O status do evento. Os valores típicos incluem iniciado, em andamento, bem-sucedido, com falha, ativo e resolvido. |
 | resultSignature | Opcional | O substatus do evento. Se essa operação corresponder a uma chamada à API REST, esse será o código de status HTTP da chamada REST correspondente. |
 | resultDescription | Opcional | A descrição de texto estático desta operação, por exemplo, "Obter arquivo de armazenamento". |
@@ -55,6 +55,7 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 | Azure Batch |[Log de diagnóstico do lote do Azure](../../batch/batch-diagnostics.md) |
 | Base de Dados do Azure para MySQL | [Logs de diagnóstico do banco de dados do Azure para MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Base de Dados do Azure para PostgreSQL | [Logs de diagnóstico do banco de dados do Azure para PostgreSQL](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Data Explorer | [Logs de diagnóstico do Azure Data Explorer](../../data-explorer/using-diagnostic-logs.md) |
 | Serviços Cognitivos | [Log de diagnóstico para serviços cognitivas do Azure](../../cognitive-services/diagnostic-logging.md) |
 | Rede de Entrega de Conteúdos | [Logs de diagnóstico do Azure para CDN](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Log de Azure Cosmos DB](../../cosmos-db/logging.md) |
@@ -67,12 +68,12 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Cofre de Chaves |[Registo do Cofre de Chaves do Azure](../../key-vault/key-vault-logging.md) |
 | Serviço Kubernetes |[Log de kubernetes do Azure](../../aks/view-master-logs.md#log-event-schema) |
-| Balanceador de Carga |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
+| Load balancer |[Log Analytics para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicações Lógicas |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Proteção contra DDOS | [Gerenciar a proteção contra DDoS do Azure Standard](../../virtual-network/manage-ddos-protection.md) |
 | Power BI Dedicado | [Log de diagnóstico para Power BI Embedded no Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
-| Recovery Services | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
+| Serviços de Recuperação | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
 | Pesquisa |[Habilitando e usando o Análise de Tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Service Bus |[Logs de diagnóstico do barramento de serviço do Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | SQL Database | [Log de diagnóstico do banco de dados SQL do Azure](../../sql-database/sql-database-metrics-diag-logging.md) |
@@ -92,14 +93,14 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, por exemplo, largura de banda, saída etc.|
-|Microsoft.ClassicNetwork/networksecuritygroups|Evento de fluxo de regra do grupo de segurança de rede|Evento de fluxo de regra do grupo de segurança de rede|
+|Microsoft.ClassicNetwork/networksecuritygroups|Evento de Fluxo de Regra do Grupo de Segurança de Rede|Evento de Fluxo de Regra do Grupo de Segurança de Rede|
 |Microsoft.CognitiveServices/accounts|Auditoria|Registos de Auditoria|
 |Microsoft.CognitiveServices/accounts|RequestResponse|Logs de solicitação e resposta|
-|Microsoft.ContainerService/managedClusters|Kube-apiserver|Servidor de API Kubernetes|
-|Microsoft.ContainerService/managedClusters|Kube-Controller-Manager|Gestor do Controlador Kubernetes|
-|Microsoft.ContainerService/managedClusters|cluster-autoescalar|Dimensionador Automático de Cluster Kubernetes|
-|Microsoft.ContainerService/managedClusters|Kube-Agendador|Programador Kubernetes|
-|Microsoft.ContainerService/managedClusters|Proteja|Webhook de Autenticação|
+|Microsoft.ContainerService/managedClusters|Kube-apiserver|Servidor de API kubernetes|
+|Microsoft.ContainerService/managedClusters|Kube-Controller-Manager|Gerenciador do controlador kubernetes|
+|Microsoft.ContainerService/managedClusters|cluster-autoescalar|Autoescalar do cluster kubernetes|
+|Microsoft.ContainerService/managedClusters|Kube-Agendador|Agendador de kubernetes|
+|Microsoft.ContainerService/managedClusters|Proteja|Webhook de autenticação|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
 |Microsoft.DataFactory/factories|ActivityRuns|Log de execuções de atividade de pipeline|
 |Microsoft.DataFactory/factories|PipelineRuns|Log de execuções de pipeline|
@@ -118,12 +119,12 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 |Microsoft.Devices/IotHubs|Rotas|Rotas|
 |Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
 |Microsoft.Devices/IotHubs|C2DTwinOperations|Operações C2D|
-|Microsoft.Devices/IotHubs|twinQueries|Consultas de entrelaçamento|
+|Microsoft.Devices/IotHubs|TwinQueries|Consultas de entrelaçamento|
 |Microsoft.Devices/IotHubs|JobsOperations|Operações de trabalhos|
 |Microsoft.Devices/IotHubs|DirectMethods|Métodos diretos|
 |Microsoft.Devices/IotHubs|E2EDiagnostics|Diagnóstico de E2E (versão prévia)|
 |Microsoft.Devices/IotHubs|Configurações|Configurações|
-|Microsoft.Devices/provisioningServices|DeviceOperations|Operações do Dispositivo|
+|Microsoft.Devices/provisioningServices|DeviceOperations|Operações do dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operações de serviço|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
 |Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
@@ -131,10 +132,10 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 |Microsoft.EventHub/namespaces|ArchiveLogs|Logs de arquivo|
 |Microsoft.EventHub/namespaces|OperationalLogs|Logs operacionais|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logs de dimensionamento automático|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Avaliações de Dimensionamento Automático|
-|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Ações de Dimensionamento Automático|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Avaliações de dimensionamento automático|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Ações de escala de dimensionamento automático|
 |Microsoft. IoTSpaces/Graph|Rastreio|Rastreio|
-|Microsoft. IoTSpaces/Graph|Operacional|Operacional|
+|Microsoft. IoTSpaces/Graph|Eficiência|Eficiência|
 |Microsoft. IoTSpaces/Graph|Auditoria|Auditoria|
 |Microsoft. IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
 |Microsoft. IoTSpaces/Graph|Entrada|Entrada|
@@ -167,25 +168,25 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 |Microsoft.Network/frontdoors|FrontdoorAccessLog|Log de acesso do frontdoor|
 |Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Log do firewall do aplicativo Web frontdoor|
 |Microsoft.PowerBIDedicated/capacities|Motor|Motor|
-|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de Relatório do Azure Backup|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Tarefas do Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de relatórios de backup do Azure|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabalhos de Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos de Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicatedItems|Itens Replicados do Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationStats|Estatísticas de Replicação do Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Pontos de Recuperação do Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taxa de upload de dados de replicação Azure Site Recovery|
-|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Azure Site Recovery a rotatividade de dados de disco protegido|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryReplicationDataUploadRate|Taxa de Carregamento de Dados de Replicação do Azure Site Recovery|
+|Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryProtectedDiskDataChurn|Alterações a Dados de Discos Protegidos do Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
-|Microsoft.Sql/servers/databases|SQLInsights|Informações de SQL|
-|Microsoft.Sql/servers/databases|AutomaticTuning|Otimização automática|
+|Microsoft.Sql/servers/databases|SQLInsights|Insights do SQL|
+|Microsoft.Sql/servers/databases|AutomaticTuning|Ajuste automático|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução Repositório de Consultas|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas|
 |Microsoft.Sql/servers/databases|Erros|Erros|
 |Microsoft.Sql/servers/databases|DatabaseWaitStatistics|Estatísticas de espera do banco de dados|
 |Microsoft.Sql/servers/databases|Tempos limite|Tempos limite|
 |Microsoft.Sql/servers/databases|Trava|Trava|
-|Microsoft.Sql/servers/databases|Impasses|Impasses|
+|Microsoft.Sql/servers/databases|Deadlocks|Deadlocks|
 |Microsoft.Sql/servers/databases|Auditoria|Registos de Auditoria|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|
 |Microsoft.Sql/servers/databases|DmsWorkers|Trabalhos DMS|
@@ -195,7 +196,7 @@ O esquema para logs de diagnóstico de recurso varia de acordo com a categoria d
 |Microsoft.Sql/servers/databases|Aguarda|Aguarda|
 |Microsoft.Sql/managedInstances|ResourceUsageStats|Estatísticas de uso de recursos|
 |Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|
-|Microsoft.Sql/managedInstances/databases|SQLInsights|Informações de SQL|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|Insights do SQL|
 |Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Estatísticas de tempo de execução Repositório de Consultas|
 |Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas|
 |Microsoft.Sql/managedInstances/databases|Erros|Erros|

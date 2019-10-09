@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6cf03d1269cac5dcfa67c2d4778be3fce9ee63aa
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973373"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029011"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia do desenvolvedor do Azure Functions PowerShell
 
@@ -434,6 +434,9 @@ As configurações a seguir estão disponíveis para alterar a forma como as dep
 | MDMaxBackgroundUpgradePeriod      | "7.00:00:00" (7 dias)     | Cada trabalhador do PS inicia a verificação de atualizações de módulo na galeria do PS no início do processo de trabalho e a cada MDMaxBackgroundUpgradePeriod depois disso. Se novas versões de módulo estiverem disponíveis na galeria do PS, elas serão instaladas no sistema de arquivos disponível para trabalhadores do PS. Diminuir esse valor permitirá que seu aplicativo de funções obtenha versões mais recentes do módulo mais cedo, mas também aumentará o uso de recursos do aplicativo (e/s de rede, CPU, armazenamento). Aumentar esse valor diminuirá o uso do recurso de aplicativo, mas também poderá atrasar a entrega de novas versões de módulo ao seu aplicativo.      | 
 | MDNewSnapshotCheckPeriod          | "01:00:00" (1 hora)       | Depois que as novas versões de módulo são instaladas no sistema de arquivos, cada trabalhador do PS precisa ser reiniciado. Reiniciar os trabalhadores do PS pode afetar a disponibilidade do aplicativo porque ele pode interromper as invocações de função atuais. Até que todos os trabalhadores do PS sejam reiniciados, as invocações de função podem usar as versões de módulo antiga ou nova. A reinicialização de todos os trabalhadores do PS será concluída no MDNewSnapshotCheckPeriod. Aumentar esse valor diminuirá a frequência das interrupções, mas também poderá aumentar o período de tempo em que as invocações de função usam as versões de módulo antiga ou nova de forma não determinística. |
 | MDMinBackgroundUpgradePeriod      | "1,00:00:00" (1 dia)     | Para evitar atualizações excessivas de módulo em reinicializações de trabalho frequentes, a verificação de atualizações de módulo não será executada se algum trabalhador já tiver iniciado isso dentro do último MDMinBackgroundUpgradePeriod. |
+
+> [!NOTE]
+> Dependências gerenciadas depende do acesso ao www.powershellgallery.com para baixar módulos. Você precisa garantir que o tempo de execução da função tenha acesso a essa URL adicionando todas as regras de firewall necessárias.
 
 Aproveitar seus próprios módulos personalizados é um pouco diferente de como você faria normalmente.
 

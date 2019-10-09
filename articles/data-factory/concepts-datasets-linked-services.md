@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137306"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030571"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de valores no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço de Data Factory que você está usando:"]
@@ -66,7 +66,7 @@ Um conjunto de Data Factory é definido no seguinte formato JSON:
 ```
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Requerido |
+Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
 name | Nome do conjunto de uma. Consulte [regras de nomenclatura de Azure data Factory](naming-rules.md). |  Sim |
 type | Tipo do conjunto de um. Especifique um dos tipos com suporte pelo Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto](#dataset-type)de informações. | Sim |
@@ -75,13 +75,13 @@ typeProperties | As propriedades de tipo são diferentes para cada tipo (por exe
 
 ### <a name="data-flow-compatible-dataset"></a>DataSet compatível com fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Consulte [tipos de conjunto de dados com suporte](#dataset-type) para obter uma lista de tipos de conjuntos de [dados](concepts-data-flow-overview.md) compatíveis. Os conjuntos de dados que são compatíveis com o fluxo de data exigem definições de conjunto de dado refinadas para transformações. Portanto, a definição de JSON é ligeiramente diferente. Em vez de uma propriedade de _estrutura_ , os conjuntos de dados que são compatíveis com o data Flow têm uma propriedade de _esquema_ .
 
 No fluxo de dados, DataSets são usados em transformações de origem e de coletor. Os conjuntos de dados definem os esquemas básicos. Se os dados não tiverem um esquema, você poderá usar descompasso de esquema para a origem e o coletor. O esquema no DataSet representa o tipo de dados físico e a forma.
 
-Ao definir o esquema a partir do conjunto de dados, você obterá os tipos, os formatos de dados, o local do arquivo e as informações de conexão relacionados do serviço vinculado associado. Os metadados dos conjuntos de valores são exibidos na transformação de origem comoa projeção de origem. A projeção na transformação origem representa os dados de fluxo de dados com nomes e tipos definidos.
+Ao definir o esquema a partir do conjunto de dados, você obterá os tipos, os formatos de dados, o local do arquivo e as informações de conexão relacionados do serviço vinculado associado. Os metadados dos conjuntos de valores são exibidos na transformação de origem como a *projeção*de origem. A projeção na transformação origem representa os dados de fluxo de dados com nomes e tipos definidos.
 
 Quando você importa o esquema de um conjunto de dados de fluxo, seleciona o botão **importar esquema** e opta por importar da origem ou de um arquivo local. Na maioria dos casos, você importará o esquema diretamente da origem. Mas se você já tiver um arquivo de esquema local (um arquivo parquet ou CSV com cabeçalhos), poderá direcionar Data Factory para basear o esquema nesse arquivo.
 
@@ -111,7 +111,7 @@ Quando você importa o esquema de um conjunto de dados de fluxo, seleciona o bot
 
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Requerido |
+Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
 name | Nome do conjunto de uma. Consulte [regras de nomenclatura de Azure data Factory](naming-rules.md). |  Sim |
 type | Tipo do conjunto de um. Especifique um dos tipos com suporte pelo Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [tipos de conjunto](#dataset-type)de informações. | Sim |
@@ -177,12 +177,12 @@ A seção de **estrutura** ou os conjuntos de dados da seção de **esquema** (c
 
 Cada coluna na estrutura contém as seguintes propriedades:
 
-Propriedade | Descrição | Requerido
+Propriedade | Descrição | Necessário
 -------- | ----------- | --------
 name | Nome da coluna. | Sim
 type | Tipo de dados da coluna. Data Factory dá suporte aos seguintes tipos de dados provisórios como valores permitidos: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], Boolean, String, GUID, DateTime, DateTimeOffset e TimeSpan** | Não
-culture | . Cultura baseada em rede a ser usada quando o tipo é um tipo .net: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
-format | Cadeia de caracteres de formato a ser usada quando o tipo é um `Datetime` tipo `Datetimeoffset`.net: ou. Consulte cadeias de [caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não
+culture | . Cultura baseada em rede a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. A predefinição é `en-us`. | Não
+format | Cadeia de caracteres de formato a ser usada quando o tipo é um tipo .NET: `Datetime` ou `Datetimeoffset`. Consulte [cadeias de caracteres de formato personalizado de data e hora](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) sobre como formatar DateTime. | Não
 
 ### <a name="example"></a>Exemplo
 No exemplo a seguir, suponha que os dados de blob de origem estejam no formato CSV e contenham três colunas: userid, Name e LastLoginDate. Eles são do tipo Int64, String e DateTime com um formato de data e hora personalizado usando nomes abreviados em francês para o dia da semana.
@@ -203,7 +203,7 @@ Defina a estrutura do conjunto de dados de BLOB da seguinte maneira com definiç
 As diretrizes a seguir ajudam você a entender quando incluir informações de estrutura e o que incluir na seção de **estrutura** . Saiba mais sobre como o data factory mapeia os dados de origem para o coletor e quando especificar informações de estrutura do [esquema e do mapeamento de tipo](copy-activity-schema-and-type-mapping.md).
 
 - **Para fontes de dados de esquema fortes**, especifique a seção de estrutura somente se desejar mapear colunas de origem para colunas do coletor e seus nomes não forem iguais. Esse tipo de fonte de dados estruturado armazena informações de tipo e esquema de dados juntamente com os dados em si. Exemplos de fontes de dados estruturadas incluem SQL Server, Oracle e banco de dado SQL do Azure.<br/><br/>Como as informações de tipo já estão disponíveis para fontes de dados estruturadas, você não deve incluir informações de tipo ao incluir a seção de estrutura.
-- **Para fontes de dados de esquema não fracas, por exemplo, arquivo de texto no armazenamento**de BLOBs, inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia, e os tipos de dado do conjunto de dados de origem devem ser convertidos em tipos nativos para o coletor. E inclua a estrutura quando desejar mapear colunas de origem para colunas do coletor.
+- **Para fontes de dados de esquema não fracas, por exemplo, arquivo de texto no armazenamento de BLOBs**, inclua a estrutura quando o conjunto de dados for uma entrada para uma atividade de cópia, e os tipos de dado do conjunto de dados de origem devem ser convertidos em tipos nativos para o coletor. E inclua a estrutura quando desejar mapear colunas de origem para colunas do coletor.
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 Você pode criar conjuntos de valores usando uma destas ferramentas ou SDKs: [API .net](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), Azure Resource Manager modelo e portal do Azure
@@ -213,7 +213,7 @@ Você pode criar conjuntos de valores usando uma destas ferramentas ou SDKs: [AP
 Aqui estão algumas diferenças entre Data Factory e os conjuntos de Data Factory da versão 1:
 
 - A propriedade externa não tem suporte na versão atual. Ele é substituído por um [gatilho](concepts-pipeline-execution-triggers.md).
-- A política e as propriedades de disponibilidade não têm suporte na versão atual. A hora de início de um pipeline depende [](concepts-pipeline-execution-triggers.md)dos gatilhos.
+- A política e as propriedades de disponibilidade não têm suporte na versão atual. A hora de início de um pipeline depende dos [gatilhos](concepts-pipeline-execution-triggers.md).
 - Os conjuntos de valores com escopo (conjuntos de valores definidos em um pipeline) não têm suporte na versão atual.
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: f0a9e90f1208d690c2423196be7f59dce71eb78b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f1580a9a43781996afadde5487adcafec860e26
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844076"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029695"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integração de mensagens do Azure Blockchain Workbench
 
@@ -65,7 +65,7 @@ O Blockchain Workbench retorna uma resposta com os seguintes campos:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID fornecido pelo cliente |
 | userId                | ID do usuário que foi criado |
-| userChainIdentifier   | Endereço do usuário que foi criado na rede blockchain. No Ethereum, o endereço é o endereço **na cadeia** do usuário. |
+| userChainIdentifier   | Endereço do usuário que foi criado na rede blockchain. No Ethereum, o endereço é o endereço **na cadeia** do usuário. |
 | connectionId          | Identificador exclusivo para a conexão blockchain|
 | messageSchemaVersion  | Versão do esquema de mensagens |
 | messageName           | **CreateUserUpdate** |
@@ -311,7 +311,7 @@ Se a solicitação não tiver sido bem-sucedida, os detalhes sobre a falha serã
 
 ### <a name="input-api-error-codes-and-messages"></a>Mensagens e códigos de erro da API de entrada
 
-**Código de erro 4000: Erro de solicitação inadequado**
+código de @no__t 0Error 4000: Erro de solicitação inadequado @ no__t-0
 - ConnectionID inválida
 - Falha na desserialização de CreateUserRequest
 - Falha na desserialização de CreateContractRequest
@@ -323,12 +323,12 @@ Se a solicitação não tiver sido bem-sucedida, os detalhes sobre a falha serã
 - O contrato {identificado pelo identificador do razão} não tem a função {nome da função de fluxo de trabalho}
 - UserChainIdentifier não existe
 
-**Código de erro 4090: Erro de conflito**
+código de @no__t 0Error 4090: Erro de conflito @ no__t-0
 - O usuário já existe
 - O contrato já existe
 - A ação de contrato já existe
 
-**Código de erro 5000: Erro interno do servidor**
+código de @no__t 0Error 5000: Erro interno do servidor @ no__t-0
 - Mensagens de exceção
 
 ## <a name="event-notifications"></a>Notificações de eventos
@@ -383,7 +383,7 @@ Contém informações sobre blocos individuais. O *BlockMessage* inclui uma seç
 
 | Name | Descrição |
 |------|-------------|
-| bloquear | Contém [informações de bloco](#block-information) |
+| impeça | Contém [informações de bloco](#block-information) |
 | transações | Contém informações de uma [transação](#transaction-information) de coleção para o bloco |
 | connectionId | Identificador exclusivo para a conexão |
 | messageSchemaVersion | Versão do esquema de mensagens |
@@ -563,12 +563,12 @@ Contém informações quando uma função de contrato é invocada, como o nome d
 | Name | Descrição |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| chamador                      | [Informações do chamador](#caller-information) |
+| chamado                      | [Informações do chamador](#caller-information) |
 | contractId                  | Identificador exclusivo para o contrato dentro do Azure Blockchain Workbench |
 | contractLedgerIdentifier    | Identificador exclusivo do contrato no razão |
 | functionName                | Nome da função |
 | parameters                  | [Informações de parâmetro](#parameter-information) |
-| Aciona                 | Informações da transação |
+| aciona                 | Informações da transação |
 | inTransactionSequenceNumber | O número de sequência da transação no bloco |
 | connectionId                | Identificador exclusivo para a conexão |
 | messageSchemaVersion        | Versão do esquema de mensagens |
@@ -645,8 +645,8 @@ Contém informações quando um aplicativo é carregado no Workbench, como o nom
 | eventName | **ApplicationIngestion** |
 | applicationId | Identificador exclusivo para o aplicativo no Azure Blockchain Workbench |
 | applicationName | Nome da aplicação |
-| applicationDisplayName | Nome a apresentar da aplicação |
-| applicationVersion | Versão da aplicação |
+| applicationDisplayName | Nome de exibição do aplicativo |
+| applicationVersion | Versão do aplicativo |
 | applicationDefinitionLocation | URL em que o arquivo de configuração do aplicativo está localizado |
 | contractCodes | Coleção de [códigos de contrato](#contract-code-information) para o aplicativo |
 | applicationRoles | Coleção de [funções de aplicativo](#application-role-information) para o aplicativo |
@@ -678,7 +678,7 @@ Contém informações quando um aplicativo é carregado no Workbench, como o nom
 | id | Identificador exclusivo do fluxo de trabalho do aplicativo dentro do Azure Blockchain Workbench |
 | name | Nome do fluxo de trabalho do aplicativo |
 | displayName | Nome de exibição do fluxo de trabalho do aplicativo |
-| funções | Coleção de [funções para o fluxo de trabalho do aplicativo](#workflow-function-information)|
+| functions | Coleção de [funções para o fluxo de trabalho do aplicativo](#workflow-function-information)|
 | Européia | Coleção de [Estados para o fluxo de trabalho do aplicativo](#workflow-state-information) |
 | properties | [Informações de propriedades do fluxo de trabalho](#workflow-property-information) do aplicativo |
 
@@ -839,8 +839,8 @@ Contém informações quando um usuário recebe uma função no Workbench, como 
 | eventName | **RoleAssignment** |
 | applicationId | Identificador exclusivo para o aplicativo no Azure Blockchain Workbench |
 | applicationName | Nome da aplicação |
-| applicationDisplayName | Nome a apresentar da aplicação |
-| applicationVersion | Versão da aplicação |
+| applicationDisplayName | Nome de exibição do aplicativo |
+| applicationVersion | Versão do aplicativo |
 | applicationRole        | Informações sobre a [função de aplicativo](#roleassignment-application-role) |
 | atribuidor               | Informações sobre o [atribuínte](#roleassignment-assigner) |
 | destinatário               | Informações sobre o [destinatário](#roleassignment-assignee) |
@@ -902,6 +902,6 @@ Exemplo de um *eventMessage RoleAssignment* da Blockchain Workbench:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Padrões de integração do contrato inteligente](integration-patterns.md)

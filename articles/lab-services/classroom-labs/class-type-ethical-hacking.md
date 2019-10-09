@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: c92dd48e81512b79fb72cbb751303504d1036594
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71982037"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028683"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Configurar um laboratório para ensinar a classe de Ethical Hacking 
 Este artigo mostra como configurar uma classe que se concentra no lado da perícia de Ethical Hacking. O teste de penetração, uma prática usada pela comunidade de Ethical Hacking, ocorre quando alguém tenta obter acesso ao sistema ou à rede para demonstrar as vulnerabilidades que um invasor mal-intencionado pode explorar. 
@@ -128,7 +128,11 @@ O modelo agora está atualizado e tem imagens necessárias para uma classe de te
 ## <a name="cost"></a>Custo  
 Se você quiser estimar o custo deste laboratório, poderá usar o exemplo a seguir: 
  
-Para uma classe de 25 alunos com 20 horas de tempo de classe agendada e 10 horas de cota para a casa ou as atribuições, o preço do laboratório seria: 25 alunos * (20 + 10) horas * 55 unidades de laboratório * 0, 1 USD por hora = 412,50. Para obter mais detalhes sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
+Para uma classe de 25 alunos com 20 horas de tempo de classe agendada e 10 horas de cota para a casa ou as atribuições, o preço do laboratório seria: 
+
+25 alunos * (20 + 10) horas * 55 unidades de laboratório * 0, 1 USD por hora = 412,50 USD. 
+
+Para obter mais informações sobre preços, consulte [preços de Azure Lab Services](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## <a name="conclusion"></a>Conclusão
 Este artigo descreveu as etapas para criar um laboratório para a aula de Ethical Hacking. Ele inclui etapas para configurar a virtualização aninhada para criar duas máquinas virtuais dentro da máquina virtual do host para fazer testes de penetração.

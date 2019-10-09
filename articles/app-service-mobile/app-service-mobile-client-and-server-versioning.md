@@ -14,18 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 7133e8bc7d04b3653b6b788347b7bc5176087f4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 87c64a98d783d2604c985017fbce586ed51e5c9d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883473"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025437"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em aplicativos móveis e serviços móveis
+> [!NOTE]
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+
 A versão mais recente dos serviços móveis do Azure é o recurso de **aplicativos móveis** do serviço de Azure app.
 
 Os SDKs do cliente e do servidor dos aplicativos móveis são originalmente baseados neles nos serviços móveis, mas *não* são compatíveis entre si.
-Ou seja, você deve usar um SDK de cliente de *aplicativos móveis* com um SDK de servidor de *aplicativos móveis* e, da mesma forma, para os *serviços móveis*. Este contrato é imposto por meio de um valor de cabeçalho especial usado pelos SDKs do cliente e do `ZUMO-API-VERSION`servidor,.
+Ou seja, você deve usar um SDK de cliente de *aplicativos móveis* com um SDK de servidor de *aplicativos móveis* e, da mesma forma, para os *serviços móveis*. Este contrato é imposto por meio de um valor de cabeçalho especial usado pelos SDKs do cliente e do servidor, `ZUMO-API-VERSION`.
 
 Observação: sempre que este documento se refere a um back-end *dos serviços móveis* , ele não precisa necessariamente ser hospedado nos serviços móveis. Agora é possível migrar um serviço móvel para ser executado no serviço de aplicativo sem nenhuma alteração de código, mas o serviço ainda estaria usando versões do SDK de *serviços móveis* .
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229410"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024622"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Tutorial: Investigue incidentes com o Azure Sentinel
 
@@ -44,7 +44,7 @@ Você só poderá investigar o incidente se tiver usado os campos de mapeamento 
 
 ## <a name="how-to-investigate-incidents"></a>Como investigar incidentes
 
-1. Selecione **incidentes**. A página **incidentes** permite que você saiba quantos incidentes você tem, quantas estão abertas, quantos você definiu **em andamento**e quantas estão fechadas. Para cada incidente, você pode ver a hora em que ocorreu e o status do incidente. Examine a severidade para decidir quais incidentes tratar primeiro.
+1. Selecione **incidentes**. A página **incidentes** permite que você saiba quantos incidentes você tem, quantas estão abertas, quantos você definiu **em andamento**e quantas estão fechadas. Para cada incidente, você pode ver a hora em que ocorreu e o status do incidente. Examine a severidade para decidir quais incidentes tratar primeiro.
 
     ![Exibir severidade do incidente](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +54,7 @@ Você só poderá investigar o incidente se tiver usado os campos de mapeamento 
 
 1. Para exibir mais detalhes sobre os alertas e entidades no incidente, selecione **Exibir detalhes completos** na página incidente e examine as guias relevantes que resumem as informações do incidente. Na guia **alertas** , examine o próprio alerta. Você pode ver todas as informações relevantes sobre o alerta – a consulta que disparou o alerta, o número de resultados retornados por consulta e a capacidade de executar guias estratégicos nos alertas. Para detalhar ainda mais o incidente, selecione o número de **eventos**. Isso abre a consulta que gerou os resultados e os eventos que dispararam o alerta no Log Analytics. Na guia **entidades** , você pode ver todas as entidades que você mapeou como parte da definição da regra de alerta.
 
-    ![Ver detalhes do alerta](media/tutorial-investigate-cases/alert-details.png)
+    ![Exibir detalhes do alerta](media/tutorial-investigate-cases/alert-details.png)
 
 1. Se você estiver investigando um incidente ativamente, é uma boa ideia definir o status do incidente como **em andamento** até fechá-lo.
 
@@ -78,14 +78,14 @@ O grafo de investigação fornece:
 
 Para usar o grafo de investigação:
 
-1. Selecione um incidente e, em seguida, selecione **investigar**. Isso levará você ao grafo de investigação. O grafo fornece um mapa ilustrativo das entidades conectadas diretamente ao alerta e a cada recurso conectado.
+1. Selecione um incidente e, em seguida, selecione **investigar**. Isso levará você ao grafo de investigação. O grafo fornece um mapa ilustrativo das entidades conectadas diretamente ao alerta e a cada recurso conectado.
 
    > [!IMPORTANT] 
    > Você só poderá investigar o incidente se tiver usado os campos de mapeamento de entidade ao configurar sua regra analítica. O grafo de investigação requer que seu incidente original inclua entidades.
 
    ![Ver mapa](media/tutorial-investigate-cases/map1.png)
 
-1. Selecione uma entidade para abrir o painel **entidades** para que você possa examinar as informações sobre essa entidade.
+1. Selecione uma entidade para abrir o painel **entidades** para que você possa examinar as informações sobre essa entidade.
 
     ![Exibir entidades no mapa](media/tutorial-investigate-cases/map-entities.png)
   
@@ -95,9 +95,9 @@ Para usar o grafo de investigação:
 
    Por exemplo, em um computador, você pode solicitar alertas relacionados. Se você selecionar uma consulta de exploração, os direitos resultantes serão adicionados de volta ao grafo. Neste exemplo, a seleção de **alertas relacionados** retornou os seguintes alertas para o grafo:
 
-    ![Ver alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
+    ![Exibir alertas relacionados](media/tutorial-investigate-cases/related-alerts.png)
 
-1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos\>** .
+1. Para cada consulta de exploração, você pode selecionar a opção para abrir os resultados do evento bruto e a consulta usada em Log Analytics, selecionando **eventos @ no__t-1**.
 
 1. Para entender o incidente, o grafo fornece uma linha do tempo paralela.
 

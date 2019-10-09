@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/16/2019
-ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 10/03/2019
+ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003663"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035684"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Tutorial: Analisar dados de Apache Spark usando Power BI no HDInsight
 
@@ -27,7 +27,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclua o [tutorial do artigo: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight](./apache-spark-load-data-run-query.md).
+* Conclua o artigo [Tutorial: Carregar dados e executar consultas em um cluster Apache Spark no Azure HDInsight @ no__t-0.
 
 * [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
@@ -35,7 +35,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="verify-the-data"></a>Verificar os dados
 
-O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma `hvac` tabela. Essa tabela se baseia no arquivo CSV disponível em todos os clusters HDInsight Spark em `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`. Utilize o seguinte procedimento para verificar os dados.
+O [Jupyter Notebook](https://jupyter.org/) que você criou no [tutorial anterior](apache-spark-load-data-run-query.md) inclui código para criar uma tabela `hvac`. Essa tabela se baseia no arquivo CSV disponível em todos os clusters HDInsight Spark em `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`. Utilize o seguinte procedimento para verificar os dados.
 
 1. No bloco de notas do Jupyter, cole o seguinte código e prima **SHIFT + ENTER**. O código verifica a existência das tabelas.
 
@@ -92,7 +92,7 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
 
 6. Insira as informações da conta de logon do HDInsight e, em seguida, selecione **conectar**. O nome predefinido da conta é *admin*.
 
-7. Selecione a `hvac` tabela, aguarde para ver uma visualização dos dados e, em seguida, selecione **carregar**.
+7. Selecione a tabela `hvac`, aguarde para ver uma visualização dos dados e, em seguida, selecione **carregar**.
 
     ![Nome de utilizador e palavra-passe do cluster do Spark](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Nome de utilizador e palavra-passe do cluster do Spark")
 
@@ -108,25 +108,25 @@ Os primeiros passos para começar a trabalhar com o Spark são ligar ao cluster 
 
         O diagrama tem o seguinte aspeto:
 
-        ![soma do gráfico de área](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "soma do gráfico de área")
+        (./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "soma do grafo da área") da soma do gráfico de ![área]
 
         Por predefinição, a visualização mostra a soma de **ActualTemp** e **TargetTemp**. Selecione a seta para baixo ao lado de **ActualTemp** e **TragetTemp** no painel visualizações, você pode ver **sum** está selecionado.
 
     3. Selecione as setas para baixo ao lado de **ActualTemp** e **TragetTemp** no painel visualizações, selecione **média** para obter uma média das temperaturas reais e de destino para cada edifício.
 
-        ![média de valores](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "média de valores")
+        ![média de valores]da média(./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "de") valores
 
         A visualização de dados deverá ser semelhante à da captura de ecrã. Mova o cursor sobre a visualização para obter sugestões de contexto com dados relevantes.
 
-        ![gráfico de área](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "gráfico de área")
+        ![](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "gráfico de área") de gráfico de área
 
-9. Navegue até **arquivo** > **salvar**, insira o nome `BuildingTemperature` do arquivo e, em seguida, selecione **salvar**.
+9. Navegue até **arquivo** > **salvar**, insira o nome `BuildingTemperature` para o arquivo e, em seguida, selecione **salvar**.
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Publicar o relatório no serviço Power BI (opcional)
 
-O serviço Power BI permite-lhe partilhar relatórios e dashboards em toda a sua organização. Nesta secção, vai publicar primeiro o conjunto de dados e o relatório. Em seguida, vai afixar o relatório a um dashboard. Normalmente, os dashboards são utilizados para se concentrarem num subconjunto de dados num relatório; tem apenas uma visualização no seu relatório, mas, ainda assim, é útil seguir os passos.
+O serviço Power BI permite-lhe partilhar relatórios e dashboards em toda a sua organização. Nesta secção, vai publicar primeiro o conjunto de dados e o relatório. Em seguida, vai afixar o relatório a um dashboard. Os painéis normalmente são usados para se concentrar em um subconjunto de dados em um relatório. Você tem apenas uma visualização em seu relatório, mas ainda é útil percorrer as etapas.
 
-1. Abra o Power BI Desktop.
+1. Abra o Power BI Desktop.
 
 1. No separador **Home** (Base), clique em **Publish** (Publicar).
 
@@ -174,7 +174,7 @@ O elemento visual é afixado ao dashboard. Pode adicionar outros elementos visua
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsight, os dados são armazenados no Storage do Azure, pelo que pode eliminar um cluster em segurança quando este não está a ser utilizado. Também lhe é cobrado o valor de um cluster do HDInsight mesmo quando não o está a utilizar. Uma vez que os custos do cluster são muito superiores aos custos do armazenamento, faz sentido do ponto de vista económico eliminar os clusters quando não estiverem a ser utilizados.
+Depois de concluir o tutorial, pode pretender eliminar o cluster. Com o HDInsight, seus dados são armazenados no armazenamento do Azure, para que você possa excluir um cluster com segurança quando ele não estiver em uso. Você também é cobrado por um cluster HDInsight, mesmo quando ele não está em uso. Como os encargos para o cluster são muitas vezes mais do que os encargos de armazenamento, ele faz sentido econômico excluir clusters quando eles não estiverem em uso.
 
 Para excluir um cluster, consulte [excluir um cluster HDInsight usando seu navegador, o PowerShell ou o CLI do Azure](../hdinsight-delete-cluster.md).
 

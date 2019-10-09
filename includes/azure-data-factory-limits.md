@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68362599"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035888"
 ---
 Azure Data Factory é um serviço multilocatário que tem os seguintes limites padrão em vigor para garantir que as assinaturas de cliente sejam protegidas das cargas de trabalho das outras. Para aumentar os limites até o máximo de sua assinatura, entre em contato com o suporte.
 
@@ -27,7 +27,7 @@ Azure Data Factory é um serviço multilocatário que tem os seguintes limites p
 | Execuções de pipeline simultâneas por data factory que são compartilhadas entre todos os pipelines na fábrica | 10,000  | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Execuções de atividade externa simultânea por assinatura por [região de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>As atividades externas são gerenciadas no Integration Runtime, mas são executadas em serviços vinculados, incluindo databricks, procedimento armazenado, HDInsights e outros.</small> | 3000 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Execuções de atividade de pipeline simultânea por assinatura por [região de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>As atividades de pipeline são executadas no Integration Runtime, incluindo Lookup, GetMetadata e Delete.</small>| 1000 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Operações de criação simultâneas por assinatura por [região de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Incluindo conexão de teste, lista de pastas de pesquisa e lista de tabelas, Visualizar dados. | 200 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Operações de criação simultâneas por assinatura por [região de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br>conexão de teste <small>Including, procurar lista de pastas e lista de tabelas, Visualizar dados. | 200 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Unidades de integração de dados simultâneas<sup>1</sup> consumo por assinatura por [região de Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Grupo de região 1<sup>2</sup>: 6000<br>Grupo de região 2<sup>2</sup>: 3000<br>Grupo de região 3<sup>2</sup>: 1500 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Máximo de atividades por pipeline, que inclui atividades internas para contêineres | 40 | 40 |
 | Número máximo de tempos de execução de integração vinculados que podem ser criados em um único Integration Runtime de hospedagem interna | 100 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -44,6 +44,10 @@ Azure Data Factory é um serviço multilocatário que tem os seguintes limites p
 | Ler chamadas à API | 12500/h<br/><br/> Esse limite é imposto por Azure Resource Manager, não Azure Data Factory. | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Consultas de monitoramento por minuto | 1,000 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Operações CRUD de entidade por minuto | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Tempo máximo de sessão de depuração do fluxo de dados | 8 horas | 8 horas |
+| Número simultâneo de fluxos de dados por fábrica | 50 | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Número simultâneo de sessões de depuração de fluxo de dados por usuário por fábrica | 3 | 3 |
+| Limite de tempo de vida de Azure IR do fluxo de dados | 4 horas | [Contate o suporte](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> a DIU (unidade de integração de dados) é usada em uma operação de cópia de nuvem para nuvem, saiba mais em [unidades de integração de dados (versão 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Para obter informações sobre cobrança, consulte [preços de Azure data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
@@ -80,8 +84,8 @@ Azure Data Factory é um serviço multilocatário que tem os seguintes limites p
 | **Recurso** | **Limite inferior padrão** | **Limite mínimo** |
 | --- | --- | --- |
 | Intervalo de agendamento |15 minutos |15 minutos |
-| Intervalo entre tentativas de repetição |Um segundo |Um segundo |
-| Valor de tempo limite de repetição |Um segundo |Um segundo |
+| Intervalo entre tentativas de repetição |1 segundo |1 segundo |
+| Valor de tempo limite de repetição |1 segundo |1 segundo |
 
 #### <a name="web-service-call-limits"></a>Limites de chamada de serviço Web
 Azure Resource Manager tem limites para chamadas de API. Você pode fazer chamadas à API a uma taxa dentro dos [limites da api Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076331"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029723"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Início rápido: Adicionar sinalizadores de recurso a um aplicativo ASP.NET Core
 
@@ -36,7 +36,7 @@ As bibliotecas de gerenciamento de recursos do .NET Core estendem a estrutura co
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Selecione **Gerenciador** > de recursos **+ Adicionar** para adicionar os seguintes sinalizadores de recurso:
+6. Selecione **Gerenciador de recursos** >  **+ Adicionar** para adicionar os seguintes sinalizadores de recurso:
 
     | Chave | State |
     |---|---|
@@ -51,7 +51,7 @@ Você usa a [CLI (interface de linha de comando) do .NET Core](https://docs.micr
 1. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicativo Web ASP.NET Core MVC:
 
    ```    
-   dotnet new mvc
+   dotnet new mvc --no-https
    ```
 
 ## <a name="add-secret-manager"></a>Adicionar Gerenciador de segredo
@@ -59,7 +59,7 @@ Você usa a [CLI (interface de linha de comando) do .NET Core](https://docs.micr
 Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet/core/security/app-secrets) ao seu projeto. A ferramenta Gerenciador de segredo armazena dados confidenciais para trabalho de desenvolvimento fora de sua árvore de projeto. Esta abordagem ajuda a evitar a partilha acidental de segredos de aplicações no código fonte.
 
 1. Abra o arquivo *. csproj* .
-1. Adicione um `UserSecretsId` elemento, conforme mostrado no exemplo a seguir, e substitua seu valor por seu próprio, que normalmente é um GUID:
+1. Adicione um elemento `UserSecretsId`, conforme mostrado no exemplo a seguir, e substitua seu valor por seu próprio, que normalmente é um GUID:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -81,7 +81,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 ## <a name="connect-to-an-app-configuration-store"></a>Conectar-se a um repositório de configuração de aplicativo
 
-1. Adicione referência ao `Microsoft.Azure.AppConfiguration.AspNetCore` e aos `Microsoft.FeatureManagement.AspNetCore` pacotes NuGet executando os seguintes comandos:
+1. Adicione referência aos pacotes NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` e `Microsoft.FeatureManagement.AspNetCore` executando os seguintes comandos:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
@@ -96,7 +96,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
 
 1. Adicione um segredo denominado **ConnectionStrings: AppConfig** ao Gerenciador de segredo.
 
-    Esse segredo contém a cadeia de conexão para acessar seu repositório de configuração de aplicativo. Substitua o `<your_connection_string>` valor no comando a seguir pela cadeia de conexão para o repositório de configuração do aplicativo.
+    Esse segredo contém a cadeia de conexão para acessar seu repositório de configuração de aplicativo. Substitua o valor `<your_connection_string>` no comando a seguir pela cadeia de conexão para o repositório de configuração do aplicativo.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
@@ -104,7 +104,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
-    Você usa o Gerenciador de segredo somente para testar o aplicativo Web localmente. Ao implantar o aplicativo no [serviço Azure app](https://azure.microsoft.com/services/app-service), por exemplo, você usa uma configuração de aplicativo denominada cadeias de **conexão** no serviço de aplicativo em vez de usar o Gerenciador de segredo para armazenar a cadeia de conexão.
+    Você usa o Gerenciador de segredo somente para testar o aplicativo Web localmente. Ao implantar o aplicativo no [serviço Azure app](https://azure.microsoft.com/services/app-service), por exemplo, você usa uma configuração de aplicativo denominada **cadeias de conexão** no serviço de aplicativo em vez de usar o Gerenciador de segredo para armazenar a cadeia de conexão.
 
     Você pode acessar esse segredo com a API de configuração do aplicativo. Dois-pontos (:) funciona no nome da configuração com a API de configuração de aplicativo em todas as plataformas com suporte. Consulte [configuração por ambiente](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
 
@@ -114,7 +114,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Atualize o `CreateWebHostBuilder` método para usar a configuração do aplicativo chamando `config.AddAzureAppConfiguration()` o método.
+1. Atualize o método `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -136,7 +136,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     using Microsoft.FeatureManagement;
     ```
 
-1. Atualize o `ConfigureServices` método para adicionar suporte ao sinalizador de recurso chamando `services.AddFeatureManagement()` o método. Opcionalmente, você pode incluir qualquer filtro a ser usado com sinalizadores de recurso chamando `services.AddFeatureFilter<FilterType>()`:
+1. Atualize o método `ConfigureServices` para adicionar suporte ao sinalizador de recurso chamando o método `services.AddFeatureManagement()`. Opcionalmente, você pode incluir qualquer filtro a ser usado com sinalizadores de recurso chamando `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -145,7 +145,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     }
     ```
 
-1. Atualize o `Configure` método para adicionar um middleware para permitir que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
+1. Atualize o método `Configure` para adicionar um middleware para permitir que os valores de sinalizador de recurso sejam atualizados em um intervalo recorrente enquanto o aplicativo Web ASP.NET Core continua a receber solicitações.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -200,7 +200,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Abra *_ layout. cshtml* no `<nav>` \\ `<body>` diretóriocompartilhadoviewsesubstituaocódigodebarraspor`<header>` pelo seguinte código:  > 
+1. Abra *_ layout. cshtml* no diretório*compartilhado* *views*\\ e substitua o código de barra `<nav>` em `<body>` @ no__t-6 @ no__t-7 pelo seguinte código:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -267,7 +267,7 @@ Adicione a [ferramenta Gerenciador de segredo](https://docs.microsoft.com/aspnet
     |---|---|
     | Beta | Ativado |
 
-1. Reinicie seu aplicativo alternando de volta para o prompt de `Ctrl-C` comando e pressionando para `dotnet` cancelar o processo em execução e `dotnet run`, em seguida, execute novamente.
+1. Reinicie o aplicativo alternando de volta para o prompt de comando e pressionando `Ctrl-C` para cancelar o processo de `dotnet` em execução e, em seguida, executar novamente `dotnet run`.
 
 1. Atualize a página do navegador para ver as novas definições de configuração.
 

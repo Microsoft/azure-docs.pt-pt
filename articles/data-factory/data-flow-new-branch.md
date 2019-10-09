@@ -1,32 +1,32 @@
 ---
-title: Nova transformação do ramo de fluxo de dados de mapeamento de fábrica de dados do Azure
-description: Nova transformação do ramo de fluxo de dados de mapeamento de fábrica de dados do Azure
+title: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
+description: Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 9fac78f21f2f128ccb040e176891c33d39bf2820
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f443396627a4bbaba2a3eeb0a3ac05cc1597c85
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349156"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029284"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Nova transformação do ramo de fluxo de dados de mapeamento de fábrica de dados do Azure
+# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformação de Azure Data Factory mapeamento de fluxo de dados novo Branch
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Opções de ramificar](media/data-flow/menu.png "menu")
 
-Ramificação tirar o fluxo de dados atual do fluxo de dados e replicá-la em outro fluxo. Novo ramo de uso para executar vários conjuntos de operações e transformações no mesmo fluxo de dados.
+(media/data-flow/menu.png "Menu") de ![Opções de ramificação]
 
-Exemplo: O fluxo de dados tem uma transformação de origem com um conjunto de colunas e conversões de tipo de dados selecionado. Em seguida, coloca uma coluna derivada imediatamente a seguir essa origem. Na coluna derivada, criar um novo campo que combina primeiro nome e apelido para fazer um novo campo de "nome completo".
+A ramificação pegará o fluxo de dados atual em seu fluxo de dados e o replicará para outro fluxo. Use a nova ramificação para executar vários conjuntos de operações e transformações no mesmo fluxo de dados.
 
-Pode tratar esse novo fluxo com um conjunto de transformações e um coletor de uma linha e utilizar o novo ramo para criar uma cópia desse fluxo onde pode transformar esses mesmos dados com um conjunto diferente de transformações. Transformando dados copiados numa ramificação separado, pode, em seguida, de sink esses dados para uma localização separada.
+Exemplo: Seu fluxo de dados tem uma transformação de origem com um conjunto selecionado de colunas e conversões de tipo de dados. Em seguida, coloque uma coluna derivada imediatamente após essa origem. Na coluna derivada, você criou um novo campo que combina nome e sobrenome para criar um novo campo "nome completo".
+
+Você pode tratar esse novo fluxo com um conjunto de transformações e um coletor em uma linha e usar a nova ramificação para criar uma cópia desse fluxo, na qual é possível transformar os mesmos dados com um conjunto diferente de transformações. Ao transformar os dados copiados em uma ramificação separada, você pode, posteriormente, coletar esses dados em um local separado.
 
 > [!NOTE]
-> "Novo ramo" apenas será apresentado como uma ação na + menu de transformação quando existe uma transformação subsequente seguindo a localização atual em que está a tentar efetuar a ramificação. ou seja, não verá uma opção de "Novo ramo" no final até adicionar outra transformação depois do Select
+> A "nova ramificação" só será mostrada como uma ação no menu + transformação quando houver uma transformação subsequente após o local atual em que você está tentando ramificar. ou seja, você não verá uma opção "nova ramificação" no final aqui até adicionar outra transformação após a seleção
 
-![Ramo](media/data-flow/branch2.png "ramo 2")
+![](media/data-flow/branch2.png "Ramificação") do Branch 2

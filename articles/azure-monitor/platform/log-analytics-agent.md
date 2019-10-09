@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 66f3a9ae1f29d863170dcb4bc43e38b648602eed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 1eec8b79579a1c4d5c889b830706299ccc25e88b
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695032"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035648"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Coletar dados de log com o agente de Log Analytics
 
@@ -53,7 +53,7 @@ O agente para Linux e Windows não é apenas para se conectar ao Azure Monitor, 
 As seguintes versões do sistema operativo Windows são suportadas oficialmente para o agente do Windows:
 
 * Windows Server de 2019
-* Windows Server 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
+* Windows Server 2008 SP2 (x64), 2008 R2, 2012, 2012 R2, 2016, versão 1709 e 1803
 * Windows 7 SP1, Windows 8 Enterprise e pro e Windows 10 Enterprise e pro
 
 >[!NOTE]
@@ -95,7 +95,7 @@ A tabela a seguir realça os pacotes necessários para distribuições do Linux 
 |-----------------|------------|----------------|
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |OpenSSL    | Bibliotecas OpenSSL | 1,0. x ou 1.1. x |
-|curl | enrolando o cliente Web | 7.15.5 |
+|Curl | enrolando o cliente Web | 7.15.5 |
 |Python-ctypes | | 
 |PAM | Módulos de autenticação conectáveis | | 
 

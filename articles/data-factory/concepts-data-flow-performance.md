@@ -1,161 +1,130 @@
 ---
 title: Mapeando o guia de desempenho e ajuste do fluxo de dados no Azure Data Factory | Microsoft Docs
-description: Saiba mais sobre os principais fatores que afetam o desempenho dos fluxos de dados no Azure Data Factory quando você usa o mapeamento de fluxos de dados.
+description: Saiba mais sobre os principais fatores que afetam o desempenho do mapeamento de fluxos de dados em Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 09/22/2019
-ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/07/2019
+ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180851"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030684"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+O mapeamento de fluxos de dados no Azure Data Factory fornece uma interface sem código para projetar, implantar e orquestrar transformações de dados em escala. Se você não estiver familiarizado com o mapeamento de fluxos de dados, consulte a [visão geral do fluxo de dados de mapeamento](concepts-data-flow-overview.md).
 
-Os fluxos de dados de mapeamento de Azure Data Factory fornecem uma interface de navegador sem código para projetar, implantar e orquestrar transformações de dados em escala.
+Ao projetar e testar fluxos de dados do UX do ADF, certifique-se de alternar no modo de depuração para executar seus fluxos de dados em tempo real sem esperar que um cluster fique quente. Para obter mais informações, consulte [modo de depuração](concepts-data-flow-debug-mode.md).
 
-> [!NOTE]
-> Se você não estiver familiarizado com os fluxos de dados de mapeamento do ADF em geral, consulte [visão geral de fluxos de dados](concepts-data-flow-overview.md) antes de ler este artigo.
->
+## <a name="monitoring-data-flow-performance"></a>Monitorando o desempenho do fluxo de dados
 
-> [!NOTE]
-> Quando você estiver projetando e testando fluxos de dados da interface do usuário do ADF, certifique-se de ativar a opção de depuração para que você possa executar os fluxos de dados em tempo real sem esperar que um cluster fique quente.
->
+Ao criar fluxos de dados de mapeamento, você pode testar cada transformação clicando na guia Visualização de dados no painel de configuração. Depois de verificar sua lógica, teste seu fluxo de dados de ponta a ponta como uma atividade em um pipeline. Adicione uma atividade executar fluxo de dados e use o botão depurar para testar o desempenho do fluxo de dados. Para abrir o plano de execução e o perfil de desempenho do fluxo de dados, clique no ícone de óculos em ' ações ' na guia saída do pipeline.
 
-![Botão de depuração](media/data-flow/debugb1.png "Depurar")
+Monitor de fluxo de dados do ![Monitor de fluxo de dados](media/data-flow/mon002.png "2")
 
-## <a name="monitor-data-flow-performance"></a>Monitorar o desempenho do fluxo de dados
+ Você pode usar essas informações para estimar o desempenho do fluxo de dados em fontes de dados de tamanhos diferentes. Para obter mais informações, consulte [monitoramento de fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
 
-Ao criar seus fluxos de dados de mapeamento no navegador, você pode testar cada transformação individual clicando na guia Visualização de dados no painel configurações inferior para cada transformação. A próxima etapa que você deve seguir é testar seu fluxo de dados de ponta a ponta no designer de pipeline. Adicione uma atividade executar fluxo de dados e use o botão depurar para testar o desempenho do fluxo de dados. No painel inferior da janela pipeline, você verá um ícone de eyeglass em "ações":
+Monitor de fluxo de dados de ![monitoramento de fluxo de dados](media/data-flow/mon003.png "3")
 
-![Monitor de fluxo de dados](media/data-flow/mon002.png "Monitor de fluxo de dados 2")
+ Para execuções de depuração de pipeline, cerca de um minuto de tempo de configuração de cluster em seus cálculos de desempenho geral são necessários para um cluster quente. Se você estiver inicializando o Azure Integration Runtime padrão, o tempo de rotação poderá levar cerca de 5 minutos.
 
-Clicar nesse ícone exibirá o plano de execução e o perfil de desempenho subsequente do seu fluxo de dados. Você pode usar essas informações para estimar o desempenho do fluxo de dados em diferentes fontes de dados de tamanho. Observe que você pode supor um minuto de tempo de configuração de execução de trabalho de cluster nos cálculos de desempenho gerais e, se estiver usando o Azure Integration Runtime padrão, talvez seja necessário adicionar 5 minutos de tempo de rotação de cluster também.
+## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Aumentando o tamanho da computação no Azure Integration Runtime
 
-![Monitoramento de fluxo de dados](media/data-flow/mon003.png "Monitor de fluxo de dados 3")
+Um Integration Runtime com mais núcleos aumenta o número de nós nos ambientes de computação do Spark e fornece mais capacidade de processamento para ler, gravar e transformar seus dados.
+* Experimente um cluster **otimizado para computação** se você quiser que sua taxa de processamento seja maior do que a sua taxa de entrada
+* Experimente um cluster com **otimização de memória** se você quiser armazenar em cache mais dados na memória.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Otimizando para o banco de dados SQL do Azure e o Azure SQL Data Warehouse
+![Novo](media/data-flow/ir-new.png "ir novo") ir
 
-![Parte de origem](media/data-flow/sourcepart3.png "Parte de origem")
-
-### <a name="partition-your-source-data"></a>Particionar os dados de origem
-
-* Vá para "otimizar" e selecione "origem". Defina uma coluna de tabela específica ou um tipo em uma consulta.
-* Se você escolher "coluna", selecione a coluna partição.
-* Além disso, defina o número máximo de conexões com seu banco de BD SQL do Azure. Você pode tentar uma configuração mais alta para obter conexões paralelas com seu banco de dados. No entanto, alguns casos podem resultar em um desempenho mais rápido com um número limitado de conexões.
-* As tabelas do banco de dados de origem não precisam ser particionadas.
-* Definir uma consulta em sua transformação de origem que corresponda ao esquema de particionamento de sua tabela de banco de dados permitirá que o mecanismo de banco de dados de origem Aproveite a eliminação de partição.
-* Se sua fonte ainda não estiver particionada, o ADF ainda usará o particionamento de dados no ambiente de transformação do Spark com base na chave que você selecionar na transformação origem.
-
-### <a name="set-batch-size-and-query-on-source"></a>Definir o tamanho do lote e a consulta na origem
-
-![Origem](media/data-flow/source4.png "Origem") do
-
-* Definir o tamanho do lote instruirá o ADF a armazenar dados em conjuntos na memória, em vez de linha por linha. É uma configuração opcional e você pode ficar sem recursos nos nós de computação se eles não forem dimensionados corretamente.
-* A definição de uma consulta pode permitir que você filtre linhas diretamente na origem antes que elas cheguem ao fluxo de dados para processamento, o que pode tornar a aquisição de dados inicial mais rápida.
-* Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu BD SQL do Azure, ou seja, ler não confirmada
-
-### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>Definir o nível de isolamento nas configurações de transformação de origem para conjuntos de SQL
-
-* A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
-
-![Nível de isolamento](media/data-flow/isolationlevel.png "Nível de isolamento")
-
-### <a name="set-sink-batch-size"></a>Definir tamanho do lote do coletor
-
-![Coletor](media/data-flow/sink4.png "Coletor")
-
-* Para evitar o processamento de linha por linha de seus fluxos de dados, defina o "tamanho do lote" nas configurações do coletor para o BD SQL do Azure. Isso fará com que o ADF processe gravações de banco de dados em lotes com base no tamanho fornecido.
-
-### <a name="set-partitioning-options-on-your-sink"></a>Definir opções de particionamento em seu coletor
-
-* Mesmo que você não tenha seus dados particionados em suas tabelas de destino do BD SQL do Azure, vá para a guia otimizar e defina particionamento.
-* Com muita frequência, simplesmente dizer ao ADF para usar o particionamento Round Robin nos clusters de execução do Spark resulta em um carregamento de dados muito mais rápido, em vez de forçar todas as conexões de um único nó/partição.
-
-### <a name="increase-size-of-your-compute-engine-in-azure-integration-runtime"></a>Aumentar o tamanho do seu mecanismo de computação no Azure Integration Runtime
-
-![Novo ir](media/data-flow/ir-new.png "Novo ir")
-
-* Aumente o número de núcleos, o que aumentará o número de nós e fornecerá mais poder de processamento para consultar e gravar em seu BD SQL do Azure.
-* Experimente as opções "computação otimizada" e "memória otimizada" para aplicar mais recursos aos nós de computação.
-
-### <a name="unit-test-and-performance-test-with-debug"></a>Teste de unidade e teste de desempenho com depuração
-
-* Quando os dados de teste de unidade fluem, defina o botão "depuração de fluxo de dados" como ativado.
-* Dentro do designer de fluxo de dados, use a guia Visualização de dados em transformações para exibir os resultados da lógica de transformação.
-* Teste de unidade seus dados fluem do designer de pipeline, colocando uma atividade de fluxo de dados na tela de design do pipeline e usando o botão "depurar" para testar.
-* O teste no modo de depuração funcionará em um ambiente de cluster dinâmico quente sem a necessidade de aguardar uma rotação de cluster just-in-time.
-* Durante a depuração da visualização de dados dentro da experiência do designer de fluxo de dados, você pode limitar a quantidade de dados que testa para cada fonte definindo o limite de linha no link configurações de depuração na interface do usuário do designer de fluxo de dados. Observe que você deve ativar o modo de depuração primeiro.
-
-![Configurações de depuração](media/data-flow/debug-settings.png "Configurações de depuração")
-
-* Ao testar os fluxos de dados de uma execução de depuração de pipeline, você pode limitar o número de linhas usadas para teste definindo o tamanho de amostragem em cada uma de suas fontes. Certifique-se de desabilitar a amostragem ao agendar seus pipelines em um agendamento operacional regular.
-
-![Amostragem de linha](media/data-flow/source1.png "Amostragem de linha")
-
-### <a name="disable-indexes-on-write"></a>Desabilitar índices na gravação
-* Use uma atividade de procedimento armazenado do pipeline do ADF antes de sua atividade de fluxo de dados que desabilita os índices nas tabelas de destino que estão sendo gravadas do seu coletor.
-* Após sua atividade de fluxo de dados, adicione outra atividade proc armazenada que habilitou esses índices.
-
-### <a name="increase-the-size-of-your-azure-sql-db"></a>Aumentar o tamanho do seu banco de BD SQL do Azure
-* Agende um redimensionamento da origem e do coletor do banco de BD SQL do Azure antes de executar seu pipeline para aumentar a taxa de transferência e minimizar a limitação do Azure depois de atingir os limites de DTU.
-* Depois que a execução do pipeline for concluída, você poderá redimensionar os bancos de dados de volta à sua taxa de execução normal.
-
-## <a name="optimizing-for-azure-sql-data-warehouse"></a>Otimizando para o Azure SQL Data Warehouse
-
-### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Usar preparo para carregar dados em massa por meio do polybase
-
-* Para evitar o processamento de linha por linha de seus fluxos de dados, defina a opção "preparo" nas configurações do coletor para que o ADF possa aproveitar o polybase para evitar inserções de linha por linha no DW. Isso instruirá o ADF a usar o polybase para que os dados possam ser carregados em massa.
-* Ao executar a atividade de fluxo de dados de um pipeline, com o preparo ativado, você precisará selecionar o local do repositório de blob dos dados de preparo para o carregamento em massa.
-
-### <a name="increase-the-size-of-your-azure-sql-dw"></a>Aumentar o tamanho do SQL DW do Azure
-
-* Agende um redimensionamento da origem e do coletor do Azure SQL DW antes de executar o pipeline para aumentar a taxa de transferência e minimizar a limitação do Azure depois de atingir os limites de DWU.
-
-* Depois que a execução do pipeline for concluída, você poderá redimensionar os bancos de dados de volta à sua taxa de execução normal.
-
-## <a name="optimize-for-files"></a>Otimizar para arquivos
-
-* Você pode controlar quantas partições serão usadas pelo ADF. Em cada fonte & transformação do coletor, bem como cada transformação individual, você pode definir um esquema de particionamento. Para arquivos menores, você pode achar que a seleção de "partição única" às vezes pode funcionar melhor e mais rápido do que pedir ao Spark para particionar seus arquivos pequenos.
-* Se você não tiver informações suficientes sobre seus dados de origem, poderá escolher particionamento "Round Robin" e definir o número de partições.
-* Se você explorar seus dados e achar que tem colunas que podem ser boas chaves de hash, use a opção de particionamento hash.
-* Ao depurar em visualização de dados e depuração de pipeline, observe que os tamanhos de limite e amostragem para conjuntos de dados de origem baseados em arquivo se aplicam apenas ao número de linhas retornadas, e não ao número de linhas lidas. Isso é importante para observar porque ele pode afetar o desempenho de suas execuções de depuração e possivelmente fazer com que o fluxo falhe.
-* Lembre-se de que os clusters de depuração são pequenos clusters de nó único por padrão, portanto, use arquivos pequenos temporários para depuração. Vá para configurações de depuração e aponte para um pequeno subconjunto de dados usando um arquivo temporário.
-
-![Configurações de depuração](media/data-flow/debugsettings3.png "Configurações de depuração")
-
-### <a name="file-naming-options"></a>Opções de nomenclatura de arquivo
-
-* A natureza padrão da gravação de dados transformados em fluxos de dados de mapeamento do ADF é gravar em um DataSet que tenha um serviço vinculado de BLOB ou ADLS. Você deve definir esse conjunto de um para apontar para uma pasta ou contêiner, não um arquivo nomeado.
-* Os fluxos de dados usam Azure Databricks Spark para execução, o que significa que a saída será dividida em vários arquivos com base no particionamento padrão do Spark ou no esquema de particionamento que você escolheu explicitamente.
-* Uma operação muito comum nos fluxos de dados do ADF é escolher "saída para um único arquivo" para que todos os arquivos da parte de saída sejam mesclados em um único arquivo de saída.
-* No entanto, essa operação requer que a saída seja reduzida para uma única partição em um único nó de cluster.
-* Tenha isso em mente ao escolher essa opção popular. Você poderá ficar sem recursos de nó de cluster se estiver combinando muitos arquivos de origem grandes em uma única partição de arquivo de saída.
-* Para evitar o esgotamento dos recursos do nó de computação, você pode manter o esquema de particionamento padrão ou explícito no ADF, o que otimiza o desempenho e, em seguida, adicionar uma atividade de cópia subsequente no pipeline que mescla todos os arquivos da parte da pasta de saída para um novo Grupo. Essencialmente, essa técnica separa a ação de transformação da mesclagem de arquivos e Obtém o mesmo resultado que a definição de "saída para arquivo único".
-
-### <a name="looping-through-file-lists"></a>Loop por meio de listas de arquivos
-
-Na maioria dos casos, os fluxos de dados no ADF serão executados melhor de um pipeline que permite que a transformação de origem do fluxo de dados Itere em vários arquivos. Em outras palavras, é preferível usar curingas ou listas de arquivos dentro de sua origem no fluxo de dados do que iterar em uma grande lista de arquivos usando ForEach no pipeline, chamando um fluxo de dados de execução em cada iteração. O processo de fluxo de dados será executado mais rapidamente, permitindo que o loop ocorra dentro do fluxo de dados.
-
-Por exemplo, se eu tiver uma lista de arquivos de dados de julho de 2019 que desejo processar em uma pasta no armazenamento de BLOBs, seria mais eficaz chamar uma atividade executar fluxo de dados uma vez a partir de seu pipeline e usar um curinga em sua fonte como esta :
-
-```DateFiles/*_201907*.txt```
-
-Isso terá um desempenho melhor do que uma pesquisa no repositório de BLOB em um pipeline que, em seguida, itera em todos os arquivos correspondentes usando um ForEach com uma atividade executar fluxo de dados dentro do.
+Para obter mais informações sobre como criar um Integration Runtime, consulte [Integration Runtime em Azure data Factory](concepts-integration-runtime.md).
 
 ### <a name="increase-the-size-of-your-debug-cluster"></a>Aumentar o tamanho do cluster de depuração
 
-Por padrão, a ativação da depuração usará o tempo de execução de integração do Azure padrão criado automaticamente para cada data factory. Essa Azure IR padrão é definida para 8 núcleos, 4 para um nó de driver e 4 para um nó de trabalho, usando propriedades de computação gerais. Ao testar com dados maiores, você pode aumentar o tamanho do cluster de depuração criando um novo Azure IR com configurações maiores e escolher essa nova Azure IR quando você alternar para depuração. Isso instruirá o ADF a usar essa Azure IR para visualização de dados e depuração de pipeline com fluxos de dados.
+Por padrão, a ativação da depuração usará o tempo de execução de integração do Azure padrão criado automaticamente para cada data factory. Essa Azure IR padrão é definida para oito núcleos, quatro para um nó de driver e quatro para um nó de trabalho, usando propriedades de computação gerais. Ao testar com dados maiores, você pode aumentar o tamanho do cluster de depuração criando um Azure IR com configurações maiores e escolher essa nova Azure IR quando você alternar para depuração. Isso instruirá o ADF a usar essa Azure IR para visualização de dados e depuração de pipeline com fluxos de dados.
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Otimizando para o banco de dados SQL do Azure e o Azure SQL Data Warehouse
+
+### <a name="partitioning-on-source"></a>Particionamento na origem
+
+1. Vá para a guia **otimizar** e selecione **definir particionamento**
+1. Selecione **origem**.
+1. Em **número de partições**, defina o número máximo de conexões com o banco de BD SQL do Azure. Você pode tentar uma configuração mais alta para obter conexões paralelas com seu banco de dados. No entanto, alguns casos podem resultar em um desempenho mais rápido com um número limitado de conexões.
+1. Selecione se deseja particionar por uma coluna de tabela ou consulta específica.
+1. Se você selecionou **coluna**, escolha a coluna partição.
+1. Se você selecionou **consulta**, insira uma consulta que corresponda ao esquema de particionamento de sua tabela de banco de dados. Essa consulta permite que o mecanismo de banco de dados de origem Aproveite a eliminação de partição. As tabelas do banco de dados de origem não precisam ser particionadas. Se sua fonte já não estiver particionada, o ADF ainda usará o particionamento de dados no ambiente de transformação do Spark com base na chave que você selecionar na transformação origem.
+
+![](media/data-flow/sourcepart3.png "Parte de origem") da parte de origem
+
+### <a name="source-batch-size-input-and-isolation-level"></a>Tamanho do lote de origem, entrada e nível de isolamento
+
+Em **Opções de origem** na transformação origem, as configurações a seguir podem afetar o desempenho:
+
+* O tamanho do lote instrui o ADF a armazenar dados em conjuntos na memória, em vez de linha por linha. O tamanho do lote é uma configuração opcional e você pode ficar sem recursos nos nós de computação se eles não forem dimensionados corretamente.
+* A definição de uma consulta pode permitir que você filtre linhas na origem antes que elas cheguem ao fluxo de dados para processamento. Isso pode tornar a aquisição de dados inicial mais rápida. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu banco de BD SQL do Azure, como leitura não confirmada.
+* A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
+
+![Origem](media/data-flow/source4.png "Origem") do
+
+### <a name="sink-batch-size"></a>Tamanho do lote do coletor
+
+Para evitar o processamento de linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para o BD SQL do Azure e coletores do Azure SQL DW. Se o tamanho do lote for definido, o ADF processará gravações de banco de dados em lotes com base no tamanho fornecido.
+
+![Coletor](media/data-flow/sink4.png "Coletor")
+
+### <a name="partitioning-on-sink"></a>Particionamento no coletor
+
+Mesmo que você não tenha seus dados particionados em suas tabelas de destino, é recomendável ter seus dados particionados na transformação do coletor. Os dados particionados geralmente resultam em um carregamento muito mais rápido ao forçar todas as conexões a usar um único nó/partição. Vá para a guia otimizar do coletor e selecione particionamento *Round Robin* para selecionar o número ideal de partições a serem gravadas no coletor.
+
+### <a name="disable-indexes-on-write"></a>Desabilitar índices na gravação
+
+Em seu pipeline, adicione uma [atividade de procedimento armazenado](transform-data-using-stored-procedure.md) antes de sua atividade de fluxo de dados que desabilita índices em suas tabelas de destino gravadas de seu coletor. Após a atividade de fluxo de dados, adicione outra atividade de procedimento armazenado que habilite esses índices.
+
+### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Aumentar o tamanho do seu BD SQL do Azure e do DW
+
+Agende um redimensionamento da origem e do coletor do banco de BD SQL do Azure e do DW antes de executar o pipeline para aumentar a taxa de transferência e minimizar a limitação do Azure depois de atingir os limites de DTU. Depois que a execução do pipeline for concluída, redimensione os bancos de dados de volta à sua taxa de execução normal.
+
+### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Somente SQL DW do Azure] Usar preparo para carregar dados em massa por meio do polybase
+
+Para evitar inserções de linha por linha em seu DW, marque **habilitar o preparo** nas configurações do coletor para que o ADF possa usar o [polybase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). O polybase permite que o ADF carregue os dados em massa.
+* Ao executar a atividade de fluxo de dados de um pipeline, você precisará selecionar um BLOB ou ADLS Gen2 local de armazenamento para preparar seus dados durante o carregamento em massa.
+
+## <a name="optimizing-for-files"></a>Otimizando para arquivos
+
+Em cada transformação, você pode definir o esquema de particionamento que deseja que data factory use na guia otimizar.
+* Para arquivos menores, você pode achar que selecionar *uma única partição* pode, às vezes, funcionar melhor e mais rápido do que pedir ao Spark para particionar seus arquivos pequenos.
+* Se você não tiver informações suficientes sobre seus dados de origem, escolha particionamento *Round Robin* e defina o número de partições.
+* Se seus dados tiverem colunas que podem ser boas chaves de hash, escolha *particionamento de hash*.
+
+Durante a depuração na visualização de dados e na depuração de pipeline, os tamanhos de limite e amostragem para DataSets de origem baseados em arquivo se aplicam apenas ao número de linhas retornadas, e não ao número de linhas lidas. Isso pode afetar o desempenho de suas execuções de depuração e possivelmente causar falha no fluxo.
+* Os clusters de depuração são pequenos clusters de nó único por padrão e recomendamos o uso de arquivos pequenos de exemplo para depuração. Vá para configurações de depuração e aponte para um pequeno subconjunto de dados usando um arquivo temporário.
+
+    Configurações ![da depuração configurações]de(media/data-flow/debugsettings3.png "depuração")
+
+### <a name="file-naming-options"></a>Opções de nomenclatura de arquivo
+
+A maneira mais comum de gravar dados transformados no mapeamento de fluxos de dados gravando BLOB ou repositório de arquivos ADLS. Em seu coletor, você deve selecionar um conjunto de um que aponte para um contêiner ou pasta, não um arquivo nomeado. Como o fluxo de dados de mapeamento usa o Spark para execução, sua saída é dividida em vários arquivos com base em seu esquema de particionamento.
+
+Um esquema de particionamento comum é escolher a _saída para um único arquivo_, que mescla todos os arquivos da parte de saída em um único arquivo em seu coletor. Essa operação requer que a saída seja reduzida para uma única partição em um único nó de cluster. Você poderá ficar sem recursos de nó de cluster se estiver combinando muitos arquivos de origem grandes em um único arquivo de saída.
+
+Para evitar esgotar os recursos do nó de computação, mantenha o esquema padrão otimizado no fluxo de dados e adicione uma atividade de cópia em seu pipeline que mescla todos os arquivos da parte da pasta de saída para um novo arquivo único. Essa técnica separa a ação de transformação da mesclagem de arquivos e Obtém o mesmo resultado que a configuração _de saída para um único arquivo_.
+
+### <a name="looping-through-file-lists"></a>Loop por meio de listas de arquivos
+
+Um fluxo de dados de mapeamento será executado melhor quando a transformação de origem iterar em vários arquivos em vez de executar um loop por meio de cada atividade. É recomendável usar caracteres curinga ou listas de arquivos em sua transformação de origem. O processo de fluxo de dados será executado mais rapidamente, permitindo que o loop ocorra dentro do cluster do Spark. Para obter mais informações, consulte [curinga na transformação origem](data-flow-source.md#file-based-source-options).
+
+Por exemplo, se você tiver uma lista de arquivos de dados de julho de 2019 que deseja processar em uma pasta no armazenamento de BLOBs, abaixo está um caractere curinga que você pode usar em sua transformação de origem.
+
+```DateFiles/*_201907*.txt```
+
+Usando o curinga, seu pipeline conterá apenas uma atividade de fluxo de dados. Isso terá um desempenho melhor do que uma pesquisa no repositório de BLOB que, em seguida, itera em todos os arquivos correspondentes usando um ForEach com uma atividade executar fluxo de dados dentro do.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte os outros artigos de fluxo de dados relacionados ao desempenho:
+Consulte outros artigos de fluxo de dados relacionados ao desempenho:
 
-- [Guia otimizar fluxo de dados](concepts-data-flow-optimize-tab.md)
+- [Guia otimizar fluxo de dados](concepts-data-flow-overview.md#optimize)
 - [Atividade de fluxo de dados](control-flow-execute-data-flow-activity.md)
 - [Monitorar o desempenho do fluxo de dados](concepts-data-flow-monitoring.md)

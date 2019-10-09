@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12acf083e83d42ff3e8d6967d747f4bb2d93543
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960189"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025672"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory logon único contínuo: Perguntas mais frequentes
 
@@ -96,7 +96,10 @@ Siga estas etapas no servidor local em que você está executando Azure AD Conne
    1. Chame `$creds = Get-Credential`. Quando solicitado, insira as credenciais de administrador de domínio para a floresta do AD pretendida.
 
    > [!NOTE]
-   > Usamos o nome de usuário do administrador de domínio, fornecido no formato UPN (nomes de entidade de usuário) (johndoe@contoso.com) ou no formato Sam (nome da conta de domínio \ contoso\johndoe ou contoso. com\johndoe) qualificado para encontrar a floresta do AD pretendida. Se você usar o nome de conta Sam qualificado pelo domínio, usaremos a parte de domínio do nome de usuário para [localizar o controlador de domínio do administrador de domínio usando DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Se você usar o UPN, [ele será traduzido para um nome de conta Sam qualificado pelo domínio](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) antes de localizar o controlador de domínio apropriado.
+   >O nome de usuário das credenciais do administrador de domínio deve ser inserido no formato de nome da conta SAM (contoso\johndoe ou contoso. com\johndoe). Usamos a parte de domínio do nome de usuário para localizar o controlador de domínio do administrador de domínio usando DNS.
+
+   >[!NOTE]
+   >A conta de administrador de domínio usada não deve ser um membro do grupo usuários protegidos. Nesse caso, a operação falhará.
 
    2. Chame `Update-AzureADSSOForest -OnPremCredentials $creds`. Esse comando atualiza a chave de descriptografia Kerberos para a conta de computador `AZUREADSSOACC` nesta floresta específica do AD e a atualiza no Azure AD.
    3. Repita as etapas anteriores para cada floresta do AD na qual você configurou o recurso.

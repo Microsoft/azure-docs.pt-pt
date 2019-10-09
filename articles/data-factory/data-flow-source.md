@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 16bc4c2651d5571bce823aa9c69f823d7fede8af
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c3c24e9dc674ac29c8ca4d0d445cc3f572cda71e
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801607"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029225"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>Transformação de origem para mapeamento de fluxo de dados 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Uma transformação de origem configura sua fonte de dados para o fluxo de dados. Ao criar fluxos de dados, sua primeira etapa sempre estará configurando uma transformação de origem. Para adicionar uma origem, clique na caixa **Adicionar origem** na tela fluxo de dados.
 
@@ -39,7 +39,7 @@ Azure Data Factory tem acesso a mais de 80 conectores nativos. Para incluir dado
 
 Depois de adicionar uma fonte, configure por meio da guia **configurações de origem** . Aqui, você pode escolher ou criar o conjunto de os pontos de origem em. Você também pode selecionar opções de esquema e amostragem para seus dados.
 
-![Guia Configurações de origem](media/data-flow/source1.png "Guia Configurações de origem")
+![Guia Configurações]de origem(media/data-flow/source1.png "guia Configurações de origem")
 
 **Descompasso de esquema:** A [descompasso de esquema](concepts-data-flow-schema-drift.md) é a capacidade do data Factory de lidar nativamente com esquemas flexíveis em seus fluxos de dados sem a necessidade de definir explicitamente as alterações na coluna.
 
@@ -62,7 +62,7 @@ Para validar se a fonte está configurada corretamente, ative o modo de depuraç
 
 Se você estiver usando um conjunto de um DataSet baseado em arquivo, como o armazenamento de BLOBs do Azure ou Azure Data Lake Storage, a guia **Opções de origem** permitirá que você gerencie como a origem lê os arquivos.
 
-![Opções de origem](media/data-flow/sourceOPtions1.png "Opções de origem")
+![](media/data-flow/sourceOPtions1.png "Opções de origem") opções de origem
 
 **Caminho curinga:** Usar um padrão curinga instruirá o ADF a executar um loop em cada pasta e arquivo correspondentes em uma única transformação de origem. Essa é uma maneira eficaz de processar vários arquivos dentro de um único fluxo. Adicione vários padrões de correspondência de curingas com o sinal de + que aparece ao passar o mouse sobre o padrão de curinga existente.
 
@@ -70,24 +70,24 @@ Em seu contêiner de origem, escolha uma série de arquivos que correspondem a u
 
 Exemplos de curinga:
 
-* ```*```Representa qualquer conjunto de caracteres
-* ```**```Representa o aninhamento de diretório recursivo
-* ```?```Substitui um caractere
-* ```[]```Corresponde a um ou mais caracteres entre colchetes
+* ```*``` representa qualquer conjunto de caracteres
+* ```**``` representa o aninhamento de diretório recursivo
+* ```?``` substitui um caractere
+* ```[]``` corresponde a um ou mais caracteres entre colchetes
 
-* ```/data/sales/**/*.csv```Obtém todos os arquivos CSV em/data/Sales
-* ```/data/sales/20??/**```Obtém todos os arquivos no século 20
-* ```/data/sales/2004/*/12/[XY]1?.csv```Obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
+* ```/data/sales/**/*.csv``` obtém todos os arquivos CSV em/data/Sales
+* ```/data/sales/20??/**``` obtém todos os arquivos no século 20
+* ```/data/sales/2004/*/12/[XY]1?.csv``` obtém todos os arquivos CSV em 2004 em dezembro, começando com X ou Y prefixados por um número de dois dígitos
 
-**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com ```key=value``` um formato (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
+**Caminho raiz da partição:** Se você tiver pastas particionadas em sua fonte de arquivo com um formato ```key=value``` (por exemplo, Year = 2019), poderá atribuir o nível superior dessa árvore de pastas de partição a um nome de coluna no fluxo de dados do fluxo de dados.
 
 Primeiro, defina um curinga para incluir todos os caminhos que são as pastas particionadas mais os arquivos folha que você deseja ler.
 
-![Configurações do arquivo de origem da partição](media/data-flow/partfile2.png "Configuração do arquivo de partição")
+![Configurações do arquivo de origem da partição](media/data-flow/partfile2.png "configuração do arquivo de partição")
 
 Use a configuração caminho raiz da partição para definir qual é o nível superior da estrutura de pastas. Ao exibir o conteúdo de seus dados por meio de uma visualização de dados, você verá que o ADF adicionará as partições resolvidas encontradas em cada um dos níveis de pasta.
 
-![Caminho raiz da partição](media/data-flow/partfile1.png "Visualização do caminho raiz da partição")
+Versão(media/data-flow/partfile1.png "prévia do caminho raiz da partição") do ![caminho raiz da partição]
 
 **Lista de arquivos:** Este é um conjunto de arquivos. Crie um arquivo de texto que inclua uma lista de arquivos de caminho relativo a serem processados. Aponte para este arquivo de texto.
 
@@ -126,7 +126,7 @@ Todas as configurações de origem podem ser especificadas como expressões usan
 
 Se sua fonte estiver no banco de dados SQL ou SQL Data Warehouse, configurações adicionais específicas do SQL estarão disponíveis na guia **Opções de origem** . 
 
-**Entrada** Selecione se você apontar sua fonte em uma tabela (equivalente de ```Select * from <table-name>```) ou inserir uma consulta SQL personalizada.
+**Entrada** Selecione se você apontar sua fonte em uma tabela (equivalente a ```Select * from <table-name>```) ou inserir uma consulta SQL personalizada.
 
 **Consulta**: Se você selecionar consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de um. Não há suporte para cláusulas **ordenar por** aqui, mas você pode definir uma instrução SELECT FROM completa. Você também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados.
 
@@ -139,13 +139,13 @@ Se sua fonte estiver no banco de dados SQL ou SQL Data Warehouse, configuraçõe
 * Serializável
 * Nenhum (ignorar nível de isolamento)
 
-![Nível de isolamento](media/data-flow/isolationlevel.png "Nível de isolamento")
+![](media/data-flow/isolationlevel.png "Nível de isolamento") do nível de isolamento
 
 ## <a name="projection"></a>Projeção
 
 Como os esquemas em conjuntos de dados, a projeção em uma fonte define as colunas, os tipos e os formatos dos dados de origem. Para a maioria dos tipos de conjunto de conjuntos, como SQL e parquet, a projeção em uma fonte é fixada para refletir o esquema definido em um conjunto de um DataSet. Quando os arquivos de origem não são fortemente tipados (por exemplo, arquivos CSV simples em vez de arquivos parquet), você pode definir os tipos de dados para cada campo na transformação de origem.
 
-![Configurações na guia projeção](media/data-flow/source3.png "Projeção")
+Configurações na(media/data-flow/source3.png "projeção") ![da guia projeção]
 
 Se o arquivo de texto não tiver um esquema definido, selecione **detectar tipo de dados** para que data Factory obterá amostras e inferirá os tipos de dados. Selecione **definir formato padrão** para detectar automaticamente os formatos de dados padrão. 
 
@@ -155,7 +155,7 @@ Você pode modificar os tipos de dados de coluna em uma transformação de colun
 
 Na guia **otimizar** da transformação origem, você poderá ver um tipo de partição de **origem** . Essa opção só está disponível quando sua origem é o banco de dados SQL do Azure. Isso ocorre porque Data Factory tenta fazer conexões paralelas para executar consultas grandes em sua origem do banco de dados SQL.
 
-![Configurações de partição de origem](media/data-flow/sourcepart3.png "particionamento")
+![](media/data-flow/sourcepart3.png "Particionamento") de configurações de partição de origem
 
 Você não precisa Particionar dados em sua origem do banco do dados SQL, mas as partições são úteis para consultas grandes. Você pode basear sua partição em uma coluna ou em uma consulta.
 
@@ -167,8 +167,8 @@ Na tabela de origem, selecione uma coluna na qual particionar. Defina também o 
 
 Você pode optar por particionar as conexões com base em uma consulta. Insira o conteúdo de um predicado WHERE. Por exemplo, digite year > 1980.
 
-Para obter mais informações sobre a otimização no fluxo de dados de mapeamento, consulte a [guia otimizar](concepts-data-flow-optimize-tab.md).
+Para obter mais informações sobre a otimização no fluxo de dados de mapeamento, consulte a [guia otimizar](concepts-data-flow-overview.md#optimize).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a criar uma [transformação de coluna derivada](data-flow-derived-column.md) e uma [transformação selecionar](data-flow-select.md).

@@ -10,18 +10,18 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: d2e15c63ac6d93824aeab3f251c2860b7ea114d6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fbe41bdc5f253f1a605aa291a31191b7339b9850
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086832"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030575"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Gatilho de grade de eventos para Azure Functions
 
 Este artigo explica como lidar com eventos de [grade de eventos](../event-grid/overview.md) no Azure functions.
 
-A grade de eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobreeventos que acontecem em Publicadores. Um Publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de BLOBs do Azure é um Publicador, e [um upload ou uma exclusão de blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [Serviços do Azure têm suporte interno para publicar eventos na grade de eventos](../event-grid/overview.md#event-sources).
+A grade de eventos é um serviço do Azure que envia solicitações HTTP para notificá-lo sobre eventos que acontecem em *Publicadores*. Um Publicador é o serviço ou recurso que origina o evento. Por exemplo, uma conta de armazenamento de BLOBs do Azure é um Publicador, e [um upload ou uma exclusão de blob é um evento](../storage/blobs/storage-blob-event-overview.md). Alguns [Serviços do Azure têm suporte interno para publicar eventos na grade de eventos](../event-grid/overview.md#event-sources).
 
 Os *manipuladores* de eventos recebem e processam eventos. Azure Functions é um dos vários [Serviços do Azure que têm suporte interno para lidar com eventos de grade de eventos](../event-grid/overview.md#event-handlers). Neste artigo, você aprenderá a usar um gatilho de grade de eventos para invocar uma função quando um evento for recebido da grade de eventos.
 
@@ -55,7 +55,7 @@ Para um exemplo de gatilho HTTP, consulte [como usar o gatilho http](#use-an-htt
 
 ### <a name="c-2x"></a>C#(2. x)
 
-O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 2. x que é `EventGridEvent`associada a:
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 2. x que é associada a `EventGridEvent`:
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -81,7 +81,7 @@ Para obter mais informações, consulte pacotes, [atributos](#attributes), [conf
 
 ### <a name="c-version-1x"></a>C#(Versão 1. x)
 
-O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 1. x que é `JObject`associada a:
+O exemplo a seguir mostra uma [ C# função](functions-dotnet-class-library.md) de funções 1. x que é associada a `JObject`:
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -125,7 +125,7 @@ Eis a vinculação de dados a *Function* ficheiro:
 
 #### <a name="c-script-version-2x"></a>C#script (versão 2. x)
 
-Aqui está o código de script C# do Functions 2. x `EventGridEvent`que se associa a:
+Aqui está o código de script C# do Functions 2. x que se associa a `EventGridEvent`:
 
 ```csharp
 #r "Microsoft.Azure.EventGrid"
@@ -142,7 +142,7 @@ Para obter mais informações, consulte pacotes, [atributos](#attributes), [conf
 
 #### <a name="c-script-version-1x"></a>C#script (versão 1. x)
 
-Aqui está o código de script C# 1. x do Functions `JObject`que se associa a:
+Aqui está o código de script C# 1. x do Functions que se associa a `JObject`:
 
 ```cs
 #r "Newtonsoft.Json"
@@ -228,7 +228,7 @@ Esta secção contém os exemplos seguintes:
 * [Gatilho de grade de eventos, parâmetro de cadeia de caracteres](#event-grid-trigger-string-parameter-java)
 * [Gatilho de grade de eventos, parâmetro POJO](#event-grid-trigger-pojo-parameter-java)
 
-Os exemplos a seguir mostram a associação de gatilho em um arquivo *Function. JSON* e [funções Java](functions-reference-java.md) que usam a associação e imprimem um evento, primeiro ```String``` recebendo o evento como e segundo como um POJO.
+Os exemplos a seguir mostram a associação de gatilho em um arquivo *Function. JSON* e [funções Java](functions-reference-java.md) que usam a associação e imprimem um evento, primeiro recebendo o evento como ```String``` e segundo como um POJO.
 
 ```json
 {
@@ -279,7 +279,7 @@ public class EventSchema {
 }
 ```
 
-Na chegada, a carga JSON do evento é desserializada no ```EventSchema``` POJO para uso pela função. Isso permite que a função acesse as propriedades do evento de forma orientada a objeto.
+Na chegada, a carga JSON do evento é desserializada para o ```EventSchema``` POJO para uso pela função. Isso permite que a função acesse as propriedades do evento de forma orientada a objeto.
 
 ```java
   @FunctionName("eventGridMonitor")
@@ -298,13 +298,13 @@ Na chegada, a carga JSON do evento é desserializada no ```EventSchema``` POJO p
   }
 ```
 
-Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use a `EventGridTrigger` anotação em parâmetros cujo valor venha de EventGrid. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega.  Essa anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando `Optional<T>`.
+Na [biblioteca de tempo de execução de funções Java](/java/api/overview/azure/functions/runtime), use a anotação `EventGridTrigger` em parâmetros cujo valor venha de EventGrid. Parâmetros com essas anotações fazem com que a função seja executada quando um evento chega.  Essa anotação pode ser usada com tipos Java nativos, POJOs ou valores anuláveis usando `Optional<T>`.
 
 ## <a name="attributes"></a>Atributos
 
-Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/EventGridTriggerAttribute.cs) .
+Em [ C# bibliotecas de classes](functions-dotnet-class-library.md), use o atributo [EventGridTrigger](https://github.com/Azure/azure-functions-eventgrid-extension/blob/master/src/EventGridExtension/TriggerBinding/EventGridTriggerAttribute.cs) .
 
-Aqui está um `EventGridTrigger` atributo em uma assinatura de método:
+Aqui está um atributo `EventGridTrigger` em uma assinatura de método:
 
 ```csharp
 [FunctionName("EventGridTest")]
@@ -318,7 +318,7 @@ Para obter um exemplo completo, C# consulte exemplo.
 
 ## <a name="configuration"></a>Configuração
 
-A tabela a seguir explica as propriedades de configuração de associação que você definiu no arquivo *Function. JSON* . Não há parâmetros ou propriedades de construtor para definir no `EventGridTrigger` atributo.
+A tabela a seguir explica as propriedades de configuração de associação que você definiu no arquivo *Function. JSON* . Não há parâmetros ou propriedades de construtor para definir no atributo `EventGridTrigger`.
 
 |propriedade de Function |Descrição|
 |---------|---------|
@@ -335,12 +335,12 @@ Para C# funções F# e no Azure Functions 1. x, você pode usar os seguintes tip
 
 Para C# funções F# e no Azure Functions 2. x, você também tem a opção de usar o seguinte tipo de parâmetro para o gatilho de grade de eventos:
 
-* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-Define as propriedades dos campos comuns a todos os tipos de evento.
+* `Microsoft.Azure.EventGrid.Models.EventGridEvent`-define as propriedades para os campos comuns a todos os tipos de evento.
 
 > [!NOTE]
-> No functions v1, se você tentar se `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`associar a, o compilador exibirá uma mensagem "preterida" e aconselha `Microsoft.Azure.EventGrid.Models.EventGridEvent` você a usar em vez disso. Para usar o tipo mais recente, referencie o pacote NuGet [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) e qualifique totalmente `EventGridEvent` o nome do tipo prefixando `Microsoft.Azure.EventGrid.Models`-o com. Para obter informações sobre como fazer referência a pacotes NuGet C# em uma função de script, consulte [usando pacotes NuGet](functions-reference-csharp.md#using-nuget-packages)
+> No functions v1, se você tentar associar a `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`, o compilador exibirá uma mensagem "preterida" e o aconselhará a usar `Microsoft.Azure.EventGrid.Models.EventGridEvent` em vez disso. Para usar o tipo mais recente, referencie o pacote NuGet [Microsoft. Azure. EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) e qualifique totalmente o nome do tipo `EventGridEvent` prefixando-o com `Microsoft.Azure.EventGrid.Models`. Para obter informações sobre como fazer referência a pacotes NuGet C# em uma função de script, consulte [usando pacotes NuGet](functions-reference-csharp.md#using-nuget-packages)
 
-Para funções de JavaScript, o parâmetro nomeado pela propriedade *Function. JSON* `name` tem uma referência ao objeto de evento.
+Para funções de JavaScript, o parâmetro nomeado pela propriedade *Function. json* `name` tem uma referência ao objeto de evento.
 
 ## <a name="event-schema"></a>Esquema de eventos
 
@@ -374,11 +374,11 @@ Os dados de um evento de grade de eventos são recebidos como um objeto JSON no 
 
 O exemplo mostrado é uma matriz de um elemento. A grade de eventos sempre envia uma matriz e pode enviar mais de um evento na matriz. O tempo de execução invoca sua função uma vez para cada elemento da matriz.
 
-As propriedades de nível superior nos dados JSON de evento são as mesmas entre todos os tipos de evento, enquanto o conteúdo `data` da propriedade é específico para cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de BLOBs.
+As propriedades de nível superior nos dados JSON de evento são as mesmas entre todos os tipos de evento, enquanto o conteúdo da propriedade `data` é específico para cada tipo de evento. O exemplo mostrado é para um evento de armazenamento de BLOBs.
 
 Para obter explicações sobre as propriedades comuns e específicas do evento, consulte [Propriedades do evento](../event-grid/event-schema.md#event-properties) na documentação da grade de eventos.
 
-O `EventGridEvent` tipo define apenas as propriedades de nível superior; a `Data` propriedade é um `JObject`.
+O tipo `EventGridEvent` define apenas as propriedades de nível superior; a propriedade `Data` é uma `JObject`.
 
 ## <a name="create-a-subscription"></a>Criar uma subscrição
 
@@ -436,7 +436,7 @@ az eventgrid resource event-subscription create -g myResourceGroup \
 --endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
-Para obter mais informações sobre como criar uma assinatura, consulte [o guia de início rápido do armazenamento](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) de BLOBs ou os outros guias de início rápido da grade de eventos.
+Para obter mais informações sobre como criar uma assinatura, consulte [o guia de início rápido do armazenamento de BLOBs](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) ou os outros guias de início rápido da grade de eventos.
 
 ### <a name="get-the-system-key"></a>Obter a chave do sistema
 
@@ -507,7 +507,7 @@ Vê o site, mas ainda não foram publicados eventos no mesmo.
 
 ### <a name="create-an-event-grid-subscription"></a>Criar uma subscrição do Event Grid
 
-Crie uma assinatura de grade de eventos do tipo que você deseja testar e dê a ela a URL do seu aplicativo Web como o ponto de extremidade para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Portanto, a URL completa é`https://<your-site-name>.azurewebsites.net/api/updates`
+Crie uma assinatura de grade de eventos do tipo que você deseja testar e dê a ela a URL do seu aplicativo Web como o ponto de extremidade para notificação de eventos. O ponto final para a aplicação Web tem de incluir o sufixo `/api/updates/`. Portanto, a URL completa é `https://<your-site-name>.azurewebsites.net/api/updates`
 
 Para obter informações sobre como criar assinaturas usando o portal do Azure, consulte [criar evento personalizado-portal do Azure](../event-grid/custom-event-quickstart-portal.md) na documentação da grade de eventos.
 
@@ -523,10 +523,10 @@ A solicitação de validação de assinatura será recebida primeiro; Ignore tod
 
 Execute a função de grade de eventos localmente.
 
-Use uma ferramenta como [postmaster](https://www.getpostman.com/) ou ondulação [](https://curl.haxx.se/docs/httpscripting.html) para criar uma solicitação HTTP post:
+Use uma ferramenta como [postmaster](https://www.getpostman.com/) ou [ondulação](https://curl.haxx.se/docs/httpscripting.html) para criar uma solicitação HTTP post:
 
-* Definir um `Content-Type: application/json` cabeçalho.
-* Definir um `aeg-event-type: Notification` cabeçalho.
+* Defina um cabeçalho `Content-Type: application/json`.
+* Defina um cabeçalho `aeg-event-type: Notification`.
 * Cole os dados de RequestBin no corpo da solicitação.
 * Poste para a URL da sua função de gatilho de grade de eventos.
   * Para 2. x, use o seguinte padrão:
@@ -541,7 +541,7 @@ Use uma ferramenta como [postmaster](https://www.getpostman.com/) ou ondulação
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
     ```
 
-O `functionName` parâmetro deve ser o nome especificado `FunctionName` no atributo.
+O parâmetro `functionName` deve ser o nome especificado no atributo `FunctionName`.
 
 As capturas de tela a seguir mostram os cabeçalhos e o corpo da solicitação no postmaster:
 
@@ -588,7 +588,7 @@ Connections                   ttl     opn     rt1     rt5     p50     p90
                               0       0       0.00    0.00    0.00    0.00
 ```
 
-Você usará a `https://{subdomain}.ngrok.io` URL para sua assinatura da grade de eventos.
+Você usará a URL `https://{subdomain}.ngrok.io` para sua assinatura da grade de eventos.
 
 ### <a name="run-the-event-grid-trigger-function"></a>Executar a função de gatilho de grade de eventos
 
@@ -610,7 +610,7 @@ Use este padrão de ponto de extremidade para o Functions 1. x:
 https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
 ```
 
-O `{FUNCTION_NAME}` parâmetro deve ser o nome especificado `FunctionName` no atributo.
+O parâmetro `{FUNCTION_NAME}` deve ser o nome especificado no atributo `FunctionName`.
 
 Veja um exemplo usando o CLI do Azure:
 
@@ -707,7 +707,7 @@ module.exports = function (context, req) {
 };
 ```
 
-Seu código de manipulação de eventos entra dentro do loop por `messages` meio da matriz.
+Seu código de manipulação de eventos entra dentro do loop por meio da matriz `messages`.
 
 ### <a name="cloudevents-schema"></a>Esquema CloudEvents
 
@@ -774,7 +774,7 @@ module.exports = function (context, req) {
 };
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre as funções do Azure acionadores e enlaces](functions-triggers-bindings.md)

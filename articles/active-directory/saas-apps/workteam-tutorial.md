@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b3b9e48ed5c02834f1e6575ca79d49ff2e0bd7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0b14c08604fcc0f6d2550127ca1f1aa053172b75
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172233"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workteam"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com workteam
 
@@ -80,11 +80,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração** básica do SAML, o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL:`https://app.workte.am`
+    Na caixa de texto **URL de logon** , digite uma url: `https://app.workte.am`
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
@@ -176,7 +176,7 @@ Para permitir que os usuários do Azure AD entrem no workteam, eles devem ser pr
 
     a. Na caixa de texto **nome** , insira o nome do usuário, como **B. Simon**.
 
-    b. Na caixa de texto **email** , insira o email do usuário `B.Simon\@contoso.com`como.
+    b. Na caixa de texto **email** , insira o email do usuário, como `B.Simon\@contoso.com`.
 
     c. Clique em **OK**.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1acef92ed5de86d4526d8b5c4bcf338b341c50f7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 722feb29a08cd5e1113eae197fbcae9769ed5550
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241271"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029758"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Crie incidentes automaticamente com os alertas de segurança da Microsoft
 
@@ -35,7 +35,7 @@ Você deve [conectar as soluções de segurança da Microsoft](connect-data-sour
 
 Use as regras internas disponíveis no Azure Sentinel para escolher quais soluções de segurança da Microsoft conectadas devem criar incidentes do Azure Sentinel automaticamente em tempo real. Você também pode editar as regras para definir opções mais específicas para filtrar quais dos alertas gerados pela solução de segurança da Microsoft devem criar incidentes no Azure Sentinel. Por exemplo, você pode optar por criar incidentes do Azure Sentinel automaticamente somente de alertas da central de segurança do Azure de alta gravidade.
 
-1. No portal do Azure em Azure Sentinel, selecione **análise**.
+1. No portal do Azure em Azure Sentinel, selecione **análise**.
 
 1. Selecione a guia **modelos de regra** para ver todas as regras analíticas internas.
 

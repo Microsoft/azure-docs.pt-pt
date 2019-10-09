@@ -1,6 +1,6 @@
 ---
-title: Introdução à autenticação para aplicações móveis no Xamarin Android
-description: Saiba como utilizar aplicações móveis para autenticar os utilizadores da sua aplicação Xamarin Android através de uma variedade de fornecedores de identidade, incluindo o AAD, Google, Facebook, Twitter e Microsoft.
+title: Introdução à autenticação para aplicativos móveis no Xamarin Android
+description: Saiba como usar aplicativos móveis para autenticar usuários de seu aplicativo Xamarin Android por meio de uma variedade de provedores de identidade, incluindo AAD, Google, Facebook, Twitter e Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -14,53 +14,53 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 7a0b2c54c2d2a9daba56ea1d05c18e72a2d7a7a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 44a6261819ee8e880d9a5763e92678bc359f5eff
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447056"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025089"
 ---
-# <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicionar autenticação à sua aplicação xamarin. Android
+# <a name="add-authentication-to-your-xamarinandroid-app"></a>Adicionar autenticação ao seu aplicativo Xamarin. Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center está a investir em serviços de novo e integrados essenciais para o desenvolvimento de aplicações móveis. Os desenvolvedores podem usar **crie**, **teste** e **distribuir** serviços para configurar os pipelines de integração e entrega contínuas. Assim que a aplicação é implementada, os programadores podem monitorizar o estado e a utilização da sua aplicação com o **Analytics** e **diagnóstico** serviços e interaja com os utilizadores que utilizam o **Push** serviço. Os desenvolvedores também podem aproveitar **Auth** autenticar seus usuários e **dados** serviço para manter e sincronizar dados de aplicações na cloud. Confira [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-users) hoje mesmo.
->
+> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
 
 ## <a name="overview"></a>Descrição geral
-Este tópico mostra-lhe como autenticar os utilizadores de uma aplicação móvel da sua aplicação de cliente. Neste tutorial, vai adicionar autenticação ao projeto de início rápido, utilizando um fornecedor de identidade que é suportado pelo Azure Mobile Apps. Depois de com êxito a ser autenticado e autorizado na aplicação móvel, é apresentado o valor de ID de utilizador.
+Este tópico mostra como autenticar usuários de um aplicativo móvel do seu aplicativo cliente. Neste tutorial, você adicionará autenticação ao projeto de início rápido usando um provedor de identidade com suporte dos aplicativos móveis do Azure. Depois de ser autenticado e autorizado com êxito no aplicativo móvel, o valor da ID de usuário é exibido.
 
-Este tutorial baseia-se o guia de introdução da aplicação móvel. Também primeiro tem de concluir o tutorial [criar uma aplicação xamarin. Android]. Se não utilizar o projeto de servidor de início rápido transferido, tem de adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre os pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end de .NET para aplicações móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Este tutorial se baseia no guia de início rápido do aplicativo móvel. Você também deve primeiro concluir o tutorial [criar um aplicativo Xamarin. Android]. Se você não usar o projeto baixado do servidor de início rápido, deverá adicionar o pacote de extensão de autenticação ao seu projeto. Para obter mais informações sobre pacotes de extensão de servidor, consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
-## <a name="register"></a>Registar a sua aplicação para autenticação e configurar os serviços de aplicação
+## <a name="register"></a>Registrar seu aplicativo para autenticação e configurar os serviços de aplicativos
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Adicionar a sua aplicação para os URLs de redirecionamento externo permitidos
+## <a name="redirecturl"></a>Adicionar seu aplicativo às URLs de redirecionamento externo permitidas
 
-Autenticação segura requer que defina um novo esquema de URL para a sua aplicação. Isso permite que o sistema de autenticação redirecionar para a sua aplicação, uma vez concluído o processo de autenticação. Neste tutorial, utilizamos o esquema de URL _appname_ em todo. No entanto, pode utilizar qualquer esquema de URL que escolher. Deve ser exclusivo para a sua aplicação móvel. Para ativar o redirecionamento no lado do servidor:
+A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação Redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos o esquema de URL _AppName_ em todo o. No entanto, você pode usar qualquer esquema de URL que escolher. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
-1. No [portal do Azure], selecione o serviço de aplicações.
+1. No [portal do Azure], selecione o serviço de aplicativo.
 
-2. Clique nas **autenticação / autorização** opção de menu.
+2. Clique na opção de menu **autenticação/autorização** .
 
-3. Na **permitido URLs de redirecionamento externo**, introduza `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** nessa cadeia é o esquema de URL para a sua aplicação móvel.  Deve seguir normal especificação de URL para um protocolo (utilize letras e números apenas e começar com uma letra).  Deve tome nota da cadeia de caracteres que escolha, como precisará ajustar o código da aplicação móvel com o esquema de URL em vários locais.
+3. Nas **URLs de redirecionamento externo permitidas**, insira `url_scheme_of_your_app://easyauth.callback`.  O **url_scheme_of_your_app** nesta cadeia de caracteres é o esquema de URL para seu aplicativo móvel.  Ele deve seguir a especificação de URL normal para um protocolo (Use somente letras e números e comece com uma letra).  Você deve anotar a cadeia de caracteres que escolher, pois será necessário ajustar o código do aplicativo móvel com o esquema de URL em vários locais.
 
 4. Clique em **OK**.
 
 5. Clique em **Guardar**.
 
-## <a name="permissions"></a>Restringir as permissões para utilizadores autenticados
+## <a name="permissions"></a>Restringir permissões a usuários autenticados
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-No Visual Studio ou no Xamarin Studio, execute o projeto de cliente num dispositivo ou emulador. Certifique-se de que uma exceção não processada com um código de estado de 401 (não autorizado) é gerada depois da aplicação for iniciada. Isso acontece porque a aplicação tenta aceder ao seu back-end de aplicação móvel como um usuário não autenticado. O *TodoItem* tabela agora requer autenticação.
+No Visual Studio ou Xamarin Studio, execute o projeto do cliente em um dispositivo ou emulador. Verifique se uma exceção sem tratamento com um código de status 401 (não autorizado) é gerada depois que o aplicativo é iniciado. Isso acontece porque o aplicativo tenta acessar o back-end do aplicativo móvel como um usuário não autenticado. A tabela *TodoItem* agora requer autenticação.
 
-Em seguida, atualizar a aplicação de cliente para solicitar recursos de back-end da aplicação móvel com um usuário autenticado.
+Em seguida, você atualizará o aplicativo cliente para solicitar recursos do back-end do aplicativo móvel com um usuário autenticado.
 
-## <a name="add-authentication"></a>Adicionar autenticação à aplicação
-A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar sessão** botão e autenticar antes dos dados são exibidos.
+## <a name="add-authentication"></a>Adicionar autenticação ao aplicativo
+O aplicativo é atualizado para exigir que os usuários toquem no botão **entrar e se** autentiquem antes de os dados serem exibidos.
 
-1. Adicione o seguinte código para o **TodoActivity** classe:
+1. Adicione o seguinte código à classe **TodoActivity** :
    
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -98,16 +98,16 @@ A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar se
             }
         }
    
-    Esta ação cria um novo método para autenticar um usuário e um manipulador de método para um novo **iniciar sessão** botão. O utilizador no código de exemplo acima é autenticado com um início de sessão do Facebook. Uma caixa de diálogo é utilizada para apresentar o ID de utilizador após a autenticação.
+    Isso cria um novo método para autenticar um usuário e um manipulador de método para um novo botão **entrar** . O usuário no código de exemplo acima é autenticado usando um logon do Facebook. Uma caixa de diálogo é usada para exibir a ID de usuário depois de autenticada.
    
    > [!NOTE]
-   > Se estiver a utilizar um fornecedor de identidade que não seja o Facebook, altere o valor transmitido ao **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google*, ou *WindowsAzureActiveDirectory*.
+   > Se você estiver usando um provedor de identidade diferente do Facebook, altere o valor passado para **LoginAsync** acima para um dos seguintes: *MicrosoftAccount*, *Twitter*, *Google*ou *WindowsAzureActiveDirectory*.
    > 
    > 
-2. Na **OnCreate** método, eliminar ou comente a seguinte linha de código:
+2. No método **OnCreate** , exclua ou comente a seguinte linha de código:
    
         OnRefreshItemsSelected ();
-3. No ficheiro Activity_To_Do.axml, adicione as seguintes *LoginUser* botão definição antes do existente *AddItem* botão:
+3. No arquivo Activity_To_Do. axml, adicione a seguinte definição de botão de *LoginUser* antes do botão *AddItem* existente:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -115,10 +115,10 @@ A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar se
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
-4. Adicione o seguinte elemento no arquivo de recursos de strings:
+4. Adicione o seguinte elemento ao arquivo de recursos Strings. xml:
    
         <string name="login_button_text">Sign in</string>
-5. Abra o ficheiro Androidmanifest XML, adicione o seguinte código dentro `<application>` elemento XML:
+5. Abra o arquivo AndroidManifest. xml e adicione o seguinte código dentro do elemento XML `<application>`:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>
@@ -129,13 +129,13 @@ A aplicação é atualizada para exigir que os utilizadores tocar a **iniciar se
           </intent-filter>
         </activity>
 
-6. No Visual Studio ou no Xamarin Studio, execute o projeto de cliente num dispositivo ou emulador e inicie sessão com o fornecedor de identidade escolhido. Quando estiver registado com êxito, a aplicação irá apresentar o ID de início de sessão e a lista de itens de lista de tarefas e que pode efetuar atualizações para os dados.
+6. No Visual Studio ou Xamarin Studio, execute o projeto do cliente em um dispositivo ou emulador e entre com seu provedor de identidade escolhido. Quando você tiver feito logon com êxito, o aplicativo exibirá sua ID de logon e a lista de itens de tarefas e você poderá fazer atualizações nos dados.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-**A aplicação falhada com o `Java.Lang.NoSuchMethodError: No static method startActivity`**
+**O aplicativo falhou com `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-Em alguns casos, entra em conflito nos pacotes de suporte exibidos como apenas um aviso no Visual studio, mas as falhas da aplicação com esta exceção em tempo de execução. Neste caso, precisa certificar-se de que todos os pacotes de suporte referenciados no seu projeto têm a mesma versão. O [pacote NuGet de Aplicações Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. Portanto, se o seu projeto utilizar os pacotes de suporte mais recentes, precisará de instalar diretamente este pacote com a versão necessária para evitar conflitos.
+Em alguns casos, os conflitos nos pacotes de suporte são exibidos como apenas um aviso no Visual Studio, mas o aplicativo falha com essa exceção em tempo de execução. Nesse caso, você precisa certificar-se de que todos os pacotes de suporte referenciados no seu projeto tenham a mesma versão. O [pacote NuGet de Aplicações Móveis do Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) tem dependência `Xamarin.Android.Support.CustomTabs` para a plataforma Android. Portanto, se o seu projeto utilizar os pacotes de suporte mais recentes, precisará de instalar diretamente este pacote com a versão necessária para evitar conflitos.
 
 <!-- URLs. -->
-[Criar uma aplicação xamarin. Android]: app-service-mobile-xamarin-android-get-started.md
+[Criar um aplicativo Xamarin. Android]: app-service-mobile-xamarin-android-get-started.md

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162667"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026262"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com reuniões do Cisco WebEx
 
@@ -78,7 +78,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Cisco WebEx encontros** , localize a seção **gerenciar** e selecione **logon único**.
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
-1. Na página **Configurar logon único com SAML** , você pode configurar o aplicativo no modo iniciado pelo **IDP** carregando o arquivo de metadados do provedor de **Serviços** da seguinte maneira:
+1. Na página **Configurar logon único com SAML** , você pode configurar o aplicativo no modo iniciado pelo **IDP** carregando o arquivo de metadados do provedor de **Serviços** da seguinte maneira:
 
     a. Clique em **carregamento de ficheiro de metadados**.
 
@@ -95,9 +95,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
     
-    b. Na caixa de texto **URL de logon** , digite a URL usando o seguinte padrão:` https://<customername>.my.webex.com`
+    b. Na caixa de texto **URL de logon** , digite a URL usando o seguinte padrão: ` https://<customername>.my.webex.com`
 
-5. O aplicativo de reuniões Cisco WebEx espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
+5. O aplicativo de reuniões Cisco WebEx espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo atributos de usuário.
 
     ![image](common/edit-attribute.png)
 
@@ -162,7 +162,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-cisco-webex-meetings-sso"></a>Configurar SSO de reuniões do Cisco WebEx
 
-1. Acesse `https://<customername>.webex.com/admin` a URL com suas credenciais de administração.
+1. Vá para a URL `https://<customername>.webex.com/admin` com suas credenciais de administração.
 
 2. Vá para **configurações de site comuns** e navegue até **configuração de SSO**.
  
@@ -178,7 +178,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     c. Clique no botão **Exportar** para baixar o arquivo de metadados do provedor de serviços e carregá-lo na seção **configuração básica do SAML** em portal do Azure.
 
-    d. Na caixa de texto **AuthContextClassRef** , `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` digite e, se você quiser habilitar a MFA usando o Azure AD, digite os dois valores como`urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
+    d. Na caixa de texto **AuthContextClassRef** , digite `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` e, se você quiser habilitar a MFA usando o Azure AD, digite os dois valores como `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
 
     e. Selecione **criação automática de conta**.
 

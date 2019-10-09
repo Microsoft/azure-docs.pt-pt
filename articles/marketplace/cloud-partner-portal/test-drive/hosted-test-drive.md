@@ -1,6 +1,6 @@
 ---
-title: Hospedado Test-Drive | O Azure Marketplace
-description: Como configurar uma mantenha uma versão de teste de hospedado do Marketplace
+title: Unidade de teste hospedada | Azure Marketplace
+description: Como configurar uma unidade de teste de manutenção hospedada do Marketplace
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
@@ -8,48 +8,48 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67d8421b2e545c951dcbc3280a306514e4b14897
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939985"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030046"
 ---
 # <a name="hosted-test-drive"></a>Versão de Teste Alojada
 
-Uma versão de teste alojado retira a complexidade da configuração pelo alojamento da Microsoft e manter o serviço que executa o utilizador de teste de unidade de aprovisionamento e desaprovisionamento. Este artigo destina-se os publicadores com a oferta no AppSource ou estiver a criar um novo e que pretendem oferecer uma versão de teste de alojado, que liga a um do Dynamics 365 for Customer Engagement, do Dynamics 365 para finanças e operações ou o Dynamics 365 Business Central instância.
+Uma unidade de teste hospedada remove a complexidade da instalação pela Microsoft que hospeda e mantém o serviço que executa o teste de provisionamento e desprovisionamento do usuário. Este artigo destina-se a editores que têm sua oferta em AppSource ou que estão criando um novo e desejam oferecer um test drive hospedado, que se conecta com um cliente Dynamics 365 for Customer Engagement, Dynamics 365 for Finance and Operations ou Dynamics 365 Business central cópia.
 
 ## <a name="how-to-publish-a-test-drive"></a>Como publicar um Test Drive
 
-Navegue para a oferta existente ou crie uma nova oferta.
+Navegue até a oferta existente ou crie uma nova oferta.
 
-Selecione a opção de Test-Drive do menu do lado.
+Selecione a opção Test Drive no menu lateral.
 
-Selecione \'Sim\' para \'ativar um Test Drive\' opção.
+Selecione \'Yes @ no__t-1 para \'Enable uma opção Test Drive @ no__t-3.
 
-Fornecer os campos seguintes no \'detalhes\' secção.
+Forneça os seguintes campos na seção \'Details @ no__t-1.
 
-- **Descrição**: Forneça uma descrição geral da sua versão de teste. Esse texto será apresentado ao utilizador enquanto o Test-Drive está a ser aprovisionado. Este campo suporta HTML, se quiser fornecer conteúdo formatado.
-- **Manual do usuário**: Carregar um manual de utilizador detalhadas (ficheiro de. pdf do tipo) que ajuda os utilizadores de Test-Drive compreender como utilizar a sua aplicação.
-- **Testar o vídeo de demonstração de unidade**: Opcionalmente, carregar um vídeo que demonstra a sua aplicação.
+- **Descrição**: Forneça uma visão geral do seu Test Drive. Esse texto será mostrado ao usuário enquanto o Test Drive estiver sendo provisionado. Esse campo oferece suporte a HTML se você quiser fornecer conteúdo formatado.
+- **Manual do usuário**: Carregue um manual de usuário Detalhado (arquivo do tipo. pdf) que ajuda a testar os usuários da unidade a entender como usar seu aplicativo.
+- **Vídeo de demonstração do Test Drive**: Opcionalmente, carregue um vídeo que demonstra seu aplicativo.
 
-Permissão de concessão AppSource para aprovisionar e desaprovisionar utilizadores de Test-Drive do seu inquilino ao seguir as instruções localizadas [aqui](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Conceda permissão AppSource para provisionar e desprovisionar os usuários do Test Drive no seu locatário usando as instruções localizadas [aqui](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
 
-Neste passo, irá gerar o \'Id de aplicação do Azure AD\' e \'chave de aplicação do Azure AD\' valores mencionado abaixo.
+Nesta etapa, você gerará o \'Azure ID do aplicativo do AD no__t-1 e \'Azure chave do aplicativo AD @ no__t-3 valores mencionados abaixo.
 
-Fornecer os campos seguintes no \'técnico configuração\' secção:
+Forneça os seguintes campos na seção configuração do \'Technical @ no__t-1:
 
-- **Tipo de teste de unidade de**: Escolha \'Microsoft Hosted (exemplo do Dynamics 365 Customer Engagement)' opção. Isto indica que a Microsoft irá alojar e manter o serviço que executa o utilizador de teste de unidade de aprovisionamento e desaprovisionamento.
-- **Versões de teste de simultâneas máx.** : Defina este campo para o número de utilizadores em simultâneo que podem ter um Test Drive do Active Directory num determinado período de tempo. Cada utilizador irá consumir uma licença do Dynamics, enquanto a unidade de teste está ativa, por isso terá de garantir que tenha, pelo menos, tantos Dynamics licenças disponíveis para os utilizadores da versão de teste. Valor recomendado de 3 a 5.
-- **Teste de unidade de duração (horas)** : Defina este campo para o número de horas dos utilizadores a que versão de teste ficará ativa para. Depois de tantas horas, o utilizador irá ser desaprovisionado do seu inquilino. Valor de 2 a 24 horas, consoante a complexidade da sua aplicação de recomendado. O usuário sempre pode pedir outro teste se ficar sem tempo e deseja acessar a unidade de teste novamente.
-- **URL de instância**: Forneça um URL que o utilizador de teste de unidade será inicialmente direcionado durante o arranque a versão de teste. Isso normalmente é o URL da sua instância do Dynamics 365 que tenha a sua aplicação e dados de exemplo instalados no. Valor de exemplo: https:\//testdrive.crm.dynamics.com
-- **ID de inquilino do Azure AD**: Forneça o ID do inquilino do Azure para a sua instância do Dynamics 365. Para obter este valor, inicie sessão no portal do Azure e navegue para \'do Azure Active Directory\'  - \> selecione propriedades no painel de menu -\> copiar o ID de diretório. Valor de exemplo: 72f988bf-86f1-41af-91ab-2d7cd0111234
-- **ID de aplicação do Azure AD**: ID da aplicação do AD Azure que criou no passo 7. \ valor de exemplo: 53852862-a2ae-4e43-9461-faa49650a096
-- **Chave da aplicação do Azure AD**: Segredo da aplicação do AD Azure criados no passo 7. \ valor de exemplo: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
-- **Nome de inquilino do Azure AD**: Forneça o nome do inquilino do Azure para a sua instância do Dynamics 365. Utilize o formato \<tenantname.\> onmicrosoft.com. Valor de exemplo: testdrive.onmicrosoft.com
-- **URL da Web API de instâncias**: Forneça o URL da API Web para a sua instância do Dynamics 365. Pode obter este valor ao iniciar sessão na sua instância do Microsoft Dynamics 365 e navegar para a definição -\> personalização -\> recursos para desenvolvedores -\> instância Web API (copiar esta URL). Valor de exemplo: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
-- **Nome da função**: Forneça o nome da função de segurança do Dynamics 365 personalizada que criou para a versão de teste. Esta é a função que será atribuída aos utilizadores durante a sua versão de teste. Valor de exemplo: testdriverole
+- **Tipo de unidade de teste**: Escolha a opção \'Microsoft hospedado (exemplo: Dynamics 365 para compromisso com o cliente). Isso indica que a Microsoft hospedará e manterá o serviço que executa o teste de provisionamento e desprovisionamento do usuário do Test Drive.
+- **Máximo de unidades de teste simultâneas**: Defina esse campo como o número de usuários simultâneos que podem ter uma unidade de teste ativa em qualquer momento determinado. Cada usuário consumirá uma licença do Dynamics enquanto o Test Drive estiver ativo, portanto, você precisará garantir que tenha pelo menos essas muitas licenças do Dynamics disponíveis para os usuários do Test Drive. Valor recomendado de 3-5.
+- **Duração da unidade de teste (horas)** : Defina esse campo como o número de horas em que os usuários Test Drive estarão ativos. Após esse número de horas, o usuário será desprovisionado do seu locatário. Valor recomendado de 2-24 horas, dependendo da complexidade do seu aplicativo. O usuário sempre poderá solicitar outra unidade de teste se ficar sem tempo e quiser acessar a unidade de teste novamente.
+- **URL da instância**: Forneça uma URL para a qual o usuário da unidade de teste será navegado inicialmente quando iniciar a unidade de teste. Normalmente, essa é a URL da instância do Dynamics 365 que tem o aplicativo e os dados de exemplo instalados no. Valor de exemplo: https: \//testdrive. CRM. Dynamics. com
+- **ID do locatário do Azure ad**: Forneça a ID do locatário do Azure para sua instância do Dynamics 365. Para recuperar esse valor, faça logon no portal do Azure e navegue até \'Azure Active Directory @ no__t-1 @ no__t-2 @ no__t-3 selecione Propriedades no menu folha-\> Copie a ID do diretório. Valor de exemplo: 72f988bf-86f1-41af-91ab-2d7cd0111234
+- **ID do aplicativo Azure ad**: ID do Aplicativo Azure AD criado no valor da etapa 7. \ exemplo: 53852862-a2ae-4e43-9461-faa49650a096
+- **Chave de aplicativo Azure ad**: Segredo para o Aplicativo Azure AD criado no valor da etapa 7. \ exemplo: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
+- **Nome do locatário do Azure ad**: Forneça o nome do locatário do Azure para sua instância do Dynamics 365. Use o formato de \<tenantname. \>onmicrosoft.com. Valor de exemplo: testdrive.onmicrosoft.com
+- **URL da API Web da instância**: Forneça a URL da API da Web para sua instância do Dynamics 365. Você pode recuperar esse valor fazendo logon em sua instância do Microsoft Dynamics 365 e navegando até configuração-\> personalização-\> recursos do desenvolvedor-\> API Web de instância (copiar esta URL). Valor de exemplo: https: \//testdrive. CRM. Dynamics. com/API/data/v 9.0 
+- **Nome da função**: Forneça o nome da função de segurança personalizada do Dynamics 365 que você criou para o Test Drive. Essa é a função que será atribuída aos usuários durante o teste de unidade. Valor de exemplo: testdriverole
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Quando pronto **publicar** sua oferta, depois da aplicação foi aprovada a certificação, terá uma **pré-visualização** da sua oferta. Iniciar uma versão de teste na interface de Usuário e certifique-se de que as versões de teste estão sendo executadas corretamente. Assim que se sentir à vontade com a sua oferta de pré-visualização, agora é hora de **ir ao vivo!**
+Quando estiver pronto, **publique** sua oferta, depois que seu aplicativo tiver passado para a certificação, você terá uma **Visualização** da sua oferta. Inicie um test drive na interface do usuário e verifique se as unidades de teste estão sendo executadas corretamente. Depois de se sentir confortável com sua oferta de visualização, agora é hora de **entrar em funcionamento!**

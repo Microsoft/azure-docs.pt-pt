@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570127"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029755"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Gerenciar o esquema em um aplicativo SaaS usando o padrão de banco de dados por locatário com o banco de dados SQL do Azure
  
@@ -41,7 +41,7 @@ Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 * Está instalada a versão mais recente do SQL Server Management Studio (SSMS). [Transferir e instalar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> Este tutorial usa recursos do serviço de banco de dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com Subject = visualização de trabalhos elásticos. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, portanto, SaaSFeedback@microsoft.com entre em contato com perguntas ou suporte relacionados.
+> Este tutorial usa recursos do serviço de banco de dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com Subject = trabalho de elástico Preview. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, portanto, entre em contato com SaaSFeedback@microsoft.com para perguntas ou suporte relacionados.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introdução aos padrões de gerenciamento de esquema SaaS
 
@@ -55,7 +55,7 @@ O padrão Database per locatário isola os dados do locatário com eficiência, 
 Há uma nova versão dos trabalhos elásticos que agora é um recurso integrado do banco de dados SQL do Azure. Esta nova versão das Tarefas Elásticas está atualmente em pré-visualização limitada. Essa versão prévia limitada atualmente dá suporte ao uso do PowerShell para criar um agente de trabalho e ao T-SQL para criar e gerenciar trabalhos.
 
 > [!NOTE]
-> Este tutorial usa recursos do serviço de banco de dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com Subject = visualização de trabalhos elásticos. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, portanto, SaaSFeedback@microsoft.com entre em contato com perguntas ou suporte relacionados.
+> Este tutorial usa recursos do serviço de banco de dados SQL que estão em uma versão prévia limitada (trabalhos de Banco de Dados Elástico). Se você quiser fazer este tutorial, forneça sua ID de assinatura para SaaSFeedback@microsoft.com com Subject = trabalho de elástico Preview. Após receber a confirmação indicando que a sua subscrição foi ativada, deverá [transferir e instalar os cmdlets mais recentes das tarefas da versão de pré-lançamento](https://github.com/jaredmoo/azure-powershell/releases). Essa visualização é limitada, portanto, entre em contato com SaaSFeedback@microsoft.com para perguntas ou suporte relacionados.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts de aplicativo de banco de dados por locatário SaaS Wingtip tickets
 
@@ -65,7 +65,7 @@ O código-fonte do aplicativo e os scripts de gerenciamento estão disponíveis 
 
 Este tutorial requer que você use o PowerShell para criar um agente de trabalho e seu banco de dados do agente de trabalho de backup. O banco de dados do agente de trabalho contém definições de trabalho, status do trabalho e histórico. Depois que o agente de trabalho e seu banco de dados são criados, você pode criar e monitorar trabalhos imediatamente.
 
-1. **No ISE do PowerShell**, abra... Learning modules\\Schema\\Management*demo-schemamanagement. ps1.* \\
+1. **No ISE do PowerShell**, abra... módulos de \\Learning @ No__t-2Schema Management @ no__t-3*demo-schemamanagement. ps1*.
 1. Prima **F5** para executar o script.
 
 O script *demo-schemamanagement. ps1* chama o script *Deploy-schemamanagement. ps1* para criar um banco de dados SQL chamado *osagent* no servidor de catálogo. Em seguida, ele cria o agente de trabalho, usando o banco de dados como um parâmetro.
@@ -76,26 +76,26 @@ No aplicativo Wingtip tickets, cada banco de dados de locatário inclui um conju
 
 Primeiro, examine os tipos de local incluídos em cada banco de dados de locatário. Conecte-se a um dos bancos de dados de locatário no SQL Server Management Studio (SSMS) e inspecione a tabela VenueTypes.  Você também pode consultar essa tabela no editor de consultas no portal do Azure, acessada na página do banco de dados. 
 
-1. Abra o SSMS e conecte-se ao servidor de locatário: *tenants1&lt;-&gt;DPT-User. Database.Windows.net*
-1. Para confirmar se o *Motorcycle de corrida* e o *clube nadare* **não estão** incluídos no momento, navegue até o banco de dados _contosoconcerthall_ no servidor *tenants1-&lt;DPT-user&gt;*  e consulte o  *Tabela VenueTypes* .
+1. Abra o SSMS e conecte-se ao servidor de locatário: *tenants1-DPT-@no__t -1user&gt;.database.windows.net*
+1. Para confirmar se *a corrida de Motorcycle* e o clube de *nada* mais **não estão** incluídos no momento, navegue até o banco de dados _contosoconcerthall_ no servidor *tenants1-DPT-&lt;user @ no__t-6* e consulte o *VenueTypes* tabela.
 
 Agora, vamos criar um trabalho para atualizar a tabela *VenueTypes* em todos os bancos de dados de locatário para adicionar os novos tipos de local.
 
 Para criar um novo trabalho, você usa um conjunto de trabalhos de procedimentos armazenados do sistema criados no banco de dados _jobagent_ quando o agente de trabalho foi criado.
 
-1. No SSMS, conecte-se ao servidor de catálogo: *Catalog-&lt;DPT&gt;-User. Database.Windows.net* Server 
-1. No SSMS, abra o arquivo... Gerenciamento de esquema de módulos\\de aprendizado DeployReferenceData. SQL\\ \\
-1. Modifique a instrução: Definir @wtpUser = &lt;usuário&gt; e substituir o valor de usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
-1. Verifique se você está conectado ao banco de dados _jobagent_ e pressione **F5** para executar o script
+1. No SSMS, conecte-se ao servidor de catálogo: *Catalog-DPT-@no__t servidor -1user&gt;.database.windows.net* 
+1. No SSMS, abra os módulos arquivo... \\Learning @ no__t-1Schema Management\\DeployReferenceData.sql
+1. Modifique a instrução: Defina @wtpUser = &lt;user @ no__t-2 e substitua o valor do usuário usado quando você implantou o aplicativo de banco de dados por locatário SaaS Wingtip tickets
+1. Verifique se você está conectado ao banco de dados _jobagent_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script *DeployReferenceData. SQL* :
-* **SP\_Add\_TargetGroup\_** cria o nome do grupo de destino DemoServerGroup.
-* **\_SP\_adicionarmembrodo\_grupo de destino é usado para definir o conjunto de bancos de dados de destino.\_**  Primeiro, o servidor _tenants1-&lt;DPT&gt; -User_ é adicionado.  Adicionar o servidor como um destino faz com que os bancos de dados nesse servidor no momento da execução do trabalho sejam incluídos no trabalho. Em seguida, o banco de dados _basetenantdb_ e o banco de dados *adhocreporting* (usado em um tutorial posterior) são adicionados como destinos.
-* **SP\_Adicionar\_trabalho** cria um trabalho chamado _implantação de dados de referência_.
-* **SP\_Add\_JobStep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar a tabela de referência, VenueTypes.
+* **SP @ no__t-1add @ no__t-2target @ no__t-3group** cria o nome do grupo de destino DemoServerGroup.
+* **SP @ no__t-1add @ no__t-2target @ no__t-3group @ no__t-4member** é usado para definir o conjunto de bancos de dados de destino.  Primeiro o servidor _tenants1-DPT-&lt;user @ no__t-2_ é adicionado.  Adicionar o servidor como um destino faz com que os bancos de dados nesse servidor no momento da execução do trabalho sejam incluídos no trabalho. Em seguida, o banco de dados _basetenantdb_ e o banco de dados *adhocreporting* (usado em um tutorial posterior) são adicionados como destinos.
+* **SP @ no__t-1add @ no__t-2job** cria um trabalho chamado _implantação de dados de referência_.
+* **SP @ no__t-1add @ no__t-2jobstep** cria a etapa de trabalho que contém o texto do comando t-SQL para atualizar a tabela de referência, VenueTypes.
 * As vistas restantes no script mostram a existência dos objetos e monitorizam a execução da tarefa. Use essas consultas para examinar o valor de status na coluna **ciclo de vida** para determinar quando o trabalho foi concluído em todos os bancos de dados de destino.
 
-Depois que o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o banco de dados *contosoconcerthall* no servidor *tenants1-&lt;DPT&gt; -User* e consulte a tabela *VenueTypes* .  Verifique se a *corrida Motorcycle* e o *clube nadare* **estão** presentes agora.
+Depois que o script for concluído, você poderá verificar se os dados de referência foram atualizados.  No SSMS, navegue até o banco de dados *contosoconcerthall* no servidor *tenants1-DPT-&lt;user @ no__t-3* e consulte a tabela *VenueTypes* .  Verifique se a *corrida Motorcycle* e o *clube nadare* **estão** presentes agora.
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Criar uma tarefa para gerir o índice de tabela de referência
@@ -104,19 +104,19 @@ Este exercício usa um trabalho para recriar o índice na chave primária da tab
 
 Crie uma tarefa com os mesmos procedimentos armazenados no “sistema” das tarefas.
 
-1. Abra o SSMS e conecte-se ao servidor _Catalog&lt;-&gt;DPT-User. Database.Windows.net_
-1. Abra o arquivo _... Gerenciamento de esquema de módulos\\de aprendizado OnlineReindex. SQL\\ \\_
-1. Clique com o botão direito do mouse, selecione conexão e conecte-se ao servidor _Catalog-DPT-&lt;&gt;User. Database.Windows.net_ , se ainda não estiver conectado
+1. Abra o SSMS e conecte-se ao _Catálogo-DPT-@no__t servidor -1user&gt;.database.windows.net_
+1. Abra os _módulos arquivo... \\Learning @ no__t-2Schema Management\\OnlineReindex.sql_
+1. Clique com o botão direito, selecione conexão e conecte-se ao _Catálogo-DPT-@no__t servidor -1user&gt;.database.windows.net_ , se ainda não estiver conectado
 1. Verifique se você está conectado ao banco de dados _jobagent_ e pressione **F5** para executar o script
 
 Observe os seguintes elementos no script _OnlineReindex. SQL_ :
-* **SP\_Add\_Job** cria um novo trabalho chamado "online REINDEX CP\_\_VenueTyp\_\_265E44FD7FD4C885"
-* **SP\_Add\_JobStep** cria a etapa de trabalho que contém o texto do comando T-SQL para atualizar o índice
+* **SP @ no__t-1add @ no__t-2job** cria um novo trabalho chamado "online REINDEX CP @ no__t-3 @ No__t-4VenueTyp @ no__t-5 @ NO__T-6265E44FD7FD4C885"
+* **SP @ no__t-1add @ no__t-2jobstep** cria a etapa de trabalho que contém o texto do comando t-SQL para atualizar o índice
 * As exibições restantes no script monitoram a execução do trabalho. Use essas consultas para examinar o valor de status na coluna **ciclo de vida** para determinar quando o trabalho foi concluído com êxito em todos os membros do grupo de destino.
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

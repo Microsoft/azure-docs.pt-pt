@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 265458066a528246cbfa7876bf61b02a0382581b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499608"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025784"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Entender e resolver problemas Proxy de Aplicativo do Azure Active Directory CORS
 
-[O CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/) às vezes pode apresentar desafios para os aplicativos e as APIs que você publica por meio do proxy de aplicativo do Azure Active Directory. Este artigo aborda os problemas e as soluções do Azure Proxy de Aplicativo do AD CORS.
+O [CORS (compartilhamento de recursos entre origens)](https://www.w3.org/TR/cors/) can às vezes apresenta desafios para os aplicativos e as APIs que você publica por meio do proxy de aplicativo do Azure Active Directory. Este artigo aborda os problemas e as soluções do Azure Proxy de Aplicativo do AD CORS.
 
 A segurança do navegador geralmente impede que uma página da Web faça solicitações AJAX para outro domínio. Essa restrição é chamada de *política de mesma origem*e impede que um site mal-intencionado leia dados confidenciais de outro site. No entanto, às vezes, talvez você queira permitir que outros sites Chamem sua API da Web. O CORS é um padrão W3C que permite que um servidor Relaxe a política de mesma origem e permita algumas solicitações entre origens enquanto rejeita outras.
 
@@ -28,15 +28,15 @@ A segurança do navegador geralmente impede que uma página da Web faça solicit
 
 Duas URLs têm a mesma origem se tiverem esquemas, hosts e portas idênticos ([RFC 6454](https://tools.ietf.org/html/rfc6454)), como:
 
--   http:\//contoso.com/foo.html
--   http:\//contoso.com/bar.html
+-   http: \//contoso.com/foo.html
+-   http: \//contoso.com/bar.html
 
 As URLs a seguir têm origens diferentes das duas anteriores:
 
--   http:\//contoso.net-domínio diferente
--   http:\//contoso.com:9000/foo.html-porta diferente
--   https:\//contoso.com/foo.html-esquema diferente
--   http:\//www.contoso.com/foo.html-subdomínio diferente
+-   http: \//contoso. net – domínio diferente
+-   http: \//contoso.com:9000/foo.html-porta diferente
+-   https: \//contoso.com/foo.html-esquema diferente
+-   http: \//www.contoso.com/foo.html-subdomínio diferente
 
 A política de mesma origem impede que os aplicativos acessem recursos de outras origens, a menos que usem os cabeçalhos de controle de acesso corretos. Se os cabeçalhos CORS estiverem ausentes ou incorretos, as solicitações entre origens falharão. 
 
@@ -46,13 +46,13 @@ Você pode identificar problemas de CORS usando as ferramentas de depuração do
 1. Pressione **F12** para abrir o console de depuração.
 1. Tente reproduzir a transação e examine a mensagem do console. Uma violação de CORS produz um erro de console sobre a origem.
 
-Na captura de tela a seguir, a seleção do botão **experimentar** causou uma mensagem de erro CORS\/que https:/corswebclient-contoso.msappproxy.net não foi encontrada no cabeçalho Access-Control-Allow-Origin.
+Na captura de tela a seguir, selecionar o botão **experimentar** causou uma mensagem de erro CORS que https: \//corswebclient-contoso. msappproxy. net não foi encontrado no cabeçalho Access-Control-Allow-Origin.
 
 ![Problema de CORS](./media/application-proxy-understand-cors-issues/image3.png)
 
 ## <a name="cors-challenges-with-application-proxy"></a>Desafios de CORS com o proxy de aplicativo
 
-O exemplo a seguir mostra um cenário típico de CORS do Azure Proxy de Aplicativo do AD. O servidor interno hospeda um controlador de API Web **CORSWebService** e um **CORSWebClient** que chama **CORSWebService**. Há uma solicitação AJAX de **CORSWebClient** para **CORSWebService**.
+O exemplo a seguir mostra um cenário típico de CORS do Azure Proxy de Aplicativo do AD. O servidor interno hospeda um controlador de API Web **CORSWebService** e um **CORSWebClient** que chama **CORSWebService**. Há uma solicitação AJAX de **CORSWebClient** para **CORSWebService**.
 
 ![Solicitação de mesma origem local](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -64,11 +64,11 @@ O aplicativo CORSWebClient funciona quando você o hospeda localmente, mas falha
 
 Você pode resolver o problema de CORS anterior em qualquer uma das várias maneiras.
 
-### <a name="option-1-set-up-a-custom-domain"></a>Opção 1: Configurar um domínio personalizado
+### <a name="option-1-set-up-a-custom-domain"></a>Opção 1: Configurar um domínio personalizado
 
 Use um [domínio personalizado](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-custom-domains) do Azure proxy de aplicativo do AD para publicar da mesma origem, sem precisar fazer alterações nas origens do aplicativo, código ou cabeçalhos. 
 
-### <a name="option-2-publish-the-parent-directory"></a>Opção 2: Publicar o diretório pai
+### <a name="option-2-publish-the-parent-directory"></a>Opção 2: Publicar o diretório pai
 
 Publicar o diretório pai de ambos os aplicativos. Essa solução funcionará especialmente bem se você tiver apenas dois aplicativos no servidor Web. Em vez de publicar cada aplicativo separadamente, você pode publicar o diretório pai comum, o que resulta na mesma origem.
 
@@ -93,15 +93,15 @@ Adicione um cabeçalho de resposta HTTP personalizado no serviço Web para corre
 
 Essa modificação não requer nenhuma alteração de código. Você pode verificá-lo nos rastreamentos do Fiddler:
 
-**Postar a adição de cabeçalho**\
+**Poste a adição de cabeçalho**\
 HTTP/1.1 200 OK\
 Cache-Control: no-cache \
 Pragma: no-cache \
 Tipo de conteúdo: texto/simples; charset = utf-8 \
 Expira em:-1 \
 Varia Aceitar-codificação \
-Servidor: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0 \
-**Acesso-controle-permitir-origem: https\://corswebclient-contoso.msappproxy.net**\
+Servidor Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0 \
+**Acesso-controle-permitir-Origin: https @ no__t-1//corswebclient-contoso. msappproxy. net**\
 X-AspNet-Version: 4.0.30319\
 X-ligado por: ASP.NET\
 Content-Length: 17
@@ -115,6 +115,6 @@ Você pode alterar seu aplicativo para dar suporte a CORS adicionando o cabeçal
 Alguns problemas de CORS não podem ser resolvidos, como quando seu aplicativo redireciona para o *login.microsoftonline.com* para autenticar e o token de acesso expira. A chamada CORS falhará. Uma solução alternativa para esse cenário é estender o tempo de vida do token de acesso para impedir que ele expire durante a sessão de um usuário. Para obter mais informações sobre como fazer isso, consulte [tempos de vida de token configuráveis no Azure ad](../develop/active-directory-configurable-token-lifetimes.md).
 
 ## <a name="see-also"></a>Consulte também
-- [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md) 
+- [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do proxy de aplicativo no Azure Active Directory @ no__t-0 
 - [Planejar uma implantação de Proxy de Aplicativo do AD do Azure](application-proxy-deployment-plan.md) 
 - [Acesso remoto a aplicativos locais por meio de Proxy de Aplicativo do Azure Active Directory](application-proxy.md) 

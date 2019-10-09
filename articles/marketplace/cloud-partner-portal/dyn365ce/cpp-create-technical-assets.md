@@ -1,34 +1,21 @@
 ---
-title: Criar o Dynamics 365 para ativos técnicos de envolvimento do cliente | O Azure Marketplace
-description: Crie os recursos técnicos para um de Dynamics 365 para a oferta de aplicação de envolvimento do cliente.
+title: Criar o Dynamics 365 para ativos técnicos do compromisso com o cliente | Azure Marketplace
+description: Este artigo de CPP foi substituído e vinculado ao artigo do PC; foi "criar os ativos técnicos para uma oferta de aplicativo do Dynamics 365 for Customer Engagement".
 services: Dynamics 365 for Customer Engagement, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: article
-ms.date: 12/29/2018
-ms.author: pabutler
-ms.openlocfilehash: eff175264677d6b8ffb885229b5e68b306424335
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 378dc7d4b267a27088616cbe46b1a4309471af6b
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943069"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033843"
 ---
-# <a name="create-technical-assets-for-azure-application-offer"></a>Criar ativos técnicos para a oferta de aplicação do Azure
+# <a name="create-technical-assets-for-azure-application-offer"></a>Criar ativos técnicos para a oferta de aplicativo do Azure
 
-Normalmente, de desenvolvimento de soluções utilizando o [SDK para o Dynamics 365 para aplicações de Customer Engagement](https://docs.microsoft.com/dynamics365/customer-engagement/developer/get-started-sdk).  Soluções de tirar uma variedade de formas, conforme descrito em [modelos de programação para o Dynamics 365 para aplicações de Customer Engagement](https://docs.microsoft.com/dynamics365/customer-engagement/developer/programming-models).  Escolha a forma que melhor está em conformidade com os requisitos da solução.  Ao desenvolver uma solução, há uma série de problemas, que deve resolver, tais como opções de extensibilidade, componentes da solução e compatibilidade de versões.  Para obter mais informações, consulte [introdução às soluções](https://docs.microsoft.com/dynamics365/customer-engagement/developer/introduction-solutions).
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-A maioria das soluções do Dynamics 365 publicadas no AppSource são distribuídos como ficheiros de pacote de aplicativos gerenciados.
-
-
-## <a name="creating-and-storing-the-package"></a>Criando e armazenando o pacote
-
-A documentação paralela a criação de Dynamics 365 para envolvimento do cliente oferece for encontrada na seção [publicar a sua aplicação no AppSource](https://docs.microsoft.com/dynamics365/customer-engagement/developer/publish-app-appsource).  O seguinte contidos detalhes de tópicos como criar o ficheiro de pacote de solução e carregue-o para o armazenamento do Azure:
-
-- [Passo 4: Criar um pacote do AppSource para a sua aplicação](https://docs.microsoft.com/dynamics365/customer-engagement/developer/create-package-app-appsource) -explica como criar um ficheiro comprimido (zip) que representa o seu aplicativo gerenciado e contém: pasta de recursos de solução, DLL de código personalizado, o ficheiro de informações do tipo de MIME, o ícone de pacote de AppSource, licença ficheiros de termos (HTML) e o ficheiro de conteúdo (XML).
-- [Passo 5: Store seu pacote de AppSource no armazenamento do Azure e gerar um URL com a chave SAS](https://docs.microsoft.com/dynamics365/customer-engagement/developer/store-appsource-package-azure-storage) -explica como armazenar um ficheiro de pacote do AppSource numa conta de armazenamento de Blobs do Microsoft Azure e utilizar uma chave de assinatura de acesso partilhado (SAS) para partilhar o ficheiro de pacote. O ficheiro de pacote é obtido a partir da sua localização de armazenamento do Azure para obter uma certificação e, em seguida, de publicação e de avaliação de AppSource.
-
-
-## <a name="next-steps"></a>Passos Seguintes
-
-Se ainda não tiver feito, [criar o seu Dynamics 365 para a oferta de Customer Engagement](./cpp-create-offer.md).  Em seguida, estará pronto para [publicar a sua oferta](./cpp-publish-offer.md).
+Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.

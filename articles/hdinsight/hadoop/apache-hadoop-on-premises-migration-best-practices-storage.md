@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0acd4c2793c7c13fb687f591d01e6d8753f71bdc
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181141"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028939"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar clusters de Apache Hadoop locais para o Azure HDInsight
 
@@ -27,7 +27,7 @@ A estrutura de diretório do HDFS (Apache Hadoop File System) local pode ser rec
 
 Os clusters HDInsight podem usar o contêiner de blob no armazenamento do Azure como o sistema de arquivos padrão ou um sistema de arquivos adicional. A conta de armazenamento de camada Standard tem suporte para uso com clusters HDInsight. Não há suporte para a camada Premier. O contentor de blobs predefinido armazena informações específicas do cluster, como o histórico de tarefas e os registos. A partilha de um contentor de blobs como sistema de ficheiros predefinido para múltiplos clusters não é suportada.
 
-As contas de armazenamento que são definidas no processo de criação e suas respectivas chaves são armazenadas `%HADOOP_HOME%/conf/core-site.xml` no nos nós do cluster. Eles também podem ser acessados na seção "site de núcleo personalizado" na configuração do HDFS na interface do usuário do amAmbari. A chave da conta de armazenamento é criptografada por padrão e um script de descriptografia personalizado é usado para descriptografar as chaves antes de serem passadas para daemons do Hadoop. Os trabalhos, incluindo Hive, MapReduce, streaming do Hadoop e Pig, trazem uma descrição de contas de armazenamento e metadados com eles.
+As contas de armazenamento que são definidas no processo de criação e suas respectivas chaves são armazenadas em `%HADOOP_HOME%/conf/core-site.xml` nos nós de cluster. Eles também podem ser acessados na seção "site de núcleo personalizado" na configuração do HDFS na interface do usuário do amAmbari. A chave da conta de armazenamento é criptografada por padrão e um script de descriptografia personalizado é usado para descriptografar as chaves antes de serem passadas para daemons do Hadoop. Os trabalhos, incluindo Hive, MapReduce, streaming do Hadoop e Pig, trazem uma descrição de contas de armazenamento e metadados com eles.
 
 O armazenamento do Azure pode ser replicado geograficamente. Embora a replicação geográfica proporcione a recuperação geográfica e a redundância de dados, um failover para o local com replicação geográfica afeta seriamente o desempenho e pode incorrer em custos adicionais. A recomendação é escolher a replicação geográfica com sabedoria e somente se o valor dos dados valer o custo adicional.
 
@@ -42,7 +42,7 @@ Um dos seguintes formatos pode ser usado para acessar dados armazenados no armaz
 
 [Escalabilidade e metas de desempenho do armazenamento do Azure](../../storage/common/storage-scalability-targets.md) lista os limites atuais nas contas de armazenamento do Azure. Se as necessidades do aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, o aplicativo poderá ser criado para usar várias contas de armazenamento e, em seguida, particionar objetos de dados entre essas contas de armazenamento.
 
-[](../../storage/storage-analytics.md)AnálisedearmazenamentodoAzure fornece métricas para todos os serviços de armazenamento e portal do Azure podem ser configuradas para coletar métricas a serem visualizadas por meio de gráficos. Os alertas podem ser criados para notificar quando os limites tiverem sido atingidos para métricas de recursos de armazenamento.
+[Análise de armazenamento do Azure](../../storage/storage-analytics.md)métricas  provides para todos os serviços de armazenamento e portal do Azure podem ser configuradas para coletar métricas a serem visualizadas por meio de gráficos. Os alertas podem ser criados para notificar quando os limites tiverem sido atingidos para métricas de recursos de armazenamento.
 
 O armazenamento do Azure oferece [exclusão reversível para objetos de blob](../../storage/blobs/storage-blob-soft-delete.md) para ajudar a recuperar dados quando eles são modificados acidentalmente ou excluídos por um aplicativo ou outro usuário da conta de armazenamento.
 
@@ -94,11 +94,11 @@ Azure Data Lake Storage Gen2 é a oferta de armazenamento mais recente. Ele unif
 
 O ADLS Gen 2 é criado com base no [armazenamento de BLOBs do Azure](../../storage/blobs/storage-blobs-introduction.md) e permite que você utilize a interface com os dados usando os paradigmas de armazenamento de objeto e de sistema de arquivos. Os recursos de [Azure data Lake Storage Gen1](../../data-lake-store/index.md), como a semântica do sistema de arquivos, a segurança em nível de arquivo e a escala, são combinados com armazenamento em camadas de baixo custo, alta disponibilidade/recuperação de desastres e um grande ecossistema de SDK/ferramentas do [Azure Armazenamento de BLOBs](../../storage/blobs/storage-blobs-introduction.md). Em Data Lake Storage Gen2, todas as qualidades do armazenamento de objetos permanecem ao adicionar as vantagens de uma interface de sistema de arquivos otimizada para cargas de trabalho de análise.
 
-Um recurso fundamental do data Lake Storage Gen2 é a adição de um [namespace](../../storage/data-lake-storage/namespace.md) hierárquico ao serviço de armazenamento de BLOBs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho. A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações de metadados atômicas únicas no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
+Um recurso fundamental do Data Lake Storage Gen2 é a adição de um [namespace hierárquico](../../storage/data-lake-storage/namespace.md) To o serviço de armazenamento de BLOBs, que organiza objetos/arquivos em uma hierarquia de diretórios para acesso a dados de alto desempenho. A estrutura hierárquica permite que operações como renomear ou excluir um diretório sejam operações de metadados atômicas únicas no diretório, em vez de enumerar e processar todos os objetos que compartilham o prefixo de nome do diretório.
 
 No passado, análise baseada na cloud tinha de comprometer nas áreas de desempenho, gerenciamento e segurança. Os principais recursos do Azure Data Lake Storage (ADLS) Gen2 são os seguintes:
 
-- **Acesso compatível com Hadoop**: Azure Data Lake Storage Gen2 permite que você gerencie e acesse dados da mesma forma como faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver](../../storage/data-lake-storage/abfs-driver.md) ABFS está disponível em todos os ambientes de Apache Hadoop incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse os dados armazenados no Data Lake Storage Gen2.
+- **Acesso compatível com Hadoop**: Azure Data Lake Storage Gen2 permite que você gerencie e acesse dados da mesma forma como faria com um [sistema de arquivos distribuído do Hadoop (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). O novo [Driver ABFS](../../storage/data-lake-storage/abfs-driver.md) is disponível em todos os ambientes de Apache Hadoop que estão incluídos no [Azure HDInsight](../index.yml). Esse driver permite que você acesse os dados armazenados no Data Lake Storage Gen2.
 
 - **Um superconjunto de permissões POSIX**: O modelo de segurança para Data Lake Gen2 dá suporte total às permissões de ACL e POSIX, juntamente com uma granularidade extra específica para Data Lake Storage Gen2. As configurações podem ser configuradas por meio de ferramentas de administração ou por meio de estruturas como Hive e Spark.
 
@@ -106,7 +106,7 @@ No passado, análise baseada na cloud tinha de comprometer nas áreas de desempe
 
 - **Funciona com ferramentas de armazenamento de BLOBs, estruturas e aplicativos**: Data Lake Storage Gen2 continua trabalhando com uma ampla gama de ferramentas, estruturas e aplicativos que existem hoje para o armazenamento de BLOBs.
 
-- **Driver otimizado**: O driver do sistema de arquivos de blob do Azure (ABFS) é [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) para análise de Big Data. As APIs REST correspondentes são apresentadas por meio do ponto de extremidade do DFS, dfs.core.windows.net.
+- **Driver otimizado**: O driver do sistema de arquivos de blob do Azure (ABFS) é [otimizado especificamente](../../storage/data-lake-storage/abfs-driver.md) Para Big data Analytics. As APIs REST correspondentes são apresentadas por meio do ponto de extremidade do DFS, dfs.core.windows.net.
 
 Um dos seguintes formatos pode ser usado para acessar dados armazenados no ADLS Gen2:
 - `abfs:///`: Acesse o Data Lake Storage padrão para o cluster.
@@ -163,29 +163,29 @@ Por padrão, o HDInsight tem acesso completo aos dados nas contas de armazenamen
     |storage_container_name|O contêiner na conta de armazenamento ao qual você deseja restringir o acesso.|
     |example_file_path|O caminho para um arquivo que é carregado no contêiner.|
 
-2. O arquivo SASToken.py vem com as `ContainerPermissions.READ + ContainerPermissions.LIST` permissões e pode ser ajustado com base no caso de uso.
+2. O arquivo SASToken.py vem com as permissões `ContainerPermissions.READ + ContainerPermissions.LIST` e pode ser ajustado com base no caso de uso.
 
-3. Execute o script da seguinte maneira:`python SASToken.py`
+3. Execute o script da seguinte maneira: `python SASToken.py`
 
-4. Ele exibe o token SAS semelhante ao seguinte texto quando o script é concluído:`sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
+4. Ele exibe o token SAS semelhante ao seguinte texto quando o script é concluído: `sr=c&si=policyname&sig=dOAi8CXuz5Fm15EjRUu5dHlOzYNtcK3Afp1xqxniEps%3D&sv=2014-02-14`
 
 5. Para limitar o acesso a um contêiner com assinatura de acesso compartilhado, adicione uma entrada personalizada à configuração de site principal para o cluster em Ambari HDFS configurações avançado personalizado Core-site Add Property.
 
 6. Use os seguintes valores para os campos de **chave** e **valor** :
 
-    **Chave**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`**Valor**: A chave SAS retornada pelo aplicativo Python da etapa 4 acima.
+    **Chave**: **valor**`fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`: A chave SAS retornada pelo aplicativo Python da etapa 4 acima.
 
 7. Clique no botão **Adicionar** para salvar essa chave e o valor e, em seguida, clique no botão **salvar** para salvar as alterações de configuração. Quando solicitado, adicione uma descrição da alteração ("adicionando acesso de armazenamento SAS", por exemplo) e, em seguida, clique em **salvar**.
 
-8. Na interface do usuário da Web do amAmbari, selecione HDFS na lista à esquerda e, em seguida, selecione **reiniciar todos os afetados** na lista suspensa ações de serviço à direita. Quando solicitado, selecione **confirmar reiniciar tudo**.
+8. Na interface do usuário da Web do amAmbari, selecione HDFS na lista à esquerda e, em seguida, selecione **reiniciar todos os afetados** na lista suspensa ações de serviço à direita. Quando solicitado, selecione **confirmar reiniciar tudo**.
 
 9. Repita esse processo para MapReduce2 e YARN.
 
 Há três coisas importantes a serem lembradas sobre o uso de tokens SAS no Azure:
 
-1. Quando os tokens SAS são criados com permissões de "leitura + lista", os usuários que acessam o contêiner de blob com esse token SAS não poderão "gravar e excluir" dados. Os usuários que acessam o contêiner de blob com esse token SAS e tentarem uma operação de gravação ou exclusão `"This request is not authorized to perform this operation"`receberão uma mensagem como.
+1. Quando os tokens SAS são criados com permissões de "leitura + lista", os usuários que acessam o contêiner de blob com esse token SAS não poderão "gravar e excluir" dados. Os usuários que acessam o contêiner de blob com esse token SAS e tentarem uma operação de gravação ou exclusão receberão uma mensagem como `"This request is not authorized to perform this operation"`.
 
-2. Quando os tokens SAS são gerados `READ + LIST + WRITE` com permissões (para `DELETE` restringir apenas), comandos `hadoop fs -put` como primeiro gravam `\_COPYING\_` em um arquivo e, em seguida, tentam renomear o arquivo. Essa operação HDFS é mapeada para `copy+delete` um para WASB. Como a `DELETE` permissão não foi fornecida, o "Put" falharia. A `\_COPYING\_` operação é um recurso do Hadoop destinado a fornecer um controle de simultaneidade. Atualmente, não há como restringir apenas a operação "excluir" sem afetar as operações de "gravação" também.
+2. Quando os tokens SAS são gerados com as permissões `READ + LIST + WRITE` (para restringir `DELETE` somente), comandos como `hadoop fs -put` primeiro gravam em um arquivo `\_COPYING\_` e, em seguida, tentam renomear o arquivo. Essa operação HDFS é mapeada para um `copy+delete` para WASB. Como a permissão `DELETE` não foi fornecida, o "Put" falharia. A operação `\_COPYING\_` é um recurso do Hadoop destinado a fornecer algum controle de simultaneidade. Atualmente, não há como restringir apenas a operação "excluir" sem afetar as operações de "gravação" também.
 
 3. Infelizmente, o provedor de credenciais do Hadoop e o provedor de chave de descriptografia (ShellDecryptionKeyProvider) atualmente não funcionam com os tokens SAS e, portanto, não podem ser protegidos da visibilidade no momento.
 

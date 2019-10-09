@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162209"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028271"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -68,7 +68,7 @@ Para interromper a proteção e excluir os dados de backup, execute as seguintes
 
          ![O painel excluir dados de backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Verifique o ícone de **notificação** : ![O ícone de notificação.](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: Parando *backup e excluindo dados de backup para "* Item de backup *"* . *Operação concluída com êxito*.
+5. Verifique o ícone de **notificação** : ícone de notificação de @no__t 0The. ](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: Parando *backup e excluindo dados de backup para "* Item de backup *"* . *Operação concluída com êxito*.
 6. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 
       ![A página excluir itens de backup.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -84,7 +84,7 @@ Primeiro, leia a seção **[antes de começar](#before-you-start)** para entende
 
         ![Para MARS, selecione seu cofre para abrir seu painel.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - Para MABS ou DPM, selecione **backup servidores de gerenciamento**. Em seguida, selecione o servidor que você deseja excluir. 
+      - Para MABS ou DPM, selecione **backup servidores de gerenciamento**. Em seguida, selecione o servidor que você deseja excluir. 
 
 
           ![Para MABS, selecione seu cofre para abrir seu painel.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
@@ -102,7 +102,7 @@ Primeiro, leia a seção **[antes de começar](#before-you-start)** para entende
 4. Marque a caixa de seleção consentimento e, em seguida, selecione **excluir**.
 
 
-5. Verifique o ícone ![de notificação excluir dados](./media/backup-azure-delete-vault/messages.png)de backup. Depois que a operação for concluída, o serviço exibirá a mensagem: *Parando backup e excluindo dados de backup para "item de backup".* *Operação concluída com êxito*.
+5. Verifique o ícone de **notificação** ![Exclua data de backup @ no__t-2. Depois que a operação for concluída, o serviço exibirá a mensagem: *Parando backup e excluindo dados de backup para "item de backup".* *Operação concluída com êxito*.
 6. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 
 Após a conclusão desse processo, você pode excluir os itens de backup do console de gerenciamento:
@@ -122,13 +122,13 @@ Após a conclusão desse processo, você pode excluir os itens de backup do cons
 
     ![Interromper um backup agendado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para **serviços de recuperação** > **configurações** > do cofre**Propriedades**.
+5. Vá para o **cofre dos serviços de recuperação** > **configurações** > **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
     ![Gerar um PIN de segurança.](./media/backup-azure-delete-vault/security-pin.png)
 
-8. Na página **Modificar progresso do backup** , a seguinte mensagem é exibida: *Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.*  
+8. Na página **Modificar progresso do backup** , a seguinte mensagem é exibida: os dados de backup de @no__t 0Deleted serão retidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. *  
 
     ![Exclua a infraestrutura de backup.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -212,7 +212,7 @@ Para interromper a proteção e excluir os dados de backup:
        [-Confirm] 
        [<CommonParameters>] 
     ```
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) sobre desabilitar a proteção para um item protegido por backup. 
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about desabilita a proteção para um item protegido por backup. 
 
 - Para arquivos e pastas locais protegidos usando o agente de backup do Azure (MARS) fazendo backup no Azure, use o seguinte comando do PowerShell para excluir os dados de backup de cada módulo MARS PowerShell:
 
@@ -222,7 +222,7 @@ Para interromper a proteção e excluir os dados de backup:
 
     Poste o seguinte prompt apareceria:
      
-    *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+    *Microsoft backup do Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
 
 
 - Para computadores locais protegidos usando o MABS (Backup do Microsoft Azure Server) ou o DPM no Azure (System Center Data Protection Manager), use o comando a seguir para excluir os dados de backup no Azure.
@@ -233,7 +233,7 @@ Para interromper a proteção e excluir os dados de backup:
 
     Poste o seguinte prompt apareceria: 
          
-   *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+   *Microsoft backup do Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
 
 Depois de excluir os dados de backup, cancele o registro de todos os contêineres locais e servidores de gerenciamento. 
 

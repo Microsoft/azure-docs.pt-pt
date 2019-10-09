@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203706"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023638"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Escolha a camada certa do Hub IoT para sua solução
 
@@ -35,11 +35,11 @@ A camada standard do Hub IoT habilita todos os recursos e é necessária para as
 
 Somente um tipo de [edição](https://azure.microsoft.com/pricing/details/iot-hub/) dentro de uma camada pode ser escolhido por Hub IOT. Por exemplo, você pode criar um hub IoT com várias unidades S1, mas não com uma combinação de unidades de diferentes edições, como S1 e S2.
 
-| Funcionalidade | Escalão Básico | Camada gratuita/Standard |
+| Funcionalidade | Escalão Basic | Camada gratuita/Standard |
 | ---------- | ---------- | ------------- |
 | [Telemetria do dispositivo para a nuvem](iot-hub-devguide-messaging.md) | Sim | Sim |
 | [Identidade por dispositivo](iot-hub-devguide-identity-registry.md) | Sim | Sim |
-| [Roteamento de mensagens](iot-hub-devguide-messages-read-custom.md) e [integração da grade de eventos](iot-hub-event-grid.md) | Sim | Sim |
+| [Roteamento de mensagens](iot-hub-devguide-messages-read-custom.md), [aprimoramentos de mensagens](iot-hub-message-enrichments-overview.md)e [integração de grade de eventos](iot-hub-event-grid.md) | Sim | Sim |
 | [Protocolos HTTP, AMQP e MQTT](iot-hub-devguide-protocols.md) | Sim | Sim |
 | [Serviço de provisionamento de dispositivos](../iot-dps/about-iot-dps.md) | Sim | Sim |
 | [Monitoramento e diagnóstico](iot-hub-monitor-resource-health.md) | Sim | Sim |
@@ -70,7 +70,7 @@ A configuração de partição permanece inalterada quando você migra da camada
 
 A diferença nos recursos com suporte entre as camadas básica e Standard do Hub IoT significa que algumas chamadas à API não funcionam com hubs de camada básica. A tabela a seguir mostra quais APIs estão disponíveis:
 
-| API | Escalão Básico | Camada gratuita/Standard |
+| API | Escalão Basic | Camada gratuita/Standard |
 | --- | ---------- | ------------- |
 | [Excluir dispositivo](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Sim | Sim |
 | [Obter dispositivo](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Sim | Sim |

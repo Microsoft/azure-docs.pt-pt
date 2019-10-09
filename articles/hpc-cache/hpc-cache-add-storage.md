@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710028"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024569"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -37,13 +37,16 @@ Para definir um contêiner de blob do Azure, insira essas informações.
 
 ![captura de tela da página Adicionar destino de armazenamento, preenchida com informações para um novo destino de armazenamento de BLOBs do Azure](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **Nome do destino de armazenamento** -defina um nome que identifique esse destino de armazenamento no cache do HPC do Azure.
 * **Tipo de destino** -escolha **blob**.
 * **Conta de armazenamento** -selecione a conta com o contêiner para referenciar.
 
   Você precisará autorizar a instância de cache a acessar a conta de armazenamento, conforme descrito em [Adicionar as funções de acesso](#add-the-access-control-roles-to-your-account).
+
+  Para obter informações sobre o tipo de conta de armazenamento que você pode usar, leia [requisitos de armazenamento de BLOBs](hpc-cache-prereqs.md#blob-storage-requirements).
+
 * **Contêiner de armazenamento** -selecione o contêiner de BLOB para este destino.
 
 * **Caminho do namespace virtual** -defina o caminho do arquivo voltado para o cliente para este destino de armazenamento. Leia [Configurar namespace agregado](hpc-cache-namespace.md) para saber mais sobre o recurso de namespace virtual.
@@ -54,7 +57,7 @@ Quando terminar, clique em **OK** para adicionar o destino de armazenamento.
 
 O cache HPC do Azure usa o [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azure/role-based-access-control/index) para autorizar o aplicativo de cache a acessar sua conta de armazenamento para destinos do armazenamento de BLOBs do Azure.
 
-O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador de [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) de funções e o colaborador de dados do [blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "provedor de recursos StorageCache".
+O proprietário da conta de armazenamento deve adicionar explicitamente o colaborador da [conta de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) de funções e o colaborador de dados do [blob de armazenamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) para o usuário "provedor de recursos de cache do HPC".
 
 Você pode fazer isso antecipadamente ou clicando em um link na página em que você adiciona um destino de armazenamento de BLOBs.
 
@@ -62,13 +65,16 @@ Etapas para adicionar as funções de RBAC:
 
 1. Abra a página **controle de acesso (iam)** para a conta de armazenamento. (O link na página **Adicionar destino de armazenamento** abre automaticamente esta página para a conta selecionada.)
 
-1. Clique no na parte superior da página e escolha **Adicionar uma atribuição de função.** **+**
+1. Clique no **+** na parte superior da página e escolha **Adicionar uma atribuição de função**.
 
 1. Selecione a função "colaborador da conta de armazenamento" na lista.
 
 1. No campo **atribuir acesso a** , deixe o valor padrão selecionado ("usuário do Azure AD, grupo ou entidade de serviço").  
 
-1. No campo **selecionar** , procure "storagecache".  Essa cadeia de caracteres deve corresponder a uma entidade de segurança, denominada "provedor de recursos de cache do HPC". Clique nessa entidade para selecioná-la.
+1. No campo **selecionar** , procure "HPC".  Essa cadeia de caracteres deve corresponder a uma entidade de serviço, denominada "provedor de recursos de cache do HPC". Clique nessa entidade para selecioná-la.
+
+   > [!NOTE]
+   > Se uma pesquisa por "HPC" não funcionar, tente usar a cadeia de caracteres "storagecache" em vez disso. Os usuários que ingressaram na visualização antecipada talvez precisem usar o nome mais antigo para a entidade de serviço.
 
 1. Clique no botão **salvar** para adicionar a atribuição de função à conta de armazenamento.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679308"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023732"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurar o fluxo de credenciais de senha do proprietário do recurso no Azure AD B2C
 
@@ -25,7 +25,7 @@ O fluxo de credenciais de senha do proprietário do recurso (ROPC) é um fluxo d
 
 No Azure Active Directory B2C (Azure AD B2C), há suporte para as seguintes opções:
 
-- **Cliente nativo**: A interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como o Android ou em um navegador, como o JavaScript.
+- **Cliente nativo**: A interação do usuário durante a autenticação ocorre quando o código é executado em um dispositivo do lado do usuário. O dispositivo pode ser um aplicativo móvel em execução em um sistema operacional nativo, como Android e iOS.
 - **Fluxo do cliente público**: Somente as credenciais do usuário, coletadas por um aplicativo, são enviadas na chamada à API. As credenciais do aplicativo não são enviadas.
 - **Adicionar novas declarações**: O conteúdo do token de ID pode ser alterado para adicionar novas declarações.
 
@@ -58,9 +58,9 @@ Não há suporte para os seguintes fluxos:
 ## <a name="test-the-user-flow"></a>Testar o fluxo do usuário
 
 Use seu aplicativo de desenvolvimento de API favorito para gerar uma chamada à API e examine a resposta para depurar seu fluxo de usuário. Construa uma chamada como esta com as informações na tabela a seguir como o corpo da solicitação POST:
-- *Substitua\<seulocatario. onmicrosoft. com >* pelo nome do seu locatário B2C.
+- Substitua *@no__t -1yourtenant. onmicrosoft. com >* pelo nome do seu locatário B2C.
 - Substitua *\<B2C_1A_ROPC_Auth >* pelo nome completo da política de credenciais de senha do proprietário do recurso.
-- *Substitua\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* com a ID do aplicativo do seu registro.
+- Substitua *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* com a ID do aplicativo do seu registro.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 

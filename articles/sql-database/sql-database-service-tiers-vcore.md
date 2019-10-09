@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 08/29/2019
-ms.openlocfilehash: 4af269faab21207e1a754e309cac16e5e0a94b69
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.date: 10/01/2019
+ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164347"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034996"
 ---
 # <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>Escolha entre as camadas de serviço vCore e migre das camadas de serviço de DTU
 
@@ -36,15 +36,15 @@ O hardware Gen4 oferece substancialmente mais memória por vCore. No entanto, o 
 
 O modelo de compra baseado em vCore fornece três camadas de serviço: uso geral, hiperescala e comercialmente crítico. Essas camadas de serviço são diferenciadas por uma variedade de tamanhos de computação, projetos de alta disponibilidade, métodos de isolamento de falhas, tipos e tamanhos de armazenamento e intervalos de e/s.
 
-Você deve configurar separadamente o período de retenção e armazenamento necessário para backups. Para definir o período de retenção de backup, abra o portal do Azure, vá para o servidor (não o banco de dados) e vá para **gerenciar backups** > **Configurar** > o > **ponto de política no tempo configuração de restauração** **7- 35 dias**.
+Você deve configurar separadamente o período de retenção e armazenamento necessário para backups. Para definir o período de retenção de backup, abra o portal do Azure, vá para o servidor (não o banco de dados) e vá para **gerenciar backups** > **configurar a política** > **ponto no tempo configuração de restauração** > **7-35 dias**.
 
 A tabela a seguir explica as diferenças entre as três camadas:
 
 ||**Fins gerais**|**Comercialmente crítico**|**Em hiperescala**|
 |---|---|---|---|
-|Melhor para|A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e de computação voltadas para o orçamento, equilibradas e escalonáveis.|Aplicativos de negócios com requisitos de e/s altos. Oferece maior resiliência a falhas usando várias réplicas isoladas.|A maioria das cargas de trabalho de negócios com requisitos de armazenamento e escala de leitura altamente escalonáveis.|
-|Computação|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores<br/>**Computação sem servidor**:<br/>Gen5 0,5-16 vCores|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|**Computação**provisionada:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|
-|Memória|**Computação**provisionada:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore<br/>**Computação sem servidor**:<br/>Gen5 Até 24 GB por vCore|**Computação**provisionada:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore |**Computação**provisionada:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore|
+|Melhor para|Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento.|Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|A maioria das cargas de trabalho de negócios. Dimensionamento automático do tamanho de armazenamento de até 100 TB, dimensionamento vertical e horizontal de computação de fluxo, restauração rápida de banco de dados.|
+|Computação|**Computação provisionada**:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores<br/>**Computação sem servidor**:<br/>Gen5 0,5-16 vCores|**Computação provisionada**:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|**Computação provisionada**:<br/>Gen4: 1 a 24 vCores<br/>Gen5 2 a 80 vCores|
+|Memória|**Computação provisionada**:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore<br/>**Computação sem servidor**:<br/>Gen5 Até 24 GB por vCore|**Computação provisionada**:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore |**Computação provisionada**:<br/>Gen4: 7 GB por vCore<br/>Gen5 5,1 GB por vCore|
 |Armazenamento|Usa o armazenamento remoto.<br/>**Computação provisionada de banco de dados individual e pool elástico**:<br/>5 GB – 4 TB<br/>**Computação sem servidor**:<br/>5 GB-3 TB<br/>**Instância gerenciada**: 32 GB-8 TB |Usa o armazenamento SSD local.<br/>**Computação provisionada de banco de dados individual e pool elástico**:<br/>5 GB – 4 TB<br/>**Instância gerenciada**:<br/>32 GB-4 TB |Crescimento automático flexível do armazenamento, conforme necessário. Dá suporte a até 100 TB de armazenamento. Usa o armazenamento SSD local para o cache do pool de buffers local e o armazenamento de dados local. Usa o armazenamento remoto do Azure como armazenamento de dados de longo prazo final. |
 |Taxa de transferência de e/s (aproximada)|**Banco de dados individual e pool elástico**: 500 IOPS por vCore até 40000 IOPS máximo.<br/>**Instância gerenciada**: Depende [do tamanho do arquivo](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS por núcleo até 200.000 IOPS máximo|O hiperscale é uma arquitetura de várias camadas com cache em vários níveis. O IOPs efetivo dependerá da carga de trabalho.|
 |Disponibilidade|1 réplica, sem réplicas de escala de leitura|3 réplicas, 1 [réplica de escala de leitura](sql-database-read-scale-out.md),<br/>alta disponibilidade com redundância de zona (HA)|1 réplica de leitura/gravação, além [de 0-4 réplicas de escala de leitura](sql-database-read-scale-out.md)|
@@ -57,13 +57,13 @@ A tabela a seguir explica as diferenças entre as três camadas:
 
 - Para obter mais informações sobre limites de recursos vCore, consulte [limites de recursos VCORE em um banco de dados individual](sql-database-vcore-resource-limits-single-databases.md) e [limites de recursos VCORE em uma instância gerenciada](sql-database-managed-instance.md#vcore-based-purchasing-model).
 - Para obter mais informações sobre as camadas de serviço de uso geral e crítico para os negócios, consulte [camadas de serviço de uso geral e crítico](sql-database-service-tiers-general-purpose-business-critical.md)para os negócios.
-- Para obter mais informações sobre a camada de serviço de hiperescala no modelo de compra baseado em vCore, consulte [camada de serviço](sql-database-service-tier-hyperscale.md)de hiperescala.  
+- Para obter mais informações sobre a camada de serviço de hiperescala no modelo de compra baseado em vCore, consulte [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md).  
 
 ## <a name="azure-hybrid-benefit"></a>Benefício Híbrido do Azure
 
 Na camada de computação provisionada do modelo de compra baseado em vCore, você pode trocar suas licenças existentes por tarifas com desconto no banco de dados SQL usando [benefício híbrido do Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Esse benefício do Azure permite que você economize até 30% no banco de dados SQL do Azure usando suas licenças de SQL Server locais com o Software Assurance.
 
-![preços](./media/sql-database-service-tiers/pricing.png)
+![Refere](./media/sql-database-service-tiers/pricing.png)
 
 Com Benefício Híbrido do Azure, você pode optar por pagar apenas pela infraestrutura subjacente do Azure usando sua licença de SQL Server existente para o próprio mecanismo de banco de dados SQL (preço de computação base) ou pode pagar pela infraestrutura subjacente e pelo SQL Server licença (preço incluído na licença).
 
@@ -107,7 +107,7 @@ Quando você estiver usando a replicação geográfica entre dois pools elástic
 
 A tabela a seguir fornece orientação para cenários de migração específicos:
 
-|Camada de serviço atual|Camada de serviço de destino|Tipo de migração|Ações de utilizador|
+|Camada de serviço atual|Camada de serviço de destino|Tipo de migração|Ações do usuário|
 |---|---|---|---|
 |Standard|Fins gerais|Lateral|Pode migrar em qualquer ordem, mas precisa garantir um dimensionamento adequado de vCore *|
 |Premium|Crítico para a empresa|Lateral|Pode migrar em qualquer ordem, mas precisa garantir um dimensionamento adequado de vCore *|
@@ -119,7 +119,7 @@ A tabela a seguir fornece orientação para cenários de migração específicos
 |Fins gerais|Crítico para a empresa|Atualizar|Deve migrar o secundário primeiro|
 ||||
 
-\*Cada DTUs de 100 na camada Standard requer pelo menos 1 vCore, e cada 125 DTUs na camada Premium exige pelo menos 1 vCore.
+\* a cada 100 DTUs na camada Standard exigem pelo menos 1 vCore e cada 125 DTUs na camada Premium requer pelo menos 1 vCore.
 
 ### <a name="migrate-failover-groups"></a>Migrar grupos de failover
 
@@ -129,7 +129,7 @@ A migração de grupos de failover com vários bancos de dados requer a migraç�
 
 Você pode criar um banco de dados secundário de replicação geográfica (um secundário geográfico) somente usando a mesma camada de serviço usada para o banco de dados primário. Para bancos de dados com uma alta taxa de geração de logs, é recomendável criar o secundário geográfico com o mesmo tamanho de computação que o primário.
 
-Se você estiver criando um secundário geográfico no pool elástico para um único banco de dados primário, verifique se a `maxVCore` configuração do pool corresponde ao tamanho de computação do banco de dados primário. Se você estiver criando um secundário geográfico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas `maxVCore` configurações.
+Se você estiver criando um secundário geográfico no pool elástico para um único banco de dados primário, verifique se a configuração `maxVCore` para o pool corresponde ao tamanho de computação do banco de dados primário. Se você estiver criando um secundário geográfico para um primário em outro pool elástico, recomendamos que os pools tenham as mesmas configurações `maxVCore`.
 
 ### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Use a cópia do banco de dados para converter um banco de dados baseado em DTU em um banco de dados baseado em vCore
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827583"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034720"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrar seu aplicativo a uma rede virtual do Azure
 Este documento descreve o recurso de integração de rede virtual do serviço Azure App e como configurá-lo com aplicativos no [serviço Azure app](https://go.microsoft.com/fwlink/?LinkId=529714). As [redes virtuais do Azure][VNETOverview] (VNets) permitem que você coloque muitos dos seus recursos do Azure em uma rede roteável que não seja da Internet.  
@@ -64,6 +64,10 @@ Há algumas coisas para as quais a integração VNet não oferece suporte, inclu
 
 ## <a name="regional-vnet-integration"></a>Integração de VNet regional 
 
+> [!NOTE]
+> O emparelhamento ainda não está disponível para o serviço de aplicativo baseado em Linux.
+>
+
 Quando a integração VNet é usada com VNets na mesma região que seu aplicativo, ele requer o uso de uma sub-rede delegada com pelo menos 32 endereços. A sub-rede não pode ser usada para nada mais. Chamadas de saída feitas de seu aplicativo serão feitas a partir dos endereços na sub-rede delegada. Quando você usa essa versão da integração VNet, as chamadas são feitas de endereços em sua VNet. O uso de endereços em sua VNet permite que seu aplicativo:
 
 * Fazer chamadas para serviços protegidos de ponto de extremidade de serviço
@@ -108,7 +112,7 @@ A integração VNet regional requer que sua sub-rede de integração seja delega
 Para desconectar seu aplicativo da VNet, selecione **Desconectar**. Isso reiniciará seu aplicativo Web. 
 
 
-#### <a name="web-app-for-containers"></a>Web App para Contentores
+#### <a name="web-app-for-containers"></a>Aplicações Web para Contentores
 
 Se você usar o serviço de aplicativo no Linux com as imagens internas, o recurso de integração VNet regional funcionará sem alterações adicionais. Se você usar Aplicativo Web para Contêineres, precisará modificar a imagem do Docker para usar a integração VNet. Na imagem do Docker, use a variável de ambiente PORT como a porta de escuta do servidor Web principal, em vez de usar um número de porta codificado. A variável de ambiente PORT é definida automaticamente pela plataforma do serviço de aplicativo no momento da inicialização do contêiner. Se você estiver usando SSH, o daemon SSH deverá ser configurado para escutar no número da porta especificado pela variável de ambiente SSH_PORT ao usar a integração VNet regional.
 

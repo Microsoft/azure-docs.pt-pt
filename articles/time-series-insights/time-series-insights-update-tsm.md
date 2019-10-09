@@ -8,16 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8f4ed6de5ff47efa441c371b80670c500f57c9bb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931917"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034057"
 ---
-# <a name="time-series-model"></a>Modelo da Série de Tempo
+# <a name="time-series-model"></a>Modelo de Série de Tempo
 
 Este artigo descreve a parte do modelo de série temporal da versão prévia do Azure Time Series Insights. Ele aborda o próprio modelo, seus recursos e como começar a criar e atualizar seu próprio modelo.
 
@@ -25,7 +25,7 @@ Tradicionalmente, os dados coletados de dispositivos IoT não têm informações
 
 Os modelos de série temporal desempenham um papel vital em consultas e navegação porque eles contextualizem entidades de dispositivo e não dispositivo. Os dados persistidos no modelo de série temporal impulsionam as computações de consulta de série temporal aproveitando as fórmulas armazenadas nelas.
 
-[![Visão geral do modelo de série temporal](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[Visão geral do modelo da série @no__t 1Time](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>Principais capacidades
 
@@ -82,11 +82,11 @@ Os tipos de Time Series Insights têm variáveis, que são cálculos nomeados so
 
 A matriz a seguir funciona como uma legenda para definições de variáveis:
 
-[![Tabela de definição de variável de tipo](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[tabela de definição de variável ![Type](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | Definição | Descrição |
 | --- | ---|
-| Tipo de variável |  Há suporte para tipos numéricos e *agregados* |
+| Tipo de variável |  Há suporte para tipos *numéricos* e *agregados* |
 | Filtro de variável | Filtros de variáveis especificam uma cláusula de filtro opcional para restringir o número de linhas que estão sendo consideradas para computação com base em condições. |
 | Valor da variável | Os valores de variáveis são e devem ser usados na computação. O campo relevante para se referir ao ponto de dados em questão. |
 | Agregação de variável | A função de agregação da variável habilita parte da computação. O Time Series Insights dá suporte a agregações regulares (isto é, *mín*., *máx*., *média*, *soma*e *contagem*). |
@@ -126,7 +126,7 @@ Considere o exemplo a seguir em que a hierarquia H1 tem *prédio*, *piso*e *sala
 
 Dependendo dos campos de *instância*, os valores e atributos de hierarquia aparecem conforme mostrado na tabela a seguir:
 
-| ID de Série de Tempo | Campos de instância |
+| ID da série temporal | Campos de instância |
 | --- | --- |
 | ID1 | "compilando" = "1000", "piso" = "10", "sala" = "55"  |
 | ID2 | "criando" = "1000", "sala" = "55" |
@@ -138,9 +138,9 @@ No exemplo anterior, **ID1** e **ID4** mostram como parte da hierarquia H1 no Az
 
 ## <a name="time-series-model-instances"></a>Instâncias de modelo de série temporal
 
-As instâncias são a própria série temporal. Na maioria dos casos, o DeviceID ou *AssetID* é o identificador exclusivo do ativo no ambiente. As instâncias têm informações descritivas associadas a elas chamadas Propriedades de instância. No mínimo, as propriedades de instância incluem informações de hierarquia. Eles também podem incluir dados úteis e descritivos, como o fabricante, o operador ou a data do último serviço.
+As instâncias são a própria série temporal. Na maioria dos casos, o *DeviceID* ou *AssetID* é o identificador exclusivo do ativo no ambiente. As instâncias têm informações descritivas associadas a elas chamadas Propriedades de instância. No mínimo, as propriedades de instância incluem informações de hierarquia. Eles também podem incluir dados úteis e descritivos, como o fabricante, o operador ou a data do último serviço.
 
-As instâncias são definidas por *typeId*, timeseriesid, *nome*, *Descrição*, *hierarchyIds*e *instanceFields*. Cada instância é mapeada para apenas um *tipo*e uma ou mais hierarquias. As instâncias herdam todas as propriedades de hierarquias e *instanceFields* adicionais podem ser adicionadas para uma definição de propriedade de instância adicional.
+As instâncias são definidas por *typeId*, *timeseriesid*, *nome*, *Descrição*, *hierarchyIds*e *instanceFields*. Cada instância é mapeada para apenas um *tipo*e uma ou mais hierarquias. As instâncias herdam todas as propriedades de hierarquias e *instanceFields* adicionais podem ser adicionadas para uma definição de propriedade de instância adicional.
 
 *instanceFields* são propriedades de uma instância e de quaisquer dados estáticos que definem uma instância. Eles definem valores de propriedades de hierarquia ou de não hierarquia, além de oferecer suporte à indexação para executar operações de pesquisa.
 

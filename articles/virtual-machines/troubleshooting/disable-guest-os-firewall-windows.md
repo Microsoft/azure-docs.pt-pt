@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086537"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030597"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Desativar a Firewall do SO convidado na VM do Azure
 
@@ -90,9 +90,9 @@ Se você tiver um agente do Azure em funcionamento, poderá usar a [extensão de
 
 Siga estas etapas para usar o [registro remoto](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Na VM de solução de problemas, inicie o editor do registro e vá para **arquivo** > **conectar registro de rede**.
+1.  Na VM de solução de problemas, inicie o editor do registro e vá para o **arquivo** > **conectar o registro de rede**.
 
-2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
+2.  Abra a ramificação \System do *computador de destino*e especifique os seguintes valores:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -102,13 +102,13 @@ Siga estas etapas para usar o [registro remoto](https://support.microsoft.com/he
 
 3.  Reinicie o serviço. Como não é possível fazer isso usando o registro remoto, você deve usar remover console de serviço.
 
-4.  Abra uma instância de **Services. msc**.
+4.  Abra uma instância de **Services. msc**.
 
 5.  Clique em **Serviços (local)** .
 
 6.  Selecione **conectar a outro computador**.
 
-7.  Insira o **endereço IP privado (DIP)**  da VM com problema.
+7.  Insira o **endereço IP privado (DIP)** da VM com problema.
 
 8.  Reinicie a política de firewall local.
 

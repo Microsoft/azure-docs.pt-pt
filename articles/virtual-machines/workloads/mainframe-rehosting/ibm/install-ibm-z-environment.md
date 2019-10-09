@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 7ba3323f0811f3f9b76d73796264bf17712a1179
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841336"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025933"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Instalar o ambiente de desenvolvimento/teste do IBM zD & T no Azure
 
@@ -48,7 +48,7 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 - Você precisa de acesso à mídia, que está disponível somente para clientes e parceiros da IBM. Para obter mais informações, entre em contato com seu representante IBM ou consulte as informações de contato no site do [zD & T](https://www.ibm.com/us-en/marketplace/z-systems-development-test-environment) .
 
-- Um [servidor](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html)de licenciamento. Isso é necessário para o acesso aos ambientes. A maneira como você cria isso depende de como você licencia o software da IBM:
+- Um [servidor de licenciamento](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.tools.user.guide.doc/topics/zdt_ee.html). Isso é necessário para o acesso aos ambientes. A maneira como você cria isso depende de como você licencia o software da IBM:
 
      - O **servidor de licenciamento baseado em hardware** requer um dispositivo de hardware USB que contenha os tokens racional necessários para acessar todas as partes do software. Você deve obtê-lo da IBM.
 
@@ -62,11 +62,11 @@ Este artigo mostra como configurar o ambiente de desenvolvimento e teste do Z (z
 
 3. Obtenha as credenciais SSH mostradas na folha **visão geral** da VM por meio do botão **conectar** . Selecione a guia **SSH** e copie o comando logon SSH para a área de transferência.
 
-4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **endereço\<\@\<\>IPdaIDdeusuárioSSH\>** . Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
+4. Faça logon em um [shell bash](/azure/cloud-shell/quickstart) do seu computador local e cole o comando. Ele estará no formato **SSH @ no__t-1user ID @ no__t-2 @ no__t-3 @ no__t-4IP endereço @ no__t-5**. Quando solicitado a fornecer suas credenciais, insira-as para estabelecer uma conexão com o diretório base.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Copiar o arquivo de instalação para o servidor
 
-O arquivo de instalação do servidor Web é **ZDT\_instalar\_o\_EE v 12.0.0.1. tgz**. Ele está incluído na mídia fornecida pela IBM. Você deve carregar esse arquivo para a VM do Ubuntu.
+O arquivo de instalação do servidor Web é **ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**. Ele está incluído na mídia fornecida pela IBM. Você deve carregar esse arquivo para a VM do Ubuntu.
 
 1. Na linha de comando, digite o seguinte comando para verificar se tudo está atualizado na imagem recém-criada:
 
@@ -91,7 +91,7 @@ O arquivo de instalação do servidor Web é **ZDT\_instalar\_o\_EE v 12.0.0.1. 
 
 ## <a name="install-the-enterprise-edition"></a>Instalar o Enterprise Edition
 
-1. Vá para o diretório ZDT e descompacte o\_arquivo\_ZDT\_de instalação do EE v 12.0.0.1. tgz usando os seguintes comandos:
+1. Vá para o diretório ZDT e descompacte o arquivo ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz usando os seguintes comandos:
 
     ```
     cd ZDT
@@ -104,7 +104,7 @@ O arquivo de instalação do servidor Web é **ZDT\_instalar\_o\_EE v 12.0.0.1. 
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 
-3. Selecione **1** para instalar o servidor corporativo.
+3. Selecione **1** para instalar o servidor corporativo.
 
 4. Pressione **Enter** e leia os contratos de licença com cuidado. No final da licença, digite **Sim** para continuar.
 
@@ -136,6 +136,6 @@ Tenha em mente que quando o servidor Web é iniciado, ele é executado sob o zD 
 
 3. Cole a URL em um navegador da Web para abrir o componente de gerenciamento para a instalação do zD & T.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Configurar uma ADCD (distribuição controlada por desenvolvedores de aplicativos) no IBM zD & T v1](./demo.md)

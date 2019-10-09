@@ -1,77 +1,77 @@
 ---
-title: Transformação de associação de fluxo de dados de fábrica de dados do Azure
-description: Transformação de associação de fluxo de dados de fábrica de dados do Azure
+title: Azure Data Factory transformação junção de fluxo de dados
+description: Azure Data Factory transformação junção de fluxo de dados
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348584"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029315"
 ---
-# <a name="mapping-data-flow-join-transformation"></a>Transformação de associação de fluxo de dados de mapeamento
+# <a name="mapping-data-flow-join-transformation"></a>Mapeando a transformação junção de fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Utilize a associação de combinar dados de duas tabelas no seu fluxo de dados. Clique na transformação que será a relação à esquerda e adicione uma transformação de associação da caixa de ferramentas. Dentro a transformação de associação, irá selecionar outro fluxo de dados a partir do seu fluxo de dados para ser certa relação.
 
-![Junte-se a transformação](media/data-flow/join.png "aderir")
+Use Join para combinar dados de duas tabelas em seu fluxo de dados. Clique na transformação que será a relação à esquerda e adicione uma transformação de junção da caixa de ferramentas. Dentro da transformação de junção, você selecionará outro fluxo de dados do seu fluxo de dados para ser a relação certa.
 
-## <a name="join-types"></a>Junte-se de tipos
+![](media/data-flow/join.png "Junção de") transformação de junção
 
-Selecionar tipo de associação é necessária para a transformação de associação.
+## <a name="join-types"></a>Tipos de junção
 
-### <a name="inner-join"></a>Associação interna
+A seleção do tipo de junção é necessária para a transformação junção.
 
-Associação interna passará apenas as linhas que coincidam com as condições de coluna das duas tabelas.
+### <a name="inner-join"></a>Junção interna
 
-### <a name="left-outer"></a>Externa à esquerda
+A junção interna passará apenas por linhas que correspondam às condições de coluna de ambas as tabelas.
 
-Todas as linhas do fluxo de esquerda não cumprir a condição de associação que elas passem por e colunas de saída da outra tabela estão definidas como NULL, além de todas as linhas retornadas da associação interna.
+### <a name="left-outer"></a>Externa esquerda
 
-### <a name="right-outer"></a>Externa à direita
+Todas as linhas do fluxo à esquerda que não atendem à condição de junção são passadas e as colunas de saída da outra tabela são definidas como NULL, além de todas as linhas retornadas pela junção interna.
 
-Todas as linhas do fluxo de direito não cumprir a condição de associação que elas passem por e colunas de saída que correspondem à outra tabela estão definidas como NULL, além de todas as linhas retornadas da associação interna.
+### <a name="right-outer"></a>Externa direita
 
-### <a name="full-outer"></a>Externa completa
+Todas as linhas do fluxo à direita que não atendem à condição de junção são passadas e as colunas de saída que correspondem à outra tabela são definidas como NULL, além de todas as linhas retornadas pela junção interna.
 
-Externa completa produz todas as colunas e linhas de ambos os lados com valores nulos para colunas que são não presentes na outra tabela.
+### <a name="full-outer"></a>Externo completo
 
-### <a name="cross-join"></a>Associação cruzada
+Externo completo produz todas as colunas e linhas de ambos os lados com valores nulos para colunas que não estão presentes na outra tabela.
 
-Especifique o produto cruzado de dois fluxos com uma expressão. Pode utilizar este para criar condições de associação personalizado.
+### <a name="cross-join"></a>Junção cruzada
 
-## <a name="specify-join-conditions"></a>Especificar as condições de associação
+Especifique o produto cruzado dos dois fluxos com uma expressão. Você pode usar isso para criar condições de junção personalizadas.
 
-É a condição de associação à esquerda do fluxo de dados ligado à esquerda de sua associação. A condição de aderir à direita é o segundo fluxo de dados ligado à sua associação na parte inferior, que vai ser um conector direto para outro fluxo ou uma referência a outro fluxo.
+## <a name="specify-join-conditions"></a>Especificar condições de junção
 
-É necessário introduzir pelo menos 1 condições de associação (1..n). Eles podem ser campos que também são referenciados diretamente, selecionado a partir do menu pendente ou expressões.
+A condição de junção à esquerda é do fluxo de dados conectado à esquerda de seu ingresso. A condição de junção correta é o segundo fluxo de dados conectado à sua junção na parte inferior, que será um conector direto para outro fluxo ou uma referência a outro fluxo.
 
-## <a name="join-performance-optimizations"></a>Junte-se a otimizações de desempenho
+Você precisa inserir pelo menos uma (1.. n) condições de junção. Eles podem ser campos que são referenciados diretamente, selecionados no menu suspenso ou expressões.
 
-Ao contrário de Merge Join, em ferramentas como o SSIS, a associação no fluxo de dados do ADF não é uma operação de associação de intercalação obrigatório. Por conseguinte, as chaves de associação não é necessário ser ordenada em primeiro lugar. A operação de associação ocorrerá no Spark com o Databricks baseada a operação de associação ideal no Spark: Associação de difusão / lado do mapa:
+## <a name="join-performance-optimizations"></a>Unir otimizações de desempenho
 
-![Junte-se a transformação otimizar](media/data-flow/joinoptimize.png "Junte-se a otimização")
+Ao contrário da junção de mesclagem em ferramentas como o SSIS, a junção no fluxo de dados do ADF não é uma operação de junção de mesclagem obrigatória. Portanto, as chaves de junção não precisam ser classificadas primeiro. A operação de junção ocorrerá com base na operação de junção ideal no Spark: Junção do lado do mapa/difusão:
 
-Se o conjunto de dados se encaixa na memória do nó de trabalho do Databricks, que podemos otimizar o desempenho da sua associação. Também pode especificar a criação de partições dos seus dados sobre a operação de associação para criar conjuntos de dados que se encaixa melhor em memória por função de trabalho.
+![Transformação de junção otimizar]a(media/data-flow/joinoptimize.png "otimização de junção")
 
-## <a name="self-join"></a>Self-Join
+Se o conjunto de seus conjuntos de trabalho puder se ajustar à memória do nó do trabalhador, podemos otimizar seu desempenho de junção. Você também pode especificar o particionamento de seus dados na operação de junção para criar conjuntos de dados que podem se ajustar melhor à memória por trabalhador.
 
-Pode obter condições de associação automática de mensagens em fila no fluxo de dados do ADF ao usando a transformação Selecione para alias de um fluxo existente. Em primeiro lugar, crie um "novo ramo" a partir de um fluxo e depois adicionar um, selecione alias no todo fluxo original.
+## <a name="self-join"></a>Auto-associação
 
-![Associação automática](media/data-flow/selfjoin.png "associação automática")
+Você pode obter condições de autojunção no fluxo de dados do ADF usando a transformação selecionar para alias de um fluxo existente. Primeiro, crie uma "nova ramificação" de um fluxo e, em seguida, adicione uma seleção para criar um alias do fluxo original inteiro.
 
-No diagrama acima, a transformação selecione é na parte superior. Todos os está fazendo é aliasing o fluxo original para "OrigSourceBatting". A transformação de associação realçada abaixo dele pode ver que utilizamos esta sequência de alias Selecione como a associação a um direita, permitindo-nos fazer referência a mesma chave no lado esquerdo & no lado direito da associação interna.
+![](media/data-flow/selfjoin.png "Autojunção de") auto-associação
+
+No diagrama acima, a transformação selecionar está na parte superior. Tudo o que está fazendo é fazer o alias do fluxo original para "OrigSourceBatting". Na transformação junção realçada abaixo dela, você pode ver que usamos essa transmissão de alias Select como a junção à direita, permitindo que possamos fazer referência à mesma chave tanto no lado esquerdo & direito da junção interna.
 
 ## <a name="composite-and-custom-keys"></a>Chaves compostas e personalizadas
 
-Pode criar chaves personalizadas e compostas em tempo real dentro da transformação de associação. Adicione linhas para colunas de associação adicionais com o sinal de adição (+) junto a cada linha de relação. Ou um novo valor de chave no construtor de expressão para um valor de associação em tempo real de computação.
+Você pode criar chaves compostas e personalizadas em tempo real dentro da transformação de junção. Adicione linhas para colunas de junção adicionais com o sinal de adição (+) ao lado de cada linha de relação. Ou Compute um novo valor de chave no construtor de expressões para um valor de junção em tempo real.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de associar dados, pode então [criar novas colunas](data-flow-derived-column.md) e [seus dados de sink para um arquivo de dados de destino](data-flow-sink.md).
+Depois de unir os dados, você pode [criar novas colunas](data-flow-derived-column.md) e [coletar seus dados para um armazenamento de dados de destino](data-flow-sink.md).

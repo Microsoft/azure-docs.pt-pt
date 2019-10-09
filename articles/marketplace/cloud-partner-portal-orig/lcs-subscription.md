@@ -1,40 +1,22 @@
 ---
-title: Subscrição de LCS
-description: Apresentação de um tutorial para a criação de uma subscrição.
+title: Assinatura do LCS
+description: Este artigo da CPP foi preterido, vinculado ao artigo do PC; foi "introdução a um tutorial para criar uma assinatura".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43d27f832d5eb456de60e86257e2be8575f94bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 58733bec13c99f2c871c1782d56db8304386dc44
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935204"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034382"
 ---
-# <a name="lcs-subscription"></a>Subscrição de LCS
+# <a name="lcs-subscription"></a>Assinatura do LCS
 
-Neste tutorial, ficará a saber como criar uma subscrição. Esta subscrição lhe dará um inquilino de teste Online da Microsoft e um projeto do Microsoft Dynamics Lifecycle Services onde pode implementar um ambiente. Também irá configurar utilizadores adicionais no seu inquilino do Microsoft Online e ganhe experiência com as seguintes capacidades de administração do serviço. Aqui estão as habilidades que aprenderá:
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento do Dynamics 365 para ofertas de finanças e operações. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- Assinando e criar um novo Microsoft Online inquilino de teste.
-- Navegar para projetos de serviços de ciclo de vida.
-- Usando recursos nos serviços de ciclo de vida.
-- Adicionar utilizadores adicionais para o Microsoft Azure Active Directory e o cliente.
-- Recursos de visualização no seu e-mail de subscrição.
-
-## <a name="key-terms"></a>Termos-chave
-
-**Inquilino do Microsoft Online Services** -um inquilino é o grupo de todas as subscrições e os utilizadores para a sua organização. O inquilino é criado ao mesmo tempo que o primeiro da subscrição do Microsoft Online Services.
-
-**Subscrição** -uma assinatura fornece um ambiente online. Esse ambiente permite-lhe a experiência do Dynamics 365 para operações na cloud e também permite que veja como as personalizações que desenvolve podem ser implementadas para a cloud.
-
-**Microsoft Azure Active Directory** -o ambiente de cloud inclui o Azure Active Directory (AD), que ajuda a gerir utilizadores, grupos, funções de segurança e licenças para aplicações online, de maneira semelhante à forma como geri-los no local ambientes.
-
-**Os utilizadores** -os utilizadores dos serviços que sua organização tem subscritas são geridos no Azure AD. Todos os utilizadores no seu inquilino podem ser adicionados e atribuídos a funções de segurança.
-
-**Os desenvolvedores e administradores** -desenvolvedores e administradores são os utilizadores que também têm acesso aos serviços de ciclo de vida que permite gerem projetos e ambientes. Estes utilizadores também são os utilizadores finais.
-
-Ver [subscrição do LCS](https://docs.microsoft.com/dynamics365/operations/dev-itpro/dev-tools/sign-up-preview-subscription) para obter mais informações.
+Antes de criar uma nova oferta do Dynamics 365 for Operations, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abra o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar uma nova oferta do Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) para criar sua oferta.

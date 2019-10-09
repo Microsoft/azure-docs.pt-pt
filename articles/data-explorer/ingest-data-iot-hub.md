@@ -7,14 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996757"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028467"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Ingerir dados do Hub IoT para o Azure Data Explorer (versão prévia)
+
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-iot-hub.md)
+> * [C#](data-connection-iot-hub-csharp.md)
+> * [Python](data-connection-iot-hub-python.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e altamente dimensionável para dados telemétricos e de registo. O Azure Data Explorer oferece ingestão (carregamento de dados) do Hub IoT, uma plataforma Big Data streaming e serviço de ingestão de IoT.
 

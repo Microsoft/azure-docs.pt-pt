@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 9a564bf7f633903c58a5719327216baee2df6550
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338348"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026169"
 ---
 A Galeria de imagens compartilhadas é um serviço que ajuda você a criar estrutura e organização em suas imagens gerenciadas. As galerias de imagens compartilhadas fornecem:
 
@@ -40,19 +40,17 @@ O recurso da Galeria de imagens compartilhadas tem vários tipos de recursos:
 
 <br>
 
-
 ![Gráfico mostrando como você pode ter várias versões de uma imagem em sua galeria](./media/shared-image-galleries/shared-image-gallery.png)
 
 ## <a name="image-definitions"></a>Definições de imagem
 
 As definições de imagem são um agrupamento lógico de versões de uma imagem. A definição de imagem contém informações sobre por que a imagem foi criada, em qual sistema operacional ela é e informações sobre como usar a imagem. Uma definição de imagem é como um plano para todos os detalhes sobre a criação de uma imagem específica. Você não implanta uma VM com base em uma definição de imagem, mas a partir da versão de imagem criada a partir da definição.
 
-
 Há três parâmetros para cada definição de imagem que são usados em combinação- **Publicador**, **oferta** e **SKU**. Eles são usados para localizar uma definição de imagem específica. Você pode ter versões de imagem que compartilham um ou dois, mas não todos os três valores.  Por exemplo, aqui estão três definições de imagem e seus valores:
 
-|Definição da Imagem|Fabricante|Oferta|SKU|
+|Definição da Imagem|Fabricante|Oferta|Sku|
 |---|---|---|---|
-|myImage1|Contoso|Finanças|Back-end|
+|myImage1|Contoso|Finanças|End|
 |myImage2|Contoso|Finanças|Front-end|
 |myImage3|Testes|Finanças|Front-end|
 
@@ -70,25 +68,21 @@ Veja a seguir outros parâmetros que podem ser definidos na definição de image
 * Recomendações de memória e vCPU mínimas e máximas – se sua imagem tiver recomendações de memória e vCPU, você poderá anexar essas informações à definição de imagem.
 * Tipos de disco não permitidos-você pode fornecer informações sobre as necessidades de armazenamento para sua VM. Por exemplo, se a imagem não for adequada para discos HDD padrão, você as adicionará à lista de não permitir.
 
-
 ## <a name="regional-support"></a>Suporte regional
 
 As regiões de origem são listadas na tabela a seguir. Todas as regiões públicas podem ser regiões de destino, mas para replicação na Austrália Central e na Austrália Central 2, você precisa ter sua assinatura na lista de permissões. Para solicitar a lista de permissões, acesse: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
-
 | Regiões de origem |
 |---------------------|-----------------|------------------|-----------------|
-| Austrália Central   | E.U.A. Central EUAP | Coreia do Sul Central    | EUA Centro-Oeste |
+| Austrália Central   | EUA Central EUAP | Coreia do Sul Central    | EUA Centro-Oeste |
 | Austrália Central 2 | Ásia Oriental       | Coreia do Sul      | Europa Ocidental     |
 | Leste da Austrália      | East US         | EUA Centro-Norte | Oeste da Índia      |
 | Sudeste da Austrália | EUA Leste 2       | Europa do Norte     | EUA Oeste         |
-| Sul do Brasil        | E.U.A. Leste 2 EUAP  | EUA Centro-Sul | EUA Oeste 2       |
+| Sul do Brasil        | Leste dos EUA 2 EUAP  | EUA Centro-Sul | EUA Oeste 2       |
 | Canadá Central      | França Central  | Sul da Índia      | Leste da China      |
 | Leste do Canadá         | Sul de França    | Sudeste Asiático   | Leste da China 2    |
-| Índia Central       | Leste do Japão      | Reino Unido Sul         | Norte da China     |
+| Índia Central       | Leste do Japão      | Reino Unido Sul         | China Norte     |
 | EUA Central          | Oeste do Japão      | Reino Unido Oeste          | Norte da China 2   |
-
-
 
 ## <a name="limits"></a>Limites 
 
@@ -99,10 +93,8 @@ Há limites, por assinatura, para implantar recursos usando galerias de imagens 
 
 Para obter mais informações, consulte [verificar o uso de recursos em relação aos limites](https://docs.microsoft.com/azure/networking/check-usage-against-limits) para obter exemplos de como verificar seu uso atual.
  
-
 ## <a name="scaling"></a>Dimensionamento
 A Galeria de imagens compartilhadas permite que você especifique o número de réplicas que deseja que o Azure mantenha das imagens. Isso ajuda em cenários de implantação de várias VMS, pois as implantações de VM podem ser distribuídas para réplicas diferentes, reduzindo a chance de processamento de criação de instância ser limitado devido à sobrecarga de uma única réplica.
-
 
 Com a Galeria de imagens compartilhadas, agora você pode implantar até uma instância de VM 1.000 em um conjunto de dimensionamento de máquinas virtuais (acima de 600 com imagens gerenciadas). As réplicas de imagem oferecem melhor desempenho, confiabilidade e consistência da implantação.  Você pode definir uma contagem de réplicas diferente em cada região de destino, com base nas necessidades de escala para a região. Como cada réplica é uma cópia profunda da imagem, isso ajuda a dimensionar suas implantações linearmente com cada réplica extra. Embora não entendamos que duas imagens ou regiões são as mesmas, aqui está nossa orientação geral sobre como usar réplicas em uma região:
 
@@ -111,10 +103,7 @@ Com a Galeria de imagens compartilhadas, agora você pode implantar até uma ins
 
 Sempre recomendamos que você provisione o número de réplicas devido a fatores como tamanho da imagem, conteúdo e tipo de so.
 
-
 ![Gráfico mostrando como você pode dimensionar imagens](./media/shared-image-galleries/scaling.png)
-
-
 
 ## <a name="make-your-images-highly-available"></a>Tornar suas imagens altamente disponíveis
 
@@ -124,7 +113,6 @@ Você também pode escolher o tipo de conta para cada uma das regiões de destin
 
 ![Gráfico mostrando ZRS](./media/shared-image-galleries/zrs.png)
 
-
 ## <a name="replication"></a>Replicação
 A Galeria de imagens compartilhadas também permite replicar suas imagens para outras regiões do Azure automaticamente. Cada versão de imagem compartilhada pode ser replicada em regiões diferentes, dependendo do que faz sentido para sua organização. Um exemplo é sempre replicar a imagem mais recente em várias regiões, enquanto todas as versões mais antigas estão disponíveis apenas em 1 região. Isso pode ajudar a economizar em custos de armazenamento para versões de imagens compartilhadas. 
 
@@ -132,14 +120,13 @@ As regiões nas quais uma versão de imagem compartilhada é replicada podem ser
 
 ![Gráfico mostrando como você pode replicar imagens](./media/shared-image-galleries/replication.png)
 
-
-## <a name="access"></a>Acesso
+## <a name="access"></a>Access
 
 Como a Galeria de imagens compartilhadas, a definição de imagem e a versão de imagem são todos os recursos, elas podem ser compartilhadas usando controles nativos do Azure RBAC internos. Usando o RBAC, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso a pessoas fora do locatário em que foram criadas. Quando um usuário tem acesso à versão da imagem compartilhada, ele pode implantar uma VM ou um conjunto de dimensionamento de máquinas virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender a que o usuário obtém acesso:
 
-| Compartilhado com usuário     | Shared Image Gallery | Definição da Imagem | Versão de imagem |
+| Compartilhado com usuário     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Shared Image Gallery | Sim                  | Sim          | Sim                  |
+| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
 | Definição da Imagem     | Não                   | Sim          | Sim                  |
 
 É recomendável compartilhar no nível da galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [gerenciar o acesso aos recursos do Azure usando o RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -151,7 +138,7 @@ não há cobranças adicionais pela utilização do serviço de Galeria de Image
 - Os custos de armazenamento para armazenar as versões de imagens compartilhadas. O custo depende do número de réplicas da versão da imagem e do número de regiões para as quais a versão é replicada. Por exemplo, se você tiver duas imagens e ambas forem replicadas para três regiões, você será alterado para 6 discos gerenciados com base em seu tamanho. Para obter mais informações, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/).
 - Encargos de saída de rede para replicação da primeira versão de imagem da região de origem para as regiões replicadas. As réplicas subsequentes são tratadas dentro da região, portanto, não há encargos adicionais. 
 
-## <a name="updating-resources"></a>Atualizar os recursos
+## <a name="updating-resources"></a>Atualizando recursos
 
 Depois de criado, você pode fazer algumas alterações nos recursos da Galeria de imagens. Elas são limitadas a:
  
@@ -169,7 +156,6 @@ Versão da imagem:
 - Regiões de destino
 - Excluir da versão mais recente
 - Data de término da vida útil
-
 
 ## <a name="sdk-support"></a>Suporte a SDK
 
@@ -192,9 +178,25 @@ Você pode criar recursos da Galeria de imagens compartilhadas usando modelos. H
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 
-**P.** Como posso listar todos os recursos da Galeria de imagens compartilhadas entre assinaturas? 
- 
- R. Para listar todos os recursos da Galeria de imagens compartilhadas nas assinaturas às quais você tem acesso na portal do Azure, siga as etapas abaixo:
+* [Como posso listar todos os recursos da Galeria de imagens compartilhadas entre assinaturas?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
+* [Posso mover minha imagem existente para a Galeria de imagens compartilhadas?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
+* [Posso criar uma versão de imagem de um disco especializado?](#can-i-create-an-image-version-from-a-specialized-disk)
+* [Posso mover o recurso da Galeria de imagens compartilhadas para uma assinatura diferente depois que ela tiver sido criada?](#can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created)
+* [Posso replicar minhas versões de imagem entre nuvens, como Azure China 21Vianet ou Azure Alemanha ou nuvem do Azure governamental?](#can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud)
+* [Posso replicar minhas versões de imagem entre assinaturas?](#can-i-replicate-my-image-versions-across-subscriptions)
+* [Posso compartilhar versões de imagem entre locatários do Azure AD?](#can-i-share-image-versions-across-azure-ad-tenants)
+* [Quanto tempo leva para replicar versões de imagem entre as regiões de destino?](#how-long-does-it-take-to-replicate-image-versions-across-the-target-regions)
+* [Qual é a diferença entre a região de origem e a região de destino?](#what-is-the-difference-between-source-region-and-target-region)
+* [Como fazer especificar a região de origem ao criar a versão da imagem?](#how-do-i-specify-the-source-region-while-creating-the-image-version)
+* [Como fazer especificar o número de réplicas de versão da imagem a serem criadas em cada região?](#how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region)
+* [Posso criar a Galeria de imagens compartilhadas em um local diferente daquele para a definição da imagem e a versão da imagem?](#can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version)
+* [Quais são os encargos para usar a Galeria de imagens compartilhadas?](#what-are-the-charges-for-using-the-shared-image-gallery)
+* [Qual versão de API devo usar para criar a Galeria de imagens compartilhada e a imagem e a versão da imagem?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
+* [Qual versão de API devo usar para criar uma VM compartilhada ou um conjunto de dimensionamento de máquinas virtuais da versão da imagem?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
+
+### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Como posso listar todos os recursos da Galeria de imagens compartilhadas entre assinaturas?
+
+Para listar todos os recursos da Galeria de imagens compartilhadas nas assinaturas às quais você tem acesso na portal do Azure, siga as etapas abaixo:
 
 1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Vá para **todos os recursos**.
@@ -209,10 +211,9 @@ Você pode criar recursos da Galeria de imagens compartilhadas usando modelos. H
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
    ```
 
-
-**P.** Posso mover minha imagem existente para a Galeria de imagens compartilhadas?
+### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Posso mover minha imagem existente para a Galeria de imagens compartilhadas?
  
- R. Sim. Há três cenários com base nos tipos de imagens que você pode ter.
+Sim. Há três cenários com base nos tipos de imagens que você pode ter.
 
  Cenário 1: Se você tiver uma imagem gerenciada, poderá criar uma definição de imagem e uma versão de imagem a partir dela.
 
@@ -222,47 +223,41 @@ Você pode criar recursos da Galeria de imagens compartilhadas usando modelos. H
 - Se o VHD for de uma VM do Windows, consulte [carregar um VHD generalizado](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed).
 - Se o VHD for para uma VM do Linux, consulte [carregar um VHD](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd#option-1-upload-a-vhd)
 
+### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>Posso criar uma versão de imagem de um disco especializado?
 
-**P.** Posso criar uma versão de imagem de um disco especializado?
+Não, atualmente não damos suporte a discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o disco especializado a uma nova VM. Quando tiver uma VM em execução, você precisará seguir as instruções para criar uma imagem gerenciada da VM do [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou da VM do [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Depois de ter uma imagem gerenciada generalizada, você pode iniciar o processo para criar uma imagem compartilhada e uma versão de imagem.
 
- R. Não, atualmente não damos suporte a discos especializados como imagens. Se você tiver um disco especializado, precisará [criar uma VM do VHD](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) anexando o disco especializado a uma nova VM. Quando tiver uma VM em execução, você precisará seguir as instruções para criar uma imagem gerenciada da VM do [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou da VM do [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Depois de ter uma imagem gerenciada generalizada, você pode iniciar o processo para criar uma imagem compartilhada e uma versão de imagem.
+### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>Posso mover o recurso da Galeria de imagens compartilhadas para uma assinatura diferente depois que ela tiver sido criada?
 
- 
-**P.** Depois de criado, posso mover o recurso da Galeria de imagens compartilhadas para uma assinatura diferente?
+Não, você não pode mover o recurso da Galeria de imagens compartilhadas para uma assinatura diferente. No entanto, você poderá replicar as versões da imagem na galeria para outras regiões, conforme necessário.
 
- R. Não, você não pode mover o recurso da Galeria de imagens compartilhadas para uma assinatura diferente. No entanto, você poderá replicar as versões da imagem na galeria para outras regiões, conforme necessário.
+### <a name="can-i-replicate-my-image-versions-across-clouds-such-as-azure-china-21vianet-or-azure-germany-or-azure-government-cloud"></a>Posso replicar minhas versões de imagem entre nuvens, como Azure China 21Vianet ou Azure Alemanha ou nuvem do Azure governamental?
 
-**P.** Posso replicar minhas versões de imagem entre nuvens – Azure China 21Vianet, Azure Alemanha e nuvem do Azure governamental? 
+Não, você não pode replicar versões de imagem entre nuvens.
 
- R. Não, você não pode replicar versões de imagem entre nuvens.
+### <a name="can-i-replicate-my-image-versions-across-subscriptions"></a>Posso replicar minhas versões de imagem entre assinaturas? 
 
-**P.** Posso replicar minhas versões de imagem entre assinaturas? 
+Não, você pode replicar as versões da imagem entre regiões em uma assinatura e usá-las em outras assinaturas por meio do RBAC.
 
- R. Não, você pode replicar as versões da imagem entre regiões em uma assinatura e usá-las em outras assinaturas por meio do RBAC.
+### <a name="can-i-share-image-versions-across-azure-ad-tenants"></a>Posso compartilhar versões de imagem entre locatários do Azure AD? 
 
-**P.** Posso compartilhar versões de imagem entre locatários do Azure AD? 
+Sim, você pode usar o RBAC para compartilhar com indivíduos entre locatários. Mas, para compartilhar em escala, consulte "compartilhar imagens da Galeria entre locatários do Azure" usando o [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) ou a [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md).
 
- R. Sim, você pode usar o RBAC para compartilhar com indivíduos entre locatários. Mas, para compartilhar em escala, consulte "compartilhar imagens da Galeria entre locatários do Azure" usando o [PowerShell](../articles/virtual-machines/windows/share-images-across-tenants.md) ou a [CLI](../articles/virtual-machines/linux/share-images-across-tenants.md).
+### <a name="how-long-does-it-take-to-replicate-image-versions-across-the-target-regions"></a>Quanto tempo leva para replicar versões de imagem entre as regiões de destino?
 
+O tempo de replicação da versão da imagem é totalmente dependente do tamanho da imagem e do número de regiões em que ele está sendo replicado. No entanto, como prática recomendada, é recomendável manter a imagem pequena, e as regiões de origem e destino são fechadas para obter melhores resultados. Você pode verificar o status da replicação usando o sinalizador-ReplicationStatus.
 
-**P.** Quanto tempo leva para replicar versões de imagem entre as regiões de destino?
+### <a name="what-is-the-difference-between-source-region-and-target-region"></a>Qual é a diferença entre a região de origem e a região de destino?
 
- R. O tempo de replicação da versão da imagem é totalmente dependente do tamanho da imagem e do número de regiões em que ele está sendo replicado. No entanto, como prática recomendada, é recomendável manter a imagem pequena, e as regiões de origem e destino são fechadas para obter melhores resultados. Você pode verificar o status da replicação usando o sinalizador-ReplicationStatus.
+Região de origem é a região em que a versão da imagem será criada e as regiões de destino são as regiões nas quais uma cópia da versão da imagem será armazenada. Para cada versão de imagem, você só pode ter uma região de origem. Além disso, certifique-se de passar o local da região de origem como uma das regiões de destino ao criar uma versão de imagem.
 
+### <a name="how-do-i-specify-the-source-region-while-creating-the-image-version"></a>Como fazer especificar a região de origem ao criar a versão da imagem?
 
-**P.** Qual é a diferença entre a região de origem e a região de destino?
+Ao criar uma versão de imagem, você pode usar a marca **--Location** na CLI e a marca **-Location** no PowerShell para especificar a região de origem. Verifique se a imagem gerenciada que você está usando como a imagem base para criar a versão da imagem está no mesmo local que o local no qual você pretende criar a versão da imagem. Além disso, certifique-se de passar o local da região de origem como uma das regiões de destino ao criar uma versão de imagem.  
 
- R. Região de origem é a região em que a versão da imagem será criada e as regiões de destino são as regiões nas quais uma cópia da versão da imagem será armazenada. Para cada versão de imagem, você só pode ter uma região de origem. Além disso, certifique-se de passar o local da região de origem como uma das regiões de destino ao criar uma versão de imagem.  
+### <a name="how-do-i-specify-the-number-of-image-version-replicas-to-be-created-in-each-region"></a>Como fazer especificar o número de réplicas de versão da imagem a serem criadas em cada região?
 
-
-**P.** Como fazer especificar a região de origem ao criar a versão da imagem?
-
- R. Ao criar uma versão de imagem, você pode usar a marca **--Location** na CLI e a marca **-Location** no PowerShell para especificar a região de origem. Verifique se a imagem gerenciada que você está usando como a imagem base para criar a versão da imagem está no mesmo local que o local no qual você pretende criar a versão da imagem. Além disso, certifique-se de passar o local da região de origem como uma das regiões de destino ao criar uma versão de imagem.  
-
-
-**P.** Como fazer especificar o número de réplicas de versão da imagem a serem criadas em cada região?
-
- R. Há duas maneiras de especificar o número de réplicas de versão da imagem a serem criadas em cada região:
+Há duas maneiras de especificar o número de réplicas de versão da imagem a serem criadas em cada região:
  
 1. A contagem de réplicas regionais que especifica o número de réplicas que você deseja criar por região. 
 2. A contagem de réplica comum que é a contagem padrão por região em caso de contagem de réplica regional não é especificada. 
@@ -273,16 +268,18 @@ Se a contagem de réplica regional não for especificada em cada local, o númer
 
 Para especificar a contagem de réplicas comuns na CLI, use o argumento **--réplica-Count** no comando `az sig image-version create`.
 
+### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>Posso criar a Galeria de imagens compartilhadas em um local diferente daquele para a definição da imagem e a versão da imagem?
 
-**P.** Posso criar a Galeria de imagens compartilhadas em um local diferente daquele em que desejo criar a definição da imagem e a versão da imagem?
+Sim, é possível. Mas, como prática recomendada, incentivamos você a manter o grupo de recursos, a Galeria de imagens compartilhadas, a definição da imagem e a versão da imagem no mesmo local.
 
- R. Sim, é possível. Mas, como prática recomendada, incentivamos você a manter o grupo de recursos, a Galeria de imagens compartilhadas, a definição da imagem e a versão da imagem no mesmo local.
+### <a name="what-are-the-charges-for-using-the-shared-image-gallery"></a>Quais são os encargos para usar a Galeria de imagens compartilhadas?
 
+Não há encargos para usar o serviço da Galeria de imagens compartilhadas, exceto os encargos de armazenamento para armazenar as versões de imagem e encargos de saída de rede para replicar as versões da imagem da região de origem para regiões de destino
 
-**P.** Quais são os encargos para usar a Galeria de imagens compartilhadas?
+### <a name="what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version"></a>Qual versão de API devo usar para criar a Galeria de imagens compartilhada e a imagem e a versão da imagem?
 
- R. Não há encargos para usar o serviço da Galeria de imagens compartilhadas, exceto os encargos de armazenamento para armazenar as versões de imagem e encargos de saída de rede para replicar as versões da imagem da região de origem para regiões de destino
+Para trabalhar com galerias de imagens compartilhadas, definições de imagem e versões de imagem, recomendamos que você use a versão de API 2018-06-01. O ZRS (armazenamento com redundância de zona) requer a versão 2019-03-01 ou posterior.
 
-**P.** Qual versão de API devo usar para criar a Galeria de imagens compartilhadas, a definição de imagem, a versão da imagem e a VM/VMSS da versão da imagem?
+### <a name="what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version"></a>Qual versão de API devo usar para criar uma VM compartilhada ou um conjunto de dimensionamento de máquinas virtuais da versão da imagem?
 
- R. Para implantações de VM e conjunto de dimensionamento de máquinas virtuais usando uma versão de imagem, recomendamos que você use a versão de API 2018-04-01 ou superior. Para trabalhar com galerias de imagens compartilhadas, definições de imagem e versões de imagem, recomendamos que você use a versão de API 2018-06-01. O ZRS (armazenamento com redundância de zona) requer a versão 2019-03-01 ou posterior.
+Para implantações de VM e conjunto de dimensionamento de máquinas virtuais usando uma versão de imagem, recomendamos que você use a versão de API 2018-04-01 ou superior.

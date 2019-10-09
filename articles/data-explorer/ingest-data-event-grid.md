@@ -7,14 +7,19 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 3c2407472cd15326c295f70c69606fc5ee663f72
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996790"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028373"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir BLOBs no Azure Data Explorer assinando notificações de grade de eventos
+
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-event-grid.md)
+> * [C#](data-connection-event-grid-csharp.md)
+> * [Python](data-connection-event-grid-python.md)
 
 O Azure Data Explorer é um serviço de exploração de dados rápido e escalonável para dados de log e telemetria. Ele oferece ingestão contínua (carregamento de dados) de Blobs gravados em contêineres de BLOB. 
 
@@ -100,7 +105,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
     | Nome da ligação de dados | *test-hub-connection* | O nome da conexão que você deseja criar no Azure Data Explorer.|
-    | Subscrição de conta de armazenamento | Sua ID de assinatura | A ID da assinatura na qual sua conta de armazenamento reside.|
+    | Assinatura da conta de armazenamento | Sua ID de assinatura | A ID da assinatura na qual sua conta de armazenamento reside.|
     | Conta de armazenamento | *gridteststorage* | O nome da conta de armazenamento que você criou anteriormente.|
     | Event Grid | *Test-Grid-Connection* | O nome da grade de eventos que você criou. |
     | O nome do hub de eventos | *test-hub* | O Hub de eventos que você criou. Esse campo é preenchido automaticamente quando você escolhe uma grade de eventos. |

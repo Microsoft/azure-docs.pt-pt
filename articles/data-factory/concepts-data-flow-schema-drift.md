@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003718"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029404"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Descompasso de esquema no fluxo de dados de mapeamento
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 A descompasso de esquema é o caso em que suas fontes geralmente alteram metadados. Campos, colunas e tipos podem ser adicionados, removidos ou alterados em tempo real. Sem lidar com descompasso de esquema, seu fluxo de dados se torna vulnerável a alterações de fonte de dados upstream. Padrões de ETL típicos falham quando colunas e campos de entrada são alterados porque tendem a ser vinculados a esses nomes de origem.
 
@@ -34,7 +34,7 @@ Você precisa tomar uma decisão arquitetônica em seu fluxo de dados para aceit
 
 Em uma transformação de origem, a descompasso de esquema é definida como uma leitura de colunas que não definem seu esquema de conjunto de linhas. Para habilitar a descompasso de esquema, marque **permitir descompasso de esquema** em sua transformação de origem.
 
-![Origem de descompasso de esquema](media/data-flow/schemadrift001.png "Origem de descompasso de esquema")
+(media/data-flow/schemadrift001.png "Origem de descompasso de esquema") de ![origem de descompasso]
 
 Quando a descompasso de esquema está habilitada, todos os campos de entrada são lidos de sua origem durante a execução e passados por todo o fluxo para o coletor. Por padrão, todas as colunas recentemente detectadas, conhecidas como *colunas descompassos*, chegam como um tipo de dados de cadeia de caracteres. Se você quiser que o fluxo de dados infira automaticamente os tipos de dados de colunas desfeitas, marque **inferir tipos de coluna** desfeitas em suas configurações de origem.
 
@@ -42,17 +42,17 @@ Quando a descompasso de esquema está habilitada, todos os campos de entrada sã
 
 Em uma transformação de coletor, o descompasso de esquema é quando você grava colunas adicionais sobre o que é definido no esquema de dados do coletor. Para habilitar a descompasso de esquema, marque **permitir descompasso de esquema** na transformação do coletor.
 
-![Coletor de descompasso de esquema](media/data-flow/schemadrift002.png "Coletor de descompasso de esquema")
+(media/data-flow/schemadrift002.png "Coletor de descompasso de esquema") do ![coletor do descompasso]
 
 Se a descompasso de esquema estiver habilitada, verifique se o controle deslizante de **mapeamento automático** na guia mapeamento está ativado. Com esse controle deslizante ativado, todas as colunas de entrada são gravadas no destino. Caso contrário, você deve usar o mapeamento baseado em regras para gravar colunas descompassos.
 
-![Mapeamento automático do coletor](media/data-flow/automap.png "Mapeamento automático do coletor")
+(media/data-flow/automap.png "Mapeamento automático do coletor") de ![mapeamento automático do coletor]
 
 ## <a name="transforming-drifted-columns"></a>Transformando colunas descompassos
 
 Quando o fluxo de dados tiver colunas descompassos, você poderá acessá-las em suas transformações com os seguintes métodos:
 
-* Use as `byPosition` expressões `byName` e para referenciar explicitamente uma coluna por nome ou número de posição.
+* Use as expressões `byPosition` e `byName` para referenciar explicitamente uma coluna por nome ou número de posição.
 * Adicionar um padrão de coluna em uma coluna derivada ou transformação de agregação para corresponder a qualquer combinação de nome, fluxo, posição ou tipo
 * Adicionar mapeamento baseado em regra em uma transformação SELECT ou Sink para corresponder colunas perrespondidas a aliases de colunas por meio de um padrão
 
@@ -62,11 +62,11 @@ Para obter mais informações sobre como implementar padrões de coluna, consult
 
 Para referenciar explicitamente colunas descompassos, você pode gerar rapidamente mapeamentos para essas colunas por meio de uma ação rápida de visualização de dados. Depois que o [modo de depuração](concepts-data-flow-debug-mode.md) estiver ativado, vá para a guia Visualização de dados e clique em **Atualizar** para buscar uma visualização de dados. Se data factory detectar que as colunas descompassos existem, você poderá clicar em **mapear descompasso** e gerar uma coluna derivada que permite que você referencie todas as colunas descompassos em exibições de esquema downstream.
 
-![Mapa descompasso](media/data-flow/mapdrifted1.png "Mapa descompasso")
+Mapa dessincronizado do ![mapa](media/data-flow/mapdrifted1.png "descompasso")
 
-Na transformação coluna derivada gerada, cada coluna descompasso é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna ' MovieID ' é detectada como um inteiro. Depois que o **mapa** é clicado, o MovieID é definido na coluna derivada `toInteger(byName('movieId'))` como e incluído em exibições de esquema em transformações de downstream.
+Na transformação coluna derivada gerada, cada coluna descompasso é mapeada para seu nome e tipo de dados detectados. Na visualização de dados acima, a coluna ' MovieID ' é detectada como um inteiro. Depois que o **mapa** é clicado, o MovieID é definido na coluna derivada como `toInteger(byName('movieId'))` e incluído em exibições de esquema em transformações de downstream.
 
-![Mapa descompasso](media/data-flow/mapdrifted2.png "Mapa descompasso")
+Mapa dessincronizado do ![mapa](media/data-flow/mapdrifted2.png "descompasso")
 
 ## <a name="next-steps"></a>Passos seguintes
 Na [linguagem de expressão de fluxo de dados](data-flow-expression-functions.md), você encontrará recursos adicionais para padrões de coluna e descompasso de esquema, incluindo "byName" e "byPosition".

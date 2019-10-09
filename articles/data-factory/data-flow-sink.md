@@ -6,16 +6,16 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 24ad0f2e917420c327577851cabc9e5bdbad2825
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: be2ab5605f7fa60ebb78493f714648d458e82a6c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515661"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029236"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Depois de transformar o fluxo de dados, você pode coletar os dados em um conjunto de dado de destino. Na transformação do coletor, escolha uma definição de conjunto de dados para a saída de destino. Você pode ter tantas transformações de coletor quanto o fluxo de dados exigir.
 
@@ -32,22 +32,22 @@ Para o armazenamento de BLOBs do Azure ou Data Lake Storage tipos de coletor, ge
 
 Você pode definir o esquema de particionamento na guia **otimizar** . Se desejar que Data Factory mescle a saída em um único arquivo, selecione **partição única**.
 
-![Opções na guia otimizar](media/data-flow/opt001.png "Opções de coletor")
+![Opções nas opções otimizar coletor de guias](media/data-flow/opt001.png "")
 
 ## <a name="field-mapping"></a>Mapeamento de campo
 Na guia **mapeamento** da transformação do coletor, você pode mapear as colunas de entrada à esquerda para os destinos à direita. Quando você coleta fluxos de dados em arquivos, Data Factory sempre irá gravar novos arquivos em uma pasta. Quando você mapear para um conjunto de dados do, você escolherá opções de operação de tabela de banco de dados para inserir, atualizar, Upsert ou excluir.
 
-![A guia mapeamento](media/data-flow/sink2.png "Coletores")
+Os(media/data-flow/sink2.png "coletores") ![da guia de mapeamento]
 
 Na tabela de mapeamento, você pode selecionar vários para vincular várias colunas, desvincular várias colunas ou mapear várias linhas para o mesmo nome de coluna.
 
 Para sempre mapear o conjunto de campos de entrada para um destino como eles são e para aceitar totalmente as definições de esquema flexíveis, selecione **permitir descompasso de esquema**.
 
-![A guia mapeamento, mostrando os campos mapeados para colunas no conjunto de conjuntos](media/data-flow/multi1.png "várias opções")
+![A guia mapeamento, mostrando campos mapeados para colunas nas várias opções do conjunto de linhas](media/data-flow/multi1.png "")
 
-Para redefinir os mapeamentos de coluna,selecione remapear.
+Para redefinir os mapeamentos de coluna, selecione **remapear**.
 
-![A guia coletor](media/data-flow/sink1.png "Coletor um")
+![O coletor de guias do coletor](media/data-flow/sink1.png "um")
 
 Selecione **validar esquema** para falhar o coletor se o esquema for alterado.
 
@@ -56,7 +56,7 @@ Selecione **limpar a pasta** para truncar o conteúdo da pasta do coletor antes 
 ## <a name="rule-based-mapping"></a>Mapeamento baseado em regras
 Ao desligar o mapeamento automático, você terá a opção de adicionar mapeamento baseado em coluna (mapeamento fixo) ou mapeamento baseado em regra. O mapeamento baseado em regras permitirá que você escreva expressões com correspondência de padrões. 
 
-![Mapeamento baseado em regras](media/data-flow/rules4.png "Mapeamento baseado em regras")
+![](media/data-flow/rules4.png "Mapeamento") baseado em regra de mapeamento com base em regras
 
 Ao escolher o mapeamento baseado em regras, você está instruindo o ADF a avaliar sua expressão de correspondência para corresponder às regras de padrão de entrada e definir os nomes de campo de saída. Você pode adicionar qualquer combinação de mapeamentos com base em campo e em regra. Os nomes de campo são então gerados em tempo de execução pelo ADF com base nos metadados de entrada da origem. Você pode exibir os nomes dos campos gerados durante a depuração e usando o painel de visualização de dados.
 
@@ -79,7 +79,7 @@ Configurar a nomenclatura de arquivo:
 
 Escolha as configurações do banco de dados:
 
-![A guia Configurações, mostrando as opções do coletor SQL](media/data-flow/alter-row2.png "Opções SQL")
+![A guia Configurações, mostrando]opções(media/data-flow/alter-row2.png "SQL") do coletor SQL
 
 * **Método de atualização**: O padrão é permitir inserções. Desmarque **permitir inserção** se quiser parar de inserir novas linhas de sua origem. Para atualizar, upsertr ou excluir linhas, primeiro adicione uma transformação ALTER-Row para marcar linhas para essas ações. 
 * **Recriar tabela**: Remova ou crie sua tabela de destino antes de o fluxo de dados ser concluído.
@@ -88,12 +88,12 @@ Escolha as configurações do banco de dados:
 * **Habilitar preparo**: Use o polybase ao carregar o data warehouse do Azure como seu conjunto de dados do coletor.
 * **Scripts SQL anteriores e posteriores**: Insira scripts SQL de várias linhas que serão executados antes (pré-processamento) e após (pós-processamento) os dados são gravados no banco de dado do coletor
 
-![pré e pós-scripts de processamento do SQL](media/data-flow/prepost1.png "Scripts de processamento SQL")
+scripts de(media/data-flow/prepost1.png "processamento SQL") ![de pré e pós-scripts de processamento]SQL
 
 > [!NOTE]
 > No fluxo de dados, você pode direcionar Data Factory para criar uma nova definição de tabela no banco de dados de destino. Para criar a definição de tabela, defina um conjunto de um DataSet na transformação do coletor que tenha um novo nome de tabela. No conjunto de SQL, abaixo do nome da tabela, selecione **Editar** e insira um novo nome de tabela. Em seguida, na transformação do coletor, ative **permitir descompasso de esquema**. Defina **importar esquema** como **nenhum**.
 
-![Configurações do conjunto de configuração do SQL, mostrando onde editar o nome da tabela](media/data-flow/dataset2.png "Esquema SQL")
+![Configurações do conjunto de esquemas SQL, mostrando onde editar o nome da tabela](media/data-flow/dataset2.png "esquema SQL")
 
 > [!NOTE]
 > Ao atualizar ou excluir linhas no coletor de banco de dados, você deve definir a coluna de chave. Essa configuração permite que a transformação ALTER-Row determine a linha exclusiva na DML (biblioteca de movimentação de dados).

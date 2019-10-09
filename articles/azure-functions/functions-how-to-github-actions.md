@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8e9e1189c3eb9de273926645ad0d4cfde5ba1c49
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 483ac9380fa8d58f294112cb6c80e0393fa01589
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260049"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028962"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Entrega contínua usando a ação do GitHub
 
@@ -23,15 +23,15 @@ As [ações do GitHub](https://github.com/features/actions) permitem definir um 
 
 Em ações do GitHub, um [fluxo de trabalho](https://help.github.com/articles/about-github-actions#workflow) é um processo automatizado que você define em seu repositório github. Esse processo informa ao GitHub como criar e implantar seu projeto de aplicativo do Functions no GitHub. 
 
-Um fluxo de trabalho é definido por um arquivo YAML (. yml) `/.github/workflows/` no caminho em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho. 
+Um fluxo de trabalho é definido por um arquivo YAML (. yml) no caminho `/.github/workflows/` em seu repositório. Essa definição contém as várias etapas e parâmetros que compõem o fluxo de trabalho. 
 
 Para um fluxo de trabalho Azure Functions, o arquivo tem três seções: 
 
 | Section | Tarefas |
 | ------- | ----- |
-| **Autenticação** | <ol><li>Defina uma entidade de serviço.</li><li>Crie um segredo do GitHub.</li></ol>|  
+| **Autenticação** | <ol><li>Defina uma entidade de serviço.</li><li>Baixar o perfil de publicação.</li><li>Crie um segredo do GitHub.</li></ol>|
 | **Integrado** | <ol><li>Configure o ambiente.</li><li>Crie o aplicativo de funções.</li></ol> |
-| **Implementar** | <ol><li>Implante o aplicativo de funções.</li></ol>| 
+| **Implementar** | <ol><li>Implante o aplicativo de funções.</li></ol>|
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
@@ -43,16 +43,27 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 Neste exemplo, substitua os espaços reservados no recurso por sua ID de assinatura, grupo de recursos e nome do aplicativo de funções. A saída são as credenciais de atribuição de função que fornecem acesso ao seu aplicativo de funções. Copie esse objeto JSON, que você pode usar para autenticar do GitHub.
 
+> [!NOTE]
+> Você não precisará criar uma entidade de serviço se decidir usar o perfil de publicação para autenticação.
+
 > [!IMPORTANT]
 > É sempre uma boa prática conceder acesso mínimo. É por isso que o escopo no exemplo anterior é limitado ao aplicativo de funções específico e não ao grupo de recursos inteiro.
+
+## <a name="download-the-publishing-profile"></a>Baixar o perfil de publicação
+
+Você pode baixar o perfil de publicação de seu functionapp, acessando a página **visão geral** do seu aplicativo e clicando em **obter perfil de publicação**.
+
+   ![Baixar o perfil de publicação](media/functions-how-to-github-actions/get-publish-profile.png)
+
+Copie o conteúdo do arquivo.
 
 ## <a name="configure-the-github-secret"></a>Configurar o segredo do GitHub
 
 1. No [GitHub](https://github.com), procure seu repositório, selecione **configurações** > **segredos** > **Adicionar um novo segredo**.
 
-    ![Adicionar segredo](media/functions-how-to-github-actions/add-secret.png)
+   ![Adicionar segredo](media/functions-how-to-github-actions/add-secret.png)
 
-1. Use `AZURE_CREDENTIALS` para o **nome** e a saída do comando copiado para **valor**e, em seguida, selecione **Adicionar segredo**. 
+1. Use `AZURE_CREDENTIALS` para o **nome** e a saída do comando copiado para **valor**, se você selecionar **Adicionar segredo**. Se você estiver usando o perfil de publicação, use `SCM_CREDENTIALS` para o **nome** e o conteúdo do arquivo para **valor**.
 
 O GitHub agora pode se autenticar no seu aplicativo de funções no Azure.
 
@@ -187,7 +198,7 @@ Os exemplos a seguir mostram a parte do fluxo de trabalho que cria o aplicativo 
 
 ## <a name="deploy-the-function-app"></a>Implementar a aplicação de função
 
-Para implantar seu código em um aplicativo de funções, será necessário usar a `Azure/functions-action` ação. Esta ação tem dois parâmetros:
+Para implantar seu código em um aplicativo de funções, será necessário usar a ação `Azure/functions-action`. Esta ação tem dois parâmetros:
 
 |Parâmetro |Explicação  |
 |---------|---------|
@@ -195,7 +206,7 @@ Para implantar seu código em um aplicativo de funções, será necessário usar
 |_**nome do slot**_ | Adicional O nome do [slot de implantação](functions-deployment-slots.md) no qual você deseja implantar. O slot já deve estar definido em seu aplicativo de funções. |
 
 
-O exemplo a seguir usa a `functions-action`versão 1 do:
+O exemplo a seguir usa a versão 1 do `functions-action`:
 
 ```yaml
     - name: 'Run Azure Functions Action'

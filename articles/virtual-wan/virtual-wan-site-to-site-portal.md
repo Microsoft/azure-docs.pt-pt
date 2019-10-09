@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 357cc23c9dedb49dfd19dc897102762066ffd1b2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b3147db8cda04ce7a71b35659eb91a20a06e0c52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679354"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028036"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão site a site usando a WAN virtual do Azure
 
@@ -106,7 +106,7 @@ Neste passo, vai criar a ligação de peering entre o hub e uma VNet. Repita est
     * **Virtual network** (Rede virtual) - selecione a rede virtual que pretende ligar a este hub. A rede virtual não pode ter um gateway de rede virtual já existente.
 4. Clique em **OK** para criar a ligação de peering.
 
-## <a name="device"></a>7. Transferir configuração VPN
+## <a name="device"></a>7. Transferir a configuração da VPN
 
 Utilize a configuração do dispositivo VPN para configurar o seu dispositivo VPN no local.
 

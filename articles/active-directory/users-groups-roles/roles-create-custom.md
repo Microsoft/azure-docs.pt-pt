@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008cdf80e15e2737fea19f72ec6703932cf301f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382809"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026396"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
 
@@ -30,8 +30,8 @@ As funções personalizadas podem ser criadas na guia [funções e administrador
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Criar uma nova função personalizada para conceder acesso para gerenciar registros de aplicativo
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com)com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
-1. Selecione ****  > **funções de Azure Active Directory e administradores** > **nova função personalizada**.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
+1. Selecione **Azure Active Directory** **funções e administradores**do  >   > **nova função personalizada**.
 
    ![Criar ou editar funções da página funções e administradores](./media/roles-create-custom/new-custom-role.png)
 
@@ -40,11 +40,11 @@ As funções personalizadas podem ser criadas na guia [funções e administrador
    ![forneça um nome e uma descrição para uma função personalizada na guia noções básicas](./media/roles-create-custom/basics-tab.png)
 
 1. Na guia **permissões** , selecione as permissões necessárias para gerenciar propriedades básicas e propriedades de credenciais de registros do aplicativo. Para obter uma descrição detalhada de cada permissão, consulte [subtipos de registro de aplicativo e permissões no Azure Active Directory](./roles-custom-available-permissions.md).
-   1. Primeiro, insira "credenciais" na barra de pesquisa e selecione a `microsoft.directory/applications/credentials/update` permissão.
+   1. Primeiro, insira "credenciais" na barra de pesquisa e selecione a permissão `microsoft.directory/applications/credentials/update`.
 
       ![Selecione as permissões para uma função personalizada na guia permissões](./media/roles-create-custom/permissions-tab.png)
 
-   1. Em seguida, digite "básico" na barra de pesquisa, selecione `microsoft.directory/applications/basic/update` a permissão e clique em **Avançar**.
+   1. Em seguida, digite "básico" na barra de pesquisa, selecione a permissão `microsoft.directory/applications/basic/update` e clique em **Avançar**.
 1. Na guia **revisar + criar** , examine as permissões e selecione **criar**.
 
 Sua função personalizada aparecerá na lista de funções disponíveis a serem atribuídas.
@@ -176,7 +176,7 @@ Como funções internas, as funções personalizadas são atribuídas por padrã
 1. Selecione a função para abrir a página **atribuições** .
 1. Selecione **Adicionar atribuição** para adicionar um usuário. O usuário receberá todas as permissões apenas do registro do aplicativo selecionado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Fique à vontade para compartilhar conosco no [Fórum de funções administrativas do Azure ad](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
 - Para obter mais informações sobre funções e atribuição de função de administrador, consulte [atribuir funções de administrador](directory-assign-admin-roles.md).

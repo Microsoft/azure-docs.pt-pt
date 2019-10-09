@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801383"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030525"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão do Azure Media Services V3
 
@@ -153,31 +153,31 @@ O módulo CLI 2,0 agora está disponível para os [serviços de mídia do Azure 
 
 #### <a name="asset-commands"></a>Comandos de ativo
 
-- ```--storage-account```e ```--container``` os argumentos adicionados.
-- Valores padrão para tempo de expiração (agora + 23h) e permissões (leitura) ```az ams asset get-sas-url``` no comando adicionado.
+- argumentos ```--storage-account``` e ```--container``` adicionados.
+- Valores padrão para tempo de expiração (Now + 23h) e permissões (leitura) no comando ```az ams asset get-sas-url``` adicionado.
 
 #### <a name="job-commands"></a>Comandos de trabalho
 
-- ```--correlation-data```e ```--label``` argumentos adicionados
-- ```--output-asset-names```renomeado para ```--output-assets```. Agora ele aceita uma lista de ativos separados por espaços no formato ' assetname = rótulo '. Um ativo sem rótulo pode ser enviado da seguinte maneira: ' assetname = '.
+- argumentos ```--correlation-data``` e ```--label``` adicionados
+- ```--output-asset-names``` renomeado como ```--output-assets```. Agora ele aceita uma lista de ativos separados por espaços no formato ' assetname = rótulo '. Um ativo sem rótulo pode ser enviado da seguinte maneira: ' assetname = '.
 
 #### <a name="streaming-locator-commands"></a>Comandos do localizador de streaming
 
-- ```az ams streaming locator```comando de base substituído ```az ams streaming-locator```por.
-- ```--streaming-locator-id```e ```--alternative-media-id support``` os argumentos adicionados.
-- ```--content-keys argument```argumento atualizado.
-- ```--content-policy-name```renomeado para ```--content-key-policy-name```.
+- comando base ```az ams streaming locator``` substituído por ```az ams streaming-locator```.
+- argumentos ```--streaming-locator-id``` e ```--alternative-media-id support``` adicionados.
+- argumento ```--content-keys argument``` atualizado.
+- ```--content-policy-name``` renomeado como ```--content-key-policy-name```.
 
 #### <a name="streaming-policy-commands"></a>Comandos de política de streaming
 
-- ```az ams streaming policy```comando de base substituído ```az ams streaming-policy```por.
-- Suporte a parâmetros de ```az ams streaming-policy create``` criptografia em adicionado.
+- comando base ```az ams streaming policy``` substituído por ```az ams streaming-policy```.
+- Os parâmetros de criptografia dão suporte ao ```az ams streaming-policy create``` adicionado.
 
 #### <a name="transform-commands"></a>Comandos de transformação
 
-- ```--preset-names```argumento substituído por ```--preset```. Agora você só pode definir 1 saída/predefinição de cada vez (para adicionar mais você precisa executar ```az ams transform output add```). Além disso, você pode definir StandardEncoderPreset personalizados passando o caminho para o JSON personalizado.
-- ```az ams transform output remove```pode ser executado passando o índice de saída para remover.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argumentos adicionados ```az ams transform create``` aos comandos ```az ams transform output add``` e.
+- argumento ```--preset-names``` substituído por ```--preset```. Agora você só pode definir 1 saída/predefinição de cada vez (para adicionar mais, você precisa executar ```az ams transform output add```). Além disso, você pode definir StandardEncoderPreset personalizados passando o caminho para o JSON personalizado.
+- ```az ams transform output remove``` pode ser executado passando o índice de saída para remover.
+- argumentos ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` adicionados nos comandos ```az ams transform create``` e ```az ams transform output add```.
 
 ## <a name="october-2018---ga"></a>Outubro de 2018 – GA
 
@@ -187,7 +187,7 @@ Esta seção descreve as atualizações de outubro dos serviços de mídia do Az
 
 A [versão do REST v3 GA](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) inclui mais APIs para filtros de manifesto de nível de conta/ativo, e suporte a DRM em tempo real.
 
-#### <a name="azure-resource-management"></a>Gestão de Recursos do Azure 
+#### <a name="azure-resource-management"></a>Gerenciamento de recursos do Azure 
 
 O suporte para o gerenciamento de recursos do Azure permite o gerenciamento unificado e a API de operações (agora tudo em um único lugar).
 
@@ -273,6 +273,7 @@ Os seguintes recursos estão presentes no SDK do .NET:
 
 Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Descrição Geral](media-services-overview.md)
+- [Descrição Geral](media-services-overview.md)
+- [Notas de versão do Media Services v2](../previous/media-services-release-notes.md)

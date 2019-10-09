@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5e05acf515aacaada96bd6e493c1a2bf24d7c5ab
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937546"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030760"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Compreender as saídas do Azure Stream Analytics
 
@@ -80,8 +80,8 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Alias de saída        | Um nome amigável utilizado nas consultas para direcionar o resultado da consulta para este armazenamento de Blobs. |
 | Conta de armazenamento     | O nome da conta de armazenamento em que você está enviando a saída.               |
 | Chave da conta de armazenamento | A chave secreta associada à conta de armazenamento.                              |
-| Contentor de armazenamento   | Um agrupamento lógico para BLOBs armazenados no serviço blob do Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob. |
-| Padrão do caminho | Opcional. O padrão de caminho de arquivo que é usado para gravar seus BLOBs dentro do contêiner especificado. <br /><br /> No padrão de caminho, você pode optar por usar uma ou mais instâncias das variáveis de data e hora para especificar a frequência em que os BLOBs são gravados: <br /> {date}, {time} <br /><br />Você pode usar o particionamento de BLOBs personalizado para especificar um nome {Field} personalizado dos dados de evento para os blobs de partição. O nome do campo seja alfanumérico e pode incluir espaços, hífenes e carateres de sublinhado. Restrições em campos personalizados incluem o seguinte: <ul><li>Os nomes de campo não diferenciam maiúsculas de minúsculas. Por exemplo, o serviço não pode diferenciar entre a coluna "ID" e a coluna "ID".</li><li>Campos aninhados não são permitidos. Em vez disso, use um alias na consulta de trabalho para "Mesclar" o campo.</li><li>As expressões não podem ser usadas como um nome de campo.</li></ul> <br />Esse recurso permite o uso de configurações personalizadas de especificador de formato de data/hora no caminho. Personalizado data e hora formatos tem de ser especificado um de cada vez, entre o {datetime:\<especificador >} palavra-chave. As entradas permitidas \<para o especificador > são AAAA, mm, m, DD, d, hh, H, mm, M, SS ou s. A palavra-chave\<{DateTime: especificador >} pode ser usada várias vezes no caminho para formar configurações personalizadas de data/hora. <br /><br />Exemplos: <ul><li>Exemplo 1: cluster1/registos / {data} / {time}</li><li>Exemplo 2: cluster1/registos / {data}</li><li>Exemplo 3: CLUSTER1/{client_id}/{date}/{time}</li><li>Exemplo 4: CLUSTER1/{DateTime: SS}/{myField} em que a consulta é: Selecione Data. MyField como MyField da entrada;</li><li>Exemplo 5: CLUSTER1/year = {DateTime: aaaa}/month = {DateTime: MM}/Day = {DateTime: DD}</ul><br />O carimbo de data/hora da estrutura de pastas criada segue o UTC e não a hora local.<br /><br />A nomenclatura de arquivo usa a seguinte convenção: <br /><br />{Caminho Pattern}/schemaHashcode_Guid_Number.extension de prefixo<br /><br />Ficheiros de saída de exemplo:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Para obter mais informações sobre esse recurso, consulte [Azure Stream Analytics particionamento de saída de blob personalizado](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Contêiner de armazenamento   | Um agrupamento lógico para BLOBs armazenados no serviço blob do Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob. |
+| Padrão do caminho | Opcional. O padrão de caminho de arquivo que é usado para gravar seus BLOBs dentro do contêiner especificado. <br /><br /> No padrão de caminho, você pode optar por usar uma ou mais instâncias das variáveis de data e hora para especificar a frequência em que os BLOBs são gravados: <br /> {date}, {time} <br /><br />Você pode usar o particionamento de BLOBs personalizado para especificar um nome {Field} personalizado dos dados de evento para os blobs de partição. O nome do campo seja alfanumérico e pode incluir espaços, hífenes e carateres de sublinhado. Restrições em campos personalizados incluem o seguinte: <ul><li>Os nomes de campo não diferenciam maiúsculas de minúsculas. Por exemplo, o serviço não pode diferenciar entre a coluna "ID" e a coluna "ID".</li><li>Campos aninhados não são permitidos. Em vez disso, use um alias na consulta de trabalho para "Mesclar" o campo.</li><li>As expressões não podem ser usadas como um nome de campo.</li></ul> <br />Esse recurso permite o uso de configurações personalizadas de especificador de formato de data/hora no caminho. Personalizado data e hora formatos tem de ser especificado um de cada vez, entre o {datetime:\<especificador >} palavra-chave. As entradas permitidas para \<specifier > são AAAA, MM, M, DD, d, HH, H, mm, M, SS ou s. A palavra-chave {DateTime: \<specifier >} pode ser usada várias vezes no caminho para formar configurações personalizadas de data/hora. <br /><br />Exemplos: <ul><li>Exemplo 1: cluster1/registos / {data} / {time}</li><li>Exemplo 2: cluster1/registos / {data}</li><li>Exemplo 3: CLUSTER1/{client_id}/{date}/{time}</li><li>Exemplo 4: CLUSTER1/{DateTime: SS}/{myField} em que a consulta é: Selecione Data. MyField como MyField da entrada;</li><li>Exemplo 5: CLUSTER1/year = {DateTime: aaaa}/month = {DateTime: MM}/Day = {DateTime: DD}</ul><br />O carimbo de data/hora da estrutura de pastas criada segue o UTC e não a hora local.<br /><br />A nomenclatura de arquivo usa a seguinte convenção: <br /><br />{Caminho Pattern}/schemaHashcode_Guid_Number.extension de prefixo<br /><br />Ficheiros de saída de exemplo:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Para obter mais informações sobre esse recurso, consulte [Azure Stream Analytics particionamento de saída de blob personalizado](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Formato de data | Opcional. Se o token de data é utilizado no caminho de prefixo, pode selecionar o formato de data em que os ficheiros estão organizados. Exemplo: AAAA/MM/DD |
 | Formato de hora | Opcional. Se o token de tempo é utilizado no caminho de prefixo, especifique o formato de hora em que os ficheiros estão organizados. Atualmente, o único valor suportado é HH. |
 | Formato de serialização de eventos | Formato de serialização para dados de saída. Há suporte para JSON, CSV, Avro e parquet. |
@@ -115,12 +115,12 @@ Você precisa de alguns parâmetros para configurar os fluxos de dados dos hubs 
 | Nome do hub de eventos | O nome da saída do hub de eventos. |
 | Nome de política do hub de eventos | A política de acesso compartilhado, que pode ser criada na guia **Configurar** do hub de eventos. Cada política de acesso partilhado tem um nome, as permissões que definir e chaves de acesso. |
 | Chave de política do hub de eventos | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do hub de eventos. |
-| Coluna da chave de partição | Opcional. Uma coluna que contém a chave de partição para saída do hub de eventos. |
+| Coluna de chave de partição | Opcional. Uma coluna que contém a chave de partição para saída do hub de eventos. |
 | Formato de serialização de eventos | O formato de serialização para dados de saída. JSON, CSV e Avro são suportados. |
 | Codificação | Para CSV e JSON, o UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador | Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Formato | Aplicável somente para serialização JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Essa matriz só é fechada quando as paradas de tarefa ou o Stream Analytics tem movido para a próxima janela de tempo. Em geral, é preferível usar JSON separado por linha, pois não requer tratamento especial enquanto o arquivo de saída ainda está sendo gravado. |
-| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Formato | Aplicável somente para serialização JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Essa matriz só é fechada quando as paradas de tarefa ou o Stream Analytics tem movido para a próxima janela de tempo. Em geral, é preferível usar JSON separado por linha, pois não requer tratamento especial enquanto o arquivo de saída ainda está sendo gravado. Para obter mais informações, consulte a seção [tamanho do lote de saída](#output-batch-size) . |
+| Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
 
@@ -136,7 +136,7 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para configu
 | Área de trabalho de Grupo |Para habilitar o compartilhamento de dados com outros usuários do Power BI, você pode selecionar grupos dentro de sua conta do Power BI ou escolher **meu espaço de trabalho** se não quiser gravar em um grupo. A atualizar um grupo existente requer a autenticação do Power BI a renovar. |
 | Nome do conjunto de dados |Forneça um nome de conjunto de resultados que você deseja que a Power BI saída use. |
 | Nome da tabela |Forneça um nome de tabela em que o conjunto de dados de saída do Power BI. No momento, Power BI saída de trabalhos Stream Analytics pode ter apenas uma tabela em um conjunto de um. |
-| Autorizar ligação | Você precisa autorizar com Power BI para definir as configurações de saída. Depois de conceder esse acesso de saída ao seu painel de Power BI, você pode revogar o acesso alterando a senha da conta de usuário, excluindo a saída do trabalho ou excluindo o trabalho de Stream Analytics. | 
+| Autorizar conexão | Você precisa autorizar com Power BI para definir as configurações de saída. Depois de conceder esse acesso de saída ao seu painel de Power BI, você pode revogar o acesso alterando a senha da conta de usuário, excluindo a saída do trabalho ou excluindo o trabalho de Stream Analytics. | 
 
 Para obter uma explicação sobre como configurar um Power BI saída e painel, consulte o [Azure Stream Analytics e Power bi](stream-analytics-power-bi-dashboard.md) tutorial.
 
@@ -165,7 +165,7 @@ Matriz de registo | Tipo de cadeia de caracteres, valor constante "IRecord" ou "
 ### <a name="update-the-schema"></a>Atualizar o esquema
 Stream Analytics infere o esquema do modelo de dados com base no primeiro conjunto de eventos na saída. Posteriormente, se necessário, o esquema do modelo de dados é atualizado para acomodar os eventos de entrada que podem não se ajustar ao esquema original.
 
-Evite a `SELECT *` consulta para impedir a atualização dinâmica do esquema em linhas. Além das possíveis implicações de desempenho, isso pode resultar em incerteza do tempo necessário para os resultados. Selecione os campos exatos que precisam ser mostrados no painel de Power BI. Além disso, os valores de dados devem estar em conformidade com o tipo de dados escolhido.
+Evite a consulta `SELECT *` para impedir a atualização dinâmica de esquema em linhas. Além das possíveis implicações de desempenho, isso pode resultar em incerteza do tempo necessário para os resultados. Selecione os campos exatos que precisam ser mostrados no painel de Power BI. Além disso, os valores de dados devem estar em conformidade com o tipo de dados escolhido.
 
 
 Anterior/atual | Int64 | Cadeia | Datetime | Valor de duplo
@@ -175,7 +175,7 @@ Valor de duplo | Valor de duplo | Cadeia | Cadeia | Valor de duplo
 Cadeia | String | String | String | Cadeia 
 Datetime | Cadeia | Cadeia |  Datetime | Cadeia
 
-## <a name="table-storage"></a>Armazenamento de tabelas
+## <a name="table-storage"></a>Table Storage
 
 O [armazenamento de tabelas do Azure](../storage/common/storage-introduction.md) oferece armazenamento altamente disponível e amplamente escalonável, para que um aplicativo possa ser dimensionado automaticamente para atender à demanda do usuário. O armazenamento de tabela é o repositório de chave/atributo NoSQL da Microsoft, que pode ser usado para dados estruturados com menos restrições no esquema. Armazenamento de tabelas do Azure pode ser utilizado para armazenar dados de persistência e obtenção de eficiente.
 
@@ -208,8 +208,8 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Codificação |Para CSV e JSON, o UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato |Aplicável somente para o tipo JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
-| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
-| Colunas de Propriedade de Sistema | Opcional. Pares chave-valor de propriedades do sistema e nomes de coluna correspondentes que precisam ser anexados à mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades do sistema para saídas de fila e de tópico do barramento de serviço](#system-properties-for-service-bus-queue-and-topic-outputs)  |
+| Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de propriedades do sistema | Opcional. Pares chave-valor de propriedades do sistema e nomes de coluna correspondentes que precisam ser anexados à mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades do sistema para saídas de fila e de tópico do barramento de serviço](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). Chave de partição é um valor inteiro exclusivo para cada partição.
 
@@ -228,8 +228,8 @@ A tabela a seguir lista os nomes de propriedade e suas descrições para a cria�
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são suportados. |
 | Codificação |Se você estiver usando o formato CSV ou JSON, uma codificação deverá ser especificada. UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável somente para serialização de CSV. O Stream Analytics suporta um número de delimitadores comuns para serializar dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
-| Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
-| Colunas de Propriedade de Sistema | Opcional. Pares chave-valor de propriedades do sistema e nomes de coluna correspondentes que precisam ser anexados à mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades do sistema para saídas de fila e de tópico do barramento de serviço](#system-properties-for-service-bus-queue-and-topic-outputs) |
+| Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
+| Colunas de propriedades do sistema | Opcional. Pares chave-valor de propriedades do sistema e nomes de coluna correspondentes que precisam ser anexados à mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades do sistema para saídas de fila e de tópico do barramento de serviço](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 É o número de partições [com base no SKU de barramento de serviço e no tamanho](../service-bus-messaging/service-bus-partitioning.md). A chave de partição é um valor inteiro exclusivo para cada partição.
 
@@ -282,15 +282,15 @@ Além disso, em uma situação em que não há nenhuma aterrissagem de evento em
 Você pode anexar colunas de consulta como propriedades de usuário às suas mensagens de saída. Essas colunas não entram no conteúdo. As propriedades estão presentes na forma de um dicionário na mensagem de saída. *Key* é o nome da coluna e *Value* é o valor da coluna no dicionário Properties. Todos os tipos de dados de Stream Analytics têm suporte, exceto registro e matriz.  
 
 Saídas com suporte: 
-* Fila do Service Bus 
-* Tópico do Service Bus 
+* Fila do barramento de serviço 
+* Tópico do barramento de serviço 
 * Hub de eventos 
 
 No exemplo a seguir, adicionamos os dois campos `DeviceId` e `DeviceStatus` aos metadados. 
-* Consultá`select *, DeviceId, DeviceStatus from iotHubInput`
-* Configuração de saída:`DeviceId,DeviceStatus`
+* Consulta: `select *, DeviceId, DeviceStatus from iotHubInput`
+* Configuração de saída: `DeviceId,DeviceStatus`
 
-![Colunas de propriedade](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+![Colunas de propriedades](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
 
 A captura de tela a seguir mostra as propriedades da mensagem de saída inspecionadas no EventHub por meio do [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
 
@@ -298,7 +298,7 @@ A captura de tela a seguir mostra as propriedades da mensagem de saída inspecio
 
 ## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>Propriedades do sistema para saídas de fila e tópico do barramento de serviço 
 Você pode anexar colunas de consulta como [Propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) às mensagens da fila ou do tópico do barramento de serviço de saída. Essas colunas não vão para a carga, em vez disso, a [Propriedade do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) BrokeredMessage correspondente é populada com os valores da coluna de consulta.
-Essas propriedades do sistema são suportadas- `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Essas propriedades do sistema têm suporte-`MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 Os valores de cadeia de caracteres dessas colunas são analisados como tipo de valor de Propriedade do sistema correspondente e quaisquer falhas de análise são tratadas como erros de dados.
 Esse campo é fornecido como um formato de objeto JSON. Os detalhes sobre esse formato são os seguintes:
 * Entre chaves {}.
@@ -310,10 +310,10 @@ Esse campo é fornecido como um formato de objeto JSON. Os detalhes sobre esse f
 
 Isso mostra como usar essa propriedade –
 
-* Consultá`select *, column1, column2 INTO queueOutput FROM iotHubInput`
-* Colunas de propriedades do sistema:`{ "MessageId": "column1", "PartitionKey": "column2"}`
+* Consulta: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Colunas de propriedades do sistema: `{ "MessageId": "column1", "PartitionKey": "column2"}`
 
-Isso define as `MessageId` mensagens de fila no barramento de `column1`serviço com valores de e PartitionKey é `column2`definido com valores de.
+Isso define o `MessageId` em mensagens de fila do barramento de serviço com valores de `column1` e PartitionKey é definido com valores de `column2`.
 
 ## <a name="partitioning"></a>Criação de partições
 
@@ -323,7 +323,7 @@ A tabela seguinte resume o suporte de partição e o número de gravadores de sa
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Sim | Use tokens {Date} e {time} no padrão de prefixo de caminho. Escolha o formato de data, como aaaa/MM/DD, DD/MM/aaaa ou MM-DD-AAAA. HH é usado para o formato de hora. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). |
 | Base de Dados SQL do Azure | Sim, precisa ser habilitado. | Com base na cláusula PARTITION BY na consulta. | Quando a opção herdar particionamento estiver habilitada, o seguirá o particionamento de entrada para [consultas totalmente paralelizáveiss](stream-analytics-scale-jobs.md). Para saber mais sobre como obter um melhor desempenho de taxa de transferência de gravação quando você estiver carregando dados no Azure SQL Database, consulte [Azure Stream Analytics saída para o banco de dados SQL do Azure](stream-analytics-sql-output-perf.md). |
-| Armazenamento de Blobs do Azure | Sim | Use os tokens {Date} e {time} de seus campos de evento no padrão de caminho. Escolha o formato de data, como aaaa/MM/DD, DD/MM/aaaa ou MM-DD-AAAA. HH é usado para o formato de hora. A saída de blob pode ser particionada por um único atributo de evento personalizado {FieldName} ou\<{DateTime: especificador >}. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). |
+| Armazenamento de Blobs do Azure | Sim | Use os tokens {Date} e {time} de seus campos de evento no padrão de caminho. Escolha o formato de data, como aaaa/MM/DD, DD/MM/aaaa ou MM-DD-AAAA. HH é usado para o formato de hora. A saída de blob pode ser particionada por um único atributo de evento personalizado {FieldName} ou {DateTime: \<specifier >}. | Segue-se a criação de partições entrada para [consultas totalmente ponto pode ser paralelizadas](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Sim | Sim | Varia consoante o alinhamento da partição.<br /> Quando a chave de partição para saída do hub de eventos é alinhada igualmente com a etapa de consulta upstream (anterior), o número de gravadores é igual ao número de partições na saída do hub de eventos. Cada gravador usa a [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) para enviar eventos para a partição específica. <br /> Quando a chave de partição para saída do hub de eventos não está alinhada com a etapa de consulta upstream (anterior), o número de gravadores é o mesmo que o número de partições na etapa anterior. Cada gravador usa a [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) em **EventHubClient** para enviar eventos para todas as partições de saída. |
 | Power BI | Não | Nenhuma | Não aplicável. |
 | Armazenamento de Tabelas do Azure | Sim | Qualquer coluna de saída.  | Segue-se a criação de partições entrada para [totalmente em paralelo consultas](stream-analytics-scale-jobs.md). |
@@ -332,7 +332,7 @@ A tabela seguinte resume o suporte de partição e o número de gravadores de sa
 | Azure Cosmos DB | Sim | Com base na cláusula PARTITION BY na consulta. | Segue-se a criação de partições entrada para [totalmente em paralelo consultas](stream-analytics-scale-jobs.md). |
 | Funções do Azure | Sim | Com base na cláusula PARTITION BY na consulta. | Segue-se a criação de partições entrada para [totalmente em paralelo consultas](stream-analytics-scale-jobs.md). |
 
-O número de gravadores de saída também pode ser `INTO <partition count>` controlado usando a cláusula (consulte [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) em sua consulta, o que pode ser útil para atingir uma topologia de trabalho desejada. Se o adaptador de saída não for particionado, falta de dados de uma partição de entrada fará com que um atraso até ao montante de chegada tardia do tempo. Nesses casos, a saída é mesclada a um único gravador, o que pode causar afunilamentos em seu pipeline. Para saber mais sobre a política de chegada tardia, consulte [Azure Stream Analytics considerações sobre ordem de evento](stream-analytics-out-of-order-and-late-events.md).
+O número de gravadores de saída também pode ser controlado usando a cláusula `INTO <partition count>` (consulte [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)) em sua consulta, o que pode ser útil para atingir uma topologia de trabalho desejada. Se o adaptador de saída não for particionado, falta de dados de uma partição de entrada fará com que um atraso até ao montante de chegada tardia do tempo. Nesses casos, a saída é mesclada a um único gravador, o que pode causar afunilamentos em seu pipeline. Para saber mais sobre a política de chegada tardia, consulte [Azure Stream Analytics considerações sobre ordem de evento](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 O Azure Stream Analytics usa lotes de tamanho variável para processar eventos e gravar em saídas. Normalmente, o mecanismo de Stream Analytics não grava uma mensagem por vez e usa lotes para obter eficiência. Quando a taxa de eventos de entrada e saída é alta, Stream Analytics usa lotes maiores. Quando a taxa de saída é baixa, ele usa lotes mais pequenos para manter a latência baixa.
@@ -344,7 +344,7 @@ A tabela a seguir explica algumas das considerações sobre o envio em lote de s
 | Azure Data Lake Store | Consulte [limites de data Lake Storage](../azure-subscription-service-limits.md#data-lake-store-limits). | Use até 4 MB por operação de gravação. |
 | Base de Dados SQL do Azure | Configurável usando a contagem máxima de lotes. máximo de 10.000 e 100 mínimos de linhas por única inserção em massa por padrão.<br />Consulte [limites do SQL do Azure](../sql-database/sql-database-resource-limits.md). |  Cada lote é inicialmente inserido em massa com a contagem máxima de lotes. O lote é dividido na metade (até a contagem de lote mínima) com base em erros com nova tentativa do SQL. |
 | Armazenamento de Blobs do Azure | Consulte [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits). | O tamanho máximo do bloco de BLOBs é 4 MB.<br />A contagem máxima de Bock de blob é 50.000. |
-| Azure Event Hubs  | 256 KB ou 1 MB por mensagem. <br />Consulte [limites de hubs de eventos](../event-hubs/event-hubs-quotas.md). |  Quando o particionamento de entrada/saída não está alinhado, cada evento é `EventData` empacotado individualmente no e enviado em um lote de até o tamanho máximo da mensagem. Isso também ocorrerá se [as propriedades de metadados personalizados](#custom-metadata-properties-for-output) forem usadas. <br /><br />  Quando o particionamento de entrada/saída está alinhado, vários eventos são empacotados `EventData` em uma única instância, até o tamanho máximo da mensagem e enviados. |
+| Azure Event Hubs  | 256 KB ou 1 MB por mensagem. <br />Consulte [limites de hubs de eventos](../event-hubs/event-hubs-quotas.md). |  Quando o particionamento de entrada/saída não está alinhado, cada evento é empacotado individualmente no `EventData` e enviado em um lote de até o tamanho máximo da mensagem. Isso também ocorrerá se [as propriedades de metadados personalizados](#custom-metadata-properties-for-output) forem usadas. <br /><br />  Quando o particionamento de entrada/saída está alinhado, vários eventos são empacotados em uma única instância `EventData`, até o tamanho máximo da mensagem e enviados. |
 | Power BI | Confira [Power bi limites da API REST](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Armazenamento de Tabelas do Azure | Consulte [limites de armazenamento do Azure](../azure-subscription-service-limits.md#storage-limits). | O padrão é 100 entidades por transação única. Você pode configurá-lo para um valor menor, conforme necessário. |
 | Fila do Service Bus do Azure   | 256 KB por mensagem para a camada Standard, 1MB para a camada Premium.<br /> Consulte [limites do barramento de serviço](../service-bus-messaging/service-bus-quotas.md). | Use um único evento por mensagem. |
@@ -355,7 +355,7 @@ A tabela a seguir explica algumas das considerações sobre o envio em lote de s
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > 
-> [Quickstart: Criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
+> [Quickstart: Criar um trabalho de Stream Analytics usando o portal do Azure @ no__t-0
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

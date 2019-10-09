@@ -1,6 +1,6 @@
 ---
-title: Exemplo do Script da CLI do Azure - importá-la para um Store de configuração de aplicações do Azure | Documentos da Microsoft
-description: Fornece os scripts de exemplo e informações para importar a um arquivo de configuração de aplicações do Azure
+title: Exemplo de script de CLI do Azure – importar para um repositório de configuração de Azure App | Microsoft Docs
+description: Fornece informações e scripts de exemplo para importar para um repositório de configuração de Azure App
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
@@ -14,16 +14,16 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 0df8e19d3c6f0680f1eb1b0157c3bee5c9841e4c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd1e54fc6cfbf254da010c03dfaa859a0ee8213c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234397"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029808"
 ---
-# <a name="import-to-an-azure-app-configuration-store"></a>Importar a um arquivo de configuração de aplicações do Azure
+# <a name="import-to-an-azure-app-configuration-store"></a>Importar para um repositório de configurações Azure App
 
-Este script de exemplo importa os valores de chave para um arquivo de configuração de aplicações do Azure.
+Este script de exemplo importa valores de chave para um repositório de configuração Azure App.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -31,7 +31,7 @@ Este script de exemplo importa os valores de chave para um arquivo de configura�
 
 Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Tem de instalar a extensão de CLI de configuração de aplicações do Azure pela primeira vez ao executar o comando seguinte:
+Você precisa instalar a extensão da CLI de configuração do Azure App primeiro executando o seguinte comando:
 
         az extension add -n appconfig
 
@@ -41,21 +41,21 @@ Tem de instalar a extensão de CLI de configuração de aplicações do Azure pe
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --file ~/Import.json
+az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>Explicação do script
 
-Este script utiliza os seguintes comandos para importar um arquivo de configuração de aplicação. Cada comando na tabela liga à documentação específica do comando.
+Esse script usa os comandos a seguir para importar um repositório de configurações de aplicativo. Cada comando na tabela liga à documentação específica do comando.
 
 | Comando | Notas |
 |---|---|
-| [az appconfig import](/cli/azure/ext/appconfig/appconfig) | Importa a uma configuração de aplicação armazena recursos. |
+| [az appconfig import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | Importa para um recurso de repositório de configuração de aplicativo. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure).
 
-Exemplos do script da CLI de configuração de aplicações adicionais podem ser encontrados no [documentação de configuração de aplicações do Azure](../cli-samples.md).
+Exemplos de script da CLI de configuração de aplicativo adicionais podem ser encontrados na [documentação de configuração do Azure app](../cli-samples.md).

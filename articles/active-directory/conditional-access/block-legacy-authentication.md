@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d227b4cf7090cdc3177c7045d6137f30a13f71b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f4e4dc33d670c5f6c5ebefa21ccf1a1ff941e913
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931960"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024575"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação herdada no Azure AD com acesso condicional   
 
@@ -52,9 +52,9 @@ Esta seção explica como configurar uma política de acesso condicional para bl
 
 Antes de poder bloquear a autenticação herdada em seu diretório, primeiro você precisa entender se os usuários têm aplicativos que usam autenticação herdada e como ele afeta o diretório geral. Os logs de entrada do Azure AD podem ser usados para entender se você está usando a autenticação herdada.
 
-1. Navegue até o **portal do Azure** > **Azure Active Directory** > **entradas**.
-1. Adicione a coluna aplicativo cliente se ela não for exibida clicando em **colunas** > **aplicativo cliente**.
-1. **Adicionar** > **aplicativo cliente** de filtros > selecione todas as opções para **outros clientes** e clique em **aplicar**.
+1. Navegue até o **portal do Azure** > **Azure Active Directory** **entradas** > .
+1. Adicione a coluna aplicativo cliente, caso não seja exibida, clicando em **colunas** > **aplicativo cliente**.
+1. **Adicionar filtros** > **aplicativo cliente** > selecione todas as opções para **outros clientes** e clique em **aplicar**.
 
 A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo **aplicativo cliente** na guia **informações básicas** indicará qual protocolo de autenticação herdado foi usado.
 
@@ -75,7 +75,7 @@ Para bloquear o acesso a esses aplicativos, você precisa selecionar **bloquear 
 Se você quiser bloquear a autenticação herdada para sua organização, provavelmente imagina que possa fazer isso selecionando:
 
 - Todos os utilizadores
-- Todas as aplicações na cloud
+- Todos os aplicativos de nuvem
 - Bloquear acesso
 
 ![Atribuições](./media/block-legacy-authentication/03.png)
@@ -101,7 +101,7 @@ Para obter mais informações, consulte [como você deve implantar uma nova pol�
 
 ## <a name="what-you-should-know"></a>O que deve saber
 
-O bloqueio de acesso usando **outros clientes** também bloqueia o PowerShell do Exchange Online usando a autenticação básica.
+O bloqueio de acesso usando **outros clientes** também bloqueia o Exchange Online PowerShell e o Dynamics 365 usando a autenticação básica.
 
 Configurar uma política para **outros clientes** bloqueia toda a organização de determinados clientes como o OnConnect. Esse bloco ocorre porque os clientes mais antigos se autenticam de maneiras inesperadas. O problema não se aplica aos principais aplicativos do Office, como os clientes mais antigos do Office.
 
@@ -117,7 +117,7 @@ Se você bloquear a autenticação herdada usando a condição **outros clientes
 
 ![Configuração de política sem suporte](./media/block-legacy-authentication/06.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Se você ainda não estiver familiarizado com a configuração de políticas de acesso condicional, consulte [exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md) para obter um exemplo.
 - Para obter mais informações sobre o suporte à autenticação moderna, consulte [como funciona a autenticação moderna para aplicativos cliente do office 2013 e do office 2016](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) 

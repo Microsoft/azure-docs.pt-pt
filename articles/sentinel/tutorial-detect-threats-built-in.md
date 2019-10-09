@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240105"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024455"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detecte ameaças prontas para uso
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240105"
 > Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Depois de [conectar suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, você deseja ser notificado quando algo suspeito acontecer. Para permitir que você faça isso, o Sentinela do Azure fornece modelos internos prontos para uso. Esses modelos foram projetados pela equipe da Microsoft de especialistas em segurança e analistas com base em ameaças conhecidas, em vetores de ataque comuns e em cadeias de escalonamento de atividades suspeitas. Depois de habilitar esses modelos, eles pesquisarão automaticamente qualquer atividade que pareça suspeita em seu ambiente. Muitos dos modelos podem ser personalizados para pesquisar ou filtrar atividades, de acordo com suas necessidades. Os alertas gerados por esses modelos criarão incidentes que você pode atribuir e investigar em seu ambiente.
+Depois de [conectar suas fontes de dados](quickstart-onboard.md) to Azure Sentinel, você deseja ser notificado quando algo suspeito acontecer. Para permitir que você faça isso, o Sentinela do Azure fornece modelos internos prontos para uso. Esses modelos foram projetados pela equipe da Microsoft de especialistas em segurança e analistas com base em ameaças conhecidas, em vetores de ataque comuns e em cadeias de escalonamento de atividades suspeitas. Depois de habilitar esses modelos, eles pesquisarão automaticamente qualquer atividade que pareça suspeita em seu ambiente. Muitos dos modelos podem ser personalizados para pesquisar ou filtrar atividades, de acordo com suas necessidades. Os alertas gerados por esses modelos criarão incidentes que você pode atribuir e investigar em seu ambiente.
 
 Este tutorial ajuda você a detectar ameaças com o Azure Sentinel:
 
@@ -39,7 +39,7 @@ Este tutorial ajuda você a detectar ameaças com o Azure Sentinel:
 
 ## <a name="about-out-of-the-box-detections"></a>Sobre as detecções prontas para uso
 
-Para exibir todas as detecções prontas para uso, vá para **análise** e, em seguida, modelos de **regra**. Esta guia contém todas as regras internas do Azure Sentinel.
+Para exibir todas as detecções prontas para uso, vá para **análise** e, em seguida, modelos de **regra**. Esta guia contém todas as regras internas do Azure Sentinel.
 
    ![Use detecções internas para encontrar ameaças com o Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
@@ -58,7 +58,7 @@ Os seguintes tipos de modelo estão disponíveis:
  
 1. Isso abre o assistente de criação de regras, com base no modelo selecionado. Todos os detalhes são preenchidos de forma automática e para **regras agendadas** ou **regras de segurança da Microsoft**, você pode personalizar a lógica para se adequar melhor à sua organização ou criar regras adicionais com base no modelo interno. Depois de seguir as etapas no Assistente para criação de regras e terminar de criar uma regra com base no modelo, a nova regra aparecerá na guia **regras ativas** .
 
-Para obter mais informações sobre os campos do assistente, consulte [o tutorial: Crie regras analíticas personalizadas para detectar ameaças](tutorial-detect-threats-custom.md)suspeitas.
+Para obter mais informações sobre os campos no assistente, consulte [Tutorial: Crie regras analíticas personalizadas para detectar ameaças suspeitas @ no__t-0.
 
 
 

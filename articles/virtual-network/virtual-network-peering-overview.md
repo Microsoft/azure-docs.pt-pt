@@ -1,5 +1,5 @@
 ---
-title: Peering de rede Virtual do Azure
+title: Emparelhamento de rede virtual do Azure
 titlesuffix: Azure Virtual Network
 description: Saiba mais sobre o peering de rede virtual no Azure.
 services: virtual-network
@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077631"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035280"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
-Peering de rede virtual permite que se conecte do Azure [redes virtuais](virtual-networks-overview.md). Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais em modo de peering será encaminhado através da infraestrutura principal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual através apenas de endereços IP *privados*. O Azure suporta:
+O emparelhamento de rede virtual permite que você conecte diretamente as [redes virtuais](virtual-networks-overview.md)do Azure. Uma vez executado o peering, as redes virtuais aparecem como uma única, para fins de conectividade. O tráfego entre máquinas virtuais nas redes virtuais em modo de peering será encaminhado através da infraestrutura principal da Microsoft, tal como o tráfego é encaminhado entre máquinas virtuais na mesma rede virtual através apenas de endereços IP *privados*. O Azure suporta:
 * VNet Peering - Ligar VNets na mesma região do Azure
 * Global VNET Peering - Ligar VNets entre regiões do Azure
 
@@ -63,7 +63,7 @@ Quando as redes virtuais estão em modo de peering, pode, igualmente, configurar
 
 ![trânsito de peering de rede virtual](./media/virtual-networks-peering-overview/figure04.png)
 
-O trânsito de gateway é suportado para o VNet Peering e o Global VNet Peering. O trânsito de gateway entre redes virtuais criadas com modelos de implementação diferentes (Resource Manager e clássica) é suportado apenas se o gateway está na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+O trânsito de gateway tem suporte para emparelhamento VNet e emparelhamento VNet global. O gateway de trânsito entre redes virtuais criadas por meio de diferentes modelos de implantação (Gerenciador de recursos e clássico) só terá suporte se o gateway estiver na rede virtual (Resource Manager). Para saber mais sobre como utilizar um gateway para trânsito, veja [Configurar um gateway de VPN para trânsito num peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Quando as redes virtuais que partilham uma única ligação ExpressRoute do Azure estão em modo de peering, o tráfego entre as mesmas passa pela relação de peering (ou seja, pela rede principal do Azure). Pode continuar a utilizar gateways locais em cada rede virtual para ligar ao circuito no local. Em alternativa, pode utilizar um gateway partilhado e configurar o trânsito para conectividade no local.
 
@@ -73,12 +73,12 @@ Para confirmar o peering de uma rede virtual peering, pode [verificar as rotas e
 
 Também pode resolver problemas relacionados com a conectividade a uma máquina virtual numa rede virtual em modo de peering através da [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Observador de Rede. A verificação da conectividade permite-lhe ver como o tráfego é encaminhado da interface de rede de uma máquina de virtual de origem para a interface de rede de uma máquina de virtual de destino.
 
-Também pode tentar o [resolução de problemas de problemas de peering de rede virtual](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
+Você também pode experimentar a [solução de problemas para problemas de emparelhamento de rede virtual](https://support.microsoft.com/help/4486956/troubleshooter-for-virtual-network-peering-issues).
 
 ## <a name="requirements-and-constraints"></a>Requisitos e limitações
 
-As seguintes restrições aplicam-se apenas quando as redes virtuais global em modo de peering:
-- Recursos numa rede virtual não consegue comunicar com o endereço IP Front-end de um balanceador de carga interno básico numa rede virtual em modo de peering global. Suporte para o Balanceador de carga básico só existe na mesma região. Não existe suporte para o Balanceador de carga Standard para tanto, o VNet Peering e o Global VNet Peering. Serviços que utilizam um balanceador de carga básico que não irá funcionar através de Global VNet Peering são documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+As seguintes restrições se aplicam somente quando as redes virtuais são emparelhadas globalmente:
+- Os recursos em uma rede virtual não podem se comunicar com o endereço IP de front-end de um balanceador de carga interno básico em uma rede virtual emparelhada globalmente. O suporte para Load Balancer básica existe apenas na mesma região. O suporte para Standard Load Balancer existe tanto para o emparelhamento VNet quanto para o emparelhamento de VNet global. Os serviços que usam um balanceador de carga básico que não funcionará em emparelhamento VNet global são documentados [aqui.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Para saber mais sobre os requisitos e as limitações, veja [Requisitos e limitações do peering de rede virtual](virtual-network-manage-peering.md#requirements-and-constraints). Para saber mais sobre os limites ao número de peerings que pode criar para uma rede virtual, veja [Azure networking limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) (Limites de rede do Azure). 
 
@@ -90,13 +90,13 @@ Para saber mais sobre as permissões necessárias para criar um peering de rede 
 
 Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize uma ligação de peering de rede virtual. Para obter mais informações sobre o VNet Peering e os preços do Global VNet Peering, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 
-O trânsito de gateway é uma propriedade de peering que permite a uma rede virtual para utilizar um gateway VPN/ExpressRoute numa rede virtual em modo de peering para cruzada locais ou de conectividade VNet-para-VNet. Tráfego que passa através de um gateway remoto neste cenário está sujeito [cobranças de gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou ExpressRoute gateway os custos e não é cobrado [custos de peering de VNet.](https://azure.microsoft.com/pricing/details/virtual-network) Por exemplo, se também tem um gateway VPN para conectividade no local e a vnetb estiverem para também as propriedades adequadas configuradas, tráfego de Vneta para no local apenas é cobrado por preço de gateway VPN ou ExpressRoute preços de saída. Não se aplicam custos de VNet peering. Saiba como [configurar o trânsito do gateway de VPN para peering de rede virtual](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+O trânsito de gateway é uma propriedade de emparelhamento que permite que uma rede virtual utilize um gateway de VPN/ExpressRoute em uma rede virtual emparelhada para conectividade entre locais ou VNet a VNet. Para obter mais detalhes, consulte cobranças de [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou encargos de gateway de ExpressRoute e [encargos de emparelhamento VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * É criado um peering de rede virtual entre redes virtuais criadas com o mesmo ou com diferentes modelos de implementação que existam na mesma ou em diferentes subscrições. Conclua um tutorial para um dos cenários seguintes:
 
-    |Modelo de implementação do Azure             | Subscrição  |
+    |Modelo de implementação do Azure             | Subscription  |
     |---------                          |---------|
     |Ambas com Resource Manager              |[Mesma](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|

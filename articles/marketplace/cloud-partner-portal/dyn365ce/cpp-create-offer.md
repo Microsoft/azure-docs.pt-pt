@@ -1,39 +1,21 @@
 ---
-title: Criar uma do Dynamics 365 para a oferta de aplicação de envolvimento do cliente | O Azure Marketplace
-description: Como criar um novo do Dynamics 365 para a oferta de aplicação de envolvimento do cliente no Marketplace do AppSource.
+title: Criar uma oferta de aplicativo do Dynamics 365 for Customer Engagement | Azure Marketplace
+description: Este artigo da CPP foi preterido e apontado para o artigo do PC; foi "como criar uma nova oferta de aplicativo Dynamics 365 for Customer Engagement no AppSource Marketplace".
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: pabutler
-ms.openlocfilehash: ebfef673102878e50f744081ec9b46fd4cd1796b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 1682abd3983d3e090b59e6452c4761913e29da3d
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942700"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034343"
 ---
-# <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Criar uma do Dynamics 365 para a oferta de aplicação de envolvimento do cliente
+# <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Criar uma oferta de aplicativo do Dynamics 365 for Customer Engagement
 
-Esta secção descreve como criar e publicar um do Dynamics 365 para a oferta de aplicação de envolvimento do cliente para o Marketplace do AppSource. Cada oferta é apresentada como uma entidade própria no marketplace e é composta pelos seguintes agrupamentos de recursos e serviços de suporte: oferecer detalhes, informações técnicas do pacote, marketing artefactos, oferecer suporte informações e opcionais de teste de unidade especificações. 
+O [portal do Cloud Partner](https://cloudpartner.azure.com/) não dá mais suporte à criação e ao gerenciamento de ofertas do engajamento do cliente do Dynamics 365. Em vez disso, essa funcionalidade foi movida para o [portal do Microsoft Partner Center](https://partner.microsoft.com/). Para obter mais informações, consulte [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-## <a name="new-offer-form"></a>Novo formulário de oferta
-
-Inicie sessão para o [Cloud Partner Portal](https://cloudpartner.azure.com/)e, em seguida, selecione **+ nova oferta** na barra de menu à esquerda. No novo oferecem menu, selecione **Dynamics 365 for Customer Engagement**:
-
-![Novo item de menu de oferta para Dynamics 365 para a aplicação de envolvimento do cliente](./media/new-dyn365ce-menu-item.png)
-
-O **nova oferta** formulário será exibido, mostrando inicial [ **oferecer definições** separador](./cpp-offer-settings-tab.md).
-
-
-## <a name="next-steps"></a>Passos Seguintes
-
-O **nova oferta** página fornece um conjunto de guias e os campos de formulário que irá utilizar para criar uma nova oferta. Os artigos seguintes explicam como definir os grupos de recursos e informações de suporte para a sua oferta de novo.
-
-* [Separador Definições da oferta](./cpp-offer-settings-tab.md)
-* [Separador Informações Técnicas](./cpp-technical-info-tab.md)
-* [Separador Versão de Teste](./cpp-testdrive-tab.md)
-* [Separador Detalhes da Loja](./cpp-storefront-details-tab.md)
-* [Separador Contactos](./cpp-contacts-tab.md)
+Antes de criar uma nova oferta do Dynamics 365 for Customer Engagement, você deve ler [criar uma conta do Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e, em seguida, abrir o [painel do Marketplace comercial](https://partner.microsoft.com/dashboard/directory) com a página **visão geral** selecionada. Siga as instruções em [criar um novo Dynamics 365 para o envolvimento do cliente & oferta do PowerApps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) para criar sua oferta.

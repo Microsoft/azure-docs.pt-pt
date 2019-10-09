@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845598"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028265"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Novo DBA na nuvem – Gerenciando seus bancos de dados individuais e em pool no banco de dados SQL do Azure
 
@@ -32,7 +32,7 @@ Este artigo discute algumas das principais características do banco de dados SQ
 - Continuidade de negócio e recuperação após desastre (BCDR)
 - Segurança e conformidade
 - Monitoramento e manutenção de banco de dados inteligente
-- O movimento de dados é suspenso.
+- Movimento de dados
 
 > [!NOTE]
 > Este artigo aplica-se às seguintes opções de implantação no banco de dados SQL do Azure: bancos de dados individuais e pools elásticos. Ele não se aplica à opção de implantação de instância gerenciada no banco de dados SQL.
@@ -64,7 +64,7 @@ A continuidade dos negócios e os recursos de recuperação de desastre permitem
 
 Você não cria backups no BD SQL do Azure e isso ocorre porque você não precisa. O banco de dados SQL faz backup automaticamente de bancos de dados para você, portanto, você não deve mais se preocupar em agendar, fazer e gerenciar backups. A plataforma faz um backup completo toda semana, backup diferencial a cada poucas horas e um backup de log a cada 5 minutos para garantir que a recuperação de desastres seja eficiente e a perda mínima de dados. O primeiro backup completo ocorre assim que você cria um banco de dados. Esses backups estão disponíveis para você por um determinado período chamado de "período de retenção" e variam de acordo com a camada de serviço escolhida. O banco de dados SQL fornece a capacidade de restaurar para qualquer ponto no tempo dentro desse período de retenção usando [PITR (recuperação pontual)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Escalão do serviço|Período de retenção em dias|
+|Camada de serviços|Período de retenção em dias|
 |---|:---:|
 |Básica|7|
 |Standard|35|
@@ -282,7 +282,7 @@ Você pode consultar a exibição de gerenciamento dinâmico [Sys. dm _db_resour
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Análise de SQL do Azure (versão prévia) nos logs do Azure Monitor
 
-[Os logs de Azure monitor](../azure-monitor/insights/azure-sql.md) permitem coletar e visualizar as principais métricas de desempenho de SQL Azure do Azure, dando suporte a até 150.000 bancos de dados sql e 5.000 pools elásticos do SQL por espaço de trabalho. Você pode usá-lo para monitorar e receber notificações. Você pode monitorar as métricas do banco de dados SQL e do pool elástico em várias assinaturas e pools elásticos do Azure e pode ser usado para identificar problemas em cada camada de uma pilha de aplicativos.
+[Os logs de Azure monitor](../azure-monitor/insights/azure-sql.md) permitem coletar e visualizar as principais métricas de desempenho do banco de dados SQL do Azure, dando suporte a até 150.000 bancos de dados sql e 5.000 pools elásticos do SQL por espaço de trabalho. Você pode usá-lo para monitorar e receber notificações. Você pode monitorar as métricas do banco de dados SQL e do pool elástico em várias assinaturas e pools elásticos do Azure e pode ser usado para identificar problemas em cada camada de uma pilha de aplicativos.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Estou percebendo problemas de desempenho: Como a minha metodologia de solução de problemas do banco de dados SQL difere da SQL Server
 
@@ -321,7 +321,7 @@ O banco de dados SQL usa algumas técnicas inteligentes que permitem que ele man
 
 - **Exportar**: Você pode exportar seu banco de dados SQL do Azure como um arquivo BACPAC do portal do Azure
 
-   ![Exportação de banco de dados](./media/sql-database-export/database-export1.png)
+   ![exportação de banco de dados](./media/sql-database-export/database-export1.png)
 
 - **Importar**: Você também pode importar dados como um arquivo BACPAC para o banco de dado usando o portal do Azure.
 
@@ -334,6 +334,6 @@ Você tem várias maneiras de conseguir isso:
 - **[Sincronização de dados](sql-database-sync-data.md)** – esse recurso ajuda a sincronizar dados bidirecionalmente entre vários bancos de dados de SQL Server locais e o banco de dados SQL. Para sincronizar com bancos de dados do SQL Server locais, você precisa instalar e configurar o agente de sincronização em um computador local e abrir a porta TCP de saída 1433.
 - **[Replicação de transação](https://azure.microsoft.com/blog/transactional-replication-to-azure-sql-database-is-now-generally-available/)** – com replicação de transação, você pode sincronizar seus dados do local para o Azure SQL DB com o local sendo o Publicador e o banco de dados SQL do Azure sendo o Assinante. Por enquanto, apenas essa configuração tem suporte. Para obter mais informações sobre como migrar seus dados do local para o SQL do Azure com tempo de inatividade mínimo, consulte: [Usar replicação de transação](sql-database-single-database-migrate.md#method-2-use-transactional-replication)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre o [banco de dados SQL](sql-database-technical-overview.md).

@@ -14,16 +14,18 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ffa202a717c75462cd2d715a7883756d49f5a9f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+experimental: false
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972099"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024939"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 
-O [Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática através do sistema operativo Linux. Este guia de início rápido mostra como implantar um aplicativo Python sobre a imagem interna do Python no serviço de aplicativo no Linux usando o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Neste guia de início rápido, você implanta um aplicativo Python simples [no serviço de aplicativo no Linux](app-service-linux-intro.md), que fornece um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática. Use a interface de linha de comando do Azure (o [CLI do Azure](/cli/azure/install-azure-cli)) por meio do Azure cloud shell interativo baseado em navegador, para que você possa seguir as etapas usar um computador Mac, Linux ou Windows.
 
 ![Aplicação de exemplo em execução no Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -120,7 +122,7 @@ O código de exemplo do Python está em execução no serviço de aplicativo no 
 
 **Parabéns!** Implementou a sua primeira aplicação Python no Serviço de Aplicações no Linux.
 
-## <a name="update-locally-and-redeploy-the-code"></a>Atualizar localmente e reimplementar o código
+## <a name="update-and-redeploy-the-code"></a>Atualizar e voltar a implementar o código
 
 Na Cloud Shell, digite `code application.py` para abrir o editor de Cloud Shell.
 

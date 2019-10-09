@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 07934e3c7d9f61ecb4153e6a169882509a81dc75
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241032"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028078"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Proteção avançada contra ameaças do Microsoft defender com a central de segurança do Azure
 
@@ -70,7 +70,7 @@ Para integrar servidores à central de segurança, clique em **ir para a central
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Habilitar a integração do Microsoft defender ATP
 
-Para exibir se a integração do Microsoft defender ATP está habilitada, selecione preços da **central** > de segurança **& configurações** > clique em sua assinatura.
+Para exibir se a integração do Microsoft defender ATP está habilitada, selecione a **central de segurança** > **preço & configurações** > clique em sua assinatura.
 Aqui você pode ver as integrações habilitadas no momento.
 
   ![Página de configurações de detecção de ameaças da central de segurança do Azure com integração do Microsoft defender ATP habilitada](media/security-center-wdatp/enable-integrations.png)
@@ -107,7 +107,7 @@ Para gerar um alerta de teste benigno do Microsoft defender ATP:
 
 3. Se o comando for bem-sucedido, você verá um novo alerta no painel da central de segurança do Azure e no portal do Microsoft defender ATP. Esse alerta pode levar alguns minutos para aparecer.
 
-4. Para examinar o alerta na central de segurança, acesse **alertas de segurança aviso** >  de**linha de comando do PowerShell suspeito**.
+4. Para examinar o alerta na central de segurança, acesse **alertas de segurança** >  **linha de comando do PowerShell suspeita**.
 
 5. Na janela investigação, selecione o link para acessar o portal do Microsoft defender ATP.
 

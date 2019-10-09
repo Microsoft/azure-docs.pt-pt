@@ -1,51 +1,51 @@
 ---
-title: Mapeamento de transformação de janela de fluxo de dados de fábrica de dados do Azure
-description: Mapeamento de transformação de janela de fluxo de dados de fábrica de dados do Azure
+title: Transformação da janela fluxo de dados de mapeamento de Azure Data Factory
+description: Transformação da janela fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 6f3f06ff54fc76416ba63f4f09835897d546f8dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf58db14398026da62ed13c66be815be8fe166a2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349967"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029897"
 ---
-# <a name="azure-data-factory-window-transformation"></a>Transformação de janela de fábrica de dados do Azure
+# <a name="azure-data-factory-window-transformation"></a>Transformação de janela de Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-A transformação de janela é onde definirá agregações com base na janela de colunas em seus fluxos de dados. No construtor de expressões, pode definir tipos diferentes de agregações que se baseiam em windows de data ou hora (cláusula SQL OVER), como oportunidades potenciais, ATRASO, NTILE, CUMEDIST, classificação, etc.). Um novo campo será gerado no resultado que inclui estas agregações. Também pode incluir campos de grupo opcional.
 
-![Opções da janela](media/data-flow/windows1.png "windows 1")
+A transformação janela é onde você definirá as agregações baseadas em janela de colunas em seus fluxos de dados. No construtor de expressões, você pode definir diferentes tipos de agregações que se baseiam em dados ou em janelas de tempo (cláusula SQL OVER), como LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). Um novo campo será gerado na saída que inclui essas agregações. Você também pode incluir campos de grupo-por opcionais.
+
+![Opções de janela](media/data-flow/windows1.png "Windows 1")
 
 ## <a name="over"></a>Mais de
-Defina o particionamento de dados de coluna para a sua transformação de janela. O equivalente SQL é o ```Partition By``` na cláusula Over em SQL. Se desejar criar um cálculo ou criar uma expressão a utilizar para a criação de partições, pode fazê-lo passando o mouse sobre o nome da coluna e selecione "a coluna calculada".
+Defina o particionamento de dados da coluna para a transformação da janela. O equivalente do SQL é o ```Partition By``` na cláusula over no SQL. Se você quiser criar um cálculo ou criar uma expressão a ser usada para o particionamento, poderá fazer isso passando o mouse sobre o nome da coluna e selecionando "coluna computada".
 
-![Opções da janela](media/data-flow/windows4.png "windows 4")
+![Opções de janela](media/data-flow/windows4.png "Windows 4")
 
 ## <a name="sort"></a>Ordenar
-Outra parte da cláusula Over é definir o ```Order By```. Isso definirá a classificação de dados de ordenação. Também pode criar uma expressão para um valor de calculate neste campo de coluna para ordenar.
+Outra parte da cláusula over é definir o ```Order By```. Isso definirá a ordenação de classificação de dados. Você também pode criar uma expressão para um valor de cálculo neste campo de coluna para classificação.
 
-![Opções da janela](media/data-flow/windows5.png "windows 5")
+![Opções de janela](media/data-flow/windows5.png "Windows 5")
 
 ## <a name="range-by"></a>Intervalo por
-Em seguida, configure a moldura de janela Unbounded ou limitado. Para definir uma moldura de janela não vinculado, defina o controlo de deslize como Unbounded em ambas as extremidades. Se optar por uma configuração entre Unbounded e Current Row, tem de definir o início de deslocamento e valores de fim. Ambos os valores serão números inteiros positivos. Pode utilizar números relativos ou valores dos seus dados.
+Em seguida, defina o quadro da janela como não associado ou limitado. Para definir um quadro de janela não associado, defina o controle deslizante como não associado em ambas as extremidades. Se você escolher uma configuração entre a linha não vinculada e a atual, deverá definir os valores de início e término do deslocamento. Ambos os valores serão inteiros positivos. Você pode usar números ou valores relativos de seus dados.
 
-O controlo de deslize de janela tem dois valores para definir: os valores antes da linha atual e os valores após a linha atual. O deslocamento de início e de fim corresponde os dois seletores no controlo de deslize.
+O controle deslizante de janela tem dois valores a serem definidos: os valores antes da linha atual e os valores após a linha atual. O deslocamento inicial e final corresponde aos dois seletores no controle deslizante.
 
-![Opções da janela](media/data-flow/windows6.png "windows 6")
+![Opções de janela](media/data-flow/windows6.png "Windows 6")
 
-## <a name="window-columns"></a>Colunas de janela
-Por último, utilize o construtor de expressões para definir as agregações que pretende utilizar com os dados de windows, como classificação, COUNT, MIN, MAX, classificação DENSA, oportunidade potencial, ATRASO, etc.
+## <a name="window-columns"></a>Colunas da janela
+Por fim, use o construtor de expressões para definir as agregações que você deseja usar com as janelas de dados, como classificação, contagem, mín., máx., classificação DENSa, LEAD, retardo, etc.
 
-![Opções da janela](media/data-flow/windows7.png "windows 7")
+![Opções de janela](media/data-flow/windows7.png "Windows 7")
 
-A lista completa de agregação e as funções analíticas disponíveis para utilização no ADF dados fluxo expressão de idioma via o construtor de expressões estão listados aqui: https://aka.ms/dataflowexpressions.
+A lista completa de agregações e funções analíticas disponíveis para uso na linguagem de expressão do fluxo de dados do ADF por meio do construtor de expressões estão listadas aqui: https://aka.ms/dataflowexpressions.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Se estiver procurando por uma agregação simples Agrupar por, utilize o [agregar transformação](data-flow-aggregate.md)
+Se você estiver procurando uma agregação de grupo por simples, use a [transformação Agregação](data-flow-aggregate.md)

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d2c6719cf37959d01375ec099cdf1c2cea3afa5
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 03dcc0c62781b6bec0369b7e642976e6d6f9c2f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544818"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026630"
 ---
 # <a name="tutorial-tutorial-azure-active-directory-single-sign-on-sso-integration-with-pronovos-analytics"></a>Tutorial: Tutorial: Azure Active Directory integração de SSO (logon único) com o pronovo Analytics
 
@@ -56,7 +56,7 @@ Para configurar a integração do pronovo Analytics ao Azure AD, você precisa a
 1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
 1. Na seção **Adicionar da Galeria** , digite análise de **pronovo** na caixa de pesquisa.
-1. Selecione **análise** de pronovo no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Selecione **análise de pronovo** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
 ## <a name="configure-and-test-azure-ad-sso-for-pronovos-analytics"></a>Configurar e testar o SSO do Azure AD para o pronovo Analytics
@@ -68,7 +68,7 @@ Para configurar e testar o SSO do Azure AD com o probuilds Analytics, conclua os
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-2. **[Configurar o SSO de análise](#configure-pronovos-analytics-sso)** de pronovo – para configurar as configurações de logon único no lado do aplicativo.
+2. **[Configurar o SSO de análise de pronovo](#configure-pronovos-analytics-sso)** – para configurar as configurações de logon único no lado do aplicativo.
     1. **[Criar usuário de teste](#create-pronovos-analytics-test-user)** do proalters Analytics – para ter um equivalente de B. Simon na análise de subcriações que está vinculada à representação do usuário no Azure AD.
 3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
@@ -82,17 +82,17 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração** básica do SAML, o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL:`https://analytics.pronovos.com/Pronovos/servlet/mstrWeb`
+    Na caixa de texto **URL de logon** , digite uma url: `https://analytics.pronovos.com/Pronovos/servlet/mstrWeb`
 
 4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize **certificado (bruto)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
     ![O link de download de certificado](common/certificateraw.png)
 
-6. Na seção **Configurar a análise** de pronovo, copie as URLs apropriadas com base em seu requisito.
+6. Na seção **Configurar a análise de pronovo** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -113,7 +113,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso à análise do pronovo.
 
 1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **análise**de pronovo.
+1. Na lista de aplicativos, selecione **análise de pronovo**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)

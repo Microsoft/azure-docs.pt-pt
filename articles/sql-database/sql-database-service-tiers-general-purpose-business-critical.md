@@ -10,21 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
-ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995437"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034953"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Camadas de serviço do banco de dados SQL do Azure
 
 O banco de dados SQL do Azure baseia-se na arquitetura do mecanismo de banco de dados SQL Server que é ajustada para o ambiente de nuvem para garantir a disponibilidade de 99,99%, mesmo se houver uma falha de infraestrutura. Três camadas de serviço são usadas no banco de dados SQL do Azure, cada uma com um modelo de arquitetura diferente. Essas camadas de serviço são:
 
-- [Uso geral](sql-database-service-tier-general-purpose.md), que é projetado para a maioria das cargas de trabalho genéricas.
-- [Comercialmente crítico](sql-database-service-tier-business-critical.md), projetado para cargas de trabalho de baixa latência com uma réplica legível.
-- [Hiperescala](sql-database-service-tier-hyperscale.md), projetada para bancos de dados muito grandes (até 100 TB) com várias réplicas legíveis.
+- [Uso geral](sql-database-service-tier-general-purpose.md), que é projetado para cargas de trabalho orientadas a orçamento.
+- [Hiperescala](sql-database-service-tier-hyperscale.md), projetada para a maioria das cargas de trabalho de negócios, fornecendo armazenamento altamente escalonável, expansão de leitura e recursos de restauração rápida de banco de dados.
+- [Comercialmente crítico](sql-database-service-tier-business-critical.md), projetado para cargas de trabalho de baixa latência com alta resiliência a falhas e failovers rápidos.
 
 Este artigo discute as diferenças entre as considerações de camadas de serviço, armazenamento e backup para as camadas de serviço de uso geral e crítico para os negócios no modelo de compra baseado em vCore.
 
@@ -32,9 +32,9 @@ Este artigo discute as diferenças entre as considerações de camadas de servi�
 
 A tabela a seguir descreve as principais diferenças entre as camadas de serviço para a geração mais recente (Gen5). Observe que as características da camada de serviço podem ser diferentes em Banco de Dados Individual e Instância Gerenciada.
 
-| | Tipo de recurso | Fins Gerais |  Hiperescala | Crítico para Empresas |
+| | Tipo de recurso | Fins Gerais |  Hyperscale | Crítico para a Empresa |
 |:---:|:---:|:---:|:---:|:---:|
-| **Melhor para** | |  A maioria das cargas de trabalho de negócios. Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | Aplicativos de dados com requisitos de capacidade de dados grandes, a capacidade de dimensionar automaticamente o armazenamento de até 100 TB e dimensionar a computação de forma fluida. | Aplicativos OLTP com alta taxa de transação e e/s de latência mais baixa. Oferece maior resiliência a falhas usando várias réplicas isoladas.|
+| **Melhor para** | |  Oferece opções de armazenamento e computação balanceadas com enfoque no orçamento. | A maioria das cargas de trabalho de negócios. Dimensionamento automático do tamanho de armazenamento de até 100 TB, dimensionamento vertical e horizontal de computação de fluxo, restauração rápida de banco de dados. | Aplicativos OLTP com alta taxa de transação e baixa latência de e/s. Oferece maior resiliência a falhas e failovers rápidos usando várias réplicas atualizadas de forma síncrona.|
 |  **Disponível no tipo de recurso:** ||Banco de dados individual/pool elástico/instância gerenciada | Base de dados individual | Banco de dados individual/pool elástico/instância gerenciada |
 | **Tamanho da computação**|Banco de dados individual/pool elástico | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
 | | Instância gerida | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
@@ -52,7 +52,7 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 |**Únicos**|Todos|RA-GRS, 7-35 dias (7 dias por padrão)| RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
 |**OLTP na memória** | | N/A | N/A | Disponível |
 |**Réplicas somente leitura**| | 0  | 0 - 4 | 1 (interno, incluído no preço) |
-|**Preço/cobrança** | Base de dados individual | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
+|**Preço/cobrança** | Base de dados individual | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |
 || Instância Gerida | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | N/A | o [vCore e o armazenamento reservado](https://azure.microsoft.com/pricing/details/sql-database/managed/) são cobrados. <br/>O IOPS não é cobrado.<br/>O armazenamento de backup ainda não foi cobrado. | 
 |**Modelos de desconto**| | [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)| [Instâncias reservadas](sql-database-reserved-capacity.md)<br/>[Benefício híbrido do Azure](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (não disponível em assinaturas de desenvolvimento/teste)<br/>Assinaturas de desenvolvimento/teste [Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) e [pago conforme o uso](https://azure.microsoft.com/offers/ms-azr-0023p/)|
 
@@ -63,7 +63,7 @@ Para obter mais informações, consulte as diferenças detalhadas entre as camad
 
 ## <a name="data-and-log-storage"></a>Armazenamento de dados e de log
 
-Os seguintes fatores afetam a quantidade de armazenamento usada para arquivos de dados e de log:
+Os fatores a seguir afetam a quantidade de armazenamento usada para arquivos de dados e de log e aplica-se a Uso Geral e Comercialmente Crítico. Para obter detalhes sobre o armazenamento de dados e de log em hiperescala, consulte [camada de serviço de hiperescala](sql-database-service-tier-hyperscale.md).
 
 - O armazenamento alocado é usado por arquivos de dados (MDF) e arquivos de log (LDF).
 - Cada tamanho de computação de banco de dados individual dá suporte a um tamanho máximo de banco de dados, com um tamanho máximo padrão de 32 GB.
@@ -72,8 +72,8 @@ Os seguintes fatores afetam a quantidade de armazenamento usada para arquivos de
 - Você pode selecionar qualquer tamanho de banco de dados individual entre 10 GB e o máximo com suporte.
   - Para armazenamento nas camadas de serviço padrão ou de uso geral, aumente ou diminua o tamanho em incrementos de 10 GB.
   - Para armazenamento nas camadas de serviço Premium ou comercialmente crítico, aumente ou diminua o tamanho em incrementos de 250 GB.
-- Na camada de serviço de uso geral `tempdb` , o usa um SSD anexado e esse custo de armazenamento é incluído no preço vCore.
-- Na camada de serviço comercialmente crítico `tempdb` , o compartilha o SSD anexado com os arquivos MDF e ldf, `tempdb` e o custo de armazenamento é incluído no preço vCore.
+- Na camada de serviço de uso geral, `tempdb` usa um SSD anexado e esse custo de armazenamento é incluído no preço vCore.
+- Na camada de serviço comercialmente crítica, `tempdb` compartilha o SSD anexado com os arquivos MDF e LDF, e o custo de armazenamento de `tempdb` é incluído no preço vCore.
 
 > [!IMPORTANT]
 > Você é cobrado pelo armazenamento total alocado para arquivos MDF e LDF.
@@ -90,7 +90,7 @@ O armazenamento de backups de banco de dados é alocado para dar suporte a recur
 - **PITR**: Os backups de banco de dados individuais são copiados para o [armazenamento com redundância geográfica (ra-grs) de acesso de leitura](../storage/common/storage-designing-ha-apps-with-ragrs.md) automaticamente. O tamanho do armazenamento aumenta dinamicamente à medida que novos backups são criados. O armazenamento é usado por backups completos semanais, backups diferenciais diários e backups de log de transações, que são copiados a cada 5 minutos. O consumo de armazenamento depende da taxa de alteração do banco de dados e do período de retenção para backups. Você pode configurar um período de retenção separado para cada banco de dados entre 7 e 35 dias. Um valor mínimo de armazenamento igual a 100 por cento (1x) do tamanho do banco de dados é fornecido sem custo adicional. Para a maioria dos bancos de dados, esse valor é suficiente para armazenar 7 dias de backups.
 - **LTR**: O banco de dados SQL oferece a opção de configurar a retenção de longo prazo de backups completos por até 10 anos. Se você configurar uma política EPD, esses backups serão armazenados automaticamente no armazenamento RA-GRS, mas você poderá controlar a frequência com que os backups são copiados. Para atender aos diferentes requisitos de conformidade, você pode selecionar períodos de retenção diferentes para backups semanais, mensais e/ou anuais. A configuração escolhida determina a quantidade de armazenamento que será usada para backups EPD. Para estimar o custo do armazenamento EPD, você pode usar a calculadora de preços EPD. Para obter mais informações, consulte [retenção de longo prazo do banco de dados SQL](sql-database-long-term-retention.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter detalhes sobre os tamanhos de computação específicos e os tamanhos de armazenamento disponíveis para um único banco de dados nas camadas de serviço de uso geral e crítico para os negócios, consulte [limites de recursos baseados em vCore do banco de dados SQL para bancos de dados individuais](sql-database-vcore-resource-limits-single-databases.md).
 - Para obter detalhes sobre os tamanhos de computação e tamanhos de armazenamento específicos disponíveis para pools elásticos nas camadas de serviço de uso geral e crítico para os negócios, consulte [limites de recursos baseados em vCore do banco de dados SQL para pools elásticos](sql-database-vcore-resource-limits-elastic-pools.md).

@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 10/07/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3696ebc216062a6d52fd187819f07dfb0078057
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: be2e9d7657d621a285f7177dc6cdd3a01b83470d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812580"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024438"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Tempos de vida de token configuráveis no Azure Active Directory (versão prévia)
 
 Você pode especificar o tempo de vida de um token emitido pelo Azure Active Directory (Azure AD). Você pode definir tempos de vida de token para todos os aplicativos em sua organização, para um aplicativo multilocatário (várias organizações) ou para uma entidade de serviço específica em sua organização.
 
 > [!IMPORTANT]
-> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de novembro de 2019, você não poderá usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
+> Depois de ouvir os clientes durante a versão prévia, implementamos os [recursos de gerenciamento de sessão de autenticação](https://go.microsoft.com/fwlink/?linkid=2083106) no acesso condicional do Azure AD. Você pode usar esse novo recurso para configurar tempos de vida de token de atualização definindo a frequência de entrada. Depois de 1º de maio de 2020, você não poderá usar a política de tempo de vida de token configurável para configurar os tokens de sessão e de atualização. Você ainda pode configurar tempos de vida de token de acesso após a reprovação.
 
 No Azure AD, um objeto de política representa um conjunto de regras que são impostas em aplicativos individuais ou em todos os aplicativos em uma organização. Cada tipo de política tem uma estrutura exclusiva, com um conjunto de propriedades que são aplicadas a objetos aos quais elas são atribuídas.
 
@@ -57,11 +57,11 @@ Quando um cliente adquire um token de acesso para acessar um recurso protegido, 
 É importante fazer uma distinção entre os clientes confidenciais e os clientes públicos, pois isso afeta por quanto tempo os tokens de atualização podem ser usados. Para obter mais informações sobre diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
 #### <a name="token-lifetimes-with-confidential-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente confidenciais
-Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha de cliente (segredo). Eles podem provar que as solicitações são provenientes do aplicativo cliente protegido e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois ele pode armazenar um segredo do cliente no servidor Web. Ele não é exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos `until-revoked`para esses fluxos são, não podem ser alterados usando a política e não serão revogados em redefinições de senha voluntárias.
+Clientes confidenciais são aplicativos que podem armazenar com segurança uma senha de cliente (segredo). Eles podem provar que as solicitações são provenientes do aplicativo cliente protegido e não de um ator mal-intencionado. Por exemplo, um aplicativo Web é um cliente confidencial, pois ele pode armazenar um segredo do cliente no servidor Web. Ele não é exposto. Como esses fluxos são mais seguros, os tempos de vida padrão de tokens de atualização emitidos para esses fluxos são `until-revoked`, não podem ser alterados usando a política e não serão revogados em redefinições de senha voluntárias.
 
 #### <a name="token-lifetimes-with-public-client-refresh-tokens"></a>Tempos de vida de token com tokens de atualização de cliente público
 
-Os clientes públicos não podem armazenar com segurança uma senha de cliente (segredo). Por exemplo, um aplicativo iOS/Android não pode ofuscar um segredo do proprietário do recurso, portanto, é considerado um cliente público. Você pode definir políticas em recursos para impedir que tokens de atualização de clientes públicos com mais de um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade tempo máximo inativo do token de`MaxInactiveTime`atualização ().) Você também pode usar políticas para definir um período além do qual os tokens de atualização não são mais aceitos. (Para fazer isso, use a propriedade idade máxima do token de atualização.) Você pode ajustar o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser reautenticado silenciosamente, ao usar um aplicativo cliente público.
+Os clientes públicos não podem armazenar com segurança uma senha de cliente (segredo). Por exemplo, um aplicativo iOS/Android não pode ofuscar um segredo do proprietário do recurso, portanto, é considerado um cliente público. Você pode definir políticas em recursos para impedir que tokens de atualização de clientes públicos com mais de um período especificado obtenham um novo par de tokens de acesso/atualização. (Para fazer isso, use a propriedade tempo máximo inativo do token de atualização (`MaxInactiveTime`).) Você também pode usar políticas para definir um período além do qual os tokens de atualização não são mais aceitos. (Para fazer isso, use a propriedade idade máxima do token de atualização.) Você pode ajustar o tempo de vida de um token de atualização para controlar quando e com que frequência o usuário precisa reinserir as credenciais, em vez de ser reautenticado silenciosamente, ao usar um aplicativo cliente público.
 
 ### <a name="id-tokens"></a>Tokens de ID
 Tokens de ID são passados para sites e clientes nativos. Os tokens de ID contêm informações de perfil sobre um usuário. Um token de ID é associado a uma combinação específica de usuário e cliente. Os tokens de ID são considerados válidos até sua expiração. Normalmente, um aplicativo Web corresponde ao tempo de vida da sessão de um usuário no aplicativo para o tempo de vida do token de ID emitido para o usuário. Você pode ajustar o tempo de vida de um token de ID para controlar a frequência com que o aplicativo Web expira a sessão do aplicativo e com que frequência ele requer que o usuário seja reautenticado com o Azure AD (silenciosa ou interativamente).
@@ -112,7 +112,7 @@ Para obter mais informações sobre a relação entre objetos de aplicativo e ob
 
 A validade de um token é avaliada no momento em que o token é usado. A política com a prioridade mais alta no aplicativo que está sendo acessado entra em vigor.
 
-Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Por isso, 80 dias e 30 minutos `80.00:30:00`seriam.  O D à esquerda pode ser Descartado se for zero, então 90 minutos `00:90:00`seria.  
+Todos os TimeSpans usados aqui são formatados de C# acordo com o objeto [TimeSpan](/dotnet/api/system.timespan) -D. hh: mm: SS.  Portanto, 80 dias e 30 minutos seriam `80.00:30:00`.  O D à esquerda pode ser Descartado se for zero, então 90 minutos seria `00:90:00`.  
 
 > [!NOTE]
 > Aqui está um cenário de exemplo.
@@ -210,7 +210,7 @@ Nos exemplos a seguir, você cria, atualiza, vincula e exclui políticas para ap
 Para começar, execute as seguintes etapas:
 
 1. Baixe a versão mais recente da [Visualização pública do módulo do Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
-2. Execute o `Connect` comando para entrar em sua conta de administrador do Azure AD. Execute esse comando toda vez que iniciar uma nova sessão.
+2. Execute o comando `Connect` para entrar em sua conta de administrador do Azure AD. Execute esse comando toda vez que iniciar uma nova sessão.
 
     ```powershell
     Connect-AzureAD -Confirm
@@ -355,7 +355,7 @@ Neste exemplo, você cria algumas políticas para saber como o sistema de priori
         Add-AzureADServicePrincipalPolicy -Id $sp.ObjectId -RefObjectId $policy.Id
         ```
 
-3. Defina o `IsOrganizationDefault` sinalizador como false:
+3. Defina o sinalizador `IsOrganizationDefault` como false:
 
     ```powershell
     Set-AzureADPolicy -Id $policy.Id -DisplayName "ComplexPolicyScenario" -IsOrganizationDefault $false

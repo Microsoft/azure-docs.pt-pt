@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082687"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035012"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N executando Linux
 
@@ -98,7 +98,7 @@ sudo reboot
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux
 
-1. Atualize o kernel (recomendado). Se você optar por não atualizar o kernel, verifique se as versões do `kernel-devel` e `dkms` do são apropriadas para o kernel.
+1. Atualize o kernel (recomendado). Se você optar por não atualizar o kernel, verifique se as versões de `kernel-devel` e `dkms` são apropriadas para o kernel.
 
    ```
    sudo yum install kernel kernel-tools kernel-headers kernel-devel
@@ -190,7 +190,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    
    sudo apt-get install linux-azure -y
    ```
-3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use apenas o driver NVIDIA em VMs NV ou NVv2.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
+3. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use apenas o driver NVIDIA em VMs NV ou NVv2.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` chamado `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -240,7 +240,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
 
 ### <a name="centos-or-red-hat-enterprise-linux"></a>CentOS ou Red Hat Enterprise Linux 
 
-1. Atualize o kernel e o DKMS (recomendado). Se você optar por não atualizar o kernel, verifique se as versões do `kernel-devel` e `dkms` do são apropriadas para o kernel.
+1. Atualize o kernel e o DKMS (recomendado). Se você optar por não atualizar o kernel, verifique se as versões de `kernel-devel` e `dkms` são apropriadas para o kernel.
  
    ```bash  
    sudo yum update
@@ -254,7 +254,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
    sudo yum install hyperv-daemons
    ```
 
-2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use apenas o driver NVIDIA em VMs NV ou NV2.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` nome `nouveau.conf` com o seguinte conteúdo:
+2. Desabilite o driver de kernel Nouveau, que é incompatível com o driver NVIDIA. (Use apenas o driver NVIDIA em VMs NV ou NV2.) Para fazer isso, crie um arquivo em `/etc/modprobe.d` chamado `nouveau.conf` com o seguinte conteúdo:
 
    ```
    blacklist nouveau
@@ -277,7 +277,7 @@ Para instalar os drivers NVIDIA GRID nas VMs do NV ou da série NVv3, faça uma 
 
    ```
  
-4. Reconecte-se à VM e execute `lspci` o comando. Verifique se a placa ou os cartões NVIDIA M60 estão visíveis como dispositivos PCI.
+4. Reconecte-se à VM e execute o comando `lspci`. Verifique se a placa ou os cartões NVIDIA M60 estão visíveis como dispositivos PCI.
  
 5. Baixe e instale o driver de grade:
 
@@ -321,7 +321,7 @@ Se o driver estiver instalado, você verá uma saída semelhante à seguinte. Ob
  
 
 ### <a name="x11-server"></a>Servidor X11
-Se você precisar de um servidor X11 para conexões remotas a uma VM NV ou NVv2, o [x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque permite a aceleração de hardware de gráficos. O BusID do dispositivo M60 deve ser adicionado manualmente ao arquivo de configuração do X11 (geralmente, `etc/X11/xorg.conf`). Adicione uma `"Device"` seção semelhante à seguinte:
+Se você precisar de um servidor X11 para conexões remotas a uma VM NV ou NVv2, o [x11vnc](http://www.karlrunge.com/x11vnc/) é recomendado porque permite a aceleração de hardware de gráficos. O BusID do dispositivo M60 deve ser adicionado manualmente ao arquivo de configuração do X11 (geralmente, `etc/X11/xorg.conf`). Adicione uma seção `"Device"` semelhante à seguinte:
  
 ```
 Section "Device"
@@ -333,7 +333,7 @@ Section "Device"
 EndSection
 ```
  
-Além disso, atualize `"Screen"` sua seção para usar este dispositivo.
+Além disso, atualize sua seção `"Screen"` para usar este dispositivo.
  
 O BusID decimal pode ser encontrado executando
 
@@ -357,12 +357,13 @@ else
 fi
 ```
 
-Em seguida, crie uma entrada para o script de `/etc/rc.d/rc3.d` atualização no para que o script seja invocado como raiz na inicialização.
+Em seguida, crie uma entrada para o script de atualização em `/etc/rc.d/rc3.d` para que o script seja invocado como raiz na inicialização.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-* Você pode definir o modo de `nvidia-smi` persistência usando, portanto, a saída do comando é mais rápida quando você precisa consultar os cartões. Para definir o modo de persistência `nvidia-smi -pm 1`, execute. Observe que, se a VM for reiniciada, a configuração de modo desaparecerá. Você sempre pode criar um script da configuração de modo para executar na inicialização.
+* Você pode definir o modo de persistência usando `nvidia-smi` para que a saída do comando seja mais rápida quando você precisar consultar os cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que, se a VM for reiniciada, a configuração de modo desaparecerá. Você sempre pode criar um script da configuração de modo para executar na inicialização.
+* Se você tiver atualizado os drivers NVIDIA CUDA para a versão mais recente e encontrar o RDMA connectivcity não estiver mais funcionando, [reinstale os drivers RDMA](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) em reistablish com conectividade. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para capturar uma imagem de VM do Linux com os drivers NVIDIA instalados, consulte [como generalizar e capturar uma máquina virtual Linux](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

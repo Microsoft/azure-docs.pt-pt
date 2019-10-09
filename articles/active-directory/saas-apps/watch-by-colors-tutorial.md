@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6d8fdc8ba2337a3be49a4645e48a45120fb0ccec
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861299"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026089"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com inspeção por cores
 
@@ -80,11 +80,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Na seção **configuração** básica do SAML, o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
+1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado no modo iniciado pelo **IDP** e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL:`https://app.colorscorporation.com/login`
+    Na caixa de texto **URL de logon** , digite uma url: `https://app.colorscorporation.com/login`
 
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
@@ -132,7 +132,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 3. Se você quiser configurar a inspeção por cores manualmente, abra uma nova janela do navegador da Web e entre no site da empresa Watch with Colors como administrador e execute as seguintes etapas:
 
-4. No canto superior direito da página, clique em **perfil** > **configurações** > de conta**SSO (logon único)** .
+4. No canto superior direito da página, clique em **perfil** > **configurações de conta** > **SSO (logon único)** .
 
     ![Inspecionar por configuração de cores](./media/watch-by-colors-tutorial/config01.png)
 
@@ -168,7 +168,7 @@ Para permitir que os usuários do Azure AD entrem para assistir por cores, eles 
 
     b. Na caixa de texto **sobrenome** , insira o sobrenome do usuário, como **Simon**.
 
-    c. Na caixa de texto **email** , insira o email do usuário `B.Simon@contoso.com`como.
+    c. Na caixa de texto **email** , insira o email do usuário, como `B.Simon@contoso.com`.
 
     d. Na caixa de texto **senha** , digite a senha.
 

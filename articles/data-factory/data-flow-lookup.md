@@ -1,49 +1,49 @@
 ---
-title: Mapeamento de transformação de pesquisa de fluxo de dados de fábrica de dados do Azure
-description: Mapeamento de transformação de pesquisa de fluxo de dados de fábrica de dados do Azure
+title: Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
+description: Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef72b7aed12afd1cee47b11bc7584d1e53bf2af5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868113"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029337"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Mapeamento de transformação de pesquisa de fluxo de dados de fábrica de dados do Azure
+# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Utilize Lookup para adicionar dados de referência de outra origem para o seu fluxo de dados. A transformação de pesquisa requer uma origem definida que aponta para a tabela de referência e faz a correspondência em campos de chave.
 
-![Transformação lookup](media/data-flow/lookup1.png "pesquisa")
+Use Lookup para adicionar dados de referência de outra fonte ao fluxo de dados. A transformação pesquisa requer uma fonte definida que aponte para a tabela de referência e corresponde aos campos de chave.
 
-Selecione os campos de chave que deseja correspondência com entre os campos de fluxo de entrada e os campos da origem de referência. Primeiro tem de criar uma nova origem da tela de design de fluxo de dados para utilizar como à direita para a pesquisa.
+(media/data-flow/lookup1.png "Pesquisa") de ![transformação pesquisa]
 
-Quando forem encontradas correspondências, resultante de linhas e colunas da origem de referência serão adicionadas ao seu fluxo de dados. Pode escolher quais os campos de interesse que deseja incluir no seu coletor no final do seu fluxo de dados.
+Selecione os campos de chave que você deseja corresponder entre os campos de fluxo de entrada e os campos da origem de referência. Primeiro, você deve ter criado uma nova origem na tela de design do fluxo de dados para usar como o lado direito da pesquisa.
 
-## <a name="match--no-match"></a>Corresponder / nenhuma correspondência
+Quando as correspondências forem encontradas, as linhas e colunas resultantes da fonte de referência serão adicionadas ao fluxo de dados. Você pode escolher quais campos de interesse deseja incluir no seu coletor no final do fluxo de dados.
 
-Após a sua transformação de pesquisa, pode usar as transformações subseqüentes para inspecionar os resultados de cada linha da correspondência com a função de expressão `isMatch()` efetuar mais opções na sua lógica com base em se é ou não a pesquisa resultou numa ocorrência de linha ou não.
+## <a name="match--no-match"></a>Correspondência/nenhuma correspondência
+
+Após a transformação pesquisa, você pode usar as transformações subsequentes para inspecionar os resultados de cada linha correspondente usando a função de expressão `isMatch()` para fazer mais escolhas em sua lógica com base em se a pesquisa resultou ou não em uma correspondência de linha ou não.
 
 ## <a name="optimizations"></a>Otimizações
 
-No Data Factory, os dados fluem executar em ambientes de Spark de escalamento horizontal. Se o conjunto de dados pode caber no espaço de memória do nó de trabalho, que podemos otimizar o desempenho da sua pesquisa.
+No Data Factory, os fluxos de dados são executados em ambientes Spark expandidos. Se o conjunto de seus conjuntos de trabalho puder se ajustar ao espaço de memória do nó do trabalhador, podemos otimizar seu desempenho de pesquisa.
 
-![Associação de difusão](media/data-flow/broadcast.png "de difusão de associação")
+![](media/data-flow/broadcast.png "Junção de difusão") de junção de difusão
 
-### <a name="broadcast-join"></a>Associação de difusão
+### <a name="broadcast-join"></a>Junção de difusão
 
-Selecionar à esquerda e/ou associação para pedir o ADF para enviar todo o conjunto de dados a partir de ambos os lados da relação de pesquisa para a memória de difusão do lado direito.
+Selecione junção de difusão esquerda e/ou direita para solicitar que o ADF envie por push todo o conjunto de um dos lados da relação de pesquisa para a memória.
 
 ### <a name="data-partitioning"></a>Criação de partições de dados
 
-Também pode especificar a criação de partições dos seus dados ao selecionar "Definir a criação de partições" no separador de Otimização da transformação Lookup para criar conjuntos de dados que se encaixa melhor em memória por função de trabalho.
+Você também pode especificar o particionamento de seus dados selecionando "definir particionamento" na guia otimizar da transformação pesquisa para criar conjuntos de dados que podem se ajustar melhor à memória por trabalho.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Junte-se](data-flow-join.md) e [Exists](data-flow-exists.md) transformações realizar tarefas semelhantes nos fluxos de dados de mapeamento ADF. Dar uma olhada nessas transformações seguinte.
+As transformações [Join](data-flow-join.md) e [Exists](data-flow-exists.md) executam tarefas semelhantes em fluxos de dados de mapeamento do ADF. Observe essas transformações em seguida.

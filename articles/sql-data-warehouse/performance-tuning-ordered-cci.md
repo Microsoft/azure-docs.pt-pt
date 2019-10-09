@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948171"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035088"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ajuste de desempenho com o índice columnstore clusterizado ordenado  
 
@@ -43,7 +43,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> Em uma tabela CCI ordenada, novos dados resultantes de DML ou operações de carregamento de dados não são classificados automaticamente.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  
+> Em uma tabela CCI ordenada, novos dados resultantes de DML ou operações de carregamento de dados não são classificados automaticamente.  Os usuários podem recriar o CCI ordenado para classificar todos os dados na tabela.  No Azure SQL Data Warehouse, a recompilação do índice columnstore é uma operação offline.  Para uma tabela particionada, a recompilação é feita uma partição por vez.  Os dados na partição que está sendo recriada são "offline" e indisponíveis até que a recompilação seja concluída para essa partição. 
 
 ## <a name="query-performance"></a>Desempenho de consultas
 
@@ -84,11 +84,17 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## <a name="data-loading-performance"></a>Desempenho do carregamento de dados
 
-O desempenho do carregamento de dados em uma tabela de CCI ordenada é semelhante ao carregamento de dados em uma tabela particionada.  
-Carregar dados em uma tabela CCI ordenada pode levar mais tempo do que o carregamento de dados em uma tabela CCI não ordenada devido à classificação de dados.  
+O desempenho do carregamento de dados em uma tabela de CCI ordenada é semelhante a uma tabela particionada.  O carregamento de dados em uma tabela de CCI ordenada pode levar mais tempo do que uma tabela CCI não ordenada devido à operação de classificação de dados, no entanto, as consultas podem ser executadas mais rapidamente depois com um CCI ordenado.  
 
 Aqui está um exemplo de comparação de desempenho de carregamento de dados em tabelas com esquemas diferentes.
-![Performance_comparison_data_loading @ no__t-1
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+
+
+Aqui está um exemplo de comparação de desempenho de consulta entre CCI e CCI ordenado.
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
+
  
 ## <a name="reduce-segment-overlapping"></a>Reduzir a sobreposição de segmento
 
@@ -116,7 +122,7 @@ A criação de um CCI ordenado é uma operação offline.  Para tabelas sem part
 1.  Crie partições na tabela de destino grande (chamada tabela A).
 2.  Crie uma tabela de CCI ordenada vazia (chamada tabela B) com a mesma tabela e esquema de partição que a tabela A.
 3.  Mude uma partição da tabela A para a tabela B.
-4.  Execute ALTER INDEX < Ordered_CCI_Index > Rebuild na tabela B para recriar a partição alternada.  
+4.  Execute ALTER INDEX < Ordered_CCI_Index > REBUILD PARTITION = < Partition_ID > na tabela B para recompilar a partição alternada.  
 5.  Repita as etapas 3 e 4 para cada partição na tabela A.
 6.  Depois que todas as partições forem alternadas da tabela A para a tabela B e tiverem sido recriadas, remova A tabela A e renomeie a tabela B para a tabela A. 
 

@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f883741577de22f66cd7a9bfaf733aa3c59b879b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707685"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026280"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Início rápido: Conceder permissão para criar registros de aplicativo ilimitados
 
@@ -32,8 +32,8 @@ A função menos privilegiada necessária para criar e atribuir funções person
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Criar uma nova função personalizada usando o portal do AD do Azure
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com)com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
-1. Selecione **Azure Active Directory**, selecione **funções e administradores**e, em seguida, selecione **nova função personalizada**.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global na organização do Azure AD.
+1. Selecione **Azure Active Directory**, selecione **funções e administradores**e, em seguida, selecione **nova função personalizada**.
 
     ![Criar ou editar funções da página funções e administradores](./media/roles-create-custom/new-custom-role.png)
 
@@ -49,12 +49,12 @@ A função menos privilegiada necessária para criar e atribuir funções person
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Atribuir a função a um usuário usando o portal do Azure AD
 
-1. Entre no centro de [Administração do Azure ad](https://aad.portal.azure.com)com permissões de administrador de função privilegiada ou de administrador global em sua organização do Azure AD.
-1. Selecione **Azure Active Directory** e, em seguida, selecione **funções e administradores**.
+1. Entre no centro de [Administração do Azure AD](https://aad.portal.azure.com) Com permissões de administrador de função privilegiada ou de administrador global em sua organização do Azure AD.
+1. Selecione **Azure Active Directory** e, em seguida, selecione **funções e administradores**.
 1. Selecione a função criador de registro de aplicativo e selecione **Adicionar atribuição**.
 1. Selecione o usuário desejado e clique em **selecionar** para adicionar o usuário à função.
 
-Concluído! Neste guia de início rápido, você criou com êxito uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário.
+E já está! Neste guia de início rápido, você criou com êxito uma função personalizada com permissão para criar um número ilimitado de registros de aplicativo e, em seguida, atribuir essa função a um usuário.
 
 > [!TIP]
 > Para atribuir a função a um aplicativo usando o portal do AD do Azure, insira o nome do aplicativo na caixa de pesquisa da página de atribuição. Os aplicativos não são mostrados na lista por padrão, mas são retornados nos resultados da pesquisa.

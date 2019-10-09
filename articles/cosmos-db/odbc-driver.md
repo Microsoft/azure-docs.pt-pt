@@ -4,14 +4,14 @@ description: Saiba como utilizar o controlador ODBC do Azure Cosmos DB para cria
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: b859d01a39f906f518a82d468c3c9267545b9a07
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616904"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035592"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ligar ao Azure Cosmos DB com ferramentas de análise de BI com o controlador ODBC
 
@@ -61,16 +61,26 @@ Vamos começar com o controlador ODBC.
     - **Descrição**: Uma breve descrição da fonte de dados.
     - **Host**: URI para sua conta de Azure Cosmos DB. Pode obter isso da página de chaves do Azure Cosmos DB no portal do Azure, conforme mostrado na captura de ecrã seguinte. 
     - **Chave de acesso**: A chave primária ou secundária de leitura/gravação ou somente leitura da página Azure Cosmos DB chaves na portal do Azure, conforme mostrado na captura de tela a seguir. Recomendamos que utilize a chave só de leitura se o DSN é utilizado para processamento de dados só de leitura e de relatórios.
-    ![Página do Azure Cosmos DB chaves](./media/odbc-driver/odbc-driver-keys.png)
+    ![Página do Azure Cosmos DB chaves](./media/odbc-driver/odbc-cosmos-account-keys.png)
     - **Criptografar chave de acesso para**: Selecione a melhor opção com base nos usuários deste computador. 
     
 1. Clique nas **teste** para verificar se pode ligar a sua conta do Azure Cosmos DB. 
 
-1. Clique em **opções avançadas** e defina os seguintes valores:
+1.  Clique em **opções avançadas** e defina os seguintes valores:
+    *  **Versão da API REST**: Selecione a [versão da API REST](https://docs.microsoft.com/rest/api/cosmos-db/) para suas operações. O padrão 2015-12-16. Se você tiver contêineres com [chaves de partição grandes](large-partition-keys.md) e exigir a versão de API REST 2018-12-31:
+        - Digite **2018-12-31** para a versão da API REST
+        - No menu **Iniciar** , digite "regedit" para localizar e abrir o aplicativo **Editor do registro** .
+        - No editor do registro, navegue até o caminho: **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC. PERSONALIZADO**
+        - Crie uma nova subchave com o mesmo nome que o seu DSN, por exemplo, "DSN ODBC da conta contoso".
+        - Navegue até a subchave "DSN de ODBC da conta contoso".
+        - Clique com o botão direito do mouse para adicionar um novo valor de **cadeia de caracteres** :
+            - Nome do valor: **IgnoreSessionToken**
+            - Dados do valor: **1**
+             @ No__t-2Registry configurações do editor @ no__t-3
     - **Consistência de consulta**: Selecione o [nível de consistência](consistency-levels.md) para suas operações. A predefinição é de sessão.
     - **Número de repetições**: Insira o número de vezes para repetir uma operação se a solicitação inicial não for concluída devido à limitação da taxa de serviço.
     - **Arquivo de esquema**: Você tem várias opções aqui.
-        - Por padrão, deixando esta entrada como está (em branco), o driver analisa a primeira página de dados para todas as coleções determinar o esquema de cada coleção. Isso é conhecido como mapeamento de coleção. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controlador e pode resultar num tempo de inicialização mais elevado de um aplicativo usando o DSN. Recomendamos que sempre associar um ficheiro de esquema para um DSN.
+        - Por padrão, deixar essa entrada como está (em branco), o driver examina a primeira página de dados de todos os contêineres para determinar o esquema de cada contêiner. Isso é conhecido como mapeamento de contêiner. Sem um ficheiro de esquema definido, o controlador tem de executar a análise para cada sessão de controlador e pode resultar num tempo de inicialização mais elevado de um aplicativo usando o DSN. Recomendamos que sempre associar um ficheiro de esquema para um DSN.
         - Se você já tiver um arquivo de esquema (possivelmente um criado usando o editor de esquema), poderá clicar em **procurar**, navegar até o arquivo, clicar em **salvar**e, em seguida, clicar em **OK**.
         - Se quiser criar um novo esquema, clique em **OK**e, em seguida, clique em **Editor de esquema** na janela principal. Em seguida, prossiga para as informações do editor de esquema. Depois de criar o novo ficheiro de esquema, não se esqueça de voltar para o **opções avançadas** janela para incluir o ficheiro de esquema recém-criado.
 
@@ -78,17 +88,17 @@ Vamos começar com o controlador ODBC.
 
     ![Novo Azure Cosmos DB ODBC DSN no separador de DSN de utilizador](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#collection-mapping"></a>Etapa 3: Criar uma definição de esquema usando o método de mapeamento de coleção
+## <a id="#container-mapping"></a>Etapa 3: Criar uma definição de esquema usando o método de mapeamento de contêiner
 
-Existem dois tipos de métodos de amostragem, que pode utilizar: **mapeamento da coleção** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar ambos os métodos de amostragem, mas cada coleção só pode utilizar um método de amostragem específicos. Os passos abaixo criam um esquema para os dados num ou mais coleções usando o método de mapeamento de coleção. Este método de amostragem obtém os dados na página de uma coleção para determinar a estrutura dos dados. Ele transposes uma coleção para uma tabela no lado do ODBC. Este método de amostragem é rápido e eficiente quando os dados de uma coleção são homogéneo. Se uma coleção contiver heterogéneo tipo de dados, recomendamos que utilize o [delimitadores de tabela de mapeamento de método](#table-mapping) pois fornece um método de amostragem mais robusto para determinar as estruturas de dados na coleção. 
+Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de contêiner** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar os dois métodos de amostragem, mas cada contêiner só pode usar um método de amostragem específico. As etapas a seguir criam um esquema para os dados em um ou mais contêineres usando o método de mapeamento de contêiner. Esse método de amostragem recupera os dados na página de um contêiner para determinar a estrutura dos dados. Ele transpõe um contêiner para uma tabela no lado do ODBC. Esse método de amostragem é eficiente e rápido quando os dados em um contêiner são homogêneos. Se um contêiner contiver o tipo de dados heterogêneo, recomendamos que você use o [método de mapeamento de delimitadores de tabela](#table-mapping) , pois ele fornece um método de amostragem mais robusto para determinar as estruturas de dados no contêiner. 
 
 1. Depois de concluir as etapas 1-4 em [conectar-se ao banco de dados Cosmos do Azure](#connect), clique em **Editor de esquema** na janela **instalação de DSN do driver ODBC do Azure Cosmos DB** .
 
     ![Botão de editor de esquema na janela de configuração de DSN do Driver de ODBC do Azure Cosmos DB](./media/odbc-driver/odbc-driver-schema-editor.png)
 1. Na **Editor de esquema** janela, clique em **criar nova**.
-    O **gerar esquema** janela exibe todas as coleções na conta do Azure Cosmos DB. 
+    A janela **gerar esquema** exibe todos os contêineres na conta Azure Cosmos DB. 
 
-1. Selecione uma ou mais coleções de exemplo e, em seguida, clique em **exemplo**. 
+1. Selecione um ou mais contêineres para amostra e, em seguida, clique em **exemplo**. 
 
 1. Na **modo de exibição Design** guia, a base de dados, esquemas e tabela são representados. Na vista de tabela, a análise apresenta o conjunto de propriedades associadas com os nomes das colunas (nome de SQL, nome de origem, etc.).
     Para cada coluna, pode modificar o nome SQL da coluna, o tipo SQL, o comprimento SQL (se aplicável), dimensionamento (se aplicável), precisão (se aplicável) e Nullable.
@@ -101,16 +111,16 @@ Existem dois tipos de métodos de amostragem, que pode utilizar: **mapeamento da
 
 ## <a id="table-mapping"></a>Etapa 4: Criar uma definição de esquema usando o método de mapeamento de delimitadores de tabela
 
-Existem dois tipos de métodos de amostragem, que pode utilizar: **mapeamento da coleção** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar ambos os métodos de amostragem, mas cada coleção só pode utilizar um método de amostragem específicos. 
+Há dois tipos de métodos de amostragem que você pode usar: **mapeamento de contêiner** ou **delimitadores de tabela**. Uma sessão de amostragem pode utilizar os dois métodos de amostragem, mas cada contêiner só pode usar um método de amostragem específico. 
 
-Os passos seguintes criam um esquema para os dados num ou mais coleções com o **delimitadores de tabela** mapeamento de método. Recomendamos que utilize este método de amostragem quando suas coleções contêm heterogêneo tipo de dados. Pode utilizar este método para definir o âmbito a amostragem para um conjunto de atributos e seus valores correspondentes. Por exemplo, se um documento contém uma propriedade "Type", pode definir o âmbito a amostragem para os valores dessa propriedade. O resultado final a amostragem seria um conjunto de tabelas para cada um dos valores para o tipo que especificou. Por exemplo, digite = carro produzirá uma tabela de carro ao tipo = plano produziria uma tabela de plano.
+As etapas a seguir criam um esquema para os dados em um ou mais contêineres usando o método de mapeamento de **delimitadores de tabela** . É recomendável que você use esse método de amostragem quando seus contêineres contiverem tipos de dados heterogêneos. Pode utilizar este método para definir o âmbito a amostragem para um conjunto de atributos e seus valores correspondentes. Por exemplo, se um documento contém uma propriedade "Type", pode definir o âmbito a amostragem para os valores dessa propriedade. O resultado final a amostragem seria um conjunto de tabelas para cada um dos valores para o tipo que especificou. Por exemplo, digite = carro produzirá uma tabela de carro ao tipo = plano produziria uma tabela de plano.
 
 1. Depois de concluir as etapas 1-4 em [conectar-se ao banco de dados Cosmos do Azure](#connect), clique em **Editor de esquema** na janela instalação de DSN do driver ODBC do Azure Cosmos DB.
 
 1. Na **Editor de esquema** janela, clique em **criar nova**.
-    O **gerar esquema** janela exibe todas as coleções na conta do Azure Cosmos DB. 
+    A janela **gerar esquema** exibe todos os contêineres na conta Azure Cosmos DB. 
 
-1. Selecione uma coleção no **vista de exemplo** separador a **definição de mapeamento** coluna para a coleção, clique em **editar**. Em seguida, no **definição de mapeamento** janela, selecione **delimitadores de tabela** método. Em seguida, faça o seguinte:
+1. Selecione um contêiner na guia **exibição de exemplo** , na coluna **definição de mapeamento** do contêiner, clique em **Editar**. Em seguida, no **definição de mapeamento** janela, selecione **delimitadores de tabela** método. Em seguida, faça o seguinte:
 
     a. Na **atributos** , escreva o nome de uma propriedade de delimitador. Esta é uma propriedade no documento que pretende definir o âmbito a amostragem para, por exemplo, cidade e prima enter. 
 
@@ -120,7 +130,7 @@ Os passos seguintes criam um esquema para os dados num ou mais coleções com o 
 
 1. Clique em **OK**. 
 
-1. Depois de concluir as definições de mapeamento para as coleções que pretende, além de exemplo da **Editor de esquema** janela, clique em **exemplo**.
+1. Depois de concluir as definições de mapeamento para os contêineres que você deseja obter como amostra, na janela **Editor de esquema** , clique em **exemplo**.
      Para cada coluna, pode modificar o nome SQL da coluna, o tipo SQL, o comprimento SQL (se aplicável), dimensionamento (se aplicável), precisão (se aplicável) e Nullable.
     - Pode definir **Ocultar coluna** ao **verdadeiro** se pretende excluir essa coluna nos resultados da consulta. Colunas marcado Ocultar coluna = true não são devolvidos para seleção e da projeção, embora eles ainda fazem parte do esquema. Por exemplo, pode ocultar todas as propriedades de sistema necessário do Azure Cosmos DB a partir do `_`.
     - O **id** coluna é o único campo que não é possível ocultar como é usada como a chave primária no esquema normalizado. 
@@ -156,7 +166,7 @@ Para ver o novo nome de servidor ligado, atualize a lista de servidores vinculad
 
 ### <a name="query-linked-database"></a>Consultar base de dados ligado
 
-Para consultar a base de dados ligado, introduza uma consulta do SSMS. Neste exemplo, a consulta seleciona da tabela na coleção com o nome `customers`:
+Para consultar a base de dados ligado, introduza uma consulta do SSMS. Neste exemplo, a consulta seleciona a tabela no contêiner chamado `customers`:
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
@@ -184,7 +194,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 ## <a name="optional-creating-views"></a>(Opcional) Criar vistas
 Pode definir e criar vistas como parte do processo de amostragem. Estas vistas são equivalentes às vistas SQL. Eles são só de leitura e são escopo, as seleções e projeções da consulta de SQL do Azure Cosmos DB definida. 
 
-Para criar uma vista para os seus dados, na **Editor de esquema** janela, na **definições de exibição** coluna, clique em **Add** na linha da coleção ao exemplo. 
+Para criar um modo de exibição para seus dados, na janela **Editor de esquema** , na coluna **Exibir definições** , clique em **Adicionar** na linha do contêiner para amostrar. 
     ![Criar uma vista de dados](./media/odbc-driver/odbc-driver-create-view.png)
 
 

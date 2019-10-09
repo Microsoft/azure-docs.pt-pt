@@ -1,6 +1,6 @@
 ---
-title: NODE. js (Mean. js) com o MongoDB - serviço de aplicações do Azure | Documentos da Microsoft
-description: Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB. Mean. js é utilizado no tutorial.
+title: Node. js (MEAN. js) com o serviço MongoDB-Azure App | Microsoft Docs
+description: Saiba como colocar uma aplicação Node.js a funcionar no Azure, com uma ligação à base de dados do Cosmos DB com uma cadeia de ligação do MongoDB. O MEAN. js é usado no tutorial.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9b10542b861b49e83ff9704912a569cdca7616
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138794"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024928"
 ---
-# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar uma aplicação de MongoDB no Azure e o node. js
+# <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Tutorial: Criar um aplicativo node. js e MongoDB no Azure
 
 > [!NOTE]
-> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implementar um serviço de aplicações no _Linux_, consulte [criar uma aplicação node. js e MongoDB no serviço de aplicações do Azure no Linux](./containers/tutorial-nodejs-mongodb-app.md).
+> Este artigo implementa uma aplicação no Serviço de Aplicações no Windows. Para implantar o serviço de aplicativo no _Linux_, consulte [compilar um aplicativo node. js e MongoDB no serviço de Azure app no Linux](./containers/tutorial-nodejs-mongodb-app.md).
 >
 
-Serviço de aplicações do Azure fornece um serviço de alojamento na web altamente dimensionável e com correção automática. Este tutorial mostra como criar uma aplicação node. js no serviço de aplicações e ligá-la a uma base de dados do MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no [Serviço de Aplicações do Azure](overview.md). Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
+O serviço de Azure App fornece um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática. Este tutorial mostra como criar um aplicativo node. js no serviço de aplicativo e conectá-lo a um banco de dados MongoDB. Quando terminar, terá uma aplicação MEAN (MongoDB, Express, AngularJS e Node.js) em execução no [Serviço de Aplicações do Azure](overview.md). Para obter simplicidade, a aplicação de exemplo utiliza a [estrutura Web MEAN.js](https://meanjs.org/).
 
 ![Aplicação MEAN.js em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -268,11 +268,11 @@ Neste passo, vai implementar a aplicação Node.js ligada ao MongoDB no Serviço
 
 ### <a name="configure-an-environment-variable"></a>Configurar uma variável de ambiente
 
-Por predefinição, o projeto do MEAN.js mantém o _config/env/local-production.js_ fora do repositório do Git. Portanto, para a sua aplicação do Azure, utilize as definições da aplicação para definir a cadeia de ligação do MongoDB.
+Por predefinição, o projeto do MEAN.js mantém o _config/env/local-production.js_ fora do repositório do Git. Portanto, para seu aplicativo do Azure, você usa as configurações do aplicativo para definir sua cadeia de conexão do MongoDB.
 
 Para configurar as definições da aplicação, utilize o comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) no Cloud Shell. 
 
-O exemplo seguinte configura um `MONGODB_URI` definição de aplicação na sua aplicação do Azure. Substitua os marcadores de posição *\<app_name>* , *\<cosmosdb_name>* e *\<primary_master_key>* .
+O exemplo a seguir define uma configuração de aplicativo `MONGODB_URI` em seu aplicativo do Azure. Substitua os marcadores de posição *\<app_name>* , *\<cosmosdb_name>* e *\<primary_master_key>* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb_name>:<primary_master_key>@<cosmosdb_name>.documents.azure.com:10250/mean?ssl=true"
@@ -310,7 +310,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 Poderá reparar que o processo de implementação executa o [Gulp](https://gulpjs.com/) depois de `npm install`. O Serviço de Aplicações não executa tarefas do Gulp ou do Grunt durante a implementação, pelo que este repositório de exemplo tem dois ficheiros adicionais no diretório raiz para a permitir: 
@@ -318,11 +318,11 @@ Poderá reparar que o processo de implementação executa o [Gulp](https://gulpj
 - _.implementação_ - este ficheiro diz ao Serviço de Aplicações para executar `bash deploy.sh` como o script de implementação personalizado.
 - _deploy.sh_ - o script de implementação personalizado. Se vir o ficheiro, verá que executa `gulp prod` a seguir a `npm install` e `bower install`. 
 
-Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git. Se reiniciar a aplicação do Azure a qualquer momento, o serviço de aplicações não volta a executar estas tarefas de automatização.
+Pode utilizar esta abordagem para adicionar qualquer passo à sua implementação baseada no Git. Se você reiniciar seu aplicativo do Azure a qualquer momento, o serviço de aplicativo não executará novamente essas tarefas de automação.
 
-### <a name="browse-to-the-azure-app"></a>Navegue para a aplicação do Azure 
+### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure 
 
-Navegue para a aplicação implementada com o browser. 
+Navegue até o aplicativo implantado usando seu navegador da Web. 
 
 ```bash 
 http://<app_name>.azurewebsites.net 
@@ -464,7 +464,7 @@ git commit -am "added article comment"
 git push azure master
 ```
 
-Uma vez o `git push` estiver concluído, navegue para a aplicação do Azure e experimente a nova funcionalidade.
+Quando o `git push` for concluído, navegue até seu aplicativo do Azure e experimente a nova funcionalidade.
 
 ![Alterações ao modelo e à base de dados publicadas no Azure](media/app-service-web-tutorial-nodejs-mongodb-app/added-comment-field-published.png)
 
@@ -480,19 +480,19 @@ Para iniciar a transmissão em fluxo do registo, utilize o comando [`az webapp l
 az webapp log tail --name <app_name> --resource-group myResourceGroup
 ``` 
 
-Assim que tiver iniciado a transmissão de registos, atualize a aplicação do Azure no browser para obter algum tráfego da web. Verá então os registos da consola direcionados para o seu terminal.
+Depois que o streaming de log for iniciado, atualize seu aplicativo do Azure no navegador para obter algum tráfego da Web. Verá então os registos da consola direcionados para o seu terminal.
 
 Pare a transmissão em fluxo do registo em qualquer altura, ao escrever `Ctrl+C`. 
 
-## <a name="manage-your-azure-app"></a>Gerir a sua aplicação do Azure
+## <a name="manage-your-azure-app"></a>Gerenciar seu aplicativo do Azure
 
-Vá para o [portal do Azure](https://portal.azure.com) para ver a aplicação que criou.
+Vá para a [portal do Azure](https://portal.azure.com) para ver o aplicativo que você criou.
 
-No menu à esquerda, clique em **dos serviços de aplicações**, em seguida, clique no nome da sua aplicação do Azure.
+No menu à esquerda, clique em **serviços de aplicativos**e, em seguida, clique no nome do seu aplicativo do Azure.
 
 ![Navegação do portal para a aplicação do Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/access-portal.png)
 
-Por predefinição, o portal mostra a sua aplicação **descrição geral** página. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
+Por padrão, o portal mostra a página de **visão geral** do aplicativo. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
 ![Página Serviço de Aplicações no portal do Azure](./media/app-service-web-tutorial-nodejs-mongodb-app/web-app-blade.png)
 
@@ -514,4 +514,4 @@ O que aprendeu:
 Avance para o tutorial seguinte para aprender a mapear um nome DNS personalizado para a aplicação.
 
 > [!div class="nextstepaction"] 
-> [Mapear um nome DNS existente personalizado para o serviço de aplicações do Azure](app-service-web-tutorial-custom-domain.md)
+> [Mapear um nome DNS personalizado existente para Azure App serviço](app-service-web-tutorial-custom-domain.md)

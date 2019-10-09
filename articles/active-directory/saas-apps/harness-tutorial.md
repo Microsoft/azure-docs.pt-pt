@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305946"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026955"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o Harness
 
@@ -82,11 +82,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://app.harness.io/gateway/api/users/saml-login?accountId=<harness_account_id>`
+    Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://app.harness.io/gateway/api/users/saml-login?accountId=<harness_account_id>`
 
 1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na caixa de texto **URL de logon** , digite uma URL:`https://app.harness.io/`
+    Na caixa de texto **URL de logon** , digite uma url: `https://app.harness.io/`
 
     > [!NOTE]
     > O valor da URL de resposta não é real. Você obterá a URL de resposta real na seção **configurar SSO do conjunto** , que é explicada posteriormente no tutorial. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -141,11 +141,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 3. Se você quiser configurar o Harness manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do Harness como administrador e execute as seguintes etapas:
 
-4. Na parte superior direita da página, clique em **Gerenciamento** > de acesso de **segurança** >contínua**configurações de autenticação**.
+4. Na parte superior direita da página, clique em **segurança contínua** >  gerenciamento de**acesso** > **configurações de autenticação**.
 
     ![Configuração do Harness](./media/harness-tutorial/configure01.png)
 
-5. Na seção **provedores de SSO** , clique em **+ adicionar provedores** >de SSO **SAML**.
+5. Na seção **provedores de SSO** , clique em **+ adicionar provedores de SSO** > **SAML**.
 
     ![Configuração do Harness](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Para permitir que os usuários do Azure AD entrem no Harness, eles devem ser pro
 
 1. Entre no Harness como administrador.
 
-1. Na parte superior direita da página, clique em **Gerenciamento** > de acesso de **segurança** >contínua**usuários**.
+1. Na parte superior direita da página, clique em **segurança contínua** > **usuários**do**Gerenciamento de acesso** > .
 
     ![Configuração do Harness](./media/harness-tutorial/configure04.png)
 
-1. No lado direito da página, clique em **+ Adicionar usuário**.
+1. No lado direito da página, clique em **+ Adicionar usuário**.
 
     ![Configuração do Harness](./media/harness-tutorial/configure05.png)
 
@@ -181,7 +181,7 @@ Para permitir que os usuários do Azure AD entrem no Harness, eles devem ser pro
 
     ![Configuração do Harness](./media/harness-tutorial/configure06.png)
 
-    a. Na caixa de texto **Endereço (s) de email** , insira o email do `B.simon@contoso.com`usuário como.
+    a. Na caixa de texto **Endereço (s) de email** , insira o email do usuário, como `B.simon@contoso.com`.
 
     b. Selecione seus **grupos de usuários**.
 

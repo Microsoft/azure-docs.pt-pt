@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7b7d041b678ccf2a476afc6d0744f6971349677e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935199"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034874"
 ---
 # <a name="data-querying"></a>Consulta de dados
 
@@ -35,14 +35,14 @@ A [linguagem TSX (expressão de série temporal)](https://docs.microsoft.com/res
 
 As APIs principais a seguir têm suporte.
 
-[![Visão geral de consulta de série temporal](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[Visão geral da consulta da série @no__t 1Time](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>APIs de ambiente
 
 As seguintes APIs de ambiente estão disponíveis:
 
 * [Obter API do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): Retorna a lista de ambientes aos quais o chamador está autorizado a acessar.
-* [Obter API de disponibilidade do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Retorna a distribuição da contagem de eventos sobre o carimbo `$ts`de data/hora do evento. Essa API ajuda a determinar se há algum evento no carimbo de data/hora retornando a contagem de eventos, se existir.
+* [Obter API de disponibilidade do ambiente](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): Retorna a distribuição da contagem de eventos sobre o carimbo de data/hora do evento `$ts`. Essa API ajuda a determinar se há algum evento no carimbo de data/hora retornando a contagem de eventos, se existir.
 * [Obter API do esquema de evento](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): Retorna os metadados do esquema de evento para um determinado intervalo de pesquisa. Essa API ajuda a recuperar todos os metadados e propriedades disponíveis no esquema para o intervalo de pesquisa fornecido.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>APIs de consulta de modelo de série temporal (TSM-Q)
@@ -51,7 +51,7 @@ As seguintes APIs de consulta de modelo de série temporal estão disponíveis:
 
 * [API de configurações de modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Habilita Get e patch no tipo padrão e no nome do modelo do ambiente.
 * [API de tipos](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Habilita CRUD nos tipos de série temporal e suas variáveis associadas.
-* [API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)de hierarquias: Habilita CRUD nas hierarquias de série temporal e seus caminhos de campo associados.
+* [API de hierarquias](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Habilita CRUD nas hierarquias de série temporal e seus caminhos de campo associados.
 * [API de instâncias](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Habilita CRUD em instâncias de série temporal e seus campos de instância associados.
 
 ## <a name="time-series-query-tsq-apis"></a>APIs de consulta de série temporal (TSQ)
@@ -71,9 +71,9 @@ As seguintes APIs de consulta de série temporal estão disponíveis:
 
   A API da série agregada retorna um valor de série temporal para cada variável para cada intervalo. Os valores são baseados na ID da série temporal e no conjunto de variáveis que foram fornecidas. A API da série agregada alcança a redução usando variáveis armazenadas no modelo de série temporal ou fornecidas em linha para agregar ou dados de exemplo.
 
-  Tipos de agregação `Min`com `Max`suporte: `Count`,, `Sum`,,`Average`
+  Tipos de agregação com suporte: `Min`, `Max`, `Sum`, `Count`, `Average`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md) na versão prévia do Azure Time Series insights.
 

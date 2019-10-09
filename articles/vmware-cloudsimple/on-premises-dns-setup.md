@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 929c923fda8c1c2bddd96d0b4d4e4b6ce6d29de9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 52f86f85ec303d23a78fd942276bfe46d0f12832
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845305"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030408"
 ---
 # <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurar o DNS para a resolução de nomes para acesso de vCenter de nuvem privada de estações de trabalho locais
 
@@ -65,7 +65,7 @@ zone “cloudsimple.io”
 3. Selecione a opção apropriada dependendo do seu ambiente e clique em **Avançar**.
 
     ![Nova zona](media/DNS03.png)
-4. Selecione **zona** de pesquisa direta e clique em **Avançar**.
+4. Selecione **zona de pesquisa direta** e clique em **Avançar**.
 
     ![Nova zona](media/DNS01.png)
 5. Insira o nome da zona e clique em **Avançar**.

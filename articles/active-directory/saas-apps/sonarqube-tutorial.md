@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b9e28f986f28bde6e46319ddb404d424c100726
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 571d8849fd7cae5c872a56182858848dbb43ef42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174646"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026682"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com Sonarqube
 
@@ -139,7 +139,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 2. Instale o plug-in SAML do sonarqube Market Place.
 
-3. Na parte superior esquerda da página, clique em **admin** e, em seguida, navegue até **SAML**.
+3. Na parte superior esquerda da página, clique em **admin** e, em seguida, navegue até **SAML**.
 
 4. Na página **SAML** , execute as seguintes etapas:
 
@@ -157,11 +157,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
     f. Abra o certificado codificado em base64 no bloco de notas, copie seu conteúdo e cole-o na caixa de texto **certificado do provedor** .
 
-    g. Na caixa de texto **atributo de logon de usuário** do SAML `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`, insira o valor.
+    g. Na caixa de texto **atributo de logon de usuário do SAML** , insira o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    h. Na caixa de texto **atributo de nome de usuário** do SAML `http://schemas.microsoft.com/identity/claims/displayname`, insira o valor.
+    h. Na caixa de texto **atributo de nome de usuário do SAML** , insira o valor `http://schemas.microsoft.com/identity/claims/displayname`.
 
-    i. Na caixa de texto **atributo de email do usuário SAML** , `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`Insira o valor.
+    i. Na caixa de texto **atributo de email do usuário SAML** , insira o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     j. Clique em **Guardar**.
 

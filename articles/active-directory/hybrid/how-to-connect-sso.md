@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86895ab315784c49c2b240badb249dce57ae958a
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622565"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025696"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory logon único contínuo
 
@@ -36,7 +36,7 @@ O SSO contínuo pode ser combinado com os métodos de entrada de [sincronizaçã
 ![Logon único contínuo](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->O SSO contínuo precisa que o dispositivo do usuário seja ingressado no **domínio**, mas não precisa que o dispositivo seja ingressado no [Azure ad](../active-directory-azureadjoin-overview.md).
+>O SSO contínuo precisa que o dispositivo do usuário seja **ingressado no domínio**, mas não precisa que o dispositivo seja [ingressado no Azure ad](../active-directory-azureadjoin-overview.md).
 
 ## <a name="key-benefits"></a>Principais vantagens
 
@@ -51,10 +51,10 @@ O SSO contínuo pode ser combinado com os métodos de entrada de [sincronizaçã
 
 ## <a name="feature-highlights"></a>Destaques de recursos
 
-- O nome de usuário de entrada pode ser o nome de usuário local padrão`userPrincipalName`() ou outro atributo configurado em Azure ad Connect`Alternate ID`(). Ambos os casos de uso funcionam porque o SSO `securityIdentifier` contínuo usa a declaração no tíquete Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
+- O nome de usuário de entrada pode ser o nome de usuário padrão local (`userPrincipalName`) ou outro atributo configurado em Azure AD Connect (`Alternate ID`). Ambos os casos de uso funcionam porque o SSO contínuo usa a declaração `securityIdentifier` no tíquete Kerberos para pesquisar o objeto de usuário correspondente no Azure AD.
 - O SSO contínuo é um recurso oportunista. Se ele falhar por algum motivo, a experiência de entrada do usuário voltará ao seu comportamento regular, ou seja, o usuário precisará inserir sua senha na página de entrada.
-- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminhar um `domain_hint` parâmetro (OpenID Connect) `whr` ou (SAML)-identificando seu locatário, `login_hint` ou o parâmetro-identificando o usuário, em sua solicitação de entrada do Azure AD, os usuários serão conectado automaticamente sem que eles insiram nomes de acessações ou senhas.
-- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para os pontos de extremidade do Azure ad configurados como locatários – ou seja `https://login.microsoftonline.com/contoso.com/<..>` , `https://login.microsoftonline.com/<tenant_ID>/<..>` ou-em vez do ponto de extremidade comum do Azure ad `https://login.microsoftonline.com/common/<...>` – ou seja, .
+- Se um aplicativo (por exemplo, `https://myapps.microsoft.com/contoso.com`) encaminha um parâmetro `domain_hint` (OpenID Connect) ou `whr` (SAML)-identificando seu locatário ou @no__t parâmetro-3-identificando o usuário, em sua solicitação de entrada do Azure AD, os usuários são conectados automaticamente sem eles inserindo nomes de acessadores ou senhas.
+- Os usuários também terão uma experiência de logon silenciosa se um aplicativo (por exemplo, `https://contoso.sharepoint.com`) enviar solicitações de entrada para pontos de extremidade do Azure AD configurados como locatários, ou seja, `https://login.microsoftonline.com/contoso.com/<..>` ou `https://login.microsoftonline.com/<tenant_ID>/<..>`-em vez do ponto de extremidade comum do Azure AD – ou seja, `https://login.microsoftonline.com/common/<...>`.
 - Há suporte para sair. Isso permite que os usuários escolham outra conta do Azure AD para entrar, em vez de serem conectados automaticamente usando o SSO contínuo automaticamente.
 - Os clientes do Office 365 Win32 (Outlook, Word, Excel e outros) com versões 16.0.8730. xxxx e superior têm suporte usando um fluxo não interativo. Para o OneDrive, você precisará ativar o [recurso de configuração silenciosa do onedrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) para uma experiência de logon silencioso.
 - Ele pode ser habilitado por meio de Azure AD Connect.
@@ -63,19 +63,19 @@ O SSO contínuo pode ser combinado com os métodos de entrada de [sincronizaçã
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ok\*|Não|Sim|Ok\*\*\*|N/A
-|Windows 8.1|Ok\*|N/A|Sim|Ok\*\*\*|N/A
-|Windows 8|Ok\*|N/A|Sim|Ok\*\*\*|N/A
-|Windows 7|Ok\*|N/A|Sim|Ok\*\*\*|N/A
-|Windows Server 2012 R2 ou superior|Ok\*\*|N/A|Sim|Ok\*\*\*|N/A
-|Mac OS X|N/A|N/A|Ok\*\*\*|Ok\*\*\*|Ok\*\*\*
+|Windows 10|Sim @ no__t-0|Sim|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
+|Windows 8.1|Sim @ no__t-0|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
+|Windows 8|Sim @ no__t-0|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
+|Windows 7|Sim @ no__t-0|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
+|Windows Server 2012 R2 ou superior|Sim @ no__t-0 @ no__t-1|N/A|Sim|Sim @ no__t-0 @ no__t-1 @ no__t-2|N/A
+|Mac OS X|N/A|N/A|Sim @ no__t-0 @ no__t-1 @ no__t-2|Sim @ no__t-0 @ no__t-1 @ no__t-2|Sim @ no__t-0 @ no__t-1 @ no__t-2
 
 
-\*Requer o Internet Explorer versões 10 ou posteriores
+\*Requires o Internet Explorer versões 10 ou posteriores
 
-\*\*O requer o Internet Explorer versões 10 ou posteriores. Desabilitar o modo protegido avançado
+\* @ no__t-1Requires Internet Explorer versões 10 ou superior. Desabilitar o modo protegido avançado
 
-\*\*\*Requer [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
+\* @ no__t-1 @ no__t-2Requires [configuração adicional](how-to-connect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Para o Windows 10, a recomendação é usar o [ingresso no Azure ad](../active-directory-azureadjoin-overview.md) para obter a experiência ideal de logon único com o Azure AD.

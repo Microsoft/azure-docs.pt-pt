@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154030"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028788"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Firewall de SO de convidado de VM do Azure está a bloquear o tráfego de entrada
 
@@ -102,7 +102,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
 
 #### <a name="mitigation-2"></a>Atenuação 2
 
-1.  Consultar os perfis de firewall para determinar se a política de firewall de entrada é definida como *BlockInboundAlways*:
+1.  Consulte os perfis de firewall para determinar se a política de firewall de entrada está definida como *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
     >    * *BlockInbound*: Todo o tráfego de entrada será bloqueado, a menos que você tenha uma regra em vigor para permitir esse tráfego.
     >    * *BlockInboundAlways*: Todas as regras de firewall serão ignoradas e todo o tráfego será bloqueado.
 
-2.  Editar a *DefaultInboundAction* para definir estes perfis para **permitir** tráfego. Para tal, execute o seguinte comando:
+2.  Edite o *DefaultInboundAction* para definir esses perfis para **permitir** o tráfego. Para tal, execute o seguinte comando:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ Ligar para o [consola de série e, em seguida, abra uma instância do PowerShell
 
 2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 
-3.  Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída para o disco do sistema anexado.
+3.  Certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída para o disco do sistema anexado.
 
 #### <a name="mitigation-1"></a>Atenuação 1
 
@@ -150,7 +150,7 @@ Consulte [como habilitar-desabilitar uma regra de firewall em um sistema operac
 
 2.  Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação.
 
-3.  Depois do disco do sistema é anexado à VM de recuperação, certifique-se de que o disco é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
+3.  Depois que o disco do sistema for anexado à VM de recuperação, verifique se o disco está sinalizado como **online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
 
 4.  Abra uma instância CMD elevada e, em seguida, execute o seguinte script:
 

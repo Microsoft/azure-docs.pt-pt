@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: 45200e7620326dedcee92c579843e61bb07ff68e
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610243"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026594"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Análise de Tráfego perguntas frequentes
 
@@ -143,8 +143,8 @@ Selecione uma região com suporte. Se você selecionar uma região sem suporte, 
 O provedor Microsoft. insights deve ser registrado para que o log de fluxo funcione corretamente. Se você não tiver certeza se o provedor Microsoft. insights está registrado para sua assinatura, substitua *xxxxx-xxxxx-XXXXXX-XXXX* no comando a seguir e execute os seguintes comandos do PowerShell:
 
 ```powershell-interactive
-**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Configurei a solução. Por que não vejo nada no painel?
@@ -248,7 +248,7 @@ Por exemplo, de acordo com o [plano de preços](https://azure.microsoft.com/pric
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>Com que frequência Análise de Tráfego processar dados?
 
-Consulte a seção de agregação de [dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
+Consulte a [seção de agregação de dados](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) no esquema de análise de tráfego e no documento de agregação de dados
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>Como Análise de Tráfego decidir que um IP é mal-intencionado? 
 
@@ -272,25 +272,25 @@ A página de mapa geográfico contém duas seções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado na faixa
     
 - Por padrão, a seleção na página de mapa geográfico para a faixa é o filtro "Azure DCs".
-- Para mover para outro filtro, use a `Tab` `Right arrow` chave ou. Para retroceder, use a `Shift+Tab` `Left arrow` chave ou. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
-- Pressione `Enter` ou a `Down` tecla de direção para aplicar o filtro selecionado. Com base na seleção e implantação de filtro, um ou vários nós na seção mapa são realçados.
+- Para mover para outro filtro, use a chave `Tab` ou `Right arrow`. Para retroceder, use a chave `Shift+Tab` ou `Left arrow`. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
+- Pressione `Enter` ou a tecla de seta `Down` para aplicar o filtro selecionado. Com base na seleção e implantação de filtro, um ou vários nós na seção mapa são realçados.
 - Para alternar entre faixa e mapa, pressione `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-map"></a>Navegação de teclado no mapa
     
-- Depois de selecionar qualquer filtro na faixa e pressionado `Ctrl+F6`, o foco é movido para um dos nós realçados (datacenter**do Azure** ou **país/região**) na exibição do mapa.
-- Para mover para outros nós realçados no mapa, use `Tab` uma ou `Right arrow` a chave para movimento progressivo. Use `Shift+Tab` ou a `Left arrow` chave para movimento regressivo.
-- Para selecionar qualquer nó realçado no mapa, use `Enter` a `Down arrow` tecla ou.
-- Na seleção de qualquer um desses nós, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão fechado na **caixa ferramenta de informações**. Para mover-se mais dentro do modo de `Right arrow` exibição `Left arrow` de **caixa** , use as teclas e para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
-- Quando você pressiona `Tab` enquanto o foco está na **caixa de ferramentas de informações**, o foco é movido para os pontos de extremidade no mesmo continente que o nó selecionado. Use as `Right arrow` teclas `Left arrow` e para percorrer esses pontos de extremidade.
-- Para mover para outros pontos de extremidade do fluxo ou para os clusters `Tab` continentes, use `Shift+Tab` para movimento progressivo e para movimento regressivo.
-- Quando o foco estiver em **clusters continentes**, use `Enter` as `Down` teclas de seta ou para realçar os pontos de extremidade dentro do cluster continente. Para percorrer os pontos de extremidade e o botão fechar na caixa de informações do cluster continente, use a `Right arrow` tecla ou `Left arrow` para movimento para frente e para trás, respectivamente. Em qualquer ponto de extremidade, você `Shift+L` pode usar para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para mover para o ponto de extremidade selecionado.
+- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco será movido para um dos nós realçados (**Datacenter do Azure** ou **país/região**) na exibição do mapa.
+- Para mover para outros nós realçados no mapa, use `Tab` ou a chave `Right arrow` para movimento progressivo. Use `Shift+Tab` ou a chave `Left arrow` para movimento regressivo.
+- Para selecionar qualquer nó realçado no mapa, use a chave `Enter` ou `Down arrow`.
+- Na seleção de qualquer um desses nós, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão fechado na **caixa ferramenta de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use as teclas `Right arrow` e `Left arrow` para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
+- Quando você pressiona `Tab` enquanto o foco está na **caixa de ferramentas de informações**, o foco é movido para os pontos de extremidade no mesmo continente que o nó selecionado. Use as chaves `Right arrow` e `Left arrow` para percorrer esses pontos de extremidade.
+- Para mover para outros pontos de extremidade do fluxo ou para os clusters continentes, use `Tab` para movimento progressivo e `Shift+Tab` para movimento regressivo.
+- Quando o foco estiver em **clusters continentes**, use as teclas de seta `Enter` ou `Down` para realçar os pontos de extremidade dentro do cluster continente. Para percorrer os pontos de extremidade e o botão fechar na caixa de informações do cluster continente, use a chave `Right arrow` ou `Left arrow` para movimento para frente e para trás, respectivamente. Em qualquer ponto de extremidade, você pode usar `Shift+L` para alternar para a linha de conexão do nó selecionado para o ponto de extremidade. Você pode pressionar `Shift+L` novamente para mover para o ponto de extremidade selecionado.
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegação por teclado em qualquer estágio
     
-- `Esc`recolhe a seleção expandida.
-- A `Up arrow` chave executa a mesma ação que `Esc`. A `Down arrow` chave executa a mesma ação que `Enter`.
-- Use `Shift+Plus` para ampliar e `Shift+Minus` reduzir.
+- `Esc` recolhe a seleção expandida.
+- A chave `Up arrow` executa a mesma ação que `Esc`. A chave `Down arrow` executa a mesma ação que `Enter`.
+- Use `Shift+Plus` para ampliar e `Shift+Minus` para reduzir.
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-virtual-network-topology-view"></a>Como posso navegar usando o teclado na exibição de topologia de rede virtual?
 
@@ -302,16 +302,16 @@ A página topologia de redes virtuais contém duas seções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado na faixa
     
 - Por padrão, a seleção na página de topologia de redes virtuais para a faixa é o filtro "conectado VNets".
-- Para mover para outro filtro, use a `Tab` chave para avançar. Para retroceder, use a `Shift+Tab` chave. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
+- Para mover para outro filtro, use a chave `Tab` para avançar. Para retroceder, use a chave `Shift+Tab`. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
 - Pressione `Enter` para aplicar o filtro selecionado. Com base na seleção e implantação de filtro, um ou vários nós (rede virtual) na seção topologia são realçados.
 - Para alternar entre a faixa e a topologia, pressione `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegação de teclado na topologia
     
-- Depois de ter selecionado qualquer filtro na faixa e pressionado `Ctrl+F6`, o foco é movido para um dos nós realçados (**VNet**) no modo de exibição de topologia.
-- Para mover para outros nós realçados no modo de exibição de `Shift+Right arrow` topologia, use a chave para movimento progressivo. 
-- Em nós realçados, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão **mais detalhes** na **caixa de ferramentas de informações**. Para mover-se mais dentro do modo de exibição `Right arrow` de `Left arrow` **caixa** , use as teclas e para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
-- Na seleção de qualquer um desses nós, você pode visitar todas as suas conexões, uma a uma, pressionando `Shift+Left arrow` a tecla. O foco é movido para a **caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
+- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco é movido para um dos nós realçados (**VNet**) no modo de exibição de topologia.
+- Para mover para outros nós realçados no modo de exibição de topologia, use a chave `Shift+Right arrow` para movimento progressivo. 
+- Em nós realçados, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão **mais detalhes** na **caixa de ferramentas de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use as teclas `Right arrow` e `Left arrow` para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
+- Na seleção de qualquer um desses nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco é movido para a **caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
     
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-subnet-topology-view"></a>Como posso navegar usando o teclado na exibição de topologia de sub-rede?
@@ -324,14 +324,14 @@ A página topologia de sub-redes virtuais contém duas seções principais:
 ### <a name="keyboard-navigation-on-the-banner"></a>Navegação de teclado na faixa
     
 - Por padrão, a seleção na página topologia de sub-redes virtuais para a faixa é o filtro "sub-redes".
-- Para mover para outro filtro, use a `Tab` chave para avançar. Para retroceder, use a `Shift+Tab` chave. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
+- Para mover para outro filtro, use a chave `Tab` para avançar. Para retroceder, use a chave `Shift+Tab`. A navegação progressiva é da esquerda para a direita, seguida de cima para baixo.
 - Pressione `Enter` para aplicar o filtro selecionado. Com base na seleção e implantação de filtro, um ou vários nós (sub-rede) na seção topologia são realçados.
 - Para alternar entre a faixa e a topologia, pressione `Ctrl+F6`.
         
 ### <a name="keyboard-navigation-on-the-topology"></a>Navegação de teclado na topologia
     
-- Depois de selecionar qualquer filtro na faixa e pressionado `Ctrl+F6`, o foco é movido para um dos nós realçados (**sub-rede**) no modo de exibição de topologia.
-- Para mover para outros nós realçados no modo de exibição de `Shift+Right arrow` topologia, use a chave para movimento progressivo. 
-- Em nós realçados, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão **mais detalhes** na **caixa de ferramentas de informações**. Para mover-se mais dentro do modo de `Right arrow` exibição `Left arrow` de **caixa** , use as teclas e para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
-- Na seleção de qualquer um desses nós, você pode visitar todas as suas conexões, uma a uma, `Shift+Left arrow` pressionando a tecla. O foco é movido para a **caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
+- Depois de selecionar qualquer filtro na faixa e pressionar `Ctrl+F6`, o foco será movido para um dos nós realçados (**sub-rede**) no modo de exibição de topologia.
+- Para mover para outros nós realçados no modo de exibição de topologia, use a chave `Shift+Right arrow` para movimento progressivo. 
+- Em nós realçados, o foco é movido para a **caixa de ferramentas de informações** para o nó. Por padrão, o foco é movido para o botão **mais detalhes** na **caixa de ferramentas de informações**. Para mover-se ainda mais dentro do modo de exibição de **caixa** , use as teclas `Right arrow` e `Left arrow` para avançar e retroceder, respectivamente. Pressionar `Enter` tem o mesmo efeito que selecionar o botão focalizado na **caixa ferramenta de informações**.
+- Na seleção de qualquer um desses nós, você pode visitar todas as suas conexões, uma a uma, pressionando a tecla `Shift+Left arrow`. O foco é movido para a **caixa de ferramentas de informações** dessa conexão. A qualquer momento, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.    
 

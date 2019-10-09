@@ -1,6 +1,6 @@
 ---
-title: Adicionar utilizadores licenciados individualmente para licenciamento baseado no grupo - Azure Active Directory | Documentos da Microsoft
-description: Como migrar de licenças de utilizador individuais para licenciamento baseado em grupo com o Azure Active Directory
+title: Adicionar usuários licenciados individualmente ao licenciamento baseado em grupo-Azure Active Directory | Microsoft Docs
+description: Como migrar de licenças de usuário individuais para licenciamento baseado em grupo usando o Azure Active Directory
 services: active-directory
 keywords: Licenciamento do Azure AD
 documentationcenter: ''
@@ -11,83 +11,79 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 09/26/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192458"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034741"
 ---
-# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como migrar os utilizadores com licenças individuais para grupos para licenciamento
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Como migrar usuários com licenças individuais para grupos para licenciamento
 
-Pode ter licenças existentes implementadas para os utilizadores em organizações por meio de "atribuição direta"; ou seja, utilizar scripts do PowerShell ou outras ferramentas para atribuir licenças de utilizador individuais. Antes de começar a utilizar o licenciamento baseado em grupo para gerir licenças na sua organização, pode utilizar este plano de migração para substituir facilmente as soluções existentes com o licenciamento baseado em grupo.
+Você pode ter licenças existentes implantadas para usuários nas organizações por meio de "atribuição direta"; ou seja, usando scripts do PowerShell ou outras ferramentas para atribuir licenças de usuário individuais. Antes de começar a usar o licenciamento baseado em grupo para gerenciar licenças em sua organização, você pode usar esse plano de migração para substituir diretamente as soluções existentes com o licenciamento baseado em grupo.
 
-A coisa mais importante a lembrar é que deve evitar uma situação em que a migração para o licenciamento baseado em grupo resultará em utilizadores temporariamente perder cujas licenças são atribuídas atualmente. Qualquer processo que pode resultar na remoção de licenças deve ser evitado para remover o risco dos utilizadores perderem o acesso aos seus dados e serviços.
+A coisa mais importante a ser lembrada é que você deve evitar uma situação em que a migração para o licenciamento baseado em grupo fará com que os usuários percam temporariamente suas licenças atualmente atribuídas. Qualquer processo que possa resultar na remoção de licenças deve ser evitado para remover o risco de usuários perderem o acesso a serviços e seus dados.
 
 ## <a name="recommended-migration-process"></a>Processo de migração recomendado
 
-1. Terá de automatização existente (por exemplo, o PowerShell), gestão de atribuição de licenças e remoção para os utilizadores. Deixe a funcionar como está.
+1. Você tem a automação existente (por exemplo, o PowerShell) gerenciando a atribuição e a remoção de licenças para os usuários. Deixe-o em execução como está.
 
-2. Criar um novo grupo de licenciamento (ou decidir quais existentes de grupos para utilizar) e certifique-se de que todas as necessárias que os utilizadores são adicionados como membros.
+1. Crie um novo grupo de licenciamento (ou decida quais grupos existentes serão usados) e certifique-se de que todos os usuários necessários sejam adicionados como membros.
 
-3. Atribuir as licenças necessárias para esses grupos; sua meta deve ser refletir o estado de licenciamento mesmo que sua automação existente (por exemplo, o PowerShell) está a ser aplicada aos usuários.
+1. Atribuir as licenças necessárias a esses grupos; seu objetivo deve ser refletir o mesmo estado de licenciamento que sua automação existente (por exemplo, PowerShell) está se aplicando a esses usuários.
 
-4. Certifique-se de que licenças foram aplicadas a todos os utilizadores esses grupos. Esta aplicação pode ser feita ao verificar o estado de processamento em cada grupo e verificando os registos de auditoria.
+1. Verifique se as licenças foram aplicadas a todos os usuários nesses grupos. Esse aplicativo pode ser feito verificando o estado de processamento em cada grupo e verificando os logs de auditoria.
 
-   - Pode verificar de usuários individuais ao consultar os detalhes da licença. Verá que tiverem o mesmo licenças atribuídas "diretamente" e "herdado" de grupos.
+   - Você pode identificar a verificação de usuários individuais examinando seus detalhes de licença. Você verá que eles têm as mesmas licenças atribuídas "diretamente" e "herdadas" dos grupos.
 
-   - Pode executar um script do PowerShell para [Certifique-se de como as licenças são atribuídas aos utilizadores](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - Você pode executar um script do PowerShell para [verificar como as licenças são atribuídas aos usuários](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-   - Quando a mesma licença de produto é atribuída ao utilizador diretamente e através de um grupo, somente uma licença é consumida pelo utilizador. Por conseguinte, não existem licenças adicionais são necessários para efetuar a migração.
+   - Quando a mesma licença de produto é atribuída ao usuário diretamente e por meio de um grupo, apenas uma licença é consumida pelo usuário. Portanto, nenhuma licença adicional é necessária para executar a migração.
 
-5. Certifique-se de que não existem atribuições de licenças falhou ao verificar a cada grupo de utilizadores no Estado com erros. Para obter mais informações, consulte [identificando e resolver problemas de licença para um grupo](licensing-groups-resolve-problems.md).
+1. Verifique se não houve nenhuma atribuição de licença verificando cada grupo quanto aos usuários no estado de erro. Para obter mais informações, consulte [identificando e resolvendo problemas de licença para um grupo](licensing-groups-resolve-problems.md).
 
-6. Considere remover as atribuições de diretas originais; poderá fazê-lo gradualmente, em "fases", para monitorizar o resultado num subconjunto de utilizadores em primeiro lugar.
-
-   Poderia deixar as atribuições de diretas originais em utilizadores, mas quando os utilizadores deixam seus grupos licenciados ainda irá reter a licença original, o que é, possivelmente, não o que deseja.
+Considere remover as atribuições diretas originais. É recomendável que você o faça gradualmente e monitore o resultado em um subconjunto de usuários primeiro. Se você pode deixar as atribuições diretas originais nos usuários, mas quando os usuários deixam seus grupos licenciados, eles retêm as licenças atribuídas diretamente, o que pode não ser o que você deseja.
 
 ## <a name="an-example"></a>Um exemplo
 
-Uma organização tem 1.000 usuários. Todos os utilizadores necessitam de licenças de Security (EMS) do Enterprise Mobility +. 200 utilizadores são no departamento financeiro e necessitam de licenças do Office 365 Enterprise E3. Atualmente, a organização tem um script do PowerShell em execução no local, adicionar e remover licenças de utilizadores, à medida que eles venham e voltem. No entanto, a organização pretende substituir o script com o licenciamento baseado em grupo para que licenças possam ser gerenciadas automaticamente pelo Azure AD.
+Uma organização tem 1.000 usuários. Todos os usuários exigem licenças do Office 365 Enterprise E3. Atualmente, a organização tem um script do PowerShell em execução local, adicionando e removendo licenças dos usuários à medida que elas chegam e vão. No entanto, a organização deseja substituir o script pelo licenciamento baseado em grupo para que as licenças possam ser gerenciadas automaticamente pelo Azure AD.
 
-Eis o que o processo de migração deve é semelhante ao:
+Veja como seria a aparência do processo de migração:
 
-1. Utilizar o portal do Azure, atribuir a licença de EMS para o **todos os utilizadores** grupo no Azure AD. Atribuir a licença E3 para o **departamento financeiro** grupo que contém todos os utilizadores.
+1. Usando o portal do Azure, atribua a licença do Office 365 E3 ao grupo **todos os usuários** no Azure AD.
 
-2. Para cada grupo, certifique-se que a atribuição de licenças foi concluída para todos os utilizadores. Aceda ao painel para cada grupo, selecione **licenças**e verificar o estado de processamento na parte superior a **licenças** painel.
+1. Confirme se a atribuição de licença foi concluída para todos os usuários. Vá para a página Visão geral do grupo, selecione **licenças**e verifique o status de processamento na parte superior da folha **licenças** .
 
-   - Procure "Licença mais recentes alterações foram aplicadas a todos os utilizadores" para confirmar o processamento foi concluído.
+   - Procure "últimas alterações de licença foram aplicadas a todos os usuários" para confirmar que o processamento foi concluído.
 
-   - Procure uma notificação na parte superior sobre todos os utilizadores aos quais licenças podem ter não foi atribuídas com êxito. Executámos mais licenças para alguns usuários? Alguns utilizadores têm a licença em conflito SKUs impedi-los de herdar de licenças de grupo?
+   - Procure uma notificação na parte superior de todos os usuários para os quais as licenças podem não ter sido atribuídas com êxito. Ficou sem licenças para alguns usuários? Alguns usuários têm planos de licença conflitantes que os impedem de herdar licenças de grupo?
 
-3. Lugar verificar alguns utilizadores para verificar que têm ambas as diretas e de grupo licenças aplicadas. Aceda ao painel para um utilizador, selecione **licenças**e examinar o estado de licenças.
+1. Identificar Verifique alguns usuários para verificar se eles têm as licenças diretas e de grupo aplicadas. Acesse a página de perfil de um usuário, selecione **licenças**e examine o estado das licenças.
 
-   - Este é o estado de utilizador esperado durante a migração:
+   - Este é o estado do usuário esperado durante a migração:
 
-      ![o estado do utilizador esperado durante a migração](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![o estado de usuário esperado durante a migração](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-   Isto confirma que o utilizador tem licenças herdadas tanto diretas. Podemos ver que ambos **EMS** e **E3** são atribuídos.
+     Isso confirma que o usuário tem licenças diretas e herdadas. Vemos que o Office 365 E3 está atribuído.
 
-   - Selecione cada licença de mostrar os detalhes sobre os serviços ativados. Isso pode ser usado para verificar se as licenças diretas e de grupo permitem exatamente os mesmo os planos de serviço para o utilizador.
+   - Selecione cada licença para ver quais serviços estão habilitados. Para verificar se as licenças diretas e de grupo permitem exatamente os mesmos serviços para o usuário, selecione **atribuições**.
 
-      ![Verifique os planos de serviço para o utilizador](./media/licensing-groups-migrate-users/check-service-plans.png)
+1. Depois de confirmar que as licenças diretas e de grupo são equivalentes, você pode começar a remover licenças diretas dos usuários. Você pode testar isso removendo-os para usuários individuais no portal e, em seguida, executar scripts de automação para que eles sejam removidos em massa. Aqui está um exemplo do mesmo usuário com as licenças diretas removidas por meio do Portal. Observe que o estado da licença permanece inalterado, mas não vemos mais as atribuições diretas.
 
-4. Depois de confirmar que as licenças diretas e de grupo são equivalentes, pode começar a remover licenças diretas dos utilizadores. Pode testar isso, removendo-os para usuários individuais no portal e, em seguida, executar scripts de automatização tê-los removido em massa. Eis um exemplo do mesmo usuário com as licenças diretos removido através do portal. Tenha em atenção que o estado da licença permanece inalterado, mas já não vemos atribuições diretas.
+   ![confirmar se as licenças diretas foram removidas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
-   ![Confirme que licenças diretas serão removidas](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Passos Seguintes
+Saiba mais sobre outros cenários de gerenciamento de licenças de Grupo:
 
-Para saber mais sobre outros cenários para gestão de licenças através de grupos, leia
-
-* [O que é o licenciamento no Azure Active Directory com base em grupo?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
-* [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-change-licenses.md)
-* [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
-* [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-ps-examples.md)
+- [O que é o licenciamento baseado em grupo no Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+- [Atribuir licenças a um grupo no Azure Active Directory](licensing-groups-assign.md)
+- [Identificar e resolver problemas de licença para um grupo no Azure Active Directory](licensing-groups-resolve-problems.md)
+- [Como migrar os utilizadores entre licenças de produto através do licenciamento com o botão com base em grupo no Azure Active Directory](licensing-groups-change-licenses.md)
+- [Cenários adicionais de licenciamento baseado no grupo do Azure Active Directory](licensing-group-advanced.md)
+- [Exemplos do PowerShell para licenciamento com o botão com base em grupo no Azure Active Directory](licensing-ps-examples.md)

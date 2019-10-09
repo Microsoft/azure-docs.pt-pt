@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 565330528638bb6c8e0458a9761e2cf9fa4e3d2a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001461"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029995"
 ---
 # <a name="get-started-with-device-twins-python"></a>Introdução ao dispositivo gêmeos (Python)
 
@@ -70,7 +70,7 @@ Nesta seção, você criará um aplicativo de console do Python que adiciona met
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Adicione o seguinte código. Substitua `[IoTHub Connection String]` pela cadeia de conexão do Hub IOT que você copiou em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua `[Device Id]` pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
+4. Adicione o seguinte código. Substitua `[IoTHub Connection String]` pela cadeia de conexão do Hub IoT que você copiou em [obter a cadeia de conexão do Hub IOT](#get-the-iot-hub-connection-string). Substitua `[Device Id]` pela ID do dispositivo que você registrou em [registrar um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -171,7 +171,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. Adicione o seguinte código. Substitua o `[IoTHub Device Connection String]` valor do espaço reservado pela cadeia de conexão do dispositivo que você copiou no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
+4. Adicione o seguinte código. Substitua o valor de espaço reservado `[IoTHub Device Connection String]` pela cadeia de conexão do dispositivo que você copiou no [registro de um novo dispositivo no Hub IOT](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -187,7 +187,7 @@ Nesta seção, você cria um aplicativo de console do Python que se conecta ao s
             print(patch)
 
     def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+        client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():
