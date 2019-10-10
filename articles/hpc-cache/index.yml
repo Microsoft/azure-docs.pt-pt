@@ -10,12 +10,12 @@ metadata:
   author: ekpgh
   ms.author: v-erkell
   ms.date: 09/24/2019
-  ms.openlocfilehash: 266f1e62f57c0d795d154dc29c159c609212b73b
-  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.openlocfilehash: 1c8960e56366e63aecee7340238e13ec42a7749c
+  ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71299906"
+  ms.lasthandoff: 10/08/2019
+  ms.locfileid: "72029960"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:
@@ -47,3 +47,7 @@ landingContent:
     links:
     - text: Abrir um pedido de suporte
       url: hpc-cache-support-ticket.md
+  - linkListType: concept
+    links:
+    - text: Recuperar de uma falha regional
+      url: hpc-region-recovery.md

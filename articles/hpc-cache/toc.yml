@@ -36,3 +36,5 @@
   items:
     - name: Abrir um pedido de suporte
       href: hpc-cache-support-ticket.md
+    - name: Recuperar de uma falha regional
+      href: hpc-region-recovery.md

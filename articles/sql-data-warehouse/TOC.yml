@@ -151,6 +151,10 @@
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
             - name: Definir para uma sessão
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql
+            - name: Verificar o tamanho da cache
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest'
+            - name: Limpar a cache
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest'
         - name: Tabelas
           items:
             - name: Descrição geral

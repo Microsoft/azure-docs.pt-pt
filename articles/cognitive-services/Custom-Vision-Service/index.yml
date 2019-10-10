@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Documentação de Visão Personalizada
-summary: A Visão Personalizada do Azure é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagem. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam classes) a imagens, de acordo com suas características visuais.
+summary: A Visão Personalizada é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagens. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam classes) a imagens, de acordo com suas características visuais.
 metadata:
   title: Documentação de Visão Personalizada
-  description: A Visão Personalizada do Azure é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagem. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam classes) a imagens, de acordo com suas características visuais.
+  description: A Visão Personalizada é um serviço cognitivo que lhe permite criar, implementar e melhorar os seus classificadores de imagens. Um classificador de imagem é um serviço de IA que aplica etiquetas (que representam classes) a imagens, de acordo com suas características visuais.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 931f67bd0f5c73426781da39ded3bcfff0a8dea3
-  ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
+  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71211969"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72176175"
 landingContent:
 - title: Sobre a Visão Personalizada
   linkLists:

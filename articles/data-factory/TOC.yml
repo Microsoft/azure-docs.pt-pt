@@ -80,6 +80,8 @@
           items:
             - name: Ferramenta Copiar Dados
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
+    - name: Transformar os dados com o Fluxo de Dados de Mapeamento
+      href: tutorial-data-flow.md
     - name: Transformar dados na cloud
       items:
         - name: HDInsight Spark
@@ -143,7 +145,7 @@
       href: concepts-integration-runtime.md
     - name: Mapeamento de Fluxos de Dados
       items:
-        - name: Conceitos de mapeamento de fluxo de dados
+        - name: Descrição geral do fluxo de dados de mapeamento
           href: concepts-data-flow-overview.md
         - name: Modo de depuração
           href: concepts-data-flow-debug-mode.md
@@ -151,8 +153,6 @@
           href: concepts-data-flow-json.md
         - name: Desvio do esquema
           href: concepts-data-flow-schema-drift.md
-        - name: Painel de inspeção
-          href: concepts-data-flow-inspect-pane.md
         - name: Padrões de coluna
           href: concepts-data-flow-column-pattern.md
         - name: Monitorização de fluxo de dados
@@ -161,12 +161,8 @@
           href: concepts-data-flow-performance.md
         - name: Mover nós
           href: concepts-data-flow-move-nodes.md
-        - name: Otimizar o separador
-          href: concepts-data-flow-optimize-tab.md
         - name: Construtor de expressões
           href: concepts-data-flow-expression-builder.md
-        - name: Nós de referência
-          href: concepts-data-flow-reference-node.md
         - name: Expressão de idioma
           href: data-flow-expression-functions.md
     - name: Funções e permissões
@@ -390,6 +386,8 @@
     - name: Transformar dados
       href: transform-data.md
       items:
+        - name: Executar a atividade do Fluxo de Dados
+          href: control-flow-execute-data-flow-activity.md
         - name: Atividade da Função do Azure
           href: control-flow-azure-function-activity.md
         - name: Atividade Personalizada
@@ -424,8 +422,6 @@
       items:
         - name: Acrescentar a Atividade Variável
           href: control-flow-append-variable-activity.md
-        - name: Executar a atividade do Fluxo de Dados
-          href: control-flow-execute-data-flow-activity.md
         - name: Executar a Atividade do Pipeline
           href: control-flow-execute-pipeline-activity.md
         - name: Filtrar Atividade

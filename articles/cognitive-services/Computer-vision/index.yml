@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 184128c4b49bca1f8dd0849bd24b29c664ca0178
-  ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+  ms.openlocfilehash: 8c09125fde66c62ecbb1560d2327c6b9671accf8
+  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71718492"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72176286"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -112,6 +112,8 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: API de Imagem Digitalizada v2.1
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
     - text: API de Imagem Digitalizada v2.0
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
     - text: API de Imagem Digitalizada v1.0
@@ -125,7 +127,7 @@ landingContent:
     - text: SDK Node.js
       url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest
     - text: SDK Go
-      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Interface de Linha de Comandos do Azure (CLI)

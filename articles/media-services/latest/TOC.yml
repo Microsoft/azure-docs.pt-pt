@@ -4,6 +4,8 @@
   items:
     - name: Sobre os Serviços de Multimédia
       href: media-services-overview.md
+    - name: Novidades nos Serviços de Multimédia
+      href: release-notes.md
 - name: Tutoriais
   expanded: true
   items:
@@ -343,8 +345,6 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Explorador dos Serviços de Multimédia do Azure
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: Notas de versão
-      href: release-notes.md
     - name: Quotas e limitações
       href: limits-quotas-constraints.md
     - name: FAQ
