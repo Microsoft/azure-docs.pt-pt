@@ -1,5 +1,5 @@
 ---
-title: Organizar recursos com os grupos de gestão do Azure - Governação do Azure
+title: Organizar seus recursos com grupos de gerenciamento – governança do Azure
 description: Saiba mais sobre os grupos de gestão, como as permissões destes funcionam e como utilizá-los.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: dba6334815f0c86a800b38ad09487f719857f993
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: aa4c5a7bfe7333c02fe79612b828df5680b83b26
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71341110"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254725"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organizar recursos com os grupos de gestão do Azure
 
@@ -90,18 +90,18 @@ Por exemplo, a função RBAC de contribuidor de VM pode ser atribuída a um grup
 
 A tabela seguinte mostra a lista de funções e as ações suportadas nos grupos de gestão.
 
-| Nome da Função RBAC             | Criar | Mudar o Nome | Mover** | Eliminar | Atribuir Acesso | Atribuir Política | Leitura  |
+| Nome da Função RBAC             | Create | Mudar o nome | Mover** | Eliminar | Atribuir Acesso | Atribuir Política | Leitura  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
-|Owner                       | X      | X      | X      | X      | X             | X             | X     |
+|Proprietário                       | X      | X      | X      | X      | X             | X             | X     |
 |Contribuinte                 | X      | X      | X      | X      |               |               | X     |
 |Contribuidor MG*             | X      | X      | X      | X      |               |               | X     |
 |Leitor                      |        |        |        |        |               |               | X     |
 |Leitor MG*                  |        |        |        |        |               |               | X     |
-|Contribuinte de Política de Recurso |        |        |        |        |               | X             |       |
-|Administrador de Acesso dos Utilizadores   |        |        |        |        | X             | X             |       |
+|Contribuidor de Política de Recursos |        |        |        |        |               | X             |       |
+|Administrador de Acesso de Utilizador   |        |        |        |        | X             | X             |       |
 
-*: As funções de Contribuinte MG e Leitor MG apenas permitem aos utilizadores realizar essas ações no âmbito do grupo de gestão.  
-**: As Atribuições de Funções no grupo de gestão de Raiz não são necessárias para mover uma subscrição ou um grupo de gestão de e para o grupo.  Veja [Manage your resources with management groups](manage.md) (Gerir os recursos com grupos de gestão) para obter detalhes sobre como mover itens dentro da hierarquia.
+*: As funções Contribuidor MG e Leitor MG apenas permitem aos utilizadores realizar essas ações no âmbito do grupo de gestão.  
+\* *: As atribuições de função no grupo de gerenciamento raiz não são necessárias para mover uma assinatura ou grupo de gerenciamento de e para ela.  Veja [Manage your resources with management groups](manage.md) (Gerir os recursos com grupos de gestão) para obter detalhes sobre como mover itens dentro da hierarquia.
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Atribuição e Definição de Funções RBAC Personalizadas
 

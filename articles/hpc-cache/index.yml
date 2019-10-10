@@ -8,14 +8,14 @@ metadata:
   ms.topic: landing-page
   ms.collection: collection
   author: ekpgh
-  ms.author: v-erkell
+  ms.author: rohogue
   ms.date: 09/24/2019
-  ms.openlocfilehash: 1c8960e56366e63aecee7340238e13ec42a7749c
-  ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+  ms.openlocfilehash: 0914d3458a153c05a5bd818c448b69f0ef133fb4
+  ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/08/2019
-  ms.locfileid: "72029960"
+  ms.lasthandoff: 10/10/2019
+  ms.locfileid: "72254449"
 landingContent:
 - title: Acerca do Azure HPC Cache
   linkLists:

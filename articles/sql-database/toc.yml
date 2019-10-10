@@ -198,22 +198,20 @@
                   href: /sql/connect/ruby/ruby-driver-for-sql-server
     - name: 'Cópia de segurança, restauro, elevada disponibilidade (BCDR)'
       items:
-        - name: Recuperação com cópias de segurança
-          href: sql-database-recovery-using-backups.md
-        - name: Recuperação de base de dados acelerada
-          href: sql-database-accelerated-database-recovery.md
-        - name: Orientação de recuperação de falhas
-          href: sql-database-disaster-recovery.md
-        - name: Testes de recuperação
-          href: sql-database-disaster-recovery-drills.md
         - name: Continuidade do negócio
           href: sql-database-business-continuity.md
         - name: Elevada disponibilidade
           href: sql-database-high-availability.md
-        - name: Cópias de segurança automatizadas
-          href: sql-database-automated-backups.md
-        - name: Retenção de cópia de segurança de longa duração
-          href: sql-database-long-term-retention.md
+        - name: Cópias de segurança
+          items:
+            - name: Cópias de segurança automatizadas
+              href: sql-database-automated-backups.md
+            - name: Recuperação com cópias de segurança
+              href: sql-database-recovery-using-backups.md
+            - name: Recuperação de base de dados acelerada
+              href: sql-database-accelerated-database-recovery.md
+            - name: Retenção de cópia de segurança de longa duração
+              href: sql-database-long-term-retention.md
         - name: Grupos de ativação pós-falha e georreplicação
           items:
             - name: Georreplicação ativa
@@ -222,6 +220,10 @@
               href: sql-database-auto-failover-group.md
             - name: Configurar a segurança para réplicas
               href: sql-database-geo-replication-security-config.md
+            - name: Orientação de recuperação de falhas
+              href: sql-database-disaster-recovery.md
+            - name: Testes de recuperação
+              href: sql-database-disaster-recovery-drills.md
     - name: Monitorizar e otimizar
       items:
         - name: Documentação sobre como monitorizar e otimizar

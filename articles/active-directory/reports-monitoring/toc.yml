@@ -15,8 +15,6 @@
       href: quickstart-download-audit-report.md
     - name: Configurar localizações com nome
       href: quickstart-configure-named-locations.md
-    - name: Instalar pacote de conteúdos do Power BI
-      href: quickstart-install-power-bi-content-pack.md
     - name: Encaminhar registos para a conta de armazenamento
       href: quickstart-azure-monitor-route-logs-to-storage-account.md
 - name: Tutoriais
@@ -58,8 +56,6 @@
           href: howto-troubleshoot-sign-in-errors.md
         - name: Remediar utilizadores sinalizados como em risco
           href: howto-remediate-users-flagged-for-risk.md
-        - name: Utilizar o Pacote de Conteúdos do Power BI para relatórios do Azure AD
-          href: howto-power-bi-content-pack.md
         - name: Configurar pré-requisitos para a API de Relatórios
           href: howto-configure-prerequisites-for-reporting-api.md
         - name: Como utilizar os livros do Azure Active Directory
@@ -86,8 +82,6 @@
           href: troubleshoot-missing-data-download.md
         - name: Não pode aceder a Graph APIs para relatórios
           href: troubleshoot-graph-api.md
-        - name: Erros no Pacote de Conteúdos do Power BI
-          href: troubleshoot-content-pack.md
 - name: Referência
   expanded: true
   items:

@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 093116a8def69e3f63af9aeb963abc60841cbe85
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.author: rohogue
+ms.openlocfilehash: bfbbcd2d7d1bb44e260bedda54ca38ed6860ea67
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257014"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254482"
 ---
 # <a name="what-is-azure-hpc-cache-preview"></a>O que é o Azure HPC Cache? (Pré-visualização)
 
@@ -45,16 +45,16 @@ O cache HPC do Azure também pode ser aproveitado para melhorar a eficiência em
 
 Uma implantação de cache do HPC do Azure pode ajudar a acelerar cálculos de análise quantitativos, cargas de trabalho de análise de risco e simulações Monte Carlo para fornecer às empresas de serviços financeiros melhores insights para tomar decisões estratégicas.
 
-## <a name="region-availability"></a>Disponibilidade de região
+## <a name="region-availability"></a>Disponibilidade regional
 
 O cache do HPC do Azure está disponível nessas regiões do Azure:
 
-* East US
-* EUA Leste 2
+* Este dos E.U.A.
+* Este dos E.U.A. 2
 * Europa do Norte
 * Europa Ocidental
 * Sudeste Asiático
-* EUA Oeste 2
+* E.U.A. Oeste 2
 
 Verifique a [página do produto de cache HPC do Azure](https://azure.microsoft.com/services/hpc-cache) para obter as informações de disponibilidade mais recentes.
 

@@ -8,7 +8,7 @@ metadata:
   ms.service: fxt-edge-filer
   ms.topic: landing-page
   ms.date: 07/10/2019
-  ms.author: v-erkell
+  ms.author: rohogue
 abstract:
   description: 'A cache de armazenamento híbrido do Azure FXT Edge Filer é um sistema híbrido de hardware/software que acelera o acesso a dados para os fluxos de trabalho de computação de alto desempenho (HPC) de leitura intensiva e baseados em ficheiros. Um cluster de três ou mais dispositivos do Azure FXT Edge Filer pode acelerar o desempenho de armazenamento dos sistemas NAS no local (NetApp ou Dell EMC Isilon), do armazenamento na cloud ou de uma combinação de soluções.'
 sections:

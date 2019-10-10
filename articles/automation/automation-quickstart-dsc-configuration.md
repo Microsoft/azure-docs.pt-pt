@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850555"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243463"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Configurar uma máquina virtual com a configuração de estado desejado
 
@@ -42,7 +42,7 @@ Existem vários métodos diferentes para carregar uma máquina e ativar a Config
 2. Clique em **Adicionar** para abrir a página de seleção de VM.
 3. Encontre a máquina virtual em que pretende ativar o DSC. Pode utilizar as opções de campo de pesquisa e de filtro para encontrar uma máquina virtual específica.
 4. Clique na máquina virtual e, em seguida, selecione **Ligar**
-5. Selecione as definições de DSC adequadas para a máquina virtual. Se já preparou uma configuração, pode especificar como *Nome da Configuração do Nó*. Pode definir o [modo de configuração](https://docs.microsoft.com/powershell/dsc/metaconfig) para controlar o comportamento de configuração da máquina.
+5. Selecione as definições de DSC adequadas para a máquina virtual. Se já preparou uma configuração, pode especificar como *Nome da Configuração do Nó*. Pode definir o [modo de configuração](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) para controlar o comportamento de configuração da máquina.
 6. Clique em **OK**
 
 ![Inclusão de uma VM do Azure no DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -64,7 +64,7 @@ Os módulos contêm Recursos de DSC e muitos podem ser encontrados na [Galeria d
 
 Este guia rápido utiliza uma configuração de DSC que configura o Apache HTTP Server, o MySQL e o PHP na máquina.
 
-Para obter informações sobre configurações de DSC, veja [DSC configurations (Configurações de DSC)](https://docs.microsoft.com/powershell/dsc/configurations).
+Para obter informações sobre configurações de DSC, veja [DSC configurations (Configurações de DSC)](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
 
 Num editor de texto, escreva o seguinte e guarde-o localmente como `LAMPServer.ps1`.
 
@@ -108,7 +108,7 @@ Para importar a configuração:
 
 ## <a name="compile-a-configuration"></a>Compilar uma configuração
 
-As Configurações de DSC devem ser compiladas para uma Configuração de Nó (documento MOF) antes de serem atribuídas a um nó. A compilação valida a configuração e permite a entrada de valores de parâmetros. Para saber mais sobre como compilar uma configuração, confira: [Compilando configurações no Azure DSC de Automação](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+As Configurações de DSC devem ser compiladas para uma Configuração de Nó (documento MOF) antes de serem atribuídas a um nó. A compilação valida a configuração e permite a entrada de valores de parâmetros. Para obter mais informações sobre como compilar uma configuração, veja: [Compiling Configurations in Azure Automation DSC (Compilar Configurações no DSC de Automatização do Azure)](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Para compilar a configuração:
 
@@ -142,7 +142,7 @@ Neste guia rápido integrou uma VM com Linux no DSC, criou uma configuração pa
 > [!div class="nextstepaction"]
 > [Implementação contínua para uma VM com o DSC e Chocolatey](./automation-dsc-cd-chocolatey.md)
 
-* Para saber mais sobre a Configuração de Estado Pretendido do PowerShell, veja [PowerShell Desired State Configuration Overview (Descrição Geral da Configuração de Estado Pretendido do PowerShell)](https://docs.microsoft.com/powershell/dsc/overview).
+* Para saber mais sobre a Configuração de Estado Pretendido do PowerShell, veja [PowerShell Desired State Configuration Overview (Descrição Geral da Configuração de Estado Pretendido do PowerShell)](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview).
 * Para saber mais sobre a gestão do Automation DSC do PowerShell, veja [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
 * Para saber como encaminhar relatórios DSC para Azure Monitor logs para relatórios e alertas, consulte [encaminhando relatórios de DSC para logs de Azure monitor](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

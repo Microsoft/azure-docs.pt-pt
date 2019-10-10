@@ -1,92 +1,92 @@
 ---
-title: Início rápido - implementar o modelo de solução do Ansible para o Azure para CentOS | Documentos da Microsoft
-description: Neste guia de introdução, saiba como implementar o modelo de solução do Ansible numa máquina virtual CentOS alojada no Azure, juntamente com ferramentas configuradas para trabalhar com o Azure.
-keywords: ansible, azure, devops, modelo de solução, máquina virtual, identidades geridas para recursos do azure, centos, red hat
+title: Início rápido – implantar o modelo de solução Ansible para o Azure para CentOS
+description: Neste guia de início rápido, saiba como implantar o modelo de solução Ansible em uma máquina virtual CentOS hospedada no Azure, juntamente com as ferramentas configuradas para trabalhar com o Azure.
+keywords: Ansible, Azure, DevOps, modelo de solução, máquina virtual, identidades gerenciadas para recursos do Azure, CentOS, Red Hat
 ms.topic: quickstart
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230994"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241720"
 ---
-# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Início rápido: Implementar o modelo de solução do Ansible para o Azure para CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Início rápido: implantar o modelo de solução Ansible para o Azure para CentOS
 
-O modelo de solução do Ansible para o Azure foi concebido para configurar uma instância do Ansible numa máquina virtual CentOS, juntamente com o Ansible e um conjunto de ferramentas configurado para trabalhar com o Azure. Estas ferramentas incluem:
+O modelo de solução Ansible para o Azure foi projetado para configurar uma instância Ansible em uma máquina virtual CentOS junto com Ansible e um conjunto de ferramentas configuradas para funcionar com o Azure. Estas ferramentas incluem:
 
-- **Ansible módulos do Azure** – a [Ansible módulos para o Azure](./ansible-matrix.md) são um conjunto de módulos que permitem-lhe criar e gerir a sua infraestrutura no Azure. A versão mais recente destes módulos é implementada por predefinição. No entanto, durante o processo de implementação do modelo de solução, pode especificar um número de versão é apropriado para seu ambiente.
-- **Interface de linha de comandos (CLI) 2.0 do Azure** – a [CLI 2.0 do Azure](/cli/azure/?view=azure-cli-latest) é uma experiência de linha de comandos para várias plataformas para o gerenciamento de recursos do Azure. 
-- **gerido identidades para recursos do Azure** – a [geridos identidades para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) funcionalidade resolve o problema de manter cloud credenciais de aplicativo seguro.
+- **Módulos Ansible para Azure** -os [módulos Ansible do Azure](./ansible-matrix.md) são um conjunto de módulos que permitem criar e gerenciar sua infraestrutura no Azure. A versão mais recente desses módulos é implantada por padrão. No entanto, durante o processo de implantação de modelo de solução, você pode especificar um número de versão apropriado para seu ambiente.
+- **CLI (interface de linha de comando) do Azure 2,0** -o [CLI do Azure 2,0](/cli/azure/?view=azure-cli-latest) é uma experiência de linha de comando de plataforma cruzada para gerenciar recursos do Azure. 
+- **identidades gerenciadas para recursos do Azure** – o recurso [identidades gerenciadas para recursos do Azure](/azure/active-directory/managed-identities-azure-resources/overview) aborda o problema de manter as credenciais do aplicativo de nuvem seguras.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## <a name="deploy-the-ansible-solution-template"></a>Implementar o modelo de solução do Ansible
+## <a name="deploy-the-ansible-solution-template"></a>Implantar o modelo de solução Ansible
 
-1. Navegue para o [modelo de solução do Ansible no Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
+1. Navegue até o [modelo de solução Ansible no Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
 1. Selecione **obter agora**.
 
-1. É apresentada uma janela que detalha os termos de utilização, a política de privacidade e a utilização de termos do Azure Marketplace. Selecione **Continuar**.
+1. É exibida uma janela que detalha os termos de uso, a política de privacidade e o uso dos termos do Azure Marketplace. Selecione **Continuar**.
 
-1. O portal do Azure aparece e apresenta a página de Ansible que descreve o modelo de solução. Selecione **Criar**.
+1. O portal do Azure aparece e exibe a página Ansible que descreve o modelo de solução. Selecione **Criar**.
 
-1. Na **Ansible criar** página, verá várias guias. Sobre o **Noções básicas** separador, introduza as informações necessárias:
+1. Na página **criar Ansible** , você verá várias guias. Na guia **noções básicas** , insira as informações necessárias:
 
-   - **Nome** -especifique o nome da sua instância do Ansible. Para fins de demonstração, o nome `ansiblehost` é utilizado.
-   - **Nome de utilizador:** -especifique o nome de utilizador que terão acesso à instância do Ansible. Para fins de demonstração, o nome `ansibleuser` é utilizado.
-   - **Tipo de autenticação:** -selecione **palavra-passe** ou **chave pública SSH**. Para fins de demonstração **chave pública SSH** está selecionada.
-   - **Palavra-passe** e **Confirmar palavra-passe** - se de que seleciona **palavra-passe** para **tipo de autenticação**, introduza a palavra-passe para esses valores.
-   - **Chave pública SSH** - se de que seleciona **chave pública SSH** para **tipo de autenticação**, introduza a chave pública RSA no formato de linha única - começando com `ssh-rsa`.
-   - **Subscrição** -selecione a sua subscrição do Azure na lista pendente.
-   - **Grupo de recursos** - selecione um grupo de recursos existente na lista pendente ou selecione **criar novo** e especifique um nome para um novo grupo de recursos. Para fins de demonstração, um novo grupo de recursos com o nome `ansiblerg` é utilizado.
-   - **Localização** -selecione a localização na lista pendente que é adequada para o seu cenário.
+   - **Nome** – especifique o nome da instância de Ansible. Para fins de demonstração, o nome `ansiblehost` é usado.
+   - **Nome de usuário:** -especifique o nome de usuário que terá acesso à instância de Ansible. Para fins de demonstração, o nome `ansibleuser` é usado.
+   - **Tipo de autenticação:** -selecione a **senha** ou a **chave pública SSH**. Para fins de demonstração, a **chave pública SSH** é selecionada.
+   - **Senha** e **Confirmar senha** – se você selecionar **senha** para o **tipo de autenticação**, insira sua senha para esses valores.
+   - **Chave pública SSH** -se você selecionar **chave pública SSH** para o **tipo de autenticação**, insira sua chave pública RSA no formato de linha única-começando com `ssh-rsa`.
+   - **Assinatura** – selecione sua assinatura do Azure na lista suspensa.
+   - **Grupo de recursos** – selecione um grupo de recursos existente na lista suspensa ou selecione **criar novo** e especifique um nome para um novo grupo de recursos. Para fins de demonstração, um novo grupo de recursos chamado `ansiblerg` é usado.
+   - **Local** -selecione o local na lista suspensa que é apropriado para seu cenário.
 
-     ![Separador de portal do Azure para as definições básicas do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
+     ![Guia portal do Azure para configurações básicas do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-1.png)
 
 1. Selecione **OK**.
 
-1. Na **definições adicionais** separador, introduza as informações necessárias:
+1. Na guia **configurações adicionais** , insira as informações necessárias:
 
-   - **Tamanho** -padrões de portais do Azure para um tamanho padrão. Para especificar um tamanho diferente, que permite a seu cenário específico, selecione a seta para apresentar uma lista de tamanhos diferentes.
-   - **Tipo de disco VM** -selecione **SSD** (Solid-State unidade Premium) ou **HDD** (unidade de disco rígido). Para fins de demonstração **SSD** está selecionada para seus benefícios de desempenho. Para obter mais informações sobre cada um desses tipos de armazenamento em disco, consulte os artigos seguintes:
+   - **Tamanho** -o portal do Azure usa como padrão um tamanho padrão. Para especificar um tamanho diferente que acomode seu cenário específico, selecione a seta para exibir uma lista de tamanhos diferentes.
+   - **Tipo de disco da VM** -selecione **SSD** (unidade de estado sólido Premium) ou **HDD** (unidade de disco rígido). Para fins de demonstração, o **SSD** é selecionado para seus benefícios de desempenho. Para obter mais informações sobre cada um desses tipos de armazenamento em disco, consulte os seguintes artigos:
        - [Armazenamento Premium e discos geridos de elevado desempenho para VMs](/azure/virtual-machines/windows/premium-storage)
-       - [SSD Managed Disks Standard para cargas de trabalho de Máquina Virtual do Azure](/azure/virtual-machines/windows/disks-standard-ssd)
-   - **Endereço IP público** -especificar esta definição se pretender comunicar com a máquina virtual a partir de fora da máquina virtual. A predefinição é um novo endereço IP público com o nome `ansible-pip`. Para especificar um endereço IP diferente, selecione a seta para Especifica os atributos - como nome, SKU e a atribuição, desse endereço IP. 
-   - **Etiqueta de nome de domínio** -introduza o nome de domínio destinado ao público da máquina virtual. O nome tem de ser exclusivos e cumprir requisitos de nomenclatura. Para obter mais informações sobre como especificar um nome para a máquina virtual, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/naming-conventions).
-   - **Versão do Ansible** -Especifique um número de versão ou o valor `latest` para implementar a versão mais recente. Selecione o ícone de informações junto a **versão do Ansible** para obter mais informações sobre as versões disponíveis.
+       - [Managed Disks de SSD Standard para cargas de trabalho de máquina virtual do Azure](/azure/virtual-machines/windows/disks-standard-ssd)
+   - **Endereço IP público** -especifique essa configuração se desejar se comunicar com a máquina virtual de fora da máquina virtual. O padrão é um novo endereço IP público com o nome `ansible-pip`. Para especificar um endereço IP diferente, selecione a seta especificar os atributos, como nome, SKU e atribuição, desse endereço IP. 
+   - **Rótulo de nome de domínio** – Insira o nome de domínio voltado para o público da máquina virtual. O nome deve ser exclusivo e atender aos requisitos de nomenclatura. Para obter mais informações sobre como especificar um nome para a máquina virtual, consulte [convenções de nomenclatura para recursos do Azure](/azure/architecture/best-practices/naming-conventions).
+   - **Versão do Ansible** -especifique um número de versão ou o valor `latest` para implantar a versão mais recente. Selecione o ícone de informações ao lado de **Ansible versão** para ver mais informações sobre as versões disponíveis.
 
-     ![Separador de portal do Azure para as definições adicionais do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
-
-1. Selecione **OK**.
-
-1. Na **definições de integração do Ansible** separador, especifique o tipo de autenticação. Para obter mais informações sobre como proteger recursos do Azure, consulte [o que há de identidades geridas para recursos do Azure?](/azure/active-directory/managed-identities-azure-resources/overview).
-
-    ![Separador de portal do Azure para as definições de integração do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
+     ![Guia portal do Azure para configurações adicionais do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)
 
 1. Selecione **OK**.
 
-1. O **resumo** página apresenta que mostra o processo de validação e listando os critérios especificados para a implementação do Ansible. Um link na parte inferior do separador permite-lhe **transferir o modelo e parâmetros** para utilização com plataformas e idiomas com suporte do Azure. 
+1. Na guia **configurações de integração do Ansible** , especifique o tipo de autenticação. Para obter mais informações sobre como proteger os recursos do Azure, consulte [o que são identidades gerenciadas para recursos do Azure?](/azure/active-directory/managed-identities-azure-resources/overview).
 
-     ![Separador de portal do Azure para o separador Resumo do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
+    ![Guia portal do Azure para as configurações de integração do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-3.png)
 
 1. Selecione **OK**.
 
-1. Quando o **Create** separador for apresentada, selecione **OK** para implementar o Ansible.
+1. A página **Resumo** exibe a exibição do processo de validação e a listagem dos critérios especificados para a implantação do Ansible. Um link na parte inferior da guia permite que você **Baixe o modelo e os parâmetros** para uso com plataformas e linguagens do Azure com suporte. 
 
-1. Selecione o **notificações** na parte superior da página do portal para monitorizar a implementação do Ansible. Depois da implementação estiver concluída, selecione **vá para o grupo de recursos**. 
+     ![Guia portal do Azure para a guia Resumo de Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-4.png)
 
-     ![Separador de portal do Azure para o separador Resumo do Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
+1. Selecione **OK**.
 
-1. Na página do grupo de recursos, obtenha o endereço IP do anfitrião do Ansible e inicie sessão para gerir os recursos do Azure com o Ansible.
+1. Quando a guia **criar** for exibida, selecione **OK** para implantar o Ansible.
 
-## <a name="next-steps"></a>Passos Seguintes
+1. Selecione o ícone **notificações** na parte superior da página do portal para acompanhar a implantação do Ansible. Quando a implantação for concluída, selecione **ir para o grupo de recursos**. 
+
+     ![Guia portal do Azure para a guia Resumo de Ansible](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-complete.png)
+
+1. Na página grupo de recursos, obtenha o endereço IP do host Ansible e entre para gerenciar seus recursos do Azure usando o Ansible.
+
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Quickstart: Configurar uma máquina virtual Linux no Azure com o Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Início rápido: configurar uma máquina virtual do Linux no Azure usando o Ansible](/azure/virtual-machines/linux/ansible-create-vm)

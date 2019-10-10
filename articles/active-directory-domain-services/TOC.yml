@@ -25,6 +25,8 @@
       href: powershell-create-instance.md
 - name: Conceitos
   items:
+    - name: Noções básicas de administração
+      href: administration-concepts.md
     - name: Cenários de implementação comuns
       href: scenarios.md
     - name: Como funciona a sincronização do Azure AD DS

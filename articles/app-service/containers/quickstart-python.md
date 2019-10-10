@@ -15,12 +15,12 @@ ms.date: 08/23/2019
 ms.author: cephalin
 experimental: true
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: ed7e0df77abb39c07bea8946381247539afb3134
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: 253e2e5015c2cb7a71386b88b4d86ac6bff6a0fe
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177016"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242466"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Criar um aplicativo Python no serviço de Azure App no Linux
 
@@ -52,12 +52,19 @@ O repositório contém um *Application.py*, que informa ao serviço de aplicativ
 Execute a aplicação localmente, para ver que aspeto deveria ter quando a implemente no Azure. Abra uma janela de terminal e utilize os comandos abaixo para instalar as dependências necessárias e iniciar o servidor de desenvolvimento incorporado. 
 
 ```bash
-# In Bash
+# In Bash (for Linux or Mac)
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
-
+```
+```powershell
+# In Powershell (for Windows)
+py -3 -m venv env
+env\scripts\activate
+pip install -r requirements.txt
+Set-Item Env:FLASK_APP ".\application.py"
+flask run
 ```
 
 Abra um navegador da Web e vá para o aplicativo de exemplo em `http://localhost:5000/`.

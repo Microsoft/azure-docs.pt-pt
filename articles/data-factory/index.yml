@@ -12,12 +12,12 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   monikerRange: ''
-  ms.openlocfilehash: 619205d9eb275b9cbe6506fc37d56d757d95d796
-  ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+  ms.openlocfilehash: 2bd0c4f7230b47c38f8aa75ace0870ac9cd87737
+  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/03/2019
-  ms.locfileid: "71937458"
+  ms.lasthandoff: 10/10/2019
+  ms.locfileid: "72242259"
 landingContent:
 - title: Acerca do Azure Data Factory
   linkLists:
@@ -138,7 +138,7 @@ landingContent:
     - text: Identidade Gerida da fábrica de dados
       url: /azure/data-factory/data-factory-service-identity
     - text: Armazenar credenciais no Azure Key Vault
-      url: /store-credentials-in-key-vault
+      url: /azure/data-factory/store-credentials-in-key-vault
 - title: Criar, Monitorizar e Gerir
   linkLists:
   - linkListType: how-to-guide

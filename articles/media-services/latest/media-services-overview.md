@@ -16,16 +16,18 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c6359cf2401ff198b0242243dbf6dfdf2e35ce47
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123033"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244028"
 ---
 # <a name="azure-media-services-v3-overview"></a>Visão geral dos serviços de mídia do Azure v3
 
 Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lhe permite criar soluções que possibilitam a transmissão em vídeo com qualidade de transmissão, melhorar a acessibilidade e distribuição, analisar conteúdo e muito mais. Quer seja um programador de aplicações, um centro de atendimento, um organismo público, uma empresa de entretenimento, os Serviços de Multimédia ajudam-no a criar aplicações que permitem experiências de multimédia de qualidade extraordinária para um grande público nos browsers e nos dispositivos móveis atualmente mais populares. 
+
+Os SDKs dos serviços de mídia v3 são baseados na [especificação de openapi (Swagger) dos serviços de mídia v3](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.
@@ -34,7 +36,7 @@ Os Serviços de Multimédia do Azure são uma plataforma baseada na cloud que lh
 
 Os Serviços de Multimédia permitem-lhe criar uma variedade de fluxos de trabalho de multimédia na cloud. Veja a seguir alguns exemplos do pode fazer com os Serviços de Multimédia.  
 
-* Fornecer vídeos em diferentes formatos para que possam ser reproduzidos numa ampla variedade de dispositivos e browsers. Para disponibilização de transmissão tanto a pedido como em direto para vários clientes (dispositivos móveis, TV, PC, etc.), o conteúdo de áudio e vídeo tem de ser codificado e empacotado adequadamente. Para ver como entregar e transmitir tal conteúdo, consulte [início rápido: Codificar e transmitir arquivos](stream-files-dotnet-quickstart.md).
+* Fornecer vídeos em diferentes formatos para que possam ser reproduzidos numa ampla variedade de dispositivos e browsers. Para disponibilização de transmissão tanto a pedido como em direto para vários clientes (dispositivos móveis, TV, PC, etc.), o conteúdo de áudio e vídeo tem de ser codificado e empacotado adequadamente. Para ver como disponibilizar e transmitir tal conteúdo, veja [Quickstart: Encode and stream files](stream-files-dotnet-quickstart.md) (Início Rápido: Codificar e transmitir ficheiros).
 * Transmita em direto eventos desportivos para uma grande audiência online, tais como jogos de futebol, basebol, eventos desportivos escolares e muito mais. 
 * Difunda sessões e eventos públicos como, por exemplo, reuniões municipais, assembleias municipais e órgãos legisladores.
 * Analise o conteúdo de áudio ou de vídeos registados. Por exemplo, para alcançar uma maior satisfação do cliente, as organizações podem extrair a conversão de voz em texto e criar índices de pesquisa e dashboards. Em seguida, podem extrair informações relativas a queixas comuns, fontes de queixas e outros dados relevantes.
@@ -49,9 +51,9 @@ Os Serviços de Multimédia permitem-lhe criar uma variedade de fluxos de trabal
 Saiba como codificar e criar pacotes de conteúdos, transmitir vídeos em fluxo a pedido, transmitir em direto e analisar os seus vídeos com os Serviços de Multimédia v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
 > [!TIP]
-> Antes de começar a desenvolver, examine:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes: empacotamento, codificação, proteção, etc.)<br/>* [Desenvolvendo com APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura, etc.)
+> Antes de começar a desenvolver, examine:<br/>[conceitos fundamentais](concepts-overview.md) do *  (inclui conceitos importantes: empacotamento, codificação, proteção, etc.)<br/>* [desenvolvendo com APIs dos serviços de mídia v3](media-services-apis-overview.md) (inclui informações sobre como acessar APIs, convenções de nomenclatura, etc.)
 
-### <a name="quickstarts"></a>Guias de Introdução  
+### <a name="quickstarts"></a>Inícios rápidos  
 
 Os guias de início rápido mostram as instruções fundamentais do dia 1 para que novos clientes experimentem rapidamente os serviços de mídia.
 
@@ -69,7 +71,7 @@ Os tutoriais mostram procedimentos baseados em cenários para algumas das princi
 * [Analise seu vídeo-.NET](analyze-videos-tutorial-with-api.md)
 * [Criptografia dinâmica AES-128-.NET](protect-with-aes128.md)
     
-### <a name="samples"></a>Amostras
+### <a name="samples"></a>Exemplos
 
 Use [este navegador de exemplos](https://docs.microsoft.com/samples/browse/?products=azure-media-services) para procurar exemplos de código dos serviços de mídia do Azure.
 

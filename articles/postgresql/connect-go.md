@@ -1,6 +1,6 @@
 ---
-title: Utilize a linguagem Go para ligar à base de dados do Azure para PostgreSQL - servidor único
-description: Este início rápido fornece um exemplo de programação de Go da linguagem que pode utilizar para ligar e consultar dados da base de dados do Azure para PostgreSQL - único servidor.
+title: Use o idioma Go para se conectar ao banco de dados do Azure para PostgreSQL-servidor único
+description: Este guia de início rápido fornece um exemplo de linguagem de programação go que você pode usar para se conectar e consultar dados de um servidor único para PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 9356379262cc078cd6a62f3280bcb8cc3d315844
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 645d34961fb735542729091719dd55c42436db95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067379"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244482"
 ---
-# <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Base de dados do Azure para PostgreSQL - servidor único: Utilize a linguagem Go para ligar e consultar dados
+# <a name="azure-database-for-postgresql---single-server-use-go-language-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL-servidor único: usar o idioma Go para se conectar e consultar dados
 Este início rápido explica como se pode ligar a uma Base de Dados do Azure para PostgreSQL através de código escrito na linguagem [Go](https://golang.org/) (golang). Explica como utilizar as instruções SQL para consultar, inserir, atualizar e eliminar dados da base de dados. Este artigo pressupõe que esteja familiarizado com o desenvolvimento que utiliza o Go, mas que nunca trabalhou com a base de dados do Azure para PostgreSQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -85,14 +85,14 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
  ![Nome do servidor da Base de Dados do Azure para PostgreSQL](./media/connect-go/1-connection-string.png)
 
 ## <a name="build-and-run-go-code"></a>Criar e executar código Go 
-1. Para escrever o código Golang, pode utilizar um editor de textos simples, como o Bloco de Notas no Microsoft Windows, o [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou o [Nano](https://www.nano-editor.org/) no Ubuntu ou o TextEdit em macOS. Se preferir um Ambiente de Desenvolvimento Interativo (IDE) rico, experimente o [Gogland](https://www.jetbrains.com/go/), da Jetbrains, o [Visual Studio Code](https://code.visualstudio.com/), da Microsoft, ou o [Atom](https://atom.io/).
+1. Para escrever o código Golang, pode utilizar um editor de textos simples, como o Bloco de Notas no Microsoft Windows, o [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) ou o [Nano](https://www.nano-editor.org/) no Ubuntu ou o TextEdit em macOS. Se você preferir um IDE (ambiente de desenvolvimento interativo) mais rico, tente [GoLand](https://www.jetbrains.com/go/) por Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) pela Microsoft ou [Atom](https://atom.io/).
 2. Cole o código Golang das secções seguintes em ficheiros de texto e guarde-os na pasta do projeto com a extensão de ficheiro \*.go, como, por exemplo, o caminho do Windows `%USERPROFILE%\go\src\postgresqlgo\createtable.go` ou o caminho do Linux `~/go/src/postgresqlgo/createtable.go`.
 3. Localize as constantes `HOST`, `DATABASE`, `USER` e `PASSWORD` no código e substitua os valores de exemplo pelos seus próprios valores.  
 4. Inicie a linha de comandos ou a shell de bash. Altere o diretório para a pasta do projeto . Por exemplo, no Windows `cd %USERPROFILE%\go\src\postgresqlgo\`. No Linux, `cd ~/go/src/postgresqlgo/`. Alguns dos ambientes IDE mencionados oferecem capacidades de depuração e runtime sem que sejam necessários comandos da shell.
 5. Execute o código com o comando `go run createtable.go`, para compilar a aplicação e executá-la. 
 6. Em alternativa, para criar o código numa aplicação nativa, `go build createtable.go`, e inicie `createtable.exe` para executar a aplicação.
 
-## <a name="connect-and-create-a-table"></a>Ligar-se e criar uma tabela
+## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
 Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE**, seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código importa três pacotes: o [pacote sql](https://golang.org/pkg/database/sql/), o [pacote pq](https://godoc.org/github.com/lib/pq) como um controlador para comunicar com o servidor PostgreSQL e o [pacote fmt](https://golang.org/pkg/fmt/) para entrada e saída de dados impressos na linha de comandos.
@@ -163,7 +163,7 @@ Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **S
 
 O código importa três pacotes: o [pacote sql](https://golang.org/pkg/database/sql/), o [pacote pq](https://godoc.org/github.com/lib/pq) como um controlador para comunicar com o servidor PostgreSQL e o [pacote fmt](https://golang.org/pkg/fmt/) para entrada e saída de dados impressos na linha de comandos.
 
-O código chama o método [sql.Open()](https://godoc.org/github.com/lib/pq#Open) para ligar à base de dados da Base de Dados do Azure para PostgreSQL e verifica a ligação através do método [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). É utilizado um [identificador de base de dados](https://golang.org/pkg/database/sql/#DB) ao manter o conjunto de ligações para o servidor da base de dados. A consulta select é executada ao chamar o método [db.Query()](https://golang.org/pkg/database/sql/#DB.Query) e as linhas resultantes são mantidas numa variável do tipo [rows](https://golang.org/pkg/database/sql/#Rows). O código lê os valores de dados de coluna na linha atual através do método [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) e cria ciclos nas linhas através do iterador [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) até não existirem mais linhas. Os valores de coluna de cada linha são impressos na consola. Sempre que seja chamado um método checkError() personalizado serve para verificar se ocorreu um erro e pânico para sair se ocorrer um erro.
+O código chama o método [sql.Open()](https://godoc.org/github.com/lib/pq#Open) para ligar à base de dados da Base de Dados do Azure para PostgreSQL e verifica a ligação através do método [db.Ping()](https://golang.org/pkg/database/sql/#DB.Ping). É utilizado um [identificador de base de dados](https://golang.org/pkg/database/sql/#DB) ao manter o conjunto de ligações para o servidor da base de dados. A consulta select é executada ao chamar o método [db.Query()](https://golang.org/pkg/database/sql/#DB.Query) e as linhas resultantes são mantidas numa variável do tipo [rows](https://golang.org/pkg/database/sql/#Rows). O código lê os valores de dados de coluna na linha atual através do método [rows.Scan()](https://golang.org/pkg/database/sql/#Rows.Scan) e cria ciclos nas linhas através do iterador [rows.Next()](https://golang.org/pkg/database/sql/#Rows.Next) até não existirem mais linhas. Os valores de coluna de cada linha são impressos no console. Cada vez que um método checkError () personalizado é usado para verificar se ocorreu um erro e se há pane para sair se ocorrer um erro.
 
 Substitua os parâmetros `HOST`, `DATABASE`, `USER` e `PASSWORD` pelos seus próprios valores. 
 
@@ -332,6 +332,6 @@ func main() {
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
 > [Migrar a base de dados com Exportar e Importar](./howto-migrate-using-export-and-import.md)

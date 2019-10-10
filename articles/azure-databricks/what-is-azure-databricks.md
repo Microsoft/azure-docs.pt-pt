@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure Databricks?
-description: Saiba mais sobre o Azure Databricks e forma traz o Spark no Databricks para o Azure. O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure.
+description: Saiba mais sobre Azure Databricks e como ele traz o Spark no databricks para o Azure. O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimizada para a plataforma de serviços cloud Microsoft Azure.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 0864db682141b1d7f8cb0c9ff14c9897fb02fe1b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412760"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243335"
 ---
 # <a name="what-is-azure-databricks"></a>O que é o Azure Databricks?
 
@@ -23,9 +23,9 @@ O Azure Databricks é uma plataforma de análise baseada no Apache Spark e otimi
 
 ![O que é o Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "O que é o Azure Databricks?")
 
-O Azure Databricks é um serviço de análise baseada no Apache Spark rápida, fácil e de colaboração. Para um pipeline de grandes volumes de dados, os dados (não processados ou estruturados) é ingeridos no Azure através do Azure Data Factory em lotes ou transmitidos em tempo quase real com o Kafka, o Hub de eventos ou o IoT Hub. Este francesas de dados num data lake longo prazo persistentes armazenamento, no armazenamento de Blobs do Azure ou de armazenamento do Azure Data Lake. Como parte do seu fluxo de trabalho de análise, utilizar o Azure Databricks para ler os dados de várias origens de dados, tal como [armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md), [o armazenamento do Azure Data Lake](../data-lake-store/index.md), [do Azure Cosmos DB](../cosmos-db/index.yml) , ou [do Azure SQL Data Warehouse](../sql-data-warehouse/index.md) e transformá-lo em ideias inovadoras com o Spark.
+Azure Databricks é um serviço de análise rápido, fácil e colaborativo com base em Apache Spark. Para um pipeline Big Data, os dados (brutos ou estruturados) são incluídos no Azure por meio de Azure Data Factory em lotes ou transmitidos quase em tempo real usando Kafka, Hub de eventos ou Hub IoT. Esses dados estão em um data Lake para armazenamento persistente de longo prazo, no armazenamento de BLOBs do Azure ou Azure Data Lake Storage. Como parte do seu fluxo de trabalho de análise, use Azure Databricks para ler dados de várias fontes de dados, como o [armazenamento de BLOBs do Azure](../storage/blobs/storage-blobs-introduction.md), [Azure data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml)ou [Azure SQL data warehouse](../sql-data-warehouse/index.yml) e transformá-lo em um processo avançado informações que usam o Spark.
 
-![Pipeline de Databricks](./media/what-is-azure-databricks/databricks-pipeline.png)
+![Pipeline do databricks](./media/what-is-azure-databricks/databricks-pipeline.png)
 
 ## <a name="apache-spark-based-analytics-platform"></a>Plataforma de análise baseada no Apache Spark
 
@@ -33,15 +33,15 @@ O Azure Databricks inclui as capacidades e tecnologias completas de cluster do A
 
 ![Apache Spark no Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Apache Spark no Azure Databricks")
 
-* **O spark SQL e DataFrames**: Spark SQL é o módulo do Spark para trabalhar com dados estruturados. Um DataFrame é uma coleção distribuída de dados organizados em colunas com nome. É conceptualmente equivalente a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
+* **Spark SQL e DataFrames**: o Spark SQL é o módulo do Spark para trabalhar com dados estruturados. Um DataFrame é uma coleção distribuída de dados organizados em colunas com nome. É conceptualmente equivalente a uma tabela numa base de dados relacional ou a um pacote de dados em R/Python.
 
-* **Transmissão em fluxo**: Processamento de dados em tempo real e análise para aplicações interativas e analíticas. Pode ser integrado com HDFS, Flume e Kafka.
+* **Transmissão em fluxo**: análise e processamento de dados em tempo real para aplicações interativas e analíticas. Pode ser integrado com HDFS, Flume e Kafka.
 
-* **MLib**: Biblioteca de Machine Learning constituída por comuns de aprendizado algoritmos e utilitários, incluindo classificação, regressão, clustering, filtragem em colaboração, redução de dimensionalidade, bem como primitivos de otimização subjacentes.
+* **MLib**: biblioteca de Machine Learning constituída por utilitários e algoritmos de aprendizagem comuns, incluindo classificação, regressão, clustering, filtragem em colaboração, redução de dimensionalidade, bem como primitivos de otimização subjacentes.
 
-* **GraphX**: Gráficos e computação de gráficos para um âmbito alargado de casos desde a análise cognitiva para exploração de dados de utilização.
+* **GraphX**: gráficos e computação de gráficos para um âmbito alargado de casos de utilização, desde a análise cognitiva até à exploração de dados.
 
-* **API do spark Core**: Inclui suporte para R, SQL, Python, Scala e Java.
+* **Spark Core API**: inclui suporte para R, SQL, Python, Scala e Java.
 
 ## <a name="apache-spark-in-azure-databricks"></a>Apache Spark no Azure Databricks
 
@@ -86,16 +86,16 @@ O Azure Databricks fornece a segurança do Azure de nível empresarial, incluind
 * O acesso baseado em funções do Azure Databricks ativa permissões de utilizador detalhadas para blocos de notas, clusters, tarefas e dados.
 * SLAs de nível empresarial. 
 
-## <a name="integration-with-azure-services"></a>Integração com os serviços do Azure
+## <a name="integration-with-azure-services"></a>Integração nos serviços do Azure
 
-O Azure Databricks integra-se profundamente com arquivos e bancos de dados do Azure: SQL Data Warehouse, o Cosmos DB, o Data Lake Store e o armazenamento de Blobs. 
+O Azure Databricks integra-se profundamente com as bases de dados e arquivos do Azure: SQL Data Warehouse, Cosmos DB, Data Lake Store e Armazenamento de Blobs. 
 
 ## <a name="integration-with-power-bi"></a>Integração com o Power BI
 Através da forte integração com o Power BI, o Azure Databricks permite-lhe detetar e partilhar as suas informações importantes de forma rápida e fácil. Também pode utilizar outras ferramentas de BI, com o Tableau Software através de pontos finais de cluster JDBC/ODBC.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Quickstart: Executar uma tarefa do Spark no Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+* [Início rápido: Executar uma tarefa do Spark no Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 * [Trabalhar com clusters do Spark](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
 * [Trabalhar com blocos de notas](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
 * [Criar tarefas do Spark](https://docs.azuredatabricks.net/user-guide/jobs.html)
