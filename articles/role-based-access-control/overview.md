@@ -76,7 +76,7 @@ As restantes funções incorporadas permitem a gestão de recursos específicos 
 
 O Azure tem operações de dados que permitem que você conceda acesso a dados dentro de um objeto. Por exemplo, se um utilizador tiver acesso a dados de leitura a uma conta de armazenamento, pode ler os blobs ou as mensagens nessa conta de armazenamento. Para obter mais informações, consulte [noções básicas sobre definições de função para recursos do Azure](role-definitions.md).
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Âmbito
 
 *Escopo* é o conjunto de recursos aos quais o acesso se aplica. Quando atribui uma função, pode limitar ainda mais as ações permitidas ao definir um âmbito. Isto é útil se quiser tornar alguém [Contribuidor de Site](built-in-roles.md#website-contributor), mas apenas para um grupo de recursos.
 
@@ -136,7 +136,7 @@ Seguem-se as etapas de alto nível que o RBAC utiliza para determinar se tem ace
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure @ no__t-0
+- [Início rápido: exibir o acesso que um usuário tem aos recursos do Azure usando o portal do Azure](check-access.md)
 - [Manage access to Azure resources using RBAC and the Azure portal](role-assignments-portal.md) (Gerir o acesso a recursos do Azure com RBAC e o portal do Azure)
 - [Compreender as diferentes funções no Azure](rbac-and-directory-admin-roles.md)
-- Adoção de nuvem de @no__t 0Enterprise: Gerenciamento de acesso a recursos no Azure @ no__t-0
+- [Adoção do Enterprise Cloud: gestão de acesso a recursos no Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

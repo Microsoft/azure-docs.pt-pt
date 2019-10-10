@@ -31,7 +31,7 @@ Veja abaixo um resumo das funções atribuídas à identidade gerenciada por rec
 |---|---|---|
 |**Tipo de armazenamento**|**Conta de armazenamento de origem Provedor de Dados**|**Conta de armazenamento de destino de consumidor de dados**|
 |Armazenamento de Blobs do Azure| Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
-|Azure Data Lake Gen1 | Owner | Não suportado
+|Azure Data Lake Gen1 | Proprietário | Não suportado
 |Azure Data Lake Gen2 | Leitor de dados de blob de armazenamento | Colaborador de dados do blob de armazenamento
 |
 ### <a name="data-providers"></a>Provedores de dados 
@@ -44,7 +44,7 @@ Se estiver compartilhando dados de Azure Data Lake Gen1, a atribuição de funç
 Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados, siga as etapas abaixo:
 
 1. Navegue até a conta de armazenamento.
-1. Selecione **controlo de acesso (IAM)** .
+1. Selecione **controle de acesso (iam)** .
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione *leitor de dados de blob de armazenamento*.
 1. Em *selecionar*, digite o nome da sua conta de compartilhamento de dados do Azure.
@@ -58,7 +58,7 @@ Como alternativa, o usuário pode ter um administrador do Azure para adicionar a
 Para criar uma atribuição de função para a identidade gerenciada do recurso de compartilhamento de dados manualmente, siga as etapas abaixo:
 
 1. Navegue até a conta de armazenamento.
-1. Selecione **controlo de acesso (IAM)** .
+1. Selecione **controle de acesso (iam)** .
 1. Selecione **Adicionar uma atribuição de função**.
 1. Em *função*, selecione *colaborador de dados de blob de armazenamento*. 
 1. Em *selecionar*, digite o nome da sua conta de compartilhamento de dados do Azure.

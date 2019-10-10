@@ -34,9 +34,9 @@ Vai executar os seguintes passos neste tutorial:
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
-> * Reviu os resultados finais.
+> * Rever os resultados finais.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Eis os passos importantes para criar esta solução: 
 
 1. **Selecionar a coluna de limite de tamanho**.
@@ -51,11 +51,11 @@ Eis os passos importantes para criar esta solução:
     
     a. Criar uma atividade ForEach que itera através de uma lista de nomes de tabelas de origem que é transmitida como um parâmetro para o pipeline. Para cada tabela de origem, este invoca as seguintes atividades para efetuar o carregamento de diferenças para essa tabela.
 
-    b. Criar duas atividades de pesquisa. Utilize a primeira atividade Pesquisa para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy.
+    b. Criar duas atividades de pesquisa. Utilize a primeira atividade Lookup para obter o último valor de limite de tamanho. Utilize a segunda para obter o valor de limite de tamanho novo. Estes valores de limite de tamanho são transmitidos para a atividade Copy.
 
     c. Criar uma atividade Copy que copia linhas do arquivo de dados de origem com o valor da coluna de limite de tamanho superior ao valor de limite de tamanho antigo e inferior ao valor novo. Em seguida, copia os dados delta do arquivo de dados de origem para o armazenamento de Blobs do Azure como um ficheiro novo.
 
-    d. Criar uma atividade StoredProcedure, que atualiza o valor de limite de tamanho do pipeline que vai ser executado da próxima vez. 
+    d. Crie uma atividade StoredProcedure, que atualiza o valor de marca d'água do pipeline que vai ser executado da próxima vez. 
 
     Eis o diagrama da solução de alto nível: 
 
@@ -251,7 +251,7 @@ END
 1. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 1. Selecione **Afixar ao dashboard**.     
 1. Clique em **Criar**.      
-1. No painel, você verá o seguinte bloco com status: **Implantando data Factory**. 
+1. No painel, vai ver o mosaico seguinte com o estado **A implementar fábrica de dados**. 
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-multiple-tables-portal/deploying-data-factory.png)
 1. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
@@ -280,7 +280,7 @@ Como está a mover dados de um arquivo de dados numa rede privada (no local) par
 1. Introduza **MySelfHostedIR** em **Nome** e clique em **Seguinte**. 
 
    ![Nome do IR autoalojado](./media/tutorial-incremental-copy-multiple-tables-portal/self-hosted-ir-name.png)
-1. Clique **em clique aqui para iniciar a instalação expressa para este computador** no **Option 1: Instalação expressa @ no__t-0 seção. 
+1. Clique em **Clique aqui para iniciar a configuração rápida neste computador**, na secção **Opção 1: Configuração Rápida**. 
 
    ![Clicar na ligação de Configuração Rápida](./media/tutorial-incremental-copy-multiple-tables-portal/click-express-setup.png)
 1. Na janela **Configuração Rápida do Integration Runtime (Autoalojado)** , clique em **Fechar**. 
@@ -513,10 +513,10 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A atividade ForE
     1. Selecione **Parâmetro de importação**. 
     1. Especifique os seguintes valores para os parâmetros: 
 
-        | Name | Tipo | Valor | 
+        | Nome | Tipo | Valor | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | Cadeia | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+        | TableName | String | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. No painel esquerdo, clique em **Publicar**. Esta ação publica as entidades que criou para o serviço Fábrica de Dados. 
@@ -738,7 +738,7 @@ Neste tutorial, executou os passos seguintes:
 > * Reveja os resultados.
 > * Adicionou ou atualizou os dados nas tabelas de origem.
 > * Voltou a executar e a monitorizar o pipeline.
-> * Reviu os resultados finais.
+> * Rever os resultados finais.
 
 Avance para o tutorial seguinte para saber como transformar dados através de um cluster do Spark no Azure:
 

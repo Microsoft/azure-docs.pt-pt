@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto impresso e manuscrito-REST, Python'
+title: 'Início rápido: extrair texto impresso e manuscrito-REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você extrai texto impresso e manuscrito de uma imagem usando o API da Pesquisa Visual Computacional com Python.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72176424"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Extrair texto impresso e manuscrito usando a API REST do Pesquisa Visual Computacional e o Python
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-python"></a>Início rápido: extrair texto impresso e manuscrito usando a API REST do Pesquisa Visual Computacional e o Python
 
 Neste guia de início rápido, você extrai texto impresso e/ou manuscrito de uma imagem usando a API REST do Pesquisa Visual Computacional. Com os métodos de [resultado da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) de leitura e leitura [em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) , você pode detectar texto em uma imagem e extrair caracteres reconhecidos em um fluxo de caracteres legível por máquina. A API determinará qual modelo de reconhecimento usar para cada linha de texto, para que ele dê suporte a imagens com texto impresso e manuscrito.
 
@@ -118,7 +118,7 @@ for polygon in polygons:
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {

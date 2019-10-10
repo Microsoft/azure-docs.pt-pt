@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um pipeline de ETL de ponta a ponta para derivar informações de vendas'
+title: 'Tutorial: criar um pipeline de ETL de ponta a ponta para derivar informações de vendas'
 description: Saiba como usar criar pipelines de ETL com o Azure HDInsight para derivar informações de dados de vendas usando clusters e Power BI do Spark sob demanda.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72178011"
 ---
-# <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Tutorial: Criar um pipeline de dados de ponta a ponta para derivar informações de vendas
+# <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Tutorial: criar um pipeline de dados de ponta a ponta para derivar informações de vendas
 
 Neste tutorial, você criará um pipeline de dados de ponta a ponta que executa operações de extração, transformação e carregamento (ETL). O pipeline usará Apache Spark e Apache Hive clusters em execução no Azure HDInsight para consultar e manipular os dados. Você também usará tecnologias como Azure Data Lake Storage Gen2 para armazenamento de dados e Power BI para visualização.
 
@@ -201,7 +201,7 @@ Esse script criará uma tabela gerenciada no cluster de consulta interativa que 
 
 ### <a name="create-a-power-bi-dashboard-from-sales-data"></a>Criar um painel de Power BI de dados de vendas
 
-1. Abra o Power BI Desktop.
+1. Abra o Power BI Desktop.
 1. Selecione **Obter Dados**.
 1. Pesquise **cluster de consulta interativa do HDInsight**.
 1. Cole o URI do seu cluster lá. Deverá estar no formato `https://<LLAP CLUSTER NAME>.azurehdinsight.net`.
@@ -212,7 +212,7 @@ Esse script criará uma tabela gerenciada no cluster de consulta interativa que 
 Depois que os dados são carregados, você pode experimentar o painel que deseja criar. Consulte os links a seguir para começar a usar os painéis de Power BI:
 
 * [Introdução aos painéis para designers de Power BI](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Tutorial: Introdução ao serviço do Power BI @ no__t-0
+* [Tutorial: introdução ao serviço do Power BI](https://docs.microsoft.com/power-bi/service-get-started)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

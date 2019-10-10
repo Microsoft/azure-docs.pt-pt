@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Treine seu primeiro modelo do Azure ML no Python'
+title: 'Tutorial: treinar seu primeiro modelo do Azure ML no Python'
 titleSuffix: Azure Machine Learning
 description: Neste tutorial, você aprende os padrões de design básico em Azure Machine Learning e treina um modelo scikit simples com base no conjunto de dados diabetes.
 services: machine-learning
@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72173294"
 ---
-# <a name="tutorial-train-your-first-ml-model"></a>Tutorial: Treinar seu primeiro modelo de ML
+# <a name="tutorial-train-your-first-ml-model"></a>Tutorial: treinar seu primeiro modelo de ML
 
 Este tutorial é a **segunda parte de uma série composta por duas partes**. No tutorial anterior, você [criou um espaço de trabalho e escolheu um ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup.md). Neste tutorial, você aprende os padrões de design básico em Azure Machine Learning e treina um modelo scikit simples com base no conjunto de dados diabetes. Depois de concluir este tutorial, você terá o conhecimento prático do SDK para escalar verticalmente para o desenvolvimento de experimentos e fluxos de trabalho mais complexos.
 
@@ -27,7 +27,7 @@ Neste tutorial, você aprende as seguintes tarefas:
 > * Conectar seu espaço de trabalho e criar um experimento
 > * Carregar dados e treinar modelos scikit-Learn
 > * Exibir resultados de treinamento no portal
-> * Obter o melhor modelo
+> * Recuperar o melhor modelo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -129,7 +129,7 @@ Após a conclusão do treinamento, chame a variável `experiment` para buscar um
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para portal do Azure</td><td>Link para a documentação</td></tr></table>
+<table style="width:100%"><tr><th>Nome</th><th>Área de trabalho</th><th>Página de relatório</th><th>Página de documentos</th></tr><tr><td>diabetes-experimento</td><td>Your-Workspace-Name</td><td>Link para portal do Azure</td><td>Link para a documentação</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Exibir resultados de treinamento no portal
 
@@ -222,5 +222,5 @@ Neste tutorial, você fez as seguintes tarefas:
 > * Dados carregados e modelos treinados scikit-Learn
 > * Resultados de treinamento exibidos no portal e recuperados modelos
 
-[Implementar o seu modelo](tutorial-deploy-models-with-aml.md) com o Azure Machine Learning.
+[Implante seu modelo](tutorial-deploy-models-with-aml.md) com Azure Machine Learning.
 Saiba como desenvolver experimentos [automatizados de aprendizado de máquina](tutorial-auto-train-models.md) .

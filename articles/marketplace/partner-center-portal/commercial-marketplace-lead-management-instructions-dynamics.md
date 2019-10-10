@@ -105,7 +105,7 @@ Use as etapas a seguir para configurar o Azure Active Directory do Dynamics 365 
 
     ![Criar um novo utilizador](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. Em **novo usuário**, verifique se o usuário: O usuário do aplicativo está selecionado. Forneça um nome de usuário, um nomes completo e um endereço de email para aquele que você deseja usar com essa conexão. Além disso, Cole a **ID do aplicativo** para o aplicativo que você criou no portal do Azure da etapa 8. Selecione **salvar e fechar** para concluir a adição do usuário.
+19. Em **novo usuário**, verifique se o usuário usuário: aplicativo está selecionado. Forneça um nome de usuário, um nomes completo e um endereço de email para aquele que você deseja usar com essa conexão. Além disso, Cole a **ID do aplicativo** para o aplicativo que você criou no portal do Azure da etapa 8. Selecione **salvar e fechar** para concluir a adição do usuário.
 
     ![Novo usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -134,7 +134,7 @@ Salve esses valores, pois eles são os valores de *nome de usuário e senha* que
 
 ![Centro de administração do Microsoft 365 – novo usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-new-user.png)
 
-## <a name="security-settings"></a>Definições de segurança
+## <a name="security-settings"></a>Configurações de segurança
 
 A etapa final é habilitar o usuário que você criou para escrever os leads.
 
@@ -147,7 +147,7 @@ A etapa final é habilitar o usuário que você criou para escrever os leads.
 
 5. Procure o nome da função "Microsoft Marketplace gravador de Lead" e selecione-o para atribuir ao usuário a função.
 
-    ![Gerir funções de utilizador](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
+    ![Gerenciar funções de usuário](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!Note]
     >Essa função é criada pela solução que você importou e tem permissões para gravar os leads e para acompanhar a versão da solução para garantir a compatibilidade.
@@ -156,11 +156,11 @@ A etapa final é habilitar o usuário que você criou para escrever os leads.
 
     ![Funções de segurança](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. Uma vez na função de segurança, selecione a guia **registros principais** . Pesquise a entidade "configurações de interface do usuário da entidade de usuários" e habilite as permissões criar, ler e gravar para o usuário (1/4 círculo amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
+7. Uma vez na função de segurança, selecione a guia **registros de núcleo** . procure a entidade "configurações de interface do usuário da entidade User" e habilite as permissões criar, ler e gravar para o usuário (1/4 círculo amarelo) para essa entidade clicando uma vez em cada um dos círculos correspondentes.
 
     ![Microsoft Marketplace gravador de Lead-registros principais](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. Agora, navegue até a guia **personalização** . Pesquise Tor a entidade "trabalho do sistema" e habilite as permissões de leitura, gravação e acréscimo para a organização (verde estável) para essa entidade clicando quatro vezes em cada um dos círculos correspondentes.
+8. Agora, navegue até a guia **personalização** . pesquise Tor a entidade "trabalho do sistema" e habilite as permissões ler, gravar e acrescentar para a organização (verde estável) para essa entidade clicando quatro vezes em cada um dos círculos correspondentes.
 
     ![Gravador de Lead Microsoft Marketplace-personalização](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 

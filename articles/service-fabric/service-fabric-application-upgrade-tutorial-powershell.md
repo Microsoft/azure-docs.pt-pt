@@ -36,7 +36,7 @@ Uma atualização de aplicativo monitorada pode ser executada usando as APIs ger
 
 Com Service Fabric atualizações sem interrupção monitoradas, o administrador do aplicativo pode configurar a política de avaliação de integridade que o Service Fabric usa para determinar se o aplicativo está íntegro. Além disso, o administrador pode configurar a ação a ser executada quando a avaliação de integridade falhar (por exemplo, fazendo uma reversão automática). Esta seção percorre uma atualização monitorada para um dos exemplos de SDK que usa o PowerShell. 
 
-## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Passo 1: Criar e implantar o exemplo de objetos visuais
+## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>Etapa 1: criar e implantar o exemplo de objetos visuais
 Crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjectsApplication** e selecionando o comando **publicar** .  Para obter mais informações, consulte [Service Fabric tutorial de atualização de aplicativos](service-fabric-application-upgrade-tutorial.md).  Como alternativa, você pode usar o PowerShell para implantar seu aplicativo.
 
 > [!NOTE]
@@ -48,7 +48,7 @@ Depois de criar o projeto no Visual Studio, você pode usar o comando [Copy-Serv
 
 Agora, você pode usar [Service Fabric Explorer para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo tem um serviço Web que pode ser navegado no Internet Explorer digitando [http://localhost:8081/visualobjects](http://localhost:8081/visualobjects) na barra de endereços.  Você deve ver alguns objetos visuais flutuantes que se movimentam na tela.  Além disso, você pode usar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) para verificar o status do aplicativo.
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Passo 2: Atualizar o exemplo de objetos visuais
+## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de objetos visuais
 Você pode observar que, com a versão que foi implantada na etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais também giram.
 
 Selecione o projeto VisualObjects. ActorService na solução VisualObjects e abra o arquivo StatefulVisualObjectActor.cs. Dentro desse arquivo, navegue até o método `MoveObject`, comente `this.State.Move()` e remova a marca de comentário `this.State.Move(true)`. Essa alteração gira os objetos depois que o serviço é atualizado.
@@ -74,7 +74,7 @@ Agora, o arquivo *ApplicationManifest. xml* (encontrado no projeto **VisualObjec
 
 Agora, compile o projeto selecionando apenas o projeto **ActorService** e, em seguida, clicando com o botão direito do mouse e selecionando a opção **Build** no Visual Studio. Se você selecionar **Recompilar tudo**, deverá atualizar as versões de todos os projetos, já que o código teria mudado. Em seguida, vamos empacotar o aplicativo atualizado clicando com o botão direito do mouse em ***VisualObjectsApplication***, selecionando o menu Service Fabric e escolhendo **pacote**. Essa ação cria um pacote de aplicativos que pode ser implantado.  Seu aplicativo atualizado está pronto para ser implantado.
 
-## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Passo 3:  Decidir sobre políticas de integridade e parâmetros de atualização
+## <a name="step-3--decide-on-health-policies-and-upgrade-parameters"></a>Etapa 3: decidir sobre políticas de integridade e parâmetros de atualização
 Familiarize-se com os [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md) e o processo de [atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, tempos limite e critérios de integridade aplicados. Para este passo a passos, o critério de avaliação de integridade do serviço é definido para os valores padrão (e recomendados), o que significa que todos os serviços e instâncias devem ser *íntegros* após a atualização.  
 
 No entanto, vamos aumentar o *HealthCheckStableDuration* para 180 segundos (para que os serviços estejam íntegros por pelo menos 120 segundos antes que a atualização prossiga para o próximo domínio de atualização).  Vamos também definir *UpgradeDomainTimeout* como 1200 segundos e *UpgradeTimeout* como 3000 segundos.
@@ -89,7 +89,7 @@ UpgradeDomainTimeoutSec = 1200
 
 UpgradeTimeout = 3000
 
-## <a name="step-4-prepare-application-for-upgrade"></a>Passo 4: Preparar o aplicativo para atualização
+## <a name="step-4-prepare-application-for-upgrade"></a>Etapa 4: preparar o aplicativo para atualização
 Agora o aplicativo foi criado e está pronto para ser atualizado. Se você abrir uma janela do PowerShell como administrador e digitar [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps), ele deverá informar que é o tipo de aplicativo 1.0.0.0 do **VisualObjects** que foi implantado.  
 
 O pacote de aplicativos é armazenado sob o caminho relativo a seguir no qual você descompactou o Service Fabric SDK- *Samples\Services\Stateful\VisualObjects\VisualObjects\obj\x64\Debug*. Você deve encontrar uma pasta "pacote" nesse diretório, onde o pacote de aplicativos está armazenado. Verifique os carimbos de data/hora para garantir que ele seja o Build mais recente (talvez você precise modificar os caminhos adequadamente também).
@@ -114,7 +114,7 @@ Se o comando anterior não for bem sucedido, é provável que você precise de u
 Remove-ServiceFabricApplicationPackage -ApplicationPackagePathInImageStore "VisualObjects\_V2" -ImageStoreConnectionString fabric:ImageStore
 ```
 
-## <a name="step-5-start-the-application-upgrade"></a>Passo 5: Iniciar a atualização do aplicativo
+## <a name="step-5-start-the-application-upgrade"></a>Etapa 5: iniciar a atualização do aplicativo
 Agora, estamos configurados para iniciar a atualização do aplicativo usando o comando [Start-ServiceFabricApplicationUpgrade](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps) :
 
 ```powershell

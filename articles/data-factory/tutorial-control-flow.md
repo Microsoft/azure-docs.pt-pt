@@ -24,7 +24,7 @@ Neste tutorial, você cria um pipeline de Data Factory que apresenta alguns recu
 
 Este gráfico fornece uma visão geral do cenário:
 
-![Descrição geral](media/tutorial-control-flow/overview.png)
+![Visão geral](media/tutorial-control-flow/overview.png)
 
 Este tutorial mostra como realizar as seguintes tarefas:
 
@@ -232,7 +232,7 @@ static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient c
 }
 ```
 
-Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Esse conjunto de conjuntos de blob refere-se ao serviço vinculado do armazenamento do Azure com suporte na etapa anterior. O conjunto de conjuntos de blob descreve o local do blob do qual copiar: *FolderPath* e *filename*.
+Defina um conjunto de dados que represente os dados de origem no Blob do Azure. Esse conjunto de conjuntos de blob refere-se ao serviço vinculado do armazenamento do Azure com suporte na etapa anterior. O conjunto de conjuntos de blob descreve o local do blob a ser copiado: *FolderPath* e *filename*.
 
 Observe o uso de parâmetros para o *FolderPath*. `sourceBlobContainer` é o nome do parâmetro e a expressão é substituída pelos valores passados na execução do pipeline. A sintaxe para definir os parâmetros é `@pipeline().parameters.<parameterName>`
 
@@ -266,11 +266,11 @@ Observe o uso de parâmetros para o *FolderPath*. `sourceBlobContainer` é o nom
    client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetName, SinkBlobDatasetDefinition(client));
    ```
 
-## <a name="create-a-c-class-emailrequest"></a>Criar uma C# classe: EmailRequest
+## <a name="create-a-c-class-emailrequest"></a>Criar uma classe C#: EmailRequest
 
 Em seu C# projeto, crie uma classe chamada `EmailRequest`. Essa classe define quais propriedades o pipeline envia na solicitação de corpo ao enviar um email. Neste tutorial, o pipeline envia quatro propriedades do pipeline para o e-mail:
 
-* mensagem. Corpo do email. Para uma cópia bem-sucedida, essa propriedade contém a quantidade de dados gravados. Para uma cópia com falha, essa propriedade contém detalhes do erro.
+* Mensagem. Corpo do email. Para uma cópia bem-sucedida, essa propriedade contém a quantidade de dados gravados. Para uma cópia com falha, essa propriedade contém detalhes do erro.
 * Nome do data Factory. Nome do data factory.
 * Nome do pipeline. Nome do pipeline.
 * Distância. Parâmetro que passa. Esta propriedade especifica o recetor do e-mail.
@@ -490,7 +490,7 @@ A atividade da Web permite uma chamada para qualquer ponto de extremidade REST. 
 
 Na propriedade `Url`, Cole os pontos de extremidade da **URL http post** dos fluxos de trabalho dos seus aplicativos lógicos. Na propriedade `Body`, passe uma instância da classe `EmailRequest`. O pedido de e-mail contém as seguintes propriedades:
 
-* mensagem. Passa o valor de `@{activity('CopyBlobtoBlob').output.dataWritten`. Acessa uma propriedade da atividade de cópia anterior e passa o valor de `dataWritten`. Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
+* Mensagem. Passa o valor de `@{activity('CopyBlobtoBlob').output.dataWritten`. Acessa uma propriedade da atividade de cópia anterior e passa o valor de `dataWritten`. Para o caso de falha, passe a saída de erro em vez de `@{activity('CopyBlobtoBlob').error.message`.
 * Nome do Data Factory. Passa o valor de `@{pipeline().DataFactory}` essa variável do sistema permite que você acesse o nome correspondente do data factory. Para obter uma lista de variáveis do sistema, consulte [variáveis do sistema](control-flow-system-variables.md).
 * Nome do pipeline. Passa o valor de `@{pipeline().Pipeline}`. Essa variável de sistema permite que você acesse o nome do pipeline correspondente.
 * Distância. Passa o valor de `"@pipeline().parameters.receiver"`. Acessa os parâmetros de pipeline.

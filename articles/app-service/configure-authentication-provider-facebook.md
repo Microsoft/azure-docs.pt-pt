@@ -59,7 +59,7 @@ Para concluir o procedimento neste artigo, você precisa de uma conta do Faceboo
 
 ## <a name="secrets"> </a>Adicionar informações do Facebook ao seu aplicativo
 
-1. Entre no [Azure portal] e navegue até o aplicativo do serviço de aplicativo.
+1. Entre no [portal do Azure] e navegue até o aplicativo do serviço de aplicativo.
 1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
 1. Selecione **Facebook**e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
 1. Selecione **OK**.
@@ -87,4 +87,4 @@ Agora você está pronto para usar o Facebook para autenticação em seu aplicat
 [Desenvolvedores do Facebook]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170052"
 ---
-# <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: Exigir dispositivos em conformidade
+# <a name="conditional-access-require-compliant-devices"></a>Acesso condicional: exigir dispositivos em conformidade
 
 As organizações que implantaram Microsoft Intune podem usar as informações retornadas de seus dispositivos para identificar os dispositivos que atendem aos requisitos de conformidade, como:
 

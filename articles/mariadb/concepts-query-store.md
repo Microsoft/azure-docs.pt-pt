@@ -75,7 +75,7 @@ Os tipos de evento Wait combinam eventos de espera diferentes em buckets por sim
 
 Aqui estão alguns exemplos de como você pode obter mais informações sobre sua carga de trabalho usando as estatísticas de espera no Repositório de Consultas:
 
-| **Observações** | **ação** |
+| **Observações** | **Ação** |
 |---|---|
 |Esperas de bloqueio altas | Verifique os textos de consulta para as consultas afetadas e identifique as entidades de destino. Examine Repositório de Consultas outras consultas que modificam a mesma entidade, que é executada com frequência e/ou têm alta duração. Depois de identificar essas consultas, considere alterar a lógica do aplicativo para melhorar a simultaneidade ou usar um nível de isolamento menos restritivo. |
 |Esperas de e/s de buffer alto | Localize as consultas com um alto número de leituras físicas em Repositório de Consultas. Se eles corresponderem às consultas com altas esperas de e/s, considere a introdução de um índice na entidade subjacente, para fazer buscas em vez de verificações. Isso minimizaria a sobrecarga de e/s das consultas. Verifique as **recomendações de desempenho** para o servidor no portal para ver se há recomendações de índice para esse servidor que otimizaria as consultas. |
@@ -87,16 +87,16 @@ Quando o Repositório de Consultas está habilitado, ele salva os dados em janel
 
 As opções a seguir estão disponíveis para configurar parâmetros de Repositório de Consultas.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
+| **Meter** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
-| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Nota: Se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | OS | NENHUM, TUDO |
+| query_store_capture_mode | Ativar/desativar o recurso de repositório de consultas com base no valor. Observação: se performance_schema estiver OFF, ativar o query_store_capture_mode ativará performance_schema e um subconjunto de instrumentos de esquema de desempenho necessários para esse recurso. | OS | NENHUM, TUDO |
 | query_store_capture_interval | O intervalo de captura do repositório de consultas em minutos. Permite especificar o intervalo no qual as métricas de consulta são agregadas | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Ativar ou desativar o para capturar todas as consultas do utilitário que estão sendo executadas no sistema. | NO | SIM, NÃO |
 | query_store_retention_period_in_days | Janela de tempo em dias para manter os dados no repositório de consultas. | 7 | 1 - 30 |
 
 As opções a seguir se aplicam especificamente às estatísticas de espera.
 
-| **Parâmetro** | **Descrição** | **Predefinição** | **Intervalo** |
+| **Meter** | **Descrição** | **Predefinição** | **Intervalo** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Permite ativar/desativar as estatísticas de espera. | NONE | NENHUM, TUDO |
 | query_store_wait_sampling_frequency | Altera a frequência de amostragem de espera em segundos. 5 a 300 segundos. | 30 | 5-300 |
@@ -112,58 +112,58 @@ Exiba e gerencie Repositório de Consultas usando as seguintes exibições e fun
 
 As consultas são normalizadas examinando sua estrutura depois de remover literais e constantes. Se duas consultas forem idênticas, exceto valores literais, elas terão o mesmo hash.
 
-### <a name="mysqlquery_store"></a>mysql.query_store
+### <a name="mysqlquery_store"></a>MySQL. query_store
 
 Essa exibição retorna todos os dados em Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário e ID de consulta distintos.
 
-| **Name** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Nome** | **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
-| `schema_name`| varchar(64) | NO | Nome do esquema |
-| `query_id`| bigint(20) | NO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerada |
-| `timestamp_id` | timestamp| NO| Carimbo de data/hora em que a consulta é executada. Isso se baseia na configuração do query_store_interval|
-| `query_digest_text`| longtext| NO| O texto de consulta normalizado após a remoção de todos os literais|
-| `query_sample_text` | longtext| NO| Primeira aparência da consulta real com literais|
-| `query_digest_truncated` | bit| OK| Se o texto da consulta foi truncado. O valor será Sim se a consulta tiver mais de 1 KB|
-| `execution_count` | bigint(20)| NO| O número de vezes que a consulta foi executada para esta ID de carimbo de data/hora durante o período de intervalo configurado|
-| `warning_count` | bigint(20)| NO| Número de avisos que esta consulta gerou durante a|
-| `error_count` | bigint(20)| NO| Número de erros que esta consulta gerou durante o intervalo|
-| `sum_timer_wait` | double| OK| Tempo de execução total desta consulta durante o intervalo|
-| `avg_timer_wait` | double| OK| Tempo médio de execução para esta consulta durante o intervalo|
-| `min_timer_wait` | double| OK| Tempo mínimo de execução para esta consulta|
-| `max_timer_wait` | double| OK| Tempo de execução máximo|
-| `sum_lock_time` | bigint(20)| NO| Quantidade total de tempo gasto para todos os bloqueios para esta execução de consulta durante esta janela de tempo|
-| `sum_rows_affected` | bigint(20)| NO| Número de linhas afetadas|
-| `sum_rows_sent` | bigint(20)| NO| Número de linhas enviadas ao cliente|
-| `sum_rows_examined` | bigint(20)| NO| Número de linhas examinadas|
-| `sum_select_full_join` | bigint(20)| NO| Número de junções completas|
-| `sum_select_scan` | bigint(20)| NO| Número de verificações selecionadas |
-| `sum_sort_rows` | bigint(20)| NO| Número de linhas classificadas|
-| `sum_no_index_used` | bigint(20)| NO| Número de vezes em que a consulta não usou nenhum índice|
-| `sum_no_good_index_used` | bigint(20)| NO| Número de vezes em que o mecanismo de execução de consulta não usou índices bons|
-| `sum_created_tmp_tables` | bigint(20)| NO| Número total de tabelas temporárias criadas|
-| `sum_created_tmp_disk_tables` | bigint(20)| NO| Número total de tabelas temporárias criadas no disco (gera e/s)|
-| `first_seen` | timestamp| NO| A primeira ocorrência (UTC) da consulta durante a janela de agregação|
-| `last_seen` | timestamp| NO| A última ocorrência (UTC) da consulta durante esta janela de agregação|
+| `schema_name`| varchar (64) | NO | Nome do esquema |
+| `query_id`| BigInt (20) | NO| ID exclusiva gerada para a consulta específica, se a mesma consulta for executada em um esquema diferente, uma nova ID será gerada |
+| `timestamp_id` | carimbo de data/hora| NO| Carimbo de data/hora em que a consulta é executada. Isso se baseia na configuração do query_store_interval|
+| `query_digest_text`| LONGTEXT| NO| O texto de consulta normalizado após a remoção de todos os literais|
+| `query_sample_text` | LONGTEXT| NO| Primeira aparência da consulta real com literais|
+| `query_digest_truncated` | parte| Ok| Se o texto da consulta foi truncado. O valor será Sim se a consulta tiver mais de 1 KB|
+| `execution_count` | BigInt (20)| NO| O número de vezes que a consulta foi executada para esta ID de carimbo de data/hora durante o período de intervalo configurado|
+| `warning_count` | BigInt (20)| NO| Número de avisos que esta consulta gerou durante a|
+| `error_count` | BigInt (20)| NO| Número de erros que esta consulta gerou durante o intervalo|
+| `sum_timer_wait` | double| Ok| Tempo de execução total desta consulta durante o intervalo|
+| `avg_timer_wait` | double| Ok| Tempo médio de execução para esta consulta durante o intervalo|
+| `min_timer_wait` | double| Ok| Tempo mínimo de execução para esta consulta|
+| `max_timer_wait` | double| Ok| Tempo de execução máximo|
+| `sum_lock_time` | BigInt (20)| NO| Quantidade total de tempo gasto para todos os bloqueios para esta execução de consulta durante esta janela de tempo|
+| `sum_rows_affected` | BigInt (20)| NO| Número de linhas afetadas|
+| `sum_rows_sent` | BigInt (20)| NO| Número de linhas enviadas ao cliente|
+| `sum_rows_examined` | BigInt (20)| NO| Número de linhas examinadas|
+| `sum_select_full_join` | BigInt (20)| NO| Número de junções completas|
+| `sum_select_scan` | BigInt (20)| NO| Número de verificações selecionadas |
+| `sum_sort_rows` | BigInt (20)| NO| Número de linhas classificadas|
+| `sum_no_index_used` | BigInt (20)| NO| Número de vezes em que a consulta não usou nenhum índice|
+| `sum_no_good_index_used` | BigInt (20)| NO| Número de vezes em que o mecanismo de execução de consulta não usou índices bons|
+| `sum_created_tmp_tables` | BigInt (20)| NO| Número total de tabelas temporárias criadas|
+| `sum_created_tmp_disk_tables` | BigInt (20)| NO| Número total de tabelas temporárias criadas no disco (gera e/s)|
+| `first_seen` | carimbo de data/hora| NO| A primeira ocorrência (UTC) da consulta durante a janela de agregação|
+| `last_seen` | carimbo de data/hora| NO| A última ocorrência (UTC) da consulta durante esta janela de agregação|
 
-### <a name="mysqlquery_store_wait_stats"></a>mysql.query_store_wait_stats
+### <a name="mysqlquery_store_wait_stats"></a>MySQL. query_store_wait_stats
 
 Essa exibição retorna dados de eventos de espera em Repositório de Consultas. Há uma linha para cada ID de banco de dados, ID de usuário, ID de consulta e evento distintos.
 
-| **Name**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
+| **Nome**| **Tipo de dados** | **IS_NULLABLE** | **Descrição** |
 |---|---|---|---|
-| `interval_start` | timestamp | NO| Início do intervalo (incremento de 15 minutos)|
-| `interval_end` | timestamp | NO| Fim do intervalo (incremento de 15 minutos)|
-| `query_id` | bigint(20) | NO| ID exclusiva gerada na consulta normalizada (do repositório de consultas)|
-| `query_digest_id` | varchar(32) | NO| O texto de consulta normalizado após a remoção de todos os literais (do repositório de consultas) |
-| `query_digest_text` | longtext | NO| Primeira aparência da consulta real com literais (do repositório de consultas) |
-| `event_type` | varchar(32) | NO| Categoria do evento de espera |
-| `event_name` | varchar(128) | NO| Nome do evento de espera |
-| `count_star` | bigint(20) | NO| Número de eventos de espera amostrados durante o intervalo para a consulta |
+| `interval_start` | carimbo de data/hora | NO| Início do intervalo (incremento de 15 minutos)|
+| `interval_end` | carimbo de data/hora | NO| Fim do intervalo (incremento de 15 minutos)|
+| `query_id` | BigInt (20) | NO| ID exclusiva gerada na consulta normalizada (do repositório de consultas)|
+| `query_digest_id` | varchar (32) | NO| O texto de consulta normalizado após a remoção de todos os literais (do repositório de consultas) |
+| `query_digest_text` | LONGTEXT | NO| Primeira aparência da consulta real com literais (do repositório de consultas) |
+| `event_type` | varchar (32) | NO| Categoria do evento de espera |
+| `event_name` | varchar (128) | NO| Nome do evento de espera |
+| `count_star` | BigInt (20) | NO| Número de eventos de espera amostrados durante o intervalo para a consulta |
 | `sum_timer_wait_ms` | double | NO| Tempo de espera total (em milissegundos) desta consulta durante o intervalo |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funções
 
-| **Name**| **Descrição** |
+| **Nome**| **Descrição** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | Limpa todos os dados do repositório de consultas antes do carimbo de data/hora fornecido |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | Limpa todos os dados de evento de espera antes do carimbo de data/hora fornecido |

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto impresso e manuscrito-REST, Java'
+title: 'Início rápido: extrair texto impresso e manuscrito-REST, Java'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você extrai texto impresso e manuscrito de uma imagem usando o API da Pesquisa Visual Computacional com Java.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177231"
 ---
-# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Início rápido: Extrair texto impresso e manuscrito usando a API REST do Pesquisa Visual Computacional e o Java
+# <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Início rápido: extrair texto impresso e manuscrito usando a API REST do Pesquisa Visual Computacional e o Java
 
 Neste guia de início rápido, você extrai texto impresso e/ou manuscrito de uma imagem usando a API REST do Pesquisa Visual Computacional. Com os métodos de [resultado da operação](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/5be108e7498a4f9ed20bf96d) de leitura e leitura [em lote](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/2afb498089f74080d7ef85eb) , você pode detectar texto em uma imagem e extrair caracteres reconhecidos em um fluxo de caracteres legível por máquina. A API determinará qual modelo de reconhecimento usar para cada linha de texto, para que ele dê suporte a imagens com texto impresso e manuscrito.
 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
+1. Crie um novo projeto de Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -60,7 +60,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
 
 1. Substitua a classe pública `Main` pelo código a seguir.
 1. Opcionalmente, substitua o valor de `imageToAnalyze` pela URL de uma imagem diferente da qual você deseja extrair o texto.
-1. Guarde e, em seguida, crie o projeto Java.
+1. Guarde e, em seguida, compile o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`. Caso contrário, abra uma janela da linha de comandos e, em seguida, utilize o comando `java` para executar a classe compilada. Por exemplo, `java Main`.
 
 ```java
@@ -176,7 +176,7 @@ public class Main {
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 ```json
 Text submitted. Waiting 10 seconds to retrieve the recognized text.
@@ -284,7 +284,7 @@ Text recognition result response:
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine o projeto Java, incluindo a classe compilada e as bibliotecas importadas.
+Quando já não for necessário, elimine o projeto de Java, incluindo a classe compilada e as bibliotecas importadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -41,7 +41,7 @@ Para concluir o procedimento neste tópico, você deve ter uma conta do Google q
 
 ## <a name="secrets"> </a>Adicionar informações do Google ao seu aplicativo
 
-1. Na [Azure portal], vá para o aplicativo do serviço de aplicativo.
+1. Na [portal do Azure], vá para o aplicativo do serviço de aplicativo.
 1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
 1. Selecione **Google**e cole os valores de ID do aplicativo e segredo do aplicativo que você obteve anteriormente. Habilite todos os escopos necessários para seu aplicativo.
 1. Selecione **OK**.
@@ -72,5 +72,5 @@ Agora você está pronto para usar o Google para autenticação em seu aplicativ
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 

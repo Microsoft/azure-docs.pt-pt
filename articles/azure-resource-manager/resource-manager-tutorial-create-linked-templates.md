@@ -20,9 +20,9 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169419"
 ---
-# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos de Azure Resource Manager vinculados
+# <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Tutorial: Criar modelos ligados do Azure Resource Manager
 
-Saiba como criar modelos ligados do Azure Resource Manager. Com os modelos ligados, pode ter um modelo para chamar outro modelo. É ótimo para modelos de modulação. Neste tutorial, você usa o mesmo modelo usado em [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0, que cria uma máquina virtual, uma rede virtual e outros recursos dependentes, incluindo uma conta de armazenamento. Separar a criação de recursos da conta de armazenamento a um modelo ligado.
+Saiba como criar modelos ligados do Azure Resource Manager. Com os modelos ligados, pode ter um modelo para chamar outro modelo. É ótimo para modelos de modulação. Neste tutorial, você usa o mesmo modelo usado no [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md), que cria uma máquina virtual, uma rede virtual e outros recursos dependentes, incluindo uma conta de armazenamento. Você separa a criação de recursos da conta de armazenamento para um modelo vinculado.
 
 Chamar um modelo vinculado é como fazer uma chamada de função.  Você também aprende como passar valores de parâmetro para o modelo vinculado e como obter "valores de retorno" do modelo vinculado.
 
@@ -53,11 +53,11 @@ Para concluir este artigo, precisa de:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre Azure Key Vault no Gerenciador de recursos Implantação de modelo @ no__t-0. Também recomendamos que atualize a palavra-passe a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
-Os Modelos de Início Rápido do Azure são um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Esse é o mesmo modelo usado em [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0. Guarde duas cópias do mesmo modelo para serem utilizadas como:
+Os Modelos de Início Rápido do Azure são um repositório de modelos do Resource Manager. Em vez de criar um modelo do zero, pode encontrar um modelo de exemplo e personalizá-lo. O modelo utilizado neste tutorial é denominado [Implementar uma VM do Windows simples](https://azure.microsoft.com/resources/templates/101-vm-simple-windows/). Este é o mesmo modelo usado no [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Guarde duas cópias do mesmo modelo para serem utilizadas como:
 
 * **O modelo principal**: crie todos os recursos exceto a conta de armazenamento.
 * **O modelo ligado**: crie a conta de armazenamento.
@@ -100,9 +100,9 @@ O modelo ligado cria uma conta de armazenamento. O modelo vinculado pode ser usa
         ```
         O nome e o local da conta de armazenamento são passados do modelo principal para o modelo vinculado como parâmetros.
 
-    * Remover os **variáveis** elemento e todas as definições de variável.
+    * Remova o elemento **Variables** e todas as definições de variável.
     * Remova todos os recursos que não sejam da conta de armazenamento. Deverá remover um total de quatro recursos.
-    * Atualize o valor do **nome** elemento do recurso de conta de armazenamento para:
+    * Atualize o valor do elemento **Name** do recurso da conta de armazenamento para:
 
         ```json
           "name": "[parameters('storageAccountName')]",
@@ -166,10 +166,10 @@ O modelo ligado cria uma conta de armazenamento. O modelo vinculado pode ser usa
 
 ## <a name="upload-the-linked-template"></a>Carregar o modelo ligado
 
-O modelo de principal e o modelo ligado tem de ser acessível a partir de onde executar a implementação. Neste tutorial, você usa o método de implantação do Cloud shell como usado em [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0. O modelo principal (azuredeploy.json) é carregado para o shell. O modelo ligado (linkedTemplate.json) tem de ser partilhados em algum lugar de forma segura. O script do PowerShell a seguir cria uma conta de armazenamento do Azure, carrega o modelo para a conta de armazenamento e, em seguida, gera um token SAS para conceder acesso limitado ao arquivo de modelo. Para simplificar o tutorial, o script baixa um modelo vinculado completo de um repositório github. Se pretender utilizar o modelo ligado que criou, pode utilizar o [Cloud shell](https://shell.azure.com) carregue o modelo ligado e, em seguida, modificar o script a utilizar o seu próprio modelo ligado.
+O modelo principal e o modelo vinculado precisam estar acessíveis de onde você executa a implantação. Neste tutorial, você usa o método de implantação do Cloud Shell conforme usado no [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). O modelo principal (azuredeploy.json) é carregado para o shell. O modelo vinculado (linkedtemplate. JSON) deve ser compartilhado em algum lugar com segurança. O script do PowerShell a seguir cria uma conta de armazenamento do Azure, carrega o modelo para a conta de armazenamento e, em seguida, gera um token SAS para conceder acesso limitado ao arquivo de modelo. Para simplificar o tutorial, o script baixa um modelo vinculado completo de um repositório github. Se você quiser usar o modelo vinculado que criou, poderá usar o [Cloud Shell](https://shell.azure.com) para carregar o modelo vinculado e, em seguida, modificar o script para usar seu próprio modelo vinculado.
 
 > [!NOTE]
-> O script limita o token SAS para serem utilizados nos oito horas. Se precisar de mais tempo para concluir este tutorial, aumente o tempo de expiração.
+> O script limita o token SAS a ser usado dentro de oito horas. Se precisar de mais tempo para concluir este tutorial, aumente o tempo de expiração.
 
 ```azurepowershell-interactive
 $projectNamePrefix = Read-Host -Prompt "Enter a project name:"   # This name is used to generate names for Azure resources, such as storage account name.
@@ -221,20 +221,20 @@ echo "Resource Group Name: $resourceGroupName"
 echo "Linked template URI with SAS token: $templateURI"
 ```
 
-1. Selecione o **experimentar** botão verde para abrir o painel do Azure cloud shell.
-2. Selecione **cópia** para copiar o script do PowerShell.
-3. Faça duplo clique em qualquer lugar dentro do painel de shell (a parte navy azul) e, em seguida, selecione **colar**.
-4. Tome nota dos dois valores (nome do grupo de recursos e ligado modelo URI) no final do painel de shell. Vai precisar dos valores mais tarde no tutorial.
-5. Selecione **sair do modo de foco** para fechar o painel de shell.
+1. Selecione o botão **testar** verde para abrir o painel do Azure cloud Shell.
+2. Selecione **copiar** para copiar o script do PowerShell.
+3. Clique com o botão direito do mouse em qualquer lugar dentro do painel de Shell (a parte azul-marinho) e selecione **colar**.
+4. Anote os dois valores (nome do grupo de recursos e URI do modelo vinculado) no final do painel do Shell. Vai precisar dos valores mais tarde no tutorial.
+5. Selecione **sair do modo de foco** para fechar o painel de Shell.
 
-Na prática, gerar um token SAS quando implementar o modelo principal e dar a expiração do token SAS uma janela de menor para que seja mais seguro. Para obter mais informações, consulte [token de SAS de fornecer durante a implementação](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
+Na prática, você gera um token SAS quando implanta o modelo principal e dá à expiração do token SAS uma janela menor para torná-lo mais seguro. Para obter mais informações, consulte [fornecer token SAS durante a implantação](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
 ## <a name="call-the-linked-template"></a>Chamar o modelo ligado
 
 O modelo principal chama-se azuredeploy.json.
 
 1. Abra **azuredeploy. JSON** em Visual Studio Code se ele não estiver aberto.
-2. Elimine a definição de recurso de conta de armazenamento a partir do modelo:
+2. Exclua a definição de recurso da conta de armazenamento do modelo:
 
     ```json
     {
@@ -274,14 +274,14 @@ O modelo principal chama-se azuredeploy.json.
     * Um recurso `Microsoft.Resources/deployments` no modelo principal é utilizado para ligar a outro modelo.
     * O recurso `deployments` tem um nome chamado `linkedTemplate`. Este nome é utilizado para [configurar a dependência](#configure-dependency).
     * Só pode utilizar o modo de implementação [Incremental](./deployment-modes.md) ao chamar modelos ligados.
-    * `templateLink/uri` contém o URI do modelo ligado. Atualize o valor para o URI que obtém ao carregar o modelo ligado (aquele com um token SAS).
+    * `templateLink/uri` contém o URI do modelo ligado. Atualize o valor para o URI que você obtém ao carregar o modelo vinculado (aquele com um token SAS).
     * Utilize `parameters` para passar os valores do modelo principal para o modelo ligado.
-4. Certifique-se de atualizar o valor da `uri` elemento para o valor de obteve ao carregar o modelo ligado (aquele com um token SAS). Na prática, pretende fornecer o URI com um parâmetro.
-5. Guardar o modelo revisado
+4. Verifique se você atualizou o valor do elemento `uri` para o valor que você obteve ao carregar o modelo vinculado (aquele com um token SAS). Na prática, você deseja fornecer o URI com um parâmetro.
+5. Salvar o modelo revisado
 
 ## <a name="configure-dependency"></a>Configurar a dependência
 
-Lembre-se de [Tutorial: Criar modelos de Azure Resource Manager com recursos dependentes @ no__t-0, o recurso de máquina virtual depende da conta de armazenamento:
+Lembre-se do [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md), o recurso de máquina virtual depende da conta de armazenamento:
 
 ![Diagrama de dependência de modelos do Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-visual-studio-code-dependency-diagram.png)
 
@@ -306,12 +306,12 @@ Uma vez que agora a conta de armazenamento está definida no modelo ligado, tem 
     ![Dependência de configuração de modelos ligados do Azure Resource Manager](./media/resource-manager-tutorial-create-linked-templates/resource-manager-template-linked-templates-configure-dependency.png)
 
     *linkedTemplate* é o nome do recurso de implementações.
-3. Atualizar **propriedades/diagnosticsProfile/bootDiagnostics/storageUri** conforme mostrado na captura de ecrã anterior.
-4. Guarde o modelo revisado.
+3. Atualize **as propriedades/diagnosticsProfile/bootDiagnostics/storageUri** conforme mostrado na captura de tela anterior.
+4. Salve o modelo revisado.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para obter o procedimento de implementação. Utilize o mesmo nome de grupo de recursos como a conta de armazenamento para armazenar o modelo ligado. Isso torna mais fácil limpar os recursos na secção seguinte. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
+Veja a secção [Implementar o modelo](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template) para obter o procedimento de implementação. Use o mesmo nome de grupo de recursos que a conta de armazenamento para armazenar o modelo vinculado. Ele facilita a limpeza dos recursos na próxima seção. Para aumentar a segurança, utilize uma palavra-passe gerada para a conta de administrador da máquina virtual. Veja [Pré-requisitos](#prerequisites).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -324,14 +324,14 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 ## <a name="additional-practice"></a>Prática adicional
 
-Para melhorar o projeto, efetue as seguintes alterações adicionais para o projeto concluído:
+Para melhorar o projeto, faça as seguintes alterações adicionais no projeto concluído:
 
-1. Modificar o modelo principal (azuredeploy. JSON), para que ele usa o valor URI de modelo ligado através de um parâmetro.
-2. Em vez de gerar um token SAS ao carregar o modelo de ligado, gere o token ao implementar o modelo principal. Para obter mais informações, consulte [token de SAS de fornecer durante a implementação](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
+1. Modifique o modelo principal (azuredeploy. JSON) para que ele aceite o valor do URI do modelo vinculado por meio de um parâmetro.
+2. Em vez de gerar um token SAS ao carregar o modelo vinculado, gere o token ao implantar o modelo principal. Para obter mais informações, consulte [fornecer token SAS durante a implantação](./secure-template-with-sas-token.md#provide-sas-token-during-deployment).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, modularizado um modelo para um modelo principal e um modelo ligado. Para aprender a utilizar extensões de máquina virtual para efetuar tarefas de implementação de publicação, consulte:
+Neste tutorial, você modulariza um modelo em um modelo principal e um modelo vinculado. Para saber como usar extensões de máquina virtual para executar tarefas de pós-implantação, consulte:
 
 > [!div class="nextstepaction"]
 > [Implementar extensões de máquina virtual](./resource-manager-tutorial-deploy-vm-extensions.md)

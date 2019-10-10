@@ -20,7 +20,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170272"
 ---
-# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início rápido: Criar e implantar modelos de Azure Resource Manager usando o portal do Azure
+# <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure
 
 Saiba como gerar um modelo do Resource Manager usando o portal do Azure e o processo de edição e implantação do modelo no Portal. Os modelos do Resource Manager são ficheiros JSON que definem os recursos que precisa de implementar para a sua solução. Para compreender os conceitos associados à implementação e gestão das suas soluções do Azure, veja [Descrição geral do Azure Resource Manager](resource-group-overview.md).
 
@@ -42,10 +42,10 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
     ![Criar uma conta de armazenamento do Azure com o portal do Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Introduza as seguintes informações:
 
-    |Name|Value|
+    |Nome|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione **criar novo**e especifique um nome de grupo de recursos de sua escolha. Na captura de ecrã, o nome do grupo de recursos é *mystorage1016rg*. O grupo de recursos é um contêiner para recursos do Azure. O grupo de recursos torna mais fácil gerenciar recursos do Azure. |
-    |**Name**|Dê um nome exclusivo à sua conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "o nome da conta de armazenamento ' mystorage1016 ' já está sendo usado", tente usar o **nome &lt;your > armazenamento @ no__t-2Today's data em MMDD >** , por exemplo, **johndolestorage1016**. Para obter mais informações, consulte [nomenclatura de regras e restrições](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
+    |**Nome**|Dê um nome exclusivo à sua conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "o nome da conta de armazenamento ' mystorage1016 ' já está sendo usado", tente usar o **nome &lt;your > armazenamento @ no__t-2Today's data em MMDD >** , por exemplo, **johndolestorage1016**. Para obter mais informações, consulte [nomenclatura de regras e restrições](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Pode utilizar os valores predefinidos para as restantes propriedades.
 
@@ -156,10 +156,10 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 8. Selecione **Guardar**.
 9. Introduza os seguintes valores:
 
-    |Name|Value|
+    |Nome|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione o nome do grupo de recursos que você criou na última seção. |
-    |**Location**|Selecione um local para a conta de armazenamento. Por exemplo, **E.U.A. Central**. |
+    |**Localização**|Selecione um local para a conta de armazenamento. Por exemplo, **EUA Central**. |
     |**Tipo de conta**|Insira **Standard_LRS** para este guia de início rápido. |
     |**Quase**|Insira **StorageV2** para este guia de início rápido. |
     |**Camada de acesso**|Insira a **quente** para este guia de início rápido. |
@@ -179,7 +179,7 @@ O Azure exige que cada serviço do Azure tenha um nome exclusivo. A implantaçã
 
     ![Grupo de recursos de implementação de modelos do Azure Resource Manager](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    Pode ver que o estado de implementação foi bem-sucedido e que não existe apenas uma conta de armazenamento no grupo de recursos. O nome da conta de armazenamento é uma cadeia de carateres exclusiva gerada pelo modelo. Para saber mais sobre como usar contas de armazenamento do Azure, consulte [Quickstart: Carregue, baixe e liste BLOBs usando o portal do Azure @ no__t-0.
+    Pode ver que o estado de implementação foi bem-sucedido e que não existe apenas uma conta de armazenamento no grupo de recursos. O nome da conta de armazenamento é uma cadeia de carateres exclusiva gerada pelo modelo. Para saber mais sobre como utilizar contas de armazenamento do Azure, veja [Início Rápido: Carregar, transferir e listar blobs através do portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

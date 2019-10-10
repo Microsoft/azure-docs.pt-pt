@@ -21,7 +21,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72167306"
 ---
-# <a name="create-your-first-azure-service-fabric-application"></a>Criar a sua primeira aplicação do Azure Service Fabric
+# <a name="create-your-first-azure-service-fabric-application"></a>Crie a sua primeira aplicação do Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Java - Linux (Pré-visualização)](service-fabric-create-your-first-linux-application-with-java.md)
 > * [C# - Linux (Pré-visualização)](service-fabric-create-your-first-linux-application-with-csharp.md)

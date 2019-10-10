@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente facial para Python | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente facial para Python | Microsoft Docs'
 description: Introdução à biblioteca de cliente facial para Python...
 services: cognitive-services
 author: PatrickFarley
@@ -16,7 +16,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72176141"
 ---
-# <a name="quickstart-face-client-library-for-python"></a>Início rápido: Biblioteca de cliente facial para Python
+# <a name="quickstart-face-client-library-for-python"></a>Início rápido: biblioteca de cliente facial para Python
 
 Introdução à biblioteca de cliente facial para Python. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. O serviço de API de Detecção Facial fornece acesso a algoritmos avançados para detectar e reconhecer rostos humanos em imagens.
 
@@ -72,7 +72,7 @@ pip install --upgrade azure-cognitiveservices-vision-face
 
 As classes e interfaces a seguir tratam de alguns dos principais recursos do SDK do Python facial.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |[FaceClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.faceclient?view=azure-python) | Essa classe representa sua autorização para usar o serviço de face e você precisa dela para todas as funcionalidades de face. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes. |
 |[FaceOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/azure.cognitiveservices.vision.face.operations.faceoperations?view=azure-python)|Essa classe manipula as tarefas básicas de detecção e reconhecimento que você pode fazer com as faces humanas. |
@@ -117,7 +117,7 @@ O código a seguir gera a imagem fornecida para a exibição e desenha retângul
 
 [!code-python[](~/cognitive-services-quickstart-code/python/Face/FaceQuickstart.py?name=snippet_frame)]
 
-![Uma moça com um retângulo vermelho desenhada em todo o Mostrador](../images/face-rectangle-result.png)
+![Uma mulher jovem com um retângulo vermelho desenhado em torno do rosto](../images/face-rectangle-result.png)
 
 ## <a name="find-similar-faces"></a>Encontrar rostos semelhantes
 

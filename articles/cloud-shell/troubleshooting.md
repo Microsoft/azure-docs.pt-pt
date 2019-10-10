@@ -32,56 +32,56 @@ As resoluções conhecidas para solucionar problemas no Azure Cloud Shell inclue
 ### <a name="early-timeouts-in-firefox"></a>Tempos limite iniciais no FireFox
 
 - **Detalhes**: Cloud Shell utiliza um WebSocket aberto para passar entrada/saída para o navegador. O FireFox tem políticas predefinidas que podem fechar o WebSocket prematuramente, causando tempos limite iniciais em Cloud Shell.
-- **Resolução**: Abra o FireFox e navegue até "About: config" na caixa URL. Pesquise "Network. WebSocket. tempo_limite. ping. Request" e altere o valor de 0 para 10.
+- **Resolução**: Abra o Firefox e navegue até "sobre: config" na caixa URL. Pesquise "Network. WebSocket. tempo_limite. ping. Request" e altere o valor de 0 para 10.
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Desabilitando Cloud Shell em um ambiente de rede bloqueado
 
-- **Detalhes**: Os administradores podem desejar desabilitar o acesso a Cloud Shell para seus usuários. O Cloud Shell utiliza o acesso ao domínio `ux.console.azure.com`, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do Azure e docs.microsoft.com.
-- **Resolução**: Restrinja o acesso a `ux.console.azure.com` por meio de configurações de rede ao seu ambiente. O ícone de Cloud Shell ainda existirá em portal.azure.com, mas não se conectará com êxito ao serviço.
+- **Detalhes**: os administradores podem desejar desabilitar o acesso a Cloud Shell para seus usuários. O Cloud Shell utiliza o acesso ao domínio `ux.console.azure.com`, que pode ser negado, interrompendo qualquer acesso aos ponto de entrada de Cloud Shell, incluindo portal.azure.com, shell.azure.com, Visual Studio Code extensão de conta do Azure e docs.microsoft.com.
+- **Resolução**: restrinja o acesso a `ux.console.azure.com` por meio de configurações de rede para seu ambiente. O ícone de Cloud Shell ainda existirá em portal.azure.com, mas não se conectará com êxito ao serviço.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Caixa de diálogo de armazenamento-erro: 403 RequestDisallowedByPolicy
 
-- **Detalhes**: Ao criar uma conta de armazenamento por meio de Cloud Shell, ela não é bem-sucedida devido a uma política do Azure colocada pelo administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
-- **Resolução**: Contate o administrador do Azure para remover ou atualizar a política do Azure que nega a criação de armazenamento.
+- **Detalhes**: ao criar uma conta de armazenamento por meio do Cloud Shell, ela não é bem-sucedida devido a uma política do Azure colocada pelo administrador. A mensagem de erro incluirá: `The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by one or more policies.`
+- **Resolução**: contate o administrador do Azure para remover ou atualizar a política do Azure que nega a criação de armazenamento.
 
 ### <a name="storage-dialog---error-400-disallowedoperation"></a>Caixa de diálogo de armazenamento-erro: 400 DisallowedOperation
 
-- **Detalhes**: Ao usar uma assinatura Azure Active Directory, você não pode criar o armazenamento.
+- **Detalhes**: ao usar uma assinatura do Azure Active Directory, você não pode criar o armazenamento.
 - **Resolução**: Use uma assinatura do Azure capaz de criar recursos de armazenamento. As assinaturas do Azure AD não são capazes de criar recursos do Azure.
 
-### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Saída de terminal-erro: Falha ao conectar terminal: o WebSocket não pode ser estabelecido. Pressione `Enter` para reconectar.
-- **Detalhes**: Cloud Shell requer a capacidade de estabelecer uma conexão WebSocket com Cloud Shell infraestrutura.
-- **Resolução**: Verifique se você definiu as configurações de rede para habilitar o envio de solicitações HTTPS e solicitações WebSocket para domínios em *. console.azure.com.
+### <a name="terminal-output---error-failed-to-connect-terminal-websocket-cannot-be-established-press-enter-to-reconnect"></a>Saída de terminal-erro: falha ao conectar terminal: o WebSocket não pode ser estabelecido. Pressione `Enter` para reconectar.
+- **Detalhes**: Cloud Shell requer a capacidade de estabelecer uma conexão WebSocket com a infraestrutura Cloud Shell.
+- **Resolução**: Verifique se você definiu as configurações de rede para habilitar o envio de solicitações HTTPS e solicitações WebSocket para domínios em *. console.Azure.com.
 
 ### <a name="set-your-cloud-shell-connection-to-support-using-tls-12"></a>Defina sua conexão de Cloud Shell para dar suporte ao uso do TLS 1,2
- - **Detalhes**: Para definir a versão do TLS para sua conexão com o Cloud Shell, você deve definir configurações específicas do navegador.
+ - **Detalhes**: para definir a versão do TLS para sua conexão com Cloud Shell, você deve definir configurações específicas do navegador.
  - **Resolução**: Navegue até as configurações de segurança do seu navegador e marque a caixa de seleção ao lado de "usar TLS 1,2".
 
 ## <a name="bash-troubleshooting"></a>Solução de problemas do bash
 
 ### <a name="cannot-run-the-docker-daemon"></a>Não é possível executar o daemon do Docker
 
-- **Detalhes**: O Cloud Shell utiliza um contêiner para hospedar seu ambiente de Shell, pois um resultado que executa o daemon não é permitido.
-- **Resolução**: Utilize a [máquina Docker](https://docs.docker.com/machine/overview/), que é instalada por padrão, para gerenciar contêineres do Docker de um host remoto do Docker.
+- **Detalhes**: o Cloud Shell utiliza um contêiner para hospedar seu ambiente de Shell, pois um resultado que executa o daemon não é permitido.
+- **Resolução**: utilize a [máquina Docker](https://docs.docker.com/machine/overview/), que é instalada por padrão, para gerenciar contêineres do Docker de um host remoto do Docker.
 
 ## <a name="powershell-troubleshooting"></a>Solução de problemas do PowerShell
 
 ### <a name="gui-applications-are-not-supported"></a>Não há suporte para aplicativos de GUI
 
-- **Detalhes**: Se um usuário iniciar um aplicativo de GUI, o prompt não retornará. Por exemplo, quando uma clonagem de um repositório GitHub privado que tem a autenticação de dois fatores habilitada, uma caixa de diálogo é exibida para concluir a autenticação de dois fatores.
-- **Resolução**: Feche e reabra o Shell.
+- **Detalhes**: se um usuário iniciar um aplicativo de GUI, o prompt não retornará. Por exemplo, quando uma clonagem de um repositório GitHub privado que tem a autenticação de dois fatores habilitada, uma caixa de diálogo é exibida para concluir a autenticação de dois fatores.
+- **Resolução**: feche e reabra o Shell.
 
 ### <a name="troubleshooting-remote-management-of-azure-vms"></a>Solucionando problemas de gerenciamento remoto de VMs do Azure
 > [!NOTE]
 > As VMs do Azure devem ter um endereço IP voltado para o público.
 
-- **Detalhes**: Devido às configurações padrão do firewall do Windows para WinRM, o usuário pode ver o seguinte erro: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
-- **Resolução**:  Execute `Enable-AzVMPSRemoting` para habilitar todos os aspectos da comunicação remota do PowerShell no computador de destino.
+- **Detalhes**: devido às configurações padrão do firewall do Windows para WinRM, o usuário pode ver o seguinte erro: `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
+- **Resolução**: execute `Enable-AzVMPSRemoting` para habilitar todos os aspectos da comunicação remota do PowerShell no computador de destino.
 
 ### <a name="dir-does-not-update-the-result-in-azure-drive"></a>`dir` não atualiza o resultado na unidade do Azure
 
-- **Detalhes**: Por padrão, para otimizar a experiência do usuário, os resultados de `dir` são armazenados em cache na unidade do Azure.
-- **Resolução**: Depois de criar, atualizar ou remover um recurso do Azure, execute `dir -force` para atualizar os resultados na unidade do Azure.
+- **Detalhes**: por padrão, para otimizar a experiência do usuário, os resultados de `dir` são armazenados em cache na unidade do Azure.
+- **Resolução**: depois de criar, atualizar ou remover um recurso do Azure, execute `dir -force` para atualizar os resultados na unidade do Azure.
 
 ## <a name="general-limitations"></a>Limitações gerais
 

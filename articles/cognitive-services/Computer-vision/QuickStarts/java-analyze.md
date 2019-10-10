@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem remota com a API REST e o Java'
+title: 'Início rápido: analisar uma imagem remota com a API REST e o Java'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá analisar uma imagem através da API de Imagem Digitalizada com o Java.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72176551"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Início rápido: Analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional e o Java
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Início rápido: analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional e o Java
 
 Neste guia de início rápido, você analisa uma imagem armazenada remotamente para extrair recursos visuais usando Java e a API REST do Pesquisa Visual Computacional. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Para criar e executar o exemplo, siga os seguintes passos:
 
-1. Crie um novo projeto Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
+1. Crie um novo projeto de Java no seu IDE ou editor favorito. Se a opção estiver disponível, crie o projeto Java a partir de um modelo de aplicação de linha de comandos.
 1. Importe as seguintes bibliotecas para o projeto Java. Se estiver a utilizar o Maven, as coordenadas do Maven são fornecidas para cada biblioteca.
    - [Cliente Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpclient:4.5.5)
    - [Núcleo Apache HTTP](https://hc.apache.org/downloads.cgi) (org.apache.httpcomponents:httpcore:4.4.9)
@@ -117,7 +117,7 @@ public class Main {
 
 ## <a name="compile-and-run-the-program"></a>Compilar e executar o programa
 
-1. Guarde e, em seguida, crie o projeto Java.
+1. Guarde e, em seguida, compile o projeto Java.
 1. Se estiver a utilizar um IDE, execute `Main`.
 
 Como alternativa, se você estiver executando o programa em uma janela de linha de comando, execute os comandos a seguir. Esses comandos presumem que suas bibliotecas estão em uma pasta chamada `libs` que está na mesma pasta que `Main.java`; caso contrário, será necessário substituir `libs` pelo caminho para as bibliotecas.
@@ -136,7 +136,7 @@ Como alternativa, se você estiver executando o programa em uma janela de linha 
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A aplicação de exemplo analisa e apresenta uma resposta de êxito na janela da consola, semelhante ao seguinte exemplo:
 
 ```json
 REST Response:

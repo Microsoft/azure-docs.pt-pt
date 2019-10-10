@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gerar uma miniatura-REST, Python'
+title: 'Início Rápido: Gerar uma miniatura – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72176394"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Gerar uma miniatura usando a API REST do Pesquisa Visual Computacional e o Python
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-python"></a>Início rápido: gerar uma miniatura usando a API REST do Pesquisa Visual Computacional e o Python
 
 Neste guia de início rápido, você gerará uma miniatura de uma imagem usando a API REST do Pesquisa Visual Computacional. Com o método [obter miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) , você pode especificar a altura e a largura desejadas e pesquisa Visual computacional usa o corte inteligente para identificar de forma inteligente a área de interesse e gerar coordenadas de corte com base nessa região.
 

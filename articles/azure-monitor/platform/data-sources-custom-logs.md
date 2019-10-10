@@ -58,7 +58,7 @@ O assistente de log personalizado é executado no portal do Azure e permite que 
 
 1. No portal do Azure, selecione **log Analytics espaços de trabalho** > seu espaço de trabalho > **Configurações avançadas**.
 2. Clique em **dados** > **logs personalizados**.
-3. Por predefinição, todas as alterações de configuração são automaticamente enviados por push para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
+3. Por padrão, todas as alterações de configuração são automaticamente enviadas para todos os agentes. Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.
 4. Clique em **Adicionar +** para abrir o assistente de log personalizado.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Passo 2. Carregar e analisar um log de exemplo
@@ -74,32 +74,32 @@ Se um delimitador de carimbo de data/hora for usado, a Propriedade TimeGenerated
 4. Altere o delimitador que é usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
 5. Clique em **Seguinte**.
 
-### <a name="step-3-add-log-collection-paths"></a>Passo 3: Adicionar caminhos de coleção de logs
+### <a name="step-3-add-log-collection-paths"></a>Passo 3. Adicionar caminhos de coleção de logs
 Você deve definir um ou mais caminhos no agente onde ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log, ou pode especificar um caminho com um curinga para o nome. Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho. Você também pode fornecer vários caminhos para um único arquivo de log.
 
 Por exemplo, um aplicativo pode criar um arquivo de log todos os dias com a data incluída no nome como em log20100316. txt. Um padrão para tal log pode ser *log\*.txt* que se aplicaria a qualquer arquivo de log após o esquema de nomenclatura do aplicativo.
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar arquivos de log diferentes.
 
-| Descrição | Path |
+| Descrição | Caminho |
 |:--- |:--- |
-| Todos os arquivos em *C:\Logs* com extensão. txt no agente do Windows |C:\Logs\\\*. txt |
-| Todos os arquivos em *C:\Logs* com um nome que começa com log e uma extensão. txt no agente do Windows |C:\Logs\log\*.txt |
-| Todos os arquivos em */var/log/Audit* com a extensão. txt no agente do Linux |/var/log/audit/*.txt |
+| Todos os arquivos em *C:\Logs* com extensão. txt no agente do Windows |C:\Logs @ no__t-0\*.txt |
+| Todos os arquivos em *C:\Logs* com um nome que começa com log e uma extensão. txt no agente do Windows |C:\Logs\ log\*.txt |
+| Todos os arquivos em */var/log/Audit* com a extensão. txt no agente do Linux |/var/log/Audit/*. txt |
 | Todos os arquivos em */var/log/Audit* com um nome que começa com log e uma extensão. txt no agente do Linux |/var/log/Audit/log\*.txt |
 
 1. Selecione Windows ou Linux para especificar o formato de caminho que você está adicionando.
 2. Digite o caminho e clique no botão **+** .
 3. Repita o processo para quaisquer caminhos adicionais.
 
-### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4: Forneça um nome e uma descrição para o log
+### <a name="step-4-provide-a-name-and-description-for-the-log"></a>Passo 4. Forneça um nome e uma descrição para o log
 O nome que você especificar será usado para o tipo de log, conforme descrito acima.  Ele sempre terminará com _CL para distingui-lo como um log personalizado.
 
 1. Digite um nome para o log.  O sufixo **\_CL** é fornecido automaticamente.
 2. Adicione uma **Descrição**opcional.
 3. Clique em **Avançar** para salvar a definição de log Personalizada.
 
-### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5: Validar que os logs personalizados estão sendo coletados
+### <a name="step-5-validate-that-the-custom-logs-are-being-collected"></a>Passo 5. Validar que os logs personalizados estão sendo coletados
 Pode levar até uma hora para que os dados iniciais de um novo log personalizado apareçam em Azure Monitor.  Ele começará a coletar entradas dos logs encontrados no caminho especificado a partir do ponto em que você definiu o log personalizado.  Ele não manterá as entradas que você carregou durante a criação do log personalizado, mas coletará entradas já existentes nos arquivos de log que ele localizar.
 
 Depois que Azure Monitor começar a coletar do log personalizado, seus registros estarão disponíveis com uma consulta de log.  Use o nome que você atribuiu ao log personalizado como o **tipo** em sua consulta.
@@ -129,7 +129,7 @@ Os registros de log personalizados têm um tipo com o nome do log que você forn
 | TimeGenerated |Data e hora em que o registro foi coletado por Azure Monitor.  Se o log usar um delimitador baseado em tempo, esse será o tempo coletado da entrada. |
 | SourceSystem |Tipo de agente do qual o registro foi coletado. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux – todos os agentes do Linux |
 | RawData |Texto completo da entrada coletada. Provavelmente, você desejará [analisar esses dados em propriedades individuais](../log-query/parse-text.md). |
-| ManagementGroupName |Nome do grupo de gerenciamento para o System Center Operations Manage Agents.  Para outros agentes, é AOI -\<ID da área de trabalho\> |
+| ManagementGroupName |Nome do grupo de gerenciamento para o System Center Operations Manage Agents.  Para outros agentes, isso é AOI-\<workspace ID @ no__t-1 |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exemplo de explicação de como adicionar um log personalizado
@@ -176,4 +176,4 @@ Nos casos em que os dados não podem ser coletados com logs personalizados, cons
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte [analisar dados de texto em Azure monitor](../log-query/parse-text.md) para que os métodos analisem cada entrada de log importada em várias propriedades.
-* Saiba mais sobre [registar as consultas](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de origens de dados e soluções.
+* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

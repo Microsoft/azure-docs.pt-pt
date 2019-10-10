@@ -48,9 +48,9 @@ Identificar o número de espaços de trabalho de que você precisa é influencia
 
 Hoje, as organizações de ti são modeladas seguindo um híbrido centralizado, descentralizado ou um entre as duas estruturas. Como resultado, os seguintes modelos de implantação de espaço de trabalho foram comumente usados para mapear para uma dessas estruturas organizacionais:
 
-* **Centralizado**: Todos os logs são armazenados em um espaço de trabalho central e administrados por uma única equipe, com Azure Monitor fornecendo acesso diferenciado por equipe. Nesse cenário, é fácil de gerenciar, Pesquisar entre recursos e correlacionar logs de forma cruzada. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados coletados de vários recursos em sua assinatura, com sobrecarga administrativa adicional para manter o controle de acesso a diferentes usuários.
-* **Descentralizado**: Cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
-* **Híbrido**: Os requisitos de conformidade de auditoria de segurança complicam ainda mais esse cenário porque muitas organizações implementam ambos os modelos de implantação em paralelo. Isso normalmente resulta em uma configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
+* **Centralizado**: todos os logs são armazenados em um espaço de trabalho central e administrados por uma única equipe, com Azure monitor fornecendo acesso diferenciado por equipe. Nesse cenário, é fácil de gerenciar, Pesquisar entre recursos e correlacionar logs de forma cruzada. O espaço de trabalho pode crescer significativamente dependendo da quantidade de dados coletados de vários recursos em sua assinatura, com sobrecarga administrativa adicional para manter o controle de acesso a diferentes usuários.
+* **Descentralizado**: cada equipe tem seu próprio espaço de trabalho criado em um grupo de recursos que ele possui e gerencia, e os dados de log são separados por recurso. Nesse cenário, o espaço de trabalho pode ser mantido seguro e o controle de acesso é consistente com o acesso aos recursos, mas é difícil correlacionar os logs. Os usuários que precisam de uma visão ampla de muitos recursos não podem analisar os dados de uma maneira significativa.
+* **Híbrido**: os requisitos de conformidade de auditoria de segurança complicam ainda mais esse cenário porque muitas organizações implementam ambos os modelos de implantação em paralelo. Isso normalmente resulta em uma configuração complexa, cara e difícil de manter com lacunas na cobertura de logs.
 
 Ao usar os agentes de Log Analytics para coletar dados, você precisa entender o seguinte para planejar a implantação do agente:
 
@@ -69,7 +69,7 @@ Com o RBAC (controle de acesso baseado em função), você pode conceder aos usu
 
 Os dados aos quais um usuário tem acesso são determinados por uma combinação de fatores listados na tabela a seguir. Cada um é descrito nas seções a seguir.
 
-| Fator | Descrição |
+| Multi-fator | Descrição |
 |:---|:---|
 | [Modo de acesso](#access-mode) | Método usado pelo usuário para acessar o espaço de trabalho.  Define o escopo dos dados disponíveis e o modo de controle de acesso que é aplicado. |
 | [Modo de controle de acesso](#access-control-mode) | Configuração no espaço de trabalho que define se as permissões são aplicadas no nível de espaço de trabalho ou de recurso. |
@@ -82,11 +82,11 @@ O *modo de acesso* refere-se a como um usuário acessa um espaço de trabalho lo
 
 Os usuários têm duas opções para acessar os dados:
 
-* **Espaço de trabalho-contexto**: Você pode exibir todos os logs no espaço de trabalho para o qual tem permissão. As consultas nesse modo têm o escopo definido para todos os dados em todas as tabelas no espaço de trabalho. Esse é o modo de acesso usado quando os logs são acessados com o espaço de trabalho como o escopo, como quando você seleciona **logs** no menu **Azure monitor** na portal do Azure.
+* **Espaço de trabalho-contexto**: você pode exibir todos os logs no espaço de trabalho para o qual você tem permissão. As consultas nesse modo têm o escopo definido para todos os dados em todas as tabelas no espaço de trabalho. Esse é o modo de acesso usado quando os logs são acessados com o espaço de trabalho como o escopo, como quando você seleciona **logs** no menu **Azure monitor** na portal do Azure.
 
     ![Log Analytics contexto do espaço de trabalho](./media/design-logs-deployment/query-from-workspace.png)
 
-* **Recurso-contexto**: Ao acessar o espaço de trabalho para um recurso específico, um grupo de recursos ou uma assinatura, como quando você seleciona **logs** em um menu de recursos na portal do Azure, você pode exibir logs somente para recursos em todas as tabelas às quais você tem acesso. As consultas neste modo têm o escopo para apenas os dados associados a esse recurso. Esse modo também permite o RBAC granular.
+* **Recurso-contexto**: quando você acessa o espaço de trabalho para um recurso específico, grupo de recursos ou assinatura, como quando você seleciona **logs** em um menu de recursos na portal do Azure, você pode exibir logs somente para recursos em todas as tabelas que você tiver acesso ao. As consultas neste modo têm o escopo para apenas os dados associados a esse recurso. Esse modo também permite o RBAC granular.
 
     ![Log Analytics contexto do recurso](./media/design-logs-deployment/query-from-resource.png)
 
@@ -94,7 +94,7 @@ Os usuários têm duas opções para acessar os dados:
     > Os logs estarão disponíveis para consultas de contexto de recurso somente se estiverem corretamente associados ao recurso relevante. Atualmente, os seguintes recursos têm limitações:
     > - Computadores fora do Azure
     > - Service Fabric
-    > - Application Insights
+    > - Estatísticas das Aplicações
     >
     > Você pode testar se os logs estão corretamente associados ao recurso executando uma consulta e inspecionando os registros nos quais você está interessado. Se a ID de recurso correta estiver na propriedade [_ResourceId](log-standard-properties.md#_resourceid) , os dados estarão disponíveis para consultas centradas em recursos.
 
@@ -115,13 +115,13 @@ A tabela a seguir resume os modos de acesso:
 
 O *modo de controle de acesso* é uma configuração em cada espaço de trabalho que define como as permissões são determinadas para o espaço de trabalho.
 
-* **Exigir permissões de espaço de trabalho**: Esse modo de controle não permite RBAC granular. Para que um usuário acesse o espaço de trabalho, ele deve receber permissões para o espaço de trabalho ou para tabelas específicas.
+* **Exigir permissões de espaço de trabalho**: este modo de controle não permite RBAC granular. Para que um usuário acesse o espaço de trabalho, ele deve receber permissões para o espaço de trabalho ou para tabelas específicas.
 
     Se um usuário acessar o espaço de trabalho após o modo de contexto de espaço de trabalho, ele terá acesso a todos os dados em qualquer tabela à qual tenha sido concedido acesso. Se um usuário acessar o espaço de trabalho após o modo de contexto de recurso, ele terá acesso a apenas dados para esse recurso em qualquer tabela à qual tenha sido concedido acesso.
 
     Essa é a configuração padrão para todos os espaços de trabalho criados antes de março de 2019.
 
-* **Usar permissões de recurso ou espaço de trabalho**: Esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo permissão do Azure `read`. 
+* **Usar permissões de recurso ou espaço de trabalho**: esse modo de controle permite RBAC granular. Os usuários podem receber acesso a apenas dados associados aos recursos que podem exibir atribuindo permissão do Azure `read`. 
 
     Quando um usuário acessa o espaço de trabalho no modo de contexto de espaço de trabalho, as permissões de espaço de trabalho se aplicam. Quando um usuário acessa o espaço de trabalho no modo de contexto de recurso, somente as permissões de recurso são verificadas e as permissões de espaço de trabalho são ignoradas. Habilite o RBAC para um usuário removendo-os das permissões do espaço de trabalho e permitindo que suas permissões de recurso sejam reconhecidas.
 

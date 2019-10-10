@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gerar uma miniatura-REST, vá'
+title: 'Início Rápido: Gerar uma miniatura – REST, Go'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API de Imagem Digitalizada com o Go.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177236"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Início rápido: Gerar uma miniatura usando a API REST do Pesquisa Visual Computacional com go
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-with-go"></a>Início rápido: gerar uma miniatura usando a API REST do Pesquisa Visual Computacional com go
 
 Neste guia de início rápido, você gera uma miniatura de uma imagem usando a API REST do Pesquisa Visual Computacional. Você especifica a altura e a largura, que pode diferir na taxa de proporção da imagem de entrada. Pesquisa Visual Computacional usa o corte inteligente para identificar de forma inteligente a área de interesse e gerar coordenadas de corte com base nessa região.
 

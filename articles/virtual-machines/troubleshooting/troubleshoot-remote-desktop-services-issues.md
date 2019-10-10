@@ -34,18 +34,18 @@ Ao tentar se conectar a uma VM, você enfrenta os seguintes cenários:
 
     ![Captura de tela do status da VM](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- Ver remotamente os registos de eventos na VM com o Visualizador de eventos. Você vê que o Serviços de Área de Trabalho Remota, o TermService, não está iniciando ou não é iniciado. O seguinte log é um exemplo:
+- Você exibe remotamente os logs de eventos na VM usando Visualizador de Eventos. Você vê que o Serviços de Área de Trabalho Remota, o TermService, não está iniciando ou não é iniciado. O seguinte log é um exemplo:
 
-    **Nome do log**:      Sistema </br>
-    **Origem**:        Gerenciador de controle de serviço </br>
-    **Data**:          12/16/2017 11:19:36 AM</br>
-    **ID do evento**:      7022</br>
-    **Categoria da tarefa**: Nenhum</br>
-    **Nível**:         Erro</br>
-    **Palavras-chave**:      Clássica</br>
-    **Usuário**:          N/A</br>
+    **Nome do log**: sistema </br>
+    **Fonte**: Gerenciador de controle de serviço </br>
+    **Data**: 12/16/2017 11:19:36 am</br>
+    **ID do evento**: 7022</br>
+    **Categoria da tarefa**: nenhuma</br>
+    **Nível**: erro</br>
+    **Palavras-chave**: clássico</br>
+    **Usuário**: N/A</br>
     **Computador**: VM.contoso.com</br>
-    **Descrição**: O serviço de Serviços de Área de Trabalho Remota parou ao iniciar. 
+    **Descrição**: o serviço de serviços de área de trabalho remota suspenso ao iniciar. 
 
     Você também pode usar o recurso de console de acesso serial para procurar esses erros executando a seguinte consulta: 
 
@@ -98,21 +98,21 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
 
     |  Erro |  Sugestão |
     |---|---|
-    |5 - ACESSO NEGADO |Consulte [o serviço do TermService foi interrompido devido a um erro de acesso negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Consulte o [serviço do TermService está desabilitado](#termservice-service-is-disabled).  |  
-    |1058 - ERROR_SERVICE_DISABLED  |Consulte [falhas ou suspensões do serviço do TermService](#termservice-service-crashes-or-hangs).  |
-    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.|
-    |1067 - ERROR_PROCESS_ABORTED  |Consulte [falhas ou suspensões do serviço do TermService](#termservice-service-crashes-or-hangs).  |
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |Veja falha [no serviço do TermService devido à falha de logon](#termservice-service-fails-because-of-logon-failure) |
-    |1070 - ERROR_SERVICE_START_HANG   | Consulte [falhas ou suspensões do serviço do TermService](#termservice-service-crashes-or-hangs). |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | Consulte o [serviço do TermService está desabilitado](#termservice-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente. |
+    |5-ACESSO NEGADO |Consulte [o serviço do TermService foi interrompido devido a um erro de acesso negado](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053-ERROR_SERVICE_REQUEST_TIMEOUT  |Consulte o [serviço do TermService está desabilitado](#termservice-service-is-disabled).  |  
+    |1058-ERROR_SERVICE_DISABLED  |Consulte [falhas ou suspensões do serviço do TermService](#termservice-service-crashes-or-hangs).  |
+    |1059-ERROR_CIRCULAR_DEPENDENCY |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.|
+    |1067-ERROR_PROCESS_ABORTED  |Consulte [falhas ou suspensões do serviço do TermService](#termservice-service-crashes-or-hangs).  |
+    |1068-ERROR_SERVICE_DEPENDENCY_FAIL|[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.|
+    |1069-ERROR_SERVICE_LOGON_FAILED  |Veja falha [no serviço do TermService devido à falha de logon](#termservice-service-fails-because-of-logon-failure) |
+    |1070-ERROR_SERVICE_START_HANG   | Consulte [falhas ou suspensões do serviço do TermService](#termservice-service-crashes-or-hangs). |
+    |1077-ERROR_SERVICE_NEVER_STARTED   | Consulte o [serviço do TermService está desabilitado](#termservice-service-is-disabled).  |
+    |1079-ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente. |
     |1753   |[Entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema rapidamente.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>O serviço do TermService foi interrompido devido a um problema de acesso negado
 
-1. Ligar à [consola de série](serial-console-windows.md) e abra uma instância do PowerShell.
+1. Conecte-se ao [console serial](serial-console-windows.md) e abra uma instância do PowerShell.
 2. Baixe a ferramenta Process Monitor executando o seguinte script:
 
    ```
@@ -123,7 +123,7 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
    $wc.DownloadFile($source,$destination) 
    ```
 
-3. Inicie agora uma **procmon** rastreio:
+3. Agora, inicie um rastreamento **Procmon** :
 
    ```
    procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
@@ -135,7 +135,7 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
    sc start TermService 
    ```
 
-   Quando ocorre uma falha, encerrar o rastreio de Monitor do processo:
+   Quando ele falhar, encerre o rastreamento do monitor de processos:
 
    ```   
    procmon /Terminate 
@@ -143,9 +143,9 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
 
 5. Colete o arquivo **c:\temp\ProcMonTrace.PML**:
 
-    1. [Anexar um disco de dados para a VM](../windows/attach-managed-disk-portal.md
+    1. [Anexe um disco de dados à VM](../windows/attach-managed-disk-portal.md
 ).
-    2. Utilize a consola de série, pode copiar o ficheiro para o novo disco. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Neste comando, F é a letra de unidade do disco de dados anexados.
+    2. Usar o console serial você pode copiar o arquivo para a nova unidade. Por exemplo, `copy C:\temp\ProcMonTrace.PML F:\`. Neste comando, F é a letra de driver do disco de dados anexado.
     3. Desanexe a unidade de dados e anexe-a em uma VM em funcionamento que tenha o Process Monitor ubstakke instalado.
 
 6. Abra **ProcMonTrace. PML** usando o Process Monitor na VM de trabalho. Em seguida, filtrar por **resultado é acesso negado**, conforme mostrado na seguinte captura de tela:
@@ -153,11 +153,11 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
     ![Filtrar por resultado no monitor de processo](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Corrigi as chaves do Registro, pastas ou ficheiros que estão na saída. Normalmente, esse problema é causado quando a conta de início de sessão que é utilizada no serviço não tem permissão de ACL de acesso esses objetos. Para saber a permissão de ACL correta para a conta de entrada, você pode verificar em uma VM íntegra. 
+6. Corrija as chaves do registro, as pastas ou os arquivos que estão na saída. Normalmente, esse problema é causado quando a conta de entrada usada no serviço não tem permissão de ACL para acessar esses objetos. Para saber a permissão de ACL correta para a conta de entrada, você pode verificar em uma VM íntegra. 
 
 #### <a name="termservice-service-is-disabled"></a>O serviço do TermService está desabilitado
 
-1. Restaure o serviço para o valor de arranque predefinido:
+1. Restaure o serviço para seu valor de inicialização padrão:
 
    ```
    sc config TermService start= demand 
@@ -191,7 +191,7 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
 1. Se o status do serviço estiver preso no **início** ou na **interrupção**, tente parar o serviço: 
 
         sc stop TermService
-2. Isole o serviço no seu próprio contentor "svchost":
+2. Isole o serviço em seu próprio contêiner ' svchost ':
 
         sc config TermService type= own
 3. Inicie o serviço:
@@ -199,13 +199,13 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
         sc start TermService
 4. Se o serviço ainda estiver falhando no início, [contate o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-### <a name="repair-the-vm-offline"></a>Repare a VM offline
+### <a name="repair-the-vm-offline"></a>Reparar a VM offline
 
-#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do SO a uma VM de recuperação
+#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do sistema operacional a uma VM de recuperação
 
-1. [Anexar o disco do SO a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
-2. Inicie uma ligação de ambiente de trabalho remoto para a VM de recuperação. Certifique-se de que o disco ligado é sinalizado de forma **Online** no console de gerenciamento de disco. Tenha em atenção a letra de unidade que está atribuída ao disco do SO anexado.
-3. Abra uma instância de linha de comandos elevada (**executar como administrador**). Em seguida, execute o seguinte script. Supomos que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua-o pelo valor apropriado em sua VM. 
+1. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+2. Inicie uma conexão Área de Trabalho Remota com a VM de recuperação. Verifique se o disco anexado está sinalizado como **online** no console de gerenciamento de disco. Observe a letra da unidade atribuída ao disco do sistema operacional anexado.
+3. Abra uma instância de prompt de comando com privilégios elevados (**Executar como administrador**). Em seguida, execute o script a seguir. Supomos que a letra da unidade atribuída ao disco do sistema operacional anexado é **F**. Substitua-o pelo valor apropriado em sua VM. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -219,8 +219,8 @@ Para solucionar esse problema, use o console serial. Ou então, [Repare a VM off
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Desanexar o disco do SO e recriar a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema foi resolvido.
+4. [Desanexe o disco do sistema operacional e recrie a VM](../windows/troubleshoot-recovery-disks-portal.md). Em seguida, verifique se o problema foi resolvido.
 
-## <a name="need-help-contact-support"></a>Precisa de ajuda? Contacte o suporte
+## <a name="need-help-contact-support"></a>Precisa de ajuda? Contactar o suporte
 
 Se você ainda precisar de ajuda, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver o problema.

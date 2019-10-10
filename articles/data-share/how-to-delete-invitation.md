@@ -19,7 +19,7 @@ Este artigo explica como excluir um convite para um destinatário antes de aceit
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegar até um compartilhamento de dados enviado
 
-Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **convites** . Aqui estão listados todos os destinatários de convites para esse compartilhamento de dados. Clique nas caixas ao lado dos destinatários cujos convites você gostaria de excluir e, em seguida, clique em **excluir**.
+Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **convites** . listado aqui estão todos os destinatários de convites para esse compartilhamento de dados. Clique nas caixas ao lado dos destinatários cujos convites você gostaria de excluir e, em seguida, clique em **excluir**.
 
 ![Excluir convite](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 

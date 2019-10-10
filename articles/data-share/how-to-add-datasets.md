@@ -21,7 +21,7 @@ Para obter informações sobre como adicionar conjuntos de dados à medida que v
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegar até um compartilhamento de dados enviado
 
-Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **conjuntos** de dados. Clique no botão **+ Adicionar conjuntos** de itens para adicionar mais conjuntos de informações.
+Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **conjuntos** de dados. Clique no botão **+ Adicionar conjuntos** de dados para adicionar mais conjuntos de dados.
 
 ![Adicionar conjuntos de os](./media/how-to/how-to-add-datasets/add-datasets.png)
 
@@ -29,7 +29,7 @@ No painel à direita, selecione o tipo de conjunto de texto que você deseja adi
 
 ![Adicionar conjuntos de os](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-Depois de clicar em **Adicionar conjuntos**de os, os conjuntos de valores serão adicionados ao seu compartilhamento. Nota: Um instantâneo deve ser disparado por seus consumidores para que eles vejam os novos conjuntos de clientes. Se houver configurações de instantâneo configuradas, os consumidores verão os novos conjuntos de clientes assim que o próximo instantâneo agendado for concluído. Sem configurações de instantâneo configuradas, o consumidor deve disparar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, consulte [instantâneos](terminology.md).
+Depois de clicar em **Adicionar conjuntos**de os, os conjuntos de valores serão adicionados ao seu compartilhamento. Observação: um instantâneo deve ser disparado por seus consumidores para que eles vejam os novos conjuntos de clientes. Se houver configurações de instantâneo configuradas, os consumidores verão os novos conjuntos de clientes assim que o próximo instantâneo agendado for concluído. Sem configurações de instantâneo configuradas, o consumidor deve disparar manualmente uma cópia completa ou incremental dos dados para receber as atualizações. Para obter mais informações sobre instantâneos, consulte [instantâneos](terminology.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre como [Adicionar destinatários a um compartilhamento de dados existente](how-to-add-recipients.md).

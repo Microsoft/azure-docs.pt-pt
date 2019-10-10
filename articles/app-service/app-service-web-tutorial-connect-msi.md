@@ -21,12 +21,12 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177078"
 ---
-# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Proteger a conexão do banco de dados SQL do Azure do serviço de aplicativo usando uma identidade gerenciada
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutorial: Utilizar uma identidade gerida para proteger a ligação da Base de Dados SQL do Azure a partir do Serviço de Aplicações
 
 O [Serviço de Aplicações](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática no Azure. Também oferece uma [identidade gerida](overview-managed-identity.md) para a sua aplicação, que é uma solução chave na mão para proteger o acesso à [Base de Dados SQL do Azure](/azure/sql-database/) e a outros serviços do Azure. As identidades geridas no Serviço de Aplicações retiram a necessidade de ter segredos nas suas aplicações, como credenciais nas cadeias de ligação, o que as torna mais seguras. Neste tutorial, você adicionará identidade gerenciada ao aplicativo Web de exemplo criado em um dos seguintes tutoriais: 
 
-- [Tutorial: Criar um aplicativo ASP.NET no Azure com o banco de dados SQL @ no__t-0
-- [Tutorial: Criar um ASP.NET Core e um aplicativo de banco de dados SQL no Azure App serviço @ no__t-0
+- [Tutorial: criar um aplicativo ASP.NET no Azure com o banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: criar um aplicativo de banco de dados ASP.NET Core e SQL no serviço Azure App](app-service-web-tutorial-dotnetcore-sqldb.md)
 
 Quando tiver terminado, a aplicação de exemplo irá ligar-se à Base de Dados SQL em segurança sem ser preciso o nome de utilizador e a palavras-passe.
 
@@ -46,13 +46,13 @@ O que você aprenderá:
 > * Conectar-se ao banco de dados SQL do Visual Studio usando a autenticação do Azure AD
 
 > [!NOTE]
->A autenticação do Azure AD é _diferente_ da [autenticação integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory local (AD DS). AD DS e o AD do Azure usam protocolos de autenticação completamente diferentes. Para obter mais informações, consulte [documentação do Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
+>A autenticação do Azure AD é _diferente_ da [autenticação integrada do Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) no Active Directory local (AD DS). AD DS e o AD do Azure usam protocolos de autenticação completamente diferentes. Para obter mais informações, consulte a [documentação do Azure AD Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo continua de onde você parou em [Tutorial: Crie um aplicativo ASP.NET no Azure com o banco de dados SQL @ no__t-0 ou [Tutorial: Crie um ASP.NET Core e um aplicativo de banco de dados SQL no Azure App serviço @ no__t-0. Se você ainda não fez isso, siga um dos dois tutoriais primeiro. Como alternativa, você pode adaptar as etapas para seu próprio aplicativo .NET com o banco de dados SQL.
+Este artigo continua de onde você parou no [tutorial: criar um aplicativo ASP.net no Azure com o banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md) ou [tutorial: criar um aplicativo de banco de dados ASP.NET Core e sql no serviço Azure app](app-service-web-tutorial-dotnetcore-sqldb.md). Se você ainda não fez isso, siga um dos dois tutoriais primeiro. Como alternativa, você pode adaptar as etapas para seu próprio aplicativo .NET com o banco de dados SQL.
 
 Para depurar seu aplicativo usando o banco de dados SQL como o back-end, certifique-se de que você tenha permitido a conexão de cliente do seu computador. Caso contrário, adicione o IP do cliente seguindo as etapas em [gerenciar regras de firewall de IP de nível de servidor usando o portal do Azure](../sql-database/sql-database-firewall-configure.md#use-the-azure-portal-to-manage-server-level-ip-firewall-rules).
 
@@ -262,13 +262,13 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 Agora, só falta publicar as alterações no Azure.
 
-**If que você veio de [Tutorial: Crie um aplicativo ASP.NET no Azure com o banco de dados SQL @ no__t-0 @ no__t-1, Publique suas alterações no Visual Studio. No **Explorador de Soluções**, clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar**.
+**Se você veio do [tutorial: criar um aplicativo ASP.net no Azure com o banco de dados SQL](app-service-web-tutorial-dotnet-sqldatabase.md)** , Publique suas alterações no Visual Studio. No **Explorador de Soluções**, clique com o botão direito do rato no projeto **DotNetAppSqlDb** e selecione **Publicar**.
 
 ![Publicar a partir do Explorador de Soluções](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
 Na página de publicação, clique em **Publicar**. 
 
-**If que você veio de [Tutorial: Crie um ASP.NET Core e um aplicativo de banco de dados SQL no Azure App serviço @ no__t-0 @ no__t-1, Publique suas alterações usando o Git, com os seguintes comandos:
+**Se você veio do [tutorial: criar um ASP.NET Core e um aplicativo de banco de dados SQL no serviço Azure app](app-service-web-tutorial-dotnetcore-sqldb.md)** , Publique suas alterações usando o Git, com os seguintes comandos:
 
 ```bash
 git commit -am "configure managed identity"

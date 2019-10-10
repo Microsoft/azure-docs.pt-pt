@@ -64,7 +64,7 @@ Para poder criar uma conexão, você precisa adicionar a solução Conector ITSM
 3. Na seção **espaço de trabalho do OMS** , selecione o espaço de trabalho log Analytics do Azure onde você deseja instalar a solução.
    >[!NOTE]
    > * Como parte da transição contínua do Microsoft Operations Management Suite (OMS) para Azure Monitor, os espaços de trabalho do OMS agora são chamados de espaços de trabalho Log Analytics.
-   > * O Conector ITSM só pode ser instalado em espaços de trabalho Log Analytics nas seguintes regiões: Leste dos EUA, Europa Ocidental, Sudeste Asiático, sudeste da Austrália, Oeste EUA Central, leste do Japão, sul do Reino Unido, Índia central, Canadá central.
+   > * O Conector ITSM só pode ser instalado nos espaços de trabalho do Log Analytics nas seguintes regiões: leste dos EUA, Europa Ocidental, Sudeste Asiático, sudeste da Austrália, Oeste EUA Central, leste do Japão, sul do Reino Unido, Índia central, Canadá central.
 
 4. Na seção **configurações do espaço de trabalho do OMS** , selecione o resourcegroup no qual você deseja criar o recurso de solução.
 
@@ -97,7 +97,7 @@ Depois de ter preparado suas ferramentas de ITSM, siga as etapas abaixo para cri
    conexões ![ITSM @ no__t-1
 
    Esta página exibe a lista de conexões.
-3. Clique em **adicionar ligação**.
+3. Clique em **Adicionar conexão**.
 
    ![Adicionar conexão de ITSM](media/itsmc-overview/add-new-itsm-connection.png)
 
@@ -124,7 +124,7 @@ Utilize o seguinte procedimento:
 1. Em portal do Azure, clique em **monitorar**.
 2. No painel esquerdo, clique em **grupos de ação**. A janela **Adicionar grupo de ações** é exibida.
 
-    ![Grupos de Ação](media/itsmc-overview/action-groups.png)
+    ![Grupos de Ações](media/itsmc-overview/action-groups.png)
 
 3. Forneça o **nome** e o **curtoname** para o seu grupo de ação. Selecione o **grupo de recursos** e a **assinatura** em que você deseja criar o grupo de ações.
 
@@ -164,10 +164,10 @@ Se você estiver usando a solução Mapa do Serviço, poderá exibir os itens da
 
 ![Tela de Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Mais informações: [Mapa do Serviço](../../azure-monitor/insights/service-map.md)
+Mais informações: [mapa do serviço](../../azure-monitor/insights/service-map.md)
 
 
-## <a name="additional-information"></a>Informações adicionais
+## <a name="additional-information"></a>Informação adicional
 
 ### <a name="data-synced-from-itsm-product"></a>Dados sincronizados do produto de ITSM
 Incidentes e solicitações de alteração são sincronizados de seu produto ITSM para seu espaço de trabalho Log Analytics com base na configuração da conexão.
@@ -178,57 +178,57 @@ As informações a seguir mostram exemplos de dados coletados pelo ITSMC:
 >
 > Dependendo do tipo de item de trabalho importado para Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
 
-**Item de trabalho:** **Incidente**  
-ServiceDeskWorkItemType_s="Incident"
+**Item de trabalho:** **incidentes**  
+ServiceDeskWorkItemType_s = "incidente"
 
-**Campos**
+**Campo**
 
 - ServiceDeskConnectionName
 - ID da central de serviços
-- State
+- Estado
 - Urgência
 - Impacto
-- Priority
-- Escalonamento
+- Prioridade
+- Escalamento
 - Criado por
 - Resolvido por
 - Fechado por
-- Source
+- Origem
 - Atribuído a
-- Category
-- Cargo
+- Categoria
+- Título
 - Descrição
 - Data de criação
-- Data de fecho
-- Data de resolução
+- Data de fechamento
+- Data da resolução
 - Data da última modificação
-- Computer
+- Computador
 
 
-**Item de trabalho:** **Solicitações de alteração**
+**Item de trabalho:** **solicitações de alteração**
 
-ServiceDeskWorkItemType_s="ChangeRequest"
+ServiceDeskWorkItemType_s = "ChangeRequest"
 
-**Campos**
+**Campo**
 - ServiceDeskConnectionName
 - ID da central de serviços
 - Criado por
 - Fechado por
-- Source
+- Origem
 - Atribuído a
-- Cargo
-- Type
-- Category
-- State
-- Escalonamento
+- Título
+- Tipo
+- Categoria
+- Estado
+- Escalamento
 - Status de conflito
 - Urgência
-- Priority
+- Prioridade
 - Risco
 - Impacto
 - Atribuído a
 - Data de criação
-- Data de fecho
+- Data de fechamento
 - Data da última modificação
 - Data solicitada
 - Data de início planejada
@@ -236,29 +236,29 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de início do trabalho
 - Data de término do trabalho
 - Descrição
-- Computer
+- Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
 
 | Campo de Log Analytics | Campo do ServiceNow |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| IncidentState_s | State |
+| IncidentState_s | Estado |
 | Urgency_s |Urgência |
 | Impact_s |Impacto|
-| Priority_s | Priority |
+| Priority_s | Prioridade |
 | CreatedBy_s | Aberto por |
 | ResolvedBy_s | Resolvido por|
 | ClosedBy_s  | Fechado por |
 | Source_s| Tipo de contato |
 | AssignedTo_s | Atribuído a  |
-| Category_s | Category |
+| Category_s | Categoria |
 | Title_s|  Descrição resumida |
 | Description_s|  Notas |
 | CreatedDate_t|  Feito |
-| ClosedDate_t| Fechado|
+| ClosedDate_t| Legenda|
 | ResolvedDate_t|Resolvido|
-| Computer  | Item de configuração |
+| Computador  | Item de configuração |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Dados de saída para uma solicitação de alteração do ServiceNow
 
@@ -269,11 +269,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição resumida |
-| Type_s|  Type |
-| Category_s|  Category |
-| CRState_s|  State|
+| Type_s|  Tipo |
+| Category_s|  Categoria |
+| CRState_s|  Estado|
 | Urgency_s|  Urgência |
-| Priority_s| Priority|
+| Priority_s| Prioridade|
 | Risk_s| Risco|
 | Impact_s| Impacto|
 | RequestedDate_t  | Solicitado por data |
@@ -283,7 +283,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
 | Description_s | Descrição |
-| Computer  | Item de configuração |
+| Computador  | Item de configuração |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Solucionar problemas de conexões de ITSM
@@ -296,7 +296,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando ociosas por um longo período. Caso contrário, relate o problema.
 3. Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados em itens de configuração ou produtos de ITSM não forem criados/vinculados a itens de trabalho ou para outras informações genéricas, procure nos seguintes locais:
-   -  ITSMC: A solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como erro para obter mais informações.
+   -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como erro para obter mais informações.
    - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL @ no__t-2.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web

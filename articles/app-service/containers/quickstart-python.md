@@ -17,7 +17,7 @@ experimental: true
 experiment_id: 1e304dc9-5add-4b
 ms.openlocfilehash: ed7e0df77abb39c07bea8946381247539afb3134
 ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177016"
@@ -194,10 +194,10 @@ O menu à esquerda fornece diferentes páginas para configurar a sua aplicação
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Aplicativo Web Python (Django) com PostgreSQL @ no__t-0
+> [Tutorial: aplicativo Web Python (Django) com PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Configurar o aplicativo Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: Executar aplicativo Python no contêiner personalizado @ no__t-0
+> [Tutorial: executar o aplicativo Python no contêiner personalizado](tutorial-custom-docker-image.md)

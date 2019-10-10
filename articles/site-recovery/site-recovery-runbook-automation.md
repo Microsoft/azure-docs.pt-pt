@@ -99,7 +99,7 @@ O blog de Aman Sharma na [coleta de nuvens](http://harvestingclouds.com) tem um 
 
 - Se você for novo na automação do Azure, poderá [se inscrever](https://azure.microsoft.com/services/automation/) e [baixar scripts de exemplo](https://azure.microsoft.com/documentation/scripts/).
 - Verifique se a conta de automação tem os seguintes módulos:
-    - AzureRM.profile
+    - AzureRM. Profile
     - AzureRM.Resources
     - AzureRM.Automation
     - AzureRM.Network
@@ -117,9 +117,9 @@ O blog de Aman Sharma na [coleta de nuvens](http://harvestingclouds.com) tem um 
 
     ![Clique no botão Personalizar](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Clique nas reticências (...) ao lado de **Group 1: Inicie o @ no__t-0 @ no__t-1**Adicionar post action**.
+2. Clique nas reticências (...) ao lado do **grupo 1: iniciar** > **Adicionar ação de postagem**.
 3. Em **Inserir ação**, verifique se o **script** está selecionado e especifique um nome para o script (**Olá, mundo**).
-4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado a **Group 1: Pós-etapas @ no__t-0.
+4. Especifique uma conta de automação e selecione um runbook. Para salvar o script, clique em **OK**. O script é adicionado ao **grupo 1: post-Steps**.
 
 
 ## <a name="reuse-a-runbook-script"></a>Reutilizar um script de runbook

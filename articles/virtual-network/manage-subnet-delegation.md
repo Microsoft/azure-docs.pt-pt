@@ -36,11 +36,11 @@ Nesta seção, você criará uma rede virtual e a sub-rede que será delegada po
 
     | Definição | Valor |
     | ------- | ----- |
-    | Name | Insira *MyVirtualNetwork*. |
+    | Nome | Insira *MyVirtualNetwork*. |
     | Espaço de endereços | Digite *10.0.0.0/16*. |
-    | Subscription | Selecione a sua subscrição.|
-    | Resource group | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK**. |
-    | Location | Selecione **lesteus**.|
+    | Subscrição | Selecione a sua subscrição.|
+    | Grupo de recursos | Selecione **criar novo**, insira *MyResource*e, em seguida, selecione **OK**. |
+    | Localização | Selecione **lesteus**.|
     | Nome da sub-rede | Insira *mysubnet*. |
     | Sub-rede - Intervalo de endereços | Digite *10.0.0.0/24*. |
     |||

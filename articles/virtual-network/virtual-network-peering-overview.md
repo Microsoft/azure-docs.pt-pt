@@ -34,7 +34,7 @@ As vantagens da utilização do peering de redes virtuais, sejam locais ou globa
 * A capacidade de configurar o peering entre redes virtuais criadas através do Azure Resource Manager ou o peering entre uma rede virtual criada através do Resource Manager e outra criada através do modelo de implementação clássica. Para saber mais sobre os modelos de implementação do Azure, veja [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Compreender os modelos de implementação do Azure).
 * Sem períodos de indisponibilidade para recursos em qualquer rede virtual durante ou após a criação do peering.
 
-## <a name="connectivity"></a>Conectividade
+## <a name="connectivity"></a>Ligação
 
 Depois das redes virtuais serem colocadas em modo de peering, os recursos em cada uma destas podem ligar-se diretamente a recursos na rede virtual em modo de peering.
 
@@ -96,7 +96,7 @@ O trânsito de gateway é uma propriedade de emparelhamento que permite que uma 
 
 * É criado um peering de rede virtual entre redes virtuais criadas com o mesmo ou com diferentes modelos de implementação que existam na mesma ou em diferentes subscrições. Conclua um tutorial para um dos cenários seguintes:
 
-    |Modelo de implementação do Azure             | Subscription  |
+    |Modelo de implementação do Azure             | Subscrição  |
     |---------                          |---------|
     |Ambas com Resource Manager              |[Mesma](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Diferente](create-peering-different-subscriptions.md)|

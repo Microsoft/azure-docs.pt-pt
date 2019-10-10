@@ -41,9 +41,9 @@ Se você ainda não conseguir ver um convite de compartilhamento de dados, entre
 
 ## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Erro ao criar ou receber um novo compartilhamento de dados
 
-Ao A operação retornou um código de status inválido ' BadRequest ' "
+"Erro: a operação retornou um código de status inválido ' BadRequest '"
 
-Ao AuthorizationFailed"
+"Erro: AuthorizationFailed"
 
 "Erro: atribuição de função à conta de armazenamento"
 

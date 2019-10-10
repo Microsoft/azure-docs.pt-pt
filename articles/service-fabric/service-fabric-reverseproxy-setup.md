@@ -29,10 +29,10 @@ Portal do Azure fornece uma opção para habilitar o proxy reverso quando você 
 
 Para configurar o proxy reverso ao [criar um cluster usando portal do Azure](./service-fabric-cluster-creation-via-portal.md), certifique-se de fazer o seguinte:
 
-1. Em **Step 2: Configuração de cluster @ no__t-0, em **configuração de tipo de nó**, selecione **habilitar proxy reverso**.
+1. Na **etapa 2: configuração de cluster**, em **configuração de tipo de nó**, selecione **habilitar proxy reverso**.
 
    ![Habilitar proxy reverso no portal](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. Adicional Para configurar o proxy reverso seguro, você precisa configurar um certificado SSL. Em **Step 3: Segurança @ no__t-0, em **definir configurações de segurança do cluster**, em **tipo de configuração**, selecione **personalizado**. Em seguida, em **certificado SSL de proxy reverso**, selecione **incluir um certificado SSL para o proxy reverso** e insira os detalhes do certificado.
+2. Adicional Para configurar o proxy reverso seguro, você precisa configurar um certificado SSL. Na **etapa 3: segurança**, em **definir configurações de segurança do cluster**, em **tipo de configuração**, selecione **personalizado**. Em seguida, em **certificado SSL de proxy reverso**, selecione **incluir um certificado SSL para o proxy reverso** e insira os detalhes do certificado.
 
    ![Configurar o proxy reverso seguro no portal](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 

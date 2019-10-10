@@ -64,11 +64,11 @@ Para configurar verificações personalizadas de linha de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades da verificação personalizada de linha de base
 
-| Name| State | Valores válidos| Valores predefinidos| Descrição |
+| Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **valor booleano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
-|baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **Cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|
-|baselineCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **Cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |`sha256sum` do arquivo de configuração XML. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |
+|baselineCustomChecksEnabled|Necessário: verdadeiro |Valores válidos: **booliano** |Valor padrão: **false** |Intervalo de tempo máximo antes que as mensagens de alta prioridade sejam enviadas.|
+|baselineCustomChecksFilePath |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |Caminho completo da configuração XML de linha de base|
+|baselineCustomChecksFileHash |Necessário: verdadeiro|Valores válidos: **cadeia de caracteres**, **nulo** |Valor padrão: **nulo** |`sha256sum` do arquivo de configuração XML. Use a [referência sha256sum](https://linux.die.net/man/1/sha256sum) para obter informações adicionais. |
 
 Para examinar exemplos de linha de base adicionais, consulte [exemplo de linha de base personalizado-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) e [exemplo de linha de base personalizado-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 

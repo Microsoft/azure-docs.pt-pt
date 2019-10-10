@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169977"
 ---
-# <a name="conditional-access-block-access-by-location"></a>Acesso condicional: Bloquear acesso por localização
+# <a name="conditional-access-block-access-by-location"></a>Acesso condicional: bloquear o acesso por local
 
 Com a condição de localização no acesso condicional, você pode controlar o acesso aos seus aplicativos de nuvem com base no local de rede de um usuário. A condição de localização é comumente usada para bloquear o acesso de países onde sua organização sabe que o tráfego não deveria vir do.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem remota com a API REST e o Node. js'
+title: 'Início rápido: analisar uma imagem remota com a API REST e o Node. js'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai analisar uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72176482"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Início rápido: Analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional com node. js
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-nodejs"></a>Início rápido: analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional com node. js
 
 Neste guia de início rápido, você analisa uma imagem armazenada remotamente para extrair recursos visuais usando a API REST do Pesquisa Visual Computacional com node. js. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
@@ -95,7 +95,7 @@ request.post(options, (error, response, body) => {
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usar o Node. js para consultar o banco de dados SQL do Azure'
+title: 'Início rápido: usar o Node. js para consultar o banco de dados SQL do Azure'
 description: Como usar o Node. js para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções T-SQL.
 services: sql-database
 ms.service: sql-database
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72178050"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Node.js para consultar uma base de dados SQL do Azure
 
 Este guia de início rápido demonstra como usar o [node. js](https://nodejs.org) para se conectar a um banco de dados SQL do Azure. Você pode usar instruções T-SQL para consultar dados.
 
@@ -28,9 +28,9 @@ Para concluir este exemplo, verifique se você tem os seguintes pré-requisitos:
 
 - Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
-  || Base de dados individual | Instância gerida |
+  || Base de dados única | Instância gerida |
   |:--- |:--- |:---|
-  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|

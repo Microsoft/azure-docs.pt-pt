@@ -65,11 +65,11 @@ A atividade switch fornece a mesma funcionalidade que uma instrução switch for
 
 ## <a name="type-properties"></a>Propriedades do tipo
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do comutador. | Cadeia | Sim
-type | Deve ser definido como *Switch** | Cadeia | Sim
-expression | Expressão que deve ser avaliada como valor da cadeia de caracteres | Expressão com cadeia de caracteres de tipo de resultado | Sim
+nome | Nome da atividade do comutador. | String | Sim
+tipo | Deve ser definido como *Switch** | String | Sim
+expressão | Expressão que deve ser avaliada como valor da cadeia de caracteres | Expressão com cadeia de caracteres de tipo de resultado | Sim
 bolsas | Conjunto de casos que contêm um valor e um conjunto de atividades a serem executadas quando o valor corresponde à avaliação da expressão. Deve fornecer pelo menos um caso. Há um limite máximo de 25 casos. | Matriz de objetos Case | Sim
 defaultactivities | Conjunto de atividades que são executadas quando a avaliação da expressão não é satisfeita. | Matriz de atividades | Sim
 
@@ -289,7 +289,7 @@ O pipeline define **FolderPath** como o valor do parâmetro **outputPath1** ou *
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF,. 
+Esses comandos pressupõem que você salvou os arquivos JSON na pasta: C:\ADF. 
 
 ```powershell
 Connect-AzAccount

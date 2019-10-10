@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Enviar telemetria para o Hub IoT do Azure com Java'
+title: 'Início rápido: enviar telemetria para o Hub IoT do Azure com Java'
 description: Neste início rápido, irá executar duas aplicações Java de exemplo para enviar telemetria simulada para um hub IoT e ler telemetria do mesmo para processamento na cloud.
 author: wesmc7777
 manager: philmea
@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72166445"
 ---
-# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Início rápido: Enviar telemetria para um hub IoT do Azure e lê-lo com um aplicativo Java
+# <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Início rápido: enviar telemetria para um hub IoT do Azure e lê-lo com um aplicativo Java
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -67,9 +67,9 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
 1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+   **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
 
-   **MyJavaDevice**: Esse é o nome do dispositivo que você está registrando. É recomendável usar **MyJavaDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyJavaDevice**: esse é o nome do dispositivo que você está registrando. É recomendável usar **MyJavaDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyJavaDevice
@@ -77,7 +77,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar:
 
-    **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+    **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
@@ -91,7 +91,7 @@ Transfira o projeto Java de exemplo de https://github.com/Azure-Samples/azure-io
 
 3. Você também precisa do _ponto de extremidade compatível_com os hubs de eventos, o _caminho compatível_com os hubs de eventos e a _chave primária de serviço_ do Hub IOT para permitir que o aplicativo de back-end se conecte ao seu hub IOT e recupere as mensagens. Os seguintes comandos obtêm estes valores para o hub IoT:
 
-     **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+     **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
 
     ```azurecli-interactive
     az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {YourIoTHubName}
@@ -137,7 +137,7 @@ A aplicação back-end liga-se ao ponto final de **eventos** do lado do serviço
 
 2. Abra o ficheiro **src/main/java/com/microsoft/docs/iothub/samples/ReadDeviceToCloudMessages.java** num editor de texto à sua escolha. Atualize as seguintes variáveis e guarde as alterações no ficheiro.
 
-    | Variável | Value |
+    | Variável | Valor |
     | -------- | ----------- |
     | `eventHubsCompatibleEndpoint` | Substitua o valor da variável pelo ponto de extremidade compatível com os hubs de eventos anotado anteriormente. |
     | `eventHubsCompatiblePath`     | Substitua o valor da variável pelo caminho compatível com os hubs de eventos anotado anteriormente. |
@@ -170,4 +170,4 @@ Neste guia de início rápido, você configura um hub IoT, registrou um disposit
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Controlar um dispositivo conectado a um hub IoT @ no__t-0
+> [Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT](quickstart-control-device-java.md)

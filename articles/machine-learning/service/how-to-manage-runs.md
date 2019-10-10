@@ -331,7 +331,7 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 
 Para obter mais informações sobre como consultar resultados de CLI do Azure, consulte [consultar CLI do Azure comando de saída](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
 
-## <a name="example-notebooks"></a>Blocos de notas de exemplo
+## <a name="example-notebooks"></a>Blocos de anotações de exemplo
 
 Os blocos de anotações a seguir demonstram os conceitos neste artigo:
 

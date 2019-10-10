@@ -109,7 +109,7 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
     -   LogicalDisk (\*) \|% de espaço livre
-    -   LogicalDisk (C:) \\Avg. Comprimento da fila de disco
+    -   LogicalDisk (C:) \\Avg. comprimento da fila de disco
     -   Memória (\*) \\Available Mbytes
     -   Informações do processador (\*) \\Processor tempo
     -   Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
@@ -142,9 +142,9 @@ Para certificar-se de que seu espaço de trabalho Log Analytics tem os contadore
 3. Depois disso, vá para **dados** > **contadores de desempenho do Windows**.
 4. Verifique se os seguintes contadores estão pré-configurados:
 
-   - LogicalDisk (\*) \|% de espaço livre: Exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
-   - LogicalDisk (C:) \\Avg. Comprimento da fila de disco: O comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
-   - Memória (\*) \\Available Mbytes: A memória disponível para o sistema em megabytes.
+   - LogicalDisk (\*) \|% de espaço livre: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
+   - LogicalDisk (C:) \\Avg. comprimento da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
+   - Memória (\*) \\Available Mbytes: a memória disponível para o sistema em megabytes.
    - Informações do processador (\*) \\Processor tempo: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.
    - Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-1Max
 
@@ -237,22 +237,22 @@ Você também pode interagir com os usuários no host da sessão:
 - LogicalDisk (\*) \|% de espaço livre:
 
     - Exibe o percentual do total de espaço utilizável no disco lógico que é gratuito.
-    - Os Menos de 20% é marcado como não íntegro.
+    - Limite: menos de 20% está marcado como não íntegro.
 
-- LogicalDisk (C:) \\Avg. Comprimento da fila de disco:
+- LogicalDisk (C:) \\Avg. comprimento da fila de disco:
 
     - Representa as condições do sistema de armazenamento.
-    - Os Maior que 5 é marcado como não íntegro.
+    - Limite: maior que 5 é marcado como não íntegro.
 
 - Memória (\*) \\Available Mbytes:
 
     - A memória disponível para o sistema.
-    - Os Menos de 500 megabytes marcados como não íntegros.
+    - Limite: menos de 500 megabytes marcados como não íntegros.
 
 - Informações do processador (\*) \\Processor tempo:
 
-    - Os Maior que 80% é marcado como não íntegro.
+    - Limite: maior que 80% é marcado como não íntegro.
 
 - [Atraso de entrada do usuário por sessão (\*) @no__t-atraso de entrada-2max](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - Os Mais de 2000 MS está marcado como não íntegro.
+    - Limite: maior que 2000 MS é marcado como não íntegro.

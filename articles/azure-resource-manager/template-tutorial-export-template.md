@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 0564763b05dd44eb908ec00f98a97e9d4970099f
 ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177587"
 ---
-# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: Usar modelo exportado do portal do Azure
+# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: usar o modelo exportado do portal do Azure
 
 Nesta série de tutoriais, você criou um modelo para implantar uma conta de armazenamento do Azure. Nos próximos dois tutoriais, você adiciona um *plano do serviço de aplicativo* e um *site*. Em vez de criar modelos do zero, você aprende a exportar modelos do portal do Azure e a usar modelos de exemplo dos modelos de [início rápido do Azure](/resources/templates/). Você personaliza esses modelos para seu uso. Este tutorial se concentra na exportação de modelos e na personalização do resultado do modelo. Demora cerca de **14 minutos** para ser concluída.
 
@@ -42,10 +42,10 @@ Esse modelo funciona bem para a implantação de contas de armazenamento, mas ta
 1. Digita
 
     - **Subscrição**: selecione a sua subscrição do Azure.
-    - **Grupo de recursos**: Selecione **criar novo** e especifique um nome. Forneça um nome de grupo de recursos diferente daquele que você está usando nesta série de tutoriais.
+    - **Grupo de recursos**: selecione **criar novo** e especifique um nome. Forneça um nome de grupo de recursos diferente daquele que você está usando nesta série de tutoriais.
     - **Nome**: Insira um nome para o plano do serviço de aplicativo.
     - **Sistema operacional**: selecione **Linux**.
-    - **Região**: selecione um local do Azure. Por exemplo, **E.U.A. Central**.
+    - **Região**: selecione um local do Azure. Por exemplo, **EUA Central**.
     - **Tipo de preço**: para economizar custos, altere a SKU para **básico B1** (em desenvolvimento/teste).
 
     ![Portal do modelo de exportação de modelos do Resource Manager](./media/template-tutorial-export-template/resource-manager-template-export.png)

@@ -9,7 +9,7 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.openlocfilehash: 4e07274f7abf87360c054edd3fe0ade1c09907a7
 ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72178595"
@@ -26,7 +26,7 @@ Antes de iniciar a configuração, confirme o seguinte:
 * Você criou um [recurso de porta direta do ExpressRoute](expressroute-howto-erdirect.md).
 * Se você quiser executar o PowerShell localmente, verifique se a versão mais recente do Azure PowerShell está instalada em seu computador.
 
-### <a name="working-with-azure-powershell"></a>Trabalhar com o Azure PowerShell
+### <a name="working-with-azure-powershell"></a>Trabalhando com Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Para iniciar a configuração, entre em sua conta do Azure e selecione a assinat
 
    [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. Criar Azure Key Vault, segredos MACsec e identidade do usuário
+## <a name="1-create-azure-key-vault-macsec-secrets-and-user-identity"></a>1. criar Azure Key Vault, segredos MACsec e identidade do usuário
 
 1. Crie uma instância de Key Vault para armazenar segredos do MACsec em um novo grupo de recursos.
 
@@ -85,7 +85,7 @@ Para iniciar a configuração, entre em sua conta do Azure e selecione a assinat
     $erIdentity = New-AzExpressRoutePortIdentity -UserAssignedIdentityId $identity.Id
     ```
  
-## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. Configurar o MACsec em portas diretas do ExpressRoute
+## <a name="2-configure-macsec-on-expressroute-direct-ports"></a>2. configurar o MACsec nas portas diretas do ExpressRoute
 
 ### <a name="to-enable-macsec"></a>Para habilitar MACsec
 

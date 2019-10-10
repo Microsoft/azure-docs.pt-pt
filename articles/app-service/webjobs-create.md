@@ -21,7 +21,7 @@ ms.locfileid: "72177498"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O webjobs é um recurso do [serviço de Azure app](https://docs.microsoft.com/azure/app-service/) que permite executar um programa ou script no mesmo contexto que um aplicativo Web, aplicativo de API ou aplicativo móvel. Não há nenhum custo adicional para usar trabalhos Web.
 
 > [!IMPORTANT]
@@ -81,10 +81,10 @@ when making changes in one don't forget the other two.
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_". |
-   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
+   | **Nome** | myContinuousWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_". |
+   | **Upload de arquivo** | ConsoleApp. zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
    | **Tipo** | Contínuo | Os [tipos de trabalho Web](#webjob-types) são descritos anteriormente neste artigo. |
-   | **Dimensionamento** | Várias instâncias | Disponível somente para trabalhos Web contínuos. Determina se o programa ou script é executado em todas as instâncias ou apenas uma instância. A opção de executar em várias instâncias não se aplica aos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)gratuito ou compartilhado. | 
+   | **Dimensionar** | Várias instâncias | Disponível somente para trabalhos Web contínuos. Determina se o programa ou script é executado em todas as instâncias ou apenas uma instância. A opção de executar em várias instâncias não se aplica aos [tipos de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)gratuito ou compartilhado. | 
 
 4. Clique em **OK**.
 
@@ -119,8 +119,8 @@ when making changes in one don't forget the other two.
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_".|
-   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
+   | **Nome** | myTriggeredWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_".|
+   | **Upload de arquivo** | ConsoleApp. zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
    | **Tipo** | Ativou | Os [tipos de trabalho Web](#webjob-types) são descritos anteriormente neste artigo. |
    | **Acionadores** | Manual | |
 
@@ -157,8 +157,8 @@ when making changes in one don't forget the other two.
 
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_". |
-   | **Upload de arquivo** | ConsoleApp.zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
+   | **Nome** | myScheduledWebJob | Um nome que é exclusivo dentro de um aplicativo do serviço de aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de "-" e "_". |
+   | **Upload de arquivo** | ConsoleApp. zip | Um arquivo *. zip* que contém o arquivo executável ou de script, bem como quaisquer arquivos de suporte necessários para executar o programa ou script. Os tipos de arquivo de script ou executáveis com suporte são listados na seção [tipos de arquivo com suporte](#acceptablefiles) . |
    | **Tipo** | Ativou | Os [tipos de trabalho Web](#webjob-types) são descritos anteriormente neste artigo. |
    | **Acionadores** | Agendado | Para que o agendamento funcione de forma confiável, habilite o recurso Always On. Always On está disponível apenas nos tipos de preço básico, Standard e Premium.|
    | **Expressão CRON** | 0 0/20 * * * * | As [expressões cron](#ncrontab-expressions) são descritas na seção a seguir. |

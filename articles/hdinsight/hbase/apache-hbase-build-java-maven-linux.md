@@ -58,9 +58,9 @@ cd C:\HDI
 
     Esse comando cria um diretório chamado `hbaseapp` no local atual, que contém um projeto básico do Maven. O segundo comando altera o diretório de trabalho para `hbaseapp`. O terceiro comando cria um novo diretório, `conf`, que será usado posteriormente. O diretório `hbaseapp` contém os seguintes itens:
 
-    * `pom.xml`:  O modelo de objeto de projeto ([POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) contém informações e detalhes de configuração usados para compilar o projeto.
-    * `src\main\java\com\microsoft\examples`: Contém o código do aplicativo.
-    * `src\test\java\com\microsoft\examples`: Contém testes para seu aplicativo.
+    * `pom.xml`: o[POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)(modelo de objeto de projeto) contém informações e detalhes de configuração usados para compilar o projeto.
+    * `src\main\java\com\microsoft\examples`: contém o código do aplicativo.
+    * `src\test\java\com\microsoft\examples`: contém testes para seu aplicativo.
 
 2. Remova o código de exemplo gerado. Exclua os arquivos de teste e de aplicativo gerados `AppTest.java` e `App.java` inserindo os comandos abaixo:
 
@@ -101,8 +101,8 @@ Esta seção indica que o projeto precisa dos componentes **HBase-Client** e **P
 
 | Versão do cluster HDInsight | Versão do Apache HBase a ser usada |
 | --- | --- |
-| 3.6 | 1.1.2 |
-| 4.0 | 2.0.0 |
+| 3,6 | 1.1.2 |
+| 4,0 | 2.0.0 |
 
 Para obter mais informações sobre versões e componentes do HDInsight, consulte [quais são os diferentes Apache Hadoop componentes disponíveis com o HDInsight](../hdinsight-component-versioning.md).
 

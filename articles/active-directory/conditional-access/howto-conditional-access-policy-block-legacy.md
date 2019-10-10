@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169992"
 ---
-# <a name="conditional-access-block-legacy-authentication"></a>Acesso condicional: Bloquear a autenticação legada
+# <a name="conditional-access-block-legacy-authentication"></a>Acesso condicional: bloquear autenticação herdada
 
 Devido ao maior risco associado aos protocolos de autenticação herdados, a Microsoft recomenda que as organizações bloqueiem as solicitações de autenticação usando esses protocolos e exijam autenticação moderna.
 

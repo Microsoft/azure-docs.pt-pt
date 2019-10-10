@@ -17,7 +17,7 @@ ms.author: abpati
 ms.custom: aaddev
 ms.openlocfilehash: 85a1de992be7b5bbdcec8fd415f60ae10190c11a
 ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170032"
@@ -47,16 +47,16 @@ Para executar este exemplo, será necessário:
 >
 > Você tem duas opções para iniciar seu aplicativo de início rápido: Express (opção 1) e manual (opção 2)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: Registre e configure automaticamente seu aplicativo e, em seguida, baixe seu exemplo de código
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
 > 1. Vá para o [registros de aplicativo de portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Selecione **novo registro**.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para baixar e configurar automaticamente seu novo aplicativo.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: Registrar e configurar manualmente seu aplicativo e exemplo de código
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
 >
-> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a sua aplicação
+> #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 >
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
@@ -78,7 +78,7 @@ Para executar este exemplo, será necessário:
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar seu aplicativo no portal do Azure
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
 >
 > Para que o exemplo de código para este guia de início rápido funcione, você precisa:
 >
@@ -90,11 +90,11 @@ Para executar este exemplo, será necessário:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-aspnet-webapp/green-check.png) A sua aplicação está configurada com este atributo
 
-#### <a name="step-2-download-your-project"></a>Passo 2: Baixe seu projeto
+#### <a name="step-2-download-your-project"></a>Passo 2: Transferir o projeto
 
 [Baixar o exemplo de código](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
-#### <a name="step-3-configure-the-application"></a>Passo 3: Configurar o aplicativo
+#### <a name="step-3-configure-the-application"></a>Etapa 3: configurar o aplicativo
 
 1. Extraia o ficheiro zip para uma pasta local próxima da pasta raiz, por exemplo, **C:\Azure-Samples**
 1. Se você usar um ambiente de desenvolvimento integrado, abra o exemplo em seu IDE favorito (opcional).
@@ -106,12 +106,12 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 ```
 
 > [!div renderon="docs"]
-> Em que:
+> Onde:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here`-é o **segredo do cliente** que você criou em **certificados & segredos** para o aplicativo registrado.
 
-#### <a name="step-4-run-the-code-sample"></a>Passo 4: Executar o exemplo de código
+#### <a name="step-4-run-the-code-sample"></a>Etapa 4: executar o exemplo de código
 
 1. Você precisará instalar o MSAL Python library, Flask Framework, Flask-Sessions para gerenciamento de sessão do lado do servidor e solicitações usando Pip da seguinte maneira:
 
@@ -130,6 +130,6 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 Saiba mais sobre os aplicativos Web que conectam usuários e que chama APIs da Web:
 
 > [!div class="nextstepaction"]
-> [Cenário: Aplicativos Web que entram em usuários @ no__t-0
+> [Cenário: aplicativos Web que conectam usuários](scenario-web-app-sign-user-overview.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

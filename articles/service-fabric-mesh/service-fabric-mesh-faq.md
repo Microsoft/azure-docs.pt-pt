@@ -89,7 +89,7 @@ As imagens do sistema operacional do contêiner a seguir podem ser usadas para i
 
 - Windows-windowsservercore e coserver
     - Windows Server 1709
-    - Windows Server versão 1803
+    - Windows Server 1803
     - Windows Server 1809
     - Windows Server 2019 LTSC
 - Linux
@@ -109,7 +109,7 @@ Você pode implantar qualquer coisa que seja executada em contêineres que caiba
 As consultas de DNS de saída de um contêiner para o serviço DNS Service Fabric podem falhar em determinadas circunstâncias. Isso está sendo investigado. Para atenuar:
 
 - Use a atualização do Windows Outono Creators (versão 1709) ou superior como sua imagem de contêiner base.
-- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName.ApplicationName.
+- Se o nome do serviço sozinho não funcionar, tente o nome totalmente qualificado: ServiceName. ApplicationName.
 - No arquivo do Docker para seu serviço, adicione `EXPOSE <port>`, em que porta é a porta na qual você está expondo seu serviço. Por exemplo:
 
 ```Dockerfile
@@ -124,9 +124,9 @@ No seu cluster de desenvolvimento local, use `{serviceName}.{applicationName}`. 
 
 Atualmente, a malha do Azure não oferece suporte à resolução de DNS entre aplicativos.
 
-Para outros problemas de DNS conhecidos com a execução de um cluster de desenvolvimento Service Fabric no Windows 10, consulte: [Depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas de DNS conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+Para outros problemas de DNS conhecidos com a execução de um cluster de desenvolvimento Service Fabric no Windows 10, consulte: [depurar contêineres do Windows](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) e [problemas de DNS conhecidos](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Funcionamento em Rede
 
 O NAT de rede do infabric pode desaparecer ao usar o aplicativo em execução no computador local. Para diagnosticar se isso ocorreu, execute o seguinte em um prompt de comando:
 

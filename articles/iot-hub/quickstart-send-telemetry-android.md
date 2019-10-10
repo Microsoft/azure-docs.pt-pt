@@ -17,7 +17,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72166362"
 ---
-# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Início rápido: Enviar telemetria IoT de um dispositivo Android
+# <a name="quickstart-send-iot-telemetry-from-an-android-device"></a>Início rápido: enviar telemetria IoT de um dispositivo Android
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -53,9 +53,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. Execute o comando a seguir em Azure Cloud Shell para criar a identidade do dispositivo.
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+   **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
 
-   **MyAndroidDevice**: Esse é o nome do dispositivo que você está registrando. É recomendável usar **MyAndroidDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   **MyAndroidDevice**: esse é o nome do dispositivo que você está registrando. É recomendável usar **MyAndroidDevice** conforme mostrado. Se você escolher um nome diferente para seu dispositivo, também precisará usar esse nome em todo este artigo e atualizar o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyAndroidDevice
@@ -63,7 +63,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 2. Execute o seguinte comando no Azure Cloud Shell para obter a _cadeia de conexão do dispositivo_ para o dispositivo que você acabou de registrar:
 
-    **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+    **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyAndroidDevice --output table
@@ -99,7 +99,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 5. Depois que o aplicativo for carregado, clique no botão **Iniciar** para começar a enviar telemetria para o Hub IOT:
 
-    ![Aplicação](media/quickstart-send-telemetry-android/sample-screenshot.png)
+    ![Candidatura](media/quickstart-send-telemetry-android/sample-screenshot.png)
 
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Ler a telemetria a partir do seu hub
@@ -108,7 +108,7 @@ Nesta seção, você usará o Azure Cloud Shell com a [extensão de IOT](https:/
 
 1. Com o Azure Cloud Shell, execute o seguinte comando para se ligar e ler mensagens do hub IoT:
 
-   **YourIoTHubName**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IoT.
+   **Nomedoseuhubiot**: Substitua esse espaço reservado abaixo pelo nome escolhido para o Hub IOT.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name {YourIoTHubName} --output table
@@ -128,4 +128,4 @@ Neste guia de início rápido, você configura um hub IoT, registrou um disposit
 Para saber como controlar o seu dispositivo simulado a partir de uma aplicação back-end, continue para o guia de início rápido seguinte.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Controlar um dispositivo conectado a um hub IoT @ no__t-0
+> [Guia de Início Rápido: controlar um dispositivo ligado a um hub IoT](quickstart-control-device-android.md)

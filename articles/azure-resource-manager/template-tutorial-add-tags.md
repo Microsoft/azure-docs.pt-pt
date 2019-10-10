@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177575"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: Adicionar marcas em seu modelo do Resource Manager
+# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutorial: adicionar marcas em seu modelo do Resource Manager
 
 Neste tutorial, você aprenderá a adicionar marcas a recursos em seu modelo. As [marcas](resource-group-using-tags.md) ajudam a organizar seus recursos de forma lógica. Os valores de marcação aparecem em relatórios de custo. Este tutorial leva **8 minutos** para ser concluído.
 

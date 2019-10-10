@@ -94,4 +94,4 @@ Confira estes artigos para obter mais informações sobre como rotear mensagens 
 
 * [Usar o roteamento de mensagens do Hub IoT para enviar mensagens do dispositivo para a nuvem para diferentes pontos de extremidade](iot-hub-devguide-messages-d2c.md)
 
-* [Tutorial: Roteamento do Hub IoT @ no__t-0
+* [Tutorial: roteamento de Hub IoT](tutorial-routing.md)

@@ -32,7 +32,7 @@ Determinadas versões do Windows 7, Windows 8.1 e Windows 10 estão disponíveis
 ## <a name="how-much-storage-can-i-use-with-a-virtual-machine"></a>Quanto armazenamento posso utilizar com uma máquina virtual?
 Cada disco de dados pode ter até 32.767 GiB. O número de discos de dados que pode utilizar depende do tamanho da máquina virtual. Para obter mais detalhes, veja [Tamanhos das Virtual Machines](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-O Azure Managed Disks são as ofertas de armazenamento em disco recomendadas para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Managed Disks oferecem dois tipos de opções de armazenamento durável: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
+O Azure Managed Disks são as ofertas de armazenamento em disco recomendadas para uso com máquinas virtuais do Azure para armazenamento persistente de dados. Pode utilizar vários Managed Disks com cada Máquina Virtual. Os Managed Disks oferecem dois tipos de opções de armazenamento duráveis: Managed Disks Premium e Standard. Para obter informações sobre preços, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks).
 
 As contas de armazenamento do Azure também podem fornecer armazenamento para o disco do sistema operacional e quaisquer discos de dados. Cada disco é um ficheiro .vhd armazenado como um blob de páginas. Para detalhes de preços, veja [Detalhes de Preço do Armazenamento](https://azure.microsoft.com/pricing/details/storage/).
 
@@ -116,12 +116,12 @@ As seguintes senhas não são permitidas:
     <tr>
         <td>abc@123</td>
         <td>ILOVEYOU!</td>
-        <td>P@$$w0rd</td>
+        <td>P @ $ $w 0rd</td>
         <td>P@ssw0rd</td>
         <td>P@ssword123</td>
     </tr>
     <tr>
-        <td>Pa$$word</td>
+        <td>$word PA $</td>
         <td>pass@word1</td>
         <td>La!</td>
         <td>Password1</td>

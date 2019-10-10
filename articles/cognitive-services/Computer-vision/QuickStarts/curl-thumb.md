@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gerar uma miniatura-REST, ondulação'
+title: 'Início Rápido: Gerar uma miniatura – REST, cURL'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API de Imagem Digitalizada com o cURL.
 services: cognitive-services
@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177295"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: Gerar uma miniatura usando a API REST Pesquisa Visual Computacional e a ondulação
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Início rápido: gerar uma miniatura usando a API REST Pesquisa Visual Computacional e a ondulação
 
 Neste guia de início rápido, você gera uma miniatura de uma imagem usando a API REST do Pesquisa Visual Computacional. Especifique a altura e a largura desejadas, que podem diferir no aspecto ração da imagem de entrada. Pesquisa Visual Computacional usa o corte inteligente para identificar de forma inteligente a área de interesse e gerar coordenadas de corte em toda a região.
 
@@ -31,15 +31,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="get-thumbnail-request"></a>Pedido Obter Miniatura
 
-Com o [método Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) (método Obter miniatura) pode gerar uma miniatura de uma imagem.
+Com o [método Obter Miniatura](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), pode gerar uma miniatura de uma imagem.
 
-Para executar o exemplo, siga os seguintes passos:
+Para executar o exemplo, siga os passos seguintes:
 
 1. Copie o código seguinte para um editor.
 1. Substitua `<Subscription Key>` pela sua chave de subscrição válida.
 1. Substitua `<File>` pelo caminho e nome de ficheiro para guardar a miniatura.
 1. Altere o URL de Pedido (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) para utilizar a localização onde obteve as suas chaves de subscrição, se necessário.
-1. Opcionalmente, altere a imagem (`{\"url\":\"...`) a analisar.
+1. Opcionalmente, altere a imagem (`{\"url\":\"...`) para analisar.
 1. Abra uma janela de comando num computador com o cURL instalado.
 1. Cole o código na janela e execute o comando.
 

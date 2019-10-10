@@ -43,7 +43,7 @@ Este tópico mostra como configurar o serviço de Azure App para usar a conta da
 
 ## <a name="secrets"> </a>Adicionar informações da conta da Microsoft ao seu aplicativo do serviço de aplicativo
 
-1. Vá para seu aplicativo no [Azure portal].
+1. Vá para seu aplicativo no [portal do Azure].
 1. Selecione **configurações** > **autenticação/autorização**e verifique se a **autenticação do serviço de aplicativo** está **ativada**.
 1. Em **provedores de autenticação**, selecione **conta da Microsoft**. Cole a ID do aplicativo (cliente) e o segredo do cliente obtidos anteriormente. Habilite todos os escopos necessários para seu aplicativo.
 1. Selecione **OK**.
@@ -66,4 +66,4 @@ Agora você está pronto para usar a conta da Microsoft para autenticação em s
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/

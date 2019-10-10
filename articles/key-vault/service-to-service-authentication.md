@@ -156,7 +156,7 @@ Há três métodos principais de usar uma entidade de serviço para executar seu
     Esse comando cria um arquivo. PEM (chave privada) que é armazenado em seu diretório base. Implante esse certificado no repositório *LocalMachine* ou *CurrentUser* .
 
     > [!Important]
-    > O comando da CLI gera um arquivo. PEM, mas o Windows só fornece suporte nativo para certificados PFX. Para gerar um certificado PFX, use os comandos do PowerShell mostrados aqui: [Crie uma entidade de serviço com um certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Esses comandos também implantam o certificado automaticamente.
+    > O comando da CLI gera um arquivo. PEM, mas o Windows só fornece suporte nativo para certificados PFX. Para gerar um certificado PFX, use os comandos do PowerShell mostrados aqui: [criar entidade de serviço com certificado autoassinado](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Esses comandos também implantam o certificado automaticamente.
 
 1. Defina uma variável de ambiente chamada **AzureServicesAuthConnectionString** com o seguinte valor:
 
@@ -241,7 +241,7 @@ Há suporte para as seguintes opções:
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateSubjectName={Subject};CertificateStoreLocation={LocalMachine or CurrentUser}` | Entidade de serviço | `AzureServiceTokenProvider` usa o certificado para obter o token do Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Entidade de serviço |`AzureServiceTokenProvider` usa o segredo para obter o token do Azure AD. |
 
-## <a name="samples"></a>Amostras
+## <a name="samples"></a>Exemplos
 
 Para ver a biblioteca `Microsoft.Azure.Services.AppAuthentication` em ação, consulte os exemplos de código a seguir.
 

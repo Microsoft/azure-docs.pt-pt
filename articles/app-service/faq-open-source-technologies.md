@@ -113,24 +113,24 @@ Para obter informações sobre como instalar o Django, consulte [implantando um 
 
 Para o Azure Marketplace e implantações personalizadas:
 
-* Local da pasta: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Local da pasta: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
 * Arquivos de interesse:
-    * catalina.*yyyy-mm-dd*.log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
-    * site_access_log.*yyyy-mm-dd*.log
+    * Catalina. *aaaa-mm-dd*. log
+    * Gerenciador de hosts. *aaaa-mm-dd*. log
+    * localhost. *aaaa-mm-dd*. log
+    * Manager. *aaaa-mm-dd*. log
+    * site_access_log. *aaaa-mm-dd*. log
 
 
 Para implantações de **configurações do aplicativo** do portal:
 
 * Local da pasta: D:\home\LogFiles
 * Arquivos de interesse:
-    * catalina.*yyyy-mm-dd*.log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
-    * manager.*yyyy-mm-dd*.log
-    * site_access_log.*yyyy-mm-dd*.log
+    * Catalina. *aaaa-mm-dd*. log
+    * Gerenciador de hosts. *aaaa-mm-dd*. log
+    * localhost. *aaaa-mm-dd*. log
+    * Manager. *aaaa-mm-dd*. log
+    * site_access_log. *aaaa-mm-dd*. log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Como fazer solucionar problemas de erros de conexão do driver JDBC?
 
@@ -189,7 +189,7 @@ Se você migrou recentemente para o Azure, o WordPress pode redirecionar para a 
 
 O WordPress Buddy + é uma extensão de site do Azure que você pode usar para atualizar a URL de redirecionamento diretamente no banco de dados. Para obter mais informações sobre como usar o WordPress Buddy +, consulte [Ferramentas do WordPress e migração do MySQL com WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Como alternativa, se você preferir atualizar manualmente a URL de redirecionamento usando consultas SQL ou PHPMyAdmin, consulte [WordPress: Redirecionando para a URL incorreta @ no__t-0.
+Como alternativa, se você preferir atualizar manualmente a URL de redirecionamento usando consultas SQL ou PHPMyAdmin, consulte [WordPress: redirecionando para a URL incorreta](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Como fazer alterar minha senha de entrada do WordPress?
 
@@ -203,8 +203,8 @@ Se você estiver bloqueado fora do WordPress após a instalação recente de um 
 
 Você tem várias opções para migrar o banco de dados MySQL que está conectado ao seu site do WordPress:
 
-* Programadores: Use o [prompt de comando ou phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Não desenvolvedores: Usar o [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
+* Desenvolvedores: usar o [prompt de comando ou phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Não desenvolvedores: usar [WordPress Buddy +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Como fazer ajudar a tornar o WordPress mais seguro?
 

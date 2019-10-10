@@ -21,7 +21,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72167526"
 ---
-# <a name="troubleshoot-application-upgrades"></a>Resolver problemas da atualização da aplicação
+# <a name="troubleshoot-application-upgrades"></a>Resolução de problemas de atualização da aplicação
 
 Este artigo aborda alguns dos problemas comuns relacionados à atualização de um aplicativo Service Fabric do Azure e como resolvê-los.
 

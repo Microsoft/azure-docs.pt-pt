@@ -21,7 +21,7 @@ Para obter informações sobre como adicionar destinatários ao criar um compart
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navegar até um compartilhamento de dados enviado
 
-Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **convites** . Aqui estão listados todos os destinatários de convites para esse compartilhamento de dados. Para adicionar um novo, clique em **Adicionar destinatário**.
+Na visualização do compartilhamento de dados do Azure, navegue até o compartilhamento enviado e selecione a guia **convites** . listado aqui estão todos os destinatários de convites para esse compartilhamento de dados. Para adicionar um novo, clique em **Adicionar destinatário**.
 
 ![Adicionar destinatário](./media/how-to/how-to-add-recipients/add-recipient.png)
 

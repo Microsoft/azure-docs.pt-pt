@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170101"
 ---
-# <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso condicional: Exigir MFA para a gestão do Azure
+# <a name="conditional-access-require-mfa-for-azure-management"></a>Acesso condicional: exigir MFA para o gerenciamento do Azure
 
 As organizações usam uma variedade de serviços do Azure e os gerenciam de ferramentas baseadas em Azure Resource Manager como:
 

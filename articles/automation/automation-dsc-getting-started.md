@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
 ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169739"
@@ -20,7 +20,7 @@ ms.locfileid: "72169739"
 
 Este artigo explica como realizar as tarefas mais comuns com a configuração de estado da automação do Azure, como criar, importar e compilar configurações, máquinas de integração para gerenciar e exibir relatórios. Para obter uma visão geral da configuração de estado da automação do Azure, consulte [visão geral da configuração do estado de automação do Azure](automation-dsc-overview.md). Para obter a documentação da configuração de estado desejado (DSC), consulte [visão geral da configuração de estado desejado do Windows PowerShell](/powershell/dsc/overview).
 
-Este artigo fornece um guia passo a passo para usar a configuração de estado da automação do Azure. Se você quiser um ambiente de exemplo que já esteja configurado sem seguir as etapas descritas neste artigo, você pode usar o seguinte modelo do Resource Manager: [Modelo de nó gerenciado da automação do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Este modelo configura um ambiente de configuração de estado de automação do Azure concluído, incluindo uma VM do Azure que é gerenciada pela configuração de estado da automação do Azure.
+Este artigo fornece um guia passo a passo para usar a configuração de estado da automação do Azure. Se você quiser um ambiente de exemplo que já esteja configurado sem seguir as etapas descritas neste artigo, você pode usar o seguinte modelo do Resource Manager: [modelo de nó gerenciado de automação do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Este modelo configura um ambiente de configuração de estado de automação do Azure concluído, incluindo uma VM do Azure que é gerenciada pela configuração de estado da automação do Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 10/09/2019
 ms.locfileid: "70933147"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Tipos de Durable Functions e recursos (Azure Functions)
@@ -40,7 +40,7 @@ Ao contrário das funções de orquestrador, as funções de atividade não são
 > [!NOTE]
 > Como as funções de atividade garantem apenas *pelo menos uma vez a* execução, recomendamos que você torne a lógica da função de atividade *idempotente* sempre que possível.
 
-Use um [gatilho de atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções do .NET recebem um [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um parâmetro. Você também pode associar o gatilho a qualquer outro objeto serializável em JSON para transmitir entradas para a função. No JavaScript, você pode acessar uma entrada por meio `<activity trigger binding name>` da propriedade [ `context.bindings` no objeto](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado a elas. Para passar vários valores, você deve usar tuplas, matrizes ou tipos complexos.
+Use um [gatilho de atividade](durable-functions-bindings.md#activity-trigger) para definir uma função de atividade. As funções do .NET recebem um [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um parâmetro. Você também pode associar o gatilho a qualquer outro objeto serializável em JSON para transmitir entradas para a função. No JavaScript, você pode acessar uma entrada por meio da propriedade `<activity trigger binding name>` no [objeto `context.bindings`](../functions-reference-node.md#bindings). As funções de atividade só podem ter um único valor passado a elas. Para passar vários valores, você deve usar tuplas, matrizes ou tipos complexos.
 
 > [!NOTE]
 > Você pode disparar uma função de atividade somente de uma função de orquestrador.
@@ -63,7 +63,7 @@ As funções de orquestrador são disparadas por uma [Associação de gatilho de
 
 Além de disparar o Orchestrator ou as funções de entidade, a ligação de *cliente durável* pode ser usada para interagir com orquestrações e entidades em execução. Por exemplo, orquestrações podem ser consultadas, encerradas e podem ter eventos gerados. Para obter mais informações sobre como gerenciar orquestrações e entidades, consulte o artigo [Gerenciamento de instâncias](durable-functions-instance-management.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para começar, crie sua primeira função durável no ou [C#](durable-functions-create-first-csharp.md) no [JavaScript](quickstart-js-vscode.md).
 

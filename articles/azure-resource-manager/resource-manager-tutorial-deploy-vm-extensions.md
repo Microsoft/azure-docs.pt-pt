@@ -18,7 +18,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169290"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implantar extensões de máquina virtual com modelos de Azure Resource Manager
+# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager
 
 Aprenda a utilizar [extensões de máquina virtual do Azure](../virtual-machines/extensions/features-windows.md) para fazer tarefas de automatização e configuração de pós-implementação em VMs do Azure. Estão disponíveis muitas VMs diferentes para utilização com as VMs do Azure. Neste tutorial, você implanta uma extensão de script personalizado de um modelo de Azure Resource Manager para executar um script do PowerShell em uma VM do Windows.  O script instala o Servidor Web na VM.
 
@@ -44,7 +44,7 @@ Para concluir este artigo, precisa de:
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, consulte [Tutorial: Integre Azure Key Vault no Gerenciador de recursos Implantação de modelo @ no__t-0. Também recomendamos que você atualize sua senha a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que você atualize sua senha a cada três meses.
 
 ## <a name="prepare-a-powershell-script"></a>Preparar o script do Powershell
 
@@ -66,11 +66,11 @@ Os modelos de início rápido do Azure são um repositório para modelos do Reso
 1. Para abrir o arquivo, selecione **abrir**.
     O modelo define cinco recursos:
 
-   * **Microsoft.Storage/storageAccounts**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft. Storage/storageAccounts**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
    * **Microsoft. Network/publicIPAddresses**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-   * **Microsoft.Network/virtualNetworks**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-   * **Microsoft.Network/networkInterfaces**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-   * **Microsoft.Compute/virtualMachines**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft. Network/virtualNetworks**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft. Network/NetworkInterfaces**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft. Compute/virtualMachines**. Veja a [referência do modelo](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
      É útil obter alguma compreensão básica do modelo antes de personalizá-lo.
 
@@ -106,14 +106,14 @@ Adicione um recurso de extensão de máquina virtual ao modelo existente com o s
 
 Para obter mais informações sobre essa definição de recurso, consulte a [referência de extensão](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Seguem alguns elementos importantes:
 
-* **nome**: Como o recurso de extensão é um recurso filho do objeto de máquina virtual, o nome deve ter o prefixo de nome da máquina virtual. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md).
-* **dependsOn**: Crie o recurso de extensão depois de criar a máquina virtual.
-* **fileUris**: Os locais onde os arquivos de script são armazenados. Se você optar por não usar o local fornecido, precisará atualizar os valores.
-* **commandToExecute**: Esse comando invoca o script.
+* **nome**: uma vez que o recurso de extensão é um recurso subordinado do objeto de máquina virtual, o nome tem de ter o prefixo do nome da máquina virtual. Consulte [definir nome e tipo para recursos filho](child-resource-name-type.md).
+* **depende**: Crie o recurso de extensão depois de criar a máquina virtual.
+* **fileuris**: os locais onde os arquivos de script são armazenados. Se você optar por não usar o local fornecido, precisará atualizar os valores.
+* **commandToExecute**: esse comando invoca o script.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Para o procedimento de implantação, consulte a seção "implantar o modelo" de [Tutorial: Crie modelos de Azure Resource Manager com recursos dependentes @ no__t-0. Recomendamos que você use uma senha gerada para a conta de administrador da máquina virtual. Consulte a seção [pré-requisitos](#prerequisites) deste artigo.
+Para o procedimento de implantação, consulte a seção "implantar o modelo" do [tutorial: criar modelos de Azure Resource Manager com recursos dependentes](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Recomendamos que você use uma senha gerada para a conta de administrador da máquina virtual. Consulte a seção [pré-requisitos](#prerequisites) deste artigo.
 
 ## <a name="verify-the-deployment"></a>Verificar a implementação
 

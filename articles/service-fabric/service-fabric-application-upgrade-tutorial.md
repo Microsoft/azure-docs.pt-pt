@@ -32,7 +32,7 @@ ms.locfileid: "72167376"
 
 O Azure Service Fabric simplifica o processo de atualização de aplicativos em nuvem, garantindo que apenas os serviços alterados sejam atualizados e que a integridade do aplicativo seja monitorada durante todo o processo de atualização. Ele também reverte automaticamente o aplicativo para a versão anterior após encontrar problemas. Service Fabric atualizações de aplicativo têm *zero tempo de inatividade*, pois o aplicativo pode ser atualizado sem tempo de inatividade. Este tutorial aborda como concluir uma atualização sem interrupção do Visual Studio.
 
-## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Passo 1: Criar e publicar o exemplo de objetos visuais
+## <a name="step-1-build-and-publish-the-visual-objects-sample"></a>Etapa 1: criar e publicar o exemplo de objetos visuais
 Primeiro, baixe o aplicativo [Visual Objects](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Actors/VisualObjects) do github. Em seguida, crie e publique o aplicativo clicando com o botão direito do mouse no projeto do aplicativo, **VisualObjects**e selecionando o comando **publicar** no item de menu Service Fabric.
 
 ![Menu de contexto para um aplicativo Service Fabric][image1]
@@ -43,9 +43,9 @@ Selecionar **publicar** abre um pop-up e você pode definir o **perfil de destin
 
 Agora você pode clicar em **publicar** na caixa de diálogo. Você pode usar [Service Fabric Explorer para exibir o cluster e o aplicativo](service-fabric-visualizing-your-cluster.md). O aplicativo Visual Objects tem um serviço Web que você pode acessar digitando [http://localhost:8081/visualobjects/](http://localhost:8081/visualobjects/) na barra de endereços do seu navegador.  Você deve ver 10 objetos visuais flutuantes passando pela tela.
 
-**NOTA:** Se estiver implantando no perfil `Cloud.xml` (Service Fabric do Azure), o aplicativo deverá estar disponível em **http://{Perfabricname}. { Região}. cloudapp. Azure. com: 8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado na Load Balancer (Localize o Load Balancer no mesmo grupo de recursos que a instância de Service Fabric).
+**Observação:** Se estiver implantando no perfil `Cloud.xml` (Azure Service Fabric), o aplicativo deverá estar disponível em **http://{Perfabricname}. { Região}. cloudapp. Azure. com: 8081/visualobjects/** . Verifique se você tem `8081/TCP` configurado na Load Balancer (Localize o Load Balancer no mesmo grupo de recursos que a instância de Service Fabric).
 
-## <a name="step-2-update-the-visual-objects-sample"></a>Passo 2: Atualizar o exemplo de objetos visuais
+## <a name="step-2-update-the-visual-objects-sample"></a>Etapa 2: atualizar o exemplo de objetos visuais
 Você pode observar que, com a versão que foi implantada na etapa 1, os objetos visuais não giram. Vamos atualizar esse aplicativo para um onde os objetos visuais também giram.
 
 Selecione o projeto VisualObjects. ActorService na solução VisualObjects e abra o arquivo **VisualObjectActor.cs** . Dentro desse arquivo, vá para o método `MoveObject`, comente `visualObject.Move(false)` e remova a marca de comentário `visualObject.Move(true)`. Essa alteração de código gira os objetos depois que o serviço é atualizado.  **Agora você pode compilar (não recompilar) a solução**, que cria os projetos modificados. Se você selecionar *Recompilar tudo*, precisará atualizar as versões de todos os projetos.
@@ -62,7 +62,7 @@ As ferramentas do Visual Studio podem fazer rollups automáticos de versões na 
 
 Salve as alterações e agora marque a caixa **atualizar o aplicativo** .
 
-## <a name="step-3--upgrade-your-application"></a>Passo 3:  Atualizar a sua aplicação
+## <a name="step-3--upgrade-your-application"></a>Etapa 3: atualizar seu aplicativo
 Familiarize-se com os [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md) e o processo de [atualização](service-fabric-application-upgrade.md) para obter uma boa compreensão dos vários parâmetros de atualização, tempos limite e critérios de integridade que podem ser aplicados. Para este passo a passos, o critério de avaliação de integridade do serviço é definido como o padrão (modo não monitorado). Você pode definir essas configurações selecionando **definir configurações de atualização** e, em seguida, modificando os parâmetros conforme desejado.
 
 Agora, estamos configurados para iniciar a atualização do aplicativo selecionando **publicar**. Essa opção atualiza seu aplicativo para a versão 2.0.0, na qual os objetos giram. Service Fabric atualiza um domínio de atualização de cada vez (alguns objetos são atualizados primeiro, seguidos por outros) e o serviço permanece acessível durante a atualização. O acesso ao serviço pode ser verificado pelo cliente (navegador).  

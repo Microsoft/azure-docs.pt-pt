@@ -56,7 +56,7 @@ Por padrão, o ADF transfere dados do Amazon S3 para o armazenamento de BLOBs do
 
 Como alternativa, se você não quiser que os dados sejam transferidos pela Internet pública, poderá obter maior segurança transferindo dados por um link de emparelhamento privado entre o AWS Direct Connect e o Azure Express Route.  Consulte a arquitetura da solução abaixo sobre como isso pode ser feito. 
 
-## <a name="solution-architecture"></a>Arquitetura da solução
+## <a name="solution-architecture"></a>Arquitetura de soluções
 
 Migrar dados pela Internet pública:
 
@@ -138,7 +138,7 @@ Este é o preço estimado com base nas suposições acima:
 
 ### <a name="additional-references"></a>Referências adicionais 
 - [Conector de serviço de armazenamento simples da Amazon](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Conector de armazenamento de Blobs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Conector do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Conector de Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Guia de ajuste de desempenho da atividade de cópia](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Criando e configurando Integration Runtime auto-hospedados](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)

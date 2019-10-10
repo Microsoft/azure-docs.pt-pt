@@ -22,7 +22,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177033"
 ---
-# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Tutorial: Carregar e associar certificados SSL ao serviço Azure App
+# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Tutorial: carregar e associar certificados SSL ao serviço Azure App
 
 O [Serviço de Aplicações do Azure](overview.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como proteger um domínio personalizado no serviço de aplicativo com um certificado que você comprou de uma autoridade de certificação confiável. Ele também mostra como carregar quaisquer certificados públicos e privados de que seu aplicativo precisa. Quando tiver terminado, você poderá acessar seu aplicativo no ponto de extremidade HTTPS do seu domínio DNS personalizado.
 

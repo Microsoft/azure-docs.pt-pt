@@ -66,9 +66,9 @@ Use as etapas a seguir para implantar um módulo de segurança da central de seg
     >[!Note] 
     >Se você selecionou **implantar em escala**, adicione o nome do dispositivo e os detalhes antes de continuar para a guia **Adicionar módulos** nas instruções a seguir.     
 
-Há três etapas para criar uma implantação de IoT Edge para a central de segurança do Azure para IoT. As seções a seguir, percorra cada um deles. 
+Há três etapas para criar uma implantação de IoT Edge para a central de segurança do Azure para IoT. As seções a seguir percorrem cada uma delas. 
 
-#### <a name="step-1-add-modules"></a>Passo 1: Adicionar módulos
+#### <a name="step-1-add-modules"></a>Etapa 1: Adicionar módulos
 
 1. Na guia **Adicionar módulos** , na área **módulos de implantação** , clique na opção **Configurar** para **AzureSecurityCenterforIoT**. 
    
@@ -138,7 +138,7 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
    
 1. Clique em **Seguinte**.
 
-#### <a name="step-2-specify-routes"></a>Passo 2: Especificar rotas 
+#### <a name="step-2-specify-routes"></a>Etapa 2: especificar rotas 
 
 1. Na guia **especificar rotas** , verifique se você tem uma rota (explícita ou implícita) que encaminhará as mensagens do módulo **azureiotsecurity** para **$upstream** de acordo com os exemplos a seguir, somente clique em **Avançar**. 
 
@@ -150,7 +150,7 @@ Há três etapas para criar uma implantação de IoT Edge para a central de segu
 "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
 ~~~
 
-#### <a name="step-3-review-deployment"></a>Passo 3: Implementação de revisão
+#### <a name="step-3-review-deployment"></a>Etapa 3: examinar a implantação
 
 - Na guia **examinar implantação** , examine as informações de implantação e, em seguida, selecione **Enviar** para concluir a implantação.
 
@@ -166,7 +166,7 @@ Se você encontrar um problema, os logs de contêiner serão a melhor maneira de
    
 1. Verifique se os seguintes contêineres estão em execução:
    
-   | Name | IMAGEM |
+   | Nome | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |

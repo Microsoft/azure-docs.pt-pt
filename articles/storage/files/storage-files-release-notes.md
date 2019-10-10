@@ -23,7 +23,7 @@ Este artigo disponibiliza as notas de versão das versões suportadas do agente 
 ## <a name="supported-versions"></a>Versões suportadas
 São suportadas as seguintes versões para o agente do Azure File Sync:
 
-| Principais | Número de versão do agente | Data da versão | State |
+| Principais | Número de versão do agente | Data da versão | Estado |
 |----|----------------------|--------------|------------------|
 | V8 versão – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 de outubro de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de julho de 2019- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 de julho de 2019 | Suportadas |
@@ -38,7 +38,7 @@ São suportadas as seguintes versões para o agente do Azure File Sync:
 | Versão V5- [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 de fevereiro de 2019 | Suportadas |
 | Pacote cumulativo de atualizações de janeiro de 2019- [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 de janeiro de 2019 | Com suporte-a versão do agente expirará em 5 de novembro de 2019 |
 | Pacote cumulativo de atualizações de dezembro de 2018 – [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 de dezembro de 2018 | Com suporte-a versão do agente expirará em 5 de novembro de 2019 |
-| Pacote cumulativo de atualizações de dezembro de 2018 | 4.1.0.0 | 4 de Dezembro de 2018 | Com suporte-a versão do agente expirará em 5 de novembro de 2019 |
+| Pacote cumulativo de atualizações de dezembro de 2018 | 4.1.0.0 | 4 de dezembro de 2018 | Com suporte-a versão do agente expirará em 5 de novembro de 2019 |
 | Versão v4 | 4.0.1.0 | 13 de novembro de 2018 | Com suporte-a versão do agente expirará em 5 de novembro de 2019 |
 | Versão v3 | 3.1.0.0-3.4.0.0 | Não suportado | Sem suporte-as versões do agente expiraram em 19 de agosto de 2019 |
 | Agentes de pré-lançamento | 1.1.0.0-3.0.13.0 | N/A | Sem suporte-as versões do agente expiraram em 1º de outubro de 2018 |
@@ -422,7 +422,7 @@ As notas de versão a seguir são para a versão 4.1.0.0 do agente de Sincroniza
 
 Lista de problemas corrigidos nesta versão:  
 - O servidor pode ficar sem resposta devido a um vazamento de memória de camada de nuvem.  
-- A instalação do agente falha com o seguinte erro: Erro 1921. O serviço ' agente de sincronização de armazenamento ' (FileSyncSvc) não pôde ser interrompido.  Verifique se você tem privilégios suficientes para interromper os serviços do sistema.  
+- A instalação do agente falha com o seguinte erro: erro 1921. O serviço ' agente de sincronização de armazenamento ' (FileSyncSvc) não pôde ser interrompido.  Verifique se você tem privilégios suficientes para interromper os serviços do sistema.  
 - O serviço FileSyncSvc (agente de sincronização de armazenamento) pode falhar quando o uso de memória estiver alto.  
 - Melhorias de confiabilidade diversas para a nuvem e a sincronização em camadas.
 

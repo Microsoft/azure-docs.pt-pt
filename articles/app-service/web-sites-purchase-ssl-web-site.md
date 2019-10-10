@@ -49,10 +49,10 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Quando terminar
 
 | Definição | Descrição |
 |-|-|
-| Name | Um nome amigável para seu certificado de serviço de aplicativo. |
+| Nome | Um nome amigável para seu certificado de serviço de aplicativo. |
 | Nome do host do domínio descoberto | Especifique o domínio raiz aqui. *O certificado emitido protege o domínio* raiz e o subdomínio `www`. No certificado emitido, o campo nome comum contém o domínio raiz e o campo nome alternativo da entidade contém o domínio `www`. Para proteger somente qualquer subdomínio, especifique o nome de domínio totalmente qualificado do subdomínio aqui (por exemplo, `mysubdomain.contoso.com`).|
-| Subscription | O centro de dados onde o a aplicação Web está alojada. |
-| Resource group | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que o aplicativo do serviço de aplicativo, por exemplo. |
+| Subscrição | O centro de dados onde o a aplicação Web está alojada. |
+| Grupo de recursos | O grupo de recursos que contém o certificado. Você pode usar um novo grupo de recursos ou selecionar o mesmo grupo de recursos que o aplicativo do serviço de aplicativo, por exemplo. |
 | SKU do certificado | Determina o tipo de certificado a ser criado, se um certificado padrão ou um [certificado curinga](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Termos legais | Clique para confirmar que você concorda com os termos legais. Os certificados são obtidos de GoDaddy. |
 
@@ -60,7 +60,7 @@ Use a tabela a seguir para ajudá-lo a configurar o certificado. Quando terminar
 
 Após a conclusão do processo de compra do certificado, há mais algumas etapas que você precisa concluir para poder começar a usar esse certificado. 
 
-Selecione o certificado na página [certificados do serviço de aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **configuração do certificado** >  @ no__t-3Step 1: Armazenar @ no__t-0.
+Selecione o certificado na página [certificados do serviço de aplicativo](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) e clique em **configuração do certificado** > **etapa 1: armazenar**.
 
 ![Inserir imagem de pronto para armazenar no KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
@@ -70,9 +70,9 @@ Na página **status da Key Vault** , clique em **repositório Key Vault** para c
 
 | Definição | Descrição |
 |-|-|
-| Name | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
-| Resource group | Como recomendação, selecione o mesmo grupo de recursos que o seu certificado de serviço de aplicativo. |
-| Location | Selecione o mesmo local que o aplicativo do serviço de aplicativo. |
+| Nome | Um nome exclusivo que consiste em caracteres alfanuméricos e traços. |
+| Grupo de recursos | Como recomendação, selecione o mesmo grupo de recursos que o seu certificado de serviço de aplicativo. |
+| Localização | Selecione o mesmo local que o aplicativo do serviço de aplicativo. |
 | Escalão de preço | Para obter informações, consulte [Azure Key Vault detalhes de preços](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Políticas de acesso| Define os aplicativos e o acesso permitido aos recursos do cofre. Você pode configurá-lo mais tarde, seguindo as etapas em [conceder a vários aplicativos acesso a um cofre de chaves](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Acesso à rede virtual | Restringir o acesso ao cofre para determinadas redes virtuais do Azure. Você pode configurá-lo mais tarde, seguindo as etapas em [configurar Azure Key Vault firewalls e redes virtuais](../key-vault/key-vault-network-security.md) |
@@ -81,7 +81,7 @@ Depois de selecionar o cofre, feche a página do **repositório Key Vault** . A 
 
 ## <a name="verify-domain-ownership"></a>Verificar a propriedade do domínio
 
-Na mesma página de **configuração de certificado** usada na última etapa, clique em **step 2: Verifique @ no__t-0.
+Na mesma página de **configuração de certificado** usada na última etapa, clique em **etapa 2: verificar**.
 
 ![](./media/app-service-web-purchase-ssl-web-site/verify-domain.png)
 
@@ -166,4 +166,4 @@ Quando a operação de renovação for concluída, clique em **sincronizar**. A 
 * [Impor HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Impor o TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Usar um certificado SSL no código do aplicativo no serviço Azure App](app-service-web-ssl-cert-load.md)
-* [FAQ: Certificados do serviço de aplicativo @ no__t-0
+* [Perguntas frequentes: certificados do serviço de aplicativo](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

@@ -111,26 +111,26 @@ Não. Não há suporte para VMs de baixa prioridade.
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Quais são os diretórios e processos que preciso excluir ao executar um programa antivírus em meu cluster?
 
-| **Diretórios de excluído antivírus** |
+| **Diretórios excluídos antivírus** |
 | --- |
-| Programa Files\Microsoft Service Fabric |
-| FabricDataRoot (a partir de configuração de cluster) |
-| FabricLogRoot (a partir de configuração de cluster) |
+| Programas de Programas\microsoft Service Fabric |
+| FabricDataRoot (da configuração de cluster) |
+| FabricLogRoot (da configuração de cluster) |
 
-| **Antivírus excluídos processos** |
+| **Processos de antivírus excluídos** |
 | --- |
-| Fabric.exe |
-| FabricHost.exe |
-| FabricInstallerService.exe |
-| FabricSetup.exe |
-| FabricDeployer.exe |
-| ImageBuilder.exe |
-| FabricGateway.exe |
-| FabricDCA.exe |
-| FabricFAS.exe |
-| FabricUOS.exe |
-| FabricRM.exe |
-| FileStoreService.exe |
+| Fabric. exe |
+| FabricHost. exe |
+| FabricInstallerService. exe |
+| FabricSetup. exe |
+| FabricDeployer. exe |
+| ImageBuilder. exe |
+| FabricGateway. exe |
+| O fabricdca. exe |
+| FabricFAS. exe |
+| FabricUOS. exe |
+| FabricRM. exe |
+| FileStoreService. exe |
  
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Como meu aplicativo pode se autenticar no keyvault para obter segredos?
 Veja a seguir os meios para que seu aplicativo obtenha credenciais para autenticação no keyvault:

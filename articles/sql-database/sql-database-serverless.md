@@ -126,12 +126,12 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 |Funcionalidade|Gatilho de retomada|
 |---|---|
-|Autenticação e autorização|Iniciar sessão|
+|Autenticação e autorização|Início de Sessão|
 |Deteção de ameaças|Habilitação/desabilitação das configurações de detecção de ameaças no nível do banco de dados ou do servidor.<br>Modificar as configurações de detecção de ameaças no nível do banco de dados ou do servidor.|
 |Deteção e classificação de dados|Adicionando, modificando, excluindo ou exibindo rótulos de sensibilidade|
 |Auditoria|Exibindo registros de auditoria.<br>Atualizando ou exibindo a política de auditoria.|
 |Máscara de dados|Adicionando, modificando, excluindo ou exibindo regras de mascaramento de dados|
-|Encriptação de Dados Transparente|Estado de exibição ou status da Transparent Data Encryption|
+|Encriptação de dados transparente|Estado de exibição ou status da Transparent Data Encryption|
 |Repositório de dados de consulta (desempenho)|Modificando ou exibindo configurações do repositório de consultas|
 |Ajuste automática|Aplicativo e verificação de recomendações de ajuste automático, como indexação automática|
 |Cópia de banco de dados|Criar banco de dados como cópia.<br>Exportar para um arquivo BACPAC.|
@@ -141,7 +141,7 @@ A retomada será disparada se qualquer uma das seguintes condições for verdade
 
 O reinício retomado também é disparado durante a implantação de algumas atualizações de serviço que exigem que o banco de dados esteja online.
 
-### <a name="connectivity"></a>Conectividade
+### <a name="connectivity"></a>Ligação
 
 Se um banco de dados sem servidor for pausado, o primeiro logon retomará o banco de dados e retornará um erro informando que o banco de dados está indisponível com o código de erro 40613. Depois que o banco de dados for retomado, o logon deverá ser repetido para estabelecer a conectividade. Os clientes de banco de dados com lógica de repetição de conexão não precisam ser modificados.
 
@@ -155,7 +155,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 1. Especifique o nome do objetivo de serviço. O objetivo do serviço prescreve a camada de serviço, a geração de hardware e o vCores máximo. A tabela a seguir mostra as opções de objetivo de serviço:
 
-   |Nome do objetivo de serviço|Camada de serviços|Geração de hardware|VCores máx.|
+   |Nome do objetivo de serviço|Escalão de serviço|Geração de hardware|VCores máx.|
    |---|---|---|---|
    |GP_S_Gen5_1|Fins Gerais|Gen5|1|
    |GP_S_Gen5_2|Fins Gerais|Gen5|2|
@@ -172,7 +172,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
    |Parâmetro|Opções de valor|Valor predefinido|
    |---|---|---|---|
    |VCores mín.|Depende do máximo de vCores configurado-consulte [limites de recursos](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 vCores|
-   |Atraso de autopausa|Máximo 60 minutos (1 hora)<br>Maior 10080 minutos (7 dias)<br>Incrementos 60 minutos<br>Desabilitar autopausa:-1|60 minutos|
+   |Atraso de autopausa|Mínimo: 60 minutos (1 hora)<br>Máximo: 10080 minutos (7 dias)<br>Incrementos: 60 minutos<br>Desabilitar autopausa:-1|60 minutos|
 
 > [!NOTE]
 > O uso do T-SQL para mover um banco de dados existente para o sem servidor ou alterar seu tamanho de computação não tem suporte no momento, mas pode ser feito por meio do portal do Azure ou do PowerShell.
@@ -181,7 +181,7 @@ A criação de um novo banco de dados ou a movimentação de um banco de dados e
 
 #### <a name="use-azure-portal"></a>Utilizar o portal do Azure
 
-Consulte [Quickstart: Crie um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure @ no__t-0.
+Consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 
 #### <a name="use-powershell"></a>Utilizar o PowerShell
 
@@ -296,7 +296,7 @@ A quantidade de computação cobrada é o máximo usado pela CPU e pela memória
 
 - **Recurso cobrado**: CPU e memória
 - **Valor cobrado**: preço unitário vCore * máx (min vCores, vCores usado, min memory gb * 1/3, GB de memória usado * 1/3) 
-- **Frequência de cobrança**: Por segundo
+- **Frequência de cobrança**: por segundo
 
 O preço unitário vCore é o custo por vCore por segundo. Consulte a [página de preços do banco de dados SQL do Azure](https://azure.microsoft.com/pricing/details/sql-database/single/) para preços unitários específicos em uma determinada região.
 
@@ -304,7 +304,7 @@ A quantidade de computação cobrada é exposta pela seguinte métrica:
 
 - **Métrica**: app_cpu_billed (segundos de vCore)
 - **Definição**: Max (min vCores, vCores used, min memory gb * 1/3, memória GB usada * 1/3)
-- **Frequência de relatórios**: Por minuto
+- **Frequência de relatórios**: por minuto
 
 Essa quantidade é calculada a cada segundo e agregada em 1 minuto.
 
@@ -330,5 +330,5 @@ A camada de computação sem servidor está disponível em todo o mundo, exceto 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para começar, consulte [Quickstart: Crie um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure @ no__t-0.
+- Para começar, consulte [início rápido: criar um banco de dados individual no banco de dados SQL do Azure usando o portal do Azure](sql-database-single-database-get-started.md).
 - Para limites de recursos, consulte [limites de recursos da camada de computação sem servidor](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

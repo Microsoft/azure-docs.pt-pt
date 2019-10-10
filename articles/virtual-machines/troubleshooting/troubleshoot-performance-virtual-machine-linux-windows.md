@@ -24,7 +24,7 @@ ms.locfileid: "72170303"
 
 Este artigo descreve a solução de problemas de desempenho genérico da VM (máquina virtual) por meio do monitoramento e da observação de afunilamentos e fornece uma possível correção para problemas que possam ocorrer.
 
-## <a name="enabling-monitoring"></a>A ativação da monitorização
+## <a name="enabling-monitoring"></a>Habilitando o monitoramento
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoramento de máquinas virtuais IAAS do Azure
 
@@ -71,7 +71,7 @@ Para identificar se há gargalos de recursos, examine os dados. Se você descobr
 
 1. Edite o grafo.
 2. Defina o intervalo de tempo.
-3. Em seguida, você precisa adicionar no contador: Sistema operacional convidado percentual de CPU
+3. Em seguida, você precisa adicionar no contador: sistema operacional convidado do percentual de CPU
 4. Guarde.
 
 ### <a name="cpu-observe-trends"></a>Tendências de observar a CPU

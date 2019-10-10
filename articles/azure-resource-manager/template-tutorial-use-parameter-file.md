@@ -15,7 +15,7 @@ ms.contentlocale: pt-PT
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177557"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: Usar arquivos de parâmetro para implantar o modelo do Resource Manager
+# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutorial: usar arquivos de parâmetro para implantar o modelo do Resource Manager
 
 Neste tutorial, você aprenderá a usar [arquivos de parâmetro](resource-manager-parameter-files.md) para armazenar os valores passados durante a implantação. Nos tutoriais anteriores, você usou parâmetros embutidos com o comando de implantação. Essa abordagem funcionou para testar seu modelo, mas ao automatizar implantações, pode ser mais fácil passar um conjunto de valores para seu ambiente. Os arquivos de parâmetro facilitam o pacote de valores de parâmetro para um ambiente específico. Neste tutorial, você criará arquivos de parâmetro para ambientes de desenvolvimento e produção. Leva cerca de **12 minutos** para ser concluída.
 
