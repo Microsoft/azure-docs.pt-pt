@@ -1342,8 +1342,8 @@
             - name: Utilizar as métricas do Apache Spark
               href: /azure/databricks/kb/metrics/spark-metrics
               maintainContext: true
-            - name: Notebooks
-              items: null
+        - name: Notebooks
+          items:
             - name: Verificar se uma propriedade do Apache Spark pode ser modificada
               href: /azure/databricks/kb/notebooks/check-spark-property-modifiable
               maintainContext: true
