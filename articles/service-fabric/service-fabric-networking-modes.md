@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: d749e1355e69ad93c8c211474043f88127ec76f0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: aa7b63453a5147742e27b9bb32ad05221e745f8c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599383"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168791"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêineres Service Fabric
 
@@ -200,17 +200,17 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
  
 3. Somente para clusters do Windows, configure uma regra de NSG (grupo de segurança de rede) do Azure que abre a porta UDP/53 para a rede virtual com os seguintes valores:
 
-   |Definição |Value | |
+   |Definição |Valor | |
    | --- | --- | --- |
-   |Priority |2000 | |
+   |Prioridade |2000 | |
    |Nome |Custom_Dns  | |
-   |Source |VirtualNetwork | |
+   |Origem |VirtualNetwork | |
    |Destino | VirtualNetwork | |
    |Serviço | DNS (UDP/53) | |
-   |Action | Allow  | |
+   |Ação | Permitir  | |
    | | |
 
-4. Especifique o modo de rede no manifesto do aplicativo para cada serviço `<NetworkConfig NetworkType="Open">`:. O modo de rede **aberto** resulta no serviço que obtém um endereço IP dedicado. Se um modo não for especificado, o serviço usa como padrão o modo **NAT** . No exemplo de manifesto a seguir, `NodeContainerServicePackage1` os `NodeContainerServicePackage2` serviços e podem escutar na mesma porta ( `Endpoint1`ambos os serviços estão escutando). Quando o modo de rede aberto é `PortBinding` especificado, as configurações não podem ser especificadas.
+4. Especifique o modo de rede no manifesto do aplicativo para cada serviço: `<NetworkConfig NetworkType="Open">`. O modo de rede **aberto** resulta no serviço que obtém um endereço IP dedicado. Se um modo não for especificado, o serviço usa como padrão o modo **NAT** . No exemplo de manifesto a seguir, os serviços `NodeContainerServicePackage1` e `NodeContainerServicePackage2` podem escutar na mesma porta (ambos os serviços estão escutando em `Endpoint1`). Quando o modo de rede aberto é especificado, as configurações `PortBinding` não podem ser especificadas.
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -271,7 +271,7 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
             ],          
  ``` 
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Understand the Service Fabric application model (Compreender o modelo de aplicações do Service Fabric)](service-fabric-application-model.md)
 * [Saiba mais sobre os recursos de manifesto do serviço Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)
 * [Implantar um contêiner do Windows para Service Fabric no Windows Server 2016](service-fabric-get-started-containers.md)

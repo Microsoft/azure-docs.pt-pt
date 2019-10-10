@@ -6,29 +6,29 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202908"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178126"
 ---
 # <a name="dependency-visualization"></a>Visualização de dependência
 
-Azure Migrate: A avaliação do servidor avalia grupos de computadores locais para migração para o Azure. Você pode usar a funcionalidade de visualização de dependência na avaliação do servidor para criar grupos. Este artigo fornece informações sobre esse recurso.
+Migrações para Azure: a avaliação do servidor avalia grupos de computadores locais para migração para o Azure. Você pode usar a funcionalidade de visualização de dependência na avaliação do servidor para criar grupos. Este artigo fornece informações sobre esse recurso.
 
 > [!NOTE]
 > A funcionalidade de visualização de dependência não está disponível no Azure governamental.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A visualização de dependência na avaliação do servidor permite que você crie grupos de alta confiança para avaliações de migração. Usando a visualização de dependência, você pode exibir as dependências de rede de computadores e identificar os computadores relacionados que precisam ser migrados juntos para o Azure. Essa funcionalidade é útil em cenários em que você não está totalmente ciente dos computadores que constituem seu aplicativo e precisam ser migrados juntos para o Azure.
 
 ## <a name="before-you-start"></a>Antes de começar
 
 - Certifique-se de ter [criado](how-to-add-tool-first-time.md) um projeto de migrações para Azure.
-- Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a migração do Azure: Ferramenta de avaliação do servidor.
-- Verifique se você descobriu seus computadores nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para o Azure: Avaliação do Servidor. [Saiba mais](migrate-appliance.md).
+- Se você já tiver criado um projeto, certifique-se de ter [adicionado](how-to-assess.md) a ferramenta migrações do Azure: Server Assessment.
+- Verifique se você descobriu seus computadores nas migrações para Azure; Você pode fazer isso Configurando um dispositivo de migrações para Azure para [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). O dispositivo descobre computadores locais e envia metadados e dados de desempenho para migrações para Azure: avaliação do servidor. [Saiba mais](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>Como funciona?
 
@@ -36,12 +36,12 @@ As migrações para Azure usam a solução [mapa do serviço](../operations-mana
 - Para aproveitar a visualização de dependência, você precisa associar um espaço de trabalho Log Analytics, novo ou existente, a um projeto de migrações para Azure.
 - Você só pode criar ou anexar um espaço de trabalho na mesma assinatura em que o projeto de migrações para Azure é criado.
 - Para anexar um espaço de trabalho Log Analytics a um projeto:
-    1. Na guia **servidores** , em **migrações para Azure: Bloco avaliação** do servidor, clique em **visão geral**.
+    1. Na guia **servidores** , no bloco **migrações para Azure: avaliação do servidor** , clique em **visão geral**.
     2. Em **visão geral**, clique na seta para baixo para expandir o **Essentials**.
     3. No **espaço de trabalho do OMS**, clique em **requer configuração**.
     4. Em **Configurar espaço de trabalho**, especifique se deseja criar um novo espaço de trabalho ou usar um existente:
     
-    ![Adicionar área de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
+    ![Adicionar espaço de trabalho](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - Ao associar um espaço de trabalho, você terá a opção de criar um novo espaço de trabalho ou anexar um existente:
   - Ao criar um novo espaço de trabalho, você precisa especificar um nome para o espaço de trabalho. Você pode escolher a [região](https://azure.microsoft.com/global-infrastructure/regions/) na qual o espaço de trabalho será criado.
@@ -51,7 +51,7 @@ As migrações para Azure usam a solução [mapa do serviço](../operations-mana
   > Depois de anexar um espaço de trabalho a um projeto, você não poderá alterá-lo mais tarde.
 
   > [!NOTE]
-  > Atualmente, as migrações para Azure dão suporte à criação do espaço de trabalho do OMS nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental. Se o espaço de trabalho for criado fora da migração do Azure em qualquer outra região, ele não poderá ser associado a um projeto de migrações para Azure no momento. 
+  > Atualmente, as migrações para Azure dão suporte à criação ou associação de espaços de trabalho Log Analytics nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental. Se o espaço de trabalho for criado fora da migração do Azure em uma região sem suporte, ele não poderá ser associado a um projeto de migrações para Azure no momento. 
 
 - O espaço de trabalho associado é marcado com o **projeto de migração**de chave e o nome do **projeto**de valor, que você pode usar para pesquisar na portal do Azure.
 - Para navegar até o espaço de trabalho associado ao projeto, você pode ir para a seção **Essentials** da página **visão geral** do projeto e acessar o espaço de trabalho

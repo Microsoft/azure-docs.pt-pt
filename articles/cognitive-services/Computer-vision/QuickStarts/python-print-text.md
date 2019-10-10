@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto impresso-REST, Python'
+title: 'Início rápido: extrair texto impresso-REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7ae005fe4bc822346e69d23c013cd597b7645c7e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: cbc1fc01663dd2425f5cf3481a936d94f6f7cd71
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137526"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177133"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Extrair texto impresso (OCR) usando a API REST do Pesquisa Visual Computacional e o Python
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-python"></a>Início rápido: extrair texto impresso (OCR) usando a API REST do Pesquisa Visual Computacional e o Python
 
 Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres de ponto de extremidade de serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -62,7 +62,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-ocr_url = endpoint + "vision/v2.0/ocr"
+ocr_url = endpoint + "vision/v2.1/ocr"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" + \
@@ -117,7 +117,7 @@ response = requests.post(ocr_url, headers=headers, params=params, data = image_d
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -218,7 +218,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

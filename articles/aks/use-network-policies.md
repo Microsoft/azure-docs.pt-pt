@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 63678ad7260210d86daf035bfec9bb467a526042
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950314"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169744"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre pods usando as políticas de rede no serviço de kubernetes do Azure (AKS)
 
@@ -52,12 +52,12 @@ Ambas as implementações usam *iptables* do Linux para impor as políticas espe
 
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferenças entre as políticas do Azure e do Calico e seus recursos
 
-| Funcionalidade                               | Azure                      | Calico                      |
+| Capacidade                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plataformas suportadas                      | Linux                      | Linux                       |
-| Opções de rede com suporte             | Azure CNI                  | CNI e kubenet do Azure       |
+| Opções de rede com suporte             | CNI do Azure                  | CNI e kubenet do Azure       |
 | Conformidade com a especificação kubernetes | Todos os tipos de política com suporte |  Todos os tipos de política com suporte |
-| Funcionalidades adicionais                      | Nenhum                       | Modelo de política estendida que consiste em política de rede global, conjunto de rede global e ponto de extremidade do host. Para obter mais informações sobre como usar a CLI `calicoctl` para gerenciar esses recursos estendidos, consulte [calicoctl User Reference][calicoctl]. |
+| Recursos adicionais                      | Nenhuma                       | Modelo de política estendida que consiste em política de rede global, conjunto de rede global e ponto de extremidade do host. Para obter mais informações sobre como usar a CLI `calicoctl` para gerenciar esses recursos estendidos, consulte [calicoctl User Reference][calicoctl]. |
 | Suporte                                  | Suporte da equipe de suporte e engenharia do Azure | Suporte da Comunidade Calico. Para obter mais informações sobre suporte pago adicional, consulte [Opções de suporte do Project Calico][calico-support]. |
 | Registo                                  | As regras adicionadas/excluídas no IPTables são registradas em todos os hosts em */var/log/Azure-NPM.log* | Para obter mais informações, consulte [Calico Component logs][calico-logs] |
 
@@ -79,7 +79,7 @@ O script de exemplo a seguir:
 * Cria uma entidade de serviço Azure Active Directory (AD do Azure) para uso com o cluster AKS.
 * Atribui permissões de *colaborador* para a entidade de serviço de cluster AKs na rede virtual.
 * Cria um cluster AKS na rede virtual definida e habilita a política de rede.
-    * A opção de política de rede *do Azure* é usada. Para usar o Calico como a opção de política de rede, use o parâmetro `--network-policy calico`. Nota: Calico pode ser usado com `--network-plugin azure` ou `--network-plugin kubenet`.
+    * A opção de política de rede *do Azure* é usada. Para usar o Calico como a opção de política de rede, use o parâmetro `--network-policy calico`. Observação: Calico pode ser usado com `--network-plugin azure` ou `--network-plugin kubenet`.
 
 Forneça seu próprio *SP_PASSWORD*seguro. Você pode substituir as variáveis *RESOURCE_GROUP_NAME* e *CLUSTER_NAME* :
 
@@ -464,7 +464,7 @@ Para saber mais sobre políticas, consulte [kubernetes Network Policies][kuberne
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
 [calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
-[calico-support]: https://www.projectcalico.org/support
+[calico-support]: https://www.tigera.io/tigera-products/calico/
 [calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 

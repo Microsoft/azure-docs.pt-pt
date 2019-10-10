@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036388"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170259"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar SQL Server instância de cluster de failover em máquinas virtuais do Azure
 
-Este artigo explica como criar uma FCI (instância de cluster de failover) SQL Server em máquinas virtuais do Azure no modelo do Resource Manager. Essa solução usa o [Windows Server 2016 Datacenter Edition \(espaços de armazenamento diretos\) S2D](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como uma SAN virtual baseada em software que sincroniza o armazenamento (discos de dados) entre os nós (VMS do Azure) em um cluster do Windows. O S2D é novo no Windows Server 2016.
+Este artigo explica como criar uma FCI (instância de cluster de failover) SQL Server em máquinas virtuais do Azure no modelo do Resource Manager. Essa solução usa o [Windows Server 2016 datacenter edition Espaços de Armazenamento Diretos \(S2D @ no__t-2](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) como uma SAN virtual baseada em software que sincroniza o armazenamento (discos de dados) entre os nós (VMS do Azure) em um cluster do Windows. O S2D é novo no Windows Server 2016.
 
 O diagrama a seguir mostra a solução completa em máquinas virtuais do Azure:
 
@@ -43,7 +43,7 @@ O diagrama anterior mostra:
    >[!NOTE]
    >Todos os recursos do Azure estão no diagrama no mesmo grupo de recursos.
 
-Para obter detalhes sobre o s2d, consulte [Windows Server 2016 datacenter \(Edition\)espaços de armazenamento diretos S2D](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Para obter detalhes sobre o S2D, consulte [Windows Server 2016 datacenter edition Espaços de Armazenamento Diretos \(S2D @ no__t-2](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 O S2D dá suporte a dois tipos de arquiteturas-convergido e hiperconvergente. A arquitetura deste documento é hiperconvergente. Uma infraestrutura hiperconvergente coloca o armazenamento nos mesmos servidores que hospedam o aplicativo clusterizado. Nessa arquitetura, o armazenamento está em cada nó de SQL Server FCI.
 
@@ -81,7 +81,7 @@ Além disso, você deve ter uma compreensão geral das seguintes tecnologias:
 - [Grupos de recursos do Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> Neste momento, não há suporte para a [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md) para SQL Server FCI no Azure. Recomendamos que você desinstale a extensão de VMs que participam do FCI. Essa extensão oferece suporte a recursos, como backup automatizado e aplicação de patches e alguns recursos do portal para SQL. Esses recursos não funcionarão para VMs do SQL depois que o agente for desinstalado.
+> Neste momento, SQL Server instâncias de cluster de failover em máquinas virtuais do Azure só têm suporte com o modo de gerenciamento [leve](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) da [extensão do agente IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md). Desinstale a extensão completa das VMs que participam do cluster de failover e registre-as com o provedor de recursos de VM do SQL no modo `lightweight`. A extensão completa oferece suporte a recursos como backup automatizado, aplicação de patch e gerenciamento avançado do Portal. Esses recursos não funcionarão para VMs do SQL depois que o agente for reinstalado no modo de gerenciamento leve.
 
 ### <a name="what-to-have"></a>O que ter
 
@@ -98,7 +98,7 @@ Antes de seguir as instruções neste artigo, você já deve ter:
 
 Com esses pré-requisitos em vigor, você pode prosseguir com a criação do cluster de failover. A primeira etapa é criar as máquinas virtuais.
 
-## <a name="step-1-create-virtual-machines"></a>Passo 1: Criar máquinas virtuais
+## <a name="step-1-create-virtual-machines"></a>Etapa 1: criar máquinas virtuais
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) com sua assinatura.
 
@@ -108,14 +108,14 @@ Com esses pré-requisitos em vigor, você pode prosseguir com a criação do clu
 
    Se você não criou o grupo de recursos para suas máquinas virtuais, faça isso ao criar um conjunto de disponibilidade do Azure. Se você estiver usando o portal do Azure para criar o conjunto de disponibilidade, execute as seguintes etapas:
 
-   - Na portal do Azure, clique **+** para abrir o Azure Marketplace. Procure o **conjunto de disponibilidade**.
+   - Na portal do Azure, clique em **+** para abrir o Azure Marketplace. Procure o **conjunto de disponibilidade**.
    - Clique em **conjunto de disponibilidade**.
    - Clique em **Criar**.
    - Na folha **criar conjunto de disponibilidade** , defina os seguintes valores:
-      - **Nome**: Um nome para o conjunto de disponibilidade.
-      - **Subscrição**: A sua subscrição do Azure.
-      - **Grupo de recursos**: Se você quiser usar um grupo existente, clique em **usar existente** e selecione o grupo na lista suspensa. Caso contrário, escolha **criar novo** e digite um nome para o grupo.
-      - **Local**: Defina o local em que você planeja criar suas máquinas virtuais.
+      - **Nome**: um nome para o conjunto de disponibilidade.
+      - **Assinatura**: sua assinatura do Azure.
+      - **Grupo de recursos**: se você quiser usar um grupo existente, clique em **usar existente** e selecione o grupo na lista suspensa. Caso contrário, escolha **criar novo** e digite um nome para o grupo.
+      - **Local**: defina o local em que você planeja criar suas máquinas virtuais.
       - **Domínios de falha**: Use o padrão (3).
       - **Domínios de atualização**: Use o padrão (5).
    - Clique em **criar** para criar o conjunto de disponibilidade.
@@ -140,7 +140,7 @@ Com esses pré-requisitos em vigor, você pode prosseguir com a criação do clu
 
    Escolha a imagem correta de acordo com o modo como você deseja pagar pela licença de SQL Server:
 
-   - **Pagar por licenciamento de uso**: O custo por segundo dessas imagens inclui o SQL Server licenciamento:
+   - **Pagar por licenciamento de uso**: o custo por segundo dessas imagens inclui o SQL Server licenciamento:
       - **SQL Server 2016 Enterprise no Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard no Windows Server Datacenter 2016**
       - **SQL Server Developer 2016 no Windows Server Datacenter 2016**
@@ -174,7 +174,7 @@ Com esses pré-requisitos em vigor, você pode prosseguir com a criação do clu
 
    Em cada máquina virtual, abra as seguintes portas no firewall do Windows.
 
-   | Objetivo | Porta TCP | Notas
+   | Finalidade | Porta TCP | Notas
    | ------ | ------ | ------
    | SQL Server | 1433 | Porta normal para instâncias padrão de SQL Server. Se você usou uma imagem da galeria, essa porta será aberta automaticamente.
    | Sonda de estado de funcionamento | 59999 | Qualquer porta TCP aberta. Em uma etapa posterior, configure a [investigação de integridade](#probe) do balanceador de carga e o cluster para usar essa porta.  
@@ -197,7 +197,7 @@ Com esses pré-requisitos em vigor, você pode prosseguir com a criação do clu
 
 Depois que as máquinas virtuais são criadas e configuradas, você pode configurar o cluster de failover.
 
-## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Passo 2: Configurar o cluster de failover do Windows com o S2D
+## <a name="step-2-configure-the-windows-failover-cluster-with-s2d"></a>Etapa 2: configurar o cluster de failover do Windows com o S2D
 
 A próxima etapa é configurar o cluster de failover com o S2D. Nesta etapa, você fará as seguintes subetapas:
 
@@ -275,9 +275,9 @@ O PowerShell a seguir cria um cluster de failover para o **Windows Server 2008-2
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage
 ```   
 
-#### <a name="windows-server-2019"></a>Windows Server de 2019
+#### <a name="windows-server-2019"></a>Windows Server 2019
 
-O PowerShell a seguir cria um cluster de failover para o Windows Server 2019.  Para obter mais informações, consulte o [cluster de failover do blog: Objeto](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97)de rede do cluster.  Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da VNET do Azure:
+O PowerShell a seguir cria um cluster de failover para o Windows Server 2019.  Para obter mais informações, consulte o [objeto cluster de failover de blog: cluster de rede](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Atualize o script com os nomes dos nós (os nomes das máquinas virtuais) e um endereço IP disponível da VNET do Azure:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -300,7 +300,7 @@ A testemunha em nuvem é um novo tipo de testemunha de quorum de cluster armazen
 
 Os discos para S2D precisam estar vazios e sem partições ou outros dados. Para limpar os discos, siga [as etapas neste guia](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Habilitar espaços de armazenamento \(\)diretos S2D](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Habilite espaços de armazenamento diretos \(S2D @ no__t-2](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    O PowerShell a seguir habilita espaços de armazenamento diretos.  
 
@@ -324,11 +324,11 @@ Os discos para S2D precisam estar vazios e sem partições ou outros dados. Para
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>Passo 3: Failover de cluster de failover de teste
+## <a name="step-3-test-failover-cluster-failover"></a>Etapa 3: failover de cluster de failover de teste
 
 Em Gerenciador de Cluster de Failover, verifique se você pode mover o recurso de armazenamento para o outro nó de cluster. Se você puder se conectar ao cluster de failover com **Gerenciador de cluster de failover** e mover o armazenamento de um nó para outro, você estará pronto para configurar o FCI.
 
-## <a name="step-4-create-sql-server-fci"></a>Passo 4: Criar SQL Server FCI
+## <a name="step-4-create-sql-server-fci"></a>Etapa 4: criar SQL Server FCI
 
 Depois de configurar o cluster de failover e todos os componentes do cluster, incluindo o armazenamento, você pode criar o SQL Server FCI.
 
@@ -344,7 +344,7 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
 
    Os diretórios de dados do FCI precisam estar no armazenamento clusterizado. Com o S2D, ele não é um disco compartilhado, mas um ponto de montagem para um volume em cada servidor. O S2D sincroniza o volume entre ambos os nós. O volume é apresentado ao cluster como um volume compartilhado clusterizado. Use o ponto de montagem de CSV para os diretórios de dados.
 
-   ![DataDirectories](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
+   ![Datadirectors](./media/virtual-machines-windows-portal-sql-create-failover-cluster/20-data-dicrectories.png)
 
 1. Depois de concluir o assistente, a instalação instalará um SQL Server FCI no primeiro nó.
 
@@ -357,7 +357,7 @@ Depois de configurar o cluster de failover e todos os componentes do cluster, in
    >[!NOTE]
    >Se você usou uma imagem da galeria do Azure Marketplace com SQL Server, SQL Server ferramentas foram incluídas com a imagem. Se você não usou essa imagem, instale as ferramentas de SQL Server separadamente. Consulte [baixar SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Passo 5: Criar um balanceador de carga do Azure
+## <a name="step-5-create-azure-load-balancer"></a>Etapa 5: criar o Azure Load Balancer
 
 Em máquinas virtuais do Azure, os clusters usam um balanceador de carga para manter um endereço IP que precisa estar em um nó de cluster por vez. Nessa solução, o balanceador de carga mantém o endereço IP para o SQL Server FCI.
 
@@ -375,12 +375,12 @@ Para criar o balanceador de carga:
 
 1. Configure o balanceador de carga com:
 
-   - **Nome**: Um nome que identifica o balanceador de carga.
-   - **Tipo**: O balanceador de carga pode ser público ou privado. Um balanceador de carga privado pode ser acessado de dentro da mesma VNET. A maioria dos aplicativos do Azure pode usar um balanceador de carga privado. Se seu aplicativo precisar de acesso a SQL Server diretamente pela Internet, use um balanceador de carga público.
-   - **Rede virtual**: A mesma rede que as máquinas virtuais.
-   - **Sub-rede**: A mesma sub-rede que as máquinas virtuais.
-   - **Endereço IP privado**: O mesmo endereço IP que você atribuiu ao recurso de rede de cluster SQL Server FCI.
-   - **assinatura**: A sua subscrição do Azure.
+   - **Nome**: um nome que identifica o balanceador de carga.
+   - **Tipo**: o balanceador de carga pode ser público ou privado. Um balanceador de carga privado pode ser acessado de dentro da mesma VNET. A maioria dos aplicativos do Azure pode usar um balanceador de carga privado. Se seu aplicativo precisar de acesso a SQL Server diretamente pela Internet, use um balanceador de carga público.
+   - **Rede virtual**: a mesma rede que as máquinas virtuais.
+   - **Sub-rede**: a mesma sub-rede que as máquinas virtuais.
+   - **Endereço IP privado**: o mesmo endereço IP que você atribuiu ao recurso de rede de cluster SQL Server FCI.
+   - **assinatura**: sua assinatura do Azure.
    - **Grupo de recursos**: Use o mesmo grupo de recursos que suas máquinas virtuais.
    - **Local**: Use o mesmo local do Azure que suas máquinas virtuais.
    Consulte a figura a seguir:
@@ -407,9 +407,9 @@ Para criar o balanceador de carga:
 
 1. Na folha **Adicionar investigação de integridade** , <a name="probe"> </a>defina os parâmetros de investigação de integridade:
 
-   - **Nome**: Um nome para a investigação de integridade.
-   - **Protocolo**: PROTOCOL.
-   - **Porta**: Defina para a porta que você criou no firewall para a investigação de integridade nesta [etapa](#ports). Neste artigo, o exemplo usa a porta `59999`TCP.
+   - **Nome**: um nome para a investigação de integridade.
+   - **Protocolo**: TCP.
+   - **Porta**: defina para a porta que você criou no firewall para a investigação de integridade nesta [etapa](#ports). Neste artigo, o exemplo usa a porta TCP `59999`.
    - **Intervalo**: 5 segundos.
    - **Limite não íntegro**: 2 falhas consecutivas.
 
@@ -423,23 +423,23 @@ Para criar o balanceador de carga:
 
 1. Defina os parâmetros de regras de balanceamento de carga:
 
-   - **Nome**: Um nome para as regras de balanceamento de carga.
+   - **Nome**: um nome para as regras de balanceamento de carga.
    - **Endereço IP de front-end**: Use o endereço IP para o recurso de rede de cluster SQL Server FCI.
-   - **Porta**: Defina para a porta TCP do SQL Server FCI. A porta de instância padrão é 1433.
-   - **Porta de back-end**: Esse valor usa a mesma porta que o valor da **porta** quando você HABILITA o **IP flutuante (retorno de servidor direto)** .
+   - **Porta**: definida para a porta TCP do SQL Server FCI. A porta de instância padrão é 1433.
+   - **Porta de back-end**: esse valor usa a mesma porta que o valor da **porta** quando você habilita o **IP flutuante (retorno de servidor direto)** .
    - **Pool de back-end**: Use o nome do pool de back-end que você configurou anteriormente.
    - **Investigação de integridade**: Use a investigação de integridade que você configurou anteriormente.
-   - **Persistência da sessão**: Nenhum.
+   - **Persistência da sessão**: nenhuma.
    - **Tempo limite de ociosidade (minutos)** : 4.
-   - **IP flutuante (retorno de servidor direto)** : Enabled
+   - **IP flutuante (retorno de servidor direto)** : habilitado
 
 1. Clique em **OK**.
 
-## <a name="step-6-configure-cluster-for-probe"></a>Passo 6: Configurar o cluster para investigação
+## <a name="step-6-configure-cluster-for-probe"></a>Etapa 6: configurar o cluster para investigação
 
 Defina o parâmetro de porta de investigação do cluster no PowerShell.
 
-Para definir o parâmetro de porta de investigação do cluster, atualize as variáveis no script a seguir com os valores de seu ambiente. Remova os colchetes `<>` angulares do script. 
+Para definir o parâmetro de porta de investigação do cluster, atualize as variáveis no script a seguir com os valores de seu ambiente. Remova os colchetes angulares `<>` do script. 
 
    ```powershell
    $ClusterNetworkName = "<Cluster Network Name>"
@@ -454,16 +454,16 @@ Para definir o parâmetro de porta de investigação do cluster, atualize as var
 
 No script anterior, defina os valores para o seu ambiente. A lista a seguir descreve os valores:
 
-   - `<Cluster Network Name>`: Nome do cluster de failover do Windows Server para a rede. Em**redes** **Gerenciador de cluster de failover** > , clique com o botão direito do mouse na rede e clique em **Propriedades**. O valor correto está sob **nome** na guia **geral** . 
+   - `<Cluster Network Name>`: nome do cluster de failover do Windows Server para a rede. Em **Gerenciador de cluster de failover** **redes** > , clique com o botão direito do mouse na rede e clique em **Propriedades**. O valor correto está sob **nome** na guia **geral** . 
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server nome do recurso de endereço IP do FCI. Em **Gerenciador de cluster de failover** > **funções**, na função SQL Server FCI, em **nome do servidor**, clique com o botão direito do mouse no recurso de endereço IP e clique em **Propriedades**. O valor correto está sob **nome** na guia **geral** . 
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server nome do recurso de endereço IP FCI. Em **Gerenciador de cluster de failover** **funções** > , na função SQL Server FCI, em **nome do servidor**, clique com o botão direito do mouse no recurso de endereço IP e clique em **Propriedades**. O valor correto está sob **nome** na guia **geral** . 
 
-   - `<ILBIP>`: O endereço IP ILB. Esse endereço é configurado no portal do Azure como o endereço de front-end ILB. Esse também é o endereço IP do SQL Server FCI. Você pode encontrá-lo em **Gerenciador de cluster de failover** na mesma página de propriedades em que você `<SQL Server FCI IP Address Resource Name>`localizou.  
+   - `<ILBIP>`: o endereço IP ILB. Esse endereço é configurado no portal do Azure como o endereço de front-end ILB. Esse também é o endereço IP do SQL Server FCI. Você pode encontrá-lo em **Gerenciador de cluster de failover** na mesma página de propriedades em que você localizou o `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: É a porta de investigação que você configurou na investigação de integridade do balanceador de carga. Qualquer porta TCP não utilizada é válida. 
+   - `<nnnnn>`: é a porta de investigação configurada na investigação de integridade do balanceador de carga. Qualquer porta TCP não utilizada é válida. 
 
 >[!IMPORTANT]
->A máscara de sub-rede do parâmetro de cluster deve ser o endereço de difusão IP `255.255.255.255`TCP:.
+>A máscara de sub-rede do parâmetro de cluster deve ser o endereço de difusão IP TCP: `255.255.255.255`.
 
 Depois de definir a investigação de cluster, você poderá ver todos os parâmetros de cluster no PowerShell. Execute o seguintes script:
 
@@ -471,7 +471,7 @@ Depois de definir a investigação de cluster, você poderá ver todos os parâm
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Passo 7: Testar o failover do FCI
+## <a name="step-7-test-fci-failover"></a>Etapa 7: testar o failover do FCI
 
 Teste o failover do FCI para validar a funcionalidade do cluster. Execute as seguintes etapas:
 
@@ -501,7 +501,7 @@ Em máquinas virtuais do Azure, o MSDTC não tem suporte no Windows Server 2016 
 - O recurso MSDTC clusterizado não pode ser configurado para usar o armazenamento compartilhado. Com o Windows Server 2016 se você criar um recurso do MSDTC, ele não mostrará nenhum armazenamento compartilhado disponível para uso, mesmo que o armazenamento esteja lá. Esse problema foi corrigido no Windows Server 2019.
 - O balanceador de carga básico não trata as portas RPC.
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 
 [Configurar o S2D com a área de trabalho remota (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: dbe51eddcf748843fd90cc533063fd25e7c282fd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d96229bb5e3d288915b64e5a7ce29a8651f2a181
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933371"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177385"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestrações eternass no Durable Functions (Azure Functions)
 
@@ -28,10 +28,10 @@ Conforme explicado no tópico do [histórico de orquestração](durable-function
 
 Em vez de usar loops infinitos, as funções de orquestrador redefinem seu estado chamando o método [ContinueAsNew](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_ContinueAsNew_) . Esse método usa um único parâmetro serializável em JSON, que se torna a nova entrada para a próxima geração de função de orquestrador.
 
-Quando `ContinueAsNew` é chamado, a instância coloca uma mensagem em fila antes de sair. A mensagem reinicia a instância com o novo valor de entrada. A mesma ID de instância é mantida, mas o histórico da função de orquestrador é efetivamente truncado.
+Quando `ContinueAsNew` é chamado, a instância enfileira uma mensagem a si mesmo antes de sair. A mensagem reinicia a instância com o novo valor de entrada. A mesma ID de instância é mantida, mas o histórico da função de orquestrador é efetivamente truncado.
 
 > [!NOTE]
-> A estrutura de tarefas duráveis mantém a mesma ID de instância, mas internamente cria uma nova *ID de execução* para a função de orquestrador que é redefinida pelo `ContinueAsNew`. Essa ID de execução geralmente não é exposta externamente, mas pode ser útil saber ao depurar a execução da orquestração.
+> O Framework de tarefa durável mantém a mesma ID de instância, mas internamente cria uma nova *ID de execução* para a função de orquestrador que é redefinida pelo `ContinueAsNew`. Essa ID de execução geralmente não é exposta externamente, mas pode ser útil saber ao depurar a execução da orquestração.
 
 ## <a name="periodic-work-example"></a>Exemplo de trabalho periódico
 
@@ -87,18 +87,18 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 {
     string instanceId = "StaticId";
     // Null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
-    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null); 
+    await client.StartNewAsync("Periodic_Cleanup_Loop", instanceId, null); 
     return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
 
 ## <a name="exit-from-an-eternal-orchestration"></a>Sair de uma orquestração eternas
 
-Se uma função de orquestrador precisar ser concluída, tudo o que você precisa fazer *não* será chamar `ContinueAsNew` e deixará a função sair.
+Se uma função de orquestrador precisar ser concluída eventualmente, tudo o que você precisa fazer *não* será chamar `ContinueAsNew` e deixar a função sair.
 
 Se uma função de orquestrador estiver em um loop infinito e precisar ser interrompida, use o método [TerminateAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_TerminateAsync_) para interrompê-la. Para obter mais informações, consulte [Gerenciamento de instâncias](durable-functions-instance-management.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Saiba como implementar orquestrações singleton](durable-functions-singletons.md)

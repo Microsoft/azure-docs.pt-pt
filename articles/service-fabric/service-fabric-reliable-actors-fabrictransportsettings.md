@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
-ms.author: chackdan
-ms.openlocfilehash: 4170f79e8eaca44260e81c85c1a3a7571720ec7f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: c840280e0a9662cd0175feed04f37119443efc3c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876118"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170573"
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Definir configurações de FabricTransport para Reliable Actors
 
@@ -60,7 +60,7 @@ Você pode usar um [pacote de configuração](service-fabric-application-and-ser
 
 Adicione uma seção TransportSettings no arquivo Settings. xml.
 
-Por padrão, o código de ator procura SectionName como&lt;"&gt;atorname TransportSettings". Se isso não for encontrado, ele verificará SectionName como "TransportSettings".
+Por padrão, o código de ator procura SectionName como "&lt;ActorName @ no__t-1TransportSettings". Se isso não for encontrado, ele verificará SectionName como "TransportSettings".
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -79,7 +79,7 @@ Por padrão, o código de ator procura SectionName como&lt;"&gt;atorname Transpo
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-client-assembly"></a>Definir configurações de FabricTransport para o assembly de cliente do ator
 
-Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um&lt;arquivo "Client&gt;exe Name. Settings. xml" no mesmo local que o arquivo client. exe. Em seguida, adicione uma seção TransportSettings nesse arquivo. SectionName deve ser "TransportSettings".
+Se o cliente não estiver sendo executado como parte de um serviço, você poderá criar um arquivo "&lt;Client exe Name&gt;.settings.xml" no mesmo local que o arquivo client. exe. Em seguida, adicione uma seção TransportSettings nesse arquivo. SectionName deve ser "TransportSettings".
 
   ```xml
   <?xml version="1.0" encoding="utf-8"?>

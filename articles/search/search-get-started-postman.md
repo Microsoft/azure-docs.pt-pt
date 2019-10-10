@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar um índice de pesquisa no postmaster usando APIs REST-Azure Search'
+title: 'Início rápido: criar um índice de pesquisa no postmaster usando APIs REST-Azure Search'
 description: Saiba como chamar as APIs REST do Azure Search usando o post e definições e dados de exemplo.
 author: HeidiSteen
 manager: nitinme
@@ -9,14 +9,14 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: 138fd3d50a5f462c6a0ad954043f107c3c250917
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: ffa20599ae57908f9b0ea848ab68f41a3d0e2a14
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881534"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176038"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: Criar um índice de Azure Search no postmaster usando APIs REST
+# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: criar um índice de Azure Search no postmaster usando APIs REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -45,9 +45,9 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações**@no__t **-1,** obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade http e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade http e uma chave de acesso")
+![Obter um ponto de extremidade http e uma tecla de acesso](media/search-get-started-postman/get-url-key.png "obter um ponto de extremidade http e uma chave de acesso")
 
 Todas as solicitações exigem uma chave de API em cada solicitação enviada ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -55,7 +55,7 @@ Todas as solicitações exigem uma chave de API em cada solicitação enviada ao
 
 Nesta seção, use a ferramenta da Web de sua escolha para configurar conexões com Azure Search. Cada ferramenta mantém informações de cabeçalho de solicitação para a sessão, o que significa que você só precisa inserir a chave de API e o tipo de conteúdo uma vez.
 
-Para qualquer ferramenta, você precisa escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de extremidade de URL e, para algumas tarefas, fornecer JSON no corpo da solicitação. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) por um valor válido. Adicionar `$select=name` para retornar apenas o nome de cada índice. 
+Para qualquer ferramenta, você precisa escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de extremidade de URL e, para algumas tarefas, fornecer JSON no corpo da solicitação. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) por um valor válido. Adicione `$select=name` para retornar apenas o nome de cada índice. 
 
     https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes?api-version=2019-05-06&$select=name
 
@@ -68,13 +68,13 @@ A composição de cabeçalho de solicitação inclui dois elementos, tipo de con
 
 No postmaster, formule uma solicitação semelhante à captura de tela a seguir. Escolha **obter** como o verbo, forneça a URL e clique em **Enviar**. Esse comando conecta-se a Azure Search, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
 
-![URL e cabeçalho da solicitação do postmaster](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do postmaster")
+URL de ![solicitação do postmaster e](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do post") do cabeçalho
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
 Em Azure Search, geralmente você cria o índice antes de carregá-lo com os dados. A [API REST criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é usada para esta tarefa. 
 
-A URL é estendida para incluir `hotels` o nome do índice.
+A URL é estendida para incluir o nome do índice `hotels`.
 
 Para fazer isso no postmaster:
 
@@ -84,9 +84,9 @@ Para fazer isso no postmaster:
 
 3. Forneça a definição de índice (o código pronto para cópia é fornecido abaixo) no corpo da solicitação.
 
-4. Clique em **enviar**.
+4. Clique em **Enviar**.
 
-![Indexar documento JSON no corpo da solicitação](media/search-get-started-postman/postman-request.png "Indexar documento JSON no corpo da solicitação")
+![Indexar documento JSON no índice do corpo da solicitação](media/search-get-started-postman/postman-request.png "documento JSON no corpo da solicitação")
 
 ### <a name="index-definition"></a>Definição do índice
 
@@ -128,7 +128,7 @@ Quando submete este pedido, deverá receber uma resposta HTTP 201, que indica qu
 
 A criação e o preenchimento do índice são dois passos distintos. No Azure Search, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. A [API REST adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é usada para esta tarefa. 
 
-A URL é estendida para incluir `docs` as coleções `index` e a operação.
+A URL é estendida para incluir as coleções `docs` e a operação `index`.
 
 Para fazer isso no postmaster:
 
@@ -138,9 +138,9 @@ Para fazer isso no postmaster:
 
 3. Forneça os documentos JSON (o código pronto para cópia está abaixo) no corpo da solicitação.
 
-4. Clique em **enviar**.
+4. Clique em **Enviar**.
 
-![Documentos JSON no corpo da solicitação](media/search-get-started-postman/postman-docs.png "Documentos JSON no corpo da solicitação")
+![Documentos JSON em](media/search-get-started-postman/postman-docs.png "documentos JSON do corpo da solicitação no corpo da solicitação")
 
 ### <a name="json-documents-to-load-into-the-index"></a>Documentos JSON a serem carregados no índice
 
@@ -249,11 +249,11 @@ Para fazer isso no postmaster:
 
 2. Copiar nesta URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/docs?search=*&$count=true&api-version=2019-05-06`.
 
-3. Clique em **enviar**.
+3. Clique em **Enviar**.
 
 Essa consulta é um vazio e retorna uma contagem dos documentos nos resultados da pesquisa. A solicitação e a resposta devem ser semelhantes à captura de tela a seguir para o postmaster depois que você clicar em **Enviar**. O código de estado deve ser 200.
 
- ![Obter com a cadeia de caracteres de pesquisa na URL](media/search-get-started-postman/postman-query.png "Obter com a cadeia de caracteres de pesquisa na URL")
+ ![Obter com a cadeia de caracteres de pesquisa na URL](media/search-get-started-postman/postman-query.png "Get com a cadeia de caracteres de pesquisa na URL")
 
 Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. Você pode fazer uma pesquisa de cadeia de caracteres, textualmente $filter consultas, limitar o conjunto de resultados, definir o escopo da pesquisa para campos específicos e muito mais.
 
@@ -279,12 +279,12 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 Você também pode usar [obter estatísticas](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) para consultar contagens de documentos e tamanho do índice: 
 
 ```
-https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06`
+https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2019-05-06
 ```
 
 Adicionar `/stats` à sua URL retorna informações de índice. No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
 
- ![Obter informações de índice](media/search-get-started-postman/postman-system-query.png "Obter informações de índice")
+ ![Obter]informações de índice informações de(media/search-get-started-postman/postman-system-query.png "obtenção") de índice
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` separa o caminho da URL da cadeia de caracteres de consulta, enquanto & separa cada par de ' nome = valor ' na cadeia de caracteres de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 
@@ -296,9 +296,9 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você sabe como executar tarefas básicas, pode avançar com chamadas adicionais à API REST para obter recursos mais avançados, como indexadores ou [configurar um pipeline de pesquisa cognitiva](cognitive-search-tutorial-blob.md). Para a próxima etapa, recomendamos o seguinte link:
 
 > [!div class="nextstepaction"]
-> [Tutorial de REST: Indexar e pesquisar dados semiestruturados (BLOBs JSON) no Azure Search](search-semi-structured-data.md)
+> [Tutorial de REST: indexe e pesquise dados semiestruturados (BLOBs JSON) no Azure Search](search-semi-structured-data.md)

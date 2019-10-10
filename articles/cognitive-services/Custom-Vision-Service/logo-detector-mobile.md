@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Usar o detector de logotipo personalizado para reconhecer os serviços do Azure-Visão Personalizada'
+title: 'Tutorial: usar o detector de logotipo personalizado para reconhecer os serviços do Azure-Visão Personalizada'
 titleSuffix: Azure Cognitive Services
-description: Neste tutorial, você passará por um aplicativo de exemplo que usa o Azure Visão Personalizada como parte de um cenário de detecção de logotipo. Saiba como Visão Personalizada é usado com outros componentes para fornecer um aplicativo de ponta a ponta.
+description: Neste tutorial, você passará por um aplicativo de exemplo que usa Visão Personalizada como parte de um cenário de detecção de logotipo. Saiba como Visão Personalizada é usado com outros componentes para fornecer um aplicativo de ponta a ponta.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261978"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177795"
 ---
-# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconheça os logotipos de serviço do Azure em imagens da câmera
+# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: reconhecer logotipos de serviço do Azure em imagens da câmera
 
-Neste tutorial, você explorará um aplicativo de exemplo que usa o Azure Visão Personalizada como parte de um cenário maior. O aplicativo de provisionamento visual de ia, um aplicativo Xamarin. Forms para plataformas móveis, analisa fotos de câmera de logotipos de serviço do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa Visão Personalizada em coordenação com outros componentes para fornecer um aplicativo útil de ponta a ponta. Você pode executar todo o cenário do aplicativo para você mesmo ou pode concluir apenas a parte Visão Personalizada da instalação e explorar como o aplicativo o utiliza.
+Neste tutorial, você explorará um aplicativo de exemplo que usa Visão Personalizada como parte de um cenário maior. O aplicativo de provisionamento visual de ia, um aplicativo Xamarin. Forms para plataformas móveis, analisa fotos de câmera de logotipos de serviço do Azure e, em seguida, implanta os serviços reais na conta do Azure do usuário. Aqui você aprenderá como ele usa Visão Personalizada em coordenação com outros componentes para fornecer um aplicativo útil de ponta a ponta. Você pode executar todo o cenário do aplicativo para você mesmo ou pode concluir apenas a parte Visão Personalizada da instalação e explorar como o aplicativo o utiliza.
 
 Este tutorial irá mostrar-lhe como:
 
@@ -97,7 +97,7 @@ Assine o serviço de Pesquisa Visual Computacional para obter uma URL de chave e
 
 ![O serviço de Pesquisa Visual Computacional no portal do Azure, com o menu de início rápido selecionado. Um link para chaves é descrito, como é a URL do ponto de extremidade da API](media/azure-logo-tutorial/comvis-keys.png)
 
-Em seguida, abra o arquivo *Source\VisualProvision\AppSettings.cs* e popule `ComputerVisionKey` as `ComputerVisionEndpoint` variáveis e com os valores corretos.
+Em seguida, abra o arquivo *Source\VisualProvision\AppSettings.cs* e popule as variáveis `ComputerVisionEndpoint` e `ComputerVisionKey` com os valores corretos.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
@@ -131,7 +131,7 @@ Após a conclusão bem-sucedida, você deverá ver a saída JSON a seguir, inclu
 }
 ```
 
-Anote os `clientId` valores e `tenantId` . Adicione-os aos campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* .
+Anote os valores `clientId` e `tenantId`. Adicione-os aos campos apropriados no arquivo *Source\VisualProvision\AppSettings.cs* .
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_serviceprincipal)]
 
@@ -153,7 +153,7 @@ Siga estas etapas para executar o aplicativo:
 1. Na primeira tela, insira a ID do cliente da entidade de serviço, a ID do locatário e a senha. Selecione o botão **logon** .
 
     > [!NOTE]
-    > Em alguns emuladores, o botão de **logon** pode não ser ativado nesta etapa. Se isso acontecer, pare o aplicativo, abra o arquivo *Source/VisualProvision/Pages/LoginPage. XAML* , localize o `Button` botão rotulado **login**do elemento, remova a linha a seguir e execute o aplicativo novamente.
+    > Em alguns emuladores, o botão de **logon** pode não ser ativado nesta etapa. Se isso acontecer, pare o aplicativo, abra o arquivo *Source/VisualProvision/Pages/LoginPage. XAML* , localize o botão nome de **logon**do elemento `Button`, remova a linha a seguir e execute o aplicativo novamente.
     >  ```xaml
     >  IsEnabled="{Binding IsValid}"
     >  ```

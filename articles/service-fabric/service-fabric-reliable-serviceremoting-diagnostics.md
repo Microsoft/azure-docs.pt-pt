@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
-ms.author: chackdan
-ms.openlocfilehash: 4e9aa2bbb99cac2ffc2b57ccb9299bf4ee7a729e
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: a7c5ec023eb03d7d68a43ffecdc74aa4e505a0ce
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876267"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170483"
 ---
 # <a name="diagnostics-and-performance-monitoring-for-reliable-service-remoting"></a>Diagnóstico e monitoramento de desempenho para comunicação remota do serviço confiável
 O tempo de execução confiável do reremoting emite [contadores de desempenho](https://msdn.microsoft.com/library/system.diagnostics.performancecounter.aspx). Eles fornecem informações sobre como a imcomunicação remota está operando e ajudam na solução de problemas e no monitoramento de desempenho.
@@ -28,7 +28,7 @@ O tempo de execução confiável do reremoting emite [contadores de desempenho](
 ## <a name="performance-counters"></a>Contadores de desempenho
 O tempo de execução confiável do reremoting define as seguintes categorias de contador de desempenho:
 
-| Category | Descrição |
+| Categoria | Descrição |
 | --- | --- |
 | Serviço de Service Fabric |Contadores específicos para comunicação remota do serviço de Service Fabric do Azure, por exemplo, tempo médio necessário para processar a solicitação |
 | Método de serviço Service Fabric |Contadores específicos para métodos implementados por Service Fabric serviço de comunicação remota, por exemplo, com que frequência um método de serviço é invocado |
@@ -45,17 +45,17 @@ Para a categoria `Service Fabric Service`, os nomes de instância do contador es
 
 `ServiceFabricPartitionID_ServiceReplicaOrInstanceId_ServiceRuntimeInternalID`
 
-*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) é gerada por meio do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia de caracteres do Service Fabric ID de réplica/instância à qual a instância do contador de desempenho está associada.
 
 *ServiceRuntimeInternalID* é a representação de cadeia de caracteres de um inteiro de 64 bits que é gerado pelo tempo de execução do serviço de malha para seu uso interno. Isso é incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outros nomes de instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence `Service Fabric Service` à categoria:
+Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence à categoria `Service Fabric Service`:
 
 `2740af29-78aa-44bc-a20b-7e60fb783264_635650083799324046_5008379932`
 
-No exemplo anterior, `2740af29-78aa-44bc-a20b-7e60fb783264` é a representação de cadeia de caracteres da ID de partição de Service Fabric, `635650083799324046` é representação de cadeia de `5008379932` caracteres de réplica/InstanceId e é a ID de 64 bits que é gerada para uso interno do tempo de execução.
+No exemplo anterior, `2740af29-78aa-44bc-a20b-7e60fb783264` é a representação de cadeia de caracteres da ID de partição de Service Fabric, `635650083799324046` é a representação de cadeia de caracteres de Replica/InstanceId e `5008379932` é a ID de 64 bits que é gerada para uso interno do tempo de execução.
 
 #### <a name="service-fabric-service-method-category"></a>Categoria do método de serviço Service Fabric
 Para a categoria `Service Fabric Service Method`, os nomes de instância do contador estão no seguinte formato:
@@ -66,17 +66,17 @@ Para a categoria `Service Fabric Service Method`, os nomes de instância do cont
 
 *ServiceRuntimeMethodId* é a representação de cadeia de caracteres de um inteiro de 32 bits que é gerado pelo tempo de execução do serviço de malha para seu uso interno. Isso é incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outros nomes de instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) é gerada por meio do método com o especificador de formato "D".
+*ServiceFabricPartitionID* é a representação de cadeia de caracteres da ID de partição de Service Fabric à qual a instância do contador de desempenho está associada. A ID de partição é um GUID, e sua representação de cadeia de caracteres é gerada por meio do método [`Guid.ToString`](https://msdn.microsoft.com/library/97af8hh4.aspx) com o especificador de formato "D".
 
 *ServiceReplicaOrInstanceId* é a representação de cadeia de caracteres do Service Fabric ID de réplica/instância à qual a instância do contador de desempenho está associada.
 
 *ServiceRuntimeInternalID* é a representação de cadeia de caracteres de um inteiro de 64 bits que é gerado pelo tempo de execução do serviço de malha para seu uso interno. Isso é incluído no nome da instância do contador de desempenho para garantir sua exclusividade e evitar conflitos com outros nomes de instância do contador de desempenho. Os usuários não devem tentar interpretar essa parte do nome da instância do contador de desempenho.
 
-Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence `Service Fabric Service Method` à categoria:
+Veja a seguir um exemplo de um nome de instância de contador para um contador que pertence à categoria `Service Fabric Service Method`:
 
 `ivoicemailboxservice.leavemessageasync_2_89383d32-e57e-4a9b-a6ad-57c6792aa521_635650083804480486_5008380`
 
-`ivoicemailboxservice.leavemessageasync` No exemplo anterior, é o nome do método, `2` é a ID de 32 bits gerada para uso interno do tempo de execução, `89383d32-e57e-4a9b-a6ad-57c6792aa521` é a representação de cadeia de caracteres da ID`635650083804480486` de partição de Service Fabric, é a representação de cadeia de caracteres de o Service Fabric a ID de réplica/ `5008380` instância e é a ID de 64 bits gerada para uso interno do tempo de execução.
+No exemplo anterior, `ivoicemailboxservice.leavemessageasync` é o nome do método, `2` é a ID de 32 bits gerada para uso interno do tempo de execução, `89383d32-e57e-4a9b-a6ad-57c6792aa521` é a representação de cadeia de caracteres da ID de partição Service Fabric, `635650083804480486` é a representação de cadeia de caracteres da Service Fabric réplica/ ID de instância e `5008380` é a ID de 64 bits gerada para uso interno do tempo de execução.
 
 ## <a name="list-of-performance-counters"></a>Lista de contadores de desempenho
 ### <a name="service-method-performance-counters"></a>Contadores de desempenho do método de serviço
@@ -99,6 +99,6 @@ Quando um cliente chama um método por meio de um objeto de proxy de serviço, e
 | Serviço de Service Fabric |Média de milissegundos para desserialização de solicitação |Tempo decorrido (em milissegundos) para desserializar a mensagem de solicitação de serviço quando ela é recebida no serviço |
 | Serviço de Service Fabric |Média de milissegundos para serialização de resposta |Tempo decorrido (em milissegundos) para serializar a mensagem de resposta do serviço no serviço antes que a resposta seja enviada ao cliente |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Código de exemplo](https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0)
 * [Provedores de EventSource no PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

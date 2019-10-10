@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 10/08/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5f814eac095770990ecbc0c4b01d2e0cc6f931
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667208"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169795"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Alta disponibilidade e balanceamento de carga de seus aplicativos e conectores de proxy de aplicativo
 
@@ -81,16 +81,16 @@ Em algumas situações (como auditoria, balanceamento de carga etc.), o comparti
 
 ## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Práticas recomendadas para balanceamento de carga entre vários servidores de aplicativos
 Quando o grupo de conectores atribuído ao aplicativo de proxy de aplicativo tem dois ou mais conectores, e você está executando o aplicativo Web de back-end em vários servidores (farm de servidores), é necessária uma boa estratégia de balanceamento de carga. Uma boa estratégia garante que os servidores peguem as solicitações do cliente de maneira uniforme e impeçam o excesso ou a utilização de servidores no farm de servidores.
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Cenário 1: O aplicativo de back-end não requer persistência de sessão
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Cenário 1: o aplicativo de back-end não requer persistência de sessão
 O cenário mais simples é onde o aplicativo Web de back-end não exige a adesão da sessão (persistência da sessão). Qualquer solicitação do usuário pode ser tratada por qualquer instância de aplicativo de back-end no farm de servidores. Você pode usar um balanceador de carga de camada 4 e configurá-lo sem afinidade. Algumas opções incluem o balanceamento de carga de rede da Microsoft e Azure Load Balancer ou um balanceador de carga de outro fornecedor. Como alternativa, o DNS Round Robin pode ser configurado.
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Cenário 2: O aplicativo de back-end requer persistência de sessão
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Cenário 2: o aplicativo de back-end requer persistência de sessão
 Nesse cenário, o aplicativo Web de back-end requer a adesão da sessão (persistência da sessão) durante a sessão autenticada. Todas as solicitações do usuário devem ser tratadas pela instância do aplicativo de back-end que é executada no mesmo servidor no farm de servidores.
 Esse cenário pode ser mais complicado porque o cliente geralmente estabelece várias conexões com o serviço de proxy de aplicativo. Solicitações em diferentes conexões podem chegar em diferentes conectores e servidores no farm. Como cada conector usa seu próprio endereço IP para essa comunicação, o balanceador de carga não pode garantir a adesão da sessão com base no endereço IP dos conectores. A afinidade de IP de origem não pode ser usada.
 Aqui estão algumas opções para o cenário 2:
 
-- Opção 1: Basear a persistência de sessão em um cookie de sessão definido pelo balanceador de carga. Essa opção é recomendada porque permite que a carga seja distribuída mais uniformemente entre os servidores back-end. Ele requer um balanceador de carga de camada 7 com esse recurso e que pode manipular o tráfego HTTP e encerrar a conexão SSL. Você pode usar Aplicativo Azure gateway (afinidade de sessão) ou um balanceador de carga de outro fornecedor.
+- Opção 1: basear a persistência da sessão em um cookie de sessão definido pelo balanceador de carga. Essa opção é recomendada porque permite que a carga seja distribuída mais uniformemente entre os servidores back-end. Ele requer um balanceador de carga de camada 7 com esse recurso e que pode manipular o tráfego HTTP e encerrar a conexão SSL. Você pode usar Aplicativo Azure gateway (afinidade de sessão) ou um balanceador de carga de outro fornecedor.
 
-- Opção 2: Basear a persistência da sessão no campo de cabeçalho X-Forwarded-for. Essa opção requer um balanceador de carga de camada 7 com esse recurso e que pode manipular o tráfego HTTP e encerrar a conexão SSL.  
+- Opção 2: basear a persistência da sessão no campo de cabeçalho X-Forwarded-for. Essa opção requer um balanceador de carga de camada 7 com esse recurso e que pode manipular o tráfego HTTP e encerrar a conexão SSL.  
 
 - Opção 3: Configure o aplicativo de back-end para não exigir persistência de sessão.
 
@@ -98,7 +98,8 @@ Consulte a documentação do fornecedor do software para entender os requisitos 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar o Proxy de aplicações](application-proxy-add-on-premises-application.md)
+- [Habilitar o proxy de aplicativo](application-proxy-add-on-premises-application.md)
 - [Ativar o início de sessão único](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Habilitar acesso condicional](application-proxy-integrate-with-sharepoint-server.md)
-- [Resolver problemas que possa ter com o Proxy de aplicações](application-proxy-troubleshoot.md)
+- [Solucionar problemas que você está tendo com o proxy de aplicativo](application-proxy-troubleshoot.md)
+- [Saiba como a arquitetura do Azure AD dá suporte à alta disponibilidade](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

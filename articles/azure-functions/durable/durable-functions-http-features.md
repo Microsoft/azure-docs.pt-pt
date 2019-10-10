@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 953558e34d41184f75d72baf5982e84eb51b1781
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694876"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177365"
 ---
 # <a name="http-features"></a>Recursos de HTTP
 
@@ -55,7 +55,7 @@ A [Associação de cliente de orquestração](durable-functions-bindings.md#orch
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>Function.json
+#### <a name="functionjson"></a>Function. JSON
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
@@ -152,7 +152,7 @@ A API "chamar HTTP" pode implementar automaticamente o lado do cliente do padrã
 > [!NOTE]
 > As funções de orquestrador também dão suporte nativo ao padrão de consumidor de sondagem no lado do servidor, conforme descrito em [acompanhamento de operação assíncrona](#async-operation-tracking). Esse suporte significa que as orquestrações em um aplicativo de funções podem coordenar facilmente as funções de orquestrador em outros aplicativos de funções. Isso é semelhante ao conceito de [suborquestração](durable-functions-sub-orchestrations.md) , mas com suporte para comunicação entre aplicativos. Esse suporte é particularmente útil para o desenvolvimento de aplicativos no estilo de microserviço.
 
-### <a name="managed-identities"></a>Identidades geridas
+### <a name="managed-identities"></a>Identidades gerenciadas
 
 Durable Functions nativamente dá suporte a chamadas para APIs que aceitam tokens do Azure Active Directory (Azure AD) para autorização. Esse suporte usa [identidades gerenciadas do Azure](../../active-directory/managed-identities-azure-resources/overview.md) para adquirir esses tokens.
 
@@ -210,6 +210,38 @@ Se qualquer uma dessas limitações puder afetar seu caso de uso, considere usar
 > Se você for um desenvolvedor do .NET, talvez se pergunte por que esse recurso usa os tipos **DurableHttpRequest** e **DurableHttpResponse** em vez dos tipos .NET **HttpRequestMessage** e **HttpResponseMessage** internos.
 >
 > Essa opção de design é intencional. O principal motivo é que os tipos personalizados ajudam a garantir que os usuários não façam suposições incorretas sobre os comportamentos com suporte do cliente HTTP interno. Tipos específicos para Durable Functions também possibilitam a simplificação do design de API. Eles também podem disponibilizar mais facilmente recursos especiais disponíveis como [integração de identidade gerenciada](#managed-identities) e o [padrão de consumidor de sondagem](#http-202-handling). 
+
+### <a name="extensibility-net-only"></a>Extensibilidade (somente .NET)
+
+É possível personalizar o comportamento do cliente HTTP interno da orquestração usando [Azure Functions injeção de dependência .net](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Essa capacidade pode ser útil para fazer pequenas alterações comportamentais. Ele também pode ser útil para o teste de unidade do cliente HTTP injetando objetos fictícios.
+
+O exemplo a seguir demonstra como usar injeção de dependência para desabilitar a validação de certificado SSL para funções de orquestrador que chamam pontos de extremidade HTTP externos.
+
+```csharp
+public class Startup : FunctionsStartup
+{
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // Register own factory
+        builder.Services.AddSingleton<
+            IDurableHttpMessageHandlerFactory,
+            MyDurableHttpMessageHandlerFactory>();
+    }
+}
+
+public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
+{
+    public HttpMessageHandler CreateHttpMessageHandler()
+    {
+        // Disable SSL certificate validation (not recommended in production!)
+        return new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+        };
+    }
+}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

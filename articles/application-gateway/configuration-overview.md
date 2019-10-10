@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 6/1/2019
 ms.author: absha
-ms.openlocfilehash: 65cf71140d1706b8607e721ac323b1a97ae272fa
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: f69348f1a56845716d8d862f2926774cbc537cf0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69898437"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177424"
 ---
 # <a name="application-gateway-configuration-overview"></a>Visão geral da configuração do gateway de aplicativo
 
@@ -40,7 +40,7 @@ O gateway de aplicativo consome 1 endereço IP privado por instância, além de 
 
 O Azure também reserva 5 endereços IP em cada sub-rede para uso interno: os quatro primeiros e os últimos endereços IP. Por exemplo, considere 15 instâncias de gateway de aplicativo sem um IP de front-end privado. Você precisa de pelo menos 20 endereços IP para esta sub-rede: 5 para uso interno e 15 para as instâncias do gateway de aplicativo. Portanto, você precisa de um tamanho de sub-rede/27 ou maior.
 
-Considere uma sub-rede que tenha 27 instâncias de gateway de aplicativo e um endereço IP para um IP de front-end privado. Nesse caso, você precisa de endereços IP de 33: 27 para as instâncias do gateway de aplicativo, 1 para o front-end privado e 5 para uso interno. Portanto, você precisa de um tamanho de sub-rede/26 ou maior.
+Considere uma sub-rede que tenha 27 instâncias de gateway de aplicativo e um endereço IP para um IP de front-end privado. Nesse caso, você precisa de 33 endereços IP: 27 para as instâncias do gateway de aplicativo, 1 para o front-end privado e 5 para uso interno. Portanto, você precisa de um tamanho de sub-rede/26 ou maior.
 
 Recomendamos que você use um tamanho de sub-rede de pelo menos/28. Esse tamanho fornece a você 11 endereços IP utilizáveis. Se a carga do aplicativo exigir mais de 10 endereços IP, considere um tamanho de sub-rede/27 ou/26.
 
@@ -50,7 +50,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 
 - Você deve incluir exceções para o tráfego de entrada nas portas 65503-65534 para o SKU do gateway de aplicativo v1 e as portas 65200-65535 para a SKU v2. Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Entidades externas, incluindo os clientes desses gateways, não podem iniciar alterações nesses pontos de extremidade sem certificados apropriados em vigor.
 
-- A conectividade de Internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que você:
+- A conectividade de Internet de saída não pode ser bloqueada. As regras de saída padrão no NSG permitem a conectividade com a Internet. É recomendável que:
 
   - Não remova as regras de saída padrão.
   - Não crie outras regras de saída que neguem a conectividade de saída da Internet.
@@ -61,7 +61,7 @@ Os NSGs (grupos de segurança de rede) têm suporte no gateway de aplicativo. Ma
 
 Para este cenário, use NSGs na sub-rede do gateway de aplicativo. Coloque as seguintes restrições na sub-rede nesta ordem de prioridade:
 
-1. Permitir tráfego de entrada de um intervalo IP/IP de origem.
+1. Permitir tráfego de entrada de um intervalo IP/IP de origem e para toda a sub-rede do gateway de aplicativo ou para o IP de front-end privado configurado específico. O NSG não funciona em um IP público.
 2. Permitir solicitações de entrada de todas as fontes para as portas 65503-65534 para o SKU do gateway de aplicativo v1 e as portas 65200-65535 para SKU v2 para [comunicação de integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esse intervalo de portas é necessário para a comunicação de infraestrutura do Azure. Essas portas são protegidas (bloqueadas) pelos certificados do Azure. Sem os certificados apropriados em vigor, as entidades externas não podem iniciar alterações nesses pontos de extremidade.
 3. Permitir investigações de Azure Load Balancer de entrada (marca*AzureLoadBalancer* ) e tráfego de rede virtual de entrada (marca*VirtualNetwork* ) no [grupo de segurança de rede](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquear todos os outros tráfegos de entrada usando uma regra negar-tudo.
@@ -91,9 +91,9 @@ Há suporte apenas para um endereço IP público ou um endereço IP privado. Voc
 
 - Para um IP privado, você pode especificar um endereço IP privado da sub-rede em que o gateway de aplicativo é criado. Se você não especificar um, um endereço IP arbitrário será selecionado automaticamente da sub-rede. Para obter mais informações, consulte [criar um gateway de aplicativo com um balanceador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
 
-Um endereço IP de front-end é associado aum ouvinte, que verifica as solicitações de entrada no IP de front-end.
+Um endereço IP de front-end é associado a um *ouvinte*, que verifica as solicitações de entrada no IP de front-end.
 
-## <a name="listeners"></a>Serviços de escuta
+## <a name="listeners"></a>Ouvintes
 
 Um ouvinte é uma entidade lógica que verifica as solicitações de conexão de entrada usando a porta, o protocolo, o host e o endereço IP. Ao configurar o ouvinte, você deve inserir valores para eles que correspondam aos valores correspondentes na solicitação de entrada no gateway.
 
@@ -121,7 +121,7 @@ Escolha o endereço IP de front-end que você planeja associar a este ouvinte. O
 
 Escolha a porta de front-end. Selecione uma porta existente ou crie uma nova. Escolha qualquer valor do [intervalo permitido de portas](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#ports). Você pode usar não apenas portas bem conhecidas, como 80 e 443, mas qualquer porta personalizada que seja adequada. Uma porta pode ser usada para ouvintes voltados para o público ou para ouvintes de face privada.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
 Escolha HTTP ou HTTPS:
 
@@ -153,7 +153,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
 O suporte ao WebSocket está habilitado por padrão. Não há nenhuma configuração configurável pelo usuário para habilitá-la ou desabilitá-la. Você pode usar Websockets com ouvintes HTTP e HTTPS.
 
-### <a name="custom-error-pages"></a>Páginas de erro personalizadas
+### <a name="custom-error-pages"></a>Páginas de erros personalizadas
 
 Você pode definir um erro personalizado no nível global ou no nível do ouvinte. No momento, não há suporte para a criação de páginas de erro personalizadas de nível global do portal do Azure. Você pode configurar uma página de erro personalizada para um erro de firewall do aplicativo Web 403 ou uma página de manutenção de 502 no nível do ouvinte. Você também deve especificar uma URL de blob publicamente acessível para o código de status de erro fornecido. Para obter mais informações, consulte [Criar páginas de erro personalizadas do Gateway de Aplicação](https://docs.microsoft.com/azure/application-gateway/custom-error).
 
@@ -163,7 +163,7 @@ Para configurar uma página de erro personalizada global, consulte [configuraç�
 
 ### <a name="ssl-policy"></a>Política de SSL
 
-Você pode centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança. Você pode escolher política SSL *padrão*, predefinida ou *personalizada* .
+Você pode centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de descriptografia de criptografia para um farm de servidores back-end. A manipulação de SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança. Você pode escolher política SSL *padrão*, *predefinida*ou *personalizada* .
 
 Você configura a política SSL para controlar as versões do protocolo SSL. Você pode configurar um gateway de aplicativo para negar TLS 1.0, TLS 1.1 e TLS 1.2. Por padrão, o SSL 2,0 e o 3,0 estão desabilitados e não são configuráveis. Para obter mais informações, consulte [visão geral da política SSL do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview).
 
@@ -177,7 +177,7 @@ Ao criar um gateway de aplicativo usando o portal do Azure, você cria uma regra
 
 Ao criar uma regra, você escolhe entre [ *básica* e *baseada em caminho*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
 
-- Escolha básico se desejar encaminhar todas as solicitações no ouvinte associado (por exemplo, *blog<i></i>. contoso.com/\*)* a um único pool de back-ends.
+- Escolha básico se desejar encaminhar todas as solicitações no ouvinte associado (por exemplo, *blog<i></i>. contoso.com/\*)* para um único pool de back-end.
 - Escolha baseado em caminho se desejar rotear solicitações de caminhos de URL específicos para pools de back-end específicos. O padrão de caminho é aplicado somente ao caminho da URL, não aos seus parâmetros de consulta.
 
 #### <a name="order-of-processing-rules"></a>Ordem das regras de processamento
@@ -214,17 +214,17 @@ Para uma regra com base em caminho, adicione várias configurações de HTTP de 
 
 Se o redirecionamento estiver configurado para uma regra básica, todas as solicitações no ouvinte associado serão redirecionadas para o destino. Esse é o redirecionamento *global* . Se o redirecionamento estiver configurado para uma regra baseada em caminho, somente as solicitações em uma área específica do site serão redirecionadas. Um exemplo é uma área de carrinho de compras que é denotada por */cart/\** . Esse é o redirecionamento *baseado em caminho* .
 
-Para obter mais informações sobre redirecionamentos, consulte [visão geral](https://docs.microsoft.com/azure/application-gateway/redirect-overview)do redirecionamento do gateway de aplicativo.
+Para obter mais informações sobre redirecionamentos, consulte [visão geral do redirecionamento do gateway de aplicativo](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
 
 #### <a name="redirection-type"></a>Tipo de redirecionamento
 
-Escolha o tipo de redirecionamento necessário: *Permanente (301)* , *temporário (307)* , *encontrado (302)* ou *Consulte outro (303)* .
+Escolha o tipo de redirecionamento necessário: *permanente (301)* , *temporário (307)* , *encontrado (302)* ou *Consulte outro (303)* .
 
 #### <a name="redirection-target"></a>Destino de redirecionamento
 
 Escolha outro ouvinte ou um site externo como o destino de redirecionamento.
 
-##### <a name="listener"></a>Serviço de Escuta
+##### <a name="listener"></a>Listener
 
 Escolha o ouvinte como o destino de redirecionamento para redirecionar o tráfego de um ouvinte para outro no gateway. Essa configuração é necessária quando você deseja habilitar o redirecionamento de HTTP para HTTPS. Ele redireciona o tráfego do ouvinte de origem que verifica as solicitações HTTP de entrada para o ouvinte de destino que verifica as solicitações HTTPS de entrada. Você também pode optar por incluir a cadeia de caracteres de consulta e o caminho da solicitação original na solicitação que é encaminhada para o destino de redirecionamento.
 
@@ -245,12 +245,12 @@ Para obter mais informações sobre o redirecionamento, consulte:
 
 #### <a name="rewrite-the-http-header-setting"></a>Reescrever a configuração do cabeçalho HTTP
 
-Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitação e resposta, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Você só pode configurar esse recurso por meio do PowerShell. Portal do Azure e suporte à CLI ainda não estão disponíveis. Para obter mais informações, consulte:
+Essa configuração adiciona, remove ou atualiza cabeçalhos HTTP de solicitação e resposta, enquanto os pacotes de solicitação e resposta são movidos entre os pools de cliente e de back-end. Você só pode configurar esse recurso por meio do PowerShell. Portal do Azure e suporte à CLI ainda não estão disponíveis. Para obter mais informações, veja:
 
  - [Visão geral de reescrever cabeçalhos HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
  - [Configurar a regravação do cabeçalho HTTP](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
 
-## <a name="http-settings"></a>Definições de HTTP
+## <a name="http-settings"></a>Configurações de HTTP
 
 O gateway de aplicativo roteia o tráfego para os servidores back-end usando a configuração que você especificar aqui. Depois de criar uma configuração de HTTP, você deve associá-la a uma ou mais regras de roteamento de solicitação.
 
@@ -260,19 +260,19 @@ Esse recurso é útil quando você deseja manter uma sessão de usuário no mesm
 
 ### <a name="connection-draining"></a>Drenagem de ligação
 
-O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API. Ele também se aplica a instâncias de back-end que são relatadas como não íntegras pelas investigações de integridade.
+O descarregamento de conexão ajuda você a remover normalmente os membros do pool de back-end durante as atualizações de serviço planejadas. Você pode aplicar essa configuração a todos os membros de um pool de back-ends durante a criação da regra. Ele garante que todas as instâncias de cancelamento de registro de um pool de back-end não recebam novas solicitações. Enquanto isso, as solicitações existentes podem ser concluídas dentro de um limite de tempo configurado. O descarregamento de conexão se aplica a instâncias de back-end que são explicitamente removidas do pool de back-end por uma chamada à API. Ele também se aplica a instâncias de back-end que são relatadas como não *íntegras* pelas investigações de integridade.
 
-### <a name="protocol"></a>Protocol
+### <a name="protocol"></a>Protocolo
 
 O gateway de aplicativo dá suporte a HTTP e HTTPS para roteamento de solicitações para os servidores back-end. Se você escolher HTTP, o tráfego para os servidores back-end será descriptografado. Se a comunicação não criptografada não for aceitável, escolha HTTPS.
 
 Essa configuração combinada com HTTPS no ouvinte dá suporte a [SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Isso permite que você transmita com segurança dados confidenciais criptografados para o back-end. Cada servidor back-end no pool de back-end que tem o SSL de ponta a ponta habilitado deve ser configurado com um certificado para permitir a comunicação segura.
 
-### <a name="port"></a>Port
+### <a name="port"></a>Porta
 
 Essa configuração especifica a porta em que os servidores back-end escutam o tráfego do gateway de aplicativo. Você pode configurar portas que variam de 1 a 65535.
 
-### <a name="request-timeout"></a>Tempo limite do pedido
+### <a name="request-timeout"></a>Tempo limite da solicitação
 
 Essa configuração é o número de segundos que o gateway de aplicativo aguarda para receber uma resposta do pool de back-ends antes de retornar uma mensagem de erro "tempo limite de conexão".
 
@@ -303,14 +303,14 @@ Essa configuração permite que você configure um caminho de encaminhamento per
 
 Esse é um atalho de interface do usuário que seleciona as duas configurações necessárias para o back-end do serviço de Azure App. Ele permite **escolher o nome do host do endereço de back-end**e cria uma nova investigação personalizada. (Para obter mais informações, consulte a seção [escolher nome do host do endereço de back-end](#pick) deste artigo.) Uma nova investigação é criada e o cabeçalho de investigação é escolhido do endereço do membro de back-end.
 
-### <a name="use-custom-probe"></a>Utilizar sonda personalizada
+### <a name="use-custom-probe"></a>Usar investigação personalizada
 
 Essa configuração associa uma [investigação personalizada](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) a uma configuração de http. Você pode associar apenas uma investigação personalizada a uma configuração de HTTP. Se você não associar explicitamente uma investigação personalizada, a [investigação padrão](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) será usada para monitorar a integridade do back-end. Recomendamos que você crie uma investigação personalizada para maior controle sobre o monitoramento de integridade de seus back-ends.
 
 > [!NOTE]
 > A investigação personalizada não monitora a integridade do pool de back-end, a menos que a configuração de HTTP correspondente esteja explicitamente associada a um ouvinte.
 
-### <a id="pick"/></a>Escolher o nome do host do endereço de back-end
+### <a id="pick"/> @ no__t-1Pick nome do host do endereço de back-end
 
 Esse recurso define dinamicamente o cabeçalho de *host* na solicitação para o nome de host do pool de back-ends. Ele usa um endereço IP ou FQDN.
 
@@ -331,13 +331,13 @@ Esse recurso substitui o cabeçalho de *host* na solicitação de entrada no gat
 
 Por exemplo, se *www. contoso<i></i>. com* for especificado na configuração do **nome do host** , a solicitação original *https<i></i>://appgw.eastus.cloudapp.net/path1* será alterada para *https<i></i>://www.contoso.com/path1* quando a solicitação é encaminhada para o servidor back-end.
 
-## <a name="back-end-pool"></a>Pool de back-ends
+## <a name="back-end-pool"></a>Conjunto back-end
 
 Você pode apontar um pool de back-ends para quatro tipos de membros de back-end: uma máquina virtual específica, um conjunto de dimensionamento de máquinas virtuais, um endereço IP/FQDN ou um serviço de aplicativo. Cada pool de back-ends pode apontar para vários membros do mesmo tipo. Não há suporte para apontar para membros de diferentes tipos no mesmo pool de back-end.
 
 Depois de criar um pool de back-end, você deve associá-lo a uma ou mais regras de roteamento de solicitação. Você também deve configurar investigações de integridade para cada pool de back-ends no seu gateway de aplicativo. Quando uma condição de regra de roteamento de solicitação é atendida, o gateway de aplicativo encaminha o tráfego para os servidores íntegros (conforme determinado pelas investigações de integridade) no pool de back-ends correspondente.
 
-## <a name="health-probes"></a>Sondas de estado de funcionamento
+## <a name="health-probes"></a>Sondas do estado de funcionamento
 
 Um gateway de aplicativo monitora a integridade de todos os recursos em seu back-end por padrão. Mas é altamente recomendável que você crie uma investigação personalizada para cada configuração de HTTP de back-end para obter maior controle sobre o monitoramento de integridade. Para saber como configurar uma investigação personalizada, consulte [configurações personalizadas de investigação de integridade](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings).
 

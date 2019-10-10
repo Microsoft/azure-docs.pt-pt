@@ -1,18 +1,18 @@
 ---
 title: Proteção avançada contra ameaças para Azure Cosmos DB
 description: Saiba como Azure Cosmos DB fornece criptografia de dados em repouso e como ele é implementado.
-author: monhaber
+author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: v-mohabe
+ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2b12d639e734502113b6afdd7250fca6a520c687
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123857"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176029"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Proteção avançada contra ameaças para Azure Cosmos DB
 
@@ -39,7 +39,7 @@ Para uma experiência de investigação completa dos alertas de segurança, reco
 
 3. Na folha configuração de **segurança avançada** :
 
-    * Clique na opção **proteção avançada contra ameaças** para defini-la como ativada.
+    * Clique na opção **proteção avançada contra ameaças** para defini-la como **ativada**.
     * Clique em **salvar** para salvar a política de proteção avançada contra ameaças nova ou atualizada.   
 
 ### <a name="set-up-atp-using-rest-api"></a>Configurar ATP usando a API REST
@@ -98,7 +98,7 @@ Uma notificação por email também é enviada com os detalhes do alerta e as a�
 
  Para ver uma lista dos alertas gerados durante o monitoramento de contas Azure Cosmos DB, consulte a seção [alertas de Cosmos DB](../security-center/security-center-alerts-data-services.md#cosmos-db) na documentação da central de segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre o [log de diagnóstico no Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal)
 * Saiba mais sobre a [central de segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

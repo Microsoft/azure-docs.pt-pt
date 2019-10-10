@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 98a811508d5fa65135c224536b668145ea0808d0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703246"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176075"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Criar e gerenciar BLOBs no armazenamento de BLOBs do Azure com aplicativos lógicos do Azure
 
@@ -24,15 +24,16 @@ Este artigo mostra como você pode acessar e gerenciar arquivos armazenados como
 
 Suponha que você tenha uma ferramenta que é atualizada em um site do Azure. que atua como o gatilho para seu aplicativo lógico. Quando esse evento acontece, você pode fazer com que seu aplicativo lógico atualize algum arquivo em seu contêiner de armazenamento de BLOBs, que é uma ação em seu aplicativo lógico.
 
-> [!NOTE]
+> [!IMPORTANT]
 >
-> Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](../storage/common/storage-network-security.md) e existem na mesma região. No entanto, os aplicativos lógicos podem acessar contas de armazenamento do Azure que existem em uma região diferente porque um endereço IP público é usado para se comunicar entre regiões. Apenas certifique-se de permitir os [endereços IP de saída para conectores gerenciados em sua região](../logic-apps/logic-apps-limits-and-config.md#outbound). Ou, você pode usar opções mais avançadas aqui:
->
+> Os aplicativos lógicos não podem acessar diretamente as contas de armazenamento do Azure que têm [regras de firewall](../storage/common/storage-network-security.md) e existem na mesma região. No entanto, se você permitir os [endereços IP de saída para conectores gerenciados em sua região, os](../logic-apps/logic-apps-limits-and-config.md#outbound)aplicativos lógicos poderão acessar contas de armazenamento em uma região diferente, exceto quando você usar o conector de armazenamento de tabela do Azure ou o conector de armazenamento de filas do Azure. Para acessar o armazenamento de tabelas ou o armazenamento de filas, você ainda pode usar o gatilho e as ações de HTTP. 
+> Caso contrário, você pode usar as opções mais avançadas aqui:
+> 
 > * Crie um [ambiente de serviço de integração](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), que pode se conectar a recursos em uma rede virtual do Azure.
 >
 > * Se você usar uma camada dedicada para o gerenciamento de API, poderá antecipar a API de armazenamento usando o gerenciamento de API e permitindo os endereços IP da última por meio do firewall. Basicamente, adicione a rede virtual do Azure que é usada pelo gerenciamento de API à configuração de firewall da conta de armazenamento. Em seguida, você pode usar a ação de gerenciamento de API ou a ação HTTP para chamar as APIs de armazenamento do Azure. No entanto, se você escolher essa opção, precisará manipular o processo de autenticação por conta própria. Para obter mais informações, consulte [arquitetura de integração corporativa simples](https://aka.ms/aisarch).
 
-Se você for novo em aplicativos lógicos, examine [ [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) : Crie seu primeiro aplicativo](../logic-apps/quickstart-create-first-logic-app-workflow.md)lógico. Para obter informações técnicas específicas do conector, consulte a [referência do conector de armazenamento de BLOBs do Azure](/connectors/azureblobconnector/).
+Se você for novo em aplicativos lógicos, examine [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obter informações técnicas específicas do conector, consulte a [referência do conector de armazenamento de BLOBs do Azure](/connectors/azureblobconnector/).
 
 ## <a name="limits"></a>Limites
 
@@ -64,7 +65,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
 2. Na caixa de pesquisa, insira "blob do Azure" como seu filtro. Na lista de gatilhos, selecione o gatilho desejado.
 
-   Este exemplo usa este gatilho: **Quando um blob é adicionado ou modificado (somente Propriedades)**
+   Este exemplo usa este gatilho: **quando um blob é adicionado ou modificado (somente Propriedades)**
 
    ![Selecionar gatilho](./media/connectors-create-api-azureblobstorage/azure-blob-trigger.png)
 
@@ -74,7 +75,7 @@ Este exemplo mostra como você pode iniciar um fluxo de trabalho de aplicativo l
 
    1. Na caixa **contêiner** , selecione o ícone de pasta.
 
-   2. Na lista de pastas, escolha o colchete angular direito ( **>** ) e, em seguida, navegue até encontrar e selecione a pasta desejada.
+   2. Na lista de pastas, escolha o colchete de ângulo direito ( **>** ) e, em seguida, navegue até encontrar e selecione a pasta desejada.
 
       ![Selecionar pasta](./media/connectors-create-api-azureblobstorage/trigger-select-folder.png)
 
@@ -96,11 +97,11 @@ Em aplicativos lógicos do Azure, uma [ação](../logic-apps/logic-apps-overview
 
    ![Adicionar uma ação](./media/connectors-create-api-azureblobstorage/add-action.png) 
 
-   Para adicionar uma ação entre as etapas existentes, mova o mouse sobre a seta de conexão. Escolha o sinal de adição **+** () que aparece e selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre as etapas existentes, mova o mouse sobre a seta de conexão. Escolha o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
 3. Na caixa de pesquisa, insira "blob do Azure" como seu filtro. Na lista ações, selecione a ação desejada.
 
-   Este exemplo usa esta ação: **Obter conteúdo do blob**
+   Este exemplo usa esta ação: **obter conteúdo de blob**
 
    ![Selecionar ação](./media/connectors-create-api-azureblobstorage/azure-blob-action.png)
 
@@ -134,4 +135,4 @@ Para obter detalhes técnicos, como gatilhos, ações e limites, conforme descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

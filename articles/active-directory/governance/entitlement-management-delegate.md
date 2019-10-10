@@ -1,6 +1,6 @@
 ---
-title: Delegar tarefas no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
-description: Saiba mais sobre as funções que você pode atribuir para delegar tarefas no gerenciamento de direitos Azure Active Directory.
+title: Delegação e funções no gerenciamento de direitos do Azure AD (versão prévia) – Azure Active Directory
+description: Saiba como delegar a governança de acesso de administradores de ti a gerentes de departamento e gerentes de projeto para que eles possam gerenciar o acesso.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,92 +12,110 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057784"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169852"
 ---
-# <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegar tarefas no gerenciamento de direitos do Azure AD (versão prévia)
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delegação e funções no gerenciamento de direitos do Azure AD (versão prévia)
 
 > [!IMPORTANT]
 > O gerenciamento de direitos do Azure Active Directory (AD do Azure) está atualmente em visualização pública.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Por padrão, administradores globais e administradores de usuários podem criar e gerenciar todos os aspectos do gerenciamento de direitos do Azure AD. No entanto, os usuários nessas funções podem não conhecer todos os cenários em que os pacotes de acesso são necessários. Normalmente, são usuários em departamentos que sabem quem precisa colaborar. 
+Por padrão, administradores globais e administradores de usuários podem criar e gerenciar todos os aspectos do gerenciamento de direitos do Azure AD. No entanto, os usuários nessas funções podem não saber todas as situações em que os pacotes de acesso são necessários. Normalmente, são os usuários dentro dos respectivos departamentos, equipes ou projetos que sabem com quem eles estão colaborando, usando quais recursos e por quanto tempo. Em vez de conceder permissões irrestritas para não administradores, você pode conceder aos usuários as permissões mínimas necessárias para executar seu trabalho e evitar a criação de direitos de acesso inadequados ou conflitantes.
 
-Em vez de conceder permissões irrestritas para não administradores, você pode conceder aos usuários as permissões mínimas necessárias para executar seu trabalho e evitar a criação de direitos de acesso inadequados ou conflitantes. Este artigo descreve as funções que você pode atribuir para delegar várias tarefas no gerenciamento de direitos. 
+Este vídeo fornece uma visão geral de como delegar a governança de acesso do administrador de ti aos usuários que não são administradores.
 
-## <a name="delegate-example-for-departmental-adoption"></a>Exemplo de delegado para adoção departamental
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq00]
 
-Para entender como você pode delegar tarefas no gerenciamento de direitos, ele ajuda a considerar um exemplo. 
+## <a name="delegate-example"></a>Exemplo de delegado
 
-Suponha que sua organização tenha os cinco usuários a seguir:
+Para entender como você pode delegar a governança de acesso no gerenciamento de direitos, ele ajuda a considerar um exemplo. Suponha que sua organização tenha os seguintes administradores e gerentes.
 
-| Utilizador | Departamento | Notas |
-| --- | --- | --- |
-| Alice | TI | Administrador Global |
-| BOB | Investigação | Bob também é proprietário de um grupo de pesquisa |
-| Carole | Investigação |  |
-| Dave | Marketing |  |
-| Elisa | Marketing | Elisa também é proprietário de um aplicativo de marketing |
+![Delegar do administrador de ti para gerentes](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-Os departamentos de pesquisa e de marketing desejam usar o gerenciamento de direitos para seus usuários. Alice ainda não está pronta para que outros departamentos usem o gerenciamento de direitos. Aqui está uma maneira que Alice poderia delegar tarefas aos departamentos de pesquisa e marketing.
+Como o administrador de ti, o Hana tem contatos em cada departamento – Mamta em marketing, Mark in Finance e Joe, legal, responsáveis pelos recursos do departamento e pelo conteúdo comercialmente crítico.
 
-1. Alice cria um novo grupo de segurança do Azure AD para criadores de catálogo e adiciona Bob, Carol, Dave e ELISA como membros desse grupo.
+Com o gerenciamento de direitos, você pode delegar a governança de acesso a esses não-administradores, pois eles são aqueles que sabem quais usuários precisam de acesso, por quanto tempo e quais recursos. Isso garante que as pessoas certas estejam Gerenciando o acesso para seus departamentos.
 
-1. Alice usa as configurações de gerenciamento de direitos para adicionar esse grupo à função criadores de catálogo.
+Aqui está uma maneira que o Hana poderia delegar a governança de acesso para os departamentos jurídico, de marketing e finanças.
 
-1. Carol cria um catálogo de **pesquisa** e adiciona Bob como um coproprietário desse catálogo. Bob adiciona o grupo de pesquisa que ele possui ao catálogo como um recurso, para que ele possa ser usado em um pacote de acesso para colaboração de pesquisa.
+1. O Hana cria um novo grupo de segurança do Azure AD e adiciona Mamta, Mark e Joe como membros do grupo.
 
-1. Dave cria um catálogo de **marketing** e adiciona ELISA como um coproprietário desse catálogo. Elisa adiciona o aplicativo de marketing que ela possui ao catálogo como um recurso, para que possa ser usada em um pacote de acesso para colaboração de marketing.
+1. O Hana adiciona esse grupo à função criadores de catálogo.
 
-Agora, os departamentos de pesquisa e marketing podem utilizar o gerenciamento de direitos. Bob, Carol, Dave e Elisa podem criar e gerenciar pacotes de acesso em seus respectivos catálogos.
+    Mamta, Mark e Joe agora podem criar catálogos para seus departamentos, adicionar recursos de que seus departamentos precisam e fazer uma delegação adicional no catálogo.
+
+    Observe que Mamta, Mark e Joe não conseguem ver os catálogos uns dos outros.
+
+1. O Mamta cria um catálogo de **marketing** , que é um contêiner de recursos.
+
+1. Mamta adiciona os recursos que seu departamento de marketing possui a esse catálogo.
+
+1. O Mamta pode adicionar outras pessoas de seu departamento como proprietários de catálogo para este catálogo. Isso ajuda a compartilhar as responsabilidades de gerenciamento de catálogo.
+
+1. O Mamta pode delegar ainda mais a criação e o gerenciamento de pacotes de acesso no catálogo de marketing para gerentes de projeto no departamento de marketing. Ela pode fazer isso atribuindo-os à função Gerenciador de pacotes de acesso. Um Gerenciador de pacotes do Access pode criar e gerenciar pacotes de acesso. 
+
+O diagrama a seguir mostra os catálogos com recursos para os departamentos de marketing, finanças e legais. Usando esses catálogos, os gerentes de projeto podem criar pacotes de acesso para suas equipes ou projetos.
 
 ![Exemplo de delegado de gerenciamento de direitos](./media/entitlement-management-delegate/elm-delegate.png)
 
+Após a delegação, o departamento de marketing pode ter funções semelhantes à tabela a seguir.
+
+| Utilizador | Função da tarefa | Função do Azure AD | Função de gerenciamento de direitos |
+| --- | --- | --- | --- |
+| Hana | Administrador de ti | Administrador global ou administrador de usuários |  |
+| Mamta | Gerente de marketing | Utilizador | Criador do catálogo e proprietário do catálogo |
+| José | Líder de marketing | Utilizador | Proprietário do catálogo |
+| Jessica | Gerente de projeto de marketing | Utilizador | Gerenciador de pacotes de acesso |
 
 ## <a name="entitlement-management-roles"></a>Funções de gerenciamento de direitos
 
 O gerenciamento de direitos tem as seguintes funções que são específicas para o gerenciamento de direitos.
 
-| Role | Descrição |
+| Função de gerenciamento de direitos | Descrição |
 | --- | --- |
 | Criador do catálogo | Criar e gerenciar catálogos. Normalmente, um administrador de ti que não é um administrador global ou um proprietário de recurso para uma coleção de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo do catálogo e pode adicionar proprietários de catálogos adicionais. Um criador de catálogo não pode gerenciar ou Ver os catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar gerenciar outro catálogo ou adicionar recursos que eles não possuem, eles poderão solicitar que sejam um coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Edite e gerencie catálogos existentes. Normalmente, um administrador de ti ou proprietários de recursos ou um usuário que o proprietário do catálogo designou. |
 | Gerenciador de pacotes de acesso | Edite e gerencie todos os pacotes do Access existentes em um catálogo. |
 
 Além disso, um Aprovador designado e um solicitante de um pacote de acesso também têm direitos, embora não sejam funções.
- 
-* Aprovador: Autorizado por uma política para aprovar ou negar solicitações para acessar pacotes, embora eles não possam alterar as definições de pacote de acesso.
-* Solicitante Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso.
 
-A tabela a seguir lista as tarefas que essas funções podem executar.
+| Certo | Descrição |
+| --- | --- |
+| Aprovador | Autorizado por uma política para aprovar ou negar solicitações para acessar pacotes, embora eles não possam alterar as definições de pacote de acesso. |
+| Solicitante | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
 
-| Tarefa | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso | Aprovador |
+A tabela a seguir lista as tarefas que as funções de gerenciamento de direitos podem executar.
+
+| Tarefa | ADM | Criador do catálogo | Proprietário do catálogo | Gerenciador de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: |
-| [Criar um novo catálogo](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
-| [Adicionar um recurso a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
-| [Editar um catálogo](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Excluir um catálogo](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access a um catálogo](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Criar um novo pacote do Access em um catálogo](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
-| [Gerenciar funções de recurso em um pacote de acesso](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Criar e editar políticas](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Atribuir diretamente um usuário a um pacote do Access](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Exibir quem tem uma atribuição para um pacote de acesso](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Exibir solicitações de um pacote de acesso](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Exibir os erros de entrega de uma solicitação](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cancelar uma solicitação pendente](entitlement-management-access-package-edit.md#cancel-a-pending-request) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Ocultar um pacote de acesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Excluir um pacote de acesso](entitlement-management-access-package-edit.md#delete) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Aprovar uma solicitação de acesso](entitlement-management-request-approve.md) |  |  |  | :heavy_check_mark: |
+| [Delegar a um criador de catálogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Criar um novo catálogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Adicionar um recurso a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Adicionar um proprietário do catálogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Editar um catálogo](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Excluir um catálogo](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Delegar a um Gerenciador de pacotes do Access](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Remover um Gerenciador de pacotes de acesso](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Criar um novo pacote do Access em um catálogo](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
+| [Gerenciar funções de recurso em um pacote de acesso](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Criar e editar políticas](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Atribuir diretamente um usuário a um pacote do Access](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Exibir quem tem uma atribuição para um pacote de acesso](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Exibir solicitações de um pacote de acesso](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Exibir os erros de entrega de uma solicitação](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Cancelar uma solicitação pendente](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Ocultar um pacote de acesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Excluir um pacote de acesso](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Funções necessárias para adicionar recursos a um catálogo
 
@@ -119,49 +137,7 @@ Para um usuário que não seja um administrador global ou um administrador de us
 
 Para determinar a função com privilégios mínimos para uma tarefa, você também pode referenciar [funções de administrador por tarefa de administrador no Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="add-a-catalog-creator"></a>Adicionar um criador de catálogo
-
-Se você quiser delegar a criação do catálogo, adicione usuários à função criador do catálogo.  Você pode adicionar usuários individuais ou, para conveniência, pode adicionar um grupo, cujos membros são então capazes de criar catálogos. Siga estas etapas para atribuir um usuário à função de criador de catálogo.
-
-**Função de pré-requisito:** Administrador global ou administrador de usuários
-
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
-
-1. No menu à esquerda, na seção **Gerenciamento de direitos** , clique em **configurações**.
-
-1. Clique em **Editar**.
-
-1. Na seção **Gerenciamento de direitos de representante** , clique em **Adicionar criadores de catálogo** para selecionar os usuários ou grupos que serão os membros para essa função de gerenciamento de direitos.
-
-1. Clique em **Selecionar**.
-
-1. Clique em **Guardar**.
-
-## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Adicionar um proprietário do catálogo ou um Gerenciador de pacotes do Access
-
-Para delegar o gerenciamento de um catálogo ou acessar pacotes no catálogo, você adiciona usuários ao proprietário do catálogo ou às funções do Gerenciador de pacotes do Access. Quem cria um catálogo se torna o primeiro proprietário do catálogo. 
-
-O proprietário do catálogo atribuído ou o Gerenciador de pacotes de acesso deve estar familiarizado com o projeto. O criador do catálogo deve criar o pacote de acesso se estiver envolvido nas operações diárias do projeto e conhecer as seguintes informações:
-- quais recursos são necessários
-- Quem precisará de acesso
-- Quem precisa aprovar o acesso
-- Por quanto tempo o projeto durará
-
-O criador do catálogo deve delegar a tarefa para o líder do projeto, que criará e gerenciará o pacote do Access, se não estiver envolvido nas operações diárias do projeto. Siga estas etapas para atribuir um usuário ao proprietário do catálogo ou à função do Gerenciador de pacotes do Access:
-
-**Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
-
-1. Na portal do Azure, clique em **Azure Active Directory** e, em seguida, clique em **governança de identidade**.
-
-1. No menu à esquerda, clique em **catálogos** e, em seguida, abra o catálogo ao qual você deseja adicionar administradores.
-
-1. No menu à esquerda, clique em **funções e administradores**.
-
-1. Clique em **Adicionar proprietários** ou **Adicionar gerenciadores de pacotes de acesso** para selecionar os membros dessas funções.
-
-1. Clique em **selecionar** para adicionar esses membros.
-
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar aprovadores](entitlement-management-access-package-edit.md#policy-request)
-- [Adicionar recursos a um catálogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
+- [Delegar governança de acesso para criadores de catálogo](entitlement-management-delegate-catalog.md)
+- [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)

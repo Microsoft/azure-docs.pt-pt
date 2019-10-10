@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: atsenthi
+ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927698"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170445"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Especificar recursos num manifesto do serviço
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O manifesto do serviço permite que os recursos usados pelo serviço sejam declarados/alterados sem alterar o código compilado. O Azure Service Fabric dá suporte à configuração de recursos de ponto de extremidade para o serviço. O acesso aos recursos especificados no manifesto do serviço pode ser controlado por meio do The de segurança no manifesto do aplicativo. A declaração de recursos permite que esses recursos sejam alterados no momento da implantação, o que significa que o serviço não precisa introduzir um novo mecanismo de configuração. A definição de esquema para o arquivo de manifesto. xml é instalada com o SDK do Service Fabric e ferramentas para *c:\Arquivos de Programas\microsoft SDKs\Service Fabric\schemas\ServiceFabricServiceModel.xsd*.
 
 ## <a name="endpoints"></a>Pontos Finais
@@ -53,10 +53,10 @@ Se houver vários pacotes de código em um único pacote de serviço, o pacote d
 </Resources>
 ```
 
-Consulte Configurando [Reliable Services com estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como referenciar pontos de extremidade do arquivo de configurações do pacote de configuração (Settings. xml).
+Consulte [Configurando Reliable Services com estado](service-fabric-reliable-services-configuration.md) para ler mais sobre como referenciar pontos de extremidade do arquivo de configurações do pacote de configuração (Settings. xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exemplo: especificando um ponto de extremidade HTTP para seu serviço
-O manifesto de serviço a seguir define um recurso de ponto de extremidade TCP e dois &lt;recursos&gt; de ponto de extremidade http no elemento resources.
+O manifesto de serviço a seguir define um recurso de ponto de extremidade TCP e dois recursos de ponto de extremidade HTTP no elemento &lt;Resources @ no__t-1.
 
 Os pontos de extremidade HTTP são automaticamente ACL por Service Fabric.
 
@@ -202,7 +202,7 @@ Ao implantar o aplicativo, você pode passar esses valores como Applicationparam
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Nota: Se os valores fornecidos para Applicationparameters estiverem vazios, voltaremos ao valor padrão fornecido no manifesto para o EndpointName correspondente.
+Observação: se os valores fornecidos para o Applicationparameters estiverem vazios, voltaremos ao valor padrão fornecido no manifesto para o EndpointName correspondente.
 
 Por exemplo:
 
@@ -218,4 +218,4 @@ Se estiver no próprio manifesto especificado
 
 E o valor de Port1 e Protocol1 para parâmetros de aplicativo é nulo ou vazio. A porta ainda é decidida pelo ServicePortal. E o protocolo será TCP.
 
-Suponha que você especifique um valor errado. Assim como para a porta, você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: O parâmetro de substituição com o nome ' ServiceEndpoint1 ' atributo ' Port1 ' na seção ' ResourceOverrides ' é inválido. O valor especificado é ' foo ' e obrigatório é ' int '.
+Suponha que você especifique um valor errado. Assim como para a porta, você especificou um valor de cadeia de caracteres "foo" em vez de um int.  O comando New-ServiceFabricApplication falhará com um erro: o parâmetro de substituição com o nome ' ServiceEndpoint1 ', atributo ' Port1 ' na seção ' ResourceOverrides ' é inválido. O valor especificado é ' foo ' e obrigatório é ' int '.

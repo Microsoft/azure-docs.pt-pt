@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Monitorize com o Azure Application Insights'
+title: 'Início rápido: monitorar com informações do Aplicativo Azure'
 description: Fornece instruções para configurar rapidamente uma Aplicação Web Node.js para monitorização com o Application Insights
 services: application-insights
 keywords: ''
@@ -7,21 +7,21 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 1db26002167f4b7c5b4fc19699ddb021de8ac23d
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 79bd0ce90c76f95ce12662e0d496b481382e805a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703018"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177688"
 ---
-# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Início rápido: Iniciar o monitoramento de seu aplicativo Web node. js com insights Aplicativo Azure
-
-Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação Web quanto à disponibilidade, ao desempenho e à utilização. Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique. A partir da versão 0.20 do SDK em diante, pode monitorizar pacotes de terceiros comuns, incluindo o MongoDB, MySQL e Redis.
+# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Início rápido: iniciar o monitoramento do aplicativo Web node. js com insights Aplicativo Azure
 
 Este início rápido explica-lhe como adicionar a versão 0.22 do SDK do Application Insights para Node.js a uma aplicação Web Node.js existente.
+
+Com o Azure Application Insights, pode monitorizar facilmente a sua aplicação Web quanto à disponibilidade, ao desempenho e à utilização. Também pode identificar e diagnosticar erros rapidamente na sua aplicação sem ter de esperar que um utilizador os comunique. A partir da versão 0.20 do SDK em diante, pode monitorizar pacotes de terceiros comuns, incluindo o MongoDB, MySQL e Redis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -50,17 +50,17 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    Uma página de configuração é exibida; Use a tabela a seguir para preencher os campos de entrada. 
 
-    | Definições        | Value           | Descrição  |
+    | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
+   | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Tipo de Aplicação** | Aplicação Node.js | Tipo de aplicação que está a monitorizar |
-   | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Selecione **Criar**.
 
 ## <a name="configure-app-insights-sdk"></a>Configurar o SDK do Application Insights
 
-1. Selecione **visão geral** e copie a **chave**de instrumentação do aplicativo.
+1. Selecione **visão geral** e copie a **chave de instrumentação**do aplicativo.
 
    ![Formulário de recurso novo do App Insights](./media/nodejs-quick-start/3key.png)
 
@@ -92,7 +92,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Mapeamento de Aplicações](./media/nodejs-quick-start/5appmap.png)
 
-3. Selecione o ícone ![do **app Analytics** exibição do](./media/nodejs-quick-start/006.png) ícone **do mapa do aplicativo na análise**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Selecione o ícone de **análise de aplicativo** ![Application ícone de mapa @ no__t-2 **Exibir no Analytics**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/nodejs-quick-start/6analytics.png)
 

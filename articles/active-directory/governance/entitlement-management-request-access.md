@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c8a96a4557a500bd4726b8df44ada5df328b7c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290893"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169823"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -38,7 +38,7 @@ Um Gerenciador de pacotes de acesso pode configurar políticas para exigir aprov
 
 A primeira etapa é entrar no portal meu acesso, em que você pode solicitar acesso a um pacote do Access.
 
-**Função de pré-requisito:** Requerente
+**Função de pré-requisito:** Solicitante
 
 1. Procure um email ou uma mensagem do projeto ou gerente de negócios com o qual você está trabalhando. O email deve incluir um link para o pacote de acesso ao qual você precisará de acesso. O link começará com "myaccess", incluirá uma dica de diretório e terminará com uma ID de pacote de acesso semelhante à seguinte:
  
@@ -54,7 +54,7 @@ A primeira etapa é entrar no portal meu acesso, em que você pode solicitar ace
 
 Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar uma solicitação.
 
-**Função de pré-requisito:** Requerente
+**Função de pré-requisito:** Solicitante
 
 1. Localize o pacote de acesso na lista.  Se necessário, você pode pesquisar digitando uma cadeia de caracteres de pesquisa e, em seguida, selecionando o **nome**, o **Catálogo**ou o filtro de **recursos** .
 
@@ -79,11 +79,11 @@ Depois de encontrar o pacote de acesso no portal meu acesso, você pode enviar u
 
     Se o pacote de acesso exigir aprovação, a solicitação estará agora em um estado de aprovação pendente.
 
-## <a name="cancel-a-request"></a>Cancelar um pedido
+## <a name="cancel-a-request"></a>Cancelar uma solicitação
 
 Se você enviar uma solicitação de acesso e a solicitação ainda estiver no estado de **aprovação pendente** , você poderá cancelar a solicitação.
 
-**Função de pré-requisito:** Requerente
+**Função de pré-requisito:** Solicitante
 
 1. No portal meu acesso, à esquerda, clique em **histórico de solicitações** para ver uma lista de suas solicitações e o status.
 
@@ -99,7 +99,7 @@ Se você enviar uma solicitação de acesso e a solicitação ainda estiver no e
 
 Se você estiver solicitando acesso a um pacote de acesso que tenha várias políticas aplicáveis, você poderá ser solicitado a selecionar uma política. Por exemplo, um Gerenciador de pacotes do Access pode configurar um pacote de acesso com duas políticas para dois grupos de funcionários internos. A primeira política pode permitir o acesso por 60 dias e exigir aprovação. A segunda política pode permitir o acesso por 2 dias e não requer aprovação. Se você encontrar esse cenário, deverá selecionar a política que deseja usar.
 
-**Função de pré-requisito:** Requerente
+**Função de pré-requisito:** Solicitante
 
 ## <a name="next-steps"></a>Passos seguintes
 

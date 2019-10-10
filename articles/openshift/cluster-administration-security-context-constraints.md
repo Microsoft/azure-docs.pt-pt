@@ -7,16 +7,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: afbde512ecb5a38eac38d6f5db614d92cd44c908
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f98f55dca8b3dbbfbe03cb8c79691cedb63335a0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937422"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168985"
 ---
 # <a name="manage-security-context-constraints-in-azure-red-hat-openshift"></a>Gerenciar restrições de contexto de segurança no Azure Red Hat OpenShift 
 
-As restrições de contexto de segurança (SCCs) permitem que os administradores de cluster controlem as permissões para pods. Para saber mais sobre esse tipo de API, consulte a [documentação da arquitetura do SCCs](https://https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Você pode gerenciar o SCCs em sua instância do como objetos de API normais usando a CLI.
+As restrições de contexto de segurança (SCCs) permitem que os administradores de cluster controlem as permissões para pods. Para saber mais sobre esse tipo de API, consulte a [documentação da arquitetura do SCCs](https://docs.openshift.com/container-platform/3.11/architecture/additional_concepts/authorization.html). Você pode gerenciar o SCCs em sua instância do como objetos de API normais usando a CLI.
 
 ## <a name="list-security-context-constraints"></a>Listar restrições de contexto de segurança
 

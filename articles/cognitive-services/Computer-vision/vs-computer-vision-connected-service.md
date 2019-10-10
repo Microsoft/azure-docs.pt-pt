@@ -1,7 +1,7 @@
 ---
-title: Ligado do Visual Studio Service - de imagem digitalizada
+title: Serviço conectado do Visual Studio-Pesquisa Visual Computacional
 titleSuffix: Azure Cognitive Services
-description: Ligar-se para a API de imagem digitalizada a partir de uma aplicação de web do ASP.NET Core com a funcionalidade de serviço ligado do Visual Studio.
+description: Conecte-se ao API da Pesquisa Visual Computacional de um aplicativo Web ASP.NET Core usando o recurso serviço conectado do Visual Studio.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e4308f98b6e547acd4adfb62ab78c0517247d905
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604269"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177094"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Utilizar os Serviços Ligados no Visual Studio para estabelecer ligação à API de Imagem Digitalizada
 
@@ -25,7 +25,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma subscrição do Azure. Se não tiver uma conta, pode inscrever-se numa [conta gratuita](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 versão 15.7 ou posterior com o **desenvolvimento Web** instalada da carga de trabalho. [Transfira-a agora](https://visualstudio.microsoft.com/downloads/).
+- Visual Studio 2017 versão 15,7 ou posterior com a carga de trabalho de **desenvolvimento da Web** instalada. [Transfira-a agora](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -36,15 +36,15 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 1. No **Solution Explorer** (Explorador de Soluções), selecione **Add** (Adicionar)  > **Connected Service** (Serviço Ligado).
    É apresentada a página de Connected Service (Serviço Ligado) com os serviços que pode adicionar ao seu projeto.
 
-   ![Clique no menu num projeto do Visual Studio: Adicionar > serviço ligado](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Clique com o botão direito do mouse em um projeto do Visual Studio: Adicionar > serviço conectado](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. No menu de serviços disponíveis, escolha **API de Imagem Digitalizada dos Serviços Cognitivos**.
 
-   ![Menu de serviços ligado: Analise imagens... é descrito](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Menu de serviços conectados: analisar imagens... é descrito](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Se já tiver sessão iniciada no Visual Studio e uma subscrição do Azure associada à sua conta, será apresentada uma página com uma lista pendente com as suas subscrições.
 
-   ![Janela de API de imagem digitalizada do computador com o menu pendente de subscrição realçada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Janela de API da Pesquisa Visual Computacional com a lista suspensa de assinatura realçada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Selecione a subscrição que pretende utilizar e, em seguida, escolha um nome para a API de Imagem Digitalizada ou escolha a ligação de Edição para modificar o nome gerado automaticamente, selecione o grupo de recursos e o Escalão de Preço.
 
@@ -52,7 +52,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
    Siga a ligação para obter detalhes sobre os escalões de preço.
 
-1. Escolha Adicionar para adicionar suporte para o Serviço Ligado.
+1. Selecione Add (Adicionar) para adicionar suporte para o Connected Service (Serviço Ligado).
    O Visual Studio modifica seu projeto para adicionar os pacotes NuGet, entradas de ficheiro de configuração e outras alterações para suportar uma ligação à API de Imagem Digitalizada. A Janela de Saída mostra o registo do que está a acontecer ao seu projeto. Deverá ver algo semelhante ao seguinte:
 
    ```output
@@ -62,14 +62,14 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
    [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
-   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0
+   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.1
    [4/26/2018 5:15:45.609 PM] Changing appsettings.json setting: ComputerVisionAPI_Name=WebApplication-Core-ComputerVision_ComputerVisionAPI
    [4/26/2018 5:15:46.747 PM] Successfully added Computer Vision API to the project.
    ```
  
 ## <a name="use-the-computer-vision-api-to-detect-attributes-of-an-image"></a>Utilizar a API de Imagem Digitalizada para detetar atributos de uma imagem
 
-1. Adicione as instruções de utilização seguintes a Startup.cs.
+1. Adicione as seguintes instruções using a Startup.cs.
  
    ```csharp
    using System.IO;
@@ -90,13 +90,13 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
       }
    ```
 
-1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API de Imagem Digitalizada](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Com o botão direito em uma das imagens, guardar para o disco rígido local, em seguida, no Explorador de soluções, clique com o botão direito na pasta de imagens e escolha **Add** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções: 
+1. Na pasta wwwroot do seu projeto, adicione uma pasta de imagens e um ficheiro de imagem. Por exemplo, pode utilizar uma das imagens desta [página de API de Imagem Digitalizada](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Clique com o botão direito do mouse em uma das imagens, salve no disco rígido local e, em Gerenciador de Soluções, clique com o botão direito do mouse na pasta imagens e escolha **adicionar** > **Item existente** para adicioná-lo ao seu projeto. O seu projeto deve ter um aspeto semelhante ao seguinte no Explorador de Soluções: 
   
-   ![Captura de ecrã da vista do Explorador de soluções com um ficheiro de imagem selecionada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
+   ![Captura de tela da exibição do Gerenciador de soluções com um arquivo de imagem selecionado](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Clique com o botão direito do rato no ficheiro de imagem, selecione Properties (Propriedades) e, em seguida, selecione **Copy if newer** (Copiar se for mais recente). 
 
-   ![janela de propriedades de imagem; Copiar para diretório de saída definido como copiar se for mais recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![janela Propriedades da imagem; Copiar para o diretório de saída definido como copiar se mais recente](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Substitua o método Configure (Configuração) pelo código seguinte para aceder à API de Imagem Digitalizada e testar uma imagem.
 
@@ -164,7 +164,7 @@ Este artigo e os respetivos artigos complementares fornecem detalhes para utiliz
 
     Este código constrói um pedido HTTP com o URI e a imagem como conteúdo binário para uma chamada à API REST de Imagem Digitalizada.
 
-1. Adicione as funções dos auxiliares GetImageAsByteArray e JsonPrettyPrint.
+1. Adicione as funções de programa auxiliar GetImageAsByteArray e JsonPrettyPrint.
 
    ```csharp
     /// <summary>
@@ -258,6 +258,6 @@ Quando já não for necessário, elimine o grupo de recursos. Esta ação elimin
 2. Selecione **Eliminar grupo de recursos**.
 3. Na caixa **ESCREVA O NOME DO GRUPO DE RECURSOS:** , escreva o nome do grupo de recursos e selecione **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a API de imagem digitalizada lendo o [documentação de API de imagem digitalizada](Home.md).
+Saiba mais sobre o API da Pesquisa Visual Computacional lendo a [documentação do API da pesquisa Visual computacional](Home.md).

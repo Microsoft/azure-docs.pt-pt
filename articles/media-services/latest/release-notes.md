@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030525"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168623"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão do Azure Media Services V3
 
 Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
-* Versões mais recentes
+* As versões mais recentes
 * Problemas conhecidos
 * Correções de erros
-* Funcionalidades preteridas
+* Funcionalidade preterida
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -36,16 +36,38 @@ Para obter mais informações, consulte [diretrizes de migração para mudar dos
 
 ## <a name="september-2019"></a>Setembro de 2019
 
+###  <a name="media-services-v3"></a>Serviços de Multimédia v3  
+
+#### <a name="live-linear-encoding-of-live-events"></a>Codificação linear dinâmica de eventos ao vivo
+
 Os serviços de mídia v3 estão anunciando a visualização de 24 horas x 365 dias de codificação linear dinâmica de eventos ao vivo.
- 
+
+###  <a name="media-services-v2"></a>Serviços de Multimédia v2  
+
+#### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
+
+Estamos anunciando a substituição da *Azure Media indexer* e da versão *prévia do Azure Media indexer 2*. O processador de mídia [Azure Media indexer](../previous/media-services-index-content.md) será desativado em 1º de outubro de 2020. Os processadores de mídia da versão [prévia do Azure Media indexer 2](../previous/media-services-process-content-with-indexer2.md) serão desativados em 1º de janeiro de 2020. Os [serviços de mídia do Azure Video indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) substitui esses processadores de mídia herdados.
+
+Para obter mais informações, consulte [migrar do Azure Media indexer e Azure Media indexer 2 para os serviços de mídia do Azure Video indexer](../previous/migrate-indexer-v1-v2.md).
+
 ## <a name="august-2019"></a>Agosto de 2019
 
-### <a name="south-africa-regional-pair-is-open-for-media-services"></a>O par regional da África do Sul está aberto para os serviços de mídia 
+###  <a name="media-services-v3"></a>Serviços de Multimédia v3  
+
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>O par regional da África do Sul está aberto para os serviços de mídia 
 
 Os serviços de mídia agora estão disponíveis na África do Sul e nas regiões do oeste da África do Sul.
 
 Para obter mais informações, consulte [nuvens e regiões nas quais os serviços de mídia v3 existem](azure-clouds-regions.md).
 
+###  <a name="media-services-v2"></a>Serviços de Multimédia v2  
+
+#### <a name="deprecation-of-media-processors"></a>Substituição dos processadores de mídia
+
+Estamos anunciando a substituição dos processadores de mídia do *Windows Azure Media Encoder* (WAME) e *do Azure Media Encoder* (ame), que estão sendo desativados em 30 de novembro de 2019.
+
+Para obter detalhes, consulte [migrar WAME para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) e [migrar ame para Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+ 
 ## <a name="july-2019"></a>Julho de 2019
 
 ### <a name="content-protection"></a>Proteção de conteúdo
@@ -137,16 +159,16 @@ O módulo CLI 2,0 agora está disponível para os [serviços de mídia do Azure 
 
 ### <a name="new-commands"></a>Novos comandos
 
-- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [AZ conta AMS](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [AZ conta AMS – filtro](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
+- [AZ Asset AMS](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [AZ AMS Asset-Filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [AZ AMS Content-Key-Policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
+- [trabalho AZ AMS](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [AZ AMS Live-Event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [AZ AMS Live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [AZ AMS streaming-Endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [AZ AMS streaming-Locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [AZ AMS Account MRU](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) -permite que você gerencie unidades reservadas de mídia. Para obter mais informações, consulte [dimensionar unidades reservadas de mídia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Novos recursos e alterações significativas
@@ -236,13 +258,13 @@ Você pode ver os seguintes aprimoramentos de suporte da grade de eventos:
 
 Suporte à criptografia CMAF e ' CBCs ' para os players Apple HLS (iOS 11 +) e MPEG-DASH que dão suporte a CMAF.
 
-### <a name="video-indexer"></a>Indexador de Vídeos
+### <a name="video-indexer"></a>Indexador de Vídeo
 
 Video Indexer versão de GA foi anunciada em agosto. Para obter novas informações sobre os recursos com suporte no momento, consulte [o que é Video indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 
-### <a name="plans-for-changes"></a>Planos para que as alterações
+### <a name="plans-for-changes"></a>Planos de alterações
 
-#### <a name="azure-cli-20"></a>CLI 2.0 do Azure
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
  
 O módulo CLI do Azure 2,0 que inclui operações em todos os recursos (incluindo políticas dinâmicas, de chave de conteúdo, filtros de conta/ativo, políticas de streaming) estará disponível em breve. 
 
@@ -254,7 +276,7 @@ Se você criou os ativos ou filtros de conta entre 09/28 e 10/12 com CLI ou APIs
 
 ## <a name="may-2018---preview"></a>Maio de 2018-visualização
 
-### <a name="net-sdk"></a>SDK .NET
+### <a name="net-sdk"></a>.NET SDK
 
 Os seguintes recursos estão presentes no SDK do .NET:
 
@@ -275,5 +297,5 @@ Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição Geral](media-services-overview.md)
+- [Descrição geral](media-services-overview.md)
 - [Notas de versão do Media Services v2](../previous/media-services-release-notes.md)

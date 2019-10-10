@@ -1,6 +1,6 @@
 ---
 title: Versão prévia da implantação do Azure Service Fabric Docker Compose
-description: O Azure Service Fabric aceita Docker Compose formato para facilitar a orquestração de contêineres existentes usando Service Fabric. Este suporte está atualmente em pré-visualização.
+description: O Azure Service Fabric aceita Docker Compose formato para facilitar a orquestração de contêineres existentes usando Service Fabric. No momento, esse suporte está em versão prévia.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: de02c9a8580527ab708418aa266f1b56411fb95b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599570"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168840"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (versão prévia)
 
-O Docker usa o arquivo [Docker-Compose. yml](https://docs.docker.com/compose) para definir aplicativos de vários contêineres. Para facilitar para os clientes familiarizados com o Docker para orquestrar os aplicativos de contêiner existentes no Azure Service Fabric, incluímos o suporte de visualização para Docker Compose implantação nativamente na plataforma. Service Fabric pode aceitar a versão 3 e posterior `docker-compose.yml` de arquivos. 
+O Docker usa o arquivo [Docker-Compose. yml](https://docs.docker.com/compose) para definir aplicativos de vários contêineres. Para facilitar para os clientes familiarizados com o Docker para orquestrar os aplicativos de contêiner existentes no Azure Service Fabric, incluímos o suporte de visualização para Docker Compose implantação nativamente na plataforma. Service Fabric pode aceitar a versão 3 e posterior de arquivos `docker-compose.yml`. 
 
 Como esse suporte está em visualização, há suporte para apenas um subconjunto de diretivas de composição. Por exemplo, não há suporte para atualizações de aplicativos. No entanto, você sempre pode remover e implantar aplicativos em vez de atualizá-los.
 
@@ -35,7 +35,7 @@ Para usar essa visualização, crie seu cluster com a versão 5,7 ou superior do
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Implantar um arquivo de Docker Compose no Service Fabric
 
-Os comandos a seguir criam um aplicativo Service Fabric ( `fabric:/TestContainerApp`chamado), que pode ser monitorado e gerenciado como qualquer outro aplicativo Service Fabric. Você pode usar o nome do aplicativo especificado para consultas de integridade.
+Os comandos a seguir criam um aplicativo Service Fabric (chamado `fabric:/TestContainerApp`), que você pode monitorar e gerenciar como qualquer outro aplicativo Service Fabric. Você pode usar o nome do aplicativo especificado para consultas de integridade.
 Service Fabric reconhece "Deploymentname" como o identificador da implantação de Compose.
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
@@ -46,7 +46,7 @@ Crie uma implantação de redação de Service Fabric de um arquivo Docker-Compo
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`e `RegistryPassword` consulte o nome de usuário e a senha do registro de contêiner. Depois de concluir a implantação, você pode verificar seu status usando o seguinte comando:
+`RegistryUserName` e `RegistryPassword` referem-se ao nome de usuário e à senha do registro de contêiner. Depois de concluir a implantação, você pode verificar seu status usando o seguinte comando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
@@ -121,9 +121,9 @@ Essa visualização dá suporte a um subconjunto das opções de configuração 
 * Serviços > implantar > réplicas
 * Serviços > implantar restrições de > de posicionamento de >
 * Os serviços > implantar > recursos > limites
-    * -cpu-shares
+    * -CPU-compartilhamentos
     * -memória
-    * -memory-swap
+    * -troca de memória
 * Comandos de > de serviços
 * Ambiente de > de serviços
 * Portas de > de serviços
@@ -146,9 +146,9 @@ Especifique o protocolo http ou HTTPS na seção portas que será usada pelo ouv
 
 ## <a name="servicednsname-computation"></a>Computação ServiceDnsName
 
-Se o nome do serviço que você especificar em um arquivo de composição for um nome de domínio totalmente qualificado (ou seja, ele contiver um ponto [.]), o nome DNS registrado `<ServiceName>` por Service Fabric será (incluindo o ponto). Se não, cada segmento de caminho no nome do aplicativo se tornará um rótulo de domínio no nome DNS do serviço, com o primeiro segmento de caminho se tornando o rótulo de domínio de nível superior.
+Se o nome do serviço que você especificar em um arquivo de composição for um nome de domínio totalmente qualificado (ou seja, ele contiver um ponto [.]), o nome DNS registrado por Service Fabric será `<ServiceName>` (incluindo o ponto). Se não, cada segmento de caminho no nome do aplicativo se tornará um rótulo de domínio no nome DNS do serviço, com o primeiro segmento de caminho se tornando o rótulo de domínio de nível superior.
 
-Por exemplo, se o nome do aplicativo especificado `fabric:/SampleApp/MyComposeApp`for `<ServiceName>.MyComposeApp.SampleApp` , será o nome DNS registrado.
+Por exemplo, se o nome do aplicativo especificado for `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` será o nome DNS registrado.
 
 ## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Composição de implantação (definição de instância) versus modelo de aplicativo de Service Fabric (definição de tipo)
 

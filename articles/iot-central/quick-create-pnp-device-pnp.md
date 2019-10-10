@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bc7858aeceea7cbd35bc2d834ddfb4fb5d656321
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048955"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174839"
 ---
-# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Início rápido: Use um modelo de funcionalidade de dispositivo para criar um dispositivo de Plug and Play de IoT e conectá-lo ao seu aplicativo IoT Central
+# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Início rápido: usar um modelo de capacidade de dispositivo para criar um dispositivo de Plug and Play de IoT e conectá-lo ao seu aplicativo IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -36,18 +36,18 @@ Para concluir este guia de início rápido, você precisa instalar o seguinte so
 * [CMake](https://cmake.org/download/) – quando você instala o **CMake**, selecione a opção **Adicionar CMake ao caminho do sistema**.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Node.js](https://nodejs.org/)
-* O `dps-keygen` utilitário:
+* O utilitário `dps-keygen`:
 
     ```cmd/sh
     npm i -g dps-keygen
     ```
 
-### <a name="install-azure-iot-device-workbench"></a>Instalar o Azure IoT Device Workbench
+### <a name="install-azure-iot-tools"></a>Instalar as ferramentas do Azure IoT
 
-Use as etapas a seguir para instalar a extensão do Azure IoT Device Workbench no VS Code:
+Use as etapas a seguir para instalar o pacote de extensão das ferramentas do Azure IoT no VS Code:
 
 1. Em VS Code, selecione a guia **extensões** .
-1. Pesquise o **Azure IOT Device Workbench**.
+1. Pesquise pelas **Ferramentas do Azure IOT**.
 1. Selecione **Instalar**.
 
 ## <a name="prepare-the-development-environment"></a>Preparar o ambiente de desenvolvimento
@@ -64,7 +64,7 @@ Prepare um ambiente de desenvolvimento que você pode usar para criar o SDK do d
 
     Esta operação deve demorar vários minutos a ser concluída.
 
-1. Crie uma `central_app` pasta na raiz do clone local do repositório. Você usa essa pasta para os arquivos de modelo de dispositivo e o stub de código de dispositivo.
+1. Crie uma pasta `central_app` na raiz do clone local do repositório. Você usa essa pasta para os arquivos de modelo de dispositivo e o stub de código de dispositivo.
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -95,11 +95,11 @@ Para conectar um dispositivo a um aplicativo IoT Central, você precisa de uma c
 
 Neste guia de início rápido, você usa o DCM público para um dispositivo MxChip IoT DevKit. Você não precisa de um dispositivo DevKit real para executar o código, neste guia de início rápido, você compila o código para ser executado no Windows.
 
-1. Abra `azure-iot-sdk-c\central_app` a pasta com vs Code.
+1. Abra a pasta `azure-iot-sdk-c\central_app` com VS Code.
 
 1. Use **Ctrl + Shift + P** para abrir a paleta de comandos, insira **plug and Play de IOT**e selecione **abrir repositório de modelos**. Selecione **repositório público**. VS Code mostra uma lista de DCMs no repositório de modelo público.
 
-1. Selecione o **MXChip IOT devkit** DCM com ID `urn:mxchip:mxchip_iot_devkit:1`. Em seguida, selecione **baixar**. Agora você tem uma cópia do DCM na `central_app` pasta.
+1. Selecione o **MXChip IOT devkit** DCM com a ID `urn:mxchip:mxchip_iot_devkit:1`. Em seguida, selecione **baixar**. Agora você tem uma cópia do DCM na pasta `central_app`.
 
 ![Repositório de modelos e DCM](./media/quick-create-pnp-device-pnp/public-repository.png)
 
@@ -125,7 +125,7 @@ Agora você tem o **MXChip IOT devkit** DCM e suas interfaces associadas, você 
 
 1. Escolha **por meio da chave simétrica do DPS (serviço de provisionamento de dispositivos)** como o método de conexão.
 
-1. VS Code abre uma nova janela com arquivos stub de código de dispositivo gerados `devkit_device` na pasta.
+1. VS Code abre uma nova janela com arquivos stub de código de dispositivo gerados na pasta `devkit_device`.
 
 ![Código de dispositivo gerado](./media/quick-create-pnp-device-pnp/generated-code.png)
 
@@ -133,7 +133,7 @@ Para adicionar as informações de conexão ao código de dispositivo gerado:
 
 1. Na janela de VS Code que contém o código C gerado. Abra o ficheiro `main.c`.
 
-1. Substitua `[DPS Id Scope]` pela **ID do escopo** anotada anteriormente.
+1. Substitua `[DPS Id Scope]` pela **ID de escopo** anotada anteriormente.
 
 1. Substitua `[DPS symmetric key]` pela chave do dispositivo que você gerou em uma etapa anterior.
 
@@ -145,15 +145,15 @@ Para adicionar as informações de conexão ao código de dispositivo gerado:
 
 Você usa o SDK do dispositivo para criar o stub do código de dispositivo gerado. O aplicativo que você cria simula um dispositivo **MXChip IOT devkit** e se conecta ao seu aplicativo IOT central. O aplicativo envia telemetria e propriedades e recebe comandos.
 
-1. Em vs Code, abra o `CMakeLists.txt` arquivo `azure-iot-sdk-c` na pasta. Certifique-se de abrir `CMakeLists.txt` o arquivo `azure-iot-sdk-c` na pasta, `devkit_device` não aquele na pasta.
+1. Em VS Code, abra o arquivo `CMakeLists.txt` na pasta `azure-iot-sdk-c`. Certifique-se de abrir o arquivo `CMakeLists.txt` na pasta `azure-iot-sdk-c`, não o que está na pasta `devkit_device`.
 
-1. Adicione a linha abaixo na parte inferior do `CMakeLists.txt` arquivo para incluir a pasta stub do código do dispositivo ao compilar:
+1. Adicione a linha abaixo na parte inferior do arquivo `CMakeLists.txt` para incluir a pasta stub do código do dispositivo ao compilar:
 
     ```txt
     add_subdirectory(central_app/devkit_device)
     ```
 
-1. Crie uma `cmake` pasta `azure-iot-sdk-c` na pasta e navegue até essa pasta em um prompt de comando:
+1. Crie uma pasta `cmake` na pasta `azure-iot-sdk-c` e navegue até essa pasta em um prompt de comando:
 
     ```cmd\sh
     mkdir cmake

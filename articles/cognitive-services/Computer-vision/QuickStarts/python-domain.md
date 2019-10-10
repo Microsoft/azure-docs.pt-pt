@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Conteúdo específico do domínio-REST, Python'
+title: 'Início rápido: conteúdo específico do domínio – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, vai utilizar modelos de domínio para identificar celebridades e marcos numa imagem através da API de Imagem Digitalizada com o Python.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 24fc695a2f832374a109b11ee6a87813146f13ed
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 06bffb1339edddf14d3eccaf989707369ac54393
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137614"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177114"
 ---
-# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Início rápido: Usar um modelo de domínio usando a API REST e Python no Pesquisa Visual Computacional
+# <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Guia de Início Rápido: Utilizar um modelo de domínio com a API REST e o Python na Imagem Digitalizada
 
 Neste guia de início rápido, vai utilizar um modelo de domínio para identificar marcos ou, opcionalmente, celebridades numa imagem armazenada remotamente através da API REST de Imagem Digitalizada. Com o método [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) (Reconhecer Conteúdo Específico do Domínio), pode aplicar um modelo específico do domínio para reconhecer conteúdo dentro de uma imagem.
 
@@ -31,7 +31,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres de ponto de extremidade de serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Criar e executar o exemplo de marcos
 
@@ -61,7 +61,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-landmark_analyze_url = endpoint + "vision/v2.0/models/landmarks/analyze"
+landmark_analyze_url = endpoint + "vision/v2.1/models/landmarks/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
@@ -90,7 +90,7 @@ _ = plt.title(landmark_name, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response-for-the-landmarks-sample"></a>Examinar a resposta para o exemplo de marcos
 
-O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -136,7 +136,7 @@ from io import BytesIO
 subscription_key = "<Subscription Key>"
 assert subscription_key
 
-vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
+vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/"
 
 celebrity_analyze_url = vision_base_url + "models/celebrities/analyze"
 
@@ -167,7 +167,7 @@ _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response-for-the-celebrities-sample"></a>Examinar a resposta para o exemplo de celebridades
 
-O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 
 ```json
@@ -199,7 +199,7 @@ O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e aprese
 
 Quando já não precisar dos ficheiros, elimine-os para ambos os exemplos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore uma aplicação do Python que utilize a Imagem Digitalizada para realizar o reconhecimento ótico de carateres (OCR); criar miniaturas com recorte inteligente; além de detetar, categorizar, etiquetar e descrever funcionalidades visuais, incluindo rostos, numa imagem. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

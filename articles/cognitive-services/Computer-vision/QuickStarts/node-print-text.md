@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Extrair texto impresso-REST, Node. js'
+title: 'Início rápido: extrair texto impresso-REST, Node. js'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá extrair texto impresso de uma imagem através da API de Imagem Digitalizada com o Node.js.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 113cfc4b6c7130ec407251d6978ce4119c476d47
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: d94cc52f547017c7e4698d04583a1a1cde25a174
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141321"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177162"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Início rápido: Extrair o texto impresso (OCR) usando a API REST do Pesquisa Visual Computacional e o Node. js
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Início rápido: extrair texto impresso (OCR) usando a API REST do Pesquisa Visual Computacional e o Node. js
 
 Neste guia de início rápido, irá extrair texto impresso de uma imagem com o reconhecimento ótico de carateres (OCR) através da API REST de Imagem Digitalizada. Com o método [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), pode detetar texto impresso numa imagem e extrair os carateres reconhecidos para um fluxo de carateres que pode ser utilizado por um computador.
 
@@ -28,7 +28,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 - Tem de ter o [Node.js](https://nodejs.org) 4.x ou posterior instalado.
 - Tem de ter o [npm](https://www.npmjs.com/) instalado.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres de ponto de extremidade de serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -59,7 +59,7 @@ let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
 
-var uriBase = endpoint + 'vision/v2.0/ocr';
+var uriBase = endpoint + 'vision/v2.1/ocr';
 
 const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/' +
     'Atomist_quote_from_Democritus.png/338px-Atomist_quote_from_Democritus.png';
@@ -93,7 +93,7 @@ request.post(options, (error, response, body) => {
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. O exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {
@@ -207,7 +207,7 @@ Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o 
 
 3. Depois de o pacote ser desinstalado com êxito, feche a janela da linha de comandos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Explore a API de Imagem Digitalizada utilizada para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito. Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 

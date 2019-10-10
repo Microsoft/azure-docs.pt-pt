@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: a3d0d6077da4df9a7f0d1b246c9752d38488a175
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.author: atsenthi
+ms.openlocfilehash: c37ee8177ba31ac8a5da90fef175a6fbd63a6d75
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963824"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167592"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Atualização do aplicativo Service Fabric: Tópicos avançados
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Adicionando ou removendo tipos de serviço durante uma atualização de aplicativo
@@ -29,12 +29,12 @@ Da mesma forma, os tipos de serviço podem ser removidos de um aplicativo como p
 
 ## <a name="manual-upgrade-mode"></a>Modo de atualização manual
 > [!NOTE]
-> O modo de atualização monitorado é recomendado para todas as atualizações de Service Fabric.
+> O modo de atualização *monitorado* é recomendado para todas as atualizações de Service Fabric.
 > O modo de atualização *UnmonitoredManual* deve ser considerado somente para atualizações com falha ou suspensas. 
 >
 >
 
-No modo monitorado, Service Fabric aplica as políticas de integridade para garantir que o aplicativo esteja íntegro à medida que a atualização progride. Se as políticas de integridade forem violadas, a atualização será suspensa ou automaticamente revertida, dependendo da Falhaactionespecificada.
+No modo *monitorado* , Service Fabric aplica as políticas de integridade para garantir que o aplicativo esteja íntegro à medida que a atualização progride. Se as políticas de integridade forem violadas, a atualização será suspensa ou automaticamente revertida, dependendo da *falhaaction*especificada.
 
 No modo *UnmonitoredManual* , o administrador do aplicativo tem total controle sobre a progressão da atualização. Esse modo é útil ao aplicar políticas de avaliação de integridade personalizadas ou executar atualizações não convencionais para ignorar completamente o monitoramento de integridade (por exemplo, o aplicativo já está em perda de dados). Uma atualização em execução neste modo será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps). Quando uma atualização é suspensa e está pronta para ser retomada pelo usuário, seu estado de atualização mostrará *RollforwardPending* (consulte [upgradestate](https://docs.microsoft.com/dotnet/api/system.fabric.applicationupgradestate?view=azure-dotnet)).
 
@@ -126,13 +126,13 @@ ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAft
 
 ## <a name="rolling-back-application-upgrades"></a>Revertendo atualizações de aplicativos
 
-Embora as atualizações possam ser roladas para frente em um dostrês modos (monitorado, *UnmonitoredAuto*ou *UnmonitoredManual*), elas só podem ser revertidas no modo *UnmonitoredAuto* ou *UnmonitoredManual* . A reversão no modo *UnmonitoredAuto* funciona da mesma maneira que o progressivo com a exceção de que o valor padrão de *UpgradeReplicaSetCheckTimeout* é diferente-consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md). A reversão no modo *UnmonitoredManual* funciona da mesma maneira que o roll forward – a reversão será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar com o versão.
+Embora as atualizações possam ser roladas para frente em um dos três modos (*monitorado*, *UnmonitoredAuto*ou *UnmonitoredManual*), elas só podem ser revertidas no modo *UnmonitoredAuto* ou *UnmonitoredManual* . A reversão no modo *UnmonitoredAuto* funciona da mesma maneira que o progressivo com a exceção de que o valor padrão de *UpgradeReplicaSetCheckTimeout* é diferente-consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md). A reversão no modo *UnmonitoredManual* funciona da mesma maneira que o roll forward – a reversão será suspensa após a conclusão de cada UD e deverá ser retomada explicitamente usando [resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) para continuar com o versão.
 
-As reversões podem ser disparadas automaticamente quando as políticas de integridade de uma atualização no modo monitorado com uma *falha* de reversão de *Rollback* são violadas (consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md)) ou explicitamente usando [ Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
+As reversões podem ser disparadas automaticamente quando as políticas de integridade de uma atualização no modo *monitorado* com uma *falha* de *reversão de rollback* são violadas (consulte [parâmetros de atualização de aplicativos](service-fabric-application-upgrade-parameters.md)) ou explicitamente usando [ Start-ServiceFabricApplicationRollback](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricapplicationrollback?view=azureservicefabricps).
 
 Durante a reversão, o valor de *UpgradeReplicaSetCheckTimeout* e o modo ainda podem ser alterados a qualquer momento usando [Update-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/update-servicefabricapplicationupgrade?view=azureservicefabricps).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Atualizar seu aplicativo usando o Visual Studio](service-fabric-application-upgrade-tutorial.md) orienta você durante uma atualização de aplicativo usando o Visual Studio.
 
 [Atualizar seu aplicativo usando o PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) orienta você durante uma atualização de aplicativo usando o PowerShell.

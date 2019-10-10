@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 08/13/2019
-ms.openlocfilehash: 03fe0b091939b3281d0cc0cb5e35bf055fb307e1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: f193dceaf26361fececde9df9df6769e2a971543
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970382"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178111"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>O que é a Base de Dados do Azure para MySQL?
 
@@ -39,7 +39,7 @@ Para obter um conjunto de amostras da CLI do Azure, veja:
 - [Exemplos de CLI do Azure para o banco de dados do Azure para MySQL](sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
-O serviço de banco de dados do Azure para MySQL oferece várias camadas de serviço: Básico, Uso Geral e otimizado para memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [tipos de preço](concepts-service-tiers.md) para obter detalhes.
+O serviço banco de dados do Azure para MySQL oferece várias camadas de serviço: básico, Uso Geral e otimizado para memória. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica permite que a base de dados responda de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [tipos de preço](concepts-service-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 Como decidir quando aumentar e reduzir verticalmente? Utilize a monitorização de desempenho incorporada e as funcionalidades de alerta juntamente com as classificações de desempenho baseadas em vCores. Com estas ferramentas, pode avaliar rapidamente o impacto do dimensionamento vertical ou horizontal dos vCores com base nas suas necessidades de desempenho atuais ou estimadas. Consulte [Alertas](howto-alert-on-metric.md) para obter mais detalhes.
@@ -47,10 +47,10 @@ Como decidir quando aumentar e reduzir verticalmente? Utilize a monitorização 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha a sua aplicação e o seu negócio operacionais
 O contrato de nível de serviço (SLA) do Azure líder da indústria, que garante 99,99% de disponibilidade, com tecnologia de uma rede global de datacenters geridos pela Microsoft, ajuda a manter a sua aplicação operacional 24 horas por dia, sete dias por semana. Com cada servidor de banco de dados do Azure para MySQL, você tira proveito da segurança interna, da tolerância a falhas e da proteção do dado que, de outra forma, você teria de comprar ou projetar, criar e gerenciar. Com o banco de dados do Azure para MySQL, você pode usar a restauração pontual para recuperar um servidor para um estado anterior, de volta a 35 dias.
 
-## <a name="secure-your-data"></a>Proteger os dados
+## <a name="secure-your-data"></a>Proteja os seus dados
 Os serviços de banco de dados do Azure têm uma tradição de segurança de data que o banco de dados do Azure para MySQL mantém, com recursos que limitam o acesso, protegem dados em repouso e em movimento e ajudam a monitorar a atividade. Visite o [Centro de Fidedignidade do Azure](https://www.microsoft.com/en-us/trustcenter/security) para obter informações sobre a segurança da plataforma do Azure.
 
-O serviço banco de dados do Azure para MySQL usa a criptografia de armazenamento para dados em repouso e é compatível com FIPS 140-2. Os dados, incluindo as cópias de segurança, são encriptados em disco (à exceção dos ficheiros temporários criados pelo motor durante a execução de consultas). O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
+O serviço banco de dados do Azure para MySQL usa o módulo de criptografia FIPS 140-2 validado para criptografia de armazenamento de dados em repouso. Os dados, incluindo backups, são criptografados no disco com a exceção de arquivos temporários criados durante a execução de consultas. O serviço utiliza a cifra AES de 256 bits que está incluída na encriptação de armazenamento do Azure, sendo as chaves geridas pelo sistema. A encriptação de armazenamento está sempre ativada e não pode ser desativada.
 
 Por padrão, o serviço de banco de dados do Azure para MySQL é configurado para exigir [segurança de conexão SSL](./concepts-ssl-connection-security.md) para dados em movimento pela rede. A imposição de ligações SSL entre a base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação. Opcionalmente, pode desativar a exigência de SSL para ligar ao seu serviço de base de dados, se a aplicação de cliente não suportar a conectividade SSL.
 
@@ -68,4 +68,4 @@ Agora que você leu uma introdução ao banco de dados do Azure para MySQL e res
 
 - Consulte a página de preços para ver as comparações de preços e as calculadoras. [Preços](https://azure.microsoft.com/pricing/details/mysql/)
 - Comece por criar o seu primeiro servidor. [Criar uma Base de Dados do Azure para o servidor MySQL com o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Crie seu primeiro aplicativo usando o idioma de sua preferência: [Python](./connect-python.md) | [node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [php](./connect-php.md) | [.net (C#)](./connect-csharp.md)2[go](./connect-go.md)
+- Crie seu primeiro aplicativo usando sua linguagem preferida: [Python](./connect-python.md) | [node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [php](./connect-php.md) | [.net (C#)](./connect-csharp.md)2[go](./connect-go.md)

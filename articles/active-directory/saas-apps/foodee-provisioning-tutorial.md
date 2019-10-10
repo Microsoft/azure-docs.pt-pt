@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o alimento para o provisionamento automático de usuário usando Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o alimento para o provisionamento automático de usuário usando Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar Azure Active Directory para provisionar e desprovisionar automaticamente contas de usuário para o alimento.
 services: active-directory
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: abf2a752eaf0f1d0a9a8b07072dfc0b4c1ae45b7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 97ecf3ea324f43753030f415c8a5e254b87595e5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812710"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170077"
 ---
-# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Configurar o alimento para provisionamento automático de usuário
+# <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: configurar o alimento para provisionamento automático de usuário
 
 Este artigo mostra como configurar o Azure Active Directory (Azure AD) no alimento e no Azure AD para provisionar ou desprovisionar automaticamente usuários ou grupos para o alimento.
 
 > [!NOTE]
 > O artigo descreve um conector que é criado sobre o serviço de provisionamento de usuário do Azure AD. Para saber o que esse serviço faz e como ele funciona e obter respostas para perguntas frequentes, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](../manage-apps/user-provisioning.md).
 >
-> Este conector está atualmente em pré-visualização. Para obter mais informações sobre o recurso de termos de uso do Azure para recursos de visualização, vá para [termos de uso complementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Este conector está atualmente em visualização. Para obter mais informações sobre o recurso de termos de uso do Azure para recursos de visualização, vá para [termos de uso complementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -85,7 +85,7 @@ Para adicionar o alimento da Galeria de aplicativos do Azure AD, faça o seguint
 
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo** na parte superior do painel.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
 1. Na caixa de pesquisa, insira **alimento**, selecione **alimento** no painel de resultados e, em seguida, selecione **Adicionar** para adicionar o aplicativo.
 
@@ -118,7 +118,7 @@ Configure o provisionamento automático de usuário para o alimento no Azure AD 
 
 1. Em **credenciais de administrador**, faça o seguinte:
 
-   a. Na caixa **URL do locatário** , insira o valor **https://concierge.food.ee/scim/v2** que você recuperou anteriormente.
+   a. Na caixa **URL do locatário** , insira o valor **https: \//concierge. food. ee/scim/v2** que você recuperou anteriormente.
 
    b. Na caixa **token secreto** , insira o valor do **token de API** que você recuperou anteriormente.
    

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Gerar uma miniatura-REST, JavaScript'
+title: 'Início Rápido: Gerar uma miniatura – REST, JavaScript'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API de Imagem Digitalizada com o JavaScript.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e4d5af66bd21f9468c4ada7759008c23f885cc9
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: e0a8d29a283f40e534b8d6043d6e574bb04e1525
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141327"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177170"
 ---
-# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Início rápido: Gerar uma miniatura usando a API REST do Pesquisa Visual Computacional e o JavaScript
+# <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-javascript"></a>Início rápido: gerar uma miniatura usando a API REST do Pesquisa Visual Computacional e o JavaScript
 
 Neste guia de início rápido, irá gerar uma miniatura de uma imagem através da API REST de Imagem Digitalizada. Você especifica a altura e a largura, que pode diferir na taxa de proporção da imagem de entrada. Pesquisa Visual Computacional usa o corte inteligente para identificar de forma inteligente a área de interesse e gerar coordenadas de corte com base nessa região.
 
@@ -26,7 +26,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres de ponto de extremidade de serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 
 ## <a name="create-and-run-the-sample"></a>Criar e executar o exemplo
 
@@ -57,7 +57,7 @@ Para criar e executar o exemplo, siga os seguintes passos:
         let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
         if (!subscriptionKey) { throw new Error('Set your environment variables for your subscription key and endpoint.'); }
         
-        var uriBase = endpoint + "vision/v2.0/generateThumbnail";
+        var uriBase = endpoint + "vision/v2.1/generateThumbnail";
 
         // Request parameters.
         var params = "?width=100&height=150&smartCropping=true";

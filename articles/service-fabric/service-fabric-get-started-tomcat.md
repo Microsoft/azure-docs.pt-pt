@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/08/2018
-ms.author: chackdan
-ms.openlocfilehash: 165dc95681b75e98d91c66b490e15c2e96608299
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: pepogors
+ms.openlocfilehash: 7e14a027f17c15c83a4ce25a211ef6106f2d2eaa
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098939"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170608"
 ---
 # <a name="create-service-fabric-container-running-apache-tomcat-server-on-linux"></a>Criar Service Fabric contêiner executando o servidor Apache Tomcat no Linux
 O Apache Tomcat é uma implementação popular e de software livre do servlet Java e das tecnologias de servidor Java. Este artigo mostra como criar um contêiner com o Apache Tomcat e um aplicativo Web simples, implantar o contêiner em um Service Fabric cluster que executa o Linux e conectar-se ao aplicativo Web.  
@@ -61,7 +61,7 @@ Siga as etapas nesta seção para criar uma imagem do Docker com base em uma ima
    Consulte a [referência de Dockerfile](https://docs.docker.com/engine/reference/builder/) para obter mais informações.
 
 
-4. Execute o `docker build` comando para criar a imagem que executa seu aplicativo Web:
+4. Execute o comando `docker build` para criar a imagem que executa o aplicativo Web:
 
    ```bash
    docker build . -t tomcattest
@@ -84,13 +84,13 @@ Siga as etapas nesta seção para criar uma imagem do Docker com base em uma ima
    docker run -itd --name tomcat-site -p 8080:8080 tomcattest.
    ```
    
-   * `--name`nomeia o contêiner para que você possa consultá-lo usando um nome amigável em vez de sua ID.
-   * `-p`Especifica o mapeamento de porta entre o contêiner e o sistema operacional do host. 
+   * `--name` nomeia o contêiner, para que você possa consultá-lo usando um nome amigável em vez de sua ID.
+   * `-p` especifica o mapeamento de porta entre o contêiner e o sistema operacional do host. 
 
    > [!Note]
-   > A porta que você abrir com `-p` o parâmetro deve ser a porta em que seu aplicativo Tomcat ouve solicitações. No exemplo atual, há um conector configurado no arquivo *ApacheTomcat/conf/Server. xml* para escutar na porta 8080 para solicitações HTTP. Essa porta é mapeada para a porta 8080 no host. 
+   > A porta que você abre com o parâmetro `-p` deve ser a porta em que seu aplicativo Tomcat ouve solicitações. No exemplo atual, há um conector configurado no arquivo *ApacheTomcat/conf/Server. xml* para escutar na porta 8080 para solicitações HTTP. Essa porta é mapeada para a porta 8080 no host. 
 
-   Para saber mais sobre outros parâmetros, consulte a [documentação de execução](https://docs.docker.com/engine/reference/commandline/run/)do Docker.
+   Para saber mais sobre outros parâmetros, consulte a [documentação de execução do Docker](https://docs.docker.com/engine/reference/commandline/run/).
 
 1. Para testar o contêiner, abra um navegador e insira uma das URLs a seguir. Você verá uma variante do "Olá, Mundo!" tela de boas-vindas para cada URL.
 
@@ -142,8 +142,8 @@ Agora que você enviou a imagem do Tomcat para um registro de contêiner, você 
 
    * Nomeie seu aplicativo: ServiceFabricTomcat
    * Nome do serviço de aplicativo: TomcatService
-   * Insira o nome da imagem: Forneça a URL para a imagem de contêiner no registro de contêiner; por exemplo, myregistry.azurecr.io/samples/tomcattest.
-   * Comandos: Deixe este campo em branco. Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, não tem de especificar explicitamente comandos de entrada (os comandos são executados dentro do contentor, o que faz com que este continue em execução após o arranque).
+   * Insira o nome da imagem: forneça a URL para a imagem de contêiner no registro de contêiner; por exemplo, myregistry.azurecr.io/samples/tomcattest.
+   * Comandos: deixe em branco. Uma vez que esta imagem tem um ponto de entrada de carga de trabalho definido, não tem de especificar explicitamente comandos de entrada (os comandos são executados dentro do contentor, o que faz com que este continue em execução após o arranque).
    * Número de instâncias do aplicativo de contêiner de convidado: 1
 
    ![Gerador Yeoman do Service Fabric para contentores](./media/service-fabric-get-started-tomcat/yo-generator.png)
@@ -174,7 +174,7 @@ Agora que você enviou a imagem do Tomcat para um registro de contêiner, você 
 
    A marca **ContainerHostPolicies** especifica políticas para ativar hosts de contêiner.
     
-   * A marca portbinding configura a política de mapeamento de porta de contêiner de porta para host. O atributo **ContainerPort** é definido como 8080 porque o contêiner expõe a porta 8080, conforme especificado no Dockerfile. O atributo **EndpointRef** é definido como "endpointTest", o ponto de extremidade definido no manifesto do serviço na etapa anterior. Assim, as solicitações de entrada para o serviço na porta 8080 são mapeadas para a porta 8080 no contêiner. 
+   * A marca **portbinding** configura a política de mapeamento de porta de contêiner de porta para host. O atributo **ContainerPort** é definido como 8080 porque o contêiner expõe a porta 8080, conforme especificado no Dockerfile. O atributo **EndpointRef** é definido como "endpointTest", o ponto de extremidade definido no manifesto do serviço na etapa anterior. Assim, as solicitações de entrada para o serviço na porta 8080 são mapeadas para a porta 8080 no contêiner. 
    * A marca **RepositoryCredentials** especifica as credenciais que o contêiner precisa para autenticar com o repositório (privado) onde ele extrai a imagem. Você não precisará dessa política se a imagem for extraída de um repositório público.
     
 
@@ -191,7 +191,7 @@ Agora que você enviou a imagem do Tomcat para um registro de contêiner, você 
      ```bash
      sfctl cluster select --endpoint https://PublicIPorFQDN:19080 -pem your-certificate.pem -no-verify
      ```
-     No comando anterior, substitua `your-certificate.pem` pelo nome do seu arquivo de certificado de cliente. Em ambientes de desenvolvimento e teste, o certificado do cluster geralmente é usado como o certificado do cliente. Se o certificado não tiver assinatura automática, omita o `-no-verify` parâmetro. 
+     No comando anterior, substitua `your-certificate.pem` pelo nome do seu arquivo de certificado de cliente. Em ambientes de desenvolvimento e teste, o certificado do cluster geralmente é usado como o certificado do cliente. Se o certificado não for auto-assinado, omita o parâmetro `-no-verify`. 
        
      Os certificados de cluster normalmente são baixados localmente como arquivos. pfx. Se você ainda não tiver seu certificado no formato PEM, poderá executar o comando a seguir para criar um arquivo. pem a partir de um arquivo. pfx:
 
@@ -199,7 +199,7 @@ Agora que você enviou a imagem do Tomcat para um registro de contêiner, você 
      openssl pkcs12 -in your-certificate.pfx -out your-certificate.pem -nodes -passin pass:your-pfx-password
      ```
 
-     Se o arquivo. pfx não for protegido por senha, `-passin pass:` use para o último parâmetro.
+     Se o arquivo. pfx não for protegido por senha, use `-passin pass:` para o último parâmetro.
 
 
 13. Execute o script de instalação fornecido no modelo para implantar o aplicativo em seu cluster. O script copia o pacote de aplicativos para o repositório de imagens do cluster, registra o tipo de aplicativo e cria uma instância do aplicativo.
@@ -211,7 +211,7 @@ Agora que você enviou a imagem do Tomcat para um registro de contêiner, você 
    Depois de executar o script de instalação, abra um navegador e navegue até Service Fabric Explorer:
     
    * Em um cluster local, use `http://localhost:19080/Explorer` (substitua *localhost* pelo IP privado da VM se estiver usando Vagrant em Mac os X).
-   * Em um cluster seguro do Azure, `https://PublicIPorFQDN:19080/Explorer`use. 
+   * Em um cluster seguro do Azure, use `https://PublicIPorFQDN:19080/Explorer`. 
     
    Expanda o nó **aplicativos** e observe que agora há uma entrada para o tipo de aplicativo, **ServiceFabricTomcatType**e outro para a primeira instância desse tipo. Pode levar alguns minutos para que o aplicativo seja completamente implantado, portanto, seja paciente.
 
@@ -238,7 +238,7 @@ docker rmi tomcattest
 docker rmi myregistry.azurecr.io/samples/tomcattest
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * Para obter etapas rápidas sobre recursos adicionais de contêiner do Linux, leia [criar seu primeiro aplicativo de contêiner de Service Fabric no Linux](service-fabric-get-started-containers-linux.md).
 * Para obter etapas mais detalhadas sobre contêineres do Linux, leia o tutorial [criar um aplicativo de contêiner do Linux](service-fabric-tutorial-create-container-images.md) .
 * Saiba mais sobre como executar [contentores no Service Fabric](service-fabric-containers-overview.md).

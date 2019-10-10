@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 6916eea26f03d7b9cd0b3792fa65354619f97f74
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.author: atsenthi
+ms.openlocfilehash: 6471d3f58fbe0e19910f39e9527f193d00a228be
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828503"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170610"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparar o ambiente de desenvolvimento no Linux
 > [!div class="op_single_selector"]
@@ -178,8 +178,8 @@ O runtime do Service Fabric, que vem incluído com a instalação do SDK, inclui
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implícito de npm | latest |
-RHEL | - | OpenJDK 1.8 | Implícito de npm | latest |
+Ubuntu | 2.0.0 | AzulJDK 1,8 | Implícito de npm | mais recente |
+RHEL | - | OpenJDK 1.8 | Implícito de npm | mais recente |
 
 ## <a name="set-up-a-local-cluster"></a>Configurar um cluster local
 Inicie um cluster local após a conclusão da instalação.
@@ -272,7 +272,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 > 
 > No Ubuntu, é recomendável instalar diretamente a partir do site do Eclipse, em vez de utilizar um instalador de pacote (`apt` ou `apt-get`). Se o fizer, assegura que obtém a versão mais recente do Eclipse. Pode instalar o Eclipse IDE para Programadores de Java ou para Programadores de Java EE.
 
-1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Você pode atualizar a criação usando as instruções na [criação do eclipse: Plug-ins do Eclipse para][buildship-update]gradle.
+1. No Eclipse, certifique-se de que tem instalado o Eclipse Neon ou posterior e a versão 2.2.1 do Buildship ou posterior. Verifique as versões dos componentes instalados ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Você pode atualizar a criação usando as instruções em [criação do eclipse: plug-ins do Eclipse para gradle][buildship-update].
 
 2. Para instalar o plug-in do Service Fabric, selecione **Ajuda** > **Instalar Novo Software**.
 
@@ -286,7 +286,7 @@ Pode instalar o plug-in do Eclipse para o Service Fabric a partir do IDE do Ecli
 
 6. Execute os passos de instalação. Em seguida, aceite o contrato de licença do utilizador final.
 
-Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Em seguida, procure o Service Fabric na lista de plug-ins instalados. Selecione **Atualizar** se estiver disponível uma versão mais recente.
+Se já tiver o plug-in do Service Fabric para o Eclipse instalado, confirme que tem a versão mais recente. Verifique ao selecionar **Ajuda** > **Acerca do Eclipse** > **Detalhes da Instalação**. Em seguida, pesquise Service Fabric na lista de plug-ins instalados. Selecione **Atualizar** se uma versão mais recente estiver disponível.
 
 Para obter mais informações, veja [Plug-in do Service Fabric para desenvolvimento de aplicações Java de Eclipse](service-fabric-get-started-eclipse.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar uma imagem remota-REST, Python'
+title: 'Início rápido: Analisar uma imagem remota – REST, Python'
 titleSuffix: Azure Cognitive Services
 description: Neste início rápido, vai analisar uma imagem remota através da API de Imagem Digitalizada com Python.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 8a44853fe6e013350cc542daf423e68a378c0a2d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 065fdd2e95e4ae90a7da7798dd38fdc06b1b32f5
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137656"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177143"
 ---
-# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Início rápido: Analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional e o Python
+# <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-python"></a>Início rápido: analisar uma imagem remota usando a API REST do Pesquisa Visual Computacional e o Python
 
 Neste guia de início rápido, vai analisar uma imagem armazenada remotamente para extrair caraterísticas visuais com a API REST de Imagem Digitalizada. Com o método [Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) (Analisar Imagem), pode extrair caraterísticas visuais com base no conteúdo da imagem.
 
@@ -31,9 +31,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Tem de ter o [Python](https://www.python.org/downloads/) instalado se quiser executar o exemplo localmente.
-- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de `COMPUTER_VISION_SUBSCRIPTION_KEY` caracteres do ponto de extremidade de serviço, denominada e `COMPUTER_VISION_ENDPOINT`, respectivamente.
+- Tem de ter uma chave de subscrição da Imagem Digitalizada. Você pode obter uma chave de avaliação gratuita de [experimentar serviços cognitivas](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Ou siga as instruções em [criar uma conta de serviços cognitivas](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para assinar pesquisa Visual computacional e obter sua chave. Em seguida, [crie variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave e a cadeia de caracteres de ponto de extremidade de serviço, denominada `COMPUTER_VISION_SUBSCRIPTION_KEY` e `COMPUTER_VISION_ENDPOINT`, respectivamente.
 - Você deve ter os seguintes pacotes do Python instalados. Você pode usar o [Pip](https://packaging.python.org/tutorials/installing-packages/) para instalar pacotes do Python.
-    - pedidos
+    - Pedido
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 
@@ -66,7 +66,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v2.0/analyze"
+analyze_url = endpoint + "vision/v2.1/analyze"
 
 # Set image_url to the URL of an image that you want to analyze.
 image_url = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/" + \
@@ -95,7 +95,7 @@ plt.show()
 
 ## <a name="examine-the-response"></a>Examinar a resposta
 
-O JSON devolve uma resposta de êxito. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
+Uma resposta bem-sucedida é devolvida no JSON. A página Web de exemplo analisa e apresenta uma resposta de êxito na janela da linha de comandos, semelhante ao seguinte exemplo:
 
 ```json
 {

@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: aahi
-ms.openlocfilehash: e2149c7db20939a739380dc2df0e21b6a62ed916
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 9fc05ab42c75bac1f8e192dd4fe20bb142881479
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955362"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176897"
 ---
 # <a name="how-to-page-through-results-from-the-bing-search-apis"></a>Como paginar os resultados da APIs de Pesquisa do Bing
 
@@ -73,7 +73,7 @@ Host: api.cognitive.microsoft.com
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Quais são as APIs de Pesquisa na Web do Bing?](bing-api-comparison.md)
-* [Referência da API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-referenc)
+* [Referência da API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
 * [Referência do API de Pesquisa Personalizada do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
 * [Referência do API de Pesquisa de Notícias do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
 * [Referência do API de Pesquisa de Vídeo do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference)
