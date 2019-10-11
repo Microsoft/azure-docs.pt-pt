@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4e07274f7abf87360c054edd3fe0ade1c09907a7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: eeaa709b88ca795d906fe3688301b4cd7d8c726e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178595"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244120"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Configurar o MACsec em portas diretas do ExpressRoute
 
@@ -130,6 +130,9 @@ Set-AzExpressRoutePort -ExpressRoutePort $erDirect
 ```
 
 Neste ponto, o MACsec está desabilitado nas portas diretas do ExpressRoute no lado da Microsoft.
+
+### <a name="test-connectivity"></a>Testar conectividade
+Depois de configurar o MACsec (incluindo a atualização de chave do MACsec) nas portas do ExpressRoute Direct, [Verifique](expressroute-troubleshooting-expressroute-overview.md) se as sessões BGP dos circuitos estão ativas e em execução. Se você ainda não tiver nenhum circuito nas portas, crie um primeiro e configure o emparelhamento privado do Azure ou o emparelhamento da Microsoft do circuito. Se MACsec estiver configurado incorretamente, incluindo incompatibilidade de chave MACsec, entre os dispositivos de rede e os dispositivos de rede da Microsoft, você não verá a resolução ARP na camada 2 e no estabelecimento de BGP na camada 3. Se tudo estiver configurado corretamente, você deverá ver as rotas BGP anunciadas corretamente em ambas as direções e o fluxo de dados do aplicativo de acordo com o ExpressRoute.
 
 ## <a name="next-steps"></a>Passos seguintes
 1. [Criar um circuito do ExpressRoute no ExpressRoute Direct](expressroute-howto-erdirect.md)

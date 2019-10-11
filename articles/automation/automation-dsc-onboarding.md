@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: c05ac7a1894fc3e159ef8fc2b3dd2654714faccf
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965190"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243423"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Máquinas de integração para gerenciamento pela configuração de estado da automação do Azure
 
@@ -56,14 +56,14 @@ Selecione uma máquina virtual do Azure para carregar.
 
 Se o computador não tiver a extensão de estado desejado do PowerShell instalada e o estado de energia estiver em execução, clique em **conectar**.
 
-Em **registro**, insira os [valores de Configuration Manager local do DSC do PowerShell](/powershell/dsc/managing-nodes/metaconfig) necessários para seu caso de uso e, opcionalmente, uma configuração de nó para atribuir à VM.
+Em **registro**, insira os [valores de Configuration Manager local do DSC do PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig) necessários para seu caso de uso e, opcionalmente, uma configuração de nó para atribuir à VM.
 
-![Integração](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
+![integração](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
 ### <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 
 As máquinas virtuais do Azure podem ser implantadas e integradas à configuração de estado da automação do Azure por meio de modelos de Azure Resource Manager. Consulte [servidor gerenciado pelo serviço de configuração de estado desejado](https://azure.microsoft.com/resources/templates/101-automation-configuration/) para obter um modelo de exemplo que integra uma VM existente à configuração de estado de automação do Azure.
-Se você estiver gerenciando um conjunto de dimensionamento de máquinas virtuais, consulte o modelo de exemplo configuração de conjunto de dimensionamento de [VM gerenciado pela automação do Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
+Se você estiver gerenciando um conjunto de dimensionamento de máquinas virtuais, consulte o modelo de exemplo [configuração de conjunto de dimensionamento de VM gerenciado pela automação do Azure](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/).
 
 ### <a name="powershell"></a>PowerShell
 
@@ -100,9 +100,9 @@ Os servidores Windows em execução no local ou em outros ambientes de nuvem tam
 Os servidores Linux em execução no local ou em outros ambientes de nuvem também podem ser integrados à configuração de estado da automação do Azure, desde que tenham [acesso de saída ao Azure](automation-dsc-overview.md#network-planning):
 
 1. Verifique se a versão mais recente da [configuração de estado desejado do PowerShell para Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) está instalada nos computadores que você deseja integrar à configuração de estado da automação do Azure.
-1. Se os [padrões de Configuration Manager local do DSC do PowerShell](/powershell/dsc/metaconfig4) corresponderem ao seu caso de uso, e você quiser carregar computadores de forma **que eles sejam** pull e relatem à configuração de estado da automação do Azure:
+1. Se os [padrões de Configuration Manager local do DSC do PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) corresponderem ao seu caso de uso, e você quiser carregar computadores de forma **que eles sejam** pull e relatem à configuração de estado da automação do Azure:
 
-   - Em cada computador Linux para carregar a configuração de estado da automação do Azure `Register.py` , use para carregar usando os padrões de Configuration Manager local do DSC do PowerShell:
+   - Em cada computador Linux para carregar a configuração de estado da automação do Azure, use `Register.py` para carregar usando os padrões de Configuration Manager local do DSC do PowerShell:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
@@ -110,7 +110,7 @@ Os servidores Linux em execução no local ou em outros ambientes de nuvem tamb�
 
      Se os padrões de Configuration Manager local do DSC do PowerShell **não** corresponderem ao seu caso de uso ou se você quiser carregar computadores de forma que eles reportem para a configuração de estado da automação do Azure, siga as etapas 3-6. Caso contrário, vá diretamente para a etapa 6.
 
-1. Siga as instruções na seção gerando metaconfigurações de [**DSC**](#generating-dsc-metaconfigurations) a seguir para gerar uma pasta que contém as metaconfigurações de DSC necessárias.
+1. Siga as instruções na seção [**gerando metaconfigurações de DSC**](#generating-dsc-metaconfigurations) a seguir para gerar uma pasta que contém as metaconfigurações de DSC necessárias.
 1. Aplique remotamente a metaconfiguração do DSC do PowerShell aos computadores que você deseja carregar:
 
     ```powershell
@@ -126,7 +126,7 @@ Os servidores Linux em execução no local ou em outros ambientes de nuvem tamb�
 
 O computador no qual este comando é executado deve ter a versão mais recente do [WMF 5](https://aka.ms/wmf5latest) instalada.
 
-1. Se você não puder aplicar as metaconfigurações do DSC do PowerShell remotamente, copie a metaconfiguração correspondente a esse computador da pasta na etapa 5 para o computador Linux. Em seguida `SetDscLocalConfigurationManager.py` , chame localmente em cada computador Linux que você deseja integrar à configuração de estado da automação do Azure:
+1. Se você não puder aplicar as metaconfigurações do DSC do PowerShell remotamente, copie a metaconfiguração correspondente a esse computador da pasta na etapa 5 para o computador Linux. Em seguida, chame `SetDscLocalConfigurationManager.py` localmente em cada computador Linux que você deseja integrar à configuração de estado da automação do Azure:
 
    `/opt/microsoft/dsc/Scripts/SetDscLocalConfigurationManager.py -configurationmof <path to metaconfiguration file>`
 
@@ -134,7 +134,7 @@ O computador no qual este comando é executado deve ter a versão mais recente d
 
 ## <a name="generating-dsc-metaconfigurations"></a>Gerando metaconfigurações de DSC
 
-Para integrar genericamente qualquer máquina à configuração de estado de automação do Azure, é possível gerar uma metaconfiguração de [DSC](/powershell/dsc/metaconfig) que diz ao agente de DSC para extrair e/ou relatar a configuração de estado da automação do Azure. As metaconfigurações de DSC para a configuração de estado de automação do Azure podem ser geradas usando uma configuração de DSC do PowerShell ou os cmdlets do PowerShell de automação do Azure.
+Para integrar genericamente qualquer máquina à configuração de estado de automação do Azure, é possível gerar uma [metaconfiguração de DSC](/powershell/scripting/dsc/managing-nodes/metaConfig) que diz ao agente de DSC para extrair e/ou relatar a configuração de estado da automação do Azure. As metaconfigurações de DSC para a configuração de estado de automação do Azure podem ser geradas usando uma configuração de DSC do PowerShell ou os cmdlets do PowerShell de automação do Azure.
 
 > [!NOTE]
 > Metaconfigurações de DSC contêm os segredos necessários para carregar um computador em uma conta de automação para gerenciamento. Certifique-se de proteger corretamente todas as metaconfigurações de DSC que você criar ou excluí-las após o uso.
@@ -270,7 +270,7 @@ Para integrar genericamente qualquer máquina à configuração de estado de aut
 Se os padrões de Configuration Manager local do DSC do PowerShell corresponderem ao seu caso de uso e você quiser integrar computadores de forma que eles sejam fornecidos e relatem à configuração de estado da automação do Azure, os cmdlets de automação do Azure fornecerão um método simplificado de geração as metaconfigurações de DSC são necessárias:
 
 1. Abra o console do PowerShell ou VSCode como administrador em um computador em seu ambiente local.
-2. Conectar-se a Azure Resource Manager usando`Connect-AzAccount`
+2. Conectar-se a Azure Resource Manager usando `Connect-AzAccount`
 3. Baixe as metaconfigurações de DSC do PowerShell para os computadores que você deseja integrar da conta de automação para a qual você deseja carregar nós:
 
    ```powershell
@@ -319,14 +319,14 @@ Para solucionar problemas ou exibir o status da extensão de configuração de e
 Depois de registrar um computador como um nó DSC na configuração de estado da automação do Azure, há várias razões pelas quais talvez seja necessário registrar novamente esse nó no futuro:
 
 - Para versões do Windows Server anteriores ao Windows Server 2019, cada nó negocia automaticamente um certificado exclusivo para autenticação que expira após um ano. Atualmente, o protocolo de registro DSC do PowerShell não pode renovar automaticamente os certificados quando eles estão se aproximando da expiração, portanto, você precisa registrar novamente os nós após o horário de um ano. Antes de registrar novamente, verifique se cada nó está executando o Windows Management Framework 5,0 RTM. Se o certificado de autenticação de um nó expirar e o nó não for registrado novamente, o nó não poderá se comunicar com a automação do Azure e será marcado como ' sem resposta '. O novo registro realizado em 90 dias ou menos do tempo de expiração do certificado, ou a qualquer momento após o tempo de expiração do certificado, resultará em uma nova geração e uso do certificado.  Uma resolução para esse problema está incluída no Windows Server 2019 e posterior.
-- Para alterar os [valores de Configuration Manager locais do DSC do PowerShell](/powershell/dsc/metaconfig4) que foram definidos durante o registro inicial do nó, como ConfigurationMode. Atualmente, esses valores do agente DSC só podem ser alterados por meio de um novo registro. A única exceção é a configuração de nó atribuída ao nó--isso pode ser alterado no Azure DSC de Automação diretamente.
+- Para alterar os [valores de Configuration Manager locais do DSC do PowerShell](/powershell/scripting/dsc/managing-nodes/metaConfig4) que foram definidos durante o registro inicial do nó, como ConfigurationMode. Atualmente, esses valores do agente DSC só podem ser alterados por meio de um novo registro. A única exceção é a configuração de nó atribuída ao nó--isso pode ser alterado no Azure DSC de Automação diretamente.
 
 O novo registro pode ser executado da mesma maneira que você registrou o nó inicialmente, usando qualquer um dos métodos de integração descritos neste documento. Você não precisa cancelar o registro de um nó da configuração de estado da automação do Azure antes de registrá-lo novamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [introdução à configuração de estado de automação do Azure](automation-dsc-getting-started.md)
 - Para saber mais sobre como compilar configurações DSC para que você possa atribuí-las aos nós de destino, consulte [compilando configurações na configuração de estado da automação do Azure](automation-dsc-compile.md)
-- Para referência de cmdlet do PowerShell, consulte cmdlets de [configuração do estado de automação do Azure](/powershell/module/az.automation#automation)
+- Para referência de cmdlet do PowerShell, consulte [cmdlets de configuração do estado de automação do Azure](/powershell/module/az.automation#automation)
 - Para obter informações sobre preços, consulte [preços de configuração do estado de automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
 - Para ver um exemplo de como usar a configuração de estado de automação do Azure em um pipeline de implantação contínua, consulte [implantação contínua usando configuração de estado de automação do Azure e Chocolatey](automation-dsc-cd-chocolatey.md)

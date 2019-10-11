@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e2781229974ed872d477579d6c738822f910df6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677871"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243519"
 ---
 # <a name="update-management-solution-in-azure"></a>Gerenciamento de Atualizações solução no Azure
 
@@ -59,7 +59,7 @@ Pode criar uma implementação agendada para implementar e instalar atualizaçõ
 
 A implantação agendada define quais computadores de destino recebem as atualizações aplicáveis, especificando explicitamente computadores ou selecionando um [grupo](../azure-monitor/platform/computer-groups.md) de computadores baseado em pesquisas de log de um conjunto específico de computadores ou uma [consulta do Azure](#azure-machines) Isso seleciona dinamicamente as VMs do Azure com base em critérios especificados. Esses grupos são diferentes da [configuração de escopo](../azure-monitor/insights/solution-targeting.md), que é usada apenas para determinar quais computadores obtêm os pacotes de gerenciamento que habilitam a solução.
 
-Você também especifica uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período de tempo é chamado de janela de manutenção. Dez minutos da janela de manutenção será reservado para reinicializações se uma reinicialização for necessária e você tiver selecionado a opção de reinicialização apropriada. Se a aplicação de patch demorar mais do que o esperado e houver menos de dez minutos na janela de manutenção, uma reinicialização não ocorrerá.
+Você também especifica uma agenda para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Esse período de tempo é chamado de janela de manutenção. Vinte minutos da janela de manutenção é reservado para reinicializações se uma reinicialização for necessária e você tiver selecionado a opção de reinicialização apropriada. Se a aplicação de patch demorar mais do que o esperado e houver menos de vinte minutos na janela de manutenção, uma reinicialização não ocorrerá.
 
 As atualizações são instaladas por runbooks na Automatização do Azure. Você não pode exibir esses runbooks e os runbooks não exigem nenhuma configuração. Quando uma implantação de atualização é criada, a implantação de atualização cria uma agenda que inicia um runbook de atualização mestre no momento especificado para os computadores incluídos. O runbook mestre inicia um runbook filho em cada agente para instalar as atualizações necessárias.
 
@@ -69,7 +69,7 @@ Não há suporte para um computador registrado para Gerenciamento de Atualizaç�
 
 ## <a name="clients"></a>Clientes
 
-### <a name="supported-client-types"></a>Tipos de cliente suportados
+### <a name="supported-client-types"></a>Tipos de cliente com suporte
 
 A tabela a seguir mostra uma lista de sistemas operacionais com suporte para avaliações de atualização. A aplicação de patch requer um Hybrid Runbook Worker. Para obter informações sobre requisitos de Hybrid Runbook Worker, consulte os guias de instalação do [Windows HRW](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) e [Linux HRW](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
@@ -85,14 +85,14 @@ A tabela a seguir mostra uma lista de sistemas operacionais com suporte para ava
 > Os conjuntos de dimensionamento de máquinas virtuais do Azure podem ser gerenciados com Gerenciamento de Atualizações. Gerenciamento de Atualizações funciona nas próprias instâncias e não na imagem base. Você precisará agendar as atualizações de forma incremental, como não atualizar todas as instâncias de VM ao mesmo tempo.
 > Nós VMSS podem ser adicionados seguindo as etapas em [carregar um computador não Azure](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
-### <a name="unsupported-client-types"></a>Tipos de cliente não suportada
+### <a name="unsupported-client-types"></a>Tipos de cliente sem suporte
 
-A tabela seguinte lista os sistemas operativos que não são suportados:
+A tabela a seguir lista os sistemas operacionais que não têm suporte:
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Cliente Windows     | Não são suportados sistemas operativos de cliente (por exemplo, o Windows 7 e Windows 10).        |
-|Servidor de Nano do Windows Server 2016     | Não suportado.       |
+|Cliente Windows     | Não há suporte para sistemas operacionais cliente (como o Windows 7 e Windows 10).        |
+|Windows Server 2016 nano Server     | Não suportado.       |
 |Nós do serviço kubernetes do Azure | Não suportado. Use o processo de aplicação de patch detalhado em [aplicar segurança e atualizações de kernel a nós do Linux no serviço kubernetes do Azure (AKs)](../aks/node-updates-kured.md)|
 
 ### <a name="client-requirements"></a>Requisitos do cliente
@@ -173,7 +173,7 @@ Heartbeat
 
 Em um computador com Windows, você pode examinar as seguintes informações para verificar a conectividade do agente com os logs de Azure Monitor:
 
-1. No painel de controle, abra **Microsoft Monitoring Agent**. Na guia **log Analytics do Azure** , o agente exibe a seguinte mensagem: **O Microsoft Monitoring Agent se conectou com êxito ao log Analytics**.
+1. No painel de controle, abra **Microsoft Monitoring Agent**. Na guia **log Analytics do Azure** , o agente exibe a seguinte mensagem: **a Microsoft Monitoring Agent foi conectada com êxito ao log Analytics**.
 2. Abra o log de eventos do Windows. Vá para **aplicativo e serviços Gerenciador de logs** e procure a ID de evento 3000 e a ID de evento 5002 do **conector de serviço**de origem. Esses eventos indicam que o computador foi registrado com o espaço de trabalho Log Analytics e está recebendo a configuração.
 
 Se o agente não puder se comunicar com os logs de Azure Monitor e o agente estiver configurado para se comunicar com a Internet por meio de um servidor proxy ou firewall, confirme se o firewall ou o servidor proxy está configurado corretamente. Para saber como verificar se o firewall ou o servidor proxy está configurado corretamente, consulte [configuração de rede para o agente do Windows](../azure-monitor/platform/agent-windows.md) ou [configuração de rede para o agente do Linux](../log-analytics/log-analytics-agent-linux.md).
@@ -192,13 +192,13 @@ Para confirmar que um grupo de gerenciamento de Operations Manager está se comu
 
 ### <a name="supported-agents"></a>Agentes suportados
 
-A tabela seguinte descreve as origens ligadas que são suportadas por esta solução:
+A tabela a seguir descreve as fontes conectadas que têm suporte nesta solução:
 
 | Origem ligada | Suportadas | Descrição |
 | --- | --- | --- |
 | Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e, em seguida, inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições com suporte. |
-| Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são reencaminhados do grupo de gestão para a área de trabalho do Log Analytics. |
+| Grupo de gestão do Operations Manager |Sim |A solução recolhe informações sobre atualizações do sistema de agentes num grupo de gestão ligado.<br/>Não é necessária uma conexão direta do agente de Operations Manager para os logs do Azure Monitor. Os dados são encaminhados do grupo de gerenciamento para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -235,15 +235,15 @@ As máquinas virtuais que foram criadas a partir das imagens de Red Hat Enterpri
 
 Para criar uma nova implantação de atualização, selecione **agendar implantação de atualização**. A página **nova implantação de atualizações** é aberta. Insira valores para as propriedades descritas na tabela a seguir e clique em **criar**:
 
-| Propriedade | Description |
+| Propriedade | Descrição |
 | --- | --- |
-| Name |O nome exclusivo para identificar a implementação de atualizações. |
-|Sistema operativo| Linux ou Windows|
+| Nome |O nome exclusivo para identificar a implementação de atualizações. |
+|Sistema Operativo| Linux ou Windows|
 | Grupos a serem atualizados |Para computadores do Azure, defina uma consulta com base em uma combinação de assinatura, grupos de recursos, locais e marcas para criar um grupo dinâmico de VMs do Azure para incluir em sua implantação. </br></br>Para computadores não Azure, selecione uma pesquisa salva existente para selecionar um grupo de computadores não Azure a serem incluídos na implantação. </br></br>Para saber mais, confira [grupos dinâmicos](automation-update-management.md#using-dynamic-groups)|
 | Computadores para atualizar |Selecione uma pesquisa salva, um grupo importado ou escolha a máquina na lista suspensa e selecione computadores individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para saber mais sobre os diferentes métodos de criação de grupos de computadores em logs de Azure Monitor, consulte [grupos de computadores em logs de Azure monitor](../azure-monitor/platform/computer-groups.md) |
-|Classificações de atualizações|Selecione todas as classificações de atualização de que você precisa|
+|Classificações de atualização|Selecione todas as classificações de atualização de que você precisa|
 |Incluir/excluir atualizações|Isso abre a página **incluir/excluir** . As atualizações a serem incluídas ou excluídas estão em separadores diferentes. Para obter mais informações sobre como a inclusão é tratada, consulte [comportamento de inclusão](automation-update-management.md#inclusion-behavior) |
-|Definições da agenda|Selecione a hora para iniciar e selecione uma vez ou recorrente para a recorrência|
+|Configurações de agendamento|Selecione a hora para iniciar e selecione uma vez ou recorrente para a recorrência|
 | Pré-scripts + pós-scripts|Selecione os scripts a serem executados antes e depois da implantação|
 | Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos e não mais do que 6 horas |
 | Controle de reinicialização| Determina como as reinicializações devem ser tratadas. As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
@@ -264,8 +264,8 @@ As janelas de manutenção controlam a quantidade de tempo permitida para a inst
 
 ### <a name="multi-tenant"></a>Implantações de atualização entre locatários
 
-Se você tiver computadores em outro relatório de locatário do Azure para Gerenciamento de Atualizações que você precisa aplicar patch, você precisará usar a solução alternativa a seguir para obtê-los agendados. Você pode usar o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) com a opção `-ForUpdate` para criar um agendamento e usar o [cmdlet New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) e passar os computadores no outro locatário para o `-NonAzureComputer` parâmetro. O exemplo a seguir mostra um exemplo de como fazer isso:
+Se você tiver computadores em outro relatório de locatário do Azure para Gerenciamento de Atualizações que você precisa aplicar patch, você precisará usar a solução alternativa a seguir para obtê-los agendados. Você pode usar o cmdlet [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) com a opção `-ForUpdate` para criar um agendamento e usar o cmdlet [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) e passar os computadores no outro locatário para o parâmetro `-NonAzureComputer`. O exemplo a seguir mostra um exemplo de como fazer isso:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -283,13 +283,13 @@ Selecione **atualizações ausentes** para exibir a lista de atualizações ause
 
 ## <a name="view-update-deployments"></a>Exibir implantações de atualização
 
-Selecione a guia implantações de **atualização** para exibir a lista de implantações de atualização existentes. Selecione qualquer uma das implantações de atualização na tabela para abrir o painel **Atualizar execução de implantação** para essa implantação de atualização. Os logs de trabalho são armazenados por um máximo de 30 dias.
+Selecione a guia **implantações de atualização** para exibir a lista de implantações de atualização existentes. Selecione qualquer uma das implantações de atualização na tabela para abrir o painel **Atualizar execução de implantação** para essa implantação de atualização. Os logs de trabalho são armazenados por um máximo de 30 dias.
 
 ![Visão geral dos resultados da implantação de atualização](./media/automation-update-management/update-deployment-run.png)
 
 Para exibir uma implantação de atualização da API REST, consulte [execuções de configuração de atualização de software](/rest/api/automation/softwareupdateconfigurationruns).
 
-## <a name="update-classifications"></a>Classificações de atualizações
+## <a name="update-classifications"></a>Classificações de atualização
 
 As tabelas a seguir listam as classificações de atualização no Gerenciamento de Atualizações, com uma definição para cada classificação.
 
@@ -302,7 +302,7 @@ As tabelas a seguir listam as classificações de atualização no Gerenciamento
 |Update rollups     | Um conjunto cumulativo de hotfixes que são empacotados em conjunto para facilitar a implantação.        |
 |Pacotes de funcionalidades     | Novos recursos do produto que são distribuídos fora de uma versão do produto.        |
 |Service packs     | Um conjunto cumulativo de hotfixes que são aplicados a um aplicativo.        |
-|Atualizações da definição     | Uma atualização para vírus ou outros arquivos de definição.        |
+|Atualizações de definições     | Uma atualização para vírus ou outros arquivos de definição.        |
 |Ferramentas     | Um utilitário ou recurso que ajuda a concluir uma ou mais tarefas.        |
 |Atualizações     | Uma atualização para um aplicativo ou arquivo que está instalado no momento.        |
 
@@ -339,7 +339,7 @@ $WUSettings.Save()
 
 ### <a name="disable-automatic-installation"></a>Desabilitar instalação automática
 
-As VMs do Azure têm a instalação automática de atualizações habilitadas por padrão. Isso pode fazer com que as atualizações sejam instaladas antes de você agendá-las para serem instaladas pelo Gerenciamento de Atualizações. Você pode desabilitar esse comportamento definindo a `NoAutoUpdate` chave do registro como. `1` O trecho do PowerShell a seguir mostra uma maneira de fazer isso.
+As VMs do Azure têm a instalação automática de atualizações habilitadas por padrão. Isso pode fazer com que as atualizações sejam instaladas antes de você agendá-las para serem instaladas pelo Gerenciamento de Atualizações. Você pode desabilitar esse comportamento definindo a chave do registro `NoAutoUpdate` como `1`. O trecho do PowerShell a seguir mostra uma maneira de fazer isso.
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -368,10 +368,10 @@ Os endereços a seguir são necessários especificamente para Gerenciamento de A
 
 |Público do Azure  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*. azure-automation.us|
 
 Para computadores Windows, você também deve permitir o tráfego para qualquer ponto de extremidade exigido pelo Windows Update.  Você pode encontrar uma lista atualizada de pontos de extremidade necessários em [problemas relacionados ao http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Se você tiver um [servidor de Windows Update](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)local, também deverá permitir o tráfego para o servidor especificado em sua [chave do WSUS](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -383,20 +383,20 @@ Para obter mais informações sobre as portas que o Hybrid Runbook Worker requer
 
 Siga as instruções em [conectar computadores sem acesso à Internet](../azure-monitor/platform/gateway.md) para configurar computadores que não têm acesso à Internet.
 
-## <a name="search-logs"></a>Pesquisar registos
+## <a name="search-logs"></a>Pesquisar logs
 
 Além dos detalhes que são fornecidos no portal do Azure, você pode fazer pesquisas nos logs. Nas páginas da solução, selecione **log Analytics**. O painel **pesquisa de logs** é aberto.
 
-Você também pode aprender como personalizar as consultas ou usá-las de diferentes clientes e muito mais visitando:  [Documentação](
-https://dev.loganalytics.io/)da API de pesquisa do log Analytics.
+Você também pode aprender como personalizar as consultas ou usá-las de diferentes clientes e muito mais visitando: [log Analytics a documentação da API de pesquisa](
+https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Amostras de consultas
+### <a name="sample-queries"></a>Exemplos de consultas
 
 As seções a seguir fornecem exemplos de consultas de log para registros de atualização que são coletados por essa solução:
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Consultas únicas de avaliação de VM do Azure (Windows)
 
-Substitua o valor VMUUID pelo GUID da VM da máquina virtual que você está consultando. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta nos logs de Azure Monitor:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Substitua o valor VMUUID pelo GUID da VM da máquina virtual que você está consultando. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta em logs de Azure Monitor: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Resumo de atualizações ausentes
 
@@ -425,7 +425,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Consultas únicas de avaliação de VM do Azure (Linux)
 
-Para alguns distribuições do Linux, há uma incompatibilidade de [endian](https://en.wikipedia.org/wiki/Endianness) com o valor de VMUUID que vem de Azure Resource Manager e o que é armazenado em logs de Azure monitor. A consulta a seguir verifica uma correspondência em qualquer endian. Substitua os valores de VMUUID pelo formato big-endian e little-endian do GUID para retornar os resultados corretamente. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta nos logs de Azure Monitor:`Update | where Computer == "<machine name>"
+Para alguns distribuições do Linux, há uma incompatibilidade de [endian](https://en.wikipedia.org/wiki/Endianness) com o valor de VMUUID que vem de Azure Resource Manager e o que é armazenado em logs de Azure monitor. A consulta a seguir verifica uma correspondência em qualquer endian. Substitua os valores de VMUUID pelo formato big-endian e little-endian do GUID para retornar os resultados corretamente. Você pode encontrar o VMUUID que deve ser usado executando a seguinte consulta em logs de Azure Monitor: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Resumo de atualizações ausentes
@@ -608,10 +608,10 @@ Gerenciamento de Atualizações fornece a capacidade de direcionar um grupo din�
 
 Esses grupos são definidos por uma consulta, quando uma implantação de atualização é iniciada, os membros desse grupo são avaliados. Grupos dinâmicos não funcionam com VMs clássicas. Ao definir sua consulta, os itens a seguir podem ser usados juntos para preencher o grupo dinâmico
 
-* Subscription
+* Subscrição
 * Grupos de recursos
 * Localizações
-* Tags
+* Etiquetas
 
 ![Selecionar grupos](./media/automation-update-management/select-groups.png)
 
@@ -635,7 +635,7 @@ Para saber como integrar a solução de gerenciamento com o System Center Config
 
 A inclusão de atualização permite que você especifique atualizações específicas a serem aplicadas. Os patches ou pacotes incluídos são instalados. Quando patches ou pacotes são incluídos e uma classificação é selecionada também, os itens e itens incluídos que atendem à classificação são instalados.
 
-É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão `*`de, nenhum patch ou pacote será instalado, pois todos eles serão excluídos. Os patches excluídos ainda aparecem como ausentes no computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente que foi excluído, o pacote não será instalado.
+É importante saber que as exclusões substituem as inclusões. Por exemplo, se você definir uma regra de exclusão de `*`, nenhum patch ou pacote será instalado, pois todos eles serão excluídos. Os patches excluídos ainda aparecem como ausentes no computador. Para computadores Linux, se um pacote estiver incluído, mas tiver um pacote dependente que foi excluído, o pacote não será instalado.
 
 ## <a name="patch-linux-machines"></a>Corrigir computadores Linux
 
@@ -665,7 +665,7 @@ A implantação de atualizações por classificação de atualização não func
 
 Para remover uma VM do Gerenciamento de Atualizações:
 
-* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração `MicrosoftDefaultScopeConfig-Updates`de escopo. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
 * Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes

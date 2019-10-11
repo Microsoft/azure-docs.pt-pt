@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327675"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249357"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
-[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Como os arquivos do Azure são totalmente gerenciados, implantá-los em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de arquivos do Azure para uso em produção em sua organização.
+Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB padrão do setor. Como os arquivos do Azure são totalmente gerenciados, implantá-los em cenários de produção é muito mais fácil do que implantar e gerenciar um servidor de arquivos ou um dispositivo NAS. Este artigo aborda os tópicos a serem considerados ao implantar um compartilhamento de arquivos do Azure para uso em produção em sua organização.
 
 ## <a name="management-concepts"></a>Conceitos de gerenciamento
 
@@ -24,15 +24,15 @@ ms.locfileid: "71327675"
 
 ![Estrutura de Ficheiros](./media/storage-files-introduction/files-concepts.png)
 
-* **Conta de armazenamento**: Todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
+* **Conta de Armazenamento**: todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
 
-* **Compartilhamento**: Um compartilhamento de armazenamento de arquivos é um compartilhamento de arquivos SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total do compartilhamento de arquivos. Para compartilhamentos de arquivos padrão, a capacidade total é de até 5 TiB (GA) ou 100 TiB (versão prévia), para compartilhamentos de arquivos premium, a capacidade total é de até 100 TiB.
+* **Partilha:** uma partilha do Armazenamento de Ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total do compartilhamento de arquivos. Para compartilhamentos de arquivos padrão, a capacidade total é de até 5 TiB (GA) ou 100 TiB (versão prévia), para compartilhamentos de arquivos premium, a capacidade total é de até 100 TiB.
 
-* **Diretório**: Uma hierarquia opcional de diretórios.
+* **Diretório**: uma hierarquia opcional de diretórios.
 
-* **Arquivo**: Um arquivo no compartilhamento. Um arquivo pode ter até 1 TiB de tamanho.
+* **Ficheiro**: um ficheiro na partilha. Um arquivo pode ter até 1 TiB de tamanho.
 
-* **Formato da URL**: Para solicitações a um compartilhamento de arquivos do Azure feitas com o protocolo REST de arquivo, os arquivos são endereçáveis usando o seguinte formato de URL:
+* **Formato de URL**: para solicitações a um compartilhamento de arquivos do Azure feito com o protocolo REST de arquivo, os arquivos são endereçáveis usando o seguinte formato de URL:
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
@@ -42,26 +42,26 @@ ms.locfileid: "71327675"
 
 Os arquivos do Azure oferecem dois métodos de acesso a dados internos e convenientes que você pode usar separadamente, ou em combinação entre si, para acessar seus dados:
 
-1. **Acesso direto à nuvem**: Qualquer compartilhamento de arquivos do Azure pode ser montado pelo [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)e/ou [Linux](storage-how-to-use-files-linux.md) com o protocolo SMB padrão do setor ou por meio da API REST do arquivo. Com o SMB, leituras e gravações em arquivos no compartilhamento são feitas diretamente no compartilhamento de arquivos no Azure. Para montar por uma VM no Azure, o cliente SMB no sistema operacional deve dar suporte a pelo menos SMB 2,1. Para montar localmente, como na estação de trabalho de um usuário, o cliente SMB com suporte da estação de trabalho deve dar suporte a pelo menos SMB 3,0 (com criptografia). Além do SMB, novos aplicativos ou serviços podem acessar diretamente o compartilhamento de arquivos por meio de REST de arquivo, que fornece uma interface de programação de aplicativo fácil e escalonável para desenvolvimento de software.
-2. **Sincronização de arquivos do Azure**: Com o Sincronização de Arquivos do Azure, os compartilhamentos podem ser replicados para servidores Windows locais ou no Azure. Os usuários acessarão o compartilhamento de arquivos por meio do Windows Server, por exemplo, por meio de um compartilhamento SMB ou NFS. Isso é útil para cenários em que os dados serão acessados e modificados longe de um datacenter do Azure, como em um cenário de filial. Os dados podem ser replicados entre vários pontos de extremidade do Windows Server, como entre várias filiais. Por fim, os dados podem estar em camadas para os arquivos do Azure, de modo que todos os dados ainda sejam acessíveis por meio do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, os dados são rechamados diretamente quando abertos pelo usuário.
+1. **Acesso direto à nuvem**: qualquer compartilhamento de arquivos do Azure pode ser montado pelo [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)e/ou [Linux](storage-how-to-use-files-linux.md) com o protocolo SMB (Server Message Block) padrão do setor ou por meio da API REST do arquivo. Com o SMB, leituras e gravações em arquivos no compartilhamento são feitas diretamente no compartilhamento de arquivos no Azure. Para montar por uma VM no Azure, o cliente SMB no sistema operacional deve dar suporte a pelo menos SMB 2,1. Para montar localmente, como na estação de trabalho de um usuário, o cliente SMB com suporte da estação de trabalho deve dar suporte a pelo menos SMB 3,0 (com criptografia). Além do SMB, novos aplicativos ou serviços podem acessar diretamente o compartilhamento de arquivos por meio de REST de arquivo, que fornece uma interface de programação de aplicativo fácil e escalonável para desenvolvimento de software.
+2. **Sincronização de arquivos do Azure**: com sincronização de arquivos do Azure, os compartilhamentos podem ser replicados para servidores Windows locais ou no Azure. Os usuários acessarão o compartilhamento de arquivos por meio do Windows Server, por exemplo, por meio de um compartilhamento SMB ou NFS. Isso é útil para cenários em que os dados serão acessados e modificados longe de um datacenter do Azure, como em um cenário de filial. Os dados podem ser replicados entre vários pontos de extremidade do Windows Server, como entre várias filiais. Por fim, os dados podem estar em camadas para os arquivos do Azure, de modo que todos os dados ainda sejam acessíveis por meio do servidor, mas o servidor não tem uma cópia completa dos dados. Em vez disso, os dados são rechamados diretamente quando abertos pelo usuário.
 
 A tabela a seguir ilustra como os usuários e aplicativos podem acessar o compartilhamento de arquivos do Azure:
 
 | | Acesso direto à nuvem | Azure File Sync |
 |------------------------|------------|-----------------|
 | Quais protocolos você precisa usar? | Os arquivos do Azure dão suporte a SMB 2,1, SMB 3,0 e API REST de arquivo. | Acesse o compartilhamento de arquivos do Azure por meio de qualquer protocolo com suporte no Windows Server (SMB, NFS, FTPS, etc.) |  
-| Onde você está executando sua carga de trabalho? | **No Azure**: Os arquivos do Azure oferecem acesso direto aos seus dados. | **Local com rede lenta**: Os clientes Windows, Linux e macOS podem montar um compartilhamento de arquivos local do Windows como um cache rápido do seu compartilhamento de arquivos do Azure. |
+| Onde você está executando sua carga de trabalho? | **No Azure**: os arquivos do Azure oferecem acesso direto aos seus dados. | **No local com rede lenta**: os clientes Windows, Linux e MacOS podem montar um compartilhamento de arquivos local do Windows como um cache rápido do seu compartilhamento de arquivos do Azure. |
 | De que nível de ACLs você precisa? | Nível de compartilhamento e arquivo. | Compartilhamento, arquivo e nível de usuário. |
 
-## <a name="data-security"></a>Segurança de dados
+## <a name="data-security"></a>Segurança dos dados
 
 Os arquivos do Azure têm várias opções internas para garantir a segurança dos dados:
 
-* Suporte para criptografia em ambos os protocolos por transmissão: Criptografia SMB 3,0 e REST de arquivo por HTTPS. Por padrão: 
+* Suporte para criptografia em ambos os protocolos sobretransmitidos: criptografia SMB 3,0 e REST de arquivo por HTTPS. Por padrão: 
     * Os clientes que dão suporte à criptografia SMB 3,0 enviam e recebem dados por um canal criptografado.
     * Os clientes que não dão suporte a SMB 3,0 com criptografia podem se comunicar dentro do datacenter sobre SMB 2,1 ou SMB 3,0 sem criptografia. Os clientes SMB não têm permissão para comunicar entre datacenters via SMB 2,1 ou SMB 3,0 sem criptografia.
     * Os clientes podem se comunicar sobre o REST de arquivo com HTTP ou HTTPS.
-* Criptografia em repouso ([Azure criptografia do serviço de armazenamento](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): O Criptografia do Serviço de Armazenamento (SSE) está habilitado para todas as contas de armazenamento. Os dados em repouso são criptografados com chaves totalmente gerenciadas. A criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
+* Criptografia em repouso ([Azure criptografia do serviço de armazenamento](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): criptografia do serviço de armazenamento (SSE) está habilitada para todas as contas de armazenamento. Os dados em repouso são criptografados com chaves totalmente gerenciadas. A criptografia em repouso não aumenta os custos de armazenamento nem reduz o desempenho. 
 * Requisito opcional de dados criptografados em trânsito: quando selecionado, os arquivos do Azure rejeitam o acesso aos dados por canais não criptografados. Especificamente, somente HTTPS e SMB 3,0 com conexões de criptografia são permitidos.
 
     > [!Important]  
@@ -90,7 +90,7 @@ Os compartilhamentos de arquivos Premium são apoiados por SSDs (unidades de est
 
 O backup do Azure está disponível para compartilhamentos de arquivos Premium e o serviço kubernetes do Azure dá suporte a compartilhamentos de arquivos Premium na versão 1,13 e superior.
 
-Se você quiser saber como criar um compartilhamento de arquivos premium, consulte nosso artigo sobre o assunto: [Como criar uma conta de armazenamento de arquivos premium do Azure](storage-how-to-create-premium-fileshare.md).
+Se você quiser saber como criar um compartilhamento de arquivos premium, consulte nosso artigo sobre o assunto: [como criar uma conta de armazenamento de arquivos premium do Azure](storage-how-to-create-premium-fileshare.md).
 
 No momento, não é possível converter diretamente entre um compartilhamento de arquivos padrão e um compartilhamento de arquivos premium. Se desejar alternar para qualquer camada, você deverá criar um novo compartilhamento de arquivos nessa camada e copiar manualmente os dados do compartilhamento original para o novo compartilhamento que você criou. Você pode fazer isso usando qualquer uma das ferramentas de cópia com suporte do Azure files, como Robocopy ou AzCopy.
 
@@ -126,12 +126,12 @@ A tabela a seguir ilustra alguns exemplos dessas fórmulas para os tamanhos de c
 |---------|---------|---------|---------|---------|
 |100         | 100     | Até 300     | 66   | 44   |
 |500         | 500     | Até 1.500   | 90   | 60   |
-|1,024       | 1,024   | Até 3.072   | 122   | 81   |
+|1\.024       | 1\.024   | Até 3.072   | 122   | 81   |
 |5\.120       | 5\.120   | Até 15.360  | 368   | 245   |
 |10.240      | 10.240  | Até 30.720  | 675 | 450   |
 |33.792      | 33.792  | Até 100.000 | 2\.088 | 1\.392   |
 |51.200      | 51.200  | Até 100.000 | 3\.132 | 2\.088   |
-|102.400     | 100,000 | Até 100.000 | 6\.204 | 4\.136   |
+|102.400     | 100.000 | Até 100.000 | 6\.204 | 4\.136   |
 
 > [!NOTE]
 > O desempenho dos compartilhamentos de arquivos está sujeito aos limites de rede da máquina, largura de banda de rede disponível, tamanhos de e/s, paralelismo, entre muitos outros fatores. Para obter a escala de desempenho máxima, distribua a carga entre várias VMs. Consulte o [Guia de solução de problemas](storage-troubleshooting-files-performance.md) para alguns problemas comuns de desempenho e soluções alternativas.
@@ -184,7 +184,7 @@ O GRS Replica seus dados para outro data center em uma região secundária, mas 
 
 Para uma conta de armazenamento com GRS habilitado, todos os dados são replicados primeiro com LRS (armazenamento com redundância local). Uma atualização é confirmada primeiro no local principal e replicada usando LRS. Em seguida, a atualização é replicada assincronamente para a região secundária usando GRS. Quando os dados são gravados no local secundário, eles também são replicados nesse local usando LRS.
 
-As regiões primária e secundária gerenciam réplicas em domínios de falha e domínios de atualização separados em uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica no datacenter. A replicação nesse nível é fornecida por LRS; para obter mais informações, [consulte LRS (armazenamento com redundância local): Redundância de dados de baixo custo para o armazenamento](../common/storage-redundancy-lrs.md)do Azure.
+As regiões primária e secundária gerenciam réplicas em domínios de falha e domínios de atualização separados em uma unidade de escala de armazenamento. A unidade de escala de armazenamento é a unidade de replicação básica no datacenter. A replicação nesse nível é fornecida por LRS; para obter mais informações, consulte [LRS (armazenamento com redundância local): redundância de dados de baixo custo para o armazenamento do Azure](../common/storage-redundancy-lrs.md).
 
 Tenha esses pontos em mente ao decidir qual opção de replicação usar:
 
@@ -211,19 +211,19 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal * |
 |-------|---------|---------|---------|
 |Leste da Austrália |LRS     |Não    |Sim|
-|Sudeste da Austrália|LRS     |Não    |Ainda não|
-|Índia Central  |LRS     |Não    |Ainda não|
-|Ásia Oriental      |LRS     |Não    |Ainda não|
-|East US        |LRS     |Não    |Ainda não|
-|França Central |LRS, ZRS|Não    |LRS-Sim, ZRS-ainda não|
-|Sul de França   |LRS     |Não    |Sim|
+|Sudeste da Austrália|LRS |Não    |Sim|
+|Centro da Índia  |LRS     |Não    |Sim|
+|Este Asiático      |LRS     |Não    |Sim|
+|Este dos E.U.A.        |LRS     |Não    |Sim|
+|França Central |LRS, ZRS|Não    |Sim|
+|Sul da França   |LRS     |Não    |Sim|
 |Europa do Norte   |LRS     |Não    |Ainda não|
-|Sul da Índia    |LRS     |Não    |Ainda não|
+|Sul da Índia    |LRS     |Não    |Sim|
 |Sudeste Asiático |LRS, ZRS|Não    |Sim|
-|EUA Centro-Oeste|LRS     |Não    |Ainda não|
+|E.U.A. Centro-Oeste|LRS     |Não    |Sim|
 |Europa Ocidental    |LRS, ZRS|Não    |Sim|
-|EUA Oeste        |LRS     |Não    |Ainda não|
-|EUA Oeste 2      |LRS, ZRS|Não    |Sim|
+|Oeste dos E.U.A.        |LRS     |Não    |Sim|
+|E.U.A. Oeste 2      |LRS, ZRS|Não    |Sim|
 
 
 \* Para regiões sem suporte ao portal, você ainda pode usar o PowerShell ou a CLI (interface de linha de comando) do Azure para criar mais de 5 compartilhamentos TiB. Como alternativa, crie um novo compartilhamento por meio do portal sem especificar a cota. Isso criará um compartilhamento com o tamanho padrão de 100 TiB, que pode ser atualizado posteriormente por meio do PowerShell ou CLI do Azure.
@@ -271,10 +271,10 @@ Hoje, o tamanho máximo de um compartilhamento de arquivos do Azure é 5 TiB (10
 
 Há muitas opções fáceis para transferir dados em massa de um compartilhamento de arquivos existente, como um compartilhamento de arquivos local, em arquivos do Azure. Alguns daqueles populares incluem (lista não exaustiva):
 
-* **Sincronização de arquivos do Azure**: Como parte de uma primeira sincronização entre um compartilhamento de arquivos do Azure (um "ponto de extremidade de nuvem") e um namespace de diretório do Windows (um "ponto de extremidade do servidor"), Sincronização de Arquivos do Azure replicará todos os dados do compartilhamento de arquivos existente para os arquivos do Azure.
-* **[Importação/exportação do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : O serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados em um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. 
+* **Sincronização de arquivos do Azure**: como parte de uma primeira sincronização entre um compartilhamento de arquivos do Azure (um "ponto de extremidade de nuvem") e um namespace de diretório do Windows (um "ponto de extremidade do servidor"), sincronização de arquivos do Azure replicará todos os dados do compartilhamento de arquivos existente para os arquivos do Azure.
+* **[Importação/exportação do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : o serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados para um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy é uma ferramenta de cópia bem conhecida que é fornecida com o Windows e o Windows Server. O Robocopy pode ser usado para transferir dados para arquivos do Azure, montando o compartilhamento de arquivos localmente e, em seguida, usando o local montado como o destino no comando Robocopy.
-* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.
+* **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : o AzCopy é um utilitário de linha de comando projetado para copiar dados de e para arquivos do Azure, bem como o armazenamento de BLOBs do Azure, usando comandos simples com desempenho ideal.
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Planejando uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)

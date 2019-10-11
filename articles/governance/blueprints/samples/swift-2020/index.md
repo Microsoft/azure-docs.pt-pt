@@ -1,17 +1,17 @@
 ---
-title: Exemplos - Esquema SWIFT CSP-CSCF v2020 - Descrição Geral
-description: Descrição geral do exemplo de esquema SWIFT CSP-CSCF v2020.
+title: Exemplo - Esquema SWIFT CSP-CSCF v2020 - Descrição Geral
+description: Descrição geral do exemplo de esquema SWIFT CSP-CSCF v2020. Este exemplo de esquema ajuda os clientes a avaliar controlos SWIFT CSP-CSCF específicos.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 5fa0e9e70ea08928fab3bf67a696a1e493d47999
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 73d89240f31f73ec980b19c75ff31e8702b8c112
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980888"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248799"
 ---
 # <a name="overview-of-the-swift-csp-cscf-v2020-blueprint-sample"></a>Descrição geral do exemplo de esquema SWIFT CSP-CSCF v2020
 

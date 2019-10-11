@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d867cceb3e7261f658e2406617144c9150e36f2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173444"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244556"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Entender as saídas de Azure Stream Analytics
 
@@ -104,7 +104,7 @@ Quando você estiver usando o armazenamento de BLOBs como saída, um novo arquiv
 
 ## <a name="event-hubs"></a>Hubs de Eventos
 
-O serviço de [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é um ingestão de eventos de publicação/assinatura altamente escalonável. Ele pode coletar milhões de eventos por segundo. Um uso de um hub de eventos como saída é quando a saída de um trabalho de Stream Analytics se torna a entrada de outro trabalho de streaming.
+O serviço de [hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é um ingestão de eventos de publicação/assinatura altamente escalonável. Ele pode coletar milhões de eventos por segundo. Um uso de um hub de eventos como saída é quando a saída de um trabalho de Stream Analytics se torna a entrada de outro trabalho de streaming. Para obter informações sobre o tamanho máximo da mensagem e a otimização do tamanho do lote, consulte a seção [tamanho do lote de saída](#output-batch-size) .
 
 Você precisa de alguns parâmetros para configurar os fluxos de dados dos hubs de eventos como uma saída.
 
@@ -119,7 +119,7 @@ Você precisa de alguns parâmetros para configurar os fluxos de dados dos hubs 
 | Formato de serialização de evento | O formato de serialização para dados de saída. Há suporte para JSON, CSV e Avro. |
 | Encoding | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador | Aplicável somente para serialização de CSV. O Stream Analytics dá suporte a vários delimitadores comuns para serializar dados no formato CSV. Os valores com suporte são vírgula, ponto e vírgula, espaço, tabulação e barra vertical. |
-| Formato | Aplicável somente para serialização JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON. Essa matriz é fechada somente quando o trabalho para ou Stream Analytics foi movido para a próxima janela de tempo. Em geral, é preferível usar JSON separado por linha, pois não requer tratamento especial enquanto o arquivo de saída ainda está sendo gravado. Para obter mais informações, consulte a seção [tamanho do lote de saída](#output-batch-size) . |
+| Formato | Aplicável somente para serialização JSON. **Linha separada** especifica que a saída é formatada por ter cada objeto JSON separado por uma nova linha. **Matriz** especifica que a saída é formatada como uma matriz de objetos JSON.  |
 | Colunas de propriedades | Opcional. Colunas separadas por vírgula que precisam ser anexadas como propriedades de usuário da mensagem de saída em vez da carga. Mais informações sobre esse recurso estão na seção [Propriedades de metadados personalizados para saída](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI

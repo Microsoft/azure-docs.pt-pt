@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266425"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249393"
 ---
 # <a name="sql-database-release-notes"></a>Notas de versão do banco de dados SQL
 
@@ -46,8 +46,9 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 
 | Funcionalidade | Detalhes |
 | ---| --- |
+| <a href="/azure/sql-database/sql-database-managed-instance-connectivity-architecture#service-aided-subnet-configuration-public-preview-in-east-us-and-west-us">Configuração de sub-rede auxiliada por serviço</a> | Uma maneira segura e conveniente de gerenciar a configuração de sub-rede. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Pools de instância</a> | Uma maneira conveniente e econômica de migrar instâncias SQL menores para a nuvem. |
-| <a href="https://aka.ms/managed-instance-tde-byok">TDE (Transparent Data Encryption) com Bring Your Own Key (BYOK)</a> |Para obter informações, [consulte Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault: Suporte](transparent-data-encryption-byok-azure-sql.md)a Bring your own Key.|
+| <a href="https://aka.ms/managed-instance-tde-byok">TDE (Transparent Data Encryption) com Bring Your Own Key (BYOK)</a> |Para obter informações, consulte [Azure SQL Transparent Data Encryption com chaves gerenciadas pelo cliente no Azure Key Vault: suporte a Bring your own Key](transparent-data-encryption-byok-azure-sql.md).|
 | <a href="https://aka.ms/managed-instance-aadlogins">Entidades de segurança de nível de instância do Azure AD Server (logons)</a> | Crie logons no nível de servidor usando a instrução <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Create login from external Provider</a> . |
 | [Replicação Transacional](sql-database-managed-instance-transactional-replication.md) | Replique as alterações de suas tabelas em outros bancos de dados colocados em instâncias gerenciadas, bancos de dados individuais ou instâncias de SQL Server, ou atualize suas tabelas quando algumas linhas forem alteradas em outras instâncias gerenciadas ou SQL Server instância. Para obter informações, consulte [Configurar replicação em um banco de dados de instância gerenciada do banco de dados SQL do Azure](replication-with-sql-database-managed-instance.md). |
 | Deteção de ameaças |Para obter informações, consulte [Configurar a detecção de ameaças na instância gerenciada do banco de dados SQL do Azure](sql-database-managed-instance-threat-detection.md).|
@@ -56,7 +57,7 @@ Este artigo lista os recursos do banco de dados SQL que estão atualmente em vis
 
 ---
 
-## <a name="new-features"></a>Novos recursos
+## <a name="new-features"></a>Novas funcionalidades
 
 ### <a name="managed-instance-h2-2019-updates"></a>Atualizações 2019 de instância gerenciada H2
 

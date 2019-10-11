@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174069"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244595"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões de máquina virtual para Windows
 
@@ -35,7 +35,7 @@ Este artigo fornece uma visão geral das extensões de VM, pré-requisitos para 
 Várias extensões de VM do Azure diferentes estão disponíveis, cada uma com um caso de uso específico. Alguns exemplos incluem:
 
 - Aplique as configurações de estado desejado do PowerShell a uma VM com a extensão de DSC para Windows. Para obter mais informações, consulte [extensão de configuração de estado desejado do Azure](dsc-overview.md).
-- Configure o monitoramento de uma VM com a extensão de VM Microsoft Monitoring Agent. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Configure o monitoramento de uma VM com a extensão de VM do agente de Log Analytics. Para obter mais informações, consulte [conectar VMs do Azure a logs de Azure monitor](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Configure uma VM do Azure usando o chefe. Para obter mais informações, consulte [automatizando a implantação de VM do Azure com o chefe](../windows/chef-automation.md).
 - Configure o monitoramento de sua infraestrutura do Azure com a extensão Datadog. Para obter mais informações, consulte o [blog do Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
@@ -65,14 +65,14 @@ Algumas extensões não têm suporte em todos os sistemas operacionais e podem e
 
 #### <a name="network-access"></a>Acesso à rede
 
-Os pacotes de extensão são baixados do repositório de extensões de armazenamento do Azure, e os carregamentos de status de extensão são postados no armazenamento do Azure. Se você usar a versão [com suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, uma vez que o pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente. Se você estiver em uma versão sem suporte do agente, precisará permitir o acesso de saída ao armazenamento do Azure nessa região da VM.
+Os pacotes de extensão são baixados do repositório de extensões de armazenamento do Azure, e os carregamentos de status de extensão são postados no armazenamento do Azure. Se você usar a versão [com suporte](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) dos agentes, não será necessário permitir o acesso ao armazenamento do Azure na região da VM, como pode usar o agente para redirecionar a comunicação para o controlador de malha do Azure para comunicações do agente (recurso HostGAPlugin por meio do canal privilegiado em 168.63.129.16 IP privado). Se você estiver em uma versão sem suporte do agente, precisará permitir o acesso de saída ao armazenamento do Azure nessa região da VM.
 
 > [!IMPORTANT]
-> Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado, as extensões falharão independentemente das anteriores.
+> Se você tiver bloqueado o acesso ao *168.63.129.16* usando o firewall convidado ou com um proxy, as extensões falharão independentemente das anteriores. As portas 80, 443 e 32526 são necessárias.
 
-Os agentes só podem ser usados para baixar pacotes de extensão e status de relatório. Por exemplo, se uma instalação de extensão precisar baixar um script do GitHub (script personalizado) ou precisar de acesso ao armazenamento do Azure (backup do Azure), as portas de grupo de segurança de rede/firewall adicionais precisarão ser abertas. Extensões diferentes têm requisitos diferentes, pois são aplicativos por conta própria. Para extensões que exigem acesso ao armazenamento do Azure, você pode permitir o acesso usando as marcas do serviço NSG do Azure para [armazenamento](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Os agentes só podem ser usados para baixar pacotes de extensão e status de relatório. Por exemplo, se uma instalação de extensão precisar baixar um script do GitHub (script personalizado) ou precisar de acesso ao armazenamento do Azure (backup do Azure), as portas de grupo de segurança de rede/firewall adicionais precisarão ser abertas. Extensões diferentes têm requisitos diferentes, pois são aplicativos por conta própria. Para extensões que exigem acesso ao armazenamento ou Azure Active Directory do Azure, você pode permitir o acesso usando as [marcas do serviço NSG do Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) para armazenamento ou AzureActiveDirectory.
 
-O agente convidado do Windows não tem suporte de servidor proxy para você redirecionar solicitações de tráfego do agente por meio do.
+O agente convidado do Windows não tem suporte de servidor proxy para redirecionar solicitações de tráfego do agente por meio do, o que significa que o agente convidado do Windows dependerá do seu proxy personalizado (se você tiver um) para acessar recursos na Internet ou no host por meio de IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Descobrir extensões de VM
 
@@ -137,7 +137,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-O `Set-AzVMExtension` comando pode ser usado para iniciar qualquer extensão de VM. Para obter mais informações, consulte a [referência Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+O comando `Set-AzVMExtension` pode ser usado para iniciar qualquer extensão de VM. Para obter mais informações, consulte a [referência Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
 ### <a name="azure-portal"></a>Portal do Azure
@@ -262,7 +262,7 @@ Quando uma atualização está disponível, ela só é instalada na VM quando h�
 - Extensões
 - Contêiner de diagnóstico de inicialização
 - Segredos do SO convidado
-- Tamanho da VM
+- Tamanhos de VM
 - Perfil de rede
 
 Os Publicadores disponibilizam atualizações para regiões em momentos diferentes, para que seja possível ter VMs em diferentes regiões em diferentes versões.
@@ -351,7 +351,7 @@ As etapas de solução de problemas a seguir se aplicam a todas as extensões de
 
 1. Para verificar o log do agente convidado do Windows, examine a atividade quando sua extensão estava sendo provisionada no *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins\<ExtensionName >*
+2. Verifique os logs de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins @ no__t-1extensionName >*
 
 3. Verifique as seções específicas de solução de problemas de extensão para códigos de erro, problemas conhecidos etc.
 

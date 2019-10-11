@@ -3,18 +3,18 @@ title: Glossário de termos – IoT Plug and Play Preview | Microsoft Docs
 description: Conceitos – um glossário de termos comuns relacionados à visualização da IoT Plug and Play.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858843"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249292"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossário de termos para a visualização de IoT Plug and Play
 
@@ -97,6 +97,7 @@ Uma cadeia de conexão encapsula as informações necessárias para se conectar 
 
 - As cadeias de conexão do dispositivo permitem que [dispositivos IoT plug and Play](#iot-plug-and-play-device) se conectem aos pontos de extremidade voltados para o dispositivo em um hub IOT. O código do cliente em um dispositivo usa a cadeia de conexão para estabelecer uma conexão segura com um hub IoT.
 - As cadeias de conexão do Hub IoT permitem que soluções e ferramentas de back-end se conectem com segurança aos pontos de extremidade voltados para o serviço em um hub IoT. Essas soluções e ferramentas gerenciam o Hub IoT e os dispositivos conectados a ele.
+- Cadeias de conexão do repositório de modelo da empresa habilitam soluções e ferramentas de back-end para se conectarem com segurança a um [repositório de modelos da empresa](#company-model-repository). Essas soluções e ferramentas consomem ou gerenciam os modelos e as [interfaces](#interface) de [funcionalidade do dispositivo](#device-capability-model) no repositório.
 
 ## <a name="device-capability-model"></a>Modelo de funcionalidade do dispositivo
 
@@ -114,7 +115,7 @@ Um desenvolvedor de dispositivo usa um [modelo de funcionalidade de dispositivo]
 
 Um [desenvolvedor de dispositivos](#device-developer) usa a [linguagem digital de definição de entrelaçamento](#digital-twin-definition-language) para modelar os recursos de um [dispositivo de plug and Play IOT](#iot-plug-and-play-device). O modelo pode ser compartilhado usando um repositório de modelo. Um desenvolvedor de dispositivos pode gerar um esqueleto do código de dispositivo do modelo. Um [desenvolvedor de soluções](#solution-developer) pode configurar uma solução de IOT do modelo.
 
-## <a name="device-provisioning-service"></a>Serviço de Aprovisionamento do Dispositivo
+## <a name="device-provisioning-service"></a>Serviço de provisionamento de dispositivos
 
 O [Azure IOT central](#azure-iot-central) usa o serviço de provisionamento de dispositivos para gerenciar todo o registro e a conexão do dispositivo. Para obter mais informações, consulte [conectividade do dispositivo no Azure IOT central](../iot-central/concepts-connectivity-pnp.md). Você também pode usar o serviço de provisionamento de dispositivos para gerenciar o registro e a conexão de dispositivos com sua solução IoT baseada no Hub IoT. Para obter mais informações, consulte [Provisionando dispositivos com o serviço de provisionamento de dispositivos no Hub IOT do Azure](../iot-dps/about-iot-dps.md).
 
@@ -170,7 +171,7 @@ Um repositório de modelos armazena modelos e [interfaces](#interface)de [funcio
 
 Uma API para gerenciar e interagir com repositórios de modelo. Por exemplo, você pode usar a API para adicionar [modelos de capacidade de dispositivo](#device-capability-model) e Pesquisar modelos de funcionalidade.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriedades
 
 As propriedades são campos de dados definidos em uma [interface](#interface) que representam algum estado de uma. digital. Você pode declarar propriedades como somente leitura ou gravável. Propriedades somente leitura, como número de série, são definidas pelo código em execução no próprio [dispositivo de plug and Play de IOT](#iot-plug-and-play-device) .  As propriedades graváveis, como um limite de alarme, normalmente são definidas a partir da solução de IoT baseada em nuvem.
 
@@ -178,15 +179,15 @@ As propriedades são campos de dados definidos em uma [interface](#interface) qu
 
 Há um único repositório de modelo público que armazena [modelos de recursos de dispositivo](#device-capability-model) e [interfaces](#interface) para [dispositivos certificados](#device-certification). O repositório de modelo público também armazena definições de [interface comuns](#common-interface) .
 
-## <a name="registration-id"></a>ID de registo
+## <a name="registration-id"></a>ID de registro
 
 Uma ID de registro identifica exclusivamente um dispositivo no [serviço de provisionamento de dispositivos](#device-provisioning-service). Essa ID não é igual à ID do dispositivo que é um identificador exclusivo para um dispositivo em um [Hub IOT](#azure-iot-hub).
 
-## <a name="scope-id"></a>ID de Âmbito
+## <a name="scope-id"></a>ID do escopo
 
 O escopo da ID de escopo identifica exclusivamente uma instância do [serviço de provisionamento de dispositivos](#device-provisioning-service) .
 
-## <a name="shared-access-signature"></a>Assinatura de acesso partilhado
+## <a name="shared-access-signature"></a>Assinatura de acesso compartilhado
 
 As assinaturas de acesso compartilhado são um mecanismo de autenticação baseado em hashes seguros SHA-256 ou URIs. A autenticação de assinatura de acesso compartilhado tem dois componentes: uma política de acesso compartilhado e uma assinatura de acesso compartilhado (geralmente chamada de token). Um [dispositivo de plug and Play IOT](#iot-plug-and-play-device) usa uma assinatura de acesso compartilhado para autenticar com um [Hub IOT](#azure-iot-hub).
 

@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949042"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249205"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Controle de acesso baseado em função no Azure digital gêmeos
 
-O Azure digital gêmeos permite o controle de acesso preciso a dados, recursos e ações específicos em seu grafo espacial. Ele faz isso por meio de função granular e gerenciamento de permissões chamado de RBAC (controle de acesso baseado em função). O RBAC consiste em _funções_ e _atribuições de função_. As funções identificam o nível de permissões. As atribuições de função associam uma função a um usuário ou dispositivo.
+O Azure digital gêmeos permite o controle de acesso preciso sobre dados, recursos e ações específicos em seu grafo espacial. Ele faz isso por meio de função granular e gerenciamento de permissões chamado de RBAC ( [controle de acesso baseado em função](https://docs.microsoft.com/azure/role-based-access-control/) ). O RBAC consiste em _funções_ e _atribuições de função_. As funções identificam o nível de permissões. As atribuições de função associam uma função a um usuário ou dispositivo.
 
 Usando o RBAC, a permissão pode ser concedida a:
 
@@ -84,3 +84,5 @@ Para conceder permissões a um destinatário, crie uma atribuição de função.
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre como criar e gerenciar atribuições de função do gêmeos digital do Azure, leia [criar e gerenciar atribuições de função](./security-create-manage-role-assignments.md).
+
+- Leia mais sobre o [RBAC para Azure](https://docs.microsoft.com/azure/role-based-access-control/).

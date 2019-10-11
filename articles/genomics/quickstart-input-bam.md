@@ -1,7 +1,7 @@
 ---
-title: Submeter um fluxo de trabalho através de um ficheiro BAM de entrada - Microsoft Genomics
-titleSuffix: Azure
-description: Este artigo pressupõe que o cliente msgen instalado e foram executados com êxito os dados de exemplo através do serviço.
+title: Enviar um fluxo de trabalho usando a entrada de arquivo BAM
+titleSuffix: Microsoft Genomics
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se o arquivo de entrada for um único arquivo BAM.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: 329ac374edbffa65a1b654a05a4934828f25d5de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5145aa0ffdc4095f178a214f63433e5bcece83b6
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780847"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249157"
 ---
 # <a name="submit-a-workflow-using-a-bam-file-input"></a>Submeter um fluxo de trabalho através de entradas de ficheiros BAM
 
-Este artigo demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics se o ficheiro de entrada for um único ficheiro BAM. Este tópico pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Azure. Se tiver submetido com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este artigo. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se o arquivo de entrada for um único arquivo BAM. Este tópico pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Azure. Se você enviou com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, você está pronto para continuar com este artigo. 
 
-## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configure: Carregar o ficheiro BAM para o armazenamento do Azure
+## <a name="set-up-upload-your-bam-file-to-azure-storage"></a>Configurar: carregar o ficheiro BAM para o armazenamento do Azure
 Vamos supor que tem um único ficheiro BAM, *reads.bam*, e o carregou para a sua conta de armazenamento *myaccount* no Azure como **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads<span></span>.bam<span></span>** . Tem o URL da API e a chave de acesso. Quer ter saídas em **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>** .
 
 
@@ -81,5 +81,5 @@ output_storage_account_container: outputs
 
 Submeta o ficheiro `config.txt` com esta invocação: `msgen submit -f config.txt`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, carregou um ficheiro BAM para o Armazenamento do Azure e submeteu um fluxo de trabalho para o serviço Microsoft Genomics através do cliente python `msgen`. Para obter informações adicionais sobre a submissão de fluxos de trabalho e outros comandos que pode utilizar com o serviço Microsoft Genomics, veja as nossas [FAQ](frequently-asked-questions-genomics.md). 

@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: ea23331ebc75b5ede22c9f7357a9e0de12d819e2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 3257cf92c628650fc50e0a36ec37fcab920aba2f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299971"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254566"
 ---
 # <a name="mount-the-azure-hpc-cache-preview"></a>Montar o cache do HPC do Azure (visualização)
 
@@ -25,7 +25,7 @@ O comando Mount é composto de dois elementos:
 ![captura de tela da página de visão geral da instância do cache HPC do Azure, com uma caixa de realce em volta da lista de endereços de montagem no canto inferior direito](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Em um grupo de recursos, essas NICs são listadas com nomes `-cluster-nic-` que terminam em e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
+> Os endereços de montagem de cache correspondem às interfaces de rede dentro da sub-rede do cache. Em um grupo de recursos, essas NICs são listadas com nomes que terminam em `-cluster-nic-` e um número. Não altere ou exclua essas interfaces, ou o cache ficará indisponível.
 
 Os caminhos de namespace virtual são mostrados na página **destinos de armazenamento** . Clique em um nome de destino de armazenamento individual para ver seus detalhes, incluindo caminhos de namespace agregados associados a ele.
 
@@ -45,7 +45,7 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-Depois que esse comando for executado com sucesso, o conteúdo da exportação de armazenamento deverá estar ``hpccache`` visível no diretório no cliente.
+Depois que esse comando for executado com sucesso, o conteúdo da exportação de armazenamento deverá estar visível no diretório ``hpccache`` no cliente.
 
 > [!NOTE] 
 > Os clientes devem ser capazes de acessar a rede virtual e a sub-rede que hospeda o cache. Por exemplo, crie VMs de cliente na mesma rede virtual ou use um ponto de extremidade, gateway ou outra solução na rede virtual para acesso de fora. Lembre-se de que nada mais pode ser hospedado na sub-rede do cache.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb816658faff9fb924d075e0fca17e9643c18e40
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: MT
+ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694746"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244793"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -73,7 +73,7 @@ Use esta tabela como um guia:
 |**Armazenamento de BLOBs (namespace de hierarquia)** | SAS do Azure AD & |
 |**Armazenamento de arquivos** | Somente SAS |
 
-### <a name="option-1-use-azure-active-directory"></a>Opção 1: Utilizar o Azure Active Directory
+### <a name="option-1-use-azure-active-directory"></a>Opção 1: usar Azure Active Directory
 
 Usando Azure Active Directory, você pode fornecer credenciais uma vez, em vez de ter que acrescentar um token SAS a cada comando.  
 
@@ -95,8 +95,8 @@ Essas funções podem ser atribuídas à entidade de segurança em qualquer um d
 
 - Contêiner (sistema de arquivos)
 - Conta de armazenamento
-- Resource group
-- Subscription
+- Grupo de recursos
+- Subscrição
 
 Para saber como verificar e atribuir funções, consulte [conceder acesso ao blob do Azure e dados de fila com RBAC no portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -139,7 +139,7 @@ Antes de executar um script, você precisa entrar interativamente pelo menos uma
 
 Você pode entrar em sua conta usando um segredo do cliente ou usando a senha de um certificado associado ao registro do aplicativo da sua entidade de serviço.
 
-Para saber mais sobre como criar a entidade de serviço, consulte [How para: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)possa acessar recursos.
+Para saber mais sobre como criar a entidade de serviço, consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Para saber mais sobre as entidades de serviço em geral, consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
@@ -239,7 +239,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 Substitua o espaço reservado `<resource-id>` pela ID de recurso da identidade gerenciada atribuída pelo usuário.
 
-### <a name="option-2-use-a-sas-token"></a>Opção 2: Usar um token SAS
+### <a name="option-2-use-a-sas-token"></a>Opção 2: usar um token SAS
 
 Você pode acrescentar um token SAS a cada URL de origem ou de destino que usa em seus comandos AzCopy.
 
@@ -287,7 +287,7 @@ A URL aparece na saída deste comando. O script pode então baixar o AzCopy usan
 
 | Sistema operativo  | Comando |
 |--------|-----------|
-| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Caracteres especiais de escape em tokens SAS

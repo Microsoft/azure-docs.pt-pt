@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969543"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244173"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -36,13 +36,13 @@ A caixa de diálogo **nova oferta** é exibida.
 
 ## <a name="offer-id-and-alias"></a>ID da oferta e alias
 
-- **ID da oferta**: Identificador exclusivo para cada oferta em sua conta. Essa ID será visível para os clientes no endereço URL para a oferta do Marketplace e os modelos de Azure Resource Manager (se aplicável). A ID da oferta deve estar em letras minúsculas, alfanuméricas (incluindo hifens e sublinhados, mas sem espaço em branco). Isso é limitado a 50 caracteres e não pode ser alterado depois que você seleciona *criar*.  
+- **ID da oferta**: identificador exclusivo para cada oferta em sua conta. Essa ID será visível para os clientes no endereço URL para a oferta do Marketplace e os modelos de Azure Resource Manager (se aplicável). A ID da oferta deve estar em letras minúsculas, alfanuméricas (incluindo hifens e sublinhados, mas sem espaço em branco). Isso é limitado a 50 caracteres e não pode ser alterado depois que você seleciona *criar*.  
 Exemplo: Test-offer-1
 <br>Resultando na URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Alias da oferta**: O nome usado para fazer referência à oferta no portal do Partner Center. Esse nome não será usado no Marketplace e será diferente do nome da *oferta* e outros valores que serão mostrados aos clientes. Esse valor não pode ser alterado depois que você seleciona *criar*.
+- **Alias da oferta**: o nome usado para fazer referência à oferta no portal do Partner Center. Esse nome não será usado no Marketplace e será diferente do nome da *oferta* e outros valores que serão mostrados aos clientes. Esse valor não pode ser alterado depois que você seleciona *criar*.
 
-<br>Exemplo: Oferta de teste 1&#8482;
+<br>Exemplo: oferta de teste 1&#8482;
 
 Selecione **Criar**.  Uma página de **visão geral da oferta** é criada para esta oferta.  
 
@@ -102,7 +102,7 @@ A tabela a seguir mostra um exemplo de quebra de custos e pagamentos para demons
 - Os parceiros qualificados para a **taxa reduzida de serviço do Marketplace** verão uma taxa de transação reduzida nas ofertas de SaaS de maio de 2019 até junho de 2020. Nesse cenário, a Microsoft cobra $100 pela sua licença de software e paga $90 para o Publicador.
 
 > [!NOTE]
-> **Taxa reduzida de serviço do Marketplace**: Para determinadas ofertas de SaaS que você publicou em nosso mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que sua oferta seja qualificada, pelo menos uma de suas ofertas deve ter sido designada pela Microsoft como sendo de revenda de IP coexistente ou em uma venda de IP.  A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do final de cada mês do calendário para receber essa taxa de serviço do Marketplace reduzida para o mês.  A taxa reduzida de serviço do Marketplace não se aplica a VMs, aplicativos gerenciados ou quaisquer outros produtos disponibilizados por meio de nosso mercado comercial.  A taxa reduzida de serviço do Marketplace só estará disponível para ofertas qualificadas para encargos de licença coletados pela Microsoft entre 1º de maio de 2019 e 30 de junho de 2020.  Após esse período, a taxa de serviço do Marketplace voltará ao seu valor normal. 
+> **Redução da taxa de serviço do Marketplace**: para determinadas ofertas de SaaS que você publicou em nosso mercado comercial, a Microsoft reduzirá sua taxa de serviço do Marketplace de 20% (conforme descrito no contrato do Microsoft Publisher) para 10%. Para que sua oferta seja qualificada, pelo menos uma de suas ofertas deve ter sido designada pela Microsoft como sendo de revenda de IP coexistente ou em uma venda de IP.  A qualificação deve ser atendida pelo menos cinco (5) dias úteis antes do final de cada mês do calendário para receber essa taxa de serviço do Marketplace reduzida para o mês.  A taxa reduzida de serviço do Marketplace não se aplica a VMs, aplicativos gerenciados ou quaisquer outros produtos disponibilizados por meio de nosso mercado comercial.  A taxa reduzida de serviço do Marketplace só estará disponível para ofertas qualificadas para encargos de licença coletados pela Microsoft entre 1º de maio de 2019 e 30 de junho de 2020.  Após esse período, a taxa de serviço do Marketplace voltará ao seu valor normal. 
 
 
 
@@ -110,7 +110,7 @@ A tabela a seguir mostra um exemplo de quebra de custos e pagamentos para demons
 #### <a name="csp-program-opt-in"></a>Aceitação do programa CSP
 O programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) permite que as ofertas de software alcancem milhões de clientes qualificados da Microsoft com investimento mínimo em marketing e vendas.
 
-- **Channels: Disponibilizar minha oferta no programa CSP @ no__t-0 (caixa de seleção)
+- **Canais: tornar minha oferta disponível no programa CSP** (caixa de seleção)
 
 Optar por tornar sua oferta disponível no programa CSP permite que os provedores de soluções de nuvem vendam seu produto como parte de uma solução agrupada para seus clientes. 
 
@@ -129,7 +129,7 @@ Liste sua oferta aos clientes com um link para uma avaliação gratuita fornecen
 > [!NOTE]
 > Os tokens que seu aplicativo receberá por meio do link de avaliação só podem ser usados para obter informações do usuário por meio do Azure AD para automatizar a criação de contas em seu aplicativo. As contas da Microsoft (MSA) não têm suporte para autenticação usando esse token.
 
-##### <a name="contact-me"></a>Contactar-me
+##### <a name="contact-me"></a>Contactem-me
 Colete informações de contato do cliente conectando seu sistema de gerenciamento de relacionamento com o cliente (CRM). O cliente será solicitado a fornecer permissão para compartilhar suas informações. Esses detalhes do cliente, juntamente com o nome da oferta, a ID e a origem do Marketplace onde encontraram sua oferta, serão enviados para o sistema CRM que você configurou. Para obter mais informações sobre como configurar seu CRM, consulte [Connect Lead Management](#connect-lead-management). 
 
 ## <a name="example-marketplace-offer-listing"></a>Exemplo de listagem de oferta do Marketplace
@@ -146,12 +146,12 @@ Ao habilitar o test drive, você será solicitado a configurar um ambiente de de
 
 ### <a name="type-of-test-drive"></a>Tipo de test drive
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : Um modelo de implantação que contém todos os recursos do Azure que compõem sua solução. Os produtos que se ajustam a esse cenário usam apenas os recursos do Azure.
-- **[Central do Dynamics 365 for Business](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : A Microsoft hospeda e mantém o serviço de test drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos empresariais do Business central (finanças, operações, Cadeia de fornecedores, CRM, etc.).  
-- **[Dynamics 365 para compromisso com o cliente](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : A Microsoft hospeda e mantém o serviço de test drive (incluindo provisionamento e implantação) para um sistema de envolvimento do cliente (vendas, serviço, serviço de projeto, serviço de campo, etc.).  
-- **[Dynamics 365 para operações](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : A Microsoft hospeda e mantém o serviço de test drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos corporativos de finanças e operações (finanças, operações, manufatura, Cadeia de fornecedores, etc.). 
-- **[Aplicativo lógico](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : Um modelo de implantação que abrange todas as arquiteturas de solução complexas. Todos os produtos personalizados devem usar esse tipo de unidade de teste.
-- **[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : Um link inserido para um painel personalizado. Os produtos que desejam demonstrar um visual interativo Power BI devem usar esse tipo de unidade de teste. Tudo o que você precisa carregar aqui é a URL de Power BI inserida.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : um modelo de implantação que contém todos os recursos do Azure que compõem sua solução. Os produtos que se ajustam a esse cenário usam apenas os recursos do Azure.
+- **[Dynamics 365 for Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos empresariais do Business central (finanças, operações, Cadeia de fornecedores, CRM, etc.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de envolvimento do cliente (vendas, serviço, serviço de projeto, serviço de campo, etc.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : a Microsoft hospeda e mantém o serviço de Test Drive (incluindo provisionamento e implantação) para um sistema de planejamento de recursos corporativos de finanças e operações (finanças, operações, manufatura, Cadeia de fornecedores, etc.). 
+- **[Aplicativo lógico](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : um modelo de implantação que abrange todas as arquiteturas de solução complexas. Todos os produtos personalizados devem usar esse tipo de unidade de teste.
+- **[Power bi](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : um link inserido para um painel personalizado. Os produtos que desejam demonstrar um visual interativo Power BI devem usar esse tipo de unidade de teste. Tudo o que você precisa carregar aqui é a URL de Power BI inserida.
 
 #### <a name="additional-test-drive-resources"></a>Recursos de test drive adicionais
 - [Práticas recomendadas técnicas do Test Drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -160,18 +160,7 @@ Ao habilitar o test drive, você será solicitado a configurar um ambiente de de
 
 ## <a name="connect-lead-management"></a>Conectar gerenciamento de leads
 
-Conecte-se com os clientes diretamente, listando sua oferta nos Marketplaces e conectando seu sistema de CRM (gerenciamento de relacionamento com o cliente) para que você possa receber informações de contato do cliente imediatamente depois que um cliente expressar o interesse ou implantar seu remessa.
-
-- **Escolha um destino de cliente potencial** (menu suspenso): Forneça detalhes de conexão para o sistema CRM, em que você deseja que possamos enviar leads do cliente. 
-
-O Partner Center dá suporte aos seguintes sistemas CRM para gerenciamento de leads. Selecione o link para obter instruções de instalação.
-
-- Blob do Azure – forneça o email de contato, o nome do contêiner e a cadeia de conexão da conta de armazenamento. 
-- [Tabela do Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – forneça o email de contato e a cadeia de conexão da conta de armazenamento. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – forneça o email de contato, a URL e o modo de autenticação (Office 365 ou Azure Active Directory).
-- [Ponto de extremidade https](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – forneça o email de contato e a URL do ponto de extremidade HTTPS. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – forneça o email de contato, a ID do formulário, a ID da conta do Munchkin e a ID do servidor.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -forneça o email de contato e a ID da organização. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Recursos adicionais de gerenciamento de leads
 - [Perguntas frequentes sobre gerenciamento de Lead](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -180,15 +169,15 @@ O Partner Center dá suporte aos seguintes sistemas CRM para gerenciamento de le
 
 Lembre-se de **salvar** antes de passar para a próxima seção!
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriedades
 A guia **Propriedades** solicita que você defina as categorias e os setores usados para agrupar sua oferta nos Marketplaces, os contratos legais que dão suporte à sua oferta e a versão do aplicativo. 
 
 Selecione **salvar** depois de concluir esses campos. 
 
-### <a name="category"></a>Category
+### <a name="category"></a>Categoria
 Selecione no mínimo um (1) e no máximo três (3) categorias usadas para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. 
 
-### <a name="industry"></a>Sector
+### <a name="industry"></a>Indústria
 Selecione até dois (2) setores usados para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Se sua oferta não for específica para um setor, não selecione uma. Descreva como sua oferta dá suporte aos setores selecionados na descrição da oferta. 
 
 ### <a name="app-version"></a>Versão da aplicação
@@ -223,12 +212,12 @@ A guia listagem de ofertas exibe os idiomas (e os mercados) onde sua oferta est�
 
 Forneça detalhes a serem exibidos no Marketplace, incluindo descrições de sua oferta e ativos de marketing.
 
-- **Nome** (obrigatório): O nome definido aqui será exibido como o título da sua listagem de oferta no (s) Marketplace (es) que você escolheu. O nome é preenchido previamente com base na nova entrada de **oferta** anterior.  Isso pode ser marcado.  Isso não deve conter emojis (a menos que sejam a marca registrada e os símbolos de direitos autorais) e deve ser limitado a 50 caracteres.
-- **Resumo** (obrigatório): Forneça uma breve descrição da sua oferta a ser usada em resultados da pesquisa de listagem (s) do Marketplace. Até 100 caracteres de texto podem ser inseridos neste campo.
-- **Descrição** (obrigatório): Forneça uma descrição da sua oferta a ser exibida na visão geral de listagem (s) do Marketplace. Considere incluir uma proposta de valor, benefícios principais, qualquer associação de categoria ou do setor, oportunidades de compra no aplicativo, quaisquer divulgações necessárias e um link para saber mais.
+- **Nome** (obrigatório): o nome definido aqui será exibido como o título da listagem de oferta no (s) Marketplace (es) que você escolheu. O nome é preenchido previamente com base na nova entrada de **oferta** anterior.  Isso pode ser marcado.  Isso não deve conter emojis (a menos que sejam a marca registrada e os símbolos de direitos autorais) e deve ser limitado a 50 caracteres.
+- **Resumo** (obrigatório): forneça uma breve descrição da sua oferta a ser usada em resultados da pesquisa de listagem (s) do Marketplace. Até 100 caracteres de texto podem ser inseridos neste campo.
+- **Descrição** (obrigatório): forneça uma descrição da sua oferta a ser exibida na visão geral das listagem (s) do Marketplace. Considere incluir uma proposta de valor, benefícios principais, qualquer associação de categoria ou do setor, oportunidades de compra no aplicativo, quaisquer divulgações necessárias e um link para saber mais.
 Até 3.000 caracteres de texto podem ser inseridos neste campo. Para obter dicas adicionais, consulte o artigo [escrever uma excelente descrição do aplicativo](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Pesquisar palavras-chave**: Insira até três palavras-chave de pesquisa que os clientes podem usar para localizar sua oferta no (s) Marketplace (es).
-- **Instruções de introdução** (obrigatório): Explique como configurar e começar a usar seu aplicativo para clientes potenciais.  Este guia de início rápido pode conter links para documentação online mais detalhada. Até 3.000 caracteres de texto podem ser inseridos neste campo. 
+- **Instruções de introdução** (obrigatório): explique como configurar e começar a usar seu aplicativo para clientes potenciais.  Este guia de início rápido pode conter links para documentação online mais detalhada. Até 3.000 caracteres de texto podem ser inseridos neste campo. 
 
 #### <a name="description"></a>**Descrição**
 
@@ -280,7 +269,7 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
 
 1. Para conteúdo em **negrito** , adicione `<b>` no início do texto que você deseja negrito e adicione `</b>` no final do texto que você deseja colocar em negrito. 
 
-    **Exemplo**: AVALIAÇÃO GRATUITA `<b>` `</b>`
+    **Exemplo**: `<b>` avaliação gratuita `</b>`
     
     O anterior faria com que as palavras de avaliação gratuita fossem em negrito na descrição da oferta na vitrine. 
 
@@ -311,28 +300,28 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
 
     ![Títulos de exemplo](./media/heading.png)
 
-#### <a name="links"></a>Hiperligações
+#### <a name="links"></a>Ligações
 
-- **Política de privacidade** (obrigatória): Link para a política de privacidade da sua organização. Você é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade e para fornecer uma política de privacidade válida
-- **Materiais de marketing do programa CSP** (opcional): Você deve fornecer um link para materiais de marketing se optar por estender sua oferta para o programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . O CSP amplia sua oferta para uma variedade maior de clientes qualificados, permitindo que os parceiros do CSP agrupem, comercializam e revendam sua oferta. Esses revendedores precisarão de acesso aos materiais para marketing de sua oferta. Para obter mais informações, consulte [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
-- **Links úteis** (opcional): Documentos complementares opcionais online sobre seu aplicativo ou serviços relacionados listados fornecendo um **título** e uma **URL**. Adicione links úteis adicionais clicando em **+ Adicionar uma URL**.
+- **Política de privacidade** (obrigatória): link para a política de privacidade da sua organização. Você é responsável por garantir que seu aplicativo esteja em conformidade com as leis e regulamentos de privacidade e para fornecer uma política de privacidade válida
+- **Materiais de marketing do programa CSP** (opcional): você deve fornecer um link para materiais de marketing se optar por estender sua oferta para o programa [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . O CSP amplia sua oferta para uma variedade maior de clientes qualificados, permitindo que os parceiros do CSP agrupem, comercializam e revendam sua oferta. Esses revendedores precisarão de acesso aos materiais para marketing de sua oferta. Para obter mais informações, consulte [serviços de entrada no mercado](https://partner.microsoft.com/reach-customers/gtm).
+- **Links úteis** (opcional): documentos online complementares opcionais sobre seu aplicativo ou serviços relacionados listados fornecendo um **título** e uma **URL**. Adicione links úteis adicionais clicando em **+ Adicionar uma URL**.
 
-#### <a name="contact-information"></a>Informação de contacto
+#### <a name="contact-information"></a>Informações de contacto
 
-- **Contatos**: Para cada contato de cliente, forneça um **nome** de funcionário, **número de telefone**e endereço de **email** .  (Eles *não serão* exibidos publicamente). Uma **URL de suporte** também é necessária para o grupo de **contato de suporte** .  (Essas informações *serão* exibidas publicamente).
+- **Contatos**: para cada contato de cliente, forneça um **nome** de funcionário, **número de telefone**e endereço de **email** .  (Eles *não serão* exibidos publicamente). Uma **URL de suporte** também é necessária para o grupo de **contato de suporte** .  (Essas informações *serão* exibidas publicamente).
 
-**Contato de suporte** (obrigatório): Para perguntas de suporte geral.
+**Contato de suporte** (obrigatório): para perguntas de suporte geral.
 
-**Contato de engenharia** (obrigatório): Para perguntas técnicas.
+**Contato de engenharia** (obrigatório): para perguntas técnicas.
 
-**Contato do Gerenciador de canal** (obrigatório): Para perguntas sobre o revendedor relacionadas ao programa CSP.
+**Contato do Gerenciador de canal** (obrigatório): para perguntas de revendedor relacionadas ao programa CSP.
 
 #### <a name="files-and-images"></a>Arquivos e imagens
 
-- **Documentos** (obrigatório): Adicione documentos de marketing relacionados à sua oferta, em formato PDF, fornecendo no mínimo um (1) e no máximo três (3) documentos por oferta.
-- **Imagens** (opcional): Há vários locais em que as imagens de logotipo da sua oferta podem aparecer em todo o Marketplace, exigindo os seguintes tamanhos – pequeno: 48 x 48 pixels _(obrigatório),_ médio: 90 x 90 pixels, grande: 216 x 216 pixels _(obrigatório),_ largo: 255 x 115 pixels e Hero: 815 x 290 pixels. Todas as imagens devem estar no. Formato PNG.
-- **Capturas de tela** (obrigatórias): Adicione capturas de tela que demonstram sua oferta. No máximo cinco (5) capturas de tela podem ser adicionadas e devem ser dimensionadas em 1280 x 720 pixels. Todas as imagens devem estar no. Formato PNG.
-- **Vídeos** (opcional): Adicione links a vídeos demonstrando sua oferta. Você pode usar links para vídeos do YouTube e/ou do Vimeo, que são mostrados junto com sua oferta aos clientes. Também será necessário inserir uma imagem em miniatura do vídeo, dimensionada para 1280 x 720 pixels no formato PNG. Você pode exibir um máximo de quatro vídeos por oferta.
+- **Documentos** (obrigatório): Adicione documentos de marketing relacionados para sua oferta, em formato PDF, fornecendo no mínimo um (1) e no máximo três (3) documentos por oferta.
+- **Imagens** (opcional): há vários locais onde as imagens de logotipo da sua oferta podem aparecer em todo o Marketplace, exigindo os seguintes tamanhos--pequeno: 48 x 48 pixels _(obrigatório),_ médio: 90 x 90 pixels, grande: 216 x 216 pixels _( obrigatório),_ largo: 255 x 115 pixels e Hero: 815 x 290 pixels. Todas as imagens devem estar no. Formato PNG.
+- **Capturas de tela** (obrigatórias): Adicionar capturas de tela que demonstram sua oferta. No máximo cinco (5) capturas de tela podem ser adicionadas e devem ser dimensionadas em 1280 x 720 pixels. Todas as imagens devem estar no. Formato PNG.
+- **Vídeos** (opcional): adicionar links a vídeos demonstrando sua oferta. Você pode usar links para vídeos do YouTube e/ou do Vimeo, que são mostrados junto com sua oferta aos clientes. Também será necessário inserir uma imagem em miniatura do vídeo, dimensionada para 1280 x 720 pixels no formato PNG. Você pode exibir um máximo de quatro vídeos por oferta.
 
 Lembre-se de **salvar** antes de passar para a próxima seção!
 
@@ -348,7 +337,7 @@ A guia **Visualização** permite que você defina um **público de visualizaç�
 > [!IMPORTANT]
 > Você deve selecionar **entrar em ativação** antes que sua oferta seja publicada em tempo real para o público público do Marketplace depois de verificar sua oferta em versão prévia.
 
-- **Define um público de visualização: Adicione um único email de conta do AAD/MSA por linha, juntamente com uma descrição opcional.**
+- **Definir um público de visualização: Adicione um único email de conta do AAD/MSA por linha, juntamente com uma descrição opcional.**
 
 Adicione até dez (10) endereços de email manualmente ou vinte (20) se estiver carregando um arquivo CSV, para a conta da Microsoft existente (MSA) ou Azure Active Directory contas para ajudar a validar sua oferta antes de publicar em tempo real. Ao adicionar essas contas, você está definindo um público que terá permissão para visualizar o acesso à sua oferta antes que ele seja publicado no (s) Marketplace (es). Se sua oferta já estiver ativa, você ainda poderá definir um público de visualização para testar quaisquer alterações ou atualizações na sua oferta.
 
@@ -359,13 +348,13 @@ Adicione até dez (10) endereços de email manualmente ou vinte (20) se estiver 
 
 A guia **configuração técnica** define os detalhes técnicos (caminho da URL, webhook, ID do locatário e ID do aplicativo) usados para se conectar à sua oferta. Essa conexão nos permite provisionar sua oferta para o cliente final se ele optar por adquiri-lo. Os diagramas que descrevem o uso dos campos coletados estão disponíveis na documentação para [APIs de preenchimento de SaaS](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **URL da página de aterrissagem** (obrigatória): Defina a URL do site na qual os clientes serão levados depois de adquirir sua oferta do Marketplace. Essa URL será o ponto de extremidade que recebe um token quando um cliente é roteado para a página. Esse token pode ser trocado para detalhes de provisionamento usando a resolução nas APIs de preenchimento. Esses detalhes e quaisquer outros que você coletar podem ser usados como parte de uma página da Web interativa pelo cliente, criada em sua experiência para concluir o registro e ativar sua compra.
+- **URL da página de aterrissagem** (obrigatório): defina a URL do site na qual os clientes serão acessados depois de adquirir sua oferta do Marketplace. Essa URL será o ponto de extremidade que recebe um token quando um cliente é roteado para a página. Esse token pode ser trocado para detalhes de provisionamento usando a resolução nas APIs de preenchimento. Esses detalhes e quaisquer outros que você coletar podem ser usados como parte de uma página da Web interativa pelo cliente, criada em sua experiência para concluir o registro e ativar sua compra.
 
-- **Webhook de conexão** (obrigatório): Para todos os eventos assíncronos que a Microsoft precisa enviar para você em nome do cliente (exemplo: A assinatura de SaaS saiu inválida), exigimos que você forneça um webhook de conexão. Se você ainda não tiver um sistema de webhook em vigor, a configuração mais simples é ter um aplicativo lógico de ponto de extremidade HTTP que escutará todos os eventos postados nele e, em seguida, tratá-los adequadamente (por exemplo, https: \//prod-1westus. Logic. Azure. com: 443/Work ). Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Webhook de conexão** (obrigatório): para todos os eventos assíncronos que a Microsoft precisa enviar para você em nome do cliente (exemplo: a assinatura de SaaS deixou inválida), exigimos que você forneça um webhook de conexão. Se você ainda não tiver um sistema de webhook em vigor, a configuração mais simples é ter um aplicativo lógico de ponto de extremidade HTTP que escutará todos os eventos postados nele e, em seguida, tratá-los adequadamente (por exemplo, https: \//prod-1westus. Logic. Azure. com: 443/Work ). Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho com pontos de extremidade http em aplicativos lógicos](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **ID do locatário do Azure ad** (obrigatório): Dentro de portal do Azure, exigimos que você [crie um aplicativo de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para localizar a [ID do locatário](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades**, em seguida, procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID de locatário do Azure ad** (obrigatório): dentro de portal do Azure, exigimos que você [crie um aplicativo de Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para que possamos validar a conexão entre nossos dois serviços está por trás de uma comunicação autenticada. Para localizar a [ID do locatário](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), vá para o Azure Active Directory e selecione **Propriedades**, em seguida, procure o número de **ID de diretório** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID do aplicativo do Azure ad** (obrigatório): Você também precisa da [ID do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e de uma chave de autenticação. Para obter esses valores, vá para o Azure Active Directory e selecione **registros de aplicativo**, em seguida, procure o número de **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, vá para **configurações** e selecione **chaves**. Você precisará fornecer uma descrição e uma duração e, em seguida, será fornecido um valor numérico.
+- **ID do aplicativo do Azure ad** (obrigatório): você também precisa da [ID do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) e de uma chave de autenticação. Para obter esses valores, vá para o Azure Active Directory e selecione **registros de aplicativo**, em seguida, procure o número de **ID do aplicativo** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para localizar a chave de autenticação, vá para **configurações** e selecione **chaves**. Você precisará fornecer uma descrição e uma duração e, em seguida, será fornecido um valor numérico.
 
  Observe que a ID do aplicativo do Azure está associada à sua ID do editor, portanto, certifique-se de que a mesma ID do aplicativo seja usada em todas as suas ofertas.
 
@@ -383,7 +372,7 @@ As **ações** disponíveis na **visão geral do plano** variam de acordo com o 
 **Criar novo plano** (mínimo de um plano para aqueles que selecionam vender pela Microsoft)
 
 - **ID do plano:** Crie uma ID de plano exclusiva para cada plano nesta oferta. Essa ID será visível para os clientes na URL do produto e nos modelos de Azure Resource Manager (se aplicável). Use somente letras minúsculas, caracteres alfanuméricos, traços ou sublinhados. São permitidos no máximo 50 caracteres para essa ID de plano. Observe que a ID não pode ser modificada depois de selecionar criar.
-- **Nome do plano:** Os clientes verão esse nome ao decidir qual plano selecionar dentro de sua oferta. Crie um nome de oferta exclusivo para cada plano nesta oferta. O nome do plano é usado para diferenciar os planos de software que podem fazer parte da mesma oferta (por exemplo, Nome da oferta: Windows Server; Plan Windows Server 2016, Windows Server 2019).
+- **Nome do plano:** Os clientes verão esse nome ao decidir qual plano selecionar dentro de sua oferta. Crie um nome de oferta exclusivo para cada plano nesta oferta. O nome do plano é usado para diferenciar os planos de software que podem fazer parte da mesma oferta (por exemplo, Nome da oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Lista de planos
 
@@ -393,7 +382,7 @@ A guia **lista de planos** exibe os idiomas (e os mercados) em que o plano está
 
 A seleção de uma das linguagens do plano exibirá as informações de **listagem do plano** , incluindo o **nome** e a **Descrição.**
 
-- **Nome**: Preenchido previamente com base na nova entrada do **plano** de visualização e aparecerá como o título do "plano de software" da sua oferta exibido no Marketplace.
+- **Nome**: preenchido previamente com base na entrada do **novo plano** de visualização e aparecerá como o título do "plano de software" da sua oferta exibido no Marketplace.
 - **Descrição:** Essa descrição é uma oportunidade para explicar o que torna este plano de software exclusivo e quaisquer diferenças de outros planos de software dentro de sua oferta. Pode conter até 500 caracteres.
 
 Selecione **salvar** depois de concluir esses campos.
@@ -432,7 +421,7 @@ Se você já tiver definido preços para seu plano em dólares de Estados Unidos
 
 #### <a name="pricing"></a>Preços
 
-- **Modelo de preços**: Taxa fixa ou com base no assento
+- **Modelo de preços**: taxa simples ou baseada em assentos
 
 **Taxa fixa:** Habilite o acesso à sua oferta com um preço de taxa simples mensal ou anual. Isso às vezes é chamado de preços baseados em site. Com esse modelo de preços, opcionalmente, você pode definir planos medidos que usam a API do serviço de medição do Marketplace para cobrar clientes de acordo com unidades não padrão.  Para obter mais informações sobre cobrança limitada, consulte [cobrança limitada usando o serviço de medição do Marketplace](./saas-metered-billing.md).
 
@@ -440,14 +429,14 @@ Se você já tiver definido preços para seu plano em dólares de Estados Unidos
 
 Depois de publicado, a opção de modelo de preços de cobrança não pode ser alterada. Além disso, todos os planos para a mesma oferta devem compartilhar o mesmo modelo de preços.
 
-- **Termo de cobrança**: Mensal ou anual
+- **Termo de cobrança**: mensal ou anual
 
 Selecione a frequência com que os clientes devem pagar o preço listado. Pelo menos um preço mensal ou anual deve ser fornecido ou ambas as opções podem ser disponibilizadas para os clientes.
 
 - **Preço**: USD por mês ou USD por ano
 
 Os preços definidos na moeda local (USD = Estados Unidos dólar) são convertidos na moeda local de todos os mercados selecionados usando as tarifas de câmbio atuais disponíveis durante a instalação. Valide esses preços antes de publicar exportando a planilha de preços e revisando o preço em cada mercado. Se você quiser definir preços personalizados em um mercado individual, modifique e importe a planilha de preços. Você é responsável por validar esse preço e possuir essas configurações.
-* *Você deve primeiro salvar as alterações de preços para habilitar a exportação de dados de preços.*
+**você deve primeiro salvar as alterações de preços para habilitar a exportação de dados de preços.*
 
 Examine seus preços cuidadosamente antes de publicar, pois há algumas restrições sobre o que pode ser alterado depois que um plano é publicado:
 

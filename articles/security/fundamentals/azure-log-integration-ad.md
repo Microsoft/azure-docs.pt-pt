@@ -16,12 +16,12 @@ ums.workload: na
 ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0820ca227a4d0e8c71ed3f35cd8fa2841163d38f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e7f3a9bc9aade5f8ade857e9c2f14f8e9898a7da
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727656"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244678"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar Azure Active Directory logs de auditoria
 
@@ -34,7 +34,7 @@ Os eventos de auditoria do Azure Active Directory (Azure AD) ajudam a identifica
 ## <a name="steps-to-integrate-azure-active-directory-audit-logs"></a>Etapas para integrar Azure Active Directory logs de auditoria
 
 > [!NOTE]
-> Antes de tentar as etapas neste artigo, você deve examinar [o artigo de](azure-log-integration-get-started.md) introdução e concluir as etapas relevantes ali.
+> Antes de tentar as etapas neste artigo, você deve examinar [o artigo de introdução e](azure-log-integration-get-started.md) concluir as etapas relevantes ali.
 
 1. Abra o prompt de comando e execute este comando:
 
@@ -71,10 +71,10 @@ A assistência da Comunidade está disponível por meio do [Fórum do MSDN integ
 
 Você também pode abrir uma [solicitação de suporte](../../azure-supportability/how-to-create-azure-support-request.md). Selecione **integração de log** como o serviço para o qual você está solicitando suporte.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre a integração de log do Azure, consulte:
 
-* [Integração de logs do Microsoft Azure para logs do Azure](https://www.microsoft.com/download/details.aspx?id=53324): Esta página do centro de download fornece detalhes, requisitos do sistema e instruções de instalação para a integração do log do Azure.
+* [Integração de logs do Microsoft Azure para logs do Azure](https://azure.microsoft.com/services/monitor/): Esta página do centro de download fornece detalhes, requisitos de sistema e instruções de instalação para a integração de log do Azure.
 * [Introdução à integração de log do Azure](azure-log-integration-overview.md): Este artigo apresenta a integração de log do Azure, seus principais recursos e como ele funciona.
 * [Perguntas frequentes sobre integração de log do Azure](azure-log-integration-faq.md): Este artigo responde a perguntas sobre a integração de log do Azure.
-* [Novos recursos para diagnóstico do Azure e logs de auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): Esta postagem de blog apresenta os logs de auditoria do Azure e outros recursos que ajudam você a obter informações sobre as operações dos recursos do Azure.
+* [Novos recursos para diagnóstico do Azure e logs de auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): esta postagem de blog apresenta os logs de auditoria do Azure e outros recursos que ajudam você a obter informações sobre as operações dos recursos do Azure.

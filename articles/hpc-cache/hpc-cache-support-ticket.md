@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 630af5322483782c1e26cd792bf7d7957e555d84
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 8c9a92cb21128d3c35fc5ecb7e72ebb4eba87b44
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299953"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254554"
 ---
 # <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>Abrir um tíquete de suporte para o cache do HPC do Azure (visualização)
 

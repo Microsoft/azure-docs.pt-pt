@@ -1,5 +1,5 @@
 ---
-title: Exemplos – Blueprint do CAF Foundation – etapas de implantação
+title: Exemplo-CAF Foundation Blueprint – implantar etapas
 description: Implante as etapas do exemplo do CAF Foundation Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 544e5e5eb9884a91fde3898464aa7ce839658a80
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 8dab466c9d45f1c06ddce955c097af40fbba44d8
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981699"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243959"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Implantar a estrutura de adoção do Microsoft Cloud para a amostra do Azure Foundation Blueprint
 
@@ -37,10 +37,10 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do plano gráfico**: Forneça um nome para sua cópia do exemplo do CAF Foundation Blueprint.
-   - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
+   - **Nome do plano gráfico**: forneça um nome para sua cópia do exemplo do Caf Foundation Blueprint.
+   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -66,16 +66,16 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções Básicas
-       - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
+   - Noções básicas
+       - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
        Altere conforme necessário ou deixe como está.
-     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada.
+     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada.
      - O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído.
        Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
 
-   - Atribuição de Bloqueio
+   - Atribuição de bloqueio
 
      Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
@@ -88,10 +88,10 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
      Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição do Blueprint para fornecer consistência.
 
      - **Organização**: Insira o nome da sua organização, como contoso, deve ser exclusivo.
-     - **Região do Azure**: Selecione a região do Azure para implantação.
-     - **Locais permitidos**: Em quais regiões do Azure você permitirá que os recursos sejam incorporados?
+     - **Região do Azure**: selecione a região do Azure para implantação.
+     - **Locais permitidos**: em quais regiões do Azure você permitirá que os recursos sejam incorporados?
      
-   - Parâmetros de artefacto
+   - Parâmetros de artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -104,15 +104,15 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|SKUs de contas de armazenamento permitidas|Atribuição de política|Policy_Allowed-StorageAccount-SKUs|SKU usado em contas de armazenamento de log de diagnóstico|
-|SKUs de máquinas virtuais permitidas|Atribuição de política|Policy_Allowed-VMs-SKUs|SKUs de máquinas virtuais permitidas|
+|SKUs de contas de armazenamento permitidos|Atribuição de política|Policy_Allowed-StorageAccount-SKUs|SKU usado em contas de armazenamento de log de diagnóstico|
+|SKUs de máquina virtual permitidas|Atribuição de política|Policy_Allowed-VMs-SKUs|SKUs de máquina virtual permitidas|
 |Anexar marca CostCenter a grupos de recursos|Atribuição de política|Policy_CostCenter_Tag|Anexar a marca CostCenter e seu valor do grupo de recursos|
 |Tipos de recursos que você não deseja permitir em seu ambiente|Atribuição de política|_Allowed de política-tipos de recurso|Quais recursos do Azure você deseja permitir em seu ambiente|
-|Implementar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -o grupo ou o usuário do Azure ad <Object ID> para conceder permissões ao no Key Vault|
-|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
-|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
+|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|**Bloqueado** -o grupo ou o usuário do Azure ad <Object ID> para conceder permissões ao no Key Vault|
+|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
+|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
 
 ## <a name="next-steps"></a>Passos seguintes
 

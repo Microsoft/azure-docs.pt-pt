@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bc35ba74acb2ce807597230fee0685606a93a775
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719918"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958369"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 
@@ -272,7 +272,7 @@ Os grupos de ações são o único ponto final que integrará no orçamento. Pod
 Ao criar o grupo de ações, vai apontar para aplicação lógica que criou anteriormente neste tutorial.
 
 1.  Se ainda não tiver iniciado sessão no [portal do Azure](https://portal.azure.com/), inicie sessão e selecione **Todos os serviços** > **Monitor**.
-2.  Selecione **Grupos de ações** na secção **Configuração**.
+2.  Selecione **Alertas** e, em seguida, selecione **Gerir ações**.
 3.  Selecione **Adicionar um grupo de ações** no painel **Grupo de ações**.
 4.  Adicione e verifique os seguintes itens:
     - Nome do grupo de ações

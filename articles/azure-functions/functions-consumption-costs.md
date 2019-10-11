@@ -7,12 +7,12 @@ ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: fa35e5bea7b0d7f2435a8ad31b9195d2fd35a45c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 0ff41eb511ad4513fc9bf5a2ded7ef47b08d12ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181265"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243312"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimando os custos do plano de consumo
 
@@ -34,7 +34,7 @@ Durable Functions também pode ser executado em um plano de consumo. Para saber 
 
 O *custo* de execução de uma única execução de função é medido em *GB-segundos*. O custo de execução é calculado pela combinação de seu uso de memória com o tempo de execução. Uma função que é executada por mais custa mais, como uma função que consome mais memória. 
 
-Considere um caso em que a quantidade de memória usada pela função permaneça constante. Nesse caso, o cálculo do custo é uma multiplicação simples. Por exemplo, digamos que sua função consumiu 0,5 GB por 3 segundos. Em seguida, o custo `0.5GB * 3s = 1.5 GB-seconds`de execução é. 
+Considere um caso em que a quantidade de memória usada pela função permaneça constante. Nesse caso, o cálculo do custo é uma multiplicação simples. Por exemplo, digamos que sua função consumiu 0,5 GB por 3 segundos. Em seguida, o custo de execução é `0.5GB * 3s = 1.5 GB-seconds`. 
 
 Como o uso de memória muda ao longo do tempo, o cálculo é basicamente o integral do uso de memória ao longo do tempo.  O sistema faz esse cálculo por meio da amostragem do uso de memória do processo (juntamente com processos filho) em intervalos regulares. Conforme mencionado na [página de preços], o uso de memória é arredondado para o bucket de 128 MB mais próximo. Quando seu processo estiver usando 160 MB, você será cobrado por 256 MB. O cálculo leva em conta a simultaneidade, que é várias execuções de função simultâneas no mesmo processo.
 
@@ -59,21 +59,21 @@ Ao estimar os custos gerais do seu aplicativo de funções e dos serviços relac
 
 Os seguintes comportamentos de suas funções podem afetar o tempo de execução:
 
-+ **Gatilhos e associações**: O tempo necessário para ler a entrada e gravar a saída em suas [associações de função](functions-triggers-bindings.md) é contado como tempo de execução. Por exemplo, quando sua função usa uma associação de saída para gravar uma mensagem em uma fila de armazenamento do Azure, o tempo de execução inclui o tempo necessário para gravar a mensagem na fila, que está incluída no cálculo do custo da função. 
++ **Gatilhos e associações**: o tempo necessário para ler a entrada e gravar a saída em suas [associações de função](functions-triggers-bindings.md) é contado como tempo de execução. Por exemplo, quando sua função usa uma associação de saída para gravar uma mensagem em uma fila de armazenamento do Azure, o tempo de execução inclui o tempo necessário para gravar a mensagem na fila, que está incluída no cálculo do custo da função. 
 
-+ **Execução assíncrona**: O tempo que sua função aguarda para os resultados de uma solicitação assíncrona (`await` in C#) é contado como tempo de execução. O cálculo de GB por segundo é baseado na hora de início e de término da função e no uso de memória nesse período. O que está acontecendo nesse tempo em termos de atividade de CPU não é acrescentado ao cálculo. Talvez seja possível reduzir os custos durante operações assíncronas usando [Durable Functions](durable/durable-functions-overview.md). Você não é cobrado pelo tempo gasto em Awaits em funções de orquestrador.
++ **Execução assíncrona**: o tempo que sua função aguarda para os resultados de uma solicitação assíncrona (`await` C#em) é contado como tempo de execução. O cálculo de GB por segundo é baseado na hora de início e de término da função e no uso de memória nesse período. O que está acontecendo nesse tempo em termos de atividade de CPU não é acrescentado ao cálculo. Talvez seja possível reduzir os custos durante operações assíncronas usando [Durable Functions](durable/durable-functions-overview.md). Você não é cobrado pelo tempo gasto em Awaits em funções de orquestrador.
 
 ## <a name="view-execution-data"></a>Exibir dados de execução
 
-Em [sua fatura](/billing/billing-download-azure-invoice.md), você pode exibir os dados relacionados ao custo das funções de **execuções totais** e funções de **tempo de execução**, juntamente com os custos de cobrança reais. No entanto, esses dados da fatura são uma agregação mensal para um período de nota fiscal passada. 
+Em [sua fatura](/azure/billing/billing-download-azure-invoice), você pode exibir os dados relacionados ao custo das funções de **execuções totais** e funções de **tempo de execução**, juntamente com os custos de cobrança reais. No entanto, esses dados da fatura são uma agregação mensal para um período de nota fiscal passada. 
 
-Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) no [Azure portal] ou APIs REST para obter esses dados.
+Para entender melhor o impacto de custos de suas funções, você pode usar Azure Monitor para exibir as métricas de custo que estão sendo geradas atualmente por seus aplicativos de funções. Você pode usar o [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) no [portal do Azure] ou APIs REST para obter esses dados.
 
 ### <a name="monitor-metrics-explorer"></a>Monitorar métricas Explorer
 
 Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting-started.md) para exibir dados relacionados ao custo para seus aplicativos de função de plano de consumo em um formato gráfico. 
 
-1. Na parte superior da [Azure portal] em **Pesquisar serviços, recursos e** pesquisa `monitor` de documentos e selecione **monitorar** em **Serviços**.
+1. Na parte superior da [portal do Azure] em Pesquisar **serviços, recursos e** pesquisa de documentos para `monitor` e selecione **monitorar** em **Serviços**.
 
 1. À esquerda, selecione **métricas** > **Selecione um recurso**e, em seguida, use as configurações abaixo da imagem para escolher seu aplicativo de funções.
 
@@ -83,9 +83,9 @@ Use [Azure monitor métricas Explorer](../azure-monitor/platform/metrics-getting
     |Definição  |Valor sugerido  |Descrição  |
     |---------|---------|---------|
     | Subscrição    |  A sua subscrição  | A assinatura com seu aplicativo de funções.  |
-    | Resource group     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
+    | Grupo de recursos     | Seu grupo de recursos  | O grupo de recursos que contém seu aplicativo de funções.   |
     | Tipo de recurso     |  Serviços Aplicacionais | Os aplicativos de funções são mostrados como instâncias de serviços de aplicativos no monitor. |
-    | Resource     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
+    | Recurso     |  Seu aplicativo de funções  | O aplicativo de funções a ser monitorado.        |
 
 1. Selecione **aplicar** para escolher o aplicativo de funções como o recurso a ser monitorado.
 
@@ -107,7 +107,7 @@ Este gráfico mostra um total de 1.110.000.000 `Function Execution Units` consum
 
 O [CLI do Azure](/cli/azure/) tem comandos para recuperar métricas. Você pode usar a CLI de um ambiente de comando local ou diretamente do portal usando [Azure cloud Shell](../cloud-shell/overview.md). Por exemplo, o seguinte comando [AZ monitor de lista de métricas](/cli/azure/monitor/metrics#az-monitor-metrics-list) retorna dados por hora no mesmo período de tempo usado antes.
 
-Certifique-se de `<AZURE_SUBSCRIPTON_ID>` substituir pela sua ID de assinatura do Azure que executa o comando.
+Certifique-se de substituir `<AZURE_SUBSCRIPTON_ID>` pela sua ID de assinatura do Azure que executa o comando.
 
 ```azurecli-interactive
 az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
@@ -192,7 +192,7 @@ Esse comando retorna uma carga JSON semelhante ao exemplo a seguir:
   ]
 }
 ```
-Essa resposta específica mostra que de `2019-09-11T21:46` até `2019-09-11T23:18`, durante o qual o aplicativo consumiu 1110000000 MB-milissegundos (1083,98 GB-segundos).
+Essa resposta específica mostra que de `2019-09-11T21:46` a `2019-09-11T23:18`, durante o qual o aplicativo consumiu 1110000000 MB-milissegundos (1083,98 GB-segundos).
 
 ## <a name="determine-memory-usage"></a>Determinar o uso de memória
 
@@ -210,14 +210,14 @@ performanceCounters
 
 Os resultados são semelhantes ao exemplo a seguir:
 
-| carimbo \[de data/hora UTC\]          | name          | value       |
+| carimbo de data/hora \[UTC @ no__t-1          | nome          | valor       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | Bytes Privados | 209.932.288 |
-| 9/12/2019, 1:06:14\.994 AM | Bytes Privados | 212.189.184 |
-| 9/12/2019, 1:06:30\.010 | Bytes Privados | 231.714.816 |
-| 9/12/2019, 1:07:15\.040 AM | Bytes Privados | 210.591.744 |
-| 9/12/2019, 1:12:16\.285 AM | Bytes Privados | 216.285.184 |
-| 9/12/2019, 1:12:31\.376 AM | Bytes Privados | 235.806.720 |
+| 9/12/2019, 1:05:14 @ no__t-0947 AM | Bytes particulares | 209.932.288 |
+| 9/12/2019, 1:06:14 @ no__t-0994 AM | Bytes particulares | 212.189.184 |
+| 9/12/2019, 1:06:30 @ no__t-0010 AM | Bytes particulares | 231.714.816 |
+| 9/12/2019, 1:07:15 @ no__t-0040 AM | Bytes particulares | 210.591.744 |
+| 9/12/2019, 1:12:16 @ no__t-0285 AM | Bytes particulares | 216.285.184 |
+| 9/12/2019, 1:12:31 @ no__t-0376 AM | Bytes particulares | 235.806.720 |
 
 ## <a name="function-level-metrics"></a>Métricas de nível de função
 
@@ -230,11 +230,11 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| name                       | averageDurationMilliseconds |
+| nome                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 @ no__t-0087                     |
+| QueueTrigger MaxDurationMs | 90 @ no__t-0249                     |
+| QueueTrigger MinDurationMs | 8 @ no__t-0522                      |
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -242,4 +242,4 @@ customMetrics
 > [Saiba mais sobre como monitorar aplicativos de funções](functions-monitoring.md)
 
 [página de preços]: https://azure.microsoft.com/pricing/details/functions/
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

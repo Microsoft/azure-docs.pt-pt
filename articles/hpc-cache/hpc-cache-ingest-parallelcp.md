@@ -5,23 +5,23 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.author: rohogue
+ms.openlocfilehash: 4899f946cb358693c969def3fa740af64675d934
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180965"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254528"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Ingestão de dados do cache HPC do Azure (visualização) – método de script de cópia paralela
 
-Este artigo fornece instruções para criar o ``parallelcp`` script e usá-lo para mover dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure.
+Este artigo fornece instruções para criar o script ``parallelcp`` e usá-lo para mover dados para um contêiner de armazenamento de BLOBs para uso com o cache do HPC do Azure.
 
 Para saber mais sobre como mover dados para o armazenamento de BLOBs para o cache do Azure HPC, leia [mover dados para o armazenamento de BLOBs do Azure para o cache do Azure HPC](hpc-cache-ingest.md).
 
 ## <a name="create-the-parallelcp-script"></a>Criar o script parallelcp
 
-O script a seguir adicionará o `parallelcp`executável. (Esse script foi criado para o Ubuntu; se estiver usando outra distribuição, você ``parallel`` deverá instalar o separadamente.)
+O script a seguir adicionará o executável `parallelcp`. (Esse script foi criado para o Ubuntu; se estiver usando outra distribuição, você deverá instalar o ``parallel`` separadamente.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM 
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Exemplo de cópia paralela
 
-Este exemplo usa o script de cópia paralela para ``glibc`` compilar usando arquivos de origem no cache do HPC do Azure.
+Este exemplo usa o script de cópia paralela para compilar ``glibc`` usando arquivos de origem no cache do HPC do Azure.
 
 Os arquivos de origem são armazenados em cache no ponto de montagem do cache HPC do Azure e os arquivos de objeto são armazenados no disco rígido local.
 
-Este exemplo usa o script de cópia paralela com a ``-j`` opção ``make`` e para obter paralelização.
+Este exemplo usa o script de cópia paralela com a opção ``-j`` e ``make`` para obter paralelização.
 
 ```bash
 sudo apt-get update

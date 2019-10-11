@@ -1,7 +1,7 @@
 ---
-title: V2.0 de API de texto do tradutor
+title: API de Tradução de Texto v 2.0
 titleSuffix: Azure Cognitive Services
-description: Documentação de referência para a API de texto do Translator v2.0.
+description: Documentação de referência para o API de Tradução de Texto v 2.0.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,108 +10,108 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: c18c062d5537603284acb37081ac0a4eb8d2fd20
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: f111169558118a80602bcb2136bc63ce54c9e0d9
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797821"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242488"
 ---
-# <a name="translator-text-api-v20"></a>V2.0 de API de texto do tradutor
+# <a name="translator-text-api-v20"></a>API de Tradução de Texto v 2.0
 
 > [!IMPORTANT]
-> Esta versão da API de texto do Translator foi preterido. [Ver documentação para a versão 3 da API de texto do Translator](v3-0-reference.md).
+> Esta versão do API de Tradução de Texto foi preterida. [Exiba a documentação da versão 3 do API de tradução de texto](v3-0-reference.md).
 
-Versão 2 do API de texto do Translator pode ser integrado de forma totalmente integrada em seus aplicativos, Web sites, ferramentas ou outras soluções para fornecer experiências de usuário multilíngüe. Pode utilizá-lo em qualquer plataforma de hardware e com qualquer sistema operativo para efetuar a tradução de idioma e outras tarefas relacionadas com a linguagem, como deteção de idioma de texto e o texto em voz, de acordo com padrões da indústria. Para obter mais informações, consulte [API de texto do Translator](../translator-info-overview.md).
+A versão 2 do API de Tradução de Texto pode ser integrada diretamente em seus aplicativos, sites, ferramentas ou outras soluções para fornecer experiências de usuário em vários idiomas. Você pode usá-lo em qualquer plataforma de hardware e em qualquer sistema operacional para executar a tradução de linguagem e outras tarefas relacionadas à linguagem, como detecção de idioma de texto e conversão de texto em fala, de acordo com os padrões do setor. Para obter mais informações, consulte [API de tradução de texto](../translator-info-overview.md).
 
 ## <a name="getting-started"></a>Introdução
-Para aceder à API de texto do Translator, precisa [Inscreva-se para o Microsoft Azure](../translator-text-how-to-signup.md).
+Para acessar o API de Tradução de Texto, você precisa [se inscrever para Microsoft Azure](../translator-text-how-to-signup.md).
 
-## <a name="authentication"></a>Authentication 
-Todas as chamadas à API de texto do Translator requerem uma chave de subscrição para a autenticação. A API oferece suporte a três métodos de autenticação:
+## <a name="authentication"></a>Autenticação 
+Todas as chamadas para o API de Tradução de Texto exigem uma chave de assinatura para autenticação. A API dá suporte a três métodos de autenticação:
 
-- Um token de acesso. Utilize a chave de subscrição referenciada no passo 9 para criar um token de acesso ao fazer um pedido POST ao serviço de autenticação. Consulte a documentação do serviço de token para obter detalhes. Transmitir o token de acesso ao serviço de Microsoft Translator, utilizando o `Authorization` cabeçalho ou o `access_token` parâmetro de consulta. O token de acesso é válido durante 10 minutos. Obter um novo token de acesso a cada 10 minutos e continuar a utilizar o mesmo acesso o token para pedidos repetidos durante 10 minutos.
-- Uma chave de subscrição utilizada diretamente. Passar a sua chave de assinatura como um valor no `Ocp-Apim-Subscription-Key` cabeçalho incluído com o seu pedido para a API de texto do Translator. Quando utiliza a chave de subscrição diretamente, não é preciso chamar o serviço de autenticação de token para criar um token de acesso.
-- Uma [subscrição dos serviços cognitivos do Azure de múltiplos serviço](https://azure.microsoft.com/pricing/details/cognitive-services/). Este método permite-lhe utilizar uma única chave secreta para autenticar pedidos para vários serviços.
-Quando utiliza uma chave secreta múltiplos serviço, precisa incluir dois cabeçalhos de autenticação com o seu pedido. O cabeçalho de primeiro transmite a chave secreta. O cabeçalho de segundo Especifica a região associada à sua subscrição:
+- Um token de acesso. Use a chave de assinatura para criar um token de acesso fazendo uma solicitação POST para o serviço de autenticação. Consulte a documentação do serviço de token para obter detalhes. Passe o token de acesso para o serviço do tradutor usando o cabeçalho `Authorization` ou o parâmetro de consulta `access_token`. O token de acesso é válido por 10 minutos. Obtenha um novo token de acesso a cada 10 minutos e continue usando o mesmo token de acesso para solicitações repetidas durante os 10 minutos.
+- Uma chave de assinatura usada diretamente. Passe sua chave de assinatura como um valor no cabeçalho `Ocp-Apim-Subscription-Key` incluído com sua solicitação para o API de Tradução de Texto. Quando você usa a chave de assinatura diretamente, não precisa chamar o serviço de autenticação de token para criar um token de acesso.
+- Uma [assinatura de vários serviços do Azure cognitiva Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Esse método permite que você use uma única chave secreta para autenticar solicitações para vários serviços.
+Ao usar uma chave secreta de vários serviços, você precisa incluir dois cabeçalhos de autenticação com sua solicitação. O primeiro cabeçalho passa a chave secreta. O segundo cabeçalho especifica a região associada à sua assinatura:
    - `Ocp-Apim-Subscription-Key`
    - `Ocp-Apim-Subscription-Region`
 
-A região é necessária para a subscrição múltiplos serviço de API de texto. A região que selecionou é a região que pode utilizar para a tradução de texto quando utiliza a chave de subscrição de múltiplos serviços. Tem de ser a mesma região que selecionou quando se inscreveu para a sua subscrição múltiplos serviço no portal do Azure.
+A região é necessária para a assinatura de API de texto de vários serviços. A região selecionada é a única região que você pode usar para a tradução de texto ao usar a chave de assinatura de vários serviços. Ele precisa ser a mesma região que você selecionou quando se inscreveu para sua assinatura de vários serviços no portal do Azure.
 
-As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, e `westus2`.
+As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, 0, 1, 2, 3, 4, 5 e 6.
 
-Sua chave de subscrição e o access token são segredos que devem ser ocultados da vista.
+Sua chave de assinatura e o token de acesso são segredos que devem ser ocultados da exibição.
 
-## <a name="profanity-handling"></a>Processamento de linguagem inapropriada
-Normalmente, o serviço Microsoft Translator irá reter a linguagem inapropriada que está presente na origem. O grau de linguagem inapropriada e contexto que torna as palavras impróprias diferem de acordo com a cultura. Então, o grau de linguagem inapropriada no idioma de destino foi aumentado ou reduzido.
+## <a name="profanity-handling"></a>Manipulação de obscenidades
+Normalmente, o serviço do tradutor reterá profanação que está presente na origem. O grau de profanação e o contexto que torna as palavras obscenas diferem de acordo com a cultura. Portanto, o grau de profanação no idioma de destino pode ser aumentado ou reduzido.
 
-Se quiser evitar que linguagem inapropriada na tradução, mesmo quando está a ser o texto de origem, pode utilizar a linguagem inapropriada filtragem opção para os métodos que o suportam. A opção permite-lhe escolher se pretende ver linguagem inapropriada eliminada ou marcada com etiquetas adequadas, ou se pretende permitir que a linguagem inapropriada no destino. Os valores aceites `ProfanityAction` estão `NoAction` (predefinição), `Marked`, e `Deleted`.
+Se você quiser evitar profanação na tradução mesmo quando ela estiver no texto de origem, você poderá usar a opção de filtragem de profanação para os métodos que dão suporte a ela. A opção permite que você escolha se deseja ver a profanação excluída ou marcada com as marcas apropriadas, ou se deseja permitir a profanação no destino. Os valores aceitos de `ProfanityAction` são `NoAction` (padrão), `Marked` e `Deleted`.
 
 
-|ProfanityAction    |Action |Origem de exemplo (japonês)  |Tradução de exemplo (em inglês)  |
+|ProfanityAction    |Ação |Exemplo de origem (japonês)  |Tradução de exemplo (inglês)  |
 |:--|:--|:--|:--|
-|NoAction   |Predefinição. Mesmo que não definir a opção. Linguagem inapropriada passará de origem ao destino.        |彼はジャッカスです。     |Ele é um jackass.   |
-|Marcado     |Palavras profanas ficará rodeadas por marcas XML \<linguagem inapropriada > e \</profanity >.       |彼はジャッカスです。 |Ele é um \<linguagem inapropriada > jackass\</profanity >.  |
-|Eliminado    |Palavras profanas serão removidas da saída sem substituição.     |彼はジャッカスです。 |Ele é um.   |
+|NoAction   |Predefinição. O mesmo que não definir a opção. A profanação passará da origem para a de destino.        |彼はジャッカスです Marketplace.     |Ele é um Jackass.   |
+|Marca     |Palavras obscenas serão circundadas por marcas XML \<profanity > e \</profanação >.       |彼はジャッカスです Marketplace. |Ele é um \<profanity > Jackass @ no__t-1/profana >.  |
+|Eliminada    |Palavras obscenas serão removidas da saída sem substituição.     |彼はジャッカスです Marketplace. |Ele é um.   |
 
     
-## <a name="excluding-content-from-translation"></a>Excluir o conteúdo de tradução
-Quando a converter conteúdo com marcas, como o HTML (`contentType=text/html`), às vezes é útil excluir o conteúdo específico da tradução. Pode usar o atributo `class=notranslate` para especificar o conteúdo que deve permanecer em seu idioma original. No exemplo a seguir, o conteúdo na primeira `div` elemento não ser traduzido, mas o conteúdo na segunda `div` elemento será convertido.
+## <a name="excluding-content-from-translation"></a>Excluindo conteúdo da tradução
+Ao traduzir o conteúdo com marcas, como HTML (`contentType=text/html`), às vezes, é útil excluir conteúdo específico da tradução. Você pode usar o atributo `class=notranslate` para especificar o conteúdo que deve permanecer em seu idioma original. No exemplo a seguir, o conteúdo no primeiro elemento `div` não será convertido, mas o conteúdo no segundo elemento `div` será traduzido.
 
 ```HTML
 <div class="notranslate">This will not be translated.</div>
 <div>This will be translated. </div>
 ```
 
-## <a name="get-translate"></a>OBTER / traduzir
+## <a name="get-translate"></a>OBTER/translate
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Converte uma cadeia de texto de um idioma para outro.
+Traduz uma cadeia de texto de um idioma para outro.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/Translate`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/Translate`.
 
 **Valor de retorno:** Uma cadeia de caracteres que representa o texto traduzido.
 
-Se tiver utilizado anteriormente `AddTranslation` ou `AddTranslationArray` para introduzir uma tradução com uma classificação de 5 ou superior para a mesma frase de origem, `Translate` retorna apenas a primeira escolha que está disponível para o seu sistema. "Frase de mesma origem" significa exatamente o mesmo (100% correspondência), exceto para a capitalização, espaço em branco, valores de etiqueta e a pontuação no final de uma frase. Se nenhuma classificação é armazenada com uma classificação de 5 ou superior, o resultado retornado será a tradução automática ao Microsoft Translator.
+Se você usou anteriormente `AddTranslation` ou `AddTranslationArray` para inserir uma tradução com uma classificação de 5 ou superior para a mesma sentença de origem, `Translate` retornará apenas a opção superior disponível para o seu sistema. "Mesma sentença de origem" significa exatamente o mesmo (100% de correspondência), exceto para capitalização, espaço em branco, valores de marca e pontuação no final de uma sentença. Se nenhuma classificação for armazenada com uma classificação de 5 ou superior, o resultado retornado será a tradução automática pelo Microsoft Translator.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
 
-cadeia
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição    |Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição    |Tipo de parâmetro|Tipo de dados|
 |:--|:--|:--|:--|:--|
-|appid  |(vazio)    |Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|cadeia|
-|text|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O texto não pode conter mais de 10.000 carateres.|query|Cadeia de caracteres|
-|from|(vazio)   |Opcional. Uma cadeia de caracteres que representa o código de idioma do texto que está a ser traduzido. Por exemplo, en para inglês.|query|Cadeia de caracteres|
-|para|(vazio) |Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.|query|cadeia|
-|contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Formatos suportados são `text/plain` (predefinição) e `text/html`. Todos os elementos HTML tem de ser elementos bem formados e completos.|query|cadeia|
-|category|(vazio)   |Opcional. Uma cadeia que contém a categoria (domínio) da tradução. A predefinição é `general`.|query|cadeia|
-|Autorização|(vazio)  |Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)  |Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID  |esvaziá    |Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|esvaziá   |Necessário. Uma cadeia de caracteres que representa o texto a ser traduzido. O texto não pode conter mais de 10.000 caracteres.|consulta|string|
+|De|esvaziá   |Opcional. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido. Por exemplo, en para inglês.|consulta|string|
+|para|esvaziá |Necessário. Uma cadeia de caracteres que representa o código do idioma no qual converter o texto.|consulta|string|
+|contentType|esvaziá    |Opcional. O formato do texto que está sendo traduzido. Os formatos com suporte são `text/plain` (padrão) e `text/html`. Todos os elementos HTML precisam ser bem formados, elementos completos.|consulta|string|
+|categoria|esvaziá   |Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. A predefinição é `general`.|consulta|string|
+|Autorização|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="post-translatearray"></a>PUBLICAR /TranslateArray
+## <a name="post-translatearray"></a>POSTAR/TranslateArray
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém as traduções para vários textos de origem.
+Recupera traduções para vários textos de origem.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/TranslateArray`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/TranslateArray`.
 
-Este é o formato do corpo do pedido:
+Este é o formato do corpo da solicitação:
 
 ```
 <TranslateArrayRequest>
@@ -133,32 +133,32 @@ Este é o formato do corpo do pedido:
 </TranslateArrayRequest>
 ```
 
-Estes elementos são no `TranslateArrayRequest`:
+Esses elementos estão em `TranslateArrayRequest`:
 
 
-* `AppId`: Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `AppId` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.
-* `From`: Opcional. Uma cadeia de caracteres que representa o código de idioma do texto que está a ser traduzido. Se este campo é deixado em branco, a resposta irá incluir o resultado da deteção de idioma automática.
-* `Options`: Opcional. Um `Options` objeto que contém os seguintes valores. Eles são todos opcionais e predefinido para as definições mais comuns. Elementos especificados tem de estar listados em ordem alfabética.
-    - `Category`: Uma cadeia que contém a categoria (domínio) da tradução. A predefinição é `general`.
-    - `ContentType`: O formato de texto a ser traduzido. Os formatos suportados são `text/plain` (predefinição), `text/xml`, e `text/html`. Todos os elementos HTML tem de ser elementos bem formados e completos.
-    - `ProfanityAction`: Especifica como são tratadas profanities, conforme explicado anteriormente. Aceite os valores são `NoAction` (predefinição), `Marked`, e `Deleted`.
-    - `State`: Estado do utilizador para o ajudar a correlacionar a solicitação e resposta. O mesmo conteúdo será devolvido na resposta.
-    - `Uri`: Filtre os resultados por este URI. Predefinição: `all`.
-    - `User`: Filtre os resultados por este utilizador. Predefinição: `all`.
-* `Texts`: Necessário. Uma matriz que contém o texto para a tradução. Todas as cadeias de caracteres devem estar no mesmo idioma. O total de todo o texto para ser convertido não pode ter mais de 10.000 carateres. O número máximo de elementos de matriz é de 2000.
-* `To`: Necessário. Uma cadeia de caracteres que representa o código de idioma para traduzir o texto em.
+* `AppId`: obrigatório. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `AppId` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.
+* `From`: opcional. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido. Se esse campo for deixado vazio, a resposta incluirá o resultado da detecção automática de idioma.
+* `Options`: opcional. Um objeto `Options` que contém os valores a seguir. Eles são todos opcionais e padrão para as configurações mais comuns. Os elementos especificados devem ser listados em ordem alfabética.
+    - `Category`: uma cadeia de caracteres que contém a categoria (domínio) da tradução. A predefinição é `general`.
+    - `ContentType`: o formato do texto que está sendo traduzido. Os formatos com suporte são `text/plain` (padrão), `text/xml` e `text/html`. Todos os elementos HTML precisam ser bem formados, elementos completos.
+    - `ProfanityAction`: especifica como as obscenidades são tratadas, conforme explicado anteriormente. Os valores aceitos são `NoAction` (padrão), `Marked` e `Deleted`.
+    - `State`: estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
+    - `Uri`: filtrar resultados por este URI. Padrão: `all`.
+    - `User`: filtrar resultados por este usuário. Padrão: `all`.
+* `Texts`: obrigatório. Uma matriz que contém o texto para tradução. Todas as cadeias de caracteres devem estar no mesmo idioma. O total de todo o texto a ser traduzido não pode exceder 10.000 caracteres. O número máximo de elementos de matriz é 2.000.
+* `To`: obrigatório. Uma cadeia de caracteres que representa o código do idioma no qual converter o texto.
 
-Pode omitir elementos opcionais. Direcionar os elementos que são filhos do `TranslateArrayRequest` tem de estar listada em ordem alfabética.
+Você pode omitir elementos opcionais. Os elementos que são filhos diretos de `TranslateArrayRequest` devem ser listados em ordem alfabética.
 
-O `TranslateArray` método aceita `application/xml` ou `text/xml` para `Content-Type`.
+O método `TranslateArray` aceita `application/xml` ou `text/xml` para `Content-Type`.
 
-**Valor de retorno:** A `TranslateArrayResponse` matriz. Cada `TranslateArrayResponse` tem esses elementos:
+**Valor de retorno:** Uma matriz `TranslateArrayResponse`. Cada `TranslateArrayResponse` tem estes elementos:
 
-* `Error`: Indica um erro se encontrarmos um. Caso contrário, definida como nula.
-* `OriginalSentenceLengths`: Uma matriz de inteiros que indica o comprimento de cada sentença no texto de origem. O comprimento da matriz indica o número de frases.
-* `TranslatedText`: O texto traduzido.
-* `TranslatedSentenceLengths`: Uma matriz de inteiros que indica o comprimento de cada frase o texto traduzido. O comprimento da matriz indica o número de frases.
-* `State`: Estado do utilizador para o ajudar a correlacionar a solicitação e resposta. Devolve o mesmo conteúdo da solicitação.
+* `Error`: indica um erro se ocorrer um. Caso contrário, defina como nulo.
+* `OriginalSentenceLengths`: uma matriz de inteiros que indica o comprimento de cada sentença no texto de origem. O comprimento da matriz indica o número de sentenças.
+* `TranslatedText`: o texto traduzido.
+* `TranslatedSentenceLengths`: uma matriz de inteiros que indica o comprimento de cada sentença no texto traduzido. O comprimento da matriz indica o número de sentenças.
+* `State`: estado do usuário para ajudar a correlacionar a solicitação e a resposta. Retorna o mesmo conteúdo da solicitação.
 
 Este é o formato do corpo da resposta:
 
@@ -180,36 +180,36 @@ Este é o formato do corpo da resposta:
 ```
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-Uma resposta com êxito inclui uma matriz de `TranslateArrayResponse` matrizes no formato descrito anteriormente.
+Uma resposta bem-sucedida inclui uma matriz de matrizes `TranslateArrayResponse` no formato descrito anteriormente.
 
-cadeia
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|Autorização|(vazio)  |Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|Cadeia de caracteres|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|Autorização|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP   |Reason|
+|Código de estado de HTTP   |Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas. Erros comuns incluem: <ul><li>Elemento de matriz não pode estar vazio.</li><li>Categoria inválida.</li><li>De idioma é inválido.</li><li>A linguagem é inválida.</li><li>O pedido contém demasiados elementos.</li><li>O idioma de From não é suportado.</li><li>O idioma de em não é suportado.</li><li>Traduzir pedido tem demasiados dados.</li><li>HTML není ve správném formátu.</li><li>Cadeias de caracteres demasiados passadas para a solicitação de traduzir.</li></ul>|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada. Os erros comuns incluem: <ul><li>O elemento da matriz não pode ficar vazio.</li><li>Categoria inválida.</li><li>Do idioma inválido.</li><li>O idioma é inválido.</li><li>A solicitação contém muitos elementos.</li><li>Não há suporte para o idioma de.</li><li>Não há suporte para o idioma to.</li><li>A solicitação de conversão tem muitos dados.</li><li>O HTML não está em um formato correto.</li><li>Muitas cadeias de caracteres foram passadas na solicitação de conversão.</li></ul>|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="post-getlanguagenames"></a>POST /GetLanguageNames
+## <a name="post-getlanguagenames"></a>POSTAR/GetLanguageNames
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém nomes amigáveis para os idiomas passado como o parâmetro `languageCodes`, localizada em transmitido `locale` idioma.
+Recupera nomes amigáveis para os idiomas passados como o parâmetro `languageCodes`, localizado no idioma passado `locale`.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguageNames`.
 
-O corpo do pedido inclui uma matriz de cadeia que representa os códigos de idioma 639-1 ISO para o qual pretende obter os nomes amigáveis. Segue-se um exemplo:
+O corpo da solicitação inclui uma matriz de cadeia de caracteres que representa os códigos de idioma ISO 639-1 para os quais recuperar os nomes amigáveis. Segue-se um exemplo:
 
 ```
 <ArrayOfstring xmlns:i="https://www.w3.org/2001/XMLSchema-instance"  xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -218,178 +218,178 @@ O corpo do pedido inclui uma matriz de cadeia que representa os códigos de idio
 </ArrayOfstring>
 ```
 
-**Valor de retorno:** Uma matriz de cadeia de caracteres que contém nomes de idiomas suportados pelo serviço do Microsoft Translator, localizado para o idioma pedido.
+**Valor de retorno:** Uma matriz de cadeia de caracteres que contém nomes de idiomas com suporte pelo serviço do tradutor, localizado no idioma solicitado.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-Uma matriz de cadeia que contém nomes de idiomas suportados pelo serviço do Microsoft Translator, localizado para o idioma pedido.
+Uma matriz de cadeia de caracteres que contém nomes de idiomas com suporte pelo serviço do tradutor, localizado no idioma solicitado.
 
-Cadeia de caracteres
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|Localidade|(vazio) |Necessário. Uma cadeia de caracteres que representa um dos seguintes, utilizado para localizar os nomes de idiomas: <ul><li>A combinação de um código de cultura de duas letras em minúsculas do ISO 639 associadas com uma linguagem e um código de subcultura de duas letras em maiúsculas do ISO 3166. <li>Um código de cultura em minúsculas do ISO 639 por si só.|query|Cadeia de caracteres|
-|Autorização|(vazio)  |Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)  |Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|localidade|esvaziá |Necessário. Uma cadeia de caracteres que representa um dos seguintes, usado para localizar os nomes dos idiomas: <ul><li>A combinação de um código de cultura de letra minúscula ISO 639 2 associado a uma linguagem e um código de subcultura em maiúsculas de letra ISO 3166 2. <li>Um código de cultura ISO 639 minúsculo por si só.|consulta|string|
+|Autorização|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
+## <a name="get-getlanguagesfortranslate"></a>OBTER/GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém uma lista de códigos de idioma que representam os idiomas suportados pelo serviço de tradução.  `Translate` e `TranslateArray` pode traduzir entre as duas dessas linguagens.
+Obtém uma lista de códigos de idioma que representam os idiomas com suporte no serviço de tradução.  `Translate` e `TranslateArray` podem ser convertidos entre dois desses idiomas.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
-**Valor de retorno:** Uma matriz de cadeia de caracteres que contém os códigos de idioma suportados pelo serviço Microsoft Translator.
+**Valor de retorno:** Uma matriz de cadeia de caracteres que contém os códigos de idioma com suporte no serviço do tradutor.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-Uma matriz de cadeia de caracteres que contém os códigos de idioma suportados pelo serviço Microsoft Translator.
+Uma matriz de cadeia de caracteres que contém os códigos de idioma com suporte no serviço do tradutor.
 
-cadeia
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|Autorização|(vazio)  |Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|Cadeia de caracteres|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|Autorização|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503|Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503|Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="get-getlanguagesforspeak"></a>GET /GetLanguagesForSpeak
+## <a name="get-getlanguagesforspeak"></a>OBTER/GetLanguagesForSpeak
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém os idiomas disponíveis para síntese de fala.
+Recupera os idiomas disponíveis para síntese de fala.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
-**Valor de retorno:** Uma matriz de cadeia de caracteres que contém os códigos de idioma, o serviço Microsoft Translator suportados para síntese de fala.
+**Valor de retorno:** Uma matriz de cadeia de caracteres que contém os códigos de idioma com suporte para a síntese de fala pelo serviço do tradutor.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-Uma matriz de cadeia de caracteres que contém os códigos de idioma, o serviço Microsoft Translator suportados para síntese de fala.
+Uma matriz de cadeia de caracteres que contém os códigos de idioma com suporte para a síntese de fala pelo serviço do tradutor.
 
-cadeia
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|Cadeia de caracteres|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|cadeia|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
  
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400|Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400|Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401|Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="get-speak"></a>OBTER / falar
+## <a name="get-speak"></a>OBTER/Speak
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Devolve um fluxo WAV ou MP3 do texto no passado, falado no idioma desejado.
+Retorna um fluxo WAV ou MP3 do texto passado, falado na linguagem desejada.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
 
-**Valor de retorno:** Um fluxo WAV ou MP3 do texto no passado, falado no idioma desejado.
+**Valor de retorno:** Um fluxo WAV ou MP3 do texto passado, falado na linguagem desejada.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
 
-binary
+binário
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|text|(vazio)   |Necessário. Uma cadeia que contém um ou mais frases seja falado para o fluxo de, no idioma especificado. O texto não pode exceder 2000 carateres.|query|cadeia|
-|language|(vazio)   |Necessário. Uma cadeia de caracteres que representa o código de idioma com suporte de idioma no qual dizer o texto. O código tem de ser um dos códigos de retornado pelo método `GetLanguagesForSpeak`.|query|cadeia|
-|format|(vazio)|Opcional. Uma cadeia de caracteres que especifica o ID de tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor predefinido é `audio/wav`.|query|cadeia|
-|options|(vazio)    |Opcional. Uma cadeia de caracteres que especifica as propriedades da fala sintetizada:<ul><li>`MaxQuality` e `MinSize` especifique a qualidade do sinal de áudio. `MaxQuality` Fornece a melhor qualidade. `MinSize` Fornece o tamanho de ficheiro mais pequeno. A predefinição é `MinSize`.</li><li>`female` e `male` especificar o sexo pretendido de voz. A predefinição é `female`. Utilize a barra vertical (<code>\|</code>) para incluir várias opções. Por exemplo, `MaxQuality|Male`.</li></li></ul>  |query|Cadeia de caracteres|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)  |Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|esvaziá   |Necessário. Uma cadeia de caracteres que contém uma ou mais frases a serem faladas para o fluxo, no idioma especificado. O texto não deve exceder 2.000 caracteres.|consulta|string|
+|language|esvaziá   |Necessário. Uma cadeia de caracteres que representa o código de idioma com suporte do idioma no qual falar o texto. O código deve ser um dos códigos retornados pelo método `GetLanguagesForSpeak`.|consulta|string|
+|ao|esvaziá|Opcional. Uma cadeia de caracteres que especifica a ID do tipo de conteúdo. Atualmente, `audio/wav` e `audio/mp3` estão disponíveis. O valor padrão é `audio/wav`.|consulta|string|
+|Opções|esvaziá    |Opcional. Uma cadeia de caracteres que especifica as propriedades da fala sintetizada:<ul><li>`MaxQuality` e `MinSize` especificam a qualidade do sinal de áudio. `MaxQuality` fornece a qualidade mais alta. `MinSize` fornece o menor tamanho de arquivo. O padrão é `MinSize`.</li><li>`female` e `male` especifique o gênero desejado da voz. A predefinição é `female`. Use a barra vertical (<code>\|</code>) para incluir várias opções. Por exemplo, `MaxQuality|Male`.</li></li></ul>  |consulta|string|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="get-detect"></a>GET /Detect
+## <a name="get-detect"></a>OBTER/Detect
 
 ### <a name="implementation-notes"></a>Notas de implementação
 Identifica o idioma de uma seção de texto.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
 
-**Valor de retorno:** Uma cadeia que contém um código de idioma de dois caracteres do texto.
+**Valor de retorno:** Uma cadeia de caracteres que contém um código de idioma de dois caracteres para o texto.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
 
-Cadeia de caracteres
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)  |Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|text|(vazio)|Necessário. Uma cadeia que contém o texto cujo idioma é ser identificadas. O texto não pode exceder os 10.000 carateres.|query|  Cadeia de caracteres|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|Cadeia de caracteres|
-|OCP-Apim-Subscription-Key  |(vazio)    |Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá  |Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|esvaziá|Necessário. Uma cadeia de caracteres que contém o texto cujo idioma deve ser identificado. O texto não deve exceder 10.000 caracteres.|consulta|  string|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key  |esvaziá    |Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400|Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400|Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
 
-## <a name="post-detectarray"></a>PUBLICAR /DetectArray
+## <a name="post-detectarray"></a>POSTAR/DetectArray
 
 ### <a name="implementation-notes"></a>Notas de implementação
 
-Identifica os idiomas numa matriz de cadeias de caracteres. Deteta o idioma de cada elemento de matriz individuais e devolve um resultado para cada linha da matriz de forma independente.
+Identifica os idiomas em uma matriz de cadeias de caracteres. Detecta de forma independente o idioma de cada elemento da matriz individual e retorna um resultado para cada linha da matriz.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/DetectArray`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/DetectArray`.
 
-Este é o formato do corpo do pedido:
+Este é o formato do corpo da solicitação:
 
 ```
 <ArrayOfstring xmlns="http://schemas.microsoft.com/2003/10/Serialization/Arrays">
@@ -398,7 +398,7 @@ Este é o formato do corpo do pedido:
 </ArrayOfstring>
 ```
 
-O texto não pode ter mais de 10.000 carateres.
+O texto não pode exceder 10.000 caracteres.
 
 **Valor de retorno:** Uma matriz de cadeia de caracteres que contém um código de idioma de dois caracteres para cada linha na matriz de entrada.
 
@@ -412,85 +412,85 @@ Este é o formato do corpo da resposta:
 ```
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-`DetectArray` foi efetuada com êxito. Devolve uma matriz de cadeia de caracteres que contém um código de idioma de dois caracteres para cada linha da matriz de entrada.
+o `DetectArray` foi bem-sucedido. Retorna uma matriz de cadeia de caracteres que contém um código de idioma de dois caracteres para cada linha da matriz de entrada.
 
-cadeia
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco.  Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|Cadeia de caracteres|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios.  Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="get-addtranslation"></a>GET /AddTranslation
+## <a name="get-addtranslation"></a>OBTER/AddTranslation
 
 ### <a name="implementation-notes"></a>Notas de implementação
 
 > [!IMPORTANT]
-> **Nota de preterição:** Após 31 de Janeiro de 2018, esse método não aceita novos envios de sentença. Obterá uma mensagem de erro. Veja o anúncio sobre as alterações a estrutura de tradução colaborativa (CTF).
+> **Observação de substituição:** Após 31 de janeiro de 2018, esse método não aceitará novos envios de frase. Você receberá uma mensagem de erro. Consulte o comunicado sobre as alterações na estrutura de tradução colaborativa (CTF).
 
-Adiciona uma tradução para a memória de tradução.
+Adiciona uma tradução à memória de tradução.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/AddTranslation`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/AddTranslation`.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
 
-Cadeia de caracteres
+string
 
-Tipo de conteúdo de resposta: aplicação: xml
+Tipo de conteúdo da resposta: Application: XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados   |
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type   |
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|originalText|(vazio)|Necessário. Uma cadeia que contém o texto a traduzir. O comprimento máximo da cadeia de caracteres é de 1000 carateres.|query|cadeia|
-|translatedText|(vazio) |Necessário. Uma cadeia que contém o texto traduzido no idioma de destino. O comprimento máximo da cadeia de caracteres é 2000 carateres.|query|cadeia|
-|from|(vazio)   |Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma do texto original. Por exemplo, en para inglês e Alemanha para o alemão.|query|Cadeia de caracteres|
-|para|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma para traduzir o texto em.|query|cadeia|
-|classificação|(vazio) |Opcional. Um número inteiro que representa a classificação de qualidade para a cadeia de caracteres. O valor está entre -10 e 10. A predefinição é 1.|query|integer|
-|contentType|(vazio)    |Opcional. O formato de texto a ser traduzido. Os formatos suportados são `text/plain` e `text/html`. Todos os elementos HTML tem de ser elementos bem formados e completos.    |query|Cadeia de caracteres|
-|category|(vazio)|Opcional. Uma cadeia que contém a categoria (domínio) da tradução. A predefinição é `general`.|query|cadeia|
-|Utilizador|(vazio)|Necessário. Uma cadeia que é utilizada para controlar o originador do envio de mensagens em fila.|query|Cadeia de caracteres|
-|uri|(vazio)|Opcional. Uma cadeia que contém a localização do conteúdo da tradução.|query|Cadeia de caracteres|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco.  Token de autorização: `"Bearer" + " " + "access_token"`.  |cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|originalText|esvaziá|Necessário. Uma cadeia de caracteres que contém o texto a ser traduzido. O comprimento máximo da cadeia de caracteres é de 1.000 caracteres.|consulta|string|
+|translatedText|esvaziá |Necessário. Uma cadeia de caracteres que contém texto traduzido no idioma de destino. O comprimento máximo da cadeia de caracteres é de 2.000 caracteres.|consulta|string|
+|De|esvaziá   |Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma original do texto. Por exemplo, en para inglês e de alemão.|consulta|string|
+|para|esvaziá|Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma no qual converter o texto.|consulta|string|
+|classificação|esvaziá |Opcional. Um inteiro que representa a classificação de qualidade da cadeia de caracteres. O valor está entre-10 e 10. O padrão é 1.|consulta|número inteiro|
+|contentType|esvaziá    |Opcional. O formato do texto que está sendo traduzido. Os formatos com suporte são `text/plain` e `text/html`. Todos os elementos HTML precisam ser bem formados, elementos completos.    |consulta|string|
+|categoria|esvaziá|Opcional. Uma cadeia de caracteres que contém a categoria (domínio) da tradução. A predefinição é `general`.|consulta|string|
+|Usuário|esvaziá|Necessário. Uma cadeia de caracteres que é usada para rastrear o originador do envio.|consulta|string|
+|URI|esvaziá|Opcional. Uma cadeia de caracteres que contém o local do conteúdo da tradução.|consulta|string|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios.  Token de autorização: `"Bearer" + " " + "access_token"`.  |cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|410|`AddTranslation` já não é suportada.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|410|Não há mais suporte para `AddTranslation`.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="post-addtranslationarray"></a>POST /AddTranslationArray
+## <a name="post-addtranslationarray"></a>POSTAR/AddTranslationArray
 
 ### <a name="implementation-notes"></a>Notas de implementação
 
 > [!IMPORTANT]
-> **Nota de preterição:** Após 31 de Janeiro de 2018, esse método não aceita novos envios de sentença. Obterá uma mensagem de erro. Veja o anúncio sobre as alterações a estrutura de tradução colaborativa (CTF).
+> **Observação de substituição:** Após 31 de janeiro de 2018, esse método não aceitará novos envios de frase. Você receberá uma mensagem de erro. Consulte o comunicado sobre as alterações na estrutura de tradução colaborativa (CTF).
 
-Adiciona uma matriz de traduções para a memória de tradução. Este método é uma versão de matriz de `AddTranslation`.
+Adiciona uma matriz de traduções à memória de tradução. Este método é uma versão de matriz de `AddTranslation`.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/AddTranslationArray`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/AddTranslationArray`.
 
-Este é o formato do corpo do pedido:
+Este é o formato do corpo da solicitação:
 
 ```
 <AddtranslationsRequest>
@@ -514,83 +514,83 @@ Este é o formato do corpo do pedido:
 </AddtranslationsRequest>
 ```
 
-Estes elementos são no `AddtranslationsRequest`:
+Esses elementos estão em `AddtranslationsRequest`:
 
-* `AppId`: Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `AppId` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.
-* `From`: Necessário. Uma cadeia que contém o código de idioma do idioma de origem. Tem de ser um dos idiomas retornados pelo `GetLanguagesForTranslate` método.
-* `To`: Necessário. Uma cadeia que contém o código de idioma do idioma de destino. Tem de ser um dos idiomas retornados pelo `GetLanguagesForTranslate` método.
-* `Translations`: Necessário. Uma matriz de traduções para adicionar a memória de tradução. Cada tradução tem de conter `OriginalText`, `TranslatedText`, e `Rating`. O tamanho máximo de cada `OriginalText` e `TranslatedText` é de 1000 carateres. O total de todos os `OriginalText` e `TranslatedText` elementos não podem ter mais de 10.000 carateres. O número máximo de elementos de matriz é 100.
-* `Options`: Necessário. Um conjunto de opções, incluindo `Category`, `ContentType`, `Uri`, e `User`. `User` é necessário. `Category`, `ContentType`, e `Uri` são opcionais. Elementos especificados tem de estar listados em ordem alfabética.
+* `AppId`: obrigatório. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `AppId` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.
+* `From`: obrigatório. Uma cadeia de caracteres que contém o código de idioma do idioma de origem. Deve ser um dos idiomas retornados pelo método `GetLanguagesForTranslate`.
+* `To`: obrigatório. Uma cadeia de caracteres que contém o código de idioma do idioma de destino. Deve ser um dos idiomas retornados pelo método `GetLanguagesForTranslate`.
+* `Translations`: obrigatório. Uma matriz de traduções a serem adicionadas à memória de tradução. Cada translação deve conter `OriginalText`, `TranslatedText` e `Rating`. O tamanho máximo de cada `OriginalText` e `TranslatedText` é de 1.000 caracteres. O total de todos os elementos `OriginalText` e `TranslatedText` não pode exceder 10.000 caracteres. O número máximo de elementos de matriz é 100.
+* `Options`: obrigatório. Um conjunto de opções, incluindo `Category`, `ContentType`, `Uri` e `User`. `User` é necessário. `Category`, `ContentType` e `Uri` são opcionais. Os elementos especificados devem ser listados em ordem alfabética.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-`AddTranslationArray` método foi concluída com êxito. 
+êxito no método `AddTranslationArray`. 
 
-Após 31 de Janeiro de 2018, os envios de sentença não aceite. O serviço irá responder com o código de erro 410.
+Após 31 de janeiro de 2018, os envios de frase não serão aceitos. O serviço responderá com o código de erro 410.
 
-Cadeia de caracteres
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Valor|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco.  Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|cadeia|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios.  Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|410    |`AddTranslation` já não é suportada.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503|Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|410    |Não há mais suporte para `AddTranslation`.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503|Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="get-breaksentences"></a>GET /BreakSentences
+## <a name="get-breaksentences"></a>OBTER/BreakSentences
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Divide uma secção de texto em frases e retorna uma matriz que contém os comprimentos de cada sentença.
+Quebra uma seção de texto em sentenças e retorna uma matriz que contém os comprimentos de cada sentença.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/BreakSentences`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/BreakSentences`.
 
-**Valor de retorno:** Uma matriz de inteiros que representa os comprimentos das frases. O comprimento da matriz representa o número de frases. Os valores representam o comprimento de cada sentença.
+**Valor de retorno:** Uma matriz de inteiros que representa os comprimentos das frases. O comprimento da matriz representa o número de sentenças. Os valores representam o comprimento de cada frase.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-Uma matriz de inteiros que representa os comprimentos das frases. O comprimento da matriz representa o número de frases. Os valores representam o comprimento de cada sentença.
+Uma matriz de inteiros que representa os comprimentos das frases. O comprimento da matriz representa o número de sentenças. Os valores representam o comprimento de cada frase.
 
-integer
+número inteiro
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
 
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)  |Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query| Cadeia de caracteres|
-|text|(vazio)   |Necessário. Uma cadeia de caracteres que representa o texto a dividir em frases. O tamanho máximo do texto é 10.000 carateres.|query|Cadeia de caracteres|
-|language   |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|query|Cadeia de caracteres|
-|Autorização|(vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.   |cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)|Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá  |Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta| string|
+|texto|esvaziá   |Necessário. Uma cadeia de caracteres que representa o texto a ser dividido em sentenças. O tamanho máximo do texto é de 10.000 caracteres.|consulta|string|
+|language   |esvaziá    |Necessário. Uma cadeia de caracteres que representa o código de idioma do texto de entrada.|consulta|string|
+|Autorização|esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.   |cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá|Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400|Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400|Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401|Credenciais inválidas.|
-|500|Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503|Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500|Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503|Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="post-gettranslations"></a>POST /GetTranslations
+## <a name="post-gettranslations"></a>POSTAR/GetTranslations
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém uma matriz de traduções para um par de determinado idioma na store e o mecanismo de MT. `GetTranslations` é diferente do `Translate` em que ele retorna todas as traduções disponíveis.
+Recupera uma matriz de traduções para um determinado par de idiomas da loja e do mecanismo MT. `GetTranslations` difere de `Translate`, pois ele retorna todas as traduções disponíveis.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/GetTranslations`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetTranslations`.
 
-O corpo do pedido inclui o opcional `TranslationOptions` objeto, que tem este formato:
+O corpo da solicitação inclui o objeto opcional `TranslationOptions`, que tem este formato:
 
 ```
 <TranslateOptions xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2">
@@ -603,22 +603,22 @@ O corpo do pedido inclui o opcional `TranslationOptions` objeto, que tem este fo
 </TranslateOptions>
 ```
 
-O `TranslateOptions` objeto contém os valores na lista seguinte. Eles são todos opcionais e predefinido para as definições mais comuns. Elementos especificados tem de estar listados em ordem alfabética.
+O objeto `TranslateOptions` contém os valores na lista a seguir. Eles são todos opcionais e padrão para as configurações mais comuns. Os elementos especificados devem ser listados em ordem alfabética.
 
-* `Category`: Uma cadeia que contém a categoria (domínio) da tradução. A predefinição é `general`.
-* `ContentType`: A única opção suportada e a predefinição é `text/plain`.
-* `IncludeMultipleMTAlternatives`: Um sinalizador booleano para especificar se a alternativa mais do que um deve ser devolvida do motor de MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). A predefinição é `false`, que retorna apenas uma alternativa. Definir o sinalizador `true` permite a criação de alternativas artificiais, totalmente integrado com o Framework de tradução colaborativa (CTF). A funcionalidade permite-vracející alternativas para as frases que não tem nenhum traduções em CTF adicionando alternativas artificiais dos *n*-lista melhor do Decodificador.
-    - Classificações. As classificações são aplicadas como este: 
-         - A tradução automática melhor tem uma classificação de 5.
-       - As alternativas da CTF refletem a autoridade do revisor. Eles variam de negociação-10 significa para + 10.
-       - Gerado automaticamente (*n*-melhor) alternativas de tradução tem uma classificação de 0 e um grau de correspondência de 100.
-    - Número de alternativas. O número de alternativas retornados pode ser tão elevado como o valor especificado no `maxTranslations`, mas pode ser mais baixo.
-    - Pares de idiomas. Esta funcionalidade não está disponível para conversões entre o chinês simplificado e chinês tradicional, em qualquer direção. Está disponível para todos os outros pares de idiomas suportados pelo Microsoft Translator.
-* `State`: Estado do utilizador para o ajudar a correlacionar a solicitação e resposta. O mesmo conteúdo será devolvido na resposta.
-* `Uri`: Filtre os resultados por este URI. Se nenhum valor for definido, a predefinição é `all`.
-* `User`: Filtre os resultados por este utilizador. Se nenhum valor for definido, a predefinição é `all`.
+* `Category`: uma cadeia de caracteres que contém a categoria (domínio) da tradução. A predefinição é `general`.
+* `ContentType`: a única opção com suporte e o padrão é `text/plain`.
+* `IncludeMultipleMTAlternatives`: um sinalizador booliano para especificar se mais de uma alternativa deve ser retornada do mecanismo MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). O padrão é `false`, que retorna apenas uma alternativa. Definir o sinalizador como `true` permite a criação de alternativas artificiais, totalmente integradas à estrutura de tradução colaborativa (CTF). O recurso permite retornar alternativas para frases que não têm nenhuma tradução em CTF adicionando alternativas artificiais da lista *n*melhores do decodificador.
+    - As. As classificações são aplicadas desta forma: 
+         - A melhor tradução automática tem uma classificação de 5.
+       - As alternativas de CTF refletem a autoridade do revisor. Elas variam de-10 a + 10.
+       - As alternativas de tradução (*n*-melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
+    - Número de alternativas. O número de alternativas retornadas pode ser tão alto quanto o valor especificado em `maxTranslations`, mas pode ser menor.
+    - Pares de idiomas. Essa funcionalidade não está disponível para traduções entre chinês simplificado e chinês tradicional, em qualquer direção. Ele está disponível para todos os outros pares de idiomas com suporte do Microsoft Translator.
+* `State`: estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
+* `Uri`: filtrar resultados por este URI. Se nenhum valor for definido, o padrão será `all`.
+* `User`: filtrar resultados por este usuário. Se nenhum valor for definido, o padrão será `all`.
 
-Pedir `Content-Type` deve ser `text/xml`.
+A solicitação `Content-Type` deve ser `text/xml`.
 
 **Valor de retorno:** Este é o formato da resposta:
 
@@ -639,57 +639,57 @@ Pedir `Content-Type` deve ser `text/xml`.
 </GetTranslationsResponse>
 ```
 
-Essa resposta inclui uma `GetTranslationsResponse` elemento que contém os seguintes valores:
+Essa resposta inclui um elemento `GetTranslationsResponse` que contém os seguintes valores:
 
-* `Translations`: Uma matriz das correspondências encontradas, armazenados em `TranslationMatch` objetos (descritos na secção seguinte). As traduções podem incluir pequenas variantes do texto original (correspondência difusa). As traduções serão classificadas: 100% em primeiro lugar, corresponde difusas correspondências em seguida.
-* `From`: Se o método não especifica um `From` linguagem, este valor será proveniente de deteção de idioma automática. Caso contrário, será especificado `From` idioma.
-* `State`: Estado do utilizador para o ajudar a correlacionar a solicitação e resposta. Contém o valor fornecido no `TranslateOptions` parâmetro.
+* `Translations`: uma matriz das correspondências encontradas, armazenadas em objetos `TranslationMatch` (descritas na seção a seguir). As traduções podem incluir pequenas variantes do texto original (correspondência difusa). As traduções serão classificadas: 100% corresponde primeiro, correspondências difusas em seguida.
+* `From`: se o método não especificar uma linguagem `From`, esse valor será proveniente da detecção automática de idioma. Caso contrário, será a linguagem `From` especificada.
+* `State`: estado do usuário para ajudar a correlacionar a solicitação e a resposta. Contém o valor fornecido no parâmetro `TranslateOptions`.
 
-O `TranslationMatch` objeto consiste dos seguintes valores:
+O objeto `TranslationMatch` consiste nesses valores:
 
-* `Error`: O código de erro, se ocorrer um erro para uma cadeia de entrada específica. Caso contrário, este campo está vazio.
-* `MatchDegree`: indica como o texto de entrada se aproxima o texto original encontrado no arquivo. O sistema corresponde a entrada frases em relação ao armazenamento, incluindo inexata correspondências. O valor devolvido intervalos de 0 a 100, em que 0 é não semelhança e 100 for uma correspondência exata, maiúsculas e minúsculas.
-* `MatchedOriginalText`: Texto original que foi correspondido para este resultado. Este valor é devolvido se o texto original correspondente for diferente do texto de entrada. É utilizado para devolver o texto de origem de uma correspondência por semelhantes. Este valor não é devolvido resultados de Microsoft Translator.
-* `Rating`: Indica a autoridade da pessoa a tomar a decisão de qualidade. Resultados de tradução automática tem de 5. Traduções anonimamente fornecidas geralmente têm uma classificação de 1 a 4. Traduções de forma autoritativa fornecidas geralmente terá uma classificação de 6 a 10.
-* `Count`: O número de vezes que essa conversão com essa classificação foi selecionado. O valor for 0 para a resposta traduzida automaticamente.
-* `TranslatedText`: O texto traduzido.
+* `Error`: o código de erro, se ocorrer um erro para uma cadeia de caracteres de entrada específica. Caso contrário, esse campo estará vazio.
+* `MatchDegree`: indica o quão próximo o texto de entrada corresponde ao texto original encontrado no repositório. O sistema faz a correspondência de frases de entrada em relação à loja, incluindo correspondências inexatas. O valor retornado varia de 0 a 100, em que 0 é nenhuma similaridade e 100 é uma correspondência exata, que diferencia maiúsculas de minúsculas.
+* `MatchedOriginalText`: texto original que foi correspondido para este resultado. Esse valor será retornado somente se o texto original correspondente tiver sido diferente do texto de entrada. Ele é usado para retornar o texto de origem de uma correspondência difusa. Esse valor não é retornado para os resultados do Microsoft Translator.
+* `Rating`: indica a autoridade da pessoa que está tomando a decisão de qualidade. Os resultados da tradução automática têm uma classificação de 5. As traduções fornecidas anonimamente geralmente têm uma classificação de 1 a 4. As traduções fornecidas de forma autoritativa geralmente terão uma classificação de 6 a 10.
+* `Count`: o número de vezes que esta tradução com esta classificação foi selecionada. O valor é 0 para a resposta convertida automaticamente.
+* `TranslatedText`: o texto traduzido.
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
-A `GetTranslationsResponse` objeto no formato descrito anteriormente.
+Um objeto `GetTranslationsResponse` no formato descrito anteriormente.
 
-cadeia
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|appid|(vazio)|Necessário. Se o `Authorization` ou `Ocp-Apim-Subscription-Key` cabeçalho é usado, deixe o `appid` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.|query|Cadeia de caracteres|
-|text|(vazio)|Necessário. Uma cadeia de caracteres que representa o texto a traduzir. O tamanho máximo do texto é 10.000 carateres.|query|Cadeia de caracteres|
-|from|(vazio)|Necessário. Uma cadeia de caracteres que representa o código de idioma do texto que está a ser traduzido.|query|cadeia|
-|para |(vazio)    |Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma para traduzir o texto em.|query|Cadeia de caracteres|
-|maxTranslations|(vazio)|Necessário. Um número inteiro que representa o número máximo de traduções para retornar.|query|integer|
-|Autorização| (vazio)|Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco. Token de autorização: `"Bearer" + " " + "access_token"`.|Cadeia de caracteres|  cabeçalho|
-|OCP-Apim-Subscription-Key|(vazio)  |Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|Cadeia de caracteres|
+|AppID|esvaziá|Necessário. Se o cabeçalho `Authorization` ou `Ocp-Apim-Subscription-Key` for usado, deixe o campo `appid` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.|consulta|string|
+|texto|esvaziá|Necessário. Uma cadeia de caracteres que representa o texto a ser traduzido. O tamanho máximo do texto é de 10.000 caracteres.|consulta|string|
+|De|esvaziá|Necessário. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido.|consulta|string|
+|para |esvaziá    |Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma no qual converter o texto.|consulta|string|
+|maxTranslations|esvaziá|Necessário. Um inteiro que representa o número máximo de traduções a serem retornadas.|consulta|número inteiro|
+|Autorização| esvaziá|Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios. Token de autorização: `"Bearer" + " " + "access_token"`.|string|  cabeçalho|
+|OCP-APIM-Subscription-Key|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503|Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503|Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="post-gettranslationsarray"></a>POST /GetTranslationsArray
+## <a name="post-gettranslationsarray"></a>POSTAR/GetTranslationsArray
 
 ### <a name="implementation-notes"></a>Notas de implementação
-Obtém vários candidatos de tradução para vários textos de origem.
+Recupera vários candidatos à tradução para vários textos de origem.
 
-O URI do pedido é `https://api.microsofttranslator.com/V2/Http.svc/GetTranslationsArray`.
+O URI de solicitação é `https://api.microsofttranslator.com/V2/Http.svc/GetTranslationsArray`.
 
-Este é o formato do corpo do pedido:
+Este é o formato do corpo da solicitação:
 
 ```
 <GetTranslationsArrayRequest>
@@ -711,30 +711,30 @@ Este é o formato do corpo do pedido:
 </GetTranslationsArrayRequest>
 ```
 
-`GetTranslationsArrayRequest` inclui esses elementos:
+`GetTranslationsArrayRequest` inclui estes elementos:
 
-* `AppId`: Necessário. Se o `Authorization` cabeçalho é usado, deixe o `AppId` campo vazio. Caso contrário, incluir uma cadeia que contém `"Bearer" + " " + "access_token"`.
-* `From`: Necessário. Uma cadeia de caracteres que representa o código de idioma do texto que está a ser traduzido.
-* `MaxTranslations`: Necessário. Um número inteiro que representa o número máximo de traduções para retornar.
-* `Options`: Opcional. Um `Options` objeto que contém os seguintes valores. Eles são todos opcionais e predefinido para as definições mais comuns. Elementos especificados tem de estar listados em ordem alfabética.
-    - `Category`: Uma cadeia que contém a categoria (domínio) da tradução. A predefinição é `general`.
-    - `ContentType`: A única opção suportada e a predefinição é `text/plain`.
-    - `IncludeMultipleMTAlternatives`: Um sinalizador booleano para especificar se a alternativa mais do que um deve ser devolvida do motor de MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). A predefinição é `false`, que retorna apenas uma alternativa. Definir o sinalizador `true` permite a geração de alternativas artificiais na tradução, totalmente integrado com o Framework de traduções colaborativa (CTF). A funcionalidade permite-vracející alternativas para as frases que tem não alternativas no CTF adicionando alternativas artificiais dos *n*-lista melhor do Decodificador.
-        - As classificações de classificações são aplicadas como este:
-          - A tradução automática melhor tem uma classificação de 5.
-          - As alternativas da CTF refletem a autoridade do revisor. Eles variam de negociação-10 significa para + 10.
-          - Gerado automaticamente (*n*-melhor) alternativas de tradução tem uma classificação de 0 e um grau de correspondência de 100.
-        - Número de alternativas. O número de alternativas retornados pode ser tão elevado como o valor especificado no `maxTranslations`, mas pode ser mais baixo.
-        - Pares de idiomas. Esta funcionalidade não está disponível para conversões entre o chinês simplificado e chinês tradicional, em qualquer direção. Está disponível para todos os outros pares de idiomas suportados pelo Microsoft Translator.
-* `State`: Estado do utilizador para o ajudar a correlacionar a solicitação e resposta. O mesmo conteúdo será devolvido na resposta.
-* `Uri`: Filtre os resultados por este URI. Se nenhum valor for definido, a predefinição é `all`.
-* `User`: Filtre os resultados por este utilizador. Se nenhum valor for definido, a predefinição é `all`.
-* `Texts`: Necessário. Uma matriz que contém o texto para a tradução. Todas as cadeias de caracteres devem estar no mesmo idioma. O total de todo o texto para ser convertido não pode ter mais de 10.000 carateres. O número máximo de elementos de matriz é 10.
-* `To`: Necessário. Uma cadeia de caracteres que representa o código de idioma do idioma para traduzir o texto em.
+* `AppId`: obrigatório. Se o cabeçalho `Authorization` for usado, deixe o campo `AppId` vazio. Caso contrário, inclua uma cadeia de caracteres que contenha `"Bearer" + " " + "access_token"`.
+* `From`: obrigatório. Uma cadeia de caracteres que representa o código de idioma do texto que está sendo traduzido.
+* `MaxTranslations`: obrigatório. Um inteiro que representa o número máximo de traduções a serem retornadas.
+* `Options`: opcional. Um objeto `Options` que contém os valores a seguir. Eles são todos opcionais e padrão para as configurações mais comuns. Os elementos especificados devem ser listados em ordem alfabética.
+    - `Category`: uma cadeia de caracteres que contém a categoria (domínio) da tradução. A predefinição é `general`.
+    - `ContentType`: a única opção com suporte e o padrão é `text/plain`.
+    - `IncludeMultipleMTAlternatives`: um sinalizador booliano para especificar se mais de uma alternativa deve ser retornada do mecanismo MT. Os valores válidos são `true` e `false` (diferencia maiúsculas de minúsculas). O padrão é `false`, que retorna apenas uma alternativa. Definir o sinalizador como `true` permite a geração de alternativas artificiais na tradução, totalmente integrada à CTF (estrutura de traduções colaborativa). O recurso permite retornar alternativas para frases que não têm alternativas em CTF adicionando alternativas artificiais da lista *n*melhores do decodificador.
+        - As classificações são aplicadas como esta:
+          - A melhor tradução automática tem uma classificação de 5.
+          - As alternativas de CTF refletem a autoridade do revisor. Elas variam de-10 a + 10.
+          - As alternativas de tradução (*n*-melhor) geradas automaticamente têm uma classificação de 0 e um grau de correspondência de 100.
+        - Número de alternativas. O número de alternativas retornadas pode ser tão alto quanto o valor especificado em `maxTranslations`, mas pode ser menor.
+        - Pares de idiomas. Essa funcionalidade não está disponível para traduções entre chinês simplificado e chinês tradicional, em qualquer direção. Ele está disponível para todos os outros pares de idiomas com suporte do Microsoft Translator.
+* `State`: estado do usuário para ajudar a correlacionar a solicitação e a resposta. O mesmo conteúdo será retornado na resposta.
+* `Uri`: filtrar resultados por este URI. Se nenhum valor for definido, o padrão será `all`.
+* `User`: filtrar resultados por este usuário. Se nenhum valor for definido, o padrão será `all`.
+* `Texts`: obrigatório. Uma matriz que contém o texto para tradução. Todas as cadeias de caracteres devem estar no mesmo idioma. O total de todo o texto a ser traduzido não pode exceder 10.000 caracteres. O número máximo de elementos de matriz é 10.
+* `To`: obrigatório. Uma cadeia de caracteres que representa o código de idioma do idioma no qual converter o texto.
 
-Pode omitir elementos opcionais. Direcionar os elementos que são filhos do `GetTranslationsArrayRequest` tem de estar listada em ordem alfabética.
+Você pode omitir elementos opcionais. Os elementos que são filhos diretos de `GetTranslationsArrayRequest` devem ser listados em ordem alfabética.
 
-Pedir `Content-Type` deve ser `text/xml`.
+A solicitação `Content-Type` deve ser `text/xml`.
 
 **Valor de retorno:** Este é o formato da resposta:
 
@@ -763,46 +763,46 @@ Pedir `Content-Type` deve ser `text/xml`.
 </ArrayOfGetTranslationsResponse>
 ```
 
-Cada `GetTranslationsResponse` elemento contém estes valores:
+Cada elemento `GetTranslationsResponse` contém estes valores:
 
-* `Translations`: Uma matriz das correspondências encontradas, armazenados em `TranslationMatch` objetos (descritos na secção seguinte). As traduções podem incluir pequenas variantes do texto original (correspondência difusa). As traduções serão classificadas: 100% em primeiro lugar, corresponde difusas correspondências em seguida.
-* `From`: Se o método não especifica um `From` linguagem, este valor será proveniente de deteção de idioma automática. Caso contrário, será especificado `From` idioma.
-* `State`: Estado do utilizador para o ajudar a correlacionar a solicitação e resposta. Contém o valor fornecido no `TranslateOptions` parâmetro.
+* `Translations`: uma matriz das correspondências encontradas, armazenadas em objetos `TranslationMatch` (descritas na seção a seguir). As traduções podem incluir pequenas variantes do texto original (correspondência difusa). As traduções serão classificadas: 100% corresponde primeiro, correspondências difusas em seguida.
+* `From`: se o método não especificar uma linguagem `From`, esse valor será proveniente da detecção automática de idioma. Caso contrário, será a linguagem `From` especificada.
+* `State`: estado do usuário para ajudar a correlacionar a solicitação e a resposta. Contém o valor fornecido no parâmetro `TranslateOptions`.
 
-O `TranslationMatch` objeto contém os seguintes valores:
-* `Error`: O código de erro, se ocorrer um erro para uma cadeia de entrada específica. Caso contrário, este campo está vazio.
-* `MatchDegree`: indica como o texto de entrada se aproxima o texto original encontrado no arquivo. O sistema corresponde a entrada frases em relação ao armazenamento, incluindo inexata correspondências. O valor devolvido intervalos de 0 a 100, em que 0 é não semelhança e 100 for uma correspondência exata, maiúsculas e minúsculas.
-* `MatchedOriginalText`: Texto original que foi correspondido para este resultado. Este valor é devolvido se o texto original correspondente for diferente do texto de entrada. É utilizado para devolver o texto de origem de uma correspondência por semelhantes. Este valor não é devolvido resultados de Microsoft Translator.
-* `Rating`: Indica a autoridade da pessoa a tomar a decisão de qualidade. Resultados de tradução automática tem de 5. Traduções anonimamente fornecidas geralmente têm uma classificação de 1 a 4. Traduções de forma autoritativa fornecidas geralmente têm uma classificação de 6 a 10.
-* `Count`: O número de vezes que essa conversão com essa classificação foi selecionado. O valor for 0 para a resposta traduzida automaticamente.
-* `TranslatedText`: O texto traduzido.
+O objeto `TranslationMatch` contém os seguintes valores:
+* `Error`: o código de erro, se ocorrer um erro para uma cadeia de caracteres de entrada específica. Caso contrário, esse campo estará vazio.
+* `MatchDegree`: indica o quão próximo o texto de entrada corresponde ao texto original encontrado no repositório. O sistema faz a correspondência de frases de entrada em relação à loja, incluindo correspondências inexatas. O valor retornado varia de 0 a 100, em que 0 é nenhuma similaridade e 100 é uma correspondência exata, que diferencia maiúsculas de minúsculas.
+* `MatchedOriginalText`: texto original que foi correspondido para este resultado. Esse valor será retornado somente se o texto original correspondente tiver sido diferente do texto de entrada. Ele é usado para retornar o texto de origem de uma correspondência difusa. Esse valor não é retornado para os resultados do Microsoft Translator.
+* `Rating`: indica a autoridade da pessoa que está tomando a decisão de qualidade. Os resultados da tradução automática têm uma classificação de 5. As traduções fornecidas anonimamente geralmente têm uma classificação de 1 a 4. As traduções fornecidas com autorização geralmente têm uma classificação de 6 a 10.
+* `Count`: o número de vezes que esta tradução com esta classificação foi selecionada. O valor é 0 para a resposta convertida automaticamente.
+* `TranslatedText`: o texto traduzido.
 
 
 ### <a name="response-class-status-200"></a>Classe de resposta (status 200)
 
-Cadeia de caracteres
+string
 
-Tipo de conteúdo de resposta: aplicação/xml
+Tipo de conteúdo da resposta: Application/XML
  
 ### <a name="parameters"></a>Parâmetros
 
-|Parâmetro|Value|Descrição|Tipo de parâmetro|Tipo de dados|
+|Parâmetro|Valor|Descrição|Tipo de parâmetro|Data type|
 |:--|:--|:--|:--|:--|
-|Autorização  |(vazio)    |Necessário se ambas as a `appid` campo e o `Ocp-Apim-Subscription-Key` cabeçalho forem deixados em branco.  Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|cadeia|
-|OCP-Apim-Subscription-Key|(vazio)  |Necessário se ambas as a `appid` campo e o `Authorization` cabeçalho forem deixados em branco.|cabeçalho|cadeia|
+|Autorização  |esvaziá    |Necessário se o campo `appid` e o cabeçalho `Ocp-Apim-Subscription-Key` forem deixados vazios.  Token de autorização: `"Bearer" + " " + "access_token"`.|cabeçalho|string|
+|OCP-APIM-Subscription-Key|esvaziá  |Necessário se o campo `appid` e o cabeçalho `Authorization` forem deixados vazios.|cabeçalho|string|
 
 ### <a name="response-messages"></a>Mensagens de resposta
 
-|Código de estado de HTTP|Reason|
+|Código de estado de HTTP|Razão|
 |:--|:--|
-|400    |Pedido incorreto. Verifique os parâmetros de entrada e a resposta de erro detalhadas.|
+|400    |Solicitação inadequada. Verifique os parâmetros de entrada e a resposta de erro detalhada.|
 |401    |Credenciais inválidas.|
-|500    |Erro de servidor. Se o erro persistir, fale conosco. Envie-nos com a aproximado data e hora do pedido e com o ID do pedido incluído no cabeçalho de resposta `X-MS-Trans-Info`.|
-|503    |Serviço indisponível temporariamente. Tente novamente e informe-nos se o erro persistir.|
+|500    |Erro do servidor. Se o erro persistir, informe-nos. Forneça a data aproximada & hora da solicitação e com a ID da solicitação incluída no cabeçalho de resposta `X-MS-Trans-Info`.|
+|503    |Serviço temporariamente indisponível. Tente novamente e avise-nos se o erro persistir.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Migrar para a API de texto do Microsoft Translator v3](../migrate-to-v3.md)
+> [Migrar para o API de Tradução de Texto v3](../migrate-to-v3.md)
 
 

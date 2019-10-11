@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a83112c1555d50976e5a20106b877f5c0099a5f3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178147"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244830"
 ---
 # <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>Pré-requisitos de rede para a solução do Azure VMware por CloudSimple
 
@@ -58,6 +58,7 @@ Uma conexão VPN ponto a site permite o acesso à rede CloudSimple de um computa
 
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Configuração de firewall local para acessar sua nuvem privada](on-premises-firewall-configuration.md)
 * [Início rápido-criar um serviço CloudSimple](quickstart-create-cloudsimple-service.md)
 * [Início rápido-configurar uma nuvem privada](quickstart-create-private-cloud.md)
 * Saiba mais sobre [as conexões de rede do Azure](cloudsimple-azure-network-connection.md)

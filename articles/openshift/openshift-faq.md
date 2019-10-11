@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203536"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249221"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Perguntas frequentes sobre o Azure Red Hat OpenShift
 
 Este artigo aborda perguntas frequentes (FAQs) sobre Microsoft Azure Red Hat OpenShift.
 
-## <a name="how-do-i-get-started"></a>Como posso começar?
+## <a name="how-do-i-get-started"></a>Como começo?
 
 Antes de usar o Azure Red Hat OpenShift, você precisará comprar um mínimo de 4 nós de aplicativos reservados para o Red Hat OpenShift do Azure.
 
@@ -39,7 +39,7 @@ Não. Mas você pode conectar um cluster do Azure Red Hat OpenShift a uma VNET e
 
 ## <a name="what-cluster-operations-are-available"></a>Quais operações de cluster estão disponíveis?
 
-Você só pode escalar ou reduzir verticalmente o número de nós de computação. Nenhuma outra modificação é permitida para o `Microsoft.ContainerService/openShiftManagedClusters` recurso após a criação. O número máximo de nós de computação é limitado a 20.
+Você só pode escalar ou reduzir verticalmente o número de nós de computação. Nenhuma outra modificação é permitida para o recurso `Microsoft.ContainerService/openShiftManagedClusters` após a criação. O número máximo de nós de computação é limitado a 20.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>Quais tamanhos de máquina virtual posso usar?
 
@@ -59,11 +59,11 @@ Não, não na hora atual.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>O registro do Docker está disponível externamente para que eu possa usar ferramentas como Jenkins?
 
-O registro do Docker está disponível `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` no entanto, uma garantia de durabilidade de armazenamento forte não é fornecida. Você também pode usar o [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/).
+O registro do Docker está disponível no `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` no entanto, uma garantia de durabilidade de armazenamento forte não é fornecida. Você também pode usar o [registro de contêiner do Azure](https://azure.microsoft.com/services/container-registry/).
 
 ## <a name="is-cross-namespace-networking-supported"></a>Há suporte para a rede de namespace cruzado?
 
-Os administradores de projetos individuais e de clientes podem personalizar a rede de namespace cruzado (incluindo sua negação) em `NetworkPolicy` uma base por projeto usando objetos.
+Os administradores de projeto individual e de cliente podem personalizar a rede de namespace cruzado (incluindo sua negação) por projeto usando objetos `NetworkPolicy`.
 
 ## <a name="can-an-admin-manage-users-and-quotas"></a>Um administrador pode gerenciar usuários e cotas?
 
@@ -71,7 +71,7 @@ Sim. Um administrador do Azure Red Hat OpenShift pode gerenciar usuários e cota
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas determinados usuários do AD do Azure?
 
-Sim. Você pode restringir quais usuários do Azure AD podem entrar em um cluster Configurando o aplicativo do Azure AD. Para obter detalhes, [consulte Como: Restringir seu aplicativo a um conjunto de usuários](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+Sim. Você pode restringir quais usuários do Azure AD podem entrar em um cluster Configurando o aplicativo do Azure AD. Para obter detalhes, consulte [como: restringir seu aplicativo a um conjunto de usuários](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Um cluster pode ter nós de computação em várias regiões do Azure?
 
@@ -85,15 +85,15 @@ Não. Todos os recursos, incluindo o mestre de cluster, são executados na sua a
 
 Sim. Você pode usar o OSBA com o Azure Red Hat OpenShift. Consulte [abrir Service Broker para o Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) para obter mais informações.
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou tentando emparelhar em uma rede virtual em uma assinatura diferente, mas obtendo `Failed to get vnet CIDR` erro.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Estou tentando emparelhar em uma rede virtual em uma assinatura diferente, mas obter `Failed to get vnet CIDR` erro.
 
-Na assinatura que tem a rede virtual, certifique-se de registrar `Microsoft.ContainerService` o provedor com`az provider register -n Microsoft.ContainerService --wait` 
+Na assinatura que tem a rede virtual, certifique-se de registrar o provedor `Microsoft.ContainerService` com `az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>O que é o processo de manutenção da toa (Red Hat OpenShift) do Azure?
 
 Há três tipos de manutenção para toa: atualizações, backup e restauração de dados do etcd e manutenção iniciada pelo provedor de nuvem.
 
-+ Atualizações incluem atualizações de software e CVEs. A correção de CVE ocorre na inicialização `yum update` executando e fornece a mitigação imediata.  Em paralelo, uma nova compilação de imagem será criada para futuras criações de cluster.
++ Atualizações incluem atualizações de software e CVEs. A correção de CVE ocorre na inicialização executando `yum update` e fornece a mitigação imediata.  Em paralelo, uma nova compilação de imagem será criada para futuras criações de cluster.
 
 + O backup e o gerenciamento de dados do etcd são um processo automatizado que pode exigir tempo de inatividade do cluster dependendo da ação. Se o banco de dados etcd estiver sendo restaurado de um backup, haverá um tempo de inatividade. Fazemos o backup do etcd por hora e reguardamos as últimas 6 horas de backups.
 
@@ -129,9 +129,9 @@ Ele não é criptografado no nível de etcd. No momento, não há suporte para a
 
 Syslog, logs do Docker, diário e dmesg são tratados pelo serviço gerenciado e não são expostos aos clientes.
 
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Como um cliente pode obter acesso a métricas como CPU/memória no nível do nó para tomar medidas para dimensionar, depurar problemas, etc. Não consigo executar `kubectl top` em um cluster de toa.
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Como um cliente pode obter acesso a métricas como CPU/memória no nível do nó para tomar medidas para dimensionar, depurar problemas, etc. Não consigo executar `kubectl top` em um cluster toa.
 
-`kubectl top`Não está disponível no Red Hat OpenShift. Ele requer uma fonte de métricas de backup, Heapster (preterido) ou Metrics-Server (incubating ou Alpha), nenhum dos quais estão incluídos na pilha de monitoramento OpenShift.
+`kubectl top` não está disponível no Red Hat OpenShift. Ele requer uma fonte de métricas de backup, Heapster (preterido) ou Metrics-Server (incubating ou Alpha), nenhum dos quais estão incluídos na pilha de monitoramento OpenShift.
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Qual é a configuração do Agendador de Pod padrão para toa?
 
@@ -189,9 +189,9 @@ Isso seria obtido por meio da integração do Azure AD. 
 
 Cada cluster do Azure Red Hat OpenShift é dedicado a um determinado cliente e reside na assinatura do cliente. 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Podemos escolher qualquer solução de armazenamento persistente. OCS? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Podemos escolher qualquer solução de armazenamento persistente, como o OCS? 
 
-Duas classes de armazenamento estão disponíveis para seleção: Disco do Azure e arquivo do Azure.
+Duas classes de armazenamento estão disponíveis para seleção: disco do Azure e arquivo do Azure.
 
 ## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Como um cluster é atualizado (incluindo grandes e menores devido a vulnerabilidades)?
 

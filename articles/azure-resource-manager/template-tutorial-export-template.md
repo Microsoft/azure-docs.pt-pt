@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0564763b05dd44eb908ec00f98a97e9d4970099f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177587"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243213"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Tutorial: usar o modelo exportado do portal do Azure
 
-Nesta série de tutoriais, você criou um modelo para implantar uma conta de armazenamento do Azure. Nos próximos dois tutoriais, você adiciona um *plano do serviço de aplicativo* e um *site*. Em vez de criar modelos do zero, você aprende a exportar modelos do portal do Azure e a usar modelos de exemplo dos modelos de [início rápido do Azure](/resources/templates/). Você personaliza esses modelos para seu uso. Este tutorial se concentra na exportação de modelos e na personalização do resultado do modelo. Demora cerca de **14 minutos** para ser concluída.
+Nesta série de tutoriais, você criou um modelo para implantar uma conta de armazenamento do Azure. Nos próximos dois tutoriais, você adiciona um *plano do serviço de aplicativo* e um *site*. Em vez de criar modelos do zero, você aprende a exportar modelos do portal do Azure e a usar modelos de exemplo dos modelos de [início rápido do Azure](https://azure.microsoft.com/resources/templates/). Você personaliza esses modelos para seu uso. Este tutorial se concentra na exportação de modelos e na personalização do resultado do modelo. Demora cerca de **14 minutos** para ser concluída.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

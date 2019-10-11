@@ -1,18 +1,18 @@
 ---
-title: 'Descrição geral de exemplos: esquema PCI-DSS v3.2.1'
-description: Descrição geral do exemplo de esquema Payment Card Industry Data Security Standard v3.2.1.
+title: Exemplo - Esquema PCI-DSS v3.2.1 - Descrição Geral
+description: Descrição geral do exemplo de esquema Payment Card Industry Data Security Standard v3.2.1. Este exemplo de esquema ajuda os clientes a avaliar controlos específicos.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: bd89ee1f449f4598eaf2fcea567709162644a512
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: c05f3457b4195c9054a1ce99f2567097a034ebd3
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981478"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248237"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>Descrição geral do exemplo de esquema PCI-DSS v3.2.1
 

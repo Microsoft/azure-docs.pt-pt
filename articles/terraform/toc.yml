@@ -25,7 +25,7 @@
       items:
         - name: Criar um cluster do Kubernetes com o AKS
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
-        - name: Criar um cluster do Kubernetes com o Gateway de Aplicação como controlador de entrada com o AKS
+        - name: Criar um controlador de entradas do Gateway de Aplicação no AKS
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infraestrutura
       items:

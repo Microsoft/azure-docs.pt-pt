@@ -4,14 +4,14 @@ description: Lista os tipos de recursos do Azure que podem ter mais de 800 inst�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/4/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973312"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249125"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos
 
@@ -20,73 +20,73 @@ Por padrão, você pode implantar até 800 instâncias de um tipo de recurso em 
 Para alguns tipos de recursos, você precisa entrar em contato com o suporte para que o limite da instância 800 seja removido. Esses tipos de recursos são indicados neste artigo.
 
 
-## <a name="microsoftautomation"></a>Microsoft.Automation
+## <a name="microsoftautomation"></a>Microsoft. Automation
 
 * automationAccounts
 
-## <a name="microsoftazurestack"></a>Microsoft.AzureStack
+## <a name="microsoftazurestack"></a>Microsoft. AzureStack
 
 * registros
-* registrations/customerSubscriptions
+* registros/customerSubscriptions
 * registros/produtos
 
-## <a name="microsoftbotservice"></a>Microsoft.BotService
+## <a name="microsoftbotservice"></a>Microsoft. BotService
 
-* botServices-contatar o suporte para estender o limite.
+* botServices-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 * discos
 * imagens
 * instantâneos
-* virtualMachines
+* VirtualMachines
 
-## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+## <a name="microsoftcontainerinstance"></a>Microsoft. ContainerInstance
 
 * containerGroups
 
-## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
+## <a name="microsoftcontainerregistry"></a>Microsoft. ContainerRegistry
 
-* registries/buildTasks
+* registros/buildTasks
 * registros/buildTasks/listSourceRepositoryProperties
-* registries/buildTasks/steps
+* registros/buildTasks/etapas
 * registros/buildTasks/etapas/listBuildArguments
-* registries/eventGridFilters
+* registros/eventGridFilters
 * registros/replicações
 * registros/tarefas
 * registros/WebHooks
 
-## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
+## <a name="microsoftdbformariadb"></a>Microsoft. DBforMariaDB
 
 * servidores
 
-## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
+## <a name="microsoftdbformysql"></a>Microsoft. DBforMySQL
 
 * servidores
 
-## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
+## <a name="microsoftdbforpostgresql"></a>Microsoft. DBforPostgreSQL
 
 * serverGroups
 * servidores
 * serversv2
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft. EnterpriseKnowledgeGraph
 
-* serviços
+* services
 
-## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
+## <a name="microsoftguestconfiguration"></a>Microsoft. GuestConfiguration
 
 * guestConfigurationAssignments
 * antivírus
 * softwareUpdateProfile
 * softwareUpdates
 
-## <a name="microsoftlogic"></a>Microsoft.Logic
+## <a name="microsoftlogic"></a>Microsoft. Logic
 
 * integrationAccounts
 * fluxos
 
-## <a name="microsoftnetapp"></a>Microsoft.NetApp
+## <a name="microsoftnetapp"></a>Microsoft. NetApp
 
 * netAppAccounts
 * netAppAccounts/capacityPools
@@ -112,7 +112,7 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * dnszones/SRV
 * dnszones/TXT
 * dnszones/tudo
-* dnszones/recordsets
+* dnszones/conjuntos de registros
 * networkIntentPolicies
 * networkInterfaces
 * privateDnsZones
@@ -128,39 +128,39 @@ Para alguns tipos de recursos, você precisa entrar em contato com o suporte par
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses-contatar o suporte para estender o limite.
+* publicIPAddresses-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
 
-## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
+## <a name="microsoftportalsdk"></a>Microsoft. PortalSdk
 
 * rootResources
 
-## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
+## <a name="microsoftpowerbi"></a>Microsoft. PowerBI
 
-* workspaceCollections-contatar o suporte para estender o limite.
+* workspaceCollections-por padrão, limitado a 800 instâncias. Esse limite pode ser aumentado entrando em contato com o suporte.
 
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
+## <a name="microsoftscheduler"></a>Microsoft. Scheduler
 
 * gratuitas
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftservicefabricmesh"></a>Microsoft. ServiceFabricMesh
 
 * aplicações
 * containerGroups
 * gateways
 * às
-* segredos
+* confidenciais
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
 
-## <a name="microsoftweb"></a>Microsoft.Web
+## <a name="microsoftweb"></a>Microsoft. Web
 
-* apiManagementAccounts/apis
+* apiManagementAccounts/APIs
 * sites
 
 ## <a name="next-steps"></a>Passos seguintes

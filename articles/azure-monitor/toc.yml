@@ -119,6 +119,10 @@
           href: app/troubleshoot-faq.md
 - name: Guias de procedimentos
   items:
+    - name: Cenários de monitorização
+      items:
+        - name: Monitorizar o serviço do Azure
+          href: insights/monitor-azure-resource.md
     - name: Gerir o Azure Monitor
       items:
         - name: Conceber uma implementação de área de trabalho

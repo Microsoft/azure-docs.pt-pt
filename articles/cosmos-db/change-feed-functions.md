@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 2ec38659b0bafa8836ac787ac36b662970141843
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709820"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249095"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com Azure Cosmos DB e Azure Functions
 
@@ -29,8 +29,8 @@ Com o [gatilho de Azure Functions para Cosmos DB](../azure-functions/functions-b
 
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
-* **O contêiner monitorado**: O contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. As inserções e alterações (por exemplo, CRUD) para o contêiner monitorado são refletidas no feed de alterações do contêiner.
-* **O contêiner de concessão**: O contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Os contêineres de concessão particionados devem ter `/id` uma definição de chave de partição.
+* **O contêiner monitorado**: o contêiner monitorado é o contêiner Cosmos do Azure que está sendo monitorado e armazena os dados dos quais o feed de alterações é gerado. Quaisquer inserções, atualizações para o contêiner monitorado são refletidas no feed de alterações do contêiner.
+* **O contêiner de concessão**: o contêiner de concessão mantém o estado entre várias e dinâmicas instâncias de função do Azure sem servidor e habilita o dimensionamento dinâmico. Esse contêiner de concessão pode ser criado manualmente ou automaticamente pelo gatilho de Azure Functions para Cosmos DB. Para criar automaticamente o contêiner de concessão, defina o sinalizador *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Os contêineres de concessão particionados precisam ter uma definição de chave de partição `/id`.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Criar seu gatilho de Azure Functions para Cosmos DB
 
@@ -42,7 +42,7 @@ A criação de sua função do Azure com um gatilho Azure Functions para Cosmos 
 
 ## <a name="run-your-trigger-locally"></a>Executar o gatilho localmente
 
-Você pode executar a [função do Azure localmente](../azure-functions/functions-develop-local.md) com o emulador de [Azure Cosmos DB](./local-emulator.md) para criar e desenvolver seus fluxos baseados em evento sem servidor com uma assinatura do Azure ou incorrer em custos.
+Você pode executar a [função do Azure localmente](../azure-functions/functions-develop-local.md) com o [emulador de Azure Cosmos DB](./local-emulator.md) para criar e desenvolver seus fluxos baseados em evento sem servidor com uma assinatura do Azure ou incorrer em custos.
 
 Se você quiser testar cenários ao vivo na nuvem, poderá [tentar Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem qualquer cartão de crédito ou assinatura do Azure necessária.
 
@@ -52,6 +52,6 @@ Agora você pode continuar a saber mais sobre o feed de alterações nos seguint
 
 * [Visão geral do feed de alterações](change-feed.md)
 * [Maneiras de ler o feed de alterações](read-change-feed.md)
-* [Usando a alteração de biblioteca processador do feed](change-feed-processor.md)
+* [Usando a biblioteca do processador do feed de alterações](change-feed-processor.md)
 * [Como trabalhar com a biblioteca do processador do feed de alterações](change-feed-processor.md)
 * [Computação de banco de dados sem servidor usando Azure Cosmos DB e Azure Functions](serverless-computing-database.md)
