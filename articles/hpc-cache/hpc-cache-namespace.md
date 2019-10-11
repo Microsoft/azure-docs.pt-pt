@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299924"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255260"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planear o espaço de nomes agregado
 
@@ -42,7 +42,7 @@ Os dados a serem analisados foram copiados para um contêiner de armazenamento d
 
 Para permitir acesso fácil por meio do cache, considere a criação de destinos de armazenamento com estes caminhos de namespace virtual:
 
-| Sistema de armazenamento de back-end <br/> (Caminho do arquivo NFS ou contêiner de BLOB) | Caminho de espaço de nomes virtual |
+| Sistema de armazenamento de back-end <br/> (Caminho do arquivo NFS ou contêiner de BLOB) | Caminho do namespace virtual |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
@@ -52,12 +52,12 @@ Um destino de armazenamento NFS pode ter vários caminhos de namespace virtual, 
 
 Como os caminhos de origem do NFS são subdiretórios da mesma exportação, você precisará definir vários caminhos de namespace do mesmo destino de armazenamento.
 
-| Nome de host do destino de armazenamento  | Caminho de exportação NFS      | Caminho do subdiretório | Caminho do namespace    |
+| Nome de host do destino de armazenamento  | Caminho de exportação do NFS      | Caminho do subdiretório | Caminho do namespace    |
 |--------------------------|----------------------|-------------------|-------------------|
 | *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *Endereço IP ou nome do host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos ``/source``de arquivo de namespace agregados, ``/templates/sku980`` ``/templates/sku798``e.
+Um aplicativo cliente pode montar o cache e acessar facilmente os caminhos de arquivo de namespace agregados ``/source``, ``/templates/sku798`` e ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Passos seguintes
 

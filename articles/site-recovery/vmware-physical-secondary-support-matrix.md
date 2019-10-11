@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972083"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255196"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos em um site secundário
 
@@ -25,6 +25,17 @@ Este artigo resume o que tem suporte quando você usa o serviço de [Azure site 
 > [!NOTE]
 > A replicação de VMs VMware locais e servidores físicos é fornecida pelo InMage Scout. O InMage Scout está incluído na assinatura do serviço Azure Site Recovery.
 
+## <a name="end-of-support-announcement"></a>Anúncio do fim do suporte
+O cenário de Site Recovery para replicação entre data centers físicos ou VMware locais está atingindo o fim do suporte.
+
+- De agosto de 2018, o cenário não pode ser configurado no cofre dos serviços de recuperação e o software InMage Scout não pode ser baixado do cofre. As implantações existentes terão suporte.
+- - De dezembro de 31 2020, o cenário não terá suporte.
+Os parceiros existentes podem integrar novos clientes ao cenário até que o suporte termine.
+- Durante 2018 e 2019, duas atualizações serão lançadas:
+
+    - Atualização 7: corrige problemas de conformidade e configuração de rede e fornece suporte a TLS 1,2.
+    - Atualização 8: adiciona suporte para sistemas operacionais Linux RHEL/CentOS 7.3/7.4/7.5 e para SUSE 12
+    - Após a atualização 8, nenhuma outra atualização será lançada. Haverá suporte limitado a hotfixes para os sistemas operacionais adicionados na atualização 8 e correções de bugs com base no melhor esforço.
 
 ## <a name="host-servers"></a>Servidores host
 
@@ -40,7 +51,7 @@ A tabela a seguir resume o suporte do sistema operacional para computadores repl
 **Sistema operativo** | **Detalhes**
 --- | ---
 Windows Server | 64-bit Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1.
-Linux | Red Hat Enterprise Linux 6,7, 6,8, 6,9, 7,1, 7,2 <br/><br/> Centos 6.5, 6.6, 6.7, 6.8, 6.9, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6,4, 6,5, 6,8 executando o kernel compatível com Red Hat ou o UEK3 (inquebrable Enterprise kernel versão 3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
+Linux | Red Hat Enterprise Linux 6,7, 6,8, 6,9, 7,1, 7,2 <br/><br/> CentOS 6,5, 6,6, 6,7, 6,8, 6,9, 7,0, 7,1, 7,2 <br/><br/> Oracle Enterprise Linux 6,4, 6,5, 6,8 executando o kernel compatível com Red Hat ou o UEK3 (inquebrable Enterprise kernel versão 3) <br/><br/> SUSE Linux Enterprise Server 11 SP3, 11 SP4 
 
 
 ## <a name="linux-machine-storage"></a>Armazenamento do computador Linux
@@ -60,7 +71,7 @@ Somente computadores Linux com o seguinte armazenamento podem ser replicados:
 Agrupamento do host NIC | Sim 
 Host-VLAN | Sim 
 Host-IPv4 | Sim 
-Host - IPv6 | Não 
+Host-IPv6 | Não 
 VM convidada-agrupamento NIC | Não
 VM convidada-IPv4 | Sim
 VM convidada-IPv6 | Não
@@ -101,7 +112,7 @@ Vários caminhos (MPIO) | N/A
 
 ## <a name="vaults"></a>Cofres
 
-**ação** | **Suportado** 
+**Ação** | **Suportado** 
 --- | --- 
 Mover cofres entre grupos de recursos (dentro de ou entre assinaturas) | Não 
 Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de ou entre assinaturas) | Não 
@@ -116,7 +127,7 @@ O serviço de mobilidade coordena a replicação entre servidores VMware locais 
 |Atualizações de componentes | As atualizações do Scout incluem atualizações para todos os componentes, incluindo o servidor RX, servidor de configuração, servidores de destino mestre e de processo, servidores vContinuum e servidores de origem que você deseja proteger.<br/><br/> [Saiba mais](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Baixe o [Guia do usuário do InMage Scout](https://aka.ms/asr-scout-user-guide)
 

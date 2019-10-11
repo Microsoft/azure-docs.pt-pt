@@ -1,6 +1,6 @@
 ---
-title: Tutorial - configurar aplicações no serviço de aplicações do Azure com o Ansible | Documentos da Microsoft
-description: Saiba como criar uma aplicação no serviço de aplicações do Azure com Java 8 e o tempo de execução do contentor Tomcat
+title: Tutorial-configurar aplicativos no serviço Azure App usando o Ansible
+description: Saiba como criar um aplicativo no serviço de Azure App com o Java 8 e o tempo de execução do contêiner do Tomcat
 keywords: ansible, azure, devops, bash, manual de procedimentos, Serviço de Aplicações do Azure,Aplicação Web, Java
 ms.topic: tutorial
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231236"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242055"
 ---
-# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Tutorial: Configurar aplicações no serviço de aplicações do Azure com o Ansible
+# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Tutorial: configurar aplicativos no serviço Azure App usando o Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -25,21 +25,21 @@ ms.locfileid: "65231236"
 
 > [!div class="checklist"]
 >
-> * Criar uma aplicação no serviço de aplicações do Azure com Java 8 e o tempo de execução do contentor Tomcat
-> * Criar um perfil do Gestor de tráfego do Azure
-> * Definir um ponto de final do Gestor de tráfego através da aplicação criada
+> * Criar um aplicativo no serviço de Azure App com o Java 8 e o tempo de execução do contêiner do Tomcat
+> * Criar um perfil do Gerenciador de tráfego do Azure
+> * Definir um ponto de extremidade do Gerenciador de tráfego usando o aplicativo criado
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-basic-app-service"></a>Criar um serviço de aplicações básico
+## <a name="create-a-basic-app-service"></a>Criar um serviço de aplicativo básico
 
-O código do playbook nesta secção define os seguintes recursos:
+O código do guia estratégico nesta seção define os seguintes recursos:
 
-* Grupo de recursos do Azure no qual o plano de serviço de aplicações e aplicações são implementadas
-* Serviço de aplicações no Linux com Java 8 e o tempo de execução do contentor Tomcat
+* Grupo de recursos do Azure no qual o plano do serviço de aplicativo e o aplicativo são implantados
+* Serviço de aplicativo no Linux com Java 8 e o tempo de execução do contêiner Tomcat
 
 Guarde o manual de procedimentos seguinte como `firstwebapp.yml`:
 
@@ -75,13 +75,13 @@ Guarde o manual de procedimentos seguinte como `firstwebapp.yml`:
               java_container_version: 8.5
 ```
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -101,20 +101,20 @@ PLAY RECAP
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
-## <a name="create-an-app-and-use-azure-traffic-manager"></a>Criar uma aplicação e utilizar o Gestor de tráfego do Azure
+## <a name="create-an-app-and-use-azure-traffic-manager"></a>Criar um aplicativo e usar o Gerenciador de tráfego do Azure
 
-[O Gestor de tráfego do Azure](/azure/app-service/web-sites-traffic-manager) permite-lhe controlar como os pedidos de clientes da web são distribuídos para as aplicações no serviço de aplicações do Azure. Quando os pontos finais do Serviço de Aplicações são adicionados a um perfil do Gestor de Tráfego do Azure, o Gestor de Tráfego controla o estado das suas aplicações do Serviço de Aplicações. Os estados incluem em execução, paradas e eliminadas. O Gestor de tráfego é utilizado para decidir quais pontos de extremidade devem receber o tráfego.
+O [Gerenciador de tráfego do Azure](/azure/app-service/web-sites-traffic-manager) permite controlar como as solicitações de clientes Web são distribuídas para aplicativos no serviço Azure app. Quando os pontos finais do Serviço de Aplicações são adicionados a um perfil do Gestor de Tráfego do Azure, o Gestor de Tráfego controla o estado das suas aplicações do Serviço de Aplicações. Os estados incluem em execução, paradas e eliminadas. O Gerenciador de tráfego é usado para decidir quais pontos de extremidade devem receber o tráfego.
 
-No Serviço de Aplicações, as aplicações são executadas num [plano do Serviço de Aplicações](/azure/app-service/overview-hosting-plans). Um plano do serviço de aplicação define um conjunto de recursos de computação para uma aplicação ser executado. Pode gerir o seu plano do Serviço de Aplicações e a aplicação Web em grupos diferentes.
+No Serviço de Aplicações, as aplicações são executadas num [plano do Serviço de Aplicações](/azure/app-service/overview-hosting-plans). Um plano do serviço de aplicativo define um conjunto de recursos de computação para que um aplicativo seja executado. Pode gerir o seu plano do Serviço de Aplicações e a aplicação Web em grupos diferentes.
 
-O código do playbook nesta secção define os seguintes recursos:
+O código do guia estratégico nesta seção define os seguintes recursos:
 
-* Grupo de recursos do Azure no qual está implementado o plano do serviço de aplicações
+* Grupo de recursos do Azure no qual o plano do serviço de aplicativo é implantado
 * Plano do App Service
-* Grupo de recursos do Azure no qual a aplicação é implementada
-* Serviço de aplicações no Linux com Java 8 e o tempo de execução do contentor Tomcat
+* Grupo de recursos do Azure no qual o aplicativo é implantado
+* Serviço de aplicativo no Linux com Java 8 e o tempo de execução do contêiner Tomcat
 * Perfil do Gestor de Tráfego
-* Ponto final do Gestor de tráfego através da aplicação criada
+* Ponto de extremidade do Gerenciador de tráfego usando o aplicativo criado
 
 Guarde o manual de procedimentos seguinte como `webapp.yml`:
 
@@ -199,13 +199,13 @@ Guarde o manual de procedimentos seguinte como `webapp.yml`:
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook webapp.yml
 ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -245,7 +245,7 @@ PLAY RECAP
 localhost                  : ok=9    changed=6    unreachable=0    failed=0
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Aplicações de escala no serviço de aplicações do Azure com o Ansible](/azure/ansible/ansible-scale-azure-web-apps)
+> [Tutorial: dimensionar aplicativos em Azure App serviço usando o Ansible](/azure/ansible/ansible-scale-azure-web-apps)

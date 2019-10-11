@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f7e9b738a55248678a207f0b298ef65e6c2761a4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145664"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240140"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Práticas recomendadas e recomendações da plataforma Microsoft Identity
 
@@ -31,7 +31,7 @@ Se você estiver apenas começando, confira a [documentação da plataforma de i
 
 Use a seguinte lista de verificação para garantir que seu aplicativo seja efetivamente integrado à [plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/).
 
-## <a name="basics"></a>Noções Básicas
+## <a name="basics"></a>Noções básicas
 
 |   |   |
 |---|---|
@@ -43,7 +43,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 |---|---|
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Verifique se as informações associadas à conta que você usou para registrar e gerenciar aplicativos estão atualizadas. |
 
-## <a name="branding"></a>Personalização
+## <a name="branding"></a>Identidade visual
 
 |   |   |
 |---|---|
@@ -60,7 +60,7 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 
 |   |   |
 |---|---|
-| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Gerencie seus URIs de redirecionamento: <ul><li>Mantenha a propriedade de todos os URIs de redirecionamento e mantenha os registros DNS para eles atualizados.</li><li>Não use caracteres curinga (*) em seus URIs.</li><li>Para aplicativos Web, verifique se todos os URIs estão seguros e criptografados (por exemplo, usando esquemas HTTPS).</li><li>Para clientes públicos, use URIs de redirecionamento específicos da plataforma, se aplicável (principalmente para iOS e Android). Caso contrário, use URIs de redirecionamento com uma grande quantidade de aleatoriedade para evitar colisões ao chamar de volta para seu aplicativo.</li><li>Se seu aplicativo estiver sendo usado de um agente Web isolado, você poderá usar https://login.microsoftonline.com/common/oauth2/nativeclient o.</li><li>Revise e corte todos os URIs de redirecionamento não utilizados ou desnecessários regularmente.</li></ul> |
+| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Gerencie seus URIs de redirecionamento: <ul><li>Mantenha a propriedade de todos os URIs de redirecionamento e mantenha os registros DNS para eles atualizados.</li><li>Não use caracteres curinga (*) em seus URIs.</li><li>Para aplicativos Web, verifique se todos os URIs estão seguros e criptografados (por exemplo, usando esquemas HTTPS).</li><li>Para clientes públicos, use URIs de redirecionamento específicos da plataforma, se aplicável (principalmente para iOS e Android). Caso contrário, use URIs de redirecionamento com uma grande quantidade de aleatoriedade para evitar colisões ao chamar de volta para seu aplicativo.</li><li>Se seu aplicativo estiver sendo usado de um agente Web isolado, você poderá usar https://login.microsoftonline.com/common/oauth2/nativeclient.</li><li>Revise e corte todos os URIs de redirecionamento não utilizados ou desnecessários regularmente.</li></ul> |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Se seu aplicativo estiver registrado em um diretório, minimize e monitore manualmente a lista de proprietários de registro de aplicativo. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Não habilite o suporte para o [fluxo de concessão implícita OAuth2](v2-oauth2-implicit-grant-flow.md) , a menos que seja explicitamente necessário. Saiba mais sobre o cenário válido [aqui](v1-oauth2-implicit-grant-flow.md#suitable-scenarios-for-the-oauth2-implicit-grant). |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Mover para além do nome de usuário/senha. Não use o [ROPC (fluxo de credenciais de senha) do proprietário do recurso](v2-oauth-ropc.md), que lida diretamente com as senhas dos usuários. Esse fluxo requer um alto grau de confiança e exposição do usuário e deve ser usado somente quando outros fluxos mais seguros não podem ser usados. Esse fluxo ainda é necessário em alguns cenários (como DevOps), mas lembre-se de que usá-lo irá impor restrições em seu aplicativo.  Para abordagens mais modernas, leia [fluxos de autenticação e cenários de aplicativos](authentication-flows-app-scenarios.md).|
@@ -80,14 +80,14 @@ Use a seguinte lista de verificação para garantir que seu aplicativo seja efet
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Se os dados necessários para o seu aplicativo estiverem disponíveis por meio de [Microsoft Graph](https://developer.microsoft.com/graph), solicite permissões para esses dados usando o ponto de extremidade Microsoft Graph em vez da API individual. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) |Não examine o valor do token de acesso ou tente analisá-lo como um cliente.  Eles podem alterar valores, formatos ou até mesmo serem criptografados sem aviso-sempre use o id_token se o cliente precisar aprender algo sobre o usuário ou chamar Microsoft Graph.  Somente as APIs da Web devem analisar os tokens de acesso (já que são aqueles que definem o formato e definindo as chaves de criptografia). |
 
-## <a name="end-user-experience"></a>Experiência do utilizador final
+## <a name="end-user-experience"></a>Experiência do usuário final
 
 |   |   |
 |---|---|
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | [Entenda a experiência de consentimento](application-consent-experience.md) e configure as partes do prompt de consentimento do seu aplicativo para que os usuários finais e administradores tenham informações suficientes para determinar se eles confiam no seu aplicativo. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Minimize o número de vezes que um usuário precisa inserir credenciais de logon ao usar seu aplicativo tentando a autenticação silenciosa (aquisição de token silenciosa) antes dos fluxos interativos. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Não use "prompt = consentimento" para cada entrada. Use avisar = consentimento somente se você tiver determinado que precisa pedir permissões adicionais (por exemplo, se tiver alterado as permissões necessárias do aplicativo). |
-| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Quando aplicável, enriquecer seu aplicativo com os dados do usuário. Use a [API Microsoft Graph](https://developer.microsoft.com/graph) é uma maneira fácil de fazer isso. A ferramenta [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) que pode ajudá-lo a começar. |
+| ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Quando aplicável, enriquecer seu aplicativo com os dados do usuário. Usar a [API de Microsoft Graph](https://developer.microsoft.com/graph) é uma maneira fácil de fazer isso. A ferramenta [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) que pode ajudá-lo a começar. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Registre o conjunto completo de permissões que seu aplicativo requer para que os administradores possam conceder o consentimento facilmente ao seu locatário. Use o [consentimento incremental](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) em tempo de execução para ajudar os usuários a entender por que seu aplicativo está solicitando permissões que podem se preocupar ou confundir os usuários quando solicitado na primeira inicialização. |
 | ![verificação](./media/active-directory-integration-checklist/checkbox-two.svg) | Implemente uma [experiência de logoff único limpa](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Trata-se de uma privacidade e um requisito de segurança, e possibilita uma boa experiência do usuário. |
 
