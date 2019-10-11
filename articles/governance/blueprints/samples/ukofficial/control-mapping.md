@@ -1,18 +1,18 @@
 ---
 title: Exemplo-plantas oficiais do Reino Unido e do Reino Unido do NHS – mapeamento de controle
-description: Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS.
+description: Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 823b890f1898de5006b965ffa19520016aceb121
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 9001e752c9b0f79d7c688e0b13fd7133004ff4ad
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980883"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248792"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Mapeamento de controle dos exemplos do plano gráfico do Reino Unido e do Reino Unido NHS
 
@@ -90,27 +90,27 @@ Esse projeto também atribui definições de Azure Policy para auditar contas qu
 
 Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
-- \[Preview @ no__t-1: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
+- \[Preview @ no__t-1: Audit Linux VM/etc/passwd file permissions is set to 0644
 
 Este projeto ajuda a impor senhas fortes atribuindo definições de Azure Policy que auditam as VMs do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização das VMs em violação da política de força da senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
-- \[Preview @ no__t-1: Auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
-- \[Preview @ no__t-1: Auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Preview @ no__t-1: Auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
-- \[Preview @ no__t-1: Auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Preview @ no__t-1: Auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que não têm uma senha de duração mínima de 1 dia
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
+- \[Preview @ no__t-1: auditar VMs do Windows que não têm a configuração de complexidade de senha habilitada
+- \[Preview @ no__t-1: auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: auditar VMs do Windows que não têm uma duração mínima de senha de 1 dia
+- \[Preview @ no__t-1: auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
+- \[Preview @ no__t-1: auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
 
 Este projeto também ajuda a controlar o acesso aos recursos do Azure atribuindo definições de Azure Policy. Essas políticas usam a auditoria do uso de tipos de recursos e configurações que podem permitir acesso mais permissivo aos recursos. Compreender os recursos que estão em violação dessas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos do Azure de acesso sejam restritos a usuários autorizados.
 
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Linux que têm contas sem senhas
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs Linux que permitem conexões remotas de contas sem senhas
-- \[Preview @ no__t-1: Auditar VMs do Linux que têm contas sem senhas
-- \[Preview @ no__t-1: Auditar VMs do Linux que permitem conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Linux que têm contas sem senhas
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Linux que permitem conexões remotas de contas sem senhas
+- \[Preview @ no__t-1: auditar VMs do Linux que têm contas sem senhas
+- \[Preview @ no__t-1: auditar VMs do Linux que permitem conexões remotas de contas sem senhas
 - As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
 - As máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
 - Auditar VMs que não usam discos gerenciados
@@ -147,7 +147,7 @@ Esse projeto também atribui definições de Azure Policy para auditar contas qu
 
 Esse plano gráfico também atribui uma definição de Azure Policy que audita as permissões de arquivo de senha de VM do Linux para alertar se elas estiverem definidas incorretamente. Esse design permite que você tome medidas corretivas para garantir que os autenticadores não sejam comprometidos.
 
-- \[Preview @ no__t-1: As permissões de arquivo/etc/passwd de VM do Linux de auditoria são definidas como 0644
+- \[Preview @ no__t-1: Audit Linux VM/etc/passwd file permissions is set to 0644
 
 ## <a name="13-audit-information-for-users"></a>13 informações de auditoria para usuários
 
@@ -156,8 +156,8 @@ Este projeto ajuda a garantir que os eventos do sistema sejam registrados por me
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
-- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux
-- \[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows
+- \[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux
+- \[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows
 - Implantar o observador de rede quando redes virtuais forem criadas
 
 ## <a name="next-steps"></a>Passos seguintes

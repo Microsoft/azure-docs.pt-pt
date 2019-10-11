@@ -1,17 +1,17 @@
 ---
 title: Exemplo-Blueprint do NIST SP 800-53 R4 – etapas de implantação
-description: Implante as etapas da amostra do NIST SP 800-53 R4 Blueprint.
+description: Implante as etapas para a amostra do NIST SP 800-53 R4 Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 204b689dd7da91cc1dacce0bba6d15b4acb0c0e5
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 80301b041d6857c48a8d57aba5a4def31052503f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981530"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248269"
 ---
 # <a name="deploy-the-nist-sp-800-53-r4-blueprint-sample"></a>Implantar a amostra do NIST SP 800-53 R4 Blueprint
 
@@ -36,10 +36,10 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo do NIST SP 800-53 R4 Blueprint.
-   - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
+   - **Nome do plano gráfico**: forneça um nome para a sua cópia da amostra do NIST SP 800-53 R4 Blueprint.
+   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -65,15 +65,15 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções Básicas
+   - Noções básicas
 
-     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
+     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
        Altere conforme necessário ou deixe como está.
-     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
 
-   - Atribuição de Bloqueio
+   - Atribuição de bloqueio
 
      Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
@@ -81,7 +81,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
      Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
 
-   - Parâmetros de artefacto
+   - Parâmetros de artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -94,23 +94,23 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Preview @ no__t-1: Auditar controles do NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|ID do espaço de trabalho Log Analytics a qual as VMs devem ser configuradas|Essa é a ID (GUID) do espaço de trabalho Log Analytics para a qual as VMs devem ser configuradas.|
-|\[Preview @ no__t-1: Auditar controles do NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter logs de diagnóstico habilitados|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
-|\[Preview @ no__t-1: Auditar controles do NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser excluídos do grupo de administradores de VM do Windows|Uma lista de membros separados por ponto e vírgula que deve ser excluída no grupo local Administradores. Ex.: Administradores myusuário1; myUser2|
-|\[Preview @ no__t-1: Auditar controles do NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows|Uma lista de membros separados por ponto e vírgula que deve ser incluída no grupo local Administradores. Ex.: Administradores myusuário1; myUser2|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de dimensionamento de VM do Linux (VMSS)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para conjuntos de dimensionamento de VM Linux (VMSS)|Atribuição de política|Opcional: Lista de imagens de VM com suporte do SO Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Espaço de trabalho Log Analytics para VMs Linux|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs Linux|Atribuição de política|Opcional: Lista de imagens de VM com suporte do SO Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Log Analytics espaço de trabalho para VMSS (conjuntos de dimensionamento de VMs do Windows)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Windows|Atribuição de política|Opcional: Lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
-|\[Preview @ no__t-1: Implantar o agente de Log Analytics para VMs do Windows|Atribuição de política|Opcional: Lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
+|\[Preview @ no__t-1: auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|ID do espaço de trabalho Log Analytics a qual as VMs devem ser configuradas|Essa é a ID (GUID) do espaço de trabalho Log Analytics para a qual as VMs devem ser configuradas.|
+|\[Preview @ no__t-1: auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de tipos de recursos que devem ter logs de diagnóstico habilitados|Lista de tipos de recursos para auditar se a configuração do log de diagnóstico não estiver habilitada. Os valores aceitáveis podem ser encontrados em [Azure monitor esquemas de logs de diagnóstico](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Preview @ no__t-1: auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser excluídos do grupo de administradores de VM do Windows|Uma lista de membros separados por ponto e vírgula que deve ser excluída no grupo local Administradores. Por exemplo: administrador; myusuário1; myUser2|
+|\[Preview @ no__t-1: auditar controles NIST SP 800-53 R4 e implantar extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de política|Lista de usuários que devem ser incluídos no grupo de administradores de VM do Windows|Uma lista de membros separados por ponto e vírgula que deve ser incluída no grupo local Administradores. Por exemplo: administrador; myusuário1; myUser2|
+|\[Preview @ no__t-1: implantar o agente Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Linux|Atribuição de política|Log Analytics espaço de trabalho para conjuntos de dimensionamento de VM do Linux (VMSS)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Preview @ no__t-1: implantar o agente Log Analytics para VMSS (conjuntos de dimensionamento de VMs) do Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
+|\[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux|Atribuição de política|Espaço de trabalho Log Analytics para VMs Linux|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Preview @ no__t-1: implantar o agente Log Analytics para VMs Linux|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Linux para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
+|\[Preview @ no__t-1: implantar o agente de Log Analytics para conjuntos de dimensionamento de VMs do Windows (VMSS)|Atribuição de política|Log Analytics espaço de trabalho para VMSS (conjuntos de dimensionamento de VMs do Windows)|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Preview @ no__t-1: implantar o agente de Log Analytics para conjuntos de dimensionamento de VMs do Windows (VMSS)|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
+|\[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows|Atribuição de política|Espaço de trabalho Log Analytics para VMs do Windows|Se esse espaço de trabalho estiver fora do escopo da atribuição, você deverá conceder manualmente as permissões ' Log Analytics colaborador ' (ou semelhante) à ID principal da atribuição de política.|
+|\[Preview @ no__t-1: implantar Log Analytics agente para VMs do Windows|Atribuição de política|Opcional: lista de imagens de VM que têm suporte para o sistema operacional Windows para adicionar ao escopo|Uma matriz vazia pode ser usada para indicar nenhum parâmetro opcional: \[ @ no__t-1|
 |Implantar a proteção avançada contra ameaças em contas de armazenamento|Atribuição de política|Efeito|As informações sobre os efeitos da política podem ser encontradas em [entender Azure Policy efeitos](../../../policy/concepts/effects.md)|
-|Implementar a Auditoria em servidores SQL|Atribuição de política|O valor em dias do período de retenção (0 indica retenção ilimitada)|Dias de retenção (opcional, 180 dias se não especificado)|
-|Implementar a Auditoria em servidores SQL|Atribuição de política|Nome do grupo de recursos para a conta de armazenamento para auditoria do SQL Server|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região). Importante-para uma operação adequada de auditoria, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento.|
+|Implantar a auditoria em servidores SQL|Atribuição de política|O valor em dias do período de retenção (0 indica retenção ilimitada)|Dias de retenção (opcional, 180 dias se não especificado)|
+|Implantar a auditoria em servidores SQL|Atribuição de política|Nome do grupo de recursos para a conta de armazenamento para auditoria do SQL Server|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região). Importante-para uma operação adequada de auditoria, não exclua ou renomeie o grupo de recursos ou as contas de armazenamento.|
 |Implantar configurações de diagnóstico para grupos de segurança de rede|Atribuição de política|Prefixo da conta de armazenamento para diagnóstico do grupo de segurança de rede|Esse prefixo será combinado com o local do grupo de segurança de rede para formar o nome da conta de armazenamento criada.|
 |Implantar configurações de diagnóstico para grupos de segurança de rede|Atribuição de política|Nome do grupo de recursos para a conta de armazenamento para diagnóstico do grupo de segurança de rede (deve existir)|O grupo de recursos no qual a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 

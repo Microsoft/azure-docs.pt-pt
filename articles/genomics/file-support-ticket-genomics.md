@@ -1,49 +1,49 @@
 ---
-title: 'Microsoft Genomics: Como um pedido de suporte de ficheiros | Documentos da Microsoft'
-titleSuffix: Azure
-description: Esta descrição geral descreve como um pedido de suporte para contactar o Microsoft Genomics de ficheiros. Isto pode ser útil se não é possível resolver o seu problema usando o guia de resolução de problemas ou as perguntas Freqüentes.
-keywords: resolução de problemas, erro, depuração, suporte
+title: Como arquivar uma solicitação de suporte
+titleSuffix: Microsoft Genomics
+description: Este artigo descreve como arquivar uma solicitação de suporte para contatar o Microsoft Genomics se você não conseguir resolver o problema com o guia de solução de problemas ou perguntas frequentes.
+keywords: solução de problemas, erro, depuração, suporte
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: ed37d42d8ec1692cc5edb62b68536803f47205f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddfe8b6010ddc241364ccf7b2d4f5f648bd3ce0e
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721290"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248597"
 ---
-# <a name="how-to-contact-microsoft-genomics-for-support"></a>Como contactar o Microsoft Genomics para obter suporte
-Esta descrição geral descreve como um pedido de suporte para contactar o Microsoft Genomics de ficheiros. Isto pode ser útil se não é possível resolver seu problema com o [guia de resolução de problemas](troubleshooting-guide-genomics.md) ou o [FAQ](frequently-asked-questions-genomics.md). 
+# <a name="how-to-contact-microsoft-genomics-for-support"></a>Como entrar em contato com Microsoft Genomics para obter suporte
+Esta visão geral descreve como arquivar uma solicitação de suporte para contatar o Microsoft Genomics. Isso pode ser útil se você não conseguir solucionar seu problema usando o [Guia de solução de problemas](troubleshooting-guide-genomics.md) ou as [perguntas frequentes](frequently-asked-questions-genomics.md). 
 
 
-## <a name="file-a-support-ticket-through-the-azure-portal"></a>Enviar um pedido de suporte através do portal do Azure
-Primeiro, inicie sessão na sua conta do Azure no portal do Azure. Clique com o ponto de interrogação no canto superior direito e selecione `Help + support`.
+## <a name="file-a-support-ticket-through-the-azure-portal"></a>Arquivar um tíquete de suporte por meio do portal do Azure
+Primeiro, faça logon em sua conta do Azure no portal do Azure. Clique no ponto de interrogação no canto superior direito e selecione `Help + support`.
 
-![Contacte o suporte no portal do Azure](./media/file-support-ticket/genomics-contact-support.png "contacte o suporte no portal do Azure") 
+![Contate o suporte em portal do Azure](./media/file-support-ticket/genomics-contact-support.png "contatar o suporte em portal do Azure") 
 
 
 
 Em seguida, selecione `New support request`. 
 
-![Novo pedido de suporte](./media/file-support-ticket/new-support-request.png "novo pedido de suporte") 
+![Nova solicitação de suporte](./media/file-support-ticket/new-support-request.png "nova solicitação de suporte") 
 
-Preencha os `Basics`, incluindo `Issue type` e a sua `Subscription`. Selecione o mais relevante `Issue type` para o seu problema; por exemplo na imagem abaixo, `Technical` foi selecionado. Certifique-se de que selecione `Microsoft Genomics` como o serviço relevante.  `Microsoft Genomics` serão listadas sob o `Intelligence and Analytics` categoria.   Depois de selecionar `Microsoft Genomics`, também será solicitado a fornecer seu `Support plan` tipo.
+Preencha o `Basics`, incluindo `Issue type` e seu `Subscription`. Selecione o @no__t mais relevante-0 para o seu problema; como exemplo na imagem abaixo, `Technical` foi selecionado. Certifique-se de selecionar `Microsoft Genomics` como o serviço relevante.  `Microsoft Genomics` será listado na categoria `Intelligence and Analytics`.   Depois de selecionar `Microsoft Genomics`, você também será solicitado a fornecer seu tipo de `Support plan`.
 
-![Noções básicas de pedido de suporte](./media/file-support-ticket/support-request-basics.png "Noções básicas de pedido de suporte")
+Noções básicas do ![Solicitação de suporte](./media/file-support-ticket/support-request-basics.png "solicitação de suporte Basic")
 
 
-Em seguida, adicione detalhes sobre o seu problema. A ferramenta de pedido também vincular a documentação existente que pode ser úteis para ajudá-lo. Neste exemplo, o problema está relacionado com `Genomics keys`, mas também estão disponíveis várias outras opções.
+Em seguida, adicione detalhes sobre o problema. A ferramenta de solicitação também será vinculada à documentação existente que pode ser útil para ajudá-lo. Neste exemplo, o problema está relacionado a `Genomics keys`, mas várias outras opções também estão disponíveis.
 
-![Problema de pedido de suporte](./media/file-support-ticket/support-request-problem.png "problema de pedido de suporte")
+Problema de(./media/file-support-ticket/support-request-problem.png "solicitação de suporte") de ![solicitação de suporte]problema
 
-Por fim, adicione as informações de contacto e selecionar `Create` na parte inferior do ecrã para submeter o pedido de suporte.
+Por fim, adicione suas informações de contato e selecione `Create` na parte inferior da tela para enviar sua solicitação de suporte.
 
-![Contacto de pedido de suporte](./media/file-support-ticket/support-request-contact.png "contacto de pedido de suporte")
+Contato de(./media/file-support-ticket/support-request-contact.png "solicitação de suporte") de ![solicitação de suporte contato]
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste artigo, aprendeu como submeter um pedido de suporte. Também pode resolver problemas comuns com o nosso [FAQ](frequently-asked-questions-genomics.md) e no nosso [guia de resolução de problemas](troubleshooting-guide-genomics.md). 
+## <a name="next-steps"></a>Passos seguintes
+Neste artigo, você aprendeu a enviar uma solicitação de suporte. Você também pode resolver problemas comuns usando nossas [perguntas frequentes](frequently-asked-questions-genomics.md) e nosso [Guia de solução de problemas](troubleshooting-guide-genomics.md). 

@@ -7,13 +7,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: 3bf90812abcef30b6bf300ba00ebd9f4186229cb
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.date: 10/8/2019
+ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000397"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244865"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Usando dados de referência para pesquisas no Stream Analytics
 
@@ -33,13 +33,13 @@ Para configurar seus dados de referência, primeiro você precisa criar uma entr
 |---------|---------|
 |Alias de Entrada   | Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.   |
 |Conta de Armazenamento   | O nome da conta de armazenamento na qual os BLOBs estão localizados. Se estiver na mesma assinatura que seu trabalho de Stream Analytics, você poderá selecioná-lo na lista suspensa.   |
-|Chave da Conta de Armazenamento   | A chave secreta associada à conta de armazenamento. Isso será preenchido automaticamente se a conta de armazenamento estiver na mesma assinatura que o seu trabalho de Stream Analytics.   |
-|Contentor de armazenamento   | Os contentores oferecem um agrupamento lógico para blobs armazenados no serviço de Blobs do Microsoft Azure. Ao carregar um blob para o serviço de BLOBs, tem de especificar um contentor para esse blob.   |
-|Padrão do Caminho   | O caminho usado para localizar seus BLOBs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{date}, {time}<BR>Exemplo 1: Products/{Date}/{Time}/Product-List. csv<BR>Exemplo 2: Products/{Date}/Product-List. csv<BR>Exemplo 3: Product-List. csv<BR><br> Se o BLOB não existir no caminho especificado, o trabalho de Stream Analytics aguardará indefinidamente que o blob se torne disponível.   |
+|Chave da conta de armazenamento   | A chave secreta associada à conta de armazenamento. Isso será preenchido automaticamente se a conta de armazenamento estiver na mesma assinatura que o seu trabalho de Stream Analytics.   |
+|Contêiner de armazenamento   | Os contêineres fornecem um agrupamento lógico para BLOBs armazenados no serviço blob Microsoft Azure. Ao carregar um blob para o serviço BLOB, você deve especificar um contêiner para esse BLOB.   |
+|Padrão do Caminho   | O caminho usado para localizar seus BLOBs no contêiner especificado. No caminho, você pode optar por especificar uma ou mais instâncias das duas variáveis a seguir:<BR>{Date}, {time}<BR>Exemplo 1: Products/{Date}/{Time}/Product-List. csv<BR>Exemplo 2: Products/{Date}/Product-List. csv<BR>Exemplo 3: Product-List. csv<BR><br> Se o BLOB não existir no caminho especificado, o trabalho de Stream Analytics aguardará indefinidamente que o blob se torne disponível.   |
 |Formato de data [opcional]   | Se você tiver usado {Date} no padrão de caminho que você especificou, poderá selecionar o formato de data no qual os BLOBs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: AAAA/MM/DD, MM/DD/AAAA etc.   |
 |Formato de hora [opcional]   | Se você tiver usado {time} no padrão de caminho que você especificou, poderá selecionar o formato de hora no qual os BLOBs são organizados na lista suspensa de formatos com suporte.<BR>Exemplo: HH, HH/mm ou HH-mm.  |
 |Formato de serialização de evento   | Para garantir que suas consultas funcionem da maneira esperada, Stream Analytics precisa saber qual formato de serialização você está usando para os fluxos de dados de entrada. Para dados de referência, os formatos com suporte são CSV e JSON.  |
-|Codificação   | UTF-8 é o único formato de codificação suportado neste momento.  |
+|Encoding   | UTF-8 é o único formato de codificação com suporte no momento.  |
 
 ### <a name="static-reference-data"></a>Dados de referência estática
 
@@ -60,7 +60,7 @@ Azure Stream Analytics examina automaticamente os blobs de dados de referência 
 > 
 > Uma exceção a isso é quando o trabalho precisa reprocessar dados de volta no tempo ou quando o trabalho é iniciado pela primeira vez. Na hora de início, o trabalho está procurando o blob mais recente produzido antes da hora de início do trabalho especificada. Isso é feito para garantir que haja um conjunto de dados de referência **não vazio** quando o trabalho for iniciado. Se não for possível encontrar um, o trabalho exibirá o seguinte diagnóstico: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser usado para orquestrar a tarefa de criar os BLOBs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. Data Factory é um serviço de integração de dados baseado na nuvem que orquestra e automatiza o movimento e a transformação de dados. O Data Factory dá suporte [à conexão com um grande número de armazenamentos de dados locais e baseados em nuvem](../data-factory/copy-activity-overview.md) e na movimentação fácil de dados em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para Stream Analytics que se atualiza em uma agenda predefinida, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+[Azure data Factory](https://azure.microsoft.com/documentation/services/data-factory/) pode ser usado para orquestrar a tarefa de criar os BLOBs atualizados exigidos pelo Stream Analytics para atualizar as definições de dados de referência. O Data Factory é um serviço de integração de dados com base na cloud que organiza e automatiza o movimento e a transformação dos dados. O Data Factory dá suporte [à conexão com um grande número de armazenamentos de dados locais e baseados em nuvem](../data-factory/copy-activity-overview.md) e na movimentação fácil de dados em um agendamento regular que você especificar. Para obter mais informações e orientações passo a passo sobre como configurar um pipeline de Data Factory para gerar dados de referência para Stream Analytics que se atualiza em uma agenda predefinida, confira este [exemplo de GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Dicas sobre como atualizar dados de referência de BLOB
 
@@ -91,7 +91,7 @@ Você pode usar [instância gerenciada do banco de dados SQL do Azure](https://d
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
 |Alias de entrada|Um nome amigável que será usado na consulta de trabalho para fazer referência a essa entrada.|
-|Subscription|Escolher a sua subscrição|
+|Subscrição|Escolher a sua subscrição|
 |Base de Dados|O banco de dados SQL do Azure que contém os sua referência. Por Instância Gerenciada do Banco de Dados SQL do Azure, é necessário especificar a porta 3342. Por exemplo, *sampleserver. Public. Database. Windows. net, 3342*|
 |Nome de utilizador|O nome de usuário associado ao seu banco de dados SQL do Azure.|
 |Palavra-passe|A senha associada ao banco de dados SQL do Azure.|
@@ -111,11 +111,11 @@ Stream Analytics dá suporte a dados de referência com o **tamanho máximo de 3
 
 O aumento do número de unidades de streaming de um trabalho além de 6 não aumenta o tamanho máximo com suporte dos dados de referência.
 
-Suporte para compressão não está disponível para os dados de referência. 
+O suporte para compactação não está disponível para dados de referência. 
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um trabalho de Stream Analytics usando o portal do Azure @ no__t-0
+> [Início rápido: criar um trabalho de Stream Analytics usando o portal do Azure](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

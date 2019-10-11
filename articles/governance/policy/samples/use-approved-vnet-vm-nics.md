@@ -1,17 +1,17 @@
 ---
-title: Exemplo – usar vNet aprovada para interfaces de rede de VM
+title: Exemplo-usar vNet listada para interfaces de rede de VM
 description: Esta definição de política de exemplo requer que as interfaces de rede usem uma rede virtual aprovada.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: c1f12d40ea0e5dbf0c9f56e856e5e4fa8831970b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 8ab21677c99150770339a5d34e00b692ca3cfc48
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980389"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255690"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>Exemplo – usar vNet aprovada para interfaces de rede de VM
 
@@ -23,13 +23,13 @@ Esta política requer que as interfaces de rede utilizem uma rede virtual aprova
 
 [!code-json[main](../../../../policy-templates/samples/Network/vm-creation-in-approved-vnet/azurepolicy.json "Use approved vNet for VM network interfaces")]
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
 [![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Fvm-creation-in-approved-vnet%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -48,7 +48,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -68,4 +68,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)
+- Reveja mais exemplos nas [amostras do Azure Policy](index.md)

@@ -1,26 +1,19 @@
 ---
 title: Diretrizes do utilitário de upload de novo arquivo de solicitação de suporte do Microsoft Azure | Microsoft Docs
 description: Descreve as diretrizes ao usar Microsoft Azure novo utilitário de carregamento de arquivo de solicitação de suporte
-services: ''
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
 tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.service: azure-supportability
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 088835f6983814bbe47afeeec210ac41964e7863
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f01c70a2a077e28e8de5118332b780f27dc9ec93
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121169"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248694"
 ---
 # <a name="microsoft-azure-new-support-request-file-upload-utility-guidelines"></a>Diretrizes do utilitário de upload de novo arquivo de solicitação de suporte Microsoft Azure
 Quando você [cria uma solicitação de suporte](https://portal.azure.com/#create/Microsoft.Support), o utilitário de carregamento de arquivo pode ajudá-lo a carregar facilmente os arquivos de diagnóstico ou quaisquer outros arquivos que você ache relevantes para o incidente.  
@@ -40,31 +33,31 @@ Siga estas diretrizes ao usar o utilitário de carregamento de arquivo:
 ## <a name="table-of-the-allowed-file-name-extensions"></a>Tabela das extensões de nome de arquivo permitidas
 | 0-9, A-C    | D-G   | H-M         | N-P   | R-T      | U-W        | X-Z     |
 |-------------|-------|-------------|-------|----------|------------|---------|
-| .7z         | . dat  | .hwl        | .odx  | . rar     | .tdb       | .xlam   |
-| . a          | .db   | . ics        | .oft  | .rdl     | .tdf       | .xlr    |
-| .abc        | .DMP  | .ini        | . antigo  | .rdlc    | .text      | . xls    |
-| . adm        | .do_  | .java       | . um  | outra     | . thmx      | .xlsb   |
-| .aspx       | .doc  | . jpg        | . OSD  | . reg     | .tif       | .xlsm   |
-| . ATF        | .docm | .LDF        | . FORA  | .remove  | .trc       | .xlsx   |
-| . b          | .docx | .letterhead | .p1   | . Ren     | .TTD       | .xlt    |
-| .ba_        | . dotm | .lnk        | .pcap | . Rename  | .tx_       | .xltx   |
-| . bak        | .dotx | .lo_        | .pdb  | .rft     | . txt       | .xml    |
-| .bat        | .dtsx | .log        | .pdf  | . RPT     | .uccapilog | .xmla   |
-| .blg        | . EDS  | .lpk        | .piz  | . RTE     | .uccplog   | . XPS    |
-| .CA_        | .emf  | . manifest   | .pmls | .rtf     | . udcx      | .xsd    |
-| .CAB        | .eml  | . Master     | .png  | .run     | .vb_       | .xsn    |
-| . Cap        | .emz  | . mdmp       | . potx | .saz     | .vbs_      | .xxx    |
-| .catx       | . err  | .mof        | . ppt  | .sql     | .vcf       | .z_     |
-| .CFG        | .etl  | .mp3        | . pptm | . sqlplan | .vsd       | .z01    |
-| . compactado | .evt  | . mpg        | . pptx | .stp     | .wdb       | .z02    |
-| .Config     | .evtx | .ms_        | . prn  | . svclog Connector  | . WKS       | .zi     |
-| .cpk        | . ESTENDI   | .msg        | .psf  |   -       | .wma       | .zi_    |
-| .cpp        | .ex_  | .msi        | . pst  |  -        | .wmv       | .zip    |
-| . cs         | .ex0  | .mso        | .pub  | -         | .wmz       | .zip_   |
-| .CSV        | .FRD  | .msu        | -      |-          | .wps       | .zipp   |
-| .cvr        | .gif  | . NFO        | -      |-          | .wpt       | . zipado |
-| -            | . GUID | -            | -      | -         | .wsdl      | .zippy  |
-| -            | .gz   | -            | -      | -         | .wsp       | .zipx   |
-| -            | -      | -            | -      | -         | .wtl       | .zit    |
+| .7z         | . dat  | .hwl        | . ODX  | . rar     | . TBD       | . xlam   |
+| . a          | . DB   | . ics        | . oft  | . RDL     | . TDF       | .xlr    |
+| . ABC        | . DMP  | . ini        | . antigo  | . rdlc    | . texto      | . xls    |
+| . adm        | coincide  | . java       | . um  | outra     | . thmx      | . xlsb   |
+| . aspx       | . doc  | . jpg        | . OSD  | . reg     | . tif       | . xlsm   |
+| . ATF        | . docm | . LDF        | . FORA  | . remover  | . trc       | . xlsx   |
+| . b          | . docx | . timbre | . P1   | . Ren     | . TTD       | . xlt    |
+| BA        | . dotm | . lnk        | .pcap | . Rename  | TX       | . xltx   |
+| . bak        | . dotx | lo        | . pdb  | .rft     | . txt       | . xml    |
+| . bat        | . dtsx | . log        | . pdf  | . RPT     | .uccapilog | . XMLA   |
+| . blg        | . EDS  | . lpk        | .piz  | . RTE     | .uccplog   | . XPS    |
+| AC        | . EMF  | . manifest   | .pmls | . rtf     | . udcx      | . xsd    |
+| . FICHEIRO        | . eml  | . Master     | . png  | . Execute     | VB       | . xsn    |
+| . Cap        | .emz  | . mdmp       | . potx | .saz     | vbs      | . xxx    |
+| .catx       | . err  | . mof        | . ppt  | . SQL     | . vcf       | z     |
+| . CFG        | . etl  | . mp3        | . pptm | . sqlplan | . vsd       | .z01    |
+| . compactado | . evt  | . mpg        | . pptx | . STP     | . wdb       | .z02    |
+| . Configuração     | . evtx | Srta        | . prn  | . svclog Connector  | . WKS       | . Zi     |
+| .cpk        | . ESTENDI   | . msg        | .psf  |   -       | . WMA       | Zi    |
+| . cpp        | Estendi  | . msi        | . pst  |  -        | . wmv       | .zip    |
+| . cs         | .ex0  | . mso        | . pub  | -         | . wmz       | rápida   |
+| . CSV        | . FRD  | . msu        | -      |-          | . WPS       | .zipp   |
+| .cvr        | . gif  | . NFO        | -      |-          | .wpt       | . zipado |
+| -            | . GUID | -            | -      | -         | . WSDL      | .zippy  |
+| -            | . gz   | -            | -      | -         | . wsp       | .zipx   |
+| -            | -      | -            | -      | -         | . WTL       | .zit    |
 | -            | -      | -            | -      | -         |     -       | .zix    |
-| -            | -      | -            | -      | -         |  -          | .zzz    |
+| -            | -      | -            | -      | -         |  -          | . zzz    |

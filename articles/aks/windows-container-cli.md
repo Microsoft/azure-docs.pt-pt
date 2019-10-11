@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075444"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241245"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Visualização-criar um contêiner do Windows Server em um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
 
@@ -69,7 +69,7 @@ Demora alguns minutos para que o registro seja concluído. Verifique o status do
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando o estado do registro `Registered`for, pressione CTRL-C para parar de monitorar o estado.  Em seguida, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
+Quando o estado do registro for `Registered`, pressione CTRL-C para parar de monitorar o estado.  Em seguida, atualize o registro do provedor de recursos *Microsoft. ContainerService* usando o comando [AZ Provider Register][az-provider-register] :
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --vm-set-type VirtualMachineScaleSets \
+    --enable-vmss \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 ## <a name="add-a-windows-server-node-pool"></a>Adicionar um pool de nós do Windows Server
 
-Por padrão, um cluster AKS é criado com um pool de nós que pode executar contêineres do Linux. Use `az aks nodepool add` o comando para adicionar um pool de nós adicional que pode executar contêineres do Windows Server.
+Por padrão, um cluster AKS é criado com um pool de nós que pode executar contêineres do Linux. Use o comando `az aks nodepool add` para adicionar um pool de nós adicional que pode executar contêineres do Windows Server.
 
 ```azurecli
 az aks nodepool add \
@@ -165,17 +165,17 @@ az aks nodepool add \
     --kubernetes-version 1.14.6
 ```
 
-O comando acima cria um novo pool de nós chamado *npwin* e o adiciona ao *myAKSCluster*. Ao criar um pool de nós para executar contêineres do Windows Server, o valor padrão para *node-VM-size* é *Standard_D2s_v3*. Se você optar por definir o parâmetro *nó-VM-size* , verifique a lista de [tamanhos de VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também usa a sub-rede padrão na vnet padrão criada durante a execução `az aks create`.
+O comando acima cria um novo pool de nós chamado *npwin* e o adiciona ao *myAKSCluster*. Ao criar um pool de nós para executar contêineres do Windows Server, o valor padrão para *node-VM-size* é *Standard_D2s_v3*. Se você optar por definir o parâmetro *nó-VM-size* , verifique a lista de [tamanhos de VM restritos][restricted-vm-sizes]. O tamanho mínimo recomendado é *Standard_D2s_v3*. O comando acima também usa a sub-rede padrão na vnet padrão criada durante a execução de `az aks create`.
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para gerenciar um cluster kubernetes, você usa [kubectl][kubectl], o cliente de linha de comando kubernetes. Se você usar o Azure cloud Shell `kubectl` , o já estará instalado. Para instalar `kubectl` localmente, use o comando [AZ AKs install-CLI][az-aks-install-cli] :
+Para gerenciar um cluster kubernetes, você usa [kubectl][kubectl], o cliente de linha de comando kubernetes. Se você usar Azure Cloud Shell, o `kubectl` já estará instalado. Para instalar o `kubectl` localmente, use o comando [AZ AKs install-CLI][az-aks-install-cli] :
 
 ```azurecli
 az aks install-cli
 ```
 
-Para configurar `kubectl` o para se conectar ao cluster do kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
+Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -201,7 +201,7 @@ Um arquivo de manifesto kubernetes define um estado desejado para o cluster, com
 
 O aplicativo de exemplo ASP.NET é fornecido como parte do [.NET Framework amostras][dotnet-samples] e é executado em um contêiner do Windows Server. O AKS requer que os contêineres do Windows Server sejam baseados em imagens do *Windows Server 2019* ou superior. O arquivo de manifesto kubernetes também deve definir um [seletor de nó][node-selector] para instruir o cluster AKs a executar o Pod do aplicativo de exemplo ASP.net em um nó que possa executar contêineres do Windows Server.
 
-Crie um arquivo chamado `sample.yaml` e copie na seguinte definição de YAML. Se você usar o Azure cloud Shell, esse arquivo poderá ser criado usando `vi` ou `nano` como se estiver trabalhando em um sistema físico ou virtual:
+Crie um arquivo chamado `sample.yaml` e copie na seguinte definição de YAML. Se você usar o Azure Cloud Shell, esse arquivo poderá ser criado usando `vi` ou `nano` como se estiver trabalhando em um sistema físico ou virtual:
 
 ```yaml
 apiVersion: apps/v1
@@ -279,7 +279,7 @@ NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 sample             LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
-Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o `kubectl` processo de inspeção. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o processo de inspeção `kubectl`. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 sample  LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
@@ -289,7 +289,7 @@ Para ver o aplicativo de exemplo em ação, abra um navegador da Web para o ende
 
 ![Imagem de navegação para o aplicativo de exemplo ASP.NET](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Eliminar cluster
+## <a name="delete-cluster"></a>Eliminar o cluster
 
 Quando o cluster não for mais necessário, use o comando [AZ Group Delete][az-group-delete] para remover o grupo de recursos, o serviço de contêiner e todos os recursos relacionados.
 
@@ -300,7 +300,7 @@ az group delete --name myResourceGroup --yes --no-wait
 > [!NOTE]
 > Quando elimina o cluster, o principal de serviço do Azure Active Directory utilizado pelo cluster do AKS não é removido. Para obter as etapas sobre como remover a entidade de serviço, consulte [considerações e exclusão da entidade de serviço AKs][sp-delete].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você implantou um cluster kubernetes e implantou um aplicativo de exemplo ASP.NET em um contêiner do Windows Server para ele. [Acesse o painel da Web do kubernetes][kubernetes-dashboard] para o cluster que você acabou de criar.
 

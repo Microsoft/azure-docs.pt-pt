@@ -1,35 +1,35 @@
 ---
-title: Tutorial - configurar o peering de rede virtual do Azure com o Ansible | Documentos da Microsoft
-description: Saiba como utilizar o Ansible para ligar redes virtuais com o peering de rede virtual.
-keywords: ansible, do azure, devops, bash, playbook, redes, peering
+title: Tutorial – configurar o emparelhamento de rede virtual do Azure usando o Ansible
+description: Saiba como usar o Ansible para conectar redes virtuais com o emparelhamento de rede virtual.
+keywords: Ansible, Azure, DevOps, Bash, manual, rede, emparelhamento
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: f51e7c857a22a362a3d295fbe087c54b25f85780
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 180bdff48a2ace4dfee1d1cb10eb75a33d360f4c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230750"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241241"
 ---
-# <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Tutorial: Configure o peering de rede virtual do Azure com o Ansible
+# <a name="tutorial-configure-azure-virtual-network-peering-using-ansible"></a>Tutorial: configurar o emparelhamento de rede virtual do Azure usando o Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Peering de rede virtual (VNet)](/azure/virtual-network/virtual-network-peering-overview) permite que se conecte duas redes virtuais do Azure. Uma vez executado o peering, as duas redes virtuais aparecem como uma única para fins de conectividade. 
+O [emparelhamento de rede virtual (VNet)](/azure/virtual-network/virtual-network-peering-overview) permite que você conecte diretamente duas redes virtuais do Azure. Uma vez emparelhadas, as duas redes virtuais aparecem como uma para fins de conectividade. 
 
-O tráfego é encaminhado entre VMs na mesma rede virtual através de endereços IP privados. Da mesma forma, o tráfego entre VMs numa rede virtual em modo de peering é encaminhado através da infraestrutura principal da Microsoft. Como resultado, as VMs nas redes virtuais em diferentes podem comunicar entre si.
+O tráfego é roteado entre VMs na mesma rede virtual por meio de endereços IP privados. Da mesma forma, o tráfego entre as VMs em uma rede virtual emparelhada é roteado por meio da infra-estrutura de backbone da Microsoft. Como resultado, as VMs em diferentes redes virtuais podem se comunicar entre si.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Criar duas redes virtuais
-> * Configurar o peering entre duas redes virtuais
-> * Eliminar o peering entre duas redes
+> * Emparelhar as duas redes virtuais
+> * Excluir o emparelhamento entre as duas redes
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -40,7 +40,7 @@ O tráfego é encaminhado entre VMs na mesma rede virtual através de endereços
 
 Um grupo de recursos é um contentor lógico no qual os recursos do Azure são implementados e geridos.
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
 - Criar dois grupos de recursos 
 
@@ -57,9 +57,9 @@ O código do playbook de exemplo nesta secção é utilizado para:
 
 ## <a name="create-the-first-virtual-network"></a>Criar a primeira rede virtual
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Criar uma rede virtual
+- Criar rede virtual
 - Criar uma sub-rede dentro da rede virtual
 
 ```yml
@@ -78,9 +78,9 @@ O código do playbook de exemplo nesta secção é utilizado para:
 
 ## <a name="create-the-second-virtual-network"></a>Criar a segunda rede virtual
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Criar uma rede virtual
+- Criar rede virtual
 - Criar uma sub-rede dentro da rede virtual
 
 ```yml
@@ -97,12 +97,12 @@ O código do playbook de exemplo nesta secção é utilizado para:
       virtual_network: "{{ vnet_name2 }}"
 ```
 
-## <a name="peer-the-two-virtual-networks"></a>Configurar o peering entre duas redes virtuais
+## <a name="peer-the-two-virtual-networks"></a>Emparelhar as duas redes virtuais
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Inicializar o peering de rede virtual
-- Configurar o peering entre duas redes virtuais que criou anteriormente
+- Inicializar o emparelhamento de rede virtual
+- Emparelhar duas redes virtuais criadas anteriormente
 
 ```yml
   - name: Initial vnet peering
@@ -128,11 +128,11 @@ O código do playbook de exemplo nesta secção é utilizado para:
       allow_forwarded_traffic: true
 ```
 
-## <a name="delete-the-virtual-network-peering"></a>Eliminar o peering de rede virtual
+## <a name="delete-the-virtual-network-peering"></a>Excluir o emparelhamento de rede virtual
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Eliminar o peering entre duas redes virtuais que criou anteriormente
+- Excluir o emparelhamento entre as duas redes virtuais criadas anteriormente
 
 ```yml
   - name: Delete vnet peering
@@ -143,12 +143,12 @@ O código do playbook de exemplo nesta secção é utilizado para:
       state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Obter o playbook de exemplo
+## <a name="get-the-sample-playbook"></a>Obter o guia estratégico de exemplo
 
-Existem duas formas de obter o playbook de exemplo completo:
+Há duas maneiras de obter o guia estratégico de exemplo completo:
 
-- [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) e guardá-lo para `vnet_peering.yml`.
-- Crie um novo ficheiro designado `vnet_peering.yml` e copie no seguinte conteúdo:
+- [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vnet_peering.yml) e salve-o em `vnet_peering.yml`.
+- Crie um novo arquivo chamado `vnet_peering.yml` e copie-o para ele no seguinte conteúdo:
 
 ```yml
 - hosts: localhost
@@ -229,21 +229,21 @@ Existem duas formas de obter o playbook de exemplo completo:
       state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Executar o playbook de exemplo
+## <a name="run-the-sample-playbook"></a>Executar o guia estratégico de exemplo
 
-O código do playbook de exemplo nesta secção é utilizado para testar várias funcionalidades mostradas neste tutorial.
+O código do guia estratégico de exemplo nesta seção é usado para testar vários recursos mostrados em todo este tutorial.
 
-Seguem-se algumas notas essenciais a considerar ao trabalhar com o playbook de exemplo:
+Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Na `vars` secção, substitua o `{{ resource_group_name }}` marcador de posição pelo nome do seu grupo de recursos.
+- Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
 
-Execute o playbook com o comando do ansible playbook:
+Execute o guia estratégico usando o comando Ansible-manual:
 
 ```bash
 ansible-playbook vnet_peering.yml
 ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -292,11 +292,11 @@ localhost                  : ok=12   changed=9    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine os recursos criados neste artigo. 
+Quando não for mais necessário, exclua os recursos criados neste artigo. 
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Eliminar os grupos de dois recursos criados anteriormente
+- Excluir os dois grupos de recursos criados anteriormente
 
 Guarde o manual de procedimentos seguinte como `cleanup.yml`:
 
@@ -319,19 +319,19 @@ Guarde o manual de procedimentos seguinte como `cleanup.yml`:
         state: absent
 ```
 
-Seguem-se algumas notas essenciais a considerar ao trabalhar com o playbook de exemplo:
+Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Substitua o `{{ resource_group_name-1 }}` marcador de posição pelo nome do primeiro grupo de recursos criado.
-- Substitua o `{{ resource_group_name-2 }}` marcador de posição pelo nome do segundo grupo de recursos criado.
-- Todos os recursos dentro de dois grupos de recursos especificado serão eliminados.
+- Substitua o espaço reservado `{{ resource_group_name-1 }}` pelo nome do primeiro grupo de recursos criado.
+- Substitua o espaço reservado `{{ resource_group_name-2 }}` pelo nome do segundo grupo de recursos criado.
+- Todos os recursos dentro dos dois grupos de recursos especificados serão excluídos.
 
-Execute o playbook com o comando do ansible playbook:
+Execute o guia estratégico usando o comando Ansible-manual:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Ansible no Azure](/azure/ansible/)

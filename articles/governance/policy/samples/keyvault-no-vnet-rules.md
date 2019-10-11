@@ -1,17 +1,17 @@
 ---
-title: Exemplo – cofres de chave de auditoria para nenhum ponto de extremidade de rede virtual
+title: Amostras-cofres de chave sem pontos de extremidade de vNet
 description: Esta definição de política de exemplo audita Key Vault cofres para detectar instâncias que não têm pontos de extremidade de serviço de rede virtual.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ccfba0eae8d3c51cf153f58d554dc09b574d3873
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976970"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255720"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Amostras-Key Vault cofres sem pontos de extremidade de rede virtual
 
@@ -20,9 +20,9 @@ Essa política audita para Key Vault cofres que não têm pontos de extremidade 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
-- [Azure PowerShell](#azure-powershell)
+- [O Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
-- [REST API](#rest-api)
+- [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -97,7 +97,7 @@ Os scripts de implementação e remoção utilizam os seguintes comandos. Cada c
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
@@ -136,7 +136,7 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 
 Existem várias ferramentas que podem ser utilizadas para interagir com a API REST do Gestor de Recursos, como o [ARMClient](https://github.com/projectkudu/ARMClient) ou o PowerShell.
 
-### <a name="deploy-with-rest-api"></a>Implementar com a API REST
+### <a name="deploy-with-rest-api"></a>Implementar com API REST
 
 - Crie a Definição de Política (âmbito da Subscrição). Utilize o JSON [definição de política](#policy-definition) para o Corpo do Pedido.
 
@@ -179,10 +179,10 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 | Serviço | Grupo | Operação | Notas |
 |---|---|---|---|
-| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Opcional [Criar no grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Em alternativa: [Criar no grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
 | Gestão de Recursos | Atribuições de Política | [Eliminar](/rest/api/resources/policyassignments/delete) | Remove uma atribuição do Azure Policy existente. |
-| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Opcional [Excluir no grupo de gerenciamento](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Em alternativa: [Eliminar no grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

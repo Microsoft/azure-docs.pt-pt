@@ -5,14 +5,14 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 94f21e973063dc627ef1424ca5393dd85aedd671
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967796"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248844"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>RBAC (controle de acesso baseado em função) do Azure para controlar os direitos de acesso para criar e gerenciar solicitações de suporte
 
@@ -20,7 +20,7 @@ O [RBAC (controle de acesso baseado em função)](https://docs.microsoft.com/azu
 Solicitação de suporte criação no portal do Azure, [Portal.Azure.com](https://portal.azure.com), usa o modelo RBAC do Azure para definir quem pode criar e gerenciar solicitações de suporte.
 O acesso é concedido atribuindo a função RBAC apropriada a usuários, grupos e aplicativos em um determinado escopo, que pode ser uma assinatura, um grupo de recursos ou um recurso.
 
-Vamos pegar um exemplo: Como proprietário de um grupo de recursos com permissões de leitura no escopo da assinatura, você pode gerenciar todos os recursos no grupo de recursos, como sites, máquinas virtuais e sub-redes.
+Vamos pegar um exemplo: como um proprietário do grupo de recursos com permissões de leitura no escopo da assinatura, você pode gerenciar todos os recursos no grupo de recursos, como sites, máquinas virtuais e sub-redes.
 No entanto, ao tentar criar uma solicitação de suporte no recurso de máquina virtual, você encontrará o seguinte erro
 
 ![Erro de assinatura](./media/create-manage-support-requests-using-access-control/subscription-error.png)
@@ -91,7 +91,7 @@ Você deseja dar acesso ao seu par, Joe, a capacidade de criar e gerenciar tíqu
 
     ![Novo pedido de suporte](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Ao clicar em "todas as solicitações de suporte", Joe poderá ver a lista de solicitações ![de suporte criadas para esta assinatura exibição de detalhes do caso](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Ao clicar em "todas as solicitações de suporte", Joe poderá ver a lista de solicitações de suporte criadas para esta assinatura ![Case exibição de detalhes @ no__t-1
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Remover o acesso à solicitação de suporte no portal do Azure
 

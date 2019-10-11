@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981424"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255905"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -19,12 +19,12 @@ As atribuições de política são usadas pelo Azure Policy para definir quais r
 
 Você usa JSON para criar uma atribuição de política. A atribuição de política contém elementos para:
 
-- Nome a apresentar
-- description
+- nome de exibição
+- descrição
 - do IdP
 - modo de imposição
 - definição de política
-- parameters
+- parâmetros
 
 Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNotEnforce_ com parâmetros dinâmicos:
 
@@ -52,21 +52,20 @@ Por exemplo, o JSON a seguir mostra uma atribuição de política no modo _DoNot
 
 Todos os exemplos de Azure Policy estão em [exemplos de Azure Policy](../samples/index.md).
 
-## <a name="display-name-and-description"></a>Nome a apresentar e descrição
+## <a name="display-name-and-description"></a>Nome de exibição e descrição
 
 Use **DisplayName** e **Description** para identificar a atribuição de política e fornecer contexto para seu uso com o conjunto específico de recursos. **DisplayName** tem um comprimento máximo de _128_ caracteres e a **Descrição** é de um comprimento máximo de _512_ caracteres.
 
 ## <a name="enforcement-mode"></a>Modo de imposição
 
-A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/activity-logs-overview.md).
-Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras.
+A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/activity-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
 
 Essa propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Type |Corrigir manualmente |Entrada do log de atividades |Descrição |
+|Modo |Valor JSON |Tipo |Corrigir manualmente |Entrada do log de atividades |Descrição |
 |-|-|-|-|-|-|
-|Enabled |Predefinição |Cadeia de caracteres |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |Cadeia de caracteres |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
+|Ativado |Predefinição |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
 
 Se **imposiçãomode** não for especificado em uma definição de política ou iniciativa, o valor _padrão_ será usado. [As tarefas de correção](../how-to/remediate-resources.md) podem ser iniciadas para políticas de [deployIfNotExists](./effects.md#deployifnotexists) , **mesmo quando** é definido como _DoNotEnforce_.
 

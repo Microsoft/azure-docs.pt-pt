@@ -1,38 +1,38 @@
 ---
-title: Montar o vFXT Avere - Azure
-description: Como montar os clientes com Avere vFXT para o Azure
+title: Montar o avere vFXT-Azure
+description: Como montar clientes com o avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 41065b4ac6bc486e204c2bfd72b78ba8722270c4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: c461b379629927e8f367fad9bfc70b87413f47b7
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409389"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255380"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montar o cluster Avere vFXT  
 
-Siga estes passos para ligar computadores cliente ao seu cluster vFXT.
+Siga estas etapas para conectar computadores cliente ao cluster vFXT.
 
-1. Decidir como tráfego de cliente de balanceamento de carga entre os nós do cluster. Leia [carga de cliente do saldo](#balance-client-load), abaixo, para obter detalhes. 
-1. Identifique o caminho de endereço e a junção IP para montar.
-1. Problema do [comando de montagem](#mount-command-arguments), com argumentos adequados.
+1. Decida como balancear a carga do tráfego do cliente entre os nós do cluster. Leia [balancear a carga do cliente](#balance-client-load), abaixo, para obter detalhes. 
+1. Identifique o endereço IP e o caminho de junção a serem montados.
+1. Emita o [comando Mount](#mount-command-arguments), com os argumentos apropriados.
 
-## <a name="balance-client-load"></a>Carga de cliente de saldo
+## <a name="balance-client-load"></a>Balancear a carga do cliente
 
-Para ajudar a pedidos de cliente de equilíbrio entre todos os nós do cluster, deve montar os clientes a gama completa de endereços IP com clientes. Existem várias formas simples de automatizar esta tarefa.
+Para ajudar a balancear as solicitações do cliente entre todos os nós no cluster, você deve montar clientes para a faixa completa de endereços IP voltados para o cliente. Há várias maneiras simples de automatizar essa tarefa.
 
 > [!TIP] 
-> Outros métodos de balanceamento de carga podem ser apropriados para sistemas de grandes porte ou complicados; [abra um pedido de suporte](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para obter ajuda.)
+> Outros métodos de balanceamento de carga podem ser apropriados para sistemas grandes ou complicados; [abra um tíquete de suporte](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) para obter ajuda.)
 > 
-> Se preferir usar um servidor DNS para o balanceamento de carga automático do lado do servidor, tem de configurar e gerir o seu próprio servidor DNS no Azure. Nesse caso, pode configurar round robin DNS para o cluster de vFXT, de acordo com este documento: [Configuração de DNS do cluster Avere](avere-vfxt-configure-dns.md).
+> Se preferir usar um servidor DNS para balanceamento de carga automático do lado do servidor, você deverá configurar e gerenciar seu próprio servidor DNS no Azure. Nesse caso, você pode configurar o DNS Round Robin para o cluster vFXT de acordo com este documento: [configuração de DNS do cluster do avere](avere-vfxt-configure-dns.md).
 
-### <a name="sample-balanced-client-mounting-script"></a>Exemplo de cliente equilibrada montar o script
+### <a name="sample-balanced-client-mounting-script"></a>Script de montagem de cliente com balanceamento de amostra
 
-Este exemplo de código utiliza endereços IP de cliente como um elemento aleatório para distribuir os clientes a todos os endereços IP do cluster vFXT disponíveis.
+Este exemplo de código usa endereços IP de cliente como um elemento de randomização para distribuir clientes para todos os endereços IP disponíveis do cluster vFXT.
 
 ```bash
 function mount_round_robin() {
@@ -57,69 +57,69 @@ function mount_round_robin() {
 } 
 ```
 
-A função acima é parte do Batch. por exemplo disponível no [Avere vFXT exemplos](https://github.com/Azure/Avere#tutorials) site.
+A função acima faz parte do exemplo de lote disponível no site de [exemplos do avere vFXT](https://github.com/Azure/Avere#tutorials) .
 
-## <a name="create-the-mount-command"></a>Criar o comando de montagem 
+## <a name="create-the-mount-command"></a>Criar o comando Mount 
 
 > [!NOTE]
-> Se não tiver criado um novo contentor de BLOBs ao criar o cluster de vFXT Avere, siga os passos em [configurar o armazenamento](avere-vfxt-add-storage.md) antes de tentar montar os clientes.
+> Se você não criou um novo contêiner de blob ao criar o cluster avere vFXT, siga as etapas em [Configurar o armazenamento](avere-vfxt-add-storage.md) antes de tentar montar clientes.
 
-A partir do cliente, o ``mount`` mapas do comando do virtual server (vserver) no cluster vFXT para um caminho no sistema de ficheiros local. O formato é ``mount <vFXT path> <local path> {options}``
+Em seu cliente, o comando ``mount`` mapeia o servidor virtual (vserver) no cluster vFXT para um caminho no sistema de arquivos local. O formato é ``mount <vFXT path> <local path> {options}``
 
-Existem três elementos para o comando de montagem: 
+Há três elementos para o comando mount: 
 
-* caminho de vFXT - (uma combinação de IP endereço e espaço de nomes junção do caminho descrito abaixo)
-* caminho local - o caminho no cliente 
-* Opções de comando - de montagem (listados na [argumentos de comando de montagem](#mount-command-arguments))
+* caminho vFXT – (uma combinação de endereço IP e caminho de junção de namespace descritos abaixo)
+* caminho local-o caminho no cliente 
+* opções de comando de montagem – (listadas em [argumentos de comando de montagem](#mount-command-arguments))
 
 ### <a name="junction-and-ip"></a>Junção e IP
 
-O caminho de vserver é uma combinação de seus *endereço IP* além do caminho para um *junção de espaço de nomes*. A junção de espaço de nomes é um caminho virtual que foi definido quando o sistema de armazenamento foi adicionado.
+O caminho vserver é uma combinação de seu *endereço IP* mais o caminho para uma *junção de namespace*. A junção do namespace é um caminho virtual que foi definido quando o sistema de armazenamento foi adicionado.
 
-Se o cluster foi criado com o armazenamento de BLOBs, o caminho de espaço de nomes é `/msazure`
+Se o cluster tiver sido criado com o armazenamento de BLOB, o caminho do namespace será `/msazure`
 
 Exemplo: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-Se tiver adicionado armazenamento depois de criar o cluster, o caminho de junção do espaço de nomes corresponde ao valor definido nas **caminho de espaço de nomes** ao criar a junção. Por exemplo, se utilizou ``/avere/files`` como o caminho de espaço de nomes, os clientes se montaria *IP_address*: / avere/ficheiros para o ponto de montagem local.
+Se você adicionou o armazenamento depois de criar o cluster, o caminho de junção do namespace corresponderá ao valor definido no **caminho do namespace** ao criar a junção. Por exemplo, se você usou ``/avere/files`` como seu caminho de namespace, os clientes montarão *Endereço_IP*:/avere/files em seu ponto de montagem local.
 
-![Caixa de diálogo "Adicionar novo junção" com os ficheiros/avere/no campo do caminho de espaço de nomes](media/avere-vfxt-create-junction-example.png)
+![Caixa de diálogo "Adicionar nova junção" com/avere/files no campo caminho do namespace](media/avere-vfxt-create-junction-example.png)
 
 
-O endereço IP é um dos endereços IP com clientes definidos para o vserver. Pode encontrar o intervalo de IPs em dois locais no painel de controlo de Avere de com de clientes:
+O endereço IP é um dos endereços IP voltados para o cliente definido para o vserver. Você pode encontrar o intervalo de IPs voltados para o cliente em dois locais no painel de controle do avere:
 
-* **VServers** tabela (separador Dashboard) - 
+* Tabela **VServers** (guia painel)- 
 
-  ![Separador dashboard do painel de controle Avere com o separador de VServer selecionado na tabela de dados abaixo o gráfico e a secção de endereço IP com círculos](media/avere-vfxt-ip-addresses-dashboard.png)
+  ![Guia painel do painel de controle avere com a guia VServer selecionada na tabela de dados abaixo do grafo e a seção de endereço IP em círculo](media/avere-vfxt-ip-addresses-dashboard.png)
 
-* **Rede com acesso do cliente** página de definições - 
+* Página de configurações de **rede voltadas** para o cliente- 
 
-  ![Definições > VServer > página de configuração de rede com acesso do cliente com um círculo à volta a secção de intervalo de endereços da tabela para um determinado vserver](media/avere-vfxt-ip-addresses-settings.png)
+  ![Configurações > VServer > página de configuração de rede voltada para o cliente com um círculo em volta da seção intervalo de endereços da tabela para um VServer específico](media/avere-vfxt-ip-addresses-settings.png)
 
-Os caminhos, além de incluir o [argumentos de comando de montagem](#mount-command-arguments) descrito a seguir ao montar a cada cliente.
+Além dos caminhos, inclua os argumentos do [comando Mount](#mount-command-arguments) descritos abaixo ao montar cada cliente.
 
 ### <a name="mount-command-arguments"></a>Argumentos de comando de montagem
 
-Para garantir uma montagem de cliente totalmente integrado, passa estas definições e os argumentos do comando de montagem: 
+Para garantir uma montagem de cliente sem interrupção, passe essas configurações e argumentos no comando mount: 
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 
-| Definições necessárias | |
+| Configurações necessárias | |
 --- | --- 
-``hard`` | Monta de forma recuperável para o cluster vFXT está associadas com falhas da aplicação e possível perda de dados. 
-``proto=netid`` | Esta opção suporta manipulação adequada de erros de rede NFS.
-``mountproto=netid`` | Esta opção suporta manipulação adequada de erros de rede para operações de montagem.
-``retry=n`` | Definir ``retry=30`` para evitar falhas de montagem transitório. (Um valor diferente é recomendado em primeiro plano monta.)
+``hard`` | As montagens suaves no cluster vFXT são associadas a falhas de aplicativos e à possível perda de dados. 
+``proto=netid`` | Essa opção dá suporte ao tratamento apropriado de erros de rede NFS.
+``mountproto=netid`` | Essa opção dá suporte ao tratamento apropriado de erros de rede para operações de montagem.
+``retry=n`` | Defina ``retry=30`` para evitar falhas de montagem transitórias. (Um valor diferente é recomendado em montagens de primeiro plano.)
 
-| Definições preferenciais  | |
+| Configurações preferenciais  | |
 --- | --- 
-``nointr``            | A opção "nointr" é preferencial para os clientes com kernels herdados (antes de Abril de 2008) que suportam esta opção. Observe que a opção "intr" é a predefinição.
+``nointr``            | A opção "nointr" é preferida para clientes com kernels herdados (antes de abril de 2008) que dão suporte a essa opção. Observe que a opção "INTR" é o padrão.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Após ter montado clientes, pode utilizá-los para preencher o armazenamento de dados de back-end (filtro de core). Consulte estes documentos para saber mais sobre as tarefas de configuração adicionais:
+Depois de montar clientes, você pode usá-los para preencher o armazenamento de dados de back-end (Filer principal). Consulte estes documentos para saber mais sobre tarefas de configuração adicionais:
 
-* [Mover dados para o filtro de núcleo de cluster](avere-vfxt-data-ingest.md) -como utilizar vários clientes e os threads de forma eficiente carregar os dados
-* [Personalizar o ajuste de cluster](avere-vfxt-tuning.md) -personalizar as definições do cluster de acordo com a sua carga de trabalho
-* [Gerir o cluster](avere-vfxt-manage-cluster.md) -como iniciar ou parar o cluster e gerir os nós
+* [Mover dados para o File Core do cluster](avere-vfxt-data-ingest.md) -como usar vários clientes e threads para carregar seus dados com eficiência
+* [Personalizar o ajuste de cluster](avere-vfxt-tuning.md) – Personalize as configurações de cluster para se adequar à sua carga de trabalho
+* [Gerenciar o cluster](avere-vfxt-manage-cluster.md) -como iniciar ou parar o cluster e gerenciar nós

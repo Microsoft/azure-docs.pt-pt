@@ -1,35 +1,35 @@
 ---
-title: Tutorial - configurar caches na Cache do Azure para a utilização do Ansible de Redis | Documentos da Microsoft
-description: Saiba como utilizar o Ansible para criar, dimensionar e reiniciar o Cache do Azure para Redis
-keywords: ansible, azure, devops, bash, playbook, cache, redis
+title: Tutorial – configurar caches no cache do Azure para Redis usando o Ansible
+description: Saiba como usar o Ansible para criar, dimensionar e reinicializar o cache do Azure para Redis
+keywords: Ansible, Azure, DevOps, Bash, manual, cache, Redis
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 693b042f631044352eaae708905fefca02f38415
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231013"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241799"
 ---
-# <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Tutorial: Configurar as caches na Cache do Azure para Redis com o Ansible
+# <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>Tutorial: configurar caches no cache do Azure para Redis usando o Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[A Cache de Redis do Azure](/azure/azure-cache-for-redis/) é um serviço compatível de código-fonte aberto que permite-lhe criar aplicações reativas ao fornecer um acesso rápido aos dados. 
+O [cache do Azure para Redis](/azure/azure-cache-for-redis/) é um serviço compatível de software livre que permite criar aplicativos responsivos fornecendo acesso rápido aos dados. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Criar uma cache
-> * Dimensione uma cache
-> * Uma cache de reinício
-> * Adicionar uma regra de firewall para uma cache
-> * Eliminar uma cache
+> * Dimensionar um cache
+> * Reinicializar um cache
+> * Adicionar uma regra de firewall a um cache
+> * Excluir um cache
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +38,7 @@ ms.locfileid: "65231013"
 
 ## <a name="create-a-cache"></a>Criar uma cache
 
-Crie uma Cache do Azure para Redis dentro de um novo grupo de recursos.
+Crie um cache do Azure para Redis em um novo grupo de recursos.
 
 ```yml
   - name: Create resource group
@@ -55,7 +55,7 @@ Crie uma Cache do Azure para Redis dentro de um novo grupo de recursos.
         size: C1 
 ```
 
-Pode demorar vários minutos a aprovisionar uma cache. O código a seguir informa o Ansible, aguarde a conclusão da operação:
+Pode levar vários minutos para provisionar um cache. O código a seguir informa Ansible aguardar a conclusão da operação:
 
 ```yml
   - name: Wait for Redis provisioning to complete
@@ -68,7 +68,7 @@ Pode demorar vários minutos a aprovisionar uma cache. O código a seguir inform
     delay: 60
 ```
 
-Durante o processo de aprovisionamento demorado, serão apresentadas várias mensagens de "erro". Essas mensagens podem ser ignoradas com segurança. A mensagem importante é a última mensagem de erro. No exemplo a seguir, há muitas mensagens de erro até que a mensagem final ("ok").
+Durante o processo de provisionamento longo, várias mensagens de "erro" serão exibidas. Essas mensagens podem ser ignoradas com segurança. A mensagem importante é a última mensagem. No exemplo a seguir, há muitas mensagens de erro até a mensagem final ("OK").
 
 ```Output
 FAILED - RETRYING: Get facts (100 retries left).
@@ -84,11 +84,11 @@ FAILED - RETRYING: Get facts (91 retries left).
 ok: [localhost]
 ```
 
-## <a name="scale-the-cache"></a>Dimensionar a cache
+## <a name="scale-the-cache"></a>Dimensionar o cache
 
-A Cache de Redis do Azure tem ofertas de cache diferente consoante as necessidades da sua aplicação. Estas opções de cache fornecem flexibilidade na escolha de tamanho de cache e as funcionalidades. Se os requisitos de aplicação alteram depois da cache é criada, pode dimensionar a cache conforme necessário. Para obter mais informações sobre o dimensionamento, veja [como dimensionar a cache do Azure para Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
+O cache do Azure para Redis tem diferentes ofertas de cache, dependendo das necessidades do seu aplicativo. Essas opções de cache fornecem flexibilidade na escolha do tamanho e dos recursos do cache. Se os requisitos do aplicativo forem alterados após a criação do cache, você poderá dimensionar o cache conforme necessário. Para obter mais informações sobre o dimensionamento, consulte [como dimensionar o cache do Azure para Redis](/azure/azure-cache-for-redis/cache-how-to-scale).
 
-O código de exemplo seguinte dimensiona o cache para **padrão**:
+O código de exemplo a seguir dimensiona o cache para **Standard**:
 
 ```yml
 - name: Scale up Azure Cache for Redis
@@ -100,7 +100,7 @@ O código de exemplo seguinte dimensiona o cache para **padrão**:
         size: C1
 ```
 
-Pode demorar vários minutos para dimensionar a uma cache. O código a seguir informa o Ansible, aguarde a conclusão da operação:
+Pode levar vários minutos para dimensionar um cache. O código a seguir informa Ansible aguardar a conclusão da operação:
 
 ```yml
   - name: Wait for Redis scaling up to complete
@@ -113,15 +113,15 @@ Pode demorar vários minutos para dimensionar a uma cache. O código a seguir in
     delay: 60
 ```
 
-Assim como a tarefa de aprovisionamento do Azure Cache de Redis, resultado como a seguinte mensagem de erro é normal:
+Semelhante à tarefa de provisionar o cache do Azure para Redis, a saída semelhante à seguinte mensagem é normal:
 
 ```Ouput
 **FAILED - RETRYING: Get facts (100 retries left)** is normal.
 ```
 
-## <a name="reboot-the-cache"></a>A cache de reinício
+## <a name="reboot-the-cache"></a>Reinicializar o cache
 
-O código a seguir reinicia o cache criada nas secções anteriores.
+O código a seguir reinicializa o cache criado nas seções anteriores.
 
 ```yml
   - name: Reboot Azure Cache for Redis
@@ -134,7 +134,7 @@ O código a seguir reinicia o cache criada nas secções anteriores.
 
 ### <a name="add-firewall-rule"></a>Adicionar regra de firewall
 
-O código a seguir adiciona uma regra de firewall para a cache:
+O código a seguir adiciona uma regra de firewall ao cache:
 
 ```yml
   - name: Add Firewall rule
@@ -146,7 +146,7 @@ O código a seguir adiciona uma regra de firewall para a cache:
       end_ip_address: 168.1.1.4
 ```
 
-## <a name="delete-the-cache"></a>Eliminar a cache
+## <a name="delete-the-cache"></a>Excluir o cache
 
 O código a seguir exclui o cache:
 
@@ -158,11 +158,11 @@ O código a seguir exclui o cache:
       state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Obter o playbook de exemplo
+## <a name="get-the-sample-playbook"></a>Obter o guia estratégico de exemplo
 
-Existem duas formas de obter o playbook de exemplo completo:
-- [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) e guardá-lo para `rediscache.yml`.
-- Crie um novo ficheiro designado `rediscache.yml` e copie no seguinte conteúdo:
+Há duas maneiras de obter o guia estratégico de exemplo completo:
+- [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/rediscache.yml) e salve-o em `rediscache.yml`.
+- Crie um novo arquivo chamado `rediscache.yml` e copie-o para ele no seguinte conteúdo:
 
 ```yml
 - name: Manage Azure Cache for Redis
@@ -238,19 +238,19 @@ Existem duas formas de obter o playbook de exemplo completo:
       state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Executar o playbook de exemplo
+## <a name="run-the-sample-playbook"></a>Executar o guia estratégico de exemplo
 
-Nesta secção, execute o playbook para testar várias funcionalidades mostradas neste artigo.
+Nesta seção, execute o guia estratégico para testar vários recursos mostrados neste artigo.
 
-Na `vars` secção, substitua o `{{ resource_group_name }}` marcador de posição pelo nome do seu grupo de recursos.
+Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook rediscache.yml
 ```
 
-O resultado é semelhante para os seguintes resultados:
+A saída é semelhante aos seguintes resultados:
 
 ```Output
 TASK [create resource group] 
@@ -326,9 +326,9 @@ Tuesday 12 March 2019  16:44:14 +0800 (0:00:06.217)       0:23:08.626
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine os recursos criados neste artigo. 
+Quando não for mais necessário, exclua os recursos criados neste artigo. 
 
-Guarde o código a seguir como `cleanup.yml`:
+Salve o código a seguir como `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -341,15 +341,15 @@ Guarde o código a seguir como `cleanup.yml`:
         state: absent
 ```
 
-Na `vars` secção, substitua o `{{ resource_group_name }}` marcador de posição pelo nome do seu grupo de recursos.
+Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Ansible no Azure](https://docs.microsoft.com/azure/ansible/)

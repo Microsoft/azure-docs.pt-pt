@@ -1,17 +1,17 @@
 ---
-title: Exemplo – garantir o tráfego HTTPS somente para a conta de armazenamento
+title: Exemplo – garantir o tráfego HTTPS para contas de armazenamento
 description: Esta definição de política de exemplo requer que as contas de armazenamento usem o tráfego HTTPS.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 07694c7f6ca4590615c1f5530c19a530025c6add
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 41e752d3b88a7b36dbe7d9200ad6de42ab9d563f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977084"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255762"
 ---
 # <a name="sample---ensure-https-traffic-only-for-storage-account"></a>Exemplo – garantir o tráfego HTTPS somente para a conta de armazenamento
 
@@ -23,13 +23,13 @@ Esta política requer que as contas de armazenamento utilizem o tráfego HTTPS.
 
 [!code-json[main](../../../../policy-templates/samples/Storage/https-traffic-only/azurepolicy.json "Ensure https traffic only for storage account")]
 
-Pode implementar este modelo através do [portal do Azure](#deploy-with-the-portal), do [PowerShell](#deploy-with-powershell) ou da [CLI do Azure](#deploy-with-azure-cli).
+Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal), o [PowerShell](#deploy-with-powershell) ou a [CLI do Azure](#deploy-with-azure-cli).
 
 ## <a name="deploy-with-the-portal"></a>Implementar com o portal
 
 [![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FStorage%2Fhttps-traffic-only%2Fazurepolicy.json)
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -48,7 +48,7 @@ Execute o seguinte comando para remover o grupo de recursos, a VM e todos os rec
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -68,4 +68,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)
+- Reveja mais exemplos nas [amostras do Azure Policy](index.md)

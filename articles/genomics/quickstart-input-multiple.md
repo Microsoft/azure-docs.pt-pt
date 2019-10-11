@@ -1,7 +1,7 @@
 ---
-title: Submeter um fluxo de trabalho através de várias entradas - Microsoft Genomics
-titleSuffix: Azure
-description: Este artigo demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics se o ficheiro de entrada for múltiplos ficheiros FASTQ ou ficheiros BAM provenientes do mesmo exemplo. Já tiver o cliente msgen instalado e foram executados com êxito os dados de exemplo através do serviço.
+title: Enviar um fluxo de trabalho usando várias entradas
+titleSuffix: Microsoft Genomics
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se o arquivo de entrada for vários arquivos FASTQ ou BAM do mesmo exemplo.
 services: genomics
 ms.service: genomics
 author: grhuynh
@@ -9,20 +9,20 @@ manager: cgronlund
 ms.author: grhuynh
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.openlocfilehash: 399b1ed735ce1b7a3fca1d27155863f6bfa18776
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b426015906a8e17674123c0c3ad2fccb9c43798f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60780883"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248573"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Submeter um fluxo de trabalho através de várias entradas do mesmo exemplo
 
-Este artigo demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics se o ficheiro de entrada for múltiplos ficheiros FASTQ ou BAM **provenientes do mesmo exemplo**. Por exemplo, se executou o **mesmo exemplo** em múltiplas faixas no sequenciador, o sequenciador poderá criar como resultado um par de ficheiros FASTQ para cada faixa. Em vez de concatenar esses ficheiros FASTQ antes do alinhamento e pesquisa de variantes, pode submeter diretamente todas estas entradas no cliente `msgen`. O resultado do cliente `msgen` seria um **conjunto único** de ficheiros, incluindo um ficheiro .bam, .bai, .vcf. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics se o arquivo de entrada for vários arquivos FASTQ ou BAM **provenientes do mesmo exemplo**. Por exemplo, se executou o **mesmo exemplo** em múltiplas faixas no sequenciador, o sequenciador poderá criar como resultado um par de ficheiros FASTQ para cada faixa. Em vez de concatenar esses ficheiros FASTQ antes do alinhamento e pesquisa de variantes, pode submeter diretamente todas estas entradas no cliente `msgen`. O resultado do cliente `msgen` seria um **conjunto único** de ficheiros, incluindo um ficheiro .bam, .bai, .vcf. 
 
 No entanto, tenha em atenção que **não pode** misturar ficheiros FASTQ e BAM na mesma submissão. Além disso, **não pode** submeter múltiplos ficheiros FASTQ ou BAM a partir de múltiplos indivíduos. 
 
-Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este artigo. 
+Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se você enviou com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, você está pronto para continuar com este artigo. 
 
 
 ## <a name="multiple-bam-files"></a>Múltiplos ficheiros BAM
@@ -155,5 +155,5 @@ output_storage_account_container: outputs
 
 Submeta o ficheiro `config.txt` com esta invocação: `msgen submit -f config.txt`
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, carregou múltiplos ficheiros BAM ou ficheiros FASTQ emparelhados para o Armazenamento do Azure e submeteu um fluxo de trabalho para o serviço Microsoft Genomics através do cliente python `msgen`. Para obter mais informações sobre a submissão de fluxos de trabalho e outros comandos que pode utilizar com o serviço Microsoft Genomics, veja a [FAQ](frequently-asked-questions-genomics.md). 

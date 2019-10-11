@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: sajagtap
-ms.openlocfilehash: c291a914ae9e76ce548df2a52523d60b69f0a7b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: bc20af10e2e5b2ceb26c1cc891a8f69eb44e5740
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882717"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242893"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definir e usar trabalhos de moderação (.NET)
 
@@ -36,7 +36,7 @@ Depois de concluir os passos anteriores, pode ficar com duas chaves do Content M
 
 Se planear utilizar a chave de API dada pelo Azure no seu exemplo de SDK, siga os passos mencionados na secção [Utilizar a chave do Azure com a API de revisão](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) para permitir que a aplicação chame a API de revisão e crie as revisões.
 
-Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são necessários passos adicionais.
+Se utilizar a chave de avaliação gratuita gerada pela ferramenta de revisão, a sua conta da ferramenta de revisão já conhece a chave e, por conseguinte, não são precisos passos adicionais.
 
 ## <a name="define-a-custom-moderation-workflow"></a>Definir um fluxo de trabalho de moderação personalizado
 
@@ -67,8 +67,7 @@ Modifique as instruções de utilização do programa.
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -241,7 +240,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 ```
 
 > [!NOTE]
-> A chave de serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS). Se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429.
+> A chave do serviço do Content Moderator tem um limite de velocidade de pedidos por segundo (RPS). Se ultrapassar o limite, o SDK emite uma exceção com o código de erro 429.
 >
 > Uma chave de escalão gratuito tem um limite de velocidade de um RPS.
 
@@ -324,4 +323,4 @@ Verá uma resposta semelhante ao seguinte exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Obtenha o [SDK .NET do Content Moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.
+Obtenha o [SDK do Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros inícios rápidos do Content Moderator para .NET e comece a trabalhar na sua integração.

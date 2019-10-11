@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/09/2019
 ms.author: diberry
-ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971800"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248644"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -82,7 +82,7 @@ Um exemplo de corpo JSON é semelhante a:
     "question": "qna maker and luis",
     "top": 6,
     "isTest": true,
-    "scoreThreshold": 20,
+    "scoreThreshold": 30,
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +91,8 @@ Um exemplo de corpo JSON é semelhante a:
     "userId": "sd53lsY="
 }
 ```
+
+O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
 
 <a name="generateanswer-response"></a>
 
@@ -102,7 +104,7 @@ A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrunti
 {
     "answers": [
         {
-            "score": 28.54820341616869,
+            "score": 38.54820341616869,
             "Id": 20,
             "answer": "There is no direct integration of LUIS with QnA Maker. But, in your bot code, you can use LUIS and QnA Maker together. [View a sample bot](https://github.com/Microsoft/BotBuilder-CognitiveServices/tree/master/Node/samples/QnAMaker/QnAWithLUIS)",
             "source": "Custom Editorial",
@@ -120,9 +122,11 @@ A [resposta](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerrunti
 }
 ```
 
+O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%. 
+
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usar QnA Maker com um bot emC#
 
-A estrutura de bot fornece acesso às propriedades do QnA Maker:
+A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -137,11 +141,13 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
+O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
+
 O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) com esse código.
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Usar QnA Maker com um bot no node. js
 
-A estrutura de bot fornece acesso às propriedades do QnA Maker:
+A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');
@@ -149,11 +155,13 @@ this.qnaMaker = new QnAMaker(endpoint);
 
 // Default QnAMakerOptions
 var qnaMakerOptions = {
-    ScoreThreshold: 0.03,
+    ScoreThreshold: 0.30,
     Top: 3
 };
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
+
+O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
 
 O bot de suporte tem [um exemplo](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) com esse código.
 
@@ -237,11 +245,11 @@ Você pode pesquisar os KB publicados, usando `isTest=false`, ou na KB de teste 
 |Código|Explicação|
 |:--|--|
 |2xx|Êxito|
-|400|parâmetros do pedido estão incorretos, que significa que os parâmetros necessários estão em falta, com formato incorreto ou é demasiado grande|
-|400|corpo do pedido está incorreto, que significa que o JSON é demasiado grande, com formato incorreto ou em falta|
+|400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, malformados ou muito grandes|
+|400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, malformado ou muito grande|
 |401|Chave inválida|
-|403|Proibido - não tem permissões corretas|
-|404|Não existe KB|
+|403|Proibido-você não tem as permissões corretas|
+|404|O KB não existe|
 |410|Esta API foi preterida e não está mais disponível|
 
 ## <a name="next-steps"></a>Passos seguintes

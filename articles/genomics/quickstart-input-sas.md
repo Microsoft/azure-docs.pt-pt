@@ -1,7 +1,7 @@
 ---
-title: Submeter um fluxo de trabalho utilizar assinaturas de acesso partilhado - Microsoft Genomics
-titleSuffix: Azure
-description: O artigo pressupõe que o cliente msgen instalado e foram executados com êxito os dados de exemplo através do serviço.
+title: Fluxo de trabalho usando assinaturas de acesso compartilhado
+titleSuffix: Microsoft Genomics
+description: Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics usando assinaturas de acesso compartilhado (SAS) em vez de chaves de conta de armazenamento.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 03/02/2018
-ms.openlocfilehash: 833067f53f53f347ce091a64702d44a78cde836f
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: d6228762b9a1299d8e9229f7a0f73dc7d0bca2b2
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657103"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248591"
 ---
 # <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Submeter um fluxo de trabalho ao Microsoft Genomics com uma SAS em vez de uma chave de conta de armazenamento 
 
-Este artigo demonstra como submeter um fluxo de trabalho para o serviço Microsoft Genomics através de um ficheiro txt que contenha [assinaturas de acesso (SAS) partilhado](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. 
+Este artigo demonstra como enviar um fluxo de trabalho para o serviço de Microsoft Genomics usando um arquivo config. txt que contém [assinaturas de acesso compartilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) em vez de chaves de conta de armazenamento. Esta funcionalidade pode ser útil se existirem problemas de segurança relacionados com a chave da conta de armazenamento visível no ficheiro config.txt. 
 
-Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se tiver submetido com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, está pronto para continuar com este artigo. 
+Este artigo pressupõe que já instalou e executou o cliente `msgen` e está familiarizado com a utilização do Armazenamento do Microsoft Azure. Se você enviou com êxito um fluxo de trabalho usando os dados de exemplo fornecidos, você está pronto para continuar com este artigo. 
 
 ## <a name="what-is-a-sas"></a>O que é uma SAS?
 As [assinaturas de acesso partilhado (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) disponibilizam acesso delegado a recursos na sua conta de armazenamento. Com uma SAS, pode conceder acesso a recursos na sua conta de armazenamento sem partilhar as chaves da conta. Este é o ponto fundamental da utilização de assinaturas de acesso partilhado nas suas aplicações – uma SAS é uma forma segura de partilhar os seus recursos de armazenamento sem comprometer as chaves da conta.
@@ -33,21 +33,21 @@ O URI de um token de assinatura de acesso partilhado (SAS) ao nível de serviço
 São necessários dois ou mais tokens SAS para cada fluxo de trabalho que for submetido ao serviço Microsoft Genomics, um para cada ficheiro de entrada e outro para o contentor de saída.
 
 A SAS para os ficheiros de entrada deve ter as seguintes propriedades:
-1.  Âmbito (conta, contentor, blob): blob
-2.  Expiração: 48 horas a partir de agora
-3.  Permissões: leitura
+ - Âmbito (conta, contentor, blob): blob
+ - Expiração: 48 horas a partir de agora
+ - Permissões: leitura
 
 A SAS para o contentor de saída deve ter as seguintes propriedades:
-1.  Âmbito (conta, contentor, blob): contentor
-2.  Expiração: 48 horas a partir de agora
-3.  Permissões: leitura, escrita e eliminação
+ - Âmbito (conta, contentor, blob): contentor
+ - Expiração: 48 horas a partir de agora
+ - Permissões: leitura, escrita e eliminação
 
 
 ## <a name="create-a-sas-for-the-input-files-and-the-output-container"></a>Criar uma SAS para os ficheiros de entrada e o contentor de saída
 Existem duas formas de criar um token SAS, utilizando o Explorador de Armazenamento do Azure ou através de programas.  Se escrever código, pode construir a SAS por si ou utilizar o SDK do Armazenamento do Azure na sua linguagem preferencial.
 
 
-### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configure: Criar uma SAS com o Explorador de armazenamento do Azure
+### <a name="set-up-create-a-sas-using-azure-storage-explorer"></a>Configurar: Criar uma SAS com o Explorador de Armazenamento do Azure
 
 O [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/) é uma ferramenta para gerir os recursos armazenados no Armazenamento do Azure.  Pode saber mais sobre como utilizar o Explorador de Armazenamento do Azure [aqui](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
@@ -56,7 +56,7 @@ A SAS para os ficheiros de entrada deve ser confinada ao ficheiro de entrada esp
  ![Explorador de Armazenamento da SAS do Genomics](./media/quickstart-input-sas/genomics-sas-storageexplorer.png "Explorador de Armazenamento da SAS do Genomics")
 
 
-### <a name="set-up-create-a-sas-programmatically"></a>Configure: Criar uma SAS através de programação
+### <a name="set-up-create-a-sas-programmatically"></a>Configurar: criar uma SAS de forma programática
 
 Para criar uma SAS com o SDK do Armazenamento do Azure, consulte a documentação existente em várias linguagens, incluindo [.NET](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1), [Python](https://docs.microsoft.com/azure/storage/blobs/storage-python-how-to-use-blob-storage), e [Node.js](https://docs.microsoft.com/azure/storage/blobs/storage-nodejs-how-to-use-blob-storage). 
 

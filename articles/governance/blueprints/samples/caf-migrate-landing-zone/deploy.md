@@ -1,18 +1,18 @@
 ---
 title: Exemplo – CAF de zona de aterrissagem de migração – etapas de implantação
-description: Implante as etapas do exemplo CAF migrar plantas de zona de aterrissagem.
+description: Implante as etapas para o exemplo CAF migrar plantas de zona de aterrissagem, incluindo detalhes do parâmetro de artefato Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0a635c9c3b864e4ce74dbbe8b9c95df38489176f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981671"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248506"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
 
@@ -42,7 +42,7 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
    - **Nome do plano gráfico** Forneça um nome para sua cópia do exemplo de plano gráfico da zona de aterrissagem de migração do CAF.
    - **Local de definição** Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -68,16 +68,16 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções Básicas
-     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
+   - Noções básicas
+     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
        Altere conforme necessário ou deixe como está.
-     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada.
+     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada.
      - O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído.
        Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
     
-   - Atribuição de Bloqueio
+   - Atribuição de bloqueio
 
      Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
@@ -90,9 +90,9 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
      Os parâmetros definidos nesta seção são usados por muitos dos artefatos na definição do Blueprint para fornecer consistência.
 
        - **Organização**: Insira o nome da sua organização, como contoso ou fabrikam, deve ser exclusivo.
-       - **AzureRegion**: Selecione uma região do Azure para implantação.
+       - **AzureRegion**: selecione uma região do Azure para implantação.
        
-   - Parâmetros de artefacto
+   - Parâmetros de artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -105,13 +105,13 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Implantar zona de aterrissagem de vNET|Modelo do Resource Manager|IPAddress_Space|**Bloqueado** -forneça o primeiro exemplo de dois octetos, 10,0|
-|Implementar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|ID de objeto de usuário ou grupo **bloqueado** para conceder permissões para no Key Vault|
-|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
-|Implementar o Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
-|Implementar Azure Migrate|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
+|Implantar Key Vault|Modelo do Resource Manager|KV-AccessPolicy|ID de objeto de usuário ou grupo **bloqueado** para conceder permissões para no Key Vault|
+|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_DataRetention|**Bloqueado** -número de dias que os dados serão retidos no log Analytics|
+|Implantar Log Analytics|Modelo do Resource Manager|LogAnalytics_Location|**Bloqueado** -região usada ao estabelecer o espaço de trabalho|
+|Implantar migrações para Azure|Modelo do Resource Manager|Azure_Migrate_Location|**Bloqueado** – selecione a região para implantar migrações para Azure|
 
 ## <a name="next-steps"></a>Passos seguintes
 

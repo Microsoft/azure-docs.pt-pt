@@ -1,32 +1,32 @@
 ---
-title: Solução de não proprietário de vFXT Avere - Azure
-description: Solução para permitir que os utilizadores sem permissões de proprietário de subscrição para implementação Avere vFXT para o Azure
+title: Solução alternativa de não-proprietário do avere vFXT – Azure
+description: Solução alternativa para permitir que os usuários sem permissão de proprietário da assinatura implantem o avere vFXT para o Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: e72e6d969649de09389ee38b94e874fad98ee08f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409214"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256182"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autorizar não proprietários a implementar o Avere vFXT
 
-Estas instruções são uma solução que permite que um usuário sem assinatura privilégios de proprietário para criar um vFXT Avere para o sistema do Azure.
+Estas instruções são uma solução alternativa que permite que um usuário sem privilégios de proprietário da assinatura crie um avere vFXT para o sistema do Azure.
 
-(O modo recomendado para implementar o sistema vFXT é fazer com que um utilizador com privilégios de proprietário, fazer a criação de Avere os passos, conforme explicado [preparar para criar o vFXT Avere](avere-vfxt-prereqs.md).)  
+(A maneira recomendada de implantar o sistema avere vFXT é fazer com que um usuário com privilégios de proprietário faça as etapas de criação, conforme explicado em [preparar para criar o avere vFXT](avere-vfxt-prereqs.md).)  
 
-A solução envolve a criação de uma função de acesso adicional que dá permissões suficientes para instalar o cluster de seus usuários. A função tem de ser criada por um proprietário da subscrição e um proprietário deve atribuí-la para os utilizadores apropriados. 
+A solução alternativa envolve a criação de uma função de acesso adicional que concede a seus usuários permissões suficientes para instalar o cluster. A função deve ser criada por um proprietário de assinatura e um proprietário deve atribuí-la aos usuários apropriados. 
 
-Também tem um proprietário da subscrição [aceitar os termos de utilização](avere-vfxt-prereqs.md) para a imagem do marketplace vFXT Avere. 
+Um proprietário de assinatura também deve [aceitar os termos de uso](avere-vfxt-prereqs.md) da imagem do avere vFXT Marketplace. 
 
 > [!IMPORTANT] 
-> Todos estes passos devem ser utilizados por um utilizador com privilégios de proprietário da assinatura que será utilizado para o cluster.
+> Todas essas etapas devem ser tomadas por um usuário com privilégios de proprietário na assinatura que será usada para o cluster.
 
-1. Copie estas linhas e salvá-los num arquivo (por exemplo, `averecreatecluster.json`). Utilizar o seu ID de subscrição no `AssignableScopes` instrução.
+1. Copie essas linhas e salve-as em um arquivo (por exemplo, `averecreatecluster.json`). Use sua ID de assinatura na instrução `AssignableScopes`.
 
    ```json
    {
@@ -67,12 +67,12 @@ Também tem um proprietário da subscrição [aceitar os termos de utilização]
     az role definition create --role-definition ./averecreatecluster.json
     ```
 
-1. Atribua esta função ao utilizador que irá criar o cluster:
+1. Atribua essa função ao usuário que criará o cluster:
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Após este procedimento, qualquer utilizador atribuído esta função tem as seguintes permissões para a subscrição: 
+Após esse procedimento, qualquer usuário atribuído a essa função tem as seguintes permissões para a assinatura: 
 
 * Criar e configurar a infraestrutura de rede
 * Criar o controlador de cluster
-* Executar scripts de criação de cluster a partir do controlador de cluster para criar o cluster
+* Executar scripts de criação de cluster do controlador de cluster para criar o cluster

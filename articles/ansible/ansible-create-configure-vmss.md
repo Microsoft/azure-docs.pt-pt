@@ -1,6 +1,6 @@
 ---
-title: Tutorial - configurar conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible | Documentos da Microsoft
-description: Saiba como utilizar o Ansible para criar e configurar os conjuntos de dimensionamento de máquinas virtuais no Azure
+title: Tutorial – configurar conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
+description: Saiba como usar o Ansible para criar e configurar conjuntos de dimensionamento de máquinas virtuais no Azure
 keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1d9b8cd207596aefa01af852627f11cb9b4ce5dc
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230738"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241735"
 ---
-# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Configurar conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: configurar conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -27,7 +27,7 @@ ms.locfileid: "65230738"
 >
 > * Configurar os recursos para uma VM
 > * Configurar um conjunto de dimensionamento
-> * Dimensionar o conjunto, aumentando as instâncias da VM de dimensionamento 
+> * Dimensionar o conjunto de dimensionamento aumentando suas instâncias de VM 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -36,20 +36,20 @@ ms.locfileid: "65230738"
 
 ## <a name="configure-a-scale-set"></a>Configurar um conjunto de dimensionamento
 
-O código do playbook nesta secção define os seguintes recursos:
+O código do guia estratégico nesta seção define os seguintes recursos:
 
-* **Grupo de recursos** na qual todos os seus recursos vão ser implementados.
+* **Grupo de recursos** no qual todos os seus recursos serão implantados.
 * **Rede virtual** no espaço de endereços: 10.0.0.0/16
 * **Sub-rede** dentro da rede virtual
 * **Endereço IP público** que lhe permite aceder aos recursos na internet
-* **Grupo de segurança de rede** que controla o fluxo de tráfego de rede de entrada e saída de seu conjunto de dimensionamento
+* **Grupo de segurança de rede** que controla o fluxo de entrada e saída do tráfego de rede de seu conjunto de dimensionamento
 * **Balanceador de carga** que distribui o tráfego por um conjunto de VMs definidas através das regras do balanceador de carga
 * **Conjunto de dimensionamento de máquinas virtuais** que utiliza todos os recursos criados
 
-Existem duas formas de obter o playbook de exemplo:
+Há duas maneiras de obter o guia estratégico de exemplo:
 
-* [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) e guardá-lo para `vmss-create.yml`.
-* Crie um novo ficheiro designado `vmss-create.yml` e copie no seguinte conteúdo:
+* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) e salve-o em `vmss-create.yml`.
+* Crie um novo arquivo chamado `vmss-create.yml` e copie-o para ele no seguinte conteúdo:
 
 ```yml
 - hosts: localhost
@@ -145,17 +145,17 @@ Existem duas formas de obter o playbook de exemplo:
             caching: ReadOnly
 ```
 
-Antes de executar o playbook, consulte as seguintes notas de:
+Antes de executar o guia estratégico, consulte as seguintes observações:
 
-* Na `vars` secção, substitua o `{{ admin_password }}` marcador de posição pela sua própria palavra-passe.
+* Na seção `vars`, substitua o espaço reservado `{{ admin_password }}` por sua própria senha.
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-create.yml
 ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -189,23 +189,23 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
 ```
 
-## <a name="view-the-number-of-vm-instances"></a>Ver o número de instâncias de VM
+## <a name="view-the-number-of-vm-instances"></a>Exibir o número de instâncias de VM
 
-O [configurado o conjunto de dimensionamento](#configure-a-scale-set) atualmente tem duas instâncias. Os passos seguintes são utilizados para confirmar esse valor:
+O [conjunto de dimensionamento configurado](#configure-a-scale-set) atualmente tem duas instâncias. As etapas a seguir são usadas para confirmar esse valor:
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Navegue para o conjunto de dimensionamento que configurou.
+1. Navegue até o conjunto de dimensionamento configurado.
 
-1. Verá o nome com o número de instâncias do conjunto de parênteses de dimensionamento: `Standard_DS1_v2 (2 instances)`
+1. Você verá o nome do conjunto de dimensionamento com o número de instâncias entre parênteses: `Standard_DS1_v2 (2 instances)`
 
-1. Também pode verificar o número de instâncias com o [Azure Cloud Shell](https://shell.azure.com/) executando o seguinte comando:
+1. Você também pode verificar o número de instâncias com o [Azure cloud Shell](https://shell.azure.com/) executando o seguinte comando:
 
     ```azurecli-interactive
     az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
     ```
 
-    Os resultados da execução do comando da CLI do Azure no Cloud Shell mostram que existem agora três instâncias: 
+    Os resultados da execução do comando CLI do Azure no Cloud Shell mostram que agora existem três instâncias: 
 
     ```bash
     {
@@ -213,14 +213,14 @@ O [configurado o conjunto de dimensionamento](#configure-a-scale-set) atualmente
     }
     ```
 
-## <a name="scale-out-a-scale-set"></a>Aumentar horizontalmente um conjunto de dimensionamento
+## <a name="scale-out-a-scale-set"></a>Escalar horizontalmente um conjunto de dimensionamento
 
-O código do playbook nesta secção obtém informação sobre o conjunto de dimensionamento e altera a sua capacidade de duas a três.
+O código do guia estratégico nesta seção recupera informações sobre o conjunto de dimensionamento e altera sua capacidade de dois para três.
 
-Existem duas formas de obter o playbook de exemplo:
+Há duas maneiras de obter o guia estratégico de exemplo:
 
-* [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) e guardá-lo para `vmss-scale-out.yml`.
-* Crie um novo ficheiro designado `vmss-scale-out.yml` e copie no seguinte conteúdo:
+* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) e salve-o em `vmss-scale-out.yml`.
+* Crie um novo arquivo chamado `vmss-scale-out.yml` e copie-o para ele no seguinte conteúdo:
 
 ```yml
 - hosts: localhost
@@ -247,13 +247,13 @@ Existem duas formas de obter o playbook de exemplo:
       azure_rm_virtualmachinescaleset: "{{ body }}"
 ```
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-scale-out.yml
 ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -291,13 +291,13 @@ localhost                  : ok=5    changed=1    unreachable=0    failed=0
 
 ## <a name="verify-the-results"></a>Verificar os resultados
 
-Verificar os resultados do seu trabalho através do portal do Azure:
+Verifique os resultados de seu trabalho por meio do portal do Azure:
 
 1. Inicie sessão no [portal do Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Navegue para o conjunto de dimensionamento que configurou.
+1. Navegue até o conjunto de dimensionamento configurado.
 
-1. Verá o nome com o número de instâncias do conjunto de parênteses de dimensionamento: `Standard_DS1_v2 (3 instances)` 
+1. Você verá o nome do conjunto de dimensionamento com o número de instâncias entre parênteses: `Standard_DS1_v2 (3 instances)` 
 
 1. Também pode verificar a alteração com o [Azure Cloud Shell](https://shell.azure.com/), executando o seguinte comando:
 
@@ -305,7 +305,7 @@ Verificar os resultados do seu trabalho através do portal do Azure:
     az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
     ```
 
-    Os resultados da execução do comando da CLI do Azure no Cloud Shell mostram que existem agora três instâncias: 
+    Os resultados da execução do comando CLI do Azure no Cloud Shell mostram que agora existem três instâncias: 
 
     ```bash
     {
@@ -313,7 +313,7 @@ Verificar os resultados do seu trabalho através do portal do Azure:
     }
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
-> [Tutorial: Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible](./ansible-deploy-app-vmss.md)
+> [Tutorial: implantar aplicativos em conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible](./ansible-deploy-app-vmss.md)

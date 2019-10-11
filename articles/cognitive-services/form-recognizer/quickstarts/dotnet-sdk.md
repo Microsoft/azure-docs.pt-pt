@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente do reconhecedor de formulário para .NET | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET | Microsoft Docs'
 description: Introdução à biblioteca de cliente do reconhecedor de formulário para .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: ce1cdadcdc69fb5539394aa9bf402aa9463311e9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: fc0964508f3031efd91db827524042bf0577ab5e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057668"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242504"
 ---
-# <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: Biblioteca de cliente do reconhecedor de formulário para .NET
+# <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET
 
 Introdução à biblioteca de cliente do reconhecedor de formulário para .NET. O reconhecedor de formulário é um serviço cognitiva que usa a tecnologia de aprendizado de máquina para identificar e extrair pares de chave/valor e dados de tabela de documentos de formulário. Em seguida, gera a saída de dados estruturados, que inclui as relações no ficheiro original. Siga estas etapas para instalar o pacote do SDK e experimentar o código de exemplo para tarefas básicas.
 
@@ -28,13 +28,14 @@ Use a biblioteca de cliente do formulário Recognizer para .NET para:
 * [Obter uma lista de modelos personalizados](#get-a-list-of-custom-models)
 * [Excluir um modelo personalizado](#delete-a-custom-model)
 
-[](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | Pacote de[código](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer)[](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/) -fonte de biblioteca de documentação de referência (NuGet) | 
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Assinatura do Azure- [crie um gratuitamente](https://azure.microsoft.com/free/).
+* Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
+* Um blob de armazenamento do Azure que contém um conjunto de dados de treinamento. Consulte [criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para reunir seus dados de treinamento. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido.
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Um blob de armazenamento do Azure que contém um conjunto de dados de treinamento. Consulte [criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para reunir seus dados de treinamento. 
 
 ## <a name="setting-up"></a>Configurando
 
@@ -42,11 +43,11 @@ Use a biblioteca de cliente do formulário Recognizer para .NET para:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave `FORM_RECOGNIZER_KEY`, denominada.
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave, denominada `FORM_RECOGNIZER_KEY`.
 
 ### <a name="create-a-new-c-application"></a>Criar um novo C# aplicativo
 
-Em uma janela de console (como cmd, PowerShell ou bash), use o `dotnet new` comando para criar um novo aplicativo de console com o nome. `formrecognizer-quickstart` Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: _Program.cs_. 
+Em uma janela de console (como cmd, PowerShell ou bash), use o comando `dotnet new` para criar um novo aplicativo de console com o nome `formrecognizer-quickstart`. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: _Program.cs_. 
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -90,7 +91,7 @@ Se você estiver usando o IDE do Visual Studio, a biblioteca de cliente estará 
 
 As classes a seguir tratam da funcionalidade principal do SDK do reconhecedor de formulário.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Essa classe é necessária para toda a funcionalidade do reconhecedor de formulário. Você a instancia com suas informações de assinatura e a usa para produzir instâncias de outras classes.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Você usa essa classe para treinar um modelo de reconhecedor de formulário personalizado usando seus próprios dados de entrada de treinamento. |
@@ -126,7 +127,7 @@ Antes de definir qualquer método, adicione as definições de variável a segui
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Abaixo do `Main` método, defina a tarefa que é referenciada `Main`no. Aqui, você autenticará o objeto de cliente usando as variáveis de assinatura que você definiu acima. Você definirá os outros métodos posteriormente.
+Abaixo do método `Main`, defina a tarefa que é referenciada em `Main`. Aqui, você autenticará o objeto de cliente usando as variáveis de assinatura que você definiu acima. Você definirá os outros métodos posteriormente.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
@@ -173,7 +174,7 @@ Se você quiser excluir o modelo personalizado de sua conta, use o seguinte mét
 
 ## <a name="run-the-application"></a>Executar a aplicação
 
-Execute o aplicativo chamando o `dotnet run` comando do diretório do aplicativo.
+Execute o aplicativo chamando o comando `dotnet run` do diretório do aplicativo.
 
 ```console
 dotnet run
@@ -188,7 +189,7 @@ Se você quiser limpar e remover uma assinatura de serviços cognitivas, poderá
 
 Além disso, se você tiver treinado um modelo personalizado que deseja excluir de sua conta, execute o método em [excluir um modelo personalizado](#delete-a-custom-model).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você usou a biblioteca de cliente .NET Recognizer formulário para treinar um modelo personalizado e analisar formulários. Em seguida, aprenda dicas para criar um conjunto de dados de treinamento melhor e produzir modelos mais precisos.
 

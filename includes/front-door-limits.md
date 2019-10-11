@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333388"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237435"
 ---
-| Resource | Limite máximo/padrão |
+| Recurso | Limite máximo/padrão |
 | --- | --- |
 | Recursos de serviço de porta frontal do Azure por assinatura | 100 |
 | Hosts front-end, que incluem domínios personalizados por recurso | 100 |
@@ -24,7 +24,7 @@ ms.locfileid: "67333388"
 | Back-ends por pool de back-end | 100 |
 | Padrões de caminho para corresponder a uma regra de roteamento | 25 |
 | Regras personalizadas de firewall do aplicativo Web por política | 10 |
-| Política de firewall do aplicativo Web por recurso | 100 |
+| Política de firewall do aplicativo Web por assinatura | 100 |
 | Condições de correspondência do firewall do aplicativo Web por regra personalizada | 10 |
 | Intervalos de endereços IP de firewall do aplicativo Web por condição de correspondência | 600 |
 | Valores de correspondência de cadeia de caracteres de firewall do aplicativo Web por condição de correspondência | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333388"
 | **Carregar** |  Não há limite, desde que cada upload de CTE seja menor que 2 GB. | O tamanho não pode ser maior que 2 GB. |
 
 ### <a name="other-limits"></a>Outros limites
-- Tamanho máximo da URL-8.192 bytes-especifica o comprimento máximo da URL bruta (esquema + nome do host + porta + caminho + cadeia de caracteres de consulta da URL)-tamanho máximo da cadeia de caracteres de consulta-4.096 bytes-especifica o comprimento máximo da cadeia de caracteres de consulta, em bytes.
+- Tamanho máximo da URL-8.192 bytes-especifica o comprimento máximo da URL bruta (esquema + nome do host + porta + caminho + cadeia de consulta da URL)
+- Tamanho máximo da cadeia de caracteres de consulta-4.096 bytes-especifica o comprimento máximo da cadeia de caracteres de consulta, em bytes.

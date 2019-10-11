@@ -1,397 +1,397 @@
 ---
-title: Criação do cluster de ficheiros do Microsoft Azure FXT Edge
-description: Como criar um cluster de cache de armazenamento híbrido com o filtro de borda de FXT do Azure
+title: Microsoft Azure criação de cluster de filer do FXT Edge
+description: Como criar um cluster de cache de armazenamento híbrido com o filer do Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543577"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256083"
 ---
-# <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: Criar o cluster de ficheiros do Azure FXT Edge
+# <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Tutorial: criar o cluster de arquivos do Azure FXT Edge
 
-Depois de instalar e iniciar os nós de hardware de ficheiros do Azure FXT Edge para a sua cache, utilize o software de cluster FXT para criar o cluster de cache. 
+Depois de instalar e inicializar os nós de hardware do Azure FXT Edge para o cache, use o software de cluster FXT para criar o cluster de cache. 
 
-Este tutorial explica os passos para configurar os nós de hardware como um cluster. 
+Este tutorial orienta você pelas etapas para configurar seus nós de hardware como um cluster. 
 
 Neste tutorial, irá aprender: 
 
 > [!div class="checklist"]
-> * As informações que é necessária antes de começar a criar o cluster
-> * A diferença entre a rede de gestão do cluster, a rede de cluster e a rede com clientes
-> * Como ligar a um nó de cluster 
-> * Como criar um cluster inicial usando um nó de filtro de borda de FXT do Azure
-> * Como iniciar sessão no painel de controle de cluster para configurar as definições de cluster
+> * Quais informações são necessárias antes de começar a criar o cluster
+> * A diferença entre a rede de gerenciamento do cluster, a rede de cluster e a rede voltada para o cliente
+> * Como se conectar a um nó de cluster 
+> * Como criar um cluster inicial usando um nó de filer do Azure FXT Edge
+> * Como entrar no painel de controle do cluster para definir as configurações de cluster
 
-Este procedimento demora entre 15 e 45 minutos, dependendo da quantidade pesquisa que precisa fazer para identificar o IP endereços e os recursos de rede.
+Esse procedimento leva entre 15 e 45 minutos, dependendo da quantidade de pesquisa que você precisa fazer para identificar os endereços IP e os recursos de rede.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Conclua estes pré-requisitos antes de começar este tutorial:
+Conclua estes pré-requisitos antes de iniciar este tutorial:
 
-* Instalar os sistemas de hardware de ficheiros do Azure FXT Edge no seu centro de dados 
+* Instale seus sistemas de hardware do Azure FXT Edge para o seu data center 
 
-  Terá apenas de um nó para criar o cluster, mas precisa [adicione, pelo menos, dois nós mais](fxt-add-nodes.md) antes de poder configurar o cluster e prepará-lo a utilizar. 
+  Você só precisa de um nó para criar o cluster, mas precisa [adicionar pelo menos mais dois nós](fxt-add-nodes.md) antes de poder configurar o cluster e prepará-lo para uso. 
 
-* Ligar cabos de energia e rede apropriados para o sistema  
-* Power em, pelo menos, um nó de filtro de borda do Azure FXT e [defina a respetiva palavra-passe de raiz](fxt-node-password.md)
+* Conectar cabos de energia e de rede apropriados ao sistema  
+* Ligue pelo menos um nó de filer do Azure FXT Edge e [defina sua senha raiz](fxt-node-password.md)
 
-## <a name="gather-information-for-the-cluster"></a>Recolher informações para o cluster 
+## <a name="gather-information-for-the-cluster"></a>Coletar informações para o cluster 
 
-Terá das seguintes informações para criar o cluster de ficheiros do Azure FXT Edge:
+Você precisa das seguintes informações para criar o cluster de arquivos do Azure FXT Edge:
 
 * Nome do cluster
 
-* Palavra-passe administrativa para definir para o cluster
+* Senha administrativa a ser definida para o cluster
 
 * Endereços IP:
 
-  * Um único endereço IP para gestão de clusters e a máscara de rede e o router a utilizar para a rede de gestão
-  * Os primeiros e últimos endereços IP num contíguas intervalo de endereços IP para comunicação de cluster (nó para nó). Ver [distribuição de endereço IP](#ip-address-distribution), abaixo, para obter detalhes. 
-  * (Os endereços IP com clientes são definidos após a criação do cluster.)
+  * Um único endereço IP para gerenciamento de cluster e a máscara de rede e o roteador a serem usados para o gerenciamento de redes
+  * O primeiro e último endereços IP em um intervalo contíguo de endereços IP para comunicação de cluster (nó para nó). Consulte [distribuição de endereço IP](#ip-address-distribution), abaixo, para obter detalhes. 
+  * (Os endereços IP voltados para o cliente são definidos após a criação do cluster.)
 
 * Informações de infraestrutura de rede:
 
   * O endereço IP de um servidor DNS para o cluster
   * O nome do domínio DNS para o cluster
   * O nome ou endereço IP para os servidores NTP de cluster (um servidor ou três ou mais) 
-  * Se pretende ativar o IEEE 802.1AX-2008 ligar agregação nas interfaces do cluster
-  * Se ativar a agregação de ligação, se deve ou não utilizar IEEE 802.3ad (LACP) agregação dinâmica
+  * Se você deseja habilitar a agregação de link IEEE 802.1 AX-2008 nas interfaces do cluster
+  * Se você habilitar a agregação de links, se usará ou não a agregação dinâmica de LACP do IEEE 802.3
 
-Pode configurar estes itens de infraestrutura de rede depois de criar o cluster, mas é melhor fazê-lo no momento da criação. 
+Você pode configurar esses itens de infraestrutura de rede depois de criar o cluster, mas é melhor fazê-lo no momento da criação. 
 
 ### <a name="ip-address-distribution"></a>Distribuição de endereço IP
 
-O cluster de cache de armazenamento do Azure FXT Edge filtro híbrida utiliza endereços IP em três categorias:
+O cluster de cache de armazenamento híbrido do Filer do Azure FXT Edge usa endereços IP em três categorias:
 
-* Gestão de IP: Um único endereço IP para gestão de clusters
+* IP de gerenciamento: um único endereço IP para gerenciamento de cluster
 
-  Este endereço funciona como o ponto de entrada para acessar os utilitários de configuração de cluster (o painel de controle baseado na web ou a API de XML-RPC). Este endereço é atribuído automaticamente para o nó principal do cluster e move automaticamente se o nó principal é alterado.
+  Esse endereço serve como ponto de entrada para acessar os utilitários de configuração de cluster (o painel de controle baseado na Web ou a API XML-RPC). Esse endereço é atribuído automaticamente ao nó primário no cluster e é movido automaticamente se o nó primário for alterado.
 
-  Outros endereços IP podem ser utilizados para aceder ao painel de controle, mas o endereço IP de gestão foi concebido para fornecer acesso, mesmo se nós individuais efetuar a ativação pós-falha.
+  Outros endereços IP podem ser usados para acessar o painel de controle, mas o endereço IP de gerenciamento é projetado para fornecer acesso mesmo se nós individuais fizerem failover.
 
-* Rede de cluster: Um intervalo de endereços IP para comunicação de cluster
+* Rede de cluster: um intervalo de endereços IP para comunicação de cluster
 
-  A rede de cluster é utilizada para comunicação entre nós de cluster e para recuperar ficheiros do armazenamento de back-end (se filtram os núcleos).
+  A rede de cluster é usada para comunicação entre nós de cluster e para recuperar arquivos do armazenamento de back-end (principais Filers).
 
-  **Prática recomendada:** Alocar um endereço IP por porta física utilizada para comunicação de cluster em cada nó de filtro de borda de FXT do Azure. O cluster atribui automaticamente os endereços no intervalo especificado para nós individuais.
+  **Prática recomendada:** Aloque um endereço IP por porta física usada para comunicação do cluster em cada nó do Filer do Azure FXT Edge. O cluster atribui automaticamente os endereços no intervalo especificado a nós individuais.
 
-* Cliente com acesso à rede: O intervalo de endereços IP que utilizam os clientes a pedido e de escrita de ficheiros
+* Rede voltada para o cliente: o intervalo de endereços IP que os clientes usam para solicitar e gravar arquivos
 
-  Os endereços de rede do cliente são utilizados pelos clientes para acessar os dados de filtro de núcleos por meio do cluster. Por exemplo, um cliente NFS pode montar um destes endereços.
+  Os endereços de rede do cliente são usados por clientes para acessar os dados do Filer principal por meio do cluster. Por exemplo, um cliente NFS pode montar um desses endereços.
 
-  **Prática recomendada:** Alocar um endereço IP por porta física utilizada para comunicação de cliente em cada nó de série de FXT.
+  **Prática recomendada:** Aloque um endereço IP por porta física usada para comunicação do cliente em cada nó da série FXT.
 
-  O cluster distribui endereços IP com clientes entre os nós de constituintes mais uniformemente possível.
+  O cluster distribui endereços IP voltados para o cliente em seus nós constituintes da maneira mais uniforme possível.
 
-  Para simplificar, muitos administradores configuram um único nome DNS com a configuração de DNS (RRDNS) de round robin para torná-lo mais fácil de distribuir os pedidos de cliente entre o intervalo de endereços. Esta configuração também permite que todos os clientes utilizem o mesmo comando de montagem para aceder ao cluster. Leia [configurar DNS](fxt-configure-network.md#configure-dns-for-load-balancing) para obter mais informações.
+  Para simplificar, muitos administradores configuram um único nome DNS com a configuração de DNS Round Robin (RRDNS) para facilitar a distribuição de solicitações do cliente no intervalo de endereços. Essa configuração também permite que todos os clientes usem o mesmo comando de montagem para acessar o cluster. Leia [Configurar DNS](fxt-configure-network.md#configure-dns-for-load-balancing) para obter mais informações.
 
-O endereço IP de gestão e um intervalo de endereços de rede de cluster tem de ser especificados para criar um novo cluster. Com clientes endereços são especificados após a criação de cluster.
+O endereço IP de gerenciamento e um intervalo de endereços de rede de cluster devem ser especificados para criar um novo cluster. Os endereços voltados para o cliente são especificados após a criação do cluster.
 
-## <a name="connect-to-the-first-node"></a>Ligar ao primeiro nó
+## <a name="connect-to-the-first-node"></a>Conectar-se ao primeiro nó
 
-Pode ligar a qualquer um de nós FXT instalados e usar o software de sistema operacional para configurar o cluster.
+Você pode se conectar a qualquer um dos nós FXT instalados e usar seu software de so para configurar o cluster.
 
-Se ainda não tiver feito, pelo menos um de nós FXT para o cluster de ativação e certificar-se de que tem uma ligação de rede e um endereço IP. Tem de definir uma nova palavra-passe de raiz para ativar o nó, por isso, siga os passos em [definir palavras-passe de hardware](fxt-node-password.md) se ainda não o tiver feito.
+Se você ainda não tiver feito isso, ligue pelo menos um dos nós FXT para o cluster e verifique se ele tem uma conexão de rede e um endereço IP. Você deve definir uma nova senha de raiz para ativar o nó, portanto, siga as etapas em [definir senhas de hardware](fxt-node-password.md) , se você ainda não tiver feito isso.
 
-Para verificar a ligação de rede, verifique se são iluminado ligação de rede do nó LEDs (e, se necessário, os indicadores na rede mudar para o qual está ligado). Indicador LEDs descritas [estado do hardware de filtro de borda do Monitor do Azure FXT](fxt-monitor.md).
+Para verificar a conexão de rede, verifique se os LEDs de link de rede do nó estão acesos (e, se necessário, os indicadores no comutador de rede ao qual ele está anexado). Os LEDs indicadores são descritos em [monitorar o status de hardware do arquivo do Azure FXT Edge](fxt-monitor.md).
 
-Quando o nó é inicializado, irá pedir um endereço IP. Se estiver ligado a um servidor DHCP, ela aceita o endereço IP fornecido pelo DHCP. (Este endereço IP é temporário. Ele será alterado ao criar o cluster.)
+Quando o nó for inicializado, ele solicitará um endereço IP. Se ele estiver conectado a um servidor DHCP, ele aceitará o endereço IP fornecido pelo DHCP. (Esse endereço IP é temporário. Ele será alterado quando você criar o cluster.)
 
-Se ele não está ligado a um servidor DHCP ou não recebeu uma resposta, o nó irá utilizar o software de Bonjour para definir um endereço IP personalizada atribuído na forma 169.254. \*. \*. No entanto, deve definir um endereço IP estático temporário em uma das placas de rede do nó antes de o utilizar para criar um cluster. As instruções estão incluídas neste documento herdados; Contacte a Microsoft Service e o suporte para obter informações atualizadas: [Apêndice a: Definir um endereço IP estático num nó FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+Se ele não estiver conectado a um servidor DHCP ou não receber uma resposta, o nó usará o Bonjour software para definir um endereço IP atribuído automaticamente no formato 169,254. \*. \*. No entanto, você deve definir um endereço IP estático temporário em uma das placas de rede do nó antes de usá-lo para criar um cluster. As instruções estão incluídas neste documento herdado; Contate o serviço da Microsoft e suporte para obter informações atualizadas: [Apêndice a: Configurando um endereço IP estático em um nó FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
-### <a name="find-the-ip-address"></a>Encontrar o endereço IP
+### <a name="find-the-ip-address"></a>Localizar o endereço IP
 
-Ligar ao nó de filtro de borda de FXT do Azure para localizar o respetivo endereço IP. Pode utilizar um cabo de série, uma ligação direta para as portas USB e VGA, ou se conectar por meio de um comutador KVM. (Para a ligação da porta detalhes, veja [definir palavras-passe inicial](fxt-node-password.md).)
+Conecte-se ao nó Filer do Azure FXT Edge para localizar seu endereço IP. Você pode usar um cabo serial, conexão direta com as portas USB e VGA, ou conectar-se por meio de um comutador KVM. (Para obter detalhes de conexão de porta, consulte [definir senhas iniciais](fxt-node-password.md).)
 
-Depois de ligar, iniciar sessão com o nome de utilizador `root` e a palavra-passe que definiu quando arranca o nó pela primeira vez.  
+Depois de se conectar, entre com o nome de usuário `root` e a senha que você definiu ao inicializar o nó pela primeira vez.  
 
-Depois de entrar, precisa determinar o endereço IP do nó.
+Depois de entrar, você precisa determinar o endereço IP do nó.
 
-Utilize o comando `ifconfig` para ver os endereços atribuídos a este sistema.
+Use o comando `ifconfig` para ver os endereços atribuídos a este sistema.
 
-Por exemplo, o comando `ifconfig | grep -B5 inet` procura as portas com endereços de internet e fornece cinco linhas de contexto para mostrar o identificador de porta.
+Por exemplo, o comando `ifconfig | grep -B5 inet` procura portas com endereços de Internet e fornece cinco linhas de contexto para mostrar o identificador de porta.
 
-Anote qualquer endereço IP mostrado no relatório ifconfig. Endereços listados com nomes de porta como e0a ou e0b são boas opções. Não utilize quaisquer endereços IP listados com e7 * nomes, uma vez que esses nomes só são utilizados para portas de serviço do iDRAC/IPMI.  
+Anote qualquer endereço IP mostrado no relatório ifconfig. Os endereços listados com nomes de porta como e0a ou e0b são boas opções. Não use nenhum endereço IP listado com nomes E7 *, já que esses nomes são usados apenas para portas de serviço iDRAC/IPMI.  
 
-## <a name="load-the-cluster-configuration-wizard"></a>Carregar o Assistente de configuração de cluster
+## <a name="load-the-cluster-configuration-wizard"></a>Carregar o assistente de configuração de cluster
 
-Utilize a ferramenta de configuração de cluster baseado no browser para criar o cluster. 
+Use a ferramenta de configuração de cluster com base em navegador para criar o cluster. 
 
-Introduza o endereço IP para o nó num navegador da web. Se o navegador fornece uma mensagem sobre o site que está a ser não fidedigno, de qualquer forma, avance para o site. (Nós de filtro de borda de FXT do individuais do Azure não tem certificados de segurança de AC fornecidos.)
+Insira o endereço IP para o nó em um navegador da Web. Se o navegador fornecer uma mensagem sobre o site que está sendo não confiável, prossiga para o site mesmo assim. (Nós individuais do Azure FXT Edge Filer não têm certificados de segurança fornecidos pela autoridade de certificação.)
 
-![Controlo painel início de sessão página numa janela do browser](media/fxt-cluster-create/unconfigured-node-gui.png)
+![Página de entrada do painel de controle na janela do navegador](media/fxt-cluster-create/unconfigured-node-gui.png)
 
-Deixe o **nome de utilizador** e **palavra-passe** campos em branco. Clique em **início de sessão** para carregar a página de criação do cluster.
+Deixe os campos **nome de usuário** e **senha** em branco. Clique em **logon** para carregar a página de criação de cluster.
 
-![Ecrã de configuração inicial para um nó não configurado no painel de controle de GUI baseada no browser. Mostra as opções de atualização de software, configurar um cluster manualmente ou configurar um cluster de um ficheiro de configuração.](media/fxt-cluster-create/setup-first-screen.png)
+![Tela inicial de instalação para um nó não configurado no painel de controle de GUI baseado em navegador. Ele mostra opções para atualizar o software, configurar um cluster manualmente ou configurar um cluster a partir de um arquivo de instalação.](media/fxt-cluster-create/setup-first-screen.png)
 
 ## <a name="create-the-cluster"></a>Criar o cluster
 
-A ferramenta de configuração de cluster orienta-o através de um conjunto de telas para criar o cluster de ficheiros do Azure FXT Edge. Certifique-se de que tem o [informações necessárias](#gather-information-for-the-cluster) pronto antes de iniciar. 
+A ferramenta de configuração de cluster orienta você por meio de um conjunto de telas para criar o cluster de arquivos do Azure FXT Edge. Verifique se você tem as [informações necessárias](#gather-information-for-the-cluster) prontas antes de iniciar. 
 
 ### <a name="creation-options"></a>Opções de criação
 
-A primeira tela oferece três opções. Utilize a opção de configuração manual, a menos que tenha instruções especiais da equipe de suporte.
+A primeira tela fornece três opções. Use a opção de configuração manual, a menos que você tenha instruções especiais da equipe de suporte.
 
-Clique em **vou configurar o cluster manualmente** para carregar a nova tela de opções de configuração de cluster. 
+Clique em **Configurar o cluster manualmente** para carregar a tela opções de configuração do novo cluster. 
 
-As outras opções são raramente utilizadas:
+As outras opções raramente são usadas:
 
-* "Atualizar a imagem do sistema" pede-lhe instalar novo software de sistema operacional antes de criar o cluster. (A versão atualmente instalada do software é listada na parte superior do ecrã.) Tem de fornecer o ficheiro de pacote de software - optar por um URL e o nome de utilizador/palavra-passe, ou ao carregar um ficheiro do seu computador. 
+* "Atualizar a imagem do sistema" solicita que você instale um novo software de sistema operacional antes de criar o cluster. (A versão do software atualmente instalada está listada na parte superior da tela.) Você deve fornecer o arquivo de pacote de software-uma URL e nome de usuário/senha ou carregando um arquivo do seu computador. 
 
-* A opção de ficheiro de configuração de cluster, às vezes, é utilizada pelo suporte ao cliente da Microsoft. 
+* A opção de arquivo de configuração de cluster às vezes é usada pelo suporte e atendimento ao cliente da Microsoft. 
 
 ## <a name="cluster-options"></a>Opções de cluster
 
-A próxima tela pede-lhe configurar as opções para o novo cluster.
+A próxima tela solicitará que você configure as opções para o novo cluster.
 
-A página é dividida em duas seções principais, **configuração básica** e **configuração de rede**. A seção de configuração de rede também tem subsecções: um para o **gerenciamento** rede e outro para o **Cluster** rede.
+A página é dividida em duas seções principais, configuração **básica** e **configuração de rede**. A seção de configuração de rede também tem subseções: uma para a rede de **Gerenciamento** e outra para a rede de **cluster** .
 
 ### <a name="basic-configuration"></a>Configuração básica
 
 Na seção superior, preencha as informações básicas para o novo cluster.
 
-![Detalhes da secção "Configuração básica", na página do browser GUI. Ele mostra três campos (nome do cluster, palavra-passe de administrador, confirme a palavra-passe)](media/fxt-cluster-create/basic-configuration.png) 
+![Detalhes da seção "configuração básica" na página GUI do navegador. Ele mostra três campos (nome do cluster, senha do administrador, confirmar senha)](media/fxt-cluster-create/basic-configuration.png) 
 
-* **Nome do cluster** -introduza um nome exclusivo para o cluster.
+* **Nome do cluster** – Insira um nome exclusivo para o cluster.
 
-  O nome do cluster tem de cumprir estes critérios:
+  O nome do cluster deve atender a estes critérios:
   
-  * Comprimento de 1 a 16 carateres
-  * Pode incluir letras, números e o travessão (-) e carateres de sublinhado (_) 
-  * Não pode incluir outros pontuação ou carateres especiais
+  * Comprimento de 1 a 16 caracteres
+  * Pode incluir letras, números e os caracteres traço (-) e sublinhado (_) 
+  * Não deve incluir outra Pontuação ou caracteres especiais
   
-  Pode alterar esse nome posteriormente os **Cluster** > **configuração geral** página de configuração. (Para obter mais informações sobre as definições do cluster, leia os [guia de configuração de Cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), que não faz parte deste conjunto de documentação.)
+  Você pode alterar esse nome posteriormente na página de configuração da**instalação geral** do **cluster** > . (Para obter mais informações sobre configurações de cluster, leia o [Guia de configuração de cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), que não faz parte deste conjunto de documentação.)
 
   > [!NOTE] 
-  > O nome do cluster é utilizado para identificar informações do sistema carregadas para o suporte para monitorização ou resolução de problemas, por isso é útil incluir o nome da sua empresa.
+  > O nome do cluster é usado para identificar as informações do sistema carregadas para dar suporte ao monitoramento ou à solução de problemas, portanto, é útil incluir o nome da empresa.
 
-* **Palavra-passe de administrador** -defina a palavra-passe para o utilizador administrativo de padrão, `admin`.
+* **Senha do administrador** – defina a senha para o usuário administrativo padrão, `admin`.
   
-  Deve configurar contas de utilizador individuais para cada pessoa que administra o cluster, mas não é possível remover o utilizador `admin`. Inicie sessão como `admin` se precisar de criar utilizadores adicionais.
+  Você deve configurar contas de usuário individuais para cada pessoa que administra o cluster, mas não pode remover o usuário `admin`. Entre como `admin` se precisar criar usuários adicionais.
  
-  Pode alterar a palavra-passe `admin` no **administração** > **utilizadores** página de definições do painel de controlo do cluster. Para obter detalhes, leia os **usuários** documentação na [guia de configuração de Cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
+  Você pode alterar a senha para `admin` na página de configurações de**usuários** de **Administração** >  no painel de controle do cluster. Para obter detalhes, leia a documentação **dos usuários** no [Guia de configuração do cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
 ### <a name="network-configuration"></a>Configuração da rede
 
-O **redes** secção solicita que especifique a infraestrutura de rede que o cluster irá utilizar. 
+A seção **rede** solicita que você especifique a infraestrutura de rede que o cluster usará. 
 
-Existem duas redes distintas para configurar:
+Há duas redes separadas a serem configuradas:
 
-* O *rede de gestão* fornece acesso de administrador para o cluster para configuração e monitorização. O endereço IP especificado aqui é utilizado ao ligar-se para o painel de controlo ou para o acesso SSH. 
+* A *rede de gerenciamento* fornece acesso de administrador ao cluster para configuração e monitoramento. O endereço IP especificado aqui é usado ao conectar-se ao painel de controle ou para acesso SSH. 
 
-  A maioria dos clusters utilizam apenas um endereço IP de gestão único, mas se quiser adicionar interfaces pode fazê-lo Depois de criar o cluster.
+  A maioria dos clusters usa apenas um único endereço IP de gerenciamento, mas se você quiser adicionar interfaces, poderá fazer isso depois de criar o cluster.
 
-* O *rede de cluster* é utilizada para comunicação entre nós de cluster e entre nós de cluster e o armazenamento de back-end (se filtram os núcleos).
+* A *rede de cluster* é usada para comunicação entre nós de cluster e entre nós de cluster e armazenamento de back-end (Filers de núcleo).
 
-A rede voltado para o cliente está configurada mais tarde, depois do cluster ter sido criado.
+A rede voltada para o cliente é configurada posteriormente, depois que o cluster tiver sido criado.
 
-Esta secção também inclui a configuração para servidores DNS e NTP que são utilizadas por ambas as redes.
+Esta seção também inclui a configuração para servidores DNS e NTP que são usados por ambas as redes.
 
-### <a name="configure-the-management-network"></a>Configurar a rede de gestão
+### <a name="configure-the-management-network"></a>Configurar a rede de gerenciamento
 
-As definições no **gestão** secção destinam-se na rede que fornece acesso de administrador para o cluster.
+As configurações na seção de **Gerenciamento** são para a rede que fornece acesso de administrador ao cluster.
 
-![Detalhes da seção de "Gestão", com campos para 5 opções e uma caixa de verificação para a rede de gestão de 1Gb](media/fxt-cluster-create/management-network-filled.png)
+![detalhe da seção "gerenciamento", com campos para cinco opções e uma caixa de seleção para rede de gerenciamento de 1 GB](media/fxt-cluster-create/management-network-filled.png)
 
-* **Gestão IP** -especifique o endereço IP que irá utilizar para aceder ao painel de controlo do cluster. Este endereço será ser solicitado por nó principal do cluster, mas ele é automaticamente movido para um nó de bom estado de funcionamento se o nó primário original ficar indisponível.
+* **IP de gerenciamento** – especifique o endereço IP que será usado para acessar o painel de controle do cluster. Esse endereço será reivindicado pelo nó primário do cluster, mas ele se moverá automaticamente para um nó íntegro se o nó primário original ficar indisponível.
 
-  A maioria dos clusters, utilize apenas um endereço IP de gestão. Se quiser mais do que um, pode adicioná-los depois de criar o cluster utilizando o **Cluster** > **rede administrativas** página de definições. Leia mais no [guia de configuração de Cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
+  A maioria dos clusters usa apenas um endereço IP de gerenciamento. Se você quiser mais de um, poderá adicioná-los depois de criar o cluster usando a página de configurações de**rede administrativa** do **cluster** > . Leia mais no [Guia de configuração do cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
 
-* **Máscara de rede** -especifique a máscara de rede para a rede de gestão.
+* **Máscara** de rede – especifique a máscara de redes para o Management Network.
 
-* **Router** -introduza o endereço de gateway predefinido utilizado pela rede de gestão.
+* **Roteador** -Insira o endereço de gateway padrão usado pela rede de gerenciamento.
 
-* **Etiqueta VLAN (opcional)** - se o cluster utiliza etiquetas VLAN, especifique a etiqueta para a rede de gestão.
+* **Marca VLAN (opcional)** – se o cluster usar marcas de VLAN, especifique a marca para a rede de gerenciamento.
 
-  Definições de VLAN adicionais são configuradas no **Cluster** > **VLAN** página de definições. Leia [trabalhando com VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) e [Cluster > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) no guia de configuração de Cluster para saber mais.
+  Configurações de VLAN adicionais são definidas na página de configurações de**vlan**  >  de **cluster**. Leia [trabalhando com VLANs](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) e [cluster > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) no guia de configuração do cluster para saber mais.
 
-* **O MTU** - se necessário, ajuste a unidade de transmissão máxima (MTU) para a rede de gestão do seu cluster.
+* **MTU** – se necessário, ajuste a MTU (unidade máxima de transmissão) para a rede de gerenciamento do cluster.
 
-* **Rede de gestão de 1Gb de utilização** -Selecione esta caixa se de que pretende atribuir a rede de 1 duas gbe portas nos seus nós FXT à apenas a rede de gestão. (Tem de ter 25GbE/10 gbe portas disponíveis para todos os outros tráfegos.) Se não selecionar esta caixa, a rede de gestão utiliza a porta de velocidade mais elevada disponível. 
+* **Usar rede de gerenciamento de 1GB** -Marque esta caixa se você quiser atribuir as duas portas de rede 1 GbE em seus nós FXT somente à rede de gerenciamento. (Você deve ter 25GbE/10Gbe portas disponíveis para todos os outros tráfegos.) Se você não marcar essa caixa, a rede de gerenciamento usará a porta de velocidade mais alta disponível. 
 
 ### <a name="configure-the-cluster-network"></a>Configurar a rede de cluster 
 
-Aplicam as definições de rede de cluster para o tráfego entre os nós de cluster e entre nós de cluster e se filtram de núcleo.
+As configurações de rede de cluster se aplicam ao tráfego entre os nós de cluster e entre os nós de cluster e os principais Filers.
 
-![Detalhes da seção de "Cluster", com campos para introduzir os valores de seis](media/fxt-cluster-create/cluster-network-filled.png)
+![detalhe da seção "cluster", com campos para inserir seis valores](media/fxt-cluster-create/cluster-network-filled.png)
 
-* **IP primeiro** e **IP último** -introduza os endereços IP que definem o intervalo a utilizar para comunicação de clusters internos. Os endereços IP utilizados aqui tem de ser contíguo e não atribuído pelo DHCP.
+* **Primeiro IP** e **último IP** -Insira os endereços IP que definem o intervalo a ser usado para comunicação de cluster interno. Os endereços IP usados aqui devem ser contíguos e não atribuídos pelo DHCP.
 
-  Pode adicionar mais endereços IP depois de criar o cluster. Utilize o **Cluster** > **redes de Cluster** página de definições ([documentação de guia de configuração de Cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
+  Você pode adicionar mais endereços IP depois de criar o cluster. Use a página de configurações de**redes de cluster**  >  do **cluster**(documentação do guia de[configuração do cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
 
-  O valor na **número de IPs no intervalo** é calculada e apresentada automaticamente.
+  O valor em **número de IPs no intervalo** é calculado e mostrado automaticamente.
 
-* **(Opcional) da máscara de rede não-mgmt** -especifique a máscara de rede para a rede de cluster. 
+* **Máscara de rede não gerenciada (opcional)** – especifique a máscara de sub-rede para a sub-rede do cluster. 
 
-  O sistema sugere automaticamente o valor de máscara de rede que introduziu para a rede de gestão; Altere se necessário.
+  O sistema sugere automaticamente o valor de máscara de rede que você inseriu para o Management Network; Altere-o se necessário.
 
-* **Router de cluster (opcional)** -especifique o endereço de gateway predefinido utilizado pela rede de cluster. 
+* **Roteador de cluster (opcional)** -especifique o endereço de gateway padrão usado pela rede de cluster. 
 
-  O sistema sugere automaticamente o mesmo endereço de gateway que especificou para a rede de gestão.
+  O sistema sugere automaticamente o mesmo endereço de gateway que você forneceu para a rede de gerenciamento.
 
-* **Etiqueta VLAN (opcional) do cluster** - se o cluster utiliza etiquetas VLAN, especifique a etiqueta para a rede de cluster.
+* **Marca de VLAN de cluster (opcional)** – se o cluster usar marcas de VLAN, especifique a marca para a rede de cluster.
 
-* **(Opcional) o MTU não-mgmt** - se necessário, ajuste a unidade de transmissão máxima (MTU) para a sua rede de cluster.
+* **MTU não MGMT (opcional)** -se necessário, ajuste a unidade de transmissão máxima (MTU) para a rede do cluster.
 
-### <a name="configure-cluster-dns-and-ntp"></a>Configurar DNS e NTP do cluster 
+### <a name="configure-cluster-dns-and-ntp"></a>Configurar o DNS do cluster e o NTP 
 
-Abaixo da **Cluster** secção lá são campos para especificar os servidores DNS e NTP e para ativar a agregação de ligação. Estas definições aplicam-se a todas as redes que o cluster utiliza.
+Abaixo da seção de **cluster** , há campos para especificar servidores DNS e NTP, e para habilitar a agregação de links. Essas configurações se aplicam a todas as redes que o cluster usa.
 
-![Detalhes da seção de configuração de DNS/NTP, com três campos para servidores DNS, campos para o domínio DNS e pesquisa DNS, três campos para os servidores NTP e um menu de lista pendente para opções de agregação de ligação](media/fxt-cluster-create/dns-ntp-filled.png)
+![Detalhe da seção para configuração de DNS/NTP, com três campos para servidores DNS, campos para pesquisa de DNS e de domínio DNS, três campos para servidores NTP e um menu suspenso para opções de agregação de link](media/fxt-cluster-create/dns-ntp-filled.png)
 
-* **Servidor (es) DNS** – introduza o endereço IP de um ou mais domínio servidores de nomes system (DNS).
+* Servidores **DNS** – Insira o endereço IP de um ou mais servidores DNS (sistema de nomes de domínio).
 
-  DNS é recomendado para todos os clusters e necessário se pretender utilizar o SMB, AD, ou Kerberos. 
+  O DNS é recomendado para todos os clusters e é necessário se você quiser usar SMB, AD ou Kerberos. 
   
-  Para um desempenho ideal, configurar o servidor DNS do cluster para o balanceamento de carga round robin, conforme descrito em [configurar o DNS para o cluster de ficheiros do Azure FXT Edge](fxt-configure-network.md#configure-dns-for-load-balancing).
+  Para obter o desempenho ideal, configure o servidor DNS do cluster para balanceamento de carga de Round-Robin, conforme descrito em [Configurar o DNS para o cluster de arquivos do Azure FXT Edge](fxt-configure-network.md#configure-dns-for-load-balancing).
 
-* **Domínio DNS** -introduza o nome de domínio de rede do cluster irá utilizar.
+* **Domínio DNS** – Insira o nome de domínio de rede que o cluster usará.
 
-* **Pesquisa DNS** - como opção, introduza os nomes de domínio adicional que o sistema deve procurar para resolver as consultas DNS. Pode adicionar até seis nomes de domínio, separados por espaços.
+* **Pesquisa de DNS** -opcionalmente, insira os nomes de domínio adicionais que o sistema deve pesquisar para resolver consultas DNS. Você pode adicionar até seis nomes de domínio, separados por espaços.
 
-* **Servidor (es) NTP** -especificar um ou três servidores de protocolo (NTP) de tempo de rede nos campos fornecidos. Pode utilizar nomes de anfitrião ou endereços IP.
+* **Servidor (es) NTP** – especifique um ou três servidores NTP (protocolo de tempo de rede) nos campos fornecidos. Você pode usar nomes de host ou endereços IP.
 
-* **Agregação de ligação** -agregação de ligação permite-lhe personalizar a forma como as portas de ethernet em nós FXT do cluster processam vários tipos de tráfego. Para saber mais, leia [agregação de ligação](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) no guia de configuração de Cluster.
+* **Agregação de link** – a agregação de link permite que você personalize como as portas Ethernet no cluster FXT nós lidam com vários tipos de tráfego. Para saber mais, leia [agregação de links](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) no guia de configuração do cluster.
 
-### <a name="click-the-create-button"></a>Clique no botão Criar
+### <a name="click-the-create-button"></a>Clique no botão criar
 
-Depois de fornecer todas as configurações necessárias no formulário, clique nas **criar clusters** botão.
+Depois de fornecer todas as configurações necessárias no formulário, clique no botão **criar cluster** .
 
-![na parte inferior do formulário completo com o cursor sobre o botão Criar na parte inferior direita](media/fxt-cluster-create/create-cluster.png)
+![parte inferior do formulário concluído com o cursor sobre o botão criar no canto inferior direito](media/fxt-cluster-create/create-cluster.png)
 
 O sistema exibe uma mensagem ao criar o cluster.
 
-![mensagem de estado de configuração de cluster no browser: "O nó FXT agora está a criar o cluster. Esta ação irá demorar vários minutos. Quando o cluster é criado, visite este link para concluir a configuração." com o hiperlink em "visite este link"](media/fxt-cluster-create/creating-message.png)
+![mensagem de status de configuração de cluster no navegador: "o nó FXT agora está criando o cluster. Isso levará vários minutos. Quando o cluster for criado, visite este link para concluir a configuração. " com o hiperlink "visite este link"](media/fxt-cluster-create/creating-message.png)
 
-Após alguns instantes, pode clicar na ligação na mensagem para ir para o painel de controlo do cluster. (Esta ligação direciona-o para o endereço IP que especificou no **IP de gestão**.) Demora 15 segundos para um minuto para a ligação fique ativa depois de clicar no botão criar. Se a interface da web não carregar, aguarde vários segundos mais e, em seguida, clique na ligação novamente. 
+Depois de alguns instantes, você pode clicar no link na mensagem para ir para o painel de controle do cluster. (Esse link leva você para o endereço IP que você especificou no **IP de gerenciamento**.) Leva 15 segundos a um minuto para que o link se torne ativo depois de clicar no botão criar. Se a interface da Web não for carregada, espere mais alguns segundos e clique no link novamente. 
 
-Criação do cluster demora um minuto ou mais, mas pode iniciar sessão painel de controlo enquanto o processo está acontecendo. É normal para a página do dashboard do painel de controle Mostrar avisos até termina o processo de criação do cluster. 
+A criação do cluster leva um minuto ou mais, mas você pode entrar no painel de controle enquanto o processo está em andamento. É normal que a página painel do painel de controle mostre avisos até que o processo de criação do cluster seja concluído. 
 
-## <a name="open-the-settings-pages"></a>Abra as páginas de definições 
+## <a name="open-the-settings-pages"></a>Abrir as páginas de configurações 
 
-Depois de criar o cluster, terá de personalizar a sua configuração para a sua rede e o fluxo de trabalho. 
+Depois de criar o cluster, você precisa personalizar sua configuração para sua rede e fluxo de trabalho. 
 
-Utilize a interface de web do painel de controlo para configurar o novo cluster. Siga a ligação a partir do seu ecrã de estado de criação de cluster ou navegue para o endereço IP de gestão que definir no cluster.
+Use a interface da Web do painel de controle para configurar o novo cluster. Siga o link da tela de status de criação do cluster ou navegue até o endereço IP de gerenciamento que você definiu no cluster.
 
-Entrar para a interface da web com o nome de utilizador `admin` e a palavra-passe que definiu quando criou o cluster.
+Entre na interface da Web com o nome de usuário `admin` e a senha que você definiu ao criar o cluster.
 
-![Mostrar campos de início de sessão do painel de controle de navegador da Web](media/fxt-cluster-create/admin-login.png)
+![navegador da Web mostrando campos de logon do painel de controle](media/fxt-cluster-create/admin-login.png)
 
-O painel de controle é aberto e mostra os **Dashboard** página. Medida que conclui a criação do cluster, devem limpar quaisquer mensagens de aviso do monitor.
+O painel de controle é aberto e mostra a página **painel** . À medida que a criação do cluster for concluída, as mensagens de aviso deverão ser limpas da exibição.
 
-Clique nas **definições** separador para configurar o cluster.
+Clique na guia **configurações** para configurar o cluster.
 
-Sobre o **definições** separador, a barra lateral esquerda mostra um menu de páginas de configuração. As páginas são organizadas por categoria. Clique a + ou - na parte superior do nome de categoria para expandir ou ocultar as páginas individuais.
+Na guia **configurações** , a barra lateral esquerda mostra um menu de páginas de configuração. As páginas são organizadas por categoria. Clique no controle + ou-na parte superior do nome da categoria para expandir ou ocultar as páginas individuais.
 
-![Separador Definições do painel de controlo (no browser) com o Cluster > página de configuração geral carregada](media/fxt-cluster-create/settings-tab-populated.png)
+![Guia Configurações do painel de controle (no navegador) com o cluster > página Instalação geral carregada](media/fxt-cluster-create/settings-tab-populated.png)
 
-## <a name="cluster-setup-steps"></a>Passos de configuração de cluster
+## <a name="cluster-setup-steps"></a>Etapas de configuração do cluster
 
-Neste momento no processo, o cluster existe, mas tem apenas um nó, não existem endereços IP com clientes e nenhum armazenamento de back-end. São necessários passos de configuração adicionais para ir de um cluster recém-criado para um sistema de cache que está pronto para lidar com seu fluxo de trabalho.
+Neste ponto do processo, o cluster existe, mas ele tem apenas um nó, nenhum endereço IP voltado para o cliente e nenhum armazenamento de back-end. São necessárias etapas de configuração adicionais para ir de um cluster recém-criado para um sistema de cache que esteja pronto para lidar com seu fluxo de trabalho.
 
 ### <a name="required-configuration"></a>Configuração necessária
 
-Estes passos são necessários para a maioria ou todos os clusters. 
+Essas etapas são necessárias para a maioria ou todos os clusters. 
 
 * Adicionar nós ao cluster 
 
-  Três nós é padrão, mas muitos clusters de produção têm mais - até um máximo de 24 nós.
+  Três nós são padrão, mas muitos clusters de produção têm mais de um máximo de 24 nós.
 
-  Leia [adicionar nós de cluster](fxt-add-nodes.md) para saber como adicionar outras unidades de ficheiros do Azure FXT Edge ao seu cluster e ativar a elevada disponibilidade.
+  Leia [adicionar nós de cluster](fxt-add-nodes.md) para saber como adicionar outras unidades de arquivo de borda do Azure FXT ao cluster e para habilitar a alta disponibilidade.
 
-* Especificar o armazenamento de back-end
+* Especificar armazenamento de back-end
 
-  Adicione *núcleos de filtro de* definições para cada sistema de armazenamento de back-end que o cluster irá utilizar. Leia [adicionar armazenamento de back-end e configurar o espaço de nomes virtual](fxt-add-storage.md#about-back-end-storage) para saber mais.
+  Adicione definições de *Filer de núcleo* para cada sistema de armazenamento de back-end que o cluster usará. Leia [Adicionar armazenamento de back-end e configurar o namespace virtual](fxt-add-storage.md#about-back-end-storage) para saber mais.
 
-* Configurar o acesso para cliente e o espaço de nomes virtual 
+* Configurar o acesso do cliente e o namespace virtual 
 
-  Crie pelo menos um servidor virtual (vserver) e atribuí-la um intervalo de endereços IP para máquinas de cliente utilizar. Também tem de configurar o espaço de nomes de cluster (às vezes chamado de Global Namespace ou GNS), uma funcionalidade do sistema de ficheiros virtual que lhe permite mapear exportações de armazenamento de back-end para caminhos virtuais. O espaço de nomes do cluster fornece clientes uma estrutura de sistema de ficheiros consistente e acessível, mesmo se alternar o suporte de dados do armazenamento de back-end. O espaço de nomes também pode fornecer uma hierarquia de armazenamento virtual amigável de utilizador para os contentores de Blobs do Azure ou outro armazenamento de objeto de nuvem suportada.
+  Crie pelo menos um servidor virtual (vserver) e atribua a ele um intervalo de endereços IP para que os computadores cliente usem. Você também deve configurar o namespace do cluster (às vezes chamado de namespace global ou GNS), um recurso de sistema de arquivos virtual que permite mapear exportações de armazenamento de back-end para caminhos virtuais. O namespace de cluster fornece aos clientes uma estrutura de sistema de arquivos consistente e acessível mesmo que você alterne a mídia de armazenamento de back-end. O namespace também pode fornecer uma hierarquia de armazenamento virtual amigável para os contêineres de blob do Azure ou outro armazenamento de objeto de nuvem com suporte.
 
-  Leia [configurar o espaço de nomes](fxt-add-storage.md#configure-the-namespace) para obter detalhes. Este passo inclui:
-  * Criar vservers
-  * Configuração de junções entre a vista de rede do cliente e o armazenamento de back-end 
-  * Definir o IP de cliente endereços são servidos por cada vserver
+  Leia [Configurar o namespace](fxt-add-storage.md#configure-the-namespace) para obter detalhes. Esta etapa inclui:
+  * Criando vservers
+  * Configurando junções entre a exibição de rede do cliente e o armazenamento de back-end 
+  * Definindo quais endereços IP do cliente são atendidos por cada vserver
 
   > [!Note] 
-  > Bastante planejamento é recomendado antes de começar a configurar GNS do cluster. Leitura a [com um espaço de nomes Global](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) e [criar e trabalhar com VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) secções no guia de configuração de Cluster para obter ajuda.
+  > É recomendável um planejamento significativo antes de começar a configurar o GNS do cluster. Leia o [usando um namespace global](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) e [criando e trabalhando com seções VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) no guia de configuração de cluster para obter ajuda.
 
-* [Ajustar as definições de rede](fxt-configure-network.md)
+* [Ajustar as configurações de rede](fxt-configure-network.md)
 
-  Há várias configurações relacionadas à rede que devem ser verificadas ou personalizadas para um novo cluster. Leia [ajustar as definições de rede](fxt-configure-network.md) para obter detalhes sobre estes itens:
+  Há várias configurações relacionadas à rede que devem ser verificadas ou personalizadas para um novo cluster. Leia [ajustar as configurações de rede](fxt-configure-network.md) para obter detalhes sobre estes itens:
 
-  * Verificar configuração DNS e NTP 
-  * Configurar os serviços de diretório, se necessário 
-  * Configurar as VLANs
-  * Configurar servidores do proxy
-  * Adicionar endereços IP para a rede de cluster
-  * Armazenamento de certificados de encriptação
+  * Verificando a configuração de DNS e NTP 
+  * Configurando serviços de diretório, se necessário 
+  * Configurando VLANs
+  * Configurando servidores proxy
+  * Adicionando endereços IP à rede de cluster
+  * Armazenando certificados de criptografia
 
-* [Configurar a monitorização de suporte](#enable-support)
+* [Configurar o monitoramento de suporte](#enable-support)
 
-  Tem de aceitar a política de privacidade da ferramenta de configuração e configurar as definições de carregamento de suporte ao mesmo tempo.
+  Você deve aceitar a política de privacidade para a ferramenta de configuração do e deve configurar suas configurações de carregamento de suporte ao mesmo tempo.
 
-  O cluster automaticamente pode carregar dados de resolução de problemas sobre o cluster, incluindo estatísticas e a depuração de ficheiros. Esses carregamentos de deixar que Microsoft Customer Service and Support fornecem o melhor serviço possíveis. Pode personalizar o que está a ser monitorizado e, opcionalmente, ativar o suporte pró-ativo e o serviço de resolução de problemas remoto.  
+  O cluster pode carregar automaticamente os dados de solução de problemas sobre o cluster, incluindo estatísticas e arquivos de depuração. Esses carregamentos permitem que o atendimento ao cliente e o suporte da Microsoft forneçam o melhor serviço possível. Você pode personalizar o que é monitorado e, opcionalmente, habilitar o suporte proativo e o serviço de solução de problemas remoto.  
 
 ### <a name="optional-configuration"></a>Configuração opcional
 
-Estes passos não são necessários para todos os clusters. Eles são necessários para alguns tipos de fluxos de trabalho ou para alguns estilos de gerenciamento de cluster. 
+Essas etapas não são necessárias para todos os clusters. Eles são necessários para alguns tipos de fluxos de trabalho ou para determinados estilos de gerenciamento de cluster. 
 
-* Personalize as configurações de nó
+* Personalizar configurações de nó
 
-  Pode definir os nomes de nó e configurar portas IPMI de nó numa ampla de cluster, nível ou individualmente. Se configurar estas definições antes de adicionar nós ao cluster, os novos nós podem recolher as definições automaticamente quando eles forem associados. As opções são descritas no documento de criação do cluster legado [personalizar definições de nó](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
+  Você pode definir nomes de nós e configurar portas IPMI de nó em um nível de todo o cluster ou individualmente. Se você definir essas configurações antes de adicionar nós ao cluster, os novos nós poderão selecionar as configurações automaticamente ao ingressarem. As opções são descritas no documento criação de cluster herdado [Personalizando as configurações de nó](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
   > [!TIP]
-  > Alguma documentação para este produto ainda não está disponível no site de documentação do Microsoft Azure. Contém ligações para o [guia de configuração de Cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) e a versão herdada da [guia de criação do Cluster](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) leva-o para um site alojado no GitHub separado. 
+  > Algumas documentações deste produto ainda não estão disponíveis no site de documentação Microsoft Azure. Links para o [Guia de configuração de cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) e a versão herdada do [Guia de criação de cluster](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) levarão você para um site separado hospedado no github. 
 
-* Configurar o SMB
+* Configurar SMB
 
-  Se pretender permitir o acesso SMB para o seu cluster, bem como NFS, tem de configurar o SMB e ativá-la. SMB (por vezes denominado CIFS) é normalmente utilizado para suportar clientes do Microsoft Windows.
+  Se você quiser permitir o acesso SMB ao cluster, bem como ao NFS, deverá configurar o SMB e ativá-lo. O SMB (às vezes chamado de CIFS) é normalmente usado para dar suporte a clientes do Microsoft Windows.
 
-  Planear e configurar o SMB envolvem mais do que clicar em alguns botões no painel de controlo. Dependendo das necessidades do seu sistema, SMB pode influenciar a forma como define se filtram de núcleos, quantos vservers criar, como configurar a sua junções e espaço de nomes, permissões de acesso e outras definições.
+  Planejar e configurar o SMB envolve mais do que clicar em alguns botões no painel de controle. Dependendo dos requisitos do seu sistema, o SMB pode influenciar como você define os principais filers, quantas vservers você cria, como você configura as junções e o namespace, permissões de acesso e outras configurações.
 
-  Para obter mais informações, leia o guia de configuração de Cluster [configurar o acesso de SMB](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/smb_overview.html) secção.
+  Para obter mais informações, leia o guia de configuração do cluster [Configurando a seção acesso SMB](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/smb_overview.html) .
 
 * Instalar licenças adicionais
 
-  Se pretender utilizar o armazenamento na cloud, além de Blobs do Azure, tem de instalar uma licença de funcionalidades adicionais. Contacte o seu representante da Microsoft para obter detalhes sobre a aquisição de um FlashCloud<sup>TM</sup> licença. Detalhes são explicados em [adicionar armazenamento de back-end e configurar o espaço de nomes virtual](fxt-add-storage.md#about-back-end-storage).
+  Se você quiser usar o armazenamento em nuvem diferente do blob do Azure, deverá instalar uma licença de recurso adicional. Entre em contato com seu representante da Microsoft para obter detalhes sobre como comprar uma licença do FlashCloud<sup>TM</sup> . Os detalhes são explicados em [Adicionar armazenamento de back-end e configurar o namespace virtual](fxt-add-storage.md#about-back-end-storage).
 
 
-### <a name="enable-support"></a>Ativar o suporte
+### <a name="enable-support"></a>Habilitar suporte
 
-O cluster de ficheiros do Azure FXT Edge automaticamente pode carregar dados de suporte sobre o cluster. Esses carregamentos permitem que a equipe garantir o melhor serviço de cliente possíveis.
+O cluster de arquivos do Azure FXT Edge pode carregar automaticamente os dados de suporte sobre o cluster. Esses uploads permitem que a equipe forneça o melhor serviço possível ao cliente.
 
-Siga estes passos para configurar os carregamentos de suporte.
+Siga estas etapas para configurar os carregamentos de suporte.
 
-1. Navegue para o **Cluster** > **suporte** página de definições. Aceite a política de privacidade. 
+1. Navegue até a página de configurações de**suporte** do **cluster** > . Aceite a política de privacidade. 
 
-   ![Captura de ecrã que mostra o painel de controlo e a janela de pop-up com o botão confirmar para aceitar a política de privacidade](media/fxt-cluster-create/fxt-privacy-policy.png)
+   ![Captura de tela mostrando o painel de controle e a janela pop-up com o botão confirmar para aceitar a política de privacidade](media/fxt-cluster-create/fxt-privacy-policy.png)
 
-1. Clique no triângulo à esquerda da vírgula **Customer Info** para expandir a secção.
-1. Clique nas **Revalide informações de carregamento** botão.
-1. Definir o nome do suporte do cluster no **nome de Cluster exclusivo** -Certifique-se de que identifica exclusivamente o seu cluster para o suporte técnico.
-1. As caixas de verificação **estatísticas de monitorização**, **carregar de informações gerais**, e **carregar de informações de falhas**.
-1. Clique em **Submit** (Submeter).  
+1. Clique no triângulo à esquerda das **informações do cliente** para expandir a seção.
+1. Clique no botão **revalidar informações de carregamento** .
+1. Definir o nome de suporte do cluster em **nome de cluster exclusivo** -Verifique se ele identifica exclusivamente o cluster para dar suporte à equipe.
+1. Marque as caixas de **monitoramento de estatísticas**, **carregamento de informações gerais**e **carregamento de informações de falha**.
+1. Clique em **Enviar**.  
 
-   ![Captura de ecrã que contém concluído a secção de informações de cliente da página de definições de suporte](media/fxt-cluster-create/fxt-support-info.png)
+   ![Captura de tela contendo a seção de informações do cliente concluída da página de configurações de suporte](media/fxt-cluster-create/fxt-support-info.png)
 
-1. Clique no triângulo à esquerda da vírgula **Secure Proativa suporte (SPS)** para expandir a secção.
-1. Marque a caixa **ativar a ligação do SPS**.
-1. Clique em **Submit** (Submeter).
+1. Clique no triângulo à esquerda da **SPS (suporte proativo seguro)** para expandir a seção.
+1. Marque a caixa **habilitar o link do SPS**.
+1. Clique em **Enviar**.
 
-   ![Captura de ecrã que contém concluído a secção de proteger o suporte Proativo de mensagens em fila na página de definições de suporte](media/fxt-cluster-create/fxt-support-sps.png)
+   ![Captura de tela que contém a seção de suporte proativo seguro completa na página Configurações de suporte](media/fxt-cluster-create/fxt-support-sps.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de ter criado o cluster básico e aceite a política de privacidade, o resto de nós do cluster. 
+Depois de criar o cluster básico e aceitar a política de privacidade, adicione o restante dos nós de cluster. 
 
 > [!div class="nextstepaction"]
 > [Adicionar nós de cluster](fxt-add-nodes.md)

@@ -1,17 +1,17 @@
 ---
-title: Exemplo – auditar se os aplicativos não estiverem instalados nas VMs do Linux
+title: Exemplo – auditar aplicativos ausentes em VMs Linux
 description: Essa iniciativa de configuração de convidado de política de exemplo e as definições são auditadas se os aplicativos especificados não estiverem instalados dentro de máquinas virtuais do Linux.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4d4f4c1102c4409d891bb20b54788dc8ed40ee
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977042"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255740"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exemplo – auditar se os aplicativos especificados não estiverem instalados dentro de VMs do Linux
 
@@ -23,7 +23,7 @@ Essa iniciativa de configuração de convidado de política cria um evento de au
 Você pode atribuir este exemplo usando:
 
 - O [portal do Azure](#azure-portal)
-- [Azure PowerShell](#azure-powershell)
+- [O Azure PowerShell](#azure-powershell)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,9 +44,9 @@ A iniciativa é criada unindo-se as definições **Audit** e **deployIfNotExists
 
 ### <a name="initiative-parameters"></a>Parâmetros de iniciativa
 
-|Name |Tipo |Descrição |
+|Nome |Tipo |Descrição |
 |---|---|---|
-|applicationName |Cadeia |Nomes de aplicativos. Exemplo: ' Python ', ' PowerShell ' ou uma lista separada por vírgulas, como ' Python, PowerShell '. Use \* para correspondência de curinga, como ' Power @ no__t-1 '. |
+|applicationName |String |Nomes de aplicativos. Exemplo: ' Python ', ' PowerShell ' ou uma lista separada por vírgulas, como ' Python, PowerShell '. Use \* para correspondência de curinga, como ' Power @ no__t-1 '. |
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
@@ -77,27 +77,27 @@ O JSON que define as regras da definição de política **deployIfNotExists** .
 
 A definição de política **deployIfNotExists** define as imagens do Azure nas quais a política foi validada:
 
-|Fabricante |Oferta |SKU |
+|Publicador |Oferta |SKU |
 |-|-|-|
-|OpenLogic |CentOS\* |Todos, exceto 6 @ no__t-0 |
+|OpenLogic |CentOS @ no__t-0 |Todos, exceto 6 @ no__t-0 |
 |RedHat |RHEL |Todos, exceto 6 @ no__t-0 |
-|RedHat |osa | Todos |
+|RedHat |OSA | Tudo |
 |credativ |Debian | Todos, exceto 7 @ no__t-0 |
-|SUSE |SLES @ NO__T-0 |Todos, exceto 11 @ no__t-0 |
-|Canónico| UbuntuServer |Todos, exceto 12 @ no__t-0 |
-|microsoft-dsvm |linux-data-science-vm-ubuntu |Todos |
-|microsoft-dsvm |azureml |Todos |
-|cloudera |cloudera-centos-os |Todos, exceto 6 @ no__t-0 |
-|cloudera |cloudera-altus-centos-os |Todos |
-|microsoft-ads |linux\* |Todos |
-|microsoft-aks |Todos |Todos |
-|AzureDatabricks |Todos |Todos |
-|qubole-Inc. |Todos |Todos |
-|datastax |Todos |Todos |
-|couchbase |Todos |Todos |
-|scalegrid |Todos |Todos |
-|verifica |Todos |Todos |
-|paloaltonetworks |Todos |Todos |
+|SUSE |SLES @ no__t-0 |Todos, exceto 11 @ no__t-0 |
+|Canonical| UbuntuServer |Todos, exceto 12 @ no__t-0 |
+|Microsoft-dsvm |Linux-Data-Science-VM-Ubuntu |Tudo |
+|Microsoft-dsvm |azureml |Tudo |
+|Cloudera |cloudera-CentOS-os |Todos, exceto 6 @ no__t-0 |
+|Cloudera |cloudera-Altus-CentOS-os |Tudo |
+|Microsoft-anúncios |Linux @ no__t-0 |Tudo |
+|Microsoft-AKs |Tudo |Tudo |
+|AzureDatabricks |Tudo |Tudo |
+|qubole-Inc. |Tudo |Tudo |
+|datastax |Tudo |Tudo |
+|couchbase |Tudo |Tudo |
+|scalegrid |Tudo |Tudo |
+|Verifica |Tudo |Tudo |
+|paloaltonetworks |Tudo |Tudo |
 
 A parte de **implantação** da regra passa o parâmetro _installedApplication_ para o agente de configuração convidado na máquina virtual. Essa configuração permite que o agente execute as validações e a conformidade do relatório de volta por meio da definição de política de **auditoria** .
 

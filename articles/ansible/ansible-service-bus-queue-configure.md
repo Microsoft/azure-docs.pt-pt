@@ -1,21 +1,21 @@
 ---
-title: Tutorial - configurar filas no Azure Service Bus com o Ansible | Documentos da Microsoft
-description: Saiba como utilizar o Ansible para criar uma fila do Service bus do Azure
-keywords: ansible, azure, devops, bash, playbook, do service bus, fila
+title: Tutorial – configurar filas no barramento de serviço do Azure usando o Ansible
+description: Saiba como usar o Ansible para criar uma fila do barramento de serviço do Azure
+keywords: Ansible, Azure, DevOps, Bash, manual, barramento de serviço, fila
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 6efc11106fae18beac43ab1896733ab6bfc64dad
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: a48796c2177a8b5b818553bf8aa0ff36f712d4e0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230766"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241384"
 ---
-# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutorial: Configurar as filas no Azure Service Bus com o Ansible
+# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutorial: configurar filas no barramento de serviço do Azure usando o Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -26,22 +26,22 @@ ms.locfileid: "65230766"
 > [!div class="checklist"]
 >
 > * Criar uma fila
-> * Criar uma SAS plicy
-> * Obter as informações de espaço de nomes
-> * Obter as informações de fila
-> * Revogar a política SAS da fila
+> * Criar um plicy SAS
+> * Recuperar informações de namespace
+> * Recuperar informações da fila
+> * Revogar a política de SAS da fila
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-the-service-bus-queue"></a>Criar a fila do Service Bus
+## <a name="create-the-service-bus-queue"></a>Criar a fila do barramento de serviço
 
-O código do playbook de exemplo cria os seguintes recursos:
+O código do guia estratégico de exemplo cria os seguintes recursos:
 - Grupo de recursos do Azure
-- Espaço de nomes do Service Bus no grupo de recursos
-- Fila do Service Bus com o espaço de nomes
+- Namespace do barramento de serviço dentro do grupo de recursos
+- Fila do barramento de serviço com o namespace
 
 Guarde o manual de procedimentos seguinte como `servicebus_queue.yml`:
 
@@ -72,7 +72,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue.yml`:
           var: queue
 ```
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue.yml
@@ -80,9 +80,9 @@ ansible-playbook servicebus_queue.yml
 
 ## <a name="create-the-sas-policy"></a>Criar a política SAS
 
-R [assinatura de acesso partilhado (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) é um mecanismo de autorização baseada em afirmações utilizando tokens. 
+Uma [SAS (assinatura de acesso compartilhado)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) é um mecanismo de autorização baseado em declarações usando tokens. 
 
-O código do playbook de exemplo cria duas políticas SAS para uma fila do Service Bus com privilégios diferentes.
+O código do guia estratégico de exemplo cria duas políticas SAS para uma fila do barramento de serviço com privilégios diferentes.
 
 Guarde o manual de procedimentos seguinte como `servicebus_queue_policy.yml`:
 
@@ -106,18 +106,18 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy.yml`:
           var: policy
 ```
 
-Antes de executar o playbook, consulte as seguintes notas de:
-- O `rights` valor representa o privilégio de um utilizador tiver com a fila. Especifique um dos seguintes valores: `manage`, `listen`, `send`, ou `listen_send`.
+Antes de executar o guia estratégico, consulte as seguintes observações:
+- O valor `rights` representa o privilégio que um usuário tem com a fila. Especifique um dos seguintes valores: `manage`, `listen`, `send` ou `listen_send`.
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue_policy.yml
 ```
 
-## <a name="retrieve-namespace-information"></a>Obter as informações de espaço de nomes
+## <a name="retrieve-namespace-information"></a>Recuperar informações de namespace
 
-O código do playbook de exemplo consulta as informações de espaço de nomes.
+O código do guia estratégico de exemplo consulta as informações do namespace.
 
 Guarde o manual de procedimentos seguinte como `servicebus_namespace_info.yml`:
 
@@ -139,18 +139,18 @@ Guarde o manual de procedimentos seguinte como `servicebus_namespace_info.yml`:
           var: ns
 ```
 
-Antes de executar o playbook, consulte as seguintes notas de:
-- O `show_sas_policies` valor indica se as políticas SAS no espaço de nomes especificado. Por predefinição, o valor é `False` para evitar a sobrecarga de rede adicional.
+Antes de executar o guia estratégico, consulte as seguintes observações:
+- O valor `show_sas_policies` indica se as políticas SAS devem ser mostradas no namespace especificado. Por padrão, o valor é `False` para evitar a sobrecarga de rede adicional.
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
 ```
 
-## <a name="retrieve-queue-information"></a>Obter as informações de fila
+## <a name="retrieve-queue-information"></a>Recuperar informações da fila
 
-As informações de fila consultas código do exemplo playbook. 
+O código do manual de exemplo consulta informações da fila. 
 
 Guarde o manual de procedimentos seguinte como `servicebus_queue_info.yml`:
 
@@ -174,18 +174,18 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_info.yml`:
           var: queue
 ```
 
-Antes de executar o playbook, consulte as seguintes notas de:
-- O `show_sas_policies` valor indica se as políticas SAS da fila especificada. Por predefinição, este valor é definido como `False` para evitar a sobrecarga de rede adicional.
+Antes de executar o guia estratégico, consulte as seguintes observações:
+- O valor `show_sas_policies` indica se as políticas SAS devem ser mostradas na fila especificada. Por padrão, esse valor é definido como `False` para evitar a sobrecarga de rede adicional.
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
 ```
 
-## <a name="revoke-the-queue-sas-policy"></a>Revogar a política SAS da fila
+## <a name="revoke-the-queue-sas-policy"></a>Revogar a política de SAS da fila
 
-O código do playbook de exemplo elimina uma política SAS da fila.
+O código do guia estratégico de exemplo exclui uma política de SAS da fila.
 
 Guarde o manual de procedimentos seguinte como `servicebus_queue_policy_delete.yml`:
 
@@ -206,7 +206,7 @@ Guarde o manual de procedimentos seguinte como `servicebus_queue_policy_delete.y
           state: absent
 ```
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
@@ -214,9 +214,9 @@ ansible-playbook servicebus_queue_policy_delete.yml
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine os recursos criados neste artigo. 
+Quando não for mais necessário, exclua os recursos criados neste artigo. 
 
-Guarde o código a seguir como `cleanup.yml`:
+Salve o código a seguir como `cleanup.yml`:
 
 ```yml
 ---
@@ -244,12 +244,12 @@ Guarde o código a seguir como `cleanup.yml`:
           force_delete_nonempty: yes
 ```
 
-Executar o playbook com o `ansible-playbook` comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"] 
-> [Tutorial: Configurar um tópico no Azure Service Bus com o Ansible](ansible-service-bus-topic-configure.md)
+> [Tutorial: configurar um tópico no barramento de serviço do Azure usando o Ansible](ansible-service-bus-topic-configure.md)

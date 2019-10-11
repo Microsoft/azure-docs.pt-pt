@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: manayar
-ms.openlocfilehash: a9141adfb1dd05efd73061379be89ddf27ab3832
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5be64ad2b3141791d5612aba84324278ea812875
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803057"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244832"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Trabalhar em rede em conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -117,7 +117,7 @@ Para definir o nome de domínio num modelo do Azure, adicione uma propriedade **
     {
     "name": "nic1",
     "properties": {
-      "primary": "true",
+      "primary": true,
       "ipConfigurations": [
       {
         "name": "ip1",
@@ -164,12 +164,12 @@ Para criar um conjunto de dimensionamento com um modelo do Azure, confirme que a
     }
 }
 ```
-Modelo de exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
+Modelo do exemplo: [201-vmss-public-ip-linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-public-ip-linux)
 
 ### <a name="querying-the-public-ip-addresses-of-the-virtual-machines-in-a-scale-set"></a>Consultar os endereços IP públicos das máquinas virtuais num conjunto de dimensionamento
 Para listar os endereços IP públicos atribuídos às máquinas virtuais do conjunto de dimensionamento através da CLI, utilize o comando **az vmss list-instance-public-ips**.
 
-Para listar o IP público de conjunto de dimensionamento de endereços com o PowerShell, utilize o _Get-AzPublicIpAddress_ comando. Por exemplo:
+Para listar os endereços IP públicos do conjunto de dimensionamento usando o PowerShell, use o comando _Get-AzPublicIpAddress_ . Por exemplo:
 ```powershell
 Get-AzPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
@@ -251,7 +251,7 @@ O exemplo seguinte é um perfil de rede de um conjunto de dimensionamento que mo
         {
         "name": "nic1",
         "properties": {
-            "primary": "true",
+            "primary": true,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -283,7 +283,7 @@ O exemplo seguinte é um perfil de rede de um conjunto de dimensionamento que mo
         {
         "name": "nic2",
         "properties": {
-            "primary": "false",
+            "primary": false,
             "ipConfigurations": [
             {
                 "name": "ip1",
@@ -330,7 +330,7 @@ Por exemplo:
         {
             "name": "nic1",
             "properties": {
-                "primary": "true",
+                "primary": true,
                 "ipConfigurations": [
                     {
                         "name": "ip1",
@@ -401,5 +401,5 @@ az vmss show \
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre redes virtuais do Azure, veja [Descrição geral das redes virtuais do Azure](../virtual-network/virtual-networks-overview.md).

@@ -1,164 +1,164 @@
 ---
-title: Adicionar armazenamento de back-end para o cluster de ficheiros do Microsoft Azure FXT Edge
-description: Como configurar o armazenamento de back-end e o pseudonamespace com clientes para ficheiros do Azure FXT Edge
+title: Adicionar armazenamento de back-end para o Microsoft Azure cluster de filer do FXT Edge
+description: Como configurar o armazenamento de back-end e o pseudonamespace voltado para o cliente para o filer do Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543258"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256074"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o espaço de nomes virtual 
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Tutorial: Adicionar armazenamento de back-end e configurar o namespace virtual 
 
-Este tutorial explica como adicionar armazenamento de back-edge para a sua cache e como configurar o sistema de ficheiros virtual com clientes. 
+Este tutorial explica como adicionar armazenamento de back-Edge para seu cache e como configurar o sistema de arquivos virtual voltado para o cliente. 
 
-O cluster liga-se aos sistemas de armazenamento de back-end para aceder a pedido de dados de clientes e para armazenar as alterações mais permanentemente do que na cache. 
+O cluster se conecta a sistemas de armazenamento de back-end para acessar a solicitação de clientes de dados e armazenar alterações mais permanentemente do que no cache. 
 
-O espaço de nomes é o sistema de ficheiros de pseudo-autenticação com clientes que pode alternar o armazenamento de back-end sem alteração fluxos de trabalho do lado do cliente. 
+O namespace é o pseudo filesystem voltado para o cliente que permite que você troque o armazenamento de back-end sem alterar os fluxos de trabalho do lado do cliente. 
 
 Neste tutorial, vai aprender: 
 
 > [!div class="checklist"]
-> * Como adicionar armazenamento de back-end para o cluster de ficheiros do Azure FXT Edge 
-> * Como definir o caminho de com clientes de armazenamento
+> * Como adicionar armazenamento de back-end ao cluster do Filer do Azure FXT Edge 
+> * Como definir o caminho voltado para o cliente para armazenamento
 
 ## <a name="about-back-end-storage"></a>Sobre o armazenamento de back-end
 
-O cluster de ficheiros do Azure FXT Edge utiliza um *núcleos de filtro de* definição para ligar um sistema de armazenamento de back-end para o cluster FXT.
+O cluster de arquivos do Azure FXT Edge usa uma definição de *Filer principal* para vincular um sistema de armazenamento de back-end ao cluster FXT.
 
-Filtro de borda FXT do Azure é compatível com vários sistemas de hardware NAS populares e pode utilizar vazios contentores de Blobs do Azure ou outro armazenamento na cloud. 
+O Azure FXT Edge Filer é compatível com vários sistemas de hardware NAS populares e pode usar contêineres vazios do blob do Azure ou de outro armazenamento em nuvem. 
 
-Contentores de armazenamento na cloud pode estar vazios quando adicionados para que o sistema de operativo FXT completamente pode gerir todos os dados no volume de armazenamento na cloud. Pode mover os dados existentes para o contentor de cloud depois de adicionar o contentor para o cluster como um filtro de núcleo.
+Os contêineres de armazenamento em nuvem devem estar vazios quando adicionados para que o sistema operacional FXT possa gerenciar completamente todos os dados no volume de armazenamento em nuvem. Você pode mover os dados existentes para o contêiner de nuvem depois de adicionar o contêiner ao cluster como um Filer principal.
 
-Utilize o painel de controle para adicionar um filtro de núcleo para seu sistema.
+Use o painel de controle para adicionar um Filer principal ao seu sistema.
 
 > [!NOTE]
 > 
-> Se pretender utilizar o armazenamento de AWS da Amazon ou o Google Cloud, tem de instalar um FlashCloud<sup>TM</sup> licença de funcionalidade. Contacte o seu representante da Microsoft para uma chave de licença e, em seguida, siga as instruções no guia de configuração herdadas do [adicionar ou remover licenças de funcionalidade](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
+> Se você quiser usar o Amazon AWS ou o Google Cloud Storage, deverá instalar uma licença de recurso do FlashCloud<sup>TM</sup> . Entre em contato com seu representante da Microsoft para obter uma chave de licença e siga as instruções no guia de configuração herdado para [Adicionar ou remover licenças de recurso](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
 > 
-> Suporte para armazenamento de Blobs do Azure está incluído na licença de software de ficheiros do Azure FXT Edge. 
+> O suporte para o armazenamento de BLOBs do Azure está incluído na licença de software do Azure FXT Edge. 
 
-Para obter informações mais detalhadas sobre como adicionar se filtram de núcleos, leia estas secções do guia de configuração do Cluster:
+Para obter informações mais detalhadas sobre como adicionar os principais filers, leia estas seções do guia de configuração do cluster:
 
-* Para mais informações sobre escolher e preparar adicionar um filtro de núcleos, leia [trabalhar com núcleo se filtram](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
-* Para pré-requisitos detalhados e instruções passo a passo, leia os seguintes artigos:
+* Para obter mais informações sobre como escolher e preparar para adicionar um Filer principal, leia [trabalhando com os principais Filers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
+* Para obter pré-requisitos detalhados e instruções passo a passo, leia estes artigos:
 
-  * [Adicionar um novo filtro de núcleo NAS](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
-  * [Adicionar um novo filtro de núcleos na Cloud](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
+  * [Adicionando um novo Filer do NAS Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
+  * [Adicionando um novo Filer do Cloud Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
 
-Depois de adicionar um filtro de núcleos, pode atualizar as definições na página de definições de detalhes do filtro de núcleo.
+Depois de adicionar um Filer principal, você pode atualizar suas configurações na página de configurações de detalhes do Filer Core.
 
-## <a name="add-a-core-filer"></a>Adicionar um filtro de núcleo
+## <a name="add-a-core-filer"></a>Adicionar um Filer principal
 
-Definir um filtro básico ao clicar no **Create** botão o **filtro de núcleo** > **se filtram Core de gerir** página de definições.
+Defina um Filer central clicando no botão **criar** na página de configurações do **filer Core** > **gerenciar os Filers principais** .
 
-![Clicar no botão Criar acima da lista de se filtram de núcleos na página se filtram Core de gerir](media/fxt-cluster-config/create-core-filer-button.png)
+![Clicando no botão criar acima da lista de principais Filers na página Gerenciar Filers principais](media/fxt-cluster-config/create-core-filer-button.png)
 
-O **adicionar novo filtro de núcleo** assistente o orienta pelo processo de criação de um filtro de núcleos que liga para o armazenamento de back-end. O guia de configuração de Cluster tem descrições passo a passo do processo, o que é diferente para armazenamento NFS/NAS e de armazenamento na cloud (ligações são acima). 
+O assistente **Adicionar novo Filer principal** orienta você pelo processo de criação de um Filer principal que se vincula ao armazenamento de back-end. O guia de configuração de cluster apresenta descrições passo a passo do processo, que é diferente para armazenamento NFS/NAS e armazenamento em nuvem (os links estão acima). 
 
-Subtarefas incluem:
+As subtarefas incluem:
 
-* Especifique o tipo de filtro de núcleo (NAS ou na cloud)
+* Especificar o tipo de filer principal (NAS ou Cloud)
 
-  ![Primeira página de hardware NAS principais filtro do Assistente de novo. A opção para "filtro de núcleo de cloud" está desabilitada e mostra uma mensagem de erro sobre a licença em falta.](media/fxt-cluster-config/new-nas-1.png)
+  ![Primeira página do assistente de novo Filer do NAS de hardware. A opção "Cloud Core Filer" está desabilitada e mostra uma mensagem de erro sobre a licença ausente.](media/fxt-cluster-config/new-nas-1.png)
 
-* Defina nome do filtro de núcleo. Escolha um nome que ajuda os administradores de cluster compreender o que representa o sistema de armazenamento.
+* Defina o nome do Filer principal. Escolha um nome que ajude os administradores de cluster a entender qual sistema de armazenamento ele representa.
 
-* Para se filtram de núcleos NAS, forneça o nome de domínio completamente qualificado (FQDN) ou o endereço IP. FQDN é recomendado para todos os se filtram de núcleos e necessárias para o acesso SMB.
+* Para os filers do NAS Core, forneça o nome de domínio totalmente qualificado (FQDN) ou o endereço IP. O FQDN é recomendado para todos os Filers principais e é necessário para acesso SMB.
 
-* Selecione uma política de cache, a segunda página do assistente lista as políticas de cache disponíveis para o novo filtro de núcleo. Para obter detalhes, leia os [políticas de seção do guia de configuração de Cluster de cache](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
+* Selecionar uma política de cache – a segunda página do assistente lista as políticas de cache disponíveis para o novo Filer principal. Para obter detalhes, leia a [seção políticas de cache do guia de configuração do cluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
 
-  ![Segunda página um hardware NAS principais filtro do Assistente de novo; o menu de lista pendente de política de Cache é aberto, que mostra que várias desativada opções e três opções de política de cache válida (ignorar, leia a colocação em cache e colocação em cache de leitura/escrita).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
+  ![Segunda página de um assistente de novo Filer do NAS de hardware; o menu suspenso política de cache está aberto, mostrando várias opções desabilitadas e três opções de política de cache válidas (ignorar, cache de leitura e cache de leitura/gravação).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
 
-* Para armazenamento na cloud, tem de especificar as cloud service credenciais de acesso e, entre outros parâmetros. Para obter detalhes, leia [Cloud service e o protocolo](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) no guia de configuração de Cluster.
+* Para o armazenamento em nuvem, você deve especificar o serviço de nuvem e as credenciais de acesso, entre outros parâmetros. Para obter detalhes, leia [serviço de nuvem e protocolo](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) no guia de configuração de cluster.
 
-  ![Informações de filtro de núcleo de nuvem no Assistente de novo filtro de núcleo](media/fxt-cluster-config/new-core-filer-cloud3.png) 
+  ![Informações do Filer Core do clouder no assistente do novo Filer principal](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
-  Se já tiver adicionado na cloud de credenciais de acesso para este cluster, eles aparecem na lista. Atualizar e adicionar as credenciais no **Cluster** > **credênciais de Cloud** página de definições. 
+  Se você já tiver adicionado credenciais de acesso à nuvem para esse cluster, elas aparecerão na lista. Atualize e adicione credenciais na página de configurações de**credenciais de nuvem**  >  do **cluster**. 
 
-Depois de preencher todas as definições necessárias no assistente, clique nas **Adicionar filtro** botão para submeter a alteração.
+Depois de preencher todas as configurações necessárias no assistente, clique no botão **Adicionar Filer** para enviar a alteração.
 
-Após alguns instantes, o sistema de armazenamento aparece no **Dashboard** básicos lista se filtram e podem ser acedidos através de páginas de definições de filtro de núcleo.
+Depois de alguns instantes, o sistema de armazenamento aparece na lista de arquivos do **Dashboard** Core e pode ser acessado por meio das páginas de configurações do Filer principal.
 
-![o filtro de núcleo "Flurry-NAS" na página de definições de gerir se filtram de núcleo, com a vista de detalhes de ficheiros expandidos](media/fxt-cluster-config/core-filer-in-manage-page.png)
+![Filer principal "monte-NAS" na página de configurações gerenciar Filers principais, com a exibição de detalhes do Filer expandida](media/fxt-cluster-config/core-filer-in-manage-page.png)
 
-O filtro de núcleos nesta captura de ecrã está em falta um vserver. Tem de ligar o filtro de núcleos para um vserver e criar uma junção, para que os clientes podem aceder ao armazenamento. Essas etapas são descritas abaixo num [configurar o espaço de nomes](#configure-the-namespace).
+O filer principal nesta captura de tela não tem um VServer. Você deve vincular o filer principal a um vserver e criar uma junção para que os clientes possam acessar o armazenamento. Essas etapas são descritas abaixo em [Configurar o namespace](#configure-the-namespace).
 
-## <a name="configure-the-namespace"></a>Configurar o espaço de nomes
+## <a name="configure-the-namespace"></a>Configurar o namespace
 
-O cluster de ficheiros do Azure FXT Edge cria um sistema de ficheiros virtual chamado os *espaço de nomes de cluster* que simplifica o acesso de cliente para os dados armazenados em vários sistemas de back-end. Uma vez que os clientes solicitam arquivos usando um caminho virtual, os sistemas de armazenamento podem ser adicionados ou substituídos sem ter de alterar o fluxo de trabalho do cliente. 
+O cluster de arquivos do Azure FXT Edge cria um sistema de arquivos virtual chamado de *namespace do cluster* que simplifica o acesso do cliente aos dados armazenados em sistemas back-end diversificados. Como os clientes solicitam arquivos usando um caminho virtual, os sistemas de armazenamento podem ser adicionados ou substituídos sem a necessidade de alterar o fluxo de trabalho do cliente. 
 
-O espaço de nomes de cluster também permite-lhe apresentar na cloud e sistemas de armazenamento de uma estrutura de ficheiros semelhantes. 
+O namespace de cluster também permite apresentar sistemas de armazenamento em nuvem e NAS em uma estrutura de arquivos semelhante. 
 
-Vservers do cluster de manter o espaço de nomes e a servir de conteúdo aos clientes. Existem dois passos para criar o espaço de nomes de cluster: 
+O vservers do cluster mantém o namespace e serve conteúdo aos clientes. Há duas etapas para criar o namespace do cluster: 
 
-1. Criar um vserver 
-1. Configurar junções entre os sistemas de armazenamento de back-end e os caminhos do sistema de ficheiros com clientes 
+1. Criar um VServer 
+1. Configurar junções entre os sistemas de armazenamento back-end e os caminhos do sistema de arquivos voltados para o cliente 
 
-### <a name="create-a-vserver"></a>Criar um vserver
+### <a name="create-a-vserver"></a>Criar um VServer
 
-VServers são servidores de arquivos virtual que controlam a forma como os dados fluem entre o cliente e se filtram de principais do cluster:
+VServers são servidores de arquivos virtuais que controlam como os dados fluem entre o cliente e os principais filers do cluster:
 
-* Endereços IP do VServers anfitrião com clientes
-* VServers criar o espaço de nomes e defina junções de mapeiam a estrutura de diretório virtual do cliente voltadas para exportações no armazenamento de back-end
-* VServers impor controlos de acesso do ficheiro, incluindo políticas de exportação de filtro de núcleos e sistemas de autenticação de utilizador
-* VServers disponibilizam a infraestrutura SMB
+* Endereços IP voltados para o cliente do host VServers
+* VServers criar o namespace e definir junções que mapeiam a estrutura de diretório virtual voltada para o cliente para exportações no armazenamento de back-end
+* VServers impor controles de acesso a arquivos, incluindo políticas de exportação do Filer principal e sistemas de autenticação de usuário
+* VServers fornecer infraestrutura SMB
 
-Antes de começar a configurar um cluster vserver, leia a documentação ligada e consulte o seu representante da Microsoft para o espaço de nomes de compreensão de ajuda e vservers. Se utilizar VLANs, [criá-los](fxt-configure-network.md#adjust-network-settings) antes de criar o vserver. 
+Antes de começar a configurar um VServer de cluster, leia a documentação vinculada e consulte seu representante da Microsoft para ajudar a entender o namespace e o vservers. Se estiver usando VLANs, [crie-](fxt-configure-network.md#adjust-network-settings) as antes de criar o vserver. 
 
-Estas secções do guia de configuração do Cluster irão ajudá-lo a familiarizar-se com as funcionalidades de global namespace e FXT vserver:
+Essas seções do guia de configuração de cluster ajudarão você a se familiarizar com os recursos do FXT vserver e namespace global:
 
-* [Criar e trabalhar com VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers)
-* [Utilizar um espaço de nomes Global](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
-* [Criar um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
+* [Criando e trabalhando com VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers)
+* [Usando um namespace global](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
+* [Criando um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
 
-Precisa vserver, pelo menos, um para o seu cluster. 
+Você precisa de pelo menos um VServer para o cluster. 
 
-Para criar um novo vserver, terá das seguintes informações:
+Para criar um novo vServer, você precisará das seguintes informações:
 
-* O nome a definir para o vserver
+* O nome a ser definido para o vserver
 
-* O intervalo de endereços IP com clientes processará o vserver
+* O intervalo de endereços IP voltados para o cliente que o vserver manipulará
 
-  Quando cria o vserver, deve fornecer um único intervalo de endereços IP contíguos. Pode adicionar mais endereços posteriormente utilizando o **rede com acesso do cliente** página de definições.
+  Você deve fornecer um único intervalo de endereços IP contíguos ao criar o vserver. Você pode adicionar mais endereços posteriormente usando a página de configurações de **rede voltada** para o cliente.
 
-* Se a rede tiver VLANs, qual VLAN a utilizar para este vserver
+* Se sua rede tiver VLANs, qual VLAN usar para este vserver
 
-Utilize o **VServer** > **gerir VServers** página de definições para criar um novo vserver. Para obter detalhes, leia [criando um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no guia de configuração de Cluster. 
+Use a página **VServer** >  gerenciar configurações do**VServers** para criar um novo vserver. Para obter detalhes, leia [criando um VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) no guia de configuração do cluster. 
 
-![janela de pop-up para a criação de um novo vserver](media/fxt-cluster-config/new-vserver.png)
+![janela pop-up para criar um novo vserver](media/fxt-cluster-config/new-vserver.png)
 
 ### <a name="create-a-junction"></a>Criar uma junção
 
-R *junção* mapeia um caminho de armazenamento de back-end para o espaço de nomes visíveis para o cliente.
+Uma *junção* mapeia um caminho de armazenamento de back-end para o namespace visível do cliente.
 
-Pode utilizar este sistema para simplificar o caminho utilizado em pontos de montagem de cliente e aumentar a capacidade de forma totalmente integrada como um caminho virtual pode acomodar armazenamento a partir de vários se filtram de núcleo.
+Você pode usar esse sistema para simplificar o caminho usado em pontos de montagem de cliente e dimensionar a capacidade diretamente, pois um caminho virtual pode acomodar o armazenamento de vários Filers principais.
 
-![Adicionar página do Assistente de nova junção com definições preenchidas](media/fxt-cluster-config/add-junction-full.png)
+![Página de assistente Adicionar nova junção com as configurações preenchidas](media/fxt-cluster-config/add-junction-full.png)
 
-Consulte a [ **VServer** > **espaço de nomes** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) no guia de configuração de Cluster para obter detalhes completos sobre a criação de uma junção de espaço de nomes.
+Consulte o [**namespace** do **vserver** > ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) no guia de configuração do cluster para obter detalhes completos sobre como criar uma junção de namespace.
 
-![O VServer > página de definições de espaço de nomes que mostra os detalhes para uma junção](media/fxt-cluster-config/namespace-populated.png)
+![A página de configurações do namespace > VServer mostrando detalhes de uma junção](media/fxt-cluster-config/namespace-populated.png)
 
 ## <a name="configure-export-rules"></a>Configurar regras de exportação
 
-Depois de ter um vserver e um filtro de núcleos, deve personalizar as regras de exportação e exportar políticas que controlam como os clientes podem aceder a ficheiros nas exportações de filtro de núcleo.
+Depois de ter um vserver e um Filer principal, você deve personalizar as regras de exportação e exportar políticas que controlam como os clientes podem acessar arquivos nas exportações do Filer principal.
 
-Em primeiro lugar, utilize o **VServer** > **exportar regras** página para adicionar novas regras, para modificar a política predefinida ou para criar a sua política personalizada de exportação.
+Primeiro, use a página **VServer** > **Export Rules** para adicionar novas regras, para modificar a política padrão ou para criar sua própria política de exportação personalizada.
 
-Em segundo lugar, utilize o **VServer** > **exportar políticas** página para aplicar a política personalizada para exportações de seu filtro de núcleos, quando acessado por meio desse vserver.
+Em segundo lugar, use a página **VServer** > **Export Policies** para aplicar a política personalizada às exportações do seu Filer principal quando acessadas por meio desse vserver.
 
-Leia o artigo guia de configuração de Cluster [controlar o acesso para exportações de filtro de núcleo](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) para obter detalhes.
+Leia o artigo guia de configuração do cluster [controlando o acesso às exportações do principal Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) para obter detalhes.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de adicionar armazenamento e configurar o espaço de nomes com clientes, conclua a configuração inicial do seu cluster: 
+Depois de adicionar o armazenamento e configurar o namespace voltado para o cliente, conclua a configuração inicial do cluster: 
 
 > [!div class="nextstepaction"]
 > [Configurar as definições de rede do cluster](fxt-configure-network.md)

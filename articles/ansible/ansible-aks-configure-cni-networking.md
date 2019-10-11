@@ -1,32 +1,32 @@
 ---
-title: Tutorial - configurar redes do Azure CNI no Azure Kubernetes Service (AKS) com o Ansible | Documentos da Microsoft
-description: Saiba como utilizar o Ansible para configurar kubenet redes no cluster do Azure Kubernetes Service (AKS)
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, contentores, aks, kubernetes
+title: Tutorial – configurar a rede CNI do Azure no AKS (serviço kubernetes do Azure) usando o Ansible
+description: Saiba como usar o Ansible para configurar a rede kubenet no cluster do AKS (serviço kubernetes do Azure)
+keywords: Ansible, Azure, DevOps, Bash, cloudshell, manual, AKs, contêiner, AKs, kubernetes
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 2d43b1ffbb7910b16c81df2ff5b21e67dbcb0193
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231355"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242039"
 ---
-# <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: Configurar redes do Azure CNI no Azure Kubernetes Service (AKS) com o Ansible
+# <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar a rede CNI do Azure no serviço kubernetes do Azure (AKS) usando o Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-Utilizar o AKS, pode implementar um cluster com os seguintes modelos de rede:
+Usando o AKS, você pode implantar um cluster usando os seguintes modelos de rede:
 
-- [Redes de Kubenet](/azure/aks/configure-kubenet) -recursos de rede, normalmente, são criados e configurados, conforme o cluster do AKS é implementado.
-- [Redes do Azure de CNI](/azure/aks/configure-azure-cni) -cluster do AKS está ligado a recursos de rede virtual (VNET) existentes e configurações.
+- [Rede Kubenet](/azure/aks/configure-kubenet) – os recursos de rede normalmente são criados e configurados à medida que o cluster AKs é implantado.
+- [Rede CNI do Azure](/azure/aks/configure-azure-cni) – o cluster AKs está conectado a recursos e configurações de VNET (rede virtual) existentes.
 
-Para obter mais informações sobre o funcionamento em rede para seus aplicativos no AKS, consulte [conceitos de aplicativos no AKS de rede](/azure/aks/concepts-network).
+Para obter mais informações sobre a rede para seus aplicativos no AKS, consulte [conceitos de rede para aplicativos em AKs](/azure/aks/concepts-network).
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -43,9 +43,9 @@ Para obter mais informações sobre o funcionamento em rede para seus aplicativo
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Criar uma rede virtual e uma sub-rede
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Criar uma rede virtual
+- Criar rede virtual
 - Criar uma sub-rede dentro da rede virtual
 
 Guarde o manual de procedimentos seguinte como `vnet.yml`:
@@ -67,11 +67,11 @@ Guarde o manual de procedimentos seguinte como `vnet.yml`:
   register: subnet
 ```
 
-## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster do AKS na rede virtual
+## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Criar um cluster AKS na rede virtual
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Crie um cluster do AKS dentro de uma rede virtual.
+- Crie um cluster AKS em uma rede virtual.
 
 Guarde o manual de procedimentos seguinte como `aks.yml`:
 
@@ -106,21 +106,21 @@ Guarde o manual de procedimentos seguinte como `aks.yml`:
   register: aks
 ```
 
-Seguem-se algumas notas essenciais a considerar ao trabalhar com o playbook de exemplo:
+Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Utilize o `azure_rm_aks_version` módulo para localizar a versão suportada.
-- O `vnet_subnet_id` é a sub-rede que criou na secção anterior.
-- Carrega o playbook `ssh_key` partir `~/.ssh/id_rsa.pub`. Se modificá-lo, utilize o formato de linha única - começando por "ssh-rsa" (sem as aspas).
-- O `client_id` e `client_secret` valores são carregados a partir do `~/.azure/credentials`, que é o arquivo de credencial padrão. Pode definir esses valores ao seu serviço principal ou carregar estes valores de variáveis de ambiente:
+- Use o módulo `azure_rm_aks_version` para localizar a versão com suporte.
+- O `vnet_subnet_id` é a sub-rede criada na seção anterior.
+- O guia estratégico carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se você modificá-lo, use o formato de linha única-começando com "ssh-RSA" (sem as aspas).
+- Os valores `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
     client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
     ```
 
-## <a name="run-the-sample-playbook"></a>Executar o playbook de exemplo
+## <a name="run-the-sample-playbook"></a>Executar o guia estratégico de exemplo
 
-O código do playbook de exemplo nesta secção é utilizado para testar várias funcionalidades mostradas neste tutorial.
+O código do guia estratégico de exemplo nesta seção é usado para testar vários recursos mostrados em todo este tutorial.
 
 Guarde o manual de procedimentos seguinte como `aks-azure-cni.yml`:
 
@@ -150,19 +150,19 @@ Guarde o manual de procedimentos seguinte como `aks-azure-cni.yml`:
            var: aks
 ```
 
-Seguem-se algumas notas essenciais a considerar ao trabalhar com o playbook de exemplo:
+Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Alterar o `aksansibletest` valor para o seu nome de grupo de recursos.
-- Alterar o `aksansibletest` valor para o seu nome AKS.
-- Alterar o `eastus` valor para a sua localização do grupo de recursos.
+- Altere o valor `aksansibletest` para o nome do grupo de recursos.
+- Altere o valor `aksansibletest` para o nome do AKS.
+- Altere o valor `eastus` para o local do grupo de recursos.
 
-Execute o playbook com o comando do ansible playbook:
+Execute o guia estratégico usando o comando Ansible-manual:
 
 ```bash
 ansible-playbook aks-azure-cni.yml
 ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
 ```Output
 PLAY [localhost] 
@@ -248,11 +248,11 @@ localhost                  : ok=9    changed=4    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não for necessário, elimine os recursos criados neste artigo. 
+Quando não for mais necessário, exclua os recursos criados neste artigo. 
 
-O código do playbook de exemplo nesta secção é utilizado para:
+O código do guia estratégico de exemplo nesta seção é usado para:
 
-- Eliminar um grupo de recursos mencionado na `vars` secção.
+- Exclua um grupo de recursos referido na seção `vars`.
 
 Guarde o manual de procedimentos seguinte como `cleanup.yml`:
 
@@ -269,18 +269,18 @@ Guarde o manual de procedimentos seguinte como `cleanup.yml`:
             force: yes
 ```
 
-Seguem-se algumas notas essenciais a considerar ao trabalhar com o playbook de exemplo:
+Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Substitua o `{{ resource_group_name }}` marcador de posição pelo nome do seu grupo de recursos.
-- Todos os recursos no grupo de recursos especificado serão eliminados.
+- Substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
+- Todos os recursos dentro do grupo de recursos especificado serão excluídos.
 
-Execute o playbook com o comando do ansible playbook:
+Execute o guia estratégico usando o comando Ansible-manual:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configurar o Azure Active Directory no AKS com o Ansible](./ansible-aks-configure-rbac.md)
+> [Tutorial: configurar Azure Active Directory no AKS usando Ansible](./ansible-aks-configure-rbac.md)

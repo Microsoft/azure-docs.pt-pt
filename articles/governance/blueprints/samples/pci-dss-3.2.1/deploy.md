@@ -1,18 +1,18 @@
 ---
 title: Exemplo-PCI-DSS v 3.2.1 Blueprint-etapas de implantação
-description: Implante as etapas do exemplo de planejamento de plano de segurança de dados do setor de pagamento de Data Security Standard v 3.2.1.
+description: Implante as etapas para o cartão de pagamento do setor de informações de Data Security padrão v 3.2.1 Blueprint, incluindo detalhes do parâmetro de artefato Blueprint.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980930"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248865"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Implantar a amostra do PCI-DSS v 3.2.1 Blueprint
 
@@ -37,10 +37,10 @@ Primeiro, implemente o exemplo Blueprint criando uma nova especificação técni
 
 1. Insira os _conceitos básicos_ do exemplo Blueprint:
 
-   - **Nome do plano gráfico**: Forneça um nome para sua cópia do exemplo de plano gráfico PCI-DSS v 3.2.1.
-   - **Local da definição**: Use as reticências e selecione o grupo de gerenciamento para salvar sua cópia do exemplo.
+   - **Nome do plano gráfico**: forneça um nome para sua cópia do exemplo de plano gráfico PCI-DSS v 3.2.1.
+   - **Local de definição**: Use as reticências e selecione o grupo de gerenciamento para salvar a cópia do exemplo.
 
-1. Selecione a guia _artefatos_ na parte superior da página ou **Next: Artefatos @ no__t-0 na parte inferior da página.
+1. Selecione a guia _artefatos_ na parte superior da página ou **próximo: artefatos** na parte inferior da página.
 
 1. Examine a lista de artefatos que compõem o exemplo Blueprint. Muitos dos artefatos têm parâmetros que vamos definir mais tarde. Selecione **salvar rascunho** ao concluir a revisão do exemplo Blueprint.
 
@@ -66,15 +66,15 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 1. Forneça os valores de parâmetro para a atribuição Blueprint:
 
-   - Noções Básicas
+   - Noções básicas
 
-     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é preenchido previamente para você com base no nome do plano gráfico.
+     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou sua cópia do exemplo Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada uma usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente para você com base no nome do plano gráfico.
        Altere conforme necessário ou deixe como está.
-     - **Local**: Selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versão de definição do Blueprint**: Escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
+     - **Local**: selecione uma região na qual a identidade gerenciada deve ser criada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versão de definição do Blueprint**: escolha uma versão **publicada** da sua cópia do exemplo Blueprint.
 
-   - Atribuição de Bloqueio
+   - Atribuição de bloqueio
 
      Selecione a configuração de bloqueio Blueprint para o seu ambiente. Para obter mais informações, veja [bloqueio de recurso em esquemas](../../concepts/resource-locking.md).
 
@@ -82,7 +82,7 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
      Deixe a opção de identidade gerenciada _atribuída pelo sistema_ padrão.
 
-   - Parâmetros de artefacto
+   - Parâmetros de artefato
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual ele é definido. Esses parâmetros são [parâmetros dinâmicos](../../concepts/parameters.md#dynamic-parameters) , pois eles são definidos durante a atribuição do plano gráfico. Para obter uma lista completa ou parâmetros de artefato e suas descrições, consulte [tabela de parâmetros de artefato](#artifact-parameters-table).
 
@@ -95,13 +95,13 @@ Depois que a cópia do exemplo Blueprint tiver sido **publicada**com êxito, ela
 
 A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 
-|Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
+|Nome do artefato|Tipo de artefato|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Preview @ no__t-1 Audit PCI v 3.2.1: controles de 2018 e implante extensões de VM específicas para dar suporte aos requisitos de auditoria|Atribuição de Política|Lista de tipos de recursos | Configuração de diagnóstico de auditoria para tipos de recursos selecionados. O valor padrão é que todos os recursos estão selecionados| 
 |Localizações permitidas|Atribuição de Política|Lista de locais permitidos|Lista de locais de data center permitidos para qualquer recurso a ser implantado. Essa lista é personalizável para os locais do Azure desejados globalmente. Selecione os locais que você deseja permitir.| 
 |Locais permitidos para grupos de recursos|Atribuição de Política |Local permitido |Essa política permite restringir os locais em que sua organização pode criar grupos de recursos. Use o para impor seus requisitos de conformidade geográfica.| 
-|Implementar a Auditoria em servidores SQL|Atribuição de Política|Dias de retenção|A retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 
-|Implementar a Auditoria em servidores SQL|Atribuição de Política|Nome do grupo de recursos para a conta de armazenamento|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região).| 
+|Implantar a auditoria em servidores SQL|Atribuição de Política|Dias de retenção|A retenção de dados em número de dias. O valor padrão é 180, mas o PCI requer 365.| 
+|Implantar a auditoria em servidores SQL|Atribuição de Política|Nome do grupo de recursos para a conta de armazenamento|A auditoria grava eventos de banco de dados em um log de auditoria na sua conta de armazenamento do Azure (uma conta de armazenamento será criada em cada região em que um SQL Server é criado e será compartilhado por todos os servidores nessa região).| 
 
 ## <a name="next-steps"></a>Passos seguintes
 

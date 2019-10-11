@@ -12,12 +12,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 02/19/2015
 ms.author: gwallace
-ms.openlocfilehash: 3b9022dd2b5998f95179ee3dfabe6706b55036bc
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: edbc9eef6b5f0af2e70152b66228cdf09ef31110
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636003"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242192"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-python"></a>Como usar o twilio para recursos de voz e SMS no Python
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do twilio no Azure. Os cenários abordados incluem fazer uma chamada telefônica e enviar uma mensagem SMS (Short Message Service). Para obter mais informações sobre o twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [próximas etapas](#NextSteps) .
@@ -40,21 +40,21 @@ A API twilio é uma API RESTful que fornece a funcionalidade de voz e SMS para a
 Os principais aspectos da API twilio são twilio verbos e TwiML (twilio Markup Language).
 
 ### <a id="Verbs"></a>Verbos twilio
-A API utiliza verbos twilio; por exemplo, o  **&lt;verbo&gt; digamos** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
+A API utiliza verbos twilio; por exemplo, o verbo **&lt;Say @ no__t-2** instrui o twilio a forma audível a entregar uma mensagem em uma chamada.
 
 Veja a seguir uma lista de verbos do twilio. Saiba mais sobre os outros verbos e funcionalidades por meio da [documentação da linguagem de marcação twilio][twiml].
 
-* Discar:  **&lt;&gt;** Conecta o chamador a outro telefone.
-* Reunir:  **&lt;&gt;** Coleta dígitos numéricos inseridos no teclado do telefone.
-* Desligando: **&gt; &lt;** Termina uma chamada.
-* Pausar:  **&lt;&gt;** Aguarda silenciosamente por um número especificado de segundos.
-* Reproduzir:  **&lt;&gt;** Reproduz um arquivo de áudio.
-* Fila:  **&lt;&gt;** Adicione o a uma fila de chamadores.
-* Registro:  **&lt;&gt;** Registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
-* Redirecionar: **&gt; &lt;** Transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
-* Rejeitar:  **&lt;&gt;** Rejeita uma chamada recebida para seu número de twilio sem cobrar por você.
-* Digamos:  **&lt;&gt;** Converte o texto em fala que é feito em uma chamada.
-* **&lt;Sms&gt;** : Envia uma mensagem SMS.
+* **&lt;Dial @ no__t-2**: conecta o chamador a outro telefone.
+* **&lt;Gather @ no__t-2**: coleta dígitos numéricos inseridos no teclado do telefone.
+* **&lt;Hangup @ no__t-2**: Finaliza uma chamada.
+* **&lt;Pause @ no__t-2**: aguarda silenciosamente por um número especificado de segundos.
+* **&lt;Play @ no__t-2**: reproduz um arquivo de áudio.
+* **&lt;Queue @ no__t-2**: Adicione o a uma fila de chamadores.
+* **&lt;Record @ no__t-2**: registra a voz do chamador e retorna uma URL de um arquivo que contém a gravação.
+* **&lt;Redirect @ no__t-2**: transfere o controle de uma chamada ou SMS para o TwiML em uma URL diferente.
+* **&lt;Reject @ no__t-2**: rejeita uma chamada de entrada para seu número de twilio sem cobrar você.
+* **&lt;Say @ no__t-2**: converte o texto em fala que é feito em uma chamada.
+* **&lt;Sms @ no__t-2**: envia uma mensagem SMS.
 
 ### <a id="TwiML"></a>TwiML
 TwiML é um conjunto de instruções baseadas em XML com base nos verbos twilio que informam twilio de como processar uma chamada ou SMS.
@@ -66,7 +66,7 @@ Como exemplo, o TwiML a seguir converterá o texto **Olá, mundo** em fala.
       <Say>Hello World</Say>
     </Response>
 
-Quando o aplicativo chama a API twilio, um dos parâmetros de API é a URL que retorna a resposta TwiML. Para fins de desenvolvimento, você pode usar URLs fornecidas pelo twilio para fornecer as respostas do TwiML usadas por seus aplicativos. Você também pode hospedar suas próprias URLs para produzir as respostas TwiML e outra opção é usar o `TwiMLResponse` objeto.
+Quando o aplicativo chama a API twilio, um dos parâmetros de API é a URL que retorna a resposta TwiML. Para fins de desenvolvimento, você pode usar URLs fornecidas pelo twilio para fornecer as respostas do TwiML usadas por seus aplicativos. Você também pode hospedar suas próprias URLs para produzir as respostas TwiML e outra opção é usar o objeto `TwiMLResponse`.
 
 Para obter mais informações sobre verbos twilio, seus atributos e TwiML, consulte [TwiML][twiml]. Para obter informações adicionais sobre a API do twilio, consulte [API do twilio][twilio_api].
 
@@ -76,7 +76,7 @@ Quando você estiver pronto para obter uma conta do twilio, Inscreva-se em [expe
 Ao se inscrever em uma conta do twilio, você receberá um SID de conta e um token de autenticação. Ambos serão necessários para fazer chamadas à API do twilio. Para impedir o acesso não autorizado à sua conta, mantenha seu token de autenticação seguro. O SID de sua conta e o token de autenticação são visíveis no [console do twilio][twilio_console], nos campos rotulados **conta SID** e **token de autenticação**, respectivamente.
 
 ## <a id="create_app"></a>Criar um aplicativo Python
-Um aplicativo Python que usa o serviço twilio e está em execução no Azure não é diferente de qualquer outro aplicativo Python que usa o serviço twilio. Embora os serviços Twilios sejam baseados em REST e possam ser chamados do Python de várias maneiras, este artigo se concentrará em como usar os serviços do twilio com a [biblioteca twilio para Python do GitHub][twilio_python]. Para obter mais informações sobre como usar a biblioteca twilio para Python [https://www.twilio.com/docs/libraries/python][twilio_lib_docs], consulte.
+Um aplicativo Python que usa o serviço twilio e está em execução no Azure não é diferente de qualquer outro aplicativo Python que usa o serviço twilio. Embora os serviços Twilios sejam baseados em REST e possam ser chamados do Python de várias maneiras, este artigo se concentrará em como usar os serviços do twilio com a [biblioteca twilio para Python do GitHub][twilio_python]. Para obter mais informações sobre como usar a biblioteca twilio para Python, consulte [https://www.twilio.com/docs/libraries/python][twilio_lib_docs].
 
 Primeiro, [configure uma nova VM Linux do Azure] [azure_vm_setup] para atuar como um host para seu novo aplicativo Web do Python. Depois que a máquina virtual estiver em execução, você precisará expor seu aplicativo em uma porta pública, conforme descrito abaixo.
 
@@ -90,7 +90,7 @@ Primeiro, [configure uma nova VM Linux do Azure] [azure_vm_setup] para atuar com
   2. Selecione o IP público que corresponde à sua máquina virtual.
   3. Defina o **rótulo de nome DNS** na seção **configuração** . No caso deste exemplo, ele será algo parecido *com seu-Domain-Label*. centralus.cloudapp.Azure.com
 
-Depois de se conectar por meio do SSH à máquina virtual, você pode instalar a estrutura da Web de sua escolha (as duas mais conhecidas no Python são [Flask](http://flask.pocoo.org/) e [Django](https://www.djangoproject.com)). Você pode instalar qualquer um deles apenas executando o `pip install` comando.
+Depois de se conectar por meio do SSH à máquina virtual, você pode instalar a estrutura da Web de sua escolha (as duas mais conhecidas no Python são [Flask](http://flask.pocoo.org/) e [Django](https://www.djangoproject.com)). Você pode instalar qualquer um deles apenas executando o comando `pip install`.
 
 Tenha em mente que configuramos a máquina virtual para permitir o tráfego somente na porta 80. Portanto, certifique-se de configurar o aplicativo para usar essa porta.
 
@@ -107,13 +107,13 @@ Você pode configurar seu aplicativo para usar a biblioteca twilio para Python d
 
         $ python setup.py install
 
-Depois de instalar a biblioteca twilio para Python, você poderá, em `import` seguida, em seus arquivos Python:
+Depois de instalar a biblioteca twilio para Python, você poderá `import` em seus arquivos Python:
 
         import twilio
 
-Para obter mais informações, consulte [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.rst).
+Para obter mais informações, consulte [twilio_github_readme](https://github.com/twilio/twilio-python/blob/master/README.md).
 
-## <a id="howto_make_call"></a>Como: Fazer uma chamada de saída
+## <a id="howto_make_call"></a>Como: fazer uma chamada de saída
 O seguinte mostra como fazer uma chamada de saída. Esse código também usa um site fornecido pelo twilio para retornar a resposta TwiML (twilio Markup Language). Substitua seus valores pelos números de telefone **from_number** e **TO_NUMBER** e verifique se você verificou o número de telefone **from_number** para sua conta twilio antes de executar o código.
 
     from urllib.parse import urlencode
@@ -150,7 +150,7 @@ O seguinte mostra como fazer uma chamada de saída. Esse código também usa um 
 Conforme mencionado, esse código usa um site fornecido pelo twilio para retornar a resposta TwiML. Em vez disso, você poderia usar seu próprio site para fornecer a resposta TwiML; para obter mais informações, consulte [como fornecer respostas de TwiML de seu próprio site](#howto_provide_twiml_responses).
 
 ## <a id="howto_send_sms"></a>Como: Enviar uma mensagem SMS
-O seguinte mostra como enviar uma mensagem SMS usando a `TwilioRestClient` classe. O número de **from_number** é fornecido pelo twilio para contas de avaliação para enviar mensagens SMS. O número de **TO_NUMBER** deve ser verificado para sua conta do twilio antes de executar o código.
+O seguinte mostra como enviar uma mensagem SMS usando a classe `TwilioRestClient`. O número de **from_number** é fornecido pelo twilio para contas de avaliação para enviar mensagens SMS. O número de **TO_NUMBER** deve ser verificado para sua conta do twilio antes de executar o código.
 
     # Import the Twilio Python Client.
     from twilio.rest import TwilioRestClient
@@ -171,8 +171,8 @@ O seguinte mostra como enviar uma mensagem SMS usando a `TwilioRestClient` class
                                      from_=from_number,
                                      body=message)
 
-## <a id="howto_provide_twiml_responses"></a>Como: Fornecer respostas de TwiML de seu próprio site
-Quando seu aplicativo iniciar uma chamada para a API twilio, o twilio enviará sua solicitação para uma URL que deve retornar uma resposta TwiML. O exemplo acima usa a URL [https://twimlets.com/message][twimlet_message_url]fornecida pelo twilio. (Embora o TwiML seja projetado para ser usado pelo twilio, você pode exibi-lo em seu navegador. Por exemplo, clique [https://twimlets.com/message][twimlet_message_url] para ver um elemento `<Response>` vazio; como outro exemplo, clique [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver um `<Response>` elemento que contém um `<Say>` elemento.)
+## <a id="howto_provide_twiml_responses"></a>Como: fornecer respostas de TwiML de seu próprio site
+Quando seu aplicativo iniciar uma chamada para a API twilio, o twilio enviará sua solicitação para uma URL que deve retornar uma resposta TwiML. O exemplo acima usa a URL fornecida pelo twilio [https://twimlets.com/message][twimlet_message_url]. (Embora o TwiML seja projetado para ser usado pelo twilio, você pode exibi-lo em seu navegador. Por exemplo, clique em [https://twimlets.com/message][twimlet_message_url] para ver um elemento `<Response>` vazio; como outro exemplo, clique em [https://twimlets.com/message?Message%5B0%5D=Hello%20World][twimlet_message_url_hello_world] para ver um elemento `<Response>` que contém um elemento `<Say>`.)
 
 Em vez de depender da URL fornecida pelo twilio, você pode criar seu próprio site que retorna respostas HTTP. Você pode criar o site em qualquer idioma que retorne respostas XML; Este tópico pressupõe que você usará o Python para criar o TwiML.
 
@@ -193,7 +193,7 @@ Com Django:
         xml = '<Response><Say>Hello world.</Say></Response>'
         return HttpResponse(xml, content_type='text/xml')
 
-Como você pode ver no exemplo acima, a resposta TwiML é simplesmente um documento XML. A biblioteca twilio para Python contém classes que irão gerar TwiML para você. O exemplo a seguir produz a resposta equivalente conforme mostrado acima, mas usa `twiml` o módulo na biblioteca twilio para Python:
+Como você pode ver no exemplo acima, a resposta TwiML é simplesmente um documento XML. A biblioteca twilio para Python contém classes que irão gerar TwiML para você. O exemplo a seguir produz a resposta equivalente conforme mostrado acima, mas usa o módulo `twiml` na biblioteca twilio para Python:
 
     from twilio import twiml
 
@@ -201,9 +201,9 @@ Como você pode ver no exemplo acima, a resposta TwiML é simplesmente um docume
     response.say("Hello world.")
     print(str(response))
 
-Para obter mais informações sobre TwiML, [https://www.twilio.com/docs/api/twiml][twiml_reference]consulte.
+Para obter mais informações sobre TwiML, consulte [https://www.twilio.com/docs/api/twiml][twiml_reference].
 
-Depois de configurar seu aplicativo Python para fornecer respostas TwiML, use a URL do aplicativo como a URL passada para o `client.calls.create` método. Por exemplo, se você tiver um aplicativo Web chamado **MyTwiML** implantado em um serviço hospedado do Azure, poderá usar sua URL como webhook, conforme mostrado no exemplo a seguir:
+Depois de configurar seu aplicativo Python para fornecer respostas TwiML, use a URL do aplicativo como a URL passada para o método `client.calls.create`. Por exemplo, se você tiver um aplicativo Web chamado **MyTwiML** implantado em um serviço hospedado do Azure, poderá usar sua URL como webhook, conforme mostrado no exemplo a seguir:
 
     from twilio.rest import TwilioRestClient
 
@@ -222,7 +222,7 @@ Depois de configurar seu aplicativo Python para fornecer respostas TwiML, use a 
                                url=url)
     print(call.sid)
 
-## <a id="AdditionalServices"></a>Como: Usar serviços Twilios adicionais
+## <a id="AdditionalServices"></a>Como: usar serviços Twilios adicionais
 Além dos exemplos mostrados aqui, o twilio oferece APIs baseadas na Web que você pode usar para aproveitar a funcionalidade adicional do twilio do seu aplicativo do Azure. Para obter detalhes completos, consulte a [documentação da API do twilio][twilio_api].
 
 ## <a id="NextSteps"></a>Passos Seguintes

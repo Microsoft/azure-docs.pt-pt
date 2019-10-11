@@ -1,47 +1,47 @@
 ---
-title: White Papers e casos práticos - Avere vFTX para o Azure
-description: Links para White Papers para download, estudos de caso e outros artigos que ilustram Avere vFXT para o Azure e como ele pode ser usado.
+title: White papers e estudos de caso – avere vFTX for Azure
+description: Links para White papers baixáveis, estudos de caso e outros artigos que ilustram avere vFXT para o Azure e como ele pode ser usado.
 ms.service: avere-vfxt
 author: ekpgh
-ms.author: v-erkell
+ms.author: rohogue
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 257164a7417d4356c83cd1804939973b7029a4f1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409197"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255336"
 ---
-# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>VFTX do Azure para documentos técnicos do Azure e outros recursos 
+# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Documentos do Azure vFTX para Azure White papers e outros recursos 
 
-Os recursos nesta tabela incluem estudos de caso, White Papers de tecnologia, infográficos e outros artigos que podem ajudá-lo a compreender como Avere vFXT para o Azure se adapta seu fluxo de trabalho. 
+Os recursos nesta tabela incluem estudos de caso, White papers de tecnologia, infográficos e outros artigos que podem ajudá-lo a entender como o avere vFXT for Azure se encaixa em seu fluxo de trabalho. 
 
-## <a name="deploy-agisoft-photoscan-on-azure"></a>Implementar Agisoft PhotoScan no Azure
+## <a name="deploy-agisoft-photoscan-on-azure"></a>Implantar o Agisoft fotoscan no Azure
 
-**Link:** [Implementar Agisoft PhotoScan no Azure com Avere vFXT para o Azure ou BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/AgiSoft%20PhotoScan%20on%20Azure%20using%20Avere%20vFXT%20or%20BeeGFS.pdf) 
+**Link:** [implantar o Agisoft fotoscan no Azure com o avere vFXT para Azure ou BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/AgiSoft%20PhotoScan%20on%20Azure%20using%20Avere%20vFXT%20or%20BeeGFS.pdf) 
 
-Este guia fornece orientações passo a passo para instalar o Agisoft PhotoScan software photogrammetry apoiada pelo armazenamento de vFXT Avere ou sistema de ficheiros paralelos BeeGFS. O autor, Paulo Marques da Costa do AzureCAT, mostra como configurar a PhotoScan em máquinas virtuais do Azure (VMs). Armazenamento de elevado desempenho acelera o tempo de processamento e os resultados de seus testes de benchmark estão incluídos. Este ambiente pode ser aumentado e diminuído conforme necessário e suporta terabytes de armazenamento sem sacrificar o desempenho.
+Este guia fornece uma orientação passo a passo para a instalação do software Photogrammetry do Agisoft digitalização com suporte pelo armazenamento avere vFXT ou pelo sistema de arquivos paralelo BeeGFS. O autor, Paulo Marques da costa da AzureCAT, mostra como configurar a digitalização em VMs (máquinas virtuais) do Azure. O armazenamento de alto desempenho acelera o tempo de processamento e os resultados de seus testes de benchmark são incluídos. Esse ambiente pode ser escalado verticalmente e reduzido conforme necessário e dá suporte a terabytes de armazenamento sem sacrificar o desempenho.
 
-## <a name="datasheet-avere-vfxt-for-azure"></a>Folha de dados: Avere vFXT for Azure
+## <a name="datasheet-avere-vfxt-for-azure"></a>Folha de data: avere vFXT for Azure
 
-**Link:** [Avere vFXT para folha de dados do Azure](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
+**Link:** [avere vFXT for Azure datasheet](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
-Este relatório de duas páginas tem informações básicas e diagramas que explicam como utilizar Avere vFXT para o Azure em vários casos de utilização.
+Este resumo de duas páginas tem informações e diagramas básicos que explicam como usar o avere vFXT para o Azure em vários cenários de caso de uso.
 
 ## <a name="hybrid-cloud-for-file-based-workloads"></a>cloud híbrida para cargas de trabalho baseadas em ficheiros
 
-**Link:** [Infografia: Criar uma cloud híbrida para cargas de trabalho baseados em ficheiros](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) 
+**Link:** [Infográfico: criando uma nuvem híbrida para cargas de trabalho baseadas em arquivo](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/) 
 
-Este gráfico mostra os componentes e layouts de utilização do Avere vFXT para o Azure para adicionar a infraestrutura de nuvem ao seu sistema existente. Utilize Avere vFXT para o Azure aumentar a capacidade de computação com os seus existentes infraestrutura no local, ou move dados e computação para a cloud de forma temporária ou permanente.  
+Este gráfico mostra componentes e layouts para usar o avere vFXT para Azure para adicionar infraestrutura de nuvem ao seu sistema existente. Use o avere vFXT para o Azure para aumentar a capacidade de computação com sua infraestrutura local existente ou mover dados e computar para a nuvem de forma temporária ou permanente.  
 
-## <a name="cloud-bursting"></a>Segurança da cloud 
+## <a name="cloud-bursting"></a>Intermitência de nuvem 
 
-**Link:** [Segurança da nuvem para NAS escaláveis de alto desempenho](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf) 
+**Link:** [nuvem de intermitência para alto desempenho, nas escalonável](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf) 
 
- Este resumo da solução de segurança da cloud mostra como pode tornar rapidamente dados disponíveis para a cloud de recursos de computação nondisruptively utilizando Avere vFXT para o Azure.
+ Este resumo da solução de intermitência de nuvem mostra como você pode tornar os dados disponíveis rapidamente para recursos de computação em nuvem sem interrupções usando o avere vFXT para Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para continuar a planear um vFXT Avere para implementação do Azure, leia [planear o seu sistema de vFXT Avere](avere-vfxt-deploy-plan.md).
-* Para obter respostas para perguntas específicas, consulte a [Avere vFXT para perguntas frequentes do Azure](avere-vfxt-faq.md).
+* Para continuar planejando um avere vFXT para a implantação do Azure, leia [planejar seu sistema avere vFXT](avere-vfxt-deploy-plan.md).
+* Para obter respostas a perguntas específicas, consulte as [perguntas frequentes sobre o avere vFXT for Azure](avere-vfxt-faq.md).

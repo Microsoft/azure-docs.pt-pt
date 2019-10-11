@@ -1,60 +1,60 @@
 ---
-title: Automatizar a instalação do serviço de mobilidade do Azure Site Recovery para recuperação após desastre de VMs de VMware e servidores físicos para o Azure com o System Center Configuration Manager | Documentos da Microsoft
-description: Este artigo ajuda-o a automatizar a instalação do serviço de mobilidade com o System Center Configuration Manager, para recuperação após desastre de VMs de VMware e servidores físicos para o Azure com o Site Recovery.
+title: Automatizar a instalação do serviço de mobilidade de Azure Site Recovery para recuperação de desastre de VMs VMware e servidores físicos no Azure usando o System Center Configuration Manager | Microsoft Docs
+description: Este artigo ajuda a automatizar a instalação do serviço de mobilidade com o System Center Configuration Manager, para recuperação de desastres de VMs VMware e servidores físicos no Azure usando Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee92ad6e0687018f69044bf3edde76b9f98cee52
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598057"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255585"
 ---
 # <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatizar a instalação do serviço de mobilidade com o System Center Configuration Manager
 
-O serviço de mobilidade está instalado em VMs de VMware e servidores físicos que pretende replicar para o Azure com [Azure Site Recovery](site-recovery-overview.md)
+O serviço de mobilidade é instalado em VMs VMware e servidores físicos que você deseja replicar para o Azure usando [Azure site Recovery](site-recovery-overview.md)
 
-Este artigo fornece um exemplo de como pode usar o System Center Configuration Manager para implementar o serviço de mobilidade do Azure Site Recovery numa VM do VMware. Usando uma ferramenta de implementação de software, como o Configuration Manager possui as seguintes vantagens:
+Este artigo fornece um exemplo de como você pode usar System Center Configuration Manager para implantar o serviço de mobilidade de Azure Site Recovery em uma VM VMware. O uso de uma ferramenta de implantação de software como Configuration Manager tem as seguintes vantagens:
 
-* Agendar instalações zero e atualizações durante a janela de manutenção planeada para atualizações de software
-* Dimensionar a implementação para centenas de servidores em simultâneo
+* Agendar instalações e atualizações novas durante a janela de manutenção planejada para atualizações de software
+* Dimensionar a implantação em centenas de servidores simultaneamente
 
-Este artigo utiliza o System Center Configuration Manager 2012 R2 para demonstrar a atividade de implementação. Podemos pressupõe que está a utilizar versão **9.9.4510.1** ou superior do serviço de mobilidade.
+Este artigo usa System Center Configuration Manager 2012 R2 para demonstrar a atividade de implantação. Vamos supor que você esteja usando a versão **9.9.4510.1** ou superior do serviço de mobilidade.
 
-Em alternativa, pode automatizar a instalação do serviço de mobilidade com o [DSC de automatização do Azure](vmware-azure-mobility-deploy-automation-dsc.md).
+Como alternativa, você pode automatizar a instalação do serviço de mobilidade com o [Azure DSC de automação](vmware-azure-mobility-deploy-automation-dsc.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Uma implementação ferramenta de software, como o Configuration Manager, que já estiver implementado no seu ambiente.
-2. Deve criar dois [coleções de dispositivos](https://technet.microsoft.com/library/gg682169.aspx), um para todos **servidores do Windows**e outro para todos os **servidores Linux**, que deseja proteger com o Site Recovery.
-3. Um servidor de configuração que já está registado no cofre dos serviços de recuperação.
-4. Uma rede segura partilha de ficheiros (partilha SMB) que pode ser acessada pela máquina do Gestor de configuração.
+1. Uma ferramenta de implantação de software, como Configuration Manager, que já está implantada em seu ambiente.
+2. Você deve criar duas [coleções de dispositivos](https://technet.microsoft.com/library/gg682169.aspx), uma para todos os **servidores Windows**e outra para todos os **servidores Linux**que deseja proteger usando site Recovery.
+3. Um servidor de configuração que já está registrado no cofre dos serviços de recuperação.
+4. Um compartilhamento de arquivos de rede seguro (compartilhamento SMB) que pode ser acessado pelo computador do Configuration Manager.
 
-## <a name="deploy-on-windows-machines"></a>Implementar em máquinas do Windows
+## <a name="deploy-on-windows-machines"></a>Implantar em computadores Windows
 > [!NOTE]
-> Este artigo pressupõe que o endereço IP do servidor de configuração é 192.168.3.121 e de que a partilha de ficheiros de rede segura é \\\ContosoSecureFS\MobilityServiceInstallers.
+> Este artigo pressupõe que o endereço IP do servidor de configuração é 192.168.3.121 e que o compartilhamento de arquivos de rede segura é \\ \ ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Preparar para a implementação
-1. Crie uma pasta na partilha de rede e designe- **MobSvcWindows**.
-2. Inicie sessão no seu servidor de configuração e abra uma linha de comandos administrativa.
-3. Execute os seguintes comandos para gerar um ficheiro da frase de acesso:
+### <a name="prepare-for-deployment"></a>Preparar para implementar
+1. Crie uma pasta no compartilhamento de rede e nomeie-a **MobSvcWindows**.
+2. Entre no servidor de configuração e abra um prompt de comando administrativo.
+3. Execute os seguintes comandos para gerar um arquivo de frase secreta:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. Copiar o **MobSvc.passphrase** de ficheiros para o **MobSvcWindows** pasta na partilha de rede.
-5. Navegue para o repositório de instalador no servidor de configuração ao executar o seguinte comando:
+4. Copie o arquivo **arquivo mobsvc. passphrase** para a pasta **MobSvcWindows** em seu compartilhamento de rede.
+5. Navegue até o repositório do instalador no servidor de configuração executando o seguinte comando:
 
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
-6. Copiar o **Microsoft ASR\_UA\_*versão*\_Windows\_GA\_*data*\_Release.exe**  para o **MobSvcWindows** pasta na partilha de rede.
-7. Copie o código seguinte e guarde-o como **bat** para o **MobSvcWindows** pasta.
+6. Copie a ***versão*Microsoft-ASR @ no__t-1UA @ no__t-2 \_Windows @ no__t-5GA @ no__t-6*Data*@no__t -8release. exe** para a pasta **MobSvcWindows** em seu compartilhamento de rede.
+7. Copie o código a seguir e salve-o como **install. bat** na pasta **MobSvcWindows**
 
    > [!NOTE]
-   > Substitua os marcadores de posição [CSIP] neste script com os valores reais do endereço IP do seu servidor de configuração.
+   > Substitua os espaços reservados [CSIP] neste script pelos valores reais do endereço IP do seu servidor de configuração.
 
 ```DOS
 Time /t >> C:\Temp\logfile.log
@@ -155,94 +155,91 @@ IF NOT %ERRORLEVEL% EQU 0 (
 
 ### <a name="create-a-package"></a>Criar um pacote
 
-1. Inicie sessão na consola do Configuration Manager.
-2. Navegue até **biblioteca de Software** > **gestão de aplicações** > **pacotes**.
-3. Com o botão direito **pacotes**e selecione **criar pacote**.
-4. Fornece valores para o nome, descrição, fabricante, idioma e versão.
-5. Selecione o **este pacote contém ficheiros de origem** caixa de verificação.
-6. Clique em **navegue**e selecione a partilha de rede onde está armazenado o instalador (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
+1. Entre no console do Configuration Manager.
+2. Navegue até **biblioteca de Software** > **pacotes**de**Gerenciamento de aplicativos** > .
+3. Clique com o botão direito do mouse em **pacotes**e selecione **criar pacote**.
+4. Forneça valores para o nome, a descrição, o fabricante, o idioma e a versão.
+5. Marque a caixa de seleção **Este pacote contém arquivos de origem** .
+6. Clique em **procurar**e selecione o compartilhamento de rede onde o instalador está armazenado (\\ \ ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
+   ![Captura de tela do assistente para criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-7. Sobre o **escolha o tipo de programa que pretende criar** página, selecione **programa padrão**e clique em **seguinte**.
+7. Na página **escolha o tipo de programa que você deseja criar** , selecione **programa padrão**e clique em **Avançar**.
 
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Captura de tela do assistente para criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. Sobre o **especificar informações sobre este programa padrão** página, fornecer as entradas seguintes e clique em **próxima**. (As outras entradas podem usar seus valores padrão).
+8. Na página **especificar informações sobre este programa padrão** , forneça as seguintes entradas e clique em **Avançar**. (As outras entradas podem usar seus valores padrão.)
 
    | **Parameter name** (Nome do parâmetro) | **Valor** |
    |--|--|
-   | Name | Instalar o serviço de mobilidade do Microsoft Azure (Windows) |
-   | Linha de comandos | install.bat |
-   | Programa pode ser executado | Se pretende ou não um utilizador tem sessão iniciada |
+   | Nome | Instalar o serviço de mobilidade de Microsoft Azure (Windows) |
+   | Linha de comandos | install. bat |
+   | O programa pode ser executado | Se um usuário está conectado ou não |
 
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Captura de tela do assistente para criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. Na página seguinte, selecione os sistemas operacionais de destino. O serviço de mobilidade pode ser instalado apenas no Windows Server 2012 R2, Windows Server 2012 e Windows Server 2008 R2.
-
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
-10. Para concluir o assistente, clique em **seguinte** duas vezes.
+9. Na página seguinte, selecione os sistemas operacionais de destino. 
+10. Para concluir o assistente, clique em **Avançar** duas vezes.
 
 
 > [!NOTE]
-> O script oferece suporte a ambas as novas instalações de agentes de serviço de mobilidade e atualizações para agentes que já estejam instaladas.
+> O script dá suporte a novas instalações de agentes de serviço de mobilidade e atualizações para agentes que já estão instalados.
 
-### <a name="deploy-the-package"></a>Implementar o pacote
-1. Na consola do Configuration Manager, o pacote com o botão direito e selecione **distribuir conteúdo**.
-   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Selecione o **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** para que os pacotes devem ser copiados.
-3. Conclua o assistente. O pacote, em seguida, começa a replicar para pontos de distribuição especificados.
-4. Depois de terminar a distribuição do pacote, o pacote com o botão direito e selecione **Deploy**.
-   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. Selecione a coleção de dispositivos do Windows Server que criou na secção pré-requisitos, como a coleção de destino para implementação.
+### <a name="deploy-the-package"></a>Implantar o pacote
+1. No console do Configuration Manager, clique com o botão direito do mouse no pacote e selecione **distribuir conteúdo**.
+   ![Screenshot do console Configuration Manager @ no__t-1
+2. Selecione os **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** nos quais os pacotes devem ser copiados.
+3. Conclua o assistente. Em seguida, o pacote inicia a replicação para os pontos de distribuição especificados.
+4. Depois que a distribuição do pacote for concluída, clique com o botão direito do mouse no pacote e selecione **implantar**.
+   ![Screenshot do console Configuration Manager @ no__t-1
+5. Selecione a coleção de dispositivos do Windows Server que você criou na seção pré-requisitos como a coleção de destino para implantação.
 
-   ![Assistente de captura de ecrã de implementação de Software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
+   ![Captura de tela do assistente de implantação de software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
-6. Sobre o **especifique o destino do conteúdo** página, selecione seu **pontos de distribuição**.
-7. Sobre o **especificar as definições para controlar a forma como este software é implementado** página, certifique-se de que o objetivo é **necessário**.
+6. Na página **especificar o destino do conteúdo** , selecione seus **pontos de distribuição**.
+7. Na página **especificar as configurações para controlar como este software é implantado** , verifique se a finalidade é **necessária**.
 
-   ![Assistente de captura de ecrã de implementação de Software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Captura de tela do assistente de implantação de software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. Sobre o **especifique o agendamento para esta implementação** , especifique uma agenda. Para obter mais informações, consulte [agendamento pacotes](https://technet.microsoft.com/library/gg682178.aspx).
-9. Sobre o **pontos de distribuição** página, configure as propriedades de acordo com as necessidades do seu datacenter. Em seguida, conclua o assistente.
+8. Na página **especificar o agendamento para esta implantação** , especifique uma agenda. Para obter mais informações, consulte [agendando pacotes](https://technet.microsoft.com/library/gg682178.aspx).
+9. Na página **pontos de distribuição** , configure as propriedades de acordo com as necessidades do seu datacenter. Em seguida, conclua o assistente.
 
 > [!TIP]
-> Para evitar reinícios desnecessários, agende a instalação do pacote durante a janela de manutenção mensal ou janela de atualizações de software.
+> Para evitar reinicializações desnecessárias, Agende a instalação do pacote durante a janela de manutenção mensal ou a janela de atualizações de software.
 
-Pode monitorizar o progresso da implementação, utilizando a consola do Configuration Manager. Aceda a **monitorização** > **implementações** >  *[nome do seu pacote]* .
+Você pode monitorar o progresso da implantação usando o console do Configuration Manager. Acesse **monitoramento** > **implantações** >  *[nome do pacote]* .
 
-  ![Opção de captura de ecrã do Configuration Manager para monitorizar as implementações](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
+  ![Captura de tela da opção de Configuration Manager para monitorar implantações](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 
-## <a name="deploy-on-linux-machines"></a>Implementar em máquinas do Linux
+## <a name="deploy-on-linux-machines"></a>Implantar em computadores Linux
 > [!NOTE]
-> Este artigo pressupõe que o endereço IP do servidor de configuração é 192.168.3.121 e de que a partilha de ficheiros de rede segura é \\\ContosoSecureFS\MobilityServiceInstallers.
+> Este artigo pressupõe que o endereço IP do servidor de configuração é 192.168.3.121 e que o compartilhamento de arquivos de rede segura é \\ \ ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Preparar para a implementação
-1. Crie uma pasta na partilha de rede e nomeie-o como **MobSvcLinux**.
-2. Inicie sessão no seu servidor de configuração e abra uma linha de comandos administrativa.
-3. Execute os seguintes comandos para gerar um ficheiro da frase de acesso:
+### <a name="prepare-for-deployment"></a>Preparar para implementar
+1. Crie uma pasta no compartilhamento de rede e nomeie-a como **MobSvcLinux**.
+2. Entre no servidor de configuração e abra um prompt de comando administrativo.
+3. Execute os seguintes comandos para gerar um arquivo de frase secreta:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. Copiar o **MobSvc.passphrase** de ficheiros para o **MobSvcLinux** pasta na partilha de rede.
-5. Navegue para o repositório de instalador no servidor de configuração ao executar o comando:
+4. Copie o arquivo **arquivo mobsvc. passphrase** para a pasta **MobSvcLinux** em seu compartilhamento de rede.
+5. Navegue até o repositório do instalador no servidor de configuração executando o comando:
 
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
-6. Copie os seguintes ficheiros para o **MobSvcLinux** pasta na partilha de rede:
-   * Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+6. Copie os seguintes arquivos para a pasta **MobSvcLinux** em seu compartilhamento de rede:
+   * Microsoft-ASR @ no__t-0UA @ no__t-1RHEL6-64 * Release. tar. gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1RHEL7-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1OL6-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1UBUNTU-14.04-64\*release.tar.gz
 
 
-7. Copie o código seguinte e guarde-o como **install_linux.sh** para o **MobSvcLinux** pasta.
+7. Copie o código a seguir e salve-o como **install_linux. sh** na pasta **MobSvcLinux** .
    > [!NOTE]
-   > Substitua os marcadores de posição [CSIP] neste script com os valores reais do endereço IP do seu servidor de configuração.
+   > Substitua os espaços reservados [CSIP] neste script pelos valores reais do endereço IP do seu servidor de configuração.
 
 ```Bash
 #!/usr/bin/env bash
@@ -380,61 +377,61 @@ cd /tmp
 
 ### <a name="create-a-package"></a>Criar um pacote
 
-1. Inicie sessão na consola do Configuration Manager.
-2. Navegue até **biblioteca de Software** > **gestão de aplicações** > **pacotes**.
-3. Com o botão direito **pacotes**e selecione **criar pacote**.
-4. Fornece valores para o nome, descrição, fabricante, idioma e versão.
-5. Selecione o **este pacote contém ficheiros de origem** caixa de verificação.
-6. Clique em **navegue**e selecione a partilha de rede onde está armazenado o instalador (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
+1. Entre no console do Configuration Manager.
+2. Navegue até **biblioteca de Software** > **pacotes**de**Gerenciamento de aplicativos** > .
+3. Clique com o botão direito do mouse em **pacotes**e selecione **criar pacote**.
+4. Forneça valores para o nome, a descrição, o fabricante, o idioma e a versão.
+5. Marque a caixa de seleção **Este pacote contém arquivos de origem** .
+6. Clique em **procurar**e selecione o compartilhamento de rede onde o instalador está armazenado (\\ \ ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
+   ![Captura de tela do assistente para criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
-7. Sobre o **escolha o tipo de programa que pretende criar** página, selecione **programa padrão**e clique em **seguinte**.
+7. Na página **escolha o tipo de programa que você deseja criar** , selecione **programa padrão**e clique em **Avançar**.
 
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Captura de tela do assistente para criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. Sobre o **especificar informações sobre este programa padrão** página, fornecer as entradas seguintes e clique em **próxima**. (As outras entradas podem usar seus valores padrão).
+8. Na página **especificar informações sobre este programa padrão** , forneça as seguintes entradas e clique em **Avançar**. (As outras entradas podem usar seus valores padrão.)
 
     | **Parameter name** (Nome do parâmetro) | **Valor** |
    |--|--|
-   | Name | Instalar o serviço de mobilidade do Microsoft Azure (Linux) |
+   | Nome | Instalar o serviço de mobilidade de Microsoft Azure (Linux) |
    | Linha de comandos | ./install_linux.sh |
-   | Programa pode ser executado | Se pretende ou não um utilizador tem sessão iniciada |
+   | O programa pode ser executado | Se um usuário está conectado ou não |
 
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
+   ![Captura de tela do assistente para criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
-9. Na página seguinte, selecione **este programa pode ser executado em qualquer plataforma**.
-   ![Assistente de captura de ecrã de criar pacote e programa](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
+9. Na próxima página, selecione **este programa pode ser executado em qualquer plataforma**.
+   ![Screenshot do assistente para criar pacote e programa @ no__t-1
 
-10. Para concluir o assistente, clique em **seguinte** duas vezes.
+10. Para concluir o assistente, clique em **Avançar** duas vezes.
 
 > [!NOTE]
-> O script oferece suporte a ambas as novas instalações de agentes de serviço de mobilidade e atualizações para agentes que já estejam instaladas.
+> O script dá suporte a novas instalações de agentes de serviço de mobilidade e atualizações para agentes que já estão instalados.
 
-### <a name="deploy-the-package"></a>Implementar o pacote
-1. Na consola do Configuration Manager, o pacote com o botão direito e selecione **distribuir conteúdo**.
-   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Selecione o **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** para que os pacotes devem ser copiados.
-3. Conclua o assistente. O pacote, em seguida, começa a replicar para pontos de distribuição especificados.
-4. Depois de terminar a distribuição do pacote, o pacote com o botão direito e selecione **Deploy**.
-   ![Consola de captura de ecrã do Configuration Manager](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. Selecione a coleção de dispositivos de servidor Linux que criou na secção pré-requisitos, como a coleção de destino para implementação.
+### <a name="deploy-the-package"></a>Implantar o pacote
+1. No console do Configuration Manager, clique com o botão direito do mouse no pacote e selecione **distribuir conteúdo**.
+   ![Screenshot do console Configuration Manager @ no__t-1
+2. Selecione os **[pontos de distribuição](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** nos quais os pacotes devem ser copiados.
+3. Conclua o assistente. Em seguida, o pacote inicia a replicação para os pontos de distribuição especificados.
+4. Depois que a distribuição do pacote for concluída, clique com o botão direito do mouse no pacote e selecione **implantar**.
+   ![Screenshot do console Configuration Manager @ no__t-1
+5. Selecione a coleção de dispositivos do servidor Linux criada na seção pré-requisitos como a coleção de destino para implantação.
 
-   ![Assistente de captura de ecrã de implementação de Software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
+   ![Captura de tela do assistente de implantação de software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
-6. Sobre o **especifique o destino do conteúdo** página, selecione seu **pontos de distribuição**.
-7. Sobre o **especificar as definições para controlar a forma como este software é implementado** página, certifique-se de que o objetivo é **necessário**.
+6. Na página **especificar o destino do conteúdo** , selecione seus **pontos de distribuição**.
+7. Na página **especificar as configurações para controlar como este software é implantado** , verifique se a finalidade é **necessária**.
 
-   ![Assistente de captura de ecrã de implementação de Software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Captura de tela do assistente de implantação de software](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. Sobre o **especifique o agendamento para esta implementação** , especifique uma agenda. Para obter mais informações, consulte [agendamento pacotes](https://technet.microsoft.com/library/gg682178.aspx).
-9. Sobre o **pontos de distribuição** página, configure as propriedades de acordo com as necessidades do seu datacenter. Em seguida, conclua o assistente.
+8. Na página **especificar o agendamento para esta implantação** , especifique uma agenda. Para obter mais informações, consulte [agendando pacotes](https://technet.microsoft.com/library/gg682178.aspx).
+9. Na página **pontos de distribuição** , configure as propriedades de acordo com as necessidades do seu datacenter. Em seguida, conclua o assistente.
 
-O serviço de mobilidade é instalado na coleção de dispositivos de servidor Linux, de acordo com a agenda configurada.
+O serviço de mobilidade é instalado na coleção de dispositivos do servidor Linux, de acordo com o agendamento configurado.
 
 
-## <a name="uninstall-the-mobility-service"></a>Desinstale o serviço de mobilidade
-Pode criar pacotes do Configuration Manager para desinstalar o serviço de mobilidade. Utilize o seguinte script para fazer isso:
+## <a name="uninstall-the-mobility-service"></a>Desinstalar o serviço de mobilidade
+Você pode criar pacotes de Configuration Manager para desinstalar o serviço de mobilidade. Use o seguinte script para fazer isso:
 
 ```
 Time /t >> C:\logfile.log
@@ -457,5 +454,5 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-Agora, está pronto para [ativar a proteção](vmware-azure-enable-replication.md) para as suas máquinas virtuais.
+## <a name="next-steps"></a>Passos seguintes
+Agora você está pronto para [habilitar a proteção](vmware-azure-enable-replication.md) para suas máquinas virtuais.

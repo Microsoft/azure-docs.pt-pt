@@ -1,5 +1,5 @@
 ---
-title: Tutorial-configurar um cluster no Azure HDInsight usando Ansible | Microsoft Docs
+title: Tutorial-configurar um cluster no Azure HDInsight usando o Ansible
 description: Saiba como usar o Ansible para criar e redimensionar um Azure HDInsight
 keywords: Ansible, Azure, DevOps, Bash, manual, Apache Hadoop, hdinsight
 ms.topic: tutorial
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ad17e6ff4cbf5b583e3a4be410847c1349c9edce
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861267"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241951"
 ---
-# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Tutorial: Configurar um cluster no Azure HDInsight usando o Ansible
+# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Tutorial: configurar um cluster no Azure HDInsight usando o Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -95,7 +95,7 @@ O código do guia estratégico nesta seção recupera a chave usada para acessar
     var: storage_output
 ```
 
-## <a name="create-an-hdinsight-spark-cluster"></a>Criar um cluster do Spark no HDInsight
+## <a name="create-an-hdinsight-spark-cluster"></a>Criar um cluster do Apache Spark no HDInsight
 
 O código do guia estratégico nesta seção cria o cluster do Azure HDInsight.
 
@@ -144,7 +144,7 @@ A criação da instância pode levar vários minutos para ser concluída.
 
 Após a criação do cluster, a única configuração que você pode alterar é o número de nós de trabalho. 
 
-O código do guia estratégico nesta seção incrementa o número de nós de trabalho `target_instance_count` atualizando `workernode`no.
+O código do guia estratégico nesta seção incrementa o número de nós de trabalho atualizando `target_instance_count` em `workernode`.
 
 ```yml
 - name: Resize cluster
@@ -205,7 +205,7 @@ O código do guia estratégico nesta seção exclui o cluster.
 ## <a name="get-the-sample-playbook"></a>Obter o guia estratégico de exemplo
 
 Há duas maneiras de obter o guia estratégico de exemplo completo:
-- [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) e salve- `hdinsight_create.yml`o no.
+- [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) e salve-o em `hdinsight_create.yml`.
 - Crie um novo arquivo chamado `hdinsight_create.yml` e copie-o para ele no seguinte conteúdo:
 
 ```yml
@@ -353,9 +353,9 @@ Há duas maneiras de obter o guia estratégico de exemplo completo:
 Nesta seção, execute o guia estratégico para testar vários recursos mostrados neste artigo.
 
 Antes de executar o guia estratégico, faça as seguintes alterações:
-- Na seção, substitua o `{{ resource_group_name }}` espaço reservado pelo nome do seu grupo de recursos. `vars`
+- Na seção `vars`, substitua o espaço reservado `{{ resource_group_name }}` pelo nome do seu grupo de recursos.
 
-Execute o guia estratégico usando `ansible-playbook` o comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook hdinsight.yml
@@ -365,7 +365,7 @@ ansible-playbook hdinsight.yml
 
 Quando não for mais necessário, exclua os recursos criados neste artigo. 
 
-Salve o código a seguir `cleanup.yml`como:
+Salve o código a seguir como `cleanup.yml`:
 
 ```yml
 - hosts: localhost
@@ -379,13 +379,13 @@ Salve o código a seguir `cleanup.yml`como:
         state: absent
 ```
 
-Execute o guia estratégico usando `ansible-playbook` o comando:
+Execute o guia estratégico usando o comando `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"] 
 > [Ansible no Azure](/azure/ansible/)

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931256"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255655"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios Azure Active Directory
 
@@ -49,11 +49,18 @@ Para usar pastas de trabalho de monitoramento, você precisa de:
 
 - Um [espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
+- [Acesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) ao espaço de trabalho do log Analytics
+- Funções a seguir no Azure Active Directory (se você estiver acessando Log Analytics por meio do portal do Azure Active Directory)
+    - Administrador de Segurança
+    - Leitor de segurança
+    - Leitor de relatórios
+    - Administrador global
+
 ## <a name="roles"></a>Funções
 Você deve estar em uma das seguintes funções, bem como ter acesso ao espaço de trabalho de [log Analytics subjacente](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) para gerenciar as pastas de trabalho:
--   Admin Global
+-   Administrador global
 -   Administrador de Segurança
--   Leitor de Segurança
+-   Leitor de segurança
 -   Leitor de relatórios
 -   Administrador do aplicativo
 
@@ -85,7 +92,7 @@ Esta pasta de trabalho mostra as seguintes tendências de entrada:
 
 - Êxito
 
-- Ação de utilizador pendente
+- Ação pendente do usuário
 
 - Falha
 
@@ -102,7 +109,7 @@ Você pode filtrar cada tendência pelas seguintes categorias:
 
 Para cada tendência, você obtém uma divisão das seguintes categorias:
 
-- Location
+- Localização
 
     ![Entradas por local](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -208,7 +215,7 @@ Use a pasta de trabalho **análise de falha de entradas** para solucionar erros 
 
 - Inícios de sessão
 - Políticas de acesso condicional
-- Autenticação legada 
+- Autenticação herdada 
 
 
 Para acessar as entradas por dados de acesso condicional, na seção **solucionar problemas** , selecione **entradas usando a autenticação herdada**. 

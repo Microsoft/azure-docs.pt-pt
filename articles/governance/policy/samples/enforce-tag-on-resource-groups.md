@@ -1,17 +1,17 @@
 ---
-title: Exemplo – aplicar marca e seu valor em grupos de recursos
+title: Exemplo – impor marca e valor em grupos de recursos
 description: Esta definição de política de exemplo requer uma marca e um valor em um grupo de recursos.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/31/2019
 ms.author: dacoulte
-ms.openlocfilehash: 00c94aa6077c8a8599b31e9ab37f925fdfebefb0
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4af5ee88ad491e7864e82afc337801e47f2204
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977179"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255773"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>Exemplo – aplicar marca e seu valor em grupos de recursos
 
@@ -20,9 +20,9 @@ Esta política requer uma etiqueta e um valor num grupo de recursos. Especifica 
 Pode implementar esta política de exemplo com:
 
 - O [portal do Azure](#azure-portal)
-- [Azure PowerShell](#azure-powershell)
+- [O Azure PowerShell](#azure-powershell)
 - [CLI do Azure](#azure-cli)
-- [REST API](#rest-api)
+- [API REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,10 +49,10 @@ O JSON que define os parâmetros da política, utilizado pela CLI do Azure e o A
 
 [!code-json[parameters](../../../../policy-templates/samples/ResourceGroup/enforce-resourceGroup-tags/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|Name |Type |Campo |Descrição |
+|Nome |Tipo |Campo |Descrição |
 |---|---|---|---|
-|tagName |Cadeia |tags |Nome da etiqueta, como costCenter|
-|tagValue |Cadeia |tags |Valor da etiqueta, como headquarter|
+|tagName |String |etiquetas |Nome da etiqueta, como costCenter|
+|tagValue |String |etiquetas |Valor da etiqueta, como headquarter|
 
 Ao criar uma atribuição através do PowerShell ou da CLI do Azure, os valores do parâmetro podem ser transmitidos como JSON numa cadeia ou através de um ficheiro com o `-PolicyParameter` (PowerShell) ou a `--params` (CLI do Azure).
 O PowerShell também suporta `-PolicyParameterObject`, o que exige passar ao cmdlet um Nome/Valor hashtable em que **Nome** é o nome do parâmetro e **Valor** é o valor único ou a matriz de valores a ser transmitida durante a atribuição.
@@ -123,7 +123,7 @@ Os scripts de implementação e remoção utilizam os seguintes comandos. Cada c
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
-### <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+### <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 ```azurecli-interactive
 # Create the Policy Definition (Subscription scope)
@@ -166,7 +166,7 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 ## <a name="rest-api"></a>API REST
 
-### <a name="deploy-with-rest-api"></a>Implementar com a API REST
+### <a name="deploy-with-rest-api"></a>Implementar com API REST
 
 - Crie a Definição de Política (âmbito da Subscrição). Utilize o JSON [definição de política](#policy-definition) para o Corpo do Pedido.
 
@@ -217,10 +217,10 @@ Existem várias ferramentas que podem ser utilizadas para interagir com a API RE
 
 | Serviço | Grupo | Operação | Notas |
 |---|---|---|---|
-| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Opcional [Criar no grupo de gerenciamento](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Criar](/rest/api/resources/policydefinitions/createorupdate) | Cria uma nova definição do Azure Policy numa subscrição. Em alternativa: [Criar no grupo de gestão](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Gestão de Recursos | Atribuições de Política | [Criar](/rest/api/resources/policyassignments/create) | Cria uma nova atribuição do Azure Policy. Neste exemplo, damos uma definição, mas também pode tomar iniciativa. |
 | Gestão de Recursos | Atribuições de Política | [Eliminar](/rest/api/resources/policyassignments/delete) | Remove uma atribuição do Azure Policy existente. |
-| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Opcional [Excluir no grupo de gerenciamento](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
+| Gestão de Recursos | Definições de Política | [Eliminar](/rest/api/resources/policydefinitions/delete) | Remove uma definição do Azure Policy existente. Em alternativa: [Eliminar no grupo de gestão](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

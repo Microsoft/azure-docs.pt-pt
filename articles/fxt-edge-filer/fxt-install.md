@@ -1,228 +1,228 @@
 ---
-title: Tutorial sobre como instalar um dispositivo físico do filtro de borda de FXT do Azure | Documentos da Microsoft
-description: Como descompactar, montar e instalar o componente de dispositivo físico da cache de armazenamento do filtro de borda do Microsoft Azure FXT híbrida
+title: Tutorial sobre a instalação de um dispositivo físico do Filer do Azure FXT Edge | Microsoft Docs
+description: Como desempacotar, colocar em rack e conectar o componente do dispositivo físico do Microsoft Azure o cache de armazenamento híbrido do Filer do FXT Edge
 services: ''
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: ed9eca88e5ccc386b25acb95fa729a3cfb95cbd0
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 0f3c7b01ee9d4a62ec0d563af55f2086894081be
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543481"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256042"
 ---
-# <a name="tutorial-install-azure-fxt-edge-filer"></a>Tutorial: Instalar o filtro de borda FXT do Azure 
+# <a name="tutorial-install-azure-fxt-edge-filer"></a>Tutorial: instalar o filer do Azure FXT Edge 
 
-Este tutorial descreve como instalar um nó de hardware para a cache de armazenamento híbrido do Azure FXT Edge filtro. Tem de instalar pelo menos três nós de hardware para criar um cluster de ficheiros do Azure FXT Edge.
+Este tutorial descreve como instalar um nó de hardware para o cache de armazenamento híbrido do Filer do Azure FXT Edge. Você precisa instalar pelo menos três nós de hardware para criar um cluster de arquivos do Azure FXT Edge.
 
-O procedimento de instalação envolve descompactar e rack montar o dispositivo e anexando-o braço de gestão de cabo (CMA) e front-bezel. Um tutorial separado explica anexar cabos de rede e o poder de ligação. 
+O procedimento de instalação envolve o desempacotamento e a montagem de rack do dispositivo e a anexação do CMA (braço de gerenciamento de cabo) e do painel frontal. Um tutorial separado explica como anexar cabos de rede e conectar a energia. 
 
-Demora aproximadamente uma hora para instalar um nó de filtro de borda de FXT do Azure. 
+Leva aproximadamente uma hora para instalar um nó de filer do Azure FXT Edge. 
 
-Este tutorial inclui estes passos de configuração: 
+Este tutorial inclui estas etapas de instalação: 
 
 > [!div class="checklist"]
 > * Desembalar o dispositivo
-> * Montar o dispositivo num bastidor
-> * Instalar o bezel front-(opcional)
+> * Montar o dispositivo em um rack
+> * Instalar o painel frontal (opcional)
 
 ## <a name="installation-prerequisites"></a>Pré-requisitos de instalação 
 
-Antes de começar, certifique-se de que o Centro de dados e rack utilizará tem estas funcionalidades:
+Antes de começar, verifique se o data center e o rack que você usará têm estes recursos:
 
-* Um slot de 1U disponíveis no rack onde pretende montar o dispositivo.
-* Fonte de alimentação AC e refrigeração sistemas que atendem às necessidades de filtro de borda de FXT do Azure. (Leia [potência e especificações térmicos](fxt-specs.md#power-and-thermal-specifications) para ajudar a planear e a instalação de tamanho.)  
+* Um slot de 1U disponível no rack onde você pretende montar o dispositivo.
+* Fonte de energia CA e sistemas de resfriamento que atendem às necessidades do Filer do Azure FXT Edge. (Leia as [especificações de energia e térmica](fxt-specs.md#power-and-thermal-specifications) para obter ajuda sobre como planejar e dimensionar a instalação.)  
 
   > [!NOTE] 
-  > Para aproveitar ao máximo de duas unidades de fonte de alimentação redundantes (PSUs), utilize unidades de distribuição de energia em dois circuitos do ramo diferente ao anexar a energia CA. Leia [ligue os cabos de power](fxt-network-power.md#connect-power-cables) para obter detalhes.  
+  > Para aproveitar ao máximo as duas PSUs (unidades de fonte de alimentação) redundantes, use unidades de distribuição de energia em dois circuitos de ramificação diferentes ao conectar a energia AC. Leia [cabos de alimentação de conexão](fxt-network-power.md#connect-power-cables) para obter detalhes.  
 
-## <a name="unpack-the-hardware-node"></a>Descompactar o nó de hardware 
+## <a name="unpack-the-hardware-node"></a>Desempacotar o nó de hardware 
 
-Cada nó de filtro de borda de FXT do Azure é fornecido numa única caixa. Conclua estes passos para descompactar um dispositivo.
+Cada nó de arquivo de borda do Azure FXT é fornecido em uma única caixa. Conclua estas etapas para desempacotar um dispositivo.
 
 1. Coloque a caixa numa superfície plana e uniforme.
 
-2. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou empacotamento gravemente está danificado, não abri-lo. Contacte o Suporte da Microsoft para ajudar a avaliar se o dispositivo está funcional.
+2. Inspecione a caixa e a espuma de empacotamento para verificar se existem partes esmagadas, cortes, danos causados por água ou quaisquer outros danos óbvios. Se a caixa ou o empacotamento estiver seriamente danificado, não o abra. Contacte o Suporte da Microsoft para ajudar a avaliar se o dispositivo está funcional.
 
-3. Desembale a caixa. Certifique-se de que inclui os seguintes itens:
-   * Um dispositivo FXT bastidor único
+3. Desembale a caixa. Certifique-se de que ele inclui os seguintes itens:
+   * Um dispositivo FXT único de compartimento
    * Dois cabos de alimentação
-   * Um front-bezel e a chave
-   * Assembly do um rail kit
-   * Braço de gestão de um cabo (CMA)
-   * Livreto de instruções de instalação CMA
-   * Livreto de instruções de instalação de bastidor
-   * Segurança, ambientais e informações de regulamentação livreto
+   * Um painel frontal e uma chave
+   * Assembly de kit de um trilho
+   * Um braço de gerenciamento de cabo (CMA)
+   * Folheto de instruções de instalação do CMA
+   * Folheto de instruções de instalação do rack
+   * Folheto de informações sobre segurança, ambiente e normas
 
-Se não tiver recebido todos os itens listados, contacte o fabricante do dispositivo para obter suporte. 
+Se você não recebeu todos os itens listados, contate o fornecedor do dispositivo para obter suporte. 
 
-Certifique-se de que o dispositivo tenha tido tempo suficiente para atingir a mesma temperatura como a sala de antes de instalá-lo ou ligá-lo na. Se observar condensação em qualquer parte do dispositivo, aguarde pelo menos de 24 horas antes de instalar.
+Verifique se o dispositivo teve tempo suficiente para alcançar a mesma temperatura que o espaço antes de instalá-lo ou ligá-lo. Se você notar a condensação em qualquer parte do dispositivo, aguarde pelo menos 24 horas antes de instalar o.
 
-O passo seguinte consiste em rack montar o seu dispositivo.
+A próxima etapa é montar o dispositivo em rack.
 
 ## <a name="rack-the-device"></a>Montar o dispositivo em bastidor
 
-O dispositivo de filtro de borda de FXT do Azure tem de ser instalado num bastidor 19 polegadas padrão. 
+O dispositivo Filer do Azure FXT Edge deve ser instalado em um rack padrão de 19 polegadas. 
 
-A cache de ficheiros do Azure FXT Edge de armazenamento híbrida é constituído por três ou mais dispositivos de ficheiros do Azure FXT Edge. Repita os passos de instalação de rack para cada dispositivo que faz parte do seu sistema. 
+O cache de armazenamento híbrido do Filer do Azure FXT Edge é composto de três ou mais dispositivos de arquivo de borda do Azure FXT. Repita as etapas de instalação do rack para cada dispositivo que faz parte do seu sistema. 
 
-### <a name="rack-install-prerequisites"></a>Pré-requisitos de instalação de bastidor
+### <a name="rack-install-prerequisites"></a>Pré-requisitos de instalação do rack
 
-* Antes de começar, leia as instruções de segurança no livreto de segurança, ambientais e informações de normas que foi lançado com o seu dispositivo.
+* Antes de começar, leia as instruções de segurança no livreto de segurança, ambiente e informações regulatórias que foi enviado com seu dispositivo.
 
   > [!NOTE]
-  > Utilize sempre a duas pessoas quando a elevação de nó, incluindo quando instalá-lo num bastidor ou removê-lo do rack. 
+  > Sempre use duas pessoas ao levantar o nó, incluindo ao instalá-lo em um rack ou removê-lo do rack. 
 
-* Identifica o tipo de instalação do rail utilizado com o bastidor de equipamento. 
-  * Para quadrado ou redondo buraco snap-in racks, siga as instruções de ferramenta sem rail.
-  * Para racks buraco com threads, siga as instruções do tooled rail. 
+* Identifique o tipo de instalação do trilho usado com seu rack de equipamento. 
+  * Para racks de snap-in de orifícios quadrados ou redondos, siga as instruções do trilho sem ferramentas.
+  * Para racks de orifícios segmentados, siga as instruções do trilho de ferramentas. 
   
-    Para a grade tooled montar a configuração, terá de fornecer oito screws, tipo de 10 32, 12 a 24, M5 ou M6. O diâmetro principal dos screws tem de ser inferior a 10 mm (0.4").
+    Para a configuração de montagem do trilho de ferramentas, você precisa fornecer oito parafusos, digite 10-32, 12-24, M5 ou M6. O diâmetro de cabeça dos parafusos deve ser inferior a 10 mm (0,4 ").
 
-### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit rail
+### <a name="identify-the-rail-kit-contents"></a>Identificar o conteúdo do kit do trilho
 
-Localize os componentes para instalar o assembly do rail kit:
+Localize os componentes para instalar o assembly do kit do trilho:
 
-1. II de ReadyRails Dell dois A7 deslizante assemblies do rail (1)
-1. Dois conectar e fazer um loop straps (2)
+1. Dois assemblies de trilho deslizante do Dell ReadyRails II a7 (1)
+1. Duas pulseiras de gancho e loop (2)
 
-![Desenho numerado de conteúdo do kit de rail](media/fxt-install/identify-rail-kit-contents-400.png)
+![Desenho numerado de conteúdo do kit do trilho](media/fxt-install/identify-rail-kit-contents-400.png)
 
-### <a name="rail-assembly---tool-less-rails-square-hole-or-round-hole-racks"></a>Assembly do Rail - ferramenta sem rails (buraco quadrado ou buraco redondo racks)
+### <a name="rail-assembly---tool-less-rails-square-hole-or-round-hole-racks"></a>Assembly do trilho – trilhos sem ferramentas (orifício quadrado ou racks de orifícios redondos)
 
-Para racks com brechas snap-in do quadrado ou executar repetidamente, siga este procedimento para montar e instalar os rails. 
+Para racks com orifícios quadrados ou redondos, siga este procedimento para montar e instalar os trilhos. 
 
-1. Posicionar as partes de fim de left e right rail rotuladas **front-** inward a enfrentar. Posicione cada peça final para que ele postos de trabalho os buracos no lado do front-de flanges o bastidor vertical. (1)
+1. Posicione as peças de extremidade do trilho esquerda e direita rotuladas como **front** face para dentro. Posicione cada peça final para que ela se encaixe nos orifícios no lado frontal dos flanges verticais do rack. uma
 
-2. Alinhe cada peça final os buracos na parte inferior e superior de bastidor no espaço que pretende montá-la. (2)
+2. Alinhe cada parte final nos orifícios inferior e superior do rack no espaço em que você deseja montá-lo. 2
 
-3. Interagir com o back-end do rail até ele totalmente o flange vertical rack e os cliques de bloqueio temporário no lugar certo. Repita estes passos para posicionar e a parte de front-end no flange bastidor vertical de usuários. (3)
+3. Envolva o back-end do trilho até que ele se encaixe totalmente no flange vertical do rack e que os cliques da trava estejam no lugar. Repita essas etapas para posicionar e colocar a peça de front-end no flange vertical do rack. Beta
 
 > [!TIP]
-> Para remover os rails, extrair o botão de versão do bloqueio temporário no ponto médio peça final (4) e unseat cada rail.
+> Para remover os trilhos, puxe o botão de liberação de trava no ponto médio da parte final (4) e descoloque cada trilho.
 
-![Diagrama de instalação e remoção de ferramenta sem rails, com os passos numerados](media/fxt-install/installing-removing-tool-less-rails-400.png)
+![Diagrama de instalação e remoção de trilhos sem ferramentas, com etapas numeradas](media/fxt-install/installing-removing-tool-less-rails-400.png)
 
-### <a name="rail-assembly---tooled-rails-threaded-hole-racks"></a>Assembly do Rail - rails tooled (Threaded buraco racks)
+### <a name="rail-assembly---tooled-rails-threaded-hole-racks"></a>Assembly de trilho – trilhos de ferramentas (racks de orifícios segmentados)
 
-Para racks com falhas com threads, siga este procedimento para montar e instalar os rails.
+Para racks com buracos threaded, siga este procedimento para montar e instalar os trilhos.
 
-1. Remova os pins de frente e traseiro montar Retos com um screwdriver colocado para fixa. (1)
-1. Extrair e girar os subassemblies de bloqueio temporário do rail para removê-los dos colchetes de montagem. (2)
-1. Anexe à esquerda e direita montar rails para as flanges de front-rack vertical através de dois pares de screws. (3)
-1. Deslize o lado esquerda e direita de cópia de parênteses Retos reencaminhar contra os flanges rear vertical rack e anexe-os através de dois pares de screws. (4)
+1. Remova os PINs dos colchetes de montagem frontal e traseira por uma chave de fenda inclinada simples. uma
+1. Puxe e gire os subconjuntos de travas do trilho para removê-los dos colchetes de montagem. 2
+1. Anexe os trilhos de montagem esquerdo e direito aos flangeos do rack vertical frontal usando dois pares de parafusos. Beta
+1. Deslize os colchetes à esquerda e à direita para frente nos flanges verticais do rack traseiro e anexe-os usando dois pares de parafusos. quatro
 
-![Diagrama de instalação e remoção de tooled rails, com os passos numerados](media/fxt-install/installing-removing-tooled-rails-400.png)
+![Diagrama de instalação e remoção de trilhos de ferramentas, com etapas numeradas](media/fxt-install/installing-removing-tooled-rails-400.png)
 
 ### <a name="install-the-system-in-the-rack"></a>Instalar o sistema no rack
 
-Siga estes passos para montar o dispositivo de ficheiros do Azure FXT Edge no rack.
+Siga estas etapas para montar o dispositivo de filer do Azure FXT Edge no rack.
 
-1. Extrair os rails slide interna fora do rack até que eles bloquear no lugar certo. (1)
-1. Localize o standoff rear rail em cada lado do dispositivo e reduzi-los para o traseiro J ranhuras nos assemblies de slide. (2) 
-1. Roda o dispositivo para baixo até que todos os standoffs de rail são sentados nas ranhuras-J. (3)
-1. Envie o dispositivo inward até que o alavancas de bloqueio, clique no lugar certo.
-1. Pressione os botões de bloqueio de slide lançamento em ambos os rails (4) e deslize o dispositivo em rack.
+1. Puxe os trilhos do slide interno para fora do rack até que eles travem no local. uma
+1. Localize o ressalto do trilho traseiro em cada lado do dispositivo e abaixe-o nos slots J traseiros nos assemblies do slide. 2 
+1. Gire o dispositivo para baixo até que todos os espaçadores do trilho estejam encaixados nos slots J. Beta
+1. Envie o dispositivo por push para dentro até que as alavancas de bloqueio cliquem no lugar.
+1. Pressione os botões de bloqueio de liberação de slide em ambos os trilhos (4) e deslize o dispositivo para o rack.
 
-![Instalar o sistema num diagrama de rack, com os passos numerados](media/fxt-install/installing-system-rack-400.png)
+![Instalar o sistema em um diagrama de rack, com as etapas numeradas](media/fxt-install/installing-system-rack-400.png)
 
-### <a name="remove-the-system-from-the-rack"></a>Remover o sistema de bastidor
+### <a name="remove-the-system-from-the-rack"></a>Remover o sistema do rack
 
-Para remover o dispositivo de rack, siga este procedimento. 
+Para remover o dispositivo do rack, siga este procedimento. 
 
-1. Localize as alavancas de bloqueio nos lados dos rails internas (1).
-2. Desbloquear cada alavanca por girando-o até sua posição de versão (2).
-3. Entender os lados do sistema firmemente e recebê-los para frente até que o standoffs da grade são na frente da J-ranhuras. Leve o sistema de cima e para fora do rack e coloque-o numa superfície de nível (3).
+1. Localize as alavancas de bloqueio nos lados dos trilhos internos (1).
+2. Desbloqueie cada alavanca girando-a para sua posição de liberação (2).
+3. Segure os lados do sistema firmemente e empurre-os para frente até que os espaçadores do trilho estejam na frente dos J-slots. Levante o sistema para cima e para fora do rack e coloque-o em uma superfície de nível (3).
 
-![Ilustração da remoção de um sistema de rack, com os passos numerados](media/fxt-install/removing-system-rack-400.png)
+![Ilustração da remoção de um sistema do rack, com as etapas numeradas](media/fxt-install/removing-system-rack-400.png)
 
-### <a name="engage-the-slam-latch"></a>Interaja com a trava mais
+### <a name="engage-the-slam-latch"></a>Envolver a trava térrea
 
-1. Com acesso à frente, localize o bloqueio temporário de mais (1) em ambos os lados do sistema.
-2. As travas envolver-se automaticamente à medida que o sistema é enviado para o bastidor. 
+1. Voltado para a frente, localize a trava do térrea (1) em qualquer lado do sistema.
+2. As travas são acionadas automaticamente à medida que o sistema é empurrado para o rack. 
 
-Para disponibilizar as travas ao remover o sistema, selecioná-los a cópia de segurança (2).
+Para liberar as travas ao remover o sistema, puxe-os para cima (2).
 
-Opcionais screws de disco rígido montagem são fornecidas para proteger o sistema de rack para envio ou em outros ambientes instáveis. Encontre o screw em cada bloqueio temporário e reforçá-los com um #2 screwdriver de Phillips (3).
+Os parafusos de montagem de hardware opcionais são fornecidos para proteger o sistema ao rack para envio ou em outros ambientes instáveis. Localize o parafuso sob cada trava e aperte-os com um #2 chave Phillips (3).
 
-![Ilustração de como utilizar e liberar o bloqueio temporário de mais de numerados](media/fxt-install/engaging-releasing-slam-latch-400.png)
+![Ilustração numerada de envolver e liberar a trava térrea](media/fxt-install/engaging-releasing-slam-latch-400.png)
 
-### <a name="install-the-cable-management-arm"></a>Instalar o braço de gestão do cabo 
+### <a name="install-the-cable-management-arm"></a>Instalar o ARM de gerenciamento de cabo 
 
-Um braço de gestão de cabo opcional (CMA) é fornecido com o filtro de borda FXT. São fornecidas instruções impressas para instalá-lo no pacote. 
+Um braço de gerenciamento de cabo opcional (CMA) é fornecido com o Gerenciador de borda de FXT. As instruções impressas para instalá-lo são fornecidas no pacote. 
 
-1. Descompactar e identificar os componentes do kit de arm de gestão de cabo:
-   * Bandeja de CMA (1)
+1. Descompacte e identifique os componentes do kit de ARM do gerenciamento de cabo:
+   * Bandeja CMA (1)
    * CMA (2)
-   * Empate de cabo nylon encapsula (3)
-   * Colchetes de anexo de CMA (4)
-   * Cabo de indicador de estado (5) 
+   * Encapsulamentos de gravata do cabo de nylon (3)
+   * Colchetes de anexo CMA (4)
+   * Cabo do indicador de status (5) 
 
    > [!TIP] 
-   > Para proteger o CMA para envio no rack, inclui o empate em torno baskets e Bandeja de loop e cinch-los firmemente. Proteger o CMA desta forma também irá proteger o seu sistema em ambientes instáveis.
+   > Para proteger o CMA para remessa no rack, faça um loop com a ligação entre as cestas e a bandeja e fácil-as firmemente. Proteger o CMA dessa maneira também protegerá seu sistema em ambientes instáveis.
 
-   ![Ilustração de partes CMA](media/fxt-install/cma-kit-400.png)
+   ![Ilustração de partes do CMA](media/fxt-install/cma-kit-400.png)
 
-2. Instale a Bandeja do CMA.
+2. Instale a bandeja CMA.
 
-   O tabuleiro CMA fornece suporte e age como um retainer para o CMA. 
+   A bandeja CMA fornece suporte e atua como um retentor para o CMA. 
 
-   1. Alinhar e interagir com cada lado da bandeja do Retos recetor nas margens internas dos rails. 
-   1. Enviar por push o tabuleiro para a frente até que ele clica no lugar certo. (1)
-   1. Para remover o tabuleiro, compactar os botões de versão do bloqueio temporário em direção ao centro e extrair a Bandeja fora os colchetes de destinatário (2).
+   1. Alinhe e envolva cada lado da bandeja com os colchetes do destinatário nas bordas internas dos trilhos. 
+   1. Pressione a bandeja para frente até que ela clique no local. uma
+   1. Para remover a bandeja, aperte os botões de liberação da trava em direção ao centro e puxe a bandeja para fora dos colchetes do receptor (2).
 
-   ![Ilustração da instalação de tabuleiro de CMA](media/fxt-install/cma-tray-install-400.png)
+   ![Ilustração da instalação da bandeja do CMA](media/fxt-install/cma-tray-install-400.png)
 
-3. Instale os colchetes de anexo de CMA. 
+3. Instale os colchetes de anexo do CMA. 
 
    > [!NOTE]
    >
-   > * Pode anexar o CMA para a direita ou esquerda montar rail, dependendo da forma como pretende cabos de rota do sistema. 
-   > * Para sua comodidade, Monte o CMA no lado do oposta as fontes de alimentação (A-lado). Se este está montado no lado B, o CMA deve ser desligada para remover a fonte de alimentação externo. 
-   > * Sempre remova a Bandeja antes de remover o poder fornece. 
+   > * Você pode anexar o CMA ao trilho de montagem à direita ou à esquerda, dependendo de como você pretende rotear os cabos do sistema. 
+   > * Para sua conveniência, monte o CMA no lado oposto às fontes de alimentação (lado A). Se ele estiver montado no lado B, o CMA deverá ser desconectado para remover a fonte de energia externa. 
+   > * Sempre remova a bandeja antes de remover as fontes de alimentação. 
 
-   ![Ilustração da instalação de colchete CMA](media/fxt-install/cma-bracket-l-r-install-400.png)
+   ![Ilustração de instalação de colchete CMA](media/fxt-install/cma-bracket-l-r-install-400.png)
 
-   1. Selecione o colchete de anexo de CMA apropriado para o lado onde pretende montar o CMA (lado B ou lado A).
-   1. Instale o colchete de anexo de CMA com o correspondente A de lado ou de marcação de lado B remissivo rail o slide.
-   1. Alinhe os buracos no colchete com os pins no rail slide. Empurrar o colchete até que ele bloqueia no lugar certo. 
+   1. Selecione o colchete de anexo CMA apropriado para o lado em que você deseja montar o CMA (lado B ou lado A).
+   1. Instale o colchete de anexo do CMA com a marca correspondente do lado a ou B na parte posterior do trilho do slide.
+   1. Alinhe os orifícios no colchete com os Pins no trilho do slide. Pressione o colchete até que ele trave no local. 
 
 4. Instale o CMA.
 
-   1. Parte traseira desse sistema, ajustar o colchete mais interno do slide assembly bloqueio temporário no front-end do CMA até que o bloqueio temporário é ativado (1). 
-   1. Ajustar o bloqueio temporário no final do Reto de abertura mais externo até que o bloqueio temporário é ativado (2). 
-   1. Para remover o CMA, se desligue ambas as travas pressionando os botões de versão CMA na parte superior do housings bloqueio temporário interna e externa (3).
+   1. Na parte posterior do sistema, ajuste a trava no front-end do CMA no colchete interno do assembly de slides até que a trava trave (1). 
+   1. Ajuste a outra trava no final do colchete mais externo até que a trava trave (2). 
+   1. Para remover o CMA, solte as travas pressionando os botões de versão do CMA na parte superior dos invólucros de trava interna e externa (3).
 
-   ![Ilustração da instalação de CMA principal](media/fxt-install/cma-install-400.png)
+   ![Ilustração da instalação principal do CMA](media/fxt-install/cma-install-400.png)
 
-   O CMA pode ser girado para fora do sistema para o acesso e o serviço. No final hinged, migrar o CMA na direção oposta a Bandeja para unseat-lo (1). Quando estiver unseated da bandeja do, girar o CMA longe do sistema (2).
+   O CMA pode ser girado para fora do sistema para acesso e serviço. No fim da dobradiça, levante o CMA para fora da bandeja para desencaixá-lo (1). Depois de ser desinstalado da bandeja, gire o CMA para fora do sistema (2).
 
-   ![Ilustração da CMA girado aberta para o serviço](media/fxt-install/cma-swing-over-tray-400.png)
+   ![Ilustração do CMA girado aberto para o serviço](media/fxt-install/cma-swing-over-tray-400.png)
 
-## <a name="install-the-front-bezel-optional"></a>Instalar o bezel front-(opcional)
+## <a name="install-the-front-bezel-optional"></a>Instalar o painel frontal (opcional)
 
-Esta secção explica como instalar e remover o front-bezel (faceplate) para o hardware de ficheiros do Azure FXT Edge. 
+Esta seção explica como instalar e remover o painel frontal (faceplate) para o hardware de servidor de borda do Azure FXT. 
 
-Para instalar o front-bezel: 
+Para instalar o painel frontal: 
 
-1. Localizar e remover a chave de bezel, que é fornecida no pacote de bezel. 
-1. Alinhar bezel na parte frontal do chassi e inserir os pins no lado direito do bezel os buracos em flange de montagem de rack do nó do lado direito. 
-1. Ajustar a extremidade esquerda da bezel para os chassis. Prima o bezel até que o botão do lado esquerdo clica no lugar certo.
-1. Bloquear o bezel com a chave.
+1. Localize e remova a chave do painel, que é fornecida no pacote do painel. 
+1. Alinhe o painel com a frente do chassi e insira os pinos no lado direito do painel nos orifícios no flange de montagem do rack do lado direito do nó. 
+1. Ajuste a extremidade esquerda do painel no chassi. Pressione o painel até que o botão no lado esquerdo clique no local.
+1. Bloqueie o painel com a chave.
 
-Para remover o front-bezel: 
-1. Desbloqueie o bezel utilizando a chave de bezel.
-1. Prima o botão de versão no lado esquerdo e extrair a extremidade esquerda da bezel na direção oposta chassi.
-1. Unhook extremidade direita e remova o bezel.
+Para remover o painel frontal: 
+1. Desbloqueie o painel usando a chave do painel.
+1. Pressione o botão de liberação no lado esquerdo e puxe a extremidade esquerda do painel para fora do chassi.
+1. Desconecte a extremidade direita e remova o painel.
    
-   ![Imagem que mostra o botão de versão à esquerda do bezel e como removê-lo ao extrair exterior do lado esquerdo](media/fxt-install/remove-bezel-edited-600.png)
+   ![Imagem mostrando o botão de liberação à esquerda do painel e como removê-lo puxando para fora do lado esquerdo](media/fxt-install/remove-bezel-edited-600.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de ter descompactado e montou em Bastidor o dispositivo, continue a configuração ao anexar cabos de rede e ligar a energia CA para o filtro de borda de FXT do Azure.
+Depois de desempacotar e colocar o dispositivo em rack, continue a instalação anexando os cabos de rede e conectando a alimentação de CA ao Filer do Azure FXT Edge.
 
 > [!div class="nextstepaction"]
-> [Ligar as portas de rede e fornecer energia](fxt-network-power.md)
+> [Cabear portas de rede e poder de fornecimento](fxt-network-power.md)

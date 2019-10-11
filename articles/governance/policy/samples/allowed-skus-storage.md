@@ -1,17 +1,17 @@
 ---
-title: Exemplos de SKUs permitidos para contas de armazenamento e máquinas virtuais
+title: Exemplo – conta de armazenamento e SKUs de VM permitidos
 description: Esta definição de política de exemplo requer que contas de armazenamento e máquinas virtuais usem SKUs aprovados.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: e84462a930ffad202def1da1e2c923371dde9d58
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: bfa6fd7bf812da352e074c0ed4df855043a27971
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980609"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255871"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Exemplos de SKUs permitidos para contas de armazenamento e máquinas virtuais
 
@@ -29,7 +29,7 @@ Pode implementar este modelo com o [portal do Azure](#deploy-with-the-portal) ou
 
 [![Deploy o exemplo de política para o Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
-## <a name="deploy-with-powershell"></a>Implementar com o PowerShell
+## <a name="deploy-with-powershell"></a>Implementar com o Powershell
 
 [!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
@@ -51,7 +51,7 @@ Remove-AzPolicyAssignment -Name <assignmentName>
 Remove-AzPolicySetDefinitions -Name "skus-for-multiple-types"
 ```
 
-## <a name="deploy-with-azure-cli"></a>Implementar com a CLI do Azure
+## <a name="deploy-with-azure-cli"></a>Implementar com o CLI do Azure
 
 [!INCLUDE [sample-cli-install](../../../../includes/sample-cli-install.md)]
 
@@ -72,4 +72,4 @@ az policy set-definition delete --name "skus-for-multiple-types"
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Veja mais exemplos na página [Exemplos do Azure Policy](index.md)
+- Reveja mais exemplos nas [amostras do Azure Policy](index.md)

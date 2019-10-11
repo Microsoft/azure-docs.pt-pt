@@ -1,26 +1,26 @@
 ---
-title: Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery? | Microsoft Docs
+title: Sobre a recuperação de desastre para aplicativos locais com Azure Site Recovery
 description: Descreve as cargas de trabalho que podem ser protegidas com a recuperação após desastre, com o serviço do Azure Site Recovery.
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ad989a28e150635637a477d07803107a9fefff63
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232199"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255556"
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais as cargas de trabalho que podem ser protegidas com o Azure Site Recovery?
+# <a name="about-disaster-recovery-for-on-premises-apps"></a>Acerca da recuperação após desastre de aplicações no local
 
-Este artigo descreve as cargas de trabalho e os aplicativos que você pode proteger para a recuperação de desastres com o serviço [Azure site Recovery](site-recovery-overview.md) .
+Este artigo descreve os aplicativos e as cargas de trabalho locais que você pode proteger para a recuperação de desastres com o serviço [Azure site Recovery](site-recovery-overview.md) .
 
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 As organizações necessitam de uma estratégia de continuidade empresarial e de recuperação após desastre (BCDR) para manter cargas de trabalho e dados seguros e disponíveis durante o período de indisponibilidade planeado e imprevisto, e como retomar as condições de trabalho normais com a maior brevidade possível.
 
@@ -154,6 +154,6 @@ Utilize o Site Recovery para proteger as suas implementações do Citrix XenApp 
 
 [Saiba mais](site-recovery-citrix-xenapp-and-xendesktop.md) sobre como proteger implementações do Citrix XenApp e do XenDesktop. Como alternativa, pode fazer referência ao [documento técnico da Citrix](https://aka.ms/citrix-xenapp-xendesktop-with-asr) com os mesmos detalhes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Introdução](azure-to-azure-quickstart.md) à replicação de VMs do Azure.

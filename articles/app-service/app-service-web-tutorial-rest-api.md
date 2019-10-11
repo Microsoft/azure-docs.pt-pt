@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Hospedar a API RESTful com o serviço CORS-Azure App'
+title: 'Tutorial: hospedar a API RESTful com o serviço CORS-Azure App'
 description: Saiba como é que o Serviço de Aplicações do Azure o ajuda a tirar o máximo partido das suas APIs RESTful com suporte para CORS.
 services: app-service\api
 documentationcenter: dotnet
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743867"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255166"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Alojar uma API RESTful com CORS no Serviço de Aplicações do Azure
 
@@ -58,7 +58,7 @@ Execute o seguinte comando para clonar o repositório de exemplo.
 git clone https://github.com/Azure-Samples/dotnet-core-api
 ```
 
-Esse repositório contém um aplicativo criado com base no seguinte tutorial: [ASP.NET Core páginas de ajuda da API Web usando o Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
+Este repositório contém uma aplicação que é criada com base no tutorial [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio) (Páginas de ajuda da API Web ASP.NET Core mediante a utilização do Swagger). Utiliza um gerador do Swagger para servir a [IU do Swagger](https://swagger.io/swagger-ui/) e o ponto final JSON do Swagger.
 
 ### <a name="run-the-application"></a>Executar a aplicação
 
@@ -72,7 +72,7 @@ dotnet run
 
 Navegue para `http://localhost:5000/swagger` num browser para reproduzir com a IU do Swagger.
 
-![API ASP.NET Core em execução localmente](./media/app-service-web-tutorial-rest-api/local-run.png)
+![API ASP.NET Core em execução localmente](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 Navegue para `http://localhost:5000/api/todo` e veja uma lista de itens JSON ToDo
 
@@ -136,7 +136,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 Navegue para `http://<app_name>.azurewebsites.net/swagger` num browser experimente a IU do Swagger.
 
-![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![API ASP.NET Core em execução no Serviço de Aplicações do Azure](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 Navegue para `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` para ver o _swagger.json_ da API implementada.
 
@@ -158,9 +158,9 @@ Na janela de terminal local, execute novamente a aplicação de exemplo.
 dotnet run
 ```
 
-Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela de ferramentas de programador no browser (`Ctrl`+`Shift`+`i` no Chrome para o Windows) e inspecione o separador **Consola**. Deverá ver agora a mensagem de erro `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Navegue para a aplicação de browser em `http://localhost:5000`. Abra a janela ferramentas de desenvolvedor em seu navegador (`Ctrl` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 no Chrome para Windows) e inspecione a guia **console** . Agora você deve ver a mensagem de erro, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-![Erro CORS no cliente de browser](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![Erro CORS no cliente de browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 Devido à falta de correspondência de domínio entre a aplicação de browser (`http://localhost:5000`) e o recurso remoto (`http://<app_name>.azurewebsites.net`) e o facto de a sua API no Serviço de Aplicações não estar a enviar o cabeçalho `Access-Control-Allow-Origin`, o browser impediu o carregamento de conteúdos de vários domínios na sua aplicação de browser.
 
@@ -177,13 +177,13 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Pode definir mais de um URL do cliente em `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Também pode ativar todos os URLs do cliente com `"['*']"`.
 
 > [!NOTE]
-> Se seu aplicativo exigir que credenciais como cookies ou tokens de autenticação sejam enviadas, o navegador poderá exigir `ACCESS-CONTROL-ALLOW-CREDENTIALS` o cabeçalho na resposta. Para habilitar isso no serviço de aplicativo, `properties.cors.supportCredentials` defina `true` como em sua configuração de CORS. Isso não pode ser habilitado `allowedOrigins` quando `'*'`o inclui.
+> Se seu aplicativo exigir que credenciais como cookies ou tokens de autenticação sejam enviadas, o navegador poderá exigir o cabeçalho `ACCESS-CONTROL-ALLOW-CREDENTIALS` na resposta. Para habilitar isso no serviço de aplicativo, defina `properties.cors.supportCredentials` como `true` em sua configuração de CORS. Isso não pode ser habilitado quando o `allowedOrigins` inclui `'*'`.
 
 ### <a name="test-cors-again"></a>Testar o CORS novamente
 
 Ative a aplicação de browser em `http://localhost:5000`. A mensagem de erro na janela **Consola** deixa de estar visível e pode ver os dados da API implementada e interagir com os mesmos. A API remota suporta agora CORS na sua aplicação de browser em execução no local. 
 
-![CORS bem-sucedido no cliente de browser](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![CORS bem-sucedido no cliente de browser](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 Parabéns! Está a executar uma API no Serviço de Aplicações do Azure com suporte para CORS.
 
@@ -199,7 +199,7 @@ Pode utilizar os seus próprios utilitários CORS em vez do CORS do Serviço de 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 <a name="next"></a>
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 O que aprendeu:
 
@@ -211,4 +211,4 @@ O que aprendeu:
 Avançar para o próximo tutorial para saber como autenticar e autorizar utilizadores.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticar e autorizar usuários de ponta a ponta](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticar e autorizar utilizadores ponto a ponto](app-service-web-tutorial-auth-aad.md)

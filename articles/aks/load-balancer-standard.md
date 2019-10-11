@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349059"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255493"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um balanceador de carga SKU padrão no serviço kubernetes do Azure (AKS)
 
@@ -96,13 +96,13 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 ## <a name="connect-to-the-cluster"></a>Ligar ao cluster
 
-Para gerenciar um cluster kubernetes, você usa [kubectl][kubectl], o cliente de linha de comando kubernetes. Se você usar o Azure cloud Shell `kubectl` , o já estará instalado. Para instalar `kubectl` localmente, use o comando [AZ AKs install-CLI][az-aks-install-cli] :
+Para gerenciar um cluster kubernetes, você usa [kubectl][kubectl], o cliente de linha de comando kubernetes. Se você usar Azure Cloud Shell, o `kubectl` já estará instalado. Para instalar o `kubectl` localmente, use o comando [AZ AKs install-CLI][az-aks-install-cli] :
 
 ```azurecli
 az aks install-cli
 ```
 
-Para configurar `kubectl` o para se conectar ao cluster do kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
+Para configurar `kubectl` para se conectar ao cluster kubernetes, use o comando [AZ AKs Get-Credentials][az-aks-get-credentials] . Esse comando baixa as credenciais e configura a CLI do kubernetes para usá-las.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -145,7 +145,7 @@ Verifique se a propriedade *loadBalancerSku* é mostrada como *padrão*.
 
 Para usar o balanceador de carga em seu cluster, crie um manifesto de serviço com o tipo de serviço *balanceador*. Para mostrar o balanceador de carga funcionando, crie outro manifesto com um aplicativo de exemplo para ser executado no cluster. Esse aplicativo de exemplo é exposto por meio do balanceador de carga e pode ser exibido por meio de um navegador.
 
-Crie um manifesto chamado `sample.yaml` conforme mostrado no exemplo a seguir:
+Crie um manifesto chamado `sample.yaml`, conforme mostrado no exemplo a seguir:
 
 ```yaml
 apiVersion: apps/v1
@@ -221,7 +221,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-O manifesto acima configura duas implantações: *Azure-vote-front* e *Azure-vote-back*. Para configurar a implantação *do Azure-vote-front* para ser exposta usando o balanceador de carga, crie `standard-lb.yaml` um manifesto chamado, conforme mostrado no exemplo a seguir:
+O manifesto acima configura duas implantações: *Azure-vote-front* e *Azure-vote-back*. Para configurar a implantação *do Azure-vote-front* para ser exposta usando o balanceador de carga, crie um manifesto chamado `standard-lb.yaml`, conforme mostrado no exemplo a seguir:
 
 ```yaml
 apiVersion: v1
@@ -245,7 +245,7 @@ kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-O balanceador de carga SKU *Standard* agora está configurado para expor o aplicativo de exemplo. Exiba os detalhes do serviço do *Azure-vote-front* usando [kubectl Get][kubectl-get] para ver o IP público do balanceador de carga. O endereço IP público do balanceador de carga é mostrado na coluna *IP externo* . Pode levar um minuto ou dois para que o endereço IP seja alterado de *\<pendente\>* para um endereço IP externo real, conforme mostrado no exemplo a seguir:
+O balanceador de carga SKU *Standard* agora está configurado para expor o aplicativo de exemplo. Exiba os detalhes do serviço do *Azure-vote-front* usando [kubectl Get][kubectl-get] para ver o IP público do balanceador de carga. O endereço IP público do balanceador de carga é mostrado na coluna *IP externo* . Pode levar um minuto ou dois para que o endereço IP mude de *\<pending @ no__t-2* para um endereço IP externo real, conforme mostrado no exemplo a seguir:
 
 ```
 $ kubectl get service azure-vote-front
@@ -256,10 +256,10 @@ azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP  
 
 Navegue até o IP público em um navegador e verifique se você vê o aplicativo de exemplo. No exemplo acima, o IP público é `52.179.23.131`.
 
-![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Imagem de navegação para o Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
-> Você também pode configurar o balanceador de carga para ser interno e não expor um IP público. Para configurar o balanceador de carga como interno, `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` adicione como uma anotação ao serviço Balancer. Você pode ver um exemplo de manifesto YAML, bem como mais detalhes sobre um balanceador de carga interno [aqui][internal-lb-yaml].
+> Você também pode configurar o balanceador de carga para ser interno e não expor um IP público. Para configurar o balanceador de carga como interno, adicione `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` como uma anotação para o serviço *Balancer* . Você pode ver um exemplo de manifesto YAML, bem como mais detalhes sobre um balanceador de carga interno [aqui][internal-lb-yaml].
 
 ## <a name="optional---scale-the-number-of-managed-public-ips"></a>Opcional-dimensionar o número de IPs públicos gerenciados
 
@@ -276,7 +276,7 @@ az aks update \
 
 O exemplo acima define o número de IPs públicos de saída gerenciados para *2* para o cluster *MyAKSCluster* no *MyResource*. 
 
-Você também pode usar o parâmetro *balanceador de carga-gerenciado-IP-Count* para definir o número inicial de IPS públicos de saída gerenciados ao criar o cluster acrescentando `--load-balancer-managed-outbound-ip-count` o parâmetro e definindo-o para o valor desejado. O número padrão de IPs públicos de saída gerenciados é 1.
+Você também pode usar o parâmetro *Load-Balancer-de-contagem-IP-Count* para definir o número inicial de IPS públicos de saída gerenciados ao criar o cluster acrescentando o parâmetro `--load-balancer-managed-outbound-ip-count` e Configurando-o para o valor desejado. O número padrão de IPs públicos de saída gerenciados é 1.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Opcional-forneça seus próprios IPs públicos ou prefixos para saída
 

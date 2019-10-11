@@ -1,17 +1,17 @@
 ---
-title: Políticas de autor para propriedades de matriz nos recursos do Azure
+title: Políticas de autor para propriedades de matriz em recursos
 description: Aprenda a criar parâmetros de matriz, criar regras para expressões de linguagem de matriz, avaliar o alias [*] e acrescentar elementos a uma matriz existente com regras de definição de Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: e5b90eb975d0d495723a70095b447d37e051fc0b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978043"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255818"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Políticas de autor para propriedades de matriz nos recursos do Azure
 
@@ -96,9 +96,9 @@ O formato do valor do parâmetro é diferente ao usar CLI do Azure, Azure PowerS
 
 Para usar essa cadeia de caracteres com cada SDK, use os seguintes comandos:
 
-- CLI do Azure: Comando [AZ Policy atribuition Create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) com **parâmetros de parâmetro**
-- Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com o parâmetro **PolicyParameter**
-- API REST: Na operação _Put_ [criar](/rest/api/resources/policyassignments/create) como parte do corpo da solicitação como o valor da propriedade **Properties. Parameters**
+- CLI do Azure: comando [AZ Policy atribuition Create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) com **parâmetros de parâmetro**
+- Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) com o parâmetro **PolicyParameter**
+- API REST: na operação _Put_ [criar](/rest/api/resources/policyassignments/create) como parte do corpo da solicitação como o valor da propriedade **Properties. Parameters**
 
 ## <a name="policy-rules-and-arrays"></a>Regras de política e matrizes
 
@@ -141,7 +141,7 @@ O **tipo** de condição esperado `equals` é _cadeia de caracteres_. Como **all
 
 ### <a name="evaluating-the--alias"></a>Avaliando o alias [*]
 
-Os aliases que têm **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: Nenhum, nenhum e todos.
+Os aliases que têm **[\*]** anexados ao seu nome indicam que o **tipo** é uma _matriz_. Em vez de avaliar o valor de toda a matriz, **[\*]** torna possível avaliar cada elemento da matriz. Há três cenários em que essa avaliação por item é útil em: nenhum, qualquer e tudo.
 
 O mecanismo de política aciona o **efeito** em **seguida** somente quando a regra **If** é avaliada como true.
 Esse fato é importante entender no contexto de como **[\*]** avalia cada elemento individual da matriz.

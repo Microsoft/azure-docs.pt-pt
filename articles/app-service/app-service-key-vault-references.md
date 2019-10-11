@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686742"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240108"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Usar referências de Key Vault para o serviço de aplicativo e Azure Functions (visualização)
 
 > [!NOTE] 
-> Key Vault referências estão atualmente em visualização.
+> Atualmente, Key Vault referências estão em versão prévia e atualmente não têm suporte dos planos de consumo do Linux.
 
 Este tópico mostra como trabalhar com segredos de Azure Key Vault em seu serviço de aplicativo ou Azure Functions aplicativo sem a necessidade de nenhuma alteração de código. [Azure Key Vault](../key-vault/key-vault-overview.md) é um serviço que fornece gerenciamento de segredos centralizado, com controle total sobre políticas de acesso e histórico de auditoria.
 
@@ -43,13 +43,13 @@ Para ler segredos de Key Vault, você precisa ter um cofre criado e dar permiss�
 
 ## <a name="reference-syntax"></a>Sintaxe de referência
 
-Uma referência de Key Vault é do formulário `@Microsoft.KeyVault({referenceString})`, onde `{referenceString}` é substituído por uma das seguintes opções:
+Uma referência de Key Vault é do formato `@Microsoft.KeyVault({referenceString})`, em que `{referenceString}` é substituído por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
 > | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | O **vaultname** deve ter o nome de seu Key Vault recurso. O **segredoname** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
+> | SecretUri =_SecretUri_                                                       | O **SecretUri** deve ser o URI completo do plano de dados de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | Vaultname =_vaultname_; Secretname =_secretoname_; SecretVersion =_SecretVersion_ | O **vaultname** deve ter o nome de seu Key Vault recurso. O **segredoname** deve ser o nome do segredo de destino. O **SecretVersion** deve ser a versão do segredo a ser usado. |
 
 > [!NOTE] 
 > Na visualização atual, as versões são necessárias. Ao girar segredos, você precisará atualizar a versão na configuração do aplicativo.
@@ -78,7 +78,7 @@ Para usar uma referência de Key Vault para uma configuração de aplicativo, de
 
 ### <a name="azure-resource-manager-deployment"></a>Implementação do Azure Resource Manager
 
-Ao automatizar implantações de recursos por meio de modelos de Azure Resource Manager, talvez seja necessário sequenciar suas dependências em uma ordem específica para fazer com que esse recurso funcione. De observação, você precisará definir as configurações do aplicativo como seu próprio recurso, em vez de usar `siteConfig` uma propriedade na definição do site. Isso ocorre porque o site precisa ser definido primeiro para que a identidade atribuída pelo sistema seja criada com ela e possa ser usada na política de acesso.
+Ao automatizar implantações de recursos por meio de modelos de Azure Resource Manager, talvez seja necessário sequenciar suas dependências em uma ordem específica para fazer com que esse recurso funcione. De observação, você precisará definir as configurações do aplicativo como seu próprio recurso, em vez de usar uma propriedade `siteConfig` na definição do site. Isso ocorre porque o site precisa ser definido primeiro para que a identidade atribuída pelo sistema seja criada com ela e possa ser usada na política de acesso.
 
 Um exemplo de psuedo-template para um aplicativo de funções pode ser semelhante ao seguinte:
 
@@ -184,11 +184,11 @@ Um exemplo de psuedo-template para um aplicativo de funções pode ser semelhant
 ```
 
 > [!NOTE] 
-> Neste exemplo, a implantação do controle do código-fonte depende das configurações do aplicativo. Esse comportamento normalmente é inseguro, pois a atualização da configuração do aplicativo se comporta de forma assíncrona. No entanto, como incluímos `WEBSITE_ENABLE_SYNC_UPDATE_SITE` a configuração do aplicativo, a atualização é síncrona. Isso significa que a implantação do controle do código-fonte só será iniciada quando as configurações do aplicativo tiverem sido totalmente atualizadas.
+> Neste exemplo, a implantação do controle do código-fonte depende das configurações do aplicativo. Esse comportamento normalmente é inseguro, pois a atualização da configuração do aplicativo se comporta de forma assíncrona. No entanto, como incluímos a configuração de aplicativo `WEBSITE_ENABLE_SYNC_UPDATE_SITE`, a atualização é síncrona. Isso significa que a implantação do controle do código-fonte só será iniciada quando as configurações do aplicativo tiverem sido totalmente atualizadas.
 
 ## <a name="troubleshooting-key-vault-references"></a>Solucionando problemas de referências de Key Vault
 
-Se uma referência não for resolvida corretamente, o valor de referência será usado em seu lugar. Isso significa que, para as configurações do aplicativo, uma variável de ambiente seria criada cujo `@Microsoft.KeyVault(...)` valor tem a sintaxe. Isso pode fazer com que o aplicativo gere erros, pois estava esperando um segredo de uma determinada estrutura.
+Se uma referência não for resolvida corretamente, o valor de referência será usado em seu lugar. Isso significa que, para as configurações do aplicativo, uma variável de ambiente seria criada cujo valor tem a sintaxe `@Microsoft.KeyVault(...)`. Isso pode fazer com que o aplicativo gere erros, pois estava esperando um segredo de uma determinada estrutura.
 
 Normalmente, isso se deve a uma configuração incorreta da [política de acesso de Key Vault](#granting-your-app-access-to-key-vault). No entanto, também pode ser devido a um segredo não mais existente ou a um erro de sintaxe na própria referência.
 

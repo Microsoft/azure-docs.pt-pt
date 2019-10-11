@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3f93824eb021e0fb75e1a6b81935292379d50e5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7d68685a772bb777fff1dd56a25990b9d0406ef
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883078"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242810"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Criar revisões de transcrição de vídeo usando o .NET
 
@@ -74,8 +74,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
@@ -154,7 +153,7 @@ Crie uma revisão de vídeo com **ContentModeratorClient. Reviews. CreateVideoRe
 **CreateVideoReviews** tem os seguintes parâmetros obrigatórios:
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "Application/JSON". 
 1. O nome da equipe de Content Moderator.
-1. Um **objeto\<> IList CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma revisão de vídeo. Este início rápido cria uma análise por vez.
+1. Um objeto de **> IList @ no__t-1CreateVideoReviewsBodyItem** . Cada objeto **CreateVideoReviewsBodyItem** representa uma revisão de vídeo. Este início rápido cria uma análise por vez.
 
 **CreateVideoReviewsBodyItem** tem várias propriedades. No mínimo, você define as seguintes propriedades:
 - **Conteúdo**. A URL do vídeo a ser revisado.
@@ -162,7 +161,7 @@ Crie uma revisão de vídeo com **ContentModeratorClient. Reviews. CreateVideoRe
 - **Status**. Defina o valor como "não publicado". Se você não defini-lo, o padrão é "Pending", o que significa que a revisão de vídeo é publicada e a revisão humana pendente. Depois que uma revisão de vídeo é publicada, você não pode mais adicionar quadros de vídeo, uma transcrição ou um resultado de moderação de transcrição a ele.
 
 > [!NOTE]
-> **CreateVideoReviews** retorna uma cadeia\<de caracteres IList >. Cada uma dessas cadeias de caracteres contém uma ID para uma revisão de vídeo. Essas IDs são GUIDs e não são as mesmas que o valor da propriedade **ContentId** .
+> **CreateVideoReviews** retorna um > IList @ no__t-1string. Cada uma dessas cadeias de caracteres contém uma ID para uma revisão de vídeo. Essas IDs são GUIDs e não são as mesmas que o valor da propriedade **ContentId** .
 
 Adicione a seguinte definição de método ao namespace VideoReviews, classe Program.
 
@@ -211,7 +210,7 @@ Você adiciona uma transcrição a uma revisão de vídeo com **ContentModerator
 1. A ID de revisão de vídeo retornada por **CreateVideoReviews**.
 1. Um objeto de **fluxo** que contém a transcrição.
 
-A transcrição deve estar no formato WebVTT. Para obter mais informações, [consulte WebVTT: O formato](https://www.w3.org/TR/webvtt1/)das faixas de texto de vídeo da Web.
+A transcrição deve estar no formato WebVTT. Para obter mais informações, consulte [WebVTT: o formato de faixas de texto de vídeo da Web](https://www.w3.org/TR/webvtt1/).
 
 > [!NOTE]
 > O programa usa uma transcrição de exemplo no formato VTT. Em uma solução do mundo real, você usa o serviço de Azure Media Indexer para [gerar uma transcrição](https://docs.microsoft.com/azure/media-services/media-services-index-content) de um vídeo.
@@ -244,15 +243,15 @@ Além de adicionar uma transcrição a uma revisão de vídeo, você também adi
 1. Uma cadeia de caracteres que contém um tipo MIME, que deve ser "Application/JSON". 
 1. O nome da equipe de Content Moderator.
 1. A ID de revisão de vídeo retornada por **CreateVideoReviews**.
-1. > IList\<TranscriptModerationBodyItem. Um **TranscriptModerationBodyItem** tem as seguintes propriedades:
-1. **Termos**. > IList\<TranscriptModerationBodyItemTermsItem. Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
+1. Um > IList @ no__t-0TranscriptModerationBodyItem. Um **TranscriptModerationBodyItem** tem as seguintes propriedades:
+1. **Termos**. Um > IList @ no__t-0TranscriptModerationBodyItemTermsItem. Um **TranscriptModerationBodyItemTermsItem** tem as seguintes propriedades:
 1. **Índice**. O índice de base zero do termo.
 1. **Termo**. Uma cadeia de caracteres que contém o termo.
 1. **Carimbo de data/hora**. Uma cadeia de caracteres que contém, em segundos, a hora na transcrição na qual os termos são encontrados.
 
-A transcrição deve estar no formato WebVTT. Para obter mais informações, [consulte WebVTT: O formato](https://www.w3.org/TR/webvtt1/)das faixas de texto de vídeo da Web.
+A transcrição deve estar no formato WebVTT. Para obter mais informações, consulte [WebVTT: o formato de faixas de texto de vídeo da Web](https://www.w3.org/TR/webvtt1/).
 
-Adicione a seguinte definição de método ao namespace VideoTranscriptReviews, classe Program. Esse método envia uma transcrição para o método **ContentModeratorClient. Textmoderation. ScreenText** . Ele também traduz o resultado em um > IList\<TranscriptModerationBodyItem e envia para **AddVideoTranscriptModerationResult**.
+Adicione a seguinte definição de método ao namespace VideoTranscriptReviews, classe Program. Esse método envia uma transcrição para o método **ContentModeratorClient. Textmoderation. ScreenText** . Ele também traduz o resultado em um > IList @ no__t-0TranscriptModerationBodyItem e envia para **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>
@@ -376,7 +375,7 @@ Press any key to close the application.
 
 ## <a name="navigate-to-your-video-transcript-review"></a>Navegue até sua revisão de transcrição de vídeo
 
-Vá para a revisão de transcrição de vídeo em sua ferramenta de revisão>de Content moderator na tela revisar**transcrição** de**vídeo**>.
+Vá para a revisão de transcrição de vídeo em sua ferramenta de revisão de Content Moderator na tela **Revisar**>**vídeo**>**transcrição** .
 
 Você verá os seguintes recursos:
 - As duas linhas de transcrição que você adicionou
@@ -385,10 +384,10 @@ Você verá os seguintes recursos:
 
 ![Análise de transcrição de vídeo para moderadores humanos](images/ams-video-transcript-review.PNG)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Obtenha o [SDK do .net content moderator](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e a [solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros guias de início rápido Content moderator para .net.
 
 Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) na ferramenta de revisão.
 
-Confira o tutorial detalhado sobre como desenvolver uma solução de moderação de [vídeo completa](video-transcript-moderation-review-tutorial-dotnet.md).
+Confira o tutorial detalhado sobre como desenvolver uma [solução de moderação de vídeo completa](video-transcript-moderation-review-tutorial-dotnet.md).

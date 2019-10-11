@@ -1,31 +1,31 @@
 ---
-title: Matriz de módulo e a versão do Ansible para o Azure | Documentos da Microsoft
-description: Matriz de módulo e a versão do Ansible para o Azure
-keywords: ansible, funções, matriz, versão, azure, devops
+title: Módulo Ansible e matriz de versão para o Azure
+description: Módulo Ansible e matriz de versão para o Azure
+keywords: Ansible, funções, matriz, versão, Azure, DevOps
 ms.topic: reference
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230990"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241546"
 ---
-# <a name="ansible-module-and-version-matrix"></a>Matriz de módulo e a versão do Ansible
+# <a name="ansible-module-and-version-matrix"></a>Módulo Ansible e matriz de versão
 
-Ansible inclui um conjunto de módulos para utilização no provisionamento e configuração de recursos do Azure. Estes recursos incluem máquinas virtuais, conjuntos de dimensionamento, funcionamento em rede de serviços e os serviços de contentor. Este artigo lista vários módulos do Ansible para o Azure e as versões do Ansible no qual eles são enviados.
+O Ansible inclui um conjunto de módulos para uso no provisionamento e configuração de recursos do Azure. Esses recursos incluem máquinas virtuais, conjuntos de dimensionamento, serviços de rede e serviços de contêiner. Este artigo lista os vários módulos do Ansible para o Azure e as versões do Ansible em que eles são fornecidos.
 
-## <a name="ansible-modules-for-azure"></a>Ansible módulos para o Azure
+## <a name="ansible-modules-for-azure"></a>Módulos Ansible para o Azure
 
-Os seguintes módulos podem ser executados diretamente em hosts remotos ou por meio de playbooks.
+Os módulos a seguir podem ser executados diretamente em hosts remotos ou por meio de guias estratégicos.
 
-Estes módulos estão disponíveis desde a versão oficial do Ansible e para as seguintes funções do playbook de Microsoft.
+Esses módulos estão disponíveis na versão oficial do Ansible e nas seguintes funções do guia estratégico da Microsoft.
 
-| Módulo do Ansible para o Azure                   |  2\.4 do Ansible |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Função do Ansible | 
+| Módulo Ansible para o Azure                   |  Ansible 2,4 |  Ansible 2,5 |  Ansible 2,6 | Ansible 2,7 | Ansible 2,8 | Função Ansible | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
 | **Computação**                    |           |                          |                          |                            |           |           |
 | azure_rm_availabilityset                    | Sim          | Sim                         | Sim          | Sim          | Sim          | Sim          |
@@ -151,7 +151,7 @@ Estes módulos estão disponíveis desde a versão oficial do Ansible e para as 
 | azure_rm_sqlserver_facts                    | -            | Sim                         | Sim          | Sim          | Sim          | Sim          |
 | **Análise**                    |           |                          |                          |                             |           |           |
 | azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | Sim          | Sim          |
-| **Integração**                    |           |                          |                          |                             |           |           |
+| **Integrar**                    |           |                          |                          |                             |           |           |
 | azure_rm_servicebus                         | -            | -                           | -            | -            | Sim          | Sim          |
 | azure_rm_servicebus_facts                   | -            | -                           | -            | -            | Sim          | Sim          |
 | azure_rm_servicebusqueue                    | -            | -                           | -            | -            | Sim          | Sim          |
@@ -188,12 +188,12 @@ Estes módulos estão disponíveis desde a versão oficial do Ansible e para as 
 | azure_rm_loganalyticsworkspace              | -            | -                           | -            | -            | Sim          | Sim          |
 | azure_rm_loganalyticsworkspace_facts        | -            | -                           | -            | -            | Sim          | Sim          |
 
-## <a name="introduction-to-playbook-role-for-azure"></a>Introdução à função do playbook do Azure
+## <a name="introduction-to-playbook-role-for-azure"></a>Introdução à função de guia estratégico do Azure
 
-O [função de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) inclui todos os módulos do Azure mais recente. As atualizações e correções de erros são feitas no modo mais oportuno que a versão oficial do Ansible. Se utilizar o Ansible para fins de aprovisionamento de recursos do Azure, é recomendado para instalar o `azure_preview_module` função playbook.
+A [função de guia estratégico de azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) inclui todos os módulos mais recentes do Azure. As atualizações e correções de bugs são realizadas de maneira mais oportuna do que a versão oficial do Ansible. Se você usar o Ansible para fins de provisionamento de recursos do Azure, você será incentivado a instalar a função de guia estratégico `azure_preview_module`.
 
-O `azure_preview_module` função playbook é liberada a cada três semanas.
+A função de guia estratégico `azure_preview_module` é lançada a cada três semanas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre as funções do manual de comunicação, consulte [criar playbooks reutilizáveis](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Para obter mais informações sobre as funções de guia estratégico, consulte [criando guias estratégicos reutilizáveis](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

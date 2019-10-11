@@ -1,69 +1,69 @@
 ---
-title: Inicializar o hardware - filtro de borda do Microsoft Azure FXT
-description: Como definir uma palavra-passe inicial em nós de ficheiros do Azure FXT Edge
+title: Inicializar o hardware-Microsoft Azure FXT Edge infiler
+description: Como definir uma senha inicial nos nós de filer do Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 11cf9f49014648fff1e78aff91c5a724a812e9e7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: rohogue
+ms.openlocfilehash: 080aa05af77b996bc0eb71287a3dfef25c24629a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450297"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256011"
 ---
-# <a name="tutorial-set-hardware-passwords"></a>Tutorial: Palavras-passe do conjunto de hardware
+# <a name="tutorial-set-hardware-passwords"></a>Tutorial: definir senhas de hardware
 
-Na primeira vez que energia se um nó de filtro de borda de FXT do Azure, tem de definir uma palavra-passe de raiz. Os nós de hardware não são entregues com uma palavra-passe predefinida. 
+Na primeira vez que você ligar um nó de filer do Azure FXT Edge, deverá definir uma senha raiz. Os nós de hardware não são enviados com uma senha padrão. 
 
-Portas de rede estão desativadas até depois da palavra-passe é definida e o utilizador raiz inicia sessão.
+As portas de rede são desabilitadas até que a senha seja definida e o usuário raiz entre.
 
-Efetue este passo após a instalação e cablagem o nó, mas antes de tentar criar o cluster. 
+Siga esta etapa depois de instalar e cabear o nó, mas antes de tentar criar o cluster. 
 
-Este tutorial explica como ligar ao nó de hardware e definir a palavra-passe. 
+Este tutorial explica como se conectar ao nó de hardware e definir a senha. 
 
 Neste tutorial, vai aprender a: 
 
 > [!div class="checklist"]
-> * Ligar um teclado e um monitor para o nó e ligue-o
-> * Definir palavras-passe para o utilizador de porta e a raiz do iDRAC neste nó
-> * Inicie sessão como raiz 
+> * Conectar um teclado e um monitor ao nó e ligá-lo
+> * Definir senhas para a porta iDRAC e o usuário raiz neste nó
+> * Entrar como raiz 
 
-Repita estes passos para cada nó que irá utilizar no seu cluster. 
+Repita essas etapas para cada nó que você usará em seu cluster. 
 
-Este tutorial demora, aproximadamente 15 minutos a concluir. 
+Este tutorial leva aproximadamente 15 minutos para ser concluído. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de iniciar este tutorial, conclua estes passos: 
+Antes de iniciar este tutorial, conclua estas etapas: 
 
-* [Instale](fxt-install.md) cada nó de filtro de borda do Azure FXT num equipamento em bastidor e ligar os cabos de energia e acesso de rede, conforme descrito no [tutorial anterior](fxt-network-power.md). 
-* Encontre um teclado ligados por USB e um monitor VGA ligados que poderão ser anexados a nós de hardware. (A porta do nó serial está inativa antes de definir a palavra-passe.)
+* [Instale](fxt-install.md) cada nó de filer do Azure FXT Edge em um rack de equipamento e conecte os cabos de alimentação e o acesso à rede conforme descrito no [tutorial anterior](fxt-network-power.md). 
+* Encontre um teclado conectado por USB e um monitor conectado por VGA que você pode anexar aos nós de hardware. (A porta serial do nó fica inativa antes de você definir a senha.)
 
-## <a name="connect-a-keyboard-and-monitor-to-the-node"></a>Ligar um teclado e um monitor para o nó
+## <a name="connect-a-keyboard-and-monitor-to-the-node"></a>Conectar um teclado e um monitor ao nó
 
-Ligar fisicamente um monitor e o teclado para o nó de filtro de borda de FXT do Azure. 
+Conecte fisicamente um monitor e um teclado ao nó Filer do Azure FXT Edge. 
 
-* O monitor de ligação para a porta VGA.
-* Ligar o teclado a uma das portas USB. 
+* Conecte o monitor à porta VGA.
+* Conecte o teclado a uma das portas USB. 
 
-Utilize este diagrama de referência para localizar as portas no verso do chassi. 
+Use este diagrama de referência para localizar as portas na parte traseira do chassi. 
 
 > [!NOTE]
-> A porta serial é inativa até depois da palavra-passe está definida. 
+> A porta serial estará inativa até que a senha seja definida. 
 
-![Diagrama de inverso de ficheiros do Azure FXT Edge com série, VGA e o nome de portas USB](media/fxt-back-serial-vga-usb.png)
+![diagrama de trás do arquivo de borda do Azure FXT com portas serial, VGA e USB rotuladas](media/fxt-back-serial-vga-usb.png)
 
-Pode utilizar um comutador KVM se pretender ligar mais de um nó para os mesmo periféricos. 
+Você pode usar um comutador KVM se desejar conectar mais de um nó aos mesmos periféricos. 
 
-Ligar o nó ao premir o botão de energia na frente. 
+Ligue o nó pressionando o botão de energia na frente. 
 
-![Diagrama de início de ficheiros do Azure FXT Edge - arredondar botão de energia é rotulado como perto da parte superior direita](media/fxt-front-annotated.png)
+![diagrama da frente do Azure FXT Edge Filer-o botão de energia arredondado é rotulado próximo à parte superior direita](media/fxt-front-annotated.png)
 
-## <a name="set-initial-passwords"></a>Conjunto inicial de palavras-passe 
+## <a name="set-initial-passwords"></a>Definir senhas iniciais 
 
-O nó de filtro de borda do Azure FXT imprimirá várias mensagens para o monitor durante a inicialização. Após alguns instantes, mostra um ecrã de configuração inicial como este:
+O nó Filer do Azure FXT Edge imprimirá várias mensagens no monitor durante a inicialização. Depois de alguns instantes, ele mostra uma tela inicial de instalação como esta:
 
 ```
 ------------------------------------------------------
@@ -76,17 +76,17 @@ Minimum password length is 8.
 Enter new password:
 ```
 
-A palavra-passe que introduziu é utilizada por duas coisas: 
+A senha inserida é usada para duas coisas: 
 
-* É a palavra-passe de raiz temporária para este nó de filtro de borda de FXT do Azure. 
+* É a senha raiz temporária para este nó do Filer do Azure FXT Edge. 
 
-  Esta palavra-passe será alterado quando cria um cluster com este nó ou quando adiciona este nó ao cluster. A palavra-passe de gestão do cluster (associados ao utilizador ``admin``) também é a palavra-passe de raiz para todos os nós num cluster.
+  Essa senha será alterada quando você criar um cluster usando este nó ou quando adicionar esse nó ao cluster. A senha de gerenciamento de cluster (associada ao usuário ``admin``) também é a senha raiz para todos os nós em um cluster.
 
-* É a palavra-passe longo prazo para a porta de gestão de hardware do iDRAC/IPMI.
+* É a senha de longo prazo para a porta de gerenciamento de hardware iDRAC/IPMI.
 
-  Certifique-se de que não se esqueça da palavra-passe caso seja necessário iniciar sessão com IPMI mais tarde para resolver um problema de hardware.
+  Lembre-se de lembrar a senha caso você precise entrar com o IPMI mais tarde para solucionar um problema de hardware.
 
-Introduza e confirme a palavra-passe: 
+Insira e confirme a senha: 
 
 ```
 Enter new password:**********
@@ -94,22 +94,22 @@ Re-enter password:**********
 Loading AvereOS......
 ```
 
-Depois de introduzir a palavra-passe, o sistema continua a arrancar. Quando terminar, ele fornece um ``login:`` prompt. 
+Depois de inserir a senha, o sistema continuará a inicialização. Quando ele é concluído, ele fornece um prompt ``login:``. 
 
-## <a name="sign-in-as-root"></a>Inicie sessão como raiz
+## <a name="sign-in-as-root"></a>Entrar como raiz
 
-Inicie sessão como ``root`` com a palavra-passe que acabou de definir. 
+Entre como ``root`` com a senha que você acabou de definir. 
 
 ```
 login: root
 Password:**********
 ```
 
-Depois de iniciar sessão como raiz, as portas de rede estão ativas e irão contactar o servidor DHCP para endereços IP. 
+Depois de entrar como raiz, as portas de rede estarão ativas e entrarão em contato com o servidor DHCP para obter os endereços IP. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-O nó está pronto para ser parte de um cluster. Pode usá-lo para criar o cluster de ficheiros do Azure FXT Edge, ou pode [adicioná-lo a um cluster existente](fxt-add-nodes.md). 
+O nó está pronto para ser parte de um cluster. Você pode usá-lo para criar o cluster de arquivos do Azure FXT Edge ou pode [adicioná-lo a um cluster existente](fxt-add-nodes.md). 
 
 > [!div class="nextstepaction"]
 > [Criar um cluster](fxt-cluster-create.md)

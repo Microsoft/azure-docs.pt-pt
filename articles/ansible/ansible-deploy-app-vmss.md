@@ -1,6 +1,6 @@
 ---
-title: Tutorial - implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible | Documentos da Microsoft
-description: Saiba como utilizar o Ansible para configurar conjuntos de dimensionamento de máquina virtual do Azure e implementar a aplicação num conjunto de dimensionamento
+title: Tutorial – implantar aplicativos em conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
+description: Saiba como usar o Ansible para configurar conjuntos de dimensionamento de máquinas virtuais do Azure e implantar o aplicativo no conjunto de dimensionamento
 keywords: ansible, azure, devops, bash, manual de procedimentos, máquina virtual, conjunto de dimensionamento de máquinas virtuais, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: a44fd06ace9b21122f5f4253ac7d9601b54e6b62
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: f9035259d466a50b83fe0094d43bc0fe985e8c4e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231043"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241721"
 ---
-# <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Implementar aplicações em conjuntos de dimensionamento de máquinas virtuais no Azure com o Ansible
+# <a name="tutorial-deploy-apps-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: implantar aplicativos em conjuntos de dimensionamento de máquinas virtuais no Azure usando o Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -25,10 +25,10 @@ ms.locfileid: "65231043"
 
 > [!div class="checklist"]
 >
-> * Obter informações do anfitrião para um grupo de VMs do Azure
-> * Clonar e criar a aplicação de exemplo
-> * Instalar o JRE (Java Runtime Environment) num conjunto de dimensionamento
-> * Implementar a aplicação de Java num conjunto de dimensionamento
+> * Recuperar informações do host para um grupo de VMs do Azure
+> * Clonar e compilar o aplicativo de exemplo
+> * Instalar o JRE (Java Runtime Environment) em um conjunto de dimensionamento
+> * Implantar o aplicativo Java em um conjunto de dimensionamento
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,11 +37,11 @@ ms.locfileid: "65231043"
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 - O **git** - [git](https://git-scm.com) serve para transferir um exemplo do Java utilizado neste tutorial.
 - **Kit de Desenvolvimento SE do Java (JDK)** - o [JDK](https://aka.ms/azure-jdks) serve para compilar o projeto Java de exemplo.
-- **Apache Maven** - [Apache Maven](https://maven.apache.org/download.cgi) é usado para compilar o projeto de Java de exemplo.
+- O **Apache maven** - [Apache Maven](https://maven.apache.org/download.cgi) é usado para criar o projeto Java de exemplo.
 
 ## <a name="get-host-information"></a>Obter informações dos anfitriões
 
-O código do playbook nesta secção obtém informações do anfitrião para um grupo de máquinas virtuais. O código obtém os endereços IP públicos e carregar balanceador dentro de um grupo de recursos especificado e cria um grupo de anfitriões com o nome `scalesethosts` no inventário.
+O código do guia estratégico nesta seção recupera informações do host para um grupo de máquinas virtuais. O código obtém os endereços IP públicos e o balanceador de carga em um grupo de recursos especificado e cria um grupo de hosts denominado `scalesethosts` no inventário.
 
 Guarde o manual de procedimentos de exemplo seguinte como `get-hosts-tasks.yml`:
 
@@ -71,7 +71,7 @@ Guarde o manual de procedimentos de exemplo seguinte como `get-hosts-tasks.yml`:
 
 ## <a name="prepare-an-application-for-deployment"></a>Preparar uma aplicação para implementação
 
-O código do playbook nesta secção usa `git` para clonar um projeto de exemplo de Java do GitHub e cria o projeto. 
+O código de guia estratégico nesta seção usa `git` para clonar um projeto de exemplo Java do GitHub e compila o projeto. 
 
 Guarde o manual de procedimentos seguinte como `app.yml`:
 
@@ -97,7 +97,7 @@ Execute o manual de procedimentos do Ansible de exemplo com o seguinte comando:
   ansible-playbook app.yml
   ```
 
-Depois de executar o playbook, ver um resultado semelhante para os seguintes resultados:
+Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 
   ```Output
   PLAY [localhost] 
@@ -116,17 +116,17 @@ Depois de executar o playbook, ver um resultado semelhante para os seguintes res
 
   ```
 
-## <a name="deploy-the-application-to-a-scale-set"></a>Implementar a aplicação para um conjunto de dimensionamento
+## <a name="deploy-the-application-to-a-scale-set"></a>Implantar o aplicativo em um conjunto de dimensionamento
 
-O código do playbook nesta secção é utilizado para:
+O código do guia estratégico nesta seção é usado para:
 
-* Instalar o JRE num grupo de anfitriões com o nome `saclesethosts`
-* Implementar a aplicação de Java num grupo de anfitriões com o nome `saclesethosts`
+* Instale o JRE em um grupo de hosts denominado `saclesethosts`
+* Implantar o aplicativo Java em um grupo de hosts chamado `saclesethosts`
 
-Existem duas formas de obter o playbook de exemplo:
+Há duas maneiras de obter o guia estratégico de exemplo:
 
-* [Transferir o manual de comunicação social](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) e guardá-lo para `vmss-setup-deploy.yml`.
-* Crie um novo ficheiro designado `vmss-setup-deploy.yml` e copie no seguinte conteúdo:
+* [Baixe o guia estratégico](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-setup-deploy.yml) e salve-o em `vmss-setup-deploy.yml`.
+* Crie um novo arquivo chamado `vmss-setup-deploy.yml` e copie-o para ele no seguinte conteúdo:
 
 ```yml
 - hosts: localhost
@@ -165,24 +165,24 @@ Existem duas formas de obter o playbook de exemplo:
     poll: 0
 ```
 
-Antes de executar o playbook, consulte as seguintes notas de:
+Antes de executar o guia estratégico, consulte as seguintes observações:
 
-* Na `vars` secção, substitua o `{{ admin_password }}` marcador de posição pela sua própria palavra-passe.
-* Para utilizar o ssh tipo de ligação com palavras-passe, instalar o programa de sshpass:
+* Na seção `vars`, substitua o espaço reservado `{{ admin_password }}` por sua própria senha.
+* Para usar o tipo de conexão SSH com senhas, instale o programa sshpass:
 
-    Ubuntu:
+    Ubuntu
 
     ```bash
     apt-get install sshpass
     ```
 
-    CentOS:
+    CentOS
 
     ```bash
     yum install sshpass
     ```
 
-* Em alguns ambientes, poderá ver um erro sobre a utilização de uma palavra-passe SSH, em vez de uma chave. Se receber este erro, pode desativar a verificação, adicionando a seguinte linha para a chave de anfitrião `/etc/ansible/ansible.cfg` ou `~/.ansible.cfg`:
+* Em alguns ambientes, você pode ver um erro sobre como usar uma senha SSH em vez de uma chave. Se você receber esse erro, poderá desabilitar a verificação de chave de host adicionando a seguinte linha a `/etc/ansible/ansible.cfg` ou `~/.ansible.cfg`:
 
     ```bash
     [defaults]
@@ -195,7 +195,7 @@ Execute o manual de procedimentos com o comando seguinte:
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-O resultado da execução do comando do ansible playbook indica que foi instalada a aplicação de Java de exemplo para o grupo de anfitriões do conjunto de dimensionamento:
+A saída da execução do comando Ansible-manual indica que o aplicativo Java de exemplo foi instalado no grupo de hosts do conjunto de dimensionamento:
 
   ```Output
   PLAY [localhost]
@@ -234,11 +234,11 @@ O resultado da execução do comando do ansible playbook indica que foi instalad
 
 ## <a name="verify-the-results"></a>Verificar os resultados
 
-Verifique se os resultados do seu trabalho navegando para o URL do Balanceador de carga para o conjunto de dimensionamento:
+Verifique os resultados do seu trabalho navegando até a URL do balanceador de carga para seu conjunto de dimensionamento:
 
-![Aplicação de Java em execução em conjuntos de dimensionamento no Azure.](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
+![Aplicativo Java em execução em um conjunto de dimensionamento no Azure.](media/ansible-vmss-deploy/ansible-deploy-app-vmss.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conjuntos de dimensionamento de máquina virtual de dimensionamento automático no Azure com o Ansible](./ansible-auto-scale-vmss.md)
+> [Tutorial: dimensionamento automático de conjuntos de dimensionamento de máquinas virtuais no Azure usando Ansible](./ansible-auto-scale-vmss.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996718"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255239"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Proteção de rede adaptável na central de segurança do Azure
 Saiba como configurar a proteção de rede adaptável na central de segurança do Azure.
@@ -41,15 +41,15 @@ Por exemplo, digamos que a regra NSG existente seja permitir o tráfego de 140.2
    * **Recursos não íntegros**: VMs que atualmente têm recomendações e alertas que foram disparados executando o algoritmo de proteção de rede adaptável. 
    * **Recursos íntegros**: VMs sem alertas e recomendações.
    * **Recursos não verificados**: VMs para as quais o algoritmo de proteção de rede adaptável não pode ser executado devido a um dos seguintes motivos:
-      * As **VMs são VMs clássicas**: Há suporte apenas para VMs Azure Resource Manager.
-      * **Não há dados suficientes disponíveis**: Para gerar recomendações precisas de proteção de tráfego, a central de segurança requer pelo menos 30 dias de dados de tráfego.
-      * **A VM não está protegida pelo ASC Standard**: Somente as VMs definidas como o tipo de preço Standard da central de segurança são elegíveis para esse recurso.
+      * As VMs **são VMs clássicas**: há suporte apenas para VMs Azure Resource Manager.
+      * **Não há dados suficientes disponíveis**: para gerar recomendações precisas de proteção de tráfego, a central de segurança requer pelo menos 30 dias de dados de tráfego.
+      * A **VM não está protegida pelo ASC Standard**: somente as VMs definidas como o tipo de preço Standard da central de segurança são elegíveis para esse recurso.
 
      ![recursos não íntegros](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
 2. Na guia **recursos não íntegros** , selecione uma VM para exibir os alertas e as regras de proteção recomendadas a serem aplicadas.
 
-    ![protegendo alertas](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![protegendo alertas](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Examinar e aplicar regras recomendadas de proteção de rede adaptável

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: swmachan
-ms.openlocfilehash: cb5a3b8572cebfd6c0731a9e572e966fda280be6
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772793"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72252966"
 ---
 # <a name="translator-text-api-v30"></a>API de Tradução de Texto v 3.0
 
@@ -33,39 +33,38 @@ A versão 3 do API de Tradução de Texto fornece uma API da Web moderna baseada
 
 O Microsoft Translator é servido por vários locais de datacenter. Atualmente, eles estão localizados em 10 [geografias do Azure](https://azure.microsoft.com/global-infrastructure/regions):
 
-* **Américas** Leste dos EUA, Sul EUA Central, Oeste EUA Central e oeste dos EUA 2 
+* **Américas:** Leste dos EUA, Sul EUA Central, Oeste EUA Central e oeste dos EUA 2 
 * **Pacífico Asiático:** Sul da Coreia, leste do Japão, Sudeste Asiático e leste da Austrália
-* **Européia** Europa Setentrional e Europa Ocidental
+* **Europa:** Europa Setentrional e Europa Ocidental
 
 As solicitações para os API de Tradução de Texto da Microsoft estão na maioria dos casos manipulados pelo datacenter mais próximo de onde a solicitação foi originada. No caso de uma falha de datacenter, a solicitação pode ser roteada para fora da geografia do Azure.
 
 Para forçar a manipulação da solicitação por uma geografia do Azure específica, altere o ponto de extremidade global na solicitação de API para o ponto de extremidade regional desejado:
 
-|Descrição|Geografia do Azure|URL Base|
+|Descrição|Geografia do Azure|URL base|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos|   api-nam.cognitive.microsofttranslator.com|
 |Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
 |Azure|Ásia-Pacífico|    api-apc.cognitive.microsofttranslator.com|
 
+## <a name="authentication"></a>Autenticação
 
-## <a name="authentication"></a>Authentication
+Assine API de Tradução de Texto ou [Serviços cognitivas multiatendimento](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivas do Azure e use sua chave de assinatura (disponível no portal do Azure) para autenticar. 
 
-Assine API de Tradução de Texto ou [Serviços cognitivas multiatendimento](https://azure.microsoft.com/pricing/details/cognitive-services/) nos serviços cognitivas da Microsoft e use sua chave de assinatura (disponível no portal do Azure) para autenticar. 
-
-Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta tabela fornece uma descrição de como cada um é usado:
+Há três cabeçalhos que você pode usar para autenticar sua assinatura. Esta tabela descreve como cada um é usado:
 
 |Cabeçalhos|Descrição|
 |:----|:----|
-|OCP-Apim-Subscription-Key|*Use com a assinatura de serviços cognitivas se você estiver passando sua chave secreta*.<br/>O valor é a chave secreta do Azure para sua assinatura para API de Tradução de Texto.|
-|Autorização|*Use com a assinatura de serviços cognitivas se você estiver passando um token de autenticação.*<br/>O valor é o token de portador `Bearer <token>`:.|
+|OCP-APIM-Subscription-Key|*Use com a assinatura de serviços cognitivas se você estiver passando sua chave secreta*.<br/>O valor é a chave secreta do Azure para sua assinatura para API de Tradução de Texto.|
+|Autorização|*Use com a assinatura de serviços cognitivas se você estiver passando um token de autenticação.*<br/>O valor é o token de portador: `Bearer <token>`.|
 |OCP-APIM-Subscription – região|*Use com a assinatura de vários serviços cognitivas se você estiver passando uma chave secreta de vários serviços.*<br/>O valor é a região da assinatura de vários serviços. Esse valor é opcional quando não estiver usando uma assinatura de vários serviços.|
 
 ###  <a name="secret-key"></a>Chave secreta
-A primeira opção é autenticar usando o `Ocp-Apim-Subscription-Key` cabeçalho. Basta adicionar o `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` cabeçalho à sua solicitação.
+A primeira opção é autenticar usando o cabeçalho `Ocp-Apim-Subscription-Key`. Adicione o cabeçalho `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` à sua solicitação.
 
 ### <a name="authorization-token"></a>Token de autorização
-Como alternativa, você pode trocar sua chave secreta para um token de acesso. Esse token é incluído em cada solicitação como o `Authorization` cabeçalho. Para obter um token de autorização, faça `POST` uma solicitação para a seguinte URL:
+Como alternativa, você pode trocar sua chave secreta para um token de acesso. Esse token é incluído em cada solicitação como o cabeçalho `Authorization`. Para obter um token de autorização, faça uma solicitação `POST` para a seguinte URL:
 
 | Ambiente     | URL do serviço de autenticação                                |
 |-----------------|-----------------------------------------------------------|
@@ -73,7 +72,7 @@ Como alternativa, você pode trocar sua chave secreta para um token de acesso. E
 
 Aqui estão exemplos de solicitações para obter um token fornecido por uma chave secreta:
 
-```
+```curl
 // Pass secret key using header
 curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken'
 
@@ -83,11 +82,11 @@ curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscrip
 
 Uma solicitação bem-sucedida retorna o token de acesso codificado como texto sem formatação no corpo da resposta. O token válido é passado para o serviço do tradutor como um token de portador na autorização.
 
-```
+```http
 Authorization: Bearer <Base64-access_token>
 ```
 
-Um token de autenticação é válido por 10 minutos. O token deve ser usado novamente ao fazer várias chamadas para as APIs do tradutor. No entanto, se o seu programa fizer solicitações para a API do tradutor durante um longo período de tempo, o programa deverá solicitar um novo token de acesso em intervalos regulares (por exemplo, a cada 8 minutos).
+Um token de autenticação é válido por 10 minutos. O token deve ser reutilizado ao fazer várias chamadas para as APIs do tradutor. No entanto, se o seu programa fizer solicitações para a API do tradutor durante um longo período de tempo, o programa deverá solicitar um novo token de acesso em intervalos regulares (por exemplo, a cada 8 minutos).
 
 ### <a name="multi-service-subscription"></a>Assinatura de vários serviços
 
@@ -99,24 +98,23 @@ Ao usar uma chave secreta de vários serviços, você deve incluir dois cabeçal
 
 A região é necessária para a assinatura de API de texto de vários serviços. A região selecionada é a única região que você pode usar para a tradução de texto ao usar a chave de assinatura de vários serviços e deve ser a mesma região que você selecionou quando se inscreveu para sua assinatura de vários serviços por meio do portal do Azure.
 
-As regiões disponíveis `australiaeast`são `brazilsouth` `canadacentral`, `centralindia` ,,`japanwest`,,,, ,`eastus2`,, ,,`japaneast` `francecentral` `eastus` `centralus` `centraluseuap` `eastasia` `koreacentral` ,,,`westus2`, ,`southeastasia`,, ,`westeurope`, e .`southafricanorth` `uksouth` `southcentralus` `northcentralus` `northeurope` `westcentralus` `westus`
+As regiões disponíveis são `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, @no__ t-21 e 2.
 
-Se você passar a chave secreta na cadeia de caracteres de consulta com `Subscription-Key`o parâmetro, deverá especificar a região com o parâmetro `Subscription-Region`de consulta.
+Se você passar a chave secreta na cadeia de caracteres de consulta com o parâmetro `Subscription-Key`, deverá especificar a região com o parâmetro de consulta `Subscription-Region`.
 
-Se você usar um token de portador, deverá obter o token do ponto de extremidade da `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`região:.
+Se você usar um token de portador, deverá obter o token do ponto de extremidade da região: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
 
 ## <a name="errors"></a>Erros
 
-Uma resposta de erro padrão é um objeto JSON com o par nome/ `error`valor denominado. O valor também é um objeto JSON com propriedades:
+Uma resposta de erro padrão é um objeto JSON com o par nome/valor denominado `error`. O valor também é um objeto JSON com propriedades:
 
-  * `code`: Um código de erro definido pelo servidor.
-
-  * `message`: Uma cadeia de caracteres que oferece uma representação legível do erro.
+  * `code`: um código de erro definido pelo servidor.
+  * `message`: uma cadeia de caracteres fornecendo uma representação legível do erro.
 
 Por exemplo, um cliente com uma assinatura de avaliação gratuita receberia o seguinte erro depois que a cota livre for esgotada:
 
-```
+```json
 {
   "error": {
     "code":403001,
@@ -165,5 +163,5 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 415000| O cabeçalho Content-Type está ausente ou é inválido.|
 | 429000, 429001, 429002| O servidor rejeitou a solicitação porque o cliente excedeu os limites de solicitação.|
 | 500000| Ocorreu um erro inesperado. Se o erro persistir, relate-o com data/hora de erro, identificador de solicitação do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
-| 503000| Serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, relate-o com data/hora de erro, identificador de solicitação do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
+| 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, relate-o com data/hora de erro, identificador de solicitação do cabeçalho de resposta X-RequestId e identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 

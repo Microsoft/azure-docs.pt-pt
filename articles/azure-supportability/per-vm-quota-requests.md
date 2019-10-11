@@ -5,14 +5,14 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9caf82d2fa4683e845d23b5496f9e7b8f9682ec7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e99bdd92d4a1aab833a95943b22aaabe7f0daa1d
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234831"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248669"
 ---
 # <a name="vm-series-vcpu-limit-increase"></a>Aumento do limite de vCPU das Séries de VM
 
@@ -21,7 +21,7 @@ As cotas de vCPU do Resource Manager para máquinas virtuais e conjuntos de dime
 A primeira camada é o **limite de VCPUs regional total** (em toda a série de VM), e a segunda camada é o **limite de vCPUs por série de VMs** (como a série D vCPUs). Sempre que uma nova VM for implantada, a soma do uso de vCPUs novo e existente para essa série de VMs não deverá exceder a cota de vCPU aprovada para essa série de VMs específica. Além disso, a contagem de vCPU total e nova e existente implantada em toda a série de VMs não deve exceder a cota de vCPUs regional total aprovada para a assinatura. Se qualquer uma dessas cotas for excedida, a implantação da VM não será permitida.
 Você pode solicitar um aumento do limite de cota de vCPUs para a série de VMs de portal do Azure. Um aumento na cota da série de VMs aumenta automaticamente o limite de vCPUs regional total pelo mesmo valor. 
 
-Saiba mais sobre cotas na página de cotas do [vCPU de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e na página [limites de serviço e assinatura do Azure](https://aka.ms/quotalimits) . 
+Saiba mais sobre cotas na [página de cotas do vCPU de máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) e na página [limites de serviço e assinatura do Azure](https://aka.ms/quotalimits) . 
 
 Agora você pode solicitar um aumento via folha **ajuda + suporte** ou a folha **usos + cota** no Portal. 
 
