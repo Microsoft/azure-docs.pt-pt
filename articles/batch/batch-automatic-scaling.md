@@ -13,13 +13,13 @@ ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bdea67d682bab335de02e55f5864460e3daefb95
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: HT
+ms.custom: H1Hack27Feb2017,fasttrack-edit
+ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254942"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274838"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -107,6 +107,11 @@ Você pode obter e definir os valores dessas variáveis definidas pelo serviço 
 | $TargetDedicatedNodes |O número alvo de nós de computação dedicados para o pool. O número de nós dedicados é especificado como um destino, pois um pool nem sempre pode atingir o número de nós desejado. Por exemplo, se o número de destino de nós dedicados for modificado por uma avaliação de dimensionamento automático antes que o pool tenha atingido o destino inicial, o pool poderá não alcançar o destino. <br /><br /> Um pool em uma conta criada com a configuração do serviço de lote poderá não atingir seu destino se o destino exceder um nó de conta do lote ou uma cota de núcleo. Um pool em uma conta criada com a configuração de assinatura do usuário poderá não atingir seu destino se o destino exceder a cota de núcleos compartilhada para a assinatura.|
 | $TargetLowPriorityNodes |O número de destino de nós de computação de baixa prioridade para o pool. O número de nós de baixa prioridade é especificado como um destino porque um pool nem sempre consegue obter o número desejado de nós. Por exemplo, se o número de destino de nós de baixa prioridade for modificado por uma avaliação de dimensionamento automático antes que o pool tenha atingido o destino inicial, o pool poderá não alcançar o destino. Um pool também pode não alcançar seu destino se o destino exceder um nó de conta do lote ou uma cota de núcleo. <br /><br /> Para obter mais informações sobre nós de computação de baixa prioridade, consulte [usar VMs de baixa prioridade com o lote (versão prévia)](batch-low-pri-vms.md). |
 | $NodeDeallocationOption |A ação que ocorre quando nós de computação são removidos de um pool. Os valores possíveis são:<ul><li>recolocar na **fila**--o valor padrão. Encerra as tarefas imediatamente e as coloca novamente na fila de trabalho para que elas sejam reagendadas. Essa ação garante que o número de destino dos nós seja atingido o mais rápido possível, mas pode ser menos eficiente, pois qualquer tarefa em execução será interrompida e precisará ser reiniciada, desperdiçando qualquer trabalho que já tenha feito. <li>**terminar**– encerra as tarefas imediatamente e as remove da fila de trabalhos.<li>**taskcompletion**--aguarda a conclusão das tarefas em execução no momento e, em seguida, remove o nó do pool. Use essa opção para evitar que tarefas sejam interrompidas e recolocadas na fila, desperdiçando qualquer trabalho que a tarefa tenha feito. <li>**retaineddata**--aguarda que todos os dados de tarefa local retidos no nó sejam limpos antes de remover o nó do pool.</ul> |
+
+> [!NOTE]
+> A variável `$TargetDedicatedNodes` também pode ser especificada usando o alias `$TargetDedicated`. Da mesma forma, a variável `$TargetLowPriorityNodes` pode ser especificada usando o alias `$TargetLowPriority`. Se a variável totalmente nomeada e seu alias forem definidos pela fórmula, o valor atribuído à variável totalmente nomeada terá precedência.
+>
+>
 
 Você pode obter o valor dessas variáveis definidas pelo serviço para fazer ajustes que se baseiam em métricas do serviço de lote:
 

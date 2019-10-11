@@ -9,43 +9,43 @@ ms.date: 12/17/2018
 ms.topic: conceptual
 manager: gwallace
 description: Desenvolvimento rápido da Kubernetes com contentores e microsserviços no Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contentores
-ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+keywords: Docker, kubernetes, Azure, AKS, serviço de contêiner do Azure, contêineres
+ms.openlocfilehash: 7058806e58dbc2d9a196062c129688e6a96c5f31
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704070"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264453"
 ---
-# <a name="use-cicd-with-azure-dev-spaces"></a>Utilizar o CI/CD com espaços de desenvolvimento do Azure
+# <a name="use-cicd-with-azure-dev-spaces"></a>Usar CI/CD com Azure Dev Spaces
 
-Este artigo orienta-o pela configuração de contínua integração/implementação contínua (CI/CD) para Azure Kubernetes Service (AKS) com espaços de desenvolvimento ativada. CI/CD para o AKS permite que as atualizações de aplicações a serem implantados automaticamente sempre que o código confirmado é emitidos via push para o seu repositório de origem. Cluster ativado com CI/CD em conjunto com os espaços de desenvolvimento é útil porque ele pode manter uma linha de base do aplicativo atualizados para a equipa trabalhar com.
+Este artigo orienta você pela configuração de CI/CD (integração contínua/implantação contínua) para o AKS (serviço kubernetes do Azure) com espaços de desenvolvimento habilitados. CI/CD para AKS permite que as atualizações de aplicativo sejam implantadas automaticamente sempre que o código confirmado é enviado por push para o repositório de origem. Usar CI/CD em conjunto com um cluster habilitado para espaços de desenvolvimento é útil porque pode manter uma linha de base do aplicativo atualizada para a equipe trabalhar.
 
 ![Diagrama de CI/CD de exemplo](../media/common/ci-cd-simple.png)
 
-Embora este artigo orienta-o com o Azure DevOps, os mesmos conceitos aplicaria aos sistemas de CI/CD com Jenkins, TeamCity, etc.
+Embora este artigo o orienta com o Azure DevOps, os mesmos conceitos se aplicariam a sistemas de CI/CD como Jenkins, TeamCity, etc.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Cluster de Kubernetes Service (AKS) do Azure com os espaços de desenvolvimento do Azure ativado](../get-started-netcore.md)
-* [CLI de espaços de desenvolvimento do Azure instalada](upgrade-tools.md)
-* [Organização de DevOps do Azure com um projeto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
-* [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
-    * O Azure Container Registry [conta de administrador](../../container-registry/container-registry-authentication.md#admin-account) detalhes disponíveis
-* [Autorizar o seu cluster do AKS para solicitar a partir do seu registo de contentor do Azure](../../container-registry/container-registry-auth-aks.md)
+* [Cluster do serviço de kubernetes do Azure (AKS) com Azure Dev Spaces habilitado](../get-started-netcore.md)
+* [CLI do Azure Dev Spaces instalada](upgrade-tools.md)
+* [Organização do Azure DevOps com um projeto](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
+* [ACR (registro de contêiner do Azure)](../../container-registry/container-registry-get-started-azure-cli.md)
+    * Detalhes da [conta de administrador](../../container-registry/container-registry-authentication.md#admin-account) do registro de contêiner do Azure disponíveis
+* [Autorize o cluster AKS a efetuar pull do seu registro de contêiner do Azure](../../aks/cluster-container-registry-integration.md)
 
-## <a name="download-sample-code"></a>Baixe o código de exemplo
-Para fins de tempo, vamos criar um fork do nosso repositório de GitHub do código de exemplo. Aceda a https://github.com/Azure/dev-spaces e selecione **Fork**. Uma vez concluído, o processo de bifurcação **Clone** sua versão bifurcado do repositório localmente. Por predefinição o _mestre_ ramo irá fazer Check-out, mas a Incluímos algumas alterações de economia de tempo no _azds_updates_ ramo, que também deve ter sido transferido durante o fork. O _azds_updates_ ramo contém atualizações, pedimos-lhe que faça manualmente as secções do tutoriais de espaços de desenvolvimento, bem como alguns ficheiros YAML e JSON criados previamente para simplificar a implementação do sistema de CI/CD. Pode utilizar um comando como `git checkout -b azds_updates origin/azds_updates` Verifique a _azds_updates_ ramo no repositório local.
+## <a name="download-sample-code"></a>Baixar código de exemplo
+Por questão de tempo, vamos criar uma bifurcação do nosso repositório GitHub de código de exemplo. Vá para https://github.com/Azure/dev-spaces e selecione **Fork**. Depois que o processo de bifurcação for concluído, **clone** a versão bifurcada do repositório localmente. Por padrão, será feito o check-out do Branch _mestre_ , mas incluímos algumas alterações que economizam tempo na ramificação _azds_updates_ , que também deve ter sido transferida durante a bifurcação. A ramificação _azds_updates_ contém atualizações que solicitamos que você faça manualmente nas seções do tutorial de espaços de desenvolvimento, bem como alguns arquivos YAML e JSON pré-criados para simplificar a implantação do sistema de CI/CD. Você pode usar um comando como `git checkout -b azds_updates origin/azds_updates` para conferir o Branch _azds_updates_ em seu repositório local.
 
 ## <a name="dev-spaces-setup"></a>Configuração de espaços de desenvolvimento
-Criar um novo espaço chamado _dev_ usando o `azds space select` comando. O _dev_ espaço será utilizado pelo seu pipeline CI/CD para enviar suas alterações de código. Também vai ser utilizado para criar _espaços de subordinado_ com base nos _dev_.
+Crie um novo espaço chamado _dev_ usando o comando `azds space select`. O espaço de _desenvolvimento_ será usado pelo pipeline de CI/CD para enviar as alterações de código por push. Ele também será usado para criar _espaços filhos_ com base em _desenvolvimento_.
 
 ```cmd
 azds space select -n dev
 ```
 
-Quando lhe for pedido para selecionar um espaço de desenvolvimento principal, selecione  _\<none\>_ .
+Quando for solicitado a selecionar um espaço de desenvolvimento pai, selecione _\<none @ no__t-2_.
 
-Depois de ter sido criado o seu espaço de desenvolvimento, precisa determinar o sufixo de anfitrião. Utilize o `azds show-context` comando para mostrar o sufixo de anfitrião do controlador de entrada do Azure Dev espaços.
+Depois que o espaço de desenvolvimento tiver sido criado, você precisará determinar o sufixo do host. Use o comando `azds show-context` para mostrar o sufixo de host do controlador de entrada do Azure Dev Spaces.
 
 ```cmd
 $ azds show-context
@@ -54,91 +54,91 @@ Name   ResourceGroup    DevSpace  HostSuffix
 MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
 ```
 
-No exemplo acima, o sufixo de anfitrião for _fedcba098.eus.azds.io_. Este valor é utilizado mais tarde quando criar a sua definição de versão.
+No exemplo acima, o sufixo do host é _fedcba098.eus.azds.Io_. Esse valor será usado mais tarde ao criar a definição de versão.
 
-O _dev_ espaço sempre irá conter o estado mais recente do repositório, uma linha de base, para que os desenvolvedores podem criar _espaços subordinado_ partir _dev_ para testar as alterações isoladas dentro do contexto da aplicação maior. Esse conceito será discutido mais detalhadamente os tutoriais de espaços de desenvolvimento.
+O espaço de _desenvolvimento_ sempre conterá o estado mais recente do repositório, uma linha de base, para que os desenvolvedores possam criar _espaços filho_ do _dev_ para testar suas alterações isoladas no contexto do aplicativo maior. Esse conceito é discutido mais detalhadamente nos tutoriais dos espaços de desenvolvimento.
 
-## <a name="creating-the-build-definition"></a>Criar a definição de compilação
-Abra o seu projeto de equipa de DevOps do Azure num browser e navegue para o _Pipelines_ secção. Em primeiro lugar, clique em sua fotografia do perfil no canto superior direito do site do Azure DevOps, abrir o painel de funcionalidades de pré-visualização e desativar o _experiência de criação do novo YAML pipeline_:
+## <a name="creating-the-build-definition"></a>Criando a definição de compilação
+Abra seu projeto de equipe do Azure DevOps em um navegador da Web e navegue até a seção _pipelines_ . Primeiro, clique em sua foto de perfil no canto superior direito do site do Azure DevOps, abra o painel recursos de visualização e desabilite a _nova experiência de criação de pipeline YAML_:
 
-![Painel de funcionalidades de pré-visualização de abertura](../media/common/preview-feature-open.png)
+![Abrindo o painel de recursos de visualização](../media/common/preview-feature-open.png)
 
-A opção para desativar:
+A opção para desabilitar:
 
-![Opção de experiência de criação do pipeline YAML novo](../media/common/yaml-pipeline-preview-feature.png)
+![Nova opção de experiência de criação de pipeline do YAML](../media/common/yaml-pipeline-preview-feature.png)
 
 > [!Note]
-> O Azure DevOps _experiência de criação do novo YAML pipeline_ conflitos de funcionalidade de pré-visualização com a criação de predefinidos Criar pipelines neste momento. Tem de desativá-la por agora para poder implementar nosso pipeline de compilação predefinidas.
+> O recurso de visualização da experiência de criação de pipeline do Azure DevOps _New YAML_ está em conflito com a criação de pipelines de compilação predefinidos no momento. Você precisa desabilitá-lo por enquanto para implantar nosso pipeline de compilação predefinido.
 
-Na _azds_updates_ ramo incluímos um simples [YAML de Pipeline do Azure](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) que define os passos de compilação necessários para *mywebapi* e *webfrontend* .
+Na ramificação _azds_updates_ , incluímos um [YAML de pipeline do Azure](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) simples que define as etapas de compilação necessárias para o *mywebapi* e o *WebFrontEnd*.
 
-Dependendo da linguagem que escolheu, o pipeline YAML tem sido check-in num caminho semelhante a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
+Dependendo do idioma que você escolheu, o pipeline YAML foi verificado em um caminho semelhante a: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
-Para criar um Pipeline deste ficheiro:
-1. DevOps página do projeto principal, navegue para os Pipelines > baseia-se.
-1. Selecione a opção para criar uma **New** criar o pipeline.
-1. Selecione **GitHub** como a origem, autorizar com a sua conta do GitHub, se necessário e selecione o _azds_updates_ ramo do seu versão bifurcado do repositório de sampleapp dev-espaços.
-1. Selecione **configuração como código**, ou **YAML**, como o modelo.
-1. Será apresentada uma página de configuração para o seu pipeline de compilação. Conforme mencionado acima, navegue para o caminho de idioma específico para o **caminho do ficheiro YAML** usando o **...**  botão. Por exemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
-1. Vá para o **variáveis** separador.
-1. Adicionar manualmente _dockerId_ como uma variável, que é o nome de utilizador do seu [conta de administrador do Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). (Mencionado nos pré-requisitos artigo)
-1. Adicionar manualmente _dockerPassword_ como uma variável, que é a palavra-passe da sua [conta de administrador do Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). Certifique-se de que especificar _dockerPassword_ como um segredo (selecionando o ícone de cadeado) por motivos de segurança.
-1. Selecione **guardar e colocar em fila**.
+Para criar um pipeline a partir deste arquivo:
+1. Na página principal do projeto DevOps, navegue até pipelines > Builds.
+1. Selecione a opção para criar um **novo** pipeline de compilação.
+1. Selecione **GitHub** como a origem, autorize com sua conta do GitHub, se necessário, e selecione a ramificação _azds_updates_ da sua versão bifurcada do repositório de aplicativos de exemplo _dev-Spaces_ .
+1. Selecione **configuração como código**ou **YAML**, como seu modelo.
+1. Agora, você verá uma página de configuração para o pipeline de compilação. Conforme mencionado acima, navegue até o caminho específico do idioma para o **caminho do arquivo YAML** usando o botão **...** . Por exemplo, `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Vá para a guia **variáveis** .
+1. Adicione manualmente _dockerId_ como uma variável, que é o nome de usuário da sua [conta de administrador de registro de contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). (Mencionado no artigo pré-requisitos)
+1. Adicione manualmente _dockerPassword_ como uma variável, que é a senha da sua [conta de administrador do registro de contêiner do Azure](../../container-registry/container-registry-authentication.md#admin-account). Certifique-se de especificar _dockerPassword_ como um segredo (selecionando o ícone de cadeado) para fins de segurança.
+1. Selecione **salvar & fila**.
 
-Tem agora uma solução de CI que criará automaticamente *mywebapi* e *webfrontend* para qualquer atualização enviada por push para o _azds_updates_ ramo do fork do GitHub. Pode verificar as imagens do Docker foram enviadas ao navegar para o portal do Azure, selecionar seu registo de contentor do Azure e navegação a **repositórios** separador. Pode demorar vários minutos para as imagens criar e são apresentados no seu registo de contentor.
+Agora você tem uma solução CI que criará automaticamente o *mywebapi* e o *WebFrontEnd* para qualquer atualização enviada por push para a ramificação _azds_updates_ de sua bifurcação do github. Você pode verificar se as imagens do Docker foram enviadas por push, navegando até a portal do Azure, selecionando o registro de contêiner do Azure e navegando na guia **repositórios** . Pode levar vários minutos para que as imagens sejam compiladas e exibidas no registro de contêiner.
 
-![Repositórios de registo de contentor do Azure](../media/common/ci-cd-images-verify.png)
+![Repositórios do registro de contêiner do Azure](../media/common/ci-cd-images-verify.png)
 
-## <a name="creating-the-release-definition"></a>Criar a definição de versão
+## <a name="creating-the-release-definition"></a>Criando a definição da versão
 
-1. DevOps página do projeto principal, navegue para os Pipelines > versões
-1. Se estiver trabalhando num projeto de DevOps novo em folha que ainda não contém uma definição de versão, terá primeiro de criar uma definição de versão vazia antes de continuar. A opção de importação não exibe na IU até ter uma definição de versão existente.
-1. No lado esquerdo, clique nas **+ novo** botão, em seguida, clique em **importar um pipeline**.
-1. Clique em **navegue** e selecione `samples/release.json` do seu projeto.
-1. Clique em **OK**. Observe que o painel de Pipeline foi carregado com a página de edição da definição de versão. Também observe que há são alguns ícones de aviso vermelho indicando detalhes específicos do cluster que ainda tem de ser configurados.
-1. No lado esquerdo do painel de Pipeline, clique nas **adicionar um artefato** bolhas.
-1. Na **origem** lista pendente, selecione a compilação de pipeline que criou anteriormente.
-1. Para o **versão predefinida**, escolha **mais recentes do ramo de padrão de pipeline de compilação com etiquetas**.
-1. Deixe **etiquetas** vazio.
-1. Definir o **alias de origem** para `drop`. O **alias de origem** valor é utilizado pelas tarefas de lançamento predefinidos, de modo tem de ser definido.
+1. Na página principal do projeto DevOps, navegue até pipelines > versões
+1. Se você estiver trabalhando em um projeto DevOps totalmente novo que ainda não contém uma definição de versão, precisará primeiro criar uma definição de versão vazia antes de continuar. A opção de importação não é exibida na interface do usuário até que você tenha uma definição de versão existente.
+1. À esquerda, clique no botão **+ novo** e, em seguida, clique em **importar um pipeline**.
+1. Clique em **procurar** e selecione `samples/release.json` em seu projeto.
+1. Clique em **OK**. Observe que o painel pipeline foi carregado com a página de edição da definição de versão. Observe também que há alguns ícones de aviso vermelho que indicam detalhes específicos do cluster que ainda devem ser configurados.
+1. À esquerda do painel pipeline, clique na bolha **Adicionar um artefato** .
+1. Na lista suspensa **origem** , selecione o pipeline de compilação criado anteriormente.
+1. Para a **versão padrão**, escolha **mais recente na ramificação padrão do pipeline de compilação com marcas**.
+1. Deixe **marcas** vazias.
+1. Defina o **alias de origem** como `drop`. O valor do **alias de origem** é usado pelas tarefas de liberação predefinidas para que ele deva ser definido.
 1. Clique em **Adicionar**.
-1. Agora, clique no ícone de relâmpago bolt recentemente criado no `drop` origem de artefacto, conforme mostrado abaixo:
+1. Agora, clique no ícone de raio na fonte de artefato `drop` recém-criada, conforme mostrado abaixo:
 
-    ![Configuração de implementação contínua do artefacto de versão](../media/common/release-artifact-cd-setup.png)
-1. Ativar a **acionador de implementação contínua**.
-1. Paire o rato sobre o **tarefas** separador junto a **Pipeline** e clique em _dev_ para editar o _dev_ testar tarefas.
-1. Certifique-se **do Azure Resource Manager** está selecionado em **tipo de ligação.** e ver os três controles de lista pendente realçados em vermelho: ![Configuração de definição de versão](../media/common/release-setup-tasks.png)
-1. Selecione a subscrição do Azure que estiver a utilizar com espaços de desenvolvimento do Azure. Também poderá ter de clicar em **autorizar**.
-1. Selecione o grupo de recursos e o cluster que estiver a utilizar com espaços de desenvolvimento do Azure.
-1. Clique em **tarefa de agente**.
-1. Selecione **alojada 1604 de Ubuntu** sob **conjunto de agentes**.
-1. Paire o rato sobre o **tarefas** Seletor na parte superior, clique em _prod_ para editar o _prod_ testar tarefas.
-1. Certifique-se **do Azure Resource Manager** está selecionado em **tipo de ligação.** e selecione a subscrição do Azure, o grupo de recursos e o cluster que estiver a utilizar com espaços de desenvolvimento do Azure.
-1. Clique em **tarefa de agente**.
-1. Selecione **alojada 1604 de Ubuntu** sob **conjunto de agentes**.
-1. Clique nas **variáveis** separador para atualizar as variáveis para a sua versão.
-1. Atualize o valor de **DevSpacesHostSuffix** partir **UPDATE_ME** ao seu sufixo de anfitrião. O sufixo de anfitrião é apresentado quando executou o `azds show-context` comando anteriormente.
-1. Clique em **salvar** no canto superior direito, e **OK**.
-1. Clique em **+ versão** (junto ao botão Save), e **criar uma versão**.
-1. Sob **artefactos**, verifique se a compilação mais recente a partir do seu pipeline de compilação está selecionada.
+    ![Configuração de implantação contínua do artefato de versão](../media/common/release-artifact-cd-setup.png)
+1. Habilite o **gatilho de implantação contínua**.
+1. Passe o mouse sobre a guia **tarefas** ao lado de **pipeline** e clique em _desenvolvimento_ para editar as tarefas do estágio de _desenvolvimento_ .
+1. Verifique se **Azure Resource Manager** está selecionado em **tipo de conexão.** e você verá os três controles suspensos realçados em vermelho: configuração de definição de ![Release @ no__t-1
+1. Selecione a assinatura do Azure que você está usando com Azure Dev Spaces. Talvez você também precise clicar em **autorizar**.
+1. Selecione o grupo de recursos e o cluster que você está usando com Azure Dev Spaces.
+1. Clique em **trabalho do agente**.
+1. Selecione **Ubuntu 1604 hospedado** no **pool de agentes**.
+1. Passe o mouse sobre o seletor de **tarefas** na parte superior, clique em _prod_ para editar as tarefas do estágio de _produção_ .
+1. Verifique se **Azure Resource Manager** está selecionado em **tipo de conexão.** e selecione a assinatura do Azure, o grupo de recursos e o cluster que você está usando com Azure Dev Spaces.
+1. Clique em **trabalho do agente**.
+1. Selecione **Ubuntu 1604 hospedado** no **pool de agentes**.
+1. Clique na guia **variáveis** para atualizar as variáveis da sua versão.
+1. Atualize o valor de **DevSpacesHostSuffix** de **UPDATE_ME** para seu sufixo de host. O sufixo do host é exibido quando você executou o comando `azds show-context` anteriormente.
+1. Clique em **salvar** no canto superior direito e em **OK**.
+1. Clique em **+ versão** (ao lado do botão Salvar) e **crie uma versão**.
+1. Em **artefatos**, verifique se a compilação mais recente do pipeline de compilação está selecionada.
 1. Clique em **Criar**.
 
-Um processo de liberação automatizada começará agora, implementar o *mywebapi* e *webfrontend* cluster de gráficos para o Kubernetes no _dev_ espaço de nível superior. Pode monitorizar o progresso da sua liberação no portal web do Azure DevOps:
+Um processo de liberação automatizado agora começará, implantando os gráficos *mywebapi* e *WebFrontEnd* em seu cluster kubernetes no espaço de nível superior do _dev_ . Você pode monitorar o progresso de sua versão no portal da Web do Azure DevOps:
 
-1. Navegue para o **versões** secção sob **Pipelines**.
-1. Clique no pipeline de versões da aplicação de exemplo.
+1. Navegue até a seção **versões** em **pipelines**.
+1. Clique no pipeline de lançamento para o aplicativo de exemplo.
 1. Clique no nome da versão mais recente.
-1. Coloque o cursor sobre **dev** caixa sob **fases** e clique em **registos**.
+1. Passe o mouse sobre a caixa de **desenvolvimento** em **estágios** e clique em **logs**.
 
-A versão é feita quando todas as tarefas estiverem concluídas.
+A versão é feita quando todas as tarefas são concluídas.
 
 > [!TIP]
-> Se a sua versão falhar com uma mensagem de erro, como *ATUALIZAÇÃO falhou: tempo de espera terminou para a condição*, tente inspecionar os pods no seu cluster [usando o dashboard do Kubernetes](../../aks/kubernetes-dashboard.md). Se vir os pods estão a falhar para começar mensagens de erro como *Falha ao solicitar a imagem "azdsexample.azurecr.io/mywebapi:122": erro de rpc: código = desconhecido desc = resposta de erro do daemon: Obtenha https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: não autorizado: autenticação necessária*, poderá ser porque o seu cluster não foi autorizado a tirar do seu registo de contentor do Azure. Certifique-se de que concluiu o [autorizar o seu cluster do AKS para solicitar a partir do seu Azure Container Registry](../../container-registry/container-registry-auth-aks.md) pré-requisito.
+> Se sua versão falhar com uma mensagem de erro, como *falha na atualização: tempo limite excedido ao aguardar a condição*, tente inspecionar o pods no cluster [usando o painel do kubernetes](../../aks/kubernetes-dashboard.md). Se você vir que os pods estão falhando ao iniciar com mensagens de erro como *falha ao efetuar pull da imagem "azdsexample.azurecr.Io/mywebapi:122": erro de RPC: código = desc desconhecido = resposta de erro do daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: não autorizado: autenticação necessária*, pode ser Porque o cluster não foi autorizado a efetuar pull do seu registro de contêiner do Azure. Certifique-se de ter concluído o [seu cluster autorizar seu AKs para efetuar pull do seu pré-requisito de registro de contêiner do Azure](../../aks/cluster-container-registry-integration.md) .
 
-Agora tem um pipeline de CI/CD totalmente automatizado para o fork do GitHub de espaços de desenvolvimento de aplicações de exemplo. Cada vez que push e de consolidação de código, o pipeline de compilação irá criar e enviar por push o *mywebapi* e *webfrontend* imagens à sua instância do ACR personalizada. Em seguida, o pipeline de lançamento irá implementar o gráfico Helm para cada aplicação para o _dev_ espaço no seu cluster habilitados para espaços de desenvolvimento.
+Agora você tem um pipeline de CI/CD totalmente automatizado para sua bifurcação do GitHub dos aplicativos de exemplo de espaços de desenvolvimento. Sempre que você confirmar e enviar código por push, o pipeline de compilação criará e enviará por push as imagens *mywebapi* e *WebFrontEnd* para sua instância personalizada do ACR. Em seguida, o pipeline de lançamento implantará o gráfico Helm para cada aplicativo no espaço de _desenvolvimento_ em seu cluster habilitado para espaços de desenvolvimento.
 
-## <a name="accessing-your-dev-services"></a>Aceder ao seu _dev_ serviços
-Após a implementação, o _dev_ versão do *webfrontend* pode ser acessado com um URL público, como: `http://dev.webfrontend.fedcba098.eus.azds.io`. Pode encontrar este URL, executando o `azds list-uri` comando: 
+## <a name="accessing-your-_dev_-services"></a>Acessando seus serviços de _desenvolvimento_
+Após a implantação, a versão de _desenvolvimento_ do *WebFrontEnd* pode ser acessada com uma URL pública como: `http://dev.webfrontend.fedcba098.eus.azds.io`. Você pode encontrar essa URL executando o comando `azds list-uri`: 
 
 ```cmd
 $ azds list-uris
@@ -148,21 +148,21 @@ Uri                                           Status
 http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
-## <a name="deploying-to-production"></a>Implantação em produção
+## <a name="deploying-to-production"></a>Implantando na produção
 
-Para promover manualmente uma versão particular _prod_ usando o sistema de CI/CD criado neste tutorial:
-1. Navegue para o **versões** secção sob **Pipelines**.
-1. Clique no pipeline de versões da aplicação de exemplo.
+Para promover manualmente uma versão específica para _produção_ usando o sistema de CI/CD criado neste tutorial:
+1. Navegue até a seção **versões** em **pipelines**.
+1. Clique no pipeline de lançamento para o aplicativo de exemplo.
 1. Clique no nome da versão mais recente.
-1. Paire o rato sobre o **prod** caixa sob **fases** e clique em **implementar**.
-    ![Promover para produção](../media/common/prod-promote.png)
-1. Coloque o cursor sobre **prod** caixa novamente sob **fases** e clique em **registos**.
+1. Passe o mouse sobre a caixa **prod** em **estágios** e clique em **implantar**.
+    ![Promote para produção @ no__t-1
+1. Passe o mouse sobre a caixa de **produção** novamente em **estágios** e clique em **logs**.
 
-A versão é feita quando todas as tarefas estiverem concluídas.
+A versão é feita quando todas as tarefas são concluídas.
 
-O _prod_ estágio do pipeline CI/CD utiliza um balanceador de carga em vez do controlador de entradas de espaços de desenvolvimento para fornecer acesso aos _prod_ serviços. Os serviços implementados no _prod_ fase são acessíveis como endereços IP em vez de nomes DNS. Num ambiente de produção, pode optar por criar seu próprio controlador de entradas para hospedar seus serviços com base na sua própria configuração de DNS.
+O estágio de _produção_ do pipeline de CI/CD usa um balanceador de carga em vez do controlador de entrada de espaços de desenvolvimento para fornecer acesso aos serviços de _produção_ . Os serviços implantados no estágio de _produção_ são acessíveis como endereços IP em vez de nomes DNS. Em um ambiente de produção, você pode optar por criar seu próprio controlador de entrada para hospedar seus serviços com base em sua própria configuração de DNS.
 
-Para determinar o IP do serviço webfrontend, clique nas **imprimir o IP público do webfrontend** passo para expandir a saída de registo. Utilizar o IP apresentado no registo de saída para o acesso a **webfrontend** aplicação.
+Para determinar o IP do serviço de WebFrontEnd, clique na etapa **Imprimir IP público do WebFrontEnd** para expandir a saída do log. Use o IP exibido na saída de log para acessar o aplicativo de **front-end** .
 
 ```cmd
 ...
@@ -172,20 +172,20 @@ Para determinar o IP do serviço webfrontend, clique nas **imprimir o IP públic
 ```
 
 ## <a name="dev-spaces-instrumentation-in-production"></a>Instrumentação de espaços de desenvolvimento em produção
-Embora a instrumentação de espaços de desenvolvimento foi projetada _não_ para representar um impedimento operação normal da sua aplicação, recomendamos a execução suas cargas de trabalho de produção num espaço de nomes do Kubernetes que não está ativado com espaços de desenvolvimento. Usando esse tipo de espaço de nomes do Kubernetes significa que deve cria a seu espaço de nomes de produção com o `kubectl` CLI, ou permitir que o sistema de CI/CD para criá-lo durante a primeira implementação do Helm. _Selecionar_ ou caso contrário, criar um espaço através dos espaços de desenvolvimento as ferramentas irão adicionar instrumentação de espaços de desenvolvimento para esse espaço de nomes.
+Embora a instrumentação de espaços de desenvolvimento tenha sido projetada para _não_ obter a operação normal do seu aplicativo, é recomendável executar suas cargas de trabalho de produção em um namespace kubernetes que não está habilitado com espaços de desenvolvimento. Usar esse tipo de namespace kubernetes significa que você deve criar seu namespace de produção usando a CLI `kubectl` ou permitir que o sistema de CI/CD o crie durante a primeira implantação do Helm. A _seleção_ ou a criação de um espaço usando as ferramentas de espaços de desenvolvimento adicionará a instrumentação de espaços de desenvolvimento a esse namespace.
 
-Aqui está uma estrutura de espaço de nomes de exemplo que oferece suporte ao desenvolvimento de funcionalidade, o ambiente de "dev", _e_ produção, tudo num único cluster de Kubernetes:
+Aqui está uma estrutura de namespace de exemplo que dá suporte ao desenvolvimento de recursos, ao ambiente de "desenvolvimento" _e_ à produção, tudo em um único cluster kubernetes:
 
-![Estrutura de espaço de nomes de exemplo](../media/common/cicd-namespaces.png)
+![Estrutura de namespace de exemplo](../media/common/cicd-namespaces.png)
 
 > [!Tip]
-> Se já tiver criado uma `prod` espaço, e seria simplesmente como ao excluí-lo a partir da instrumentação de espaços de desenvolvimento (sem eliminá-lo!), pode fazer isso com o seguinte comando da CLI de espaços de desenvolvimento:
+> Se você já tiver criado um espaço `prod` e simplesmente quiser excluí-lo da instrumentação de espaços de desenvolvimento (sem excluí-lo!), poderá fazer isso com o seguinte comando da CLI de espaços de desenvolvimento:
 >
 > `azds space remove -n prod --no-delete`
 >
-> Poderá ter de eliminar todos os pods no `prod` espaço de nomes depois de o fazer para que possa ser recriadas sem instrumentação de espaços de desenvolvimento.
+> Talvez seja necessário excluir todos os pods no namespace `prod` depois de fazer isso para que possam ser recriados sem a instrumentação de espaços de desenvolvimento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o desenvolvimento em equipe através dos espaços de desenvolvimento do Azure](../team-development-netcore.md)
+> [Saiba mais sobre o desenvolvimento em equipe usando Azure Dev Spaces](../team-development-netcore.md)

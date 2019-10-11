@@ -1,5 +1,5 @@
 ---
-title: Acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault tutorial
+title: Acessar o armazenamento de BLOBs usando o Key Vault-Azure Databricks
 description: Este tutorial descreve como acessar o armazenamento de BLOBs do Azure de Azure Databricks usando segredos armazenados em um cofre de chaves.
 author: mamccrea
 ms.author: mamccrea
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1e44a1f1be6dcadac937d641e00c99994af0c651
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976518"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274084"
 ---
-# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: Acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault
+# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Tutorial: acessar o armazenamento de BLOBs do Azure de Azure Databricks usando Azure Key Vault
 
 Este tutorial descreve como acessar o armazenamento de BLOBs do Azure de Azure Databricks usando segredos armazenados em um cofre de chaves.
 
@@ -40,7 +40,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account-and-blob-container"></a>Criar uma conta de armazenamento e um contêiner de BLOB
 
-1. Na portal do Azure, selecione **criar um recurso** > **armazenamento**. Em seguida, selecione **conta de armazenamento**.
+1. No portal do Azure, selecione **criar um recurso** > **armazenamento**. Em seguida, selecione **conta de armazenamento**.
 
    ![Localizar recurso de conta de armazenamento do Azure](./media/store-secrets-azure-key-vault/create-storage-account-resource.png)
 
@@ -52,7 +52,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 4. Navegue até sua conta de armazenamento recém-criada e selecione **BLOBs** em **Serviços** na página **visão geral** . Em seguida, selecione **+ contêiner** e insira um nome de contêiner. Selecione **OK**.
 
-   ![Criar novo contentor](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
+   ![Criar novo contêiner](./media/store-secrets-azure-key-vault/create-blob-storage-container.png)
 
 5. Localize um arquivo que você deseja carregar em seu contêiner de armazenamento de BLOBs. Se você não tiver um arquivo, use um editor de texto para criar um novo arquivo de texto com algumas informações. Neste exemplo, um arquivo chamado **HW. txt** contém o texto "Olá, mundo". Salve o arquivo de texto localmente e carregue-o no contêiner de armazenamento de BLOBs.
 
@@ -74,12 +74,12 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 3. Na página **criar cofre de chaves** , insira as informações a seguir e mantenha os valores padrão para os campos restantes:
 
-   |Propriedade|Description|
+   |Propriedade|Descrição|
    |--------|-----------|
    |Nome|Um nome exclusivo para o cofre de chaves.|
-   |Subscription|Escolha uma subscrição.|
-   |Resource group|Escolha um grupo de recursos ou crie um novo.|
-   |Location|Escolher uma localização.|
+   |Subscrição|Escolha uma assinatura.|
+   |Grupo de recursos|Escolha um grupo de recursos ou crie um novo.|
+   |Localização|Escolher uma localização.|
 
    ![Propriedades do cofre de chaves do Azure](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
 
@@ -91,11 +91,11 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 5. Na página **criar um segredo** , forneça as seguintes informações e mantenha os valores padrão para os campos restantes:
 
-   |Propriedade|Value|
+   |Propriedade|Valor|
    |--------|-----------|
    |Opções de carregamento|Manual|
    |Nome|Nome amigável para sua chave de conta de armazenamento.|
-   |Value|key1 da sua conta de armazenamento.|
+   |Valor|key1 da sua conta de armazenamento.|
 
    ![Propriedades para novo segredo do cofre de chaves](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 
@@ -113,10 +113,10 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
    |Propriedade  |Descrição  |
    |---------|---------|
-   |Nome da área de trabalho     | Indique um nome para a sua área de trabalho do Databricks        |
-   |Subscription     | Na lista pendente, selecione a sua subscrição do Azure.        |
-   |Resource group     | Selecione o mesmo grupo de recursos que contém o cofre de chaves. |
-   |Location     | Selecione o mesmo local que o seu Azure Key Vault. Para todas as regiões disponíveis, consulte [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
+   |Nome do espaço de trabalho     | Indique um nome para a sua área de trabalho do Databricks        |
+   |Subscrição     | Na lista pendente, selecione a sua subscrição do Azure.        |
+   |Grupo de recursos     | Selecione o mesmo grupo de recursos que contém o cofre de chaves. |
+   |Localização     | Selecione o mesmo local que o seu Azure Key Vault. Para todas as regiões disponíveis, consulte [Serviços do Azure disponíveis por região](https://azure.microsoft.com/regions/services/).        |
    |Escalão de Preço     |  Escolha entre **Standard** ou **Premium**. Para obter mais informações sobre estes escalões, veja [Página de preços do Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
    ![Propriedades do espaço de trabalho do databricks](./media/store-secrets-azure-key-vault/create-databricks-service.png)
@@ -166,7 +166,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
    ```
 
    * **Mount-Name** é um caminho DBFS que representa onde o contêiner de armazenamento de BLOBs ou uma pasta dentro do contêiner (especificado na fonte) serão montados.
-   * **conf-Key** pode ser `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` ou`fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
+   * o **conf-Key** pode ser `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` ou `fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
    * **Scope-Name** é o nome do escopo secreto que você criou na seção anterior. 
    * **nome-da-chave** é o nome do segredo que você criou para a chave da conta de armazenamento no cofre de chaves.
 
@@ -211,4 +211,4 @@ Se você não pretende usar este aplicativo, exclua todo o grupo de recursos com
 
 Avance para o próximo artigo para saber como implementar um ambiente de databricks injetado VNet com um ponto de extremidade de serviço habilitado para Cosmos DB.
 > [!div class="nextstepaction"]
-> [Tutorial: Implementar Azure Databricks com um ponto de extremidade Cosmos DB](service-endpoint-cosmosdb.md)
+> [Tutorial: implementar Azure Databricks com um ponto de extremidade Cosmos DB](service-endpoint-cosmosdb.md)

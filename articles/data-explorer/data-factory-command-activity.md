@@ -8,16 +8,16 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131444"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264484"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Usar Azure Data Factory atividade de comando para executar comandos do controle de Data Explorer do Azure
 
-[Azure data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado em nuvem que permite que você execute uma combinação de atividades nos dados. Use o ADF para criar fluxos de trabalho orientados a dados para orquestrar e automatizar a movimentação de dados e a transformação de dados. A atividade de **comando do data Explorer do Azure** no Azure data Factory permite que você execute [comandos do controle de data Explorer do Azure](/azure/kusto/concepts/#control-commands) em um fluxo de trabalho do ADF. Este artigo ensina como criar um pipeline com uma atividade de pesquisa e uma atividade ForEach que contém uma atividade de comando do Azure Data Explorer.
+[Azure data Factory](/azure/data-factory/) (ADF) é um serviço de integração de dados baseado em nuvem que permite executar uma combinação de atividades nos dados. Use o ADF para criar fluxos de trabalho orientados a dados para orquestrar e automatizar a movimentação de dados e a transformação de dados. A atividade de **comando do data Explorer do Azure** no Azure data Factory permite que você execute [comandos do controle de data Explorer do Azure](/azure/kusto/concepts/#control-commands) em um fluxo de trabalho do ADF. Este artigo ensina como criar um pipeline com uma atividade de pesquisa e uma atividade ForEach que contém uma atividade de comando do Azure Data Explorer.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,6 +34,8 @@ ms.locfileid: "71131444"
    ![criar novo pipeline](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>Criar uma atividade de pesquisa
+
+Uma [atividade de pesquisa](/azure/data-factory/control-flow-lookup-activity) pode recuperar um conjunto de dados de qualquer fonte de dado com suporte Azure data Factory. A saída da atividade de pesquisa pode ser usada em um ForEach ou outra atividade.
 
 1. No painel **atividades** , em **geral**, selecione a atividade de **pesquisa** . Arraste e solte-o na tela principal à direita.
  
@@ -83,13 +85,13 @@ ms.locfileid: "71131444"
     * Selecione **testar conexão** para testar a conexão de serviço vinculado que você criou. Se você puder se conectar à sua configuração, uma marca de seleção verde **com êxito** será exibida.
     * Selecione **concluir** para concluir a criação do serviço vinculado.
 
-1. Depois de configurar um serviço vinculado, em**conexão**do **AzureDataExplorerTable** > , adicione o nome da **tabela** . Selecione **Visualizar dados**para certificar-se de que os dados são apresentados corretamente.
+1. Depois de configurar um serviço vinculado, na**conexão**do **AzureDataExplorerTable** > , adicione o nome da **tabela** . Selecione **Visualizar dados**para certificar-se de que os dados são apresentados corretamente.
 
    O conjunto de seus conjuntos de seus agora está pronto e você pode continuar editando seu pipeline.
 
 ### <a name="add-a-query-to-your-lookup-activity"></a>Adicionar uma consulta à sua atividade de pesquisa
 
-1. No **pipeline-4-**  > **configurações** de docs, adicione uma consulta na caixa de texto de **consulta** , por exemplo:
+1. No **pipeline-4-docs** > **configurações** , adicione uma consulta na caixa de texto de **consulta** , por exemplo:
 
     ```kusto
     ClusterQueries
@@ -103,7 +105,9 @@ ms.locfileid: "71131444"
 
 ## <a name="create-a-for-each-activity"></a>Criar uma atividade for-each 
 
-1. Em seguida, você adiciona uma atividade for-each ao pipeline. Essa atividade processará os dados retornados da atividade de pesquisa. 
+A atividade [for-each](/azure/data-factory/control-flow-for-each-activity) é usada para iterar em uma coleção e executar atividades especificadas em um loop. 
+
+1. Agora você adiciona uma atividade for-each ao pipeline. Essa atividade processará os dados retornados da atividade de pesquisa. 
     * No painel **atividades** , em **iteração & condicionais**, selecione a atividade **foreach** e arraste-a e solte-a na tela.
     * Desenhe uma linha entre a saída da atividade de pesquisa e a entrada da atividade ForEach na tela para conectá-las.
 
@@ -112,7 +116,7 @@ ms.locfileid: "71131444"
 1.  Selecione a atividade ForEach na tela. Na guia **configurações** abaixo:
     * Marque a caixa de seleção **sequencial** para um processamento sequencial dos resultados da pesquisa ou deixe-a desmarcada para criar processamento paralelo.
     * Definir **contagem de lote**.
-    * Em **itens**, forneça a seguinte referência ao valor de saída:  *@activity(' Lookup1 '). Output. Value*
+    * Em **itens**, forneça a seguinte referência para o valor de saída: *@activity (' Lookup1 '). Output. Value*
 
        ![Definições da atividade ForEach](media/data-factory-command-activity/for-each-activity-settings.png)
 
@@ -166,7 +170,7 @@ A estrutura da saída da atividade de comando é detalhada abaixo. Essa saída p
 
 ### <a name="returned-value-of-a-non-async-control-command"></a>Valor retornado de um comando de controle não assíncrono
 
-Em um comando de controle não assíncrono, a estrutura do valor retornado é semelhante à estrutura do resultado da atividade de pesquisa. O `count` campo indica o número de registros retornados. Um campo `value` de matriz fixa contém uma lista de registros. 
+Em um comando de controle não assíncrono, a estrutura do valor retornado é semelhante à estrutura do resultado da atividade de pesquisa. O campo `count` indica o número de registros retornados. Um campo de matriz fixo `value` contém uma lista de registros. 
 
 ```json
 { 
@@ -188,7 +192,7 @@ Em um comando de controle não assíncrono, a estrutura do valor retornado é se
  
 ### <a name="returned-value-of-an-async-control-command"></a>Valor retornado de um comando de controle assíncrono
 
-Em um comando de controle assíncrono, a atividade sonda a tabela de operações nos bastidores até que a operação assíncrona seja concluída ou o tempo limite seja excedido. Portanto, o valor retornado conterá o resultado de `.show operations OperationId` para aquela propriedade **operationId** fornecida. Verifique os valores das propriedades **State** e **status** para verificar a conclusão bem-sucedida da operação.
+Em um comando de controle assíncrono, a atividade sonda a tabela de operações nos bastidores até que a operação assíncrona seja concluída ou o tempo limite seja excedido. Portanto, o valor retornado conterá o resultado de `.show operations OperationId` para essa propriedade **operationId** fornecida. Verifique os valores das propriedades **State** e **status** para verificar a conclusão bem-sucedida da operação.
 
 ```json
 { 

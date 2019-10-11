@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162424"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274177"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referência de configurações de acesso condicional Azure Active Directory
 
@@ -42,7 +42,7 @@ Com as políticas de acesso condicional, você controla como os usuários acessa
 Você pode atribuir uma política de acesso condicional aos seguintes aplicativos de nuvem da Microsoft:
 
 - Azure Analysis Services
-- DevOps do Azure
+- Azure DevOps
 - Banco de dados SQL do Azure e data warehouse- [saiba mais](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
 - Dynamics CRM Online
 - Análise do Microsoft Application Insights
@@ -55,7 +55,7 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- Inscrição do Microsoft Intune
+- Registro de Microsoft Intune
 - Microsoft Planner
 - Microsoft PowerApps
 - Pesquisa da Microsoft no Bing
@@ -66,13 +66,12 @@ Você pode atribuir uma política de acesso condicional aos seguintes aplicativo
 - Office 365 SharePoint Online
 - Office 365 Yammer
 - Office Delve
-- Office Sway
+- Sway do Office
 - Grupos do Outlook
 - Serviço de Power BI
 - Project Online
 - Skype para Empresas Online
 - VPN (rede virtual privada)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>Outros aplicativos
@@ -82,7 +81,7 @@ Além dos aplicativos de nuvem da Microsoft, você pode atribuir uma política d
 - Aplicativos conectados ao Azure AD
 - Aplicativo de SaaS (software como serviço) federado integrado
 - Aplicativos que usam SSO (logon único) de senha
-- Aplicações de linha de negócio
+- Aplicativos de linha de negócios
 - Aplicativos que usam o Azure Proxy de Aplicativo do AD
 
 ## <a name="device-platform-condition"></a>Condição de plataforma de dispositivo
@@ -116,15 +115,15 @@ Em sua política de acesso condicional, você pode selecionar **navegadores** co
 
 Essa configuração funciona com todos os navegadores. No entanto, para atender a uma política de dispositivo, como um requisito de dispositivo compatível, os seguintes sistemas operacionais e navegadores têm suporte:
 
-| OS                     | Browsers                                        |
+| SO                     | Navigator                                        |
 | :--                    | :--                                             |
 | Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
-| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
+| Windows 8/8,1        | Internet Explorer, Chrome                       |
 | Windows 7              | Internet Explorer, Chrome                       |
 | iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
 | Android                | Microsoft Edge, Intune Managed Browsers, Chrome  |
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
-| Windows Server de 2019    | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
 | Windows Server 2016    | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer                       |
 | Windows Server 2008 R2 | Internet Explorer                       |
@@ -143,19 +142,19 @@ Para implantar automaticamente essa extensão em navegadores Chrome, crie a segu
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.google.com/Service/Update2/CRX |
+| Caminho | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Nome | 1 |
+| Tipo | REG_SZ (cadeia de caracteres) |
+| Dados | ppnbnpeolgkicgegkbkbjmhlideopiji; https @ no__t-0//clients2. google. com/Service/Update2/CRX |
 
 Para obter suporte ao Chrome no **Windows 8.1 e no 7**, crie a seguinte chave do registro:
 
 |    |    |
 | --- | --- |
-| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| Type | REG_SZ (String) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Caminho | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Nome | 1 |
+| Tipo | REG_SZ (cadeia de caracteres) |
+| Dados | {"Pattern": "https://device.login.microsoftonline.com", "filtro": {"emissor": {"CN": "MS-Organization-Access"}}} |
 
 Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falhará se o navegador estiver sendo executado em modo privado.
 
@@ -167,7 +166,7 @@ Em sua política de acesso condicional, você pode selecionar **aplicativos móv
 
 Essa configuração tem um impacto nas tentativas de acesso feitas dos seguintes aplicativos móveis e clientes de desktop:
 
-| Aplicações do cliente | Serviço de destino | Plataforma |
+| Aplicativos cliente | Serviço de destino | Plataforma |
 | --- | --- | --- |
 | Aplicativo Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
 | Aplicativo de email/calendário/pessoas, Outlook 2016, Outlook 2013 (com autenticação moderna)| Office 365 Exchange Online | Windows 10 |
@@ -203,7 +202,7 @@ Em sua política de acesso condicional, você pode exigir que uma tentativa de a
 
 Essa configuração se aplica aos seguintes aplicativos cliente:
 
-- Microsoft Azure Information Protection
+- Proteção de Informações do Microsoft Azure
 - Microsoft Bookings
 - Microsoft Cortana
 - Microsoft Dynamics 365
@@ -211,7 +210,7 @@ Essa configuração se aplica aos seguintes aplicativos cliente:
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Faturação da Microsoft
+- Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
 - Microsoft OneDrive

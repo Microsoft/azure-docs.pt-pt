@@ -10,19 +10,19 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568614"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264228"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatório entre bancos de dados de nuvem expandidos (visualização)
 
 Você pode criar relatórios de vários bancos de dados SQL do Azure de um único ponto de conexão usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentado").
 
-Se você tiver um banco de dados existente, consulte Migrando bancos de dados [existentes para bancos de](sql-database-elastic-convert-to-use-elastic-tools.md)dados escalados horizontalmente.
+Se você tiver um banco de dados existente, consulte [migrando bancos de dados existentes para bancos de dados escalados horizontalmente](sql-database-elastic-convert-to-use-elastic-tools.md).
 
 Para entender os objetos SQL necessários para consultar, consulte [consultar em bancos de dados particionados horizontalmente](sql-database-elastic-query-horizontal-partitioning.md).
 
@@ -33,7 +33,7 @@ Baixe e execute o [exemplo introdução às ferramentas de banco de dados elást
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Criar um Gerenciador de mapa de fragmentos usando o aplicativo de exemplo
 Aqui, você criará um Gerenciador de mapa de fragmentos junto com vários fragmentos, seguidos pela inserção de dados nos fragmentos. Se você já tiver os fragmentos configurados com dados fragmentados neles, poderá ignorar as etapas a seguir e mover para a próxima seção.
 
-1. Compile e execute o aplicativo de exemplo **introdução às ferramentas de banco de dados elástico** . Siga as etapas até a etapa 7 na seção [baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). No final da etapa 7, você verá o seguinte prompt de comando:
+1. Crie e execute o aplicativo de exemplo **introdução às ferramentas de banco de dados elástico** seguindo as etapas na seção do artigo [baixar e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). Depois de concluir todas as etapas, você verá o seguinte prompt de comando:
 
     ![prompt de comando][1]
 2. Na janela de comando, digite "1" e pressione **Enter**. Isso cria o Gerenciador de mapa de fragmentos e adiciona dois fragmentos ao servidor. Em seguida, digite "3" e pressione **Enter**; Repita a ação quatro vezes. Isso insere linhas de dados de exemplo em seus fragmentos.
@@ -62,15 +62,15 @@ Eles são usados para se conectar ao Gerenciador de mapa de fragmentos e aos fra
 1. Abra SQL Server Management Studio ou SQL Server Data Tools no Visual Studio.
 2. Conecte-se ao banco de dados ElasticDBQuery e execute os seguintes comandos T-SQL:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" e "password" devem ser iguais às informações de logon usadas na etapa 6 do [download e executar o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) em [introdução às ferramentas de banco de dados elástico](sql-database-elastic-scale-get-started.md).
+    "username" e "password" devem ser iguais às informações de logon usadas na etapa 3 da seção [download e execute o aplicativo de exemplo](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) no artigo **introdução às ferramentas de banco de dados elástico** .
 
-### <a name="external-data-sources"></a>Origens de dados externas
+### <a name="external-data-sources"></a>Fontes de dados externas
 Para criar uma fonte de dados externa, execute o seguinte comando no banco de ElasticDBQuery:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
@@ -119,7 +119,7 @@ Você observará que a consulta agrega resultados de todos os fragmentos e forne
 6. Selecione a tabela **clientes** na exibição de lista e clique em **Avançar**. Em seguida, clique em **concluir**.
 7. No formulário **importar dados** , em **selecionar como você deseja exibir esses dados em sua pasta de trabalho**, selecione **tabela** e clique em **OK**.
 
-Todas as linhas da tabela Customers, armazenadas em fragmentos diferentes, preenchem a planilha do Excel.
+Todas as linhas da tabela **Customers** , armazenadas em fragmentos diferentes, preenchem a planilha do Excel.
 
 Agora você pode usar as poderosas funções de visualização de dados do Excel. Você pode usar a cadeia de conexão com o nome do servidor, o nome do banco de dados e as credenciais para conectar suas ferramentas de integração de dados e BI ao banco de dado de consulta elástica. Verifique se SQL Server tem suporte como uma fonte de dados para sua ferramenta. Você pode consultar o banco de dados de consulta elástica e tabelas externas, assim como qualquer outro banco de dados SQL Server e SQL Server tabelas às quais você se conectaria com sua ferramenta.
 
@@ -128,13 +128,13 @@ Não há nenhum custo adicional para usar o recurso de consulta de banco de dado
 
 Para obter informações sobre preços, consulte [detalhes de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma visão geral da consulta elástica, consulte [visão geral da consulta elástica](sql-database-elastic-query-overview.md).
 * Para obter um tutorial de particionamento vertical, consulte [introdução à consulta entre bancos de dados (particionamento vertical)](sql-database-elastic-query-getting-started-vertical.md).
 * Para obter sintaxe e exemplos de consultas para dados particionados verticalmente, consulte [consultando dados particionados verticalmente)](sql-database-elastic-query-vertical-partitioning.md)
 * Para obter sintaxe e exemplos de consultas para dados particionados horizontalmente, consulte [consultando dados particionados horizontalmente)](sql-database-elastic-query-horizontal-partitioning.md)
-* Confira [\_SP \_execute Remote](https://msdn.microsoft.com/library/mt703714) para um procedimento armazenado que execute uma instrução Transact-SQL em um único banco de dados SQL do Azure remoto ou em conjunto de dados que servem como fragmentos em um esquema de particionamento horizontal.
+* Consulte [SP @ no__t-1execute \_remote](https://msdn.microsoft.com/library/mt703714) para obter um procedimento armazenado que executa uma instrução TRANSACT-SQL em um único banco de dados SQL do Azure remoto ou em um conjunto de dados que serve como fragmentos em um esquema de particionamento horizontal.
 
 
 <!--Image references-->

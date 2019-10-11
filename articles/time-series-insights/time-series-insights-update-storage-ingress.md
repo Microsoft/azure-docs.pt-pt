@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9af53728ee038a6511c434aeedfdb9afdab6d04b
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051471"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273881"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Armazenamento de dados e entrada na visualização Azure Time Series Insights
 
@@ -25,7 +25,7 @@ Este artigo descreve as alterações no armazenamento de dados e entrada da vers
 
 Azure Time Series Insights políticas de entrada de dados determinam de onde os dados podem ser originados e em qual formato.
 
-[![Visão geral do modelo de série temporal](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+[Visão geral do modelo da série @no__t 1Time](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
 ### <a name="ingress-policies"></a>Políticas de entrada
 
@@ -34,7 +34,7 @@ A versão prévia do Time Series Insights dá suporte às mesmas fontes de event
 - [Hub IoT do Azure](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
-O Azure Time Series Insights dá suporte a JSON enviado por meio do Hub IoT do Azure ou hubs de eventos do Azure. Para otimizar seus dados de JSON de IoT, saiba [como formatar JSON](./time-series-insights-send-events.md#json).
+O Azure Time Series Insights dá suporte a JSON enviado por meio do Hub IoT do Azure ou hubs de eventos do Azure. Para otimizar seus dados de JSON de IoT, saiba [como formatar JSON](./time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="data-storage"></a>Armazenamento de dados
 
@@ -56,7 +56,7 @@ A Time Series Insights visualização indexa dados usando uma estratégia de oti
 > * Durante a visualização, espere um período mais longo antes que os dados sejam disponibilizados.
 > * Se você tiver qualquer latência significativa, entre em contato conosco.
 
-### <a name="scale"></a>Escala
+### <a name="scale"></a>Escalabilidade
 
 A visualização de Time Series Insights dá suporte a uma escala de entrada inicial de até 1 Mega byte por segundo (Mbps) por ambiente. O suporte ao dimensionamento avançado está em andamento. Planejamos atualizar nossa documentação para refletir essas melhorias.
 
@@ -89,18 +89,18 @@ O Time Series Insights cria e armazena cópias de BLOBs nos dois formatos a segu
     * Carimbo de data/hora mínimo de evento em um blob para BLOBs particionados por ID de série temporal.
 
 > [!NOTE]
-> * `<YYYY>`mapeia para uma representação de ano de 4 dígitos.
-> * `<MM>`mapeia para uma representação de mês de 2 dígitos.
-> * `<YYYYMMDDHHMMSSfff>`mapeia para uma representação de carimbo de data/hora com`YYYY`um ano de 4 dígitos ()`MM`, mês de 2 dígitos ()`DD`, dia de 2 dígitos ()`HH`, hora de 2 dígitos ()`MM`, minuto de 2 dígitos ()`SS`, segundo de 2 dígitos () e 3 dígitos milissegundo (`fff`).
+> * `<YYYY>` é mapeado para uma representação de ano de 4 dígitos.
+> * `<MM>` é mapeado para uma representação de mês de 2 dígitos.
+> * `<YYYYMMDDHHMMSSfff>` mapeia para uma representação de carimbo de data/hora com um ano de 4 dígitos (`YYYY`), mês de 2 dígitos (`MM`), dia de 2 dígitos (`DD`), 2 dígitos de hora (`HH`), minuto de 2 dígitos (`MM`), 2 dígitos em segundo (`SS`) e milissegundos de 3 dígitos (`fff`).
 
 Time Series Insights eventos são mapeados para o conteúdo do arquivo parquet da seguinte maneira:
 
 * Cada evento é mapeado para uma única linha.
 * Coluna de **carimbo de data/hora** interna com um carimbo de data/hora do evento. A propriedade Timestamp nunca é nula. O padrão será a **origem do evento na fila** quando a propriedade timestamp não for especificada na origem do evento. O carimbo de data/hora está em UTC. 
-* Todas as outras propriedades que são mapeadas para colunas `_string` terminam com ( `_bool` String), ( `_datetime` booliano), ( `_double` DateTime) e (Double), dependendo do tipo de propriedade.
+* Todas as outras propriedades que são mapeadas para colunas terminam com `_string` (cadeia de caracteres), `_bool` (booliano), `_datetime` (DateTime) e `_double` (duplo), dependendo do tipo de propriedade.
 * Esse é o esquema de mapeamento para a primeira versão do formato de arquivo, à qual nos referimos como **V = 1**. À medida que esse recurso evoluir, o nome será incrementado para **V = 2**, **v = 3**e assim por diante.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
 Esta seção descreve os detalhes do armazenamento do Azure relevantes para Azure Time Series Insights.
 
@@ -130,7 +130,7 @@ Talvez você queira acessar os dados armazenados no Time Series Insights Explore
 Você pode acessar seus dados de três maneiras gerais:
 
 * No Gerenciador de visualização Time Series Insights: você pode exportar dados como um arquivo CSV do Gerenciador de visualização de Time Series Insights. Para obter mais informações, consulte [Time Series insights Preview Explorer](./time-series-insights-update-explorer.md).
-* Na Time Series Insights APIs de visualização: o ponto de extremidade da API pode `/getRecorded`ser acessado em. Para saber mais sobre essa API, consulte [consulta de série temporal](./time-series-insights-update-tsq.md).
+* Na Time Series Insights APIs de visualização: o ponto de extremidade da API pode ser acessado em `/getRecorded`. Para saber mais sobre essa API, consulte [consulta de série temporal](./time-series-insights-update-tsq.md).
 * Diretamente de uma conta de armazenamento do Azure (abaixo).
 
 #### <a name="from-an-azure-storage-account"></a>De uma conta de armazenamento do Azure
@@ -154,7 +154,7 @@ Time Series Insights usa o particionamento dinâmico para otimizar o desempenho 
 Inicialmente, no momento da entrada, os dados são particionados pelo carimbo de data/hora para que uma única partição lógica em um determinado intervalo de tempo possa ser distribuída entre várias partições físicas. Uma única partição física também pode conter muitas ou todas as partições lógicas. Devido às limitações de tamanho do blob, mesmo com o particionamento ideal, uma única partição lógica pode ocupar várias partições físicas.
 
 > [!NOTE]
-> Por padrão, o valor do carimbo de data/hora é o *tempo* enfileirado da mensagem em sua origem de evento configurada.
+> Por padrão, o valor do carimbo de data/hora é o *tempo enfileirado* da mensagem em sua origem de evento configurada.
 
 Se você estiver carregando dados históricos ou mensagens em lote, atribua o valor que deseja armazenar com seus dados à propriedade Timestamp que mapeia para o carimbo de data/hora apropriado. A propriedade Timestamp diferencia maiúsculas de minúsculas. Para obter mais informações, consulte [modelo de série temporal](./time-series-insights-update-tsm.md).
 
@@ -171,8 +171,8 @@ Uma partição física é um blob de blocos que é armazenado em sua conta de ar
 
 Uma partição lógica é uma partição em uma partição física que armazena todos os dados associados a um único valor de chave de partição. O Time Series Insights visualização logicamente particiona cada blob com base em duas propriedades:
 
-* **ID da série temporal**: A chave de partição para todos os dados de Time Series Insights dentro do fluxo de eventos e o modelo.
-* **Carimbo de data/hora**: A hora com base na entrada inicial.
+* **ID da série temporal**: a chave de partição para todos os Time Series insights dados dentro do fluxo de eventos e do modelo.
+* **Timestamp**: a hora com base na entrada inicial.
 
 A visualização de Time Series Insights fornece consultas de alto desempenho baseadas nessas duas propriedades. Essas duas propriedades também fornecem o método mais eficaz para fornecer dados Time Series Insights rapidamente.
 

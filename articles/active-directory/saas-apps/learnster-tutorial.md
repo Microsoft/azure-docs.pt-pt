@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o ADP GlobalView | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o ADP GlobalView.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Learnster | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Learnster.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
+ms.assetid: 08b5117f-061a-4a9e-b8f5-5f3927fcd928
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184129783b448cb2d6dc22e488ffe38401a1218
+ms.openlocfilehash: 467dc656a19552586c5c386f0437c4544671dccc
 ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264123"
+ms.locfileid: "72266074"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o ADP GlobalView
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-learnster"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Learnster
 
-Neste tutorial, você aprenderá a integrar o ADP GlobalView ao Azure Active Directory (Azure AD). Ao integrar o ADP GlobalView ao Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar o Learnster com o Azure Active Directory (Azure AD). Ao integrar o Learnster ao Azure AD, você pode:
 
-* Controle no Azure AD quem tem acesso ao ADP GlobalView.
-* Habilite seus usuários a serem conectados automaticamente ao ADP GlobalView com suas contas do Azure AD.
+* Controle no Azure AD quem tem acesso ao Learnster.
+* Habilite seus usuários a serem conectados automaticamente ao Learnster com suas contas do Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,67 +38,61 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 Para começar, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do ADP GlobalView.
+* Assinatura habilitada para SSO (logon único) do Learnster.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O ADP GlobalView dá suporte ao SSO iniciado pelo **IDP**
+* O Learnster dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Adicionando o ADP GlobalView da Galeria
+## <a name="adding-learnster-from-the-gallery"></a>Adicionando o Learnster da Galeria
 
-Para configurar a integração do ADP GlobalView ao Azure AD, você precisará adicionar o ADP GlobalView da Galeria à sua lista de aplicativos SaaS gerenciados.
+Para configurar a integração do Learnster ao Azure AD, você precisará adicionar o Learnster da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
 1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **ADP GlobalView** na caixa de pesquisa.
-1. Selecione **ADP GlobalView** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar da Galeria** , digite **Learnster** na caixa de pesquisa.
+1. Selecione **Learnster** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp-globalview"></a>Configurar e testar o logon único do Azure AD para o ADP GlobalView
+## <a name="configure-and-test-azure-ad-single-sign-on-for-learnster"></a>Configurar e testar o logon único do Azure AD para o Learnster
 
-Configure e teste o SSO do Azure AD com o ADP GlobalView usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ADP GlobalView.
+Configure e teste o SSO do Azure AD com o Learnster usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Learnster.
 
-Para configurar e testar o SSO do Azure AD com o ADP GlobalView, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o Learnster, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO GlobalView do ADP](#configure-adp-globalview-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do ADP GlobalView](#create-adp-globalview-test-user)** – para ter um equivalente de B. Simon no ADP GlobalView que esteja vinculado à representação do usuário no Azure AD.
+1. **[Configurar o SSO do Learnster](#configure-learnster-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do Learnster](#create-learnster-test-user)** – para ter um equivalente de B. Simon em Learnster que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure:
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ADP GlobalView** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Learnster** , localize a seção **gerenciar** e selecione **logon único**.
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
 1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
    ![Editar configuração básica de SAML](common/edit-urls.png)
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
+   1. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.learnster.com/auth/login/force`
 
-    
-    Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:
-
-    | |
-    |--|
-    | `https://<subdomain>.globalview.adp.com/federate`|
-    | `https://<subdomain>.globalview.adp.com/federate2`|
-    | |
+   1. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<SUBDOMAIN>.learnster.com/`
 
     > [!NOTE]
-    > Esse valor não é real. Atualize o valor com o identificador real. Contate a [equipe de suporte ao cliente do ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do Learnster](mailto:support@learnster.com) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download do certificado](common/certificatebase64.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
-1. Na seção **Configurar o ADP GlobalView** , copie as URLs apropriadas com base em seu requisito.
+1. Na seção **Configurar Learnster** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
@@ -116,10 +110,10 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao ADP GlobalView.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Learnster.
 
 1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **ADP GlobalView**.
+1. Na lista de aplicativos, selecione **Learnster**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![O link "usuários e grupos"](common/users-groups-blade.png)
@@ -132,19 +126,19 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-adp-globalview-sso"></a>Configurar o SSO do ADP GlobalView
+## <a name="configure-learnster-sso"></a>Configurar o SSO do Learnster
 
-Para configurar o logon único no lado do **ADP GlobalView** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do ADP GlobalView](https://www.adp.com/contact-us/overview.aspx). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **Learnster** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [Learnster](mailto:support@learnster.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="create-adp-globalview-test-user"></a>Criar usuário de teste do ADP GlobalView
+### <a name="create-learnster-test-user"></a>Criar usuário de teste do Learnster
 
-Nesta seção, você criará um usuário chamado B. Simon em ADP GlobalView. Trabalhe com a [equipe de suporte do ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) para adicionar os usuários na plataforma do ADP GlobalView. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B. Simon em Learnster. Trabalhe com a [equipe de suporte do Learnster](mailto:support@learnster.com) para adicionar os usuários na plataforma do Learnster. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-Ao clicar no bloco ADP GlobalView no painel de acesso, você deverá ser automaticamente conectado à ADP GlobalView para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do Learnster no painel de acesso, você deverá ser conectado automaticamente ao Learnster para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -154,5 +148,5 @@ Ao clicar no bloco ADP GlobalView no painel de acesso, você deverá ser automat
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o ADP GlobalView com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente o Learnster com o Azure AD](https://aad.portal.azure.com/)
 

@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148473"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272992"
 ---
 A tabela a seguir lista os limites associados às diferentes camadas de serviço S1, S2, S3 e F1. Para obter informações sobre o custo de cada *unidade* em cada camada, consulte [preços do Hub IOT do Azure](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
+| Recurso | S1 Standard | S2 Standard | S3 Standard | F1 Gratuito |
 | --- | --- | --- | --- | --- |
 | Mensagens/dia |400,000 |6,000,000 |300,000,000 |8,000 |
 | Máximo de unidades |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ A tabela a seguir lista os limites associados às diferentes camadas de serviço
 
 A tabela a seguir lista os limites que se aplicam aos recursos do Hub IoT.
 
-| Resource | Limite |
+| Recurso | Limite |
 | --- | --- |
 | Máximo de hubs IoT pagos por subscrição do Azure |50 |
 | Máximo de hubs IoT gratuitos por subscrição do Azure |1 |
@@ -33,7 +33,7 @@ A tabela a seguir lista os limites que se aplicam aos recursos do Hub IoT.
 | Número máximo de identidades de dispositivos<br/> devolvidas numa única chamada |1,000 |
 | Retenção máxima de mensagem do Hub IoT para mensagens do dispositivo para a cloud |7 dias |
 | Tamanho máximo da mensagem do dispositivo para a cloud |256 KB |
-| Tamanho máximo do batch do dispositivo para a cloud |AMQP e HTTP: 256 KB para todo o lote <br/>MQTT 256 KB para cada mensagem |
+| Tamanho máximo do batch do dispositivo para a cloud |AMQP e HTTP: 256 KB para todo o lote <br/>MQTT: 256 KB para cada mensagem |
 | Máximo de mensagens no batch do dispositivo para a cloud |500 |
 | Tamanho máximo da mensagem da cloud para o dispositivo |64 KB |
 | TTL máximo das mensagens da cloud para o dispositivo |2 dias |
@@ -67,7 +67,7 @@ O Hub IoT limita as solicitações quando as seguintes cotas são excedidas.
 | Envios do dispositivo para a cloud |6000/s/unidade (para S3), 120/s/unidade (para S2), 12/s/unidade (para S1). <br/>Mínimo de 100/seg. |
 | Envios da cloud para o dispositivo | 83,33/s/unidade (5000/min/unidade) (para S3), 1,67/s/unidade (100/min/unidade) (para S1 e S2). |
 | Receções da cloud para o dispositivo |833,33/s/unidade (50000/min/unidade) (para S3), 16,67/s/unidade (1000/mín/unidade) (para S1 e S2). |
-| Operações de carregamento de ficheiros |83,33 notificações de upload de arquivo/s/unidade (5000/min/unidade) (para S3), 1,67 notificações de upload de arquivo/s/unidade (100/min/unidade) (para S1 e S2). <br/> 10.000 URIs SAS podem estar fora de uma conta de armazenamento do Azure ao mesmo tempo.<br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
+| Operações de carregamento de ficheiros |83,33 iniciações de carregamento de arquivo/s/unidade (5000/min/unidade) (para S3), 1,67 iniciações de carregamento de arquivo/s/unidade (100/min/unidade) (para S1 e S2). <br/> 10.000 URIs SAS podem estar fora de uma conta de armazenamento do Azure ao mesmo tempo.<br/> 10 SAS URIs/dispositivo podem ficar fora de uma só vez. |
 | Métodos diretos | 24 MB/s/unidade (para S3), 480 KB/s/unidade (para S2), 160 KB/s/unidade (para S1).<br/> Com base no tamanho do medidor de limitação de 8 KB. |
 | Leituras de dispositivo duplo | 500/s/unidade (para S3), máximo de 100/s ou 10/s/unidade (para S2), 100/s (para S1) |
 | Atualizações de dispositivo duplo | 250/s/unidade (para S3), máximo de 50/s ou 5/s/unidade (para S2), 50/s (para S1) |

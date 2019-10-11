@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
-ms.translationtype: HT
+ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244102"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274198"
 ---
 # <a name="get-resource-changes"></a>Obter alterações do recurso
 
@@ -30,6 +30,7 @@ A detecção de alterações e os detalhes são importantes para os seguintes ce
 - Entender quais outras propriedades podem ter sido alteradas quando um estado de conformidade de um recurso mudou. A avaliação dessas propriedades adicionais pode fornecer informações sobre outras propriedades que talvez precisem ser gerenciadas por meio de uma definição de Azure Policy.
 
 Este artigo mostra como reunir essas informações por meio do SDK do grafo de recursos. Para ver essas informações na portal do Azure, consulte [histórico de alterações](../../policy/how-to/determine-non-compliance.md#change-history-preview) do Azure Policy ou [histórico de alterações](../../../azure-monitor/platform/activity-log-view.md#azure-portal)do log de atividades do Azure.
+Para obter detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [usar a análise de alterações do aplicativo (versão prévia)](../../../azure-monitor/app/change-analysis.md) no Azure monitor.
 
 > [!NOTE]
 > Os detalhes de alteração no grafo de recursos são para as propriedades do Resource Manager. Para controlar as alterações dentro de uma máquina virtual, consulte [controle de alterações](../../../automation/automation-change-tracking.md) da automação do Azure ou [configuração de convidado do Azure Policy para VMs](../../policy/concepts/guest-configuration.md).

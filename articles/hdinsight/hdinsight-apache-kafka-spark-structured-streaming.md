@@ -2,20 +2,20 @@
 title: Tutorial Apache Spark streaming estruturado com o Apache Kafka-Azure HDInsight
 description: Saiba como utilizar a transmissão em fluxo do Apache Spark para introduzir ou extrair dados do Apache Kafka. Neste tutorial, vai transmitir dados através de um bloco de notas Jupyter do Spark no HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
-ms.date: 05/22/2019
-ms.author: hrasheed
-ms.openlocfilehash: bcf1b967cf8eeab7aae4b720683785309689858e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.date: 10/08/2019
+ms.openlocfilehash: db2174451f01ef38dc69e4e14561175203e075c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204227"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264252"
 ---
-# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Usar Apache Spark streaming estruturado com Apache Kafka no HDInsight
+# <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Tutorial: Utilizar a Transmissão em Fluxo Estruturada do Apache Spark com o Apache Kafka no HDInsight
 
 Este tutorial demonstra como usar [Apache Spark streaming estruturado](https://spark.apache.org/docs/latest/structured-streaming-programming-guide) para ler e gravar dados com [Apache Kafka](https://kafka.apache.org/) no Azure HDInsight.
 
@@ -41,8 +41,8 @@ Quando tiver concluído os passos neste documento, elimine os clusters para evit
 
 > [!IMPORTANT]  
 > Os passos neste documento requerem um grupo de recursos do Azure que contém um cluster do Spark no HDInsight e um cluster do Kafka no HDInsight. Estes dois clusters estão localizados numa Rede Virtual do Azure, o que permite que o cluster do Spark comunique diretamente com o cluster do Kafka.
-> 
-> Para sua comodidade, este documento tem uma ligação para o modelo que pode criar todos os recursos do Azure necessários. 
+>
+> Para sua comodidade, este documento tem uma ligação para o modelo que pode criar todos os recursos do Azure necessários.
 >
 > Para obter mais informações sobre como usar o HDInsight em uma rede virtual, consulte o documento [planejar uma rede virtual para o HDInsight](hdinsight-plan-virtual-network-deployment.md) .
 
@@ -94,7 +94,7 @@ Em ambos os fragmentos, os dados são lidos a partir do Kafka e escritos num fic
 | `write` | `writeStream` |
 | `save` | `start` |
 
-A operação de streaming também `awaitTermination(30000)`usa, que interrompe o fluxo após 30.000 MS. 
+A operação de streaming também usa `awaitTermination(30000)`, que para o fluxo após 30.000 MS.
 
 Para utilizar a Transmissão em Fluxo Estruturada com o Kafka, o projeto tem de ter uma dependência no pacote `org.apache.spark : spark-sql-kafka-0-10_2.11`. A versão deste pacote deve corresponder à versão do Spark no HDInsight. Para o Spark 2.2.0 (disponível no HDInsight 3.6), pode encontrar as informações de dependência para diferentes tipos de projeto em [https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar](https://search.maven.org/#artifactdetails%7Corg.apache.spark%7Cspark-sql-kafka-0-10_2.11%7C2.2.0%7Cjar).
 
@@ -112,7 +112,7 @@ Para o Jupyter Notebook usado com este tutorial, a célula a seguir carrega essa
 
 ## <a name="create-the-clusters"></a>Criar os clusters
 
-O Apache Kafka no HDInsight não fornece acesso aos mediadores Kafka através da Internet pública. Tudo o que utilize Kafka tem de estar na mesma rede virtual do Azure. Neste tutorial, os clusters do Kafka e do Spark estão localizados na mesma rede virtual do Azure. 
+O Apache Kafka no HDInsight não fornece acesso aos mediadores Kafka através da Internet pública. Tudo o que utilize Kafka tem de estar na mesma rede virtual do Azure. Neste tutorial, os clusters do Kafka e do Spark estão localizados na mesma rede virtual do Azure.
 
 O diagrama seguinte mostra como a comunicação flui entre o Spark e o Kafka:
 
@@ -151,12 +151,12 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
     | Palavra-passe de Início de Sessão do Cluster | A palavra-passe de utilizador administrador para os clusters. |
     | Nome de Utilizador SSH | O nome de utilizador SSH para os clusters. |
     | Palavra-passe do SSH | A palavra-passe do utilizador SSH. |
-   
+
     ![Captura de ecrã do modelo personalizado](./media/hdinsight-apache-kafka-spark-structured-streaming/spark-kafka-template.png)
 
-3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**
+3. Leia os **Termos e Condições** e selecione **Aceito os temos e as condições apresentados acima**.
 
-4. Por fim, marque **Afixar ao dashboard** e, em seguida, selecione **Compra**. 
+4. Selecione **Comprar**.
 
 > [!NOTE]  
 > A criação dos clusters pode demorar até 20 minutos.
@@ -165,7 +165,7 @@ Para criar uma Rede Virtual do Azure e, em seguida, criar os clusters do Kafka e
 
 Este exemplo demonstra como usar o streaming estruturado do Spark com Kafka no HDInsight. Ele usa dados em viagens de táxi, que são fornecidas pela cidade de Nova York.  O conjunto de dados usado por este Notebook é de dados de corrida de [táxi de 2016](https://data.cityofnewyork.us/Transportation/2016-Green-Taxi-Trip-Data/hvrh-b6nb).
 
-1. Coletar informações do host. Use os comandos de rotação e [JQ](https://stedolan.github.io/jq/) abaixo para obter as informações de hosts do Kafka ZooKeeper e do Broker. Os comandos são projetados para um prompt de comando do Windows, pequenas variações serão necessárias para outros ambientes. Substitua `KafkaCluster` pelo nome do cluster Kafka e `KafkaPassword` pela senha de logon do cluster. Além disso, `C:\HDI\jq-win64.exe` substitua pelo caminho real para a instalação do JQ. Insira os comandos em um prompt de comando do Windows e salve a saída para uso em etapas posteriores.
+1. Coletar informações do host. Use os comandos de rotação e [JQ](https://stedolan.github.io/jq/) abaixo para obter as informações de hosts do Kafka ZooKeeper e do Broker. Os comandos são projetados para um prompt de comando do Windows, pequenas variações serão necessárias para outros ambientes. Substitua `KafkaCluster` pelo nome do seu cluster Kafka e `KafkaPassword` pela senha de logon do cluster. Além disso, substitua `C:\HDI\jq-win64.exe` pelo caminho real para a instalação do JQ. Insira os comandos em um prompt de comando do Windows e salve a saída para uso em etapas posteriores.
 
     ```cmd
     set CLUSTERNAME=KafkaCluster
@@ -184,11 +184,11 @@ Este exemplo demonstra como usar o streaming estruturado do Spark com Kafka no H
 
 3. Selecione **novo > Spark** para criar um bloco de anotações.
 
-4. Carregue os pacotes usados pelo Notebook inserindo as informações a seguir em uma célula do bloco de anotações. Execute o comando usando **Ctrl + Enter**.
+4. O streaming do Spark tem microlote, o que significa que os dados são fornecidos como lotes e executáveis executados nos lotes de dados. Se o executor tiver um tempo limite ocioso menor que o tempo necessário para processar o lote, os executores seriam constantemente adicionados e removidos. Se o tempo limite de ociosidade de executores for maior que a duração do lote, o executor nunca será removido. Portanto, **recomendamos que você desabilite a alocação dinâmica definindo Spark. dynamicAllocation. Enabled como false ao executar aplicativos de streaming.**
 
-O streaming do Spark tem microlote, o que significa que os dados são fornecidos como lotes e executáveis executados nos lotes de dados. Se o executor tiver um tempo limite ocioso menor que o tempo necessário para processar o lote, os executores seriam constantemente adicionados e removidos. Se o tempo limite de ociosidade de executores for maior que a duração do lote, o executor nunca será removido. Portanto, **recomendamos que você desabilite a alocação dinâmica definindo Spark. dynamicAllocation. Enabled como false ao executar aplicativos de streaming.**
+    Carregue os pacotes usados pelo Notebook inserindo as informações a seguir em uma célula do bloco de anotações. Execute o comando usando **Ctrl + Enter**.
 
-    ```
+    ```configuration
     %%configure -f
     {
         "conf": {
@@ -199,7 +199,7 @@ O streaming do Spark tem microlote, o que significa que os dados são fornecidos
     }
     ```
 
-5. Crie o tópico Kafka. Edite o comando a seguir `YOUR_ZOOKEEPER_HOSTS` substituindo com as informações do host Zookeeper extraídas na primeira etapa. Insira o comando editado em seu Jupyter Notebook para criar `tripdata` o tópico.
+5. Crie o tópico Kafka. Edite o comando a seguir substituindo `YOUR_ZOOKEEPER_HOSTS` pelas informações do host Zookeeper extraídas na primeira etapa. Insira o comando editado em seu Jupyter Notebook para criar o tópico `tripdata`.
 
     ```scala
     %%bash
@@ -216,25 +216,25 @@ O streaming do Spark tem microlote, o que significa que os dados são fornecidos
     // Load the data from the New York City Taxi data REST API for 2016 Green Taxi Trip Data
     val url="https://data.cityofnewyork.us/resource/pqfs-mqru.json"
     val result = scala.io.Source.fromURL(url).mkString
-    
+
     // Create a dataframe from the JSON data
     val taxiDF = spark.read.json(Seq(result).toDS)
-    
+
     // Display the dataframe containing trip data
     taxiDF.show()
     ```
 
-7. Defina as informações de hosts do Kafka Broker. Substitua `YOUR_KAFKA_BROKER_HOSTS` pelo agente host informações extraídas na etapa 1.  Insira o comando editado na próxima célula de Jupyter Notebook.
+7. Defina as informações de hosts do Kafka Broker. Substitua `YOUR_KAFKA_BROKER_HOSTS` pelo agente hospeda as informações extraídas na etapa 1.  Insira o comando editado na próxima célula de Jupyter Notebook.
 
     ```scala
     // The Kafka broker hosts and topic used to write to Kafka
     val kafkaBrokers="YOUR_KAFKA_BROKER_HOSTS"
     val kafkaTopic="tripdata"
-    
+
     println("Finished setting Kafka broker and topic configuration.")
     ```
 
-8. Envie os dados para Kafka. No comando a seguir, o `vendorid` campo é usado como o valor de chave para a mensagem Kafka. A chave é usada pelo Kafka ao Particionar dados. Todos os campos são armazenados na mensagem Kafka como um valor de cadeia de caracteres JSON. Digite o seguinte comando em Jupyter para salvar os dados no Kafka usando uma consulta em lote.
+8. Envie os dados para Kafka. No comando a seguir, o campo `vendorid` é usado como o valor de chave para a mensagem Kafka. A chave é usada pelo Kafka ao Particionar dados. Todos os campos são armazenados na mensagem Kafka como um valor de cadeia de caracteres JSON. Digite o seguinte comando em Jupyter para salvar os dados no Kafka usando uma consulta em lote.
 
     ```scala
     // Select the vendorid as the key and save the JSON string as the value.
@@ -250,7 +250,7 @@ O streaming do Spark tem microlote, o que significa que os dados são fornecidos
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Define a schema for the data
     val schema = (new StructType).add("dropoff_latitude", StringType).add("dropoff_longitude", StringType).add("extra", StringType).add("fare_amount", StringType).add("improvement_surcharge", StringType).add("lpep_dropoff_datetime", StringType).add("lpep_pickup_datetime", StringType).add("mta_tax", StringType).add("passenger_count", StringType).add("payment_type", StringType).add("pickup_latitude", StringType).add("pickup_longitude", StringType).add("ratecodeid", StringType).add("store_and_fwd_flag", StringType).add("tip_amount", StringType).add("tolls_amount", StringType).add("total_amount", StringType).add("trip_distance", StringType).add("trip_type", StringType).add("vendorid", StringType)
     // Reproduced here for readability
@@ -275,7 +275,7 @@ O streaming do Spark tem microlote, o que significa que os dados são fornecidos
     //   .add("trip_distance", StringType)
     //   .add("trip_type", StringType)
     //   .add("vendorid", StringType)
-    
+
     println("Schema declared")
     ```
 
@@ -284,14 +284,14 @@ O streaming do Spark tem microlote, o que significa que os dados são fornecidos
     ```scala
     // Read a batch from Kafka
     val kafkaDF = spark.read.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data and write to file
     val query = kafkaDF.select(from_json(col("value").cast("string"), schema) as "trip").write.format("parquet").option("path","/example/batchtripdata").option("checkpointLocation", "/batchcheckpoint").save()
-    
+
     println("Wrote data to file")
     ```
 
-11. Você pode verificar se os arquivos foram criados digitando o comando na próxima célula Jupyter. Ele lista os arquivos no `/example/batchtripdata` diretório.
+11. Você pode verificar se os arquivos foram criados digitando o comando na próxima célula Jupyter. Ele lista os arquivos no diretório `/example/batchtripdata`.
 
     ```scala
     %%bash
@@ -303,7 +303,7 @@ O streaming do Spark tem microlote, o que significa que os dados são fornecidos
     ```scala
     // Stream from Kafka
     val kafkaStreamDF = spark.readStream.format("kafka").option("kafka.bootstrap.servers", kafkaBrokers).option("subscribe", kafkaTopic).option("startingOffsets", "earliest").load()
-    
+
     // Select data from the stream and write to file
     kafkaStreamDF.select(from_json(col("value").cast("string"), schema) as "trip").writeStream.format("parquet").option("path","/example/streamingtripdata").option("checkpointLocation", "/streamcheckpoint").start.awaitTermination(30000)
     println("Wrote data to file")
@@ -328,7 +328,7 @@ Para remover o grupo de recursos através do Portal do Azure:
 
 > [!WARNING]  
 > A faturação do cluster do HDInsight tem início quando o cluster é criado e termina quando é eliminado. A faturação é rateada por minuto, pelo que deve sempre eliminar o cluster quando deixar de ser utilizado.
-> 
+>
 > Eliminar um cluster do Kafka no HDInsight elimina quaisquer dados armazenados no Kafka.
 
 ## <a name="next-steps"></a>Passos seguintes

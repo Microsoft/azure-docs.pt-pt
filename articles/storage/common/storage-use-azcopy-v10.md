@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
-ms.translationtype: HT
+ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244793"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274638"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -29,7 +29,8 @@ AzCopy é um utilitário de linha de comando que você pode usar para copiar BLO
 
 Primeiro, baixe o arquivo executável AzCopy V10 em qualquer diretório em seu computador. AzCopy V10 é apenas um arquivo executável, portanto, não há nada a ser instalado.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows de 64 bits](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows de 32 bits](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 

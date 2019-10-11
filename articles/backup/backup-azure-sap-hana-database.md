@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9f16a00bd8bc8e61aecbf6d6bd7f31e90f50140a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067110"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273943"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Fazer backup de um banco de dados SAP HANA no Azure
 
@@ -27,7 +27,7 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 --- | ---
 **Áreas geográficas com suporte** | Sudeste da Austrália, Austrália oriental <br> Sul do Brasil <br> Canadá central, leste do Canadá <br> Ásia Oriental do Sul, Ásia Oriental <br> Leste dos EUA, leste dos EUA 2, Oeste EUA Central, oeste dos EUA, oeste dos EUA 2, norte EUA Central, EUA Central, Sul EUA Central<br> Índia central, sul da Índia <br> Leste do Japão, Oeste do Japão<br> Centro da Coreia, Sul da Coreia do Sul <br> Europa do Norte, Europa Ocidental <br> Sul do Reino Unido, Oeste do Reino Unido
 **Sistemas operacionais de VM com suporte** | SLES 12 com SP2, SP3 ou SP4.
-**Versões do HANA com suporte** | SDC no HANA 1. x, MDC no HANA 2. x < = SPS04 Rev 42
+**Versões do HANA com suporte** | SDC no HANA 1. x, MDC no HANA 2. x < = SPS04 Rev 43
 
 ### <a name="current-limitations"></a>Limitações atuais
 
@@ -40,7 +40,7 @@ O [backup do Azure](backup-overview.md) dá suporte ao backup de bancos de dados
 - Você pode fazer backup de logs de banco de dados a cada 15 minutos. Os backups de log só começam a fluir após a conclusão de um backup completo bem-sucedido para o banco de dados.
 - Você pode fazer backups completos e diferenciais. Atualmente, não há suporte para backup incremental.
 - Você não pode modificar a política de backup depois de aplicá-la para backups de SAP HANA. Se você quiser fazer backup com configurações diferentes, crie uma nova política ou atribua uma política diferente.
-  - Para criar uma nova política, no cofre, clique em **políticas** > **políticas** > de backup **+ Adicionar** > **SAP Hana na VM do Azure**e especifique as configurações de política.
+  - Para criar uma nova política, no cofre, clique em **políticas** > **políticas de backup** >  **+ Adicionar** > **SAP Hana na VM do Azure**e especifique as configurações de política.
   - Para atribuir uma política diferente, nas propriedades da VM que executa o banco de dados, clique no nome da política atual. Em seguida, na página **política de backup** , você pode selecionar uma política diferente a ser usada para o backup.
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -101,7 +101,7 @@ Agora, habilite o backup.
 
 1. Na etapa 2, clique em **Configurar backup**.
 2. Em **selecionar itens para fazer backup**, selecione todos os bancos de dados que você deseja proteger > **OK**.
-3. Em **política** > de backup,**escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
+3. Em **política de backup** > **escolha política de backup**, crie uma nova política de backup para os bancos de dados, de acordo com as instruções abaixo.
 4. Depois de criar a política, no menu **backup** , clique em **habilitar backup**.
 5. Acompanhe o progresso da configuração de backup na área de **notificações** do Portal.
 
@@ -116,13 +116,13 @@ Especifique as configurações de política da seguinte maneira:
 
 1. Em **nome da política**, insira um nome para a nova política.
 2. Em **política de backup completo**, selecione uma **frequência de backup**, escolha **diária** ou **semanal**.
-   - **Diariamente**: Selecione a hora e o fuso horário em que o trabalho de backup começa.
+   - **Diário**: selecione a hora e o fuso horário em que o trabalho de backup começa.
    
        - Você deve executar um backup completo. Você não pode desativar essa opção.
        - Clique em **backup completo** para exibir a política.
        - Não é possível criar backups diferenciais para backups diários completos.
        
-   - **Semanal**: Selecione o dia da semana, hora e fuso horário em que o trabalho de backup é executado.
+   - **Semanal**: selecione o dia da semana, hora e fuso horário em que o trabalho de backup é executado.
 3. Em **período de retenção**, defina as configurações de retenção para o backup completo.
     - Por padrão, todas as opções são selecionadas. Desmarque os limites de período de retenção que você não deseja usar e defina os que você faz.
     - O período de retenção mínimo para qualquer tipo de backup (completo/diferencial/log) é de sete dias.
@@ -167,7 +167,7 @@ Se você quiser fazer um backup local (usando o HANA Studio) de um banco de dado
 
 1. Aguarde até que os backups completos ou de log do banco de dados sejam concluídos. Verifique o status no SAP HANA Studio.
 2. Desabilite os backups de log e defina o catálogo de backup para o sistema de arquivos para o banco de dados relevante.
-3. Para fazer isso, clique duas vezes em**configuração** > do **systemdb** > **selecionar** > **filtro de banco de dados (log)** .
+3. Para fazer isso, clique duas vezes em **systemdb** > **configuração** > **Selecione banco de dados** > **filtro (log)** .
 4. Defina **enable_auto_log_backup** como **não**.
 5. Defina **log_backup_using_backint** como **false**.
 6. Faça um backup completo ad hoc do banco de dados.
@@ -187,7 +187,7 @@ Se você estiver protegendo bancos de SAP HANA 1,0 e quiser atualizar para o 2,0
 - Clique em redescobrir bancos de os para a mesma VM. Isso deve mostrar o novo banco de bancos na etapa 2 com detalhes corretos (SYSTEMDB e DB de locatário, não SDC). 
 - Proteja esses novos bancos de dados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre](backup-azure-sap-hana-database-troubleshoot.md) como solucionar erros comuns ao usar o backup SAP Hana em VMs do Azure.
 [Saiba mais sobre como](backup-azure-arm-vms-prepare.md) fazer backup de VMs do Azure.

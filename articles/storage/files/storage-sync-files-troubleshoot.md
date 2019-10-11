@@ -4,15 +4,15 @@ description: Solucionar problemas comuns com o Sincronização de Arquivos do Az
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255100"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274890"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Resolver problemas da Sincronização de Ficheiros do Azure
 Use Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em arquivos do Azure, mantendo, ao mesmo tempo, a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. O Azure File Sync transforma o Windows Server numa cache rápida da sua partilha de ficheiros do Azure. Você pode usar qualquer protocolo que esteja disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter quantos caches forem necessários em todo o mundo.
@@ -797,6 +797,17 @@ Para resolver esse problema, exclua e recrie o grupo de sincronização executan
 4. Se a camada de nuvem foi habilitada em um ponto de extremidade do servidor, exclua os arquivos em camadas órfãos no servidor executando as etapas documentadas nos [arquivos em camadas não estão acessíveis no servidor após a exclusão de uma seção de ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) .
 5. Recrie o grupo de sincronização.
 
+<a id="-2145844941"></a>**Falha na sincronização porque a solicitação HTTP foi redirecionada**  
+
+| | |
+|-|-|
+| **RESULTADO** | 0x80190133 |
+| **HRESULT (Decimal)** | -2145844941 |
+| **Cadeia de caracteres de erro** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **Correção necessária** | Sim |
+
+Esse erro ocorre porque Sincronização de Arquivos do Azure não dá suporte ao redirecionamento de HTTP (código de status 3xx). Para resolver esse problema, desabilite o redirecionamento HTTP no seu servidor proxy ou dispositivo de rede.
+
 ### <a name="common-troubleshooting-steps"></a>Etapas comuns de solução de problemas
 <a id="troubleshoot-storage-account"></a>**Verifique se a conta de armazenamento existe.**  
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
@@ -1008,7 +1019,7 @@ Se os arquivos falharem ao serem recuperados:
         - Em um prompt de comandos com privilégios elevados, execute `fltmc`. Verifique se os drivers de filtro do sistema de arquivos StorageSync. sys e StorageSyncGuard. sys estão listados.
 
 > [!NOTE]
-> Uma ID de evento 9006 é registrada uma vez por hora no log de eventos de telemetria se um arquivo não for relembrado (um evento é registrado por código de erro). Os logs de eventos operacionais e de diagnóstico devem ser usados se forem necessárias informações adicionais para diagnosticar um problema.
+> Uma ID de evento 9006 é registrada uma vez por hora no log de eventos de telemetria se um arquivo não for relembrado (um evento é registrado por código de erro). Marque a seção [erros de recuperação e correção](#recall-errors-and-remediation) para ver se as etapas de correção estão listadas para o código de erro.
 
 ### <a name="recall-errors-and-remediation"></a>Recuperar erros e correção
 
@@ -1018,8 +1029,12 @@ Se os arquivos falharem ao serem recuperados:
 | 0x80070036 | -2147024842 | ERROR_NETWORK_BUSY | Falha ao recuperar o arquivo devido a um problema de rede.  | Se o erro persistir, verifique a conectividade de rede para o compartilhamento de arquivos do Azure. |
 | 0x80c80037 | -2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Falha ao recuperar o arquivo porque o ponto de extremidade do servidor foi excluído. | Para resolver esse problema, consulte [arquivos em camadas não podem ser acessados no servidor após a exclusão de um ponto de extremidade do servidor](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Falha ao recuperar o arquivo devido a um erro de acesso negado. Esse problema pode ocorrer se as configurações de firewall e rede virtual na conta de armazenamento estiverem habilitadas e o servidor não tiver acesso à conta de armazenamento. | Para resolver esse problema, adicione o endereço IP do servidor ou a rede virtual seguindo as etapas documentadas na seção [Configurar o firewall e as configurações de rede virtual](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) no guia de implantação. |
-| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Falha ao recuperar o arquivo porque ele não está acessível no compartilhamento de arquivos do Azure. | Para resolver esse problema, verifique se o arquivo existe no compartilhamento de arquivos do Azure. Se o arquivo existir no compartilhamento de arquivos do Azure, atualize para a versão mais recente do agente de Sincronização de Arquivos do Azure. |
-| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Falha ao recuperar o arquivo devido a uma falha de autorização na conta de armazenamento. | Para resolver esse problema, verifique se [sincronização de arquivos do Azure tem acesso à conta de armazenamento](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Falha ao recuperar o arquivo porque ele não está acessível no compartilhamento de arquivos do Azure. | Para resolver esse problema, verifique se o arquivo existe no compartilhamento de arquivos do Azure. Se o arquivo existir no compartilhamento de arquivos do Azure, atualize para a versão mais recente do [agente](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)de sincronização de arquivos do Azure. |
+| 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Falha ao recuperar o arquivo devido a uma falha de autorização na conta de armazenamento. | Para resolver esse problema, verifique se [sincronização de arquivos do Azure tem acesso à conta de armazenamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Falha ao recuperar o arquivo porque o compartilhamento de arquivos do Azure não está acessível. | Verifique se o compartilhamento de arquivos existe e está acessível. Se o compartilhamento de arquivos foi excluído e recriado, execute as etapas documentadas na [sincronização, pois a seção compartilhamento de arquivos do Azure foi excluída e recriada](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) para excluir e recriar o grupo de sincronização. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Falha ao recuperar o arquivo devido a recursos do sistema insuffcient. | Se o erro persistir, investigue qual driver de modo kernel ou aplicativo está esgotando os recursos do sistema. |
+| 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Falha ao recuperar o arquivo devido à memória insuffcient. | Se o erro persistir, investigue qual driver do modo kernel ou aplicativo está causando a condição de memória insuficiente. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | Falha ao recuperar o arquivo devido a espaço em disco insuficiente. | Para resolver esse problema, libere espaço no volume movendo arquivos para um volume diferente, aumente o tamanho do volume ou Force os arquivos a serem nivelados usando o cmdlet Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Arquivos em camadas não são acessíveis no servidor após a exclusão de um ponto de extremidade do servidor
 Os arquivos em camadas em um servidor ficarão inacessíveis se os arquivos não forem recuperados antes de excluir um ponto de extremidade do servidor.

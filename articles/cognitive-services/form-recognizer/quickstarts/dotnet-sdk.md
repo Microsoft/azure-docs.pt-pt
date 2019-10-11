@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: fc0964508f3031efd91db827524042bf0577ab5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242504"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264431"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do reconhecedor de formulário para .NET
 
@@ -34,7 +34,7 @@ Use a biblioteca de cliente do formulário Recognizer para .NET para:
 
 * Assinatura do Azure- [crie um gratuitamente](https://azure.microsoft.com/free/).
 * Acesso à visualização de acesso limitado do reconhecedor de formulário. Para obter acesso à visualização, preencha e envie o formulário [solicitação de acesso do reconhecedor de formulário](https://aka.ms/FormRecognizerRequestAccess) .
-* Um blob de armazenamento do Azure que contém um conjunto de dados de treinamento. Consulte [criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para reunir seus dados de treinamento. Você pode usar um [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451) para este guia de início rápido.
+* Um blob de armazenamento do Azure que contém um conjunto de dados de treinamento. Consulte [criar um conjunto de dados de treinamento para um modelo personalizado](../build-training-data-set.md) para obter dicas e opções para reunir seus dados de treinamento. Para este guia de início rápido, você pode usar os arquivos na pasta **Train** do [conjunto de dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451).
 * A versão atual do [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## <a name="setting-up"></a>Configurando
@@ -122,6 +122,7 @@ Antes de definir qualquer método, adicione as definições de variável a segui
 
 * Você pode encontrar o valor do ponto de extremidade do serviço na seção **visão geral** do portal do Azure. 
 * Para recuperar a URL SAS para seus dados de treinamento, abra o Gerenciador de Armazenamento do Microsoft Azure, clique com o botão direito do mouse no contêiner e selecione **obter assinatura de acesso compartilhado**. Verifique se as permissões de **leitura** e **lista** estão marcadas e clique em **criar**. Em seguida, copie o valor na seção **URL** . Ele deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Se você precisar de um formulário de exemplo para analisar, poderá usar um dos arquivos na pasta **Test** do conjunto de [dados de exemplo](https://go.microsoft.com/fwlink/?linkid=2090451). Este guia usa apenas formulários em PDF.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 

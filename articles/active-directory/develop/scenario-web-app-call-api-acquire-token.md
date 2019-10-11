@@ -15,12 +15,12 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd66dcd6e3845aad79ebffb3cad656d0a14c1a6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f30194592989b74aca96a5a483e9128cd3a86eb5
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720221"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274467"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Aplicativo Web que chama APIs da Web – adquirir um token para o aplicativo
 
@@ -31,7 +31,7 @@ Agora que você criou o objeto de aplicativo cliente, você o usará para adquir
 
 # <a name="aspnet-coretabaspnetcore"></a>[Núcleo do ASP.NET](#tab/aspnetcore)
 
-Os métodos do controlador são protegidos por `[Authorize]` um atributo que força os usuários que estão sendo autenticados a usar o aplicativo Web. Aqui está o código que chama Microsoft Graph.
+Os métodos do controlador são protegidos por um atributo `[Authorize]` que força os usuários que estão sendo autenticados a usar o aplicativo Web. Aqui está o código que chama Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -61,10 +61,10 @@ public async Task<IActionResult> Profile()
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -81,9 +81,9 @@ Essas etapas avançadas são processadas no capítulo 3 do tutorial [3-webapp-mu
 
 As coisas são semelhantes em ASP.NET:
 
-- Uma ação do controlador protegida por um atributo [autorizar] extrai a ID do locatário e a ID de usuário do membro `ClaimsPrincipal` do controlador. (O ASP.NET `HttpContext.User`usa.)
-- A partir daí, ele cria um `IConfidentialClientApplication`MSAL.net.
-- Por fim, ele chama `AcquireTokenSilent` o método do aplicativo cliente confidencial.
+- Uma ação do controlador protegida por um atributo [autorizar] extrai a ID do locatário e a ID de usuário do membro `ClaimsPrincipal` do controlador. (ASP.NET usa `HttpContext.User`.)
+- A partir daí, ele cria um MSAL.NET `IConfidentialClientApplication`.
+- Por fim, ele chama o método `AcquireTokenSilent` do aplicativo cliente confidencial.
 
 O código é semelhante ao código mostrado para ASP.NET Core.
 

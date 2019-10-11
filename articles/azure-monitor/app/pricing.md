@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 51caf34d0030fd404cd7f7c1868a0e2945c75b35
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936689"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264420"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos de Application Insights
 
@@ -27,7 +27,7 @@ ms.locfileid: "71936689"
 
 Se você tiver dúvidas sobre como o preço funciona para Application Insights, poderá postar uma pergunta em nosso [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
 
-## <a name="pricing-model"></a>Modelo preços
+## <a name="pricing-model"></a>Modelo de determinação de preço
 
 O preço do [aplicativo Azure insights][start] é um modelo pago conforme o uso, com base no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. Cada recurso de Application Insights é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. 
 
@@ -40,7 +40,7 @@ O preço do [aplicativo Azure insights][start] é um modelo pago conforme o uso,
 > [!NOTE]
 > Todos os preços exibidos nas capturas de tela neste artigo são apenas para fins de exemplo. Para obter os preços atuais em sua moeda e região, consulte [preços de Application insights][pricing].
 
-### <a name="multi-step-web-tests"></a>Testes Web com vários passos
+### <a name="multi-step-web-tests"></a>Testes Web de vários passos
 
 [Testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md) incorrem em um encargo adicional. Testes na Web de várias etapas são testes da Web que executam uma sequência de ações.
 
@@ -56,7 +56,7 @@ Há duas abordagens para resolver isso: uso de monitoramento padrão e amostrage
 
 Com a [amostragem adaptável](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)do SDK do ASP.net, o volume de dados é ajustado automaticamente para manter-se dentro de uma taxa máxima de tráfego especificada para o monitoramento de Application insights padrão. Se o aplicativo produzir uma quantidade menor de telemetria, como durante a depuração ou devido ao baixo uso, os itens não serão descartados pelo processador de amostragem, desde que o volume esteja abaixo do nível de eventos configurados por segundo. Para um aplicativo de alto volume, com o limite padrão de 5 eventos por segundo, a amostragem adaptável limitará o número de eventos diários a 432.000. Usando um tamanho de evento médio típico de 1 KB, isso corresponde a 13,4 GB de telemetria por mês de 31 dias por nó que hospeda seu aplicativo (já que a amostragem é feita de local para cada nó). 
 
-Para SDKs que não dão suporte à amostragem adaptável, você pode empregar [amostragem de ingestão) [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ] que amostras quando os dados são receveddos por Application Insights com base em uma porcentagem de dados a serem retidos ou [amostragem de taxa fixa para ASP.net, ASP.NET Core e Java sites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) para reduzir o tráfego enviado do seu servidor Web e navegadores da Web
+Para SDKs que não dão suporte à amostragem adaptável, você pode empregar a [amostragem de ingestão](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) , que é amostrada quando os dados são receveddos por Application insights com base em uma porcentagem de dados a serem retidos ou [amostragem de taxa fixa para ASP.net, ASP.NET Core e Java sites](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) para reduzir o tráfego enviado do seu servidor Web e navegadores da Web
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Aprenda com o que os clientes semelhantes coletam
 
@@ -92,7 +92,7 @@ Para entender a quantidade de dados que seu aplicativo está enviando, você pod
 
 * Vá para o painel **uso e custo estimado** para ver o gráfico de volume de dados diário. 
 * Em Metrics Explorer, adicione um novo gráfico. Para a métrica do gráfico, selecione **volume de ponto de dados**. Ative o **agrupamento**e, em seguida, agrupe por **tipo de dados**.
-* Use o `systemEvents` tipo de dados. Por exemplo, para ver o volume de dados ingerido no último dia, a consulta seria:
+* Use o tipo de dados `systemEvents`. Por exemplo, para ver o volume de dados ingerido no último dia, a consulta seria:
 
 ```kusto
 systemEvents 
@@ -107,19 +107,19 @@ Essa consulta pode ser usada em um [alerta de log do Azure](https://docs.microso
 
 O volume de dados que você envia pode ser gerenciado de três maneiras:
 
-* **Amostragem**: Você pode usar a amostragem para reduzir a quantidade de telemetria que é enviada do seu servidor e de aplicativos cliente, com o mínimo de distorção de métricas. A amostragem é a principal ferramenta que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre os [recursos de amostragem](../../azure-monitor/app/sampling.md).
+* **Amostragem**: você pode usar a amostragem para reduzir a quantidade de telemetria que é enviada do seu servidor e de aplicativos cliente, com o mínimo de distorção de métricas. A amostragem é a principal ferramenta que você pode usar para ajustar a quantidade de dados enviados. Saiba mais sobre os [recursos de amostragem](../../azure-monitor/app/sampling.md).
  
-* **Limite diário**: Quando você cria um recurso de Application Insights no portal do Azure, o limite diário é definido como 100 GB/dia. Quando você cria um recurso de Application Insights no Visual Studio, o padrão é pequeno (somente 32,3 MB/dia). O padrão de limite diário é definido para facilitar o teste. É pretendido que o usuário gere o limite diário antes de implantar o aplicativo em produção. 
+* **Limite diário**: quando você cria um recurso de Application Insights no portal do Azure, o limite diário é definido como 100 GB/dia. Quando você cria um recurso de Application Insights no Visual Studio, o padrão é pequeno (somente 32,3 MB/dia). O padrão de limite diário é definido para facilitar o teste. É pretendido que o usuário gere o limite diário antes de implantar o aplicativo em produção. 
 
     O limite máximo é de 1.000 GB/dia, a menos que você solicite um máximo maior para um aplicativo de tráfego intenso. 
     
-    Os emails de aviso sobre o limite diário são enviados para a conta que são membros dessas funções para o recurso de Application Insights: "Administrador", "AccountAdmin", "coadministrador", "proprietário".
+    Emails de aviso sobre o limite diário são enviados para a conta que são membros dessas funções para seu Application Insights recurso: "administrador", "AccountAdmin", "coadministrador", "proprietário".
 
     Tome cuidado ao definir o limite diário. Seu objetivo deve ser *nunca atingir o limite diário*. Se você atingir o limite diário, perderá dados para o restante do dia e não poderá monitorar seu aplicativo. Para alterar o limite diário, use a opção de **limite de volume diário** . Você pode acessar essa opção no painel **uso e custos estimados** (isso é descrito em mais detalhes posteriormente no artigo).
     
     Removemos a restrição em alguns tipos de assinatura que têm crédito que não pôde ser usado para Application Insights. Anteriormente, se a assinatura tiver um limite de gastos, a caixa de diálogo de limite diário terá instruções para remover o limite de gastos e permitir que o limite diário seja aumentado além de 32,3 MB/dia.
     
-* **Limitação**: A limitação limita a taxa de dados a 32.000 eventos por segundo, com média de 1 minuto por chave de instrumentação. O volume de dados Enviado por seu aplicativo é avaliado a cada minuto. Se ele exceder a média de taxa por segundo ao longo do minuto, o servidor recusará algumas solicitações. O SDK armazena em buffer os dados e, em seguida, tenta reenviá-los. Ele espalha um surto em vários minutos. Se seu aplicativo envia dados consistentemente em mais do que a taxa de limitação, alguns dados serão descartados. (Os SDKs de ASP.NET, Java e JavaScript tentam reenviar os dados dessa maneira; outros SDKs podem simplesmente descartar dados restritos.) Se a limitação ocorrer, um aviso de notificação alertará que isso ocorreu.
+* **Limitação**: a limitação limita a taxa de dados a 32.000 eventos por segundo, com média de 1 minuto por chave de instrumentação. O volume de dados Enviado por seu aplicativo é avaliado a cada minuto. Se ele exceder a média de taxa por segundo ao longo do minuto, o servidor recusará algumas solicitações. O SDK armazena em buffer os dados e, em seguida, tenta reenviá-los. Ele espalha um surto em vários minutos. Se seu aplicativo envia dados consistentemente em mais do que a taxa de limitação, alguns dados serão descartados. (Os SDKs de ASP.NET, Java e JavaScript tentam reenviar os dados dessa maneira; outros SDKs podem simplesmente descartar dados restritos.) Se a limitação ocorrer, um aviso de notificação alertará que isso ocorreu.
 
 ## <a name="reduce-your-data-volume"></a>Reduzir o volume de dados
 
@@ -137,9 +137,9 @@ Você pode usar o limite de volume diário para limitar os dados coletados. No e
 
 Em vez de usar o limite de volume diário, use a [amostragem](../../azure-monitor/app/sampling.md) para ajustar o volume de dados para o nível desejado. Em seguida, use o limite diário apenas como um "último recurso", caso seu aplicativo comece a enviar volumes de telemetria muito mais altos.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados para definir
+### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite de dados diário a ser definido
 
-Examine Application Insights uso e custos estimados para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Deve ser considerado com cuidado, uma vez que não será possível monitorizar os seus recursos após ter sido atingido o limite. 
+Examine Application Insights uso e custos estimados para entender a tendência de ingestão de dados e qual é o limite de volume diário a ser definido. Isso deve ser considerado com cuidado, pois você não poderá monitorar seus recursos depois que o limite for atingido. 
 
 ### <a name="set-the-daily-cap"></a>Definir o limite diário
 
@@ -147,7 +147,7 @@ Para alterar o limite diário, na seção **Configurar** do recurso de Applicati
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-003.png)
 
-Para [alterar o limite diário por meio de Azure Resource Manager](../../azure-monitor/app/powershell.md), a propriedade a ser `dailyQuota`alterada é.  Por meio de Azure Resource Manager você também pode `dailyQuotaResetTime` definir o e o `warningThreshold`limite diário. 
+Para [alterar o limite diário por meio de Azure Resource Manager](../../azure-monitor/app/powershell.md), a propriedade a ser alterada é a `dailyQuota`.  Por meio de Azure Resource Manager você também pode definir o `dailyQuotaResetTime` e o @no__t do limite diário-1. 
 
 ## <a name="sampling"></a>Amostragem
 A [amostragem](../../azure-monitor/app/sampling.md) é um método para reduzir a taxa na qual a telemetria é enviada ao seu aplicativo, ao mesmo tempo em que retém a capacidade de encontrar eventos relacionados durante as pesquisas de diagnóstico. Você também mantém as contagens de eventos corretas.
@@ -183,7 +183,7 @@ Para alterar a retenção, de seu Application Insights recurso, vá para a pági
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida por meio do ARM](https://docs.microsoft.com/azure/azure-monitor/app/powershell) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade só é exposta por meio do ARM. 
+A retenção também pode ser [definida programaticamente usando o PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/powershell/set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio do ARM e deve ser usada com extrema atenção. 
 
 Quando a cobrança começa para uma retenção mais longa no início de dezembro de 2019, os dados mantidos por mais de 90 dias serão cobrados como a mesma taxa que é cobrada atualmente para a retenção de dados do Azure Log Analytics. Saiba mais na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Mantenha-se atualizado sobre o progresso da retenção de variáveis [votando essa sugestão](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
@@ -201,7 +201,7 @@ Para desabilitar os emails de limite de volume diário, na seção **Configurar*
 
 ## <a name="legacy-enterprise-per-node-pricing-tier"></a>Tipo de preço corporativo herdado (por nó)
 
-Para os pioneiros do Aplicativo Azure insights, ainda existem dois tipos de preço possíveis: Básico e empresarial. O tipo de preço básico é o mesmo descrito acima e é a camada padrão. Ele inclui todos os recursos da camada Enterprise, sem custo adicional. A camada básica cobra principalmente do volume de dados que é ingerido. 
+Para os pioneiros do Aplicativo Azure insights, ainda existem dois tipos de preço possíveis: básico e corporativo. O tipo de preço básico é o mesmo descrito acima e é a camada padrão. Ele inclui todos os recursos da camada Enterprise, sem custo adicional. A camada básica cobra principalmente do volume de dados que é ingerido. 
 
 > [!NOTE]
 > Esses tipos de preço herdados foram renomeados. O tipo de preço Enterprise agora é chamado **por nó** e o tipo de preço básico agora é chamado **por GB**. Esses novos nomes são usados abaixo e na portal do Azure.  
@@ -241,7 +241,7 @@ Como essa camada é aplicável somente a clientes com uma assinatura do Operatio
 |:---------------------------------------|:----------------:|
 | 1 aplicativo usando 3 Azure App instâncias de serviço e um servidor virtual | 4 |
 | 3 aplicativos em execução em 2 VMs; os recursos de Application Insights para esses aplicativos estão na mesma assinatura e na camada por nó | 2 | 
-| 4 aplicativos cujos recursos do Application insights estão na mesma assinatura; cada aplicativo que executa duas instâncias durante 16 horas de pico e 4 instâncias durante 8 horas de pico | 13.33 | 
+| 4 aplicativos cujos recursos do Application insights estão na mesma assinatura; cada aplicativo que executa duas instâncias durante 16 horas de pico e 4 instâncias durante 8 horas de pico | 13,33 | 
 | Serviços de nuvem com uma função de trabalho e uma função Web, cada uma executando 2 instâncias | 4 | 
 | Um cluster de Service Fabric do Azure de 5 nós executando microserviços 50; cada microserviço executando 3 instâncias | 5|
 

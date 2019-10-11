@@ -98,7 +98,7 @@
             - name: Autenticação no Azure Container Instances
               href: container-registry-auth-aci.md
             - name: Autenticação no Azure Kubernetes Service (AKS)
-              href: container-registry-auth-aks.md
+              href: ../aks/cluster-container-registry-integration.md
         - name: Funções e permissões
           href: container-registry-roles.md
         - name: Confiança de conteúdo

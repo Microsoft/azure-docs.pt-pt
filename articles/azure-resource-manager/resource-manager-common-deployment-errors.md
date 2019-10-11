@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001632"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263033"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solucionar erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -33,8 +33,9 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função à qual sua conta pertence e seu acesso para o escopo de implantação.<br><br>Você pode receber esse erro quando um provedor de recursos necessário não está registrado. | [Controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Resolver registro](resource-manager-register-provider-errors.md) |
 | BadRequest | Você enviou valores de implantação que não correspondem ao que é esperado pelo Resource Manager. Verifique a mensagem de status interno para obter ajuda com a solução de problemas. | [Referência de modelo](/azure/templates/) e [locais com suporte](resource-location.md) |
-| Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
+| Houver | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento de disco é permitido somente ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActiveAndUneditable | Aguarde a conclusão da implantação simultânea para este grupo de recursos. | |
+| DeploymentFailedCleanUp | Quando você implanta no modo completo, todos os recursos que não estão no modelo são excluídos. Você recebe esse erro quando não tem as permissões adequadas para excluir todos os recursos que não estão no modelo. Para evitar o erro, altere o modo de implantação para incremental. | [Azure Resource Manager modos de implantação](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | O nome da implantação só pode conter letras, dígitos, '-', '. ' ou ' _ '. | |
 | DeploymentNameLengthLimitExceeded | Os nomes de implantação são limitados a 64 caracteres.  | |
 | DeploymentFailed | O erro DeploymentFailed é um erro geral que não fornece os detalhes necessários para resolver o erro. Examine os detalhes do erro para obter um código de erro que fornece mais informações. | [Localizar código de erro](#find-error-code) |
@@ -61,7 +62,7 @@ Se você estiver procurando informações sobre um código de erro e se essas in
 | MissingRegistrationForLocation | Verifique o status de registro do provedor de recursos e os locais com suporte. | [Resolver registro](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registre sua assinatura com o provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Verifique o status de registro do provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
-| NãoLocalizado | Você pode estar tentando implantar um recurso dependente em paralelo com um recurso pai. Verifique se você precisa adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
+| NotFound | Você pode estar tentando implantar um recurso dependente em paralelo com um recurso pai. Verifique se você precisa adicionar uma dependência. | [Resolver dependências](resource-manager-not-found-errors.md) |
 | OperationNotAllowed | A implantação está tentando uma operação que excede a cota para a assinatura, o grupo de recursos ou a região. Se possível, revise sua implantação para permanecer dentro das cotas. Caso contrário, considere solicitar uma alteração em suas cotas. | [Resolver cotas](resource-manager-quota-errors.md) |
 | ParentResourceNotFound | Verifique se existe um recurso pai antes de criar os recursos filho. | [Resolver recurso pai](resource-manager-parent-resource-errors.md) |
 | PasswordTooLong | Você pode ter selecionado uma senha com muitos caracteres ou convertido o valor da senha em uma cadeia de caracteres segura antes de passá-lo como um parâmetro. Se o modelo incluir um parâmetro de **cadeia de caracteres segura** , você não precisará converter o valor em uma cadeia de caracteres segura. Forneça o valor da senha como texto. |  |
@@ -131,7 +132,7 @@ Vê a mensagem de erro e os códigos de erro. Observe que existem dois códigos 
 
 ![detalhes do erro](./media/resource-manager-common-deployment-errors/error-details.png)
 
-## <a name="enable-debug-logging"></a>Ativar o registo de depuração
+## <a name="enable-debug-logging"></a>Habilitar log de depuração
 
 Às vezes, você precisa de mais informações sobre a solicitação e a resposta para saber o que deu errado. Durante a implantação, você pode solicitar que informações adicionais sejam registradas durante uma implantação.
 
@@ -246,11 +247,11 @@ Em alguns casos, a maneira mais fácil de solucionar problemas de seu modelo é 
 }
 ```
 
-Ou, suponha que você esteja encontrando erros de implantação que você acredite que estão relacionados a dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta apenas um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso está definido corretamente, adicione um recurso que dependa dele (como um banco de dados SQL). Quando você tiver esses dois recursos definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para verificar se você está testando as dependências adequadamente.
+Ou, suponha que você esteja obtendo erros de implantação que você acredita que estão relacionados a dependências definidas incorretamente. Teste seu modelo dividindo-o em modelos simplificados. Primeiro, crie um modelo que implanta apenas um único recurso (como um SQL Server). Quando você tiver certeza de que esse recurso está definido corretamente, adicione um recurso que dependa dele (como um banco de dados SQL). Quando você tiver esses dois recursos definidos corretamente, adicione outros recursos dependentes (como políticas de auditoria). Entre cada implantação de teste, exclua o grupo de recursos para verificar se você está testando as dependências adequadamente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para percorrer um tutorial de solução de problemas, consulte [Tutorial: Solucionar problemas de implantações de modelo do Resource Manager @ no__t-0
+* Para percorrer um tutorial de solução de problemas, consulte [tutorial: solucionar problemas de implantações de modelo do Resource Manager](./resource-manager-tutorial-troubleshoot.md)
 * Para saber mais sobre ações de auditoria, consulte [operações de auditoria com o Gerenciador de recursos](resource-group-audit.md).
 * Para saber mais sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).

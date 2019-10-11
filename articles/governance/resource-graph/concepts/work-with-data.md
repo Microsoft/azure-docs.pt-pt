@@ -3,15 +3,15 @@ title: Trabalhar com grandes conjuntos de dados
 description: Entenda como obter e controlar grandes conjuntos de dados ao trabalhar com o grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/01/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4da890a5ef7acb44d0e8628dc4ec3904f6a065e4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0ecd0ea997520947b766912f834de2a0c2e64429
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980338"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274228"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recursos do Azure
 
@@ -68,7 +68,7 @@ Quando for necessário interromper um conjunto de resultados em conjuntos menore
 
 Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida na resposta. Esse valor é usado com os mesmos valores de consulta e assinatura para obter o próximo conjunto de registros que corresponderam à consulta.
 
-Os exemplos a seguir mostram como **ignorar** os primeiros 3000 registros e retornar os **primeiros** 1000 registros depois daqueles ignorados com CLI do Azure e Azure PowerShell:
+Os exemplos a seguir mostram como **ignorar** os primeiros 3000 registros e retornar os **primeiros** 1000 registros após os registros ignorados com CLI do Azure e Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
@@ -82,6 +82,90 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > A consulta deve **projetar** o campo **ID** para que a paginação funcione. Se ele estiver ausente da consulta, a resposta não incluirá o **$skipToken**.
 
 Para obter um exemplo, consulte a [consulta de próxima página](/rest/api/azureresourcegraph/resources/resources#next-page-query) nos documentos da API REST.
+
+## <a name="formatting-results"></a>Formatando resultados
+
+Os resultados de uma consulta de gráfico de recursos são fornecidos em dois formatos, _tabela_ e _objectarray_. O formato é configurado com o parâmetro **resultFormat** como parte das opções de solicitação. O formato de _tabela_ é o valor padrão para **resultFormat**.
+
+Os resultados de CLI do Azure são fornecidos em JSON por padrão. Os resultados em Azure PowerShell são um **PSCustomObject** por padrão, mas podem ser convertidos rapidamente em JSON usando o cmdlet `ConvertTo-Json`. Para outros SDKs, os resultados da consulta podem ser configurados para gerar o formato _objectarray_ .
+
+### <a name="format---table"></a>Formatar tabela
+
+O formato padrão, _tabela_, retorna resultados em um formato JSON projetado para realçar o design de coluna e os valores de linha das propriedades retornadas pela consulta. Esse formato se assemelha bastante aos dados, conforme definido em uma tabela ou planilha estruturada, com as colunas identificadas primeiro e, em seguida, cada linha representando os dados alinhados a essas colunas.
+
+Aqui está um exemplo de um resultado de consulta com a formatação de _tabela_ :
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### <a name="format---objectarray"></a>Format-objectarray
+
+O formato _objectarray_ também retorna resultados em um formato JSON. No entanto, esse design se alinha à relação de par chave/valor comum em JSON em que a coluna e os dados de linha são correspondidos em grupos de matriz.
+
+Aqui está um exemplo de um resultado de consulta com a formatação _objectarray_ :
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+Aqui estão alguns exemplos de como definir **resultFormat** para usar o formato _objectarray_ :
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

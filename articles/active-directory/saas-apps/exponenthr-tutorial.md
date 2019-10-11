@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o ADP GlobalView | Microsoft Docs'
-description: Saiba como configurar o logon único entre o Azure Active Directory e o ADP GlobalView.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o ExponentHR | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o ExponentHR.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: ffb6464f-714d-41a9-869a-2b7e5ae9f125
+ms.assetid: ccfeea70-1cbd-49fb-9154-1dd3f9a0417c
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 10/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1184129783b448cb2d6dc22e488ffe38401a1218
+ms.openlocfilehash: 438b76cd5fa5987375a6e9804e9c4e1037c8ce21
 ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264123"
+ms.locfileid: "72266116"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adp-globalview"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o ADP GlobalView
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exponenthr"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o ExponentHR
 
-Neste tutorial, você aprenderá a integrar o ADP GlobalView ao Azure Active Directory (Azure AD). Ao integrar o ADP GlobalView ao Azure AD, você pode:
+Neste tutorial, você aprenderá a integrar o ExponentHR com o Azure Active Directory (Azure AD). Ao integrar o ExponentHR ao Azure AD, você pode:
 
-* Controle no Azure AD quem tem acesso ao ADP GlobalView.
-* Habilite seus usuários a serem conectados automaticamente ao ADP GlobalView com suas contas do Azure AD.
+* Controle no Azure AD quem tem acesso ao ExponentHR.
+* Habilite seus usuários a serem conectados automaticamente ao ExponentHR com suas contas do Azure AD.
 * Gerencie suas contas em um local central-o portal do Azure.
 
 Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -38,43 +38,48 @@ Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consult
 Para começar, você precisa dos seguintes itens:
 
 * Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
-* Assinatura habilitada para SSO (logon único) do ADP GlobalView.
+* Assinatura habilitada para SSO (logon único) do ExponentHR.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* O ADP GlobalView dá suporte ao SSO iniciado pelo **IDP**
+* O ExponentHR dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-adp-globalview-from-the-gallery"></a>Adicionando o ADP GlobalView da Galeria
+* O ExponentHR dá suporte ao protocolo **WS-** reportado
 
-Para configurar a integração do ADP GlobalView ao Azure AD, você precisará adicionar o ADP GlobalView da Galeria à sua lista de aplicativos SaaS gerenciados.
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
+
+## <a name="adding-exponenthr-from-the-gallery"></a>Adicionando o ExponentHR da Galeria
+
+Para configurar a integração do ExponentHR ao Azure AD, você precisará adicionar o ExponentHR da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
 1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
 1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
-1. Na seção **Adicionar da Galeria** , digite **ADP GlobalView** na caixa de pesquisa.
-1. Selecione **ADP GlobalView** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
+1. Na seção **Adicionar da Galeria** , digite **ExponentHR** na caixa de pesquisa.
+1. Selecione **ExponentHR** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-adp-globalview"></a>Configurar e testar o logon único do Azure AD para o ADP GlobalView
+## <a name="configure-and-test-azure-ad-single-sign-on-for-exponenthr"></a>Configurar e testar o logon único do Azure AD para o ExponentHR
 
-Configure e teste o SSO do Azure AD com o ADP GlobalView usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ADP GlobalView.
+Configure e teste o SSO do Azure AD com o ExponentHR usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no ExponentHR.
 
-Para configurar e testar o SSO do Azure AD com o ADP GlobalView, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o ExponentHR, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-1. **[Configurar o SSO GlobalView do ADP](#configure-adp-globalview-sso)** – para configurar as configurações de logon único no lado do aplicativo.
-    1. **[Criar usuário de teste do ADP GlobalView](#create-adp-globalview-test-user)** – para ter um equivalente de B. Simon no ADP GlobalView que esteja vinculado à representação do usuário no Azure AD.
+1. **[Configurar o SSO do ExponentHR](#configure-exponenthr-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do ExponentHR](#create-exponenthr-test-user)** – para ter um equivalente de B. Simon em ExponentHR que esteja vinculado à representação do usuário no Azure AD.
 1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ADP GlobalView** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **ExponentHR** , localize a seção **gerenciar** e selecione **logon único**.
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
 1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
@@ -82,25 +87,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    
-    Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://www.exponenthr.com/service/saml/login.aspx`
 
-    | |
-    |--|
-    | `https://<subdomain>.globalview.adp.com/federate`|
-    | `https://<subdomain>.globalview.adp.com/federate2`|
-    | |
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique no botão Copiar para copiar a URL de **metadados de Federação do aplicativo** e salvá-la no computador.
 
-    > [!NOTE]
-    > Esse valor não é real. Atualize o valor com o identificador real. Contate a [equipe de suporte ao cliente do ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
-
-1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
-
-    ![O link de download do certificado](common/certificatebase64.png)
-
-1. Na seção **Configurar o ADP GlobalView** , copie as URLs apropriadas com base em seu requisito.
-
-    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
+    ![O link de download do certificado](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -116,10 +107,10 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao ADP GlobalView.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao ExponentHR.
 
 1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicativos, selecione **ADP GlobalView**.
+1. Na lista de aplicativos, selecione **ExponentHR**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
    ![O link "usuários e grupos"](common/users-groups-blade.png)
@@ -132,19 +123,19 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-adp-globalview-sso"></a>Configurar o SSO do ADP GlobalView
+## <a name="configure-exponenthr-sso"></a>Configurar o SSO do ExponentHR
 
-Para configurar o logon único no lado do **ADP GlobalView** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do ADP GlobalView](https://www.adp.com/contact-us/overview.aspx). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
+Para configurar o logon único no lado do **ExponentHR** , é necessário enviar a **URL de metadados de Federação do aplicativo** para a equipe de suporte do [ExponentHR](mailto:support@exponenthr.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="create-adp-globalview-test-user"></a>Criar usuário de teste do ADP GlobalView
+### <a name="create-exponenthr-test-user"></a>Criar usuário de teste do ExponentHR
 
-Nesta seção, você criará um usuário chamado B. Simon em ADP GlobalView. Trabalhe com a [equipe de suporte do ADP GlobalView](https://www.adp.com/contact-us/overview.aspx) para adicionar os usuários na plataforma do ADP GlobalView. Os usuários devem ser criados e ativados antes de usar o logon único.
+Nesta seção, você criará um usuário chamado B. Simon em ExponentHR. Trabalhe com a [equipe de suporte do ExponentHR](mailto:support@exponenthr.com) para adicionar os usuários na plataforma do ExponentHR. Os usuários devem ser criados e ativados antes de usar o logon único.
 
 ## <a name="test-sso"></a>Testar SSO 
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-Ao clicar no bloco ADP GlobalView no painel de acesso, você deverá ser automaticamente conectado à ADP GlobalView para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco do ExponentHR no painel de acesso, você deverá ser conectado automaticamente ao ExponentHR para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -154,5 +145,5 @@ Ao clicar no bloco ADP GlobalView no painel de acesso, você deverá ser automat
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Experimente o ADP GlobalView com o Azure AD](https://aad.portal.azure.com/)
+- [Experimente o ExponentHR com o Azure AD](https://aad.portal.azure.com/)
 

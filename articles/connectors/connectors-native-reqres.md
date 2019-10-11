@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122718"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264361"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Receber e responder a chamadas HTTPS de entrada usando aplicativos lógicos do Azure
 
@@ -27,7 +27,8 @@ Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e a
 * Disparar um fluxo de trabalho quando ocorrer um evento de webhook externo.
 * Receber e responder a uma chamada HTTPS de outro aplicativo lógico.
 
-O gatilho de solicitação dá suporte *somente* a https. Para fazer chamadas HTTP ou HTTPS de saída, use a [ação ou o gatilho http](../connectors/connectors-native-http.md)interno.
+> [!NOTE]
+> O gatilho de solicitação dá suporte *apenas* ao protocolo TLS 1,2 para chamadas de entrada. As chamadas de saída continuam a dar suporte a TLS 1,0, 1,1 e 1,2. Se você vir erros de handshake SSL, certifique-se de usar o TLS 1,2.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +52,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    ![Gatilho de solicitação](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome da propriedade | Nome da propriedade JSON | Requerido | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
    | **URL HTTP POST** | None | Sim | A URL do ponto de extremidade que é gerada depois que você salva o aplicativo lógico e é usada para chamar seu aplicativo lógico |
    | **Esquema JSON do corpo da solicitação** | `schema` | Não | O esquema JSON que descreve as propriedades e os valores no corpo da solicitação de entrada |
@@ -107,7 +108,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
    }
    ```
 
-   Quando você insere um esquema JSON, o designer mostra um lembrete para incluir `Content-Type` o cabeçalho em sua solicitação e definir esse valor de `application/json`cabeçalho como. Para obter mais informações, consulte [manipular tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
+   Quando você insere um esquema JSON, o designer mostra um lembrete para incluir o cabeçalho `Content-Type` em sua solicitação e definir esse valor de cabeçalho como `application/json`. Para obter mais informações, consulte [manipular tipos de conteúdo](../logic-apps/logic-apps-content-type.md).
 
    ![Lembrete para incluir o cabeçalho "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -150,7 +151,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 1. Para especificar propriedades adicionais, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros que você deseja adicionar.
 
-   | Nome da propriedade | Nome da propriedade JSON | Requerido | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Método** | `method` | Não | O método que a solicitação de entrada deve usar para chamar o aplicativo lógico |
    | **Caminho relativo** | `relativePath` | Não | O caminho relativo para o parâmetro que a URL do ponto de extremidade do aplicativo lógico pode aceitar |
@@ -168,7 +169,7 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
    Por exemplo, você pode responder à solicitação [adicionando uma ação de resposta](#add-response), que pode ser usada para retornar uma resposta personalizada e é descrita mais adiante neste tópico.
 
-   Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, `504 GATEWAY TIMEOUT` seu aplicativo lógico retornará um para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará `202 ACCEPTED` imediatamente uma resposta ao chamador.
+   Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta `202 ACCEPTED` para o chamador.
 
 1. Quando tiver terminado, salve seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**. 
 
@@ -182,10 +183,10 @@ Esse gatilho interno cria um ponto de extremidade HTTPS manualmente que pode rec
 
 Veja mais informações sobre as saídas do gatilho de solicitação:
 
-| Nome da propriedade JSON | Tipo de dados | Descrição |
+| Nome da propriedade JSON | Data type | Descrição |
 |--------------------|-----------|-------------|
-| `headers` | Objeto | Um objeto JSON que descreve os cabeçalhos da solicitação |
-| `body` | Objeto | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
+| `headers` | Object | Um objeto JSON que descreve os cabeçalhos da solicitação |
+| `body` | Object | Um objeto JSON que descreve o conteúdo do corpo da solicitação |
 ||||
 
 <a name="add-response"></a>
@@ -194,7 +195,7 @@ Veja mais informações sobre as saídas do gatilho de solicitação:
 
 Você pode usar a ação de resposta para responder com uma carga (dados) a uma solicitação HTTPS de entrada, mas somente em um aplicativo lógico que é disparado por uma solicitação HTTPS. Você pode adicionar a ação de resposta em qualquer ponto do fluxo de trabalho. Para obter mais informações sobre a definição de JSON subjacente para esse gatilho, consulte o [tipo de ação de resposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, `504 GATEWAY TIMEOUT` seu aplicativo lógico retornará um para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará `202 ACCEPTED` imediatamente uma resposta ao chamador.
+Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um minuto. Supondo que o fluxo de trabalho do aplicativo lógico inclua uma ação de resposta, se o aplicativo lógico não retornar uma resposta após esse tempo passar, seu aplicativo lógico retornará um `504 GATEWAY TIMEOUT` para o chamador. Caso contrário, se seu aplicativo lógico não incluir uma ação de resposta, seu aplicativo lógico retornará imediatamente uma resposta `202 ACCEPTED` para o chamador.
 
 1. No designer do aplicativo lógico, na etapa em que você deseja adicionar uma ação de resposta, selecione **nova etapa**.
 
@@ -202,7 +203,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    ![Adicionar nova etapa](./media/connectors-native-reqres/add-response.png)
 
-   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Em **escolher uma ação**, na caixa de pesquisa, insira "resposta" como filtro e selecione a ação de **resposta** .
 
@@ -214,7 +215,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    Em alguns campos, clicar dentro de suas caixas abre a lista de conteúdo dinâmico. Em seguida, você pode selecionar tokens que representam as saídas disponíveis de etapas anteriores no fluxo de trabalho. As propriedades do esquema especificado no exemplo anterior agora aparecem na lista de conteúdo dinâmico.
 
-   Por exemplo, para a caixa **cabeçalhos** , inclua `Content-Type` como o nome da chave e defina `application/json` o valor da chave como mencionado anteriormente neste tópico. Para a caixa **corpo** , você pode selecionar a saída do corpo do gatilho na lista de conteúdo dinâmico.
+   Por exemplo, para a caixa **cabeçalhos** , inclua `Content-Type` como o nome da chave e defina o valor da chave como `application/json`, conforme mencionado anteriormente neste tópico. Para a caixa **corpo** , você pode selecionar a saída do corpo do gatilho na lista de conteúdo dinâmico.
 
    ![Detalhes da ação de resposta](./media/connectors-native-reqres/response-details.png)
 
@@ -224,7 +225,7 @@ Seu aplicativo lógico mantém a solicitação de entrada aberta somente por um 
 
    Aqui estão mais informações sobre as propriedades que podem ser definidas na ação de resposta. 
 
-   | Nome da propriedade | Nome da propriedade JSON | Requerido | Descrição |
+   | Nome da propriedade | Nome da propriedade JSON | Obrigatório | Descrição |
    |---------------|--------------------|----------|-------------|
    | **Código de Estado** | `statusCode` | Sim | O código de status a ser retornado na resposta |
    | **Headers** (Cabeçalhos) | `headers` | Não | Um objeto JSON que descreve um ou mais cabeçalhos a serem incluídos na resposta |

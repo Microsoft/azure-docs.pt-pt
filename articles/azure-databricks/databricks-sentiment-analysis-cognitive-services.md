@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks'
+title: Usar Azure Databricks para análise de sentimentos
 description: Aprenda a usar Azure Databricks com hubs de eventos e a API de serviços cognitivas para executar a análise de sentimentos em dados de streaming quase em tempo real.
 services: azure-databricks
 author: lenadroid
@@ -9,16 +9,16 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 9718a6e394c7628cdf7bb62b2dafea2f3d59a3ca
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68619548"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274216"
 ---
-# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
+# <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Tutorial: análise de sentimentos na transmissão em fluxo de dados com o Azure Databricks
 
-Neste tutorial, irá aprender a executar a análise de sentimentos numa sequência de dados com o Azure Databricks em tempo real. Configure o sistema de ingestão de dados com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, você usa APIs de serviço cognitiva para executar a análise de sentimentos nos dados transmitidos.
+Neste tutorial, você aprenderá a executar a análise de sentimentos em um fluxo de dados usando Azure Databricks quase em tempo real. Configure o sistema de ingestão de dados com os Hubs de Eventos do Azure. Consuma as mensagens de Hubs de Eventos para o Azure Databricks através do conector de Hubs de Eventos do Apache Spark. Por fim, você usa APIs de serviço cognitiva para executar a análise de sentimentos nos dados transmitidos.
 
 No final deste tutorial, deverá ter transmitido tweets do Twitter em fluxo, que incluem o termo "Azure" nos mesmos, e executado análise de sentimentos nos tweets.
 
@@ -63,7 +63,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/?WT.mc_id=sparkeven
 
 Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal do Azure.
 
-1. No Portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
+1. No portal do Azure, selecione **Criar um recurso** > **Dados + Análise** > **Azure Databricks**.
 
     ![Databricks no portal do Azure](./media/databricks-sentiment-analysis-cognitive-services/azure-databricks-on-portal.png "Databricks no portal do Azure")
 
@@ -115,7 +115,7 @@ Para receber um fluxo de tweets, crie uma aplicação no Twitter. Siga as instru
 
 1. Em um navegador da Web, vá para [Twitter para desenvolvedores](https://developer.twitter.com/en/apps)e selecione **criar um aplicativo**. Você pode ver uma mensagem dizendo que precisa ser aplicada a uma conta de desenvolvedor do Twitter. Fique à vontade para fazer isso e, depois que seu aplicativo tiver sido aprovado, você deverá ver um email de confirmação. Pode levar vários dias para ser aprovado para uma conta de desenvolvedor.
 
-    ![Confirmação da conta de desenvolvedor do Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "Confirmação da conta de desenvolvedor do Twitter")
+    Confirmação da ![conta de desenvolvedor do Twitter](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "confirmação da conta de desenvolvedor do Twitter")
 
 2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
@@ -137,7 +137,7 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
    ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "Adicionar biblioteca localizar cluster")
 
-   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "Adicionar nova instalação de biblioteca")
+   ![Caixa de diálogo Adicionar biblioteca](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "Adicionar biblioteca instalar novo")
 
 2. Na página nova biblioteca, para **origem** , selecione **Maven**. Para **coordenar**, clique em **Pesquisar pacotes** para o pacote que você deseja adicionar. Eis as coordenadas do Maven para as bibliotecas utilizadas neste tutorial:
 
@@ -152,7 +152,7 @@ Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs 
 
 4. No menu do cluster, verifique se ambas as bibliotecas estão instaladas e conectadas corretamente.
 
-    ![Verificar bibliotecas](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "Verificar bibliotecas")
+    ![Verificar](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-check.png "bibliotecas de verificação") de bibliotecas
 
 6. Repita estes passos para o pacote do Twitter, `twitter4j-core:4.0.7`.
 
@@ -176,11 +176,11 @@ Neste tutorial, você usa os [Serviços cognitivas do Azure análise de texto AP
    - Selecione a subscrição do Azure na qual a conta foi criada.
    - Selecione uma localização do Azure.
    - Selecione um escalão de preço para o serviço. Para obter mais informações sobre os preços dos Serviços Cognitivos, veja a [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/?WT.mc_id=sparkeventhubs-docs-alehall).
-   - Especifique se pretende criar um novo grupo de recursos ou selecione um existente.
+   - Especifique se deseja criar um novo grupo de recursos ou selecionar um existente.
 
      Selecione **Criar**.
 
-5. Depois da conta é criada, do **descrição geral** separador, selecione **Mostrar chaves de acesso**.
+5. Depois que a conta for criada, na guia **visão geral** , selecione **Mostrar chaves de acesso**.
 
     ![Mostrar chaves de acesso](./media/databricks-sentiment-analysis-cognitive-services/cognitive-services-get-access-keys.png "Mostrar chaves de acesso")
 
@@ -216,7 +216,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 No notebook **SendTweetsToEventHub** , Cole o código a seguir e substitua os espaços reservados por valores para seu namespace de hubs de eventos e o aplicativo do Twitter que você criou anteriormente. Este bloco de notas transmite os tweets com a palavra-chave "Azure" para os Hubs de Eventos em tempo real.
 
 > [!NOTE]
-> A API do Twitter tem determinadas restrições de solicitação e [cotas](https://developer.twitter.com/en/docs/basics/rate-limiting.html). Se você não estiver satisfeito com a limitação de taxa padrão na API do Twitter, poderá gerar conteúdo de texto sem usar a API do Twitter neste exemplo. Para fazer isso, defina **DataSource** de variável `test` como em `twitter` vez de e preencha o **TestName** da lista com a entrada de teste preferencial.
+> A API do Twitter tem determinadas restrições de solicitação e [cotas](https://developer.twitter.com/en/docs/basics/rate-limiting.html). Se você não estiver satisfeito com a limitação de taxa padrão na API do Twitter, poderá gerar conteúdo de texto sem usar a API do Twitter neste exemplo. Para fazer isso, defina **fonte** de dados variável como `test` em vez de `twitter` e preencha o **TestName** da lista com a entrada de teste preferencial.
 
 ```scala
     import scala.collection.JavaConverters._
@@ -439,7 +439,7 @@ O resultado assemelha-se agora ao seguinte fragmento:
     ...
     ...
 
-Agora transmitiu os dados dos Hubs de eventos do Azure para o Azure Databricks em tempo real com o conector de Hubs de eventos para o Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
+Agora você transmitiu dados dos hubs de eventos do Azure para Azure Databricks quase em tempo real usando o conector de hubs de eventos para Apache Spark. Para obter mais informações sobre como utilizar o conector Hubs de Eventos para Spark, veja a [documentação do conector](https://github.com/Azure/azure-event-hubs-spark/tree/master/docs?WT.mc_id=sparkeventhubs-docs-alehall).
 
 ## <a name="run-sentiment-analysis-on-tweets"></a>Executar a análise de sentimentos em tweets
 
@@ -463,7 +463,7 @@ case class RequestToTextApi(documents: Array[RequestToTextApiDocument]) extends 
 case class RequestToTextApiDocument(id: String, text: String, var language: String = "") extends Serializable
 ```
 
-Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este fragmento define um objeto que contém funções para chamar a API de Análise de Texto para executar a deteção de idioma e análise de sentimentos. Certifique-se de substituir o `<PROVIDE ACCESS KEY HERE>` espaço reservado pelo valor recuperado para sua conta de serviços cognitivas.
+Adicione uma nova célula de código e cole o fragmento fornecido abaixo. Este fragmento define um objeto que contém funções para chamar a API de Análise de Texto para executar a deteção de idioma e análise de sentimentos. Certifique-se de substituir o espaço reservado `<PROVIDE ACCESS KEY HERE>` pelo valor recuperado para sua conta de serviços cognitivas.
 
 ```scala
 import javax.net.ssl.HttpsURLConnection
@@ -552,7 +552,7 @@ object SentimentDetector extends Serializable {
 }
 ```
 
-Adicione outra célula para definir uma UDF do Spark (função definida pelo utilizador) que determina o sentimento.
+Adicione outra célula para definir um UDF do Spark (função definida pelo usuário) que determina o sentimentos.
 
 ```scala
 // User Defined Function for processing content of messages to return their sentiment.
@@ -614,7 +614,7 @@ Deve ver um resultado como o seguinte fragmento:
 
 Um valor perto de **1** na coluna **Sentimento** sugere uma excelente experiência com o Azure. Um valor perto de **0** sugere problemas sentidos pelos utilizadores ao trabalharem com o Microsoft Azure.
 
-Já está! Com o Azure Databricks, transmitiu com êxito os dados para os Hubs de eventos do Azure, consumiu os dados de transmissão com o conector de Hubs de eventos e, em seguida, executou a análise de sentimentos na transmissão em fluxo de dados em tempo real.
+Já está! Usando Azure Databricks, você transmitiu com êxito os dados para os hubs de eventos do Azure, consumiu os dados de fluxo usando o conector de hubs de eventos e executou a análise de sentimentos em dados de streaming quase em tempo real.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -622,9 +622,9 @@ Depois de executar o tutorial, pode terminar o cluster. Para tal, na área de tr
 
 ![Parar um cluster do Databricks](./media/databricks-sentiment-analysis-cognitive-services/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar o Azure Databricks para transmitir dados em fluxo aos Hubs de Eventos do Azure e, em seguida, ler os dados de transmissão em fluxo dos Hubs de Eventos em tempo real. Aprendeu a:
 > [!div class="checklist"]
 > * Criar uma área de trabalho do Azure Databricks

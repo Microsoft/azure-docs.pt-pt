@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6141f898a33b4b37c2a1f16e115b184e21163a5a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 780e639ad6e1ee721820749da2df9ea6efa07bd6
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300700"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273733"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
@@ -82,7 +82,7 @@ Uma boa regra geral:
 * Armazene metadados no seu modelo de série temporal.
 * O modo de série temporal, os campos de instância e os eventos incluem apenas as informações necessárias, como uma ID de série temporal ou um carimbo de data/hora.
 
-Para obter mais informações, consulte [eventos de forma](./time-series-insights-send-events.md#json).
+Para obter mais informações, consulte [eventos de forma](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

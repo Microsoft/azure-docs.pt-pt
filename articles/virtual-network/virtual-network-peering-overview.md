@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177663"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72265043"
 ---
 # <a name="virtual-network-peering"></a>Peering de rede virtual
 
@@ -91,6 +91,9 @@ Para saber mais sobre as permissões necessárias para criar um peering de rede 
 Existe uma cobrança nominal para o tráfego de entrada e de saída que utilize uma ligação de peering de rede virtual. Para obter mais informações sobre o VNet Peering e os preços do Global VNet Peering, veja a [página de preços](https://azure.microsoft.com/pricing/details/virtual-network).
 
 O trânsito de gateway é uma propriedade de emparelhamento que permite que uma rede virtual utilize um gateway de VPN/ExpressRoute em uma rede virtual emparelhada para conectividade entre locais ou VNet a VNet. O tráfego para o gateway (entrada ou saída) na VNet emparelhada incorrerá em encargos de emparelhamento VNet. Para obter mais detalhes, consulte cobranças de [Gateway de VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) ou encargos de gateway de ExpressRoute e [encargos de emparelhamento VNet.](https://azure.microsoft.com/pricing/details/virtual-network)
+
+>[!NOTE]
+> Uma versão anterior deste documento declarava que os encargos de emparelhamento VNet não se aplicam ao tráfego de gateway. Isso foi atualizado para refletir os preços precisos de acordo com a página de preços.
 
 ## <a name="next-steps"></a>Passos seguintes
 
