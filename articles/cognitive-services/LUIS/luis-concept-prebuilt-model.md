@@ -1,7 +1,7 @@
 ---
 title: Modelos predefinidos – LUIS
 titleSuffix: Azure Cognitive Services
-description: Modelos pré-construídos fornecem domínios, intenções, expressões e entidades. Pode iniciar a sua aplicação com um domínio pré-criado ou adicionar um domínio relevante para a sua aplicação mais tarde.
+description: Os modelos predefinidos fornecem domínios, intenções, declarações e entidades. Você pode iniciar seu aplicativo com um domínio predefinido ou adicionar um domínio relevante ao seu aplicativo posteriormente.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,58 +11,58 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: b072e265204bba3caa1388576008d5e41adcc33d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619709"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264385"
 ---
-# <a name="prebuilt-domain-intent-and-entity-models"></a>Modelos pré-construídos de domínio, a intenção e a entidade
+# <a name="prebuilt-domain-intent-and-entity-models"></a>Modelos predefinidos de domínio, intenção e entidade
 
-Modelos pré-construídos fornecem domínios, intenções, expressões e entidades. Pode iniciar a sua aplicação com um domínio pré-criado ou adicionar um domínio relevante para a sua aplicação mais tarde. 
+Os modelos predefinidos fornecem domínios, intenções, declarações e entidades. Você pode iniciar seu aplicativo com um domínio predefinido ou adicionar um domínio relevante ao seu aplicativo posteriormente. 
 
-## <a name="types-of-prebuilt-models"></a>Tipos de modelos pré-criados
+## <a name="types-of-prebuilt-models"></a>Tipos de modelos predefinidos
 
-Existem 3 tipos de modelos pré-construídos que Luis fornece. Cada modelo pode ser adicionado à sua aplicação em qualquer altura. 
+Há três tipos de modelos predefinidos que o LUIS fornece. Cada modelo pode ser adicionado ao seu aplicativo a qualquer momento. 
 
 |Tipo de modelo|Inclui|
 |--|--|
-|Domain|Objetivos, expressões, entidades|
-|Intenções|Objetivos, expressões com|
-|Entidades|Apenas as entidades| 
+|Domain|Intenções, declarações, entidades|
+|Intenções|Intenções, declarações|
+|Entidades|Somente entidades| 
 
-## <a name="prebuilt-domains"></a>Domínios pré-concebidos
+## <a name="prebuilt-domains"></a>Domínios pré-criados
 
-Compreensão de idiomas (LUIS) fornece *domínios pré-concebidos*, que são conjuntos pré-criados de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicações de cliente. 
+O Reconhecimento vocal (LUIS) fornece *domínios pré-criados*, que são conjuntos pré-criados de [intenções](luis-how-to-add-intents.md) e [entidades](luis-concept-entity-types.md) que funcionam em conjunto para domínios ou categorias comuns de aplicativos cliente. 
 
-Os domínios criados previamente são treinados e pronto para adicionar à sua aplicação LUIS. Os objetivos e entidades num domínio pré-criado são totalmente personalizáveis depois de adicioná-los à sua aplicação. 
+Os domínios predefinidos são treinados e estão prontos para serem adicionados ao seu aplicativo LUIS. As intenções e entidades em um domínio predefinido são totalmente personalizáveis depois de serem adicionadas ao seu aplicativo. 
 
-Se iniciar a partir de personalizar um domínio pré-criado completo, elimine as intenções e entidades que seu aplicativo não precisa usar. Também pode adicionar alguns objetivos ou entidades para o conjunto de que o domínio pré-criado já fornece. Por exemplo, se estiver a utilizar o **eventos** domínio pré-criado para uma aplicação de eventos desportivos, pode adicionar entidades para as equipes do desporto. Quando inicia [fornecendo expressões com](luis-how-to-add-example-utterances.md) para LUIS, incluem os termos que são específicos para a sua aplicação. LUIS aprende a reconhecê-los e tailors do domínio pré-criado intenções e entidades às necessidades da sua aplicação. 
+Se você começar a personalizar um domínio predefinido inteiro, exclua as tentativas e entidades que seu aplicativo não precisa usar. Você também pode adicionar algumas intenções ou entidades ao conjunto que o domínio predefinido já fornece. Por exemplo, se você estiver usando o domínio predefinido **eventos** para um aplicativo de evento esportivo, poderá adicionar entidades para equipes esportivas. Quando você começa a [fornecer declarações](luis-how-to-add-example-utterances.md) para Luis, inclua termos específicos para seu aplicativo. LUIS aprende a reconhecê-los e caudas das intenções e entidades do domínio predefinido para as necessidades do seu aplicativo. 
 
 > [!TIP]
-> Os objetivos e entidades num domínio pré-criado funcionam melhor em conjunto. É melhor combinar as intenções e entidades do mesmo domínio sempre que possível.
-> O domínio pré-criado utilitários tem intenções que pode personalizar para utilização em qualquer domínio. Por exemplo, pode adicionar `Utilities.Repeat` à sua aplicação e train ele reconhece qualquer utilizador de ações, poderá querer repetir em seu aplicativo. 
+> As intenções e entidades em um domínio predefinido funcionam melhor juntas. É melhor combinar tentativas e entidades do mesmo domínio quando possível.
+> O domínio predefinido utilitários tem intenções que você pode personalizar para uso em qualquer domínio. Por exemplo, você pode adicionar `Utilities.Repeat` ao seu aplicativo e treiná-lo a reconhecer qualquer ação que o usuário queira repetir em seu aplicativo. 
 
-### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Alterar o comportamento de uma intenção de domínio pré-criado
+### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Alterando o comportamento de uma intenção de domínio predefinida
 
-Pode achar que um domínio pré-criado contém um objetivo semelhante a um objetivo a que pretende ter na sua aplicação LUIS, mas deseja ter um comportamento diferente. Por exemplo, o **lugares** domínio pré-criado fornece um `MakeReservation` intenção para fazer uma reserva do restaurante, mas quiser a sua aplicação para utilizar esse propósito para fazer reservas de hotel. Nesse caso, pode modificar o comportamento desse objetivo, fornecendo expressões para LUIS sobre fazer reservas de hotel e a etiquetagem-los utilizando o `MakeReservation` intenção, então, LUIS pode reestruturar os reconheça o `MakeReservation` intenção num pedido para reservar um hotel .
+Você pode achar que um domínio predefinido contém uma intenção semelhante a uma intenção que você deseja ter em seu aplicativo LUIS, mas deseja que ele se comporte de forma diferente. Por exemplo, o domínio predefinido **locais** fornece uma intenção `MakeReservation` para fazer uma reserva de restaurante, mas você deseja que seu aplicativo use essa intenção para fazer reservas de Hotel. Nesse caso, você pode modificar o comportamento dessa intenção fornecendo declarações para LUIS sobre como fazer reservas de Hotel e rotulá-las usando a intenção `MakeReservation`, então, LUIS pode ser retreinado para reconhecer a intenção de `MakeReservation` em uma solicitação para agendar um hotel.
 
-Pode encontrar uma lista completa dos domínios criados previamente no [referência de domínios pré-concebidos](./luis-reference-prebuilt-domains.md).
+Você pode encontrar uma lista completa dos domínios predefinidos na [referência de domínios predefinidos](./luis-reference-prebuilt-domains.md).
 
-## <a name="prebuilt-intents"></a>Objetivos pré-criados
+## <a name="prebuilt-intents"></a>Tentativas predefinidas
 
-LUIS fornece intenções pré-criados e seus discursos. Objetivos podem ser adicionados sem adicionar o domínio inteiro. A adição de um objetivo é o processo de adicionar uma intenção e seus discursos. O nome de intenção e a lista de expressão podem ser modificados.  
+O LUIS fornece tentativas predefinidas e suas declarações. As intenções podem ser adicionadas sem adicionar o domínio inteiro. Adicionar uma intenção é o processo de adicionar uma intenção e seu declarações. O nome da intenção e a lista expressão podem ser modificados.  
 
-## <a name="prebuilt-entities"></a>Entidades pré-concebidas
+## <a name="prebuilt-entities"></a>Entidades pré-criadas
 
-LUIS inclui um conjunto de entidades previamente concebidas para reconhecimento de tipos comuns de informações, como datas, horas, números, medidas e moeda. Suporte de entidade pré-criados varia consoante a cultura da sua aplicação LUIS. Para obter uma lista completa das entidades pré-criados que suporte o LUIS, incluindo o suporte por cultura, consulte a [referência de entidade pré-criados](./luis-reference-prebuilt-entities.md).
+O LUIS inclui um conjunto de entidades predefinidas para reconhecer tipos comuns de informações, como datas, horas, números, medidas e moeda. O suporte à entidade predefinida varia de acordo com a cultura do seu aplicativo LUIS. Para obter uma lista completa das entidades predefinidas que o LUIS dá suporte, incluindo suporte por cultura, consulte a [referência de entidade predefinida](./luis-reference-prebuilt-entities.md).
 
-Quando uma entidade pré-criados é incluída na sua aplicação, respetivas previsões são incluídos em seu aplicativo publicado. O comportamento das entidades pré-concebidas é com formação prévia e **não é possível** ser modificado. Siga estes passos para ver como funciona uma entidade predefinida:
+Quando uma entidade predefinida é incluída em seu aplicativo, suas previsões são incluídas no aplicativo publicado. O comportamento de entidades predefinidas é previamente treinado e **não pode** ser modificado. 
 
 > [!NOTE]
-> **Builtin.DateTime** foi preterido. Ele é substituído por [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), que fornece o reconhecimento de data e intervalos de tempo, bem como reconhecimento aperfeiçoado de ambíguas datas e horas.
+> **Builtin. DateTime** foi preterido. Ele é substituído por [**Builtin. datetimeV2**](luis-reference-prebuilt-datetimev2.md), que fornece reconhecimento de intervalos de data e hora, bem como o reconhecimento aprimorado de datas e horários ambíguos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba como [adicionar entidades pré-concebidas](luis-prebuilt-entities.md) à sua aplicação.
+Saiba como [adicionar entidades predefinidas](luis-prebuilt-entities.md) ao seu aplicativo.

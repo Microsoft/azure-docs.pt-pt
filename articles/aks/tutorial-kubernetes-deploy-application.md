@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "69018908"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263886"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicativos no serviço kubernetes do Azure (AKS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Tutorial: Executar aplicações no Serviço Kubernetes do Azure (AKS)
 
-O Kubernetes dispõe de uma plataforma distribuída para aplicações em contentores. Cria e implementa as suas próprias aplicações e serviços num cluster do Kubernetes, e permite que o cluster gira a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, a aplicação de exemplo é implementada num cluster do Kubernetes. Saiba como:
+O Kubernetes fornece uma plataforma distribuída para aplicações em contentores. Cria e implementa as suas próprias aplicações e serviços num cluster do Kubernetes, e permite que o cluster gira a disponibilidade e a conectividade. Neste tutorial, parte quatro de sete, a aplicação de exemplo é implementada num cluster do Kubernetes. Saiba como:
 
 > [!div class="checklist"]
 > * Atualizar um arquivo de manifesto kubernetes
@@ -46,7 +46,7 @@ Obtenha o nome do servidor de logon do ACR usando o comando [AZ ACR List][az-acr
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutorial utiliza o nome do servidor de início de sessão da *microsoft*. Verifique se você está no diretório clonado *do Azure-votação-app-Redis* e, em seguida, abra o arquivo de manifesto com um editor de `vi`texto, como:
+O ficheiro de manifesto de exemplo do repositório git clonado no primeiro tutorial utiliza o nome do servidor de início de sessão da *microsoft*. Verifique se você está no diretório clonado *do Azure-votação-app-Redis* e, em seguida, abra o arquivo de manifesto com um editor de texto, como `vi`:
 
 ```console
 vi azure-vote-all-in-one-redis.yaml
@@ -68,7 +68,7 @@ containers:
   image: <acrName>.azurecr.io/azure-vote-front:v1
 ```
 
-Guarde e feche o ficheiro. No `vi`, use `:wq`.
+Guarde e feche o ficheiro. Em `vi`, use `:wq`.
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 
@@ -105,7 +105,7 @@ Inicialmente, o *IP externo* para o serviço *Azure-vote-front* é mostrado como
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
-Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o `kubectl` processo de inspeção. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
+Quando o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o processo de inspeção `kubectl`. A saída de exemplo a seguir mostra um endereço IP público válido atribuído ao serviço:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
@@ -115,7 +115,7 @@ Para ver o aplicativo em ação, abra um navegador da Web para o endereço IP ex
 
 ![Imagem do cluster do Kubernetes no Azure no Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Se o aplicativo não foi carregado, pode ser devido a um problema de autorização com o registro da imagem. Para ver o estado dos seus contentores, utilize o comando `kubectl get pods`. Se as imagens de contêiner não puderem ser puxadas, consulte [permitir o acesso ao registro de contêiner com um segredo kubernetes](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Se o aplicativo não foi carregado, pode ser devido a um problema de autorização com o registro da imagem. Para ver o estado dos seus contentores, utilize o comando `kubectl get pods`. Se as imagens de contêiner não puderem ser puxadas, consulte [autenticar com o registro de contêiner do Azure do serviço kubernetes do Azure](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
