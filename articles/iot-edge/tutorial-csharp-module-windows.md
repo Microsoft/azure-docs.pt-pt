@@ -9,14 +9,14 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c872b10d7819fb95d614664ed32831f410349760
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122896"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286676"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: Desenvolver um C# módulo IOT Edge para dispositivos Windows
+# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: desenvolver um C# módulo IOT Edge para dispositivos Windows
 
 Use o Visual Studio para C# desenvolver código e implantá-lo em um dispositivo Windows que executa o Azure IOT Edge. 
 
@@ -36,7 +36,7 @@ O módulo do IoT Edge que criou neste tutorial filtra os dados de temperatura qu
 
 Este tutorial demonstra como desenvolver um módulo no **C#** usando o **Visual Studio 2019**e como implantá-lo em um **dispositivo Windows**. Se você estiver desenvolvendo módulos para dispositivos Linux, vá para [desenvolver um C# módulo de IOT Edge para dispositivos Linux](tutorial-csharp-module.md) em vez disso. 
 
-Use a tabela a seguir para entender suas opções de desenvolvimento e implantação de módulos C em dispositivos Windows: 
+Use a tabela a seguir para entender suas opções de desenvolvimento e implantação C# de módulos em dispositivos Windows: 
 
 | C# | Visual Studio Code | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
@@ -76,11 +76,11 @@ As ferramentas de Azure IoT Edge fornecem modelos de projeto para todas as lingu
 
 4. Na janela IoT Edge aplicativo e módulo, configure o projeto com os seguintes valores: 
 
-   | Campo | Value |
+   | Campo | Valor |
    | ----- | ----- |
-   | Seleccionar um modelo | Selecione  **C# módulo**. | 
+   | Selecionar um modelo | Selecione  **C# módulo**. | 
    | Nome do projeto de módulo | Atribua o nome **CSharpModule** ao módulo. | 
-   | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é \<semelhante ao\>nome do registro. azurecr.Io/csharpmodule. |
+   | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é semelhante a @no__t 0registry name\>.azurecr.io/csharpmodule. |
 
    ![Configurar seu projeto para o dispositivo de destino, o tipo de módulo e o registro de contêiner](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
@@ -282,7 +282,7 @@ O código de módulo padrão recebe mensagens em uma fila de entrada e as passa 
        }
     ```
 
-    ![Adicionar módulo duplo ao modelo de implementação](./media/tutorial-csharp-module-windows/module-twin.png)
+    ![Adicionar o módulo de distribuição ao modelo de implantação](./media/tutorial-csharp-module-windows/module-twin.png)
 
 11. Salve o arquivo Deployment. Template. JSON.
 
@@ -297,13 +297,13 @@ Na secção anterior, criou uma solução do IoT Edge e adicionou código ao **C
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Você pode receber um aviso de segurança recomendando o uso `--password-stdin`de. Embora essa prática recomendada seja recomendada para cenários de produção, ela está fora do escopo deste tutorial. Para obter mais informações, consulte a referência de [logon](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) do Docker.
+   Você pode receber um aviso de segurança recomendando o uso de `--password-stdin`. Embora essa prática recomendada seja recomendada para cenários de produção, ela está fora do escopo deste tutorial. Para obter mais informações, consulte a referência de [logon do Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
 2. No Gerenciador de soluções do Visual Studio, clique com o botão direito do mouse no nome do projeto que você deseja compilar. O nome padrão é **AzureIotEdgeApp1** e, como você está criando um módulo do Windows, a extensão deve ser **Windows. AMD64**. 
 
 3. Selecione **Compilar e enviar IOT Edge módulos**. 
 
-   O comando Build e Push inicia três operações. Primeiro, ele cria uma nova pasta na solução chamada **configuração** que contém o manifesto de implantação completa, criado sem informações no modelo de implantação e outros arquivos de solução. Em segundo lugar, `docker build` ele é executado para criar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Em seguida, ele `docker push` é executado para enviar por push o repositório de imagens para o registro de contêiner. 
+   O comando Build e Push inicia três operações. Primeiro, ele cria uma nova pasta na solução chamada **configuração** que contém o manifesto de implantação completa, criado sem informações no modelo de implantação e outros arquivos de solução. Em segundo lugar, ele executa `docker build` para criar a imagem de contêiner com base no dockerfile apropriado para sua arquitetura de destino. Em seguida, ele executa `docker push` para enviar por push o repositório de imagens para o registro de contêiner. 
 
 ## <a name="deploy-modules-to-device"></a>Implantar módulos no dispositivo
 
@@ -362,7 +362,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 Neste tutorial, criou uma função do módulo do IoT Edge com código para filtrar os dados não processados que são gerados pelo seu dispositivo IoT Edge. Quando estiver pronto para criar seus próprios módulos, você pode aprender mais sobre como desenvolver [seus próprios módulos IOT Edge](module-development.md) ou como [desenvolver módulos com o Visual Studio](how-to-visual-studio-develop-module.md). Você pode continuar nos próximos tutoriais para saber como Azure IoT Edge pode ajudá-lo a implantar os serviços de nuvem do Azure para processar e analisar dados na borda.
 
 > [!div class="nextstepaction"]
-> [Functions](tutorial-deploy-function.md)
+> [Funções](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [serviço de visão personalizada](tutorial-deploy-custom-vision.md)

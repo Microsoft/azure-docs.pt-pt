@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274838"
+ms.locfileid: "72286705"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Criar uma fórmula automática para dimensionar nós de computação em um pool do lote
 
@@ -207,7 +207,7 @@ Essas **funções** predefinidas estão disponíveis para uso na definição de 
 | LG (duplo) |double |Retorna a base de log 2 do duplo. |
 | LG (doubleVecList) |doubleVec |Retorna a base de log do componente 2 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão de LG dupla (Double) será assumida. |
 | ln (duplo) |double |Retorna o log natural do duplo. |
-| ln (doubleVecList) |doubleVec |Retorna a base de log do componente 2 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o parâmetro. Caso contrário, a versão de LG dupla (Double) será assumida. |
+| ln (doubleVecList) |doubleVec |Retorna o log natural do duplo. |
 | log (duplo) |double |Retorna a base de log 10 do duplo. |
 | log (doubleVecList) |doubleVec |Retorna a base do log do componente 10 do doubleVecList. Um VEC (Double) deve ser passado explicitamente para o único parâmetro Double. Caso contrário, a versão de log duplo (Double) é assumida. |
 | Max (doubleVecList) |double |Retorna o valor máximo em doubleVecList. |

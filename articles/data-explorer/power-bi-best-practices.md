@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 39fab02ebc3a80e0aae34a86a1a6b7f3f46c96f3
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937311"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286742"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Práticas recomendadas para usar Power BI para consultar e Visualizar dados de Data Explorer do Azure
 
@@ -48,7 +48,7 @@ A seção a seguir inclui dicas e truques para usar a linguagem de consulta Kust
 
 Consultas complexas são mais facilmente expressas em Kusto do que em Power Query. Eles devem ser implementados como [funções Kusto](/azure/kusto/query/functions)e invocados em Power bi. Esse método é necessário ao usar o **DirectQuery** com instruções `let` em sua consulta Kusto. Como Power BI une duas consultas e as instruções `let` não podem ser usadas com o operador `join`, podem ocorrer erros de sintaxe. Portanto, salve cada parte da junção como uma função Kusto e permita que Power BI ingresse essas duas funções juntas.
 
-### <a name="how-to-simulate-a-relative-data-time-operator"></a>Como simular um operador de tempo de dados relativo
+### <a name="how-to-simulate-a-relative-date-time-operator"></a>Como simular um operador de data/hora relativo
 
 Power BI não contém um operador de data/hora *relativo* , como `ago()`.
 Para simular `ago()`, use uma combinação de funções `DateTime.FixedLocalNow()` e `#duration` Power BI.
@@ -74,7 +74,7 @@ in
 
 As consultas Kusto retornam, por padrão, até 500.000 linhas ou 64 MB, conforme descrito em [limites de consulta](/azure/kusto/concepts/querylimits). Você pode substituir esses padrões usando **as opções avançadas** na janela de conexão do **Data Explorer do Azure (Kusto)** :
 
-![Opções avançadas](media/power-bi-best-practices/advanced-options.png)
+![opções avançadas](media/power-bi-best-practices/advanced-options.png)
 
 Essas opções emitem [instruções SET](/azure/kusto/query/setstatement) com sua consulta para alterar os limites de consulta padrão:
 
@@ -142,7 +142,7 @@ O Power BI inclui um Agendador de atualização de dados que pode emitir consult
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI pode enviar somente consultas curtas (&lt;2000 caracteres) para Kusto
 
-Se a execução de uma consulta no Power BI resultar no seguinte erro:  _"DataSource. Error: Falha do Web. Contents ao obter conteúdo de... "_ a consulta provavelmente tem mais de 2000 caracteres. Power BI usa **PowerQuery** para consultar o Kusto emitindo uma solicitação HTTP Get que codifica a consulta como parte do URI que está sendo recuperado. Portanto, as consultas Kusto emitidas por Power BI são limitadas ao comprimento máximo de um URI de solicitação (2000 caracteres, menos deslocamento pequeno). Como alternativa, você pode definir uma [função armazenada](/azure/kusto/query/schema-entities/stored-functions) em Kusto e ter Power bi usar essa função na consulta.
+Se a execução de uma consulta no Power BI resultar no seguinte erro: _"DataSource. Error: Web. Contents falhou ao obter conteúdo de..."_ a consulta provavelmente tem mais de 2000 caracteres. Power BI usa **PowerQuery** para consultar o Kusto emitindo uma solicitação HTTP Get que codifica a consulta como parte do URI que está sendo recuperado. Portanto, as consultas Kusto emitidas por Power BI são limitadas ao comprimento máximo de um URI de solicitação (2000 caracteres, menos deslocamento pequeno). Como alternativa, você pode definir uma [função armazenada](/azure/kusto/query/schema-entities/stored-functions) em Kusto e ter Power bi usar essa função na consulta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
