@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ae3350b14ca1073a5fbb1a353b9301c57e7f1ea4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176861"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298316"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte pelo Azure Data Factory
 Este artigo explica diferentes ambientes de computação que você pode usar para processar ou transformar dados. Ele também fornece detalhes sobre configurações diferentes (sob demanda versus traga a sua própria) com suporte pelo Data Factory ao configurar serviços vinculados vinculando esses ambientes de computação a uma data factory do Azure.
@@ -27,7 +27,8 @@ A tabela a seguir fornece uma lista de ambientes de computação com suporte pel
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [Cluster Hdinsight sob demanda](#azure-hdinsight-on-demand-linked-service) ou [seu próprio cluster hdinsight](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [Pig](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [streaming do Hadoop](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Personalizar](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Atividades de Machine Learning: Execução de Lotes e Atualizar Recurso](transform-data-using-machine-learning.md) |
+| [Serviço de Azure Machine Learning](#azure-machine-learning-service-linked-service) | [Azure Machine Learning executar pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [azure SQL data warehouse](#azure-sql-data-warehouse-linked-service), [SQL Server](#sql-server-linked-service) | [Procedimento Armazenado](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [jar](transform-data-databricks-jar.md), [python](transform-data-databricks-python.md) |
@@ -354,8 +355,8 @@ Consulte os tópicos a seguir se você for novo no serviço de lote do Azure:
 | linkedServiceName | Nome do serviço vinculado do armazenamento do Azure associado a este serviço vinculado do lote do Azure. Esse serviço vinculado é usado para arquivos de preparação necessários para executar a atividade. | Sim      |
 | connectVia        | O Integration Runtime a ser usado para enviar as atividades para esse serviço vinculado. Você pode usar o Integration Runtime Azure Integration Runtime ou auto-hospedado. Se não for especificado, ele usará o Azure Integration Runtime padrão. | Não       |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning serviço vinculado
-Você cria um serviço vinculado Azure Machine Learning para registrar um ponto de extremidade de Pontuação de Machine Learning em um data factory.
+## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio serviço vinculado
+Você cria um serviço vinculado Azure Machine Learning Studio para registrar um ponto de extremidade de Pontuação de Machine Learning em um data factory.
 
 ### <a name="example"></a>Exemplo
 
@@ -385,11 +386,55 @@ Você cria um serviço vinculado Azure Machine Learning para registrar um ponto 
 | Tipo                   | A propriedade Type deve ser definida como: **AzureML**. | Sim                                      |
 | mlEndpoint             | A URL de Pontuação do lote.                   | Sim                                      |
 | apiKey                 | A API do modelo do espaço de trabalho publicado.     | Sim                                      |
-| updateResourceEndpoint | A URL de recurso de atualização para um ponto de extremidade de serviço Web do Azure ML usado para atualizar o serviço Web de previsão com arquivo de modelo treinado | Não                                       |
+| updateResourceEndpoint | A URL de recurso de atualização para um ponto de extremidade de serviço Web Azure Machine Learning usado para atualizar o serviço Web de previsão com arquivo de modelo treinado | Não                                       |
 | servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Obrigatório se updateResourceEndpoint for especificado |
 | servicePrincipalKey    | Especifique a chave do aplicativo.           | Obrigatório se updateResourceEndpoint for especificado |
 | vários                 | Especifique as informações do locatário (nome de domínio ou ID do locatário) em que seu aplicativo reside. Você pode recuperá-lo passando o mouse no canto superior direito do portal do Azure. | Obrigatório se updateResourceEndpoint for especificado |
 | connectVia             | O Integration Runtime a ser usado para enviar as atividades para esse serviço vinculado. Você pode usar o Integration Runtime Azure Integration Runtime ou auto-hospedado. Se não for especificado, ele usará o Azure Integration Runtime padrão. | Não                                       |
+
+## <a name="azure-machine-learning-service-linked-service"></a>Serviço vinculado do serviço de Azure Machine Learning
+Você cria um serviço vinculado do serviço Azure Machine Learning para conectar um espaço de trabalho do serviço de Azure Machine Learning a um data factory.
+
+> [!NOTE]
+> Atualmente, somente a autenticação de entidade de serviço tem suporte para o serviço vinculado do serviço de Azure Machine Learning.
+
+### <a name="example"></a>Exemplo
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="properties"></a>Propriedades
+| Propriedade               | Descrição                              | Obrigatório                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| Tipo                   | A propriedade Type deve ser definida como: **AzureMLService**. | Sim                                      |
+| subscriptionId         | ID da assinatura do Azure              | Sim                                      |
+| resourceGroupName      | nome | Sim                                      |
+| mlWorkspaceName        | Nome do espaço de trabalho do serviço Azure Machine Learning | Sim  |
+| servicePrincipalId     | Especifique a ID do cliente do aplicativo.     | Não |
+| servicePrincipalKey    | Especifique a chave do aplicativo.           | Não |
+| vários                 | Especifique as informações do locatário (nome de domínio ou ID do locatário) em que seu aplicativo reside. Você pode recuperá-lo passando o mouse no canto superior direito do portal do Azure. | Obrigatório se updateResourceEndpoint for especificado | Não |
+| connectVia             | O Integration Runtime a ser usado para enviar as atividades para esse serviço vinculado. Você pode usar o Integration Runtime Azure Integration Runtime ou auto-hospedado. Se não for especificado, ele usará o Azure Integration Runtime padrão. | Não |    
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics serviço vinculado
 Você cria um serviço vinculado **Azure data Lake Analytics** para vincular um serviço de computação Azure data Lake Analytics a uma data Factory do Azure. O Data Lake Analytics atividade U-SQL no pipeline refere-se a esse serviço vinculado. 
@@ -410,7 +455,7 @@ Você cria um serviço vinculado **Azure data Lake Analytics** para vincular um 
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {

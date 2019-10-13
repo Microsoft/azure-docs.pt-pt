@@ -2,18 +2,17 @@
 title: Tutorial-configurar funções de administrador e usuário do Azure Analysis Services | Microsoft Docs
 description: Saiba como configurar funções de Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: b36541cde457b7faf8b3a020cdde01f049ceb652
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b70d1502985a1ffc0ebdf6fcb487cda3992d1c19
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932219"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294429"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>Tutorial: Configurar funções de utilizador e de administrador de servidor
 
@@ -140,9 +139,9 @@ Nesta tarefa, irá utilizar o comando [Criar](https://docs.microsoft.com/bi-refe
 Quando já não for preciso, elimine as funções e contas de utilizador ou de grupo. Para tal, utilize as **Propriedades da Função** > **Associação** para remover contas de utilizador, ou clique com o botão direito do rato numa função e, em seguida, clique em **Eliminar**.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a ligar ao seu servidor AS do Azure e a explorar as propriedades e as bases de dados modelo e propriedades de exemplo adventureworks no SSMS. Também aprendeu a utilizar scripts SSMS e TMSL para adicionar utilizadores ou grupos às funções novas e atuais. Agora que tem permissões de utilizador configuradas para o seu servidor e base de dados modelo de exemplo, o utilizador e outros utilizadores podem ligar-se ao mesmo ao utilizar aplicações cliente, como o Power BI. Para obter mais informações, avance para o próximo tutorial. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conectar-se com Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Tutorial: Ligar com o Power BI Desktop](analysis-services-tutorial-pbid.md)
 

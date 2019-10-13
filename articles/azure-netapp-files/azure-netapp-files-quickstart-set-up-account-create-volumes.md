@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 9/11/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: d7bc07ddce605838cf7aa966c6c94b85dad6b58c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9676b10eafbc72a04cb68fc828a72f77e6c3916f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212209"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298566"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: Configurar o Azure NetApp Files e criar um volume NFS 
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: configurar Azure NetApp Files e criar um volume do NFS 
 
 Este artigo mostra como configurar rapidamente Azure NetApp Files e criar um volume. 
 
@@ -111,7 +111,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
 
     > [!NOTE]
     > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
-    > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use`Get-AzLocation | select Location`
+    > Para obter o nome da região com suporte em nossas ferramentas de linha de comando, use `Get-AzLocation | select Location`
     >
 
 1. Crie um novo grupo de recursos usando o comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) :
@@ -138,7 +138,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
 
     > [!NOTE]
     > Consulte os [produtos disponíveis por região](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=netapp&regions=all) para obter uma lista de regiões com suporte.
-    > Para obter o nome da região que é compatível com nossas ferramentas de linha de comando, use`az account list-locations -query "[].{Region:name}" --out table`
+    > Para obter o nome da região com suporte em nossas ferramentas de linha de comando, use `az account list-locations -query "[].{Region:name}" --out table`
     >
 
 2. Crie um novo grupo de recursos usando o comando [AZ Group Create](/cli/azure/group#az-group-create) :
@@ -242,7 +242,7 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
        * Insira **myvnet1** como o nome da vnet.
        * Especifique um espaço de endereço para sua configuração, por exemplo, 10.7.0.0/16
        * Insira **myANFsubnet** como o nome da sub-rede.
-       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24. Observe que você não pode compartilhar a sub-rede dedicada com outros recursos.
+       * Especifique o intervalo de endereços de sub-rede, por exemplo, 10.7.0.0/24. Você não pode compartilhar a sub-rede dedicada com outros recursos.
        * Selecione **Microsoft. NetApp/volumes** para delegação de sub-rede.
        * Clique em **OK** para criar a vnet.
    5. Em sub-rede, selecione a vnet recentemente criada (**myvnet1**) como a sub-rede delegada.
@@ -251,11 +251,14 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
 
       ![Janela criar rede virtual](../media/azure-netapp-files/azure-netapp-files-create-virtual-network-window.png)  
 
-4. Clique em **protocolo**e, em seguida, selecione **NFS** como o tipo de protocolo para o volume.   
+4. Clique em **protocolo**e, em seguida, conclua as seguintes ações: 
+    * Selecione **NFS** como o tipo de protocolo para o volume.  
+    * Insira **myfilepath1** como o caminho do arquivo que será usado para criar o caminho de exportação para o volume.  
+    * Selecione a versão do NFS (**NFSv3** ou **nfsv 4.1**) para o volume.  
+> [!IMPORTANT] 
+> O acesso ao recurso NFSv 4.1 requer a lista de permissões.  Para solicitar a lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
 
-    Insira **myfilepath1** como o caminho do arquivo que será usado para criar o caminho de exportação para o volume. 
-
-    ![Especificar o protocolo NFS para início rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Clique em **Rever + criar**.
 

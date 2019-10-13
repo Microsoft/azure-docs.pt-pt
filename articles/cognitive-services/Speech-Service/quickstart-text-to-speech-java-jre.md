@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Sintetizar fala, Java (Windows, Linux, macOS)-serviço de fala'
+title: 'Início rápido: sintetizar fala, Java (Windows, Linux, macOS)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você aprenderá a criar um aplicativo Java simples que captura e sintetiza a fala de texto e o executa com o alto-falante padrão.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 832525ae1441fca85f8df661b4a187c0be8d91dc
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c66e321618b46d52f791f95dab570e3721e806a9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803986"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299222"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>Início rápido: Sintetizar fala com o SDK de fala para Java
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>Início rápido: sintetizar a fala com o SDK de fala para Java
 
 Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-java-jre.md), [conversão de fala em fala](quickstart-translate-speech-java-jre.md)e [assistente virtual de voz-primeiro](quickstart-virtual-assistant-java-jre.md).
 
@@ -30,14 +30,14 @@ Neste artigo, vai criar uma aplicação de consola Java com o [SDK de Voz](speec
 
 Este início rápido requer:
 
-* Sistema Operacional: Windows de 64 bits, 64-bit Linux (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou macOS 10,13 ou posterior
+* Sistema operacional: Windows de 64 bits, Linux de 64 bits (Ubuntu 16, 4, Ubuntu 18, 4, Debian 9) ou macOS 10,13 ou posterior
 * [Java IDE Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) ou [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Uma chave de assinatura do Azure para o serviço de fala. [Obtenha um gratuitamente](get-started.md).
 
 Se você estiver executando o Linux, verifique se essas dependências estão instaladas antes de iniciar o eclipse.
 
-* no Ubuntu:
+* No Ubuntu:
 
   ```sh
   sudo apt-get update
@@ -79,7 +79,7 @@ Se você estiver executando o Windows (64 bits), certifique-se de ter instalado 
 ## <a name="build-and-run-the-app"></a>Compilar e executar a aplicação
 
 Prima F11 ou selecione **Executar** > **Depurar**.
-Insira um texto quando promovido e você verá aqui o áudio sintetizado reproduzido do orador padrão.
+Insira um texto quando solicitado e você ouvirá o áudio sintetizado reproduzido do alto-falante padrão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -88,9 +88,9 @@ Exemplos adicionais, como como ler a fala de um arquivo de áudio, estão dispon
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Quickstart: Reconhecimento de fala, Java (Windows, Linux, macOS) ](quickstart-java-jre.md)
-- [Quickstart: Traduzir fala, Java (Windows, Linux, macOS) ](quickstart-translate-speech-java-jre.md)
+- [Início rápido: reconhecer fala, Java (Windows, Linux, macOS)](quickstart-java-jre.md)
+- [Início rápido: traduzir fala, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
 - [Personalizar fontes de voz](how-to-customize-voice-font.md)
 - [Gravar amostras de voz](record-custom-voice-samples.md)

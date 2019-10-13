@@ -123,6 +123,8 @@
               href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Resolução de problemas
       items:
+        - name: Dados a recolher quando abre um incidente da Automatização do Microsoft Azure
+          href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Resolver problemas de Função de Trabalho de Runbook Híbrida
           href: troubleshoot/hybrid-runbook-worker.md
           displayName: 'troubleshoot, HRW, hybrid worker'

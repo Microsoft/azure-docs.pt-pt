@@ -1,63 +1,63 @@
 ---
-title: Ver e gerir fornecedores de serviços no portal do Azure
-description: Os clientes podem utilizar a página de provedores de serviço no portal do Azure para ver informações sobre fornecedores de serviços, ofertas de fornecedor de serviço e recursos delegados.
+title: Ver e gerir fornecedores de serviços
+description: Os clientes podem usar a página provedores de serviço no portal do Azure para exibir informações sobre provedores de serviço, ofertas de provedor de serviço e recursos delegados.
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: a45458e7417bba058522fdc0dbc34fee04ad9af8
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809842"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286591"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
-Os clientes podem utilizar o **fornecedores de serviços** página no [portal do Azure](https://portal.azure.com) para ver informações sobre fornecedores de serviços e ofertas de fornecedor de serviço, recursos específicos por meio de delegar [Azure gestão de recursos de delegado](../concepts/azure-delegated-resource-management.md)e comprar ofertas de fornecedor de serviço adicional. Enquanto faremos referência a fornecedores de serviços e clientes aqui, as empresas a gerenciar vários inquilinos podem utilizar o mesmo processo para consolidar sua experiência de gestão.
+Os clientes podem usar a página **provedores de serviço** no [portal do Azure](https://portal.azure.com) para exibir informações sobre provedores de serviço e ofertas de provedor de serviço, delegar recursos específicos por meio [do gerenciamento de recursos delegado do Azure](../concepts/azure-delegated-resource-management.md)e comprar outros ofertas de provedor de serviço. Embora possamos nos referir aos provedores de serviços e clientes aqui, as empresas que gerenciam vários locatários podem usar o mesmo processo para consolidar sua experiência de gerenciamento.
 
-Para o acesso a **fornecedores de serviços** página no portal do Azure, o cliente pode selecionar **todos os serviços**, em seguida, procure **fornecedores de serviços** e selecioná-lo. Eles podem também encontrá-lo ao introduzir "Provedores de serviço" na caixa de pesquisa junto à parte superior do portal do Azure.
+Para acessar a página **provedores de serviço** no portal do Azure, o cliente pode selecionar **todos os serviços**e, em seguida, Pesquisar provedores de **Serviços** e selecioná-lo. Eles também podem encontrá-lo inserindo "provedores de serviço" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
-Tenha em atenção que o **fornecedores de serviços** página apenas apresenta informações sobre os fornecedores de serviços que têm acesso a subscrições ou grupos de recursos através da gestão de recursos do Azure de delegado do cliente. Se um cliente funciona com fornecedores de serviços adicionais que não utilizam a gestão de recursos do Azure de delegado para acessar os recursos do cliente, informações sobre esses provedores de serviço não é mostrada aqui.
+Tenha em mente que a página **provedores de serviço** mostra apenas informações sobre os provedores de serviço que têm acesso às assinaturas ou aos grupos de recursos do cliente por meio do gerenciamento de recursos delegado do Azure. Se um cliente trabalha com provedores de serviço adicionais que não usam o gerenciamento de recursos delegado do Azure para acessar os recursos do cliente, as informações sobre esses provedores de serviços não são mostradas aqui.
 
 > [!NOTE]
-> Fornecedores de serviços podem ver informações sobre os clientes ao navegar até **meus clientes** no portal do Azure. Para mais informações, veja [ver e gerir os clientes e os recursos delegados](view-manage-customers.md).
+> Os provedores de serviços podem exibir informações sobre seus clientes navegando até **meus clientes** no portal do Azure. Para obter mais informações, consulte [Exibir e gerenciar clientes e recursos delegados](view-manage-customers.md).
 
-## <a name="view-service-provider-details"></a>Ver detalhes do fornecedor de serviço
+## <a name="view-service-provider-details"></a>Exibir detalhes do provedor de serviços
 
-Para ver informações sobre o provider(s) de serviço que está a trabalhar com um cliente, pode selecionar **fornecedor oferece** no lado esquerdo do **fornecedores de serviços** página.
+Para exibir informações sobre os provedores de serviços com os quais um cliente está trabalhando, eles podem selecionar **ofertas de provedor** no lado esquerdo da página **provedores de serviços** .
 
-Para cada oferta do fornecedor de serviço, o cliente irá ver o nome do fornecedor de serviços e a oferta associada, juntamente com o nome que o cliente introduzido durante o processo de integração.
+Para cada oferta de provedor de serviços, o cliente verá o nome do provedor de serviços e a oferta associada a ele, juntamente com o nome que o cliente inseriu durante o processo de integração.
 
-Na **delegações** coluna, o cliente vê foram delegados a quantas subscrições de e/ou grupos de recursos para o fornecedor de serviços para essa oferta. O fornecedor de serviços será capaz de aceder e gerir estas subscrições e/ou grupos de recursos, de acordo com os níveis de acesso especificados a oferta.
+Na coluna **delegações** , o cliente vê quantas assinaturas e/ou grupos de recursos foram delegados para o provedor de serviços para essa oferta. O provedor de serviços poderá acessar e gerenciar essas assinaturas e/ou grupos de recursos de acordo com os níveis de acesso especificados na oferta.
 
-## <a name="delegate-resources"></a>Delegue recursos
+## <a name="delegate-resources"></a>Delegar recursos
 
-Antes de um fornecedor de serviços pode aceder e gerir recursos de um cliente, eles devem ser delegados. Se um cliente aceitou uma oferta, mas ainda não tiver delegado todos os recursos, verá uma nota na parte superior a **fornecedor oferece** secção. Isso permite que o cliente sabe que têm de tomar uma medida antes do fornecedor de serviços pode aceder a qualquer um dos recursos do cliente.
+Para que um provedor de serviços possa acessar e gerenciar os recursos de um cliente, eles devem ser delegados. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, verá uma observação na parte superior da seção **ofertas do provedor** . Isso permite que o cliente saiba que precisa tomar medidas antes que o provedor de serviços possa acessar qualquer um dos recursos do cliente.
 
-Para delegar as subscrições ou grupos de recursos:
+Para delegar assinaturas ou grupos de recursos:
 
-1. Selecione a caixa para a linha que contém o fornecedor de serviços, a oferta e o nome. Em seguida, selecione **delegar recursos** na parte superior do ecrã.
-1. No **detalhes da oferta** secção a **delegar recursos** página, reveja os detalhes sobre o fornecedor de serviços e oferecem. Para rever atribuições de funções para a oferta, selecione **clique aqui para ver os detalhes da oferta selecionada**.
-1. Na **delegado** secção, selecione **delegar subscrições** ou **delegar a grupos de recursos**.
-1. Escolha as subscrições e/ou grupos de recursos que gostaria de delegar para esta oferta, em seguida, selecione **adicionar**.
-1. Selecione a caixa de verificação na parte inferior da página para confirmar que pretende conceder este fornecedor de serviço acesso aos recursos que selecionou, em seguida, selecione **delegado**.
+1. Marque a caixa da linha que contém o provedor de serviços, a oferta e o nome. Em seguida, selecione **delegar recursos** na parte superior da tela.
+1. Na seção **detalhes da oferta** da página **delegar recursos** , examine os detalhes sobre o provedor de serviços e a oferta. Para examinar as atribuições de função da oferta, selecione **clique aqui para ver os detalhes da oferta selecionada**.
+1. Na seção **delegar** , selecione **delegar assinaturas** ou **delegar grupos de recursos**.
+1. Escolha as assinaturas e/ou os grupos de recursos que você deseja delegar para esta oferta e, em seguida, selecione **Adicionar**.
+1. Marque a caixa de seleção na parte inferior da página para confirmar que você deseja conceder a esse provedor de serviços acesso aos recursos que você selecionou e, em seguida, selecione **delegar**.
 
-## <a name="add-or-remove-service-provider-offers"></a>Adicionar ou remover as ofertas de fornecedor do serviço
+## <a name="add-or-remove-service-provider-offers"></a>Adicionar ou remover ofertas de provedor de serviço
 
-Um cliente pode adicionar uma nova oferta do fornecedor de serviço do **fornecedor oferece** página ao selecionar **adicionar oferta**. O fornecedor de serviços tem de ter publicado uma oferta para este cliente. O cliente, em seguida, pode selecionar essa oferta desde o **ofertas privadas** ecrã e, em seguida, selecione **criar**.
+Um cliente pode adicionar uma nova oferta de provedor de serviços na página de **ofertas de provedor** selecionando **Adicionar oferta**. O provedor de serviços deve ter publicado uma oferta para este cliente. O cliente pode selecionar essa oferta na tela de **ofertas particulares** e, em seguida, selecionar **criar**.
 
-Se o cliente deseja remover uma oferta de fornecedor de serviço, pode selecionar o ícone do caixote do lixo na linha para essa oferta. Depois de confirmar a eliminação, esse fornecedor de serviços já não terá acesso aos recursos do cliente que foram anteriormente delegada para essa oferta.
+Se o cliente quiser remover uma oferta de provedor de serviços, ele poderá selecionar o ícone de lixeira na linha dessa oferta. Depois de confirmar a exclusão, esse provedor de serviços não terá mais acesso aos recursos do cliente que antes eram delegados para essa oferta.
 
-## <a name="view-delegations"></a>Delegações do Vista
+## <a name="view-delegations"></a>Exibir delegações
 
-As delegações representam as atribuições de funções que concedem permissões para o fornecedor de serviços para os recursos de que um cliente tem delegada. Para ver estas informações, selecione **delegações** no lado esquerdo do **fornecedores de serviços** página.
+As delegações representam as atribuições de função que concedem permissões ao provedor de serviços para os recursos que um cliente delegou. Para exibir essas informações, selecione **delegações** no lado esquerdo da página **provedores de serviços** .
 
-Filtros na parte superior da página permitem-lhe ordenar e agrupar as informações de delegação ou filtro por clientes específicos, ofertas ou palavras-chave.
+Os filtros na parte superior da página permitem que você classifique e agrupe suas informações de delegação ou filtre por clientes, ofertas ou palavras-chave específicas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [Azure Lighthouse](../overview.md).
-- Saiba como fornecedores de serviços podem [ver e gerir os clientes](view-manage-customers.md) indo até **meus clientes** no portal do Azure.
+- Saiba mais sobre o [Azure Lighthouse](../overview.md).
+- Saiba como os provedores de serviços podem [Exibir e gerenciar clientes](view-manage-customers.md) acessando **meus clientes** na portal do Azure.

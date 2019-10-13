@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299625"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298485"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -50,7 +50,7 @@ Sim, você pode, se criar as entradas DNS necessárias. Azure NetApp Files forne
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>O tráfego de rede entre a VM do Azure e o armazenamento pode ser criptografado?
 
-O tráfego de dados (tráfego do cliente NFSv3 ou SMBv3 para Azure NetApp Files volumes) não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
+O tráfego de dados (tráfego do cliente NFSv3, NFSv 4.1 ou SMBv3 para Azure NetApp Files volumes) não é criptografado. No entanto, o tráfego de uma VM do Azure (executando um cliente NFS ou SMB) para Azure NetApp Files é tão seguro quanto qualquer outro tráfego do Azure-VM para VM. Esse tráfego é local para a rede do Data Center do Azure. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>O armazenamento pode ser criptografado em repouso?
 
@@ -103,7 +103,7 @@ Azure NetApp Files fornece métricas de desempenho de volume. Você também pode
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Quero ter um volume montado automaticamente quando uma VM do Azure é iniciada ou reinicializada.  Como fazer configurar meu host para volumes NFS persistentes?
 
-Para que um volume NFS seja montado automaticamente na inicialização ou na reinicialização da VM, `/etc/fstab` adicione uma entrada ao arquivo no host. 
+Para que um volume NFS seja montado automaticamente na inicialização ou na reinicialização da VM, adicione uma entrada ao arquivo `/etc/fstab` no host. 
 
 Por exemplo: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
@@ -120,7 +120,11 @@ O tamanho do volume relatado em DF é o tamanho máximo para o qual o volume de 
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Qual versão do NFS Azure NetApp Files dá suporte?
 
-Azure NetApp Files atualmente dá suporte a NFSv3.
+Azure NetApp Files dá suporte a NFSv3 e NFSv 4.1. Você pode criar um volume usando a versão do NFS. 
+
+> [!IMPORTANT] 
+> O acesso ao recurso NFSv 4.1 requer a lista de permissões.  Para solicitar a lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
+
 
 ### <a name="how-do-i-enable-root-squashing"></a>Como fazer habilitar o desativação de raiz?
 
@@ -140,7 +144,7 @@ O Azure NetApp Files atualmente dá suporte a uma conexão de Active Directory p
 
 Há suporte para os [serviços de domínio Azure Active Directory (AD)](https://docs.microsoft.com/azure/active-directory-domain-services/overview) e [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) . Você pode usar os controladores de domínio Active Directory existentes com Azure NetApp Files. Os controladores de domínio podem residir no Azure como máquinas virtuais ou localmente por meio de ExpressRoute ou VPN S2S. O Azure NetApp Files não oferece suporte ao ingresso no AD para [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) no momento.
 
-Se você estiver usando Azure NetApp files com Azure Active Directory Domain Services, o caminho da unidade organizacional `OU=AADDC Computers` será quando você configurar Active Directory para sua conta do NetApp.
+Se você estiver usando Azure NetApp Files com Azure Active Directory Domain Services, o caminho da unidade organizacional será `OU=AADDC Computers` quando você configurar o Active Directory para sua conta do NetApp.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Quais versões do Windows Server Active Directory têm suporte?
 

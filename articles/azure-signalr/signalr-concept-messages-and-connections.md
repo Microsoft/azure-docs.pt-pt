@@ -1,62 +1,64 @@
 ---
-title: Mensagens e as ligações no serviço Azure SignalR
-description: Uma visão geral dos conceitos chave sobre as mensagens e as ligações no serviço Azure SignalR.
+title: Mensagens e conexões no serviço de Signaler do Azure
+description: Uma visão geral dos principais conceitos sobre mensagens e conexões no serviço de Signaler do Azure.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e82ce8f5c97aed7e2cb832d8e808ff84691f7c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401207"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285486"
 ---
-# <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e as ligações no serviço Azure SignalR
+# <a name="messages-and-connections-in-azure-signalr-service"></a>Mensagens e conexões no serviço de Signaler do Azure
 
-O modelo de faturação para o serviço Azure SignalR baseia-se no número de ligações e o número de mensagens. Este artigo explica como ligações e as mensagens são definidas e contabilizadas para faturação.
+O modelo de cobrança do serviço de Signaler do Azure é baseado no número de conexões e no número de mensagens. Este artigo explica como as mensagens e conexões são definidas e contadas para cobrança.
 
 
 ## <a name="message-formats"></a>Formatos de mensagem 
 
-Serviço Azure SignalR suporta os formatos mesmo como SignalR do ASP.NET Core: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
+O serviço de Signaler do Azure dá suporte aos mesmos formatos que ASP.NET Core Signalr: [JSON](https://www.json.org/) e [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
 ## <a name="message-size"></a>Tamanho da mensagem
 
-Serviço Azure SignalR tem sem limite de tamanho para mensagens.
+O serviço de sinalizador do Azure não tem limite de tamanho para mensagens.
 
-Mensagens grandes são divididas em mensagens menores que são mais do que 2 KB cada e transmitidas em separado. Mensagem de identificador de SDKs divisão e montagem. São necessários sem esforços de desenvolvimento.
+Mensagens grandes são divididas em mensagens menores que não são mais do que 2 KB cada e transmitidas separadamente. Os SDKs lidam com a divisão e a montagem de mensagens. Nenhum esforço de desenvolvedor é necessário.
 
-Mensagens grandes afetar negativamente o desempenho de mensagens. Utilize mensagens menores, sempre que possível e teste para determinar o tamanho de mensagem ideal para cada cenário de casos de utilização.
+As mensagens grandes afetam negativamente o desempenho do sistema de mensagens. Use mensagens menores sempre que possível e teste para determinar o tamanho de mensagem ideal para cada cenário de caso de uso.
 
-## <a name="how-messages-are-counted-for-billing"></a>Como as mensagens são contabilizadas para faturação
+## <a name="how-messages-are-counted-for-billing"></a>Como as mensagens são contadas para cobrança
 
-Para faturação, apenas mensagens de saída do serviço Azure SignalR são contabilizadas. Mensagens de ping entre clientes e servidores são ignoradas.
+Para cobrança, somente as mensagens de saída do serviço de Signaler do Azure são contadas. As mensagens de ping entre clientes e servidores são ignoradas.
 
-Mensagens superiores a 2 KB são contadas como mensagens de vários de 2 KB. O gráfico de contagem de mensagens no portal do Azure é atualizado cada 100 mensagens por hub.
+Mensagens maiores que 2 KB são contadas como várias mensagens de 2 KB cada. O gráfico de contagem de mensagens na portal do Azure é atualizado a cada 100 mensagens por Hub.
 
-Por exemplo, imagine que tem três clientes e um servidor de aplicativos. Um cliente envia uma mensagem de 4 KB para permitir que o servidor de difusão para todos os clientes. A contagem de mensagens é oito: uma mensagem a partir do serviço para o servidor de aplicações e o três de mensagens do serviço para os clientes. Cada mensagem é contabilizada como duas mensagens de 2 KB.
+Por exemplo, imagine que você tenha três clientes e um servidor de aplicativos. Um cliente envia uma mensagem de 4 KB para permitir que o servidor seja transmitido a todos os clientes. A contagem de mensagens é oito: uma mensagem do serviço para o servidor de aplicativos e três mensagens do serviço para os clientes. Cada mensagem é contada como duas mensagens de 2 KB.
 
-A contagem de mensagens apresentada no portal do Azure irá permanecer 0, até que ele acumula para ser mais do que 100.
+A contagem de mensagens mostrada na portal do Azure permanecerá 0 até que seja acumulada para mais de 100.
 
-## <a name="how-connections-are-counted"></a>Como as ligações são contadas
+## <a name="how-connections-are-counted"></a>Como as conexões são contadas
 
-Existem ligações de servidor e ligações de cliente. Por predefinição, cada servidor de aplicativo tem cinco ligações por hub com o serviço Azure SignalR e cada cliente tem uma ligação de cliente com o serviço Azure SignalR.
+Há conexões de servidor e conexões de cliente com o serviço de Signaler do Azure. Por padrão, cada servidor de aplicativos começa com cinco conexões iniciais por Hub e cada cliente tem uma conexão de cliente.
 
-A contagem de ligação, mostrada no portal do Azure inclui ligações de servidor e ligações de cliente.
+A contagem de conexões mostrada no portal do Azure inclui conexões de servidor e conexões de cliente.
 
-Por exemplo, suponha que tenha dois servidores de aplicações e que define cinco hubs no código. A contagem de ligação do servidor será 50: 2 servidores de aplicações * 5 hubs * 5 ligações por hub.
+Por exemplo, suponha que você tenha dois servidores de aplicativos e que defina cinco hubs no código. A contagem de conexões do servidor será 50:2 servidores de aplicativos * 5 hubs * 5 conexões por Hub.
 
-O SignalR de ASP.NET calcula ligações de servidor, de forma diferente. Ele inclui um hub de padrão, além de hubs por si. Por predefinição, cada servidor de aplicativos tem cinco mais ligações de servidor. A contagem de ligação para o hub de predefinição permanece consistente com que os outros hubs.
+O Signalr ASP.NET calcula as conexões de servidor de forma diferente. Ele inclui um hub padrão além dos hubs que você define. Por padrão, cada servidor de aplicativos precisa de mais cinco conexões de servidor iniciais. A contagem de conexões inicial para o Hub padrão permanece consistente com o dos outros hubs.
 
-## <a name="how-inboundoutbound-traffic-is-counted"></a>Como o tráfego de entrada/saída é contabilizado
+Durante o tempo de vida do servidor de aplicativos, o serviço e o servidor de aplicativos mantêm o status da conexão de sincronização e fazem ajustes nas conexões do servidor para melhorar o desempenho e a estabilidade do serviço. Portanto, você pode ver o número de conexão do servidor ser alterado de tempos em tempos.
 
-A distinção entre o tráfego de entrada e o tráfego de saída baseia-se a perspectiva do serviço Azure SignalR. O tráfego é calculado em bytes. Como a contagem de mensagens, o tráfego também tem uma taxa de amostragem. O gráfico de entrada/saída no portal do Azure é atualizado cada 100 KB por hub.
+## <a name="how-inboundoutbound-traffic-is-counted"></a>Como o tráfego de entrada/saída é contado
+
+A distinção entre o tráfego de entrada e o tráfego de saída é baseada na perspectiva do serviço de Signaler do Azure. O tráfego é calculado em bytes. Assim como a contagem de mensagens, o tráfego também tem uma taxa de amostragem. O gráfico de entrada/saída no portal do Azure é atualizado a cada 100 KB por Hub.
 
 ## <a name="related-resources"></a>Recursos relacionados
 
 - [Tipos de agregação no Azure Monitor](/azure/azure-monitor/platform/metrics-supported#microsoftsignalrservicesignalr )
-- [Configuração do ASP.NET Core SignalR](/aspnet/core/signalr/configuration)
+- [Configuração do Signalr ASP.NET Core](/aspnet/core/signalr/configuration)
 - [JSON](https://www.json.org/)
 - [MessagePack](/aspnet/core/signalr/messagepackhubprotocol)

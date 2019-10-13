@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828932"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285782"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Início rápido-configurar um ambiente de nuvem privada
 
@@ -47,7 +47,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
 
     ![Criar nuvem privada-informações básicas](media/create-private-cloud-basic-info.png)
 
-9. Clique em **Seguinte: Opções**avançadas.
+9. Clique em **Avançar: opções avançadas**.
 10. Insira o intervalo CIDR para sub-redes vSphere/vSAN. Certifique-se de que o intervalo CIDR não se sobreponha a nenhuma das suas sub-redes do Azure locais ou outras (redes virtuais) ou com a sub-rede de gateway.
 
     **Opções de intervalo CIDR:** /24,/23,/22 ou/21. Um intervalo CIDR/24 dá suporte a até 26 nós, um intervalo CIDR/23 dá suporte a até 58 nós, e um intervalo CIDR/22 e/21 dá suporte a nós 64 (o número máximo de nós em uma nuvem privada).  Para saber mais e VLANs e sub-redes, consulte [visão geral de VLANs e sub-redes](cloudsimple-vlans-subnets.md).
@@ -55,7 +55,7 @@ As nuvens privadas são gerenciadas por meio do portal do CloudSimple. Eles têm
       > [!IMPORTANT]
       > Os endereços IP no intervalo CIDR vSphere/vSAN são reservados para uso pela infraestrutura de nuvem privada.  Não use o endereço IP nesse intervalo em qualquer máquina virtual.
 
-11. Clique em **Seguinte: Revise e**crie.
+11. Clique em **Avançar: examinar e criar**.
 12. Examine as configurações. Se você precisar alterar as configurações, clique em **anterior**.
 13. Clique em **Criar**.
 
@@ -82,7 +82,7 @@ Uma conexão VPN ponto a site é a maneira mais simples de se conectar à sua nu
 2. Selecione **Gateway de VPN**.
 3. Clique em **novo gateway de VPN**.
 
-    ![Criar gateway de VPN](media/create-vpn-gateway.png)
+    ![Criar um gateway de VPN](media/create-vpn-gateway.png)
 
 4. Para **configuração de gateway**, especifique as seguintes configurações e clique em **Avançar**.
 
@@ -116,7 +116,7 @@ O cliente VPN é necessário para se conectar ao CloudSimple do seu computador. 
 4. Selecione **usuários**.
 5. Clique em **baixar minha configuração de VPN**.
 
-    ![Transferir configuração VPN](media/download-p2s-vpn-configuration.png)
+    ![Transferir a configuração da VPN](media/download-p2s-vpn-configuration.png)
 
 6. Importe a configuração em seu cliente VPN.
 
@@ -139,7 +139,7 @@ Depois de criar uma nuvem privada, crie uma VLAN na qual você implantará suas 
 5. Selecione uma ID de VLAN na lista.  
 6. Insira um nome de sub-rede para identificar a sub-rede.
 7. Especifique o intervalo e a máscara de CIDR da sub-rede.  Esse intervalo não deve se sobrepor a nenhuma sub-rede existente.
-8. Clique em **Submit** (Submeter).
+8. Clique em **Enviar**.
 
     ![Criar detalhes de VLAN/sub-rede](media/create-new-vlan-subnet-details.png)
 
@@ -155,11 +155,11 @@ Agora você pode entrar no vCenter para configurar máquinas virtuais e polític
 
 1. Para acessar o vCenter, inicie no portal do CloudSimple. Na Home Page, em **tarefas comuns**, clique em **Iniciar vSphere cliente**.  Selecione a nuvem privada e clique em **Iniciar vSphere cliente** na nuvem privada.
 
-    ![Iniciar Cliente vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
+    ![Iniciar cliente do vSphere](media/launch-vcenter-from-cloudsimple-portal.png)
 
 2. Selecione seu cliente vSphere preferencial para acessar o vCenter e entrar com seu nome de usuário e senha.  Os padrões são:
     * Nome de usuário: **CloudOwner@cloudsimple.local**
-    * La **CloudSimple123!**  
+    * Senha: **CloudSimple123!**  
 
 As telas do vCenter nos próximos procedimentos são do cliente vSphere (HTML5).
 
@@ -168,13 +168,13 @@ As telas do vCenter nos próximos procedimentos são do cliente vSphere (HTML5).
 O CloudSimple recomenda que você altere sua senha na primeira vez que entrar no vCenter.  
 A senha que você definir deve atender aos seguintes requisitos:
 
-* Tempo de vida máximo: A senha deve ser alterada a cada 365 dias
-* Restringir reutilização: Os usuários não podem reutilizar nenhuma das cinco senhas anteriores
-* Duração: 8-20 caracteres
-* Caractere especial: Pelo menos um caractere especial
-* Caracteres alfabéticos: Pelo menos um caractere maiúsculo, A-Z e, pelo menos, um caractere minúsculo, a-z
-* Números Pelo menos um caractere numérico, 0-9
-* Máximo de caracteres adjacentes idênticos: Três
+* Tempo de vida máximo: a senha deve ser alterada a cada 365 dias
+* Restringir reutilização: os usuários não podem reutilizar nenhuma das cinco senhas anteriores
+* Comprimento: 8-20 caracteres
+* Caractere especial: pelo menos um caractere especial
+* Caracteres alfabéticos: pelo menos um caractere maiúsculo, A-Z e, pelo menos, um caractere minúsculo, a-z
+* Números: pelo menos um caractere numérico, 0-9
+* Máximo de caracteres adjacentes idênticos: três
 
     Exemplo: CC ou CCC é aceitável como parte da senha, mas CCCC não é.
 
@@ -183,12 +183,12 @@ Se você definir uma senha que não atenda aos requisitos:
 * Se você usar o cliente vSphere flash, ele relatará um erro
 * Se você usar o cliente HTML5, ele não relatará um erro. O cliente não aceita a alteração e a senha antiga continua a funcionar.
 
-## <a name="change-nsx-administrator-password"></a>Alterar a senha de administrador do NSX
+## <a name="access-nsx-manager"></a>Acessar o Gerenciador do NSX
 
-O NSX Manager é implantado com uma senha padrão.  Recomendamos que você altere a senha depois de criar sua nuvem privada.
+O NSX Manager é implantado com uma senha padrão. 
 
 * Nome de usuário: **administrador**
-* La **CloudSimple123!**
+* Senha: **CloudSimple123!**
 
 Você pode encontrar o FQDN (nome de domínio totalmente qualificado) e o endereço IP do NSX Manager no portal do CloudSimple.
 
@@ -198,8 +198,6 @@ Você pode encontrar o FQDN (nome de domínio totalmente qualificado) e o endere
 4. Use o FQDN ou o endereço IP do **NSX Manager** e conecte-se usando um navegador da Web.
 
     ![Localizar FQDN do NSX Manager](media/private-cloud-nsx-manager-fqdn.png)
-
-Para alterar a senha, siga as instruções em [instalação do NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Criar um grupo de portas
 

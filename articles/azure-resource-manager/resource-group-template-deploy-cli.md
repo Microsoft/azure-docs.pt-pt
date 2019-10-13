@@ -4,18 +4,18 @@ description: Use Azure Resource Manager e CLI do Azure para implantar recursos n
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: bef9d0490ce9109a960b69febf2970a289c25e40
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973400"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286027"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implementar recursos com modelos do Resource Manager e do CLI do Azure
 
-Este artigo explica como usar CLI do Azure com modelos do Resource Manager para implantar seus recursos no Azure. Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de suas soluções do Azure, confira [Azure Resource Manager visão geral](resource-group-overview.md).  
+Este artigo explica como usar CLI do Azure com modelos do Resource Manager para implantar seus recursos no Azure. Se você não estiver familiarizado com os conceitos de implantação e gerenciamento de suas soluções do Azure, confira [Azure Resource Manager visão geral](resource-group-overview.md).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -49,7 +49,7 @@ Ao implantar recursos no Azure, você:
 2. Crie um grupo de recursos que serve como o contêiner para os recursos implantados. O nome do grupo de recursos pode incluir apenas caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. Ele não pode terminar em um ponto.
 3. Implantar no grupo de recursos o modelo que define os recursos a serem criados
 
-Um modelo pode incluir parâmetros que permitem que você personalize a implantação. Por exemplo, você pode fornecer valores personalizados para um determinado ambiente (como desenvolvimento, teste e produção). O modelo de exemplo define um parâmetro para a SKU da conta de armazenamento. 
+Um modelo pode incluir parâmetros que permitem que você personalize a implantação. Por exemplo, você pode fornecer valores personalizados para um determinado ambiente (como desenvolvimento, teste e produção). O modelo de exemplo define um parâmetro para a SKU da conta de armazenamento.
 
 O exemplo a seguir cria um grupo de recursos e implanta um modelo de seu computador local:
 
@@ -149,9 +149,31 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
+## <a name="handle-extended-json-format"></a>Manipular o formato JSON estendido
+
+Para implantar um modelo com cadeias de caracteres de várias linhas ou comentários, você deve usar a opção `--handle-extended-json-format`.  Por exemplo:
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
 ## <a name="test-a-template-deployment"></a>Testar uma implantação de modelo
 
-Para testar seus valores de modelo e parâmetro sem realmente implantar nenhum recurso, use [AZ Group Deployment Validate](/cli/azure/group/deployment#az-group-deployment-validate). 
+Para testar seus valores de modelo e parâmetro sem realmente implantar nenhum recurso, use [AZ Group Deployment Validate](/cli/azure/group/deployment#az-group-deployment-validate).
 
 ```azurecli-interactive
 az group deployment validate \
@@ -176,8 +198,8 @@ Se um erro for detectado, o comando retornará uma mensagem de erro. Por exemplo
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
       value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
     "target": null
   },

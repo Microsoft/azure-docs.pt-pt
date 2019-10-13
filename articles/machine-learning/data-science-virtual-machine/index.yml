@@ -11,12 +11,12 @@ metadata:
   author: gvashishtha
   ms.author: gopalv
   ms.date: 09/13/2019
-  ms.openlocfilehash: 894ba48c0bc9d080b7e68ff722afe3a658bef5f7
-  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.openlocfilehash: bd1d2434c8788d38acbb4826e03e2343e5850273
+  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71802351"
+  ms.lasthandoff: 10/13/2019
+  ms.locfileid: "72300960"
 landingContent:
 - title: Introdução à DSVM
   linkLists:
@@ -28,6 +28,8 @@ landingContent:
       url: geo-ai-dsvm-overview.md
     - text: Ferramentas incluídas na DSVM
       url: tools-included.md
+    - text: Notas de Versão
+      url: release-notes.md
   - linkListType: get-started
     links:
     - text: Criar uma DSVM do Windows

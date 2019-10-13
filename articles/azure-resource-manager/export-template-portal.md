@@ -4,14 +4,14 @@ description: Use portal do Azure para exportar um modelo de Azure Resource Manag
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959707"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300488"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportação única e de vários recursos para um modelo no portal do Azure
 
@@ -48,39 +48,36 @@ Exporte o modelo antes da implantação ou do histórico, quando:
 * Você deseja um modelo fácil de usar.
 * Você não precisa incluir as alterações feitas após a implantação original.
 
-## <a name="export-template-from-resource-group"></a>Exportar modelo do grupo de recursos
+## <a name="export-template-from-a-resource-group"></a>Exportar modelo de um grupo de recursos
 
 Para exportar um ou mais recursos de um grupo de recursos:
 
 1. Selecione o grupo de recursos que contém os recursos que você deseja exportar.
 
-1. Para exportar todos os recursos no grupo de recursos, selecione todos e, em seguida, **Exportar modelo**. A opção **Exportar modelo** só será habilitada depois que você selecionar pelo menos um recurso.
+1. Selecione um ou mais recursos selecionando as caixas de seleção.  Para selecionar tudo, marque a caixa de seleção à esquerda de **nome**. O item de menu **Exportar modelo** só fica habilitado depois que você seleciona pelo menos um recurso.
 
    ![Exportar todos os recursos](./media/export-template-portal/select-all-resources.png)
 
-1. Para selecionar recursos específicos para exportação, marque as caixas de seleção ao lado desses recursos. Em seguida, selecione **Exportar modelo**.
+    Na captura de tela, somente a conta de armazenamento é selecionada.
+1. Selecione **Exportar modelo**.
 
-   ![Selecionar recursos para exportar](./media/export-template-portal/select-resources.png)
-
-1. O modelo exportado é exibido e está disponível para download.
+1. O modelo exportado é exibido e está disponível para download e implantação.
 
    ![Mostrar modelo](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Exportar modelo do recurso
+## <a name="export-template-from-a-resource"></a>Exportar modelo de um recurso
 
 Para exportar um recurso:
 
 1. Selecione o grupo de recursos que contém o recurso que você deseja exportar.
 
-1. Selecione o recurso a ser exportado.
-
-   ![Selecionar o recurso](./media/export-template-portal/select-link-resource.png)
+1. Selecione o recurso que você deseja exportar para abrir o recurso.
 
 1. Para esse recurso, selecione **Exportar modelo** no painel esquerdo.
 
    ![Exportar recurso](./media/export-template-portal/export-single-resource.png)
 
-1. O modelo exportado é exibido e está disponível para download. O modelo contém apenas o recurso único.
+1. O modelo exportado é exibido e está disponível para download e implantação. O modelo contém apenas o recurso único.
 
 ## <a name="export-template-before-deployment"></a>Exportar modelo antes da implantação
 
@@ -92,9 +89,8 @@ Para exportar um recurso:
 
    ![Transferir modelo](./media/export-template-portal/download-before-deployment.png)
 
-1. O modelo é exibido e está disponível para download.
+1. O modelo é exibido e está disponível para download e implantação.
 
-   ![Mostrar modelo](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Exportar modelo após a implantação
 
@@ -112,7 +108,7 @@ Você pode exportar o modelo que foi usado para implantar recursos existentes. O
 
 1. Selecione **modelo**. O modelo usado para essa implantação é exibido e está disponível para download.
 
-   ![Seleccionar modelo](./media/export-template-portal/show-template-from-history.png)
+   ![Selecionar modelo](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

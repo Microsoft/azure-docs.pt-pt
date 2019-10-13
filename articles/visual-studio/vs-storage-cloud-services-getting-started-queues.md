@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (serviços de nuvem) | Microsoft Docs
+title: Introdução ao armazenamento de filas usando o Visual Studio (serviços de nuvem)
 description: Como começar a usar o armazenamento de filas do Azure em um projeto de serviço de nuvem no Visual Studio depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -12,17 +12,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5ea0af23ef8cf41b20de033d38e4d8652f9f8310
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 603bb2b9a862ad4ed2cbde63e2d82b9a82fbeaa1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510688"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298791"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo descreve como começar a usar o armazenamento de filas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto de serviços de nuvem usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio.
 
 Mostraremos como criar uma fila no código. Também mostraremos como executar operações básicas de fila, como adicionar, modificar, ler e remover mensagens da fila. Os exemplos são escritos em C# código e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
@@ -57,7 +58,7 @@ Para acessar filas em projetos de serviços de nuvem do Visual Studio, você pre
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**NOTA:** Use todo o código acima na frente do código nos exemplos a seguir.
+**Observação:** Use todo o código acima na frente do código nos exemplos a seguir.
 
 ## <a name="create-a-queue-in-code"></a>Criar uma fila no código
 Para criar a fila no código, basta adicionar uma chamada para **CreateIfNotExists**.
@@ -66,7 +67,7 @@ Para criar a fila no código, basta adicionar uma chamada para **CreateIfNotExis
     messageQueue.CreateIfNotExists();
 
 ## <a name="add-a-message-to-a-queue"></a>Adicionar uma mensagem a uma fila
-Para inserir uma mensagem em uma fila existente, crie um novo objeto **CloudQueueMessage** e, em seguida, chame o Método AddMessage.
+Para inserir uma mensagem em uma fila existente, crie um novo objeto **CloudQueueMessage** e, em seguida, chame o método **AddMessage** .
 
 Um objeto **CloudQueueMessage** pode ser criado por meio de uma cadeia de caracteres (em formato UTF-8) ou de uma matriz de bytes.
 
@@ -129,7 +130,7 @@ Pode obter uma estimativa do número de mensagens numa fila. O método **FetchAt
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Usar o padrão Async-Await com APIs comuns de fila do Azure
-Este exemplo mostra como usar o padrão Async-Await com APIs comuns de fila do Azure. O exemplo chama a versão assíncrona de cada um dos métodos fornecidos, isso pode ser visto pela postagem assíncrona de cada método. Quando um método assíncrono é usado, o padrão Async-Await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho, o que ajuda a evitar gargalos de desempenho e melhora a capacidade de resposta geral do seu aplicativo. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Este exemplo mostra como usar o padrão Async-Await com APIs comuns de fila do Azure. O exemplo chama a versão assíncrona de cada um dos métodos fornecidos, isso pode ser visto pela postagem **assíncrona** de cada método. Quando um método assíncrono é usado, o padrão Async-Await suspende a execução local até que a chamada seja concluída. Esse comportamento permite que o thread atual faça outro trabalho, o que ajuda a evitar gargalos de desempenho e melhora a capacidade de resposta geral do seu aplicativo. Para obter mais detalhes sobre como utilizar o padrão Async-Await no .NET, consulte [Async-Await (C# e Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");
@@ -152,6 +153,6 @@ Para eliminar uma fila e todas as mensagens nela contidas, chame o método **Eli
     // Delete the queue.
     messageQueue.Delete();
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
 

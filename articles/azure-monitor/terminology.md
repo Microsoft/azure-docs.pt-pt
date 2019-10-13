@@ -10,17 +10,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2019
+ms.date: 10/08/2019
 ms.author: bwren
-ms.openlocfilehash: f8a86c0b71a5248164ea522472f9f2ecb2ce36bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dc7d839c81edd67d69e1525d219f87ee70f17502
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827357"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300515"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor as alterações de nomenclatura e terminologia
 Foram feitas alterações significativas para Azure Monitor recentemente, com diferentes serviços sendo consolidados para simplificar o monitoramento de clientes do Azure. Este artigo descreve as alterações recentes de nome e terminologia na documentação Azure Monitor.
+
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>Outubro de 2019-log de diagnóstico para o log de recursos
+Os logs de diagnóstico foram alterados para "logs de recursos" para melhor correspondência do que realmente está sendo coletado. O termo "configurações de diagnóstico" permanece o mesmo.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Terminologia de fevereiro de 2019-Log Analytics
 Após a consolidação de diferentes serviços em Azure Monitor, estamos fazendo a próxima etapa modificando a terminologia em nossa documentação para descrever melhor o serviço de Azure Monitor e seus componentes diferentes. 
@@ -48,18 +51,18 @@ Outros recursos que foram considerados parte do Log Analytics, como agentes e ex
 ## <a name="april-2018---retirement-of-operations-management-suite-brand"></a>Abril de 2018-desativação da marca do Operations Management Suite
 O OMS (Operations Management Suite) foi um agrupamento dos seguintes serviços de gerenciamento do Azure para fins de licenciamento:
 
-- Application Insights
+- Estatísticas das Aplicações
 - Automatização do Azure
 - Azure Backup
 - Log Analytics
-- Site Recovery
+- Recuperação de Site
 
 [Novos preços foram introduzidos para esses serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e o agrupamento do OMS não está mais disponível para novos clientes. Nenhum dos serviços que faziam parte do OMS foi alterado, exceto pela consolidação em Azure Monitor descrito acima. 
 
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Leia uma [visão geral de Azure monitor](overview.md) que descreve seus diferentes componentes e recursos.
 - Saiba mais sobre a [transição do portal do OMS](../log-analytics/log-analytics-oms-portal-transition.md).

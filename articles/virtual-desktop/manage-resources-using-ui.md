@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679492"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300911"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: Implementar uma ferramenta de gestão
+# <a name="tutorial-deploy-a-management-tool"></a>Tutorial: implantar uma ferramenta de gerenciamento
 
 A ferramenta de gerenciamento fornece uma interface do usuário para gerenciar recursos da área de trabalho virtual da Microsoft. Neste tutorial, você aprenderá a implantar e conectar-se à ferramenta de gerenciamento do.
 
@@ -26,6 +26,12 @@ A ferramenta de gerenciamento fornece uma interface do usuário para gerenciar r
 Como o aplicativo requer consentimento para interagir com a área de trabalho virtual do Windows, essa ferramenta não dá suporte a cenários B2B (entre empresas). Cada assinatura de locatário do Azure Active Directory (AAD) precisará de sua própria implantação separada da ferramenta de gerenciamento.
 
 Essa ferramenta de gerenciamento é um exemplo. A Microsoft fornecerá atualizações importantes de segurança e qualidade. O [código-fonte está disponível no GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Os clientes e parceiros são incentivados a personalizar a ferramenta para atender às suas necessidades de negócios.
+
+Para os seguintes navegadores são compatíveis com a ferramenta de gerenciamento do:
+- Google Chrome 68 ou posterior
+- Microsoft Edge 40,15063 ou posterior
+- Mozilla Firefox 52,0 ou posterior
+- Safari 10 ou posterior (somente macOS)
 
 ## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>O que você precisa para executar o modelo de Azure Resource Manager
 

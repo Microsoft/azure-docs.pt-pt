@@ -1,50 +1,50 @@
 ---
-title: Práticas de segurança recomendado para Lighthouse do Azure
-description: Ao utilizar o Azure, gestão de recursos é delegada, é importante considerar a segurança e controlo de acesso.
+title: Práticas de segurança recomendadas
+description: Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 843b965e6ea74a7c11dc11459ff5d30ddbe5c987
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 08a54313885c7d38117c242f01c2780796f38a08
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809870"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286190"
 ---
-# <a name="recommended-security-practices"></a>Práticas recomendadas de segurança
+# <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
 
-Ao utilizar o Azure, gestão de recursos é delegada, é importante considerar a segurança e controlo de acesso. Os utilizadores no seu inquilino têm acesso direto para subscrições de clientes e grupos de recursos, pelo que deverá tomar medidas para manter a segurança do seu inquilino. Também deve certificar-se de que apenas permite o acesso necessário para gerenciar com eficiência os recursos dos seus clientes. Este tópico fornece recomendações para o ajudar a fazê-lo.
+Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso. Os usuários em seu locatário terão acesso direto a grupos de recursos e assinaturas de cliente, portanto, você desejará tomar medidas para manter a segurança do seu locatário. Você também desejará certificar-se de permitir apenas o acesso necessário para gerenciar os recursos de seus clientes com eficiência. Este tópico fornece recomendações para ajudá-lo a fazer isso.
 
-## <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação Multifator do Azure
+## <a name="require-azure-multi-factor-authentication"></a>Exigir autenticação multifator do Azure
 
-[O Azure multi-factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação de dois passos) ajuda a evitar que atacantes obtenham acesso a uma conta ao exigir que várias etapas de autenticação. Deve exigir multi-factor Authentication para todos os utilizadores no seu inquilino do fornecedor de serviço, incluindo quaisquer utilizadores que terão acesso aos recursos de cliente.
+A [autenticação multifator do Azure](../../active-directory/authentication/concept-mfa-howitworks.md) (também conhecida como verificação em duas etapas) ajuda a impedir que invasores obtenham acesso a uma conta exigindo várias etapas de autenticação. Você deve exigir a autenticação multifator para todos os usuários em seu locatário do provedor de serviços, incluindo qualquer usuário que terá acesso aos recursos do cliente.
 
-Sugerimos que peça a seus clientes para implementar o Azure multi-factor Authentication em seus inquilinos também.
+Sugerimos que você solicite que seus clientes implementem a autenticação multifator do Azure em seus locatários também.
 
-## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Atribuir permissões a grupos, com o princípio de privilégio mínimo
+## <a name="assign-permissions-to-groups-using-the-principle-of-least-privilege"></a>Atribuir permissões a grupos, usando o princípio de privilégios mínimos
 
-Para facilitar a gestão, recomendamos que utilize grupos de utilizadores do Azure AD para cada função necessária para gerir os recursos dos seus clientes. Isto permite-lhe adicionar ou remover utilizadores individuais para o grupo, conforme necessário, em vez de atribuir permissões diretamente a esse utilizador.
+Para facilitar o gerenciamento, é recomendável usar grupos de usuários do Azure AD para cada função necessária para gerenciar os recursos dos seus clientes. Isso permite que você adicione ou remova usuários individuais do grupo, conforme necessário, em vez de atribuir permissões diretamente a esse usuário.
 
-Ao criar a estrutura da sua permissão, certifique-se de que acompanhar o princípio de privilégio mínimo, para que os utilizadores só têm as permissões necessárias para concluir seu trabalho, ajudando a reduzir a probabilidade de erros acidentais.
+Ao criar sua estrutura de permissão, certifique-se de seguir o princípio de privilégios mínimos para que os usuários tenham apenas as permissões necessárias para concluir seu trabalho, ajudando a reduzir a chance de erros inadvertidos.
 
-Por exemplo, pode querer utilizar uma estrutura como esta:
+Por exemplo, talvez você queira usar uma estrutura como esta:
 
-|Nome do grupo  |Type  |principalId  |Definição de função  |ID de definição de função  |
+|Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
-|Arquitetos     |Grupo de utilizadores         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
-|Avaliação     |Grupo de utilizadores         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
-|Especialistas de VM     |Grupo de utilizadores         |\<principalId\>         |Contribuidor de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automatização     |Nome principal de serviço (SPN)         |\<principalId\>         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Arquitetos     |Grupo de utilizadores         |\<principalId @ no__t-1         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Avaliação     |Grupo de utilizadores         |\<principalId @ no__t-1         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
+|Especialistas de VM     |Grupo de utilizadores         |\<principalId @ no__t-1         |Colaborador de VM         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
+|Automatização     |SPN (nome da entidade de serviço)         |\<principalId @ no__t-1         |Contribuinte         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
-Depois de criar estes grupos, pode atribuir utilizadores conforme necessário. Adicione apenas os utilizadores que realmente precisam de ter acesso. Não se esqueça de rever a associação ao grupo regularmente e remover todos os utilizadores que já não são necessárias para incluir ou apropriados.
+Depois de criar esses grupos, você pode atribuir usuários conforme necessário. Somente adicione os usuários que realmente precisam ter acesso. Certifique-se de revisar a associação de grupo regularmente e remover os usuários que não são mais apropriados ou necessários para incluir.
 
-Tenha em atenção que quando [integrar clientes através de uma oferta de serviço gerido pública](../how-to/publish-managed-services-offers.md), qualquer grupo (ou utilizador ou principal de serviço) que incluem terão as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, terá de publicar um plano de privada separado que é exclusivo para cada cliente, ou integrar clientes individualmente utilizando modelos Azure Resource Manager. Por exemplo, pode publicar um plano de público que tenha muito acesso limitado, em seguida, trabalhar com o cliente diretamente para carregar os recursos para o acesso adicional através de um modelo de recursos do Azure personalizadas conceder o acesso adicional conforme necessário.
+Tenha em mente que, quando você integrar [clientes por meio de uma oferta de serviço gerenciado público](../how-to/publish-managed-services-offers.md), qualquer grupo (ou entidade de serviço ou usuário) que você incluir terá as mesmas permissões para cada cliente que comprar o plano. Para atribuir grupos diferentes para trabalhar com cada cliente, você precisará publicar um plano privado separado que seja exclusivo para cada cliente ou integrar clientes individualmente usando modelos de Azure Resource Manager. Por exemplo, você pode publicar um plano público com acesso muito limitado e, em seguida, trabalhar com o cliente diretamente para integrar seus recursos para acesso adicional usando um modelo de recurso personalizado do Azure concedendo acesso adicional, conforme necessário.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Implementar o Azure multi-factor Authentication](../../active-directory/authentication/howto-mfa-getstarted.md).
-- Saiba mais sobre [experiências de gestão entre inquilinos](cross-tenant-management-experience.md).
+- [Implante a autenticação multifator do Azure](../../active-directory/authentication/howto-mfa-getstarted.md).
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).

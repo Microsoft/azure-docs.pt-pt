@@ -1,19 +1,18 @@
 ---
-title: Tutorial - adicionar um modelo de exemplo para um servidor Azure Analysis Services | Documentos da Microsoft
+title: Tutorial-adicionar um modelo de exemplo a um servidor de Azure Analysis Services | Microsoft Docs
 description: Nesta aula de tutorial, aprenda a adicionar um modelo de exemplo no Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a9721b05fbd478d108f06c36017ee444f721d28
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026343"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298687"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>Tutorial: Adicionar um modelo de exemplo a partir do portal
 
@@ -69,11 +68,11 @@ Estes passos descrevem como eliminar um modelo de um servidor com o SSMS.
 
     ![Eliminar base de dados de amostra](./media/analysis-services-create-sample-model/aas-create-sample-cleanup-delete.png)
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 Neste tutorial, aprendeu a adicionar um modelo de exemplo básico ao seu servidor. Agora que tem uma base de dados modelo, pode ligar-se à mesma a partir do SQL Server Management Studio e adicionar funções de utilizador. Para obter mais informações, avance para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Configurar funções de utilizador e administrador de servidor](analysis-services-database-users.md)
+> [Tutorial: Configurar funções de utilizador e de administrador de servidor](analysis-services-database-users.md)
 
 

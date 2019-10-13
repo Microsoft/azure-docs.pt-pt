@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147298"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285978"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Serviços de consultoria para o Azure Marketplace e o AppSource
 Os serviços de consultoria no Azure Marketplace e o AppSource fornecem aos parceiros da Microsoft o objetivo de conectar clientes com serviços para dar suporte e estender o uso de metas de negócios e do Azure. 
@@ -79,7 +79,6 @@ Os parceiros precisam ter uma **competência prata ou ouro** na área relevante 
 |Dinamarca   |Itália   |     Noruega          |Estados Unidos |
 |Finlândia   |Japão   |     Polónia          
 
-O lançamento dos serviços de consultoria entrará em uma região geográfica específica. A primeira inicialização será: Estados Unidos, Canadá, Reino Unido e Austrália. Os catálogos de outros países/regiões ficarão ativos depois que um número significativo e a seleção convincente de ofertas de serviço tiverem sido enviadas por parceiros e aprovadas pela Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Como registrar-se para serviços de consultoria no Azure Marketplace e AppSource
 Comece [registrando](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) as informações da sua empresa no Marketplace. Os Publicadores podem referenciar [tornar-se um Publicador no Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), para uma lista de verificação completa dos requisitos de registro. 
@@ -114,44 +113,44 @@ Antes do registro, você pode começar a coletar e preparar o conteúdo que ajud
 ## <a name="publishing-process"></a>Processo de publicação
 Listar sua oferta de serviço de consultoria no Azure Marketplace e AppSource envolve os seguintes estágios:
 
-1. **Listagem**: Comece a rascunhar uma nova listagem de oferta fazendo logon na sua conta de [portal do Cloud Partner](https://cloudpartner.azure.com) . Selecione ' nova oferta ' e ' serviços de consultoria ' no menu suspenso. Insira seu artefato de listagem e publique.
-2. **Validação**: Sua solicitação é revisada para garantir que você atenda aos critérios de qualificação. Em seguida, enviamos instruções para listar sua oferta de serviços de consultoria. 
-3. **Enviar**: Forneça as informações necessárias listadas nas instruções. Todo o conteúdo e material de suporte devem ser enviados em inglês. 
-4. **Revisão**: Nossa equipe editorial e de marketing revisa seu envio e o otimiza para facilitar a leitura, a gramática e a eficiência. 
-5. **Preparo**: Seu envio é preparado para sua análise. 
-6. **Publicação**: Quando você e a Microsoft estiverem satisfeitos com o conteúdo preparado, sua listagem estará pronta para ficar ativa no Marketplace. A data de ativação para sua listagem depende do país/região especificado em sua oferta. Se o catálogo do seu país/região selecionado já estiver ativo no Azure Marketplace ou AppSource, sua listagem aparecerá em algumas horas. Caso contrário, a listagem será exibida assim que o catálogo ficar ativo.
+1. **Listagem**: comece a rascunhar uma nova listagem de oferta fazendo logon na sua conta de [portal do Cloud Partner](https://cloudpartner.azure.com) . Selecione ' nova oferta ' e ' serviços de consultoria ' no menu suspenso. Insira seu artefato de listagem e publique.
+2. **Validação**: sua solicitação é revisada para garantir que você atenda aos critérios de qualificação. Em seguida, enviamos instruções para listar sua oferta de serviços de consultoria. 
+3. **Enviar**: forneça as informações necessárias listadas nas instruções. Todo o conteúdo e material de suporte devem ser enviados em inglês. 
+4. **Revisão**: nossa equipe de marketing e editorial revisa seu envio e o otimiza para facilitar a leitura, a gramática e a eficácia. 
+5. **Preparo**: seu envio é preparado para sua análise. 
+6. **Publicação**: quando você e a Microsoft estiverem satisfeitos com o conteúdo preparado, sua listagem estará pronta para ficar ativa no Marketplace. A data de ativação para sua listagem depende do país/região especificado em sua oferta. Se o catálogo do seu país/região selecionado já estiver ativo no Azure Marketplace ou AppSource, sua listagem aparecerá em algumas horas. Caso contrário, a listagem será exibida assim que o catálogo ficar ativo.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Lista de ofertas e critérios de análise de conteúdo
 As ofertas devem ser de um dos cinco tipos de serviço a seguir (você pode listar mais de uma): 
 
-* **Avaliação**: Uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo. 
-* **Resumo**: Uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente usando estruturas, demonstrações e exemplos de clientes. 
-* **Implementação**: Uma instalação completa que resulta em uma solução totalmente funcional. É recomendável limitá-lo a soluções que podem ser implementadas em duas semanas ou menos. 
-* **Prova de conceito**: Uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente. 
-* **Workshop**: Um engajamento interativo que é realizado nos locais de um cliente. Ele pode envolver treinamento, resumos, avaliações ou demonstrações que são criadas nos dados ou no ambiente do cliente. 
+* **Avaliação**: uma avaliação do ambiente de um cliente para determinar a aplicabilidade de uma solução e fornecer uma estimativa de custo e tempo. 
+* **Resumo**: uma introdução a uma solução ou um serviço de consultoria para atrair o interesse do cliente usando estruturas, demonstrações e exemplos de clientes. 
+* **Implementação**: uma instalação completa que resulta em uma solução totalmente funcional. É recomendável limitá-lo a soluções que podem ser implementadas em duas semanas ou menos. 
+* **Prova de conceito**: uma implementação de escopo limitado para determinar se uma solução atende aos requisitos do cliente. 
+* **Workshop**: um engajamento interativo que é realizado nos locais de um cliente. Ele pode envolver treinamento, resumos, avaliações ou demonstrações que são criadas nos dados ou no ambiente do cliente. 
 
-**Nota:** Exceto para o tipo de serviço de *Resumo* , os serviços de consultoria podem ser oferecidos pessoalmente (ou seja, no local do cliente ou na instalação de um parceiro) ou virtualmente (ou seja, por meio de teleconferência, Webconferência ou implementação remota). Os resumos devem ser oferecidos pessoalmente.
+**Observação:** Exceto para o tipo de serviço de *Resumo* , os serviços de consultoria podem ser oferecidos pessoalmente (ou seja, no local do cliente ou na instalação de um parceiro) ou virtualmente (ou seja, por meio de teleconferência, Webconferência ou implementação remota). Os resumos devem ser oferecidos pessoalmente.
 
 Depois de configurar os elementos necessários listados acima, a equipe de análise de conteúdo validará que sua descrição da oferta é informativa e completa para o público-alvo. 
 
 #### <a name="listing-title"></a>Título da listagem
 
-O campo título tem um limite de 50 caracteres e deve transmitir a duração e o tipo de serviço da oferta para maximizar a otimização do mecanismo de pesquisa. O formato necessário é o seguinte: NOMES TIPO DE DURAÇÃO
+O campo título tem um limite de 50 caracteres e deve transmitir a duração e o tipo de serviço da oferta para maximizar a otimização do mecanismo de pesquisa. O formato necessário é o seguinte: nome: tipo de duração
 
 Exemplos:
 
 
 |Título de exemplo  |Formato correto  |
 |---------|---------|
-|Introdução com o Azure IoT em fabricação    |   IoT de fabricação: Avaliação de 2 dias      |
-|Workshop sobre torradeiras inteligentes        |  Torradeiras inteligentes: Workshop de 1 a-WK       |
-|  VDC de migração de SQL Server    | Migração do SQL: Prova de conceito de 3-WK        |
+|Introdução com o Azure IoT em fabricação    |   IoT de fabricação: avaliação de 2 dias      |
+|Workshop sobre torradeiras inteligentes        |  Torradeiras inteligentes: Workshop 1-WK       |
+|  VDC de migração de SQL Server    | Migração de SQL: prova de conceito de 3-WK        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Listando resumos e descrições
 
 Ao revisar descrições da oferta e resumos da oferta, a equipe aplicará os seguintes critérios:
 
-|Tipo de Oferta  |Requerido |Recomendado  |
+|Tipo de Oferta  |Obrigatório |Recomendado  |
 |---------|---------|---------|
 |**Avaliação**    |   Inclua uma agenda detalhada para avaliações de vários dias ou de várias semanas e articule o que o cliente pode esperar      |    Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa     |
 |**Resumo**    |   Articular o resultado que o cliente pode esperar. Lembre-se de que o resumo deve ser oferecido pessoalmente. Se você estiver fornecendo um serviço virtual, escolha um tipo de oferta diferente    |  Otimize seu resumo de ofertas com as principais palavras-chave de otimização do mecanismo de pesquisa       |

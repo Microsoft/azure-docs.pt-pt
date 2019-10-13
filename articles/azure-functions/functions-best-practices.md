@@ -1,23 +1,20 @@
 ---
 title: Práticas recomendadas para Azure Functions | Microsoft Docs
 description: Aprenda as práticas recomendadas e padrões para Azure Functions.
-services: functions
-documentationcenter: na
-author: wesmc7777
-manager: jeconnoc
-keywords: Azure functions, padrões, práticas recomendadas, funções, processamento de eventos, WebHooks, computação dinâmica, arquitetura sem servidor
+author: ggailey777
+manager: gwallace
 ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2782781fdfd560c0c8f322e362fcf74c796664bd
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933042"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294356"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a confiabilidade do Azure Functions
 
@@ -29,7 +26,9 @@ Veja a seguir as práticas recomendadas de como criar e arquitetar suas soluçõ
 
 ### <a name="avoid-long-running-functions"></a>Evite funções de longa execução
 
-Funções grandes e de execução longa podem causar problemas de tempo limite inesperados. Uma função pode se tornar grande devido a muitas dependências de Node. js. A importação de dependências também pode causar tempos de carregamento maiores que resultam em tempos limite inesperados. As dependências são carregadas de forma explícita e implícita. Um único módulo carregado pelo seu código pode carregar seus próprios módulos adicionais.  
+Funções grandes e de execução longa podem causar problemas de tempo limite inesperados. Para saber mais sobre os tempos limite de um determinado plano de hospedagem, confira [duração do tempo limite do aplicativo de funções](functions-scale.md#timeout). 
+
+Uma função pode se tornar grande devido a muitas dependências de Node. js. A importação de dependências também pode causar tempos de carregamento maiores que resultam em tempos limite inesperados. As dependências são carregadas de forma explícita e implícita. Um único módulo carregado pelo seu código pode carregar seus próprios módulos adicionais. 
 
 Sempre que possível, refatore funções grandes em conjuntos de funções menores que funcionam em conjunto e retornam respostas rapidamente. Por exemplo, um webhook ou uma função de gatilho HTTP pode exigir uma resposta de confirmação dentro de um determinado limite de tempo; é comum que WebHooks exijam uma resposta imediata. Você pode passar o conteúdo do gatilho HTTP para uma fila a ser processada por uma função de gatilho de fila. Essa abordagem permite que você adie o trabalho real e retorne uma resposta imediata.
 
@@ -49,7 +48,7 @@ Os hubs de eventos são úteis para dar suporte a comunicações de alto volume.
 
 ### <a name="write-functions-to-be-stateless"></a>Funções de gravação para sem monitoração de estado 
 
-As funções devem ser sem monitoração de estado e idempotentes, se possível. Associe todas as informações de estado necessárias aos seus dados. Por exemplo, um pedido que está sendo processado provavelmente teria um `state` membro associado. Uma função pode processar uma ordem com base nesse estado, enquanto a própria função permanece sem estado. 
+As funções devem ser sem monitoração de estado e idempotentes, se possível. Associe todas as informações de estado necessárias aos seus dados. Por exemplo, um pedido que está sendo processado provavelmente teria um membro `state` associado. Uma função pode processar uma ordem com base nesse estado, enquanto a própria função permanece sem estado. 
 
 Funções idempotentes são especialmente recomendadas com gatilhos de temporizador. Por exemplo, se você tiver algo que absolutamente deve ser executado uma vez por dia, grave-o para que possa ser executado a qualquer momento durante o dia com os mesmos resultados. A função pode sair quando não há nenhum trabalho para um dia específico. Além disso, se uma execução anterior não tiver sido concluída, a próxima execução deverá continuar de onde parou.
 
@@ -93,19 +92,19 @@ Não use o log detalhado no código de produção. Ele tem um impacto negativo n
 
 ### <a name="use-async-code-but-avoid-blocking-calls"></a>Usar código assíncrono, mas evitar chamadas de bloqueio
 
-A programação assíncrona é uma prática recomendada. No entanto, sempre Evite `Result` referenciar a `Wait` propriedade ou o `Task` método de chamada em uma instância. Essa abordagem pode levar ao esgotamento de threads.
+A programação assíncrona é uma prática recomendada. No entanto, sempre Evite referenciar a propriedade `Result` ou chamar o método `Wait` em uma instância `Task`. Essa abordagem pode levar ao esgotamento de threads.
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
 ### <a name="receive-messages-in-batch-whenever-possible"></a>Receber mensagens no lote sempre que possível
 
-Alguns gatilhos como o Hub de eventos permitem o recebimento de um lote de mensagens em uma única invocação.  O envio de mensagens em lote tem um desempenho muito melhor.  Você pode configurar o tamanho máximo do lote no `host.json` arquivo, conforme detalhado na [documentação de referência do host. JSON](functions-host-json.md)
+Alguns gatilhos como o Hub de eventos permitem o recebimento de um lote de mensagens em uma única invocação.  O envio de mensagens em lote tem um desempenho muito melhor.  Você pode configurar o tamanho máximo do lote no arquivo `host.json`, conforme detalhado na [documentação de referência do host. JSON](functions-host-json.md)
 
-Para C# funções, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez `EventData sensorEvent` da assinatura do método pode `EventData[] sensorEvent`ser.  Para outras linguagens, você precisará definir explicitamente a propriedade cardinalidade em seu `function.json` para `many` para habilitar o envio em lote [, conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Para C# funções, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez de `EventData sensorEvent`, a assinatura do método poderia ser `EventData[] sensorEvent`.  Para outras linguagens, você precisará definir explicitamente a propriedade cardinalidade em seu `function.json` como `many` para habilitar o envio em lote [, conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurar comportamentos de host para lidar melhor com a simultaneidade
 
-O `host.json` arquivo no aplicativo de funções permite a configuração de comportamentos de tempo de execução do host e de gatilho.  Além dos comportamentos de envio em lote, você pode gerenciar a simultaneidade para vários gatilhos.  Geralmente, ajustar os valores nessas opções pode ajudar cada escala de instância adequadamente para as demandas das funções invocadas.
+O arquivo `host.json` no aplicativo de funções permite a configuração do tempo de execução do host e os comportamentos do gatilho.  Além dos comportamentos de envio em lote, você pode gerenciar a simultaneidade para vários gatilhos.  Geralmente, ajustar os valores nessas opções pode ajudar cada escala de instância adequadamente para as demandas das funções invocadas.
 
 As configurações no arquivo de hosts se aplicam a todas as funções dentro do aplicativo, dentro de uma *única instância* da função. Por exemplo, se você tivesse um aplicativo de funções com 2 funções HTTP e solicitações simultâneas definidas como 25, uma solicitação para o gatilho HTTP contaria para as 25 solicitações simultâneas compartilhadas.  Se esse aplicativo de funções for dimensionado para 10 instâncias, as duas funções permitirão efetivamente 250 solicitações simultâneas (10 instâncias * 25 solicitações simultâneas por instância).
 
@@ -115,7 +114,7 @@ As configurações no arquivo de hosts se aplicam a todas as funções dentro do
 
 Outras opções de configuração de host podem ser encontradas [no documento de configuração do host](functions-host-json.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 

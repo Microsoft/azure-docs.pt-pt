@@ -4,14 +4,14 @@ description: Descreve como o Azure Resource Manager trata as solicitações de a
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848759"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300344"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autenticar solicitações entre locatários
 
@@ -23,8 +23,8 @@ A solicitação tem os seguintes valores de cabeçalho de autenticação:
 
 | Nome do cabeçalho | Descrição | Valor de exemplo |
 | ----------- | ----------- | ------------ |
-| Autorização | Token primário | &lt;Token primário do portador&gt; |
-| x-ms-authorization-auxiliary | Tokens auxiliares | &lt;&gt; &lt;Portador&gt;auxiliar-token1, EncryptedBearer auxiliar-token2, portador auxiliar-token3 &lt;&gt; |
+| Autorização | Token primário | Portador &lt;primary-token @ no__t-1 |
+| x-MS-Authorization-auxiliar | Tokens auxiliares | Portador &lt;auxiliary-token1 @ no__t-1, EncryptedBearer &lt;auxiliary-token2 @ no__t-3, portador &lt;auxiliary-token3 @ no__t-5 |
 
 O cabeçalho auxiliar pode conter até três tokens auxiliares. 
 
@@ -36,6 +36,7 @@ Quando seu aplicativo envia uma solicitação ao Gerenciador de recursos, a soli
 
 Quando a solicitação faz referência a um recurso de um locatário diferente, o Gerenciador de recursos verifica os tokens auxiliares para determinar se a solicitação pode ser processada. Todos os tokens auxiliares no cabeçalho devem ser válidos e não expirados. Se qualquer token tiver expirado, o Resource Manager retornará um código de resposta 401. A resposta inclui a ID do cliente e a ID do locatário do token que não é válido. Se o cabeçalho auxiliar contiver um token válido para o locatário, a solicitação de locatário cruzado será processada.
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre como enviar solicitações de autenticação com as APIs de Azure Resource Manager, confira [usar a API de autenticação do Resource Manager para acessar assinaturas](resource-manager-api-authentication.md).
-* Para obter mais informações sobre tokens, consulte [Azure Active Directory tokens de acesso](/azure/active-directory/develop/access-tokens).
+## <a name="next-steps"></a>Passos seguintes
+
+* Para saber mais sobre solicitações de autenticação, consulte [fluxos de autenticação e cenários de aplicativos](../active-directory/develop/authentication-flows-app-scenarios.md).
+* Para obter mais informações sobre tokens, consulte [Azure Active Directory tokens de acesso](../active-directory/develop/access-tokens.md).

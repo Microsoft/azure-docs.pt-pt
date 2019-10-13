@@ -1,21 +1,20 @@
 ---
 title: Tutorial - Ligar ao Azure Analysis Services com o Power BI Desktop | Microsoft Docs
 author: minewiskan
-manager: kfile
 description: Saiba como se conectar a Azure Analysis Services com Power BI Desktop.
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: daebc3e720eec8d958697288922c788a44156778
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f2123b6d8b11c89735e65cb0f48d93841f49328d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932388"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294480"
 ---
-# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Conectar-se com Power BI Desktop
+# <a name="tutorial-connect-with-power-bi-desktop"></a>Tutorial: Ligar com o Power BI Desktop
 
 Neste tutorial, utiliza o Power BI Desktop para ligar à base de dados do modelo de exemplo adventureworks no seu servidor. As tarefas que concluiu simulam uma ligação de utilizador típica ao modelo e criação de um relatório básico a partir de dados do modelo.
 
@@ -70,5 +69,5 @@ No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**
 
 Se já não for preciso, não guarde o relatório ou elimine o ficheiro se o tiver guardado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar o Power BI Desktop para ligar a um modelo de dados num servidor e criar um relatório básico. Se você não estiver familiarizado com a criação de um modelo de dados, consulte o [tutorial de modelagem de dados de tabela de vendas pela Internet da Adventure Works](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial) no SQL Server Analysis Services docs.

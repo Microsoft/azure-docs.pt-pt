@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937509"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300214"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
 
@@ -62,6 +62,16 @@ Quando usado com a área de trabalho virtual do Windows, o ControlUp fornece rec
 - [Consulte o resumo da solução de junção](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Acesse o site do parceiro](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="devicetrust"></a>deviceTRUST
+
+![Logotipo do deviceTRUST](./media/partners/devicetrust.png)
+
+deviceTRUST é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que contextualiza a empresa corporativa, permitindo aos usuários a liberdade de acessar sua área de trabalho virtual do Windows de qualquer local, em qualquer dispositivo, em qualquer rede, oferecendo os departamentos são as informações e o controle de que precisam para atender aos requisitos de governança. 
+
+deviceTRUST estende o valor da área de trabalho virtual do Windows com sua tecnologia de segurança contextual. o deviceTRUST habilita o acesso condicional para um acesso de área de trabalho virtual seguro do Windows, acesso condicional a aplicativos na área de trabalho virtual do Windows e aplica políticas condicionais de área de trabalho virtual do Windows sem nenhuma infraestrutura adicional. O uso do deviceTRUST permite um espaço de trabalho móvel e flexível que atende a todos os requisitos de segurança, conformidade e regulamentação. 
+
+- [Acesse o site do parceiro](https://devicetrust.com/wvd).
+
 ## <a name="lakeside-software"></a>Lakeside software
 
 ![Logotipo do Lakeside software](./media/partners/lakeside.png)
@@ -84,6 +94,14 @@ O liquide Essentials estende o valor da área de trabalho virtual do Windows com
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Acesse o site do parceiro](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="login-vsi"></a>VSI de logon
+
+![Logotipo do VSI de logon](./media/partners/loginvsi.png)
+
+O VSI de logon é um provedor de serviços de valor agregado da área de trabalho virtual do Windows e Microsoft Partner fornecendo software para teste de desempenho de aplicativos em ambientes de área de trabalho virtuais do Windows Os clientes que movem seus serviços de negócios locais para a área de trabalho virtual do Windows usam o VSI Enterprise Edition de logon para avaliar e manter o desempenho, a escalabilidade e a disponibilidade ideais do Windows 10 Enterprise Multi-Session, Windows 10 Enterprise e O Windows 7 foi habilitado com seus aplicativos críticos para os negócios.
+
+- [Acesse o site do parceiro](https://www.loginvsi.com).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Logotipo do Nerdio](./media/partners/nerdio.png)
@@ -94,6 +112,26 @@ O Nerdio estende o valor da área de trabalho virtual do Windows, facilitando o 
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Acesse o site do parceiro](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="policypak"></a>PolicyPak
+
+![Logotipo do PolicyPak](./media/partners/policypak.png)
+
+O PolicyPak software é um parceiro de área de trabalho virtual do Windows que realiza o gerenciamento total de configurações para aplicativos, área de trabalho, navegadores, Java e configurações de segurança. O PolicyPak mantém suas configurações de desktop, sistema e segurança em conformidade. O PolicyPak aprimora o valor da área de trabalho virtual do Windows adicionando um conjunto de componentes para aprimorar a administração interna do Windows. Use o Active Directory existente Política de Grupo e/ou o Windows Intune para fornecer as configurações do PolicyPak e aumentar a capacidade dos administradores de gerenciar suas máquinas com o Windows 10. 
+
+Os principais casos de uso do PolicyPak são remover os direitos de administrador local e superar os prompts do UAC, bloquear o ransomware, gerenciar vários navegadores, gerenciar os modos corporativo e de compatibilidade do Internet Explorer, reduzir o número de GPOs, gerenciar associações de arquivos do Windows 10, Gerencie o menu iniciar e a barra de tarefas do Windows 10 e gerencie recursos do Windows 10 e recursos opcionais.  
+
+- [Acesse o site do parceiro](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+
+## <a name="printerlogic"></a>PrinterLogic
+
+![Logotipo do PrinterLogic](./media/partners/printerlogic.png)
+
+PrinterLogic é uma plataforma de provedor de serviços com valor agregado da área de trabalho virtual do Windows que capacita os profissionais de ti a eliminar todos os servidores de impressão e fornecer uma infraestrutura de impressão sem servidor altamente disponível. O PrinterLogic estende o valor da área de trabalho virtual do Windows e do Azure, facilitando o gerenciamento e a implantação centralizados de objetos de impressora em qualquer impressora ou sistema operacional de ponto de extremidade.   
+
+Disponível como SaaS ou como uma pilha da Web em sua própria nuvem privada, a plataforma PrinterLogic garante que os usuários sempre tenham as impressoras corretas de que precisam em suas sessões virtuais com base na ID de usuário, no nome do dispositivo ou no local. Essa funcionalidade é complementada por um pacote completo de recursos de gerenciamento de impressão empresarial, como rastreamento de impressão e relatórios, impressão móvel e impressão de liberação de selo seguro. 
+
+- [Acesse o site do parceiro](https://www.printerlogic.com).
 
 ## <a name="thinprint"></a>ThinPrint
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e5cc1489af1dce3a9a57b96a3240c63e0395c33a
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 9986f57b05032c1e12769d59781e8b7aca443abb
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947235"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298974"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
@@ -24,11 +24,11 @@ Este artigo descreve como configurar o **tempo de retenção de dados** e o **co
 
 ## <a name="summary"></a>Resumo
 
-Cada ambiente de Time Series Insights (TSI) tem uma configuração para configurar o **tempo de retenção de dados**. O valor se estende de 1 a 400 dias. Os dados são excluídos com base na capacidade de armazenamento do ambiente ou na duração da retenção (1-400), o que vier primeiro.
+Cada ambiente de Azure Time Series Insights tem uma configuração para configurar o **tempo de retenção de dados**. O valor se estende de 1 a 400 dias. Os dados são excluídos com base na capacidade de armazenamento do ambiente ou na duração da retenção (1-400), o que vier primeiro.
 
-Cada ambiente de TSI tem um **comportamento de limite de armazenamento**de configuração adicional excedido. Essa configuração controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher:
+Cada ambiente de TSI tem um comportamento de limite de armazenamento de configuração adicional **excedido**. Essa configuração controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher:
 
-- **Limpar dados antigos** os
+- **Limpar dados antigos** (padrão)
 - **Pausar entrada**
 
 Para obter informações detalhadas para entender melhor essas configurações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).  
@@ -37,17 +37,21 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Localize o seu ambiente do Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
+1. Localize seu ambiente de Time Series Insights existente. Selecione **todos os recursos** no menu no lado esquerdo do portal do Azure. Selecione o seu ambiente do Time Series Insights.
 
 1. No título **configurações** , selecione **Configurar**.
 
-1. Selecione o **tempo de retenção de dados** para configurar a retenção usando a barra deslizante ou digite um número na caixa de texto.
+    [Configurações do ![Select e, em seguida, configurar](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+
+1. Selecione o **tempo de retenção de dados (em dias)** para configurar a retenção usando a barra deslizante ou digite um número na caixa de texto.
 
 1. Observe a configuração de **capacidade** , pois essa configuração afeta a quantidade máxima de eventos de dados e a capacidade de armazenamento total para armazenar dados.
 
-1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou pausar comportamento de **entrada** .
+1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou **Pausar** comportamento de entrada.
 
-1. Selecione **salvar** para configurar as alterações.
+    [a retenção de ![Data aceita e salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+
+1. Aceite a caixa de seleção indicando que você analisou a documentação e entendeu os riscos potenciais de perda de dados. Selecione **salvar** para configurar as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 

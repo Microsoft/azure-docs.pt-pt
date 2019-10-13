@@ -6,25 +6,29 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 06/20/2019
-ms.openlocfilehash: 03163d75681bee7434e2b7576a678b1094d47b94
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: cda3b0db1a4f1b098d8ea57887a047fcdef04243
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973699"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286501"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Emulador Cosmos do Azure – notas de versão e informações de download
 
 Este artigo mostra as notas de versão do emulador Cosmos do Azure com uma lista de atualizações de recursos que foram feitas em cada versão. Ele também lista a versão mais recente do emulador para baixar e usar.
 
-## <a name="download"></a>Transferência
+## <a name="download"></a>Transferir
 
 | | |
 |---------|---------|
 |**Download do MSI**|[Centro de Transferências da Microsoft](https://aka.ms/cosmosdb-emulator)|
-|**Introdução**|[Desenvolver localmente com o emulador Cosmos do Azure](local-emulator.md)|
+|**Get started**|[Desenvolver localmente com o emulador Cosmos do Azure](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="270"></a>2.7.0
+
+- Esta versão corrige uma regressão que impediu os usuários de executar consultas na conta da API do SQL do emulador ao usar clientes .NET Core ou x86 baseados em .NET.
 
 ### <a name="246"></a>2.4.6
 

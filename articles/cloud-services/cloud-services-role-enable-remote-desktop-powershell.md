@@ -1,5 +1,5 @@
 ---
-title: Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
+title: Usando o PowerShell, habilitar Área de Trabalho Remota para uma função (serviços de nuvem do Azure)
 description: Como configurar seu aplicativo de serviço de nuvem do Azure usando o PowerShell para permitir conexões de área de trabalho remota
 services: cloud-services
 documentationcenter: ''
@@ -8,17 +8,17 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: gwallace
-ms.openlocfilehash: b466cb866889edcdc2bd02373a5567a7b53ae18d
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: cd36188cba91ad8a97e3f97896cf215a5f0220c2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68358986"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298401"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -50,7 +50,7 @@ ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-S
 
 Para criar o objeto de credencial a partir do arquivo de senha segura, você deve ler o conteúdo do arquivo e convertê-lo de volta para uma cadeia de caracteres segura usando [ConvertTo-SecureString](https://technet.microsoft.com/library/hh849818.aspx).
 
-O cmdlet [set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) também aceita um  parâmetro de expiração, que especifica um **DateTime** no qual a conta de usuário expira. Por exemplo, você pode definir a conta para expirar alguns dias a partir da data e hora atuais.
+O cmdlet [set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) também aceita um parâmetro de *expiração* , que especifica um **DateTime** no qual a conta de usuário expira. Por exemplo, você pode definir a conta para expirar alguns dias a partir da data e hora atuais.
 
 Este exemplo do PowerShell mostra como definir a extensão de Área de Trabalho Remota em um serviço de nuvem:
 

@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/14/2019
-ms.openlocfilehash: 4c186787af08a565dc100dfbd79d166688d89d8f
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013445"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285532"
 ---
-# <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: Criar um cluster do Azure Red Hat OpenShift
+# <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>Tutorial: criar um cluster do Azure Red Hat OpenShift
 
 Este tutorial é a primeira parte de uma série. Você aprenderá como criar um cluster Microsoft Azure Red Hat OpenShift usando o CLI do Azure, dimensioná-lo e, em seguida, excluí-lo para limpar os recursos.
 
@@ -46,17 +46,17 @@ Certifique-se de que você [configurou seu ambiente de desenvolvimento](howto-se
 - Criando um grupo de segurança
 - Criar um usuário Active Directory para entrar no cluster.
 
-## <a name="step-1-sign-in-to-azure"></a>Passo 1: Iniciar sessão no Azure
+## <a name="step-1-sign-in-to-azure"></a>Etapa 1: entrar no Azure
 
-Se você estiver executando o CLI do Azure localmente, abra um shell de comando bash e `az login` execute para entrar no Azure.
+Se você estiver executando o CLI do Azure localmente, abra um shell de comando bash e execute `az login` para entrar no Azure.
 
 ```bash
 az login
 ```
 
- Se você tiver acesso a várias assinaturas, execute `az account set -s {subscription ID}` a substituição `{subscription ID}` com a assinatura que você deseja usar.
+ Se você tiver acesso a várias assinaturas, execute `az account set -s {subscription ID}` substituindo `{subscription ID}` pela assinatura que você deseja usar.
 
-## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Passo 2: Criar um cluster do Azure Red Hat OpenShift
+## <a name="step-2-create-an-azure-red-hat-openshift-cluster"></a>Etapa 2: criar um cluster do Azure Red Hat OpenShift
 
 Em uma janela de comando do bash, defina as seguintes variáveis:
 
@@ -73,7 +73,7 @@ Escolha um local para criar o cluster. Para obter uma lista de regiões do Azure
 LOCATION=<location>
 ```
 
-Defina `APPID` como o valor que você salvou na etapa 5 de [criar um registro de aplicativo do Azure ad](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
+Defina `APPID` para o valor que você salvou na etapa 5 de [criar um registro de aplicativo do Azure ad](howto-aad-app-configuration.md#create-an-azure-ad-app-registration).  
 
 ```bash
 APPID=<app ID value>
@@ -85,13 +85,13 @@ Defina ' GROUPid ' como o valor que você salvou na etapa 10 de [criar um grupo 
 GROUPID=<group ID value>
 ```
 
-Defina `SECRET` como o valor que você salvou na etapa 8 de [criar um segredo do cliente](howto-aad-app-configuration.md#create-a-client-secret).  
+Defina `SECRET` para o valor que você salvou na etapa 8 de [criar um segredo do cliente](howto-aad-app-configuration.md#create-a-client-secret).  
 
 ```bash
 SECRET=<secret value>
 ```
 
-Defina `TENANT` como o valor da ID de locatário que você salvou na etapa 7 de [criar um novo locatário](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
+Defina `TENANT` para o valor da ID de locatário que você salvou na etapa 7 de [criar um novo locatário](howto-create-tenant.md#create-a-new-azure-ad-tenant)  
 
 ```bash
 TENANT=<tenant ID>
@@ -103,7 +103,7 @@ Crie o grupo de recursos para o cluster. Execute o seguinte comando do mesmo she
 az group create --name $CLUSTER_NAME --location $LOCATION
 ```
 
-### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Opcional: Conectar a rede virtual do cluster a uma rede virtual existente
+### <a name="optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network"></a>Opcional: conectar a rede virtual do cluster a uma rede virtual existente
 
 Se você não precisar conectar a rede virtual (VNET) do cluster que você cria para uma VNET existente por meio de emparelhamento, ignore esta etapa.
 
@@ -127,13 +127,16 @@ Por exemplo: `VNET_ID=$(az network vnet show -n MyVirtualNetwork -g MyResourceGr
 
 Agora você está pronto para criar um cluster. O seguinte criará o cluster no locatário do Azure AD especificado, especificará o objeto de aplicativo do Azure AD e o segredo a ser usado como uma entidade de segurança e o grupo de segurança que contém os membros que têm acesso de administrador ao cluster.
 
+> [!IMPORTANT]
+> Verifique se você adicionou corretamente as permissões apropriadas para o aplicativo do Azure AD, conforme [detalhado aqui](howto-aad-app-configuration.md#add-api-permissions) antes de criar o cluster
+
 Se você **não** estiver emparelhando o cluster para uma rede virtual, use o seguinte comando:
 
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID
 ```
 
-Se você **estiver** emparelhando o cluster para uma rede virtual, use o seguinte comando que adiciona o `--vnet-peer` sinalizador:
+Se você **estiver** emparelhando o cluster para uma rede virtual, use o seguinte comando que adiciona o sinalizador `--vnet-peer`:
  
 ```bash
 az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCATION --aad-client-app-id $APPID --aad-client-app-secret $SECRET --aad-tenant-id $TENANT --customer-admin-group-id $GROUPID --vnet-peer $VNET_ID
@@ -142,7 +145,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 > [!NOTE]
 > Se você receber um erro informando que o nome do host não está disponível, pode ser porque o nome do cluster não é exclusivo. Tente excluir o registro do aplicativo original e refazer as etapas com um nome de cluster diferente em [criar um novo registro de aplicativo](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omitindo a etapa de criação de um novo usuário e grupo de segurança.
 
-Após alguns minutos, `az openshift create` o será concluído.
+Após alguns minutos, `az openshift create` será concluído.
 
 ### <a name="get-the-sign-in-url-for-your-cluster"></a>Obter a URL de entrada para o cluster
 
@@ -152,28 +155,28 @@ Obtenha a URL para entrar no cluster executando o seguinte comando:
 az openshift show -n $CLUSTER_NAME -g $CLUSTER_NAME
 ```
 
-Procure o `publicHostName` na saída, por exemplo:`"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
+Procure o `publicHostName` na saída, por exemplo: `"publicHostname": "openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io"`
 
-A URL de entrada para o cluster será `https://` seguida `publicHostName` pelo valor.  Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Você usará esse URI na próxima etapa como parte do URI de redirecionamento de registro do aplicativo.
+A URL de entrada para seu cluster será `https://` seguido pelo valor de `publicHostName`.  Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`.  Você usará esse URI na próxima etapa como parte do URI de redirecionamento de registro do aplicativo.
 
-## <a name="step-3-update-your-app-registration-redirect-uri"></a>Passo 3: Atualizar o URI de redirecionamento de registro do aplicativo
+## <a name="step-3-update-your-app-registration-redirect-uri"></a>Etapa 3: atualizar o URI de redirecionamento de registro do aplicativo
 
 Agora que você tem a URL de entrada para o cluster, defina a interface do usuário de redirecionamento de registro do aplicativo:
 
 1. Abra a [folha registros de aplicativo](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview).
 2. Clique no seu objeto de registro de aplicativo.
-3. Clique em **Adicionar um URI de**redirecionamento.
-4. Verifique se o **tipo** é **Web** e defina o URI de redirecionamento usando o seguinte padrão:. `https://<public host name>/oauth2callback/Azure%20AD` Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
-5. Clique em **Guardar**
+3. Clique em **Adicionar um URI de redirecionamento**.
+4. Verifique se o **tipo** é **Web** e defina o **URI de redirecionamento** usando o seguinte padrão: `https://<public host name>/oauth2callback/Azure%20AD`. Por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io/oauth2callback/Azure%20AD`
+5. Clicar em **Guardar**
 
-## <a name="step-4-sign-in-to-the-openshift-console"></a>Passo 4: Entre no console do OpenShift
+## <a name="step-4-sign-in-to-the-openshift-console"></a>Etapa 4: entrar no console do OpenShift
 
 Agora você está pronto para entrar no console do OpenShift para o novo cluster. O [console Web do OpenShift](https://docs.openshift.com/aro/architecture/infrastructure_components/web_console.html) permite que você visualize, procure e gerencie o conteúdo de seus projetos do OpenShift.
 
 Você precisará de uma nova instância do navegador que não armazenou em cache a identidade que você normalmente usa para entrar no portal do Azure.
 
 1. Abra uma janela do *Incognito* (Chrome) ou uma janela não *privada* (Microsoft Edge).
-2. Navegue até a URL de logon que você obteve acima, por exemplo:`https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`
+2. Navegue até a URL de logon que você obteve acima, por exemplo: `https://openshift.xxxxxxxxxxxxxxxxxxxx.eastus.azmosa.io`
 
 Entre usando o nome de usuário que você criou na etapa 3 de [criar um novo usuário Azure Active Directory](howto-aad-app-configuration.md#create-a-new-azure-active-directory-user).
 
@@ -185,7 +188,7 @@ Agora você está conectado ao console do cluster.
 
  Saiba mais sobre como [usar o console do OpenShift](https://docs.openshift.com/aro/getting_started/developers_console.html) para criar e compilar imagens na documentação do [Red Hat OpenShift](https://docs.openshift.com/aro/welcome/index.html) .
 
-## <a name="step-5-install-the-openshift-cli"></a>Passo 5: Instalar a CLI do OpenShift
+## <a name="step-5-install-the-openshift-cli"></a>Etapa 5: instalar a CLI do OpenShift
 
 A [CLI do OpenShift](https://docs.openshift.com/aro/cli_reference/get_started_cli.html) (ou as *Ferramentas do OC*) fornece comandos para gerenciar seus aplicativos e utilitários de nível inferior para interagir com os vários componentes do cluster do OpenShift.
 
@@ -196,11 +199,11 @@ No console do OpenShift, clique no ponto de interrogação no canto superior dir
 >
 > Como alternativa, você pode [baixar a CLI do OC](https://www.okd.io/download.html) diretamente.
 
-A página de **ferramentas de linha de comando** fornece um comando `oc login https://<your cluster name>.<azure region>.cloudapp.azure.com --token=<token value>`do formulário.  Clique no botão *copiar para a área de transferência* para copiar este comando.  Em uma janela de terminal, [defina o caminho](https://docs.okd.io/latest/cli_reference/get_started_cli.html#installing-the-cli) para incluir a instalação local das ferramentas do OC. Em seguida, entre no cluster usando o comando da CLI do OC que você copiou.
+A página de **ferramentas de linha de comando** fornece um comando do formulário `oc login https://<your cluster name>.<azure region>.cloudapp.azure.com --token=<token value>`.  Clique no botão *copiar para a área de transferência* para copiar este comando.  Em uma janela de terminal, [defina o caminho](https://docs.okd.io/latest/cli_reference/get_started_cli.html#installing-the-cli) para incluir a instalação local das ferramentas do OC. Em seguida, entre no cluster usando o comando da CLI do OC que você copiou.
 
-Se você não pôde obter o valor do token usando as etapas acima, obtenha o valor do `https://<your cluster name>.<azure region>.cloudapp.azure.com/oauth/token/request`token de:.
+Se você não pôde obter o valor do token usando as etapas acima, obtenha o valor do token de: `https://<your cluster name>.<azure region>.cloudapp.azure.com/oauth/token/request`.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Nesta parte do tutorial, ficou a saber como:
 

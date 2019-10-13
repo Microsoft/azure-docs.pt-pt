@@ -2,18 +2,17 @@
 title: Usar o gateway de dados local para fontes de dados de rede virtual do Azure | Microsoft Docs
 description: Saiba como configurar um servidor para usar um gateway para fontes de dados na VNet.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 675d8ecd3d6a3310a9b102df37df18bed02df3de
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958811"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301215"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Usar o gateway para fontes de dados em uma VNet (rede virtual) do Azure
 
@@ -30,13 +29,13 @@ Instância Gerenciada do Banco de Dados SQL do Azure fontes de dados são execut
 
 ## <a name="configure-alwaysusegateway-property"></a>Configurar a propriedade AlwaysUseGateway
 
-1. No SSMS > Server > **Propriedades** > **geral**, selecione **mostrar propriedades avançadas (todas)** .
+1. No SSMS > Server > **propriedades** > **geral**, selecione **mostrar propriedades avançadas (todas)** .
 2. No **ASPaaS\AlwaysUseGateway**, selecione **true**.
 
     ![Sempre usar propriedade de gateway](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 [Conectando-se a fontes de dados locais](analysis-services-gateway.md)   
 [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)   
 [Rede virtual do Azure (VNET)](../virtual-network/virtual-networks-overview.md)   

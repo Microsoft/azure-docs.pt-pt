@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de filas e aos serviços conectados do Visual Studio (projetos de trabalho Web) | Microsoft Docs
+title: Introdução ao armazenamento de filas usando o Visual Studio (projetos de trabalho Web)
 description: Como começar a usar o armazenamento de filas do Azure em um projeto do WebJob depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
@@ -12,17 +12,18 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510803"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298745"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo descreve como começar a usar o armazenamento de filas do Azure em um projeto do Azure WebJob do Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio. Quando você adiciona uma conta de armazenamento a um projeto do WebJob usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio, os pacotes do NuGet do armazenamento do Azure apropriados são instalados, as referências do .net apropriadas são adicionadas ao projeto e cadeias de conexão para a conta de armazenamento é atualizada no arquivo app. config.  
 
 Este artigo fornece C# exemplos de código que mostram como usar o SDK do Azure WebJobs versão 1. x com o serviço de armazenamento de filas do Azure.
@@ -45,7 +46,7 @@ public static void ProcessQueueMessage([QueueTrigger("logqueue")] string logMess
 Além da **cadeia de caracteres**, o parâmetro pode ser uma matriz de bytes, um objeto **CLOUDQUEUEMESSAGE** ou um poco que você define.
 
 ### <a name="poco-plain-old-clr-objecthttpsenwikipediaorgwikiplain_old_clr_object-queue-messages"></a>Mensagens [de fila poco (objeto antigo CLR](https://en.wikipedia.org/wiki/Plain_Old_CLR_Object))
-No exemplo a seguir, a mensagem da fila contém JSON para um objeto **BlobInformation** que inclui uma propriedade blobname. O SDK desserializa automaticamente o objeto.
+No exemplo a seguir, a mensagem da fila contém JSON para um objeto **BlobInformation** que inclui uma propriedade **blobname** . O SDK desserializa automaticamente o objeto.
 
 ```csharp
 public static void WriteLogPOCO([QueueTrigger("logqueue")] BlobInformation blobInfo, TextWriter logger)
@@ -72,7 +73,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-As funções assíncronas podem usar um [token](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)de cancelamento, conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do espaço reservado **queueTrigger** , consulte [](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) a seção BLOBs.)
+As funções assíncronas podem usar um [token de cancelamento](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken), conforme mostrado no exemplo a seguir, que copia um blob. (Para obter uma explicação do espaço reservado **queueTrigger** , consulte a seção [BLOBs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) .)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -88,9 +89,9 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Tipos com os quais o atributo QueueTrigger funciona
 Você pode usar **QueueTrigger** com os seguintes tipos:
 
-* **string**
+* **Strings**
 * Um tipo POCO serializado como JSON
-* **byte[]**
+* **Byte []**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Algoritmo de sondagem
@@ -113,7 +114,7 @@ Você pode obter as seguintes propriedades de mensagem adicionando parâmetros �
 * **cadeia de caracteres** queueTrigger (contém texto da mensagem)
 * ID da **cadeia de caracteres**
 * **cadeia de caracteres** popReceipt
-* **int** dequeueCount
+* dequeueCount **int**
 
 Se você quiser trabalhar diretamente com a API de armazenamento do Azure, também poderá adicionar um parâmetro **CloudStorageAccount** .
 
@@ -182,15 +183,15 @@ public static void GracefulShutdownDemo(
 }
 ```
 
-**Nota:** O painel pode não mostrar corretamente o status e a saída das funções que foram desligadas.
+**Observação:** O painel pode não mostrar corretamente o status e a saída das funções que foram desligadas.
 
-Para obter mais informações, consulte desligamento [normal de trabalhos](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR)Web.   
+Para obter mais informações, consulte [desligamento normal de trabalhos](http://blog.amitapple.com/post/2014/05/webjobs-graceful-shutdown/#.VCt1GXl0wpR)Web.   
 
 ## <a name="how-to-create-a-queue-message-while-processing-a-queue-message"></a>Como criar uma mensagem de fila durante o processamento de uma mensagem da fila
 Para gravar uma função que cria uma nova mensagem da fila, use o atributo **Queue** . Como o **QueueTrigger**, você passa o nome da fila como uma cadeia de caracteres ou pode [definir o nome da fila dinamicamente](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>Mensagens da fila de cadeias de caracteres
-O exemplo de código não assíncrono a seguir cria uma nova mensagem de fila na fila chamada "outputqueue" com o mesmo conteúdo da mensagem de fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **\<IAsyncCollector T >** conforme mostrado mais adiante nesta seção.)
+O exemplo de código não assíncrono a seguir cria uma nova mensagem de fila na fila chamada "outputqueue" com o mesmo conteúdo da mensagem de fila recebida na fila denominada "inputqueue". (Para funções assíncronas, use **IAsyncCollector @ no__t-1T >** conforme mostrado posteriormente nesta seção.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +217,7 @@ public static void CreateQueueMessage(
 O SDK serializa automaticamente o objeto para JSON. Uma mensagem da fila sempre é criada, mesmo se o objeto for nulo.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Criar várias mensagens ou em funções assíncronas
-Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **\<ICollector t >** ou **\<IAsyncCollector t >** , conforme mostrado no exemplo a seguir.
+Para criar várias mensagens, crie o tipo de parâmetro para a fila de saída **ICollector @ no__t-1T >** ou **IAsyncCollector @ no__t-3T >** , conforme mostrado no exemplo a seguir.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -237,8 +238,8 @@ Você pode usar o atributo **Queue** nos seguintes tipos de parâmetro:
 
 * **cadeia de caracteres de saída** (cria a mensagem da fila se o valor do parâmetro não for nulo quando a função terminar)
 * **out byte []** (funciona como uma **cadeia de caracteres**)
-* **CloudQueueMessage out** (funciona como uma **cadeia de caracteres**)
-* **poco out** (um tipo serializável, cria uma mensagem com um objeto nulo se o parâmetro for nulo quando a função terminar)
+* **out CloudQueueMessage** (funciona como uma **cadeia de caracteres**)
+* **out poco** (um tipo serializável, cria uma mensagem com um objeto nulo se o parâmetro for nulo quando a função terminar)
 * **ICollector**
 * **IAsyncCollector**
 * **CloudQueue** (para criar mensagens manualmente usando a API de armazenamento do Azure diretamente)
@@ -324,14 +325,14 @@ Se você precisar fazer algum trabalho em sua função antes de associar um blob
 ### <a name="types-you-can-use-the-blob-attribute-with"></a>Tipos com os quais você pode usar o atributo blob
 O atributo **blob** pode ser usado com os seguintes tipos:
 
-* **Fluxo** (leitura ou gravação, especificada usando o parâmetro de Construtor FileAccess)
-* **TextReader**
+* **Fluxo** (leitura ou gravação, especificado usando o parâmetro de Construtor FileAccess)
+* **Pelos**
 * **TextWriter**
-* **cadeia de caracteres** leitura
+* **cadeia de caracteres** (leitura)
 * **cadeia de caracteres de saída** (gravação; cria um blob somente se o parâmetro de cadeia de caracteres não for nulo quando a função retornar)
 * POCO (leitura)
 * out POCO (gravação; sempre cria um blob, cria como objeto nulo se o parâmetro POCO é nulo quando a função retorna)
-* **CloudBlobStream** (write)
+* **CloudBlobStream** (gravação)
 * **ICloudBlob** (leitura ou gravação)
 * **CloudBlockBlob** (leitura ou gravação)
 * **CloudPageBlob** (leitura ou gravação)
@@ -444,7 +445,7 @@ static void Main(string[] args)
 
 Você pode fazer isso passando um objeto **NameResolver** para o tipo **JobHostConfiguration** . Você inclui espaços reservados especiais circundados por porcentagem (%) os sinais dos parâmetros do construtor de atributo do SDK de trabalhos Web e o código **NameResolver** especificam os valores reais a serem usados no lugar desses espaços reservados.
 
-Por exemplo, suponha que você queira usar uma fila chamada logqueuetest no ambiente de teste e outra chamada logqueueprod na produção. Em vez de um nome de fila embutido em código, você deseja especificar o nome de uma entrada na coleção appSettings que teria o nome real da fila. Se a chave appSettings for logqueue, sua função poderá ser semelhante ao exemplo a seguir.
+Por exemplo, suponha que você queira usar uma fila chamada logqueuetest no ambiente de teste e outra chamada logqueueprod na produção. Em vez de um nome de fila embutido em código, você deseja especificar o nome de uma entrada na coleção **appSettings** que teria o nome real da fila. Se a chave **appSettings** for logqueue, sua função poderá ser semelhante ao exemplo a seguir.
 
 ```csharp
 public static void WriteLog([QueueTrigger("%logqueue%")] string logMessage)
@@ -477,7 +478,7 @@ static void Main(string[] args)
 }
 ```
 
-**Nota:** Os nomes de fila, tabela e blob são resolvidos sempre que uma função é chamada, mas os nomes de contêiner de blob são resolvidos somente quando o aplicativo é iniciado. Você não pode alterar o nome do contêiner de blob enquanto o trabalho está em execução.
+**Observação:** Os nomes de fila, tabela e blob são resolvidos sempre que uma função é chamada, mas os nomes de contêiner de blob são resolvidos somente quando o aplicativo é iniciado. Você não pode alterar o nome do contêiner de blob enquanto o trabalho está em execução.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Como disparar uma função manualmente
 Para disparar uma função manualmente, use o método **Call** ou **CallAsync** no objeto **JobHost** e o atributo **NoAutomaticTrigger** na função, conforme mostrado no exemplo a seguir.
@@ -550,7 +551,7 @@ Em um WebJob contínuo, os logs de aplicativo aparecem no/data/Jobs/Continuous/ 
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-Em um blob do Azure, os logs de aplicativo têm a seguinte aparência: 2014-09-26T21:01:13, informações, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 17, console. Write-Olá, mundo!, 2014-09-26T21:01:13, erro, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 19, console. Error-Olá mundo!, 2014-09-26T21 : 01:13, informações, contosoadsnew, 491e54, 635473620738529920, 0, 17404, 17, console. out-Olá mundo!,
+Em um blob do Azure, os logs de aplicativo têm a seguinte aparência: 2014-09-26T21:01:13, informações, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 17, console. Write-Olá, mundo!, 2014-09-26T21:01:13, erro, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 19, console. Error-Olá, mundo!, 2014-09-26T21:01:13, Information, contosoadsnew, 491e54, 635473620738529920, 0, 17404, 17, console. out-Olá mundo!,
 
 E, em uma tabela do Azure, os logs **console. out** e **console. Error** têm a seguinte aparência:
 

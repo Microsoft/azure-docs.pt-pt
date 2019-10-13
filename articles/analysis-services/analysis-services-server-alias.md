@@ -1,50 +1,49 @@
 ---
-title: Nomes de servidor de alias do Analysis Services do Azure | Documentos da Microsoft
-description: Descreve como criar e utilizar os aliases de nome de servidor.
+title: Azure Analysis Services nomes de servidor de alias | Microsoft Docs
+description: Descreve como criar e usar aliases de nome de servidor.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 66e6b4713591f099769543a75dcddec34f3d2e2b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 161df354bae350df533f3991e551401fd56a4a65
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60534322"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301086"
 ---
-# <a name="alias-server-names"></a>Alias server names
+# <a name="alias-server-names"></a>Nomes de servidor de alias
 
-Ao utilizar um alias de nome de servidor, os utilizadores podem ligar ao seu servidor Azure Analysis Services com uma menor *alias* em vez do nome de servidor. Ao ligar-se de um aplicativo cliente, o alias é especificado como um ponto final a utilizar o **ligação: / /** formato de protocolo. O ponto final, em seguida, devolve o nome do servidor real para se ligar.
+Usando um alias de nome de servidor, os usuários podem se conectar ao seu servidor de Azure Analysis Services com um *alias* mais curto em vez do nome do servidor. Ao se conectar de um aplicativo cliente, o alias é especificado como um ponto de extremidade usando o formato de protocolo **link://** . Em seguida, o ponto de extremidade retorna o nome do servidor real para se conectar.
 
-Alias server names are good for:
+Os nomes de servidor de alias são bons para:
 
-- Modelos de migrar entre servidores sem afetar os utilizadores. 
-- Nomes de servidor amigável são mais fáceis para os usuários se lembrem. 
-- Direcionar os utilizadores para diferentes servidores em diferentes momentos do dia. 
-- Direcionar os utilizadores em diferentes regiões com as instâncias que estão geograficamente mais próximos, como quando utilizar o Gestor de tráfego do Azure. 
+- Migrar modelos entre servidores sem afetar os usuários. 
+- Nomes de servidor amigáveis são mais fáceis para os usuários se lembrarem. 
+- Encaminhe os usuários para servidores diferentes em momentos diferentes do dia. 
+- Encaminhe os usuários em regiões diferentes para as instâncias que estão geograficamente mais próximas, como ao usar o Gerenciador de tráfego do Azure. 
 
-Qualquer ponto de final de HTTPS, que retorna um nome de servidor válido do Azure Analysis Services pode servir como um alias. O ponto final tem de suportar HTTPS através da porta 443 e a porta não pode ser especificada no URI.
+Qualquer ponto de extremidade HTTPS que retorna um nome de servidor Azure Analysis Services válido pode servir como um alias. O ponto de extremidade deve oferecer suporte a HTTPS pela porta 443 e a porta não deve ser especificada no URI.
 
-![Alias através do formato de ligação](media/analysis-services-alias/aas-alias-browser.png)
+![Alias usando o formato de link](media/analysis-services-alias/aas-alias-browser.png)
 
-Ao ligar-se de um cliente, o nome do servidor de alias é inserido usando **ligação: / /** formato de protocolo. Por exemplo, no ambiente de trabalho do Power BI:
+Ao conectar-se de um cliente, o nome do servidor de alias é inserido usando o formato de protocolo **link://** . Por exemplo, em Power BI Desktop:
 
-![Ligação do Power BI Desktop](media/analysis-services-alias/aas-alias-connect-pbid.png)
+![Power BI Desktop conexão](media/analysis-services-alias/aas-alias-connect-pbid.png)
 
 ## <a name="create-an-alias"></a>Criar um alias
 
-Para criar um ponto de extremidade de alias, pode utilizar qualquer método que retorna um nome de servidor Azure Analysis Services válido. Por exemplo, uma referência a um ficheiro no armazenamento de Blobs do Azure que contém o servidor real dê um nome, ou criar e publicar uma aplicação de Web Forms do ASP.NET.
+Para criar um ponto de extremidade de alias, você pode usar qualquer método que retorne um nome de servidor de Azure Analysis Services válido. Por exemplo, uma referência a um arquivo no armazenamento de BLOBs do Azure que contém o nome do servidor real, ou criar e publicar um aplicativo de Web Forms ASP.NET.
 
-Neste exemplo, um aplicativo do ASP.NET Web Forms é criado no Visual Studio. O controlo de utilizador e de referência de página mestra são removidos da página default. aspx. O conteúdo de default. aspx é simplesmente a diretiva da página seguinte:
+Neste exemplo, um aplicativo ASP.NET Web Forms é criado no Visual Studio. A referência de página mestra e o controle de usuário são removidos da página default. aspx. O conteúdo de default. aspx é simplesmente a seguinte diretiva de página:
 
 ```
 <%@ Page Title="Home Page" Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="FriendlyRedirect._Default" %>
 ```
 
-O evento Page_Load no Default.aspx.cs usa o método Response para retornar o nome do servidor Azure Analysis Services.
+O evento Page_Load em Default.aspx.cs usa o método Response. Write () para retornar o nome do servidor de Azure Analysis Services.
 
 ```
 protected void Page_Load(object sender, EventArgs e)
@@ -53,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Bibliotecas de cliente](analysis-services-data-providers.md)   
-[Ligar a partir do Power BI Desktop](analysis-services-connect-pbi.md)
+[Conectar de Power BI Desktop](analysis-services-connect-pbi.md)

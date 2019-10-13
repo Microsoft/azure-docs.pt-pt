@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 6cded49f14ae90f84b18c0a37059677c6c1fed99
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 07ca22ee84dc7579d59d95b1c303476f44f8f043
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562782"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286537"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>Versões do razão do serviço Blockchain do Azure com suporte
 
@@ -25,9 +25,9 @@ Atualmente, o serviço Blockchain do Azure dá suporte à [versão de quorum 2.2
 
 ## <a name="managing-updates-and-upgrades"></a>Gerenciando atualizações e upgrades
 
-O controle de versão em quorum é feito por meio de versões principais, secundárias e patches. Por exemplo, se a versão de quorum for 2.0.1, o tipo de versão será Categorizado da seguinte maneira:
+O controle de versão em quorum é feito por meio de versões principais, secundárias e de patches. Por exemplo, se a versão de quorum for 2.0.1, o tipo de versão será Categorizado da seguinte maneira:
 
-|Principais | Pequenas  | Correção  |
+|Principal | Secundária  | Distribuído  |
 | :--- | :----- | :----- |
 | 2 | 0 | 1 | 
 
@@ -35,7 +35,7 @@ O serviço Blockchain do Azure atualiza automaticamente as versões de patch do 
 
 ## <a name="availability-of-new-ledger-versions"></a>Disponibilidade de novas versões do razão
 
-O serviço Blockchain do Azure fornece as últimas versões principais e secundárias do razão de quorum dentro de 60 dias de disponibilidade do fabricante do quorum. No máximo quatro versões secundárias são fornecidas para que consortia escolha ao provisionar um novo membro e consórcio. No momento, não há suporte para a atualização do para uma versão principal ou secundária.
+O serviço Blockchain do Azure fornece as últimas versões principais e secundárias do razão de quorum dentro de 60 dias de disponibilidade do fabricante do quorum. No máximo quatro versões secundárias são fornecidas para que consortia escolha ao provisionar um novo membro e consórcio. No momento, não há suporte para a atualização do para uma versão principal ou secundária. Por exemplo, se você estiver executando a versão 2. x, não há suporte atualmente para a atualização para a versão 3. x. Da mesma forma, se você estiver executando a versão 2,2, não há suporte para uma atualização para a versão 2,3 no momento.
 
 ## <a name="next-steps"></a>Passos seguintes
 

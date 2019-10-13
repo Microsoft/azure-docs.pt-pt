@@ -2,18 +2,17 @@
 title: Atualização assíncrona para modelos de Azure Analysis Services | Microsoft Docs
 description: Saiba como codificar a atualização assíncrona usando a API REST.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932300"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301161"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Atualização assíncrona com a API REST
 
@@ -23,7 +22,7 @@ As operações de atualização de dados podem levar algum tempo, dependendo de 
 
 A API REST para Azure Analysis Services permite que as operações de atualização de dados sejam executadas de forma assíncrona. Usando a API REST, as conexões HTTP de execução longa de aplicativos cliente não são necessárias. Também há outros recursos internos de confiabilidade, como tentativas automáticas e confirmações em lote.
 
-## <a name="base-url"></a>URL Base
+## <a name="base-url"></a>URL base
 
 A URL base segue este formato:
 
@@ -57,7 +56,7 @@ Por exemplo, você pode usar o verbo POST na coleção refreshs para executar um
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Todas as chamadas devem ser autenticadas com um token de Azure Active Directory (OAuth 2) válido no cabeçalho de autorização e devem atender aos seguintes requisitos:
 
@@ -100,10 +99,10 @@ Não é necessário especificar parâmetros. O padrão é aplicado.
 
 | Nome             | Tipo  | Descrição  |Predefinição  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enumera  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comando de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, calcula, datasomente, Automatic e unfragment. Não há suporte para adicionar tipo.      |   Automático      |
-| `CommitMode`     | Enumera  | Determina se os objetos serão confirmados em lotes ou somente quando forem concluídos. Os modos incluem: padrão, transacional, partialBatch.  |  transacional       |
-| `MaxParallelism` | Int   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism que pode ser definida no [comando TMSL Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) ou usando outros métodos.       | 10        |
-| `RetryCount`     | Int   | Indica o número de vezes que a operação tentará novamente antes de falhar.      |     0    |
+| `Type`           | Enum  | O tipo de processamento a ser executado. Os tipos são alinhados com os tipos de [comando de atualização](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) TMSL: Full, clearValues, calcula, datasomente, Automatic e unfragment. Não há suporte para adicionar tipo.      |   Automático      |
+| `CommitMode`     | Enum  | Determina se os objetos serão confirmados em lotes ou somente quando forem concluídos. Os modos incluem: padrão, transacional, partialBatch.  |  transacional       |
+| `MaxParallelism` | inteiro   | Esse valor determina o número máximo de threads nos quais executar comandos de processamento em paralelo. Esse valor é alinhado com a propriedade MaxParallelism que pode ser definida no [comando TMSL Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) ou usando outros métodos.       | 10        |
+| `RetryCount`     | inteiro   | Indica o número de vezes que a operação tentará novamente antes de falhar.      |     0    |
 | `Objects`        | Array | Uma matriz de objetos a ser processada. Cada objeto inclui: "tabela" ao processar a tabela inteira ou "tabela" e "partição" ao processar uma partição. Se nenhum objeto for especificado, todo o modelo será atualizado. |   Processar todo o modelo      |
 
 CommitMode é igual a partialBatch. Ele é usado ao fazer uma carga inicial de conjuntos de grandes volumes que podem levar horas. Se a operação de atualização falhar depois de confirmar com êxito um ou mais lotes, os lotes confirmados com êxito permanecerão confirmados (eles não serão revertidos com êxito em lotes confirmados).
@@ -111,7 +110,7 @@ CommitMode é igual a partialBatch. Ele é usado ao fazer uma carga inicial de c
 > [!NOTE]
 > No momento da gravação, o tamanho do lote é o valor de MaxParallelism, mas esse valor pode ser alterado.
 
-## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
+## <a name="get-refreshesrefreshid"></a>OBTER/refreshes/\<refreshId >
 
 Para verificar o status de uma operação de atualização, use o verbo GET na ID de atualização. Aqui está um exemplo do corpo da resposta. Se a operação estiver em andamento, **InProgress** será retornado no status.
 
@@ -161,7 +160,7 @@ Para obter uma lista de operações de atualização históricas para um modelo,
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>DELETE /refreshes/\<refreshId>
+## <a name="delete-refreshesrefreshid"></a>EXCLUIR/refreshes/\<refreshId >
 
 Para cancelar uma operação de atualização em andamento, use o verbo DELETE na ID de atualização.
 
@@ -186,11 +185,11 @@ Para verificar o status de uma operação de sincronização, use o verbo GET pa
 
 Valores para `syncstate`:
 
-- 0: Replicando. Os arquivos de banco de dados estão sendo replicados para uma pasta de destino.
-- 1: Reidratar. O banco de dados está sendo alimentado em instância (s) de servidor somente leitura.
-- 2: Concluído. A operação de sincronização foi concluída com êxito.
-- 3: Falhou. Falha na operação de sincronização.
-- 4: Finalizando. A operação de sincronização foi concluída, mas está executando etapas de limpeza.
+- 0: replicando. Os arquivos de banco de dados estão sendo replicados para uma pasta de destino.
+- 1: reidratar. O banco de dados está sendo alimentado em instância (s) de servidor somente leitura.
+- 2: concluído. A operação de sincronização foi concluída com êxito.
+- 3: falha. Falha na operação de sincronização.
+- 4: finalizando. A operação de sincronização foi concluída, mas está executando etapas de limpeza.
 
 ## <a name="code-sample"></a>Exemplo de código
 
@@ -203,18 +202,18 @@ Aqui está um C# exemplo de código para ajudá-lo a começar, [RestApiSample no
 
 O exemplo de código usa a autenticação de [entidade de serviço](#service-principal) .
 
-### <a name="service-principal"></a>Principal de serviço
+### <a name="service-principal"></a>Entidade de serviço
 
 Consulte [criar entidade de serviço-portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md) e [Adicionar uma entidade de serviço à função de administrador do servidor](analysis-services-addservprinc-admins.md) para obter mais informações sobre como configurar uma entidade de serviço e atribuir as permissões necessárias no Azure as. Depois de concluir as etapas, conclua as seguintes etapas adicionais:
 
 1.  No exemplo de código, Find **String Authority =...** , substitua **Common** pela ID de locatário da sua organização.
-2.  Comentar/remover marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto cred. Verifique se \<os valores de ID \<do aplicativo > e > chave de aplicativo são acessados de forma segura ou use a autenticação baseada em certificado para entidades de serviço.
+2.  Comentar/remover marca de comentário para que a classe ClientCredential seja usada para instanciar o objeto cred. Verifique se a ID de \<App > e os valores da chave \<App > são acessados de forma segura ou use a autenticação baseada em certificado para entidades de serviço.
 3.  Execute o exemplo.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Exemplos](analysis-services-samples.md)   
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

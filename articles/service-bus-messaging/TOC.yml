@@ -91,6 +91,8 @@
       href: service-bus-async-messaging.md
     - name: Lidar com interrupções e desastres
       href: service-bus-outages-disasters.md
+    - name: Limitação
+      href: service-bus-throttling.md
     - name: Segurança
       items:
         - name: Autenticação e autorização

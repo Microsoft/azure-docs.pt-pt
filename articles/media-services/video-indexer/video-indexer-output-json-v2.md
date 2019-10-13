@@ -1,54 +1,54 @@
 ---
-title: Examine a saída do indexador de vídeo dos serviços de multimédia do Azure produzida pela v2 API
+title: Examinar os serviços de mídia do Azure Video Indexer saída produzida pela API v2
 titlesuffix: Azure Media Services
-description: Este tópico examina a saída do indexador de vídeo produzida pela v2 API.
+description: Este tópico examina a saída Video Indexer produzida pela API v2.
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799072"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300923"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine a saída do indexador de vídeo produzida pela API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examinar a saída de Video Indexer produzida pela API
 
-Quando chama a **índice de vídeo de introdução** API e o estado de resposta está OK, obtém uma saída JSON detalhada como o conteúdo de resposta. O conteúdo JSON contém detalhes de informações de vídeo especificadas. As informações incluem dimensões, como: transcrições, OCRs, enfrenta, tópicos, blocos, etc. As dimensões tem instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
+Quando você chama a API **obter índice de vídeo** e o status da resposta é ok, você obtém uma saída JSON detalhada como o conteúdo da resposta. O conteúdo JSON contém detalhes das informações de vídeo especificadas. As informações incluem dimensões como: transcrições, OCRs, rostos, tópicos, blocos, etc. As dimensões têm instâncias de intervalos de tempo que mostram quando cada dimensão apareceu no vídeo.  
 
-Também visualmente pode examinar informações resumidas do vídeo ao premir o **reproduzir** botão no vídeo sobre o [Video Indexer](https://www.videoindexer.ai/) Web site. Para obter mais informações, consulte [ver e editar informações de vídeo](video-indexer-view-edit.md).
+Você também pode examinar visualmente as informações resumidas do vídeo pressionando o botão **reproduzir** no vídeo no site [Video indexer](https://www.videoindexer.ai/) . Para obter mais informações, consulte [Exibir e editar informações de vídeo](video-indexer-view-edit.md).
 
-![Informações](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
+![Insights](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Este artigo examina o conteúdo JSON devolvido pelos **índice de vídeo de introdução** API. 
+Este artigo examina o conteúdo JSON retornado pela API **obter índice de vídeo** . 
 
 > [!NOTE]
-> Expiração de todos os tokens de acesso no indexador de vídeo é uma hora.
+> A expiração de todos os tokens de acesso no Video Indexer é de uma hora.
 
 
-## <a name="root-elements"></a>Elementos de raiz
+## <a name="root-elements"></a>Elementos raiz
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|accountId|VI a lista de reprodução conta ID.|
-|id|ID de. a lista de reprodução|
-|name|Nome da lista de reprodução.|
-|description|Descrição da lista de reprodução.|
-|userName|O nome de utilizador que criou a lista de reprodução.|
-|Criado|Hora de criação da lista de reprodução.|
-|privacyMode|Modo de privacidade para a lista de reprodução (público/privado).|
-|state|A lista de reprodução (carregado, processamento, processados, com falhas, em quarentena).|
-|isOwned|Indica se a lista de reprodução foi criada pelo utilizador atual.|
-|isEditable|Indica se o utilizador atual tem autorização para editar a lista de reprodução.|
-|isBase|Indica se a lista de reprodução é uma lista de reprodução base (um vídeo) ou uma lista de reprodução é constituído por outros vídeos (derivados).|
-|durationInSeconds|A duração total da lista de reprodução.|
+|accountId|A ID da conta VI da playlist.|
+|ID|A ID da playlist.|
+|nome|O nome da playlist.|
+|descrição|A descrição da playlist.|
+|Usu|O nome do usuário que criou a lista de reprodução.|
+|criação|O tempo de criação da playlist.|
+|PrivacyMode|O modo de privacidade da playlist (privado/público).|
+|state|A lista de reprodução (carregada, processando, processada, com falha, em quarentena).|
+|Isdele|Indica se a playlist foi criada pelo usuário atual.|
+|iseditável|Indica se o usuário atual está autorizado a editar a lista de reprodução.|
+|IsBase|Indica se a playlist é uma lista de reprodução de base (um vídeo) ou uma lista de reprodução feita por outros vídeos (derivados).|
+|durationInSeconds|A duração total da playlist.|
 |summarizedInsights|Contém um [summarizedInsights](#summarizedinsights).
-|Vídeos|Uma lista de [vídeos](#videos) construir a lista de reprodução.<br/>Se esta lista de reprodução de construído de intervalos de tempo de outros vídeos (derivados), os vídeos nesta lista irá conter apenas os dados dos intervalos de tempo incluídos.|
+|Explica|Uma lista de [vídeos](#videos) que constroem a playlist.<br/>Se essa lista de reprodução for construída de intervalos de tempo de outros vídeos (derivados), os vídeos nessa listagem conterão apenas os dados dos intervalos de tempo incluídos.|
 
 ```json
 {
@@ -71,52 +71,52 @@ Este artigo examina o conteúdo JSON devolvido pelos **índice de vídeo de intr
 
 ## <a name="summarizedinsights"></a>summarizedInsights
 
-Esta secção mostra o resumo das informações.
+Esta seção mostra o resumo das informações.
 
 |Atributo | Descrição|
 |---|---|
-|name|O nome do vídeo. Por exemplo, o Azure Monitor.|
-|id|O ID do vídeo. Por exemplo, 63c6d532ff.|
-|privacyMode|Sua divisão pode ter um dos seguintes modos: **Privada**, **pública**. **Público** -o vídeo é visível para todas as pessoas na sua conta e qualquer pessoa que tenha uma ligação para o vídeo. **Privada** -o vídeo é visível para todas as pessoas na sua conta.|
-|Duração|Contém uma duração que descreve o tempo de que uma informação ocorreu. A duração é em segundos.|
-|thumbnailVideoId|O ID do vídeo a partir do qual foi tirada a miniatura.
-|thumbnailId|ID de miniatura do vídeo. Para obter a miniatura real, chame [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-lo thumbnailVideoId e thumbnailId.|
-|faces|Pode conter zero ou mais rostos. Para obter mais informações, consulte [rostos](#faces).|
-|palavras-chave|Pode conter zero ou mais palavras-chave. Para obter mais informações, consulte [palavras-chave](#keywords).|
-|sentimentos|Pode conter zero ou mais sentimentos. Para obter mais informações, consulte [sentimentos](#sentiments).|
-|audioEffects| Pode conter zero ou mais audioEffects. Para obter mais informações, consulte [audioEffects](#audioEffects).|
-|etiquetas| Pode conter zero ou mais etiquetas. Para obter mais informações, consulte [etiquetas](#labels).|
-|marcas| Pode conter zero ou mais marcas. Para obter mais informações, consulte [marcas](#brands).|
-|Estatísticas | Para obter mais informações, consulte [estatísticas](#statistics).|
-|emoções| Pode conter zero ou mais emoções. Para obter mais informações, consulte [emoções](#emotions).|
-|Tópicos|Pode conter zero ou mais tópicos. O [tópicos](#topics) dimensão.|
+|nome|O nome do vídeo. Por exemplo, Azure Monitor.|
+|ID|A ID do vídeo. Por exemplo, 63c6d532ff.|
+|PrivacyMode|Sua divisão pode ter um dos seguintes modos: **privado**, **público**. **Público** -o vídeo é visível para todos em sua conta e qualquer pessoa que tenha um link para o vídeo. **Particular** -o vídeo fica visível para todos em sua conta.|
+|Permanência|Contém uma duração que descreve a hora em que ocorreu uma Insight. A duração é em segundos.|
+|thumbnailVideoId|A ID do vídeo do qual a miniatura foi tirada.
+|miniaturaid|A ID da miniatura do vídeo. Para obter a miniatura real, chame [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passe-o thumbnailVideoId e thumbnailid.|
+|frente|Pode conter zero ou mais faces. Para obter informações mais detalhadas, consulte [faces](#faces).|
+|Palavras-chave|Pode conter zero ou mais palavras-chave. Para obter informações mais detalhadas, consulte [palavras-chave](#keywords).|
+|sentimentos|Pode conter zero ou mais sentimentos. Para obter informações mais detalhadas, consulte [sentimentos](#sentiments).|
+|audioEffects| Pode conter zero ou mais audioEffects. Para obter informações mais detalhadas, consulte [audioEffects](#audioEffects).|
+|las| Pode conter zero ou mais rótulos. Para obter mais informações, consulte [Rótulos](#labels).|
+|expandir| Pode conter zero ou mais marcas. Para obter informações mais detalhadas, consulte [marcas](#brands).|
+|estatística | Para obter informações mais detalhadas, consulte [estatísticas](#statistics).|
+|emoções| Pode conter zero ou mais emoções. Para obter informações mais detalhadas, consulte [emoções](#emotions).|
+|Tópicos|Pode conter zero ou mais tópicos. A dimensão de [Tópicos](#topics) .|
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>Explica
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|accountId|VI o vídeo conta ID.|
-|id|ID do vídeo|
-|name|Nome do vídeo.
-|state|Estado do vídeo (carregado, processamento, processados, com falhas, em quarentena).|
+|accountId|A ID da conta VI do vídeo.|
+|ID|A ID do vídeo.|
+|nome|O nome do vídeo.
+|state|O estado do vídeo (carregado, processando, processado, com falha, em quarentena).|
 |processingProgress|O progresso do processamento durante o processamento (por exemplo, 20%).|
-|failureCode|O código de falha se processou (por exemplo, "UnsupportedFileType').|
-|failureMessage|A mensagem de falha se não foi possível processar.|
-|externalId|ID externo o vídeo (se especificado pelo utilizador).|
-|externalUrl|Url externo o vídeo (se especificado pelo utilizador).|
-|do IdP|Os metadados do vídeo externo (se especificado pelo utilizador).|
-|isAdult|Indica se o vídeo foi revisado e identificado como um vídeo para adultos manualmente.|
-|Insights|O objeto de informações. Para obter mais informações, consulte [insights](#insights).|
-|thumbnailId|ID de miniatura do vídeo. Para obter a chamada real de miniatura [Get-miniatura](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e transmita-o ID de vídeo e thumbnailId.|
-|publishedUrl|Um url para transmitir o vídeo.|
-|publishedUrlProxy|Um url para transmitir o vídeo de (para dispositivos da Apple).|
-|viewToken|Um token de vista de resumo de duração para o vídeo de transmissão em fluxo.|
-|sourceLanguage|Idioma de origem do vídeo.|
-|language|Idioma da real do vídeo (tradução).|
-|indexingPreset|A configuração predefinida utilizada para o vídeo de índice.|
-|streamingPreset|A configuração predefinida utilizada para publicar o vídeo.|
-|linguisticModelId|O modelo CRIS utilizado de transcrever o vídeo.|
-|Estatísticas | Para obter mais informações, consulte [estatísticas](#statistics).|
+|failureCode|O código de falha se o processo não for processado (por exemplo, ' UnsupportedFileType ').|
+|failureMessage|A mensagem de falha se o processo não for processado.|
+|externalId|A ID externa do vídeo (se especificado pelo usuário).|
+|externalUrl|A URL externa do vídeo (se especificado pelo usuário).|
+|do IdP|Os metadados externos do vídeo (se especificados pelo usuário).|
+|isadulto|Indica se o vídeo foi revisado e identificado manualmente como um vídeo adulto.|
+|Insights|O objeto insights. Para obter mais informações, consulte [percepções](#insights).|
+|miniaturaid|A ID da miniatura do vídeo. Para obter a chamada de miniatura real [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passá-la para a ID de vídeo e thumbnailid.|
+|publishedUrl|Uma URL para transmitir o vídeo.|
+|publishedUrlProxy|Uma URL para transmitir o vídeo (para dispositivos Apple).|
+|viewToken|Um token de exibição de curta duração para transmitir o vídeo.|
+|sourceLanguage|O idioma de origem do vídeo.|
+|language|A linguagem real do vídeo (tradução).|
+|indexingPreset|A predefinição usada para indexar o vídeo.|
+|streamingPreset|A predefinição usada para publicar o vídeo.|
+|linguisticModelId|O modelo CRIS usado para transcrever o vídeo.|
+|estatística | Para obter mais informações, consulte [estatísticas](#statistics).|
 
 ```json
 {
@@ -145,28 +145,28 @@ Esta secção mostra o resumo das informações.
 ```
 ### <a name="insights"></a>Insights
 
-As informações são um conjunto de dimensões (por exemplo, linhas de transcrição, rostos, marcas, etc.), onde cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3), e cada elemento tem seus próprios metadados e uma lista das suas instâncias (que são os intervalos de tempo com opcional metadados adicionais).
+As informações são um conjunto de dimensões (por exemplo, linhas de transcrição, rostos, marcas, etc.), em que cada dimensão é uma lista de elementos exclusivos (por exemplo, face1, face2, face3) e cada elemento tem seus próprios metadados e uma lista de suas instâncias (que são intervalos de tempo com metadados opcionais adicionais).
 
-Um rosto pode ter um ID, um nome, uma miniatura, outros metadados e uma lista das suas instâncias temporais (por exemplo: 00: 00:05 – 00:00:10, 01: 00:00-00:02:30 e 00:41:21 – 00:41:49.) Cada instância temporal pode ter metadados adicionais. Por exemplo, o retângulo da face as coordenadas (20,230,60,60).
+Uma face pode ter uma ID, um nome, uma miniatura, outros metadados e uma lista de suas instâncias temporais (por exemplo: 00:00:05 – 00:00:10, 00:01:00-00:02:30 e 00:41:21 – 00:41:49). Cada instância temporal pode ter metadados adicionais. Por exemplo, as coordenadas de retângulo da face (20230, 60, 60).
 
-|Version|A versão de código|
+|Versão|A versão do código|
 |---|---|
-|sourceLanguage|Idioma de origem do vídeo (supondo que um idioma principal). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
-|language|O idioma de informações (traduzido do idioma de origem). Na forma de um [BCP 47](https://tools.ietf.org/html/bcp47) cadeia de caracteres.|
-|transcrição|O [transcrição](#transcript) dimensão.|
-|OCR|O [OCR](#ocr) dimensão.|
-|palavras-chave|O [palavras-chave](#keywords) dimensão.|
-|blocos|Pode conter um ou mais [blocos](#blocks)|
-|faces|O [rostos](#faces) dimensão.|
-|etiquetas|O [etiquetas](#labels) dimensão.|
-|capturas de|O [capturas](#shots) dimensão.|
-|marcas|O [marcas](#brands) dimensão.|
-|audioEffects|O [audioEffects](#audioEffects) dimensão.|
-|sentimentos|O [sentimentos](#sentiments) dimensão.|
-|visualContentModeration|O [visualContentModeration](#visualcontentmoderation) dimensão.|
-|textualContentModeration|O [textualContentModeration](#textualcontentmoderation) dimensão.|
-|emoções| O [emoções](#emotions) dimensão.|
-|Tópicos|O [tópicos](#topics) dimensão.|
+|sourceLanguage|O idioma de origem do vídeo (supondo um idioma mestre). Na forma de uma cadeia de caracteres [bcp-47](https://tools.ietf.org/html/bcp47) .|
+|language|A linguagem de informações (convertida do idioma de origem). Na forma de uma cadeia de caracteres [bcp-47](https://tools.ietf.org/html/bcp47) .|
+|transcriçõe|A dimensão de [transcrição](#transcript) .|
+|OCR|A dimensão de [OCR](#ocr) .|
+|Palavras-chave|A dimensão de [palavras-chave](#keywords) .|
+|Trava|Pode conter um ou mais [blocos](#blocks)|
+|frente|A dimensão [faces](#faces) .|
+|las|A dimensão de [Rótulos](#labels) .|
+|momentos|A dimensão de [capturas](#shots) .|
+|expandir|A dimensão de [marcas](#brands) .|
+|audioEffects|A dimensão [audioEffects](#audioEffects) .|
+|sentimentos|A dimensão de [opiniões](#sentiments) .|
+|visualContentModeration|A dimensão [visualContentModeration](#visualcontentmoderation) .|
+|textualContentModeration|A dimensão [textualContentModeration](#textualcontentmoderation) .|
+|emoções| A dimensão [emoções](#emotions) .|
+|Tópicos|A dimensão de [Tópicos](#topics) .|
 
 Exemplo:
 
@@ -189,21 +189,21 @@ Exemplo:
 }
 ```
 
-#### <a name="blocks"></a>blocos
+#### <a name="blocks"></a>Trava
 
 Atributo | Descrição
 ---|---
-id|ID do bloco.|
+ID|ID do bloco.|
 instâncias|Uma lista de intervalos de tempo deste bloco.|
 
-#### <a name="transcript"></a>transcrição
+#### <a name="transcript"></a>transcriçõe
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de linha.|
+|ID|A ID da linha.|
 |texto|A transcrição em si.|
-|language|O idioma de transcrição. A finalidade oferecer suporte a transcrição em que cada linha pode ter um idioma diferente.|
-|instâncias|Uma lista de intervalos de tempo em que esta linha apareceu. Se a instância de transcrição, ele terá apenas 1 instância.|
+|language|O idioma da transcrição. Destina-se a dar suporte à transcrição, em que cada linha pode ter um idioma diferente.|
+|instâncias|Uma lista de intervalos de tempo em que essa linha apareceu. Se a instância for transcrição, ela terá apenas uma instância.|
 
 Exemplo:
 
@@ -236,16 +236,16 @@ Exemplo:
 
 #### <a name="ocr"></a>OCR
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de linha de OCR.|
+|ID|A ID da linha de OCR.|
 |texto|O texto de OCR.|
-|confiança|A confiança de reconhecimento.|
-|language|O idioma de OCR.|
-|instâncias|Uma lista de intervalos de tempo em que este OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
-|Altura|A altura do retângulo OCR|
-|parte superior|A localização superior na px|
-|À esquerda| A localização do esquerda no px|
+|confidencial|A confiança do reconhecimento.|
+|language|O idioma do OCR.|
+|instâncias|Uma lista de intervalos de tempo em que esse OCR apareceu (o mesmo OCR pode aparecer várias vezes).|
+|Tamanho|A altura do retângulo OCR|
+|Início|O local principal em px|
+|mantida| O local à esquerda em px|
 |Largura|A largura do retângulo OCR|
 
 ```json
@@ -269,15 +269,15 @@ Exemplo:
   ],
 ```
 
-#### <a name="keywords"></a>palavras-chave
+#### <a name="keywords"></a>Palavras-chave
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de palavra-chave.|
-|texto|O texto de palavra-chave.|
-|confiança|Confiança de reconhecimento da palavra-chave.|
-|language|O idioma de palavra-chave (quando traduzido).|
-|instâncias|Uma lista de intervalos de tempo em que esta palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
+|ID|A ID da palavra-chave.|
+|texto|O texto da palavra-chave.|
+|confidencial|A confiança de reconhecimento da palavra-chave.|
+|language|O idioma da palavra-chave (quando traduzido).|
+|instâncias|Uma lista de intervalos de tempo em que essa palavra-chave apareceu (uma palavra-chave pode aparecer várias vezes).|
 
 ```json
 {
@@ -300,21 +300,21 @@ Exemplo:
 }
 ```
 
-#### <a name="faces"></a>faces
+#### <a name="faces"></a>frente
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID do rosto.|
-|name|O nome do mostrador da. Pode ser ' desconhecido n º 0, uma celebridade identificada ou uma pessoa de preparação do cliente.|
-|confiança|A confiança de identificação de face.|
-|description|Uma descrição da celebridade. |
-|thumbnailId|O ID da miniatura do que enfrentam.|
-|knownPersonId|Se se trata de uma pessoa conhecida, sua ID de interno.|
-|referenceId|Se for uma celebridade do Bing, o ID do Bing.|
+|ID|A ID da face.|
+|nome|O nome da face. Pode ser ' desconhecido #0, um celebridade identificado ou uma pessoa treinada pelo cliente.|
+|confidencial|A confiança da identificação facial.|
+|descrição|Uma descrição do celebridade. |
+|miniaturaid|A ID da miniatura dessa face.|
+|knownPersonId|Se for uma pessoa conhecida, sua ID interna.|
+|referenceId|Se for um Bing celebridade, sua ID do Bing.|
 |referenceType|Atualmente, apenas Bing.|
-|title|Se for uma celebridade, seu título (por exemplo "CEO da Microsoft").|
-|imageUrl|Se for uma celebridade, o seu url da imagem.|
-|instâncias|Estes são instâncias de onde o mostrador apareceu no intervalo de tempo especificado. Cada instância tem também um thumbnailsId. |
+|título|Se for um celebridade, seu título (por exemplo, "CEO da Microsoft").|
+|imageUrl|Se for um celebridade, sua URL de imagem.|
+|instâncias|Essas são instâncias de onde a aparência apareceu no intervalo de tempo determinado. Cada instância também tem um thumbnailsId. |
 
 ```json
 "faces": [{
@@ -345,14 +345,14 @@ Exemplo:
 }]
 ```
 
-#### <a name="labels"></a>etiquetas
+#### <a name="labels"></a>las
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID da etiqueta.|
-|name|O nome de etiqueta (por exemplo, "Computador", "Programas de TV").|
-|language|Idioma de nome etiqueta (quando traduzido). BCP-47|
-|instâncias|Uma lista de intervalos de tempo em que esta etiqueta apareceu (uma etiqueta pode aparecer várias vezes). Cada instância tem um campo de confiança. |
+|ID|A ID do rótulo.|
+|nome|O nome do rótulo (por exemplo, ' computador ', ' TV ').|
+|language|O nome do rótulo Language (quando traduzido). BCP-47|
+|instâncias|Uma lista de intervalos de tempo em que esse rótulo apareceu (um rótulo pode aparecer várias vezes). Cada instância tem um campo de confiança. |
 
 
 ```json
@@ -404,12 +404,12 @@ Exemplo:
   ] 
 ```
 
-#### <a name="scenes"></a>nos bastidores
+#### <a name="scenes"></a>cenas
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID da cena.|
-|instâncias|Uma lista de intervalos de tempo dessa cena (uma cena só pode ter 1 instância).|
+|ID|A ID da cena.|
+|instâncias|Uma lista de intervalos de tempo desta cena (uma cena só pode ter 1 instância).|
 
 ```json
 "scenes":[  
@@ -437,13 +437,13 @@ Exemplo:
 ]
 ```
 
-#### <a name="shots"></a>capturas de
+#### <a name="shots"></a>momentos
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de captura.|
-|keyFrames|Uma lista de quadros-chave dentro da captura (cada um tem um ID e uma lista de intervalos de tempo de instâncias). Cada instância de quadro-chave tem um campo de thumbnailId, que contém a miniatura do quadro-chave ID.|
-|instâncias|Uma lista de intervalos de tempo desta captura (uma captura só pode ter 1 instância).|
+|ID|A ID da captura.|
+|Quadros-chave|Uma lista de quadros-chave dentro da captura (cada um tem uma ID e uma lista de instâncias de intervalos de tempo). Cada instância de quadro-chave tem um campo de miniaturaid, que contém a ID de miniatura do quadro-chave.|
+|instâncias|Uma lista de intervalos de tempo desta captura (uma captura pode ter apenas 1 instância).|
 
 ```json
 "shots":[  
@@ -485,20 +485,20 @@ Exemplo:
 ]
 ```
 
-#### <a name="brands"></a>marcas
+#### <a name="brands"></a>expandir
 
-Negócios e produto nomes de marca detetados na conversão de voz a transcrição de texto e/ou OCR de vídeo. Não inclui reconhecimento visual de marcas ou deteção de logótipo.
+Nomes de marca comercial e de produto detectados na transcrição de fala para texto e/ou OCR de vídeo. Isso não inclui reconhecimento visual de marcas ou detecção de logotipo.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID da marca.|
-|name|O nome de marcas.|
-|referenceId | O sufixo do url da wikipédia marca. Por exemplo, "Target_Corporation" é o sufixo de [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
-|referenceUrl | A marca do url da Wikipédia, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|A descrição de marcas.|
-|tags|Uma lista de etiquetas predefinidas que foram associados essa marca.|
-|confiança|O valor de confiança do detetor de marca do Video Indexer (0-1).|
-|instâncias|Uma lista de intervalos de tempo desta marca. Cada instância possui um brandType, que indica se esta marca apareceu na transcrição ou no OCR.|
+|ID|A ID da marca.|
+|nome|O nome das marcas.|
+|referenceId | O sufixo da URL da wikipedia da marca. Por exemplo, "Target_Corporation" é o sufixo de [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | A URL da Wikipédia da marca, se existir. Por exemplo, [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|descrição|A descrição das marcas.|
+|etiquetas|Uma lista de marcas predefinidas que foram associadas a essa marca.|
+|confidencial|O valor de confiança do detector de marca de Video Indexer (0-1).|
+|instâncias|Uma lista de intervalos de tempo desta marca. Cada instância tem um brandtype, que indica se essa marca apareceu na transcrição ou no OCR.|
 
 ```json
 "brands": [
@@ -546,23 +546,23 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 ]
 ```
 
-#### <a name="statistics"></a>Estatísticas
+#### <a name="statistics"></a>estatística
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
 |CorrespondenceCount|Número de correspondências no vídeo.|
 |SpeakerWordCount|O número de palavras por orador.|
-|SpeakerNumberOfFragments|A quantidade de fragmentos o orador tem um vídeo.|
-|SpeakerLongestMonolog|Monolog de mais longo do orador. Se o orador tiver silences dentro o monolog está incluído. Silence, no início e fim do monolog é removido.| 
-|SpeakerTalkToListenRatio|O cálculo baseia-se o tempo gasto em monolog do orador (sem o silence entre) dividido pelo tempo total do vídeo. A hora é arredondada para o terceiro ponto decimal.|
+|SpeakerNumberOfFragments|A quantidade de fragmentos que o orador tem em um vídeo.|
+|SpeakerLongestMonolog|A monolog mais longa do orador. Se o orador tiver silêncios dentro do monolog, ele será incluído. Silêncio no início e o fim do monolog são removidos.| 
+|SpeakerTalkToListenRatio|O cálculo é baseado no tempo gasto no monolog do orador (sem o silêncio entre eles) dividido pelo tempo total do vídeo. O tempo é arredondado para o terceiro ponto decimal.|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID do efeito de áudio.|
-|type|O tipo de efeito de áudio (por exemplo, Clapping, conversão de voz, silêncio).|
-|instâncias|Uma lista de intervalos de tempo em que esse efeito de áudio apareceu.|
+|ID|A ID do efeito de áudio.|
+|tipo|O tipo de efeito de áudio (por exemplo, Clapping, fala, silêncio).|
+|instâncias|Uma lista de intervalos de tempo onde esse efeito de áudio apareceu.|
 
 ```json
 "audioEffects": [
@@ -585,14 +585,14 @@ Negócios e produto nomes de marca detetados na conversão de voz a transcriçã
 
 #### <a name="sentiments"></a>sentimentos
 
-Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/negativo). Por exemplo, 0-0.1, 0,1 0,2.
+As opiniões são agregadas por seu campo Atfield (positivo/neutro/negativo). Por exemplo, 0-0,1, 0,1-0.2.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de sentimentos.|
-|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimento - positivo/neutra/negativo|
-|instâncias|Uma lista de intervalos de tempo em que esse sentimento apareceu.|
-|sentimentType |O tipo pode ser "Neutral", 'Positivo' ou 'Negativo'.|
+|ID|A ID de sentimentos.|
+|averageScore |A média de todas as pontuações de todas as instâncias desse tipo de sentimentos-positivo/neutro/negativo|
+|instâncias|Uma lista de intervalos de tempo em que esse sentimentos apareceu.|
+|Resentitype |O tipo pode ser ' positivo ', ' neutro ' ou ' negativo '.|
 
 ```json
 "sentiments": [
@@ -622,16 +622,16 @@ Sentimentos são agregados pelo respetivo campo sentimentType (positivo/neutra/n
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-O bloco de visualContentModeration contém intervalos de tempo que o indexador de vídeo encontrado potencialmente ter conteúdo para adultos. Se visualContentModeration estiver vazio, não há nenhum conteúdo para adultos que foi identificado.
+O bloco visualContentModeration contém intervalos de tempo que Video Indexer encontrados para potencialmente ter conteúdo adulto. Se visualContentModeration estiver vazio, não haverá nenhum conteúdo adulto identificado.
 
-Vídeos que encontram-se para conter o conteúdo de adultos poderão estar disponíveis para ver privada apenas. Os utilizadores têm a opção para submeter um pedido para uma revisão de segurança do conteúdo, em que, caso o atributo IsAdult irá conter o resultado da revisão humana.
+Vídeos que são encontrados para conter conteúdo adulto ou erótico podem estar disponíveis somente para exibição particular. Os usuários têm a opção de enviar uma solicitação para uma revisão humana do conteúdo; nesse caso, o atributo isadulto conterá o resultado da revisão humana.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de moderação de conteúdos visual.|
-|adultScore|Como sendo para adultos (a partir do moderador de conteúdo).|
-|racyScore|O classificado como indecoroso (a partir de moderação de conteúdos).|
-|instâncias|Uma lista de intervalos de tempo em que este moderação de conteúdos visual apareceu.|
+|ID|A ID de moderação do conteúdo visual.|
+|adultScore|A pontuação de adulto (do Content moderator).|
+|racyScore|A pontuação de erótico (da moderação de conteúdo).|
+|instâncias|Uma lista de intervalos de tempo onde essa moderação de conteúdo Visual apareceu.|
 
 ```json
 "VisualContentModeration": [
@@ -662,21 +662,21 @@ Vídeos que encontram-se para conter o conteúdo de adultos poderão estar dispo
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de moderação de conteúdo textual.|
-|bannedWordsCount |O número de palavras excluídas.|
-|bannedWordsRatio |O rácio do número total de palavras.|
+|ID|A ID de moderação do conteúdo textual.|
+|bannedWordsCount |O número de palavras banidas.|
+|bannedWordsRatio |A taxa do número total de palavras.|
 
 #### <a name="emotions"></a>emoções
 
-O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emoções identificadas poderiam ser: alegria, tristeza, raiva ou medo.
+Video Indexer identifica emoções com base em indicações de fala e áudio. A emoção identificada poderia ser: Joy, tristeza, raiva ou medo.
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de emoções.|
-|type|O momento de emoções que foi identificado com base em conversão de voz e áudio. As emoções podem ser alegria, tristeza, raiva ou medo.|
-|instâncias|Uma lista de intervalos de tempo em que este emoções apareceram.|
+|ID|A ID de emoção.|
+|tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
+|instâncias|Uma lista de intervalos de tempo onde essa emoção apareceu.|
 
 ```json
 "emotions": [{
@@ -760,17 +760,17 @@ O Video Indexer identifica emoções com base nas ajudas de voz e áudio. As emo
 
 #### <a name="topics"></a>Tópicos
 
-O Video Indexer torna a inferência de tipos de tópicos principais de transcrições. Sempre que possível, o nível de dia 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomia está incluída. 
+Video Indexer faz inferência de tópicos principais de transcrições. Quando possível, a taxonomia [IPTC](https://iptc.org/standards/media-topics/) de 2º nível é incluída. 
 
-|Name|Descrição|
+|Nome|Descrição|
 |---|---|
-|id|O ID de tópico.|
-|name|O nome do tópico, por exemplo: "Farmacêutica".|
-|referenceId|A estrutura de ligações que reflete a hierarquia de tópicos. Por exemplo: "Estado de funcionamento e wellbeing / medicina e saúde / farmacêutica".|
-|confiança|A pontuação de confiança no intervalo [0,1]. Superior é mais confiança.|
+|ID|A ID do tópico.|
+|nome|O nome do tópico, por exemplo: "farmacêuticos".|
+|referenceId|Trilhas que refletem a hierarquia de tópicos. Por exemplo: "saúde e wellbeing/medicina e saúde/farmacêuticos".|
+|confidencial|A pontuação de confiança no intervalo [0, 1]. Mais alta é mais confiável.|
 |language|O idioma usado no tópico.|
-|iptcName|O suporte de dados IPTC nome, de código detetada.|
-|instâncias |Atualmente, o indexador de vídeos não indexa um tópico para intervalos de tempo, para que o vídeo inteiro é utilizado como o intervalo.|
+|iptcname|O nome do código de mídia IPTC, se detectado.|
+|instâncias |Atualmente, Video Indexer não indexa um tópico para intervalos de tempo, de modo que o vídeo inteiro é usado como o intervalo.|
 
 ```json
 "topics": [{
@@ -803,9 +803,9 @@ O Video Indexer torna a inferência de tipos de tópicos principais de transcri�
 . . .
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Portal de programador do indexador de vídeos](https://api-portal.videoindexer.ai)
+[Video Indexer portal do desenvolvedor](https://api-portal.videoindexer.ai)
 
-Para obter informações sobre como incorporar widgets na sua aplicação, consulte [widgets de incorporar o Video Indexer nas suas aplicações](video-indexer-embed-widgets.md). 
+Para obter informações sobre como inserir widgets em seu aplicativo, consulte [inserir Video indexer widgets em seus aplicativos](video-indexer-embed-widgets.md). 
 

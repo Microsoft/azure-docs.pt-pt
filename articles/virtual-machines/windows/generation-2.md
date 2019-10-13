@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173807"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300630"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
@@ -62,7 +62,7 @@ As VMs de geração 2 dão suporte às seguintes imagens do Marketplace:
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 
-## <a name="on-premises-vs-azure-generation-2-vms"></a>Local vs. VMs do Azure geração 2
+## <a name="on-premises-vs-azure-generation-2-vms"></a>VMs locais vs. Azure geração 2
 
 Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local dá suporte para VMs de geração 2.
 
@@ -86,14 +86,14 @@ Atualmente, o Azure não dá suporte a alguns dos recursos que o Hyper-V local d
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Recursos de geração 1 versus geração 2
 
-| Funcionalidade | Geração 1 | Geração 2 |
+| Capacidade | Geração 1 | Geração 2 |
 |------------|--------------|--------------|
 | Disco do sistema operacional > 2 TB                    | w.x.y.                | :heavy_check_mark: |
 | Disco personalizado/imagem/sistema operacional de permuta         | :heavy_check_mark: | :heavy_check_mark: |
 | Suporte ao conjunto de dimensionamento de máquinas virtuais | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | w.x.y.                |
+| Recuperação de Site do Azure               | :heavy_check_mark: | w.x.y.                |
 | Backup/restauração                    | :heavy_check_mark: | :heavy_check_mark: |
-| Galeria de imagens partilhadas              | :heavy_check_mark: | w.x.y.                |
+| Galeria de imagens compartilhadas              | :heavy_check_mark: | :heavy_check_mark: |
 | Criptografia de disco do Azure             | :heavy_check_mark: | w.x.y.                |
 
 ## <a name="creating-a-generation-2-vm"></a>Criando uma VM de geração 2
@@ -111,7 +111,7 @@ Atualmente, as SKUs a seguir oferecem suporte a imagens de geração 1 e geraç�
 * Windows Server 2012
 * Windows Server 2012 R2
 * Windows Server 2016
-* Windows Server de 2019
+* Windows Server 2019
 
 Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avançado** , há uma opção para criar uma VM **Gen 1** (BIOS) ou **Gen 2** (UEFI). Se você selecionar **Gen 2**, verifique se o tamanho da VM selecionado na guia **noções básicas** tem [suporte para VMs de geração 2](#generation-2-vm-sizes).
 
@@ -121,7 +121,7 @@ Quando você seleciona uma SKU do Windows Server como a oferta, na guia **avanç
 
 Você também pode usar o PowerShell para criar uma VM referenciando diretamente a SKU de geração 1 ou geração 2.
 
-Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na `WindowsServer` oferta.
+Por exemplo, use o seguinte cmdlet do PowerShell para obter uma lista das SKUs na oferta `WindowsServer`.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer

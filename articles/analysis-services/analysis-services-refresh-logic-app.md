@@ -2,17 +2,16 @@
 title: Atualizar com aplicativos lógicos para modelos de Azure Analysis Services | Microsoft Docs
 description: Saiba como codificar a atualização assíncrona usando aplicativos lógicos do Azure.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 2234a2c6cd42be45a2b2e7784c1dd5aec8839cb9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: acf31bf3e7e8c3a0835640dee36f8435a1eba625
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311742"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294611"
 ---
 # <a name="refresh-with-logic-apps"></a>Atualizar com o Logic Apps
 
@@ -20,7 +19,7 @@ Usando aplicativos lógicos e chamadas REST, você pode executar operações aut
 
 Para saber mais sobre como usar as APIs REST com Azure Analysis Services, consulte [atualização assíncrona com a API REST](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autenticação
 
 Todas as chamadas devem ser autenticadas com um token de Azure Active Directory (OAuth 2) válido.  Os exemplos neste artigo usarão uma entidade de serviço (SPN) para autenticar para Azure Analysis Services. Para saber mais, confira [criar uma entidade de serviço usando portal do Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -63,17 +62,17 @@ Esta etapa será preenchida com a URL HTTP POST quando o aplicativo lógico for 
 
 Configure a atividade HTTP da seguinte maneira:
 
-|Propriedade  |Value  |
+|Propriedade  |Valor  |
 |---------|---------|
-|**Método**     |POST         |
-|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https:\//westus.asazure.Windows.net/servers/MyServer/Models/AdventureWorks/refreshes|
-|**Headers** (Cabeçalhos)     |   Content-Type, application/json <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
+|**Método**     |Postar         |
+|**URI**     | https://*sua região do servidor*/Servers/*AAS nome do servidor*/Models/*nome do seu banco de dados*/refreshes <br /> <br /> Por exemplo: https: \//westus. asazure. Windows. net/servers/meuservidor/Models/AdventureWorks/atualizações|
+|**Headers** (Cabeçalhos)     |   Tipo de conteúdo, aplicativo/JSON <br /> <br />  ![Cabeçalhos](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Corpo**     |   Para saber mais sobre como formar o corpo da solicitação, consulte [atualização assíncrona com a API REST – post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autenticação**     |Active Directory OAuth         |
 |**Vários**     |Preencha seu Azure Active Directory Tenantid         |
-|**Platéia**     |https://*.asazure.windows.net         |
+|**Platéia**     |https://*. asazure. Windows. net         |
 |**ID do cliente**     |Insira o nome da entidade de serviço ClientID         |
-|**Tipo de credencial**     |Secret         |
+|**Tipo de credencial**     |Segredo         |
 |**Segredo**     |Insira o segredo do nome da entidade de serviço         |
 
 Exemplo:
@@ -102,7 +101,7 @@ Usando o exemplo acima, exclua a primeira atividade e substitua-a por uma ativid
 
 ![Atividade de agendamento](./media/analysis-services-async-refresh-logic-app/13.png)
 
-Este exemplo usará a recorrência.
+Este exemplo usará a **recorrência**.
 
 Depois que a atividade tiver sido adicionada, configure o intervalo e a frequência e, em seguida, adicione um novo parâmetro e escolha **essas horas**.
 
@@ -114,7 +113,7 @@ Selecione as horas desejadas.
 
 Salve o aplicativo lógico.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Amostras](analysis-services-samples.md)  
-[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)

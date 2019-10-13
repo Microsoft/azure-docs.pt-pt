@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
-ms.openlocfilehash: b53bb0f04bf6a739b588b14febd622f6bf7a6a63
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354892"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286649"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo AMQP
 
@@ -26,12 +26,12 @@ Para se conectar a um hub IoT usando o AMQP, um cliente pode usar a autenticaç�
 
 As informações a seguir são necessárias para o cliente de serviço:
 
-| Information | Value |
+| Proteção das | Valor |
 |-------------|--------------|
 | Nome de host do Hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Nome da chave | `service` |
 | Chave de acesso | Uma chave primária ou secundária associada ao serviço |
-| Assinatura de acesso partilhado | Uma assinatura de acesso compartilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar essa assinatura, consulte [controlar o acesso ao Hub IOT](./iot-hub-devguide-security.md#security-token-structure).
+| Assinatura de acesso compartilhado | Uma assinatura de acesso compartilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar essa assinatura, consulte [controlar o acesso ao Hub IOT](./iot-hub-devguide-security.md#security-token-structure).
 
 O trecho de código a seguir usa a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python) para se conectar a um hub IOT por meio de um link de remetente.
 
@@ -65,9 +65,9 @@ receive_client = uamqp.ReceiveClient(uri, debug=True)
 
 Para saber mais sobre a troca de mensagens da nuvem para o dispositivo entre o serviço e o Hub IoT e entre o dispositivo e o Hub IoT, consulte [enviar mensagens da nuvem para o dispositivo do Hub IOT](iot-hub-devguide-messages-c2d.md). O cliente de serviço usa dois links para enviar mensagens e receber comentários para mensagens enviadas anteriormente de dispositivos, conforme descrito na tabela a seguir:
 
-| Criado por | Tipo de ligação | Caminho do link | Descrição |
+| Criado por | Tipo de link | Caminho do link | Descrição |
 |------------|-----------|-----------|-------------|
-| Serviço | Link do remetente | `/messages/devicebound` | As mensagens da nuvem para o dispositivo que são destinadas a dispositivos são enviadas para esse link pelo serviço. As mensagens enviadas por esse link têm `To` sua propriedade definida como o caminho do link do destinatário do `/devices/<deviceID>/messages/devicebound`dispositivo de destino,. |
+| Serviço | Link do remetente | `/messages/devicebound` | As mensagens da nuvem para o dispositivo que são destinadas a dispositivos são enviadas para esse link pelo serviço. As mensagens enviadas por esse link têm sua propriedade `To` definida como o caminho do link do receptor do dispositivo de destino, `/devices/<deviceID>/messages/devicebound`. |
 | Serviço | Link do destinatário | `/messages/serviceBound/feedback` | As mensagens de comentários de conclusão, rejeição e abandono provenientes de dispositivos recebidos neste link pelo serviço. Para obter mais informações sobre mensagens de comentários, consulte [enviar mensagens da nuvem para o dispositivo de um hub IOT](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 O trecho de código a seguir demonstra como criar uma mensagem da nuvem para o dispositivo e enviá-la para um dispositivo usando a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python).
@@ -128,11 +128,11 @@ for msg in batch:
 
 Conforme mostrado no código anterior, uma mensagem de comentários da nuvem para o dispositivo tem um tipo de conteúdo de *application/vnd. Microsoft. iothub. feedback. JSON*. Você pode usar as propriedades no corpo JSON da mensagem para inferir o status de entrega da mensagem original:
 
-* A `statusCode` chave no corpo de comentários tem um dos seguintes valores: *Êxito*, *expirado*, *DeliveryCountExceeded*, *rejeitado*ou *limpo*.
+* A chave `statusCode` no corpo de comentários tem um dos seguintes valores: *êxito*, *expirado*, *DeliveryCountExceeded*, *rejeitado*ou *limpo*.
 
-* A `deviceId` chave no corpo de comentários tem a ID do dispositivo de destino.
+* A chave `deviceId` no corpo de comentários tem a ID do dispositivo de destino.
 
-* A `originalMessageId` chave no corpo de comentários tem a ID da mensagem original da nuvem para o dispositivo enviada pelo serviço. Você pode usar esse status de entrega para correlacionar os comentários às mensagens da nuvem para o dispositivo.
+* A chave `originalMessageId` no corpo de comentários tem a ID da mensagem original da nuvem para o dispositivo enviada pelo serviço. Você pode usar esse status de entrega para correlacionar os comentários às mensagens da nuvem para o dispositivo.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Receber mensagens de telemetria (cliente de serviço)
 
@@ -144,7 +144,7 @@ Em cada etapa, o cliente precisa apresentar as seguintes informações:
 
 * Credenciais de serviço válidas (token de assinatura de acesso compartilhado do serviço).
 
-* Um caminho bem formatado para a partição do grupo de consumidores da qual ele pretende recuperar mensagens. Para um determinado grupo de consumidores e ID de partição, o caminho tem o seguinte `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` formato: (o grupo de `$Default`consumidores padrão é).
+* Um caminho bem formatado para a partição do grupo de consumidores da qual ele pretende recuperar mensagens. Para um determinado grupo de consumidores e ID de partição, o caminho tem o seguinte formato: `/messages/events/ConsumerGroups/<consumer_group>/Partitions/<partition_id>` (o grupo de consumidores padrão é `$Default`).
 
 * Um predicado de filtragem opcional para designar um ponto de partida na partição. Esse predicado pode estar na forma de um número de sequência, deslocamento ou carimbo de data/hora enfileirado.
 
@@ -222,11 +222,11 @@ Para se conectar a um hub IoT usando o AMQP, um dispositivo pode usar a autentic
 
 As informações a seguir são necessárias para o cliente do dispositivo:
 
-| Information | Valor |
+| Proteção das | Valor |
 |-------------|--------------|
 | Nome de host do Hub IoT | `<iot-hub-name>.azure-devices.net` |
 | Chave de acesso | Uma chave primária ou secundária associada ao dispositivo |
-| Assinatura de acesso partilhado | Uma assinatura de acesso compartilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar essa assinatura, consulte [controlar o acesso ao Hub IOT](./iot-hub-devguide-security.md#security-token-structure).
+| Assinatura de acesso compartilhado | Uma assinatura de acesso compartilhado de curta duração no seguinte formato: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. Para obter o código para gerar essa assinatura, consulte [controlar o acesso ao Hub IOT](./iot-hub-devguide-security.md#security-token-structure).
 
 O trecho de código a seguir usa a [biblioteca uAMQP no Python](https://github.com/Azure/azure-uamqp-python) para se conectar a um hub IOT por meio de um link de remetente.
 
@@ -259,15 +259,15 @@ send_client = uamqp.SendClient(uri, debug=True)
 
 Os caminhos de link a seguir têm suporte como operações de dispositivo:
 
-| Criado por | Tipo de ligação | Caminho do link | Descrição |
+| Criado por | Tipo de link | Caminho do link | Descrição |
 |------------|-----------|-----------|-------------|
 | Dispositivos | Link do destinatário | `/devices/<deviceID>/messages/devicebound` | As mensagens da nuvem para o dispositivo que são destinadas a dispositivos são recebidas neste link por cada dispositivo de destino. |
-| Dispositivos | Link do remetente | `/devices/<deviceID>messages/events` | As mensagens do dispositivo para a nuvem enviadas de um dispositivo são enviadas por esse link. |
+| Dispositivos | Link do remetente | `/devices/<deviceID>/messages/events` | As mensagens do dispositivo para a nuvem enviadas de um dispositivo são enviadas por esse link. |
 | Dispositivos | Link do remetente | `/messages/serviceBound/feedback` | Comentários de mensagem da nuvem para o dispositivo enviados ao serviço por meio desse link pelos dispositivos. |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Receber comandos da nuvem para o dispositivo (cliente do dispositivo)
 
-Os comandos da nuvem para o dispositivo enviados aos dispositivos chegam em um `/devices/<deviceID>/messages/devicebound` link. Os dispositivos podem receber essas mensagens em lotes e usar a carga de dados da mensagem, as propriedades da mensagem, as anotações ou as propriedades do aplicativo na mensagem, conforme necessário.
+Os comandos da nuvem para o dispositivo enviados aos dispositivos chegam em um link `/devices/<deviceID>/messages/devicebound`. Os dispositivos podem receber essas mensagens em lotes e usar a carga de dados da mensagem, as propriedades da mensagem, as anotações ou as propriedades do aplicativo na mensagem, conforme necessário.
 
 O trecho de código a seguir usa a [biblioteca uAMQP em Python](https://github.com/Azure/azure-uamqp-python)) para receber mensagens da nuvem para o dispositivo por um dispositivo.
 
@@ -366,7 +366,7 @@ for result in results:
 
 * O cliente deve, ocasionalmente, ser capaz de lidar com redirecionamentos de link corretamente. Para entender essa operação, consulte a documentação do cliente do AMQP.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o protocolo AMQP, consulte a [especificação AMQP v 1.0](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 

@@ -6,15 +6,15 @@ keywords: codificação; codificadores; mídia
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/08/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934934"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300939"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Codificadores de transmissão ao vivo recomendados
 
@@ -31,12 +31,13 @@ Para obter informações detalhadas sobre a codificação ativa com os serviços
 
 ## <a name="live-encoders-that-output-rtmp"></a>Codificadores ao vivo que produzem RTMP
 
-Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os esquemas de URL com `rtmp://` suporte `rtmps://`são ou.
+Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto seguintes que têm RTMP como saída. Os esquemas de URL com suporte são `rtmp://` ou `rtmps://`.
 
 > [!NOTE]
 > Ao transmitir em fluxo através de RTMP, verifique as definições da firewall e/ou do proxy, para confirmar que as portas TCP de saída 1935 e 1936 estão abertas.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
@@ -51,7 +52,7 @@ Os Serviços de Multimédia recomendam utilizar um dos codificadores em direto s
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Codificadores ao vivo que geram MP4 fragmentado
 
-Os serviços de mídia recomendam o uso de um dos seguintes codificadores ao vivo com várias taxas de bits Smooth Streaming (MP4 fragmentado) como saída. Os esquemas de URL com `http://` suporte `https://`são ou.
+Os serviços de mídia recomendam o uso de um dos seguintes codificadores ao vivo com várias taxas de bits Smooth Streaming (MP4 fragmentado) como saída. Os esquemas de URL com suporte são `http://` ou `https://`.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
@@ -73,9 +74,9 @@ Para reproduzir o conteúdo, um fluxo de áudio e de vídeo deve estar presente.
 
 ### <a name="configuration-tips"></a>Dicas de configuração
 
-- Sempre que possível, utilize uma ligação de internet conectada.
+- Sempre que possível, use uma conexão de Internet conectada.
 - Ao determinar os requisitos de largura de banda, clique duas vezes nas taxas de bits de streaming. Embora não seja obrigatório, essa simples regra ajuda a reduzir o impacto do congestionamento da rede.
-- Quando utilizar codificadores baseada em software, feche todos os programas desnecessários.
+- Ao usar codificadores baseados em software, feche todos os programas desnecessários.
 - Alterar a configuração do codificador depois de começar a enviar por push tem efeitos negativos sobre o evento. As alterações de configuração podem fazer com que o evento se torne instável. 
 - Certifique-se de que você tenha bastante tempo para configurar seu evento. Para eventos de alta escala, é recomendável iniciar a configuração uma hora antes do evento.
 
@@ -127,7 +128,7 @@ Siga as mesmas etapas da [verificação de eventos ao vivo de passagem](#pass-th
 
 ### <a name="email-your-recorded-settings"></a>Enviar por email suas configurações gravadas
 
-Por fim, envie por email suas configurações gravadas e os parâmetros de arquivamento dinâmico para os serviços de mídia do Azure em amshelp@microsoft.com uma notificação de que todas as verificações de Autoverificação passaram. Além disso, inclua suas informações de contato para qualquer acompanhamento. Você pode entrar em contato com a equipe dos serviços de mídia do Azure com perguntas sobre esse processo.
+Por fim, envie por email suas configurações gravadas e os parâmetros de arquivamento dinâmico para os serviços de mídia do Azure em amshelp@microsoft.com como uma notificação de que todas as verificações de verificação automática passaram. Além disso, inclua suas informações de contato para qualquer acompanhamento. Você pode entrar em contato com a equipe dos serviços de mídia do Azure com perguntas sobre esse processo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -14,21 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 891eade6aaaf8db9813566d10cdceed113560dc7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 223a5a5b77ded9eb26a5cf3f0003bc9d393615db
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091883"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300856"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Instalar o MySQL numa máquina virtual com o OpenSUSE Linux no Azure
 
 O [MySQL](https://www.mysql.com) é um popular banco de dados SQL de software livre. Este tutorial mostra como criar uma máquina virtual executando o OpenSUSE Linux e, em seguida, instalar o MySQL.
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e usar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-virtual-machine-running-opensuse-linux"></a>Criar uma máquina virtual executando o OpenSUSE Linux
 
@@ -104,7 +102,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>Senha do MySQL
 
-Após a instalação, a senha raiz do MySQL fica vazia por padrão. Execute o script de **\_instalação segura\_do MySQL** para proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas de usuário anônimos, desabilite a entrada raiz remota, remova os bancos de dados de teste e recarregue a tabela de privilégios. 
+Após a instalação, a senha raiz do MySQL fica vazia por padrão. Execute o script **MySQL @ no__t-1secure @ no__t-2installation** para proteger o MySQL. O script solicita que você altere a senha raiz do MySQL, remova as contas de usuário anônimos, desabilite a entrada raiz remota, remova os bancos de dados de teste e recarregue a tabela de privilégios. 
 
 Depois que o servidor for reinicializado, use o ssh para a VM novamente.
 
@@ -139,7 +137,7 @@ O ponto-e-vírgula (;) no final da linha, é crucial para encerrar o comando.
 ## <a name="create-a-database"></a>Criar uma base de dados
 
 
-Crie um banco de dados e `mysqluser` conceda as permissões de usuário.
+Crie um banco de dados e conceda as permissões de usuário `mysqluser`.
 
 ```sql
 CREATE DATABASE testdatabase;
@@ -161,7 +159,7 @@ quit
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter detalhes sobre o MySQL, consulte a [documentação do MySQL](https://dev.mysql.com/doc).
 
 

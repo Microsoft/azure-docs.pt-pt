@@ -2,18 +2,17 @@
 title: Automatizar tarefas de Azure Analysis Services com entidades de serviço | Microsoft Docs
 description: Saiba como criar entidades de serviço para automatizar tarefas de Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347966"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294576"
 ---
 # <a name="automation-with-service-principals"></a>Automatização com principais de serviço
 
@@ -49,9 +48,9 @@ A appID de entidade de serviço e a senha ou o certificado podem ser usados em c
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Usando o módulo AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>módulo <a name="azmodule" />Using AZ. AnalysisServices
 
-Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use `Connect-AzAccount` o cmdlet. 
+Ao usar uma entidade de serviço para operações de gerenciamento de recursos com o módulo [AZ. AnalysisServices](/powershell/module/az.analysisservices) , use o cmdlet `Connect-AzAccount`. 
 
 No exemplo a seguir, appID e uma senha são usados para executar operações de plano de controle para sincronização para réplicas somente leitura e escala vertical/horizontal:
 
@@ -93,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO e ADOMD 
 
-Ao se conectar com aplicativos cliente e aplicativos Web, as [bibliotecas de cliente amo e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instaláveis mais altos do NuGet dão suporte a entidades de serviço em cadeias de conexão usando a seguinte sintaxe: `app:AppID` e senha ou `cert:thumbprint`. 
+Ao se conectar com aplicativos cliente e aplicativos Web, as [bibliotecas de cliente amo e ADOMD](analysis-services-data-providers.md) versão 15.0.2 e pacotes instaláveis mais altos do NuGet dão suporte a entidades de serviço em cadeias de conexão usando a seguinte sintaxe: `app:AppID` e senha ou @no__ t-2. 
 
-No exemplo a seguir, `appID` e um `password` é usado para executar uma operação de atualização de banco de dados modelo:
+No exemplo a seguir, `appID` e um `password` são usados para executar uma operação de atualização de banco de dados modelo:
 
 ```csharp
 string appId = "xxx";

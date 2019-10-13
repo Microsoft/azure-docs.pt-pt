@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170259"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300622"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurar SQL Server instância de cluster de failover em máquinas virtuais do Azure
 
@@ -375,14 +375,15 @@ Para criar o balanceador de carga:
 
 1. Configure o balanceador de carga com:
 
-   - **Nome**: um nome que identifica o balanceador de carga.
-   - **Tipo**: o balanceador de carga pode ser público ou privado. Um balanceador de carga privado pode ser acessado de dentro da mesma VNET. A maioria dos aplicativos do Azure pode usar um balanceador de carga privado. Se seu aplicativo precisar de acesso a SQL Server diretamente pela Internet, use um balanceador de carga público.
-   - **Rede virtual**: a mesma rede que as máquinas virtuais.
-   - **Sub-rede**: a mesma sub-rede que as máquinas virtuais.
-   - **Endereço IP privado**: o mesmo endereço IP que você atribuiu ao recurso de rede de cluster SQL Server FCI.
-   - **assinatura**: sua assinatura do Azure.
+   - **Assinatura**: sua assinatura do Azure.
    - **Grupo de recursos**: Use o mesmo grupo de recursos que suas máquinas virtuais.
-   - **Local**: Use o mesmo local do Azure que suas máquinas virtuais.
+   - **Nome**: um nome que identifica o balanceador de carga.
+   - **Região**: Use o mesmo local do Azure que suas máquinas virtuais.
+   - **Tipo**: o balanceador de carga pode ser público ou privado. Um balanceador de carga privado pode ser acessado de dentro da mesma VNET. A maioria dos aplicativos do Azure pode usar um balanceador de carga privado. Se seu aplicativo precisar de acesso a SQL Server diretamente pela Internet, use um balanceador de carga público.
+   - **SKU**: a SKU para o balanceador de carga deve ser padrão. 
+   - **Rede virtual**: a mesma rede que as máquinas virtuais.
+   - **Atribuição de endereço IP**: a atribuição de endereço IP deve ser estática. 
+   - **Endereço IP privado**: o mesmo endereço IP que você atribuiu ao recurso de rede de cluster SQL Server FCI.
    Consulte a figura a seguir:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

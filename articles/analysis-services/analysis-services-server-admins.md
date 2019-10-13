@@ -2,29 +2,28 @@
 title: Gerenciar administradores de servidor no Azure Analysis Services | Microsoft Docs
 description: Saiba como gerenciar administradores de servidor para um servidor de Analysis Services no Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: fbb7d339c5c3c12990a49d6ebd53760e101f4eb7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696316"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301089"
 ---
 # <a name="manage-server-administrators"></a>Gerir administradores de servidor
 
 Os administradores de servidor devem ser um usuário ou grupo de segurança válido no Azure Active Directory (Azure AD) para o locatário no qual o servidor reside. Você pode usar os **Administradores de Analysis Services** para o servidor em portal do Azure, propriedades de servidor no SSMS, PowerShell ou API REST para gerenciar administradores de servidor. 
 
-Os **grupos de segurança** devem ser habilitados para `MailEnabled` email com a propriedade definida como. [](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) `True` Ao especificar um grupo por endereço de email `obj:groupid@tenantid`, use.
+Os **grupos de segurança** devem ser [habilitados para email](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) com a propriedade `MailEnabled` definida como `True`. Ao especificar um grupo por endereço de email, use `obj:groupid@tenantid`.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Para adicionar administradores de servidor usando portal do Azure
 
 1. No portal, para seu servidor, clique em **Analysis Services administradores**.
-2. **Em\<ServerName >-Analysis Services administradores**, clique em **Adicionar**.
+2. Em **\<servername >-Analysis Services administradores**, clique em **Adicionar**.
 3. Em **adicionar administradores de servidor**, selecione contas de usuário do Azure ad ou convide usuários externos por endereço de email.
 
     ![Administradores de servidor no portal do Azure](./media/analysis-services-server-admins/aas-manage-users-admins.png)
@@ -51,7 +50,7 @@ Use [Atualizar](https://docs.microsoft.com/rest/api/analysisservices/servers/upd
 
 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 
 [Autenticação e permissões de utilizador](analysis-services-manage-users.md)  
 [Gerenciar usuários e funções de banco de dados](analysis-services-database-users.md)  

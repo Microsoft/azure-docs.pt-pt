@@ -2,26 +2,25 @@
 title: Início Rápido – Configurar uma firewall para um servidor do Analysis Services no Azure | Microsoft Docs
 description: Saiba como configurar uma firewall para uma instância de servidor do Analysis Services no Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 07/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 52ccaa17b9994751bb9dfd54848e20aef90146c3
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: c3c8de80f90fe203029b38171502e3d4a9b9dd46
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905888"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298523"
 ---
-# <a name="quickstart-configure-server-firewall---portal"></a>Início rápido: Configurar a firewall do servidor - Portal
+# <a name="quickstart-configure-server-firewall---portal"></a>Início Rápido: Configurar a firewall do servidor – Portal
 
 Este início rápido ajuda-o a configurar uma firewall para o servidor do Analysis Services do Azure. Ativar uma firewall e configurar os intervalos dos endereços IP apenas para os computadores que acedem ao seu servidor são uma parte importante para proteger o servidor e os dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um servidor do Analysis Services na subscrição. Para saber mais, consulte [início rápido: Criar um portal](analysis-services-create-server.md) do servidor ou [início rápido: Criar um servidor-PowerShell](analysis-services-create-powershell.md)
+- Um servidor do Analysis Services na subscrição. Para obter mais informações, veja [Início Rápido: Criar um servidor – Portal](analysis-services-create-server.md) ou [Início Rápido: Criar um servidor – PowerShell](analysis-services-create-powershell.md)
 - Intervalos de endereços IP de um ou mais computadores cliente (se necessário).
 - Observe que, no momento, não há suporte para o cenário de importação de Power BI Premium.
 
@@ -47,4 +46,4 @@ Quando já não forem necessários, elimine os intervalos de endereços IP ou de
 Neste guia de início rápido, aprendeu a configurar uma firewall para o servidor. Agora que tem o servidor protegido com uma firewall, pode adicionar um modelo de dados básicos de exemplo a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar um modelo de exemplo ao seu servidor](analysis-services-create-sample-model.md)
+> [Tutorial: Adicionar um modelo de exemplo ao servidor](analysis-services-create-sample-model.md)

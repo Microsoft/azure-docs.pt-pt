@@ -1,53 +1,53 @@
 ---
-title: Azure de delegado de gestão de recursos - Lighthouse do Azure
-description: Ofertas de permitir que os fornecedores de serviços vender ofertas de gestão de recursos para os clientes no Azure Marketplace de serviços geridos.
+title: Gestão de recursos delegados do Azure
+description: Os serviços gerenciados oferecem aos provedores de serviços para vender ofertas de gerenciamento de recursos para clientes no Azure Marketplace.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: cec6453cdf339e82420a1b12af6c8e60526fdc03
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 8cc75fde348d070a19d1987d1403c63e8e6d2278
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67809968"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286627"
 ---
-# <a name="azure-delegated-resource-management"></a>Gestão de recursos do Azure de delegado
+# <a name="azure-delegated-resource-management"></a>Gestão de recursos delegados do Azure
 
-Gestão de recursos do Azure de delegado é um dos principais componentes do Azure Lighthouse. Com a gestão de recursos do Azure de delegados, fornecedores de serviços podem simplificar a experiências de envolvimento e a inclusão do cliente, gerindo recursos delegados em escala com agilidade e precisão.
+O gerenciamento de recursos delegado do Azure é um dos principais componentes do Azure Lighthouse. Com o gerenciamento de recursos delegado do Azure, os provedores de serviço podem simplificar as experiências de envolvimento e integração do cliente, Gerenciando recursos delegados em escala com agilidade e precisão.
 
-## <a name="what-is-azure-delegated-resource-management"></a>O que é o Azure, gestão de recursos é delegada?
+## <a name="what-is-azure-delegated-resource-management"></a>O que é o gerenciamento de recursos delegado do Azure?
 
-Gestão de recursos do Azure de delegado permite a projeção lógica de recursos de um inquilino para outro inquilino. Isso permite que os utilizadores autorizados de um inquilino do Azure Active Directory (Azure AD) realizar operações de gestão em diferente do Azure AD inquilinos que pertencem aos clientes. Fornecedores de serviços podem iniciar sessão no seu próprio inquilino do Azure AD e tem autorização para trabalhar em subscrições de cliente delegado e grupos de recursos. Isto permite efetuar operações de gestão em nome dos seus clientes, sem ter de iniciar sessão a cada inquilino individuais dos clientes.
+O gerenciamento de recursos delegado do Azure permite a projeção lógica de recursos de um locatário para outro locatário. Isso permite que usuários autorizados em um locatário Azure Active Directory (Azure AD) realizem operações de gerenciamento em diferentes locatários do Azure AD que pertencem a seus clientes. Os provedores de serviços podem entrar em seu próprio locatário do AD do Azure e ter autorização para trabalhar em grupos de recursos e assinaturas de clientes delegados. Isso permite que eles realizem operações de gerenciamento em nome de seus clientes, sem precisar entrar em cada locatário individual do cliente.
 
 > [!NOTE]
-> Gestão de recursos do Azure de delegado também pode ser utilizado dentro de uma empresa que tem vários inquilinos do Azure AD da sua própria para simplificar a gestão de entre inquilinos.
+> O gerenciamento de recursos delegado do Azure também pode ser usado em uma empresa que tem vários locatários do Azure AD próprios para simplificar o gerenciamento entre locatários.
 
-Com a gestão de recursos do Azure de delegado, os utilizadores autorizados podem trabalhar diretamente no contexto de subscrição de um cliente sem ter uma conta no inquilino do cliente ou que está a ser um coproprietário de inquilino do cliente. Também pode [ver e gerir todas as subscrições de cliente delegado no novo **meus clientes** página](../how-to/view-manage-customers.md) no portal do Azure.
+Com o gerenciamento de recursos delegado do Azure, os usuários autorizados podem trabalhar diretamente no contexto de uma assinatura de cliente sem ter uma conta no locatário do cliente ou ser um coproprietário do locatário do cliente. Eles também podem [Exibir e gerenciar todas as assinaturas de clientes delegadas na página novos **meus clientes** ](../how-to/view-manage-customers.md) no portal do Azure.
 
-O [experiência de gestão entre inquilinos](cross-tenant-management-experience.md) a trabalhar com mais eficiência com os serviços de gestão do Azure como o Azure Policy, o Centro de segurança do Azure e muito mais. Todas as atividades de fornecedor de serviço é controlada no registo de atividades, o que é armazenado em inquilinos do fornecedor de serviços e do cliente. Isso significa que o cliente e o serviço fornecedor possa identificar facilmente o utilizador associado a todas as alterações.
+A [experiência de gerenciamento entre locatários](cross-tenant-management-experience.md) ajuda você a trabalhar de maneira mais eficiente com os serviços de gerenciamento do Azure, como Azure Policy, a central de segurança do Azure e muito mais. Todas as atividades do provedor de serviços são controladas no log de atividades, que é armazenado nos locatários do provedor de serviços e do cliente. Isso significa que o cliente e o provedor de serviços podem identificar facilmente o usuário associado a quaisquer alterações.
 
-Quando carregar um cliente para o Azure foi delegado gestão de recursos, eles terão acesso à nova **fornecedores de serviços** página no portal do Azure, onde podem [confirmar e gerenciar suas ofertas, provedores de serviços e recursos de delegado](../how-to/view-manage-service-providers.md). Se o cliente deseja nunca revogar o acesso para um fornecedor de serviços, ela poderá fazer isso aqui em qualquer altura.
+Quando você integrar um cliente ao gerenciamento de recursos delegado do Azure, ele terá acesso à nova página **provedores de serviços** na portal do Azure, onde poderá [confirmar e gerenciar suas ofertas, provedores de serviços e recursos delegados](../how-to/view-manage-service-providers.md). Se o cliente quiser revogar o acesso para um provedor de serviços, ele poderá fazer isso aqui a qualquer momento.
 
-Pode [publicar o novo tipo de oferta de serviços geridos pelo Azure Marketplace](../how-to/publish-managed-services-offers.md) para facilmente integrar clientes para o Azure de gestão de recursos delegada. Em alternativa, pode [concluir o processo de integração ao implementar os modelos Azure Resource Manager](../how-to/onboard-customer.md).
+Você pode [publicar o novo tipo de oferta de serviços gerenciados no Azure Marketplace](../how-to/publish-managed-services-offers.md) para integrar facilmente os clientes ao gerenciamento de recursos delegado do Azure. Como alternativa, você pode [concluir o processo de integração implantando modelos de Azure Resource Manager](../how-to/onboard-customer.md).
 
-## <a name="how-azure-delegated-resource-management-works"></a>Funciona como o Azure delegadas a gestão de recursos
+## <a name="how-azure-delegated-resource-management-works"></a>Como funciona o gerenciamento de recursos delegado do Azure
 
-Um nível elevado, eis como o Azure delegadas funciona a gestão de recursos:
+Em um alto nível, veja como funciona o gerenciamento de recursos delegado do Azure:
 
-1. Como um fornecedor de serviços, identifique o acesso (funções) que seus grupos, os principais de serviço ou os utilizadores têm de gerir os recursos do Azure do cliente. A definição de acesso contém o ID de inquilino do fornecedor de serviços, juntamente com o acesso necessário para a oferta, definido usando **principalId** identidades do seu inquilino mapeado para [incorporadas  **roleDefinition** valores](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (Contribuidor, VM Contribuidor, leitor, etc.).
-2. Especifique este acesso e carregar o cliente para o Azure delegada de gerenciamento de recursos em uma das seguintes formas:
-   - [Publicar uma oferta de serviços geridos do Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada ou pública) que o cliente aceitará
-   - [Implementar um modelo Azure Resource Manager para o inquilino do cliente](../how-to/onboard-customer.md) para um ou mais subscrições específicas ou grupos de recursos
-3. Assim que o cliente tiver sido carregada, os utilizadores autorizados podem iniciar sessão no seu inquilino do fornecedor de serviço e efetuar tarefas de gestão no âmbito determinado cliente, com base no acesso que definiu.
+1. Como um provedor de serviços, você identifica o acesso (funções) que seus grupos, entidades de serviço ou usuários precisarão gerenciar os recursos do Azure do cliente. A definição de acesso contém a ID de locatário do provedor de serviços junto com o acesso necessário para a oferta, definida usando as identidades de **PrincipalId** do seu locatário mapeado para [valores **roleDefinition** internos](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) (colaborador, VM Colaborador, leitor, etc.).
+2. Você especifica esse acesso e integra o cliente ao gerenciamento de recursos delegado do Azure de uma das duas maneiras:
+   - [Publicar uma oferta de serviços gerenciados do Azure Marketplace](../how-to/publish-managed-services-offers.md) (privada ou pública) que o cliente aceitará
+   - [Implantar um modelo de Azure Resource Manager no locatário do cliente](../how-to/onboard-customer.md) para uma ou mais assinaturas ou grupos de recursos específicos
+3. Depois que o cliente tiver sido integrado, os usuários autorizados poderão entrar no seu locatário do provedor de serviços e executar tarefas de gerenciamento no escopo determinado do cliente, com base no acesso que você definiu.
 
-## <a name="support-for-azure-delegated-resource-management"></a>Gestão de recursos de delegado de suporte para o Azure
+## <a name="support-for-azure-delegated-resource-management"></a>Suporte para gerenciamento de recursos delegados do Azure
 
-Se precisar de ajuda relacionados com a gestão de recursos de delegada do Azure, pode abrir um pedido de suporte no portal do Azure. Para **tipo de problema**, escolha **técnica**. Selecione uma subscrição, em seguida, selecione **gestão de recursos de delegado** (sob **monitorização e gestão**).
+Se precisar de ajuda relacionada ao gerenciamento de recursos delegado do Azure, você poderá abrir uma solicitação de suporte no portal do Azure. Para **tipo de problema**, escolha **técnico**. Selecione uma assinatura e, em seguida, selecione **Gerenciamento de recursos delegado** (em **monitoramento & gerenciamento**).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [experiências de gestão entre inquilinos](cross-tenant-management-experience.md).
-- Saiba mais sobre [geridos ofertas de serviços no Azure Marketplace](managed-services-offers.md).
+- Saiba mais sobre as [experiências de gerenciamento entre locatários](cross-tenant-management-experience.md).
+- Saiba mais sobre as [ofertas de serviços gerenciados no Azure Marketplace](managed-services-offers.md).

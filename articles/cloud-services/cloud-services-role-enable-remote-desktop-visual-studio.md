@@ -1,5 +1,5 @@
 ---
-title: Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure
+title: Usando o Visual Studio, habilitar Área de Trabalho Remota para uma função (serviços de nuvem do Azure)
 description: Como configurar seu aplicativo de serviço de nuvem do Azure para permitir conexões de área de trabalho remota
 services: cloud-services
 author: ghogen
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 6a6d045513e3e91c5a8b2004e47378a097be8963
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515913"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298400"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Habilitar Conexão de Área de Trabalho Remota para uma função nos serviços de nuvem do Azure usando o Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Azure portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Portal do Azure](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -47,13 +47,13 @@ Ao usar o Visual Studio 2017 versão 15,4 e anterior, você pode usar a opção 
    > [!Note]
    > Os certificados necessários para uma conexão de área de trabalho remota são diferentes dos certificados que você usa para outras operações do Azure. O certificado de acesso remoto deve ter uma chave privada.
 
-5. Selecione um certificado na lista ou escolha  **&lt;criar... &gt;** . Se estiver criando um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado é exibido na caixa de listagem suspensa.
+5. Selecione um certificado na lista ou escolha **&lt;Create... &gt;** . Se estiver criando um novo certificado, forneça um nome amigável para o novo certificado quando solicitado e selecione **OK**. O novo certificado é exibido na caixa de listagem suspensa.
 
 6. Forneça um nome de usuário e uma senha. Você não pode usar uma conta existente. Não use "administrador" como o nome de usuário para a nova conta.
 
 7. Escolha uma data na qual a conta irá expirar e, após a qual Área de Trabalho Remota conexões serão bloqueadas.
 
-8. Depois de fornecer todas as informações necessárias, selecione **OK**. O Visual Studio adiciona as configurações de área de trabalho remota aos arquivos `.cscfg` e `.csdef` do projeto, incluindo a senha que é criptografada usando o certificado escolhido.
+8. Depois de fornecer todas as informações necessárias, selecione **OK**. O Visual Studio adiciona as configurações de Área de Trabalho Remota aos arquivos `.cscfg` e `.csdef` do seu projeto, incluindo a senha que é criptografada usando o certificado escolhido.
 
 9. Conclua as etapas restantes usando o botão **Avançar** e, em seguida, selecione **publicar** quando estiver pronto para publicar seu serviço de nuvem. Se você não estiver pronto para publicar, selecione **Cancelar** e responda **Sim** quando for solicitado a salvar as alterações. Você pode publicar seu serviço de nuvem mais tarde com essas configurações.
 
@@ -95,9 +95,9 @@ Para usar a extensão RDP do Azure DevOps Services, inclua os seguintes detalhes
 
 1. Após as etapas de compilação, adicione a etapa de **implantação do serviço de nuvem do Azure** e defina suas propriedades.
 
-1. Após a etapa de implantação, adicione uma etapa **do Azure PowerShell** , defina sua propriedade **nome de exibição** como "implantação do Azure: Habilite a extensão RDP "(ou outro nome adequado) e selecione sua assinatura do Azure apropriada.
+1. Após a etapa de implantação, adicione uma etapa **do Azure PowerShell** , defina sua propriedade **nome de exibição** como "implantação do Azure: habilitar extensão RDP" (ou outro nome adequado) e selecione sua assinatura do Azure apropriada.
 
-1. Defina o **tipo de script** como "embutido" e cole o código abaixo no campo **script embutido** . (Você também pode criar um `.ps1` arquivo em seu projeto com esse script, definir o **tipo de script** como "caminho do arquivo de script" e definir o caminho do **script** para apontar para o arquivo.)
+1. Defina o **tipo de script** como "embutido" e cole o código abaixo no campo **script embutido** . (Você também pode criar um arquivo `.ps1` em seu projeto com esse script, definir o **tipo de script** como "caminho do arquivo de script" e definir o caminho do **script** para apontar para o arquivo.)
 
     ```ps
     Param(

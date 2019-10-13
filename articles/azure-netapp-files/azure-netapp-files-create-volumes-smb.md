@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827514"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300543"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -40,7 +40,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 * As portas adequadas devem estar abertas no servidor Windows Active Directory (AD) aplicável.  
     As portas necessárias são as seguintes: 
 
-    |     Serviço           |     Port     |     Protocol     |
+    |     Serviço           |     Porta     |     Protocolo     |
     |-----------------------|--------------|------------------|
     |    Serviços Web do AD    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -78,7 +78,7 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
 ## <a name="create-an-active-directory-connection"></a>Criar uma conexão Active Directory
 
-1. Em sua conta do NetApp, clique em **Active Directory conexões**eclique em ingressar.  
+1. Em sua conta do NetApp, clique em **Active Directory conexões**e clique em **ingressar**.  
 
     ![Conexões Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -86,9 +86,9 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
     * **DNS primário**  
         Esse é o DNS necessário para as operações de autenticação SMB e de ingresso no domínio do Active Directory. 
-    * **DNS secundário**   
+    * @No__t **DNS secundário**-1  
         Esse é o servidor DNS secundário para garantir que os serviços de nome redundantes. 
-    * **Domínio**  
+    * **Controlador**  
         Esse é o nome de domínio de seu Active Directory Domain Services que você deseja unir.
     * **Prefixo do servidor SMB (conta do computador)**  
         Esse é o prefixo de nomenclatura para a conta do computador no Active Directory que Azure NetApp Files será usado para a criação de novas contas.
@@ -100,17 +100,20 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
     * **Caminho da unidade organizacional**  
         Esse é o caminho LDAP para a UO (unidade organizacional) em que as contas de máquina do servidor SMB serão criadas. Ou seja, OU = segundo nível, OU = primeiro nível. 
 
-        Se você estiver usando Azure NetApp files com Azure Active Directory Domain Services, o caminho da unidade organizacional `OU=AADDC Computers` será quando você configurar Active Directory para sua conta do NetApp.
+        Se você estiver usando Azure NetApp Files com Azure Active Directory Domain Services, o caminho da unidade organizacional será `OU=AADDC Computers` quando você configurar o Active Directory para sua conta do NetApp.
         
     * Credenciais, incluindo seu **nome de usuário** e **senha**
 
-    ![Associar o Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
+    ![Ingressar Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)
 
 3. Clique em **Associar**.  
 
     A conexão Active Directory que você criou é exibida.
 
     ![Conexões Active Directory](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> Você pode editar os campos de nome de usuário e senha depois de salvar a conexão de Active Directory. Nenhum outro valor pode ser editado depois de salvar a conexão. Se precisar alterar outros valores, primeiro exclua todos os volumes SMB implantados e exclua e recrie a conexão de Active Directory.
 
 ## <a name="add-an-smb-volume"></a>Adicionar um volume SMB
 
@@ -122,12 +125,12 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
     A janela criar um volume é exibida.
 
 3. Na janela criar um volume, clique em **criar** e forneça informações para os seguintes campos:   
-    * **Nome do volume**      
+    * **Nome do Volume**      
         Especifique o nome do volume que está a criar.   
 
         Um nome de volume deve ser exclusivo em cada pool de capacidade. Deve ter pelo menos três caracteres de comprimento. Você pode usar qualquer caractere alfanumérico.   
 
-        Você não pode `default` usar como o nome do volume.
+        Você não pode usar `default` como o nome do volume.
 
     * **Pool de capacidade**  
         Especifique o pool de capacidade no qual você deseja que o volume seja criado.
