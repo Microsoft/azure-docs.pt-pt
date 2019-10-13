@@ -4,15 +4,15 @@ description: O gerenciamento de recursos delegado do Azure permite uma experiên
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: ab0362af9a3eec698150c135fd98283c9db2c833
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286620"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300997"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -58,6 +58,7 @@ Atualmente, a experiência de gerenciamento entre locatários dá suporte aos se
 - Exibir alertas para assinaturas delegadas no portal do Azure ou programaticamente por meio de chamadas à API REST, com a capacidade de exibir alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
 - Log Analytics: consultar dados de espaços de trabalho de clientes remotos em vários locatários
+- Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no locatário do provedor de serviços por meio de WebHooks
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -65,7 +66,7 @@ Atualmente, a experiência de gerenciamento entre locatários dá suporte aos se
 - Criar e Editar definições de política em uma assinatura delegada
 - Atribuir definições de política definidas pelo cliente dentro da assinatura delegada
 - Os clientes veem as políticas criadas pelo provedor de serviços junto com as políticas que eles mesmos criaram
-- Pode corrigir as atribuições de deployIfNotExists nos locatários do cliente se o cliente tiver configurado a identidade gerenciada e *roleDefinitionIds* para essa atribuição de política
+- Pode [corrigir deployIfNotExists ou modificar atribuições dentro do locatário do cliente](../how-to/deploy-policy-remediation.md)
 
 [Grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/):
 
