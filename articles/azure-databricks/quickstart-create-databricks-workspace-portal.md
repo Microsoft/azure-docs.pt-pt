@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar um trabalho do Spark em Azure Databricks usando portal do Azure'
+title: Executar um trabalho do Spark em Azure Databricks usando portal do Azure
 description: O manual de início rápido mostra como utilizar o portal do Azure para criar uma área de trabalho do Azure Databricks, um cluster do Apache Spark e executar uma tarefa do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1cc6d6236b940cf898651bdfdd47f4db1ac53851
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932572"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274168"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar um trabalho do Spark em Azure Databricks usando o portal do Azure
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Início rápido: Executar uma tarefa do Spark no Azure Databricks com o portal do Azure
 
 Neste guia de início rápido, você usa o portal do Azure para criar um espaço de trabalho Azure Databricks com um cluster Apache Spark. Você executa um trabalho no cluster e usa gráficos personalizados para produzir relatórios em tempo real de dados de segurança do Boston.
 
@@ -136,9 +136,9 @@ Execute as tarefas a seguir para criar um bloco de anotações no databricks, co
 
 5. Verá uma saída tabular, como a apresentada na captura de ecrã seguinte, (apenas são apresentadas algumas colunas):
 
-    ![Dados de exemplo](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Dados JSON de exemplo")
+    Exemplo de dados(./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "JSON de amostra") de ![dados]
 
-6. Agora você cria uma representação visual desses dados para mostrar quantos eventos de segurança são relatados usando o aplicativo cidadãos-Connect e o aplicativo City Worker em vez de outras fontes. Na parte inferior da saída tabular, selecione o ícone de **gráfico de barras** e clique em **Opções**de plotagem.
+6. Agora você cria uma representação visual desses dados para mostrar quantos eventos de segurança são relatados usando o aplicativo cidadãos-Connect e o aplicativo City Worker em vez de outras fontes. Na parte inferior da saída tabular, selecione o ícone de **gráfico de barras** e clique em **Opções de plotagem**.
 
     ![Criar um gráfico de barras](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Criar um gráfico de barras")
 
@@ -159,7 +159,7 @@ Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho 
 
 ![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Executar um trabalho do Spark no Azure Databricks usando o modelo do Resource Manager '
+title: Criar um espaço de trabalho Azure Databricks com o Azure Resource Manager
 description: O início rápido mostra como utilizar o modelo do Azure Resource Manager para criar uma área de trabalho do Azure Databricks, criar um cluster do Apache Spark e executar uma tarefa do Spark.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,14 +10,14 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68932601"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274153"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início rápido: Executar um trabalho do Spark em Azure Databricks usando o modelo de Azure Resource Manager
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Início Rápido: Executar uma tarefa do Spark no Azure Databricks com o modelo do Azure Resource Manager
 
 Neste guia de início rápido, você usa um modelo de Azure Resource Manager para criar um espaço de trabalho Azure Databricks com um cluster Apache Spark. Você executa um trabalho no cluster e usa gráficos personalizados para produzir relatórios em tempo real de uso gratuito/pago com base em dados demográficos.
 
@@ -182,7 +182,7 @@ Depois de ler o artigo, pode terminar o cluster. Para tal, na área de trabalho 
 
 ![Parar um cluster do Databricks](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se não terminar manualmente o cluster, este irá parar automaticamente, desde que tenha selecionado a **terminar após \_ \_ minutos de inatividade** caixa de verificação ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Nesse caso, o cluster para automaticamente se tiver estado inativo durante o período de tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 
