@@ -2,20 +2,19 @@
 title: Início Rápido - Criar um servidor do Azure Analysis Services com o PowerShell | Microsoft Docs
 description: Saiba como criar um servidor do Azure Analysis Services com o PowerShell
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8159cc8d0e00e830f52e1814ac770c4a16f6b957
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a5517d62e0fa4070411a087e241cad9d82f379b2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619334"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295088"
 ---
-# <a name="quickstart-create-a-server---powershell"></a>Início rápido: Criar um servidor - PowerShell
+# <a name="quickstart-create-a-server---powershell"></a>Início Rápido: Criar um servidor - PowerShell
 
 Este início rápido descreve a utilização do PowerShell a partir da linha de comandos para criar um servidor do Azure Analysis Services na sua subscrição do Azure.
 
@@ -23,8 +22,8 @@ Este início rápido descreve a utilização do PowerShell a partir da linha de 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-- **Assinatura do Azure**: Visite a [avaliação gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
-- **Azure Active Directory**: Sua assinatura deve ser associada a um locatário Azure Active Directory e você deve ter uma conta nesse diretório. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
+- **Subscrição do Azure**: aceda à [Avaliação Gratuita do Azure](https://azure.microsoft.com/offers/ms-azr-0044p/) para criar uma conta.
+- **Azure Active Directory**: a sua subscrição tem de estar associada a um inquilino do Azure Active Directory e tem de ter uma conta nesse diretório. Para saber mais,v eja [Authentication and user permissions](analysis-services-manage-users.md) (Autenticação e permissões de utilizador).
 - **Azure PowerShell**. Para localizar a versão instalada, execute `Get-Module -ListAvailable Az`. Para instalar ou atualizar, veja [Instalar o módulo do Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="import-azanalysisservices-module"></a>Importar módulo AZ. AnalysisServices
@@ -68,11 +67,11 @@ Você pode remover o servidor da sua assinatura usando o comando [Remove-AzAnaly
 Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceGroup"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a criar um servidor na sua subscrição do Azure com o PowerShell. Agora que tem o servidor, pode ajudar a protegê-lo ao configurar uma firewall do servidor (opcional). Também pode adicionar um modelo de dados de exemplo básico ao seu servidor diretamente a partir do portal. Ter um modelo de exemplo é útil para saber como configurar as funções de base de dados do modelo e testar as ligações de cliente. Para obter mais informações, avance para o tutorial para adicionar um modelo de exemplo.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Configurar firewall do servidor-Portal](analysis-services-qs-firewall.md)      
+> [Início Rápido: Configurar a firewall do servidor - Portal](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
-> [Tutorial: Adicionar um modelo de exemplo ao seu servidor](analysis-services-create-sample-model.md)
+> [Tutorial: Adicionar um modelo de exemplo ao servidor](analysis-services-create-sample-model.md)

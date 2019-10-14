@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986556"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299616"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do armazenamento do Azure
 
@@ -23,7 +23,7 @@ O armazenamento do Azure fornece um conjunto abrangente de recursos de seguranç
 - Todos os dados (incluindo metadados) gravados no armazenamento do Azure são criptografados automaticamente usando o [criptografia do serviço de armazenamento (SSE)](storage-service-encryption.md). Para obter mais informações, consulte [anunciando criptografia padrão para BLOBs do Azure, arquivos, tabela e armazenamento de fila](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - O Azure Active Directory (Azure AD) e o RBAC (controle de acesso baseado em função) têm suporte para o armazenamento do Azure para operações de gerenciamento de recursos e de dados, da seguinte maneira:   
     - Você pode atribuir funções RBAC com escopo à conta de armazenamento para entidades de segurança e usar o Azure AD para autorizar operações de gerenciamento de recursos, como o gerenciamento de chaves.
-    - A integração do Azure AD tem suporte para operações de dados de BLOB e de fila. Você pode atribuir funções de RBAC com escopo para uma assinatura, grupo de recursos, conta de armazenamento ou um contêiner ou fila individual para uma entidade de segurança ou uma identidade gerenciada para recursos do Azure. Para obter mais informações, consulte autenticar o [acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).   
+    - A integração do Azure AD tem suporte para operações de dados de BLOB e de fila. Você pode atribuir funções de RBAC com escopo para uma assinatura, grupo de recursos, conta de armazenamento ou um contêiner ou fila individual para uma entidade de segurança ou uma identidade gerenciada para recursos do Azure. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).   
 - Os dados podem ser protegidos em trânsito entre um aplicativo e o Azure usando [criptografia do lado do cliente](../storage-client-side-encryption.md), HTTPS ou SMB 3,0.  
 - O sistema operacional e OS discos de dados usados pelas máquinas virtuais do Azure podem ser criptografados usando [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
 - O acesso delegado aos objetos de dados no armazenamento do Azure pode ser concedido usando uma assinatura de acesso compartilhado. Para obter mais informações, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](storage-sas-overview.md).
@@ -43,7 +43,7 @@ Aqui estão os tópicos a serem abordados neste artigo:
   Esta seção discute como proteger os dados ao transferi-los para dentro ou para fora do armazenamento do Azure. Falaremos sobre o uso recomendado de HTTPS e a criptografia usada pelo SMB 3,0 para compartilhamentos de arquivos do Azure. Também veremos a criptografia do lado do cliente, que permite que você criptografe os dados antes que eles sejam transferidos para o armazenamento em um aplicativo cliente e descriptografe os dados depois que eles são transferidos para fora do armazenamento.
 * [Encriptação Inativa](#encryption-at-rest)
 
-  Falaremos sobre Criptografia do Serviço de Armazenamento (SSE), que agora é automaticamente habilitado para contas de armazenamento novas e existentes. Também veremos como você pode usar Azure Disk Encryption e explorar as diferenças básicas e os casos de criptografia de disco versus a criptografia do lado do cliente. Veremos brevemente a conformidade com o FIPS para os EUA Computadores do governo.
+  Falaremos sobre Criptografia do Serviço de Armazenamento (SSE), que agora é automaticamente habilitado para contas de armazenamento novas e existentes. Também veremos como você pode usar Azure Disk Encryption e explorar as diferenças básicas e os casos de criptografia de disco versus a criptografia do lado do cliente. Veremos rapidamente a conformidade com FIPS para computadores do governo dos EUA.
 * Usando [análise de armazenamento](#storage-analytics) para auditar o acesso do armazenamento do Azure
 
   Esta seção discute como localizar informações nos logs de análise de armazenamento para uma solicitação. Vamos dar uma olhada nos dados reais do log da análise de armazenamento e ver como discernir se uma solicitação é feita com a chave da conta de armazenamento, com uma assinatura de acesso compartilhado ou anonimamente, e se ela foi bem-sucedida ou falhou.
@@ -90,7 +90,7 @@ Aqui estão os principais pontos que você precisa saber sobre como usar o RBAC 
 * [Controlo de Acesso Baseado em Funções do Azure Active Directory](../../role-based-access-control/role-assignments-portal.md)
 
   Este artigo explica o Controlo de Acesso Baseado em Funções do Azure Active Directory e como funciona.
-* [RBAC Funções internas](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Funções Incorporadas](../../role-based-access-control/built-in-roles.md)
 
   Este artigo fornece detalhes sobre todas as funções internas disponíveis no RBAC.
 * [Compreender a implementação do Resource Manager e a implementação clássica](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -102,9 +102,7 @@ Aqui estão os principais pontos que você precisa saber sobre como usar o RBAC 
 * [Referência da API REST do Fornecedor de Recursos de Armazenamento do Azure](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Esta referência de API descreve as APIs que você pode usar para gerenciar sua conta de armazenamento de forma programática.
-* [Usar a API de autenticação do Gerenciador de recursos para acessar assinaturas](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  Este artigo mostra como autenticar usando as APIs do Gerenciador de recursos.
 * [Controlo de Acesso Baseado em Funções para o Microsoft Azure no Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   Esta é uma ligação para um vídeo do Channel 9 da conferência Ignite 2015 MS. Nesta sessão, fala-se sobre as capacidades de gestão de acesso e de criação de relatórios no Azure e são exploradas as melhores práticas relativamente à proteção do acesso às subscrições do Azure com o Azure Active Directory.
@@ -156,7 +154,7 @@ A segurança do plano de dados refere-se aos métodos usados para proteger os ob
 
 Você tem três opções para autorizar o acesso a objetos de dados no armazenamento do Azure, incluindo:
 
-- Usando o Azure AD para autorizar o acesso a contêineres e filas. O Azure AD fornece vantagens sobre outras abordagens à autorização, incluindo a remoção da necessidade de armazenar segredos em seu código. Para obter mais informações, consulte autenticar o [acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md). 
+- Usando o Azure AD para autorizar o acesso a contêineres e filas. O Azure AD fornece vantagens sobre outras abordagens à autorização, incluindo a remoção da necessidade de armazenar segredos em seu código. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md). 
 - Usando as chaves da conta de armazenamento para autorizar o acesso via chave compartilhada. A autorização via chave compartilhada requer o armazenamento de suas chaves de conta de armazenamento em seu aplicativo, portanto, a Microsoft recomenda usar o Azure AD, quando possível.
 - Usar assinaturas de acesso compartilhado para conceder permissões controladas a objetos de dados específicos por um período específico.
 
@@ -239,7 +237,7 @@ Para obter informações mais detalhadas sobre como usar assinaturas de acesso c
   * [Construindo uma SAS de serviço](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Construindo uma SAS de conta](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* Authentication
+* Autenticação
 
   * [Autenticação para os serviços de armazenamento do Azure](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Introdução tutorial sobre assinaturas de acesso compartilhado
@@ -255,7 +253,7 @@ Para ter um canal de comunicação seguro, você sempre deve usar HTTPS ao chama
 Você pode impor o uso de HTTPS ao chamar as APIs REST para acessar objetos em contas de armazenamento habilitando a [transferência segura necessária](../storage-require-secure-transfer.md) para a conta de armazenamento. As conexões que usam HTTP serão recusadas quando isso estiver habilitado.
 
 ### <a name="using-encryption-during-transit-with-azure-file-shares"></a>Usando a criptografia durante o trânsito com compartilhamentos de arquivos do Azure
-Os [arquivos do Azure](../files/storage-files-introduction.md) dão suporte à criptografia via SMB 3,0 e com https ao usar a API REST do arquivo. Ao montar fora da região do Azure, o compartilhamento de arquivos do Azure está localizado no, como no local ou em outra região do Azure, o SMB 3,0 com criptografia é sempre necessário. O SMB 2,1 não dá suporte à criptografia, portanto, por padrão, as conexões só são permitidas na mesma região no Azure, mas o SMB 3,0 com criptografia pode ser imposto, exigindo a [transferência segura](../storage-require-secure-transfer.md) para a conta de armazenamento.
+Os [arquivos do Azure](../files/storage-files-introduction.md) dão suporte à criptografia via SMB 3,0 e com https ao usar a API REST do arquivo. Ao montar fora da região do Azure, o compartilhamento de arquivos do Azure está localizado no, como no local ou em outra região do Azure, o SMB 3,0 com criptografia é sempre necessário. O SMB 2,1 não dá suporte à criptografia, portanto, por padrão, as conexões só são permitidas na mesma região no Azure, mas o SMB 3,0 com criptografia pode ser imposto, [exigindo a transferência segura](../storage-require-secure-transfer.md) para a conta de armazenamento.
 
 O SMB 3,0 com criptografia está disponível em [todos os sistemas operacionais Windows e Windows Server com suporte](../files/storage-how-to-use-files-windows.md) , exceto no Windows 7 e no windows Server 2008 R2, que dão suporte apenas ao SMB 2,1. O SMB 3,0 também tem suporte no [MacOS](../files/storage-how-to-use-files-mac.md) e em distribuições do [Linux](../files/storage-how-to-use-files-linux.md) usando o kernel do Linux 4,11 e superior. O suporte de criptografia para SMB 3,0 também foi reportado para versões mais antigas do kernel do Linux por várias distribuições do Linux, consulte [noções básicas sobre os requisitos do cliente SMB](../files/storage-how-to-use-files-linux.md#smb-client-reqs).
 
@@ -302,7 +300,7 @@ Azure Disk Encryption permite criptografar os discos do sistema operacional e os
 A solução dá suporte aos seguintes cenários para VMs de IaaS quando elas estão habilitadas no Microsoft Azure:
 
 * Integração com o Azure Key Vault
-* VMs da camada Standard: [VMs IaaS das séries A, D, DS, G, GS e assim por diante](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* VMs da camada Standard: [VMs IaaS da série A, D, DS, G, GS e assim por diante](https://azure.microsoft.com/pricing/details/virtual-machines/)
 * Habilitando a criptografia em VMs IaaS Windows e Linux
 * Desabilitando a criptografia no sistema operacional e nas unidades de dados para VMs IaaS do Windows
 * Desabilitando a criptografia em unidades de dados para VMs IaaS do Linux
@@ -323,7 +321,7 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia na v
 
 
 > [!NOTE]
-> Atualmente, há suporte para a criptografia de disco do SO Linux nas seguintes distribuições do Linux: RHEL 7,2, CentOS 7.2 n e Ubuntu 16, 4.
+> Atualmente, há suporte para a criptografia de disco do sistema operacional Linux nas seguintes distribuições Linux: RHEL 7,2, CentOS 7.2 n e Ubuntu 16, 4.
 >
 >
 
@@ -391,7 +389,7 @@ Há um artigo listado nos recursos abaixo que fornece a lista de muitos campos n
 
 ![Instantâneo de campos em um arquivo de log](./media/storage-security-guide/image3.png)
 
-Estamos interessados nas entradas para getBlob e como elas são autorizadas, portanto, precisamos procurar entradas com o tipo de operação "Get-blob" e verificar a solicitação-status (quarta</sup> coluna) e o tipo de autorização (oitava</sup> coluna).
+Estamos interessados nas entradas para getBlob e como elas são autorizadas, portanto, precisamos procurar entradas com o tipo de operação "Get-blob" e verificar o status da solicitação (quarta @ no__t-0 coluna) e o tipo de autorização (oitava @ no__t-1 coluna).
 
 Por exemplo, nas primeiras linhas da listagem acima, a solicitação-status é "êxito" e o tipo de autorização é "autenticado". Isso significa que a solicitação foi autorizada usando a chave da conta de armazenamento.
 
@@ -400,13 +398,13 @@ Temos três casos em que estamos interessados.
 
 1. O blob é público e é acessado usando uma URL sem uma assinatura de acesso compartilhado. Nesse caso, a solicitação-status é "AnonymousSuccess" e o tipo de autorização é "Anonymous".
 
-   1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
+   1.0; 2015-11-17T02:01:29.0488963 Z; GetBlob **AnonymousSuccess**; 200; 124; 37; **anônimo**;; mystorage...
 2. O blob é privado e foi usado com uma assinatura de acesso compartilhado. Nesse caso, a solicitação-status é "SASSuccess" e o tipo de autorização é "SAS".
 
-   1.0;2015-11-16T18:30:05.6556115Z;GetBlob;**SASSuccess**;200;416;64;**sas**;;mystorage…
+   1.0; 2015-11-16T18:30:05.6556115 Z; GetBlob **SASSuccess**; 200; 416; 64; **SAS**;; mystorage...
 3. O blob é privado e a chave de armazenamento foi usada para acessá-lo. Nesse caso, a solicitação-status é "**êxito**" e o tipo de autorização é "**autenticado**".
 
-   1.0;2015-11-16T18:32:24.3174537Z;GetBlob;**Success**;206;59;22;**authenticated**;mystorage…
+   1.0; 2015-11-16T18:32:24.3174537 Z; GetBlob **Sucesso**; 206; 59; 22; **autenticado**; mystorage...
 
 Você pode usar o Microsoft Message Analyzer para exibir e analisar esses logs. Ele inclui recursos de pesquisa e de filtro. Por exemplo, talvez você queira procurar instâncias de getBlob para ver se o uso é o esperado, ou seja, para garantir que alguém não esteja acessando a conta de armazenamento de forma inadequada.
 
@@ -474,7 +472,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, Confira esses re
 * [Suporte a CORS (compartilhamento de recursos entre origens) para os serviços de armazenamento do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn535601.aspx)
 
   Esta é a documentação de referência para suporte a CORS para os serviços de armazenamento do Azure. Isso tem links para artigos que se aplicam a cada serviço de armazenamento e mostra um exemplo e explica cada elemento no arquivo CORS.
-* [Armazenamento do Microsoft Azure: Introdução ao CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
+* [Armazenamento do Microsoft Azure: Apresentando o CORS](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/02/03/windows-azure-storage-introducing-cors.aspx)
 
   Este é um link para o artigo inicial do blog anunciando CORS e mostrando como usá-lo.
 
@@ -486,9 +484,9 @@ Para obter mais informações sobre o CORS e como habilitá-lo, Confira esses re
    Se você puder usar HTTPS, que fornece segurança em nível de transporte, o uso da verificação MD5 será redundante e desnecessário.
 
    Para obter mais informações, consulte a [visão geral do Azure Blob MD5](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
-2. **E quanto à conformidade com FIPS para os EUA Instituições?**
+2. **E quanto à conformidade com FIPS para o governo dos EUA?**
 
-   O Estados Unidos padrão FIPS (FIPS) define algoritmos criptográficos aprovados para uso pelos EUA Sistemas de computador do governo federal para a proteção de dados confidenciais. Habilitar o modo FIPS em um Windows Server ou desktop informa ao sistema operacional que apenas algoritmos criptográficos validados por FIPS devem ser usados. Se um aplicativo usar algoritmos não compatíveis, os aplicativos serão interrompidos. With.NET Framework versões 4.5.2 ou superior, o aplicativo alterna automaticamente os algoritmos de criptografia para usar algoritmos compatíveis com FIPS quando o computador está no modo FIPS.
+   O Estados Unidos padrão FIPS (FIPS) define os algoritmos de criptografia aprovados para uso pelos sistemas de computador do governo federal dos EUA para a proteção de dados confidenciais. Habilitar o modo FIPS em um Windows Server ou desktop informa ao sistema operacional que apenas algoritmos criptográficos validados por FIPS devem ser usados. Se um aplicativo usar algoritmos não compatíveis, os aplicativos serão interrompidos. With.NET Framework versões 4.5.2 ou superior, o aplicativo alterna automaticamente os algoritmos de criptografia para usar algoritmos compatíveis com FIPS quando o computador está no modo FIPS.
 
    A Microsoft deixa que cada cliente decida se deseja habilitar o modo FIPS. Acreditamos que não há nenhum motivo convincente para os clientes que não estão sujeitos a regulamentos governamentais para habilitar o modo FIPS por padrão.
 
@@ -498,7 +496,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, Confira esses re
   Este artigo de blog fornece uma visão geral do FIPS e explica por que eles não habilitam o modo FIPS por padrão.
 * [Validação do FIPS 140](https://technet.microsoft.com/library/cc750357.aspx)
 
-  Este artigo fornece informações sobre como os produtos e módulos criptográficos da Microsoft estão em conformidade com o padrão FIPS para os Estados Unidos Governo federal.
-* ["Criptografia do sistema: Usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura "efeitos de configurações de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
+  Este artigo fornece informações sobre como os produtos e módulos criptográficos da Microsoft estão em conformidade com o padrão FIPS para o governo federal dos EUA.
+* ["Criptografia do sistema: usar algoritmos compatíveis com FIPS para criptografia, hash e assinatura" efeitos de configurações de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
 
   Este artigo fala sobre o uso do modo FIPS em computadores mais antigos do Windows.

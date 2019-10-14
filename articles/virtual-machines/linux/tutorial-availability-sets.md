@@ -15,14 +15,14 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8857e93aec883dc4b7fe0b71093184c3b604b24a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10458e3c5f1e4dc9034206470fdfec19e13417fb
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103582"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299446"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implantar máquinas virtuais altamente disponíveis com o CLI do Azure
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Tutorial: Criar e implementar máquinas virtuais altamente disponíveis com a CLI do Azure
 
 Neste tutorial, irá aprender a aumentar a disponibilidade e a fiabilidade das suas soluções de Máquina Virtual no Azure através de uma função chamada Conjuntos de Disponibilidade. Os conjuntos de disponibilidade garantem que as VMs que implementa no Azure são distribuídas por vários clusters de hardware isolados. Fazer isto garante que, se ocorrer uma falha de hardware ou software no Azure, apenas um subconjunto das suas VMs é afetado e que a solução global permanece disponível e operacional.
 
@@ -33,9 +33,9 @@ Neste tutorial, ficará a saber como:
 > * Criar uma VM num conjunto de disponibilidade
 > * Verificar os tamanhos de VM disponíveis
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="high-availability-in-azure-overview"></a>Visão geral da alta disponibilidade no Azure
 A alta disponibilidade no Azure pode ser criada de várias maneiras diferentes. Duas opções que você tem são conjuntos de disponibilidade e zonas de disponibilidade. Usando conjuntos de disponibilidade, suas VMs serão protegidas contra falhas que podem ocorrer em um datacenter. Isso inclui falhas de hardware e falhas de software do Azure. Usando zonas de disponibilidade, suas VMs serão colocadas em infraestrutura fisicamente separada sem recursos compartilhados e, portanto, serão protegidas de falhas de datacenter inteiras.
@@ -50,7 +50,7 @@ Consideremos uma solução típica baseada em VM em que poderá ter quatro servi
 
 ### <a name="availability-zone-overview"></a>Visão geral da zona de disponibilidade
 
-Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As zonas de disponibilidade são localizações físicas únicas dentro de uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física de Zonas de Disponibilidade dentro de uma região protege aplicativos e dados de falhas do datacenter. Os serviços com redundância de zona replicam seus aplicativos e dados em Zonas de Disponibilidade para proteger contra pontos únicos de falha. Com o Zonas de Disponibilidade, o Azure oferece um SLA de tempo de atividade de VM de 99,99% melhor do setor.
+Zonas de Disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As Zonas de Disponibilidade são localizações físicas exclusivas numa região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física de Zonas de Disponibilidade dentro de uma região protege aplicativos e dados de falhas do datacenter. Os serviços com redundância de zona replicam seus aplicativos e dados em Zonas de Disponibilidade para proteger contra pontos únicos de falha. Com o Zonas de Disponibilidade, o Azure oferece um SLA de tempo de atividade de VM de 99,99% melhor do setor.
 
 Semelhante aos conjuntos de disponibilidade, vamos considerar uma solução típica baseada em VM em que você pode ter quatro servidores Web front-end e usar duas VMs de back-end que hospedam um banco de dados. Semelhante aos conjuntos de disponibilidade, você desejará implantar suas VMs em duas zonas de disponibilidade separadas: uma zona de disponibilidade para a camada "Web" e uma zona de disponibilidade para a camada "banco de dados". Quando você cria uma nova VM e especifica a zona de disponibilidade como um parâmetro para o comando AZ VM Create, o Azure garante automaticamente que as VMs criadas sejam isoladas entre zonas de disponibilidade totalmente diferentes. Se o datacenter inteiro em que um de seus servidores Web ou VMs do servidor de banco de dados estiver em execução tiver um problema, você saberá que as outras instâncias do servidor Web e das VMs de banco de dados permanecerão em execução porque estão em execução em datacenters completamente separados.
 

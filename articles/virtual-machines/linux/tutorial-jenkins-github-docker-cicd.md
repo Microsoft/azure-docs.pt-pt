@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3d0b67227c8e80f23f111ec889f8cb1541b15f94
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 875285b6a168d9aa9820d660d9c366a36545d319
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100775"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299420"
 ---
-# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento em uma VM do Linux no Azure com Jenkins, GitHub e Docker
+# <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Tutorial: Criar uma infraestrutura de desenvolvimento numa VM do Linux no Azure com o Jenkins, GitHub e Docker
 
 Para automatizar a fase de criação e teste do desenvolvimento de aplicações, pode utilizar um pipeline de integração e implementação (CI/CD) contínuas. Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
 
@@ -34,9 +34,9 @@ Para automatizar a fase de criação e teste do desenvolvimento de aplicações,
 > * Criar uma imagem do Docker para a aplicação
 > * Verificar se as consolidações do GitHub criam uma nova imagem do Docker e atualizam a aplicação em execução
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Este tutorial usa a CLI dentro do [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), que é constantemente atualizado para a versão mais recente. Para abrir o Cloud Shell, selecione **Experimente** na parte superior de qualquer bloco de código.
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.30 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se optar por instalar e utilizar a CLI localmente, este tutorial precisará que execute a versão 2.0.30 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="create-jenkins-instance"></a>Criar instância do Jenkins
 Num tutorial anterior sobre [Como personalizar uma máquina virtual do Linux no primeiro arranque](tutorial-automate-vm-deployment.md), aprendeu a automatizar a personalização de VMs com inicialização da cloud. Este tutorial utiliza um ficheiro de inicialização da cloud para instalar o Jenkins e o Docker numa VM. O Jenkins é um servidor de automatização de código aberto popular, que se integra totalmente no Azure para permitir a integração contínua (CI) e a entrega contínua (CD). Para obter mais tutoriais sobre como utilizar o Jenkins, veja o [Jenkins no hub do Azure](https://docs.microsoft.com/azure/jenkins/).
@@ -108,7 +108,7 @@ Por motivos de segurança, tem de introduzir a palavra-passe de administrador in
 ssh azureuser@<publicIps>
 ```
 
-Verifique se Jenkins está em execução `service` usando o comando:
+Verifique se Jenkins está em execução usando o comando `service`:
 
 ```bash
 $ service jenkins status
@@ -147,9 +147,9 @@ Para configurar a integração com o GitHub, abra a [aplicação de exemplo Node
 
 Crie um webhook no interior do fork que criou:
 
-- Selecione **configurações**e, em seguida, selecione WebHooks no lado esquerdo.
+- Selecione **configurações**e, em seguida, selecione **WebHooks** no lado esquerdo.
 - Escolha **Adicionar webhook**e, em seguida, digite *Jenkins* na caixa de filtro.
-- Para a **URL da carga**, `http://<publicIps>:8080/github-webhook/`insira. Certifique-se de que inclui / à direita
+- Para a **URL da carga**, insira `http://<publicIps>:8080/github-webhook/`. Certifique-se de que inclui / à direita
 - Para **tipo de conteúdo**, selecione *aplicativo/x-www-form – urlencoded*.
 - Para **quais eventos você gostaria de disparar este webhook?** , selecione *apenas o evento de push.*
 - Defina **ativo** como marcado.
@@ -246,7 +246,7 @@ Agora, efetue outra edição no ficheiro *index.js* no GitHub e consolide a alte
 ![Executar a aplicação Node.js após outra consolidação do GitHub](media/tutorial-jenkins-github-docker-cicd/another_running_nodejs_app.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou o GitHub para executar uma tarefa de compilação do Jenkins em cada consolidação de código e, em seguida, implementar um contentor do Docker para testar a aplicação. Aprendeu a:
 
 > [!div class="checklist"]

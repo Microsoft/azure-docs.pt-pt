@@ -9,20 +9,20 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: overview
-ms.date: 09/27/2019
-ms.openlocfilehash: 68c48bd4288b80d6cab515aa981d0f72461c0849
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/10/2019
+ms.openlocfilehash: 70fa1bd2f33d3a6e58b12b9d2da617e8129c8da9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035260"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299718"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Quais ferramentas estão incluídas no Máquina Virtual de Ciência de Dados do Azure?
 
 A seguir, incluímos uma lista atualizada de ferramentas incluídas no Máquina Virtual de Ciência de Dados, juntamente com links para entender como cada ferramenta é configurada.
 
 
-| **Ferramenta**                                                           | **Windows DSVM** | **Linux DSVM** | **Notas de uso** |
+| **Ferramenta**                                                           | **DSVM do Windows** | **DSVM Linux** | **Notas de uso** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|:------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) com pacotes populares pré-instalados   |<span class='green-check'>&#9989;</span></br> (3.4.3)                    |<span class='green-check'>&#9989;</span></br> (3.4.3)  | [R no DSVM](./dsvm-languages.md#r)           |
 | [Microsoft Machine Learning Server (R, Python)](https://docs.microsoft.com/machine-learning-server/) A Developer Edition inclui: <br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) a estrutura paralela e distribuída de alto desempenho (R e Python)<br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package), novos algoritmos de aprendizado de máquina de última geração da Microsoft <br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [R e operacionalização Python](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |<span class='green-check'>&#9989;</span>  </br> (9.3.0)                 |<span class='green-check'>&#9989;</span> | |
@@ -33,7 +33,7 @@ A seguir, incluímos uma lista atualizada de ferramentas incluídas no Máquina 
 | Ferramentas de bases de dados                                                       |  SQL Server Management Studio <br/> Serviços de Integração do SQL Server<br/> [BCP, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br />  Drivers ODBC/JDBC|  [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/) (ferramenta de consulta), <br />  BCP, sqlcmd <br />  Drivers ODBC/JDBC| |
 | Análise no banco de dados escalável com SQL Server serviços de Machine Learning (R, Python) |<span class='green-check'>&#9989;</span>    | <span class='red-x'>&#10060;</span>                | |
 | [Jupyter Notebook Server](https://jupyter.org/) com os seguintes kernels:                                  |<span class='green-check'>&#9989;</span></br> 5\.5.0   |<span class='green-check'>&#9989;</span> | [Exemplos de Jupyter Notebook](./dsvm-samples-and-walkthroughs.md) | 
-|     &nbsp; @ NO__T-1 @ NO__T-2 @ NO__T-3 R |<span class='green-check'>&#9989;</span></br> (3.4.3) |<span class='green-check'>&#9989;</span></br> (3.4.3) | [Exemplos de Jupyter de R](./dsvm-samples-and-walkthroughs.md#r-language) |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 R |<span class='green-check'>&#9989;</span></br> (3.4.3) |<span class='green-check'>&#9989;</span></br> (3.4.3) | [Exemplos de Jupyter de R](./dsvm-samples-and-walkthroughs.md#r-language) |
 |     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Python |<span class='green-check'>&#9989;</span></br> Beta |<span class='green-check'>&#9989;</span> | [Exemplos de Jupyter do Python](./dsvm-samples-and-walkthroughs.md#python-language) |
 |     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Julia |<span class='green-check'>&#9989;</span></br> (0.6.4) |<span class='green-check'>&#9989;</span></br> (0.6.2) | [Exemplos de Julia Jupyter](./dsvm-samples-and-walkthroughs.md#julia-language) |
 |     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 PySpark |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | [Exemplos de pySpark Jupyter](./dsvm-samples-and-walkthroughs.md#sparkml)
@@ -44,9 +44,9 @@ A seguir, incluímos uma lista atualizada de ferramentas incluídas no Máquina 
 | Ferramentas de desenvolvimento, IDEs e editores de código:| | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) com plug-in git, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)e [Ferramentas do R para Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) |<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span>   | [Visual Studio no DSVM](./dsvm-tools-development.md#visual-studio-2017) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio Code](https://code.visualstudio.com/) |<span class='green-check'>&#9989;</span></br> (1.31.1) |<span class='green-check'>&#9989;</span></br> (1,31) | [Visual Studio Code no DSVM](./dsvm-tools-development.md#visual-studio-code) |
-| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio desktop](https://www.rstudio.com/products/rstudio/#Desktop) |<span class='green-check'>&#9989;</span></br> (1.1.463) |<span class='green-check'>&#9989;</span></br> (1.1.456) | [RStudio desktop DSVM](./dsvm-tools-development.md#rstudio--desktop) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio desktop](https://www.rstudio.com/products/rstudio/#Desktop) |<span class='green-check'>&#9989;</span></br> (1.2.50 XX) |<span class='green-check'>&#9989;</span></br> (1.1.456) | [RStudio desktop DSVM](./dsvm-tools-development.md#rstudio--desktop) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | [Servidor RStudio no DSVM](./dsvm-tools-development.md#rstudio--server)
-| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) |<span class='green-check'>&#9989;</span></br> (2018.1.4)  |<span class='green-check'>&#9989;</span></br> (2018.2.3) | [PyCharm DSVM](./dsvm-tools-development.md#pycharm)
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) |<span class='green-check'>&#9989;</span></br> (19.2.3)  |<span class='green-check'>&#9989;</span></br> (2018.2.3) | [PyCharm DSVM](./dsvm-tools-development.md#pycharm)
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Atom](https://atom.io/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (1.26.1) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Juno (Julia IDE)](https://junolab.org/)|<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span> | [Juno DSVM](./dsvm-tools-development.md#juno)
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [vim](https://www.vim.org) |<span class='green-check'>&#9989;</span></br> 8\.1.5 |<span class='green-check'>&#9989;</span></br> (7.4.1689) | |
@@ -54,10 +54,10 @@ A seguir, incluímos uma lista atualizada de ferramentas incluídas no Máquina 
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [git](https://git-scm.com/) e git bash |<span class='green-check'>&#9989;</span></br> (2.20.1) |<span class='green-check'>&#9989;</span></br> (0.6.2) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [OpenJDK](https://openjdk.java.net) |<span class='green-check'>&#9989;</span></br> (1.8.0 _201) |<span class='green-check'>&#9989;</span></br> (1.8.0 _222) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 .NET Framework |<span class='green-check'>&#9989;</span></br> 4\.7.2 |<span class='red-x'>&#10060;</span>   | |
-| [Power BI Desktop](https://powerbi.microsoft.com/en-us/) |<span class='green-check'>&#9989;</span></br> (2.65.5313.1381) |<span class='red-x'>&#10060;</span>   |
+| [Power BI Desktop](https://powerbi.microsoft.com/en-us/) |<span class='green-check'>&#9989;</span></br> (2.73.55 XX) |<span class='red-x'>&#10060;</span>   |
 | SDKs para aceder aos serviços do Azure e do Cortana Intelligence Suite |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | [Power BI área de trabalho no DSVM](./dsvm-tools-development.md#power-bi-desktop) |
 | Ferramentas de gerenciamento e movimentação de dados: | | |
-| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer/) |<span class='green-check'>&#9989;</span></br> 1\.6.2 |<span class='green-check'>&#9989;</span></br> (0.7.20160129.1) | |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer/) |<span class='green-check'>&#9989;</span></br> 1\.10.1 |<span class='green-check'>&#9989;</span></br> (0.7.20160129.1) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [CLI do Azure](https://docs.microsoft.com/cli/azure) |<span class='green-check'>&#9989;</span></br> (2.0.56) |<span class='green-check'>&#9989;</span></br> (2.0.58) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azcopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) |<span class='green-check'>&#9989;</span></br> (8.1.0) |<span class='red-x'>&#10060;</span>   | [Azcopy DSVM](./dsvm-tools-ingestion.md#azcopy)
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Driver de fusível de blob](https://github.com/Azure/azure-storage-fuse) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> 1\.0.2 | [blobfuse DSVM](./dsvm-tools-ingestion.md#blobfuse)

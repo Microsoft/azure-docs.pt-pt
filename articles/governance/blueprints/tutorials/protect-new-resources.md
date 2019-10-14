@@ -1,19 +1,19 @@
 ---
-title: Tutorial – proteger novos recursos com bloqueios de recursos do Blueprint
+title: Proteger novos recursos com bloqueios de plantas
 description: Neste tutorial, você aprenderá a usar as opções de bloqueios de recursos de plantas do Azure somente leitura e não excluir para proteger recursos implantados recentemente.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 2f66677df7cd1c6fbde9c0467b4d7f2094509ee8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978132"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297010"
 ---
-# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: Proteger novos recursos com bloqueios de recursos de plantas do Azure
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Tutorial: proteger novos recursos com bloqueios de recursos de plantas do Azure
 
 Com os [bloqueios de recursos](../concepts/resource-locking.md)de plantas do Azure, você pode proteger os recursos implantados recentemente de serem adulterados, mesmo por uma conta com a função de _proprietário_ . Você pode adicionar essa proteção nas definições do Blueprint de recursos criados por um artefato do modelo do Resource Manager.
 
@@ -42,11 +42,11 @@ Primeiro, crie a definição do Blueprint.
 
 1. Insira essas informações na guia **noções básicas** :
 
-   - **Nome do plano gráfico**: Forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome **Locked-storageAccount**.
-   - **Descrição do plano gráfico**: Adicione uma descrição para a definição do Blueprint. Use **para testar o bloqueio de recursos do Blueprint em recursos implantados**.
-   - **Local da definição**: Selecione o botão de reticências (...) e, em seguida, selecione o grupo de gerenciamento ou a assinatura para salvar a definição de Blueprint.
+   - **Nome do plano gráfico**: forneça um nome para a sua cópia do exemplo Blueprint. Para este tutorial, usaremos o nome **Locked-storageAccount**.
+   - **Descrição do Blueprint**: adicionar uma descrição para a definição do Blueprint. Use **para testar o bloqueio de recursos do Blueprint em recursos implantados**.
+   - **Local da definição**: selecione o botão de reticências (...) e, em seguida, selecione o grupo de gerenciamento ou a assinatura para salvar a definição do plano gráfico.
 
-1. Selecione a guia **artefatos** na parte superior da página ou selecione **Next: Artefatos @ no__t-0 na parte inferior da página.
+1. Selecione a guia **artefatos** na parte superior da página ou selecione **Avançar: artefatos** na parte inferior da página.
 
 1. Adicione um grupo de recursos no nível da assinatura:
    1. Selecione a linha **Adicionar artefato** em **assinatura**.
@@ -136,11 +136,11 @@ Depois que a definição do plano gráfico for publicada, você poderá atribuí
 
    - **Noções básicas**
 
-     - **Subscrições**: Selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a definição do Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada assinatura, usando os parâmetros inseridos.
-     - **Nome da atribuição**: O nome é preenchido previamente com base no nome da definição do Blueprint. Queremos que essa atribuição represente o bloqueio do novo grupo de recursos, portanto, altere o nome da atribuição para **Assignment-Locked-storageAccount-TestingBPLocks**.
-     - **Local**: Selecione uma região na qual criar a identidade gerenciada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Assinaturas**: selecione uma ou mais das assinaturas que estão no grupo de gerenciamento em que você salvou a definição do Blueprint. Se você selecionar mais de uma assinatura, uma atribuição será criada para cada assinatura, usando os parâmetros inseridos.
+     - **Nome da atribuição**: o nome é preenchido previamente com base no nome da definição do Blueprint. Queremos que essa atribuição represente o bloqueio do novo grupo de recursos, portanto, altere o nome da atribuição para **Assignment-Locked-storageAccount-TestingBPLocks**.
+     - **Local**: selecione uma região na qual criar a identidade gerenciada. O Azure Blueprint utiliza esta identidade gerida para implementar todos os artefactos no esquema atribuído. Para saber mais, veja [identidades geridas dos recursos do Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Para este tutorial, selecione **leste dos EUA 2**.
-     - **Versão de definição do Blueprint**: Selecione a versão publicada **1,0** da definição do Blueprint.
+     - **Versão de definição do Blueprint**: selecione a versão publicada **1,0** da definição do Blueprint.
 
    - **Atribuição de bloqueio**
 
@@ -148,16 +148,16 @@ Depois que a definição do plano gráfico for publicada, você poderá atribuí
 
    - **Identidade gerenciada**
 
-     Use a opção padrão: **Atribuído pelo sistema**. Para obter mais informações, consulte [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Use a opção padrão: **atribuído pelo sistema**. Para obter mais informações, consulte [identidades gerenciadas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - **Parâmetros de artefato**
 
      Os parâmetros definidos nesta seção se aplicam ao artefato sob o qual eles são definidos. Esses parâmetros são [parâmetros dinâmicos](../concepts/parameters.md#dynamic-parameters) porque são definidos durante a atribuição do plano gráfico. Para cada artefato, defina o valor do parâmetro para o que você vê na coluna **valor** .
 
-     |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Value|Descrição|
+     |Nome do artefato|Tipo de artefato|Nome do parâmetro|Valor|Descrição|
      |-|-|-|-|-|
-     |Grupo de recursos RGtoLock|Resource group|Name|TestingBPLocks|Define o nome do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
-     |Grupo de recursos RGtoLock|Resource group|Location|EUA Oeste 2|Define o local do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Nome|TestingBPLocks|Define o nome do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
+     |Grupo de recursos RGtoLock|Grupo de recursos|Localização|E.U.A. Oeste 2|Define o local do novo grupo de recursos ao qual aplicar os bloqueios de Blueprint.|
      |StorageAccount|Modelo do Resource Manager|storageAccountType (StorageAccount)|Standard_GRS|A SKU de armazenamento. O valor padrão é _Standard_LRS_.|
 
 1. Depois de inserir todos os parâmetros, selecione **atribuir** na parte inferior da página.

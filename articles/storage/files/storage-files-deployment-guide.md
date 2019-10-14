@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699706"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299579"
 ---
 # <a name="how-to-deploy-azure-files"></a>Como implementar os Ficheiros do Azure
-[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo mostrará como implantar de forma prática os arquivos do Azure em sua organização.
+Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB padrão do setor. Este artigo mostrará como implantar de forma prática os arquivos do Azure em sua organização.
 
 É altamente recomendável ler o [planejamento de uma implantação de arquivos do Azure](storage-files-planning.md) antes de seguir as etapas neste artigo.
 
@@ -34,7 +34,7 @@ O Azure File Sync permite-lhe centralizar as partilhas de ficheiros da sua organ
 Sincronização de Arquivos do Azure pode ser usado para migrar dados para um compartilhamento de arquivos do Azure, mesmo que o mecanismo de sincronização não seja desejado para uso de longo prazo. Mais informações sobre como usar Sincronização de Arquivos do Azure para transferir dados para o compartilhamento de arquivos do Azure podem ser encontradas no [planejamento de uma implantação de sincronização de arquivos do Azure](storage-sync-files-planning.md) e [como implantar sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md).
 
 ### <a name="azure-importexport"></a>Importação/exportação do Azure
-O serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados em um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. Consulte [usar o serviço de importação/exportação Microsoft Azure para transferir dados para o armazenamento do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma visão geral mais detalhada do serviço.
+O serviço de importação/exportação do Azure permite que você transfira com segurança grandes quantidades de dados em um compartilhamento de arquivos do Azure enviando unidades de disco rígido para um datacenter do Azure. Consulte [usar o serviço de importação/exportação do Microsoft Azure para transferir dados para o armazenamento do Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter uma visão geral mais detalhada do serviço.
 
 > [!Note]  
 > O serviço de importação/exportação do Azure não oferece suporte à exportação de arquivos de um compartilhamento de arquivos do Azure neste momento.
@@ -63,9 +63,9 @@ As etapas a seguir importarão dados de um local para o compartilhamento de arqu
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [preparar o arquivo CSV do conjunto](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) de dados para obter mais informações.
+    Vários compartilhamentos com uma conta de armazenamento podem ser especificados. Consulte [preparar o arquivo CSV do conjunto](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) de dados para obter mais informações.
 
-5. Crie o arquivo CSV do driveset. O arquivo CSV do driveset lista os discos disponíveis para o agente de exportação local. Por exemplo, as seguintes listas `X:`de arquivos CSV do driveset, `Z:` `Y:`e unidades a serem usadas no trabalho de exportação local:
+5. Crie o arquivo CSV do driveset. O arquivo CSV do driveset lista os discos disponíveis para o agente de exportação local. Por exemplo, o seguinte arquivo CSV de driveset lista `X:`, `Y:` e `Z:` unidades a serem usadas no trabalho de exportação local:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -74,7 +74,7 @@ As etapas a seguir importarão dados de um local para o compartilhamento de arqu
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Consulte [preparar o arquivo CSV](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) do driveset para obter mais informações.
+    Consulte [preparar o arquivo CSV do driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter mais informações.
 
 6. Use a [ferramenta WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) para copiar seus dados para um ou mais discos rígidos.
 
@@ -129,7 +129,7 @@ Para substituir um compartilhamento de arquivos local, é útil pré-configurar 
 > A montagem de um compartilhamento de arquivos do Azure requer o uso da chave da conta de armazenamento como a senha, portanto, recomendamos apenas a montagem em ambientes confiáveis. 
 
 ### <a name="windows"></a>Windows
-O PowerShell pode ser usado para executar o comando mount em vários PCs. No exemplo a seguir, `$computers` é populado manualmente, mas você pode gerar a lista de computadores a serem montados automaticamente. Por exemplo, você pode popular essa variável com resultados de Active Directory.
+O PowerShell pode ser usado para executar o comando mount em vários PCs. No exemplo a seguir, `$computers` é preenchido manualmente, mas você pode gerar a lista de computadores a serem montados automaticamente. Por exemplo, você pode popular essa variável com resultados de Active Directory.
 
 ```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
@@ -137,7 +137,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-Um script bash simples combinado com o SSH pode produzir o mesmo resultado no exemplo a seguir. A `$computer` variável é, da mesma forma, deixada para ser populada pelo usuário:
+Um script bash simples combinado com o SSH pode produzir o mesmo resultado no exemplo a seguir. A variável `$computer`, da mesma forma, deixada para ser populada pelo usuário:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")
@@ -147,7 +147,7 @@ do
 done
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Planejar uma implantação de Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
 - [Solucionar problemas de arquivos do Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Solucionar problemas de arquivos do Azure no Linux](storage-troubleshoot-linux-file-connection-problems.md)

@@ -1,62 +1,61 @@
 ---
-title: Ligar aos servidores do Azure Analysis Services | Documentos da Microsoft
-description: Saiba como ligar e obter dados a partir de um servidor de Analysis Services no Azure.
+title: Conectando-se a servidores Azure Analysis Services | Microsoft Docs
+description: Saiba como se conectar e obter dados de um servidor Analysis Services no Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9a8863189ee9cb63d86b157c0bbebb6fd16116b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8059ac748f73ad8f9036f8e675e876e3a8716be
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61027988"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295181"
 ---
 # <a name="connecting-to-servers"></a>Ligar aos servidores
 
-Este artigo descreve a ligar a um servidor ao utilizar modelação de dados e aplicações de gestão, como o SQL Server Management Studio (SSMS) ou SQL Server Data Tools (SSDT). Ou, com o cliente de aplicações como o Microsoft Excel, Power BI Desktop ou aplicativos personalizados de relatório. Ligações ao Azure Analysis Services utilizam HTTPS.
+Este artigo descreve como se conectar a um servidor usando aplicativos de modelagem e gerenciamento de dados como SQL Server Management Studio (SSMS) ou SQL Server Data Tools (SSDT). Ou, com aplicativos de relatório de cliente como o Microsoft Excel, Power BI Desktop ou aplicativos personalizados. Conexões com Azure Analysis Services usam HTTPS.
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
-[Obter as bibliotecas de cliente mais recente](analysis-services-data-providers.md)
+[Obter as bibliotecas de cliente mais recentes](analysis-services-data-providers.md)
 
-Todas as ligações a um servidor, independentemente do tipo, exigem atualizadas bibliotecas de cliente AMO, ADOMD.NET e OLEDB para ligar a e a interface com um servidor do Analysis Services. Para o SSMS, o SSDT, o Excel 2016 e posterior e o Power BI, as bibliotecas de cliente mais recente forem instaladas ou atualizadas com as versões mensais. No entanto, em alguns casos, é possível que um aplicativo pode não ter a versão mais recente. Por exemplo, quando atualiza o atraso de políticas ou atualizações do Office 365 são no canal diferido.
+Todas as conexões com um servidor, independentemente do tipo, exigem bibliotecas de cliente AMO, ADOMD.NET e OLEDB atualizadas para se conectar e interagir com um servidor Analysis Services. Para SSMS, SSDT, Excel 2016 e posterior e Power BI, as bibliotecas de cliente mais recentes são instaladas ou atualizadas com versões mensais. No entanto, em alguns casos, é possível que um aplicativo não tenha o mais recente. Por exemplo, quando as políticas atrasam atualizações ou as atualizações do Office 365 estão no canal adiado.
 
 ## <a name="server-name"></a>Nome do servidor
 
-Quando cria um servidor de Analysis Services no Azure, especifique um nome exclusivo e a região onde o servidor está a ser criada. Ao especificar o nome do servidor numa ligação, o esquema de nomenclatura do servidor é:
+Ao criar um servidor de Analysis Services no Azure, você especifica um nome exclusivo e a região em que o servidor deve ser criado. Ao especificar o nome do servidor em uma conexão, o esquema de nomenclatura do servidor é:
 
 ```
 <protocol>://<region>/<servername>
 ```
- Em que o protocolo é a cadeia de caracteres **asazure**, região é o Uri onde o servidor foi criado (por exemplo, westus.asazure.windows.net) e servername é o nome do seu servidor exclusivo dentro da região.
+ Quando o protocolo é uma cadeia de caracteres **asazure**, região é o URI em que o servidor foi criado (por exemplo, westus.asazure.Windows.net) e ServerName é o nome do seu servidor exclusivo na região.
 
 ### <a name="get-the-server-name"></a>Obter o nome do servidor
 
-Na **portal do Azure** > servidor > **descrição geral** > **nome do servidor**, copie o nome de servidor completo. Se a outros utilizadores na sua organização estão a ligar a este servidor também, pode compartilhar este nome de servidor com os mesmos. Ao especificar um nome de servidor, todo o caminho deve ser utilizado.
+Em **portal do Azure** > Server > **visão geral** > **nome do servidor**, copie todo o nome do servidor. Se outros usuários em sua organização estiverem se conectando a esse servidor também, você poderá compartilhar esse nome de servidor com eles. Ao especificar um nome de servidor, o caminho inteiro deve ser usado.
 
 ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 
 > [!NOTE]
-> O protocolo para a região E.U.A. Leste 2 é **aspaaseastus2**.
+> O protocolo para a região leste dos EUA 2 é **aspaaseastus2**.
 
 ## <a name="connection-string"></a>Cadeia de ligação
 
-Ao ligar ao Azure Analysis Services usando o modelo de objeto em tabela, utilize os seguintes formatos de cadeia de ligação:
+Ao se conectar a Azure Analysis Services usando o modelo de objeto de tabela, use os seguintes formatos de cadeia de conexão:
 
-###### <a name="integrated-azure-active-directory-authentication"></a>Autenticação integrada do Azure Active Directory
+###### <a name="integrated-azure-active-directory-authentication"></a>Autenticação de Azure Active Directory integrada
 
-Autenticação integrada do seleciona o cache de credencial do Azure Active Directory se estiver disponível. Caso contrário, é apresentada a janela de início de sessão do Azure.
+A autenticação integrada seleciona o cache de credencial Azure Active Directory, se disponível. Caso contrário, a janela de logon do Azure será mostrada.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;"
 ```
 
 
-###### <a name="azure-active-directory-authentication-with-username-and-password"></a>Autenticação do Active Directory do Azure com o nome de utilizador e palavra-passe
+###### <a name="azure-active-directory-authentication-with-username-and-password"></a>Azure Active Directory autenticação com nome de usuário e senha
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>;User ID=<user name>;Password=<password>;Persist Security Info=True; Impersonation Level=Impersonate;";
@@ -64,20 +63,20 @@ Autenticação integrada do seleciona o cache de credencial do Azure Active Dire
 
 ###### <a name="windows-authentication-integrated-security"></a>Autenticação do Windows (segurança integrada)
 
-Utilize a conta de Windows que executa o processo atual.
+Use a conta do Windows que executa o processo atual.
 
 ```
 "Provider=MSOLAP;Data Source=<Azure AS instance name>; Integrated Security=SSPI;Persist Security Info=True;"
 ```
 
-## <a name="connect-using-an-odc-file"></a>Ligar através de um ficheiro. odc
+## <a name="connect-using-an-odc-file"></a>Conectar-se usando um arquivo. odc
 
-Com as versões mais antigas do Excel, os utilizadores podem ligar a um servidor Azure Analysis Services, utilizando um ficheiro de ligação de dados do Office (. odc). Para obter mais informações, consulte [criar um ficheiro de ligação de dados do Office (. odc)](analysis-services-odc.md).
+Com versões mais antigas do Excel, os usuários podem se conectar a um servidor de Azure Analysis Services usando um arquivo de conexão de dados do Office (. odc). Para saber mais, confira [criar um arquivo de conexão de dados do Office (. odc)](analysis-services-odc.md).
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Ligar com o Excel](analysis-services-connect-excel.md)    
-[Ligar ao Power BI](analysis-services-connect-pbi.md)   
-[Gerir o seu servidor](analysis-services-manage.md)   
+[Conectar-se ao Excel](analysis-services-connect-excel.md)    
+[Conectar-se com Power BI](analysis-services-connect-pbi.md)   
+[Gerenciar seu servidor](analysis-services-manage.md)   
 

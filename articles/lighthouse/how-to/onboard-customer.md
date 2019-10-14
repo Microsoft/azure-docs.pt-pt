@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/30/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 78cef29807ced2f3dec765723c57f951f843b1ca
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.openlocfilehash: e16747d74df7db0fb2ca2d4e0f07247258a980d7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286586"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299746"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Integrar um cliente na gestão de recursos delegados do Azure
 
@@ -188,7 +188,7 @@ O exemplo a seguir mostra o arquivo **delegatedResourceManagement. Parameters. J
     }
 }
 ```
-A última autorização no exemplo acima adiciona um **PrincipalId** com a função de administrador de acesso do usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas a identidades gerenciadas. Observe que nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário será aplicada a esse usuário.
+A última autorização no exemplo acima adiciona um **PrincipalId** com a função de administrador de acesso do usuário (18d7d88d-d35e-4fb5-a5c3-7773c20a72d9). Ao atribuir essa função, você deve incluir a propriedade **delegatedRoleDefinitionIds** e uma ou mais funções internas. O usuário criado nessa autorização poderá atribuir essas funções internas a [identidades gerenciadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Observe que nenhuma outra permissão normalmente associada à função Administrador de acesso do usuário será aplicada a esse usuário.
 
 ## <a name="deploy-the-azure-resource-manager-templates"></a>Implantar os modelos de Azure Resource Manager
 

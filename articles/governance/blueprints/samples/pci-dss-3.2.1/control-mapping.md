@@ -1,5 +1,5 @@
 ---
-title: Exemplo-PCI-DSS v 3.2.1 Blueprint-mapeamento de controle
+title: Exemplo de mapeamento de controle do PCI-DSS v 3.2.1 Blueprint
 description: Controle o mapeamento do exemplo de planejamento de plano de segurança de dados do setor de cartão de pagamento Standard v 3.2.1 para Azure Policy e RBAC.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: fca86163cdfc8790da007a1f0f9264534b512cdd
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 8c8dbc8534720189c40624cfda97ce09a612e453
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981493"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297195"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mapeamento de controle do exemplo de especificação técnica PCI-DSS v 3.2.1
 
@@ -34,8 +34,8 @@ Este projeto ajuda você a gerenciar e controlar redes atribuindo [Azure Policy]
 
 Este projeto ajuda a reforçar a política com o uso de controles de cryptograph atribuindo definições de [Azure Policy](../../../policy/overview.md) que impõem controles cryptograph específicos e auditam o uso de configurações de criptografia fracas. Entender onde os recursos do Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar medidas corretivas para garantir que os recursos sejam configurados de acordo com sua política de segurança de informações. Especificamente, as políticas atribuídas por este projeto exigem Transparent Data Encryption em bancos de dados SQL; auditar criptografia ausente em contas de armazenamento e variáveis de conta de automação. Também há políticas que abordam conexões inseguras de auditoria para contas de armazenamento, aplicativos de funções, WebApp, aplicativos de API e cache Redis e auditoria de comunicação não criptografada Service Fabric.
 
-- Função de aplicação só deve estar acessível através de HTTPS
-- Aplicação Web só deve estar acessível através de HTTPS
+- Aplicativo de funções só deve ser acessível via HTTPS
+- O aplicativo Web só deve ser acessível via HTTPS
 - O aplicativo de API só deve ser acessível via HTTPS
 - Transparent Data Encryption em bancos de dados SQL devem ser habilitadas
 - A criptografia de disco deve ser aplicada em máquinas virtuais
@@ -100,12 +100,12 @@ O Azure implementa o RBAC (controle de acesso baseado em função) para ajudá-l
 
 Este projeto ajuda a impor senhas fortes atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam as VMs do Windows que não impõem a força mínima e outros requisitos de senha. A conscientização das VMs em violação da política de força da senha ajuda você a tomar medidas corretivas para garantir que as senhas de todas as contas de usuário da VM estejam em conformidade com a política.
 
-- \[Preview @ no__t-1: Auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
-- \[Preview @ no__t-1: Auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha para 14 caracteres
-- \[Preview @ no__t-1: Auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
-- \[Preview @ no__t-1: Implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
+- \[Preview @ no__t-1: auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que não têm uma duração máxima de senha de 70 dias
+- \[Preview @ no__t-1: auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da senha a 14 caracteres
+- \[Preview @ no__t-1: auditar VMs do Windows que permitem reutilização das 24 senhas anteriores
+- \[Preview @ no__t-1: implantar requisitos para auditar VMs do Windows que permitem o reuso das 24 senhas anteriores
 
 ## <a name="103-and-1054-audit-generation"></a>Geração de auditoria 10,3 e 10.5.4
 
@@ -115,7 +115,7 @@ Os logs de diagnóstico fornecem informações sobre as operações que foram ex
 - A auditoria deve ser habilitada nas configurações de segurança de dados avançadas no SQL Server
 - Definição de diagnóstico de auditoria
 - Auditar configurações de auditoria no nível do SQL Server
-- Implementar a Auditoria em servidores SQL
+- Implantar a auditoria em servidores SQL
 - As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
 - As máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
 
@@ -124,7 +124,7 @@ Os logs de diagnóstico fornecem informações sobre as operações que foram ex
 Este projeto ajuda você a gerenciar e controlar sua rede atribuindo definições de [Azure Policy](../../../policy/overview.md) que auditam os locais de rede aceitáveis e os produtos da empresa aprovados permitidos para o ambiente. Elas são personalizáveis por cada empresa por meio dos parâmetros de política em cada uma dessas políticas.
 
 - Localizações permitidas
-- Localizações permitidas para os grupos de recursos
+- Locais permitidos para grupos de recursos
 
 ## <a name="next-steps"></a>Passos seguintes
 

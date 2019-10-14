@@ -1,6 +1,6 @@
 ---
-title: Suporte de localização do Azure Maps | Documentos da Microsoft
-description: Saiba mais sobre os idiomas suportados para os serviços do Azure Maps
+title: Suporte à localização no Azure Maps | Microsoft Docs
+description: Saiba mais sobre os idiomas com suporte para os serviços no Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 06/26/2019
@@ -8,148 +8,148 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a9446301cc4bb46c989223ad020c7a8e8b353ad3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b3382cffdc41685f8329a640aaf6c6c526375a83
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446192"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299837"
 ---
-# <a name="localization-support-in-azure-maps"></a>Suporte de localização do Azure Maps
+# <a name="localization-support-in-azure-maps"></a>Suporte à localização no Azure Maps
 
-Mapas do Azure suporta vários idiomas e modos de exibição com base no país/região. Este artigo fornece os idiomas suportados e vistas para ajudar a orientar a sua implementação do Azure Maps.
+O Azure Maps dá suporte a várias linguagens e exibições baseadas em país/região. Este artigo fornece os idiomas e as exibições com suporte para ajudar a orientar sua implementação do Azure Maps.
 
 
 ## <a name="azure-maps-supported-languages"></a>Idiomas com suporte do Azure Maps
 
-Foram localizado numa variedade de linguagens do Azure Maps em serviços. A tabela seguinte fornece os códigos de idiomas suportados para cada serviço.  
+Os mapas do Azure foram localizados em uma variedade de linguagens entre os serviços. A tabela a seguir fornece os códigos de idioma com suporte para cada serviço.  
   
 
-| id         | Name                   |  Maps | Pesquisa | Encaminhamento | Incidentes de tráfego | Controlo de mapas JS | Fuso horário |
+| ID         | Nome                   |  Mapas | Procurar | Encaminhamento | Incidentes de tráfego | Controle de mapa de JS | Fuso horário |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
-| af-ZA      | Afrikaans              |       |    ✓   |    ✓    |                   |                |     ✓     |
-| ar SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Basco (Basco)                 |       |    ✓   |         |                   |                |     ✓     |
+| AF-ZA      | Africâner              |       |    ✓   |    ✓    |                   |                |     ✓     |
+| ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| UE-ES      | Basco                 |       |    ✓   |         |                   |                |     ✓     |
 | bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| ES de AC      | Catalão                |       |    ✓   |         |                   |                |     ✓     |
-| zh-HanS    | Chinês (Simplificado)   |       |  zh-CN |         |                   |                |     ✓     |
+| CA-ES      | Catalão                |       |    ✓   |         |                   |                |     ✓     |
+| zh-HanS    | Chinês (Simplificado)   |       |  ZH-CN |         |                   |                |     ✓     |
 | zh-HanT    | Chinês (Tradicional)  | zh-TW |  zh-TW |  zh-TW  |                   |      Zh-TW     |     ✓     |
-| RH de RH      | Croata               |       |    ✓   |         |                   |                |     ✓     |
-| cs-CZ      | Checo                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| HR-HR      | Croata               |       |    ✓   |         |                   |                |     ✓     |
+| CS-CZ      | Tcheco                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | da-DK      | Dinamarquês                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NL-NL      | Neerlandês                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| nl-BE      | Holandês (Bélgica)        |       |    ✓   |         |                   |                |     ✓     |
-| EN-AU      | Inglês (Austrália)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| EN-NZ      | Inglês (Nova Zelândia)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-NL      | Holandês                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NL-ser      | Holandês (belga)        |       |    ✓   |         |                   |                |     ✓     |
+| en-AU      | Inglês (Austrália)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | Inglês (Nova Zelândia)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | en-GB      | Inglês (Grã-Bretanha) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | en-US      | Inglês (EUA)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| et-EE      | Estónio               |       |    ✓   |         |         ✓         |                |     ✓     |
+| et-EE      | Estoniano               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finlandês                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| FR-FR      | Francês                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| fr-CA      | Francês (canadense)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Galego               |       |    ✓   |         |                   |                |     ✓     |
+| fr-FR      | Francês                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| fr-AC      | Francês (canadense)      |       |    ✓   |         |                   |                |     ✓     |
+| GL-ES      | Galego               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | Alemão                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| el GR      | Grego                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hebraico                 |       |    ✓   |         |         ✓         |                |     ✓     |
-| IN      | Hindi                  |       |        |         |                   |                |     ✓     |
+| El-GR      | Grego                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| ti-IL      | Hebraico                 |       |    ✓   |         |         ✓         |                |     ✓     |
+| hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Húngaro              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonésio             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
-| it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| ID-ID      | Indonésio             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
+| ti-ti      | Italiano                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japonês               |       |        |         |                   |                |     ✓     |
 | kk-KZ      | Cazaque                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Coreano                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| es-419     | Latino American espanhol |       |    ✓   |         |                   |                |     ✓     |
-| lv-LV      | Letão                |       |    ✓   |         |         ✓         |                |     ✓     |
+| es-419     | Espanhol da América Latina |       |    ✓   |         |                   |                |     ✓     |
+| LV-LV      | Letão                |       |    ✓   |         |         ✓         |                |     ✓     |
 | lt-LT      | Lituano             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| MS-MY      | Malaio (Latim)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
-| nb-NO      | Norwegian Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| NGT        | Neutralidade quanto à raiz verdade - idiomas oficiais para todas as regiões na scripts locais se estiver disponível |   ✓     |        |         |                   |      ✓          |         |
-| NGT-Latn   | Neutralidade quanto à raiz verdade - exonyms latinos. Script Latino será utilizado se estiver disponível |   ✓     |        |         |                   |        ✓         |          |
+| MS-MY      | Malaio (latino)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| NB-não      | Norueguês, Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NGT        | Linguagem de aterramento neutra-idiomas oficiais para todas as regiões em scripts locais, se disponíveis |   ✓     |        |         |                   |      ✓          |         |
+| NGT-Latn   | A terra neutra de verdade – latim exonyms. O script Latin será usado se estiver disponível |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Português (Brasil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Português (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | RO-RO      | Romeno               |       |    ✓    |         |         ✓         |                |     ✓     |
-| ru-RU      | Russo                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Sérvio (Cirílico)     |       |    Sérvio (Cirílico) (sr-RS)   |         |                   |                |     ✓     |
-| SR-Latn-RS | Sérvio (Latim)        |       |        |         |                   |                |     ✓     |
-| sk SK      | Slovakian              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sl-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
+| RU-RU      | Russo                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| Sr-Cyrl-RS | Sérvio (Cirílico)     |       |    Sérvio (cirílico) (Sr-RS)   |         |                   |                |     ✓     |
+| Sr-Latn-RS | Sérvio (latino)        |       |        |         |                   |                |     ✓     |
+| SK-SK      | Eslovaco              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| SL-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Espanhol                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Espanhol (México)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
-| sv -SE     | Sueco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Tailandês                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ucraniano               |       |    ✓   |         |                   |                |     ✓     |
+| VA-SE     | Sueco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| th-ÉSIMO      | Tailandês                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| TR-TR      | Turco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| ru-UA      | Ucraniano               |       |    ✓   |         |                   |                |     ✓     |
 | vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |
 
 
-## <a name="azure-maps-supported-views"></a>Vistas de suporte do Azure Maps
+## <a name="azure-maps-supported-views"></a>Exibições com suporte do Azure Maps
 
 > [!Note]
-> Estamos a lançar mapas do Azure nos países/regiões seguintes 1 de Agosto de 2019:
+> O Azure Maps foi lançado nos seguintes países/regiões em 1º de agosto de 2019:
 >  * Argentina
 >  * Índia
 >  * Marrocos
 >  * Paquistão
 >
-> Após 1 de Agosto de 2019 **vista** definição do parâmetro irá definir o conteúdo do mapa retornado para os países/regiões novas listados acima. Aconselhamo-lo para se certificar de que configurou o parâmetro de modo de exibição, conforme necessário para as REST APIs e SDKs que seus serviços estão a utilizar.
+> Após 1º de agosto de 2019, a configuração de parâmetros de **exibição** definirá o conteúdo do mapa retornado para as novas regiões/países listados acima. Incentivamos você a garantir que tenha configurado o parâmetro de exibição conforme necessário para as APIs REST e SDKs que seus serviços estão usando.
 >  
 >
->  **REST APIs:**
+>  **APIs REST:**
 >  
->  Certifique-se de que configurou o parâmetro de modo de exibição, conforme necessário. Parâmetro de modo de exibição Especifica qual conjunto de conteúdo geopolitically questionado é devolvido por meio de serviços do Azure Maps. 
+>  Verifique se você configurou o parâmetro de exibição conforme necessário. O parâmetro View especifica qual conjunto de conteúdo de litígio geopolíticos é retornado por meio dos serviços do Azure Maps. 
 >
->  Serviços REST de mapas do Azure afetado:
+>  Serviços REST do Azure Maps afetados:
 >    
->    * Obter o mosaico do mapa
->    * Obter a imagem do mapa 
->    * Obter pesquisa difusa
->    * Obter pesquisa POI
->    * Obter pesquisa POI categoria
->    * Obter pesquisa próximos
->    * Obter o endereço de pesquisa
+>    * Obter bloco de mapa
+>    * Obter imagem do mapa 
+>    * Obter difusa de pesquisa
+>    * Obter POI de pesquisa
+>    * Obter categoria de POI de pesquisa
+>    * Obter pesquisa próxima
+>    * Obter endereço de pesquisa
 >    * Obter o endereço de pesquisa estruturado
->    * Obter o endereço de pesquisa inversa
->    * Obter pesquisa endereço inversa entre Rua
->    * Pesquisa de postagem dentro de geometria
->    * Pré-visualização de Batch do endereço de pesquisa de mensagem
->    * Pré-visualização de Batch inversa do endereço de pesquisa de postagem
->    * Pesquisa de POST ao longo da rota
->    * Pré-visualização do POST pesquisa difusa do Batch
+>    * Obter reversão de endereço de pesquisa
+>    * Obter endereço de cruz inverso da pesquisa
+>    * Postar pesquisa dentro da geometria
+>    * Versão prévia do lote de endereços de pesquisa
+>    * Pós pesquisa endereço versão prévia do lote reverso
+>    * Postar pesquisa ao longo do roteiro
+>    * Visualização do lote difusa da pesquisa posterior
 >
 >    
->  **SDKs:**
+>  **SDK**
 >
->  Certifique-se de que configurou o parâmetro de modo de exibição, conforme necessário e tem a versão mais recente do Web SDK e o SDK do Android. SDKs afetados:
+>  Verifique se você configurou o parâmetro de exibição conforme necessário e se tem a versão mais recente do SDK Web e SDK do Android. SDKs afetados:
 >
->    * SDK de Web do Azure Maps
->    * SDK Android do Azure Maps
+>    * SDK para Web do Azure Maps
+>    * SDK do Android do Azure Maps
 
 
-O Azure Maps **vista** parâmetro (também referido como "parâmetro de região do utilizador") é uma letra dois é o indicativo de país ISO 3166 que mostrará os mapas corretos para esse país/região a especificar qual conjunto de geopolitically questionadas conteúdo retornados por serviços de mapas do Azure, incluindo limites e etiquetas apresentadas no mapa. 
+O parâmetro de **exibição** do Azure Maps (também conhecido como "parâmetro de região do usuário") é um código de país ISO-3166 de duas letras que mostrará os mapas corretos para esse país/região especificando qual conjunto de conteúdo georelacionado geopolíticos é retornado por meio de mapas do Azure serviços, incluindo bordas e rótulos exibidos no mapa. 
 
-Por predefinição, o parâmetro de modo de exibição é definido como **unificado**, mesmo que ainda não definiu no pedido. É da responsabilidade do cliente para determinar a localização dos seus utilizadores e, em seguida, defina o parâmetro de modo de exibição corretamente para esse local. Em alternativa, tem a opção de definir "View = automática", que irá devolver os dados de mapa com base no endereço IP do pedido.  O parâmetro de ver no mapas do Azure tem de ser utilizado em conformidade com as leis aplicáveis, incluindo aquelas sobre mapeamento do país em que os mapas, imagens e outros conteúdos de dados e de terceiros que está autorizado a aceder através do Azure Maps é disponibilizado.
+Por padrão, o parâmetro de exibição é definido como **unificado**, mesmo que você não o tenha definido na solicitação. É sua responsabilidade determinar o local dos usuários e, em seguida, definir o parâmetro de exibição corretamente para esse local. Como alternativa, você tem a opção de definir ' View = auto ', que retornará os dados do mapa com base no endereço IP da solicitação.  O parâmetro View no Azure Maps deve ser usado em conformidade com as leis aplicáveis, incluindo aquelas em relação ao mapeamento do país em que mapas, imagens e outros dados e conteúdo de terceiros que você está autorizado a acessar por meio do mapas do Azure são disponibilizados.
 
 
-A tabela seguinte fornece vistas suportadas.
+A tabela a seguir fornece exibições com suporte.
 
-| Vista         | Descrição                            |  Maps | Pesquisa | Controlo de mapas JS |
+| Ver         | Descrição                            |  Mapas | Procurar | JS Controle de Mapeamento |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
-| AE           | Emirados Árabes Unidos (vista de Árabe)    |   ✓   |        |     ✓          |
-| AR           | Argentina (exibição Argentinian)           |   ✓   |    ✓   |     ✓          |
-| BH           | Barém (vista de Árabe)                 |   ✓   |        |     ✓          |
-| IN           | Índia (exibição indianos)                    |   ✓   |   ✓     |     ✓          |
-| IQ           | Iraque (vista de Árabe)                    |   ✓   |        |     ✓          |
-| JO           | Jordânia (vista de Árabe)                  |   ✓   |        |     ✓          |
-| KW           | Kuwait (vista de Árabe)                  |   ✓   |        |     ✓          |
-| LB           | Líbano (vista de Árabe)                 |   ✓   |        |     ✓          |
-| MA           | Marrocos (exibição Maroko)                |   ✓   |   ✓     |     ✓          |
-| OM           | Omã (vista de Árabe)                    |   ✓   |        |     ✓          |
-| PK           | Paquistão (exibição Pakistani)              |   ✓   |    ✓    |     ✓          |
-| PS           | Autoridade Palestiniana (vista de Árabe)    |   ✓   |        |     ✓          |
-| QA           | Catar (vista de Árabe)                   |   ✓   |        |     ✓          |
-| SA           | Arábia Saudita (vista de Árabe)            |   ✓   |        |     ✓          |
-| SY           | Síria (vista de Árabe)                   |   ✓   |        |     ✓          |
-| VOCÊ           | Iémen (vista de Árabe)                   |   ✓   |        |     ✓          |
-| Automática         | Devolve os dados de mapa com base no endereço IP do pedido.|   ✓   |    ✓   |     ✓          |
-| Unificado      | Vista unificada (outros)                  |   ✓   |   ✓     |     ✓          |
+| AE           | Emirados Árabes Unidos (modo de exibição árabe)    |   ✓   |        |     ✓          |
+| AR           | Argentina (exibição de Argentinian)           |   ✓   |    ✓   |     ✓          |
+| BH           | Bahrein (exibição em árabe)                 |   ✓   |        |     ✓          |
+| IN           | Índia (exibição indiana)                    |   ✓   |   ✓     |     ✓          |
+| IQ           | Iraque (exibição em árabe)                    |   ✓   |        |     ✓          |
+| JO           | Jordânia (exibição em árabe)                  |   ✓   |        |     ✓          |
+| KW           | Kuwait (exibição em árabe)                  |   ✓   |        |     ✓          |
+| LB           | Líbano (exibição em árabe)                 |   ✓   |        |     ✓          |
+| MA           | Marrocos (exibição de Tamazight)                |   ✓   |   ✓     |     ✓          |
+| OM           | Omã (exibição em árabe)                    |   ✓   |        |     ✓          |
+| PK           | Paquistão (exibição Rúpia)              |   ✓   |    ✓    |     ✓          |
+| PS           | Autoridade Palestina (exibição em árabe)    |   ✓   |        |     ✓          |
+| QA           | Catar (exibição em árabe)                   |   ✓   |        |     ✓          |
+| SA           | Arábia Saudita (exibição em árabe)            |   ✓   |        |     ✓          |
+| SY           | Síria (exibição em árabe)                   |   ✓   |        |     ✓          |
+| SI           | Iêmen (exibição em árabe)                   |   ✓   |        |     ✓          |
+| Automático         | Retornar os dados do mapa com base no endereço IP da solicitação.|   ✓   |    ✓   |     ✓          |
+| Unificado      | Exibição unificada (outras)                  |   ✓   |   ✓     |     ✓          |

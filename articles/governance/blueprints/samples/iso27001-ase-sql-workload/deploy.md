@@ -1,17 +1,17 @@
 ---
-title: Exemplo-especificação de carga de trabalho do SQL ASE/-ISO 27001 – implantar etapas
+title: Exemplo de Blueprint de carga de trabalho do ISO 27001 ASE/SQL-etapas de implantação
 description: Implante as etapas do exemplo de plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL, incluindo detalhes do parâmetro de artefato Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 48c4aa703739d76aa565f3692706f87d2a1c705a
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd85a65d3e4d8aa1a16bb57dc5981d661a83d412
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248943"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297628"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implantar a amostra do plano gráfico de carga de trabalho do banco de dados ISO 27001 Ambiente do Serviço de Aplicativo/SQL
 

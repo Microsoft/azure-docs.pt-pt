@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de BLOBs e aos serviços conectados do Visual Studio (projetos de trabalho Web) | Microsoft Docs
+title: Introdução ao armazenamento de BLOBs usando o Visual Studio (projetos de trabalho Web)
 description: Como começar a usar o armazenamento de BLOB em um projeto do WebJob depois de se conectar a um armazenamento do Azure usando os serviços conectados do Visual Studio.
 services: storage
 author: ghogen
@@ -12,23 +12,24 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510650"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299975"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Introdução ao armazenamento de BLOBs do Azure e aos serviços conectados do Visual Studio (projetos de trabalho Web)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo fornece C# exemplos de código que mostram como disparar um processo quando um blob do Azure é criado ou atualizado. Os exemplos de código usam o [SDK de trabalhos](https://github.com/Azure/azure-webjobs-sdk/wiki) Web versão 1. x. Quando você adiciona uma conta de armazenamento a um projeto do WebJob usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio, o pacote NuGet do armazenamento do Azure apropriado é instalado, as referências do .net apropriadas são adicionadas ao projeto e cadeias de conexão para o a conta de armazenamento é atualizada no arquivo app. config.
 
 ## <a name="how-to-trigger-a-function-when-a-blob-is-created-or-updated"></a>Como disparar uma função quando um blob é criado ou atualizado
 Esta seção mostra como usar o atributo **BlobTrigger** .
 
- **Nota:** O SDK de trabalhos Web examina arquivos de log para observar BLOBs novos ou alterados. Esse processo é inerentemente lento; uma função pode não ser disparada até vários minutos ou mais depois que o blob for criado.  Se seu aplicativo precisar processar BLOBs imediatamente, o método recomendado é criar uma mensagem da fila ao criar o blob e usar o atributo **QueueTrigger** em vez do atributo **BlobTrigger** na função que processa o blob .
+ **Observação:** O SDK de trabalhos Web examina arquivos de log para observar BLOBs novos ou alterados. Esse processo é inerentemente lento; uma função pode não ser disparada até vários minutos ou mais depois que o blob for criado.  Se seu aplicativo precisar processar BLOBs imediatamente, o método recomendado é criar uma mensagem da fila ao criar o blob e usar o atributo **QueueTrigger** em vez do atributo **BlobTrigger** na função que processa o blob .
 
 ### <a name="single-placeholder-for-blob-name-with-extension"></a>Espaço reservado único para o nome do blob com extensão
 O exemplo de código a seguir copia blobs de texto que aparecem no contêiner de *entrada* para o contêiner de *saída* :
@@ -78,8 +79,8 @@ O exemplo de código a seguir altera a extensão de arquivo à medida que copia 
 ## <a name="types-that-you-can-bind-to-blobs"></a>Tipos que você pode associar a BLOBs
 Você pode usar o atributo **BlobTrigger** nos seguintes tipos:
 
-* **string**
-* **TextReader**
+* **Strings**
+* **Pelos**
 * **Fluxo**
 * **ICloudBlob**
 * **CloudBlockBlob**
@@ -101,7 +102,7 @@ Se os blobs de texto forem esperados, **BlobTrigger** poderá ser aplicado a um 
         }
 
 ## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Obtendo conteúdo de BLOB serializado usando ICloudBlobStreamBinder
-O exemplo de código a seguir usa uma classe que implementa **ICloudBlobStreamBinder** para permitir que o atributo **BlobTrigger** vincule um blob ao tipo webimage.
+O exemplo de código a seguir usa uma classe que implementa **ICloudBlobStreamBinder** para permitir que o atributo **BlobTrigger** vincule um blob ao tipo **webimage** .
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -120,7 +121,7 @@ O exemplo de código a seguir usa uma classe que implementa **ICloudBlobStreamBi
             output = input.Resize(width, height);
         }
 
-O código de associação da **imagem** da webimage é fornecido em uma classe **WebImageBinder** que deriva de **ICloudBlobStreamBinder**.
+O código de associação da **imagem da webimage** é fornecido em uma classe **WebImageBinder** que deriva de **ICloudBlobStreamBinder**.
 
         public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
         {
@@ -144,7 +145,7 @@ O número máximo de novas tentativas é configurável. A mesma configuração *
 
 A mensagem da fila para BLOBs inviabilizados é um objeto JSON que contém as seguintes propriedades:
 
-* FunctionID (no formato *{nome do trabalho Web}* . Funções. *{Nome da função}* , por exemplo: WebJob1.Functions.CopyBlob)
+* FunctionID (no formato *{nome do trabalho Web}* . Funções. *{Nome da função}* , por exemplo: trabalho web1. Functions. CopyBlob)
 * BlobType ("BlockBlob" ou "PageBlob")
 * ContainerName
 * BlobName
@@ -193,7 +194,7 @@ O SDK de trabalhos Web garante que nenhuma função **BlobTrigger** é chamada m
 
 Os recebimentos de blob são armazenados em um contêiner chamado *Azure-webjobs-hosts* na conta de armazenamento do Azure especificada pela cadeia de conexão AzureWebJobsStorage. Um recebimento de blob tem as seguintes informações:
 
-* A função que foi chamada para o blob (" *{nome do WebJob}* . Funções. *{Nome da função}* ", por exemplo: "WebJob1.Functions.CopyBlob")
+* A função que foi chamada para o blob (" *{nome do WebJob}* . Funções. *{Nome da função}* ", por exemplo:" trabalho web1. Functions. CopyBlob ")
 * O nome do contêiner
 * O tipo de BLOB ("BlockBlob" ou "PageBlob")
 * O nome do blob
@@ -216,6 +217,6 @@ Os tópicos relacionados abordados neste artigo incluem o seguinte:
 * Disparar uma função manualmente
 * Gravar logs
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Este artigo forneceu exemplos de código que mostram como lidar com cenários comuns para trabalhar com BLOBs do Azure. Para obter mais informações sobre como usar Azure WebJobs e o SDK de trabalhos Web, consulte [Azure WebJobs recursos de documentação](https://go.microsoft.com/fwlink/?linkid=390226).
 

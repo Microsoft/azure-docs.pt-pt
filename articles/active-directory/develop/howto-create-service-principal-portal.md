@@ -16,14 +16,14 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 14c3f90918d246a63d50af7b3542e8e74d5fbcf1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853443"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295514"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos
 
 Este artigo mostra como criar um novo aplicativo Azure Active Directory (Azure AD) e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função. Quando você tem um código que precisa acessar ou modificar recursos, você pode criar uma identidade para o aplicativo. Esta identidade é conhecida como um principal de serviço. Em seguida, você pode atribuir as permissões necessárias à entidade de serviço. Este artigo mostra como usar o portal para criar a entidade de serviço. Ele se concentra em um aplicativo de locatário único em que o aplicativo deve ser executado em apenas uma organização. Normalmente, você usa aplicativos de locatário único para aplicativos de linha de negócios que são executados em sua organização.
 
@@ -38,7 +38,7 @@ Vamos ir diretamente para a criação da identidade. Se você encontrar um probl
 1. Selecione **Azure Active Directory**.
 1. Selecione **Registos das aplicações**.
 1. Selecione **novo registro**.
-1. Nomeie o aplicativo. Selecione um tipo de conta com suporte, que determina quem pode usar o aplicativo. Em **URI**de redirecionamento, selecione **Web** para o tipo de aplicativo que você deseja criar. Insira o URI para o qual o token de acesso é enviado. Você não pode criar credenciais para um [aplicativo nativo](../manage-apps/application-proxy-configure-native-client-application.md). Você não pode usar esse tipo para um aplicativo automatizado. Depois de definir os valores, selecione **registrar**.
+1. Nomeie o aplicativo. Selecione um tipo de conta com suporte, que determina quem pode usar o aplicativo. Em **URI de redirecionamento**, selecione **Web** para o tipo de aplicativo que você deseja criar. Insira o URI para o qual o token de acesso é enviado. Você não pode criar credenciais para um [aplicativo nativo](../manage-apps/application-proxy-configure-native-client-application.md). Você não pode usar esse tipo para um aplicativo automatizado. Depois de definir os valores, selecione **registrar**.
 
    ![Digite um nome para seu aplicativo](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -46,9 +46,9 @@ Você criou seu aplicativo do Azure AD e a entidade de serviço.
 
 ## <a name="assign-the-application-to-a-role"></a>Atribuir o aplicativo a uma função
 
-Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, [consulte RBAC: Funções](../../role-based-access-control/built-in-roles.md)internas.
+Para acessar recursos em sua assinatura, você deve atribuir o aplicativo a uma função. Decida qual função oferece as permissões corretas para o aplicativo. Para saber mais sobre as funções disponíveis, confira [RBAC: funções internas](../../role-based-access-control/built-in-roles.md).
 
-Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas para níveis inferiores de âmbito. Por exemplo, adicionar um aplicativo à função leitor para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
+Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do recurso. As permissões são herdadas para níveis inferiores de escopo. Por exemplo, adicionar um aplicativo à função leitor para um grupo de recursos significa que ele pode ler o grupo de recursos e todos os recursos que ele contém.
 
 1. Navegue até o nível de escopo ao qual você deseja atribuir o aplicativo. Por exemplo, para atribuir uma função no escopo da assinatura, selecione **todos os serviços** e **assinaturas**.
 
@@ -60,13 +60,13 @@ Você pode definir o escopo no nível da assinatura, do grupo de recursos ou do 
 
    Se você não vir a assinatura que está procurando, selecione **filtro de assinaturas globais**. Verifique se a assinatura desejada está selecionada para o Portal.
 
-1. Selecione **controlo de acesso (IAM)** .
-1. Selecione **adicionar atribuição de função**.
-1. Selecione a função que você deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações comoreinicializar, **Iniciar** e **parar** instâncias, selecione a função **colaborador** . Por padrão, os aplicativos do Azure AD não são exibidos nas opções disponíveis. Para localizar seu aplicativo, procure o nome e selecione-o.
+1. Selecione **Controlo de acesso (IAM)** .
+1. Selecione **Adicionar atribuição de função**.
+1. Selecione a função que você deseja atribuir ao aplicativo. Para permitir que o aplicativo execute ações como **reinicializar**, **Iniciar** e **parar** instâncias, selecione a função **colaborador** . Por padrão, os aplicativos do Azure AD não são exibidos nas opções disponíveis. Para localizar seu aplicativo, procure o nome e selecione-o.
 
    ![Selecione a função a ser atribuída ao aplicativo](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Selecione **guardar** para concluir a atribuir a função. Você vê seu aplicativo na lista de usuários atribuídos a uma função para esse escopo.
+1. Selecione **salvar** para concluir a atribuição da função. Você vê seu aplicativo na lista de usuários atribuídos a uma função para esse escopo.
 
 Sua entidade de serviço está configurada. Você pode começar a usá-lo para executar seus scripts ou aplicativos. A próxima seção mostra como obter valores que são necessários ao entrar de forma programática.
 
@@ -89,7 +89,7 @@ Os aplicativos daemon podem usar duas formas de credenciais para autenticar com 
 
 ### <a name="upload-a-certificate"></a>Carregar um certificado
 
-Você pode usar um certificado existente se tiver um.  Opcionalmente, você pode criar um certificado autoassinado para fins de teste. Abra o PowerShell e execute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar um certificado autoassinado no repositório de certificados do usuário em seu computador `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`:.  Exporte esse certificado usando o snap-in [gerenciar certificado do usuário](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) do MMC acessível no painel de controle do Windows.
+Você pode usar um certificado existente se tiver um.  Opcionalmente, você pode criar um certificado autoassinado para fins de teste. Abra o PowerShell e execute [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) com os seguintes parâmetros para criar um certificado autoassinado no repositório de certificados do usuário em seu computador: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exporte esse certificado usando o snap-in [gerenciar certificado do usuário](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) do MMC acessível no painel de controle do Windows.
 
 Para carregar o certificado:
 
@@ -132,7 +132,7 @@ Se a configuração de registros do aplicativo for definida como **não**, somen
 
 ### <a name="check-azure-subscription-permissions"></a>Verificar as permissões de assinatura do Azure
 
-Em sua assinatura do Azure, sua conta deve `Microsoft.Authorization/*/Write` ter acesso para atribuir um aplicativo do AD a uma função. Esta ação é concedida através das funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se sua conta for atribuída à função **colaborador** , você não terá a permissão adequada. Você recebe um erro ao tentar atribuir a entidade de serviço a uma função.
+Em sua assinatura do Azure, sua conta deve ter acesso `Microsoft.Authorization/*/Write` para atribuir um aplicativo do AD a uma função. Esta ação é concedida através das funções [Proprietário](../../role-based-access-control/built-in-roles.md#owner) ou [Administrador de Acesso dos Utilizadores](../../role-based-access-control/built-in-roles.md#user-access-administrator). Se sua conta for atribuída à função **colaborador** , você não terá a permissão adequada. Você recebe um erro ao tentar atribuir a entidade de serviço a uma função.
 
 Para verificar suas permissões de assinatura:
 
@@ -148,8 +148,7 @@ Para verificar suas permissões de assinatura:
 
    ![Este exemplo mostra que o usuário está atribuído à função de proprietário](./media/howto-create-service-principal-portal/view-user-role.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para configurar um aplicativo multilocatário, consulte [o guia do desenvolvedor para autorização com a API de Azure Resource Manager](../../azure-resource-manager/resource-manager-api-authentication.md).
 * Para saber mais sobre como especificar políticas de segurança, confira [controle de acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md).  
 * Para obter uma lista de ações disponíveis que podem ser concedidas ou negadas a usuários, consulte [Azure Resource Manager operações do provedor de recursos](../../role-based-access-control/resource-provider-operations.md).

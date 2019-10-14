@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 440ba2cd7ac9cea19f903dff493790194962e1e8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174286"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299486"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: criar uma máquina virtual do Linux com a CLI do Azure
 
@@ -107,7 +107,7 @@ Quando terminar, escreva `exit` para deixar a sessão SSH.
 
 Utilize um browser à sua escolha para ver a página predefinida de boas-vindas do NGINX. Utilize o endereço IP público da VM como o endereço Web. O exemplo seguinte mostra o site predefinido do NGINX:
 
-![Site predefinido do NGINX](./media/quick-create-cli/nginx.png)
+![Página de boas-vindas do NGINX padrão](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

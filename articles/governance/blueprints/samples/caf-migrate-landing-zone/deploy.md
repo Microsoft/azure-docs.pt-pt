@@ -1,22 +1,22 @@
 ---
-title: Exemplo – CAF de zona de aterrissagem de migração – etapas de implantação
-description: Implante as etapas para o exemplo CAF migrar plantas de zona de aterrissagem, incluindo detalhes do parâmetro de artefato Blueprint.
+title: Exemplo de planta da zona de aterrissagem de migração do CAF – implantar etapas
+description: Implantar etapas para o exemplo de plantas da zona de aterrissagem de migração do CAF, incluindo detalhes do parâmetro de artefato do Blueprint.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 0a635c9c3b864e4ce74dbbe8b9c95df38489176f
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: cb41d363b208400598c8afb06dfdb4acaeb02d2b
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248506"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298018"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Implantar a estrutura de adoção Microsoft Cloud para migrações do Azure exemplo de plantas de zona de aterrissagem
 
-Para implantar a amostra do plano gráfico do Azure Blueprints CAF migrar a zona de aterrissagem, as etapas a seguir devem ser executadas:
+Para implantar a amostra do plano gráfico de migração de CAF blueprints do Azure, as etapas a seguir devem ser executadas:
 
 > [!div class="checklist1"]
 > - Recomendado para implantar a amostra do [CAF Foundation](../caf-foundation/index.md) Blueprint
@@ -118,7 +118,7 @@ A tabela a seguir fornece uma lista dos parâmetros de artefatos do Blueprint:
 Agora que você analisou as etapas para implantar o exemplo CAF migrar a zona de aterrissagem, visite os seguintes artigos para saber mais sobre a arquitetura:
 
 > [!div class="nextstepaction"]
-> [CAF de zona de aterrissagem de migração de área-visão geral](./index.md)
+> [Blueprint da zona de aterrissagem de migração do CAF-visão geral](./index.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 

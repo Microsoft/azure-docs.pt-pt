@@ -2,18 +2,17 @@
 title: Backup e restauração de banco de dados Azure Analysis Services | Microsoft Docs
 description: Descreve como fazer backup e restaurar um banco de dados Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2e751d45e4b76852426d454f8d29196c01396504
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932465"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295410"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -50,13 +49,13 @@ Antes de fazer backup, você precisa definir as configurações de armazenamento
 
     ![Salvar configurações de backup](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>Criar cópia de segurança
+## <a name="backup"></a>Backup
 
 ### <a name="to-backup-by-using-ssms"></a>Para fazer backup usando o SSMS
 
 1. No SSMS, clique com o botão direito do mouse em um banco de dados > **backup**.
 
-2. Em**arquivo de backup**do banco de **dados** > de backup, clique em **procurar**.
+2. No **banco de dados de backup** > **arquivo de backup**, clique em **procurar**.
 
 3. Na caixa de diálogo **salvar arquivo como** , verifique o caminho da pasta e digite um nome para o arquivo de backup. 
 
@@ -74,7 +73,7 @@ Antes de fazer backup, você precisa definir as configurações de armazenamento
 ### <a name="powershell"></a>PowerShell
 Use o cmdlet [backup-asdatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase) .
 
-## <a name="restore"></a>Restaurar
+## <a name="restore"></a>Restauro
 Ao restaurar, o arquivo de backup deve estar na conta de armazenamento que você configurou para o servidor. Se você precisar mover um arquivo de backup de um local para sua conta de armazenamento, use [Gerenciador de armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer) ou o utilitário de linha de comando [AzCopy](../storage/common/storage-use-azcopy.md) . 
 
 

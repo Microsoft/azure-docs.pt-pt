@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de tabelas e aos serviços conectados do Visual Studio (serviços de nuvem) | Microsoft Docs
+title: Introdução ao armazenamento de tabelas usando o Visual Studio (serviços de nuvem)
 description: Como começar a usar o armazenamento de tabelas do Azure em um projeto de serviço de nuvem no Visual Studio depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -12,24 +12,25 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5e8c1a92e79eea61e2807c7007ccaea5819e8529
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5c42d65b5e2c46fcdbe1b0725f2ebce881722db3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510714"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299988"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introdução ao armazenamento de tabelas do Azure e aos serviços conectados do Visual Studio (projetos de serviços de nuvem)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este artigo descreve como começar a usar o armazenamento de tabelas do Azure no Visual Studio depois de ter criado ou referenciado uma conta de armazenamento do Azure em um projeto de serviços de nuvem usando a caixa de diálogo **Adicionar serviços conectados** do Visual Studio. A operação **Adicionar serviços conectados** instala os pacotes NuGet apropriados para acessar o armazenamento do Azure em seu projeto e adiciona a cadeia de conexão para a conta de armazenamento aos arquivos de configuração do projeto.
 
 O serviço de armazenamento de tabelas do Azure permite que você armazene grandes quantidades de dados estruturados. O serviço é um repositório de armazenamento NoSQL que aceita chamadas autenticadas de dentro e fora da nuvem do Azure. As tabelas do Azure são ideais para armazenar dados estruturados não relacionais.
 
-Para começar, primeiro você precisa criar uma tabela em sua conta de armazenamento. Mostraremos como criar uma tabela do Azure no código e também como executar operações básicas de tabela e entidade, como adicionar, modificar, ler e ler entidades de tabela. Os exemplos são escritos em código\# C e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Para começar, primeiro você precisa criar uma tabela em sua conta de armazenamento. Mostraremos como criar uma tabela do Azure no código e também como executar operações básicas de tabela e entidade, como adicionar, modificar, ler e ler entidades de tabela. Os exemplos são escritos em código C @ no__t-0 e usam a [biblioteca de cliente armazenamento do Microsoft Azure para .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**NOTA:** Algumas das APIs que executam chamadas para o armazenamento do Azure são assíncronas. Consulte [programação assíncrona com Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
+**Observação:** Algumas das APIs que executam chamadas para o armazenamento do Azure são assíncronas. Consulte [programação assíncrona com Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) para obter mais informações. O código a seguir pressupõe que os métodos de programação assíncrona estão sendo usados.
 
 * Consulte Introdução [ao armazenamento de tabelas do Azure usando o .net](../storage/storage-dotnet-how-to-use-tables.md) para obter mais informações sobre como manipular tabelas programaticamente.
 * Consulte a [documentação de armazenamento](https://azure.microsoft.com/documentation/services/storage/) para obter informações gerais sobre o armazenamento do Azure.
@@ -59,7 +60,7 @@ Para acessar tabelas em projetos de serviço de nuvem, você precisa incluir os 
    
          // Create the table client.
          CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-4. Obtenha um objeto de referência cloudtable para fazer referência a uma tabela e entidades específicas.
+4. Obtenha um objeto de referência **cloudtable** para fazer referência a uma tabela e entidades específicas.
    
         // Get a reference to a table named "peopleTable".
         CloudTable peopleTable = tableClient.GetTableReference("peopleTable");
@@ -88,7 +89,7 @@ Para adicionar uma entidade a uma tabela, crie uma classe que define as propried
         public string PhoneNumber { get; set; }
     }
 
-As operações de tabela que envolvem entidades são feitas usando o objeto cloudtable que você criou anteriormente em "acessar tabelas no código". O objeto **TableOperation** representa a operação a ser feita. O exemplo de código a seguir mostra como criar um objeto cloudtable e um objeto **CustomerEntity** . Para preparar a operação, um **TableOperation** é criado para inserir a entidade Customer na tabela. Por fim, a operação é executada chamando **cloudtable. ExecuteAsync**.
+As operações de tabela que envolvem entidades são feitas usando o objeto **cloudtable** que você criou anteriormente em "acessar tabelas no código". O objeto **TableOperation** representa a operação a ser feita. O exemplo de código a seguir mostra como criar um objeto **cloudtable** e um objeto **CustomerEntity** . Para preparar a operação, um **TableOperation** é criado para inserir a entidade Customer na tabela. Por fim, a operação é executada chamando **cloudtable. ExecuteAsync**.
 
     // Create a new customer entity.
     CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
@@ -190,6 +191,6 @@ Você pode excluir uma entidade depois de encontrá-la. O código a seguir procu
     else
        Console.WriteLine("Couldn't delete the entity.");
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
 

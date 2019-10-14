@@ -1,5 +1,5 @@
 ---
-title: Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (ASP.NET) | Microsoft Docs
+title: Introdução ao armazenamento de filas do Azure usando o Visual Studio (ASP.NET)
 description: Como começar a usar o armazenamento de filas do Azure em um projeto ASP.NET no Visual Studio depois de se conectar a uma conta de armazenamento usando os serviços conectados do Visual Studio
 services: storage
 author: ghogen
@@ -12,18 +12,19 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 19cf2dd912968d0a5df8743c1e720776b8a949f0
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5b57f171a9407acea8231d796a80c3a1cc1d9474
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515981"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300109"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Introdução ao armazenamento de filas do Azure e aos serviços conectados do Visual Studio (ASP.NET)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O armazenamento de filas do Azure fornece mensagens de nuvem entre componentes do aplicativo. Ao conceber aplicações para o dimensionamento, os componentes da aplicação, muitas vezes, são desacoplados para um dimensionamento independente. O Armazenamento de filas fornece um serviço de mensagens assíncrono para uma comunicação entre os componentes da aplicação, quer estejam a ser executados na nuvem, no ambiente de trabalho, num servidor no local ou num dispositivo móvel. O Armazenamento de filas também suporta a gestão das tarefas assíncronas e a criação de fluxos de trabalho do processo.
 
@@ -54,7 +55,7 @@ Este tutorial mostra como escrever código ASP.NET para alguns cenários comuns 
 
     ![Nomear o controlador MVC](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Adicione as seguintes diretivas *using* ao `QueuesController.cs` arquivo:
+1. Adicione as seguintes diretivas *using* ao arquivo `QueuesController.cs`:
 
     ```csharp
     using Microsoft.Azure;
@@ -83,7 +84,7 @@ As etapas a seguir ilustram como criar uma fila:
     }
     ```
 
-1. Dentro do método **CreateQueue** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (Altere  *&lt;Storage-Account-Name >* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **CreateQueue** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (alterar *&lt;storage-Account-name >* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -113,11 +114,11 @@ As etapas a seguir ilustram como criar uma fila:
     ViewBag.QueueName = queue.Name;
     ```
 
-1. Na **Gerenciador de soluções**, expanda a pasta exibições, clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
+1. Na **Gerenciador de soluções**, expanda a pasta **exibições** , clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
 
 1. Na caixa de diálogo **Adicionar exibição** , digite **CreateQueue** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `CreateQueue.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `CreateQueue.cshtml` e modifique-o para que fique semelhante ao seguinte trecho de código:
 
     ```csharp
     @{
@@ -164,7 +165,7 @@ Depois de [criar uma fila](#create-a-queue), você pode adicionar mensagens a es
     }
     ```
  
-1. Dentro do Método AddMessage, obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (Altere  *&lt;Storage-Account-Name >* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **AddMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (alterar *&lt;storage-Account-name >* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -202,11 +203,11 @@ Depois de [criar uma fila](#create-a-queue), você pode adicionar mensagens a es
     ViewBag.Message = message.AsString;
     ```
 
-1. Na **Gerenciador de soluções**, expanda a pasta exibições, clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
+1. Na **Gerenciador de soluções**, expanda a pasta **exibições** , clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
 
-1. Na caixa de diálogo **Adicionar exibição** , digite AddMessage para o nome da exibição e selecione **Adicionar**.
+1. Na caixa de diálogo **Adicionar exibição** , digite **AddMessage** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `AddMessage.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `AddMessage.cshtml` e modifique-o para que fique semelhante ao seguinte trecho de código:
 
     ```csharp
     @{
@@ -253,7 +254,7 @@ Esta seção ilustra como inspecionar uma mensagem enfileirada (ler a primeira m
     }
     ```
  
-1. Dentro do método **PeekMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (Altere  *&lt;Storage-Account-Name >* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **PeekMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (alterar *&lt;storage-Account-name >* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -278,18 +279,18 @@ Esta seção ilustra como inspecionar uma mensagem enfileirada (ler a primeira m
     CloudQueueMessage message = queue.PeekMessage();
     ```
 
-1. Atualize a **ViewBag** com dois valores: o nome da fila e a mensagem que foi lida. O objeto **CloudQueueMessage** expõe duas propriedades para obter o valor do objeto: **CloudQueueMessage. AsBytes** e **CloudQueueMessage. AsString**. **AsString** (usado neste exemplo) retorna uma cadeia de caracteres, enquanto AsBytes retorna uma matriz de bytes.
+1. Atualize a **ViewBag** com dois valores: o nome da fila e a mensagem que foi lida. O objeto **CloudQueueMessage** expõe duas propriedades para obter o valor do objeto: **CloudQueueMessage. AsBytes** e **CloudQueueMessage. AsString**. **AsString** (usado neste exemplo) retorna uma cadeia de caracteres, enquanto **AsBytes** retorna uma matriz de bytes.
 
     ```csharp
     ViewBag.QueueName = queue.Name; 
     ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
-1. Na **Gerenciador de soluções**, expanda a pasta exibições, clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
+1. Na **Gerenciador de soluções**, expanda a pasta **exibições** , clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
 
 1. Na caixa de diálogo **Adicionar exibição** , digite **PeekMessage** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `PeekMessage.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `PeekMessage.cshtml` e modifique-o para que fique semelhante ao seguinte trecho de código:
 
     ```csharp
     @{
@@ -337,7 +338,7 @@ Nesta seção, você aprenderá a ler e remover uma mensagem de uma fila.
     }
     ```
  
-1. Dentro do método **ReadMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (Altere  *&lt;Storage-Account-Name >* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **ReadMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (alterar *&lt;storage-Account-name >* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -376,11 +377,11 @@ Nesta seção, você aprenderá a ler e remover uma mensagem de uma fila.
     ViewBag.Message = message.AsString;
     ```
  
-1. Na **Gerenciador de soluções**, expanda a pasta exibições, clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
+1. Na **Gerenciador de soluções**, expanda a pasta **exibições** , clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
 
 1. Na caixa de diálogo **Adicionar exibição** , digite **ReadMessage** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `ReadMessage.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `ReadMessage.cshtml` e modifique-o para que fique semelhante ao seguinte trecho de código:
 
     ```csharp
     @{
@@ -428,7 +429,7 @@ Esta seção ilustra como obter o comprimento da fila (número de mensagens).
     }
     ```
  
-1. Dentro do método **ReadMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (Altere  *&lt;Storage-Account-Name >* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **ReadMessage** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (alterar *&lt;storage-Account-name >* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -466,11 +467,11 @@ Esta seção ilustra como obter o comprimento da fila (número de mensagens).
     ViewBag.Length = nMessages;
     ```
  
-1. Na **Gerenciador de soluções**, expanda a pasta exibições, clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
+1. Na **Gerenciador de soluções**, expanda a pasta **exibições** , clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
 
 1. Na caixa de diálogo **Adicionar exibição** , digite **GetQueueLength** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `GetQueueLengthMessage.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `GetQueueLengthMessage.cshtml` e modifique-o para que fique semelhante ao seguinte trecho de código:
 
     ```csharp
     @{
@@ -515,7 +516,7 @@ Esta seção ilustra como excluir uma fila.
     }
     ```
  
-1. Dentro do método **DeleteQueue** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (Altere  *&lt;Storage-Account-Name >* para o nome da conta de armazenamento do Azure que você está acessando.)
+1. Dentro do método **DeleteQueue** , obtenha um objeto **CloudStorageAccount** que representa as informações da sua conta de armazenamento. Use o código a seguir para obter a cadeia de conexão de armazenamento e as informações da conta de armazenamento da configuração do serviço do Azure: (alterar *&lt;storage-Account-name >* para o nome da conta de armazenamento do Azure que você está acessando.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -546,11 +547,11 @@ Esta seção ilustra como excluir uma fila.
     ViewBag.QueueName = queue.Name;
     ```
  
-1. Na **Gerenciador de soluções**, expanda a pasta exibições, clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
+1. Na **Gerenciador de soluções**, expanda a pasta **exibições** , clique com o botão direito do mouse em **filas**e, no menu de contexto, selecione **modo de exibição de >** .
 
 1. Na caixa de diálogo **Adicionar exibição** , digite **DeleteQueue** para o nome da exibição e selecione **Adicionar**.
 
-1. Abra `DeleteQueue.cshtml`e modifique-o para que fique semelhante ao seguinte trecho de código:
+1. Abra `DeleteQueue.cshtml` e modifique-o para que fique semelhante ao seguinte trecho de código:
 
     ```csharp
     @{
@@ -572,9 +573,9 @@ Esta seção ilustra como excluir uma fila.
 
 1. Execute o aplicativo e selecione **obter comprimento da fila** para ver resultados semelhantes à captura de tela a seguir:
   
-    ![Eliminar fila](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
+    ![Excluir fila](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Ver mais guias de funcionalidades para saber mais sobre as opções adicionais para armazenar dados no Azure.
 
   * [Introdução ao armazenamento de BLOBs do Azure e aos serviços conectados do Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)

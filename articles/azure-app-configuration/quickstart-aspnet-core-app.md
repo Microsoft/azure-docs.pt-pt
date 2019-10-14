@@ -12,16 +12,16 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: a2764c8e634fd8d827cba9fa7ec9cb61cc6c40af
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035296"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299948"
 ---
-# <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: Criar um aplicativo ASP.NET Core com a configuração Azure App
+# <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Início rápido: criar um aplicativo ASP.NET Core com a configuração Azure App
 
 Neste guia de início rápido, você incorpora a configuração de Azure App em um aplicativo ASP.NET Core para centralizar o armazenamento e o gerenciamento de configurações de aplicativo separadas do seu código. ASP.NET Core cria um único objeto de configuração com base em valor chave usando as configurações de uma ou mais fontes de dados que são especificadas por um aplicativo. Essas fontes de dados são conhecidas como *provedores de configuração*. Como o cliente .NET Core da configuração de aplicativo é implementado como tal provedor, o serviço aparece como outra fonte de dados.
 
@@ -36,11 +36,11 @@ Neste guia de início rápido, você incorpora a configuração de Azure App em 
 
 6. Selecione **Configuration Explorer** >  **+ criar** para adicionar os seguintes pares de chave-valor:
 
-    | Chave | Value |
+    | Chave | Valor |
     |---|---|
-    | TestApp:Settings:BackgroundColor | Branco |
+    | TestApp: configurações: BackgroundColor | Branco |
     | TestApp: configurações: FontSize | 24 |
-    | TestApp:Settings:FontColor | Preto |
+    | TestApp: configurações: FontColor | Preto |
     | TestApp: configurações: mensagem | Dados da configuração Azure App |
 
     Deixe **rótulo** e **tipo de conteúdo** vazio por enquanto.
@@ -53,7 +53,9 @@ Você usa a [CLI (interface de linha de comando) do .NET Core](https://docs.micr
 
 2. Na nova pasta, execute o seguinte comando para criar um novo projeto de aplicativo Web ASP.NET Core MVC:
 
+    ```CLI
         dotnet new mvc --no-https
+    ```
 
 ## <a name="add-secret-manager"></a>Adicionar Gerenciador de segredo
 
@@ -83,19 +85,23 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 1. Adicione uma referência ao pacote NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` executando o seguinte comando:
 
+    ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
-
+    ```
 2. Execute o seguinte comando para restaurar os pacotes para seu projeto:
 
+    ```CLI
         dotnet restore
-
+    ```
 3. Adicione um segredo denominado *ConnectionStrings: AppConfig* ao Gerenciador de segredo.
 
     Esse segredo contém a cadeia de conexão para acessar seu repositório de configuração de aplicativo. Substitua o valor no comando a seguir pela cadeia de conexão para o repositório de configuração do aplicativo.
 
     Este comando tem de ser executado no mesmo diretório que o ficheiro *.csproj*.
 
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
 
     > [!IMPORTANT]
     > Alguns shells truncarão a cadeia de conexão, a menos que seja colocado entre aspas. Verifique se a saída do comando `dotnet user-secrets` mostra a cadeia de conexão inteira. Se não estiver, execute novamente o comando, colocando a cadeia de conexão entre aspas.
@@ -111,6 +117,11 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
     ```
 
 5. Atualize o método `CreateWebHostBuilder` para usar a configuração de aplicativo chamando o método `config.AddAzureAppConfiguration()`.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` substitui `CreateWebHostBuilder` no .NET Core 3,0.  Selecione a sintaxe correta com base em seu ambiente.
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Atualizar `CreateWebHostBuilder` para .NET Core 2. x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -123,9 +134,23 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
             .UseStartup<Startup>();
     ```
 
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Atualizar `CreateHostBuilder` para .NET Core 3. x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 6. Abra *index. cshtml* nas exibições > diretório base e substitua seu conteúdo pelo código a seguir:
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -144,7 +169,7 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 7. Abra *_ layout. cshtml* nas exibições > diretório compartilhado e substitua seu conteúdo pelo código a seguir:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -173,11 +198,15 @@ Esta ferramenta armazena os dados confidenciais dos projetos de programação fo
 
 1. Para compilar o aplicativo usando o CLI do .NET Core, execute o seguinte comando no Shell de comando:
 
-        dotnet build
+    ```CLI
+       dotnet build
+    ```
 
 2. Depois que a compilação for concluída com êxito, execute o seguinte comando para executar o aplicativo Web localmente:
 
+    ```CLI
         dotnet run
+    ```
 
 3. Abra uma janela do navegador e vá para `http://localhost:5000`, que é a URL padrão para o aplicativo Web hospedado localmente.
 

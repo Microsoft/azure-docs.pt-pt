@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f680eae7f8c4cc2b57e3238a14b793f9b4298a79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828600"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300094"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações de documentação para SQL Server em máquinas virtuais do Azure
 
@@ -26,14 +26,15 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ## <a name="october-2019"></a>Outubro de 2019
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Configuração de armazenamento otimizado para desempenho** | Agora você pode [personalizar totalmente sua configuração de armazenamento](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) ao criar uma nova VM SQL Server. |
+| **Compartilhamento de arquivos premium para FCI** | Agora você pode criar uma instância de cluster de failover usando o [compartilhamento de arquivos Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) em vez do método original de [espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>Agosto de 2019
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Host dedicado do Azure** | Você pode executar a VM SQL Server em um [host dedicado do Azure](virtual-machines-windows-sql-dedicated-host.md). |
 | &nbsp; | &nbsp; |
@@ -42,7 +43,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 ## <a name="july-2019"></a>Julho de 2019
 
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Mover a VM do SQL para uma região diferente** | Use Azure Site Recovery para [migrar sua VM SQL Server de uma região para outra](virtual-machines-windows-sql-move-different-region.md). |
 | &nbsp; | &nbsp; |
@@ -50,7 +51,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 ## <a name="june-2019"></a>Junho de 2019
 
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Novos modos de instalação do SQL IaaS** | Agora é possível instalar a extensão SQL Server IaaS no [modo leve](virtual-machines-windows-sql-server-agent-extension.md) para evitar a reinicialização do serviço SQL Server.  |
 | **Modificação da edição do SQL Server** | Agora você pode alterar a [propriedade de edição](virtual-machines-windows-sql-change-edition.md) para sua VM SQL Server. |
@@ -61,7 +62,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ## <a name="may-2019"></a>Maio de 2019
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Novo SQL Server gerenciamento de VM no portal do Azure** | Agora há uma maneira de gerenciar sua VM SQL Server no portal do Azure. Para obter mais informações, consulte [gerenciar VMs SQL Server no portal do Azure](virtual-machines-windows-sql-manage-portal.md).  | 
 | &nbsp; | &nbsp; |
@@ -70,7 +71,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ## <a name="april-2019"></a>Abril de 2019
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Suporte estendido para o SQL Server 2008/2008 R2** | [Estenda o suporte](virtual-machines-windows-sql-server-2008-eos-extend-support.md) para SQL Server 2008 e SQL Server 2008 R2 migrando *o as for* para uma VM do Azure. | 
 | &nbsp; | &nbsp; |
@@ -78,7 +79,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ## <a name="march-2019"></a>Março de 2019
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Suporte a imagens personalizadas** | Agora você pode instalar a [extensão SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) para imagens de sistema operacional personalizadas e SQL, que oferece a funcionalidade limitada de [licenciamento flexível](virtual-machines-windows-sql-ahb.md). Quando você estiver registrando sua imagem personalizada com o provedor de recursos SQL, especifique o tipo de licença como "AHUB". Caso contrário, o registro falhará. | 
 | **Suporte à instância nomeada** | Agora você pode usar a [extensão SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) com uma instância nomeada, se a instância padrão tiver sido desinstalada corretamente. | 
@@ -88,7 +89,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ## <a name="february-2019"></a>Fevereiro de 2019
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Aprimoramento do portal** | Agora é possível alterar o modelo de licenciamento de uma VM SQL Server de pré-pago para o traga sua própria licença usando o [portal do Azure](virtual-machines-windows-sql-ahb.md#change-the-license-for-vms-already-registered-with-the-resource-provider).|
 |**Simplificação da implantação do grupo de disponibilidade com a CLI da VM SQL Server do Azure** | Agora é mais fácil do que nunca implantar um grupo de disponibilidade em uma VM SQL Server no Azure. Você pode usar o [CLI do Azure](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) para criar o cluster de failover do Windows, o balanceador de carga interno e os ouvintes do grupo de disponibilidade todos na linha de comando. Para obter mais informações, consulte [usar a CLI da VM SQL Server do Azure para configurar um grupo de disponibilidade Always on para SQL Server em uma VM do Azure](virtual-machines-windows-sql-availability-group-cli.md). | 
@@ -99,7 +100,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ### <a name="december-2018"></a>Dezembro de 2018
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Novo provedor de recursos para um cluster SQL Server** | Um novo provedor de recursos (Microsoft. SqlVirtualMachine/SqlVirtualMachineGroups) define os metadados do cluster de failover do Windows. Ingressar em uma VM SQL Server para o *SqlVirtualMachineGroups* Inicializa o serviço WSFC (cluster de failover do Windows Server) e une a VM ao cluster.  |
 |**Configuração automatizada de uma implantação de grupo de disponibilidade com modelos de início rápido do Azure** |Agora é possível criar o cluster de failover do Windows, ingressar SQL Server VMs nele, criar o ouvinte e configurar o balanceador de carga interno com dois modelos de início rápido do Azure. Para obter mais informações, consulte [usar modelos de início rápido do Azure para configurar um grupo de disponibilidade Always on para SQL Server em uma VM do Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
@@ -109,7 +110,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 
 ### <a name="november-2018"></a>Novembro de 2018
 
-| Alterações | Detalhes |
+| For | Detalhes |
 | --- | --- |
 | **Novo provedor de recursos de VM do SQL** |  Um novo provedor de recursos (Microsoft. SqlVirtualMachine) fornece melhor gerenciamento de suas VMs SQL Server. Para obter mais informações sobre como registrar suas VMs, consulte [registrar um SQL Server máquina virtual no Azure com o provedor de recursos da VM do SQL](virtual-machines-windows-sql-register-with-resource-provider.md). |
 |**Alternar modelo de licenciamento** | Agora você pode alternar entre os modelos de pagamento por uso e traga sua própria licença para sua VM SQL Server usando o CLI do Azure ou o PowerShell. Para obter mais informações, consulte [como alterar o modelo de licenciamento para uma máquina virtual SQL Server no Azure](virtual-machines-windows-sql-ahb.md). | 

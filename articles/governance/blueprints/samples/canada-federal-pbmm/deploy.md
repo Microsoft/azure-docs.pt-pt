@@ -1,5 +1,5 @@
 ---
-title: Exemplo – Blueprint de PBMM Federal do Canadá – etapas de implantação
+title: Exemplo do Canadá Federal PBMM Blueprint – implantar etapas
 description: Implante as etapas para o exemplo do Canadá Federal PBMM Blueprint, incluindo detalhes do parâmetro de artefato do Blueprint.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 0e799de92f25c688b41d3ac5718fe3a2b7a8aba0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249016"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297820"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implantar os exemplos do Canadá Federal PBMM Blueprint
 

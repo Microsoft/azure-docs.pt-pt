@@ -1,17 +1,17 @@
 ---
-title: Exemplo-o mapeamento de controle Blueprint de ISO 27001
+title: Exemplo de plano de controle de esquema ISO 27001
 description: Mapeamento de controle do exemplo de plano gráfico ISO 27001. Cada controle é mapeado para uma ou mais políticas do Azure que auxiliam na avaliação.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: f381cb2beff0dd828e7ab1e5661857d826c49ecf
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 57636db9eb341bad2e0caca83a2c413320847aae
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248875"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297515"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Mapeamento de controle da amostra do plano gráfico ISO 27001
 

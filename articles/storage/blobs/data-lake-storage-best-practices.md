@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991877"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299669"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Práticas recomendadas para usar o Azure Data Lake Storage Gen2
 
-Neste artigo, você aprenderá sobre as práticas recomendadas e as considerações para trabalhar com Azure Data Lake Storage Gen2. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento para Data Lake Storage Gen2. Antes de Data Lake Storage Gen2, trabalhar com verdadeiramente Big Data em serviços como o Azure HDInsight era complexo. Você precisava fragmentar dados em várias contas de armazenamento de BLOBs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser atingidos. Com Data Lake Storage Gen2, a maioria dos limites rígidos de tamanho e desempenho são removidos. No entanto, ainda há algumas considerações que este artigo aborda para que você possa obter o melhor desempenho com Data Lake Storage Gen2.
+Neste artigo, você aprenderá sobre as práticas recomendadas e as considerações para trabalhar com Azure Data Lake Storage Gen2. Este artigo fornece informações sobre segurança, desempenho, resiliência e monitoramento para Data Lake Storage Gen2. Antes de Data Lake Storage Gen2, trabalhar com verdadeiramente Big Data em serviços como o Azure HDInsight era complexo. Você precisava fragmentar dados em várias contas de armazenamento de BLOBs para que o armazenamento de petabyte e o desempenho ideal nessa escala pudessem ser atingidos. O Data Lake Storage Gen2 dá suporte a tamanhos de arquivo individuais tão altos quanto 5 TB e a maioria dos limites rígidos de desempenho foram removidos. No entanto, ainda há algumas considerações que este artigo aborda para que você possa obter o melhor desempenho com Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Considerações de segurança
 
@@ -39,7 +39,7 @@ Azure Active Directory entidades de serviço geralmente são usadas por serviço
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Habilitar o Data Lake Storage Gen2 firewall com acesso de serviço do Azure
 
-Data Lake Storage Gen2 dá suporte à opção de ativar um firewall e limitar o acesso somente aos serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O firewall pode ser habilitado em uma conta de armazenamento no portal do Azure por meio do **Firewall** > **habilitar o firewall (ativado)**  > **permitir acesso às opções de serviços do Azure** .
+Data Lake Storage Gen2 dá suporte à opção de ativar um firewall e limitar o acesso somente aos serviços do Azure, o que é recomendado para limitar o vetor de ataques externos. O firewall pode ser habilitado em uma conta de armazenamento no portal do Azure por meio do **firewall** > **habilite o firewall (ativado)**  > **permitir acesso às opções de serviços do Azure** .
 
 Para acessar sua conta de armazenamento do Azure Databricks, implante Azure Databricks em sua rede virtual e, em seguida, adicione essa rede virtual ao firewall. Consulte [configurar redes virtuais e firewalls de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
@@ -65,7 +65,7 @@ Os trabalhos de cópia podem ser disparados por fluxos de trabalho do Apache Ooz
 
 Azure Data Factory também pode ser usado para agendar trabalhos de cópia usando uma atividade de cópia e pode até mesmo ser configurado em uma frequência por meio do assistente de cópia. Tenha em mente que Azure Data Factory tem um limite de DMUs (unidades de movimentação de dados de nuvem) e, eventualmente, limita a taxa de transferência/computação para cargas de trabalho de dados grandes. Além disso, Azure Data Factory atualmente não oferece atualizações Delta entre contas de Data Lake Storage Gen2, portanto, diretórios como tabelas Hive exigirão uma cópia completa para replicar. Consulte o [artigo data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) para obter mais informações sobre como copiar com data Factory.
 
-## <a name="monitoring-considerations"></a>Considerações sobre a monitorização
+## <a name="monitoring-considerations"></a>Considerações sobre monitoramento
 
 Data Lake Storage Gen2 fornece métricas no portal do Azure na conta de Data Lake Storage Gen2 e no Azure Monitor. A disponibilidade de Data Lake Storage Gen2 é exibida no portal do Azure. Para obter a disponibilidade mais atualizada de uma conta de Data Lake Storage Gen2, você deve executar seus próprios testes sintéticos para validar a disponibilidade. Outras métricas, como a utilização total do armazenamento, as solicitações de leitura/gravação e a entrada/saída, estão disponíveis para serem aproveitadas pelo monitoramento de aplicativos e também podem disparar alertas quando os limites (por exemplo, latência média ou número de erros por minuto) são excedidos.
 
@@ -89,7 +89,7 @@ Há um motivo importante para colocar a data no final da estrutura do diretório
 
 De um alto nível, uma abordagem comumente usada no processamento em lotes é colocar os dados em um diretório "in". Em seguida, depois que os dados são processados, coloque os novos dados em um diretório "out" para que os processos downstream sejam consumidos. Essa estrutura de diretório é vista às vezes para trabalhos que exigem processamento em arquivos individuais e podem não exigir processamento maciçomente paralelo em grandes conjuntos de dados. Como a estrutura de IoT recomendada acima, uma boa estrutura de diretório tem os diretórios de nível pai para coisas como assuntos de região e assunto (por exemplo, organização, produto/produtor). Essa estrutura ajuda a proteger os dados em sua organização e o melhor gerenciamento dos dados em suas cargas de trabalho. Além disso, considere a data e a hora na estrutura para permitir melhor organização, pesquisas filtradas, segurança e automação no processamento. O nível de granularidade da estrutura de data é determinado pelo intervalo no qual os dados são carregados ou processados, como por hora, diariamente ou até mesmo mensalmente.
 
-Às vezes, o processamento de arquivos não é bem-sucedido devido a dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode se beneficiar de uma pasta **/Bad** para mover os arquivos para para uma inspeção mais detalhada. O trabalho em lotes também pode manipular o relatório ou a notificação desses arquivos inválidos para intervenção manual. Considere a seguinte estrutura de modelo:
+Às vezes, o processamento de arquivos não é bem-sucedido devido a dados corrompidos ou formatos inesperados. Nesses casos, a estrutura de diretório pode se beneficiar de uma pasta **/Bad** para mover os arquivos para para uma inspeção mais detalhada. O trabalho em lotes também pode manipular o relatório ou a notificação desses arquivos *inválidos* para intervenção manual. Considere a seguinte estrutura de modelo:
 
     {Region}/{SubjectMatter(s)}/In/{yyyy}/{mm}/{dd}/{hh}/
     {Region}/{SubjectMatter(s)}/Out/{yyyy}/{mm}/{dd}/{hh}/

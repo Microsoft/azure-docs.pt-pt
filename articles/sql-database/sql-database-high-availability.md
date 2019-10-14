@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
-ms.openlocfilehash: 54994dd626df23694ea372d4a662d2b4fb051fc8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.date: 10/11/2019
+ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285772"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299707"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidade e banco de dados SQL do Azure
 
@@ -39,7 +39,7 @@ Essas camadas de serviço aproveitam a arquitetura de disponibilidade padrão. A
 
 O modelo de disponibilidade padrão inclui duas camadas:
 
-- Uma camada de computação sem estado que executa o processo de `sqlserver.exe` e contém somente dados transitórios e armazenados em cache no SSD anexado, como TempDB, Database Model, cache de planos, pool de buffers e pool de armazenamento de coluna. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa `sqlserver.exe`, controla a integridade do nó e executa o failover para outro nó, se necessário.
+- Uma camada de computação sem monitoração de estado que executa o processo `sqlservr.exe` e contém somente dados transitórios e em cache, como TempDB, bancos de dado modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa `sqlservr.exe`, controla a integridade do nó e executa o failover para outro nó, se necessário.
 - Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no armazenamento de BLOBs do Azure. O armazenamento de BLOBs do Azure tem recursos internos de redundância e disponibilidade de dados. Ele garante que todos os registros no arquivo de log ou na página do arquivo de dados serão preservados mesmo se SQL Server processo falhar.
 
 Sempre que o mecanismo de banco de dados ou o sistema operacional for atualizado ou uma falha for detectada, o Azure Service Fabric moverá o processo de SQL Server sem estado para outro nó de computação sem estado com capacidade livre suficiente. Os dados no armazenamento de BLOBs do Azure não são afetados pela movimentação e os arquivos de dados/log são anexados ao processo de SQL Server inicializado recentemente. Esse processo garante a disponibilidade de 99,99%, mas uma carga de trabalho pesada pode enfrentar alguma degradação de desempenho durante a transição, uma vez que a nova instância de SQL Server começa com o cache frio.
@@ -54,7 +54,24 @@ Os arquivos de banco de dados subjacentes (. MDF/. ldf) são colocados no armaze
 
 Como um benefício extra, o modelo de disponibilidade Premium inclui a capacidade de redirecionar conexões SQL somente leitura para uma das réplicas secundárias. Esse recurso é chamado [de expansão de leitura](sql-database-read-scale-out.md). Ele fornece uma capacidade de computação adicional de 100% sem custo adicional para operações somente leitura fora do carregamento, como cargas de trabalho analíticas, da réplica primária.
 
-### <a name="zone-redundant-configuration"></a>Configuração com redundância de zona
+## <a name="hyperscale-service-tier-availability"></a>Disponibilidade da camada de serviço de hiperescala
+
+A arquitetura da camada de serviço de hiperescala é descrita em [arquitetura de funções distribuídas](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture). 
+
+![Arquitetura funcional de hiperescala](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+O modelo de disponibilidade em hiperescala inclui quatro camadas:
+
+- Uma camada de computação sem estado que executa os processos `sqlservr.exe` e contém somente dados transitórios e armazenados em cache, como o cache RBPEX não abrangendo, TempDB, banco de dado modelo, etc. no SSD anexado, no cache de planos, no pool de buffers e no pool columnstore na memória. Essa camada sem estado inclui a réplica de computação primária e, opcionalmente, um número de réplicas de computação secundárias que podem servir como destinos de failover.
+- Uma camada de armazenamento sem estado formada por servidores de página. Essa camada é o mecanismo de armazenamento distribuído para os processos `sqlservr.exe` em execução nas réplicas de computação. Cada servidor de página contém apenas dados transitórios e em cache, como cobrindo o cache RBPEX no SSD anexado e páginas de dados armazenadas em cache na memória. Cada servidor de página tem um servidor de páginas emparelhado em uma configuração ativo-ativo para fornecer balanceamento de carga, redundância e alta disponibilidade.
+- Uma camada de armazenamento de log de transações com estado formada pelo nó de computação executando o processo do serviço de log, a zona de aterrissagem do log de transações e o armazenamento de longo prazo do log de transações. Zona de aterrissagem e armazenamento de longo prazo usam o armazenamento do Azure, que fornece disponibilidade e [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) para o log de transações, garantindo a durabilidade dos dados para transações confirmadas.
+- Uma camada de armazenamento de dados com monitoração de estado com os arquivos (. MDF/. ndf) armazenados no armazenamento do Azure e são atualizados por servidores de página. Essa camada usa recursos de [redundância](https://docs.microsoft.com/azure/storage/common/storage-redundancy) e disponibilidade de dados do armazenamento do Azure. Ele garante que cada página em um arquivo de dados será preservada mesmo se os processos em outras camadas de falha de arquitetura de hiperescala ou se os nós de computação falharem.
+
+Os nós de computação em todas as camadas de hiperescala são executados no Azure Service Fabric, que controla a integridade de cada nó e executa failovers para nós íntegros disponíveis, conforme necessário.
+
+Para obter mais informações sobre alta disponibilidade em hiperescala, consulte [alta disponibilidade do banco de dados em hiperescala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
+
+## <a name="zone-redundant-configuration"></a>Configuração com redundância de zona
 
 Por padrão, o cluster de nós para o modelo de disponibilidade Premium é criado no mesmo datacenter. Com a introdução do [zonas de disponibilidade do Azure](../availability-zones/az-overview.md), o banco de dados SQL pode posicionar réplicas diferentes do banco de dados comercialmente crítico em diferentes zonas de disponibilidade na mesma região. Para eliminar um ponto único de falha, o anel de controle também é duplicado em várias zonas como três anéis de gateway (GW). O roteamento para um anel de gateway específico é controlado pelo ATM ( [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview.md) ). Como a configuração com redundância de zona nas camadas de serviço Premium ou Comercialmente Crítico não cria redundância de banco de dados adicional, você pode habilitá-la sem custo adicional. Ao selecionar uma configuração com redundância de zona, você pode tornar os bancos de dados Premium ou Comercialmente Crítico resilientes a um conjunto muito maior de falhas, incluindo interrupções catastróficas do datacenter, sem nenhuma alteração na lógica do aplicativo. Você também pode converter quaisquer bancos de dados ou pools Premium ou Comercialmente Crítico existentes na configuração com redundância de zona.
 
