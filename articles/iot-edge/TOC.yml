@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: Armazenar dados na periferia
       items:
+        - name: Fornecer o acesso a módulos ao armazenamento local de um dispositivo
+          href: how-to-access-host-storage-from-module.md
         - name: Armazenamento de Blobs do Azure no IoT Edge
           href: how-to-store-data-blob.md
         - name: Implementar módulos de armazenamento de blobs

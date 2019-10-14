@@ -270,7 +270,7 @@
         - name: Criar e gerir contas de armazenamento
           items:
             - name: Criar uma conta de armazenamento para fins gerais
-              displayName: 'resource manager, resource manager template, template, ARM'
+              displayName: 'Resource Manager, Resource Manager template, template, ARM'
               href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Criar uma conta de armazenamento de blob de blocos
               href: storage-blob-create-account-block-blob.md
@@ -585,8 +585,6 @@
       items:
         - name: Introdução ao Data Lake Storage
           href: ../blobs/data-lake-storage-introduction.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Processar macrodados
-          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Inícios rápidos
       items:
         - name: Analisar dados com o Databricks
@@ -617,6 +615,10 @@
       items:
         - name: Acesso multiprotocolo
           href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Processar macrodados
+          href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Integrar com os serviços do Azure
+          href: ../blobs/data-lake-store-integrate-with-azure-services.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Controlador do Sistema de Ficheiros de Blobs do Azure para o Hadoop
           href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: URI do Sistema de Ficheiros de Blobs do Azure
@@ -693,18 +695,6 @@
                   href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Definir permissões ao nível do ficheiro e do diretório
               href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
-        - name: Integrar nos serviços do Azure
-          items:
-            - name: Utilizar com clusters do HDInsight
-              href: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utilizar com CLI do Sistema de Ficheiros do Hadoop
-              href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Utilizar com o Azure Databricks
-              href: 'https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html'
-            - name: Utilizar com o Azure SQL Data Warehouse
-              href: '../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase'
-            - name: Utilizar com o Power BI
-              href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Otimizar o desempenho
           items:
             - name: Descrição geral
@@ -717,6 +707,7 @@
               href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Otimizar o Storm no HDInsight
               href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Gerir ficheiros (blobs)
           items:
             - name: PowerShell
@@ -729,6 +720,9 @@
               href: ../blobs/data-lake-storage-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Migrar um arquivo HDFS local
               href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Utilizar com CLI do Sistema de Ficheiros do Hadoop
+          href: ../blobs/data-lake-storage-use-hdfs-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Utilizar com o Power BI
     - name: Referência
       items:
         - name: PowerShell

@@ -1,17 +1,17 @@
 ---
-title: Amostra - esquema de PBMM Federal do Canadá - Descrição geral
+title: Exemplo de esquema de PBMM Federal do Canadá - Descrição geral
 description: Descrição geral da amostra do esquema de PBMM Federal do Canadá. Este exemplo de esquema ajuda os clientes a avaliar controlos PBMM Federal do Canadá específicos.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 09/04/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 3c2e579d546cbbf3f0e6ca4183d0d150a31a3ed4
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 3d53fbce8eab174a733f1aed34265f07376a3185
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248488"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297830"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>Descrição geral da amostra do esquema de PBMM Federal do Canadá
 

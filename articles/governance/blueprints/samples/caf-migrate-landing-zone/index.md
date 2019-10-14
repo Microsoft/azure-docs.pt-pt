@@ -1,5 +1,5 @@
 ---
-title: Exemplo - Esquema Zona de destino de migração do CAF - Descrição Geral
+title: Exemplo de esquema Zona de destino de migração do CAF - Descrição geral
 description: Descrição geral e arquitetura do exemplo de esquema Zona de destino de migração do CAF.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c74ec9f425b99bb11011fce7b0b7bdca98005ad8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243976"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297866"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Descrição geral do exemplo de esquema Zona de destino de migração do Microsoft Cloud Adoption Framework para o Azure
 
@@ -47,7 +47,7 @@ Para obter mais informações, veja o artigo [Microsoft Cloud Adoption Framework
 Analisou a descrição geral e a arquitetura do exemplo de esquema Zona de destino de migração do CAF.
 
 > [!div class="nextstepaction"]
->  [Esquema Zona de destino de migração do CAF - Passos de implementação](./deploy.md)
+>  [Esquema Zona de destino de Migração do CAF - Passos para implementação](./deploy.md)
 
 Artigos adicionais sobre esquemas e como utilizá-los:
 

@@ -1,18 +1,18 @@
 ---
-title: Índice de exemplos e modelos do Azure Lighthouse
-description: Índice de exemplos e modelos para o Azure Lighthouse.
+title: Exemplos e modelos do Azure Lighthouse
+description: Estes exemplos e modelos do Azure Resource Manager mostram como integrar clientes na gestão de recursos delegados do Azure e dar suporte a cenários do Azure Lighthouse.
 author: JnHs
 manager: carmonm
 ms.service: lighthouse
 ms.topic: sample
 ms.date: 07/11/2019
 ms.author: jenhayes
-ms.openlocfilehash: b363fcdb752522db07642e625837e03429244f47
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d888fb0d50bf0336f8fe830c567586e66065871f
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884295"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286132"
 ---
 # <a name="azure-lighthouse-samples"></a>Exemplos do Azure Lighthouse
 

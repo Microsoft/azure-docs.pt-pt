@@ -44,6 +44,8 @@
     - name: Ver e gerir fornecedores de serviços
       displayName: 'managed services offer, azure marketplace, publish'
       href: ./how-to/view-manage-service-providers.md
+    - name: Implementar uma política que pode ser corrigida
+      href: ./how-to/deploy-policy-remediation.md
 - name: Referência
   items:
     - name: CLI do Azure

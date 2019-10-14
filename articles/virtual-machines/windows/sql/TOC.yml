@@ -100,8 +100,10 @@
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
         - name: Instância de Cluster de Ativação Pós-falha
           items:
-            - name: Configurar
+            - name: Com Espaços de Armazenamento Direto
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+            - name: Com armazenamento de ficheiros Premium
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: Referência
   items:
     - name: Azure PowerShell

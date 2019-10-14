@@ -93,6 +93,8 @@
           href: durable-functions-unit-testing.md
         - name: Criar como WebJobs
           href: durable-functions-webjobs-sdk.md
+        - name: Entidades duráveis no .NET
+          href: durable-functions-dotnet-entities.md
     - name: Implementação
       items:
         - name: Implementação contínua
@@ -101,6 +103,8 @@
           href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
         - name: Executar a partir do pacote
           href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+        - name: Implementação sem tempo de inatividade
+          href: durable-functions-zero-downtime-deployment.md
     - name: Monitorizar
       items:
         - name: Diagnóstico

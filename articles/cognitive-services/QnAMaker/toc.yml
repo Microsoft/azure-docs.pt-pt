@@ -116,7 +116,7 @@
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: Criar bot com Criador de FAQ e LUIS
           href: Tutorials/integrate-qnamaker-luis.md
-        - name: Criar uma base de dados de conhecimento num idioma diferente
+        - name: Seleção de idioma
           href: How-To/language-knowledge-base.md
         - name: Migrar para uma base de dados de conhecimento
           href: Tutorials/migrate-knowledge-base.md
@@ -141,6 +141,12 @@
           href: How-To/business-continuity-plan.md
 - name: Referência
   items:
+    - name: Linguagens
+      href: Overview/language-support.md
+    - name: Limites
+      href: limits.md
+    - name: Resolução de problemas
+      href: troubleshooting.md
     - name: Referência da API REST
       items:
         - name: APIs de Criação
@@ -150,10 +156,6 @@
         - name: API de Preparação
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: Resolução de problemas
-      href: troubleshooting.md
-    - name: Limites
-      href: limits.md
     - name: Amostras
       items:
         - name: Bot de ajuda do Criador de FAQ
@@ -206,8 +208,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Preços e limites
       href: 'https://aka.ms/qnamaker-pricing'
-    - name: Suporte de idiomas
-      href: Overview/language-support.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
     - name: UserVoice
