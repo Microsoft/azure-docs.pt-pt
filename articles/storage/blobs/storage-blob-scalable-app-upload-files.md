@@ -1,18 +1,18 @@
 ---
 title: Carregar grandes quantidades de dados aleatórios em paralelo para o Armazenamento do Azure | Microsoft Docs
-description: Saiba como utilizar o Azure SDK para carregar grandes quantidades de dados aleatórios em paralelo para uma conta de Armazenamento do Azure
+description: Saiba como usar a biblioteca de cliente de armazenamento do Azure para carregar grandes quantidades de dados aleatórios em paralelo a uma conta de armazenamento do Azure
 author: roygara
 ms.service: storage
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
-ms.openlocfilehash: e5c1a78bf2f482e99d8ff13590a8bb81f9601991
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5b20686399db9537e5db8622a433b5e506939d19
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698959"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302990"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Carregar grandes quantidades de dados aleatórios em paralelo para o armazenamento do Azure
 
@@ -28,11 +28,11 @@ Na segunda parte da série, saiba como:
 
 O armazenamento de blobs do Azure proporciona um serviço dimensionável para armazenar os dados. Para garantir que a aplicação tem o melhor desempenho possível, recomenda-se uma compreensão sobre como funciona o armazenamento de blobs. O conhecimento dos limites dos blobs do Azure é importante. Para obter mais informações sobre estes limites, visite: [objetivos de escalabilidade do armazenamento de blobs](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-blob-storage-scale-targets).
 
-A [nomenclatura de partição](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#subheading47) é outro fator potencialmente importante ao criar um aplicativo de alta execução usando BLOBs. Para tamanhos de bloco maiores ou iguais a quatro MiB, [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) são usados e a nomenclatura de partição não afetará o desempenho. Para tamanhos de bloco inferiores a quatro MiB, o armazenamento do Azure usa um esquema de particionamento baseado em intervalo para dimensionar e balancear a carga. Esta configuração significa que os ficheiros com as convenções de nomenclatura ou prefixos semelhantes vão para a mesma partição. Esta lógica inclui o nome do contentor para o qual os ficheiros estão a ser carregados. Neste tutorial, utilize os ficheiros que tenham GUIDs como nomes, bem como conteúdo gerado aleatoriamente. Em seguida, são carregados para cinco contentores com nomes aleatórios diferentes.
+A [nomenclatura de partição](../blobs/storage-performance-checklist.md#partitioning) é outro fator potencialmente importante ao criar um aplicativo de alto desempenho usando BLOBs. Para tamanhos de bloco maiores ou iguais a 4 MiB, [blobs de blocos de alta taxa de transferência](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/) são usados e a nomenclatura de partição não afetará o desempenho. Para tamanhos de bloco inferiores a 4 MiB, o armazenamento do Azure usa um esquema de particionamento baseado em intervalo para dimensionar e balancear a carga. Esta configuração significa que os ficheiros com as convenções de nomenclatura ou prefixos semelhantes vão para a mesma partição. Esta lógica inclui o nome do contentor para o qual os ficheiros estão a ser carregados. Neste tutorial, utilize os ficheiros que tenham GUIDs como nomes, bem como conteúdo gerado aleatoriamente. Em seguida, são carregados para cinco contentores com nomes aleatórios diferentes.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [Crie uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
+Para concluir este tutorial, você deve ter concluído o tutorial de armazenamento anterior: [criar uma máquina virtual e uma conta de armazenamento para um aplicativo escalonável][previous-tutorial].
 
 ## <a name="remote-into-your-virtual-machine"></a>Aceder remotamente à máquina virtual
 
@@ -66,7 +66,7 @@ A aplicação cria cinco contentores aleatoriamente nomeados e começa a carrega
 
 Além de configurar as definições de threading e de ligação, as [BlobRequestOptions](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions) do método [UploadFromStreamAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromstreamasync) estão configuradas para utilizar o paralelismo e desativar a validação do hash MD5. Os ficheiros são carregados em blocos de 100 MB e esta configuração proporciona um melhor desempenho, mas poderá ser dispendiosa se utilizar uma rede com um desempenho fraco, uma vez que se houver uma falha, todo o bloco de 100 MB é repetido.
 
-|Propriedade|Value|Descrição|
+|Propriedade|Valor|Descrição|
 |---|---|---|
 |[ParallelOperationThreadCount](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.paralleloperationthreadcount)| 8| A definição divide o blob em blocos ao carregar. Para obter o melhor desempenho, esse valor deve ser oito vezes o número de núcleos. |
 |[DisableContentMD5Validation](/dotnet/api/microsoft.azure.storage.blob.blobrequestoptions.disablecontentmd5validation)| true| Esta propriedade desativa a verificação do hash MD5 do conteúdo carregado. Desativar a validação MD5 permite uma transferência mais rápida. Mas não confirma a validade nem a integridade dos ficheiros que estão a ser transferidos.   |
@@ -180,7 +180,7 @@ C:\>netstat -a | find /c "blob:https"
 C:\>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Na segunda parte da série, aprendeu a carregar grandes quantidades de dados aleatórios para uma conta de armazenamento em paralelo, tais como:
 

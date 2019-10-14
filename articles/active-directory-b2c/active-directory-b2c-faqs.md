@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d852b786c1cc1c1eb9d39b931f9b8a142f969815
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065875"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302538"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas Mais Frequentes (FAQ)
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: perguntas frequentes (FAQ)
 
 Esta página responde às perguntas frequentes sobre o Azure Active Directory B2C (Azure AD B2C). Continue verificando as atualizações.
 
@@ -27,7 +27,7 @@ Há dois motivos comuns para o motivo pelo qual a extensão do Azure AD não est
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Posso usar Azure AD B2C recursos em meu locatário do Azure AD existente baseado em funcionários?
 
-O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário Azure AD B2C representa uma coleção de identidades a ser usada com aplicativos de terceira parte confiável. Com as políticas personalizadas (na visualização pública), Azure AD B2C pode federar o AD do Azure, permitindo a autenticação de funcionários em uma organização.
+O Azure AD e o Azure AD B2C são ofertas de produtos separadas e não podem coexistir no mesmo locatário. Um locatário do Azure AD representa uma organização. Um locatário Azure AD B2C representa uma coleção de identidades a ser usada com aplicativos de terceira parte confiável. Com as políticas personalizadas, Azure AD B2C pode federar o Azure AD, permitindo a autenticação de funcionários em uma organização.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Posso usar Azure AD B2C para fornecer logon social (Facebook e Google +) no Office 365?
 
@@ -35,9 +35,9 @@ Azure AD B2C não pode ser usado para autenticar usuários para Microsoft Office
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>O que são contas locais no Azure AD B2C? Como eles são diferentes das contas corporativas ou de estudante no Azure AD?
 
-Em um locatário do Azure AD, os usuários que pertencem ao locatário entram com um endereço de email do formulário `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no locatário ou no domínio inicial `<...>.onmicrosoft.com` . Esse tipo de conta é uma conta corporativa ou de estudante.
+Em um locatário do Azure AD, os usuários que pertencem ao locatário entram com um endereço de email do formulário `<xyz>@<tenant domain>`. O `<tenant domain>` é um dos domínios verificados no locatário ou no domínio `<...>.onmicrosoft.com` inicial. Esse tipo de conta é uma conta corporativa ou de estudante.
 
-Em um locatário Azure ad B2C, a maioria dos aplicativos deseja que o usuário entre com qualquer endereço de email arbitrário (por exemplo joe@comcast.net, bob@gmail.com sarah@contoso.com,, ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, Joe, Bob, Sarah ou Jim). Você pode escolher um desses dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
+Em um locatário Azure AD B2C, a maioria dos aplicativos deseja que o usuário entre com qualquer endereço de email arbitrário (por exemplo, joe@comcast.net, bob@gmail.com, sarah@contoso.com ou jim@live.com). Esse tipo de conta é uma conta local. Também há suporte para nomes de usuário arbitrários como contas locais (por exemplo, Joe, Bob, Sarah ou Jim). Você pode escolher um desses dois tipos de conta local ao configurar provedores de identidade para Azure AD B2C no portal do Azure. No locatário do Azure AD B2C, selecione **provedores de identidade**, selecione **conta local**e, em seguida, selecione **nome de usuário**.
 
 As contas de usuário para aplicativos sempre devem ser criadas por meio de um fluxo de usuário de inscrição, um fluxo de usuário de inscrição ou de entrada ou usando o API do Graph do Azure AD. As contas de usuário criadas no portal do Azure são usadas somente para administrar o locatário.
 
@@ -59,7 +59,7 @@ Não. Os escopos padrão usados para nosso conjunto de provedores de identidade 
 
 ### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Meu aplicativo precisa ser executado no Azure para que ele funcione com Azure AD B2C?
 
-Não, você pode hospedar seu aplicativo em qualquer lugar (na nuvem ou local). Tudo o que ele precisa para interagir com Azure AD B2C é a capacidade de enviar e receber solicitações HTTP em pontos de extremidade publicamente acessíveis.
+Não, você pode hospedar seu aplicativo em qualquer lugar (na nuvem ou local). Tudo o que precisa para interagir com o Azure AD B2C é a capacidade de enviar e receber pedidos HTTP em pontos finais acessíveis publicamente.
 
 ### <a name="i-have-multiple-azure-ad-b2c-tenants-how-can-i-manage-them-on-the-azure-portal"></a>Tenho vários locatários Azure AD B2C. Como posso gerenciá-los na portal do Azure?
 
@@ -69,8 +69,8 @@ Antes de abrir ' Azure AD B2C ' no menu do lado esquerdo da portal do Azure, voc
 
 Você pode usar o [recurso de identidade visual da empresa](../active-directory/fundamentals/customize-branding.md) para personalizar o conteúdo dos emails de verificação. Especificamente, esses dois elementos do email podem ser personalizados:
 
-* **Logotipo de faixa**: Mostrado na parte inferior direita.
-* **Cor do plano de fundo**: Mostrado na parte superior.
+* **Logotipo de faixa**: mostrado na parte inferior direita.
+* **Cor do plano de fundo**: mostrada na parte superior.
 
     ![Captura de tela de um email de verificação personalizado](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
@@ -78,7 +78,7 @@ A assinatura de email contém o nome do locatário de Azure AD B2C que você for
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como administrador global.
 1. Abra a folha **Azure Active Directory** .
-1. Clique nas **propriedades** separador.
+1. Clique na guia **Propriedades** .
 1. Altere o campo **nome** .
 1. Clique em **Guardar** no início da página.
 
@@ -122,11 +122,11 @@ Não, Azure AD B2C não dá suporte ao mesmo conjunto de relatórios que Azure A
 
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>Posso localizar a interface do usuário das páginas servidas pelo Azure AD B2C? Que idiomas são suportados?
 
-Sim!  Leia sobre a [personalização de idioma](active-directory-b2c-reference-language-customization.md), que está em visualização pública. Fornecemos traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
+Sim, consulte [personalização de idioma](active-directory-b2c-reference-language-customization.md). Fornecemos traduções para 36 idiomas e você pode substituir qualquer cadeia de caracteres para atender às suas necessidades.
 
 ### <a name="can-i-use-my-own-urls-on-my-sign-up-and-sign-in-pages-that-are-served-by-azure-ad-b2c-for-instance-can-i-change-the-url-from-contosob2clogincom-to-logincontosocom"></a>Posso usar minhas próprias URLs em minhas páginas de inscrição e de entrada que são servidas pelo Azure AD B2C? Por exemplo, posso alterar a URL de contoso.b2clogin.com para login.contoso.com?
 
-Atualmente não. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **domínios** no portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
+Atualmente não é possível. Esse recurso está em nosso roteiro. Verificar seu domínio na guia **domínios** no portal do Azure não atinge essa meta. No entanto, com o b2clogin.com, oferecemos um [domínio de nível superior neutro](b2clogin.md)e, portanto, a aparência externa pode ser implementada sem a menção da Microsoft.
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Como fazer excluir meu locatário Azure AD B2C?
 

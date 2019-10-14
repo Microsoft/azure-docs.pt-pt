@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 05/31/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: 99af39e996aaadd572603f63d019ff929b679550
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: c4cd906148f0f83ab4d66a9daaa606d7b9c183cd
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846250"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303589"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configurar uma regra de limite de taxa de firewall do aplicativo Web usando Azure PowerShell
 A regra de limite de taxa do firewall do aplicativo Web do Azure (WAF) para o Azure front door controla o número de solicitações permitidas de um único IP de cliente durante uma duração de um minuto.
@@ -49,7 +49,7 @@ Install-Module PowerShellGet -Force -AllowClobber
 Install-Module -Name Az.FrontDoor
 ```
 ### <a name="create-a-front-door-profile"></a>Criar um perfil de porta de front-end
-Crie um perfil de porta frontal seguindo as instruções descritas [em início rápido: Criar um perfil de porta de front-end](quickstart-create-front-door.md)
+Crie um perfil de porta frontal seguindo as instruções descritas em [início rápido: criar um perfil de porta frontal](quickstart-create-front-door.md)
 
 ## <a name="define-url-match-conditions"></a>Definir condições de correspondência de URL
 Defina uma condição de correspondência de URL (URL contém/promo) usando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
@@ -76,11 +76,9 @@ Defina um limite de taxa usando [New-AzFrontDoorWafCustomRuleObject](/powershell
 
 ## <a name="configure-a-security-policy"></a>Configurar uma política de segurança
 
-Localize o nome do grupo de recursos que contém o perfil de porta frontal `Get-AzureRmResourceGroup`usando. Em seguida, configure uma política de segurança com uma regra de limite de taxa personalizada usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil de porta frontal.
+Localize o nome do grupo de recursos que contém o perfil de porta frontal usando `Get-AzureRmResourceGroup`. Em seguida, configure uma política de segurança com uma regra de limite de taxa personalizada usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil de porta frontal.
 
-O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando [as instruções fornecidas no guia de início rápido: Crie um artigo de](quickstart-create-front-door.md) porta frontal.
-
- usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando as instruções fornecidas no artigo [início rápido: criar uma porta frontal](quickstart-create-front-door.md) usando [ New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `
@@ -92,9 +90,9 @@ O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a supo
 ```
 ## <a name="link-policy-to-a-front-door-front-end-host"></a>Política de link para um host front-end da porta frontal
 Vincule o objeto de política de segurança a um host front-end de porta frontal existente e atualize as propriedades da porta frontal. Primeiro, recupere o objeto de porta frontal usando o comando [Get-AzFrontDoor](/powershell/module/Az.FrontDoor/Get-AzFrontDoor) .
-Em seguida, defina a propriedade *WebApplicationFirewallPolicyLink* de front-end como o ResourceId do "$ratePolicy" criado na etapa anterior usando o comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) . 
+Em seguida, defina a propriedade *WebApplicationFirewallPolicyLink* de front-end como o *ResourceId* do "$ratePolicy" criado na etapa anterior usando o comando [set-AzFrontDoor](/powershell/module/Az.FrontDoor/Set-AzFrontDoor) . 
 
-O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando [as instruções fornecidas no guia de início rápido: Crie um artigo de](quickstart-create-front-door.md) porta frontal. Além disso, no exemplo abaixo, substitua $frontDoorName pelo nome do perfil de porta frontal. 
+O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a suposição de que você criou o perfil de porta frontal usando as instruções fornecidas no artigo [início rápido: criar uma porta frontal](quickstart-create-front-door.md) . Além disso, no exemplo abaixo, substitua $frontDoorName pelo nome do perfil de porta frontal. 
 
 ```powershell-interactive
    $FrontDoorObjectExample = Get-AzFrontDoor `
@@ -107,7 +105,7 @@ O exemplo abaixo usa o nome do grupo de recursos *myResourceGroupFD1* com a supo
 > [!NOTE]
 > Você só precisa definir a propriedade *WebApplicationFirewallPolicyLink* uma vez para vincular uma política de segurança a um front-end de porta frontal. As atualizações de política subsequentes são aplicadas automaticamente ao front-end.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [porta frontal](front-door-overview.md) 
 

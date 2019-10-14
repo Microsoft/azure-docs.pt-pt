@@ -1,4 +1,4 @@
-- name: Documentação do Storage do Azure
+- name: Documentação do Armazenamento de tabelas do Azure
   href: /azure/storage/
 - name: Descrição geral
   expanded: true
@@ -62,8 +62,14 @@
           href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Armazenamento georredundante com redundância entre zonas
           href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Criar tabelas escaláveis e de desempenho
-      href: table-storage-design.md
+        - name: Desempenho e dimensionamento
+          items:
+            - name: Metas de escalabilidade e desempenho
+              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+            - name: Lista de verificação de desempenho e escalabilidade
+              href: storage-performance-checklist.md
+            - name: Criar tabelas escaláveis e de desempenho
+              href: table-storage-design.md
     - name: Orientações do design da tabela
       href: table-storage-design-guidelines.md
     - name: Design das consultas

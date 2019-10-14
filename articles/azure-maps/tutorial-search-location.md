@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a75f3f606129d370457816507537f2cb4491adf8
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: cf48426f14eb1ea5004b23da594194fa9828a112
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478817"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303452"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Procurar pontos de interesse nas proximidades com o Azure Maps
 
@@ -70,7 +70,7 @@ Depois de a sua conta do Maps ser criada com êxito, obtenha a chave que lhe per
 A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite integrar facilmente o Maps na sua aplicação Web. Oculta a complexidade das chamadas de serviço REST bare e aumenta a produtividade com componentes personalizáveis, cujo estilo pode ser definido. Os passos seguintes mostram como criar uma página HTML estática incorporada com a API de Controlo de Mapas.
 
 1. No seu computador local, crie um novo ficheiro e dê-lhe o nome **MapSearch.html**.
-2. Adicione os seguintes componentes HTML ao ficheiro:
+2. Adicione os seguintes componentes de HTML ao ficheiro:
 
    ```HTML
     <!DOCTYPE html>
@@ -114,9 +114,9 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
     </html>
     ```
 
-   Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Observe o evento `onload` no corpo da página, que irá chamar a função `GetMap` quando o corpo da página for carregada. A `GetMap` função conterá o código JavaScript embutido para acessar as APIs do Azure Maps.
+   Repare que o cabeçalho HTML inclui os ficheiros de recursos CSS e JavaScript alojados pela biblioteca de Controlo de Mapas do Azure. Observe o evento `onload` no corpo da página, que irá chamar a função `GetMap` quando o corpo da página for carregada. A função `GetMap` conterá o código JavaScript embutido para acessar as APIs do Azure Maps.
 
-3. Adicione o seguinte código JavaScript à função `GetMap` do ficheiro HTML. Substitua a cadeia `<Your Azure Maps Key>` de caracteres pela chave primária que você copiou da sua conta do Maps.
+3. Adicione o seguinte código JavaScript à função `GetMap` do ficheiro HTML. Substitua a cadeia de caracteres `<Your Azure Maps Key>` pela chave primária que você copiou da sua conta do Maps.
 
     ```JavaScript
     //Instantiate a map object
@@ -129,7 +129,7 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
     });
     ```
 
-   Este segmento inicializa a API de Controlo de Mapas para a sua chave de conta do Azure Maps. `atlas`é o namespace que contém a API e os componentes visuais relacionados. `atlas.Map`fornece o controle para um mapa da Web Visual e interativo.
+   Este segmento inicializa a API de Controlo de Mapas para a sua chave de conta do Azure Maps. `atlas` é o namespace que contém a API e os componentes visuais relacionados. `atlas.Map` fornece o controle para um mapa Web Visual e interativo.
 
 4. Guarde as alterações efetuadas ao ficheiro e abra a página HTML num browser. Esse é o mapa mais básico que você pode fazer chamando `atlas.Map` usando sua chave de conta.
 
@@ -161,7 +161,7 @@ A API de Controlo de Mapas é uma biblioteca de cliente prática que lhe permite
     });
     ```
 
-   Nesse segmento de código, `ready` um evento é adicionado ao mapa, que será acionado quando os recursos de mapa tiverem sido carregados e o mapa estiver pronto para ser acessado. No manipulador de `ready` eventos de mapa, uma fonte de dados é criada para armazenar dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada às camadas do mapa.
+   Nesse segmento de código, um evento `ready` é adicionado ao mapa, que será acionado quando os recursos de mapa tiverem sido carregados e o mapa estiver pronto para ser acessado. No manipulador de eventos MAP `ready`, uma fonte de dados é criada para armazenar dados de resultado. É criada e anexada uma camada de símbolo à origem de dados. Esta camada especifica como os dados de resultado na origem de dados devem ser compostos, neste caso com um ícone de pino redondo azul escuro centrado sobre a coordenada de resultados e que permite que outros ícones se sobreponham. A camada de resultado é adicionada às camadas do mapa.
 
 <a id="usesearch"></a>
 
@@ -171,7 +171,7 @@ Esta seção mostra como usar a API de [pesquisa](https://docs.microsoft.com/res
 
 ### <a name="service-module"></a>Módulo Serviço
 
-1. No manipulador de `ready` eventos de mapa, construa a URL do serviço de pesquisa adicionando o código JavaScript a seguir.
+1. No manipulador de eventos MAP `ready`, construa a URL do serviço de pesquisa adicionando o código JavaScript a seguir.
 
     ```JavaScript
    // Use SubscriptionKeyCredential with a subscription key
@@ -184,9 +184,9 @@ Esta seção mostra como usar a API de [pesquisa](https://docs.microsoft.com/res
    var searchURL = new atlas.service.SearchURL(pipeline); 
    ```
 
-   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para o Azure Maps com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a `SubscriptionKeyCredential` política e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps.
+   O `SubscriptionKeyCredential` cria um `SubscriptionKeyCredentialPolicy` para autenticar solicitações HTTP para mapas do Azure com a chave de assinatura. O `atlas.service.MapsURL.newPipeline()` usa a política de `SubscriptionKeyCredential` e cria uma instância de [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) . O `searchURL` representa uma URL para operações de [pesquisa](https://docs.microsoft.com/rest/api/maps/search) do Azure Maps.
 
-2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Esse código procura estações de gasolina próximas dentro do raio especificado da latitude e longitude fornecidas. Uma coleção de recursos geojson da resposta é então extraída usando `geojson.getFeatures()` o método e adicionada à fonte de dados, o que resulta automaticamente nos dados sendo processados no mapa por meio da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
+2. Em seguida, adicione o seguinte bloco de script para criar a consulta de pesquisa. Utiliza o Fuzzy Search Service, que é uma API de pesquisa básica do Search Service. O Fuzzy Search Service processa a maioria das entradas difusas, como quaisquer endereços, lugares e pontos de interesse (POI). Esse código procura estações de gasolina próximas dentro do raio especificado da latitude e longitude fornecidas. Uma coleção de recursos geojson da resposta é extraída usando o método `geojson.getFeatures()` e adicionada à fonte de dados, o que resulta automaticamente nos dados sendo renderizados no mapa por meio da camada de símbolo. A última parte do script define a vista da câmera dos mapas com a caixa delimitadora dos resultados através da propriedade [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) do Mapa.
 
     ```JavaScript
     var query =  'gasoline-station';
@@ -220,7 +220,7 @@ Esta seção mostra como usar a API de [pesquisa](https://docs.microsoft.com/res
 4. Pode ver os dados não processados que o mapa está a compor, introduzindo o seguinte HTTPRequest no seu browser. Substitua a \<Sua Chave do Azure Maps\> pela chave primária.
 
    ```http
-   https://atlas.microsoft.com/search/poi/json?api-version=2&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
+   https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
 Neste momento, a página de MapSearch pode apresentar as localizações dos pontos de interesse devolvidos por uma consulta de pesquisa difusa. Vamos adicionar algumas capacidades interativas e mais informações sobre as localizações.
@@ -229,7 +229,7 @@ Neste momento, a página de MapSearch pode apresentar as localizações dos pont
 
 O mapa criado até ao momento está focado apenas nos dados de longitude/latitude para os resultados da pesquisa. No entanto, se observar o JSON não processado devolvido pelo serviço de Pesquisa dos Maps, é possível reparar que contém informações adicionais sobre cada um dos postos de combustível, incluindo o nome e a morada. Pode incorporar esses dados no mapa com caixas de pop-up interativas.
 
-1. Adicione as seguintes linhas de código no manipulador de `ready` eventos de mapa após o código para consultar o serviço de pesquisa difusa. Isto irá criar uma instância de uma Pop-up e adicionar um evento de mouseover para a camada de símbolo.
+1. Adicione as seguintes linhas de código no manipulador de eventos MAP `ready` depois do código para consultar o serviço de pesquisa difusa. Isto irá criar uma instância de uma Pop-up e adicionar um evento de mouseover para a camada de símbolo.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -241,7 +241,7 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
 
     A API `*atlas.Popup` fornece uma janela de informações ancorada na posição necessária no mapa. 
 
-2. Adicione o código `GetMap` a seguir na função, para mostrar o mouse sobre as informações de resultado no pop-up.
+2. Adicione o código a seguir na função `GetMap`, para mostrar o mouse sobre as informações de resultado no pop-up.
 
     ```JavaScript
     function showPopup(e) {
@@ -270,7 +270,7 @@ O mapa criado até ao momento está focado apenas nos dados de longitude/latitud
 
     ![Search Service e Controlo de Mapas do Azure](./media/tutorial-search-location/popup-map.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

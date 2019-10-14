@@ -14,18 +14,18 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4446b92a8998f05aae47a3bab6a2cea4785fddf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094573"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302685"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Manter os dados de trabalho e tarefa no armazenamento do Azure com a biblioteca de convenções de arquivo em lotes para .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Uma maneira de manter os dados da tarefa é usar a [biblioteca de convenções de arquivo do lote do Azure para .net][nuget_package]. A biblioteca de convenções de arquivo simplifica o processo de armazenar dados de saída de tarefa no armazenamento do Azure e recuperá-los. Você pode usar a biblioteca de convenções de arquivo no código &mdash; de tarefa e de cliente no código da tarefa para persistir arquivos e no código do cliente para listá-los e recuperá-los. O código de tarefa também pode usar a biblioteca para recuperar a saída de tarefas de upstream, como em um cenário de dependências de [tarefas](batch-task-dependencies.md) .
+Uma maneira de manter os dados da tarefa é usar a [biblioteca de convenções de arquivo do lote do Azure para .net][nuget_package]. A biblioteca de convenções de arquivo simplifica o processo de armazenar dados de saída de tarefa no armazenamento do Azure e recuperá-los. Você pode usar a biblioteca de convenções de arquivo no código de tarefa e de cliente &mdash; no código de tarefa para arquivos persistentes e no código do cliente para listá-los e recuperá-los. O código de tarefa também pode usar a biblioteca para recuperar a saída de tarefas de upstream, como em um cenário de [dependências de tarefas](batch-task-dependencies.md) .
 
 Para recuperar arquivos de saída com a biblioteca de convenções de arquivo, você pode localizar os arquivos de um determinado trabalho ou tarefa listando-os por ID e finalidade. Você não precisa saber os nomes ou locais dos arquivos. Por exemplo, você pode usar a biblioteca de convenções de arquivo para listar todos os arquivos intermediários de uma determinada tarefa ou obter um arquivo de visualização para um determinado trabalho.
 
@@ -63,18 +63,18 @@ Para manter os dados de saída no armazenamento do Azure usando a biblioteca de 
 
 ## <a name="persist-output-data"></a>Manter dados de saída
 
-Para manter os dados de saída de trabalho e tarefa com a biblioteca de convenções de arquivo, crie um contêiner no armazenamento do Azure e, em seguida, salve a saída no contêiner. Use a [biblioteca de cliente de armazenamento do Azure para .net](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner. 
+Para manter os dados de saída de trabalho e tarefa com a biblioteca de convenções de arquivo, crie um contêiner no armazenamento do Azure e, em seguida, salve a saída no contêiner. Use a [biblioteca de cliente de armazenamento do Azure para .net](https://www.nuget.org/packages/WindowsAzure.Storage) em seu código de tarefa para carregar a saída da tarefa para o contêiner.
 
 Para obter mais informações sobre como trabalhar com contêineres e blobs no armazenamento do Azure, consulte Introdução [ao armazenamento de BLOBs do Azure usando o .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Todas as saídas de trabalho e tarefa persistidas com a biblioteca de convenções de arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar persistir arquivos ao mesmo tempo, [os limites de limitação de armazenamento](../storage/common/storage-performance-checklist.md#blobs) poderão ser aplicados.
+> Todas as saídas de trabalho e tarefa persistidas com a biblioteca de convenções de arquivo são armazenadas no mesmo contêiner. Se um grande número de tarefas tentar persistir arquivos ao mesmo tempo, os limites de limitação de armazenamento do Azure poderão ser aplicados. Para obter mais informações sobre limites de limitação, consulte [lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs](../storage/blobs/storage-performance-checklist.md).
 
 ### <a name="create-storage-container"></a>Criar contentor de armazenamento
 
 Para manter a saída da tarefa no armazenamento do Azure, primeiro crie um contêiner chamando [CloudJob][net_cloudjob]. [PrepareOutputStorageAsync][net_prepareoutputasync]. Esse método de extensão usa um objeto [CloudStorageAccount][net_cloudstorageaccount] como um parâmetro. Ele cria um contêiner chamado de acordo com o padrão de convenções de arquivo, para que seu conteúdo seja detectável pelo portal do Azure e pelos métodos de recuperação discutidos posteriormente neste artigo.
 
-Normalmente, você coloca o código para criar um contêiner em seu aplicativo &mdash; cliente o aplicativo que cria seus pools, trabalhos e tarefas.
+Normalmente, você coloca o código para criar um contêiner em seu aplicativo cliente &mdash; o aplicativo que cria seus pools, trabalhos e tarefas.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -109,12 +109,12 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-O `kind` parâmetro do [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage).[ ](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads)O método SaveAsync categoriza os arquivos persistentes. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos `TaskPreview`: `TaskLog` `TaskOutput`,, `TaskIntermediate.` e você também pode definir categorias personalizadas de saída.
+O parâmetro `kind` de [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage). O método [SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) categoriza os arquivos persistentes. Há quatro tipos de [TaskOutputKind][net_taskoutputkind] predefinidos: `TaskOutput`, `TaskPreview`, `TaskLog` e `TaskIntermediate.` também é possível definir categorias personalizadas de saída.
 
 Esses tipos de saída permitem que você especifique o tipo de saídas a serem listadas quando posteriormente você consulta o lote para as saídas persistentes de uma determinada tarefa. Em outras palavras, ao listar as saídas de uma tarefa, você pode filtrar a lista em um dos tipos de saída. Por exemplo, "Dê-me a saída de *Visualização* para a tarefa *109*". Mais informações sobre a listagem e a recuperação de saídas são exibidas em recuperar saída posteriormente neste artigo.
 
 > [!TIP]
-> O tipo de saída também determina onde o portal do Azure um arquivo específico é exibido: Os arquivos categorizados por *TaskOutput*aparecem **em arquivos de saída de tarefa**e os arquivos *tasklog* aparecem em logs de **tarefas**.
+> O tipo de saída também determina onde no portal do Azure um arquivo específico é exibido: os arquivos categorizados *TaskOutput*aparecem **em arquivos de saída da tarefa**e os arquivos *tasklog* aparecem em logs de **tarefas**.
 
 ### <a name="store-job-outputs"></a>Armazenar saídas de trabalho
 
@@ -134,7 +134,7 @@ Assim como com o tipo **TaskOutputKind** para saídas de tarefa, você usa o tip
 
 ### <a name="store-task-logs"></a>Armazenar logs de tarefas
 
-Além de persistir um arquivo para o armazenamento durável quando uma tarefa ou trabalho é concluído, talvez seja necessário manter os arquivos que são atualizados durante a execução de um arquivo &mdash; de log de `stdout.txt` tarefas `stderr.txt`ou e, por exemplo. Para essa finalidade, a biblioteca de convenções de arquivo do lote do Azure fornece o [TaskOutputStorage][net_taskoutputstorage]. Método [SaveTrackedAsync][net_savetrackedasync] . Com o [SaveTrackedAsync][net_savetrackedasync], você pode controlar as atualizações em um arquivo no nó (em um intervalo que você especificar) e manter essas atualizações no armazenamento do Azure.
+Além de persistir um arquivo para o armazenamento durável quando uma tarefa ou trabalho é concluído, talvez seja necessário manter os arquivos que são atualizados durante a execução de uma tarefa &mdash; arquivos de log ou `stdout.txt` e `stderr.txt`, por exemplo. Para essa finalidade, a biblioteca de convenções de arquivo do lote do Azure fornece o [TaskOutputStorage][net_taskoutputstorage]. Método [SaveTrackedAsync][net_savetrackedasync] . Com o [SaveTrackedAsync][net_savetrackedasync], você pode controlar as atualizações em um arquivo no nó (em um intervalo que você especificar) e manter essas atualizações no armazenamento do Azure.
 
 No trecho de código a seguir, usamos [SaveTrackedAsync][net_savetrackedasync] para atualizar `stdout.txt` no armazenamento do Azure a cada 15 segundos durante a execução da tarefa:
 
@@ -161,9 +161,9 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-A seção `Code to process data and produce output file(s)` comentada é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter um código que baixa dados do armazenamento do Azure e executa a transformação ou o cálculo nele. A parte importante desse trecho de código é demonstrar como você pode encapsular esse códigos em `using` um bloco para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
+A seção comentada `Code to process data and produce output file(s)` é um espaço reservado para o código que sua tarefa normalmente executaria. Por exemplo, você pode ter um código que baixa dados do armazenamento do Azure e executa a transformação ou o cálculo nele. A parte importante desse trecho de código é demonstrar como você pode encapsular esse códigos em um bloco `using` para atualizar periodicamente um arquivo com [SaveTrackedAsync][net_savetrackedasync].
 
-O agente de nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. A `Task.Delay` chamada é necessária no final `using` desse bloco para garantir que o agente de nó tenha tempo para liberar o conteúdo padrão para o arquivo stdout. txt no nó. Sem esse atraso, é possível perder os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
+O agente de nó é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. A chamada `Task.Delay` é necessária no final deste bloco `using` para garantir que o agente de nó tenha tempo para liberar o conteúdo padrão para o arquivo stdout. txt no nó. Sem esse atraso, é possível perder os últimos segundos de saída. Esse atraso pode não ser necessário para todos os arquivos.
 
 > [!NOTE]
 > Quando você habilita o rastreamento de arquivos com o **SaveTrackedAsync**, apenas *anexações* ao arquivo rastreado são persistidas no armazenamento do Azure. Use esse método somente para controlar arquivos de log sem rotação ou outros arquivos que são gravados em operações de acréscimo no final do arquivo.
@@ -209,12 +209,12 @@ O projeto de exemplo [PersistOutputs][github_persistoutputs] é um dos [exemplos
 
 1. Abra o projeto no **Visual Studio 2019**.
 2. Adicione suas **credenciais de conta** de armazenamento e lote a **AccountSettings. Settings** no projeto Microsoft. Azure. Batch. Samples. Common.
-3. **Criar** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
+3. **Compile** (mas não execute) a solução. Restaure todos os pacotes NuGet, se solicitado.
 4. Use o portal do Azure para carregar um [pacote de aplicativos](batch-application-packages.md) para **PersistOutputsTask**. Inclua o `PersistOutputsTask.exe` e seus assemblies dependentes no pacote. zip, defina a ID do aplicativo como "PersistOutputsTask" e a versão do pacote de aplicativos como "1,0".
-5. **Iniciar** (Execute) o projeto **PersistOutputs** .
+5. **Inicie** (Execute) o projeto **PersistOutputs** .
 6. Quando for solicitado a escolher a tecnologia de persistência a ser usada para executar o exemplo, insira **1** para executar o exemplo usando a biblioteca de convenções de arquivo para manter a saída da tarefa. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 ### <a name="get-the-batch-file-conventions-library-for-net"></a>Obter a biblioteca de convenções de arquivo em lotes para .NET
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 9676b10eafbc72a04cb68fc828a72f77e6c3916f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298566"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302822"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Início rápido: configurar Azure NetApp Files e criar um volume do NFS 
 
@@ -255,10 +255,12 @@ Este artigo de instruções requer o módulo Azure PowerShell AZ Version 2.6.0 o
     * Selecione **NFS** como o tipo de protocolo para o volume.  
     * Insira **myfilepath1** como o caminho do arquivo que será usado para criar o caminho de exportação para o volume.  
     * Selecione a versão do NFS (**NFSv3** ou **nfsv 4.1**) para o volume.  
+      Consulte [considerações](azure-netapp-files-create-volumes.md#considerations) e práticas [recomendadas](azure-netapp-files-create-volumes.md#best-practice) sobre as versões do NFS. 
+      
 > [!IMPORTANT] 
 > O acesso ao recurso NFSv 4.1 requer a lista de permissões.  Para solicitar a lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
 
-    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Especificar o protocolo NFS para início rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Clique em **Rever + criar**.
 

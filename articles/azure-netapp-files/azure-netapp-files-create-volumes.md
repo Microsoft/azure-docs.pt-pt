@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: b7474ca8e8489edb37b3ac9b7c8b5be52867363c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1a479b4928631f27d5453d462a59fe7fed09a88c
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298491"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302754"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Criar um volume NFS para o Azure NetApp Files
 
@@ -33,11 +33,11 @@ Uma sub-rede deve ser delegada para Azure NetApp Files.
 
 ## <a name="considerations"></a>Considerações 
 
-* Decidindo qual versão do NFS usar  
-  O NFSv3 pode lidar com uma ampla variedade de casos de uso e é normalmente implantado na maioria dos aplicativos empresariais. Você deve validar qual versão (NFSv3 ou NFSv 4.1) seu aplicativo requer e criar seu volume usando a versão apropriada. Por exemplo, se você usar o [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), o bloqueio de arquivo com nfsv 4.1 será recomendado em relação a NFSv3. 
-
 > [!IMPORTANT] 
 > O acesso ao recurso NFSv 4.1 requer a lista de permissões.  Para solicitar a lista de permissões, envie uma solicitação para <anffeedback@microsoft.com>. 
+
+* Decidindo qual versão do NFS usar  
+  O NFSv3 pode lidar com uma ampla variedade de casos de uso e é normalmente implantado na maioria dos aplicativos empresariais. Você deve validar qual versão (NFSv3 ou NFSv 4.1) seu aplicativo requer e criar seu volume usando a versão apropriada. Por exemplo, se você usar o [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave), o bloqueio de arquivo com nfsv 4.1 será recomendado em relação a NFSv3. 
 
 * Segurança  
   O suporte para bits de modo UNIX (leitura, gravação e execução) está disponível para NFSv3 e NFSv 4.1. O acesso no nível da raiz é necessário no cliente NFS para montar volumes NFS.

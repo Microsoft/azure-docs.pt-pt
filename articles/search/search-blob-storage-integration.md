@@ -1,22 +1,21 @@
 ---
-title: Adicionar pesquisa de texto completo ao armazenamento de BLOBs do Azure-Azure Search
-description: Rastreie o conteúdo de texto no armazenamento de BLOBs do Azure para Azure Search indexação, no código usando a API REST HTTP.
-services: search
+title: Adicionar pesquisa de texto completo ao armazenamento de BLOBs do Azure
+titleSuffix: Azure Search
+description: Extraia o conteúdo e adicione a estrutura aos BLOBs do Azure ao criar um índice de pesquisa de texto completo no Azure Search.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein
-manager: nitinme
-ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 10/09/2019
+ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650092"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302905"
 ---
-# <a name="searching-blob-storage-with-azure-search"></a>Pesquisar o armazenamento de Blobs com o Azure Search
+# <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Adicionar pesquisa de texto completo aos dados de blob do Azure usando Azure Search
 
 Pesquisar na variedade de tipos de conteúdo armazenados no armazenamento de BLOBs do Azure pode ser um problema difícil de resolver. No entanto, você pode indexar e pesquisar o conteúdo de seus BLOBs em apenas alguns cliques usando Azure Search. Pesquisar por meio do armazenamento de BLOBs requer o provisionamento de um serviço de Azure Search. Os vários limites de serviço e os tipos de preço do Azure Search podem ser encontrados na [página de preços](https://aka.ms/azspricing).
 
@@ -45,12 +44,12 @@ Azure Search pode ser configurado para extrair o conteúdo estruturado encontrad
 
 A análise JSON não é configurável no momento por meio do Portal. [Saiba mais sobre a análise de JSON no Azure Search.](https://aka.ms/azsjsonblobindexing)
 
-## <a name="quick-start"></a>Início rápido
+## <a name="quickstart"></a>Início Rápido
 Azure Search pode ser adicionado aos BLOBs diretamente da página do portal de armazenamento de BLOBs.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)
 
 Clique em **adicionar Azure Search** para iniciar um fluxo onde você pode selecionar um serviço de Azure Search existente ou criar um novo serviço. Se você criar um novo serviço, você será navegado para fora da experiência do portal da sua conta de armazenamento. Você pode navegar de volta para a página do portal de armazenamento e selecionar novamente a opção **adicionar Azure Search** , na qual você pode selecionar o serviço existente.
 
-## <a name="next-steps"></a>Próximos Passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o indexador de blob Azure Search na [documentação](https://aka.ms/azsblobindexer)completa.
