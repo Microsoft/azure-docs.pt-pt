@@ -66,7 +66,7 @@ Pode configurar uma política de filtragem geográfica para a porta de entrada p
 | CD | República Democrática do Congo|
 | CF | República Centro-Africana|
 | CH | Suíça|
-| CI | Costa do Marfim|
+| CI | Costa do Marfim (Côte d’Ivoire)|
 | CL | Chile|
 | CM | Camarões|
 | CN | China|
@@ -137,7 +137,7 @@ Pode configurar uma política de filtragem geográfica para a porta de entrada p
 | MA | Marrocos|
 | MD | Moldova, República da|
 | MG | Madagáscar|
-| MK | Macedónia norte|
+| MK | Macedónia do Norte|
 | ML | Mali|
 | MM | Myanmar|
 | MN | Mongólia|

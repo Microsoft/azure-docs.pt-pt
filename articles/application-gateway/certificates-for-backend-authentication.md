@@ -105,5 +105,5 @@ As etapas a seguir ajudam a exportar o arquivo. cer para seu certificado:
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicionar isso ao gateway de aplicativo para colocar em lista branca os servidores de back-end para criptografia SSL de ponta a ponta. Consulte [como configurar a criptografia SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
+Agora você tem o certificado de autenticação/certificado raiz confiável em X. 509 codificado em base-64 (. CER) formato. Você pode adicionar isso ao gateway de aplicativo para colocar em lista de permissões os servidores de back-end para criptografia SSL de ponta a ponta. Consulte [como configurar a criptografia SSL de ponta a ponta](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
 

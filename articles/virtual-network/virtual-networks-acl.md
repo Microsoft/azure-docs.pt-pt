@@ -34,7 +34,7 @@ As ACLs podem ser configuradas usando o PowerShell ou o portal do Azure. Para co
 Usando ACLs de rede, você pode fazer o seguinte:
 
 * Permitir ou negar seletivamente o tráfego de entrada com base no intervalo de endereços IPv4 da sub-rede remota para um ponto de extremidade de entrada da máquina virtual.
-* Endereços IP de lista negra
+* Endereços IP de lista de bloqueios
 * Criar várias regras por ponto de extremidade de máquina virtual
 * Usar a ordenação de regra para garantir que o conjunto correto de regras seja aplicado em um determinado ponto de extremidade da máquina virtual (mais baixo ao mais alto)
 * Especifique uma ACL para um endereço IPv4 de sub-rede remota específica.

@@ -46,7 +46,7 @@ O declarações a seguir mostra como a normalização de diacríticos afeta o de
 
 ### <a name="language-support-for-diacritics"></a>Suporte a idiomas para sinais diacríticos
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Diacríticos do `pt-br` Português do Brasil
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>Diacríticos do `pt-br` português (Brasil)
 
 |Sinais diacríticos definidos como false|Sinais diacríticos definidos como true|
 |-|-|

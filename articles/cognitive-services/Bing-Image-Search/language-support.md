@@ -47,7 +47,7 @@ Como alternativa, você pode especificar o país/região usando o `cc` parâmetr
 |Finlândia|FI|
 |França|FR|
 |Alemanha|DE|
-|R.A.E. Hong Kong|HK|
+|RAE de Hong Kong|HK|
 |Índia|IN|
 |Indonésia|id|
 |Itália|it|
@@ -91,7 +91,7 @@ Como alternativa, você pode especificar o país/região usando o `cc` parâmetr
 |Finlândia|Finlandês|fi-FI|
 |França|Francês|FR-FR|
 |Alemanha|Alemão|de-DE|
-|R.A.E. Hong Kong|Chinês tradicional|zh-HK|
+|RAE de Hong Kong|Chinês tradicional|zh-HK|
 |Índia|Português|EN-IN|
 |Indonésia|Português|ID do en|
 |Itália|Italiano|it-IT|

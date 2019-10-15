@@ -600,7 +600,7 @@ Este artigo apresenta uma lista de países e regiões utilizados pelas **Geograp
 
         - EC(Ecuador)
 
-        - FK (Ilhas Falkland)
+        - FK (Ilhas Falkland [Malvinas])
 
         - GF (Guiana Francesa)
 

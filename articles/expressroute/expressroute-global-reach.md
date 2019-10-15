@@ -36,7 +36,7 @@ Alcance Global do ExpressRoute atualmente é suportada nos seguintes locais.
 * Canadá
 * França
 * Alemanha
-* R.A.E. Hong Kong
+* RAE de Hong Kong
 * Irlanda
 * Japão
 * Coreia

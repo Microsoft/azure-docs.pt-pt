@@ -72,7 +72,7 @@ As ofertas do Azure Marketplace e do AppSource podem ser adquiridas em 141 geogr
 | Grécia                              | GR        | EUR          |
 | Guatemala                           | GT        | USD          |
 | Honduras                            | HN        | USD          |
-| R.A.E. Hong Kong                       | HK        | USD          |
+| RAE de Hong Kong                       | HK        | USD          |
 | Hungria                             | HU        | EUR          |
 | Islândia                             | IS        | EUR          |
 | Índia                               | IN        | INR          |
@@ -95,7 +95,7 @@ As ofertas do Azure Marketplace e do AppSource podem ser adquiridas em 141 geogr
 | Listenstaine                       | LI        | EUR          |
 | Lituânia                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
-| R.A.E. de Macau                           | MO        | USD          |
+| RAE de Macau                           | MO        | USD          |
 | Macedónia do Norte                     | MK        | USD          |
 | Malásia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |

@@ -188,7 +188,7 @@ A capacidade de geocode num país/região é dependente da cobertura de dados de
 | Liechtenstein                                       |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Lituânia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Macedónia norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Macedónia do Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |

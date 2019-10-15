@@ -250,7 +250,7 @@ Sincronização de Arquivos do Azure está disponível somente nas seguintes reg
 | Leste do Canadá | Cidade do Quebeque |
 | Índia Central | Pune |
 | EUA Central | Iowa |
-| Ásia Oriental | R.A.E. Hong Kong |
+| Ásia Oriental | RAE de Hong Kong |
 | East US | Virginia |
 | E.U.A. Leste 2 | Virginia |
 | França Central | Paris |

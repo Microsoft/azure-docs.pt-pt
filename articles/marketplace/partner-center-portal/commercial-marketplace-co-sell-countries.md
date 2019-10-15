@@ -125,7 +125,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Haiti                               | HT        |
 | Ilhas Heard e McDonald   | HM        |
 | Honduras                            | HN        |
-| R.A.E. Hong Kong                       | HK        |
+| RAE de Hong Kong                       | HK        |
 | Hungria                             | HU        |
 | Islândia                             | IS        |
 | Índia                               | IN        |
@@ -155,7 +155,7 @@ Se um contato abranger mais de um país/região, insira cada um dos dois código
 | Listenstaine                       | LI        |
 | Lituânia                           | LT        |
 | Luxemburgo                          | LU        |
-| R.A.E. de Macau                           | MO        |
+| RAE de Macau                           | MO        |
 | Madagáscar                          | MG        |
 | Malavi                              | MW        |
 | Malásia                            | MY        |

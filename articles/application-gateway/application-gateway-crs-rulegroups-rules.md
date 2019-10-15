@@ -162,7 +162,7 @@ As regras e os grupos de regras a seguir estão disponíveis ao usar o gateway d
 |941130|Filtro XSS-categoria 3 = vetor de atributo|
 |941140|Filtro XSS-categoria 4 = vetor de URI de JavaScript|
 |941150|Filtro XSS-categoria 5 = atributos HTML não permitidos|
-|941180|Palavras-chave da lista negra do validador de nós|
+|941180|Palavras-chave da lista de bloqueios do validador de nós|
 |941190|XSS usando folhas de estilo|
 |941200|XSS usando quadros VML|
 |941210|XSS usando JavaScript ofuscado|

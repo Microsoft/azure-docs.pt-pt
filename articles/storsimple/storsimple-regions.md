@@ -71,7 +71,7 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 
 | #  | País/Região        | #  | País/Região     | #  | País/Região      | #  | País/Região             |
 |----|-----------------------|----|--------------------|----|---------------------|----|----------------------------|
-| 1  | Austrália             | 16 | R.A.E. Hong Kong      | 31 | Nova Zelândia         | 46 | África do Sul               |
+| 1  | Austrália             | 16 | RAE de Hong Kong      | 31 | Nova Zelândia         | 46 | África do Sul               |
 | 2  | Áustria               | 17 | Hungria            | 32 | Nigéria             | 47 | Coreia do Sul                |
 | 3  | Barém               | 18 | Islândia            | 33 | Noruega              | 48 | Espanha                      |
 | 4  | Bélgica               | 19 | Índia              | 34 | Perú                | 49 | Sri Lanca                  |
@@ -82,7 +82,7 @@ Se estiver usando um dispositivo físico StorSimple 8100 ou 8600, o dispositivo 
 | 9  | República Checa        | 24 | Japão              | 39 | Catar               | 54 | Turquia                     |
 | 10 | Dinamarca               | 25 | Quénia              | 40 | Roménia             | 55 | Ucrânia                    |
 | 11 | Egito                 | 26 | Kuwait             | 41 | Rússia              | 56 | Emirados Árabes Unidos       |
-| 12 | Finlândia               | 27 | R.A.E. de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
+| 12 | Finlândia               | 27 | RAE de Macau          | 42 | Arábia Saudita        | 57 | Reino Unido             |
 | 13 | França                | 28 | Malásia           | 43 | Singapura           | 58 | Estados Unidos              |
 | 14 | Alemanha               | 29 | México             | 44 | Eslováquia            | 59 | Vietname                    |
 | 15 | Grécia                | 30 | Países Baixos        | 45 | Eslovénia            | 60 | Croácia                    |

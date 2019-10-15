@@ -43,10 +43,10 @@ No entanto, o Maps não tem o mesmo nível de informações e precisão para tod
 |---------|:---------:|:---------:|
 |Austrália     |✓         |✓        |
 |Brunei   |✓         |✓        |
-|R.A.E. Hong Kong     |✓         |✓         |
+|RAE de Hong Kong     |✓         |✓         |
 |Índia   |✓         |✓         |
 |Indonésia     |✓         |✓         |
-|R.A.E. de Macau     |✓         |✓         |
+|RAE de Macau     |✓         |✓         |
 |Malásia     |✓         |✓         |
 |Nova Zelândia     |✓         |✓         |
 |Filipinas  |✓         |✓         |

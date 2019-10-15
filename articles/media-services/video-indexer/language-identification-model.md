@@ -49,7 +49,7 @@ O idioma dominante do modelo está disponível no JSON do insights `sourceLangua
 
 ## <a name="guidelines-and-limitations"></a>Diretrizes e limitações
 
-* Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português brasileiro.
+* Os idiomas com suporte incluem Inglês, espanhol, francês, alemão, italiano, chinês (simplificado), japonês, russo e português (Brasil).
 * Se o áudio contiver idiomas diferentes da lista de suporte acima, o resultado será inesperado.
 * Se video indexer não puder identificar o idioma com alta confiança suficiente (`>0.6`), o idioma de fallback será o inglês.
 * Não há suporte atual para arquivos com áudio de idiomas mistos. Se o áudio contiver idiomas mistos, o resultado será inesperado. 

@@ -224,7 +224,7 @@ A saída final do hive também pode ser compactada.
 
 ### <a name="enable-speculative-execution"></a>Habilitar a execução especulativa
 
-A execução especulativa inicia um determinado número de tarefas duplicadas para detectar e adicionar à lista negra o rastreador de tarefas de execução lenta, ao mesmo tempo em que melhora a execução geral do trabalho, otimizando os resultados de tarefas individuais.
+A execução especulativa inicia um determinado número de tarefas duplicadas para detectar e adicionar à lista de bloqueios o rastreador de tarefas de execução lenta, ao mesmo tempo em que melhora a execução geral do trabalho, otimizando os resultados de tarefas individuais.
 
 A execução especulativa não deve ser ativada para tarefas MapReduce de execução longa com grandes quantidades de entrada.
 

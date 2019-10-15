@@ -149,7 +149,7 @@ Execute backups da mesma maneira que faria normalmente, [manual](#create-a-manua
 > [!NOTE]
 > Restaure backups parciais do seu site da mesma maneira que você [restauraria um backup regular](web-sites-restore.md). O processo de restauração faz a coisa certa.
 > 
-> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista negra ou em qualquer arquivo na lista de bloqueios é deixado como está.
+> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista de bloqueios ou em qualquer arquivo na lista de bloqueios é deixado como está.
 > 
 
 

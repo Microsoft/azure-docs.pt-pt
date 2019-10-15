@@ -161,7 +161,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Bielorrússia                        |        ✓       |                      |             |
 | Bélgica                        |        ✓       |         ✓            |     ✓      | 
 | Bolívia                        |        ✓       |                      |             |
-| Bosnia-Herzegovina             |        ✓       |                      |             |
+| Bosnia e Herzegovina             |        ✓       |                      |             |
 | Bulgária                       |        ✓       |         ✓            |     ✓      | 
 | Croácia                        |        ✓       |         ✓            |     ✓      |
 | Chipre                         |        ✓       |                      |             |
@@ -189,7 +189,7 @@ A tabela seguinte fornece informações sobre a cobertura de encaminhamento do A
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lituânia                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
-| Macedónia norte                |        ✓       |                      |             |
+| Macedónia do Norte                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Mónaco                         |        ✓       |         ✓            |             |

@@ -40,7 +40,7 @@ Mantemos não mais aqui as notas de versão. Obter notas de versão mais recente
 ## <a name="earlier-versions"></a>Versões anteriores
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Aprimoramentos de-
-- Pode adicionar entradas DNS para o barramento de serviço de lista branca em vez de listas de permissões de todos os endereços IP do Azure da sua firewall (se necessário). Encontrará a respetiva entrada DNS no portal do Azure (Data Factory -> "Criar e implementar" -> "Gateways" -> "serviceurls válida" (em JSON)
+- Pode adicionar entradas DNS para o barramento de serviço de lista de permissões em vez de listas de permissões de todos os endereços IP do Azure da sua firewall (se necessário). Encontrará a respetiva entrada DNS no portal do Azure (Data Factory -> "Criar e implementar" -> "Gateways" -> "serviceurls válida" (em JSON)
 - Conector HDFS suporta agora o certificado público autoassinado, permitindo-lhe ignorar a validação de SSL.
 - Corrigido: Problema com o gateway offline durante a atualização (devido a distorção)
 

@@ -58,7 +58,7 @@ Consulte a tabela a seguir para as portas de saída que você precisa abrir para
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>Quais endereços IP preciso para a lista de permissões?
-Para localizar os endereços IP corretos para a lista branca de suas conexões, siga estas etapas:
+Para localizar os endereços IP corretos para a lista de permissões de suas conexões, siga estas etapas:
 
 1. Execute o seguinte comando em um prompt de comando: 
 

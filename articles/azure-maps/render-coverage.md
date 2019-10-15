@@ -248,7 +248,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Azerbaijão                | ✓ | Ø |
 | Bielorrússia                   | Ø | ✓ |
 | Bélgica                   | ✓ | ✓ |
-| Bosnia-Herzegovina        | ✓ | ✓ |
+| Bosnia e Herzegovina        | ✓ | ✓ |
 | Bulgária                  | ✓ | ✓ |
 | Croácia                   | ✓ | ✓ |
 | Chipre                    | ✓ | ✓ |
@@ -274,7 +274,7 @@ No entanto, o Maps não tem o mesmo nível de informações e a precisão em tod
 | Liechtenstein             | ✓ | ✓ |
 | Lituânia                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| Macedónia norte           | ✓ | ✓ |
+| Macedónia do Norte           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |
