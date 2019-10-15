@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390826"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311629"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Criar um contêiner de perfil do FSLogix para um pool de hosts usando Azure NetApp Files
 
@@ -28,6 +28,9 @@ As instruções neste guia são específicas para usuários da área de trabalho
 
 >[!NOTE]
 >Este artigo não aborda as práticas recomendadas para proteger o acesso ao compartilhamento de Azure NetApp Files.
+
+>[!NOTE]
+>Se você estiver procurando material de comparação sobre as diferentes opções de armazenamento de contêiner de perfil FSLogix no Azure, consulte [Opções de armazenamento para contêineres de perfil FSLogix](store-fslogix-profile.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -131,7 +134,7 @@ Em seguida, você precisará criar um novo volume.
     - Para **rede virtual**, selecione uma rede virtual existente que tenha conectividade com o controlador de domínio no menu suspenso.
     - Em **sub-rede**, selecione **criar novo**. Tenha em mente que essa sub-rede será delegada a Azure NetApp Files.
 
-3.  Selecione **avançar: Protocolo \> paraabrira** guia Protocolo e configurar os parâmetros de acesso ao volume. \>
+3.  Selecione **Avançar: protocolo \> @ no__t-2** para abrir a guia Protocolo e configurar os parâmetros de acesso ao volume.
 
 ## <a name="configure-volume-access-parameters"></a>Configurar parâmetros de acesso ao volume
 
@@ -157,7 +160,7 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
 2. Descompacte o arquivo baixado.
 
-3. No arquivo, vá para**versões** **x64** > e execute **FSLogixAppsSetup. exe**. O menu de instalação será aberto.
+3. No arquivo, vá para **x64** > **versões** e execute **FSLogixAppsSetup. exe**. O menu de instalação será aberto.
 
 4.  Se você tiver uma chave do produto, insira-a na caixa de texto chave do produto (Product Key).
 
@@ -165,11 +168,11 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
 6. Selecione **Instalar**.
 
-7. Navegue até **C:\\arquivos\\de programas\\FSLogix aplicativos** para confirmar o agente instalado.
+7. Navegue até **C: \\Program arquivos @ no__t-2FSLogix @ no__t-3Apps** para confirmar o agente instalado.
 
 8. No menu Iniciar, execute **regedit** como administrador.
 
-9. Navegue até **computador\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+9. Navegue até **computador @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
 
 10. Crie uma chave chamada **perfis**.
 
@@ -204,7 +207,7 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
 ## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Verifique se os usuários podem acessar o compartilhamento de arquivos do Azure NetApp
 
-1. Abra seu navegador da Internet e vá <https://rdweb.wvd.microsoft.com/webclient/index.html>para.
+1. Abra seu navegador da Internet e vá para <https://rdweb.wvd.microsoft.com/webclient/index.html>.
 
 2. Entre com as credenciais de um usuário atribuído ao grupo de Área de Trabalho Remota.
 
@@ -216,12 +219,12 @@ Esta seção baseia-se em [criar um contêiner de perfil para um pool de hosts u
 
 5. Vá para a guia **visão geral** e confirme se o contêiner do perfil FSLogix está usando espaço.
 
-6. Conecte-se diretamente a qualquer parte da VM do pool de hosts usando Área de Trabalho Remota e abra o **Explorador de arquivos.** Em seguida, navegue até o **caminho de montagem** (no exemplo a seguir, o \\caminho\\de montagem é \\ANF-SMB-3863.gt1107.onmicrosoft.com seja-vol).
+6. Conecte-se diretamente a qualquer parte da VM do pool de hosts usando Área de Trabalho Remota e abra o **Explorador de arquivos.** Em seguida, navegue até o **caminho de montagem** (no exemplo a seguir, o caminho de montagem é @no__t -1\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3ANF-vol).
 
    Dentro dessa pasta, deve haver um VHD de perfil (ou VHDX) como aquele no exemplo a seguir.
 
    ![Uma captura de tela do conteúdo da pasta no caminho de montagem. Inside é um único arquivo VHD chamado "Profile_ssbb".](media/mount-path-folder.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode usar contêineres de perfil FSLogix para configurar um compartilhamento de perfil de usuário. Para saber como criar compartilhamentos de perfil de usuário com seus novos contêineres, confira [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 84707c72e62bed7621d94dbd1ec65607cfcfd2d6
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303044"
+ms.locfileid: "72311129"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs
 
@@ -45,6 +45,9 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Ferramentas |[Você está usando as versões mais recentes das bibliotecas e ferramentas de cliente fornecidas pela Microsoft?](#client-libraries-and-tools) |
 | &nbsp; |Tentativas |[Você está usando uma política de repetição com uma retirada exponencial para limitação de erros e tempos limite?](#timeout-and-server-busy-errors) |
 | &nbsp; |Tentativas |[Seu aplicativo está evitando repetições para erros sem nova tentativa?](#non-retryable-errors) |
+| &nbsp; |Copiando BLOBs |[Você está copiando BLOBs da maneira mais eficiente?](#blob-copy-apis) |
+| &nbsp; |Copiando BLOBs |[Você está usando a versão mais recente do AzCopy para operações de cópia em massa?](#use-azcopy) |
+| &nbsp; |Copiando BLOBs |[Você está usando a família de Azure Data Box para importar grandes volumes de dados?](#use-azure-data-box) |
 | &nbsp; |Distribuição de conteúdo |[Você está usando uma CDN para distribuição de conteúdo?](#content-distribution) |
 | &nbsp; |Usar metadados |[Você está armazenando metadados usados com frequência sobre BLOBs em seus metadados?](#use-metadata) |
 | &nbsp; |Carregando rapidamente |[Ao tentar carregar um blob rapidamente, você está carregando blocos em paralelo?](#upload-one-large-blob-quickly) |
@@ -183,7 +186,7 @@ Para obter mais informações sobre melhorias de desempenho no .NET Core, consul
 
 ### <a name="increase-default-connection-limit"></a>Aumentar limite de conexão padrão
 
-No .NET, o código a seguir aumenta o limite de conexão padrão (que geralmente é 2 em um ambiente de cliente ou 10 em um ambiente de servidor) para 100. Normalmente, você deve definir o valor para aproximadamente o número de threads usados pelo seu aplicativo. Defina o limite de conexão antes de abrir qualquer conexão.
+No .NET, o código a seguir aumenta o limite de conexão padrão (que geralmente é dois em um ambiente de cliente ou dez em um ambiente de servidor) para 100. Normalmente, você deve definir o valor para aproximadamente o número de threads usados pelo seu aplicativo. Defina o limite de conexão antes de abrir qualquer conexão.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -227,9 +230,23 @@ As bibliotecas de cliente tratam repetições com um reconhecimento de quais err
 
 Para obter mais informações sobre os códigos de erro do armazenamento do Azure, consulte [status e códigos de erro](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="transfer-data"></a>Transferir dados
+## <a name="copying-and-moving-blobs"></a>Copiando e movendo BLOBs
 
-Para obter informações sobre como transferir dados de e para o armazenamento de BLOBs ou entre contas de armazenamento com eficiência, consulte [escolher uma solução do Azure para transferência de dados](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+O armazenamento do Azure fornece uma série de soluções para copiar e mover BLOBs em uma conta de armazenamento, entre contas de armazenamento e entre sistemas locais e a nuvem. Esta seção descreve algumas dessas opções em termos de seus efeitos sobre o desempenho. Para obter informações sobre como transferir dados de ou para o armazenamento de blobs de forma eficiente, consulte [escolher uma solução do Azure para transferência de dados](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### <a name="blob-copy-apis"></a>APIs de cópia de BLOB
+
+Para copiar BLOBs entre contas de armazenamento, use a operação [colocar bloco de URL](/rest/api/storageservices/put-block-from-url) . Esta operação copia dados de forma síncrona de qualquer origem de URL para um blob de blocos. O uso da operação `Put Block from URL` pode reduzir significativamente a largura de banda necessária quando você está migrando dados entre contas de armazenamento. Como a operação de cópia ocorre no lado do serviço, você não precisa baixar e carregar os dados novamente.
+
+Para copiar dados dentro da mesma conta de armazenamento, use a operação de [cópia de blob](/rest/api/storageservices/Copy-Blob) . A cópia de dados dentro da mesma conta de armazenamento normalmente é concluída rapidamente.  
+
+### <a name="use-azcopy"></a>Utilizar o AZCopy
+
+O utilitário de linha de comando AzCopy é uma opção simples e eficiente para a transferência em massa de BLOBs para, de e entre contas de armazenamento. O AzCopy é otimizado para esse cenário e pode alcançar altas taxas de transferência. A versão 10 do AzCopy usa a operação `Put Block From URL` para copiar dados de blob entre contas de armazenamento. Para obter mais informações, consulte [copiar ou mover dados para o armazenamento do Azure usando o AzCopy V10](/azure/storage/common/storage-use-azcopy-v10).  
+
+### <a name="use-azure-data-box"></a>Usar Azure Data Box
+
+Para importar grandes volumes de dados para o armazenamento de BLOBs, considere usar a família de Azure Data Box para transferências offline. Os dispositivos Data Box fornecidos pela Microsoft são uma boa opção para mover grandes quantidades de dados para o Azure quando você está limitado por tempo, disponibilidade de rede ou custos. Para obter mais informações, consulte a [documentação do Azure data Box](/azure/databox/).
 
 ## <a name="content-distribution"></a>Distribuição de conteúdo
 
@@ -239,7 +256,7 @@ Para obter mais informações sobre a CDN do Azure, consulte [CDN do Azure](../.
 
 ## <a name="use-metadata"></a>Usar metadados
 
-O serviço blob dá suporte a solicitações HEAD, que podem incluir propriedades de BLOB ou metadados. Por exemplo, se seu aplicativo precisar de dados EXIF (formato de imagem exchangável) de uma foto, ele poderá recuperar a foto e extraí-la. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo carregar a foto. Em seguida, você pode recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD. Recuperar somente metadados e não o conteúdo completo do blob salva uma largura de banda significativa e reduz o tempo de processamento necessário para extrair os dados EXIF. Tenha em mente que apenas 8 KB de metadados podem ser armazenados por blob.  
+O serviço blob dá suporte a solicitações HEAD, que podem incluir propriedades de BLOB ou metadados. Por exemplo, se seu aplicativo precisar de dados EXIF (formato de imagem exchangável) de uma foto, ele poderá recuperar a foto e extraí-la. Para economizar largura de banda e melhorar o desempenho, seu aplicativo pode armazenar os dados EXIF nos metadados do blob quando o aplicativo carregar a foto. Em seguida, você pode recuperar os dados EXIF nos metadados usando apenas uma solicitação HEAD. Recuperar somente metadados e não o conteúdo completo do blob salva uma largura de banda significativa e reduz o tempo de processamento necessário para extrair os dados EXIF. Tenha em mente que 8 KiB de metadados podem ser armazenados por blob.  
 
 ## <a name="upload-blobs-quickly"></a>Carregar BLOBs rapidamente
 

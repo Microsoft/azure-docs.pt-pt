@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: f9bff9c9d96d28af43f59d2b645364fe32235212
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 02196a4df71bef767f8d1921f704907ad06e77b4
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303135"
+ms.locfileid: "72311148"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de filas
 
@@ -41,7 +41,7 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Tentativas |[Você está usando uma política de repetição com uma retirada exponencial para limitação de erros e tempos limite?](#timeout-and-server-busy-errors) |
 | &nbsp; |Tentativas |[Seu aplicativo está evitando repetições para erros sem nova tentativa?](#non-retryable-errors) |
 | &nbsp; |Configuração |[Você desligou o algoritmo Nagle para melhorar o desempenho de pequenas solicitações?](#disable-nagle) |
-| &nbsp; |Tamanho da Mensagem |[Suas mensagens são compactadas para melhorar o desempenho da fila?](#message-size) |
+| &nbsp; |Tamanho da mensagem |[Suas mensagens são compactadas para melhorar o desempenho da fila?](#message-size) |
 | &nbsp; |Recuperação em massa |[Você está recuperando várias mensagens em uma única operação GET?](#batch-retrieval) |
 | &nbsp; |Frequência de sondagem |[Você está sondando com frequência suficiente para reduzir a latência percebida do seu aplicativo?](#queue-polling-interval) |
 | &nbsp; |Atualizar mensagem |[Você está usando a operação atualizar mensagem para armazenar o progresso no processamento de mensagens, para que você possa evitar ter que reprocessar a mensagem inteira se ocorrer um erro?](#use-update-message) |

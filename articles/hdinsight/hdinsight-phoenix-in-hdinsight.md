@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: becb4e4787c21e18455144108274f585ba25cb72
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 23c2a4e8c576f3f2355db0d903c43c9c5b24cc18
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105372"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311638"
 ---
 # <a name="apache-phoenix-in-azure-hdinsight"></a>Apache Phoenix no Azure HDInsight
 
@@ -32,7 +32,7 @@ Apache Phoenix adiciona vários recursos e aprimoramentos de desempenho a consul
 
 O HBase tem um único índice que é modo lexicográfico classificado na chave de linha primária. Esses registros só podem ser acessados por meio da chave de linha. O acesso a registros por meio de qualquer coluna que não seja a chave de linha requer a verificação de todos os dados ao aplicar o filtro necessário. Em um índice secundário, as colunas ou expressões que são indexadas formam uma chave de linha alternativa, permitindo pesquisas e verificações de intervalo nesse índice.
 
-Crie um índice secundário com o `CREATE INDEX` comando:
+Crie um índice secundário com o comando `CREATE INDEX`:
 
 ```sql
 CREATE INDEX ix_purchasetype on SALTEDWEBLOGS (purchasetype, transactiondate) INCLUDE (bookname, quantity);
@@ -44,7 +44,7 @@ Essa abordagem pode gerar um aumento significativo de desempenho em relação à
 
 As exibições de Phoenix fornecem uma maneira de superar uma limitação do HBase, em que o desempenho começa a ser prejudicado quando você cria mais de cerca de 100 tabelas físicas. As exibições do Phoenix permitem que várias *tabelas virtuais* compartilhem uma tabela física do HBase subjacente.
 
-A criação de uma exibição Phoenix é semelhante ao uso da sintaxe de exibição SQL padrão. Uma diferença é que você pode definir colunas para sua exibição, além das colunas herdadas de sua tabela base. Você também pode adicionar novas `KeyValue` colunas.
+A criação de uma exibição Phoenix é semelhante ao uso da sintaxe de exibição SQL padrão. Uma diferença é que você pode definir colunas para sua exibição, além das colunas herdadas de sua tabela base. Você também pode adicionar novas colunas `KeyValue`.
 
 Por exemplo, aqui está uma tabela física chamada `product_metrics` com a seguinte definição:
 
@@ -65,13 +65,13 @@ SELECT * FROM product_metrics
 WHERE metric_type = 'm';
 ```
 
-Para adicionar mais colunas posteriormente, use a `ALTER VIEW` instrução.
+Para adicionar mais colunas posteriormente, use a instrução `ALTER VIEW`.
 
 ### <a name="skip-scan"></a>Ignorar verificação
 
 Ignorar verificação usa uma ou mais colunas de um índice composto para localizar valores distintos. Ao contrário de uma verificação de intervalo, a verificação de ignorar implementa a verificação dentro da linha, produzindo um [desempenho aprimorado](https://phoenix.apache.org/performance.html#Skip-Scan). Durante a verificação, o primeiro valor correspondente é ignorado junto com o índice até que o próximo valor seja encontrado.
 
-Uma verificação de ignorar usa `SEEK_NEXT_USING_HINT` a enumeração do filtro do HBase. Usando `SEEK_NEXT_USING_HINT`o, a verificação de ignorar mantém o controle de qual conjunto de chaves, ou intervalos de chaves, está sendo pesquisado em cada coluna. Em seguida, a verificação de ignorar usa uma chave que foi passada durante a avaliação do filtro e determina se ela é uma das combinações. Caso contrário, a verificação de ignorar avaliará a próxima chave mais alta para saltar.
+Uma verificação de ignorar usa a enumeração `SEEK_NEXT_USING_HINT` do filtro HBase. Usando `SEEK_NEXT_USING_HINT`, a verificação de ignorar mantém o controle de qual conjunto de chaves, ou intervalos de chaves, está sendo pesquisado em cada coluna. Em seguida, a verificação de ignorar usa uma chave que foi passada durante a avaliação do filtro e determina se ela é uma das combinações. Caso contrário, a verificação de ignorar avaliará a próxima chave mais alta para saltar.
 
 ### <a name="transactions"></a>Transações
 
@@ -81,13 +81,13 @@ Assim como acontece com transações SQL tradicionais, as transações fornecida
 
 Para habilitar transações Phoenix, consulte a [documentação da transação Apache Phoenix](https://phoenix.apache.org/transactions.html).
 
-Para criar uma nova tabela com transações habilitadas, defina `TRANSACTIONAL` a propriedade `true` como em `CREATE` uma instrução:
+Para criar uma nova tabela com transações habilitadas, defina a propriedade `TRANSACTIONAL` como `true` em uma instrução `CREATE`:
 
 ```sql
 CREATE TABLE my_table (k BIGINT PRIMARY KEY, v VARCHAR) TRANSACTIONAL=true;
 ```
 
-Para alterar uma tabela existente para ser transacional, use a mesma propriedade em uma `ALTER` instrução:
+Para alterar uma tabela existente para ser transacional, use a mesma propriedade em uma instrução `ALTER`:
 
 ```sql
 ALTER TABLE my_other_table SET TRANSACTIONAL=true;
@@ -100,7 +100,7 @@ ALTER TABLE my_other_table SET TRANSACTIONAL=true;
 
 O *hotspotting do servidor de região* pode ocorrer ao gravar registros com chaves sequenciais no HBase. Embora você possa ter vários servidores de região em seu cluster, suas gravações estão ocorrendo em apenas um. Essa concentração cria o problema de hotspotting em que, em vez de sua carga de trabalho de gravação sendo distribuída entre todos os servidores de região disponíveis, apenas um está lidando com a carga. Como cada região tem um tamanho máximo predefinido, quando uma região atinge esse limite de tamanho, ela é dividida em duas regiões pequenas. Quando isso acontece, uma dessas novas regiões usa todos os novos registros, tornando-se o novo hotspot.
 
-Para atenuar esse problema e obter melhor desempenho, divida tabelas de forma que todos os servidores de região sejam usados igualmente. Phoenix fornece *tabelas salted*, adicionando de forma transparente o byte de Salting à chave de linha de uma tabela específica. A tabela é previamente dividida nos limites de bytes de Salt para garantir a distribuição de carga igual entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando o desempenho de gravação e leitura. Para Salt de uma tabela, especifique `SALT_BUCKETS` a propriedade da tabela quando a tabela for criada:
+Para atenuar esse problema e obter melhor desempenho, divida tabelas de forma que todos os servidores de região sejam usados igualmente. Phoenix fornece *tabelas salted*, adicionando de forma transparente o byte de Salting à chave de linha de uma tabela específica. A tabela é previamente dividida nos limites de bytes de Salt para garantir a distribuição de carga igual entre os servidores de região durante a fase inicial da tabela. Essa abordagem distribui a carga de trabalho de gravação em todos os servidores de região disponíveis, melhorando o desempenho de gravação e leitura. Para Salt de uma tabela, especifique a propriedade de tabela `SALT_BUCKETS` quando a tabela for criada:
 
 ```sql
 CREATE TABLE Saltedweblogs (
@@ -125,7 +125,7 @@ CREATE TABLE Saltedweblogs (
 
 HDInsight An cluster HBase inclui a [interface do usuário do amAmbari](hdinsight-hadoop-manage-ambari.md) para fazer alterações de configuração.
 
-1. Para habilitar ou desabilitar o Phoenix e controlar as configurações de tempo limite da consulta da Phoenix, faça logon na interface do`https://YOUR_CLUSTER_NAME.azurehdinsight.net`usuário da Web do amAmbari () usando suas credenciais de usuários do Hadoop.
+1. Para habilitar ou desabilitar o Phoenix e controlar as configurações de tempo limite da consulta da Phoenix, faça logon na interface do usuário da Web do amAmbari (`https://YOUR_CLUSTER_NAME.azurehdinsight.net`) usando suas credenciais de usuários do Hadoop.
 
 2. Selecione **HBase** na lista de serviços no menu esquerdo e, em seguida, selecione a guia **configurações** .
 
@@ -135,6 +135,6 @@ HDInsight An cluster HBase inclui a [interface do usuário do amAmbari](hdinsigh
 
     ![Seção de configuração do SQL Ambari Phoenix](./media/hdinsight-phoenix-in-hdinsight/apache-ambari-phoenix.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-* [Usar Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hbase/apache-hbase-phoenix-squirrel-linux.md)
+* [Usar Apache Phoenix com clusters HBase baseados em Linux no HDInsight](hbase/apache-hbase-query-with-phoenix.md)

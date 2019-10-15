@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710164"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311218"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hospedagem de site estática no armazenamento do Azure
 
@@ -50,9 +50,9 @@ Você pode usar qualquer uma dessas ferramentas para carregar conteúdo no cont�
 
 Os usuários podem exibir o conteúdo do site de um navegador usando a URL pública do site. Você pode encontrar a URL usando o portal do Azure, o CLI do Azure ou o PowerShell. Use esta tabela como um guia.
 
-|Ferramenta| Orientação |
+|Ferramenta| Orientações |
 |----|----|
-|**Azure portal** | [Localize a URL do site usando o portal do Azure](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Portal do Azure** | [Localize a URL do site usando o portal do Azure](storage-blob-static-website-how-to.md#portal-find-url) |
 |**CLI do Azure** | [Localize a URL do site usando o CLI do Azure](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Módulo Azure PowerShell** | [Localizar a URL do site usando o PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
@@ -111,6 +111,6 @@ Para habilitar as métricas em suas páginas de site estáticos, consulte [habil
 * [Usar a CDN do Azure para acessar BLOBs com domínios personalizados por HTTPS](storage-https-custom-domain-cdn.md)
 * [Configurar um nome de domínio personalizado para seu BLOB ou ponto de extremidade da Web](storage-custom-domain-name.md)
 * [Funções do Azure](/azure/azure-functions/functions-overview)
-* [Serviço de Aplicações do Azure](/azure/app-service/overview)
+* [App Service do Azure](/azure/app-service/overview)
 * [Crie seu primeiro aplicativo Web sem servidor](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutorial: Hospede seu domínio no DNS do Azure @ no__t-0
+* [Tutorial: hospedar seu domínio no DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)

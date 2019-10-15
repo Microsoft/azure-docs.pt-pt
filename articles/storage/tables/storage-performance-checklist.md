@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cb9f37d5e2c33984189c90857b409d3a59e74e59
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d9fe4ee761a7ff9570bf0df61a8990f82640b4f7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303121"
+ms.locfileid: "72311605"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para o armazenamento de tabelas
 
@@ -47,15 +47,15 @@ Este artigo organiza as práticas comprovadas de desempenho em uma lista de veri
 | &nbsp; |Tabelas e partições |[Você particionou corretamente os dados?](#schema) |
 | &nbsp; |Partições ativas |[Você está evitando padrões somente de acréscimo e somente para preceder?](#append-only-and-prepend-only-patterns) |
 | &nbsp; |Partições ativas |[Suas inserções/atualizações se espalham por várias partições?](#high-traffic-data) |
-| &nbsp; |Escopo da consulta |[Você criou seu esquema para permitir que as consultas de ponto sejam usadas na maioria dos casos e as consultas de tabela sejam usadas com moderação?](#query-scope) |
+| &nbsp; |Âmbito de consulta |[Você criou seu esquema para permitir que as consultas de ponto sejam usadas na maioria dos casos e as consultas de tabela sejam usadas com moderação?](#query-scope) |
 | &nbsp; |Densidade da consulta |[Suas consultas normalmente só verificam e retornam linhas que seu aplicativo usará?](#query-density) |
 | &nbsp; |Limitando dados retornados |[Você está usando a filtragem para evitar o retorno de entidades que não são necessárias?](#limiting-the-amount-of-data-returned) |
 | &nbsp; |Limitando dados retornados |[Você está usando a projeção para evitar o retorno de propriedades que não são necessárias?](#limiting-the-amount-of-data-returned) |
 | &nbsp; |Desnormalização |[Você desnormalizou seus dados de forma a evitar consultas ineficientes ou várias solicitações de leitura ao tentar obter dados?](#denormalization) |
-| &nbsp; |Inserir/atualizar/excluir |[Você está em lotes de solicitações que precisam ser transacionais ou podem ser feitas ao mesmo tempo para reduzir viagens de ida e volta?](#batching) |
-| &nbsp; |Inserir/atualizar/excluir |[Você está evitando a recuperação de uma entidade apenas para determinar se deve chamar INSERT ou Update?](#upsert) |
-| &nbsp; |Inserir/atualizar/excluir |[Você considerou o armazenamento de uma série de dados que frequentemente serão recuperados juntos em uma única entidade como propriedades em vez de várias entidades?](#storing-data-series-in-a-single-entity) |
-| &nbsp; |Inserir/atualizar/excluir |[Para entidades que sempre serão recuperadas juntas e podem ser gravadas em lotes (por exemplo, dados de série temporal), você considerou o uso de BLOBs em vez de tabelas?](#storing-structured-data-in-blobs) |
+| &nbsp; |Inserir, atualizar e excluir |[Você está em lotes de solicitações que precisam ser transacionais ou podem ser feitas ao mesmo tempo para reduzir viagens de ida e volta?](#batching) |
+| &nbsp; |Inserir, atualizar e excluir |[Você está evitando a recuperação de uma entidade apenas para determinar se deve chamar INSERT ou Update?](#upsert) |
+| &nbsp; |Inserir, atualizar e excluir |[Você considerou o armazenamento de uma série de dados que frequentemente serão recuperados juntos em uma única entidade como propriedades em vez de várias entidades?](#storing-data-series-in-a-single-entity) |
+| &nbsp; |Inserir, atualizar e excluir |[Para entidades que sempre serão recuperadas juntas e podem ser gravadas em lotes (por exemplo, dados de série temporal), você considerou o uso de BLOBs em vez de tabelas?](#storing-structured-data-in-blobs) |
 
 ## <a name="scalability-targets"></a>Metas de escalabilidade
 
@@ -254,7 +254,7 @@ Se o aplicativo cliente precisar apenas de um conjunto limitado de propriedades 
 
 Ao contrário do trabalho com bancos de dados relacionais, as práticas comprovadas para consultar com eficiência o dado da tabela levam à desnormalização dos dados. Ou seja, duplicar os mesmos dados em várias entidades (um para cada chave que você pode usar para localizar os dados) para minimizar o número de entidades que uma consulta deve verificar para localizar os dados de que o cliente precisa, em vez de ter que verificar grandes números de entidades para localizar os dados de seu aplicativo licativo necessidades. Por exemplo, em um site de comércio eletrônico, talvez você queira encontrar um pedido tanto pela ID do cliente (fornecer pedidos deste cliente) e pela data (fornecer pedidos em uma data). No armazenamento de tabelas, é melhor armazenar a entidade (ou uma referência a ela) duas vezes – uma vez com o nome da tabela, CP e r para facilitar a localização pela ID do cliente, uma vez para facilitar sua localização até a data.  
 
-### <a name="insertupdatedelete"></a>Inserir/atualizar/excluir
+### <a name="insert-update-and-delete"></a>Inserir, atualizar e excluir
 
 Esta seção descreve as práticas comprovadas para modificar entidades armazenadas no serviço tabela.  
 

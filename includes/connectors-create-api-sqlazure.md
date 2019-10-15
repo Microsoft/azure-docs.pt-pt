@@ -5,109 +5,70 @@ services: logic-apps
 author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 05/15/2018
 ms.author: estfan
 ms.custom: include file
-ms.openlocfilehash: da03c5247b8ebe0a3305b08a05d661264497663f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 05/15/2018
+ms.openlocfilehash: aa1001661d8fe03855e1a28b882f674bee3606b2
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184512"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311982"
 ---
-* Se estiver a utilizar a base de dados do Azure SQL, siga os passos em [Connect to Azure SQL Database](#connect-azure-sql-db). 
+* Se você estiver usando o banco de dados SQL do Azure, siga as etapas em [conectar ao banco de dados SQL do Azure](#connect-azure-sql-db).
 
-* Se estiver a utilizar o SQL Server, siga os passos em [ligar ao SQL Server](#connect-sql-server).
+* Se você estiver usando SQL Server, siga as etapas em [conectar a SQL Server](#connect-sql-server).
 
 <a name="connect-azure-sql-db"></a>
 
-### <a name="connect-to-azure-sql-database"></a>Ligar à base de dados SQL do Azure
+### <a name="connect-to-azure-sql-database"></a>Conectar-se ao banco de dados SQL do Azure
 
-1. Quando o acionador SQL ou a ação pede-lhe informações de ligação, siga estes passos:
+Quando o gatilho ou ação do SQL solicitar informações de conexão, siga estas etapas, que funcionam para gatilhos e ações.
 
-   1. Crie um nome para a sua ligação.
+1. Para **nome da conexão**, crie um nome para a conexão.
 
-   2. Selecione o seu servidor SQL e, em seguida, selecione a base de dados. 
+1. Em **nome do SQL Server**, selecione o servidor SQL do Azure. Quando a lista **nome do banco de dados SQL** for exibida, selecione seu banco de dados. Forneça o nome de usuário e a senha para o SQL Server do Azure.
 
-      É apresentada a lista de base de dados apenas depois de selecionar o SQL server.
- 
-   3. Fornece seu nome de utilizador e palavra-passe para o seu servidor.
+   Você também pode encontrar essas informações na portal do Azure nas propriedades do banco de dados SQL ou na cadeia de conexão:
 
-      Pode encontrar estas informações no portal do Azure em suas propriedades de base de dados SQL ou na sua cadeia de ligação: 
-      
-      "ID de utilizador = <*yourUserName*>"
-      <br>
-      "Password=<*yourPassword*>"
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
 
-   Este exemplo mostra as informações de ligação para um acionador, mas estes passos funcionam para ações demasiado.
+   ![Criar conexão de banco de dados SQL do Azure](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
-   ![Criar ligação de base de dados do Azure SQL](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
-   <br>
-   Asteriscos (*) indicam os valores necessários.
+1. Quando terminar, selecione **Criar**.
 
-   | Propriedade | Value | Detalhes | 
-   |----------|-------|---------| 
-   | Nome da Ligação | <*my-sql-connection*> | O nome para a sua ligação | 
-   | Nome do SQL Server | <*my-sql-server*> | O nome do seu servidor SQL |
-   | Nome de base de dados SQL | <*my-sql-database*>  | O nome da base de dados SQL | 
-   | Nome de utilizador | <*my-sql-username*> | O nome de utilizador para aceder à sua base de dados |
-   | Palavra-passe | <*my-sql-password*> | A palavra-passe para aceder à sua base de dados | 
-   |||| 
-
-2. Quando tiver terminado, escolha **Create** (Criar).
-
-3. Depois de criar a ligação, prosseguir [acionador de adicionar SQL](#add-sql-trigger) ou [ação de adicionar SQL](#add-sql-action).
+1. Depois de criar a conexão, continue com [Adicionar um gatilho SQL](#add-sql-trigger) ou [adicione uma ação SQL](#add-sql-action).
 
 <a name="connect-sql-server"></a>
 
 ### <a name="connect-to-sql-server"></a>Ligar ao SQL Server
 
-Antes de poder selecionar o gateway, certifique-se de que já [configurar o gateway de dados](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Dessa forma, o gateway aparece na lista de gateways ao criar a ligação.
+Quando o gatilho ou ação do SQL solicitar informações de conexão, siga estas etapas, que funcionam para gatilhos e ações. No entanto, antes de começar, certifique-se de que você já [configurou seu gateway de dados local](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection). Caso contrário, o gateway não aparecerá na lista de gateways quando você criar a conexão.
 
-1. Quando o acionador SQL ou a ação pede-lhe informações de ligação, siga estes passos:
+1. Para **nome da conexão**, crie um nome para a conexão.
 
-   1. No acionador ou ação, selecione **ligar através do gateway de dados no local** para que as opções de servidor SQL aparecem.
+1. No gatilho ou ação, selecione **conectar por meio do gateway de dados local** para que as opções do SQL Server sejam exibidas.
 
-   2. Crie um nome para a sua ligação.
+1. Para **nome do SQL Server** e **nome do banco de dados SQL**, forneça o endereço do seu SQL Server e o nome do seu banco de dados. Para **username** e **password**, forneça o nome de usuário e a senha para seu servidor.
 
-   3. Forneça o endereço do seu servidor SQL, em seguida, forneça o nome da base de dados.
-   
-      Pode encontrar estas informações na sua cadeia de ligação: 
-      
-      * "Server=<*yourServerAddress*>"
-      * "Database=<*yourDatabaseName*>"
+   Você também pode encontrar essas informações em sua cadeia de conexão:
 
-   4. Fornece seu nome de utilizador e palavra-passe para o seu servidor.
+   * `Server=<your-server-address>`
+   * `Database=<your-database-name>`
+   * `User ID=<your-user-name>`
+   * `Password=<your-password>`
 
-      Pode encontrar estas informações na sua cadeia de ligação: 
-      
-      * "ID de utilizador = <*yourUserName*>"
-      * "Password=<*yourPassword*>"
+   ![Criar SQL Server conexão](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
-   5. Se o SQL server utiliza o Windows ou a autenticação básica, selecione o tipo de autenticação.
+1. Se o SQL Server usar a autenticação do Windows ou básica, selecione o **tipo de autenticação**.
 
-   6. Selecione o nome para o seu gateway de dados no local que criou anteriormente.
-   
-      Verifique se o gateway não aparecer na lista, que corretamente [configurar o gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
+1. Em **gateways**, selecione a assinatura do Azure associada ao gateway de dados local criado anteriormente e selecione o nome do seu gateway de dados local.
 
-   Este exemplo mostra as informações de ligação para um acionador, mas estes passos funcionam para ações demasiado.
+   Se o gateway não aparecer na lista, verifique se você [configurou corretamente seu gateway](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection).
 
-   ![Criar a ligação do SQL Server](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
-   <br>
-   Asteriscos (*) indicam os valores necessários.
+   ![Criação de SQL Server conexão concluída](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
-   | Propriedade | Value | Detalhes | 
-   |----------|-------|---------| 
-   | Ligar através do gateway no local | Selecione esta opção primeiro para definições do SQL Server. | | 
-   | Nome da Ligação | <*my-sql-connection*> | O nome para a sua ligação | 
-   | Nome do SQL Server | <*my-sql-server*> | O nome do seu servidor SQL |
-   | Nome de base de dados SQL | <*my-sql-database*>  | O nome da base de dados SQL |
-   | Nome de utilizador | <*my-sql-username*> | O nome de utilizador para aceder à sua base de dados |
-   | Palavra-passe | <*my-sql-password*> | A palavra-passe para aceder à sua base de dados | 
-   | Tipo de autenticação | Windows ou Basic | Opcional: O tipo de autenticação utilizado pelo seu servidor SQL | 
-   | Gateways | <*my-data-gateway*> | O nome para o seu gateway de dados no local | 
-   |||| 
+1. Quando terminar, selecione **Criar**.
 
-2. Quando tiver terminado, escolha **Create** (Criar). 
-
-3. Depois de criar a ligação, prosseguir [acionador de adicionar SQL](#add-sql-trigger) ou [ação de adicionar SQL](#add-sql-action).
+1. Depois de criar a conexão, continue com [Adicionar gatilho SQL](#add-sql-trigger) ou [Adicionar ação SQL](#add-sql-action).
