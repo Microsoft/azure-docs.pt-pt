@@ -187,7 +187,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |`authority`    | Adicional A URL de autoridade que dá suporte a tipos de conta, conforme descrito anteriormente na seção de configuração. A autoridade padrão é `https://login.microsoftonline.com/common`. |
 > |`redirectURI`     | O URI de resposta/redirecionamento configurado do registro do aplicativo. Nesse caso, `http://localhost:30662/`. |
 > |`cacheLocation`  | Adicional Define o armazenamento do navegador para o estado de autenticação. O padrão é sessionStorage.   |
-> |`storeAuthStateInCookie`  | Adicional A biblioteca que armazena o estado de solicitação de autenticação necessário para a validação dos fluxos de autenticação nos cookies do navegador. Esse cookie é definido para navegadores do IE e do Edge para atenuar determinados [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
+> |`storeAuthStateInCookie`  | Adicional A biblioteca que armazena o estado de solicitação de autenticação necessário para a validação dos fluxos de autenticação nos cookies do navegador. Esse cookie é definido para navegadores do IE e do Microsoft Edge para atenuar determinados [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 
 Para obter mais informações sobre as opções configuráveis disponíveis, consulte [inicializar aplicativos cliente](msal-js-initializing-client-applications.md).
 
