@@ -1,5 +1,5 @@
 ---
-title: 'o Azure Cosmos DB: Criar um aplicativo com Python e a API do SQL'
+title: 'Início rápido: compilar um aplicativo Python usando Azure Cosmos DB conta da API do SQL'
 description: Apresenta um exemplo de código Python que pode utilizar para ligar e consultar a Azure Cosmos DB SQL API
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f085ca6de2c04caa90c34bc1293da1210d2883eb
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom:
+- seodec18
+- seo-javascript-september2019
+- seo-python-october2019
+ms.openlocfilehash: f00d0e4f659c1ebe104dac1a25ea3688c9a1f2e5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020162"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327256"
 ---
-# <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>o Azure Cosmos DB: Criar um aplicativo Python usando Azure Cosmos DB conta da API do SQL
+# <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: compilar um aplicativo Python usando Azure Cosmos DB conta da API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
@@ -88,7 +92,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
     ![Ver e copiar uma chave de acesso no portal do Azure, painel Chaves](./media/create-sql-api-dotnet/keys.png)
 
-2. Abra o `CosmosGetStarted.py` arquivo em \git-samples\azure-Cosmos-DB-Python-Getting-Started no Visual Studio Code.
+2. Abra o arquivo `CosmosGetStarted.py` em \git-samples\azure-Cosmos-DB-Python-Getting-Started no Visual Studio Code.
 
 3. Copie o valor do **URI** a partir do portal (com o botão de copiar) e faça deste o valor da chave do **ponto final** em ``CosmosGetStarted.py``. 
 
@@ -175,7 +179,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
 
 1. No Visual Studio Code, selecione **Vista** > **Paleta de Comando**. 
 
-2. No prompt, insira **Python: Selecione interpretador** e, em seguida, selecione a versão do Python a ser usada.
+2. Na linha de comandos, introduza **Python: Selecione o Interpretador** e, em seguida, selecione a versão do Python a utilizar.
 
     O Rodapé no Visual Studio Code é atualizado para indicar o interpretador selecionado. 
 
@@ -213,7 +217,7 @@ Os seguintes fragmentos foram todos retirados do ficheiro `CosmosGetStarted.py`.
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu como criar uma conta do Azure Cosmos, criar um contêiner usando o Data Explorer e executar um aplicativo. Agora, pode importar dados adicionais à sua conta do Cosmos DB. 
 

@@ -1,24 +1,21 @@
 ---
 title: Criar a sua primeira função no Linux no Azure
-description: Saiba como criar a sua primeira função alojada no Linux no Azure com a CLI do Azure e as Azure Functions Core Tools.
-services: functions
-keywords: ''
+description: Saiba como criar sua primeira função hospedada no Linux no Azure usando as ferramentas de linha de comando, Azure Functions Core Tools e o CLI do Azure.
 author: ggailey777
 ms.author: glenga
 ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
-ms.devlang: javascript
-manager: jeconnoc
-ms.openlocfilehash: 40a2d3ab4ec358b5b2d0105703cdc25cdb777c29
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+manager: gwallace
+ms.openlocfilehash: 34f4dc4b36f4efd75c5a7cd14b3214886955a403
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562983"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329683"
 ---
-# <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli"></a>Crie sua primeira função hospedada no Linux usando as ferramentas básicas e a CLI do Azure
+# <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>Início rápido: criar sua primeira função hospedada no Linux usando ferramentas de linha de comando
 
 As Funções do Azure permitem-lhe executar o seu código num ambiente Linux [sem servidor](https://azure.com/serverless), sem que tenha de criar primeiro uma VM ou publicar uma aplicação Web. A hospedagem do Linux requer [o tempo de execução do Functions 2. x](functions-versions.md). As funções sem servidor são executadas no [plano de consumo](functions-scale.md#consumption-plan).
 
@@ -30,7 +27,7 @@ São suportados os seguintes passos num computador Mac, Windows ou Linux. Este a
 
 Antes de executar este exemplo, tem de ter o seguinte:
 
-- Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou superior.
++ Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.6.666 ou superior.
 
 + Instale a [CLI do Azure]( /cli/azure/install-azure-cli). Este artigo requer a versão 2.0 ou posterior da CLI do Azure. Execute `az --version` para localizar a versão atual. Pode também utilizar o [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -56,7 +53,7 @@ Antes de executar este exemplo, tem de ter o seguinte:
 
 Precisa de uma aplicação de funções para alojar a execução das suas funções no Linux. A aplicação de funções proporciona um ambiente sem servidor para a execução do código da sua função. Permite-lhe agrupar funções como unidades lógicas para uma gestão, implementação e partilha de recursos mais fácil. Utilize o comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) para criar uma aplicação de funções no Linux.
 
-No comando seguinte, utilize o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` também é o domínio DNS predefinido para a aplicação de funções. Este nome tem de ser exclusivo em todas as aplicações no Azure. Você também deve definir o `<language>` tempo de execução para seu aplicativo de `dotnet` funçõesC#, de `node` (), (JavaScript/TypeScript `python`) ou.
+No comando seguinte, utilize o nome da sua aplicação de funções exclusivo onde vir o marcador de posição `<app_name>` e o nome da conta de armazenamento para `<storage_name>`. O `<app_name>` também é o domínio DNS predefinido para a aplicação de funções. Este nome tem de ser exclusivo em todas as aplicações no Azure. Você também deve definir o tempo de execução `<language>` para seu aplicativo de funções, de @no__tC#-1 (), `node` (JavaScript/TypeScript) ou `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \

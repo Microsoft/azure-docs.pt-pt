@@ -1,8 +1,6 @@
 ---
 title: Criar a sua primeira função no Azure com o Visual Studio
 description: Criar e publicar uma Função do Azure acionada por HTTP com o Visual Studio.
-services: functions
-documentationcenter: na
 author: ggailey777
 manager: gwallace
 keywords: funções do azure, funções, processamento de eventos, computação, arquitetura sem servidor
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 9a2978bc181fd4c50665b6178d22d19eeb9e2568
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d798be3a0cde39de208105c4b3d4458fa5b124c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096579"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329495"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Criar a sua primeira função com o Visual Studio
 
@@ -39,7 +37,7 @@ Para concluir este tutorial, você deve primeiro instalar o [Visual Studio 2019]
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-O Visual Studio cria um projeto e uma classe que contém código clichê para o tipo de função de gatilho HTTP. O `FunctionName` atributo no método define o nome da função, que por padrão é `HttpTrigger`. O `HttpTrigger` atributo especifica que a função é disparada por uma solicitação HTTP. O código automático envia uma resposta HTTP que inclui um valor da cadeia de consulta ou de corpo de pedido.
+O Visual Studio cria um projeto e uma classe que contém código clichê para o tipo de função de gatilho HTTP. O atributo `FunctionName` no método define o nome da função, que por padrão é `HttpTrigger`. O atributo `HttpTrigger` especifica que a função é disparada por uma solicitação HTTP. O código automático envia uma resposta HTTP que inclui um valor da cadeia de consulta ou de corpo de pedido.
 
 Você pode expandir os recursos de sua função usando associações de entrada e saída aplicando os atributos apropriados ao método. Para obter mais informações, veja a secção [Acionadores e enlaces](functions-dotnet-class-library.md#triggers-and-bindings) da [Referência para Programadores do Funções do Azure C#](functions-dotnet-class-library.md).
 
@@ -71,7 +69,7 @@ Deverá ter uma aplicação de funções na sua subscrição do Azure antes de p
 
     ![Resposta da função no browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você usou o Visual Studio para criar e publicar um C# aplicativo de funções no Azure com uma simples função disparada por http. Para saber mais sobre como desenvolver funções como bibliotecas de classes do .NET, confira [ C# Azure Functions referência do desenvolvedor](functions-dotnet-class-library.md).
 

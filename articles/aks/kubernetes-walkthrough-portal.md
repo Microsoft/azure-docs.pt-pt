@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 86d7f74a5a7260c5feb9a41c6b9c3c93d61388a6
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 0e09d541cb84ef7857e4d68f776b92f845488771
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255534"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329879"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Início rápido: implantar um cluster do AKS (serviço kubernetes do Azure) usando o portal do Azure
 
@@ -48,6 +48,7 @@ Para criar um cluster do AKS, execute os passos seguintes:
 2. Na página **escala** , mantenha as opções padrão. Na parte inferior da tela, clique em **Avançar: autenticação**.
 > [!CAUTION]
 > A criação de novas entidades de serviço do AAD pode levar vários minutos para ser propagada e disponibilizada, fazendo com que a entidade de serviço não encontrou erros e falhas de validação no portal do Azure. Se você tiver obtido isso, visite [aqui](troubleshooting.md#im-receiving-errors-that-my-service-principal-was-not-found-when-i-try-to-create-a-new-cluster-without-passing-in-an-existing-one) para obter mitigações.
+
 3. Na página **autenticação** , configure as seguintes opções:
    - Crie uma nova entidade de serviço deixando o campo de **entidade de serviço** com a **entidade de serviço padrão (novo)** . Ou você pode escolher *Configurar a entidade de serviço* para usar uma existente. Se você usar um existente, será necessário fornecer a ID e o segredo do cliente SPN.
    - Ative a opção para os controlos de acesso baseado em funções (RBAC) do Kubernetes. Isso fornecerá um controle mais refinado sobre o acesso aos recursos kubernetes implantados em seu cluster AKS.

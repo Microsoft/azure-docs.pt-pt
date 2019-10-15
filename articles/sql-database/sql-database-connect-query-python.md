@@ -1,26 +1,26 @@
 ---
-title: Utilizar o Python para consultar a Base de Dados SQL do Azure | Microsoft Docs
+title: 'Início rápido: usar o Python para consultar o banco de dados SQL do Azure'
 description: Este tópico mostra como usar o Python para criar um programa que se conecta a um banco de dados SQL do Azure e consultá-lo usando instruções Transact-SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 659f6333d16f84cc35be45c45b7a7119e53fd0d0
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 32861fa8f8756c4e8d30c055582789d41a92fe7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764289"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331859"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início rápido: Utilizar o Python para consultar uma base de dados SQL do Azure
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Início Rápido: Utilizar o Python para consultar uma base de dados SQL do Azure
 
- Este guia de introdução demonstra como utilizar o [Python](https://python.org) para ligar a uma base de dados SQL do Azure e utilizar as instruções Transact-SQL para consultar dados. Para obter mais detalhes do SDK, Confira nossa documentação de [referência](https://docs.microsoft.com/python/api/overview/azure/sql) , o [repositório GitHub do pyodbc](https://github.com/mkleehammer/pyodbc/wiki/)e um [exemplo de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+ Este artigo demonstra como usar o [Python](https://python.org) para se conectar a um banco de dados SQL do Azure e usar instruções TRANSACT-SQL para consultas de consulta. Para obter mais detalhes do SDK, Confira nossa documentação de [referência](https://docs.microsoft.com/python/api/overview/azure/sql) , o [repositório GitHub do pyodbc](https://github.com/mkleehammer/pyodbc/wiki/)e um [exemplo de pyodbc](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,9 +28,9 @@ Para concluir este início rápido, certifique-se de que tem o seguinte:
 
 - Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
-  || Base de dados individual | Instância gerida |
+  || Base de dados única | Instância gerida |
   |:--- |:--- |:---|
-  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
@@ -44,11 +44,11 @@ Para concluir este início rápido, certifique-se de que tem o seguinte:
   
 - Python e software relacionado para seu sistema operacional:
   
-  - **MacOS**: Instale o homebrew e o Python, instale o driver ODBC e o SQLCMD e, em seguida, instale o driver Python para SQL Server. Consulte as etapas 1,2, 1,3 e 2,1 em [criar aplicativos Python usando o SQL Server no MacOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Para obter mais informações, consulte [instalar o Microsoft ODBC driver no Linux e no MacOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
+  - **MacOS**: Instale o homebrew e o Python, instale o driver ODBC e o sqlcmd e, em seguida, instale o driver Python para SQL Server. Consulte as etapas 1,2, 1,3 e 2,1 em [criar aplicativos Python usando o SQL Server no MacOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/). Para obter mais informações, consulte [instalar o Microsoft ODBC driver no Linux e no MacOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server).
 
-  - **Ubuntu**: Instale o Python e outros pacotes necessários `sudo apt-get install python python-pip gcc g++ build-essential`com o. Baixe e instale o driver ODBC, SQLCMD e o driver Python para SQL Server. Para obter instruções, consulte [configurar um ambiente de desenvolvimento para o desenvolvimento de Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
+  - **Ubuntu**: Instale o Python e outros pacotes necessários com o `sudo apt-get install python python-pip gcc g++ build-essential`. Baixe e instale o driver ODBC, SQLCMD e o driver Python para SQL Server. Para obter instruções, consulte [configurar um ambiente de desenvolvimento para o desenvolvimento de Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux).
 
-  - **Windows**: Instale o Python, o driver ODBC e o SQLCMD e o driver Python para SQL Server. Para obter instruções, consulte [configurar um ambiente de desenvolvimento para o desenvolvimento de Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
+  - **Windows**: Instale o Python, o driver ODBC e o sqlcmd e o driver Python para SQL Server. Para obter instruções, consulte [configurar um ambiente de desenvolvimento para o desenvolvimento de Python pyodbc](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows).
 
 ## <a name="get-sql-server-connection-information"></a>Obter informações de conexão do SQL Server
 
@@ -64,7 +64,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Em um editor de texto, crie um novo arquivo chamado *sqltest.py*.  
    
-1. Adicione o seguinte código. Substitua seus próprios valores para \<Server >, \<Database >, \<username > e \<password >.
+1. Adicione o seguinte código. Substitua seus próprios valores por \<server >, \<database >, \<username > e \<password >.
    
    >[!IMPORTANT]
    >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 
@@ -96,7 +96,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 1. Verifique se as 20 principais linhas de categoria/produto são retornadas e feche a janela de comando.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar a sua primeira base de dados SQL do Azure](sql-database-design-first-database.md)
 - [Drivers Python da Microsoft para SQL Server](https://docs.microsoft.com/sql/connect/python/python-driver-for-sql-server/)

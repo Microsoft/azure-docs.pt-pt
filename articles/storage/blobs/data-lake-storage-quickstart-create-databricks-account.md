@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks | Microsoft Docs'
+title: 'Início rápido: analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks | Microsoft Docs'
 description: Aprenda a executar um trabalho do Spark em Azure Databricks usando a portal do Azure e uma conta de armazenamento Azure Data Lake Storage Gen2.
 author: normesta
 ms.author: normesta
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.reviewer: jeking
-ms.openlocfilehash: 4e4e4d250de823ae8fb78a306bae313f340e7ce9
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 5badd4aeabd8ec322ea5fb847cf134f302269c27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992305"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330992"
 ---
-# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: Analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks
+# <a name="quickstart-analyze-data-in-azure-data-lake-storage-gen2-by-using-azure-databricks"></a>Início rápido: analisar dados em Azure Data Lake Storage Gen2 usando Azure Databricks
 
 Este guia de início rápido mostra como executar um trabalho de Apache Spark usando Azure Databricks para executar a análise de dados armazenados em uma conta de armazenamento com Azure Data Lake Storage Gen2 habilitado.
 
@@ -25,20 +25,20 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Crie uma conta de armazenamento Data Lake Gen2. Consulte [início rápido: Criar uma conta de armazenamento Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* Crie uma conta de armazenamento Data Lake Gen2. Consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 
   Cole o nome da conta de armazenamento em um arquivo de texto. Você precisará dela em breve.
 
-* Crie uma entidade de serviço. Consulte [como: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)possa acessar recursos.
+* Crie uma entidade de serviço. Consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
   Há algumas coisas específicas que você precisará fazer ao executar as etapas nesse artigo.
 
-  :heavy_check_mark: Ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
+  : heavy_check_mark: ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
 
   > [!IMPORTANT]
   > Certifique-se de atribuir a função no escopo da conta de armazenamento Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos ou à assinatura pai, mas receberá erros relacionados a permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
-  :heavy_check_mark: Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
+  : heavy_check_mark: ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará delas em breve.
 
 ## <a name="create-an-azure-databricks-workspace"></a>Criar uma área de trabalho do Azure Databricks
 
@@ -78,11 +78,11 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
     ![Criar um cluster Databricks Spark no Azure](./media/data-lake-storage-quickstart-create-databricks-account/create-databricks-spark-cluster.png "Criar um cluster Databricks Spark no Azure")
 
-    Aceite todos os outros valores predefinidos que não sejam os seguintes:
+    Preencha os valores para os campos seguintes e aceite os valores predefinidos para os outros campos:
 
-    * Introduza um nome para o cluster.
-    * Crie um cluster com o tempo de execução **5,1** .
-    * Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
+    - Introduza um nome para o cluster.
+     
+    - Certifique-se de que seleciona a caixa de verificação **Terminar após 120 minutos de inatividade**. Indique uma duração (em minutos) para terminar o cluster, caso não esteja a ser utilizado.
 
 4. Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
@@ -121,7 +121,7 @@ Nesta secção, vai criar um bloco de notas na área de trabalho do Azure Databr
     > [!NOTE]
     > Esse bloco de código acessa diretamente o Data Lake ponto de extremidade Gen2 usando o OAuth, mas há outras maneiras de conectar o espaço de trabalho do databricks à sua conta de Data Lake Storage Gen2. Por exemplo, você pode montar o contêiner usando o OAuth ou usar um acesso direto com chave compartilhada. <br>Para ver exemplos dessas abordagens, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks.
 
-5. Nesse bloco de código, substitua os `storage-account-name`valores `appID`de `password`espaço reservado `tenant-id` ,, e nesse bloco de código pelos valores que você coletou quando criou a entidade de serviço. Defina o `container-name` valor do espaço reservado como qualquer nome que você deseja dar ao contêiner.
+5. Nesse bloco de código, substitua os valores de espaço reservado `storage-account-name`, `appID`, `password` e `tenant-id` nesse bloco de código pelos valores que você coletou quando criou a entidade de serviço. Defina o valor de espaço reservado `container-name` como qualquer nome que você deseja dar ao contêiner.
 
     > [!NOTE]
     > Em uma configuração de produção, considere armazenar sua chave de autenticação no Azure Databricks. Em seguida, adicione uma chave de pesquisa ao bloco de código em vez da chave de autenticação. Depois de concluir este guia de início rápido, consulte o artigo [Azure data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) no site do Azure Databricks para ver exemplos dessa abordagem.
@@ -202,9 +202,9 @@ Quando tiver concluído este artigo, você poderá encerrar o cluster. Na área 
 
 ![Parar um cluster do Databricks](./media/data-lake-storage-quickstart-create-databricks-account/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha marcado a caixa de seleção **terminar após \_ \_ minutos de inatividade** ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Se definir esta opção, o cluster para depois de estar inativo durante o período de tempo designado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, criou um cluster do Spark no Azure Databricks e executou uma tarefa do Spark com dados numa conta de armazenamento com o Data Lake Storage Gen2 ativado. Também pode ver a página [Origens de dados do Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) para saber como importar dados de outras origens de dados para o Azure Databricks. Avance para o artigo seguinte para saber como executar uma operação de ETL (extração, transformação e carregamento de dados) com o Azure Databricks.
 

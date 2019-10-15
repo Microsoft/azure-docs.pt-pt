@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure – Criar um blob no armazenamento de objetos com Python | Microsoft Docs
+title: 'Início rápido: criar um blob no armazenamento de BLOBs do Azure com Python'
 description: Neste início rápido, crie uma conta de armazenamento e um contentor no armazenamento de objetos (Blobs). Em seguida, utilize a biblioteca de clientes de armazenamento para Python, para carregar um blob para o Armazenamento do Microsoft Azure, transferir um blob e listar os blobs num contentor.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,16 +7,17 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.custom: seo-python-october2019
+ms.openlocfilehash: f5be8d5fd452953f447bbc8b08a852c1f8da94a0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981210"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331805"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Início rápido: Carregar, baixar e listar BLOBs com o Python
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Início Rápido: Carregar, transferir e listar blobs com Python
 
-Neste guia de início rápido, você usa o Python para carregar, baixar e listar blobs de blocos em um contêiner no armazenamento de BLOBs do Azure. Os BLOBs são apenas objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivo. Os BLOBs no armazenamento do Azure são diferentes de compartilhamentos de arquivos, tabelas sem esquema e filas de mensagens.  Para obter mais informações, consulte [introdução ao armazenamento do Azure](/azure/storage/common/storage-introduction).
+Neste artigo, você usa o Python para carregar, baixar e listar blobs de blocos em um contêiner no armazenamento de BLOBs do Azure. Os BLOBs são apenas objetos que podem conter grandes quantidades de texto ou dados binários, incluindo imagens, documentos, mídia de streaming e dados de arquivo. Os BLOBs no armazenamento do Azure são diferentes de compartilhamentos de arquivos, tabelas sem esquema e filas de mensagens.  Para obter mais informações, consulte [introdução ao armazenamento do Azure](/azure/storage/common/storage-introduction).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Início rápido para criar um aplicativo Python que usa o cache do Azure para Redis | Microsoft Docs
+title: 'Início rápido: criar um aplicativo Python que usa o cache do Azure para Redis'
 description: Neste guia de início rápido, você aprende a criar um aplicativo Python que usa o cache do Azure para Redis
 services: cache
 documentationcenter: ''
@@ -14,17 +14,19 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: fcb5d74305375c9883f2d601a2ab7d2d9a50b9cb
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.custom:
+- mvc
+- seo-python-october2019
+ms.openlocfilehash: 87c22d3497765fca6f0dcae445152e6e2923510e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743942"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329872"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: Usar o cache do Azure para Redis com Python
+# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: usar o cache do Azure para Redis com Python
 
-Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo Python para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
+Neste artigo, você incorporará o cache do Azure para Redis em um aplicativo Python para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +53,7 @@ O exemplo a seguir usa *pip3* para Python3 para instalar o pacote Redis-py no Wi
 
 ## <a name="read-and-write-to-the-cache"></a>Ler e escrever na cache
 
-Execute o Python e teste-o com a cache a partir da linha de comandos. Substitua `<Your Host Name>` e`<Your Access Key>` pelos valores de seu cache do Azure para Redis. 
+Execute o Python e teste-o com a cache a partir da linha de comandos. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores para o cache do Azure para Redis. 
 
 ```python
 >>> import redis
@@ -70,7 +72,7 @@ b'bar'
 
 Crie um novo ficheiro de texto de script com o nome *PythonApplication1.py*.
 
-Adicione o seguinte script a *PythonApplication1.py* e guarde o ficheiro. Este script irá testar o acesso da cache. Substitua `<Your Host Name>` e`<Your Access Key>` pelos valores de seu cache do Azure para Redis. 
+Adicione o seguinte script a *PythonApplication1.py* e guarde o ficheiro. Este script irá testar o acesso da cache. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores para o cache do Azure para Redis. 
 
 ```python
 import redis
@@ -108,7 +110,7 @@ Se avançar para outro tutorial, pode manter os recursos que criou neste início
 Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
@@ -121,7 +123,7 @@ Na caixa de texto **Filtrar por nome...** , insira o nome do seu grupo de recurs
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Crie um aplicativo Web ASP.NET simples que usa um cache do Azure para Redis.](./cache-web-app-howto.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Usar o cache do Azure para Redis com node. js'
+title: 'Início rápido: usar o cache do Azure para Redis com node. js'
 description: Neste início rápido, você aprenderá a usar o cache do Azure para Redis com node. js e node_redis.
 services: cache
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/21/2018
 ms.author: yegu
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: f46a4771f1db5e4040cb23b1a9236c91699b6ad5
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: bd31cf066b7844eeae02c24cb39ece686630b5ff
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057872"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329821"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Início rápido: Usar o cache do Azure para Redis com node. js
+# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Início rápido: usar o cache do Azure para Redis com node. js
 
 Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo node. js para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
@@ -113,23 +113,23 @@ node redistest.js
 
 No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor em cache, o qual foi definido com a Consola Redis no portal do Azure. A aplicação atualizou esse valor em cache. A aplicação também executou os comandos `PING` e `CLIENT LIST`.
 
-![Aplicação de cache concluída](./media/cache-nodejs-get-started/cache-app-complete.png)
+![Aplicativo de cache Redis concluído](./media/cache-nodejs-get-started/redis-cache-app-complete.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, poderá eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
 
 Na caixa de texto **Filtrar por nome** , digite o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. Em seu grupo de recursos na lista de resultados, selecione **...** em seguida, **excluir grupo de recursos**.
 
-![Eliminar](./media/cache-nodejs-get-started/cache-delete-resource-group.png)
+![Excluir grupo de recursos do Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
 É-lhe pedido que confirme a eliminação do grupo de recursos. Insira o nome do grupo de recursos a ser confirmado e selecione **excluir**.
 

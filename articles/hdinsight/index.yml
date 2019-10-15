@@ -11,12 +11,12 @@ metadata:
   author: hrasheed-msft
   ms.author: hrasheed
   ms.date: 08/30/2019
-  ms.openlocfilehash: 2e6a0bcc654bbf94bec5c562815aa7591cfabd60
-  ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+  ms.openlocfilehash: b44020cc6476af03ad3c2e9e1956f9c1d951a0eb
+  ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/25/2019
-  ms.locfileid: "71272236"
+  ms.lasthandoff: 10/14/2019
+  ms.locfileid: "72312088"
 landingContent:
 - title: Acerca do HDInsight
   linkLists:
@@ -133,7 +133,7 @@ landingContent:
   - linkListType: quickstart
     links:
     - text: Consultar o HBase com o Apache Phoenix
-      url: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+      url: ./hbase/apache-hbase-query-with-phoenix.md
   - linkListType: concept
     links:
     - text: Escritas Aceleradas do Apache HBase

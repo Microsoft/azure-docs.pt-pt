@@ -1,6 +1,6 @@
 ---
-title: Enviar eventos personalizados com grade de eventos e CLI do Azure
-description: Utilize o Azure Event Grid e a CLI do Azure para publicar um tópico personalizado e subscrever eventos para esse tópico. Os eventos são processados por um aplicativo web.
+title: 'Início rápido: enviar eventos personalizados com a grade de eventos e CLI do Azure'
+description: Use a grade de eventos do Azure e CLI do Azure para publicar um tópico personalizado e assinar eventos para esse tópico. Os eventos são tratados por um aplicativo Web.
 services: event-grid
 keywords: ''
 author: spelluru
@@ -8,15 +8,18 @@ ms.author: spelluru
 ms.date: 12/07/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.custom: seodec18, seo-javascript-september2019
-ms.openlocfilehash: a6888179d4d465808dc28f7784db8d1d915e3f80
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom:
+- seodec18
+- seo-javascript-september2019
+- seo-python-october2019
+ms.openlocfilehash: 1129dffa37df4766b98f39a9efa05f4eb7ed9878
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861098"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326128"
 ---
-# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: Rotear eventos personalizados para o ponto de extremidade da Web com CLI do Azure e a grade de eventos
+# <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: rotear eventos personalizados para o ponto de extremidade da Web com CLI do Azure e a grade de eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Normalmente, envia eventos para um ponto final que processa os dados de eventos e efetua ações. No entanto, para simplificar este artigo, vai enviar eventos para uma aplicação Web que recolhe e apresenta as mensagens.
 
@@ -48,7 +51,7 @@ az group create --name gridResourceGroup --location westus2
 
 ## <a name="create-a-custom-topic"></a>Criar um tópico personalizado
 
-Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, tem de ter entre 3 e 50 carateres e conter apenas valores-z, A-Z, 0-9, e "-"
+Um tópico do Event Grid fornece um ponto final definido pelo utilizador no qual publica os eventos. O exemplo seguinte cria o tópico personalizado no seu grupo de recursos. Substitua `<your-topic-name>` por um nome exclusivo para o seu tópico. O nome do tópico personalizado deve ser exclusivo, porque faz parte da entrada DNS. Além disso, ele deve ter entre 3-50 caracteres e conter apenas os valores de a-z, A-Z, 0-9 e "-"
 
 ```azurecli-interactive
 topicname=<your-topic-name>
@@ -143,7 +146,7 @@ Se quiser continuar a trabalhar com este evento ou com a aplicação de visualiz
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

@@ -1,26 +1,22 @@
 ---
 title: Adicionar uma associação de fila de armazenamento do Azure à sua função Python
-description: Saiba como adicionar uma associação de saída de fila do armazenamento do Azure à sua função do Python usando as ferramentas básicas do CLI do Azure e do functions.
-services: functions
-keywords: ''
+description: Saiba como adicionar uma associação de saída de fila do armazenamento do Azure à sua função do Python.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+manager: gwallace
+ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839184"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329737"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Adicionar uma associação de fila de armazenamento do Azure à sua função Python
 
-Azure Functions permite que você conecte os serviços do Azure e outros recursos a funções sem precisar escrever seu próprio código de integração. Essas *associações*, que representam entrada e saída, são declaradas dentro da definição da função. Os dados das associações são fornecidos para a função como parâmetros. Um *gatilho* é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e saída. Para saber mais, confira [Azure Functions os conceitos de gatilhos e associações](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Este artigo mostra como integrar a função que você criou no artigo de [início rápido anterior](functions-create-first-function-python.md) com uma fila de armazenamento do Azure. A associação de saída que você adiciona a essa função grava dados de uma solicitação HTTP em uma mensagem na fila.
 
@@ -34,7 +30,7 @@ Antes de iniciar este artigo, conclua as etapas na [parte 1 do início rápido d
 
 ## <a name="download-the-function-app-settings"></a>Baixar as configurações do aplicativo de funções
 
-[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Habilitar pacotes de extensão
 
@@ -63,7 +59,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Como no início rápido anterior você habilitou pacotes de extensão no host. JSON, a [extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com as outras extensões de associação da Microsoft.
+> Como você habilitou pacotes de extensão no host. JSON, a [extensão de associação de armazenamento](functions-bindings-storage-blob.md#packages---functions-2x) foi baixada e instalada para você durante a inicialização, juntamente com as outras extensões de associação da Microsoft.
 
 Copie o URL da função `HttpTrigger` do resultado do runtime e cole-o na barra de endereço do browser. Acrescente a cadeia de caracteres de consulta `?name=<yourname>` a essa URL e execute a solicitação. Você deve ver a mesma resposta no navegador como fez no artigo anterior.
 
@@ -71,17 +67,17 @@ Desta vez, a associação de saída também cria uma fila chamada `outqueue` em 
 
 Em seguida, use o CLI do Azure para exibir a nova fila e verificar se uma mensagem foi adicionada. Você também pode exibir sua fila usando o [Gerenciador de armazenamento do Microsoft Azure][Azure Storage Explorer] ou no [portal do Azure](https://portal.azure.com).
 
-### <a name="set-the-storage-account-connection"></a>Definir a conexão da conta de armazenamento
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Consultar a fila de armazenamento
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-Agora é hora de republicar o aplicativo de funções atualizado no Azure.
+### <a name="redeploy-the-project"></a>Reimplantar o projeto 
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+Para atualizar seu aplicativo publicado, use o comando [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools para implantar o código do projeto no Azure. Neste exemplo, substitua `<APP_NAME>` pelo nome do seu aplicativo.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
 
 Novamente, você pode usar a ondulação ou um navegador para testar a função implantada. Como antes, acrescente a cadeia de caracteres de consulta `&name=<yourname>` à URL, como neste exemplo:
 
@@ -89,7 +85,7 @@ Novamente, você pode usar a ondulação ou um navegador para testar a função 
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-Você pode [examinar a mensagem da fila de armazenamento](#query-the-storage-queue) para verificar se a associação de saída gera novamente uma nova mensagem na fila.
+Você pode [examinar a mensagem da fila de armazenamento](#query-the-storage-queue) novamente para verificar se a associação de saída gera uma nova mensagem na fila, conforme o esperado.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

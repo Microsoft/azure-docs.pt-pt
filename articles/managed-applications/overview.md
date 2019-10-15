@@ -1,17 +1,17 @@
 ---
 title: Descrição geral das aplicações geridas do Azure | Microsoft Docs
-description: Descreve os conceitos das aplicações geridas do Azure
+description: Descreve os conceitos dos aplicativos gerenciados do Azure, que fornecem soluções de nuvem que são fáceis de implantar e operar pelos consumidores.
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 97d6a229651f1c3fbcdbb79c7ae7d1c1f855882b
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: fa37536b800203e981a841d049dc385640733f92
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234745"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332678"
 ---
 # <a name="azure-managed-applications-overview"></a>Descrição geral das aplicações geridas do Azure
 
@@ -43,7 +43,7 @@ O catálogo de serviços é um catálogo interno de soluções aprovadas para os
 
 Para obter informações sobre como publicar uma aplicação gerida do Catálogo de Serviços, veja [Criar uma aplicação do Catálogo de Serviços](publish-service-catalog-app.md).
 
-### <a name="marketplace"></a>Marketplace
+### <a name="marketplace"></a>Mercado
 
 Os fornecedores que pretendam faturar os serviços que oferecem podem disponibilizar uma aplicação gerida através do Azure Marketplace. Depois de o fornecedor publicar uma aplicação, a mesma fica disponível para os utilizadores externos à organização. Com esta abordagem, os fornecedores de serviços geridos (MSP), os fornecedores de software independentes (ISVs) e os integradores de sistemas (SIs) podem oferecer as respetivas soluções a todos os clientes do Azure.
 
@@ -82,4 +82,4 @@ Pode aplicar uma [Azure Policy](../governance/policy/overview.md) à sua aplica�
 Neste artigo, aprendeu sobre os benefícios da utilização de aplicações geridas. Aceda ao artigo seguinte para criar uma definição da aplicação gerida.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Publicar uma definição de aplicativo gerenciado do Azure](publish-managed-app-definition-quickstart.md)
+> [Início Rápido: Publicar uma definição de uma aplicação gerida do Azure](publish-managed-app-definition-quickstart.md)

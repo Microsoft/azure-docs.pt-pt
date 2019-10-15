@@ -6,18 +6,17 @@ ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-manager: jeconnoc
-ms.openlocfilehash: dfb4abaf3868b76e17fb35f952c4db6bcdf30634
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+manager: gwallace
+ms.openlocfilehash: 951e48e591f490ea6321329352fd798fea58855d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838956"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329705"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Conectar funções ao armazenamento do Azure usando o Visual Studio Code
 
-Azure Functions permite que você conecte funções a serviços do Azure e a outros recursos sem precisar escrever seu próprio código de integração. Essas *associações*, que representam entrada e saída, são declaradas dentro da definição da função. Os dados das associações são fornecidos para a função como parâmetros. Um gatilho é um tipo especial de associação de entrada. Embora uma função tenha apenas um gatilho, ela pode ter várias associações de entrada e saída. Para saber mais, confira [Azure Functions os conceitos de gatilhos e associações](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Este artigo mostra como usar Visual Studio Code para conectar a função que você criou no artigo de [início rápido anterior](functions-create-first-function-vs-code.md) ao armazenamento do Azure. A associação de saída que você adiciona a essa função grava dados da solicitação HTTP em uma mensagem em uma fila de armazenamento de filas do Azure. 
 
@@ -117,7 +116,7 @@ Depois de entrar com êxito em sua conta, você verá todas as assinaturas do Az
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
-   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se você tiver chamado a função com o valor padrão `name` do *Azure*, a mensagem da fila será *Name passado para a função: Azure @ no__t-0.
+   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com o valor predefinido `name` do *Azure*, a mensagem de fila é *Nome transmitido para a função: Azure*.
 
     ![Mensagem da fila mostrada em Gerenciador de Armazenamento do Azure](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 

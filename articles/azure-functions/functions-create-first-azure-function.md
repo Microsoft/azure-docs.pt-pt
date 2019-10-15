@@ -1,22 +1,20 @@
 ---
-title: Criar sua primeira função no portal do Azure | Microsoft Docs
+title: Crie sua primeira função sem servidor a partir do portal do Azure
 description: Saiba como criar a sua primeira Função do Azure para execução sem servidor através do portal do Azure.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 96cf87b9-8db6-41a8-863a-abb828e3d06d
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 93b3f34b78710b18b6ff95f91b3eeda09e9e73e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: eb3df5ace97e5a09b2869c0857d49926f354f2b0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096988"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329658"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
@@ -77,7 +75,7 @@ Agora, pode enviar um pedido HTTP para executar a função nova.
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você criou um aplicativo de funções com uma função simples disparada por HTTP.  
 
