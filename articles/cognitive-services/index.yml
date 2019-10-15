@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 09/16/2019
-  ms.openlocfilehash: 9071de52e97a041c9769f6c93fa36f39aff4e4fe
-  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+  ms.openlocfilehash: 2d310832d8d1f1aca2823ffd3be9c4636d60f4fa
+  ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/26/2019
-  ms.locfileid: "71316425"
+  ms.lasthandoff: 10/15/2019
+  ms.locfileid: "72374991"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -90,9 +90,6 @@ conceptualContent:
     - url: ./speech/home.md
       itemType: overview
       text: Voz do Bing (A descontinuar)
-    - url: ./translator-speech/overview.md
-      itemType: overview
-      text: Tradução de Voz (A descontinuar)
   - title: Decisão
     summary: Crie aplicações que obtenham recomendações para assegurar uma tomada de decisões informada e eficiente.
     links:

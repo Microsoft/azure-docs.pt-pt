@@ -580,7 +580,7 @@
     - name: Inícios rápidos
       items:
         - name: Consultar o Apache HBase - Apache Phoenix
-          href: ./hbase/apache-hbase-phoenix-squirrel-linux.md
+          href: ./hbase/apache-hbase-query-with-phoenix.md
         - name: Consultar o Apache HBase - HBase Shell
           href: ./hbase/query-hbase-with-hbase-shell.md
     - name: Tutoriais

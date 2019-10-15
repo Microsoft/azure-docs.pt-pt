@@ -1,5 +1,5 @@
 ---
-title: Guia de início rápido – implantar o contêiner do Docker em instâncias de contêiner do Azure-CLI
+title: 'Início rápido: implantar o contêiner do Docker em instâncias de contêiner do Azure-CLI do Azure'
 description: Neste guia de início rápido, você usa o CLI do Azure para implantar rapidamente um aplicativo Web em contêineres que é executado em uma instância de contêiner do Azure isolada
 services: container-instances
 author: dlepow
@@ -8,15 +8,18 @@ ms.service: container-instances
 ms.topic: quickstart
 ms.date: 03/21/2019
 ms.author: danlep
-ms.custom: seodec18, mvc
-ms.openlocfilehash: b344e5fefdef6cd25dcafc0577b9fbbd7f0e398d
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.custom:
+- seo-python-october2019
+- seodec18
+- mvc
+ms.openlocfilehash: 111191aa664650fe1ffdfd8de492e13e98349b34
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050623"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327439"
 ---
-# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início rápido: Implantar uma instância de contêiner no Azure usando o CLI do Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início rápido: implantar uma instância de contêiner no Azure usando o CLI do Azure
 
 Use as instâncias de contêiner do Azure para executar contêineres do Docker sem servidor no Azure com simplicidade e velocidade. Implante um aplicativo em uma instância de contêiner sob demanda quando você não precisar de uma plataforma de orquestração de contêiner completa, como o serviço kubernetes do Azure.
 
@@ -34,7 +37,7 @@ Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para
 
 O Azure Container Instances, como todos os recursos do Azure, tem de ser implementados num grupo de recursos. Os grupos de recursos permitem organizar e gerir recursos relacionados do Azure.
 
-Primeiro, crie um grupo de recursos chamado MyResource Group no local eastus com o seguinte comando [AZ Group Create][az-group-create] :
+Primeiro, crie um grupo de recursos chamado *MyResource* Group no local *eastus* com o seguinte comando [AZ Group Create][az-group-create] :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -42,11 +45,11 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-container"></a>Criar um contentor
 
-Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contêiner com o CLI do Azure, forneça um nome de grupo de recursos, o nome da instância de contêiner e a imagem de contêiner do Docker para o comando [AZ container Create][az-container-create] . Neste guia de início rápido, você usa `mcr.microsoft.com/azuredocs/aci-helloworld` a imagem pública. Esta imagem empacota um pequeno aplicativo Web escrito em node. js que serve a uma página HTML estática.
+Agora que tem um grupo de recursos, pode executar um contentor no Azure. Para criar uma instância de contêiner com o CLI do Azure, forneça um nome de grupo de recursos, o nome da instância de contêiner e a imagem de contêiner do Docker para o comando [AZ container Create][az-container-create] . Neste guia de início rápido, você usa a imagem pública `mcr.microsoft.com/azuredocs/aci-helloworld`. Esta imagem empacota um pequeno aplicativo Web escrito em node. js que serve a uma página HTML estática.
 
 Pode expor os seus contentores à Internet, especificando uma ou mais portas a abrir, uma etiqueta de nome DNS ou ambos. Neste guia de início rápido, você implanta um contêiner com um rótulo de nome DNS para que o aplicativo Web possa ser acessado publicamente.
 
-Execute um comando semelhante ao seguinte para iniciar uma instância de contêiner. Defina um `--dns-name-label` valor que seja exclusivo na região do Azure onde você cria a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
+Execute um comando semelhante ao seguinte para iniciar uma instância de contêiner. Defina um valor `--dns-name-label` que seja exclusivo na região do Azure onde você cria a instância. Se receber uma mensagem de erro "A etiqueta de nome DNS não está disponível ", experimente uma etiqueta de nome DNS diferente.
 
 ```azurecli-interactive
 az container create --resource-group myResourceGroup --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld --dns-name-label aci-demo --ports 80
@@ -67,7 +70,7 @@ FQDN                               ProvisioningState
 aci-demo.eastus.azurecontainer.io  Succeeded
 ```
 
-Se o contêiner `ProvisioningState` for **bem-sucedido**, vá para seu FQDN no navegador. Se lhe for apresentada uma página Web semelhante à seguinte, parabéns! Implementou com êxito uma aplicação em execução num contentor de Docker para Azure.
+Se o `ProvisioningState` do contêiner for **bem-sucedido**, vá para seu FQDN no navegador. Se lhe for apresentada uma página Web semelhante à seguinte, parabéns! Implementou com êxito uma aplicação em execução num contentor de Docker para Azure.
 
 ![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure][aci-app-browser]
 
@@ -139,13 +142,13 @@ az container list --resource-group myResourceGroup --output table
 
 O contentor **mycontainer** não deve aparecer na saída do comando. Não se tiver outros contentores no grupo de recursos, não é apresentada nenhuma saída.
 
-Se você tiver feito com o grupo de recursos MyResource Group e todos os recursos que ele contém, exclua-o com o comando [AZ Group Delete][az-group-delete] :
+Se você tiver feito com o grupo de recursos *MyResource* Group e todos os recursos que ele contém, exclua-o com o comando [AZ Group Delete][az-group-delete] :
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você criou uma instância de contêiner do Azure usando uma imagem pública da Microsoft. Se deseja criar uma imagem do contentor e implementá-la partir de um registo de contentor privado do Azure, prossiga para o tutorial do Azure Container Instances.
 

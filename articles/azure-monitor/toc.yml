@@ -202,12 +202,10 @@
                       href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                     - name: Resolução de problemas
                       href: app/java-troubleshoot.md
-                - name: Aplicações em node.js
-                  items:
-                    - name: Node.js
-                      href: app/nodejs.md
-                    - name: Python
-                      href: app/opencensus-python.md
+                - name: Node.js
+                  href: app/nodejs.md
+                - name: Python
+                  href: app/opencensus-python.md
                 - name: Páginas Web
                   items:
                     - name: JavaScript do lado do cliente

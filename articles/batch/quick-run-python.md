@@ -1,5 +1,5 @@
 ---
-title: Início Rápido do Azure - Executar Tarefa do Batch - Python
+title: 'Início rápido: executar um trabalho do lote do Azure – API do Python'
 description: Execute rapidamente uma tarefa do Batch com a biblioteca de clientes do Batch Python.
 services: batch
 author: laurenhughes
@@ -9,15 +9,17 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
-ms.custom: mvc
-ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom:
+- seo-python-october2019
+- mvc
+ms.openlocfilehash: e5ec131e73c40e72862122d360574bb4ee5d3cda
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090773"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329352"
 ---
-# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início rápido: Executar seu primeiro trabalho em lotes com a API do Python
+# <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a API Python
 
 Este início rápido executa uma tarefa do Azure Batch a partir de uma aplicação criada a partir da API Python do Azure Batch. A aplicação carrega vários ficheiros de dados de entrada para o armazenamento do Azure e, em seguida, cria um *conjunto* de nós de computação do Batch (máquinas virtuais). Em seguida, cria uma *tarefa* de amostra que executa *tarefas* para processar cada ficheiro de entrada no conjunto com um comando básico. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
  
@@ -47,7 +49,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
 ```
 
-Vá para o diretório que contém o script `python_quickstart_client.py`Python.
+Vá para o diretório que contém o script Python `python_quickstart_client.py`.
 
 No ambiente de desenvolvimento do Python, instale os pacotes necessários através de `pip`.
 
@@ -174,7 +176,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Criar um trabalho do Batch
 
-Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Uma tarefa inclui definições comuns de tarefas, como a prioridade e o conjunto em que as tarefas são executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, os trabalhos não têm tarefas.
+Uma tarefa do Batch é um agrupamento lógico para uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Esta aplicação utiliza a classe [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) para criar um trabalho no conjunto. O método [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) adiciona um trabalho à conta do lote especificada. Inicialmente, os trabalhos não têm tarefas.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -203,7 +205,7 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-### <a name="view-task-output"></a>Ver resultado das tarefas
+### <a name="view-task-output"></a>Ver o resultado das tarefas
 
 A aplicação monitoriza o estado da tarefa para se certificar de que as tarefas são concluídas. Em seguida, a aplicação apresenta o ficheiro `stdout.txt` gerado por cada tarefa concluída. Quando a tarefa é executada com êxito, o resultado do comando da tarefa é escrito em `stdout.txt`:
 
@@ -232,7 +234,7 @@ A aplicação elimina automaticamente o contentor de armazenamento criado e ofer
 
 Quando já não forem precisos, elimine o grupo de recursos, a conta do Batch e a conta de armazenamento. Para fazer isso no portal do Azure, selecione o grupo de recursos para a conta do lote e selecione **excluir grupo de recursos**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, executou a compilação de uma pequena aplicação com a API do Batch Python para criar um conjunto e uma tarefa do Batch. A tarefa executou tarefas de exemplo e transferiu os resultados criados nos nós. Agora que compreende os conceitos principais do serviço do Batch, está pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala. Para obter mais informações sobre o Azure Batch e saber utilizar uma carga de trabalho paralela com uma aplicação do mundo real, avance para o tutorial do Batch Python.
 
