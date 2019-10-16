@@ -97,13 +97,13 @@ Se você quiser mais controle sobre a configuração da rede virtual – por exe
 
 Para criar uma rede virtual, grupos de segurança de rede e Azure Databricks espaço de trabalho em um, use o [modelo All-in-One para os espaços de trabalho injetados por VNet do databricks](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
-Ao usar esse modelo, você não precisa fazer nenhuma lista branca manual de tráfego de sub-rede.
+Ao usar esse modelo, você não precisa fazer nenhuma lista de permissões manual de tráfego de sub-rede.
 
 ### <a name="network-security-groups"></a>Grupos de segurança de rede
 
 Para criar grupos de segurança de rede com as regras necessárias para uma rede virtual existente, use o [modelo de grupo de segurança de rede para injeção de VNet do databricks](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
 
-Ao usar esse modelo, você não precisa fazer nenhuma lista branca manual de tráfego de sub-rede.
+Ao usar esse modelo, você não precisa fazer nenhuma lista de permissões manual de tráfego de sub-rede.
 
 ### <a name="virtual-network"></a>Rede virtual
 
