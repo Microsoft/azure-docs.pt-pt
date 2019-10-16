@@ -12,12 +12,12 @@ metadata:
   author: KingdomOfEnds
   ms.author: v-adgera
   ms.date: 09/04/2019
-  ms.openlocfilehash: 14358c23bf9739c75915b66849a657633e2cc2db
-  ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+  ms.openlocfilehash: 3505a6f42998fcfb35c6baab3377cad83e30a3d3
+  ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/06/2019
-  ms.locfileid: "71978856"
+  ms.lasthandoff: 10/15/2019
+  ms.locfileid: "72333015"
 landingContent:
 - title: Acerca do Azure Time Series Insights
   linkLists:
@@ -119,9 +119,9 @@ landingContent:
     links:
     - text: Azure Time Series Insights
       url: /rest/api/time-series-insights/
-    - text: Pré-visualização do Azure Time Series Insights
+    - text: Pré-visualização do Data Access Concepts
       url: /rest/api/time-series-insights/preview
-    - text: GA do Azure Time Series Insights
+    - text: GA do Data Access
       url: /rest/api/time-series-insights/ga
     - text: SDK do Cliente de JavaScript
       url: https://github.com/microsoft/tsiclient/blob/master/docs/API.md

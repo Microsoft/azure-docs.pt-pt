@@ -148,6 +148,8 @@
           href: automation-onboard-solutions-from-automation-account.md
     - name: Guias de Procedimentos
       items:
+        - name: Gerir atualizações e correções das suas Máquinas Virtuais do Azure
+          href: automation-tutorial-update-management.md
         - name: Gerir atualizações de várias VMs
           href: manage-update-multi.md
         - name: Scripts prévios e posteriores
@@ -157,6 +159,14 @@
         - name: Integrar o SCCM com a Gestão de Atualizações
           href: oms-solution-updatemgmt-sccmintegration.md
           displayName: Configuration Manager
+        - name: Configurar o Windows Update para a Gestão de Atualizações
+          href: automation-configure-windows-update.md
+        - name: Utilizar grupos dinâmicos com a Gestão de Atualizações
+          href: automation-update-management-groups.md
+        - name: Consultar os registos da Gestão de Atualizações
+          href: automation-update-management-query-logs.md
+        - name: Ver avaliações de atualizações
+          href: automation-view-update-assessments.md
     - name: Resolução de problemas
       items:
         - name: Inclusão
@@ -300,14 +310,18 @@
       href: automation-connections.md
     - name: Credenciais
       href: automation-credentials.md
-    - name: Módulos
-      href: automation-integration-modules.md
+    - name: Módulos do PowerShell
+      items:
+        - name: Módulos
+          href: automation-integration-modules.md
+        - name: Utilizar módulos Az na Automatização do Azure
+          href: az-modules.md
+        - name: Atualizar módulos do Azure PowerShell
+          href: automation-update-azure-modules.md
     - name: Agendas
       href: automation-schedules.md
     - name: Variáveis
       href: automation-variables.md
-    - name: Atualizar módulos do Azure PowerShell
-      href: automation-update-azure-modules.md
     - name: Gerir pacotes do Python 2
       href: python-packages.md
     - name: Resolver Problemas dos Recursos Partilhados

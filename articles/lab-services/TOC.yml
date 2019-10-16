@@ -96,22 +96,22 @@
           items:
             - name: Criar e gerir laboratórios de sala de aula
               href: classroom-labs/how-to-manage-classroom-labs.md
-            - name: Configurar e publicar modelos
+            - name: 'Configurar, personalizar e publicar modelos'
               href: classroom-labs/how-to-create-manage-template.md
-            - name: Configurar e controlar a utilização
+            - name: Configurar e gerir o conjunto de máquinas virtuais
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Adicionar e gerir utilizadores de laboratório
               href: classroom-labs/how-to-configure-student-usage.md
             - name: Criar e gerir agendamentos
               href: classroom-labs/how-to-create-schedules.md
-            - name: Criar um ambiente com várias VMs dentro de uma VM de modelo
-              href: classroom-labs/how-to-enable-multi-vm-environment.md
             - name: Utilizar uma galeria de imagens partilhadas
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Ativar a ligação de ambiente de trabalho remoto para Linux
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
-            - name: Definir ou repor palavras-passe de máquinas virtuais
-              href: classroom-labs/how-to-set-virtual-machine-passwords.md
             - name: Ativar a virtualização aninhada numa VM de modelo
               href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+            - name: Criar um ambiente com várias VMs dentro de uma VM de modelo
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
         - name: Ligar-se a VMs em laboratórios de sala de aula (estudante)
           items:
             - name: Aceder a laboratórios de sala de aula

@@ -35,6 +35,20 @@
       href: policy-samples.md
 - name: Conceitos
   items:
+    - name: NAT Gateway
+      items:
+        - name: Descrição geral
+          items:
+            - name: Acerca do NAT Gateway
+              href: nat-service-overview.md
+        - name: Inícios rápidos
+          items:
+            - name: Criar um NAT Gateway - CLI do Azure
+              href: quickstart-create-nat-gateway-cli.md
+        - name: Tutoriais
+          items:
+            - name: Criar e validar um NAT Gateway - CLI do Azure
+              href: tutorial-create-validate-nat-gateway-cli.md
     - name: Grupos de segurança
       href: security-overview.md
     - name: Encaminhamento
@@ -91,22 +105,26 @@
           href: virtual-network-tcpip-performance-tuning.md
     - name: Implementação
       items:
-        - name: IPv6 para VNet - Balanceador de Carga Básico
+        - name: IPv6 para VNet
           items:
-            - name: Azure PowerShell
-              href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
-            - name: CLI do Azure
-              href: virtual-network-ipv4-ipv6-dual-stack-cli.md
-            - name: Modelo do Resource Manager
-              href: ipv6-configure-template-json.md
-        - name: IPv6 para VNet - Balanceador de Carga Standard
-          items:
-            - name: Azure PowerShell
-              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
-            - name: CLI do Azure
-              href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
-            - name: Modelo do Resource Manager
-              href: ipv6-configure-standard-load-balancer-template-json.md
+            - name: Balanceador de Carga Público Básico
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-ipv4-ipv6-dual-stack-powershell.md
+                - name: CLI do Azure
+                  href: virtual-network-ipv4-ipv6-dual-stack-cli.md
+                - name: Modelo do Resource Manager
+                  href: ipv6-configure-template-json.md
+            - name: Balanceador de Carga Público Standard
+              items:
+                - name: Azure PowerShell
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+                - name: CLI do Azure
+                  href: virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+                - name: Modelo do Resource Manager
+                  href: ipv6-configure-standard-load-balancer-template-json.md
+            - name: Balanceador de Carga Interno Standard
+              href: ipv6-dual-stack-standard-internal-load-balancer-powershell.md
         - name: Grupos de segurança de rede
           items:
             - name: Azure PowerShell
@@ -230,8 +248,6 @@
           items:
             - name: Sub-redes
               href: virtual-network-manage-subnet.md
-            - name: Delegação de sub-rede
-              href: manage-subnet-delegation.md
             - name: Peerings
               href: virtual-network-manage-peering.md
             - name: Proteção contra DDoS

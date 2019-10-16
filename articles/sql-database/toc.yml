@@ -22,14 +22,13 @@
               href: sql-database-purchase-models.md
             - name: modelo baseado em vCore
               href: sql-database-service-tiers-vcore.md
+              items:
+                - name: Escalão de serviço de computação sem servidor
+                  href: sql-database-serverless.md
+                - name: Fazer pré-pagamento para a capacidade de reserva
+                  href: sql-database-reserved-capacity.md
             - name: Escalões de serviço de DTU
               href: sql-database-service-tiers-dtu.md
-            - name: Escalão de serviço de computação sem servidor
-              href: sql-database-serverless.md
-            - name: Fazer pré-pagamento para a capacidade de reserva
-              href: sql-database-reserved-capacity.md
-            - name: Migrar do escalão de serviço Premium RS
-              href: sql-database-service-tiers-prs.md
         - name: Computação e armazenamento
           items:
             - name: Descrição geral
@@ -43,6 +42,8 @@
               href: sql-database-service-tier-hyperscale.md
             - name: Perguntas Frequentes do Hyperscale
               href: sql-database-service-tier-hyperscale-faq.md
+            - name: Migrar do escalão de serviço Premium RS
+              href: sql-database-service-tiers-prs.md
 - name: Inícios rápidos
   expanded: true
   items:
@@ -224,6 +225,8 @@
               href: sql-database-disaster-recovery.md
             - name: Testes de recuperação
               href: sql-database-disaster-recovery-drills.md
+            - name: Configurar o grupo de ativação pós-falha
+              href: sql-database-configure-failover-group.md
     - name: Monitorizar e otimizar
       items:
         - name: Documentação sobre como monitorizar e otimizar
@@ -488,7 +491,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Configurar a Sincronização de Dados SQL do Azure
           href: sql-database-get-started-sql-data-sync.md
-        - name: Adicionar a um grupo de ativação pós-falha para o Conjunto elástico
+        - name: Adicionar um conjunto elástico a um grupo de ativação pós-falha
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Configurar a segurança
           href: sql-database-security-tutorial.md
@@ -604,8 +607,6 @@
           href: sql-database-geo-replication-portal.md
         - name: Configurar a segurança das réplicas geográficas
           href: sql-database-geo-replication-security-config.md
-        - name: Configurar o grupo de ativação pós-falha
-          href: sql-database-configure-failover-group.md
         - name: Experimentar as funcionalidades dentro da memória
           href: sql-database-in-memory-sample.md
         - name: Ativar o ajuste automático
@@ -714,6 +715,8 @@
           href: replication-with-sql-database-managed-instance.md
         - name: Configurar a segurança
           href: sql-database-managed-instance-aad-security-tutorial.md
+        - name: Adicionar uma instância gerida a um grupo de ativação pós-falha
+          href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Conceitos
       items:
         - name: Referência da API de Gestão

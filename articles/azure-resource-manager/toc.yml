@@ -228,7 +228,9 @@
           href: resource-group-delete.md
         - name: Bloquear recursos
           href: resource-group-lock-resources.md
-        - name: Criar subscrições EA
+        - name: API de Autenticação para aceder a subscrições
+          href: resource-manager-api-authentication.md
+        - name: Criar subscrições adicionais
           href: programmatically-create-subscription.md
         - name: Conceder acesso para criar subscrições de EA
           href: grant-access-to-create-subscription.md

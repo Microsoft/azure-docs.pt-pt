@@ -14,6 +14,8 @@
           href: bastion-connect-vm-ssh.md
         - name: RDP (Windows)
           href: bastion-connect-vm-rdp.md
+    - name: Ligar às máquinas virtuais do DevTest Labs
+      href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
     - name: Trabalhar com uma sessão de máquina virtual
       items:
         - name: Copiar e colar
