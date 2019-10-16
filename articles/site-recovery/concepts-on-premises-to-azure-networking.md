@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937563"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333034"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
 
@@ -77,8 +77,8 @@ Como alternativa à atribuição de um endereço IP público manualmente a uma V
 
 Para definir o endereço IP interno de uma VM do Azure após o failover, você tem algumas opções:
 
-- **Manter o mesmo endereço IP**: Você pode usar o mesmo endereço IP na VM do Azure como aquele alocado para o computador local.
-- **Usar endereço IP diferente**: Você pode usar um endereço IP diferente para a VM do Azure.
+- **Manter o mesmo endereço IP**: você pode usar o mesmo endereço IP na VM do Azure como aquele alocado para o computador local.
+- **Usar endereço IP diferente**: você pode usar um endereço IP diferente para a VM do Azure.
 
 
 ## <a name="retain-ip-addresses"></a>Reter endereços IP
@@ -91,12 +91,12 @@ Site Recovery permite que você mantenha os mesmos endereços IP ao fazer failov
 
 A retenção de endereços IP requer as seguintes etapas:
 
-- Nas propriedades do computador local, defina rede e endereçamento IP para a VM do Azure de destino para espelhar a configuração local.
+- Nas propriedades de rede & de computação do item replicado, defina a rede e o endereçamento IP para a VM do Azure de destino para espelhar a configuração local.
 - As sub-redes devem ser gerenciadas como parte do processo de recuperação de desastre. Você precisa de uma VNet do Azure para corresponder à rede local e, depois que as rotas de rede de failover devem ser modificadas para refletir que a sub-rede foi movida para o Azure e novos locais de endereço IP.  
 
 ### <a name="failover-example"></a>Exemplo de failover
 
-Vamos examinar um exemplo.
+Vejamos um exemplo.
 
 - O Woodgrove Bank da empresa fictícia hospeda seus aplicativos de negócios locais, eles hospedam seus aplicativos móveis no Azure.
 - Eles se conectam do local para o Azure por VPN site a site. 
@@ -120,7 +120,7 @@ Para manter os endereços, veja o que eles fazem.
     > Dependendo dos requisitos do aplicativo, uma conexão VNet a VNet pode ser configurada antes do failover, como uma etapa manual/script do runbook de automação do Azure em um [plano de recuperação](site-recovery-create-recovery-plans.md)site Recovery ou após a conclusão do failover.
 
 4. Antes do failover, nas propriedades da máquina em Site Recovery, elas definem o endereço IP de destino como o endereço do computador local, conforme descrito no próximo procedimento.
-5. Após o failover, as VMs do Azure são criadas com o mesmo endereço IP. O Woodgrove conecta-se da **rede do Azure** à rede virtual de **recuperação** usando um 
+5. Após o failover, as VMs do Azure são criadas com o mesmo endereço IP. O Woodgrove conecta-se da **rede do Azure** à rede virtual de **recuperação** usando o emparelhamento VNet (com conectividade de trânsito habilitada).
 6. No local, o Woodgrove precisa fazer alterações na rede, incluindo a modificação de rotas para refletir que 192.168.1.0/24 foi movido para o Azure.  
 
 **Infraestrutura antes do failover**

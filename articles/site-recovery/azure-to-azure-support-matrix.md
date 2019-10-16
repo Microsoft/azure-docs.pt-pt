@@ -5,34 +5,34 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 895ce98f290ce23580bb70023e2539ab4272f8b8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3e62c19454808ad398dfb205eae9de19a671852d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350260"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376336"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
-Este artigo resume o suporte e os pré-requisitos quando você define a recuperação de desastre de VMs do Azure de uma região do Azure para outra, usando o serviço de [Azure site Recovery](site-recovery-overview.md) .
+Este artigo resume o suporte e os pré-requisitos para a recuperação de desastre de VMs do Azure de uma região do Azure para outra, usando o serviço de [Azure site Recovery](site-recovery-overview.md) .
 
 
 ## <a name="deployment-method-support"></a>Suporte ao método de implantação
 
 **Implementação** |  **Suporte**
 --- | ---
-**Azure portal** | Suportado.
+**Portal do Azure** | Suportado.
 **PowerShell** | Suportado. [Saiba mais](azure-to-azure-powershell.md)
-**REST API** | Suportado.
+**API REST** | Suportado.
 **CLI** | Sem suporte no momento
 
 
 ## <a name="resource-support"></a>Suporte para recursos
 
 **Ação de recurso** | **Detalhes**
---- | --- | ---
+--- | --- 
 **Mover cofres entre grupos de recursos** | Não suportado
 **Mover recursos de computação/armazenamento/rede entre grupos de recursos** | Não suportado.<br/><br/> Se você mover uma VM ou componentes associados, como armazenamento/rede, após a replicação da VM, será necessário desabilitar e reabilitar a replicação para a VM.
 **Replicar VMs do Azure de uma assinatura para outra para recuperação de desastre** | Com suporte no mesmo locatário Azure Active Directory.
@@ -58,7 +58,7 @@ Regiões restritas reservadas para recuperação de desastres no país |Norte da
 >[!NOTE]
 >
 > - Para o **sul do Brasil**, você pode replicar e fazer failover para essas regiões: Sul EUA Central, Oeste EUA Central, leste dos EUA, leste dos EUA 2, oeste dos EUA, oeste dos EUA 2 e norte EUA Central.
-> - O sul do Brasil só pode ser usado como uma região de origem da qual as VMs podem replicar usando Site Recovery. Ele não pode atuar como uma região de destino. Isso ocorre devido a problemas de latência devido a distâncias geográficas.
+> - O sul do Brasil só pode ser usado como uma região de origem da qual as VMs podem replicar usando Site Recovery. Ele não pode atuar como uma região de destino. Isso ocorre devido a problemas de latência devido a distâncias geográficas. Observe que se você fizer failover do Sul do Brasil como uma região de origem para um destino, o failback para o sul do Brasil da região de destino terá suporte.
 > - Você pode trabalhar em regiões para as quais tem acesso apropriado.
 > - Se a região na qual você deseja criar um cofre não for mostrada, verifique se sua assinatura tem acesso para criar recursos nessa região.
 > - Se você não conseguir ver uma região em um cluster geográfico ao habilitar a replicação, verifique se sua assinatura tem permissões para criar VMs nessa região.
@@ -84,30 +84,31 @@ Site Recovery dá suporte à replicação de VMs do Azure que executam os sistem
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-Windows Server de 2019 | Server Core, servidor com experiência desktop
-Windows Server 2016  | Server Core, servidor com experiência desktop
-Windows Server 2012 R2 |
-Windows Server 2012 |
-Windows Server 2008 R2 | Executando o SP1 ou posterior
-Windows 10 (x64) |
-Windows 8.1 (x64) |
-Windows 8 (x64) |
-Windows 7 (x64) | Executando o SP1 ou posterior (não há suporte para o Windows 7 RTM)
+Windows Server 2019 | Com suporte para Server Core, servidor com experiência desktop.
+Windows Server 2016  | Server Core com suporte, servidor com experiência desktop.
+Windows Server 2012 R2 | Suportado.
+Windows Server 2012 | Suportado.
+Windows Server 2008 R2 com SP1/SP2 | Suportado.<br/><br/> Da versão 9.30. x. x da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (Windows Servicing Stack Update)](https://support.microsoft.com/help/4490628) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 R2 SP1/SP2.  Se essas atualizações não estiverem instaladas, a extensão do agente talvez não seja instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 com SP2 | Da versão 9.30. x. x da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4493730) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 com SP2.  Se essas atualizações não estiverem instaladas, a extensão do agente talvez não seja instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows 10 (x64) | Suportado.
+Windows 8.1 (x64) | Suportado.
+Windows 8 (x64) | Suportado.
+Windows 7 (x64) com SP1 em diante | Da versão 9.30. x. x da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows 7 com SP1.  Se essas atualizações não estiverem instaladas, a extensão do agente talvez não seja instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 
 #### <a name="linux"></a>Linux
 
 **Sistema operativo** | **Detalhes**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6  
-CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6
+Red Hat Enterprise Linux | 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6  
+CentOS | 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6
 Servidor Ubuntu 14, 4 LTS | [Versões de kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Servidor Ubuntu 16, 4 LTS | [Versão do kernel com suporte](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Os servidores Ubuntu que usam a autenticação baseada em senha e a entrada e o pacote Cloud-init para configurar VMs de nuvem podem ter um logon baseado em senha desabilitado no failover (dependendo da configuração do cloudinit). O logon baseado em senha pode ser habilitado novamente na máquina virtual redefinindo a senha no menu suporte > solução de problemas > configurações (da VM com failover no portal do Azure.
 Debian 7 | [Versões de kernel com suporte](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versões de kernel com suporte](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(Versões de kernel com suporte)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 11 | SP3<br/><br/> Não há suporte para a atualização de máquinas de replicação do SP3 para o SP4. Se um computador replicado tiver sido atualizado, você precisará desabilitar a replicação e reabilitar a replicação após a atualização.
+SUSE Linux Enterprise Server 11 | SP<br/><br/> Não há suporte para a atualização de máquinas de replicação do SP3 para o SP4. Se um computador replicado tiver sido atualizado, você precisará desabilitar a replicação e reabilitar a replicação após a atualização.
 SUSE Linux Enterprise Server 11 | SP4
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6<br/><br/> Executando o kernel do Red Hat compatível ou o inquebrable Enterprise kernel versão 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6<br/><br/> Executando o kernel do Red Hat compatível ou o inquebrable Enterprise kernel versão 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versões de kernel do Ubuntu com suporte para máquinas virtuais do Azure
@@ -147,16 +148,16 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9,25 | SP1 3.12.49-11-pad
 
 * Sistemas de arquivos: ext3, ext4, ReiserFS (somente SuSE Linux Enterprise Server), XFS, BTRFS
 * Gerenciador de volumes: LVM2
-* Software de vários caminhos: Mapeador de dispositivos
+* Software de vários caminhos: mapeador de dispositivos
 
 
 ## <a name="replicated-machines---compute-settings"></a>Máquinas replicadas – configurações de computação
 
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
-Size | Qualquer tamanho de VM do Azure com pelo menos 2 núcleos de CPU e 1 GB de RAM | Verifique os [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
+Tamanho | Qualquer tamanho de VM do Azure com pelo menos 2 núcleos de CPU e 1 GB de RAM | Verifique os [tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md).
 Conjuntos de disponibilidade | Suportadas | Se você habilitar a replicação para uma VM do Azure com as opções padrão, um conjunto de disponibilidade será criado automaticamente, com base nas configurações de região de origem. Você pode modificar essas configurações.
-Zonas de Disponibilidade | Suportadas |
+Zonas de disponibilidade | Suportadas |
 Benefício de uso híbrido (HUB) | Suportadas | Se a VM de origem tiver uma licença de HUB habilitada, um failover de teste ou VM que passou por failover também usará a licença de HUB.
 Conjuntos de dimensionamento de VMs | Não suportado |
 Imagens da galeria do Azure-publicado pela Microsoft | Suportadas | Com suporte se a VM for executada em um sistema operacional com suporte.
@@ -168,7 +169,7 @@ Extensões | Não suportado | As extensões não são replicadas para a VM de fa
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas-ações de disco
 
-**ação** | **Detalhes**
+**Ação** | **Detalhes**
 -- | ---
 Redimensionar disco na VM replicada | Suportadas
 Adicionar um disco a uma VM replicada | Suportadas
@@ -240,10 +241,10 @@ Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou superior |20 MB/s | 1684 GB po
 NIC | Número máximo com suporte para um tamanho específico de VM do Azure | As NICs são criadas quando a VM é criada durante o failover.<br/><br/> O número de NICs na VM de failover depende do número de NICs na VM de origem quando a replicação foi habilitada. Se você adicionar ou remover uma NIC depois de habilitar a replicação, ela não afetará o número de NICs na VM replicada após o failover. Observe também que a ordem de NICs após o failover não tem garantia de ser igual à ordem original.
 Balanceador de Carga de Externo | Suportadas | Associe o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
 Balanceador de carga interno | Suportadas | Associe o balanceador de carga pré-configurado usando um script de automação do Azure em um plano de recuperação.
-Endereço IP Público | Suportadas | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
+Endereço IP público | Suportadas | Associe um endereço IP público existente à NIC. Ou crie um endereço IP público e associe-o à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na NIC | Suportadas | Associe o NSG à NIC usando um script de automação do Azure em um plano de recuperação.
 NSG na sub-rede | Suportadas | Associe o NSG à sub-rede usando um script de automação do Azure em um plano de recuperação.
-Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM com failover.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede em**configurações** > de **itens** > replicados e**interfaces de rede**de**rede** > .
+Endereço IP reservado (estático) | Suportadas | Se a NIC na VM de origem tiver um endereço IP estático e a sub-rede de destino tiver o mesmo endereço IP disponível, ele será atribuído à VM com failover.<br/><br/> Se a sub-rede de destino não tiver o mesmo endereço IP disponível, um dos endereços IP disponíveis na sub-rede será reservado para a VM.<br/><br/> Você também pode especificar um endereço IP fixo e uma sub-rede em **itens replicados** > **configurações** > **computação e rede** >  interfaces de**rede**.
 Endereço IP dinâmico | Suportadas | Se a NIC na origem tiver um endereçamento IP dinâmico, a NIC na VM com failover também será dinâmica por padrão.<br/><br/> Você pode modificar isso para um endereço IP fixo, se necessário.
 Vários endereços IP | Não suportado | Quando você faz failover de uma VM que tem uma NIC com vários endereços IP, somente o endereço IP primário da NIC na região de origem é mantido. Para atribuir vários endereços IP, você pode adicionar VMs a um [plano de recuperação](recovery-plan-overview.md) e anexar um script para atribuir endereços IP adicionais ao plano ou pode fazer a alteração manualmente ou com um script após o failover. 
 Gestor de Tráfego     | Suportadas | Você pode pré-configurar o Gerenciador de tráfego para que o tráfego seja roteado para o ponto de extremidade na região de origem regularmente e para o ponto de extremidade na região de destino em caso de failover.
@@ -254,7 +255,7 @@ Proxy autenticado | Não suportado | Se a VM estiver usando um proxy autenticado
 Conexão VPN site a site para local<br/><br/>(com ou sem o ExpressRoute)| Suportadas | Verifique se o UDRs e o NSGs estão configurados de forma que o tráfego de Site Recovery não seja roteado para o local. [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)    
 Conexão VNET com VNET | Suportadas | [Saiba mais](site-recovery-azure-to-azure-networking-guidance.md)  
 Pontos Finais de Serviço de Rede Virtual | Suportadas | Se você estiver restringindo o acesso à rede virtual a contas de armazenamento, verifique se os serviços confiáveis da Microsoft têm permissão de acesso à conta de armazenamento.
-Funcionamento em rede acelerado | Suportadas | A rede acelerada deve estar habilitada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
+Redes aceleradas | Suportadas | A rede acelerada deve estar habilitada na VM de origem. [Saiba mais](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

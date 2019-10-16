@@ -9,18 +9,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648101"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331245"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gerenciar seu serviço de Azure Search com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -39,8 +39,8 @@ O PowerShell não pode ser usado para alterar o nome, a região ou a camada do s
 Embora não haja comandos dedicados do PowerShell para o gerenciamento de conteúdo, você pode escrever o script do PowerShell que chama REST ou .NET para criar e carregar índices. O módulo **AZ. Search** por si só não fornece essas operações.
 
 Outras tarefas sem suporte por meio do PowerShell ou de qualquer outra API (somente de Portal) incluem:
-+ [Anexe um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md) para indexação aprimorada de [ia](cognitive-search-concept-intro.md). Um serviço cognitiva é anexado a um contratador, não a uma assinatura ou serviço.
-+ [Soluções de monitoramento](search-monitor-usage.md#add-on-monitoring-solutions) de complemento ou [análise de tráfego de pesquisa](search-traffic-analytics.md) usada para monitoramento Azure Search.
++ [Anexe um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md) para [indexação aprimorada de ia](cognitive-search-concept-intro.md). Um serviço cognitiva é anexado a um contratador, não a uma assinatura ou serviço.
++ [Soluções de monitoramento de complemento](search-monitor-usage.md#add-on-monitoring-solutions) para monitoramento Azure Search.
 
 <a name="check-versions-and-load"></a>
 
@@ -72,7 +72,7 @@ Import-Module -Name Az
 
 ### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>Conectar-se ao Azure com um token de entrada do navegador
 
-Você pode usar suas credenciais de logon do portal para se conectar a uma assinatura no PowerShell. Como alternativa, você pode autenticar de [forma não interativa com uma entidade de serviço](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
+Você pode usar suas credenciais de logon do portal para se conectar a uma assinatura no PowerShell. Como alternativa, você pode [autenticar de forma não interativa com uma entidade de serviço](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ```azurepowershell-interactive
 Connect-AzAccount
@@ -84,7 +84,7 @@ Se você mantiver várias assinaturas do Azure, defina sua assinatura do Azure. 
 Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 ```
 
-Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, o nome da assinatura `ContosoSubscription`é.
+Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, o nome da assinatura é `ContosoSubscription`.
 
 ```azurepowershell-interactive
 Select-AzSubscription -SubscriptionName ContosoSubscription
@@ -94,7 +94,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-all-azure-search-services-in-your-subscription"></a>Listar todos os serviços de Azure Search em sua assinatura
 
-Os comandos a seguir são de [**AZ.** ](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)Resources, retornando informações sobre os recursos e serviços existentes já provisionados em sua assinatura. Se você não souber quantos serviços de pesquisa já foram criados, esses comandos retornarão essas informações, poupando uma viagem ao Portal.
+Os comandos a seguir são de [**AZ. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), retornando informações sobre os recursos e serviços existentes já provisionados em sua assinatura. Se você não souber quantos serviços de pesquisa já foram criados, esses comandos retornarão essas informações, poupando uma viagem ao Portal.
 
 O primeiro comando retorna todos os serviços de pesquisa.
 
@@ -197,11 +197,11 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) é usado para sobrepor chaves de [API](search-security-api-keys.md)de administração. Duas chaves de administração são criadas com cada serviço para acesso autenticado. As chaves são necessárias em cada solicitação. Ambas as chaves de administração são funcionalmente equivalentes, concedendo acesso de gravação total a um serviço de pesquisa com a capacidade de recuperar qualquer informação ou criar e excluir qualquer objeto. Existem duas chaves para que você possa usar uma enquanto substitui a outra. 
 
-Você só pode gerar um de cada vez, especificado como a `primary` chave ou. `secondary` Para o serviço ininterrupto, lembre-se de atualizar todo o código do cliente para usar uma chave secundária ao reverter a chave primária. Evite alterar as chaves enquanto as operações estiverem em trânsito.
+Você só pode gerar um de cada vez, especificado como a chave `primary` ou `secondary`. Para o serviço ininterrupto, lembre-se de atualizar todo o código do cliente para usar uma chave secundária ao reverter a chave primária. Evite alterar as chaves enquanto as operações estiverem em trânsito.
 
 Como você deve esperar, se você regenerar chaves sem Atualizar o código do cliente, as solicitações que usam a chave antiga falharão. A regeneração de todas as novas chaves não o bloqueia permanentemente de seu serviço e você ainda pode acessar o serviço por meio do Portal. Depois de regenerar chaves primárias e secundárias, você pode atualizar o código do cliente para usar as novas chaves e as operações serão retomadas de acordo.
 
-Os valores para as chaves de API são gerados pelo serviço. Você não pode fornecer uma chave personalizada para Azure Search usar. Da mesma forma, não há nenhum nome definido pelo usuário para as chaves de API de administração. As referências à chave são cadeias de caracteres `primary` fixas, ou `secondary`. 
+Os valores para as chaves de API são gerados pelo serviço. Você não pode fornecer uma chave personalizada para Azure Search usar. Da mesma forma, não há nenhum nome definido pelo usuário para as chaves de API de administração. As referências à chave são cadeias de caracteres fixas, `primary` ou `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -253,7 +253,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Crie um [índice](search-what-is-an-index.md), [consulte um índice](search-query-overview.md) usando o portal, as APIs REST ou o SDK do .net.
 

@@ -1,6 +1,6 @@
 ---
 title: Escolha um tipo de preço ou SKU para Azure Search serviço-Azure Search
-description: 'Azure Search pode ser provisionado nestas SKUs: Gratuito, básico e Standard, e Standard está disponível em várias configurações de recursos e níveis de capacidade.'
+description: 'Azure Search pode ser provisionado nestes SKUs: gratuito, básico e Standard, e Standard está disponível em várias configurações de recursos e níveis de capacidade.'
 services: search
 author: HeidiSteen
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647352"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331198"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um tipo de preço para Azure Search
 
@@ -25,7 +25,7 @@ A maioria dos clientes começa com a camada gratuita para que eles possam avalia
 Embora todas as camadas, incluindo a camada gratuita, geralmente ofereçam paridade de recursos, cargas de trabalho maiores podem determinar a necessidade de camadas mais altas. Por exemplo, a [enriquecimento do ia com serviços cognitivas](cognitive-search-concept-intro.md) tem habilidades de longa execução que expiram em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 
 > [!NOTE] 
-> A exceção à paridade de recursos [](search-indexer-overview.md)é indexadores, que não estão disponíveis em S3 HD.
+> A exceção à paridade de recursos é [indexadores](search-indexer-overview.md), que não estão disponíveis em S3 HD.
 >
 
 <!-- For Basic tier and up, you can [adjust replica and partition resources](search-capacity-planning.md) to increase or decrease scale. You could start with one or two of each and then temporarily raise your computational power for a heavy indexing workload. The ability to tune resource levels within a tier adds flexibility, but also slightly complicates your analysis. You might have to experiment to see whether a lower tier with more resources/replicas offers better value and performance than a higher tier with fewer resources. To learn more about when and why you would adjust capacity, see [Performance and optimization considerations](search-performance-optimization.md). -->
@@ -41,7 +41,7 @@ A camada selecionada determina a taxa faturável. A captura de tela a seguir de 
 
 **Gratuito** cria um serviço de pesquisa limitado em um cluster, compartilhado com outros assinantes. Você pode concluir projetos pequenos, incluindo guias de início rápido e tutoriais, mas não pode dimensionar o serviço ou executar cargas de trabalho significativas. **Básico** e **Standard** são as camadas faturáveis usadas com mais frequência, com **padrão** sendo o padrão.
 
-![Tipos de preço do Azure Search](media/search-sku-tier/tiers.png "Tipos de preço do Azure Search")
+![Tipos de preço de Azure Search](media/search-sku-tier/tiers.png "tipos de preço de Azure Search")
 
 Algumas camadas são otimizadas para determinados tipos de trabalho. Por exemplo, a **alta densidade padrão (S3 HD)** é um *modo de hospedagem* para S3, em que o hardware subjacente é otimizado para um grande número de índices menores e destina-se a cenários de multilocação. S3 HD tem o mesmo encargo por unidade que S3, mas o hardware é otimizado para leituras rápidas de arquivos em um grande número de índices menores.
 
@@ -81,8 +81,8 @@ Para [aprimorar o ia com serviços cognitivas](cognitive-search-concept-intro.md
 
 | Operação | Impacto de cobrança |
 |-----------|----------------|
-| Quebra de documentos, extração de texto | Livre |
-| Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas dos seus documentos. Em uma [configuração](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)de indexador , imageaction é o parâmetro que dispara a extração de imagem. Se **imageaction** for definido como "None" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagem é documentada na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) para Azure Search.|
+| Quebra de documentos, extração de texto | Gratuito |
+| Quebra de documento, extração de imagem | Cobrado de acordo com o número de imagens extraídas dos seus documentos. Em uma [configuração de indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageaction** é o parâmetro que dispara a extração de imagem. Se **imageaction** for definido como "None" (o padrão), você não será cobrado pela extração de imagem. A taxa de extração de imagem é documentada na página de [detalhes de preços](https://azure.microsoft.com/pricing/details/search/) para Azure Search.|
 | [Habilidades cognitivas predefinidas](cognitive-search-predefined-skills.md) | Cobrado na mesma taxa que se você executou a tarefa usando serviços cognitivas diretamente. |
 | Competências personalizadas | Uma habilidade personalizada é A funcionalidade que você fornece. O custo de usar uma habilidade personalizada depende totalmente de se o código personalizado está chamando outros serviços medidos. |
 
@@ -191,7 +191,7 @@ Os recursos dedicados podem acomodar grandes períodos de amostragem e processam
 
 1. [Crie um índice inicial](search-create-index-portal.md) para determinar como os dados de origem são convertidos em um índice. Essa é a única maneira de estimar o tamanho do índice.
 
-1. [Monitore o armazenamento, os limites de serviço, o volume de consulta e a latência](search-monitor-usage.md) no Portal. O portal mostra as consultas por segundo, as consultas limitadas e a latência de pesquisa. Todos esses valores podem ajudá-lo a decidir se selecionou a camada certa. Você também pode configurar o monitoramento profundo de valores como análise de clickthrough habilitando a [análise do tráfego de pesquisa](search-traffic-analytics.md).
+1. [Monitore o armazenamento, os limites de serviço, o volume de consulta e a latência](search-monitor-usage.md) no Portal. O portal mostra as consultas por segundo, as consultas limitadas e a latência de pesquisa. Todos esses valores podem ajudá-lo a decidir se selecionou a camada certa. 
 
 O número de índice e o tamanho são igualmente importantes para sua análise. Isso ocorre porque os limites máximos são atingidos por meio da utilização total de armazenamento (partições) ou por limites máximos de recursos (índices, indexadores e assim por diante), o que vier primeiro. O portal ajuda você a manter o controle de ambos, mostrando o uso atual e os limites máximos lado a lado na página Visão geral.
 
@@ -215,8 +215,6 @@ Os recursos de camada gratuita e visualização não fornecem [contratos de nív
 
 ## <a name="tips-for-tier-evaluation"></a>Dicas para avaliação de camada
 
-+ Saiba como criar índices eficientes e saiba quais métodos de atualização têm o menor impacto. Use a [análise de tráfego de pesquisa](search-traffic-analytics.md) para obter informações sobre a atividade de consulta.
-
 + Permitir que as métricas sejam compiladas em consultas e coletar dados sobre padrões de uso (consultas durante o horário comercial, indexação fora do horário de pico). Use esses dados para informar as decisões de provisionamento do serviço. Embora não seja prático em uma cadência de hora ou diária, você pode ajustar dinamicamente as partições e os recursos para acomodar as alterações planejadas nos volumes de consulta. Você também pode acomodar alterações não planejadas, mas sustentadas, se os níveis tiverem tempo suficiente para garantir a tomada de ações.
 
 + Lembre-se de que a única desvantagem de subprovisionamento é que você pode precisar subdividir um serviço se os requisitos reais forem maiores do que suas previsões. Para evitar a interrupção do serviço, você deve criar um novo serviço na mesma assinatura em uma camada superior e executá-lo lado a lado até que todos os aplicativos e solicitações tenham como destino o novo ponto de extremidade.
@@ -225,7 +223,7 @@ Os recursos de camada gratuita e visualização não fornecem [contratos de nív
 
 Comece com uma camada gratuita e crie um índice inicial usando um subconjunto de seus dados para entender suas características. A estrutura de dados no Azure Search é uma estrutura de índice invertida. O tamanho e a complexidade de um índice invertido são determinados pelo conteúdo. Lembre-se de que o conteúdo altamente redundante tende a resultar em um índice menor do que conteúdo altamente irregular. Portanto, as características de conteúdo, em vez do tamanho do conjunto de os, determinam os requisitos de armazenamento de índice
 
-Depois de ter uma estimativa inicial do tamanho do índice, [provisione um serviço Faturável](search-create-service-portal.md) em uma das camadas discutidas neste artigo: Básico, Standard ou de armazenamento otimizado. Relaxe quaisquer restrições artificiais no dimensionamento de dados e [recompile o índice](search-howto-reindex.md) para incluir todos os dados que você deseja que sejam pesquisáveis.
+Depois de ter uma estimativa inicial do tamanho do índice, [provisione um serviço Faturável](search-create-service-portal.md) em uma das camadas discutidas neste artigo: básico, Standard ou armazenamento otimizado. Relaxe quaisquer restrições artificiais no dimensionamento de dados e [recompile o índice](search-howto-reindex.md) para incluir todos os dados que você deseja que sejam pesquisáveis.
 
 [Aloque partições e réplicas](search-capacity-planning.md) conforme necessário para obter o desempenho e a escala necessários.
 

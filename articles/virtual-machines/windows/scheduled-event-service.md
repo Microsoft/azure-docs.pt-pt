@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051851"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376203"
 ---
 # <a name="monitoring-scheduled-events"></a>Eventos Agendados de monitoramento
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Baixe o arquivo. zip de instalação do projeto do [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que `SchService.ps1`contém, por exemplo `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`:, e configure o serviço.
+Conecte-se ao **myCollectorVM** e copie o arquivo. zip para a máquina virtual e Extraia todos os arquivos. Em sua VM, abra um prompt do PowerShell. Mova o prompt para a pasta que contém `SchService.ps1`, por exemplo: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` e configure o serviço.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -98,7 +98,7 @@ Quando os eventos são capturados pelo serviço de eventos de agendamento, eles 
 >
 > Para nossa configuração, escolhemos o Windows, mas você pode criar uma solução semelhante no Linux.
 
-A qualquer momento, você pode parar/remover o serviço de evento agendado usando `–stop` as `–remove`opções e.
+A qualquer momento, você pode parar/remover o serviço de evento agendado usando as opções `–stop` e `–remove`.
 
 ## <a name="connect-to-the-workspace"></a>Conectar-se ao espaço de trabalho
 
@@ -159,12 +159,12 @@ Depois que os eventos forem enviados para Log Analytics, você poderá executar 
 
 1. Selecione **nova regra de alerta**. 
 1. Na página **criar regra** , deixe `collectorworkspace` como o **recurso**.
-1. Em **condição**, selecione a entrada *sempre que a pesquisa de logs <login undefined>do cliente for* . A página **Configurar lógica de sinal** será aberta.
+1. Em **condição**, selecione a entrada *sempre que a pesquisa de logs do cliente for <login undefined>* . A página **Configurar lógica de sinal** será aberta.
 1. Em **valor do limite**, insira *0* e, em seguida, selecione **concluído**.
 1. Em **ações**, selecione **Criar grupo de ações**. A página **Adicionar grupo de ações** será aberta.
-1. Em **nome do grupo de ações**, digite myaction.
+1. Em **nome do grupo de ações**, digite *myaction*.
 1. Em **nome curto**, digite **myaction**.
-1. Em **grupo de recursos**, selecione *myResourceGroupAvailability* *.
+1. Em **grupo de recursos**, selecione **myResourceGroupAvailability**.
 1. Em ações, em **nome da ação** , digite **email**e, em seguida, selecione **email/SMS/Push/voz**. A página **email/SMS/Push/voz** será aberta.
 1. Selecione **email**, digite seu endereço de email e, em seguida, selecione **OK**.
 1. Na página **Adicionar grupo de ações** , selecione **OK**. 
@@ -175,6 +175,6 @@ Depois que os eventos forem enviados para Log Analytics, você poderá executar 
 Para gerenciar suas regras de alerta, vá para o grupo de recursos, selecione **alertas** no menu à esquerda e, em seguida, selecione **gerenciar regras de alerta** na parte superior da página.
 
      
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte a página de [serviço de eventos agendados](https://github.com/microsoft/AzureScheduledEventsService) no github.

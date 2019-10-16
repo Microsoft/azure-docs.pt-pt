@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70812679"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Provisionamento de aplicativo baseado em atributo com filtros de escopo
@@ -65,7 +65,7 @@ De acordo com esse filtro de escopo, os usuários devem atender aos seguintes cr
 Os filtros de escopo são configurados como parte dos mapeamentos de atributo para cada conector de provisionamento de usuário do Azure AD. O procedimento a seguir pressupõe que você já configurou o provisionamento automático para [um dos aplicativos com suporte](../saas-apps/tutorial-list.md) e está adicionando um filtro de escopo a ele.
 
 ### <a name="create-a-scoping-filter"></a>Criar um filtro de escopo
-1. Na [portal do Azure](https://portal.azure.com), acesse a seção **Azure Active Directory** > **aplicativos** > empresariais**todos os aplicativos** .
+1. Na [portal do Azure](https://portal.azure.com), vá para a seção **Azure Active Directory** > **aplicativos empresariais** > **todos os aplicativos** .
 
 2. Selecione o aplicativo para o qual você configurou o provisionamento automático: por exemplo, "ServiceNow".
 
@@ -79,21 +79,21 @@ Os filtros de escopo são configurados como parte dos mapeamentos de atributo pa
 
 7. Defina uma cláusula selecionando um **nome de atributo**de origem, um **operador**e um **valor de atributo** para correspondência. Há suporte para os seguintes operadores:
 
-   a. **É IGUAL A**. A cláusula retornará "true" se o atributo avaliado corresponder ao valor da cadeia de caracteres de entrada exatamente (maiúsculas e minúsculas).
+   a. **É igual a**. A cláusula retornará "true" se o atributo avaliado corresponder ao valor da cadeia de caracteres de entrada exatamente (maiúsculas e minúsculas).
 
-   b. **NÃO É IGUAL A**. A cláusula retornará "true" se o atributo avaliado não corresponder ao valor da cadeia de caracteres de entrada (diferencia maiúsculas de minúsculas).
+   b. **não é igual a**. A cláusula retornará "true" se o atributo avaliado não corresponder ao valor da cadeia de caracteres de entrada (diferencia maiúsculas de minúsculas).
 
-   c. **É VERDADEIRO**. A cláusula retornará "true" se o atributo avaliado contiver um valor booliano de true.
+   c. **é verdadeiro**. A cláusula retornará "true" se o atributo avaliado contiver um valor booliano de true.
 
-   d. **É FALSE**. A cláusula retornará "true" se o atributo avaliado contiver um valor booliano de false.
+   d. **é false**. A cláusula retornará "true" se o atributo avaliado contiver um valor booliano de false.
 
-   e. **É NULO**. A cláusula retornará "true" se o atributo avaliado estiver vazio.
+   e. **é nulo**. A cláusula retornará "true" se o atributo avaliado estiver vazio.
 
-   f. **NÃO É NULO**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
+   f. **não é nulo**. A cláusula retornará "true" se o atributo avaliado não estiver vazio.
 
-   g. **CORRESPONDÊNCIA DE REGEX**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por exemplo: ([1-9] [0-9]) corresponde a qualquer número entre 10 e 99.
+   g. **correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado corresponder a um padrão de expressão regular. Por exemplo: ([1-9] [0-9]) corresponde a qualquer número entre 10 e 99.
 
-   h. **NÃO HÁ CORRESPONDÊNCIA DE REGEX**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
+   h. **não há correspondência de Regex**. A cláusula retornará "true" se o atributo avaliado não corresponder a um padrão de expressão regular.
 
 8. Selecione **Adicionar novo escopo cláusula**.
 

@@ -1,6 +1,6 @@
 ---
-title: Aplicação gerida do Azure com a identidade gerida
-description: Saiba como configurar uma aplicação gerida com uma identidade gerida. Identidade gerida pode ser utilizada para implementar aplicações geridas ligado a recursos existentes, conceda as aplicações geridas para gerir recursos do Azure fora do grupo de recursos gerido e fornecer uma identidade operacional das aplicações geridas para o registo de atividades e outros serviços no Azure.
+title: Aplicativo gerenciado do Azure com identidade gerenciada
+description: Configure o aplicativo gerenciado com identidade gerenciada para vincular a recursos existentes, gerenciar recursos do Azure e fornecer a identidade operacional para o log de atividades.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -8,36 +8,36 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e1f5072921104c749a0acef95b7da09f1cbb662
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434868"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330230"
 ---
-# <a name="azure-managed-application-with-managed-identity"></a>Aplicação gerida do Azure com a identidade gerida
+# <a name="azure-managed-application-with-managed-identity"></a>Aplicativo gerenciado do Azure com identidade gerenciada
 
 > [!NOTE]
-> Suporte de identidade gerida para aplicações geridas está atualmente em pré-visualização. Utilize a versão de api de 2018-09-01-pré-visualização para utilizar a identidade gerida.
+> O suporte de identidade gerenciada para aplicativos gerenciados está atualmente em versão prévia. Use a versão da API 2018-09-01-Preview para utilizar a identidade gerenciada.
 
-Saiba como configurar uma aplicação gerida para conter uma identidade gerida. Identidade gerida pode ser utilizada para permitir que o cliente conceder o acesso de aplicação gerida para recursos adicionais de existentes. A identidade é gerida pela plataforma do Azure e não necessita de aprovisionar ou girar quaisquer segredos. Para mais informações sobre identidades geridas no Azure Active Directory (AAD), consulte [geridos identidades para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Saiba como configurar um aplicativo gerenciado para conter uma identidade gerenciada. A identidade gerenciada pode ser usada para permitir que o cliente conceda acesso de aplicativo gerenciado a recursos adicionais existentes. A identidade é gerenciada pela plataforma do Azure e não exige que você provisione ou gire segredos. Para obter mais informações sobre identidades gerenciadas no Azure Active Directory (AAD), consulte [identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-Seu aplicativo pode ser concedido a dois tipos de identidades:
+Seu aplicativo pode receber dois tipos de identidades:
 
-- R **atribuído ao sistema de identidade** está associada ao seu aplicativo e é eliminado se a aplicação for eliminada. Uma aplicação só pode ter uma identidade atribuída de sistema.
-- R **atribuído ao utilizador identidade** é autónomo recursos do Azure que podem ser atribuídos à sua aplicação. Uma aplicação pode ter várias identidades atribuído ao utilizador.
+- Uma **identidade atribuída pelo sistema** é vinculada ao seu aplicativo e é excluída se seu aplicativo for excluído. Um aplicativo pode ter apenas uma identidade atribuída pelo sistema.
+- Uma **identidade atribuída pelo usuário** é um recurso autônomo do Azure que pode ser atribuído ao seu aplicativo. Um aplicativo pode ter várias identidades atribuídas pelo usuário.
 
-## <a name="how-to-use-managed-identity"></a>Como utilizar a identidade gerido
+## <a name="how-to-use-managed-identity"></a>Como usar a identidade gerenciada
 
-Identidade gerida permite vários cenários para aplicações geridas. Seguem-se alguns cenários comuns que podem ser resolvidos:
+A identidade gerenciada permite muitos cenários para aplicativos gerenciados. Alguns cenários comuns que podem ser resolvidos são:
 
-- Implantando um aplicativo geridos ligados aos recursos do Azure existentes. Um exemplo é implementar uma máquina virtual do Azure (VM) na aplicação gerida que está ligado a uma [interface de rede existente](../virtual-network/virtual-network-network-interface-vm.md).
-- Conceder o acesso de aplicação gerida e o publisher para recursos do Azure fora da **grupo de recursos gerido**.
-- Proporcionar uma identidade operacional das aplicações geridas para o registo de atividades e outros serviços no Azure.
+- Implantando um aplicativo gerenciado vinculado aos recursos existentes do Azure. Um exemplo é implantar uma VM (máquina virtual) do Azure dentro do aplicativo gerenciado que está anexado a uma [interface de rede existente](../virtual-network/virtual-network-network-interface-vm.md).
+- Concedendo o acesso do aplicativo gerenciado e do Publicador aos recursos do Azure fora do **grupo de recursos gerenciado**.
+- Fornecer uma identidade operacional de aplicativos gerenciados para o log de atividades e outros serviços no Azure.
 
-## <a name="adding-managed-identity"></a>Adicionar identidade gerida
+## <a name="adding-managed-identity"></a>Adicionando identidade gerenciada
 
-Criando um aplicativo gerenciado com uma identidade gerida necessita de uma propriedade adicional para ser definida no recurso do Azure. O exemplo seguinte mostra um exemplo **identidade** propriedade:
+A criação de um aplicativo gerenciado com uma identidade gerenciada requer que uma propriedade adicional seja definida no recurso do Azure. O exemplo a seguir mostra uma propriedade de **identidade** de exemplo:
 
 ```json
 {
@@ -49,11 +49,11 @@ Criando um aplicativo gerenciado com uma identidade gerida necessita de uma prop
 }
 ```
 
-Existem duas formas comuns para criar uma aplicação gerida com **identidade**: [Createuidefinition](./create-uidefinition-overview.md) e [modelos Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Para único simple criar cenários, CreateUIDefinition deve ser utilizado para ativar a identidade gerido, porque fornece uma experiência mais rica. No entanto, ao lidar com avançado ou complexos automatizada de sistemas que necessitam ou várias implementações de aplicações geridas, modelos podem ser utilizadas.
+Há duas maneiras comuns de criar um aplicativo gerenciado com **identidade**: [CreateUIDefinition. JSON](./create-uidefinition-overview.md) e [modelos de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md). Para cenários simples de criação única, o CreateUIDefinition deve ser usado para habilitar a identidade gerenciada, pois fornece uma experiência mais rica. No entanto, ao lidar com sistemas avançados ou complexos que exigem implantações automatizadas de aplicativos gerenciados ou múltiplas, os modelos podem ser usados.
 
 ### <a name="using-createuidefinition"></a>Usando CreateUIDefinition
 
-Uma aplicação gerida pode ser configurada com a identidade gerida através da [Createuidefinition](./create-uidefinition-overview.md). Na [secção de saídas](./create-uidefinition-overview.md#outputs), a chave `managedIdentity` pode ser utilizado para substituir a propriedade de identidade do modelo do aplicativo gerenciado. O abaixo de exemplo permitirá **atribuído ao sistema** identidade sobre a aplicação gerida. Objetos mais complexos de identidade podem ser constituídos por utilizando os elementos de CreateUIDefinition pedir o consumidor de entradas de dados. Estas entradas podem ser utilizadas para construir aplicações geridas com **atribuído ao utilizador identidade**.
+Um aplicativo gerenciado pode ser configurado com identidade gerenciada por meio do [CreateUIDefinition. JSON](./create-uidefinition-overview.md). Na [seção de saídas](./create-uidefinition-overview.md#outputs), a chave `managedIdentity` pode ser usada para substituir a propriedade Identity do modelo de aplicativo gerenciado. O abaixo de exemplo permitirá a identidade **atribuída pelo sistema** no aplicativo gerenciado. Objetos de identidade mais complexos podem ser formados usando elementos CreateUIDefinition para solicitar entradas ao consumidor. Essas entradas podem ser usadas para construir aplicativos gerenciados com **identidades atribuídas pelo usuário**.
 
 ```json
 "outputs": {
@@ -61,17 +61,17 @@ Uma aplicação gerida pode ser configurada com a identidade gerida através da 
 }
 ```
 
-#### <a name="when-to-use-createuidefinition-for-managed-identity"></a>Quando utilizar CreateUIDefinition para a identidade gerido
+#### <a name="when-to-use-createuidefinition-for-managed-identity"></a>Quando usar o CreateUIDefinition para identidade gerenciada
 
-Seguem-se algumas recomendações sobre quando usar CreateUIDefinition para ativar a identidade gerida em aplicações geridas.
+Abaixo estão algumas recomendações sobre quando usar o CreateUIDefinition para habilitar a identidade gerenciada em aplicativos gerenciados.
 
-- A criação de aplicações geridas vai através do portal do Azure ou do marketplace.
-- A identidade gerida requer intervenção do consumidor complexos.
-- A identidade gerida é necessária após a criação da aplicação gerida.
+- A criação do aplicativo gerenciado passa pelo portal do Azure ou pelo Marketplace.
+- A identidade gerenciada requer uma entrada de consumidor complexa.
+- A identidade gerenciada é necessária na criação do aplicativo gerenciado.
 
 #### <a name="systemassigned-createuidefinition"></a>SystemAssigned CreateUIDefinition
 
-Um CreateUIDefinition básico que permite a identidade de SystemAssigned para a aplicação gerida.
+Um CreateUIDefinition básico que habilita a identidade SystemAssigned para o aplicativo gerenciado.
 
 ```json
 {
@@ -91,9 +91,9 @@ Um CreateUIDefinition básico que permite a identidade de SystemAssigned para a 
 }
 ```
 
-#### <a name="userassigned-createuidefinition"></a>UserAssigned CreateUIDefinition
+#### <a name="userassigned-createuidefinition"></a>CreateUIDefinition userassigned
 
-Um CreateUIDefinition básico que usa um **atribuído ao utilizador identidade** recursos como entrada e permite que a identidade de UserAssigned para a aplicação gerida.
+Um CreateUIDefinition básico que usa um recurso de **identidade atribuído pelo usuário** como entrada e habilita a identidade useratribuída para o aplicativo gerenciado.
 
 ```json
 {
@@ -131,29 +131,29 @@ Um CreateUIDefinition básico que usa um **atribuído ao utilizador identidade**
 }
 ```
 
-Createuidefinition acima gera uma experiência de utilizador de criar com uma caixa de texto para um consumidor introduzir os **atribuído ao utilizador identidade** ID de recurso do Azure. A experiência gerada teria o seguinte aspeto:
+O CreateUIDefinition. JSON acima gera uma experiência de usuário de criação que tem uma caixa de texto para que um consumidor Insira a ID de recurso do Azure de **identidade atribuída pelo usuário** . A experiência gerada teria a seguinte aparência:
 
-![Identidade de utilizador atribuída de exemplo CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
+![Exemplo de identidade atribuída pelo usuário CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Utilizando modelos Azure Resource Manager
+### <a name="using-azure-resource-manager-templates"></a>Usando modelos de Azure Resource Manager
 
 > [!NOTE]
-> Modelos de aplicação gerida do Marketplace são gerados automaticamente para os clientes através do portal do Azure criam a experiência.
-> Nestes cenários, o `managedIdentity` chave de saída na CreateUIDefinition deve ser usado para ativada a identidade.
+> Os modelos de aplicativo gerenciado do Marketplace são gerados automaticamente para clientes que passam pela experiência de criação de portal do Azure.
+> Para esses cenários, a chave de saída `managedIdentity` no CreateUIDefinition deve ser usada para habilitar a identidade.
 
-Também pode ser ativada a identidade gerida através de modelos Azure Resource Manager. O abaixo de exemplo permitirá **atribuído ao sistema** identidade sobre a aplicação gerida. Objetos mais complexos de identidade podem ser formados utilizando parâmetros de modelo do Azure Resource Manager para fornecer entradas. Estas entradas podem ser utilizadas para construir aplicações geridas com **atribuído ao utilizador identidade**.
+A identidade gerenciada também pode ser habilitada por meio de modelos de Azure Resource Manager. O abaixo de exemplo permitirá a identidade **atribuída pelo sistema** no aplicativo gerenciado. Objetos de identidade mais complexos podem ser formados usando Azure Resource Manager parâmetros de modelo para fornecer entradas. Essas entradas podem ser usadas para construir aplicativos gerenciados com **identidades atribuídas pelo usuário**.
 
-#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>Quando utilizar os modelos Azure Resource Manager para a identidade gerido
+#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>Quando usar modelos de Azure Resource Manager para identidade gerenciada
 
-Seguem-se algumas recomendações sobre quando usar os modelos Azure Resource Manager para ativar a identidade gerida em aplicações geridas.
+Abaixo estão algumas recomendações sobre quando usar modelos de Azure Resource Manager para habilitar a identidade gerenciada em aplicativos gerenciados.
 
-- Aplicações geridas podem ser implementadas de por meio de programação com base num modelo.
-- Atribuições de função personalizada para a identidade gerida são necessários para aprovisionar a aplicação gerida.
-- A aplicação gerida não é necessário o fluxo de criação de portal e do marketplace do Azure.
+- Os aplicativos gerenciados podem ser implantados programaticamente com base em um modelo.
+- As atribuições de função personalizadas para a identidade gerenciada são necessárias para provisionar o aplicativo gerenciado.
+- O aplicativo gerenciado não precisa do portal do Azure e do fluxo de criação do Marketplace.
 
-#### <a name="systemassigned-template"></a>Modelo de SystemAssigned
+#### <a name="systemassigned-template"></a>Modelo SystemAssigned
 
-Um modelo básico do Azure Resource Manager que implementa uma aplicação gerida com **atribuído ao sistema** identidade.
+Um modelo de Azure Resource Manager básico que implanta um aplicativo gerenciado com identidade **atribuída pelo sistema** .
 
 ```json
 "resources": [
@@ -173,9 +173,9 @@ Um modelo básico do Azure Resource Manager que implementa uma aplicação gerid
 ]
 ```
 
-### <a name="userassigned-template"></a>Modelo de UserAssigned
+### <a name="userassigned-template"></a>Modelo userassigned
 
-Um modelo básico do Azure Resource Manager que implementa uma aplicação gerida com um **atribuído ao utilizador identidade**.
+Um modelo de Azure Resource Manager básico que implanta um aplicativo gerenciado com uma **identidade atribuída pelo usuário**.
 
 ```json
 "resources": [
@@ -204,24 +204,24 @@ Um modelo básico do Azure Resource Manager que implementa uma aplicação gerid
 ]
 ```
 
-## <a name="granting-access-to-azure-resources"></a>Conceder acesso aos recursos do Azure
+## <a name="granting-access-to-azure-resources"></a>Concedendo acesso aos recursos do Azure
 
-Depois de uma aplicação gerida é concedida uma identidade, ele pode ser concedido acesso aos recursos do azure existentes. Este processo pode ser feito por meio da interface do controlo (IAM) de acesso no portal do Azure. O nome da aplicação gerida ou **atribuído ao utilizador identidade** pode ser pesquisado para adicionar uma atribuição de função.
+Depois que um aplicativo gerenciado recebe uma identidade, ele pode receber acesso a recursos existentes do Azure. Esse processo pode ser feito por meio da interface de controle de acesso (IAM) no portal do Azure. O nome do aplicativo gerenciado ou da **identidade atribuída pelo usuário** pode ser pesquisado para adicionar uma atribuição de função.
 
-![Adicionar atribuição de função para a aplicação gerida](./media/publish-managed-identity/identity-role-assignment.png)
+![Adicionar atribuição de função para aplicativo gerenciado](./media/publish-managed-identity/identity-role-assignment.png)
 
-## <a name="linking-existing-azure-resources"></a>Ligar os recursos do Azure existentes
+## <a name="linking-existing-azure-resources"></a>Vinculando recursos existentes do Azure
 
 > [!NOTE]
-> R **atribuído ao utilizador identidade** tem de ser [configurado](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) antes de implementar a aplicação gerida. Além disso, a implementação de recurso ligado das aplicações geridas só é suportada para o **marketplace** tipo.
+> Uma **identidade atribuída pelo usuário** deve ser [configurada](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) antes da implantação do aplicativo gerenciado. Além disso, a implantação de recursos vinculados de aplicativos gerenciados tem suporte apenas para o tipo **Marketplace** .
 
-Identidade gerida também pode ser utilizada para implementar uma aplicação gerida que necessite de acesso a recursos existentes durante a implementação. Quando a aplicação gerida é aprovisionada pelo cliente, **identidiades atribuídas** podem ser adicionados para fornecer autorizações adicionais para o **mainTemplate** implementação.
+A identidade gerenciada também pode ser usada para implantar um aplicativo gerenciado que requer acesso a recursos existentes durante sua implantação. Quando o aplicativo gerenciado é provisionado pelo cliente, as **identidades atribuídas pelo usuário** podem ser adicionadas para fornecer autorizações adicionais à implantação do **MainTemplate** .
 
-### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>Criação CreateUIDefinition com um recurso ligado
+### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>Criando o CreateUIDefinition com um recurso vinculado
 
-Quando ligar a implementação da aplicação gerida a recursos existentes, tanto o recurso do Azure existente e um **atribuído ao utilizador identidade** com a função aplicável atribuição esse recurso tem de ser fornecida.
+Ao vincular a implantação do aplicativo gerenciado aos recursos existentes, o recurso do Azure existente e uma **identidade atribuída pelo usuário** com a atribuição de função aplicável nesse recurso devem ser fornecidos.
 
- Um exemplo CreateUIDefinition requer duas entradas: um ID de recurso de interface de rede e um id de recurso de identidade atribuída ao utilizador.
+ Um CreateUIDefinition de exemplo que requer duas entradas: uma ID de recurso de interface de rede e uma ID de recurso de identidade atribuída pelo usuário.
 
 ```json
 {
@@ -269,15 +269,15 @@ Quando ligar a implementação da aplicação gerida a recursos existentes, tant
 }
 ```
 
-Este Createuidefinition gera uma experiência de utilizador de criar que tem dois campos. O primeiro campo permite ao utilizador introduzir o ID de recurso do Azure para o recurso a ser ligado a implementação da aplicação gerida. A segunda é para um consumidor introduzir os **atribuído ao utilizador identidade** ID de recurso do Azure, que tem acesso ao recurso do Azure ligado. A experiência gerada teria o seguinte aspeto:
+Esse CreateUIDefinition. JSON gera uma experiência de usuário de criação que tem dois campos. O primeiro campo permite que o usuário insira na ID de recurso do Azure para o recurso que está sendo vinculado à implantação de aplicativo gerenciado. O segundo é que um consumidor Insira a ID de recurso do Azure **atribuída pelo usuário** , que tem acesso ao recurso vinculado do Azure. A experiência gerada teria a seguinte aparência:
 
-![CreateUIDefinition com duas entradas de exemplo: ID de recurso e um ID de recurso de identidade atribuída ao utilizador uma interface de rede](./media/publish-managed-identity/network-interface-cuid.png)
+![Exemplo de CreateUIDefinition com duas entradas: uma ID de recurso de interface de rede e uma ID de recurso de identidade atribuída pelo usuário](./media/publish-managed-identity/network-interface-cuid.png)
 
-### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>Criação mainTemplate com um recurso ligado
+### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>Criando o MainTemplate com um recurso vinculado
 
-Além de atualizar o CreateUIDefinition, o modelo principal também precisa de ser atualizado para aceitar o com êxito no ID de recurso ligado. O modelo principal pode ser atualizado para aceitar a saída nova, adicionando um novo parâmetro. Uma vez que o `managedIdentity` saída substitui o valor no modelo de aplicação gerida gerado, mas não é passada para o modelo principal e não devem ser incluída na secção de parâmetros.
+Além de atualizar o CreateUIDefinition, o modelo principal também precisa ser atualizado para aceitar o passado na ID de recurso vinculada. O modelo principal pode ser atualizado para aceitar a nova saída adicionando um novo parâmetro. Como a saída `managedIdentity` substitui o valor no modelo de aplicativo gerenciado gerado, ele não é passado para o modelo principal e não deve ser incluído na seção de parâmetros.
 
-Um modelo de principal de exemplo que define o perfil de rede a uma interface de rede existentes fornecida pela CreateUIDefinition.
+Um modelo principal de exemplo que define o perfil de rede para uma interface de rede existente fornecida pelo CreateUIDefinition.
 
 ```json
 {
@@ -309,17 +309,17 @@ Um modelo de principal de exemplo que define o perfil de rede a uma interface de
 }
 ```
 
-### <a name="consuming-the-managed-application-with-a-linked-resource"></a>Consumir a aplicação gerida com um recurso ligado
+### <a name="consuming-the-managed-application-with-a-linked-resource"></a>Consumindo o aplicativo gerenciado com um recurso vinculado
 
-Depois de criar o pacote de aplicação gerida, a aplicação gerida pode ser consumida por meio do portal do Azure. Antes de ele pode ser consumido, existem vários passos de pré-requisitos.
+Depois que o pacote de aplicativos gerenciados é criado, o aplicativo gerenciado pode ser consumido por meio do portal do Azure. Antes que possa ser consumido, há várias etapas de pré-requisito.
 
-- Tem de ser criada uma instância do recurso do Azure ligado necessária.
-- O **atribuído ao utilizador identidade** tem de ser [criada e tendo em conta as atribuições de funções](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) para o recurso associado.
-- O existente ligado o ID de recurso e o **atribuído ao utilizador identidade** ID são fornecidos para a CreateUIDefinition.
+- Uma instância do recurso vinculado do Azure necessário deve ser criada.
+- A **identidade atribuída pelo usuário** deve ser [criada e receber atribuições de função](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) para o recurso vinculado.
+- A ID de recurso vinculada existente e a ID de **identidade atribuída pelo usuário** são fornecidas para o CreateUIDefinition.
 
-## <a name="accessing-the-managed-identity-token"></a>Acessando o token de identidade gerido
+## <a name="accessing-the-managed-identity-token"></a>Acessando o token de identidade gerenciado
 
-O token da aplicação gerida pode agora ser acedido através do `listTokens` api a partir do inquilino do publicador. Um exemplo de solicitação a seguinte aparência:
+O token do aplicativo gerenciado agora pode ser acessado por meio da API `listTokens` do locatário do Publicador. Uma solicitação de exemplo pode ser semelhante a:
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
@@ -332,15 +332,15 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 }
 ```
 
-Parâmetros de corpo do pedido:
+Parâmetros do corpo da solicitação:
 
-Parâmetro | Necessário | Descrição
+Parâmetro | Obrigatório | Descrição
 ---|---|---
-authorizationAudience | *no* | O URI de ID de aplicação do recurso de destino. Também é o `aud` afirmação (público) do token emitido. O valor predefinido é "https://management.azure.com/"
-userAssignedIdentities | *no* | A lista de identidades geridas atribuído ao utilizador para obter um token para. Se não for especificado, `listTokens` retornará o token para a identidade gerida atribuído de sistema.
+authorizationAudience | *Não* | O URI da ID do aplicativo do recurso de destino. Também é a declaração de `aud` (público) do token emitido. O valor padrão é "https://management.azure.com/"
+userAssignedIdentities | *Não* | A lista de identidades gerenciadas atribuídas pelo usuário para a qual recuperar um token. Se não for especificado, `listTokens` retornará o token para a identidade gerenciada atribuída pelo sistema.
 
 
-Como pode ser uma resposta de exemplo:
+Uma resposta de exemplo pode ser semelhante A:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -361,19 +361,19 @@ Content-Type: application/json
 }
 ```
 
-A resposta irá conter uma matriz de tokens sob o `value` propriedade:
+A resposta conterá uma matriz de tokens na propriedade `value`:
 
 Parâmetro | Descrição
 ---|---
 access_token | O token de acesso solicitado.
 expires_in | O número de segundos que o token de acesso será válido.
-expires_on | O período de tempo quando o token de acesso expira. Isso é representado como o número de segundos do "Epoch".
-not_before | O período de tempo quando o token de acesso entra em vigor. Isso é representado como o número de segundos do "Epoch".
-authorizationAudience | O `aud` (público), o token de acesso foi pedido para. Este é o mesmo que o que foi fornecido no `listTokens` pedido.
-resourceId | O ID de recurso do Azure para o token emitido. Este é o ID de aplicação gerida ou o ID de identidade atribuído ao utilizador.
-token_type | O tipo de token.
+expires_on | O TimeSpan quando o token de acesso expira. Isso é representado como o número de segundos de época.
+not_before | O TimeSpan quando o token de acesso entra em vigor. Isso é representado como o número de segundos de época.
+authorizationAudience | O `aud` (público) para o qual o token de acesso foi solicitado. Isso é o mesmo que foi fornecido na solicitação `listTokens`.
+resourceId | A ID de recurso do Azure para o token emitido. Essa é a ID do aplicativo gerenciado ou a ID de identidade atribuída pelo usuário.
+token_type | O tipo do token.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Como configurar uma aplicação gerida com um provedor personalizado](./custom-providers-overview.md)
+> [Como configurar um aplicativo gerenciado com um provedor personalizado](./custom-providers-overview.md)

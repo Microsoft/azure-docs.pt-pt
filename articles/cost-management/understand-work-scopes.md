@@ -1,21 +1,21 @@
 ---
-title: Entenda e trabalhe com os escopos de gerenciamento de custos do Azure | Microsoft Docs
+title: Entenda e trabalhe com os escopos de gerenciamento de custos do Azure
 description: Este artigo ajuda você a entender os escopos de gerenciamento de recursos e cobrança disponíveis no Azure e como usar os escopos em gerenciamento de custos e APIs.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338645"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374491"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -39,15 +39,15 @@ O Azure dá suporte a três escopos para gerenciamento de recursos. Cada escopo 
 
 - [**Grupos de gerenciamento**](../governance/management-groups/overview.md) -contêineres hierárquicos, até oito níveis, para organizar assinaturas do Azure.
 
-    Tipo de recurso: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Tipo de recurso: [Microsoft. Management/managementGroups](/rest/api/resources/managementgroups)
 
 - **Assinaturas** -contêineres primários para recursos do Azure.
 
-    Tipo de recurso: [Microsoft.Resources/subscriptions](/rest/api/resources/subscriptions)
+    Tipo de recurso: [Microsoft. Resources/subscriptions](/rest/api/resources/subscriptions)
 
 - [**Grupos de recursos**](../azure-resource-manager/resource-group-overview.md#resource-groups) -agrupamentos lógicos de recursos relacionados para uma solução do Azure que compartilham o mesmo ciclo de vida. Por exemplo, recursos que são implantados e excluídos juntos.
 
-    Tipo de recurso: [Microsoft.Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
+    Tipo de recurso: [Microsoft. Resources/subscriptions/resourceGroups](/rest/api/resources/resourcegroups)
 
 Os grupos de gerenciamento permitem que você organize as assinaturas em uma hierarquia. Por exemplo, você pode criar uma hierarquia lógica da organização usando grupos de gerenciamento. Em seguida, forneça assinaturas de equipes para cargas de trabalho de produção e desenvolvimento/teste. E, em seguida, criar grupos de recursos nas assinaturas para gerenciar cada subsistema ou componente.
 
@@ -106,7 +106,7 @@ As assinaturas do Azure criadas a partir de ofertas individuais, como o pré-pag
 
 - [**Conta de cobrança**](../billing/billing-view-all-accounts.md) – representa um proprietário de conta única para uma ou mais assinaturas do Azure. Atualmente, ele não dá suporte à concessão de acesso a várias pessoas ou acesso a exibições de custo agregado.
 
-    Tipo de recurso: Não aplicável
+    Tipo de recurso: não aplicável
 
 Os administradores individuais da conta de assinatura do Azure podem exibir e gerenciar dados de cobrança, como faturas e pagamentos, do [centro de contas do Azure](https://account.azure.com/subscriptions). No entanto, eles não podem exibir dados de custo ou gerenciar recursos no portal do Azure. Para conceder acesso ao administrador da conta, use as funções de gerenciamento de custos mencionadas anteriormente.
 
@@ -128,7 +128,10 @@ As contas de cobrança do contrato de cliente da Microsoft têm os seguintes esc
 
     Tipo de recurso: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Cliente** -representa um grupo de assinaturas que estão associadas a um cliente específico que é integrado a um contrato de cliente da Microsoft por parceiro. Esse escopo é específico do CSP.
+
 Ao contrário dos escopos de cobrança EA, as contas de cobrança do contrato do cliente _são_ associadas a um único diretório e não podem ter assinaturas em vários diretórios do Azure AD.
+
 
 Os escopos de cobrança do contrato do cliente dão suporte às seguintes funções:
 
@@ -149,7 +152,7 @@ Após a conclusão da integração do AWS, consulte Configurar [e configurar a i
 - **Conta de cobrança externa** – representa um contrato de cliente com um fornecedor terceirizado. Isso é semelhante à conta de cobrança de EA.
 
     Tipo de recurso: `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **Assinatura externa** – representa uma conta operacional do cliente com um fornecedor de terceiros. Isso é semelhante a uma assinatura do Azure.
 
     Tipo de recurso: `Microsoft.CostManagement/externalSubscriptions`
@@ -166,7 +169,7 @@ Todas as exibições de gerenciamento de custos na portal do Azure incluem uma s
 
 Ao trabalhar com APIs de gerenciamento de custos, saber que o escopo é crítico. Use as informações a seguir para criar o URI de escopo adequado para APIs de gerenciamento de custos.
 
-### <a name="billing-accounts"></a>Contas de faturação
+### <a name="billing-accounts"></a>Contas de cobrança
 
 1. Abra o portal do Azure e navegue até **Gerenciamento de custos + cobrança** na lista de serviços.
 2. Selecione **Propriedades** no menu conta de cobrança.
@@ -182,7 +185,7 @@ Ao trabalhar com APIs de gerenciamento de custos, saber que o escopo é crítico
 5. Copie a conta de cobrança e as IDs do perfil de cobrança.
 6. Seu escopo é: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
-### <a name="invoice-sections"></a>Secções de fatura
+### <a name="invoice-sections"></a>Secções de faturação
 
 1. Abra o portal do Azure e navegue até **Gerenciamento de custos + cobrança** na lista de serviços.
 2. Selecione **seções de fatura** no menu da conta de cobrança.
@@ -216,7 +219,7 @@ Ao trabalhar com APIs de gerenciamento de custos, saber que o escopo é crítico
 3. Copie a ID do grupo de gerenciamento da tabela.
 4. Seu escopo é: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Subscription
+### <a name="subscription"></a>Subscrição
 
 1. Abra o portal do Azure e navegue até **assinaturas** na lista de serviços.
 2. Copie a ID da assinatura da tabela.
@@ -234,4 +237,4 @@ Atualmente, o gerenciamento de custos tem suporte no [Azure global](https://mana
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Se ainda não tiver concluído o primeira guia de introdução do Cost Management, leia-a em [começar a analisar os custos](quick-acm-cost-analysis.md).
+- Se você ainda não tiver concluído o primeiro início rápido para o gerenciamento de custos, leia-o em [comece a analisar os custos](quick-acm-cost-analysis.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167430"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333113"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de Cluster Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -81,7 +81,7 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que su
 | Bronze           | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será atrasado pelo Cluster Service Fabric           | Não pode ser atrasada por nenhum período de tempo significativo                                                    |
 
 > [!WARNING]
-> Os tipos de nó em execução com durabilidade bronze não obtêm _nenhum privilégio_. Isso significa que os trabalhos de infraestrutura que afetam suas cargas de trabalho sem estado não serão interrompidos ou atrasados, o que pode afetar suas cargas de trabalho. Use somente bronze para tipos de nós que executam apenas cargas de trabalho sem estado. Para cargas de trabalho de produção, é recomendável executar prata ou superior. 
+> Os tipos de nó em execução com durabilidade bronze não obtêm _nenhum privilégio_. Isso significa que os trabalhos de infraestrutura que afetam suas cargas de trabalho com estado não serão interrompidos ou atrasados, o que pode afetar suas cargas de trabalho. Use somente bronze para tipos de nós que executam apenas cargas de trabalho sem estado. Para cargas de trabalho de produção, é recomendável executar prata ou superior. 
 > 
 > Independentemente de qualquer nível de durabilidade, a operação de [desalocação](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) no conjunto de dimensionamento de VM destruirá o cluster
 
@@ -123,7 +123,7 @@ A camada de confiabilidade é usada para definir o número de réplicas dos serv
 
 A camada de confiabilidade pode ter os seguintes valores:
 
-* Platina-execute os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete
+* Platina-executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de nove
 * Ouro – executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de sete
 * Prata-execute os serviços do sistema com uma contagem de conjuntos de réplicas de destino de cinco 
 * Bronze-executar os serviços do sistema com uma contagem de conjuntos de réplicas de destino de três

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: aba06b07fef1cbc5d84d93cf38fec3bd936c1ac8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286115"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329445"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Exibir logs de atividade para monitorar ações em recursos
 
@@ -193,7 +193,7 @@ As operações REST para trabalhar com o log de atividades fazem parte da [API R
 
 * Os logs de atividades do Azure podem ser usados com Power BI para obter mais informações sobre as ações em sua assinatura. Consulte [Exibir e analisar logs de atividades do Azure em Power bi e muito mais](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Para saber mais sobre como configurar políticas de segurança, consulte [controle de acesso baseado em função do Azure](../role-based-access-control/role-assignments-portal.md).
-* Para exibir mais detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [usar a análise de alterações do aplicativo no Azure Monitor] (.. /Azure-monitor/app/Change-Analysis. MD).
+* Para exibir mais detalhes sobre as alterações em seus aplicativos da camada de infraestrutura até a implantação do aplicativo, consulte [usar a análise de alterações do aplicativo no Azure monitor](../azure-monitor/app/change-analysis.md).
 * Para saber mais sobre os comandos para exibir as operações de implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para saber como evitar exclusões em um recurso para todos os usuários, consulte [Bloquear recursos com Azure Resource Manager](resource-group-lock-resources.md).
 * Para ver a lista de operações disponíveis para cada provedor Microsoft Azure Resource Manager, consulte [Azure Resource Manager operações do provedor de recursos](../role-based-access-control/resource-provider-operations.md)

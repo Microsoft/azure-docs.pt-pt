@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Executar operações de ETL usando Azure Databricks'
+title: 'Tutorial: Realizar operações de ETL com o Azure Databricks'
 description: Saiba como extrair dados de Data Lake Storage Gen2 para Azure Databricks, transformar os dados e, em seguida, carregar os dados na SQL Data Warehouse do Azure.
 author: mamccrea
 ms.author: mamccrea
@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 172921dcb082f511d16394b7693f40edf8394821
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826047"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329761"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: Extrair, transformar e carregar dados usando Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: extrair, transformar e carregar dados usando Azure Databricks
 
 Neste tutorial, você executa uma operação ETL (extrair, transformar e carregar dados) usando Azure Databricks. Você extrai dados de Azure Data Lake Storage Gen2 para Azure Databricks, executa transformações nos dados em Azure Databricks e carrega os dados transformados no Azure SQL Data Warehouse.
 
@@ -47,15 +47,15 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Conclua estas tarefas antes de iniciar este tutorial:
 
-* Crie um data warehouse de SQL do Azure, crie uma regra de firewall no nível de servidor e conecte-se ao servidor como um administrador de servidor. Consulte [início rápido: Criar e consultar um Azure SQL data warehouse no portal do Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
+* Crie um data warehouse de SQL do Azure, crie uma regra de firewall no nível de servidor e conecte-se ao servidor como um administrador de servidor. Consulte [início rápido: criar e consultar um Azure SQL data warehouse no portal do Azure](../sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Crie uma chave mestra de banco de dados para o Azure SQL data warehouse. Consulte [criar uma chave mestra de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Crie uma chave mestra para o data warehouse SQL do Azure. Consulte [criar uma chave mestra de banco de dados](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Consulte [início rápido: Carregar, baixar e listar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Crie uma conta de armazenamento de Blobs do Azure e um contentor no mesmo. Obtenha também a chave de acesso para aceder à conta de armazenamento. Consulte [início rápido: carregar, baixar e listar BLOBs com o portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Crie uma conta de armazenamento Azure Data Lake Storage Gen2. Consulte [início rápido: Crie uma conta](../storage/blobs/data-lake-storage-quickstart-create-account.md)de armazenamento Azure data Lake Storage Gen2.
+* Crie uma conta de armazenamento Azure Data Lake Storage Gen2. Consulte [início rápido: criar uma conta de armazenamento Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-* Crie uma entidade de serviço. Consulte [como: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)possa acessar recursos.
+* Crie uma entidade de serviço. Consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Há algumas coisas específicas que você precisará fazer ao executar as etapas nesse artigo.
 
@@ -73,17 +73,17 @@ Certifique-se de concluir os pré-requisitos deste tutorial.
 
    Antes de começar, você deve ter estes itens de informação:
 
-   :heavy_check_mark:  O nome do banco de dados, o nome do servidor de banco de dados, o nome de usuário e a senha do seu SQL data warehouse do Azure.
+   : heavy_check_mark: o nome do banco de dados, o nome do servidor de banco de dados, o nome de usuário e a senha do seu SQL data warehouse do Azure.
 
-   :heavy_check_mark:  A chave de acesso da sua conta de armazenamento de BLOBs.
+   : heavy_check_mark: a chave de acesso da sua conta de armazenamento de BLOBs.
 
-   :heavy_check_mark:  O nome de sua conta de armazenamento Data Lake Storage Gen2.
+   : heavy_check_mark: o nome da sua conta de armazenamento Data Lake Storage Gen2.
 
-   :heavy_check_mark:  A ID de locatário da sua assinatura.
+   : heavy_check_mark: a ID de locatário da sua assinatura.
 
-   :heavy_check_mark:  A ID de aplicativo do aplicativo que você registrou com o Azure Active Directory (Azure AD).
+   : heavy_check_mark: a ID de aplicativo do aplicativo que você registrou com Azure Active Directory (Azure AD).
 
-   :heavy_check_mark:  A chave de autenticação do aplicativo que você registrou com o Azure AD.
+   : heavy_check_mark: a chave de autenticação para o aplicativo que você registrou com o Azure AD.
 
 ## <a name="create-an-azure-databricks-service"></a>Criar um serviço de Azure Databricks
 
@@ -123,7 +123,7 @@ Nesta seção, você cria um serviço de Azure Databricks usando o portal do Azu
 
     * Introduza um nome para o cluster.
 
-    * Certifique-se de marcar a caixa de seleção **terminar após \_ \_ minutos de inatividade** . Se o cluster não estiver sendo usado, forneça uma duração (em minutos) para encerrar o cluster.
+    * Certifique-se de marcar a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** . Se o cluster não estiver sendo usado, forneça uma duração (em minutos) para encerrar o cluster.
 
     * Selecione **Criar cluster**. Depois que o cluster estiver em execução, você poderá anexar blocos de anotações ao cluster e executar trabalhos do Spark.
 
@@ -135,11 +135,11 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
 
 2. À esquerda, selecione **espaço de trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
-    ![Criar um bloco de anotações no databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Criar bloco de anotações no") databricks
+    ![Criar um bloco de anotações no databricks criar um](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "bloco de anotações no databricks")
 
 3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Scala** como a linguagem e selecione o cluster do Spark que criou anteriormente.
 
-    ![Fornecer detalhes para um bloco de anotações no] databricks (./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Fornecer detalhes para um bloco de anotações no") databricks
+    ![Fornecer detalhes para um bloco de anotações no databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "fornecer detalhes de um bloco de anotações no databricks")
 
 4. Selecione **Criar**.
 
@@ -182,13 +182,13 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false")
    ```
 
-6. Nesse bloco de código, substitua os `<app-id>`valores `<password>`de `<tenant-id>`espaço reservado `<storage-account-name>` ,, e nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial. Substitua o `<file-system-name>` valor de espaço reservado por qualquer nome que você deseja dar ao sistema de arquivos.
+6. Nesse bloco de código, substitua os valores de espaço reservado `<app-id>`, `<password>`, `<tenant-id>` e `<storage-account-name>` nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial. Substitua o valor de espaço reservado `<file-system-name>` por qualquer nome que você deseja dar ao sistema de arquivos.
 
-   * O `<app-id>`, e `<password>` são do aplicativo que você registrou com o Active Directory como parte da criação de uma entidade de serviço.
+   * O `<app-id>` e o `<password>` são do aplicativo que você registrou com o Active Directory como parte da criação de uma entidade de serviço.
 
    * O `<tenant-id>` é de sua assinatura.
 
-   * O `<storage-account-name>` é o nome da sua conta de armazenamento Azure data Lake Storage Gen2.
+   * O `<storage-account-name>` é o nome da sua conta de armazenamento de Azure Data Lake Storage Gen2.
 
 7. Pressione as teclas **Shift + Enter** para executar o código neste bloco.
 
@@ -365,25 +365,25 @@ Como mencionado anteriormente, o conector de SQL Data Warehouse usa o armazename
    ```
 
    > [!NOTE]
-   > Este exemplo usa o `forward_spark_azure_storage_credentials` sinalizador, que faz com que SQL data warehouse acesse dados do armazenamento de BLOBs usando uma chave de acesso. Esse é o único método de autenticação com suporte.
+   > Este exemplo usa o sinalizador `forward_spark_azure_storage_credentials`, que faz SQL Data Warehouse acessar dados do armazenamento de BLOBs usando uma chave de acesso. Esse é o único método de autenticação com suporte.
    >
    > Se o armazenamento de BLOBs do Azure estiver restrito a selecionar redes virtuais, SQL Data Warehouse requer [identidade de serviço gerenciada em vez de chaves de acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso causará o erro "esta solicitação não está autorizada a executar esta operação".
 
-6. Conecte-se ao banco de dados SQL e verifique se você vêum banco de dados chamado SampleTable.
+6. Conecte-se ao banco de dados SQL e verifique se você vê um banco de dados chamado **SampleTable**.
 
-   ![Verificar a tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verificar tabela de exemplo")
+   ![Verificar a tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verify de exemplo")
 
 7. Execute uma consulta select para verificar os conteúdos da tabela. A tabela deve ter os mesmos dados que o dataframe **renamedColumnsDF** .
 
-    ![Verificar o conteúdo da tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verificar o conteúdo da tabela de exemplo")
+    ![Verificar o conteúdo da tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "verificar o conteúdo da tabela de exemplo")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Depois de concluir o tutorial, você pode encerrar o cluster. No espaço de trabalho Azure Databricks, selecione clusters à esquerda. Para que o cluster seja encerrado, em **ações**, aponte para as reticências (...) e selecione o ícone **terminar** .
+Depois de concluir o tutorial, você pode encerrar o cluster. No espaço de trabalho Azure Databricks, selecione **clusters** à esquerda. Para que o cluster seja encerrado, em **ações**, aponte para as reticências (...) e selecione o ícone **terminar** .
 
 ![Parar um cluster do Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do Databricks")
 
-Se você não encerrar o cluster manualmente, ele será interrompido automaticamente, desde que você tenha marcado a caixa de seleção **terminar após \_ \_ minutos de inatividade** quando criou o cluster. Nesse caso, o cluster será interrompido automaticamente se estiver inativo durante o tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se estiver inativo durante o tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

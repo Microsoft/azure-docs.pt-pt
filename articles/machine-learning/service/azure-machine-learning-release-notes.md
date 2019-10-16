@@ -10,18 +10,63 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: da0c674eaf3bc650beae0a05f8f8a0c3613fbeaf
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177911"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331561"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) . 
 
 Consulte [a lista de problemas conhecidos](resource-known-issues.md) para saber mais sobre bugs conhecidos e soluções alternativas.
+
+## <a name="2019-10-14"></a>2019-10-14
+
+### <a name="azure-machine-learning-sdk-for-python-v1069"></a>Azure Machine Learning SDK para Python v 1.0.69
+
++ **Correções de bugs e melhorias**
+  + **azureml-automl-Core**
+    + Limitação de explicações de modelo para a melhor execução em vez de calcular explicações para cada execução. Fazendo esse comportamento mudar para local, remoto e ADB.
+    + Suporte adicionado para explicações de modelo sob demanda para a interface do usuário
+    + Adicionou psutil como uma dependência de automl e incluiu psutil como uma dependência Conda em amlcompute.
+    + Corrigido o problema com tamanhos de janela lentos e contínuos nos conjuntos de dados de previsão, algumas séries que podem causar erros de algebra linear
+      + Impressão adicional adicionada para os parâmetros que são determinados de heurística nas execuções de previsão.
+  + **azureml-contrib-descompasso**
+    + Proteção adicionada ao criar métricas de saída se o descompasso de nível de conjunto de resultados não estiver na primeira seção.
+  + **azureml-contrib-interpret**
+    + o pacote azureml-contrib-explique-Model foi renomeado para azureml-contrib-interpret
+  + **azureml-núcleo**
+    + API adicionada para cancelar o registro de conjuntos de os. `dataset.unregister_all_versions()`
+    + Adicionada a API do conjunto de dados para verificar a hora da alteração do dado. `dataset.data_changed_time`.
+    + Poder consumir `FileDataset` e `TabularDataset` como entradas para `PythonScriptStep`, `EstimatorStep` e `HyperDriveStep` no pipeline Azure Machine Learning
+    + O desempenho de `FileDataset.mount` foi aprimorado para pastas com um grande número de arquivos
+    + URL adicionada a recomendações de erro conhecidas em detalhes da execução.
+    + Correção de um bug em execução. Obtenha _metrics onde as solicitações falhariam se uma execução tivesse muitos filhos
+    + Suporte adicionado para autenticação no cluster Arcadia.
+    + Criar um objeto de teste Obtém ou cria o experimento no espaço de trabalho Azure Machine Learning para acompanhamento do histórico de execução. A ID do experimento e o tempo arquivado são populados no objeto experimento na criação. Exemplo: experimento = experimento (espaço de trabalho, "novo experimento") EXPERIMENT_ID = experiment.id arquivo morto () e reativar () são funções que podem ser chamadas em um experimento para ocultar e restaurar o experimento de ser mostrado no UX ou retornado por padrão em uma chamada para listar experimentos. Se um novo experimento for criado com o mesmo nome de um experimento arquivado, você poderá renomear o teste arquivado ao reativar o passando um novo nome. Só pode haver um experimento ativo com um determinado nome. Exemplo: experiment1 = experimento (espaço de trabalho, "teste ativo") experiment1. Archive () # criar novo experimento ativo com o mesmo nome que o arquivado. experiment2. = Experimento (espaço de trabalho, "teste ativo") experiment1. reativar (new_name = "experimento ativo anterior") a lista de métodos estáticos () no experimento pode usar um filtro de nome e um filtro ViewType. Os valores ViewType são "ACTIVE_ONLY", "ARCHIVED_ONLY" e "ALL" exemplo: archived_experiments = experimento. List (Workspace, view_type = "ARCHIVED_ONLY") all_first_experiments = experimento. List (Workspace, Name = "First experimento", view_type = "ALL")
+    + Suporte ao uso do ambiente para implantação de modelo e atualização de serviço
+  + **azureml-descompasso**
+    + O atributo show da classe DataDriftDector não dará suporte a um argumento opcional ' with_details '. O atributo show só apresentará o coeficiente de descompasso de dados e a contribuição de descompasso de dados das colunas de recursos.
+    + Alterações de comportamento do atributo ' get_output ' DataDriftDetector:
+      + O parâmetro de entrada start_time, end_time são opcionais, em vez de obrigatórios;
+      + os start_time e/ou end_time específicos com um run_id específico na mesma chamada resultarão na exceção de erro de valor, pois são mutuamente exclusivos 
+      + Por entrada específica start_time e/ou end_time, somente os resultados das execuções agendadas serão retornados; 
+      + O parâmetro ' daily_latest_only ' foi preterido.
+    + Suporte à recuperação de saídas de descompasso de dados baseados em DataSet.
+  + **azureml-explicação-modelo**
+    + Renomeia o pacote AzureML-explique-Model para o AzureML-interpret, mantendo o pacote antigo para compatibilidade com versões anteriores agora
+    + correção do bug automl com explicações brutas definidas para tarefa de classificação em vez de regressão por padrão no download de ExplanationClient
+    + Adicionar suporte para `ScoringExplainer` a ser criado diretamente usando `MimicWrapper`
+  + **azureml-pipeline-Core**
+    + Desempenho aprimorado para criação de pipeline grande
+  + **azureml-Train-Core**
+    + Adicionado suporte TensorFlow 2,0 no estimador TensorFlow
+  + **azureml-Train-automl**
+    + A execução do pai não será mais possível quando a iteração da instalação falhar, pois a orquestração já cuida dela.
+    + Adicionado suporte local-Docker e Conda local para experimentos de AutoML
 
 ## <a name="2019-10-08"></a>2019-10-08
 

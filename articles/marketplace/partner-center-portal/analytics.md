@@ -1,18 +1,18 @@
 ---
 title: Análise para o mercado comercial no Partner Center
 description: Saiba como acessar relatórios analíticos para monitorar vendas, avaliar o desempenho e otimizar suas ofertas do Marketplace.
-author: chjenk
+author: ChJenk
 manager: evansma
-ms.author: shthota
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/09/2019
-ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/14/2019
+ms.openlocfilehash: 593d43339961ab4576081aaa18a8d68716e40e9b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028843"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332110"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Análise para o mercado comercial no Partner Center
 
@@ -137,10 +137,10 @@ O gráfico **pedidos ativos por oferece** a rosca organiza todos os seus pedidos
 <!-- Section needs review and clarification!  -->
 O gráfico de **tipo de licença Orders by Marketplace** exibe uma contagem de pedidos mês a mês com base no tipo de licença e no método de cobrança da oferta do Marketplace. Os tipos de licença incluem:
 
-- **Cobrado por meio do Azure**: A Microsoft cobra os clientes em seu nome quando você opta [por vender sua oferta pela Microsoft](./create-new-saas-offer.md#sell-through-microsoft) com esse tipo de licença. Os tipos de pagamento incluem pré-pago por cartão de crédito ou faturamento empresarial.
-- **Traga sua própria licença**: A Microsoft não cobra os clientes pelo uso desse tipo de oferta do Marketplace. Listado como **[obter agora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** no Marketplace.
-- **Gratuito**: A Microsoft não cobra os clientes pelo uso desse tipo de oferta do Marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md##free-trial-listing)** no Marketplace.
-- **Microsoft como revendedor**: Representa as ofertas vendidas pelos revendedores da Microsoft como parte do **[programa CSP (provedor de soluções na nuvem)](./create-new-saas-offer.md#csp-program-opt-in)** .
+- **Cobrado por meio do Azure**: a Microsoft cobra os clientes em seu nome quando você opta [por vender sua oferta pela Microsoft](./create-new-saas-offer.md#sell-through-microsoft) com esse tipo de licença. Os tipos de pagamento incluem pré-pago por cartão de crédito ou faturamento empresarial.
+- **Traga sua própria licença**: a Microsoft não cobra os clientes pelo uso desse tipo de oferta do Marketplace. Listado como **[obter agora (gratuito)](./create-new-saas-offer.md#get-it-now-free)** no Marketplace.
+- **Gratuito**: a Microsoft não cobra os clientes pelo uso desse tipo de oferta do Marketplace. Listado como **[avaliação gratuita](./create-new-saas-offer.md##free-trial-listing)** no Marketplace.
+- **Microsoft as revendedores**: representa as ofertas vendidas por revendedores da Microsoft como parte do **[programa CSP (provedor de soluções na nuvem)](./create-new-saas-offer.md#csp-program-opt-in)** .
 
 ![Partner Center analisar pedidos por tipo de licença](./media/analyze-license-type.png)
 
@@ -233,16 +233,16 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 
 ### <a name="dictionary-of-data-terms"></a>Dicionário de termos de dados
 
-| Nome de atributo | Relatórios | Definição|
+| Nome do atributo | Relatórios | Definição|
 |---|---|---|
 | Tipo de licença do Azure | Cliente, pedido | O tipo de contrato de licenciamento usado pelos clientes para comprar o Azure. Também conhecido como canal |
-| Tipo de licença do Azure: Fornecedor de Soluções Cloud | Cliente, pedido | O cliente final adquiri o Azure e seu Marketplace oferece por meio de seu provedor de soluções na nuvem, que atua como seu revendedor.|
-| Tipo de licença do Azure: Empresarial | Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um Enterprise Agreement, assinados diretamente com a Microsoft.|
+| Tipo de licença do Azure: provedor de soluções na nuvem | Cliente, pedido | O cliente final adquiri o Azure e seu Marketplace oferece por meio de seu provedor de soluções na nuvem, que atua como seu revendedor.|
+| Tipo de licença do Azure: Enterprise | Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um Enterprise Agreement, assinados diretamente com a Microsoft.|
 | Tipo de licença do Azure: Enterprise por meio do revendedor  | Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um revendedor que facilita seus Enterprise Agreement com a Microsoft.|  |
-| Tipo de licença do Azure: Pré-pago| Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um contrato "pré-pago", assinado diretamente com a Microsoft.||
+| Tipo de licença do Azure: pague conforme o uso| Cliente, pedido | O cliente final compra o Azure e sua oferta do Marketplace por meio de um contrato "pré-pago", assinado diretamente com a Microsoft.||
 | Nome da instância de nuvem| Encomenda| O Microsoft Cloud em que ocorreu uma implantação de VM.||
-| Nome da instância de nuvem: Global do Azure| Encomenda| A nuvem global da Microsoft pública.|| |
-| Nome da instância de nuvem: Azure Government | Encomenda| Nuvens Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou o Estados Unidos da América.| |
+| Nome da instância de nuvem: Azure global| Encomenda| A nuvem global da Microsoft pública.|| |
+| Nome da instância de nuvem: Azure governamental | Encomenda| Nuvens Microsoft específicas do governo para um dos seguintes governos: China, Alemanha ou a Estados Unidos da América.| |
 | Cidade do cliente| Cliente| O nome da cidade fornecida pelo cliente. A cidade pode ser diferente da cidade na assinatura do Azure de um cliente.||
 | Idioma de comunicação do cliente  | Cliente| A linguagem preferida pelo cliente para comunicação.||
 | Nome da empresa do cliente | Cliente, pedido | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente.|  |
@@ -258,29 +258,29 @@ Você receberá uma notificação pop-up e um email contendo um link para o pain
 | É versão prévia do SKU| Encomenda| O valor informará se você marcou a SKU como "visualização". O valor será "Sim" se o SKU tiver sido marcado adequadamente e somente as assinaturas do Azure autorizadas por você puderem implantar e usar essa imagem. O valor será "no" se o SKU não tiver sido identificado como "Preview".  |
 | É aceitar contato promocional| Cliente| O valor permitirá que você saiba se o cliente optou proativamente para contato promocional dos editores. Neste momento, não estamos apresentando a opção aos clientes, portanto, indicamos "não" no tabuleiro. Depois que esse recurso for implantado, começaremos a atualizar de acordo.|
 | Tipo de licença do Marketplace| Encomenda| O método de cobrança da oferta do Marketplace.||
-| Tipo de licença do Marketplace: Cobrado por meio do Azure| Encomenda| A Microsoft é o seu agente para esta oferta do Marketplace e cobra os clientes em seu nome. (PAYG de cartão de crédito ou nota fiscal empresarial)||
-| Tipo de licença do Marketplace: Traga sua própria licença | Encomenda| A VM requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não fatura os clientes para listar suas ofertas dessa maneira por meio do Marketplace.||
-| Tipo de licença do Marketplace: Livre| Encomenda| A oferta está configurada para ser gratuita para todos os usuários. A Microsoft não cobra os clientes pelo uso dessa oferta.||
+| Tipo de licença do Marketplace: cobrado por meio do Azure| Encomenda| A Microsoft é o seu agente para esta oferta do Marketplace e cobra os clientes em seu nome. (PAYG de cartão de crédito ou nota fiscal empresarial)||
+| Tipo de licença do Marketplace: traga sua própria licença | Encomenda| A VM requer uma chave de licença fornecida pelo cliente para implantar. A Microsoft não fatura os clientes para listar suas ofertas dessa maneira por meio do Marketplace.||
+| Tipo de licença do Marketplace: gratuito| Encomenda| A oferta está configurada para ser gratuita para todos os usuários. A Microsoft não cobra os clientes pelo uso dessa oferta.||
 | Tipo de licença do Marketplace: Microsoft como revendedor  | Encomenda| A Microsoft é seu revendedor para esta oferta do Marketplace.|  |
 | ID da assinatura do Marketplace | Cliente, pedido | O identificador exclusivo associado à assinatura do Azure que o cliente usou para comprar sua oferta do Marketplace. ID era anteriormente a GUID de assinatura do Azure.||
 | Nome da Oferta  | Encomenda| O nome da oferta do Marketplace.|| |
 | Tipo de Oferta  | Encomenda| O tipo de oferta de Microsoft Marketplace.|||
-| Tipo de oferta: Aplicativo gerenciado  | Ordene | Use o tipo de oferta aplicativo do Azure: aplicativo gerenciado quando as seguintes condições forem necessárias: Você implanta uma solução baseada em assinatura para seu cliente usando uma VM ou uma solução inteira baseada em IaaS. Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. |
-| Tipo de oferta: Aplicação do Azure| Ordene | Use o tipo de oferta de modelo de solução Aplicativo Azure quando sua solução exigir implantação adicional e automação de configuração além de uma VM simples.||
-| Tipo de oferta: Serviço de Consultoria| Encomenda| Serviços de consultoria no Azure Marketplace ajudam a conectar clientes com serviços para dar suporte e estender o uso do Azure.| |
-| Tipo de oferta: Contentor | Encomenda| Use o tipo de oferta de contêiner quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes.||
+| Tipo de oferta: aplicativo gerenciado  | Ordene | Usar o tipo de oferta aplicativo do Azure: aplicativo gerenciado quando as seguintes condições são necessárias: você implanta uma solução baseada em assinatura para seu cliente usando uma VM ou uma solução inteira baseada em IaaS. Você ou seu cliente exigem que a solução seja gerenciada por um parceiro. |
+| Tipo de oferta: Aplicativo Azure| Ordene | Use o tipo de oferta de modelo de solução Aplicativo Azure quando sua solução exigir implantação adicional e automação de configuração além de uma VM simples.||
+| Tipo de oferta: serviço de consultoria| Encomenda| Serviços de consultoria no Azure Marketplace ajudam a conectar clientes com serviços para dar suporte e estender o uso do Azure.| |
+| Tipo de oferta: contêiner | Encomenda| Use o tipo de oferta de contêiner quando sua solução for uma imagem de contêiner do Docker provisionado como um serviço de contêiner do Azure baseado em kubernetes.||
 | Tipo de oferta: Dynamics 365 Business central| Encomenda| Use esse tipo de oferta quando sua solução estiver integrada com o Dynamics 365 para finanças e operações| |
-| Tipo de oferta: Dynamics 365 for Customer Engagement | Encomenda| Use esse tipo de oferta quando sua solução estiver integrada com o Dynamics 365 for Customer Engagement.||
-| Tipo de oferta: Módulo IoT Edge | Encomenda| Os módulos de Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como Azure Stream Analytics), serviços de terceiros ou seu próprio código específico da solução. |
+| Tipo de oferta: Dynamics 365 para compromisso com o cliente | Encomenda| Use esse tipo de oferta quando sua solução estiver integrada com o Dynamics 365 for Customer Engagement.||
+| Tipo de oferta: módulo de IoT Edge | Encomenda| Os módulos de Azure IoT Edge são as menores unidades de computação gerenciadas pelo IoT Edge e podem conter serviços da Microsoft (como Azure Stream Analytics), serviços de terceiros ou seu próprio código específico da solução. |
 | Tipo de oferta: Power BI aplicativo | Encomenda| Use o tipo de oferta de aplicativo Power BI ao implantar um aplicativo integrado com Power BI.|  |
-| Tipo de oferta: Aplicativo SaaS| Encomenda| Use o tipo de oferta de aplicativo SaaS para permitir que seu cliente compre sua solução técnica baseada em SaaS como uma assinatura.||
-| Tipo de oferta: Máquina virtual | Encomenda| Use o tipo de oferta de máquina virtual ao implantar um dispositivo virtual na assinatura associada ao cliente.||
-| Tipo de oferta: Extensão de Visual Studio Marketplace  | Encomenda| Tipo de oferta disponível anteriormente para os desenvolvedores de extensão DevOps do Azure. Avançar os desenvolvedores da extensão DevOps do Azure podem vender sua extensão diretamente para os clientes. As ofertas de extensão podem ser configuradas como pagas ou incluindo uma avaliação. |
+| Tipo de oferta: aplicativo SaaS| Encomenda| Use o tipo de oferta de aplicativo SaaS para permitir que seu cliente compre sua solução técnica baseada em SaaS como uma assinatura.||
+| Tipo de oferta: máquina virtual | Encomenda| Use o tipo de oferta de máquina virtual ao implantar um dispositivo virtual na assinatura associada ao cliente.||
+| Tipo de oferta: extensão de Visual Studio Marketplace  | Encomenda| Tipo de oferta disponível anteriormente para os desenvolvedores de extensão DevOps do Azure. Avançar os desenvolvedores da extensão DevOps do Azure podem vender sua extensão diretamente para os clientes. As ofertas de extensão podem ser configuradas como pagas ou incluindo uma avaliação. |
 | Data de cancelamento do pedido| Encomenda| A data em que a ordem do Marketplace foi cancelada.||
 | ID da Encomenda| Encomenda| O identificador exclusivo da ordem do cliente para o serviço do Marketplace. As ofertas baseadas em uso da máquina virtual não estão associadas a um pedido.| |
 | Data de compra do pedido| Encomenda| A data em que a ordem do Marketplace foi criada.|||
 | Status do pedido| Encomenda| O status de uma ordem do Marketplace no momento em que os dados foram atualizados pela última vez.|     |
-| Status do pedido: Active  | Encomenda| O cliente comprou um pedido e não cancelou seu pedido.|         |
+| Status do pedido: ativo  | Encomenda| O cliente comprou um pedido e não cancelou seu pedido.|         |
 | Status do pedido: cancelado | Encomenda| O cliente comprou um pedido anteriormente e, subsequentemente, cancelou seu pedido.||
 | Email do provedor| Cliente| O endereço de email do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP.|
 | Nome do provedor| Cliente| O nome do provedor envolvido na relação entre a Microsoft e o cliente final. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP.|
@@ -321,3 +321,24 @@ A seção de resumo classificações & revisões exibe as métricas abaixo para 
 As revisões são exibidas em ordem cronológica para quando elas foram lançadas. O modo de exibição padrão exibe todas as revisões. Você pode filtrar por meio das revisões por classificação por estrelas usando o **filtro** no menu suspenso. Você também pode pesquisar palavras-chave que aparecem na revisão.  
 
 ![Comentários da análise do Partner Center analisar](./media/analyze-reviews.png)
+
+## <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
+
+Esta seção fornece respostas para perguntas frequentes sobre **nenhuma análise disponível ainda** em mensagens no Partner Center.
+
+**Não consigo exibir meus dados de análise no Partner Center. Quando acesso essas páginas, vejo a mensagem abaixo. Por que isso?**
+
+![Não há dados para suas ofertas ainda](./media/analytics-faq-no-data.png)
+
+Por que você pode estar recebendo esta mensagem:
+
+- Suas ofertas listadas no Marketplace não são ofertas de SaaS. Atualmente, a análise de relatórios do Partner Center para SaaS oferece apenas. As ofertas do Dynamics 365 podem ser publicadas no Partner Center, mas a análise dessas ofertas ainda não está habilitada no Partner Center.
+- No momento, não existem aquisições para suas ofertas publicadas no Marketplace. Isso pode significar que suas ofertas estão ativas no Marketplace e obtendo exibições de clientes nas páginas de exibição do produto, mas os clientes ainda não tomaram medidas para comprá-las e implantá-las.
+- A publicação da sua oferta pode estar em processo e ainda não está dinâmica. Somente as ofertas dinâmicas podem ser adquiridas pelos clientes. Para verificar o status de suas ofertas, consulte Visão geral no [painel analisar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary). Para obter mais informações, consulte [painel de resumo](#summary-dashboard) neste artigo.
+- Suas ofertas podem estar listadas como **contato comigo**, que são ofertas somente de lista e não podem ser adquiridas por clientes no Marketplace. Embora essas ofertas gerem leads e sejam compartilhadas com você, as ordens não são criadas para essas ofertas, pois não podem ser adquiridas. Para verificar o tipo de listagem de oferta, vá para a página configuração.
+
+**Sei que tenho dados de análise, mas a mensagem abaixo está aparecendo:**
+
+![Não há dados para o intervalo de datas fornecido](./media/analytics-faq-data-range.png)
+
+Se você estiver recebendo esta mensagem, isso significa que você tem dados de análise, mas não há dados para o intervalo de datas selecionado. Selecione um intervalo de datas diferente ou um intervalo de datas personalizado para exibir os dados desde 2010. Para obter mais informações, consulte [intervalo de datas](#date-range).

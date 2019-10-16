@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: f607ba68563aa92797f45cf77db0575ae6802fee
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 4e3cf302437c3e4954ac977ac3f4ff6b2021a760
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385598"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330587"
 ---
 # <a name="create-and-manage-schedules-for-classroom-labs-in-azure-lab-services"></a>Criar e gerenciar agendas para laboratórios de sala de aula no Azure Lab Services 
 Os agendamentos permitem que você configure um laboratório de sala de aula de modo que as VMs no laboratório sejam iniciadas e desligadas automaticamente em um horário especificado. Você pode definir uma agenda única ou uma agenda recorrente. Os procedimentos a seguir fornecem etapas para criar e gerenciar agendas para um laboratório de sala de aula: 
@@ -26,65 +26,56 @@ Os agendamentos permitem que você configure um laboratório de sala de aula de 
 > [!IMPORTANT]
 > O tempo de execução agendado das VMs não conta a [cota alocada para um usuário](how-to-configure-student-usage.md#set-quotas-for-users). A cota é para o tempo fora das horas de agendamento que um aluno gasta nas VMs. 
 
-## <a name="add-a-schedule-once"></a>Adicionar uma agenda (uma vez)
+## <a name="set-a-schedule-for-the-lab"></a>Definir um agendamento para o laboratório
+Crie um evento agendado para o laboratório para que as VMs no laboratório sejam iniciadas/interrompidas automaticamente em horários específicos. A cota de usuário especificada anteriormente é o tempo adicional atribuído a cada usuário fora deste horário agendado. 
 
-1. Alterne para a  página agendas e selecione **Adicionar agenda** na barra de ferramentas. 
-
-    ![Botão Adicionar agendamento na página agendas](../media/how-to-create-schedules/add-schedule-button.png)
-2. Na página **Adicionar agenda** , confirme se a opção **uma vez** está selecionada na parte superior. Se não estiver, selecione **uma vez**. 
-3. Em **data do agendamento (obrigatório)** , insira a data ou selecione o ícone de calendário para selecionar uma data. 
-4. Para **hora de início**, selecione a hora em que deseja que as VMs sejam iniciadas. A hora de início será necessária se a hora de parada não estiver definida. Selecione **remover evento de início** se desejar especificar apenas a hora de parada. se a **hora de início** estiver desabilitada, selecione **Adicionar evento de início** ao lado da lista suspensa para habilitá-la. 
-5. Em **hora de parada**, selecione a hora em que deseja que as VMs sejam desligadas. A hora de parada será necessária se a hora de início não estiver definida. Selecione **remover evento de parada** se desejar especificar apenas a hora de início. se a **hora de parada** estiver desabilitada, selecione **Adicionar evento de parada** ao lado da lista suspensa para habilitá-la.
-6. Para **fuso horário (obrigatório)** , selecione o fuso horário para os horários de início e de término especificados. 
-7. Para **observações**, insira qualquer descrição ou nota para o agendamento. 
-8. Selecione **Guardar**. 
-
-    ![Agenda de OneTime](../media/how-to-create-schedules/add-schedule-page.png)
-
-## <a name="add-a-recurring-schedule-weekly"></a>Adicionar um agendamento recorrente (semanal)
-
-1. Alterne para a  página agendas e selecione **Adicionar agenda** na barra de ferramentas. 
+1. Alterne para a página **agendas** e selecione **Adicionar evento agendado** na barra de ferramentas. 
 
     ![Botão Adicionar agendamento na página agendas](../media/how-to-create-schedules/add-schedule-button.png)
-2. Na página **Adicionar agenda** , alterne para **semanalmente** na parte superior. 
-3. Para **agendar dias (obrigatório)** , selecione os dias nos quais você deseja que o agendamento entre em vigor. No exemplo a seguir, segunda-feira é selecionada. 
-4. Para o campo **de** , insira a **data de início da agenda** ou escolha uma data selecionando o botão **calendário** . Este campo é obrigatório. 
-5. Em **data de término do agendamento**, insira ou selecione uma data de término na qual as VMs devem ser desligadas. 
-6. Para **hora de início**, selecione a hora em que você deseja que as VMs sejam iniciadas. A hora de início será necessária se a hora de parada não estiver definida. Selecione **remover evento de início** se desejar especificar apenas a hora de parada. se a **hora de início** estiver desabilitada, selecione **Adicionar evento de início** ao lado da lista suspensa para habilitá-la. 
-7. Em **hora de parada**, selecione a hora em que você deseja que as VMs sejam desligadas. A hora de parada será necessária se a hora de início não estiver definida. Selecione **remover evento de parada** se desejar especificar apenas a hora de início. se a **hora de parada** estiver desabilitada, selecione **Adicionar evento de parada** ao lado da lista suspensa para habilitá-la.
-8. Para **fuso horário (obrigatório)** , selecione o fuso horário para os horários de início e de término especificados.  
-9. Para **observações**, insira qualquer descrição ou nota para o agendamento. 
-10. Selecione **Guardar**. 
+2. Confirme se **padrão** está selecionado como o **tipo de evento**. Selecione **Iniciar somente** para especificar apenas a hora de início para as VMs. Você seleciona **parar somente** para especificar apenas a hora de parada para as VMs. 
+7. Na seção **repetir** , selecione o agendamento atual. 
+
+    ![Botão Adicionar agendamento na página agendas](../media/how-to-create-schedules/select-current-schedule.png)
+5. Na caixa de diálogo **repetir** , execute as seguintes etapas:
+    1. Confirme se **todas as semanas** estão definidas para o campo de **repetição** . 
+    3. Especifique a **data de início**.
+    4. Especifique a **hora de início** em que você deseja que as VMs sejam iniciadas.
+    5. Especifique a **hora de parada** em que as VMs devem ser desligadas. 
+    6. Especifique o **fuso horário** para os horários de início e de término especificados. 
+    2. Selecione os dias nos quais você deseja que o agendamento entre em vigor. No exemplo a seguir, segunda-feira-quinta-feira está selecionado. 
+    8. Selecione **Guardar**. 
+
+        ![Definir agendamento de repetição](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. Agora, na página **Adicionar evento agendado** , para **observações (opcional)** , insira qualquer descrição ou nota para o agendamento. 
+4. Na página **Adicionar evento agendado** , selecione **salvar**. 
 
     ![Agenda semanal](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## <a name="view-schedules-in-calendar"></a>Exibir agendas no calendário
 Você pode ver as datas e os horários agendados realçados no modo de exibição de calendário, conforme mostrado na imagem a seguir:
 
-![Agendas no modo de exibição de calendário](../media/how-to-create-schedules/schedules-in-calendar.png)
+![Agendas no modo de exibição de calendário](../media/how-to-create-schedules/schedules-calendar.png)
 
 Selecione o botão **hoje** no canto superior direito para alternar para a data atual no calendário. Selecione a seta para a **esquerda** para alternar para a semana anterior e a seta para a **direita** para alternar para a próxima semana no calendário. 
 
 ## <a name="edit-a-schedule"></a>Editar uma agenda
-Ao clicar duas vezes em uma agenda realçada no calendário ou selecionar o botão de **lápis** na barra de ferramentas, você verá a página **Editar agenda** . A atualização das configurações nesta página é igual às configurações de atualização na página **Adicionar agenda** , conforme descrito na seção [Adicionar um agendamento recorrente](#add-a-recurring-schedule-weekly) . 
+Ao selecionar uma agenda realçada no calendário, você verá botões para **Editar** ou **excluir** a agenda. 
 
-![Editar página de agenda](../media/how-to-create-schedules/edit-schedule-page.png)
+![Editar página de agenda](../media/how-to-create-schedules/schedule-edit-button.png)
+
+Na página **Editar evento agendado** , você pode atualizar a agenda e selecionar **salvar**. 
 
 ## <a name="delete-a-schedule"></a>Eliminar uma agenda
 
-1. Para excluir uma agenda, selecione o botão Lixeira (excluir) na barra de ferramentas, conforme mostrado na imagem a seguir:
+1. Para excluir uma agenda, selecione uma agenda realçada no calendário e selecione o botão de Lixeira (excluir):
 
-    ![Botão excluir na barra de ferramentas](../media/how-to-create-schedules/delete-schedule-button.png)
-
-    Você pode usar o botão excluir para qualquer uma das datas e horários agendados no calendário e selecionar **excluir**. 
-2. Na página **excluir agendas** , selecione **Sim**.
-
-    ![Excluir confirmação de agendas](../media/how-to-create-schedules/delete-schedules-confirmation.png)
+    ![Botão excluir na barra de ferramentas](../media/how-to-create-schedules/schedule-delete-button.png)
+2. Na caixa de diálogo **excluir evento agendado** , selecione **Sim** para confirmar a exclusão. 
 
 
 
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 
 - [Como administrador, crie e gerencie contas de laboratório](how-to-manage-lab-accounts.md)

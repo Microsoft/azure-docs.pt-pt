@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e0fee903372668d30db0686f6a23dd913428454
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 659a6357736817f4a590b97e585230ec8c2b7dae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828183"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332931"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planeje seu ambiente Azure Time Series Insights GA
 
@@ -31,17 +31,17 @@ Este artigo descreve como planejar seu Azure Time Series Insights ambiente de di
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Para começar a usar o Time Series Insights, é melhor se você souber a quantidade de dados que espera enviar por minuto e por quanto tempo precisa para armazenar seus dados.  
+Para começar a usar o Azure Time Series Insights, é melhor se você souber a quantidade de dados que espera enviar por minuto e por quanto tempo precisa para armazenar seus dados.  
 
 Para obter mais informações sobre capacidade e retenção para os Time Series Insights SKUs, consulte [preços de time Series insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 Para planejar melhor seu ambiente de Time Series Insights para o sucesso a longo prazo, considere os seguintes atributos:
 
-- <a href="#storage-capacity">Capacidade de armazenamento</a>
-- <a href="#data-retention">Período de retenção de dados</a>
-- <a href="#ingress-capacity">Capacidade de entrada</a>
-- <a href="#shape-your-events">Moldando seus eventos</a>
-- <a href="#ensure-that-you-have-reference-data">Garantindo que você tenha dados de referência em vigor</a>
+- [Capacidade de armazenamento](#storage-capacity)
+- [Período de retenção de dados](#data-retention)
+- [Capacidade de entrada](#ingress-capacity)
+- [Moldando seus eventos](#shape-your-events)
+- [Garantindo que você tenha dados de referência em vigor](#ensure-that-you-have-reference-data)
 
 ## <a name="storage-capacity"></a>Capacidade de armazenamento
 
@@ -49,15 +49,17 @@ Por padrão, Time Series Insights retém dados com base na quantidade de armazen
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Você pode alterar a configuração de **tempo de retenção de dados** em seu ambiente de time Series insights. Você pode habilitar até 400 dias de retenção. 
+Você pode alterar a configuração de **tempo de retenção de dados** em seu ambiente de Azure Time Series insights. Você pode habilitar até 400 dias de retenção. 
 
-Time Series Insights tem dois modos. Um modo otimiza para garantir que seu ambiente tenha os dados mais atualizados. Por padrão, esse modo é ativado. 
+Azure Time Series Insights tem dois modos:
 
-O outro modo otimiza para garantir que os limites de retenção sejam atendidos. No segundo modo, a entrada será pausada se a capacidade geral de armazenamento do ambiente for atendida. 
+* Um modo otimiza para os dados mais atualizados. Ele impõe uma política para **limpar dados antigos** , deixando dados recentes disponíveis com a instância. Por padrão, esse modo é ativado. 
+* O outro otimiza os dados para permanecerem abaixo dos limites de retenção configurados. **Pausar a entrada** impede que novos dados sejam inseridos quando seu selecionado como o **limite de armazenamento excedeu o comportamento**. 
 
 Você pode ajustar a retenção e alternar entre os dois modos na página de configuração do ambiente no portal do Azure.
 
-Você pode configurar um máximo de 400 dias de retenção de dados em seu ambiente de Time Series Insights.
+> [!IMPORTANT]
+> Você pode configurar um máximo de 400 dias de retenção de dados em seu ambiente Azure Time Series Insights GA.
 
 ### <a name="configure-data-retention"></a>Configurar a retenção de dados
 
@@ -67,14 +69,14 @@ Você pode configurar um máximo de 400 dias de retenção de dados em seu ambie
 
 1. Na caixa **tempo de retenção de dados (em dias)** , insira um valor entre 1 e 400.
 
-   [![Configurar retenção](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [retenção de @no__t 1Configure](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
 > Para saber mais sobre como implementar uma política de retenção de dados apropriada, confira [como configurar a retenção](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Capacidade de entrada
 
-A segunda área para se concentrar para planejar seu ambiente de Time Series Insights é a capacidade de entrada. A capacidade de entrada é um derivativo da alocação por minuto.
+A segunda área para se concentrar ao planejar seu ambiente de Time Series Insights é a *capacidade de entrada*. A capacidade de entrada é um derivativo da alocação por minuto.
 
 De uma perspectiva de limitação, um pacote de dados de entrada que tem um tamanho de pacote de 32 KB é tratado como 32 eventos, cada um com tamanho de 1 KB. O tamanho máximo de evento permitido é de 32 KB. Pacotes de dados maiores que 32 KB são truncados.
 
@@ -93,7 +95,7 @@ A limitação e a latência desempenham uma função na capacidade por minuto. S
 
 Por exemplo, se você tiver uma única SKU S1, você entrará dados em uma taxa de 720 eventos por minuto e os picos de taxa de dados por menos de uma hora a uma taxa de 1.440 eventos ou menos, não haverá latência perceptível em seu ambiente. No entanto, se você exceder 1.440 eventos por minuto por mais de uma hora, provavelmente haverá latência nos dados visualizados e disponíveis para consulta em seu ambiente.
 
-Talvez você não saiba com antecedência a quantidade de dados que espera enviar por push. Nesse caso, você pode encontrar a telemetria de dados para o [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) e [hubs de eventos do Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) em sua assinatura portal do Azure. A telemetria pode ajudá-lo a determinar como provisionar seu ambiente. Use o painel métricas na portal do Azure da respectiva origem do evento para exibir sua telemetria. Se você entender suas métricas de origem de evento, poderá planejar e provisionar com mais eficiência seu ambiente de Time Series Insights.
+Talvez você não saiba com antecedência a quantidade de dados que espera enviar por push. Nesse caso, você pode encontrar a telemetria de dados para o [Hub IOT do Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) e [hubs de eventos do Azure](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) em sua assinatura portal do Azure. A telemetria pode ajudá-lo a determinar como provisionar seu ambiente. Use o painel **métricas** na portal do Azure da respectiva origem do evento para exibir sua telemetria. Se você entender suas métricas de origem de evento, poderá planejar e provisionar com mais eficiência seu ambiente de Time Series Insights.
 
 ### <a name="calculate-ingress-requirements"></a>Calcular os requisitos de entrada
 
@@ -125,7 +127,7 @@ Para saber mais sobre como criar, carregar e gerenciar seus dados de referência
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Comece criando [um novo ambiente de time Series insights no portal do Azure](time-series-insights-get-started.md).
 

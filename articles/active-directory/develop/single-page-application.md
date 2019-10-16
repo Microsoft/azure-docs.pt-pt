@@ -1,6 +1,6 @@
 ---
 title: Aplicativos de página única no Azure Active Directory
-description: Descreve quais aplicativos de página única (SPAs) são e as noções básicas sobre fluxo de protocolo, registo e expiração do token para este tipo de aplicação.
+description: Descreve o que são aplicativos de página única (SPAs) e os conceitos básicos sobre o fluxo de protocolo, o registro e a expiração do token para esse tipo de aplicativo.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,55 +17,55 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6f66779bec9ed4e38e5a662c2d3728ba2034b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8afb226406c02f395c7112d485d4616bfbec140e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545303"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373855"
 ---
 # <a name="single-page-applications"></a>Aplicativos de página única
 
-Página única (SPAs aplicativos) são estruturados geralmente como uma camada de apresentação de JavaScript (front-end) que é executado no navegador e um web API back-end que é executado num servidor e implementa a lógica comercial do aplicativo. Para obter mais informações sobre a concessão de autorização implícita e ajudar a decidir se é adequada para o seu cenário de aplicação, veja [Noções básicas sobre o OAuth2 implícita conceder o fluxo no Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
+Aplicativos de página única (SPAs) normalmente são estruturados como uma camada de apresentação JavaScript (front-end) que é executada no navegador e um back-end de API da Web que é executado em um servidor e implementa a lógica de negócios do aplicativo. Para saber mais sobre a concessão de autorização implícita e ajudá-lo a decidir se ela é adequada para seu cenário de aplicativo, consulte [noções básicas sobre o fluxo de concessão implícita OAuth2 no Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-Neste cenário, quando o utilizador inicia sessão, o JavaScript de front-end utiliza [Active Directory Authentication Library para JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) e a concessão de autorização implícita para obter um token de ID (id_token) do Azure AD. O token é colocado em cache e o cliente liga-ao pedido que o token de portador ao efetuar chamadas para a sua API Web back-end, que está protegida com o middleware da OWIN.
+Nesse cenário, quando o usuário entra, o front-end do JavaScript usa [biblioteca de autenticação do Active Directory para JavaScript (Adal. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) e a concessão de autorização implícita para obter um token de ID (id_token) do Azure AD. O token é armazenado em cache e o cliente o anexa à solicitação como o token de portador ao fazer chamadas para seu back-end de API da Web, que é protegido usando o middleware OWIN.
 
 ## <a name="diagram"></a>Diagrama
 
-![Diagrama de aplicação de página única](./media/authentication-scenarios/single_page_app.png)
+![Diagrama de aplicativo de página única](./media/authentication-scenarios/single_page_app.png)
 
 ## <a name="protocol-flow"></a>Fluxo de protocolo
 
-1. O utilizador navega para a aplicação web.
-1. A aplicação devolve o front-end JavaScript (camada de apresentação) para o navegador.
-1. O utilizador inicia sessão, por exemplo, clicando num link de início de sessão. O browser envia um GET para o ponto final de autorização do Azure AD para pedir um token de ID. Este pedido inclui o URL de ID e a resposta do aplicativo nos parâmetros de consulta.
-1. O Azure AD valida o URL de resposta contra o URL de resposta registado, que foi configurada no portal do Azure.
-1. O utilizador inicia sessão na página de início de sessão.
-1. Se a autenticação for bem-sucedida, cria um token de ID do Azure AD e o retorna como um fragmento de URL (#) para o URL de resposta do aplicativo. Para uma aplicação de produção, este URL de resposta deve ser HTTPS. O token devolvido inclui declarações sobre o utilizador e o Azure AD, que são necessários pelo aplicativo para validar o token.
-1. O código de cliente JavaScript em execução no browser extrai o token da resposta a utilizar na proteção de chamadas para web da aplicação que API volta termina.
-1. O navegador chama web da aplicação API volta terminar com o token de ID no cabeçalho de autorização. O serviço de autenticação do Azure AD emite um token de ID que pode ser utilizado como um token de portador, se o recurso é o mesmo que o ID de cliente (neste caso, isso é verdadeiro como a API web é o back-end da aplicação).
+1. O usuário navega para o aplicativo Web.
+1. O aplicativo retorna o front-end do JavaScript (camada de apresentação) para o navegador.
+1. O usuário inicia a entrada, por exemplo, clicando em um link de entrada. O navegador envia um GET para o ponto de extremidade de autorização do Azure AD para solicitar um token de ID. Essa solicitação inclui a ID do aplicativo e a URL de resposta nos parâmetros de consulta.
+1. O Azure AD valida a URL de resposta em relação à URL de resposta registrada que foi configurada no portal do Azure.
+1. O usuário entra na página de entrada.
+1. Se a autenticação for bem-sucedida, o Azure AD criará um token de ID e o retornará como um fragmento de URL (#) para a URL de resposta do aplicativo. Para um aplicativo de produção, essa URL de resposta deve ser HTTPS. O token retornado inclui declarações sobre o usuário e o Azure AD exigidos pelo aplicativo para validar o token.
+1. O código de cliente JavaScript em execução no navegador extrai o token da resposta a ser usada na proteção de chamadas para o back-end da API Web do aplicativo.
+1. O navegador chama o back-end da API Web do aplicativo com o token de ID no cabeçalho de autorização. O serviço de autenticação do Azure AD emite um token de ID que pode ser usado como um token de portador se o recurso for o mesmo que a ID do cliente (nesse caso, isso é verdadeiro, pois a API da Web é o próprio back-end do aplicativo).
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Consulte a [exemplos de código para cenários de aplicação de página única](sample-v1-code.md#single-page-applications). Certifique-se de que verifique novamente com a frequência com novos exemplos são adicionados com frequência.
+Consulte os [exemplos de código para cenários de aplicativo de página única](sample-v1-code.md#single-page-applications). Lembre-se de verificar com frequência conforme novas amostras são adicionadas com frequência.
 
 ## <a name="app-registration"></a>Registo da aplicação
 
-* Inquilino único, se estiver a criar uma aplicação apenas para a sua organização, tem de ser registado no diretório da sua empresa com o portal do Azure.
-* Multi-inquilino - se estiver criando um aplicativo que pode ser utilizado por utilizadores fora da sua organização, ela deve ser registrada no diretório da sua empresa, mas também tem de estar registrada no diretório de cada organização que irá utilizar a aplicação. Para disponibilizar a aplicação no seu diretório, pode incluir um processo de inscrição para os seus clientes, que permite autorizar a aplicação. Quando se inscrevem no seu aplicativo, serão apresentadas com uma caixa de diálogo que mostra as permissões que a aplicação requer e, em seguida, a opção para dar consentimento. Consoante as permissões necessárias, um administrador da outra organização poderá ser necessário para dar consentimento. Quando o utilizador ou administrador autorizar, o aplicativo está registado no seu diretório.
+* Locatário único – se você estiver criando um aplicativo apenas para sua organização, ele deverá ser registrado no diretório da sua empresa usando o portal do Azure.
+* Multilocatário – se você estiver criando um aplicativo que pode ser usado por usuários fora da sua organização, ele deve ser registrado no diretório da sua empresa, mas também deve ser registrado no diretório de cada organização que usará o aplicativo. Para disponibilizar seu aplicativo em seu diretório, você pode incluir um processo de inscrição para seus clientes que lhes permite consentir com seu aplicativo. Quando eles se inscreverem em seu aplicativo, receberão uma caixa de diálogo que mostra as permissões exigidas pelo aplicativo e, em seguida, a opção de consentimento. Dependendo das permissões necessárias, um administrador na outra organização pode ser solicitado a dar consentimento. Quando o usuário ou administrador consentir, o aplicativo será registrado em seu diretório.
 
-Depois de registar a aplicação, tem de ser configurado para utilizar o protocolo de concessão implícita OAuth 2.0. Por predefinição, este protocolo está desabilitado para aplicativos. Para ativar o protocolo de concessão implícita OAuth2 para a sua aplicação, editar o manifesto da aplicação do portal do Azure e defina o valor de "oauth2AllowImplicitFlow" como true. Para mais informações, veja [manifesto do aplicativo](reference-app-manifest.md).
+Depois de registrar o aplicativo, ele deve ser configurado para usar o protocolo de concessão implícita do OAuth 2,0. Por padrão, esse protocolo está desabilitado para aplicativos. Para habilitar o protocolo de concessão implícita OAuth2 para seu aplicativo, edite seu manifesto do aplicativo no portal do Azure e defina o valor "oauth2AllowImplicitFlow" como true. Para obter mais informações, consulte [manifesto do aplicativo](reference-app-manifest.md).
 
 ## <a name="token-expiration"></a>Expiração do token
 
-Usar ADAL.js ajuda com:
+O uso do ADAL. js ajuda com:
 
-* atualizar um token expirado
-* pedir um token de acesso para chamar um recurso de API web
+* Atualizando um token expirado
+* Solicitando um token de acesso para chamar um recurso da API Web
 
-Após uma autenticação com êxito, o Azure AD escreve um cookie no navegador do usuário para estabelecer uma sessão. Tenha em atenção de que a sessão existe entre o utilizador e o Azure AD (não entre o utilizador e a aplicação web). Quando um token expira, ADAL.js utiliza esta sessão silenciosamente obter outro token. ADAL.js utiliza um iFrame oculto para enviar e receber a solicitação usando o protocolo de concessão implícita OAuth. ADAL.js também pode utilizar esse mesmo mecanismo para obter silenciosamente os tokens de acesso para outros recursos de web API, o aplicativo chama, desde que esses recursos suportam os recursos de várias origens (CORS), de partilha são registadas no diretório do usuário, e qualquer consentimento necessário foi especificado pelo utilizador durante o início de sessão.
+Após uma autenticação bem-sucedida, o Azure AD grava um cookie no navegador do usuário para estabelecer uma sessão. Observe que a sessão existe entre o usuário e o Azure AD (não entre o usuário e o aplicativo Web). Quando um token expira, o ADAL. js usa essa sessão para obter silenciosamente outro token. O ADAL. js usa um iFrame oculto para enviar e receber a solicitação usando o protocolo de concessão implícita OAuth. O ADAL. js também pode usar esse mesmo mecanismo para obter silenciosamente tokens de acesso para outros recursos da API Web que o aplicativo chama, contanto que esses recursos ofereçam suporte ao compartilhamento de recursos entre origens (CORS), sejam registrados no diretório do usuário e qualquer consentimento necessário foi fornecido pelo usuário durante a entrada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outras [tipos de aplicativos e cenários](app-types.md)
-* Saiba mais sobre o Azure AD [Noções básicas de autenticação](authentication-scenarios.md)
+* Saiba mais sobre outros [tipos de aplicativos e cenários](app-types.md)
+* Saiba mais sobre as [noções básicas de autenticação](v1-authentication-scenarios.md) do Azure AD

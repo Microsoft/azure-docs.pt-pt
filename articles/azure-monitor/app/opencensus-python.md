@@ -1,5 +1,5 @@
 ---
-title: Monitorar aplicativos Python com o Azure Monitor | Microsoft Docs
+title: Monitorar aplicativos Python com o Azure Monitor (versão prévia) | Microsoft Docs
 description: Fornece instruções para conectar o Python OpenCensus com o Azure Monitor
 services: application-insights
 keywords: ''
@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: 1316cf6808f6ccfc4165ad162c51421638b130be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293992"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329481"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar Azure Monitor para seu aplicativo Python
+# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurar Azure Monitor para seu aplicativo Python (versão prévia)
 
 O Azure Monitor dá suporte ao rastreamento distribuído, à coleta de métrica e ao log de aplicativos Python por meio da integração com o [OpenCensus](https://opencensus.io). Este artigo orientará você passo a passo pelo processo de configuração do OpenCensus para Python e pela obtenção dos dados de monitoramento para Azure Monitor.
 

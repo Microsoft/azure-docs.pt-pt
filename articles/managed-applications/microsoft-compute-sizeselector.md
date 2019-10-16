@@ -1,6 +1,6 @@
 ---
-title: Elemento de interface do Usuário de SizeSelector do Azure | Documentos da Microsoft
-description: Descreve o elemento de interface do Usuário de Microsoft.Compute.SizeSelector para o portal do Azure.
+title: Elemento de interface do usuário SizeSelector do Azure | Microsoft Docs
+description: Descreve o elemento de interface do usuário Microsoft. COMPUTE. SizeSelector para portal do Azure. Use para selecionar o tamanho de uma máquina virtual.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5be5635964ebeedc7be4d1d1f5403e4d281b55c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 288ea7e887a170c8560b0126fa53c9132da35db6
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722342"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332676"
 ---
-# <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interface do Usuário de Microsoft.Compute.SizeSelector
-Um controlo para selecionar um tamanho para um ou mais instâncias de máquina virtual.
+# <a name="microsoftcomputesizeselector-ui-element"></a>Elemento de interface do usuário Microsoft. COMPUTE. SizeSelector
+Um controle para selecionar um tamanho para uma ou mais instâncias de máquina virtual.
 
-## <a name="ui-sample"></a>Exemplo de interface do Usuário
+## <a name="ui-sample"></a>Exemplo de interface do usuário
 
-O utilizador vê um Seletor com valores predefinidos da definição de elemento.
+O usuário vê um seletor com valores padrão da definição do elemento.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft. COMPUTE. SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
 
-Depois de selecionar o controle, o utilizador verá uma vista expandida dos tamanhos disponíveis.
+Depois de selecionar o controle, o usuário verá uma exibição expandida dos tamanhos disponíveis.
 
-![Microsoft.Compute.SizeSelector expandido](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Microsoft. COMPUTE. SizeSelector expandido](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -66,20 +66,20 @@ Depois de selecionar o controle, o utilizador verá uma vista expandida dos tama
 ```
 
 ## <a name="remarks"></a>Observações
-- `recommendedSizes` deve ter, pelo menos, um tamanho. O primeiro tamanho recomendado é utilizado como predefinição. A lista de tamanhos disponíveis não está ordenada pelo Estado recomendado. O utilizador pode selecionar essa coluna para ordenar pelo Estado recomendado.
-- Se um tamanho recomendado não estiver disponível na localização selecionada, o tamanho automaticamente será ignorado. Em vez disso, o próximo tamanho recomendado é utilizado.
-- `constraints.allowedSizes` e `constraints.excludedSizes` são ambos opcionais, mas não pode ser utilizada em simultâneo. A lista de tamanhos disponíveis pode ser determinada ao chamar [listar tamanhos de máquina virtual de disponibilidade para uma subscrição](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Qualquer tamanho não especificado na `constraints.allowedSizes` está oculta e qualquer tamanho não especificado no `constraints.excludedSizes` é mostrado.
-- `osPlatform` tem de ser especificado e pode ser uma **Windows** ou **Linux**. É utilizado para determinar os custos de hardware das máquinas virtuais.
-- `imageReference` é omitido para imagens originais, mas fornecido para imagens de terceiros. É utilizado para determinar os custos de software das máquinas virtuais.
-- `count` é utilizado para definir o multiplicador apropriado para o elemento. Ele oferece suporte a um valor estático, como **2**, ou um valor dinâmico a partir de outro elemento, como `[steps('step1').vmCount]`. O valor predefinido é **1**.
+- `recommendedSizes` deve ter pelo menos um tamanho. O primeiro tamanho recomendado é usado como o padrão. A lista de tamanhos disponíveis não é classificada pelo Estado recomendado. O usuário pode selecionar essa coluna para classificar por estado recomendado.
+- Se um tamanho recomendado não estiver disponível no local selecionado, o tamanho será ignorado automaticamente. Em vez disso, o próximo tamanho recomendado é usado.
+- `constraints.allowedSizes` e `constraints.excludedSizes` são opcionais, mas não podem ser usados simultaneamente. A lista de tamanhos disponíveis pode ser determinada pela chamada à [lista de tamanhos de máquina virtual disponíveis para uma assinatura](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Qualquer tamanho não especificado no `constraints.allowedSizes` é oculto e qualquer tamanho não especificado em `constraints.excludedSizes` é mostrado.
+- `osPlatform` deve ser especificado e pode ser **Windows** ou **Linux**. Ele é usado para determinar os custos de hardware das máquinas virtuais.
+- `imageReference` é omitido para imagens de terceiros, mas fornecido para imagens de terceiros. Ele é usado para determinar os custos de software das máquinas virtuais.
+- `count` é usado para definir o multiplicador apropriado para o elemento. Ele dá suporte a um valor estático, como **2**, ou a um valor dinâmico de outro elemento, como `[steps('step1').vmCount]`. O valor padrão é **1**.
 - O `numAvailabilityZonesRequired` pode ser 1, 2 ou 3.
-- Por predefinição, `hideDiskTypeFilter` é **false**. O filtro de tipo de disco permite ao utilizador ver todos os tipos de disco ou apenas SSD.
+- Por padrão, `hideDiskTypeFilter` é **false**. O filtro de tipo de disco permite que o usuário veja todos os tipos de disco ou apenas SSD.
 
 ## <a name="sample-output"></a>Resultado da amostra
 ```json
 "Standard_D1"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+## <a name="next-steps"></a>Passos seguintes
+* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

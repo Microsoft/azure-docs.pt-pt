@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31a33a000fdc07756d39e42c8f70fc06a58b170e
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 43f5e04440f55c44a53b85aa4d3600e0d926424d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309980"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330009"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando modelos
 
@@ -32,7 +32,7 @@ Neste artigo, usando o modelo de implantação Azure Resource Manager, você apr
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Se você não estiver familiarizado com o uso do modelo de implantação Azure Resource Manager, confira a [seção visão geral](overview.md). **Certifique-se de que reveja os [diferença entre uma identidade gerida atribuído de sistema e atribuído ao utilizador](overview.md#how-does-it-work)** .
+- Se você não estiver familiarizado com o uso do modelo de implantação Azure Resource Manager, confira a [seção visão geral](overview.md). **Certifique-se de examinar a [diferença entre uma identidade gerenciada atribuída pelo sistema e](overview.md#how-does-it-work)** atribuída pelo usuário.
 - Se ainda não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
 
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
@@ -56,7 +56,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM, sua co
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada à assinatura do Azure que contém a VM.
 
-2. Para habilitar a identidade gerenciada atribuída pelo sistema, carregue o modelo em um editor, `Microsoft.Compute/virtualMachines` localize o recurso de interesse `resources` dentro da seção e `"identity"` adicione a propriedade no mesmo nível `"type": "Microsoft.Compute/virtualMachines"` da propriedade. Use a seguinte sintaxe:
+2. Para habilitar a identidade gerenciada atribuída pelo sistema, carregue o modelo em um editor, localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources` e adicione a propriedade `"identity"` no mesmo nível que a propriedade `"type": "Microsoft.Compute/virtualMachines"`. Use a seguinte sintaxe:
 
    ```JSON
    "identity": { 
@@ -66,7 +66,7 @@ Para habilitar a identidade gerenciada atribuída pelo sistema em uma VM, sua co
 
 
 
-3. Quando terminar, as seções a seguir devem ser adicionadas à `resource` seção do seu modelo e devem ser semelhantes ao seguinte:
+3. Quando terminar, as seções a seguir devem ser adicionadas à seção `resource` do seu modelo e devem ser semelhantes ao seguinte:
 
    ```JSON
    "resources": [
@@ -113,7 +113,7 @@ Para atribuir uma função à identidade atribuída pelo sistema de sua VM, sua 
  
 2. Carregue o modelo em um [Editor](#azure-resource-manager-templates) e adicione as informações a seguir para dar acesso de **leitor** de VM ao grupo de recursos no qual ele foi criado.  A estrutura do modelo pode variar dependendo do editor e do modelo de implantação que você escolher.
    
-   `parameters` Na seção, adicione o seguinte:
+   Na seção `parameters`, adicione o seguinte:
 
     ```JSON
     "builtInRoleType": {
@@ -125,13 +125,13 @@ Para atribuir uma função à identidade atribuída pelo sistema de sua VM, sua 
         }
     ```
 
-    `variables` Na seção, adicione o seguinte:
+    Na seção `variables`, adicione o seguinte:
 
     ```JSON
     "Reader": "[concat('/subscriptions/', subscription().subscriptionId, '/providers/Microsoft.Authorization/roleDefinitions/', 'acdd72a7-3385-48ef-bd42-f606fba81ae7')]"
     ```
 
-    `resources` Na seção, adicione o seguinte:
+    Na seção `resources`, adicione o seguinte:
 
     ```JSON
     {
@@ -155,15 +155,15 @@ Para remover a identidade gerenciada atribuída pelo sistema de uma VM, sua cont
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada à assinatura do Azure que contém a VM.
 
-2. Carregue o modelo em um [Editor](#azure-resource-manager-templates) e localize o `Microsoft.Compute/virtualMachines` recurso `resources` de interesse na seção. Se você tiver uma VM que tem apenas identidade gerenciada atribuída pelo sistema, você poderá desabilitá-la alterando o `None`tipo de identidade para.  
+2. Carregue o modelo em um [Editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Se você tiver uma VM que tem apenas identidade gerenciada atribuída pelo sistema, poderá desabilitá-la alterando o tipo de identidade para `None`.  
    
    **API Microsoft. Compute/virtualMachines versão 2018-06-01**
 
-   Se sua VM tiver identidades gerenciadas atribuídas ao sistema e ao `SystemAssigned` usuário, remova do tipo de `UserAssigned` identidade e mantenha `userAssignedIdentities` junto com os valores de dicionário.
+   Se sua VM tiver identidades gerenciadas atribuídas ao sistema e ao usuário, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` juntamente com os valores de dicionário `userAssignedIdentities`.
 
    **API Microsoft. Compute/virtualMachines versão 2018-06-01**
    
-   Se seu `apiVersion` for `2017-12-01` e sua VM tiverem identidades gerenciadas atribuídas ao sistema e ao `SystemAssigned` usuário, remova do tipo de `UserAssigned` identidade e mantenha `identityIds` junto com a matriz das identidades gerenciadas atribuídas pelo usuário.  
+   Se seu `apiVersion` for `2017-12-01` e sua VM tiver identidades gerenciadas atribuídas ao sistema e ao usuário, remova `SystemAssigned` do tipo de identidade e mantenha `UserAssigned` junto com a matriz `identityIds` das identidades gerenciadas atribuídas pelo usuário.  
    
 O exemplo a seguir mostra como remover uma identidade gerenciada atribuída pelo sistema de uma VM sem identidades gerenciadas atribuídas pelo usuário:
 
@@ -175,6 +175,7 @@ O exemplo a seguir mostra como remover uma identidade gerenciada atribuída pelo
     "location": "[resourceGroup().location]",
     "identity": { 
         "type": "None"
+        },
 }
 ```
 
@@ -189,11 +190,11 @@ Nesta seção, você atribui uma identidade gerenciada atribuída pelo usuário 
 
 Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precisa das atribuições de função [colaborador da máquina virtual](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [operador de identidade gerenciada](/azure/role-based-access-control/built-in-roles#managed-identity-operator) . Não são necessárias atribuições de função de diretório do Azure AD adicionais.
 
-1. `resources` No elemento, adicione a seguinte entrada para atribuir uma identidade gerenciada atribuída pelo usuário à sua VM.  Certifique-se de `<USERASSIGNEDIDENTITY>` substituir pelo nome da identidade gerenciada atribuída pelo usuário que você criou.
+1. No elemento `resources`, adicione a seguinte entrada para atribuir uma identidade gerenciada atribuída pelo usuário à sua VM.  Certifique-se de substituir `<USERASSIGNEDIDENTITY>` pelo nome da identidade gerenciada atribuída pelo usuário que você criou.
 
    **API Microsoft. Compute/virtualMachines versão 2018-06-01**
 
-   Se seu `apiVersion` for `2018-06-01`, suas `userAssignedIdentities` identidades gerenciadas atribuídas pelo usuário serão armazenadas no formato de `<USERASSIGNEDIDENTITYNAME>` dicionário e o valor deverá ser armazenado em uma variável `variables` definida na seção do modelo.
+   Se seu `apiVersion` for `2018-06-01`, suas identidades gerenciadas atribuídas pelo usuário serão armazenadas no formato de dicionário `userAssignedIdentities` e o valor de `<USERASSIGNEDIDENTITYNAME>` deverá ser armazenado em uma variável definida na seção `variables` do seu modelo.
 
    ```json
    {
@@ -212,7 +213,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    
    **API Microsoft. Compute/virtualMachines versão 2017-12-01**
     
-   Se o `apiVersion` for `2017-12-01`, suas `identityIds` identidades gerenciadas atribuídas pelo usuário são armazenadas na matriz `<USERASSIGNEDIDENTITYNAME>` e o valor deve ser armazenado em uma variável definida `variables` na seção do modelo.
+   Se seu `apiVersion` for `2017-12-01`, suas identidades gerenciadas atribuídas pelo usuário serão armazenadas na matriz `identityIds` e o valor de `<USERASSIGNEDIDENTITYNAME>` deverá ser armazenado em uma variável definida na seção `variables` do seu modelo.
     
    ```json
    {
@@ -229,7 +230,7 @@ Para atribuir uma identidade atribuída pelo usuário a uma VM, sua conta precis
    }
    ```
        
-3. Quando terminar, as seções a seguir devem ser adicionadas à `resource` seção do seu modelo e devem ser semelhantes ao seguinte:
+3. Quando terminar, as seções a seguir devem ser adicionadas à seção `resource` do seu modelo e devem ser semelhantes ao seguinte:
    
    **API Microsoft. Compute/virtualMachines versão 2018-06-01**    
 
@@ -315,7 +316,7 @@ Para remover uma identidade atribuída pelo usuário de uma VM, sua conta precis
 
 1. Se você entrar no Azure localmente ou por meio do portal do Azure, use uma conta que esteja associada à assinatura do Azure que contém a VM.
 
-2. Carregue o modelo em um [Editor](#azure-resource-manager-templates) e localize o `Microsoft.Compute/virtualMachines` recurso `resources` de interesse na seção. Se você tiver uma VM que tenha apenas uma identidade gerenciada atribuída pelo usuário, você poderá desabilitá-la alterando `None`o tipo de identidade para.
+2. Carregue o modelo em um [Editor](#azure-resource-manager-templates) e localize o recurso `Microsoft.Compute/virtualMachines` de interesse na seção `resources`. Se você tiver uma VM que tenha apenas uma identidade gerenciada atribuída pelo usuário, você poderá desabilitá-la alterando o tipo de identidade para `None`.
  
    O exemplo a seguir mostra como remover todas as identidades gerenciadas atribuídas pelo usuário de uma VM sem identidades gerenciadas atribuídas pelo sistema:
    
@@ -327,20 +328,21 @@ Para remover uma identidade atribuída pelo usuário de uma VM, sua conta precis
       "location": "[resourceGroup().location]",
       "identity": { 
           "type": "None"
+          },
     }
    ```
    
    **API Microsoft. Compute/virtualMachines versão 2018-06-01**
     
-   Para remover uma única identidade gerenciada atribuída pelo usuário de uma VM, remova-a `useraAssignedIdentities` do dicionário.
+   Para remover uma única identidade gerenciada atribuída pelo usuário de uma VM, remova-a do dicionário `useraAssignedIdentities`.
 
-   Se você tiver uma identidade gerenciada atribuída pelo sistema, mantenha-a no no `type` valor abaixo do `identity` valor.
+   Se você tiver uma identidade gerenciada atribuída pelo sistema, mantenha-a no no valor `type` sob o valor de `identity`.
  
    **API Microsoft. Compute/virtualMachines versão 2017-12-01**
 
-   Para remover uma única identidade gerenciada atribuída pelo usuário de uma VM, remova-a `identityIds` da matriz.
+   Para remover uma única identidade gerenciada atribuída pelo usuário de uma VM, remova-a da matriz `identityIds`.
 
-   Se você tiver uma identidade gerenciada atribuída pelo sistema, mantenha-a no no `type` valor abaixo do `identity` valor.
+   Se você tiver uma identidade gerenciada atribuída pelo sistema, mantenha-a no no valor `type` sob o valor de `identity`.
    
 ## <a name="next-steps"></a>Passos seguintes
 

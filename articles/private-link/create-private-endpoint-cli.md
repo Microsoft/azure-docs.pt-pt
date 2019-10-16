@@ -7,19 +7,19 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219363"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376321"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Criar um ponto de extremidade privado usando CLI do Azure
 O ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. Neste guia de início rápido, você aprenderá a criar uma VM em uma rede virtual, um servidor de banco de dados SQL com um ponto de extremidade privado usando CLI do Azure. Em seguida, você pode acessar a VM para e acessar com segurança o recurso de link privado (um servidor de banco de dados SQL do Azure privado neste exemplo). 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+Se você decidir instalar e usar CLI do Azure localmente, este guia de início rápido exigirá que você use CLI do Azure versão 2.0.28 ou posterior. Para localizar sua versão instalada, execute `az --version`. Consulte [instalar CLI do Azure](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Desabilitar políticas de ponto de extremidade privado de sub-rede 
-O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede denominada * mysubnet * * com [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar ou atualizar a sub-rede para desabilitar as políticas de rede de ponto de extremidade privadas. Atualize uma configuração de sub-rede chamada *mysubnet* Com [AZ Network vnet subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-Observe que a ID de SQL Server é ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` semelhante a você usará a ID de SQL Server na próxima etapa. 
+Observe que a ID de SQL Server é semelhante a @ no__t-0, você usará a ID de SQL Server na próxima etapa. 
 
 ## <a name="create-the-private-endpoint"></a>Criar o ponto de extremidade privado 
 Crie um ponto de extremidade privado para o servidor do banco de dados SQL em sua rede virtual: 
@@ -127,7 +127,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 
 1. Selecione o botão **Ligar**. Depois de selecionar o botão **conectar** , **Conecte-se à máquina virtual** é aberto.
 
-1. Selecione **transferir ficheiro RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
+1. Selecione **baixar arquivo RDP**. O Azure cria um arquivo protocolo RDP ( *. rdp*) e o baixa em seu computador.
 
 1. Abra o arquivo. rdp * baixado.
 
@@ -136,7 +136,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
     1. Insira o nome de usuário e a senha que você especificou ao criar a VM.
 
         > [!NOTE]
-        > Talvez seja necessário selecionar **mais escolhas** > **usar uma conta diferente**, para especificar as credenciais que você inseriu quando criou a VM.
+        > Talvez seja necessário selecionar **mais opções** > **use uma conta diferente**, para especificar as credenciais que você inseriu quando criou a VM.
 
 1. Selecione **OK**.
 
@@ -149,7 +149,7 @@ Conecte-se à VM *myVm* da Internet da seguinte maneira:
 Nesta seção, você se conectará ao servidor do banco de dados SQL da VM usando o ponto de extremidade privado.
 
  1. No Área de Trabalho Remota do *myVM*, abra o PowerShell.
- 2. Insira nslookup MyServer.Database.Windows.NET  você receberá uma mensagem semelhante a esta: 
+ 2. Digite nslookup meuservidor. Database. Windows. net @ no__t-0 você receberá uma mensagem semelhante a esta: 
 
 ```
       Server:  UnKnown 
@@ -160,10 +160,10 @@ Nesta seção, você se conectará ao servidor do banco de dados SQL da VM usand
       Aliases:  myserver.database.windows.net 
 ```
  3. Instalar SQL Server Management Studio 
- 4. Em conectar ao servidor, insira ou selecione estas informações: Tipo de servidor: Selecione Mecanismo de Banco de Dados.
- Nome do servidor: Selecione myserver.database.windows.net nome de usuário: Insira um nome de usuário fornecido durante a criação.
- La Insira uma senha fornecida durante a criação.
- Lembrar senha: Selecione Sim.
+ 4. Em conectar ao servidor, insira ou selecione estas informações: tipo de servidor: selecione Mecanismo de Banco de Dados.
+ Nome do servidor: selecione myserver.database.windows.net nome de usuário: Insira um nome de usuário fornecido durante a criação.
+ Senha: Insira uma senha fornecida durante a criação.
+ Lembrar senha: selecione Sim.
  
  5. Selecione **conectar**.
  6. Procurar **bancos de dados** no menu à esquerda.

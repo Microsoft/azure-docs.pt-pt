@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311861"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330093"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurar SQL Server instância de cluster de failover com compartilhamento de arquivos Premium em máquinas virtuais do Azure
 
@@ -52,6 +52,8 @@ Além disso, você deve ter uma compreensão geral das seguintes tecnologias:
 Os compartilhamentos de arquivos Premium fornecem IOPS e, durante toda a capacidade, atenderá às necessidades de várias cargas de trabalho. No entanto, para cargas de trabalho com uso intensivo de e/s, considere [SQL Server FCI com espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md) com base em discos Premium gerenciados ou em discos ultra.  
 
 Verifique a atividade de IOPS do seu ambiente atual e verifique se os arquivos Premium fornecerão o IOPS de que você precisa antes de iniciar uma implantação ou migração. Use os contadores de disco do monitor de desempenho do Windows e monitore o IOPS total (transferências de disco/s) e a taxa de transferência (bytes de disco/s) necessários para dados de SQL Server, log e arquivos de BD temporários. Muitas cargas de trabalho têm intermitência de e/s para que seja uma boa ideia verificar durante períodos de uso intenso e observar a IOPS máxima, bem como a média de IOPS. Os compartilhamentos de arquivos Premium fornecem IOPS com base no tamanho do compartilhamento. Os arquivos Premium também fornecem intermitências especiais, onde você pode aumentar sua e/s para triplo da quantidade de linha de base por até uma hora. 
+
+Para obter mais informações sobre o desempenho de compartilhamento de arquivos premium, consulte [níveis de desempenho de compartilhamento de arquivos](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
 
 ### <a name="licensing-and-pricing"></a>Licenciamento e preços
 

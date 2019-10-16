@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 0201cbdd05cd8aae4afb92b459bf58fb5ff6a142
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1dcc28313d1d8e59024fbc70738567cb59585d20
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026972"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326475"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação Agregação no fluxo de dados de mapeamento 
 
@@ -30,7 +30,7 @@ Selecione uma coluna existente ou crie uma nova coluna computada para usar como 
 ## <a name="aggregate-column"></a>Coluna de agregação 
 Escolha a guia ' agregações ' para criar expressões de agregação. Você pode escolher uma coluna existente e substituir o valor pela agregação ou criar um novo campo com um novo nome. A expressão de agregação é inserida na caixa à direita ao lado do seletor de nome de coluna. Para editar a expressão, clique na caixa de texto para abrir o construtor de expressões. Para adicionar uma agregação adicional, passe o mouse sobre uma expressão existente e clique em ' + ' para criar um novo [padrão](concepts-data-flow-column-pattern.md)de coluna ou coluna de agregação.
 
-![Configurações de agregação de transformação Agregação](media/data-flow/agg2.png "Configurações de agregação de transformação Agregação")
+![](media/data-flow/agg2.png "Configurações de") agregação de transformação agregadas configurações de agregação agregadas
 
 > [!NOTE]
 > Cada expressão de agregação deve conter pelo menos uma função de agregação.
@@ -44,6 +44,19 @@ As transformações agregadas são bastante equivalentes às consultas SELECT de
 * Use uma função de agregação para incluir essa coluna adicional, como Last () ou First ()
 * Ingresse novamente as colunas antes da agregação usando o [padrão de autojunção](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
+## <a name="data-flow-script"></a>Script de fluxo de dados
+
+![](media/data-flow/aggdfs1.png "Script de fluxo de dados de agregação") de script de fluxo de dados
+
+* ```MoviesYear```: coluna derivada definindo colunas year e title
+* ```AvgComedyRatingByYear```: transformação agregação para classificação média de Comedies agrupadas por ano
+* ```avgrating```: nome da nova coluna que está sendo criada para conter o valor agregado
+
+```
+MoviesYear aggregate(groupBy(year),
+    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
+```
+  
 ## <a name="next-steps"></a>Passos seguintes
 
 * Definir a agregação baseada em janela usando a [transformação janela](data-flow-window.md)

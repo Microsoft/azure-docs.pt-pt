@@ -1,18 +1,18 @@
 ---
 title: Referência do C# ponto de extremidade RESTful do provedor personalizado-Azure
-description: Este artigo é uma referência básica para um ponto de C# extremidade RESTful de provedor personalizado.
+description: Fornece referência básica para um ponto de extremidade C# RESTful de provedores personalizados do Azure. O ponto de extremidade é fornecido por meio de um aplicativo de funções do Azure.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 8007c92c832ab7621d0192f924b15abf8bda9262
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 37b7997bc029942a84c9be5743f6ef3c6195fd27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172915"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332651"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>Referência do C# ponto de extremidade RESTful do provedor personalizado
 
@@ -258,6 +258,6 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral dos provedores de recursos personalizados do Azure](./custom-providers-overview.md)
-- [Tutorial: Criar um provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
-- [How to: Adicionando ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
-- [Referência Referência de cache de recurso personalizado](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+- [Tutorial: criar um provedor de recursos personalizado do Azure e implantar recursos personalizados](./create-custom-provider.md)
+- [Como adicionar ações personalizadas à API REST do Azure](./custom-providers-action-endpoint-how-to.md)
+- [Referência: referência de cache de recurso personalizado](./custom-providers-proxy-cache-resource-endpoint-reference.md)

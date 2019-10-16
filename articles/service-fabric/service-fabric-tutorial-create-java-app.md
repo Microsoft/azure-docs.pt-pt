@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um aplicativo Java no Azure Service Fabric'
+title: 'Tutorial: criar um aplicativo Java no Azure Service Fabric'
 description: Neste tutorial, vai aprender a criar uma aplicação Java de serviço fiável com um front-end, a criar um back-end com estado de serviços fiáveis e a implementar a aplicação num cluster.
 services: service-fabric
 documentationcenter: java
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b3210b97fe6fb0cd16499d5c33538c8e2babe612
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5e9b94f0c67b4b4630d554f4dde22502c90e777c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173700"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376363"
 ---
-# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: Criar um aplicativo com um serviço de front-end de API Java e um serviço de back-end com estado no Azure Service Fabric
+# <a name="tutorial-create-an-application-with-a-java-api-front-end-service-and-a-stateful-back-end-service-on-azure-service-fabric"></a>Tutorial: criar um aplicativo com um serviço de front-end de API Java e um serviço de back-end com estado no Azure Service Fabric
 
 Este tutorial é a primeira parte de uma série. Quando terminar, você terá um aplicativo de votação com um front-end da Web do Java que salva os resultados da votação em um serviço de back-end com estado no Azure Service Fabric. Esta série de tutoriais requer que tenha um computador de programador Mac OSX ou Linux. Se não quiser criar manualmente a aplicação de voto, pode [transferir o código de origem](https://github.com/Azure-Samples/service-fabric-java-quickstart) da aplicação concluída e avançar diretamente para o [Guia do exemplo de aplicação de voto](service-fabric-tutorial-create-java-app.md#walk-through-the-voting-sample-application). Além disso, considere seguir o guia [de início rápido para Java Reliable Services.](service-fabric-quickstart-java-reliable-services.md)
 
@@ -91,7 +91,7 @@ Para adicionar uma interface do usuário que pode ser renderizada pelo serviço 
 
 1. Expanda o diretório *VotingApplication* para ver o diretório *VotingApplication/VotingWebPkg/Code*.
 
-2. Clique com o botão direito do mouse no diretório do *código* e selecione **nova** > **pasta**.
+2. Clique com o botão direito do mouse no diretório do *código* e selecione **nova** **pasta** > .
 
 3. Nomeie a pasta *wwwroot* e selecione **concluir**.
 
@@ -228,7 +228,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Adicionar o ficheiro HTTPCommunicationListener.java
 
-O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/Statelessservice* e selecione **novo****arquivo**.  Nomeie o arquivo *HttpCommunicationListener. java* e selecione **concluir**.
+O serviço de escuta de comunicação HTTP atua como um controlador que configura o servidor HTTP e expõe as APIs que definem as ações de voto. Clique com o botão direito do mouse no pacote *statelessservice* na pasta *VotingWeb/src/Statelessservice* e selecione **novo** **arquivo** > .  Nomeie o arquivo *HttpCommunicationListener. java* e selecione **concluir**.
 
 Substitua o conteúdo do ficheiro pelo seguinte e, em seguida, guarde as alterações.  Posteriormente, em atualizar o arquivo HttpCommunicationListener. Java, esse arquivo é modificado para renderizar, ler e gravar dados de votação do serviço de back-end.  Por agora, o serviço de escuta devolve simplesmente o HTML estático da aplicação de Voto.
 
@@ -555,7 +555,7 @@ A estrutura do serviço front-end sem estado e do serviço back-end está agora 
 
  A próxima etapa é conectar o serviço sem estado de front-end e o serviço de back-end. Ambos os serviços utilizam uma interface chamada VotingRPC que define as operações do aplicativo de votação. Esta interface é implementada por ambos os serviços front-end e back-end para ativar as chamadas de procedimento remoto (RPC) entre os dois serviços. Infelizmente, o eclipse não dá suporte à adição de subprojetos gradle, portanto, o pacote que contém essa interface precisa ser adicionado manualmente.
 
-1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **nova** > **pasta**. Dê à pasta o nome **VotingRPC/src/rpcmethods**.
+1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **nova** **pasta** > . Dê à pasta o nome **VotingRPC/src/rpcmethods**.
 
     ![Criar pacote VotingRPC no explorador de pacotes do eclipse](./media/service-fabric-tutorial-create-java-app/create-voting-rpc-package-java.png)
 
@@ -891,11 +891,11 @@ Nesta secção, vai configurar os scripts de Gradle para o projeto.
 
 Neste momento, a aplicação está pronta para ser implementada num cluster do Service Fabric local.
 
-1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **Service Fabric** > **aplicativo de Build** para compilar seu aplicativo.
+1. Clique com o botão direito do mouse no projeto de **votação** no explorador de pacotes e selecione **Service Fabric** **aplicativo de Build**  >  para compilar seu aplicativo.
 
 2. Execute o seu cluster do Service Fabric local. Este passo depende do seu ambiente de desenvolvimento (Mac ou Linux).
 
-    Se você estiver usando um Mac, execute o cluster local com o seguinte comando: Substitua o comando passado para o parâmetro **-v** pelo caminho para seu próprio espaço de trabalho.
+    Se estiver a utilizar um Mac, execute o cluster local com o seguinte comando: substitua o comando transmitido no parâmetro **-v** pelo caminho para a sua área de trabalho.
 
     ```bash
     docker run -itd -p 19080:19080 -p 8080:8080 -p --name sfonebox servicefabricoss/service-fabric-onebox
@@ -909,9 +909,9 @@ Neste momento, a aplicação está pronta para ser implementada num cluster do S
     ```
     Consulte instruções mais detalhadas no [Guia de instalação do Linux.](service-fabric-get-started-linux.md)
 
-4. No Package Explorer para Eclipse, clique com o botão direito do mouse no projeto de **votação** e selecione **Service Fabric** > **aplicativo de publicação** 
+4. No Package Explorer para Eclipse, clique com o botão direito do mouse no projeto de **votação** e selecione **Service Fabric** > **publicar aplicativo** 
 5. Na janela **publicar aplicativo** , selecione **local. JSON** na lista suspensa e selecione **publicar**.
-6. Acesse o navegador da Web e acesse\/http:/localhost: 8080 para exibir seu aplicativo em execução no cluster de Service Fabric local. 
+6. Acesse o navegador da Web e acesse http: \//localhost: 8080 para exibir seu aplicativo em execução no cluster de Service Fabric local. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

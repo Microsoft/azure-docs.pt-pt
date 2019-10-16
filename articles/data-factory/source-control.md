@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933662"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326387"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controle do código-fonte no Azure Data Factory
 
@@ -25,6 +25,9 @@ A experiência de interface do usuário do Azure Data Factory (UX) tem duas expe
 
 - Crie diretamente com o serviço de Data Factory
 - Crie com Azure Repos a integração do git ou do GitHub
+
+> [!NOTE]
+> Somente a criação direta com o serviço de Data Factory tem suporte na nuvem do Azure governamental.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Crie diretamente com o serviço de Data Factory
 
@@ -57,7 +60,7 @@ Na home page Azure Data Factory, selecione **configurar repositório de código*
 
 ![Configurar um repositório de código de Azure Repos](media/author-visually/configure-repo.png)
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação de UX
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: tela de criação de UX
 Na tela de criação do Azure Data Factory UX, selecione o menu suspenso **Data Factory** e, em seguida, selecione **configurar repositório de código**.
 
 ![Definir as configurações do repositório de código para a criação de UX](media/author-visually/configure-repo-2.png)
@@ -68,17 +71,17 @@ Ambos os métodos abrem o painel de configuração configurações do repositór
 
 O painel de configuração mostra as seguintes configurações de Azure Repos repositório de código:
 
-| Definição | Descrição | Value |
+| Definição | Descrição | Valor |
 |:--- |:--- |:--- |
 | **Tipo de repositório** | O tipo do repositório de código de Azure Repos.<br/> | Azure DevOps git ou GitHub |
 | **Azure Active Directory** | O nome do locatário do Azure AD. | `<your tenant name>` |
-| **Azure Repos organização** | O nome da organização Azure Repos. Você pode localizar o nome da organização Azure Repos `https://{organization name}.visualstudio.com`em. Você pode [entrar em sua organização do Azure Repos](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | `<your organization name>` |
-| **ProjectName** | O nome do projeto de Azure Repos. Você pode localizar o nome do projeto Azure Repos `https://{organization name}.visualstudio.com/{project name}`em. | `<your Azure Repos project name>` |
-| **RepositoryName** | O nome do repositório de código de Azure Repos. Azure Repos projetos contêm repositórios git para gerenciar seu código-fonte à medida que seu projeto cresce. Você pode criar um novo repositório ou usar um repositório existente que já esteja em seu projeto. | `<your Azure Repos code repository name>` |
+| **Azure Repos organização** | O nome da organização Azure Repos. Você pode localizar o nome da organização Azure Repos em `https://{organization name}.visualstudio.com`. Você pode [entrar em sua organização do Azure Repos](https://www.visualstudio.com/team-services/git/) para acessar seu perfil do Visual Studio e ver seus repositórios e projetos. | `<your organization name>` |
+| **ProjectName** | O nome do projeto de Azure Repos. Você pode localizar o nome do projeto Azure Repos em `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
+| **Repositoryname** | O nome do repositório de código de Azure Repos. Azure Repos projetos contêm repositórios git para gerenciar seu código-fonte à medida que seu projeto cresce. Você pode criar um novo repositório ou usar um repositório existente que já esteja em seu projeto. | `<your Azure Repos code repository name>` |
 | **Branch de colaboração** | Sua Azure Repos Branch de colaboração que é usada para publicação. Por padrão, seu `master`. Altere essa configuração caso você queira publicar recursos de outra ramificação. | `<your collaboration branch name>` |
 | **Pasta raiz** | Sua pasta raiz na sua Azure Repos Branch de colaboração. | `<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se os recursos existentes do data factory devem ser importados da **tela de criação** UX em um repositório git Azure repos. Selecione a caixa para importar seus recursos de data factory para o repositório git associado no formato JSON. Essa ação exporta cada recurso individualmente (ou seja, os serviços vinculados e os conjuntos de valores são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionado (padrão) |
-| **Branch para importar recurso para** | Especifica em qual ramificação os recursos de data factory (pipelines, conjuntos de valores, serviços vinculados etc.) são importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Utilizar Existente |  |
+| **Branch para importar recurso para** | Especifica em qual ramificação os recursos de data factory (pipelines, conjuntos de valores, serviços vinculados etc.) são importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar existente |  |
 
 > [!NOTE]
 > Se você estiver usando o Microsoft Edge e não vir nenhum valor em seu menu suspenso da conta do Azure DevOps, adicione https://*. VisualStudio. com à lista de sites confiáveis.
@@ -103,9 +106,9 @@ Para obter mais informações sobre como conectar Azure Repos à Active Director
 
 ## <a name="author-with-github-integration"></a>Criar com integração do GitHub
 
-A criação visual com a integração do GitHub dá suporte ao controle do código-fonte e à colaboração para o trabalho em seus pipelines de data factory. Você pode associar um data factory a um repositório de conta do GitHub para controle do código-fonte, colaboração, versionamento. Uma única conta do GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas um data factory. Se você não tiver uma conta ou repositório do GitHub, siga [estas instruções](https://github.com/join) para criar seus recursos.
+A criação visual com a integração do GitHub dá suporte ao controle do código-fonte e à colaboração para o trabalho em seus pipelines de data factory. Você pode associar um data factory a um repositório de conta do GitHub para controle do código-fonte, colaboração, versionamento. Uma única conta do GitHub pode ter vários repositórios, mas um repositório GitHub pode ser associado a apenas um data factory. Se você não tiver uma conta ou repositório do GitHub, siga [estas instruções](https://github.com/join) to criar seus recursos.
 
-A integração do GitHub com o data Factory dá suporte ao GitHub público ( [https://github.com](https://github.com)ou seja,) e ao GitHub Enterprise. Você pode usar repositórios GitHub públicos e privados com Data Factory, desde que tenha permissão de leitura e gravação para o repositório no GitHub.
+A integração do GitHub com o Data Factory dá suporte ao GitHub público (ou seja, [https://github.com](https://github.com)) e ao GitHub Enterprise. Você pode usar repositórios GitHub públicos e privados com Data Factory, desde que tenha permissão de leitura e gravação para o repositório no GitHub.
 
 Para configurar um repositório GitHub, você deve ter permissões de administrador para a assinatura do Azure que você está usando.
 
@@ -123,7 +126,7 @@ Na home page Azure Data Factory, selecione **configurar repositório de código*
 
 ![Configurar um repositório de código de Azure Repos](media/author-visually/configure-repo.png)
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: Tela de criação de UX
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Método de configuração 2: tela de criação de UX
 
 Na tela de criação do Azure Data Factory UX, selecione o menu suspenso **Data Factory** e, em seguida, selecione **configurar repositório de código**.
 
@@ -140,12 +143,12 @@ O painel de configuração mostra as seguintes configurações do repositório d
 | **Tipo de repositório** | O tipo do repositório de código de Azure Repos. | GitHub |
 | **Usar o GitHub Enterprise** | Caixa de seleção para selecionar o GitHub empresarial | não selecionado (padrão) |
 | **URL do GitHub Enterprise** | A URL raiz da empresa do GitHub. Por exemplo: https://github.mydomain.com. Necessário somente se **usar o GitHub Enterprise** estiver selecionado | `<your GitHub enterprise url>` |                                                           
-| **Conta do GitHub** | O nome da sua conta do GitHub. Esse nome pode ser encontrado em https:\//github.com/{Account Name}/{Repository Name}. Navegar até esta página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
+| **Conta do GitHub** | O nome da sua conta do GitHub. Esse nome pode ser encontrado em https: \//github. com/{nome da conta}/{Repository Name}. Navegar até esta página solicita que você insira as credenciais do GitHub OAuth para sua conta do GitHub. | `<your GitHub account name>` |
 | **Nome do repositório**  | O nome do repositório de código do GitHub. As contas do GitHub contêm repositórios git para gerenciar seu código-fonte. Você pode criar um novo repositório ou usar um repositório existente que já esteja em sua conta. | `<your repository name>` |
 | **Branch de colaboração** | Sua ramificação de colaboração do GitHub que é usada para publicação. Por padrão, seu mestre. Altere essa configuração caso você queira publicar recursos de outra ramificação. | `<your collaboration branch>` |
 | **Pasta raiz** | Sua pasta raiz na sua ramificação de colaboração do GitHub. |`<your root folder name>` |
 | **Importar recursos existentes do Data Factory para o repositório** | Especifica se os recursos existentes do data factory devem ser importados da tela de criação do UX em um repositório do GitHub. Selecione a caixa para importar seus recursos de data factory para o repositório git associado no formato JSON. Essa ação exporta cada recurso individualmente (ou seja, os serviços vinculados e os conjuntos de valores são exportados para JSONs separados). Quando essa caixa não está selecionada, os recursos existentes não são importados. | Selecionado (padrão) |
-| **Branch para importar recurso para** | Especifica em qual ramificação os recursos de data factory (pipelines, conjuntos de valores, serviços vinculados etc.) são importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Utilizar Existente |  |
+| **Branch para importar recurso para** | Especifica em qual ramificação os recursos de data factory (pipelines, conjuntos de valores, serviços vinculados etc.) são importados. Você pode importar recursos para um dos seguintes branches: a. Colaboração b. Criar novo c. Usar existente |  |
 
 ### <a name="known-github-limitations"></a>Limitações conhecidas do GitHub
 
@@ -167,7 +170,7 @@ Depois que o painel configurações do repositório for exibido, selecione **rem
 
 Depois de remover a associação com o repositório atual, você pode definir as configurações do git para usar um repositório diferente e, em seguida, importar recursos existentes do Data Factory para o novo repositório. 
 
-## <a name="version-control"></a>Controle de versão
+## <a name="version-control"></a>Controlo de versões
 
 Os sistemas de controle de versão (também conhecidos como _controle do código-fonte_) permitem que os desenvolvedores colaborem no código e controlem as alterações feitas na base de código. O controle do código-fonte é uma ferramenta essencial para projetos de vários desenvolvedores.
 
@@ -183,7 +186,7 @@ Quando você estiver pronto para mesclar as alterações do Branch de recursos p
 
 ### <a name="configure-publishing-settings"></a>Definir configurações de publicação
 
-Para configurar o Branch de publicação – ou seja, a ramificação em que os modelos do Resource Manager `publish_config.json` são salvos-adicione um arquivo à pasta raiz no Branch de colaboração. Data Factory lê esse arquivo, procura o campo `publishBranch`e cria uma nova ramificação (se ela ainda não existir) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo:
+Para configurar o Branch de publicação – ou seja, a ramificação em que os modelos do Resource Manager são salvos-adicione um arquivo `publish_config.json` à pasta raiz no Branch de colaboração. Data Factory lê esse arquivo, procura o campo `publishBranch` e cria uma nova ramificação (se ela ainda não existir) com o valor fornecido. Em seguida, ele salva todos os modelos do Resource Manager no local especificado. Por exemplo:
 
 ```json
 {
@@ -194,11 +197,11 @@ Para configurar o Branch de publicação – ou seja, a ramificação em que os 
 Quando você especifica uma nova ramificação de publicação, Data Factory não exclui o Branch de publicação anterior. Se você quiser que o Branch de publicação anterior seja remoto, exclua-o manualmente.
 
 > [!NOTE]
-> Data Factory lê o `publish_config.json` arquivo somente quando ele carrega a fábrica. Se você já tiver a fábrica carregada no portal, atualize o navegador para fazer suas alterações entrarem em vigor.
+> Data Factory lê apenas o arquivo `publish_config.json` ao carregar a fábrica. Se você já tiver a fábrica carregada no portal, atualize o navegador para fazer suas alterações entrarem em vigor.
 
 ### <a name="publish-code-changes"></a>Publicar alterações de código
 
-Depois de mesclar as alterações para a ramificação de`master` colaboração (é o padrão), clique em **publicar** para publicar manualmente as alterações de código no Branch mestre para o serviço de data Factory.
+Depois de mesclar as alterações para a ramificação de colaboração (`master` é o padrão), clique em **publicar** para publicar manualmente as alterações de código no Branch mestre para o serviço de data Factory.
 
 ![Publicar alterações no serviço de Data Factory](media/author-visually/publish-changes.png)
 
@@ -255,5 +258,5 @@ Selecione **comentários** para comentar sobre recursos ou notificar a Microsoft
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como monitorar e gerenciar pipelines, confira [monitorar e gerenciar pipelines](monitor-programmatically.md)programaticamente.
+* Para saber mais sobre como monitorar e gerenciar pipelines, confira [monitorar e gerenciar pipelines programaticamente](monitor-programmatically.md).
 * Para implementar a integração e a implantação contínuas, consulte [integração e entrega contínuas (CI/CD) em Azure data Factory](continuous-integration-deployment.md).

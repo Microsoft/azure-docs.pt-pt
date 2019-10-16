@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275eff59c56229f45a131e107668b8fefab24536
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 389e1472e1e1fcbed6dd3b6c1d155199246d877f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123794"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332993"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Monitorar e mitigar a limitação para reduzir a latência no Azure Time Series Insights
 
@@ -44,15 +44,15 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência causa
 
 1. No portal do Azure, selecione **alertas**.
 
-   [![Alertas](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [![Alerts](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
 
 1. O painel **criar regra** será exibido. Selecione **Adicionar** em **condição**.
 
-   [![Adicionar alerta](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [alerta de ![Add](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
 
 1. Em seguida, configure as condições exatas para a lógica de sinal.
 
-   [![Configurar lógica de sinal](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
+   [lógica de sinal de @no__t 1Configure](media/environment-mitigate-latency/configure-alert-rule.png)](media/environment-mitigate-latency/configure-alert-rule.png#lightbox)
 
    A partir daí, você pode configurar alertas usando algumas das seguintes condições:
 
@@ -62,23 +62,23 @@ Os alertas podem ajudá-lo a diagnosticar e atenuar problemas de latência causa
    |**A entrada recebeu mensagens inválidas**     | Contagem de mensagens inválidas lidas de todos os hubs de eventos do Azure ou origens de evento do Hub IoT do Azure.      |
    |**Mensagens de entrada recebidas**   | Contagem de mensagens lidas de todos os hubs de eventos ou origens de eventos de hubs IoT.        |
    |**Bytes de entrada armazenados**     | Tamanho total de eventos armazenados e disponíveis para consulta. O tamanho é calculado somente no valor da propriedade.        |
-   |**Eventos de entrada armazenados**    |   Contagem de eventos mesclados armazenados e disponíveis para consulta.      |
-   |**Atraso de tempo da mensagem de entrada recebida**   |  Diferença em segundos entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
-   |**Atraso na contagem de mensagens de entrada recebidas**   |  Diferença entre o número de sequência da última mensagem enfileirada na partição de origem do evento e o número de sequência de mensagens que estão sendo processadas na entrada.      |
+   |**Eventos de entrada armazenados**     |   Contagem de eventos mesclados armazenados e disponíveis para consulta.      |
+   |**Intervalo de tempo de mensagem de entrada recebida**    |  Diferença em segundos entre a hora em que a mensagem é enfileirada na origem do evento e a hora em que ela é processada na entrada.      |
+   |**Atraso na contagem de mensagens de entrada recebidas**    |  Diferença entre o número de sequência da última mensagem enfileirada na partição de origem do evento e o número de sequência de mensagens que estão sendo processadas na entrada.      |
 
    Selecione **Done** (Concluído).
 
 1. Depois de configurar a lógica de sinal desejada, examine visualmente a regra de alerta escolhida.
 
-   [![Entrada](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![Ingress](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>Limitação e gerenciamento de entrada
 
-* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos atrás de TSI é do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação de Appx. 30-60 segundos).  
+* Se você estiver sendo limitado, verá um valor para o *retardo de tempo de mensagens recebidas de entrada*, informando quantos segundos por trás do ambiente de análise de séries temporais são do tempo real em que a mensagem atinge a origem do evento (excluindo o tempo de indexação do Appx. 30-60 segundos).  
 
   O *retardo de contagem de mensagens recebidas de entrada* também deve ter um valor, permitindo que você determine quantas mensagens atrás você está.  A maneira mais fácil de se familiarizar é aumentar a capacidade do seu ambiente para um tamanho que lhe permitirá superar a diferença.  
 
-  Por exemplo, se você tiver um único ambiente S1 de unidade e ver que há um atraso de mensagem 5 milhões, poderá aumentar o tamanho do seu ambiente para seis unidades por um dia para ser atualizado.  Você pode aumentar ainda mais para acompanhar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente quando você o conecta a uma fonte de eventos que já tem eventos ou quando você carrega em massa muitos dados históricos.
+  Por exemplo, se você perceber que seu ambiente S1 está demonstrando o atraso de 5 milhões mensagens, poderá aumentar o tamanho do seu ambiente para seis unidades por cerca de um dia para ser pego.  Você pode aumentar ainda mais para acompanhar mais rapidamente. O período de atualização é uma ocorrência comum ao provisionar inicialmente um ambiente, especialmente quando você o conecta a uma fonte de eventos que já tem eventos ou quando você carrega em massa muitos dados históricos.
 
 * Outra técnica é definir um alerta de **eventos armazenados de entrada** > = um limite um pouco abaixo da capacidade total do ambiente por um período de 2 horas.  Esse alerta pode ajudá-lo a entender se você está constantemente na capacidade, o que indica uma alta probabilidade de latência. 
 
@@ -94,6 +94,6 @@ Você pode evitar a latência e a limitação configurando corretamente seu ambi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter etapas de solução de problemas adicionais, [diagnostique e resolva problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
+- Leia sobre como [diagnosticar e resolver problemas em seu ambiente de time Series insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Para obter assistência adicional, inicie uma conversa no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights). Você também pode contatar o [suporte do Azure](https://azure.microsoft.com/support/options/) para obter opções de suporte assistido.
+- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).

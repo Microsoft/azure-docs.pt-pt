@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fcb65e75de730178901742dc36c72776e39b044b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0be6afc2d4d7f97717200b86d5e5b3bc2194afee
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977964"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376176"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Como criar políticas de configuração de convidado
 
-A configuração de convidado usa um módulo de recurso de [configuração de estado desejado](/powershell/dsc) (DSC) para criar a configuração de auditoria dos computadores do Azure. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração falhar, o efeito de política **auditIfNotExists** será disparado e o computador será considerado **não compatível**.
+A configuração de convidado usa um módulo de recurso de [configuração de estado desejado](/powershell/scripting/dsc/overview/overview) (DSC) para criar a configuração de auditoria dos computadores do Azure. A configuração DSC define a condição em que o computador deve estar. Se a avaliação da configuração falhar, o efeito de política **auditIfNotExists** será disparado e o computador será considerado **não compatível**.
 
 [Azure Policy configuração de convidado](/azure/governance/policy/concepts/guest-configuration) só pode ser usada para auditar configurações dentro de computadores. A correção de configurações dentro de computadores ainda não está disponível.
 
@@ -55,7 +55,7 @@ A configuração de convidado usa o módulo de recurso **GuestConfiguration** pa
 
 ## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Criar recursos e configuração de configuração de convidado personalizada
 
-A primeira etapa para criar uma política personalizada para a configuração de convidado é criar a configuração DSC. Para obter uma visão geral dos conceitos e da terminologia do DSC, consulte [visão geral do DSC do PowerShell](/powershell/dsc/overview/overview).
+A primeira etapa para criar uma política personalizada para a configuração de convidado é criar a configuração DSC. Para obter uma visão geral dos conceitos e da terminologia do DSC, consulte [visão geral do DSC do PowerShell](/powershell/scripting/dsc/overview/overview).
 
 Se sua configuração exigir apenas recursos que são internos com a instalação do agente de configuração convidada, você só precisará criar um arquivo MOF de configuração. Se precisar executar um script adicional, você precisará criar um módulo de recurso personalizado.
 
@@ -73,9 +73,9 @@ A propriedade Reasons é usada pelo serviço para padronizar a forma como as inf
 
 O **código** e a **frase** das propriedades são esperados pelo serviço. Ao criar um recurso personalizado, defina o texto (normalmente stdout) que você gostaria de mostrar como o motivo pelo qual o recurso não está em conformidade como o valor de **frase**. O **código** tem requisitos de formatação específicos para que os relatórios possam exibir claramente informações sobre o recurso que foi usado para executar a auditoria. Essa solução torna a configuração de convidado extensível. Qualquer comando pode ser executado para auditar um computador, contanto que a saída possa ser capturada e retornada como um valor de cadeia de caracteres para a propriedade de **frase** .
 
-- **Código** (cadeia de caracteres): O nome do recurso, repetido e, em seguida, um nome curto sem espaços como um identificador do motivo. Esses três valores devem ser delimitados por dois-pontos sem espaços.
+- **Code** (String): o nome do recurso, repetido e, em seguida, um nome curto sem espaços como um identificador para o motivo. Esses três valores devem ser delimitados por dois-pontos sem espaços.
   - Um exemplo seria `registry:registry:keynotpresent`
-- **Frase** (cadeia de caracteres): Texto legível por humanos para explicar por que a configuração não está em conformidade.
+- **Frase** (cadeia de caracteres): texto legível por humanos para explicar por que a configuração não está em conformidade.
   - Um exemplo seria `The registry key $key is not present on the machine.`
 
 ```powershell
@@ -115,7 +115,7 @@ Configuration baseline
 baseline
 ```
 
-Para obter mais informações, consulte [gravar, compilar e aplicar uma configuração](/powershell/dsc/configurations/write-compile-apply-configuration).
+Para obter mais informações, consulte [gravar, compilar e aplicar uma configuração](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ### <a name="custom-guest-configuration-configuration-on-windows"></a>Configuração de convidado personalizada no Windows
 
@@ -141,7 +141,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-Para obter mais informações, consulte [gravar, compilar e aplicar uma configuração](/powershell/dsc/configurations/write-compile-apply-configuration).
+Para obter mais informações, consulte [gravar, compilar e aplicar uma configuração](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>Criar pacote de política personalizada de configuração de convidado
 
@@ -163,10 +163,10 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 Parâmetros do cmdlet `New-GuestConfigurationPackage`:
 
-- **Nome**: Nome do pacote de configuração do convidado.
-- **Configuração**: Caminho completo do documento de configuração DSC compilada.
-- **Caminho**: Caminho da pasta de saída. Esse parâmetro é opcional. Se não for especificado, o pacote será criado no diretório atual.
-- **ChefProfilePath**: Caminho completo para o perfil inspec. Esse parâmetro tem suporte apenas ao criar conteúdo para auditar o Linux.
+- **Nome**: nome do pacote de configuração do convidado.
+- **Configuração**: caminho completo do documento de configuração DSC compilada.
+- **Caminho**: caminho da pasta de saída. Esse parâmetro é opcional. Se não for especificado, o pacote será criado no diretório atual.
+- **ChefProfilePath**: caminho completo para o perfil inspec. Esse parâmetro tem suporte apenas ao criar conteúdo para auditar o Linux.
 
 O pacote completo deve ser armazenado em um local que possa ser acessado pelas máquinas virtuais gerenciadas. Os exemplos incluem repositórios do GitHub, um repositório do Azure ou um armazenamento do Azure. Se preferir não tornar o pacote público, você pode incluir um [token SAS](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) na URL. Você também pode implementar o [ponto de extremidade de serviço](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) para computadores em uma rede privada, embora essa configuração se aplique somente ao acesso ao pacote e não à comunicação com o serviço.
 
@@ -190,7 +190,7 @@ Na configuração de convidado Azure Policy, a maneira ideal de gerenciar segred
 
 1. Por fim, em seu recurso personalizado, use a ID do cliente gerada acima para acessar Key Vault usando o token disponível no computador.
 
-   O `client_id` e a URL para a instância de Key Vault podem ser passados para o recurso como [Propriedades](/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema) , de modo que o recurso não precisará ser atualizado para vários ambientes ou se os valores precisarem ser alterados.
+   O `client_id` e a URL para a instância de Key Vault podem ser passados para o recurso como [Propriedades](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) , de modo que o recurso não precisará ser atualizado para vários ambientes ou se os valores precisarem ser alterados.
 
 O exemplo de código a seguir pode ser usado em um recurso personalizado para recuperar segredos de Key Vault usando uma identidade atribuída pelo usuário. O valor retornado da solicitação para Key Vault é texto sem formatação. Como prática recomendada, armazene-o em um objeto de credencial.
 
@@ -216,9 +216,9 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 
 Parâmetros do cmdlet `Test-GuestConfigurationPackage`:
 
-- **Nome**: Nome da política de configuração do convidado.
-- **Parâmetro**: Parâmetros de política fornecidos no formato de tabela de hash.
-- **Caminho**: Caminho completo do pacote de configuração do convidado.
+- **Nome**: nome da política de configuração de convidado.
+- **Parâmetro**: parâmetros de política fornecidos no formato de tabela de hash.
+- **Caminho**: caminho completo do pacote de configuração do convidado.
 
 O cmdlet também dá suporte à entrada do pipeline do PowerShell. Direcione a saída do cmdlet `New-GuestConfigurationPackage` para o cmdlet `Test-GuestConfigurationPackage`.
 
@@ -226,7 +226,7 @@ O cmdlet também dá suporte à entrada do pipeline do PowerShell. Direcione a s
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-Para obter mais informações sobre como testar com parâmetros, consulte a seção abaixo [usando parâmetros em políticas de configuração de convidado personalizadas](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
+Para obter mais informações sobre como testar com parâmetros, consulte a seção abaixo [usando parâmetros em políticas de configuração de convidado personalizadas](#using-parameters-in-custom-guest-configuration-policies).
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Criar os arquivos de implantação de Azure Policy e de definição de iniciativa
 
@@ -247,13 +247,13 @@ New-GuestConfigurationPolicy
 
 Parâmetros do cmdlet `New-GuestConfigurationPolicy`:
 
-- **ContentUri**: URI http (s) público do pacote de conteúdo de configuração do convidado.
-- **DisplayName**: Nome de exibição da política.
+- **ContentUri**: URI de http público (s) de pacote de conteúdo de configuração do convidado.
+- **DisplayName**: nome de exibição da política.
 - **Descrição**: Descrição da política.
-- **Parâmetro**: Parâmetros de política fornecidos no formato de tabela de hash.
-- **Versão**: Versão da política.
-- **Caminho**: Caminho de destino em que as definições de política são criadas.
-- **Plataforma**: Plataforma de destino (Windows/Linux) para a política de configuração de convidado e o pacote de conteúdo.
+- **Parâmetro**: parâmetros de política fornecidos no formato de tabela de hash.
+- **Versão**: versão da política.
+- **Caminho**: caminho de destino em que as definições de política são criadas.
+- **Plataforma**: plataforma de destino (Windows/Linux) para a política de configuração de convidado e o pacote de conteúdo.
 
 Os seguintes arquivos são criados por `New-GuestConfigurationPolicy`:
 
@@ -360,17 +360,17 @@ Com as definições de política e iniciativa criadas no Azure, a última etapa 
 
 Depois de publicar um Azure Policy personalizado usando seu pacote de conteúdo personalizado, há dois campos que devem ser atualizados se você quiser publicar uma nova versão.
 
-- **Versão**: Ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente. A propriedade atualiza a versão da atribuição de configuração de convidado no novo arquivo de política, de modo que a extensão reconhecerá que o pacote foi atualizado.
-- **contentHash**: Essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. É um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Se apenas a propriedade **contentUri** for atualizada, como no caso em que alguém possa fazer uma alteração manual na definição de política do portal, a extensão não aceitará o pacote de conteúdo.
+- **Versão**: ao executar o cmdlet `New-GuestConfigurationPolicy`, você deve especificar um número de versão maior do que o publicado atualmente. A propriedade atualiza a versão da atribuição de configuração de convidado no novo arquivo de política, de modo que a extensão reconhecerá que o pacote foi atualizado.
+- **contentHash**: essa propriedade é atualizada automaticamente pelo cmdlet `New-GuestConfigurationPolicy`. É um valor de hash do pacote criado por `New-GuestConfigurationPackage`. A propriedade deve estar correta para o arquivo `.zip` que você publicar. Se apenas a propriedade **contentUri** for atualizada, como no caso em que alguém possa fazer uma alteração manual na definição de política do portal, a extensão não aceitará o pacote de conteúdo.
 
 A maneira mais fácil de liberar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Esse processo garante que todas as propriedades tenham sido corretamente atualizadas.
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Convertendo conteúdo do Windows Política de Grupo para Azure Policy configuração de convidado
 
-A configuração de convidado, ao auditar computadores Windows, é uma implementação da sintaxe de configuração de estado desejado do PowerShell. A comunidade de DSC publicou ferramentas para converter modelos de Política de Grupo exportados para o formato DSC. Usando essa ferramenta junto com os cmdlets de configuração de convidado descritos acima, você pode converter o conteúdo do Windows Política de Grupo e o pacote/publicá-lo para Azure Policy para auditoria. Para obter detalhes sobre como usar a ferramenta, consulte o artigo [Quickstart: Converta Política de Grupo em DSC @ no__t-0.
+A configuração de convidado, ao auditar computadores Windows, é uma implementação da sintaxe de configuração de estado desejado do PowerShell. A comunidade de DSC publicou ferramentas para converter modelos de Política de Grupo exportados para o formato DSC. Usando essa ferramenta junto com os cmdlets de configuração de convidado descritos acima, você pode converter o conteúdo do Windows Política de Grupo e o pacote/publicá-lo para Azure Policy para auditoria. Para obter detalhes sobre como usar a ferramenta, consulte o artigo [início rápido: converter política de grupo em DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 Depois que o conteúdo tiver sido convertido, as etapas acima para criar um pacote e publicá-lo como Azure Policy serão as mesmas para qualquer conteúdo DSC.
 
-## <a name="optional-signing-guest-configuration-packages"></a>ADICIONAL Assinando pacotes de configuração de convidado
+## <a name="optional-signing-guest-configuration-packages"></a>OPCIONAL: assinando pacotes de configuração de convidado
 
 Por padrão, as políticas personalizadas de configuração de convidado usam o hash SHA256 para validar que o pacote de política não mudou de quando foi publicado quando ele é lido pelo servidor que está sendo auditado.
 Opcionalmente, os clientes também podem usar um certificado para assinar pacotes e forçar a extensão de configuração de convidado a permitir somente conteúdo assinado.
@@ -386,10 +386,10 @@ Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindo
 
 Parâmetros do cmdlet `Protect-GuestConfigurationPackage`:
 
-- **Caminho**: Caminho completo do pacote de configuração do convidado.
-- **Certificado**: Certificado de assinatura de código para assinar o pacote. Esse parâmetro só tem suporte ao assinar conteúdo para o Windows.
-- **PrivateGpgKeyPath**: Caminho de chave de GPG particular. Esse parâmetro só tem suporte ao assinar conteúdo para Linux.
-- **PublicGpgKeyPath**: Caminho da chave GPG pública. Esse parâmetro só tem suporte ao assinar conteúdo para Linux.
+- **Caminho**: caminho completo do pacote de configuração do convidado.
+- **Certificado**: certificado de assinatura de código para assinar o pacote. Esse parâmetro só tem suporte ao assinar conteúdo para o Windows.
+- **PrivateGpgKeyPath**: caminho de chave de GPG particular. Esse parâmetro só tem suporte ao assinar conteúdo para Linux.
+- **PublicGpgKeyPath**: caminho de chave de GPG pública. Esse parâmetro só tem suporte ao assinar conteúdo para Linux.
 
 O agente GuestConfiguration espera que a chave pública do certificado esteja presente em "autoridades de certificação raiz confiáveis" em máquinas Windows e no caminho `/usr/local/share/ca-certificates/extra` em computadores Linux. Para o nó verificar o conteúdo assinado, instale a chave pública do certificado no computador antes de aplicar a política personalizada. Esse processo pode ser feito usando qualquer técnica dentro da VM ou usando Azure Policy. Um modelo de exemplo é [fornecido aqui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
 A política de acesso de Key Vault deve permitir que o provedor de recursos de computação acesse certificados durante as implantações. Para obter etapas detalhadas, consulte [configurar Key Vault para máquinas virtuais no Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/26/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila
-ms.openlocfilehash: 26652a956f9f50f82f462c564d6daf0dc37b0722
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: cff1085d14f2f849134b0b6f602e272fbb5bc561
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254959"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329266"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usar o conector Ethereum Blockchain com aplicativos lógicos do Azure
 
@@ -219,7 +219,7 @@ Para obter mais informações sobre o endereço da conta e a senha, consulte [co
 
 ## <a name="get-the-contract-abi"></a>Obtenha a ABI do contrato
 
-A ABI do contrato define as interfaces do contrato inteligente. Ele descreve como interagir com o contrato inteligente. Você pode obter a ABI do contrato usando o kit de desenvolvimento Blockchain do Azure para Ethereum. Você também pode obtê-lo do arquivo de metadados do contrato no compilador de solidez.
+A ABI do contrato define as interfaces do contrato inteligente. Ele descreve como interagir com o contrato inteligente. Você pode obter a ABI do contrato usando o kit de desenvolvimento Blockchain do Azure para Ethereum. Você também pode obtê-lo no arquivo de metadados do contrato criado pelo compilador de solidez.
 
 **Para usar o kit de desenvolvimento:**
 

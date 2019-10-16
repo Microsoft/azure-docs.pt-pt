@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer fala, Java (Android)-serviço de fala'
+title: 'Início rápido: reconhecer fala, Java (Android)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer a fala em Java no Android usando o SDK de fala
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
 ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71803320"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em Java no Android usando o SDK de fala
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Início Rápido: reconhecer voz em Java no Android com o SDK de Voz
 
 Os guias de início rápido também estão disponíveis para [síntese de fala](quickstart-text-to-speech-java-android.md) e [assistente virtual de voz primeiro](quickstart-virtual-assistant-java-android.md).
 
@@ -93,7 +93,7 @@ Prima o botão na aplicação para iniciar uma secção de reconhecimento de voz
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Java no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Personalizar modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalizar modelos de idioma](how-to-customize-language-model.md)

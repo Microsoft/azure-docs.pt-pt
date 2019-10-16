@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814435"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331901"
 ---
 # <a name="about-recovery-plans"></a>Acerca dos planos de recuperação
 
@@ -33,6 +33,9 @@ Um plano de recuperação ajuda você a definir um processo de recuperação sis
 
 
 ## <a name="model-apps"></a>Aplicativos de modelo
+
+> [!NOTE]
+> Até 100 instâncias protegidas podem ser adicionadas a um plano de recuperação.
 
 Você pode planejar e criar um grupo de recuperação para capturar propriedades específicas do aplicativo. Por exemplo, vamos considerar um aplicativo típico de três camadas com um back-end do SQL Server, middleware e um front-end da Web. Normalmente, você personaliza o plano de recuperação para que os computadores em cada camada sejam iniciados na ordem correta após o failover.
 
@@ -60,11 +63,11 @@ Com essa personalização em vigor, veja o que acontece quando você executa um 
 
 A recuperação de aplicativos grandes pode ser uma tarefa complexa. As etapas manuais tornam o processo propenso a erros e a pessoa que executa o failover pode não estar ciente de todos os pormenores do aplicativo. Você pode usar um plano de recuperação para impor a ordem e automatizar as ações necessárias em cada etapa, usando runbooks de automação do Azure para failover para o Azure ou scripts. Para tarefas que não podem ser automatizadas, você pode inserir pausas para ações manuais em planos de recuperação. Há alguns tipos de tarefas que você pode configurar:
 
-* **Tarefas na VM do Azure após o failover**: Quando estiver fazendo failover para o Azure, você normalmente precisará executar ações para que possa se conectar à VM após o failover. Por exemplo: 
+* **Tarefas na VM do Azure após o failover**: quando você estiver fazendo failover para o Azure, normalmente precisará executar ações para que você possa se conectar à VM após o failover. Por exemplo: 
     * Crie um endereço IP público na VM do Azure.
     * Atribua um grupo de segurança de rede ao adaptador de rede da VM do Azure.
     * Adicione um balanceador de carga a um conjunto de disponibilidade.
-* **Tarefas dentro da VM após o failover**: Normalmente, essas tarefas reconfiguram o aplicativo em execução no computador, para que ele continue funcionando corretamente no novo ambiente. Por exemplo:
+* **Tarefas dentro da VM após o failover**: essas tarefas normalmente reconfiguram o aplicativo em execução no computador, para que ele continue funcionando corretamente no novo ambiente. Por exemplo:
     * Modifique a cadeia de conexão do banco de dados dentro da máquina.
     * Altere a configuração ou as regras do servidor Web.
 
@@ -81,7 +84,7 @@ Você pode usar um plano de recuperação para disparar um failover de teste. Us
 
     ![Captura de tela de um exemplo de plano de recuperação de teste no Site Recovery](./media/recovery-plan-overview/rptest.png)
 
-## <a name="watch-the-video"></a>Ver o vídeo
+## <a name="watch-the-video"></a>Veja o vídeo
 
 Assista a um vídeo de exemplo rápido mostrando um failover de clique para um aplicativo WordPress de duas camadas.
     

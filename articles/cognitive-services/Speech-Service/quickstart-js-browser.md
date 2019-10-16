@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer fala, JavaScript (navegador)-serviço de fala'
+title: 'Início rápido: reconhecer fala, JavaScript (navegador)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Saiba como reconhecer a fala em JavaScript em um navegador usando o SDK de fala
 services: cognitive-services
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 77afdb491e4a6cee0a3d6861ea76f57502e56278
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71802425"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala em JavaScript em um navegador usando o SDK de fala
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Início rápido: reconhecer a fala em JavaScript em um navegador usando o SDK de fala
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -40,7 +40,7 @@ Crie uma nova pasta vazia. No caso de querer alojar o exemplo num servidor Web, 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isso resulta em dois arquivos que estão sendo desempacotados `microsoft.cognitiveservices.speech.sdk.bundle.js.map`, `microsoft.cognitiveservices.speech.sdk.bundle.js` e.
+Transfira o SDK de Voz como um [pacote .zip](https://aka.ms/csspeech/jsbrowserpackage) e descompacte-o para a pasta recentemente criada. Isso resulta em dois arquivos desempacotados, `microsoft.cognitiveservices.speech.sdk.bundle.js` e `microsoft.cognitiveservices.speech.sdk.bundle.js.map`.
 O último arquivo é opcional e é útil para a depuração no código do SDK.
 
 ## <a name="create-an-indexhtml-page"></a>Criar uma página index.html

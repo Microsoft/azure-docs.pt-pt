@@ -1,23 +1,23 @@
 ---
-title: Usando aplicativos na visualização do Azure Blockchain Workbench
+title: Usando aplicativos no Azure Blockchain Workbench
 description: Tutorial sobre como usar contratos de aplicativo na visualização do Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: e1ba09c4fbba6492e2d5f870a6c31a3d5a6d8956
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1dee101ad87776a1c22b719274569df25c4e161d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845135"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328960"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Usando aplicativos no Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: usando aplicativos no Azure Blockchain Workbench
 
 Você pode usar o Blockchain Workbench para criar e executar ações em contratos. Você também pode exibir detalhes do contrato, como status e histórico de transações.
 
@@ -69,9 +69,9 @@ Dependendo do estado em que o contrato está, os membros podem executar ações 
 
     | Section  | Descrição  |
     |---------|---------|
-    | State | Lista o progresso atual dentro dos estágios do contrato |
+    | Estado | Lista o progresso atual dentro dos estágios do contrato |
     | Detalhes | Os valores atuais do contrato |
-    | Action | Detalhes sobre a última ação |
+    | Ação | Detalhes sobre a última ação |
     | Atividade | Histórico de transações do contrato |
     
 3. Na seção **ação** , selecione **executar ação**.
@@ -83,11 +83,11 @@ Dependendo do estado em que o contrato está, os membros podem executar ações 
 5. Selecione **executar ação** para iniciar a ação.
 6. Se forem necessários parâmetros para a ação, especifique os valores para a ação.
 
-    ![Tomar medidas](./media/use/take-action.png)
+    ![Executar ação](./media/use/take-action.png)
 
 7. Selecione **executar ação** para executar a ação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Controle de versão do aplicativo Azure Blockchain Workbench](version-app.md)

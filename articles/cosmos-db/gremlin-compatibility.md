@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB a compatibilidade do Gremlin com os recursos do TinkerPop
 description: Documentação de referência problemas de compatibilidade do mecanismo grafo
-author: olignat
+author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: d58d1ea50251c3568161ce008db2672ff0fd6372
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.author: sngun
+ms.openlocfilehash: 0ed5824859b8463919a809861993f9f98a4f9251
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910951"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327035"
 ---
 # <a name="azure-cosmos-db-gremlin-compatibility"></a>Azure Cosmos DB compatibilidade com o Gremlin
 Azure Cosmos DB mecanismo de grafo segue a especificação de etapas de passagem do [Apache TinkerPop](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) , mas há diferenças.
@@ -21,19 +21,19 @@ Azure Cosmos DB mecanismo de grafo segue a especificação de etapas de passagem
 
 * Azure Cosmos DB mecanismo de grafo executa uma passagem ***de primeira amplitude*** enquanto TinkerPop Gremlin é de profundidade. Esse comportamento atinge um desempenho melhor em sistema horizontalmente escalonável como Cosmos DB. 
 
-## <a name="unsupported-features"></a>Funcionalidades não suportadas
+## <a name="unsupported-features"></a>Recursos sem suporte
 
 * ***[Gremlin Bytecode](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** é uma especificação agnóstica de linguagem de programação para percursos em gráfico. Cosmos DB grafo ainda não dá suporte a ele. Use ```GremlinClient.SubmitAsync()``` e passe passagem como uma cadeia de texto.
 
-* ***```property(set, 'xyz', 1)```*** Não há suporte para definir a cardinalidade hoje. Use ```property(list, 'xyz', 1)``` em vez disso.
+* Atualmente, não há suporte para ***a cardinalidade ```property(set, 'xyz', 1)```*** . Em vez disso, use ```property(list, 'xyz', 1)```.
 
 * ***```match()```*** permite consultar grafos usando correspondência de padrão declarativa. Essa funcionalidade não está disponível.
 
 * Não há suporte para ***objetos como propriedades*** em vértices ou bordas. As propriedades apenas podem ser matrizes ou tipos primitivos.
 
-* ***Classificando por propriedades de matriz*** ```.order().by(<array property>)``` não tem suporte. A ordenação é suportada apenas por tipos primitivos.
+* Não há suporte para a ***classificação por propriedades de matriz*** ```.order().by(<array property>)```. A ordenação é suportada apenas por tipos primitivos.
 
-* Não há suporte para ***tipos JSON não primitivos*** . Use ```string```os ```number```tipos, ```true``` ou ./ ```false``` ```null```Não há suporte para valores. 
+* Não há suporte para ***tipos JSON não primitivos*** . Use os tipos ```string```, ```number``` ou ```true``` @ no__t-3 @ no__t-4. Não há suporte para valores ```null```. 
 
 * O serializador ***GraphSONv3*** não está disponível hoje.
 

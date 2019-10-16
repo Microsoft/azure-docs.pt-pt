@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web Python (Django) com PostgreSQL no serviço Linux-Azure App | Microsoft Docs
+title: 'Tutorial: aplicativo Web Python (Django) com PostgreSQL no serviço Linux-Azure App'
 description: Saiba como executar um aplicativo Web Django (Python controlado por dados) no Azure, com conexão a um banco de dados PostgreSQL.
 services: app-service\web
 documentationcenter: python
@@ -11,13 +11,16 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.custom:
+- mvc
+- seodec18
+- seo-python-october2019
+ms.openlocfilehash: c816d2ee76002f60963415b1027579eb6db94089
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203259"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329980"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Compilar um aplicativo Web Python (Django) com PostgreSQL no serviço Azure App
 
@@ -140,7 +143,7 @@ Starting development server at http://127.0.0.1:8000/
 Quit the server with CONTROL-C.
 ```
 
-Vá para `http://localhost:8000` em um navegador. Você deve ver a mensagem `No polls are available.`. 
+Vá para `http://localhost:8000` em um navegador. Você deverá ver a mensagem `No polls are available.`. 
 
 Vá para `http://localhost:8000/admin` e entre usando o usuário administrador que você criou na última etapa. Selecione **Adicionar** ao lado de **perguntas** e criar uma pergunta de sondagem com algumas opções.
 
@@ -166,7 +169,7 @@ Neste passo, vai criar uma base de dados PostgreSQL no Azure. Quando a aplicaç�
 
 Crie um servidor PostgreSQL com o comando [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) no Cloud Shell.
 
-No comando de exemplo a seguir, substitua  *\<PostgreSQL-Name >* por um nome de servidor exclusivo e substitua  *\<admin-username >* e  *\<admin-password >* pelas credenciais de usuário desejadas. As credenciais de utilizador são para a conta de administrador da base de dados. O nome do servidor é utilizado como parte do ponto final do PostgreSQL (`https://<postgresql-name>.postgres.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure.
+No comando de exemplo a seguir, substitua *\<postgresql-name >* por um nome de servidor exclusivo e substitua *\<admin-username >* e *\<admin-password >* pelas credenciais de usuário desejadas. As credenciais de utilizador são para a conta de administrador da base de dados. O nome do servidor é utilizado como parte do ponto final do PostgreSQL (`https://<postgresql-name>.postgres.database.azure.com`), por isso, o nome tem de ser exclusivo em todos os servidores no Azure.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql-name> --location "West Europe" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
@@ -194,7 +197,7 @@ Após criar o servidor da Base de Dados do Azure para PostgreSQL, a CLI do Azure
 ```
 
 > [!NOTE]
-> Lembre \<-se de que o \<nome de usuário admin > e > de senha de administrador para mais tarde. Precisará deles para iniciar sessão no servidor e bases de dados Postgre.
+> Lembre-se de que \<admin-username > e \<admin-password > para mais tarde. Precisará deles para iniciar sessão no servidor e bases de dados Postgre.
 
 ### <a name="create-firewall-rules-for-the-postgresql-server"></a>Criar regras de firewall para o servidor PostgreSQL
 
@@ -207,7 +210,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Esta definição permite ligações de rede de todos os IPs na rede do Azure. Para utilização em produção, experimente configurar as regras de firewall o mais restritivas possível ao [utilizar apenas os endereços IP de saída que a aplicação utiliza](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-No Cloud Shell, execute o comando novamente para permitir o acesso do seu computador local, substituindo  *\<o seu endereço IP >* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/).
+No Cloud Shell, execute o comando novamente para permitir o acesso do seu computador local, substituindo *\<your-IP-address >* pelo [seu endereço IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
@@ -283,7 +286,7 @@ Neste passo, vai implementar a aplicação Python ligada ao Postgres no Serviço
 
 ### <a name="configure-repository"></a>Configurar o repositório
 
-Django valida o `HTTP_HOST` cabeçalho em solicitações de entrada. Para que seu aplicativo Web Django funcione no serviço de aplicativo, você precisa adicionar o nome de domínio totalmente qualificado do aplicativo aos hosts permitidos. Abra _azuresite/Settings. py_ e localize a `ALLOWED_HOSTS` configuração. Altere a linha para:
+Django valida o cabeçalho `HTTP_HOST` em solicitações de entrada. Para que seu aplicativo Web Django funcione no serviço de aplicativo, você precisa adicionar o nome de domínio totalmente qualificado do aplicativo aos hosts permitidos. Abra _azuresite/Settings. py_ e localize a configuração `ALLOWED_HOSTS`. Altere a linha para:
 
 ```python
 ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.0.1'] if 'WEBSITE_SITE_NAME' in os.environ else []
@@ -291,7 +294,7 @@ ALLOWED_HOSTS = [os.environ['WEBSITE_SITE_NAME'] + '.azurewebsites.net', '127.0.
 
 Em seguida, Django não dá suporte para a [manutenção de arquivos estáticos em produção](https://docs.djangoproject.com/en/2.1/howto/static-files/deployment/), portanto, você precisa habilitar isso manualmente. Para este tutorial, você usa [WhiteNoise](https://whitenoise.evans.io/en/stable/). O pacote WhiteNoise já está incluído em _requirements. txt_. Você só precisa configurar o Django para usá-lo. 
 
-Em _azuresite/Settings. py_, localize a `MIDDLEWARE` configuração e adicione o `whitenoise.middleware.WhiteNoiseMiddleware` middleware à lista, logo abaixo do `django.middleware.security.SecurityMiddleware` middleware. Sua `MIDDLEWARE` configuração deve ter a seguinte aparência:
+Em _azuresite/Settings. py_, localize a configuração `MIDDLEWARE` e adicione o middleware `whitenoise.middleware.WhiteNoiseMiddleware` à lista, logo abaixo do middleware `django.middleware.security.SecurityMiddleware`. A configuração `MIDDLEWARE` deve ter a seguinte aparência:
 
 ```python
 MIDDLEWARE = [
@@ -372,7 +375,7 @@ To https://<app-name>.scm.azurewebsites.net/<app-name>.git
    06b6df4..6520eea  master -> master
 ```  
 
-O servidor de implantação do serviço de aplicativo vê _requirements. txt_ na raiz do repositório e executa o `git push`gerenciamento de pacotes do Python automaticamente após.
+O servidor de implantação do serviço de aplicativo vê _requirements. txt_ na raiz do repositório e executa o gerenciamento de pacotes do Python automaticamente após `git push`.
 
 ### <a name="browse-to-the-azure-app"></a>Navegue até o aplicativo do Azure
 
@@ -384,9 +387,9 @@ http://<app-name>.azurewebsites.net
 
 Você deve ver a pergunta de pesquisa que você criou anteriormente. 
 
-O serviço de aplicativo detecta um projeto Django em seu repositório procurando um _WSGI.py_ em cada subdiretório, que é criado por `manage.py startproject` padrão. Quando ele encontra o arquivo, ele carrega o aplicativo Web Django. Para obter mais informações sobre como o serviço de aplicativo carrega aplicativos Python, consulte [Configurar imagem interna do Python](how-to-configure-python.md).
+O serviço de aplicativo detecta um projeto Django em seu repositório procurando um _WSGI.py_ em cada subdiretório, que é criado pelo `manage.py startproject` por padrão. Quando ele encontra o arquivo, ele carrega o aplicativo Web Django. Para obter mais informações sobre como o serviço de aplicativo carrega aplicativos Python, consulte [Configurar imagem interna do Python](how-to-configure-python.md).
 
-Vá para `<app-name>.azurewebsites.net` e entre usando o mesmo usuário administrador que você criou. Se desejar, tente criar mais algumas perguntas de pesquisa.
+Acesse `<app-name>.azurewebsites.net` e entre usando o mesmo usuário administrador que você criou. Se desejar, tente criar mais algumas perguntas de pesquisa.
 
 ![Aplicativo python django em execução no local](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -424,7 +427,7 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
 
 Ou então, confira outros recursos:
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 44b3830465bf2b5aa06612aa868b086b120f1ece
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262706"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372267"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Conectar dados de provedores de inteligência contra ameaças
 
@@ -62,7 +62,7 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
 
 2. [Configurar permissões de API](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) para o aplicativo registrado: Adicione a permissão de aplicativo Microsoft Graph **ThreatIndicators. ReadWrite. OwnedBy** ao seu aplicativo registrado.
 
-3. Peça ao administrador de locatários do Azure Active Directory para conceder consentimento de administrador para o aplicativo registrado para sua organização. No portal do Azure: **Azure Active Directory** > registros de aplicativo > **nomedoaplicativoexibirpermissões>deAPIconceder consentimento de administrador para\<**  >  >  ***nome do locatário*.> \<**
+3. Peça ao administrador de locatários do Azure Active Directory para conceder consentimento de administrador para o aplicativo registrado para sua organização. No portal do Azure: **Azure Active Directory** > **registros de aplicativo** >  **\<_nome do aplicativo_>**  > **exibir permissões da API**0**conceder consentimento do administrador para o_nome do locatário 2_ 4**.
 
 4. Configure seu produto ou aplicativo TIP que usa a integração direta com a API do Microsoft Graph Security tiIndicators para enviar indicadores para o Azure Sentinel, especificando o seguinte:
     
@@ -72,11 +72,11 @@ Você pode transmitir indicadores de ameaça para o Azure Sentinel usando um dos
     
     c. Para a ação, especifique alerta.
 
-5. Na portal do Azure, navegue até**conectores de dados** **do Azure Sentinel** > e selecione o conector de **plataformas de inteligência contra ameaças (versão prévia)** .
+5. Na portal do Azure, navegue até **Azure Sentinel** > **conectores de dados** e selecione o conector de **plataformas de inteligência contra ameaças (versão prévia)** .
 
 6. Selecione a **página abrir conector**e **Conecte-se**.
 
-7. Para exibir os indicadores de ameaça que são importados para o Azure Sentinel, navegue até **Azure Sentinel-logs** > **SecurityInsights**e, em seguida, expanda **ThreatIntelligenceIndicator**.
+7. Para exibir os indicadores de ameaça que são importados para o Azure Sentinel, navegue até **Azure Sentinel-Logs** > **SecurityInsights**e, em seguida, expanda **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699357"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333180"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Visão geral de instantâneos de compartilhamento para arquivos do Azure 
 Os arquivos do Azure fornecem a capacidade de fazer instantâneos de compartilhamento de compartilhamentos de arquivos. Os instantâneos de compartilhamento capturam o estado de compartilhamento nesse momento. Neste artigo, descrevemos quais recursos os instantâneos de compartilhamento fornecem e como você pode aproveitá-los em seu caso de uso personalizado.
@@ -28,7 +28,7 @@ Imagine que você esteja trabalhando em um arquivo de texto em um compartilhamen
 ### <a name="general-backup-purposes"></a>Fins de backup geral
 Depois de criar um compartilhamento de arquivos, você pode criar periodicamente um instantâneo de compartilhamento do compartilhamento de arquivos para usá-lo para o backup de dados. Um instantâneo de compartilhamento, quando realizado periodicamente, ajuda a manter versões anteriores de dados que podem ser usadas para futuros requisitos de auditoria ou recuperação de desastres.
 
-## <a name="capabilities"></a>Capacidades
+## <a name="capabilities"></a>Funções
 Um instantâneo de compartilhamento é uma cópia point-in-time e somente leitura dos seus dados. Você pode criar, excluir e gerenciar instantâneos usando a API REST. Os mesmos recursos também estão disponíveis na biblioteca do cliente, CLI do Azure e portal do Azure. 
 
 Você pode exibir instantâneos de um compartilhamento usando a API REST e o SMB. Você pode recuperar a lista de versões do diretório ou arquivo, e pode montar uma versão específica diretamente como uma unidade (disponível somente no Windows-consulte [limites](#limits)). 
@@ -37,7 +37,7 @@ Depois que um instantâneo de compartilhamento é criado, ele pode ser lido, cop
 
 O recurso de instantâneo de compartilhamento é fornecido no nível de compartilhamento de arquivo. A recuperação é fornecida em nível de arquivo individual, para permitir a restauração de arquivos individuais. Você pode restaurar um compartilhamento de arquivos completo usando SMB, a API REST, o portal, a biblioteca de cliente ou as ferramentas do PowerShell/CLI.
 
-Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivos base. A única diferença é que um valor **DateTime** é acrescentado ao URI de compartilhamento para indicar a hora em que o instantâneo de compartilhamento foi tirado. Por exemplo, se um URI de compartilhamento de http://storagesample.core.file.windows.net/myshare arquivos for, o URI do instantâneo de compartilhamento será semelhante a:
+Um instantâneo de compartilhamento de um compartilhamento de arquivos é idêntico ao seu compartilhamento de arquivos base. A única diferença é que um valor **DateTime** é acrescentado ao URI de compartilhamento para indicar a hora em que o instantâneo de compartilhamento foi tirado. Por exemplo, se um URI de compartilhamento de arquivos for http://storagesample.core.file.windows.net/myshare, o URI do instantâneo de compartilhamento será semelhante a:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -71,18 +71,18 @@ Você pode copiar arquivos individuais em um instantâneo de compartilhamento de
 
 O instantâneo de compartilhamento permanece intacto após a cópia, mas o compartilhamento de arquivos base é substituído por uma cópia dos dados que estavam disponíveis no instantâneo de compartilhamento. Todos os arquivos restaurados contam para "conteúdo alterado".
 
-Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino com um nome diferente. O arquivo de destino resultante é um arquivo gravável e não um instantâneo de compartilhamento.
+Você pode copiar um arquivo em um instantâneo de compartilhamento para um destino diferente com um nome diferente. O arquivo de destino resultante é um arquivo gravável e não um instantâneo de compartilhamento. Nesse caso, o compartilhamento de arquivos base permanecerá intacto.
 
 Quando um arquivo de destino é substituído por uma cópia, os instantâneos de compartilhamento associados ao arquivo de destino original permanecem intactos.
 
-## <a name="general-best-practices"></a>Práticas recomendadas gerais 
+## <a name="general-best-practices"></a>Melhores práticas gerais 
 Quando você estiver executando a infraestrutura no Azure, automatize os backups para recuperação de dados sempre que possível. Ações automatizadas são mais confiáveis do que processos manuais, ajudando a melhorar a proteção e a capacidade de recuperação de dados. Você pode usar a API REST, o SDK do cliente ou o script para automação.
 
 Antes de implantar o Agendador de instantâneos de compartilhamento, considere cuidadosamente suas configurações de frequência e retenção de instantâneo de compartilhamento para evitar incorrer em encargos desnecessários.
 
 Os instantâneos de compartilhamento fornecem apenas proteção em nível de arquivo. Os instantâneos de compartilhamento não impedem exclusões de Fat-Finger em um compartilhamento de arquivos ou conta de armazenamento. Para ajudar a proteger uma conta de armazenamento contra exclusões acidentais, você pode bloquear a conta de armazenamento ou o grupo de recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Trabalhando com instantâneos de compartilhamento em:
     - [PowerShell](storage-how-to-use-files-powershell.md)
     - [CLI](storage-how-to-use-files-cli.md)

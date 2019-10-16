@@ -1,21 +1,21 @@
 ---
-title: Solução de problemas de visualização do Azure Blockchain Workbench
+title: Solução de problemas do Azure Blockchain Workbench
 description: Como solucionar problemas de um aplicativo de visualização do Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 8fec065b629f2f2b93e78a63521ea0ce4669dd4e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3032a81a4411cb162a335189ca65b845f8d6305f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844044"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329088"
 ---
 # <a name="azure-blockchain-workbench-preview-troubleshooting"></a>Solução de problemas de visualização do Azure Blockchain Workbench
 
@@ -23,7 +23,7 @@ Um script do PowerShell está disponível para auxiliar na depuração ou suport
 
 * Blockchain rede, como Ethereum
 * Microserviços do Blockchain Workbench
-* Application Insights
+* Estatísticas das Aplicações
 * Monitoramento do Azure (logs de Azure Monitor)
 
 Você pode usar as informações para determinar as próximas etapas e determinar a causa raiz dos problemas.
@@ -41,16 +41,16 @@ git clone https://github.com/Azure-Samples/blockchain.git
 ## <a name="run-the-script"></a>Executar o script
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install.md)]
 
-Execute o `collectBlockchainWorkbenchTroubleshooting.ps1` script para coletar logs e criar um arquivo ZIP contendo uma pasta de informações de solução de problemas. Por exemplo:
+Execute o script `collectBlockchainWorkbenchTroubleshooting.ps1` para coletar logs e criar um arquivo ZIP contendo uma pasta de informações de solução de problemas. Por exemplo:
 
 ``` powershell
 collectBlockchainWorkbenchTroubleshooting.ps1 -SubscriptionID "<subscription_id>" -ResourceGroupName "workbench-resource-group-name"
 ```
 O script aceita os seguintes parâmetros:
 
-| Parâmetro  | Descrição | Requerido |
+| Parâmetro  | Descrição | Obrigatório |
 |---------|---------|----|
-| subscriptionID | SubscriptionId para criar ou localizar todos os recursos. | Sim |
+| SubscriptionID | SubscriptionId para criar ou localizar todos os recursos. | Sim |
 | ResourceGroupName | Nome do grupo de recursos do Azure em que o Blockchain Workbench foi implantado. | Sim |
 | OutputDirectory | Caminho para criar a saída. Arquivo ZIP. Se não for especificado, o padrão será o diretório atual. | Não |
 | LookbackHours | Número de horas a serem usadas ao obter telemetria. O valor padrão é 24 horas. O valor máximo é de 90 horas | Não |
@@ -72,7 +72,7 @@ O arquivo ZIP de saída contém a seguinte estrutura de pastas:
 
 O arquivo de resumo fornece um instantâneo do estado geral do aplicativo e da integridade do aplicativo. O resumo fornece as ações recomendadas, realça os principais erros e os metadados sobre a execução de serviços.
 
-A pasta de **métricas** contém métricas de vários componentes do sistema ao longo do tempo. Por exemplo, o arquivo `\Details\Workbench\apiMetrics.txt` de saída contém um resumo de códigos de resposta diferentes e tempos de resposta ao longo do período de coleta. A pasta **detalhes** contém logs detalhados para solucionar problemas específicos com o Workbench ou a rede blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das exceções mais recentes que ocorreram no sistema, o que é útil para solucionar erros com contratos inteligentes ou interações com o blockchain. 
+A pasta de **métricas** contém métricas de vários componentes do sistema ao longo do tempo. Por exemplo, o arquivo de saída `\Details\Workbench\apiMetrics.txt` contém um resumo de códigos de resposta diferentes e tempos de resposta ao longo do período de coleta. A pasta **detalhes** contém logs detalhados para solucionar problemas específicos com o Workbench ou a rede blockchain subjacente. Por exemplo, `\Details\Workbench\Exceptions.csv` contém uma lista das exceções mais recentes que ocorreram no sistema, o que é útil para solucionar erros com contratos inteligentes ou interações com o blockchain. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

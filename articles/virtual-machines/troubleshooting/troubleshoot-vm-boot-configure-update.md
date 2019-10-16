@@ -13,22 +13,22 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: d0a946ede154561aaa49d335b7b91fdae72c51d3
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155561"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332542"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>A inicialização da VM está presa em "preparando o Windows. Não desligar o computador "no Azure
 
-Este artigo ajuda você a resolver o problema quando sua VM (máquina virtual) está presa no "preparando o Windows. Não desligue o estágio do computador durante a inicialização.
+Este artigo descreve as telas "preparando-se" e "preparando o Windows" que você pode encontrar ao inicializar uma VM (máquina virtual) do Windows no Microsoft Azure. Ele fornece etapas para ajudá-lo a coletar dados para um tíquete de suporte.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="symptoms"></a>Sintomas
 
-Quando você usa o **diagnóstico de inicialização** para obter a captura de tela de uma VM, o sistema operacional não é totalmente inicializado. A VM exibe a mensagem "preparando o Windows. Não desligue o computador."
+Uma VM do Windows não é inicializada. Ao usar o **diagnóstico de inicialização** para obter a captura de tela da VM, você pode ver que a VM exibe a mensagem "preparando-se" ou "preparando o Windows".
 
 ![Exemplo de mensagem para o Windows Server 2012 R2](./media/troubleshoot-vm-configure-update-boot/message1.png)
 
@@ -38,178 +38,71 @@ Quando você usa o **diagnóstico de inicialização** para obter a captura de t
 
 Normalmente, esse problema ocorre quando o servidor está fazendo a reinicialização final após a alteração da configuração. A alteração de configuração pode ser inicializada por atualizações do Windows ou pelas alterações nas funções/recurso do servidor. Por Windows Update, se o tamanho das atualizações for grande, o sistema operacional precisará de mais tempo para reconfigurar as alterações.
 
-## <a name="back-up-the-os-disk"></a>Fazer backup do disco do sistema operacional
-
-Antes de tentar corrigir o problema, faça backup do disco do sistema operacional.
-
-### <a name="for-vms-with-an-encrypted-disk-you-must-unlock-the-disks-first"></a>Para VMs com um disco criptografado, você deve desbloquear os discos primeiro
-
-Siga estas etapas para determinar se a VM é uma VM criptografada.
-
-1. Na portal do Azure, abra sua VM e, em seguida, navegue até os discos.
-
-2. Examine a coluna **criptografia** para ver se a criptografia está habilitada.
-
-Se o disco do sistema operacional for criptografado, desbloqueie o disco criptografado. Para desbloquear o disco, siga estas etapas.
-
-1. Crie uma VM de recuperação que esteja localizada no mesmo grupo de recursos, conta de armazenamento e local que a VM afetada.
-
-2. No portal do Azure, exclua a VM afetada e mantenha o disco.
-
-3. Execute o PowerShell como administrador.
-
-4. Execute o cmdlet a seguir para obter o nome do segredo.
-
-    ```Powershell
-    Login-AzAccount
- 
-    $vmName = “VirtualMachineName”
-    $vault = “AzureKeyVaultName”
- 
-    # Get the Secret for the C drive from Azure Key Vault
-    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq $vmName) -and ($_.Tags.VolumeLetter -eq “C:\”) -and ($_.ContentType -eq ‘BEK‘)}
-
-    # OR Use the below command to get BEK keys for all the Volumes
-    Get-AzureKeyVaultSecret -VaultName $vault | where {($_.Tags.MachineName -eq   $vmName) -and ($_.ContentType -eq ‘BEK’)}
-    ```
-
-5. Depois de ter o nome do segredo, execute os seguintes comandos no PowerShell.
-
-    ```Powershell
-    $secretName = 'SecretName'
-    $keyVaultSecret = Get-AzureKeyVaultSecret -VaultName $vault -Name $secretname
-    $bekSecretBase64 = $keyVaultSecret.SecretValueText
-    ```
-
-6. Converta o valor codificado em base64 em bytes e grave a saída em um arquivo. 
-
-    > [!Note]
-    > Se você usar a opção de desbloqueio de USB, o nome do arquivo BEK deverá corresponder ao GUID original do BEK. Crie uma pasta na unidade C denominada "BEK" antes de seguir estas etapas.
-    
-    ```Powershell
-    New-Item -ItemType directory -Path C:\BEK
-    $bekFileBytes = [Convert]::FromBase64String($bekSecretbase64)
-    $path = “c:\BEK\$secretName.BEK”
-    [System.IO.File]::WriteAllBytes($path,$bekFileBytes)
-    ```
-
-7. Depois que o arquivo BEK for criado em seu PC, copie o arquivo para a VM de recuperação à qual o disco do sistema operacional bloqueado está conectado. Execute os comandos a seguir usando o local do arquivo BEK.
-
-    ```Powershell
-    manage-bde -status F:
-    manage-bde -unlock F: -rk C:\BEKFILENAME.BEK
-    ```
-    **Opcional**: Em alguns cenários, pode ser necessário descriptografar o disco usando esse comando.
-   
-    ```Powershell
-    manage-bde -off F:
-    ```
-
-    > [!Note]
-    > O comando anterior pressupõe que o disco para criptografar está na letra F.
-
-8. Se você precisar coletar logs, vá para a letra da **unidade do caminho: \ Windows\System32\winevt\Logs**.
-
-9. Desanexe a unidade do computador de recuperação.
-
-### <a name="create-a-snapshot"></a>Criar um instantâneo
-
-Para criar um instantâneo, siga as etapas em fazer o [instantâneo de um disco](../windows/snapshot-copy-managed-disk.md).
-
 ## <a name="collect-an-os-memory-dump"></a>Coletar um despejo de memória do so
 
-Use as etapas na seção [coletar despejo de so](troubleshoot-common-blue-screen-error.md#collect-memory-dump-file) para coletar um despejo de sistema operacional quando a VM estiver presa na configuração.
+Se o problema não for resolvido depois de aguardar as alterações serem processadas, você precisará coletar um arquivo de despejo de memória e entrar em contato com o suporte. Para coletar o arquivo de despejo, siga estas etapas:
 
-## <a name="contact-microsoft-support"></a>Contacte o Suporte da Microsoft
+### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Anexar o disco do sistema operacional a uma VM de recuperação
+
+1. Tire um instantâneo do disco do sistema operacional da VM afetada como um backup. Para obter mais informações, consulte [snapshot a Disk](../windows/snapshot-copy-managed-disk.md).
+2. [Anexe o disco do sistema operacional a uma VM de recuperação](../windows/troubleshoot-recovery-disks-portal.md).
+3. Área de trabalho remota para a VM de recuperação. 
+4. Se o disco do sistema operacional for criptografado, você deverá desligar a criptografia antes de passar para a próxima etapa. Para obter mais informações, consulte [descriptografar o disco do sistema operacional criptografado na VM que não pode ser inicializada](troubleshoot-bitlocker-boot-error.md#solution).
+
+### <a name="locate-dump-file-and-submit-a-support-ticket"></a>Localizar arquivo de despejo e enviar um tíquete de suporte
+
+1. Na VM de recuperação, vá para a pasta do Windows no disco do sistema operacional anexado. Se a letra do driver atribuída ao disco do sistema operacional anexado for F, você precisará ir para F:\Windows.
+2. Localize o arquivo Memory. dmp e, em seguida, [envie um tíquete de suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) com o arquivo de despejo. 
+
+Se você não encontrar o arquivo de despejo, mova a próxima etapa para habilitar o log de despejo e o console serial.
+
+### <a name="enable-dump-log-and-serial-console"></a>Habilitar o log de despejo e o console serial
+
+Para habilitar o log de despejo e o console serial, execute o script a seguir.
+
+1. Abra a sessão de prompt de comando com privilégios elevados (executar como administrador).
+2. Execute o seguintes script:
+
+    Nesse script, presumimos que a letra da unidade atribuída ao disco do sistema operacional anexado é F.  Substitua-o pelo valor apropriado em sua VM.
+
+    ```powershell
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+
+    REM Enable Serial Console
+    bcdedit /store F:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store F:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store F:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store F:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    bcdedit /store F:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+
+    REM Suggested configuration to enable OS Dump
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    reg unload HKLM\BROKENSYSTEM
+    ```
+
+    1. Verifique se há espaço suficiente no disco para alocar a quantidade de memória como RAM, o que depende do tamanho que você está selecionando para essa VM.
+    2. Se não houver espaço suficiente ou se esta for uma VM de tamanho grande (série G, GS ou E), você poderá alterar o local onde esse arquivo será criado e referir-se a qualquer outro disco de dados que esteja anexado à VM. Para fazer isso, será necessário alterar a seguinte chave:
+
+            reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+
+            REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+            REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "<DRIVE LETTER OF YOUR DATA DISK>:\MEMORY.DMP" /f
+
+            reg unload HKLM\BROKENSYSTEM
+
+3. [Desanexe o disco do sistema operacional e, em seguida, anexe novamente o disco do sistema operacional à VM afetada](../windows/troubleshoot-recovery-disks-portal.md).
+4. Inicie a VM e acesse o console serial.
+5. Selecione **Enviar NMI (interrupção não mascarada)** para disparar o despejo de memória.
+    imagem ![the sobre onde enviar interrupção não mascarável @ no__t-1
+6. Anexe o disco do sistema operacional a uma VM de recuperação novamente, colete o arquivo de despejo.
+
+## <a name="contact-microsoft-support"></a>Contate o suporte da Microsoft
 
 Depois de coletar o arquivo de despejo, entre em contato com o [suporte da Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para analisar a causa raiz.
-
-
-## <a name="rebuild-the-vm-by-using-powershell"></a>Recompilar a VM usando o PowerShell
-
-Depois de coletar o arquivo de despejo de memória, siga estas etapas para recompilar a VM.
-
-**Para discos não gerenciados**
-
-```powershell
-# To log in to Azure Resource Manager
-Login-AzAccount
-
-# To view all subscriptions for your account
-Get-AzSubscription
-
-# To select a default subscription for your current session
-Get-AzSubscription –SubscriptionID “SubscriptionID” | Select-AzSubscription
-
-$rgname = "RGname"
-$loc = "Location"
-$vmsize = "VmSize"
-$vmname = "VmName"
-$vm = New-AzVMConfig -VMName $vmname -VMSize $vmsize;
-
-$nic = Get-AzNetworkInterface -Name ("NicName") -ResourceGroupName $rgname;
-$nicId = $nic.Id;
-
-$vm = Add-AzVMNetworkInterface -VM $vm -Id $nicId;
-
-$osDiskName = "OSdiskName"
-$osDiskVhdUri = "OSdiskURI"
-
-$vm = Set-AzVMOSDisk -VM $vm -VhdUri $osDiskVhdUri -name $osDiskName -CreateOption attach -Windows
-
-New-AzVM -ResourceGroupName $rgname -Location $loc -VM $vm -Verbose
-```
-
-**Para discos gerenciados**
-
-```powershell
-# To log in to Azure Resource Manager
-Login-AzAccount
-
-# To view all subscriptions for your account
-Get-AzSubscription
-
-# To select a default subscription for your current session
-Get-AzSubscription –SubscriptionID "SubscriptionID" | Select-AzSubscription
-
-#Fill in all variables
-$subid = "SubscriptionID"
-$rgName = "ResourceGroupName";
-$loc = "Location";
-$vmSize = "VmSize";
-$vmName = "VmName";
-$nic1Name = "FirstNetworkInterfaceName";
-#$nic2Name = "SecondNetworkInterfaceName";
-$avName = "AvailabilitySetName";
-$osDiskName = "OsDiskName";
-$DataDiskName = "DataDiskName"
-
-#This can be found by selecting the Managed Disks you wish you use in the Azure portal if the format below doesn't match
-$osDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$osDiskName";
-$dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Microsoft.Compute/disks/$DataDiskName";
-
-$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize;
-
-#Uncomment to add Availability Set
-#$avSet = Get-AzAvailabilitySet –Name $avName –ResourceGroupName $rgName;
-#$vm = New-AzVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
-
-#Get NIC Resource Id and add
-$nic1 = Get-AzNetworkInterface -Name $nic1Name -ResourceGroupName $rgName;
-$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic1.Id -Primary;
-
-#Uncomment to add a secondary NIC
-#$nic2 = Get-AzNetworkInterface -Name $nic2Name -ResourceGroupName $rgName;
-#$vm = Add-AzVMNetworkInterface -VM $vm -Id $nic2.Id;
-
-#Windows VM
-$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Windows;
-
-#Linux VM
-#$vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDiskResourceId -name $osDiskName -CreateOption Attach -Linux;
-
-#Uncomment to add additional Data Disk
-#Add-AzVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
-
-New-AzVM -ResourceGroupName $rgName -Location $loc -VM $vm;
-```

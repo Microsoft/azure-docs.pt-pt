@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 34b26dd1b9b8990da9e84c8d7cfc993d8bbe85a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845481"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376294"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrar cargas de trabalho com redes ampliadas de Camada 2
 
@@ -57,10 +57,10 @@ A tabela a seguir lista as versões vSphere e os tipos de adaptadores de rede co
 
 | versão do vSphere | Tipo de vSwitch de origem | Driver NIC virtual | Tipo de vSwitch de destino | Suportada? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| Todos | DVS | Todos | DVS | Sim |
+| Tudo | DVS | Tudo | DVS | Sim |
 | interface do usuário do vSphere 6.7 ou superior, 6.5 P03 ou superior | DVS | VMXNET3 | N-VDS | Sim |
 | interface do usuário do vSphere 6.7 ou superior, 6.5 P03 ou superior | DVS | E1000 | N-VDS | [Sem suporte por VWware](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7 UI ou 6.5 P03, NSX-V ou versões abaixo do NSX-T 2.2, 6.5 P03 ou superior | Todos | Todos | N-VDS | [Sem suporte por VWware](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7 UI ou 6.5 P03, NSX-V ou versões abaixo do NSX-T 2.2, 6.5 P03 ou superior | Tudo | Tudo | N-VDS | [Sem suporte por VWware](https://kb.vmware.com/s/article/56991) |
 
 A partir da versão do VMware NSX-T 2,3:
 
@@ -76,7 +76,7 @@ Para obter mais informações, consulte [redes virtuais privadas](https://docs.v
 | **Item** | **Valor** |
 |------------|-----------------|
 | Nome da rede | MGMT_NET_VLAN469 |
-| VLAN | 469 |
+| ABRANGÊNCIA | 469 |
 | CIDR| 10.250.0.0/24 |
 | Endereço IP do dispositivo de borda autônomo | 10.250.0.111 |
 | Endereço IP do NAT do dispositivo de borda autônomo | 192.227.85.167 |
@@ -85,7 +85,7 @@ Para obter mais informações, consulte [redes virtuais privadas](https://docs.v
 
 | **Item** | **Valor** |
 |------------|-----------------|
-| VLAN | 472 |
+| ABRANGÊNCIA | 472 |
 | CIDR| 10.250.3.0/24 |
 
 ### <a name="private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>Esquema de IP de nuvem privada para o roteador do tier0 do NSX – T (L2 VPN servindo)
@@ -101,22 +101,22 @@ Para obter mais informações, consulte [redes virtuais privadas](https://docs.v
 
 | **Item** | **Valor** |
 |------------|-----------------|
-| VLAN | 712 |
+| ABRANGÊNCIA | 712 |
 | CIDR| 10.200.15.0/24 |
 
 ## <a name="fetch-the-logical-router-id-needed-for-l2vpn"></a>Buscar a ID de roteador lógico necessária para L2VPN
 
 As etapas a seguir mostram como buscar a ID do roteador lógico da instância do roteador lógico tier0 DR para os serviços IPsec e L2VPN. A ID do roteador lógico é necessária posteriormente ao implementar o L2VPN.
 
-1. Entre no NSX-t Manager https://*NSX-t-Manager-IP-address* e selecione**provedor de** > **roteadores** > de **rede** > -LR**visão geral**. Para o **modo de alta disponibilidade**, selecione **ativo-em espera**. Essa ação abre uma janela pop-up que mostra a VM de borda na qual o roteador tier0 está ativo no momento.
+1. Entre no NSX-T Manager https://*NSX-t-Manager-IP-address* e selecione **rede** > **roteadores** > **provedor-LR** > **visão geral**. Para o **modo de alta disponibilidade**, selecione **ativo-em espera**. Essa ação abre uma janela pop-up que mostra a VM de borda na qual o roteador tier0 está ativo no momento.
 
     ![Selecionar ativo-em espera](media/l2vpn-fetch01.png)
 
-2. Selecione **malha** > nósbordas > . Anote o endereço IP de gerenciamento da VM de borda ativa (VM1 de borda) identificada na etapa anterior.
+2. Selecione **malha** > **nós** > **bordas**. Anote o endereço IP de gerenciamento da VM de borda ativa (VM1 de borda) identificada na etapa anterior.
 
     ![IP de gerenciamento de observação](media/l2vpn-fetch02.png)
 
-3. Abra uma sessão SSH para o endereço IP de gerenciamento da VM de borda. Execute o ```get logical-router``` comando com nome de usuário **admin** e senha **CloudSimple 123!** .
+3. Abra uma sessão SSH para o endereço IP de gerenciamento da VM de borda. Execute o comando ```get logical-router``` com nome de usuário **admin** e senha **CloudSimple 123!** .
 
     ![obter saída de roteador lógico](media/l2vpn-fetch03.png)
 
@@ -130,14 +130,14 @@ As etapas a seguir mostram como buscar a ID do roteador lógico da instância do
 
     ![Anexar comutador fictício](media/l2vpn-fetch05.png)
 
-7. Execute o `get logical-router` comando novamente na sessão SSH da VM de borda. O UUID do roteador lógico ' DR-Provider-LR ' é exibido. Anote o UUID, que é necessário ao configurar o L2VPN.
+7. Execute o comando `get logical-router` novamente na sessão SSH da VM de borda. O UUID do roteador lógico ' DR-Provider-LR ' é exibido. Anote o UUID, que é necessário ao configurar o L2VPN.
 
     ![obter saída de roteador lógico](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Buscar a ID de comutador lógico necessária para L2VPN
 
 1. Entre no [NSX-T Manager](https://nsx-t-manager-ip-address).
-2. Selecione comutadores de**troca** > de **rede** >  **>**  **<\opção Logical >\ ** > **visão geral**.
+2. Selecione **rede** > **switching @no__t-** 3 > * * **< switch \Logical** @ No__t-5 * * > **Overview**.
 3. Anote o UUID do comutador lógico de ampliação, que é necessário ao configurar o L2VPN.
 
     ![obter saída de roteador lógico](media/l2vpn-fetch-switch01.png)
@@ -154,20 +154,20 @@ Para estabelecer uma VPN baseada em rota IPsec entre o roteador NSX-T tier0 e o 
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Anunciar o IP da interface de loopback para a rede underlay
 
-1. Crie uma rota nula para a rede de interface de loopback. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **rotas estáticas**de**Roteamento** > . Clique em **Adicionar**. Para **rede**, insira o endereço IP da interface de loopback. Para os **próximos saltos**, clique em **Adicionar**, especifique ' nulo ' para o próximo salto e mantenha o padrão 1 para distância do administrador.
+1. Crie uma rota nula para a rede de interface de loopback. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **Roteamento** > **rotas estáticas**. Clique em **Adicionar**. Para **rede**, insira o endereço IP da interface de loopback. Para os **próximos saltos**, clique em **Adicionar**, especifique ' nulo ' para o próximo salto e mantenha o padrão 1 para distância do administrador.
 
     ![Adicionar rota estática](media/l2vpn-routing-security01.png)
 
-2. Crie uma lista de prefixos IP. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **listas de prefixo de IP**de**Roteamento** > . Clique em **Adicionar**. Insira um nome para identificar a lista. Para **prefixos**, clique em **Adicionar** duas vezes. Na primeira linha, digite "0.0.0.0/0" para **rede** e "negar" para **ação**. Na segunda linha, selecione **qualquer** para **rede** e **permissão** para **ação**.
+2. Crie uma lista de prefixos IP. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **Roteamento** > **listas de prefixo IP**. Clique em **Adicionar**. Insira um nome para identificar a lista. Para **prefixos**, clique em **Adicionar** duas vezes. Na primeira linha, digite "0.0.0.0/0" para **rede** e "negar" para **ação**. Na segunda linha, selecione **qualquer** para **rede** e **permissão** para **ação**.
 3. Anexe a lista de prefixos IP a ambos os vizinhos de BGP (TOR). Anexar a lista de prefixo de IP ao vizinho BGP impede que a rota padrão seja anunciada no BGP para os comutadores TOR. No entanto, qualquer outra rota que inclua a rota nula anunciará o endereço IP da interface de loopback para os comutadores TOR.
 
     ![Criar lista de prefixo IP](media/l2vpn-routing-security02.png)
 
-4. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **Roteamento** > **BGP**  >  **Vizinhos**. Selecione o primeiro vizinho. Clique em **Editar** > **famílias de endereços**. Para a família IPv4, edite a coluna **Filtro out** e selecione a lista de prefixo IP que você criou. Clique em **Guardar**. Repita essa etapa para o segundo vizinho.
+4. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **Routing** > **BGP**1**vizinhos**. Selecione o primeiro vizinho. Clique em **Editar**famílias de**endereços** > . Para a família IPv4, edite a coluna **Filtro out** e selecione a lista de prefixo IP que você criou. Clique em **Guardar**. Repita essa etapa para o segundo vizinho.
 
-    ![Anexar lista de prefixo IP](media/l2vpn-routing-security03.png) 1 ![anexar lista de prefixo IP 2](media/l2vpn-routing-security04.png)
+    ![Attach lista de prefixo IP 1 @ no__t-1 ![Attach lista de prefixo IP 2 @ no__t-3
 
-5. Redistribua a rota estática nula para BGP. Para anunciar a rota de interface de loopback para o underlay, você deve redistribuir a rota estática nula para o BGP. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **Roteamento** > **rota redistribuição**  >  **Vizinhos**. Selecione **Provider-LR-Route_Redistribution** e clique em **Editar**. Marque a caixa de seleção **estático** e clique em **salvar**.
+5. Redistribua a rota estática nula para BGP. Para anunciar a rota de interface de loopback para o underlay, você deve redistribuir a rota estática nula para o BGP. Entre no NSX-T Manager e selecione **rede** > **Roteamento** > **roteadores** > **provedor-LR** > **Roteamento** > **redistribuição de rota**1**vizinhos**. Selecione **Provider-LR-Route_Redistribution** e clique em **Editar**. Marque a caixa de seleção **estático** e clique em **salvar**.
 
     ![Redistribuir a rota estática nula para BGP](media/l2vpn-routing-security05.png)
 
@@ -195,7 +195,7 @@ Logical-Port ID :
 Peer Code :
 ```
 
-Para todas as chamadas de API a seguir, substitua o endereço IP pelo seu endereço IP do Gerenciador de NSX-T. Você pode executar todas essas chamadas de API do cliente do postmaster ou usando `curl` comandos.
+Para todas as chamadas de API a seguir, substitua o endereço IP pelo seu endereço IP do Gerenciador de NSX-T. Você pode executar todas essas chamadas de API do cliente do postmaster ou usando comandos `curl`.
 
 ### <a name="enable-the-ipsec-vpn-service-on-the-logical-router"></a>Habilitar o serviço VPN IPSec no roteador lógico
 
@@ -211,7 +211,7 @@ POST   https://192.168.110.201/api/v1/vpn/ipsec/services/
 }
 ```
 
-### <a name="create-profiles-ike"></a>Criar perfis: PROTOCOLO
+### <a name="create-profiles-ike"></a>Criar perfis: IKE
 
 ```
 POST https://192.168.110.201/api/v1/vpn/ipsec/ike-profiles
@@ -240,7 +240,7 @@ POST  https://192.168.110.201/api/v1/vpn/ipsec/dpd-profiles
 }
 ```
 
-### <a name="create-profiles-tunnel"></a>Criar perfis: Caps
+### <a name="create-profiles-tunnel"></a>Criar perfis: túnel
 
 ```
 POST  https://192.168.110.201/api/v1/vpn/ipsec/tunnel-profiles
@@ -430,7 +430,7 @@ Antes de implantar o, verifique se as regras de firewall local permitem o tráfe
 
 2. Vá para a pasta com todos os arquivos extraídos. Selecione todos os VMDKs (NSX-L2T-cliente-grande. MF e NSX-l2t-client-large. ovf para o tamanho do dispositivo grande ou NSX-L2T-Client-XLarge. MF e NSX-l2t-client-Xlarge. ovf para o tamanho do dispositivo extra de tamanho grande). Clique em **Seguinte**.
 
-    ![](media/l2vpn-deploy-client02.png) Selecionar modelo selecionarmodelo![](media/l2vpn-deploy-client03.png)
+    modelo ![Select @ no__t-1 @no__t-modelo 2Select @ no__t-3
 
 3. Insira um nome para o cliente do NSX-T autônomo e clique em **Avançar**.
 
@@ -438,7 +438,7 @@ Antes de implantar o, verifique se as regras de firewall local permitem o tráfe
 
 4. Clique em **Avançar** conforme necessário para acessar as configurações do repositório de armazenamento. Selecione o repositório de armazenamento apropriado para o cliente do NSX-T autônomo e clique em **Avançar**.
 
-    ![Selecionar arquivo de dados](media/l2vpn-deploy-client06.png)
+    ![Selecionar repositório de armazenamento](media/l2vpn-deploy-client06.png)
 
 5. Selecione os grupos de portas corretos para o tronco (PG de tronco), público (uplink PG) e a interface de HA (uplink PG) para o cliente autônomo do NSX-T. Clique em **Seguinte**.
 
@@ -460,8 +460,7 @@ Antes de implantar o, verifique se as regras de firewall local permitem o tráfe
     * **Comprimento do prefixo**. Insira o comprimento do prefixo da VLAN/sub-rede de uplink.
     * **Administrador/habilitar/senha de usuário raiz da CLI**. Defina a senha para a conta do admin/Enable/root.
 
-      ![Personalizar modelo](media/l2vpn-deploy-client08.png)
-      de personalização de modelo![-mais](media/l2vpn-deploy-client09.png)
+      modelo ![Customize @ no__t-1 @ no__t-2Customize modelo-mais @ no__t-3
 
 7. Examine as configurações e clique em **concluir**.
 

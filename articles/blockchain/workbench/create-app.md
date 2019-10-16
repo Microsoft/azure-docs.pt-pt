@@ -1,23 +1,23 @@
 ---
-title: Criar um aplicativo blockchain no Azure Blockchain Workbench
+title: Criar um aplicativo blockchain – Azure Blockchain Workbench
 description: Tutorial sobre como criar um aplicativo blockchain na visualização do Azure Blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: a7d7c68840999772461655090d0213ada0997a7a
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845150"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329098"
 ---
-# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: Criar um aplicativo blockchain no Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Tutorial: criar um aplicativo blockchain no Azure Blockchain Workbench
 
 Você pode usar o Azure Blockchain Workbench para criar aplicativos Blockchain que representam fluxos de trabalho de várias partes definidos pelo código do contrato inteligente e de configuração.
 
@@ -214,7 +214,7 @@ O início do arquivo de configuração contém informações sobre o aplicativo,
 
 A seção funções de aplicativo define as funções de usuário que podem agir ou participar dentro do aplicativo blockchain. Você define um conjunto de funções distintas com base na funcionalidade. No cenário de solicitação-resposta, há uma distinção entre a funcionalidade de um solicitante como uma entidade que produz solicitações e um Respondente como uma entidade que produz respostas.
 
-### <a name="workflows"></a>Workflows
+### <a name="workflows"></a>Fluxos de trabalho
 
 Os fluxos de trabalho definem um ou mais estágios e ações do contrato. No cenário de solicitação-resposta, o primeiro estágio (estado) do fluxo de trabalho é um solicitante (função) realiza uma ação (transição) para enviar uma solicitação (função). O próximo estágio (estado) é um Respondente (função) realiza uma ação (transição) para enviar uma resposta (função). O fluxo de trabalho de um aplicativo pode envolver Propriedades, funções e Estados necessários para descrever o fluxo de um contrato.
 
@@ -232,7 +232,7 @@ Em seu editor favorito, crie um arquivo chamado `HelloBlockchain.sol`.
 
 Como prática recomendada, indique a versão da solidez que você está direcionando. A especificação da versão ajuda a evitar incompatibilidades com futuras versões de solidez.
 
-Adicione o seguinte pragma de versão na parte superior `HelloBlockchain.sol` do arquivo de código do contrato inteligente.
+Adicione o seguinte pragma de versão na parte superior do arquivo de código do contrato inteligente `HelloBlockchain.sol`.
 
 ``` solidity
 pragma solidity >=0.4.25 <0.6.0;
@@ -244,7 +244,7 @@ O Blockchain Workbench usa o arquivo de configuração e o arquivo de código de
 
 ### <a name="contract"></a>Contrato
 
-Adicione o cabeçalho do **contrato** ao `HelloBlockchain.sol` arquivo de código do contrato inteligente.
+Adicione o cabeçalho do **contrato** ao seu arquivo de código do contrato inteligente `HelloBlockchain.sol`.
 
 ``` solidity
 contract HelloBlockchain {
@@ -254,7 +254,7 @@ contract HelloBlockchain {
 
 Variáveis de estado armazenam valores do estado para cada instância de contrato. As variáveis de estado em seu contrato devem corresponder às propriedades de fluxo de trabalho definidas no arquivo de configuração.
 
-Adicione as variáveis de estado ao seu contrato no `HelloBlockchain.sol` arquivo de código do contrato inteligente.
+Adicione as variáveis de estado ao seu contrato no arquivo de código do contrato inteligente `HelloBlockchain.sol`.
 
 ``` solidity
     //Set of States
@@ -275,7 +275,7 @@ O construtor define os parâmetros de entrada para uma nova instância de contra
 
 Na função de construtor, escreva qualquer lógica de negócios que você queira executar antes de criar o contrato. Por exemplo, inicialize as variáveis de estado com valores iniciais.
 
-Adicione a função de construtor ao seu contrato no `HelloBlockchain.sol` arquivo de código do contrato inteligente.
+Adicione a função de construtor ao seu contrato em seu arquivo de código de contrato inteligente `HelloBlockchain.sol`.
 
 ``` solidity
     // constructor function
@@ -287,13 +287,13 @@ Adicione a função de construtor ao seu contrato no `HelloBlockchain.sol` arqui
     }
 ```
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funções
 
 As funções são as unidades executáveis da lógica de negócios em um contrato. Os parâmetros necessários para a função são definidos como parâmetros de função no arquivo de configuração. O número, a ordem e o tipo de parâmetros devem corresponder em ambos os arquivos. As funções são associadas a transições em um fluxo de trabalho do Blockchain Workbench no arquivo de configuração. Uma transição é uma ação executada para mover para o próximo estágio do fluxo de trabalho de um aplicativo, conforme determinado pelo contrato.
 
 Escreva qualquer lógica de negócios que você deseja executar na função. Por exemplo, modificar o valor de uma variável de estado.
 
-1. Adicione as seguintes funções ao seu contrato no arquivo `HelloBlockchain.sol` de código do contrato inteligente.
+1. Adicione as seguintes funções ao seu contrato no arquivo de código do contrato do `HelloBlockchain.sol`.
 
     ``` solidity
         // call this function to send a request
@@ -319,7 +319,7 @@ Escreva qualquer lógica de negócios que você deseja executar na função. Por
     }
     ```
 
-2. Salve o `HelloBlockchain.sol` arquivo de código do contrato inteligente.
+2. Salve seu arquivo de código de contrato inteligente `HelloBlockchain.sol`.
 
 ## <a name="add-blockchain-application-to-blockchain-workbench"></a>Adicionar aplicativo blockchain ao Blockchain Workbench
 
@@ -328,8 +328,8 @@ Para adicionar um aplicativo blockchain ao Blockchain Workbench, você carrega o
 1. Em um navegador da Web, navegue até o endereço Web do Blockchain Workbench. Por exemplo, `https://{workbench URL}.azurewebsites.net/` o aplicativo Web é criado quando você implanta o Blockchain Workbench. Para obter informações sobre como encontrar seu endereço Web do Blockchain Workbench, consulte [URL da Web do Blockchain Workbench](deploy.md#blockchain-workbench-web-url)
 2. Entre como administrador do [Blockchain Workbench](manage-users.md#manage-blockchain-workbench-administrators).
 3. Selecione **aplicativos** > **novo**. O painel **novo aplicativo** é exibido.
-4.  > Selecione **carregar a configuração do contrato** **procurar** para localizar o arquivo de configuração **HelloBlockchain. JSON** que você criou. O arquivo de configuração é validado automaticamente. Selecione o link **Mostrar** para exibir erros de validação. Corrija os erros de validação antes de implantar o aplicativo.
-5.  > Selecione **carregar o código do contrato** **navegue** para localizar o arquivo de código do contrato inteligente **HelloBlockchain. sol** . O arquivo de código é validado automaticamente. Selecione o link **Mostrar** para exibir erros de validação. Corrija os erros de validação antes de implantar o aplicativo.
+4. Selecione **carregar a configuração do contrato** > **procurar** para localizar o arquivo de configuração **HelloBlockchain. JSON** que você criou. O arquivo de configuração é validado automaticamente. Selecione o link **Mostrar** para exibir erros de validação. Corrija os erros de validação antes de implantar o aplicativo.
+5. Selecione **carregar o código de contrato** > **navegue** para localizar o arquivo de código do contrato inteligente **HelloBlockchain. sol** . O arquivo de código é validado automaticamente. Selecione o link **Mostrar** para exibir erros de validação. Corrija os erros de validação antes de implantar o aplicativo.
 6. Selecione **implantar** para criar o aplicativo blockchain com base nos arquivos de configuração e de contrato inteligente.
 
 A implantação do aplicativo blockchain leva alguns minutos. Quando a implantação é concluída, o novo aplicativo é exibido em **aplicativos**. 

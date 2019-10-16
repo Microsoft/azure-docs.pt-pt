@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: db0921d709f842b004ec4c23d15a986f2e59ec23
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687067"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376173"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Criar um ponto de extremidade privado usando Azure PowerShell
 Um ponto de extremidade privado é o bloco de construção fundamental para o link privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem de forma privada com recursos de link privado. 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede
 
-O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar uma sub-rede. Crie uma configuração de sub-rede chamada *mysubnet* com [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma sub-rede chamada *mysubnet* com o sinalizador de política de rede do ponto de extremidade privado definido como **desabilitado**.
+O Azure implanta recursos em uma sub-rede em uma rede virtual, portanto, você precisa criar uma sub-rede. Crie uma configuração de sub-rede chamada *mysubnet* com [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig). O exemplo a seguir cria uma sub-rede chamada *mysubnet* com o sinalizador de política de rede do ponto de extremidade privado definido como **desabilitado**.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -85,7 +85,7 @@ New-AzVm `
     -AsJob  
 ```
 
-A `-AsJob` opção cria a VM em segundo plano. Você pode continuar para a próxima etapa.
+A opção `-AsJob` cria a VM em segundo plano. Você pode continuar para a próxima etapa.
 
 Quando o Azure começar a criar a VM em segundo plano, você obterá algo assim:
 
@@ -167,7 +167,7 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
   
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ligar a uma VM a partir da Internet
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) para retornar o endereço IP público de uma VM. Este exemplo retorna o endereço IP público da VM *myVM* :
+Use [Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) to retornar o endereço IP público de uma VM. Este exemplo retorna o endereço IP público da VM *myVM* :
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-Abra um prompt de comando no computador local. Execute o comando mstsc.  <publicIpAddress>Substitua pelo endereço IP público retornado da última etapa: 
+Abra um prompt de comando no computador local. Execute o comando mstsc. Substitua @ no__t-0 @ no__t-1Com o endereço IP público retornado da última etapa: 
 
 
 > [!NOTE]
@@ -184,18 +184,18 @@ Abra um prompt de comando no computador local. Execute o comando mstsc.  <publ
 mstsc /v:<publicIpAddress>
 ```
 
-1. Se solicitado, selecione **conectar**. 
+1. Se lhe for pedido, selecione **Ligar**. 
 2. Introduza o nome de utilizador e a palavra-passe que especificou ao criar a VM.
   > [!NOTE]
   > Talvez seja necessário selecionar mais escolhas > usar uma conta diferente, para especificar as credenciais inseridas quando você criou a VM. 
   
-3. Selecione **OK**. 
-4. Você pode receber um aviso de certificado. Se você fizer isso, selecione **Sim** ou **continuar**. 
+3. Selecione **OK**. 
+4. Você pode receber um aviso de certificado. Se você fizer isso, selecione **Sim** ou **continuar**. 
 
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>Acessar o servidor do banco de dados SQL privadamente da VM
 
 1. No Área de Trabalho Remota do myVM, abra o PowerShell.
-2. Insira `nslookup myserver.database.windows.net`. 
+2. Insira @ no__t-0. 
 
     Você receberá uma mensagem semelhante a esta:
     ```azurepowershell
@@ -207,14 +207,14 @@ mstsc /v:<publicIpAddress>
     Aliases:   myserver.database.windows.net
     ```
 3. Instalar SQL Server Management Studio
-4. Em conectar ao servidor, insira ou selecione estas informações: Definindo tipo de servidor de valor, selecione Mecanismo de Banco de Dados.
+4. Em conectar ao servidor, insira ou selecione estas informações: configuração tipo de servidor de valor selecione Mecanismo de Banco de Dados.
       Nome do servidor selecione nome de usuário myserver.database.windows.net digite um nome de usuário fornecido durante a criação.
       Senha Insira uma senha fornecida durante a criação.
       Lembrar senha selecione Sim.
 5. Selecione conectar.
 6. Procurar bancos de dados no menu à esquerda. 
 7. Opcionalmente Criar ou consultar informações de MyDatabase
-8. Feche a conexão de área de trabalho remota para *myVM*. 
+8. Feche a conexão de área de trabalho remota para *myVM*. 
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 Quando você terminar de usar o ponto de extremidade privado, o servidor de banco de dados SQL e a VM, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que ele tem:

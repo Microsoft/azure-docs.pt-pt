@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968270"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333126"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Identidade gerenciada para o aplicativo Service Fabric (versão prévia)
 
@@ -45,7 +45,7 @@ Os termos a seguir são usados em todo o conjunto de documentação de identidad
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Cenários com suporte para aplicativos Service Fabric
 
-As identidades gerenciadas para Service Fabric só têm suporte em clusters de Service Fabric implantados no Azure e somente para aplicativos implantados como recursos do Azure; os aplicativos que não são implantados como um recurso do Azure não podem receber uma identidade. Falando conceitualmente, o suporte para identidades gerenciadas no Cluster Service Fabric do Azure consiste em duas fases:
+As identidades gerenciadas para Service Fabric só têm suporte em clusters de Service Fabric implantados no Azure e somente para aplicativos implantados como recursos do Azure; Não é possível atribuir uma identidade a aplicativos que não são implantados como um recurso do Azure. Falando conceitualmente, o suporte para identidades gerenciadas no Cluster Service Fabric do Azure consiste em duas fases:
 
 1. Atribuir uma ou mais identidades gerenciadas ao recurso de aplicativo; um aplicativo pode receber uma única identidade atribuída pelo sistema e/ou até 32 identidades atribuídas pelo usuário, respectivamente.
 
@@ -63,6 +63,8 @@ A lista de cenários com suporte para a versão de visualização é a seguinte:
 Os cenários a seguir não têm suporte ou não são recomendados; Observe que essas ações podem não ser bloqueadas, mas podem levar a interrupções em seus aplicativos:
 
    - Remover ou alterar as identidades atribuídas a um aplicativo; Se você precisar fazer alterações, envie implantações separadas para primeiro adicionar uma nova atribuição de identidade e, em seguida, para remover uma anteriormente atribuída. A remoção de uma identidade de um aplicativo existente pode ter efeitos indesejáveis, incluindo deixar seu aplicativo em um estado que não seja atualizável. É seguro excluir o aplicativo completamente se a remoção de uma identidade for necessária; Observação isso excluirá a identidade atribuída pelo sistema (se for definida) associada ao aplicativo e removerá todas as associações com as identidades atribuídas ao usuário atribuídas ao aplicativo.
+
+   - O suporte ao it para identidades gerenciadas não está integrado no momento ao [o azureservicetokenprovider](../key-vault/service-to-service-authentication.md); a integração será alcançada até o final do período de visualização do recurso de identidade gerenciada.
 
 >
 > [!NOTE]

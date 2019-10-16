@@ -1,21 +1,21 @@
 ---
-title: Usando a API REST de visualização do Azure Blockchain Workbench
+title: Utilizar a API REST do Azure Blockchain Workbench
 description: Cenários de como usar a API REST de visualização do Azure Blockchain Workbench
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843824"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328861"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Usando a API REST de visualização do Azure Blockchain Workbench
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 Quando um usuário decide aprofundar-se em um contrato, o cliente blockchain pode mostrar as ações de usuário disponíveis de acordo com o estado do contrato. Neste exemplo, o utilizador está a ver todas as ações disponíveis para um novo contrato inteligente que criou:
 
-* Alterar Permite que o usuário modifique a descrição e o preço de um ativo.
-* Encerrar Permite que o usuário finalize o contrato do ativo.
+* Modificar: permite que o utilizador modifique a descrição e o preço de um recurso.
+* Terminar: permite que o usuário finalize o contrato do ativo.
 
 Utilize a [API Contract Action GET](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
@@ -277,7 +277,7 @@ Content-type: application/json
 
 Em seguida, um utilizador pode decidir agir em relação à instância de contrato inteligente especificada. Nesse caso, considere o cenário em que um usuário gostaria de modificar a descrição e o preço de um ativo para a seguinte ação:
 
-* Descrição: "Meu carro atualizado"
+* Descrição: "My updated car"
 * Preço: 54321
 
 Utilize a [API Contract Action POST](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):
@@ -307,7 +307,7 @@ HTTP/1.1 200 OK
 Content-type: application/json
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência da API REST do Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 566c208ef415f6fc9f3ada419e2f9e9244bc066d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182283"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333169"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Estratégias de implantação e práticas recomendadas para otimizar o desempenho no Azure Search
 
@@ -95,12 +95,7 @@ O [Gerenciador de tráfego do Azure](../traffic-manager/traffic-manager-overview
 
    ![Entre guias de serviços por região, com o Gerenciador de tráfego central][3]
 
-## <a name="monitor-performance"></a>Monitorizar desempenho
-O Azure Search oferece a capacidade de analisar e monitorar o desempenho do seu serviço por meio da [análise de tráfego de pesquisa](search-traffic-analytics.md). Ao habilitar essa funcionalidade e adicionar instrumentação ao seu aplicativo cliente, você pode opcionalmente registrar as operações de pesquisa individuais, bem como métricas agregadas para uma conta de armazenamento do Azure que pode ser processada para análise ou visualizada no Power BI. As métricas captura dessa maneira fornecem estatísticas de desempenho, como o número médio de consultas ou tempos de resposta de consulta. Além disso, o log de operação permite detalhar os detalhes de operações de pesquisa específicas.
-
-A análise de tráfego é útil para entender as taxas de latência dessa Azure Search perspectiva. Como as métricas de desempenho de consulta registradas são baseadas no tempo que uma consulta leva para ser totalmente processada em Azure Search (do tempo que é solicitado a quando é enviada), você pode usar isso para determinar se os problemas de latência são do lado do serviço de Azure Search ou de limites IDE do serviço, como de latência de rede.  
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre os tipos de preço e os limites de serviços para cada um, confira [limites de serviço em Azure Search](search-limits-quotas-capacity.md).
 
 Visite [planejamento de capacidade](search-capacity-planning.md) para saber mais sobre combinações de partição e réplica.

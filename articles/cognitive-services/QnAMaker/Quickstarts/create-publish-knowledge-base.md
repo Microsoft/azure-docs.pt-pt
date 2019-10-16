@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Criar, treinar e publicar a base de dados de conhecimento-QnA Maker'
+title: 'Início rápido: criar, treinar e publicar a base de dados de conhecimento-QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. A base de dados de conhecimento QnA Maker neste exemplo é criada de uma página da Web de perguntas frequentes simples para responder a perguntas sobre a recuperação de chave do BitLocker.
 author: diberry
@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: aab64822730531acdcf5f3d91ed8bf028ce7cfd4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 5d807f185a8cdb181093d37dac35ee2e467fdba9
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971936"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328096"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: Criar, preparar e publicar a sua base de dados de conhecimento do Criador de FAQ
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Início rápido: criar, treinar e publicar sua base de dados de conhecimento QnA Maker
 
 Pode criar uma Base de Dados de Conhecimento do Criador de FAQ a partir dos seus próprios conteúdos, como as FAQ ou os manuais de produtos. Este artigo inclui um exemplo de criação de uma base de dados de conhecimento QnA Maker de uma página da Web de perguntas frequentes simples, para responder a perguntas sobre a recuperação de chave do BitLocker.
 
@@ -52,7 +52,7 @@ Inclua uma personalidade Chit para tornar seu conhecimento mais atraente com seu
 
 1. Adicione o  **_Professional_ Chit-Chat** à sua KB. 
 
-1. Selecione **criar a sua BDC**.
+1. Selecione **criar seu KB**.
 
     O processo de extração leva alguns minutos para ler o documento e identificar perguntas e respostas.
 
@@ -140,7 +140,7 @@ Limpe os recursos do QnA Maker e do bot Framework no portal do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações:
+Para mais informações:
 
 * [Formato de redução nas respostas](../concepts/data-sources-supported.md)
 * [Testando sua redução](../concepts/data-sources-supported.md#testing-your-markdown)

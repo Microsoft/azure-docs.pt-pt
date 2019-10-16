@@ -13,38 +13,27 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 51caf34d0030fd404cd7f7c1868a0e2945c75b35
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 992bc7acbb02dcdbc33d00349ddc7ae821f3ed01
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264420"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329461"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerenciar o uso e os custos de Application Insights
 
 > [!NOTE]
 > Este artigo descreve como entender e controlar seus custos para Application Insights.  Um artigo relacionado, [monitoramento de uso e custos estimados](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) descreve como exibir o uso e os custos estimados em vários recursos de monitoramento do Azure para diferentes modelos de preços.
 
-Se você tiver dúvidas sobre como o preço funciona para Application Insights, poderá postar uma pergunta em nosso [Fórum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
+O Application Insights foi projetado para obter tudo o que você precisa para monitorar a disponibilidade, o desempenho e o uso de seus aplicativos Web, estejam eles hospedados no Azure ou no local. O Application Insights dá suporte a linguagens e estruturas populares, como .NET, Java e node. js, e integra-se com processos e ferramentas DevOps como o Azure DevOps, JIRA e PagerDuty. É importante entender o que determina os custos de monitoramento de seus aplicativos. Neste artigo, examinaremos o que impulsiona os custos de monitoramento de seu aplicativo e como você pode monitorar e controlá-los proativamente.
+
+Se você tiver dúvidas sobre como o preço funciona para Application Insights, poderá postar uma pergunta em nosso [Fórum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
 
 ## <a name="pricing-model"></a>Modelo de determinação de preço
 
-O preço do [aplicativo Azure insights][start] é um modelo pago conforme o uso, com base no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. Cada recurso de Application Insights é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. 
+O preço do [aplicativo Azure insights][start] é um modelo **pago conforme o uso** com base no volume de dados ingerido e, opcionalmente, para a retenção de dados mais longa. Cada recurso de Application Insights é cobrado como um serviço separado e contribui para a fatura de sua assinatura do Azure. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado que é recebido por Application Insights do seu aplicativo. Não há nenhum encargo de volume de dados para usar o [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
 
-### <a name="data-volume-details"></a>Detalhes do volume de dados
-
-* Volume de dados é o número de bytes de telemetria recebidos por Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado que é recebido por Application Insights do seu aplicativo. Para [dados tabulares importados para a análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado dos arquivos que são enviados para Application insights.
-* Os encargos do volume de dados de seu aplicativo agora são relatados em um novo medidor de cobrança chamado **ingestão de dados** a partir de abril de 2018. Esse novo medidor é compartilhado entre tecnologias de monitoramento, como o Application insights e o Log Analytics e, no momento, está sob o nome do serviço **log Analytics**. 
-* [Live Metrics Stream](../../azure-monitor/app/live-stream.md) dados não são contados para fins de preços.
-
-> [!NOTE]
-> Todos os preços exibidos nas capturas de tela neste artigo são apenas para fins de exemplo. Para obter os preços atuais em sua moeda e região, consulte [preços de Application insights][pricing].
-
-### <a name="multi-step-web-tests"></a>Testes Web de vários passos
-
-[Testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md) incorrem em um encargo adicional. Testes na Web de várias etapas são testes da Web que executam uma sequência de ações.
-
-Não há nenhum encargo separado para *testes de ping* de uma única página. A telemetria de testes de ping e testes de várias etapas é cobrada da mesma forma que outra telemetria do seu aplicativo.
+[Testes na Web de várias etapas](../../azure-monitor/app/availability-multistep.md) incorrem em um encargo adicional. Testes na Web de várias etapas são testes da Web que executam uma sequência de ações. Não há nenhum encargo separado para *testes de ping* de uma única página. A telemetria de testes de ping e testes de várias etapas é cobrada da mesma forma que outra telemetria do seu aplicativo.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Estimando os custos para gerenciar seu aplicativo 
 
@@ -64,7 +53,7 @@ Na calculadora de preços do monitoramento do Azure para Application Insights, s
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Entenda seu uso e calcule os custos
 
-Application Insights facilita a compreensão do que os custos provavelmente serão baseados em padrões de uso recentes. Para começar, na portal do Azure, para o recurso de Application Insights, vá para a página **uso e custos estimados** :
+Application Insights facilita a compreensão do que os custos provavelmente serão baseados em padrões de uso recentes. Para começar, na portal do Azure, para o recurso de Application Insights, vá para a página **uso e custos estimados** : 
 
 ![Escolha os preços](./media/pricing/pricing-001.png)
 
@@ -73,6 +62,8 @@ B. Um encargo separado é feito para [testes na Web de várias etapas](../../azu
 C. Exibir tendências de volume de dados para o mês passado.  
 D. Habilitar [amostragem](../../azure-monitor/app/sampling.md)de ingestão de dados.   
 E. Defina o limite de volume de dados diário.  
+
+(Observe que todos os preços exibidos nas capturas de tela neste artigo são apenas para fins de exemplo. Para obter os preços atuais em sua moeda e região, consulte [preços de Application insights][pricing].)
 
 Para investigar seu uso de Application Insights mais profundamente, abra a página **métricas** , adicione a métrica denominada "volume de ponto de dados" e, em seguida, selecione a opção *aplicar divisão* para dividir os dados por "tipo de item de telemetria". 
 
@@ -183,7 +174,7 @@ Para alterar a retenção, de seu Application Insights recurso, vá para a pági
 
 ![Ajustar o limite de volume de telemetria diário](./media/pricing/pricing-005.png)
 
-A retenção também pode ser [definida programaticamente usando o PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/powershell/set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio do ARM e deve ser usada com extrema atenção. 
+A retenção também pode ser [definida programaticamente usando o PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/powershell#set-the-data-retention) usando o parâmetro `retentionInDays`. Além disso, se você definir a retenção de dados para 30 dias, poderá disparar uma limpeza imediata de dados mais antigos usando o parâmetro `immediatePurgeDataOn30Days`, que pode ser útil para cenários relacionados à conformidade. Essa funcionalidade de limpeza só é exposta por meio de Azure Resource Manager e deve ser usada com extrema atenção. 
 
 Quando a cobrança começa para uma retenção mais longa no início de dezembro de 2019, os dados mantidos por mais de 90 dias serão cobrados como a mesma taxa que é cobrada atualmente para a retenção de dados do Azure Log Analytics. Saiba mais na [página de preços do Azure monitor](https://azure.microsoft.com/pricing/details/monitor/). Mantenha-se atualizado sobre o progresso da retenção de variáveis [votando essa sugestão](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 

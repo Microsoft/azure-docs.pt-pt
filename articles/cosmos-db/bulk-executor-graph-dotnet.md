@@ -4,16 +4,16 @@ description: Saiba como usar a biblioteca de executores em massa para importar d
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827276"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327180"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Usando a biblioteca .NET do executor em massa do grafo para executar operações em massa no Azure Cosmos DB API do Gremlin
 
@@ -128,7 +128,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Este repositório contém o exemplo GraphBulkExecutor com os seguintes ficheiros:
 
-Ficheiro|Descrição
+Ficheiros|Descrição
 ---|---
 `App.config`|É aqui que é especificada a aplicação e os parâmetros específicos da mesma. Este ficheiro deve ser modificado primeiro para ligar à base de dados e às coleções de destino.
 `Program.cs`| Esse arquivo contém a lógica por trás da criação da coleção `DocumentClient`, tratando as limpezas e enviando as solicitações de executor em massa.

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001747"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374078"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Listar a aplicação na galeria de aplicações do Azure Active Directory
 
@@ -71,14 +71,14 @@ Nossa equipe revisa os detalhes e fornece acesso adequado. Depois que a solicita
 
 Para listar um aplicativo na Galeria de aplicativos do Azure AD, primeiro você precisa implementar um dos seguintes protocolos de Federação com suporte do Azure AD. Você também precisa concordar com os termos e condições da Galeria de aplicativos do Azure AD. Leia os termos e condições da Galeria de aplicativos do Azure AD neste [site](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
-- **OpenID Connect**: Para integrar seu aplicativo com o Azure AD usando o protocolo Open ID Connect, siga as [instruções dos desenvolvedores](authentication-scenarios.md).
+- **OpenID Connect**: para integrar seu aplicativo ao Azure ad usando o protocolo Open ID Connect, siga as [instruções dos desenvolvedores](v1-authentication-scenarios.md).
 
     ![Listando um aplicativo OpenID Connect na Galeria](./media/howto-app-gallery-listing/openid.png)
 
     * Se você quiser adicionar seu aplicativo para listar na Galeria usando o OpenID Connect, selecione **OpenID connect & OAuth 2,0** , conforme mostrado.
     * Se você tiver problemas com o Access, entre em contato com a [equipe de integração de SSO do Azure ad](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-- **SAML 2,0** ou **WS-alimentado**: Se seu aplicativo der suporte ao SAML 2,0, você poderá integrá-lo diretamente a um locatário do Azure AD seguindo as [instruções para adicionar um aplicativo personalizado](../active-directory-saas-custom-apps.md).
+- **Saml 2,0** ou **WS-alimentado**: se seu aplicativo der suporte a SAML 2,0, você poderá integrá-lo diretamente com um locatário do Azure ad seguindo as [instruções para adicionar um aplicativo personalizado](../active-directory-saas-custom-apps.md).
 
   ![Listando um aplicativo SAML 2,0 ou WS-enalimentado na Galeria](./media/howto-app-gallery-listing/saml.png)
 

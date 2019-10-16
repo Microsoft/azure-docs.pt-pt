@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327148"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331214"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorar o consumo de recursos e a atividade de consulta no Azure Search
 
@@ -30,7 +30,8 @@ As seções de **uso** e **monitoramento** criadas na página Visão geral relat
 
 A guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md)atuais. A ilustração a seguir é para o serviço gratuito, que está limitado a três objetos de cada tipo e 50 MB de armazenamento. Um serviço básico ou Standard tem limites mais altos e, se você aumentar as contagens de partição, o armazenamento máximo será proporcionalmente.
 
-![Status de uso relativo a limites efetivos]@no__t status de 1Usage relativo a limites efetivos @ no__t-2
+O ![status de uso relativo à eficiência limita]o(./media/search-monitor-usage/usage-tab.png
+ "status de uso em relação aos limites efetivos")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Consultas por segundo (QPS) e outras métricas
 
@@ -55,9 +56,8 @@ Azure Search não armazena nenhum dado além dos objetos que ele gerencia, o que
 
 A tabela a seguir compara as opções de armazenamento de logs e a adição de monitoramento detalhado de operações de serviço e de cargas de trabalho de consulta por meio de Application Insights.
 
-| Resource | Utilizado para |
+| Recurso | Utilizado para |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Eventos registrados em log e métricas de consulta, com base nos esquemas abaixo, correlacionados com eventos de usuário em seu aplicativo. Essa é a única solução que leva as ações do usuário ou sinais em conta, mapeando eventos da pesquisa iniciada pelo usuário, em oposição a solicitações de filtro enviadas pelo código do aplicativo. Para usar essa abordagem, copie e cole o código de instrumentação em seus arquivos de origem para rotear informações de solicitação para Application Insights. Para obter mais informações, consulte [análise de tráfego de pesquisa](search-traffic-analytics.md). |
 | [Registos do Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registrados em um espaço de trabalho Log Analytics. Você pode executar consultas em um espaço de trabalho para retornar informações detalhadas do log. Para obter mais informações, consulte Introdução [aos logs de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Armazenamento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Eventos registrados e métricas de consulta, com base nos esquemas abaixo. Os eventos são registrados em um contêiner de BLOB e armazenados em arquivos JSON. Use um editor de JSON para exibir o conteúdo do arquivo.|
 | [Hub de Eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados em log e métricas de consulta, com base nos esquemas documentados neste artigo. Escolha esta opção como um serviço de coleta de dados alternativo para logs muito grandes. |
@@ -80,7 +80,7 @@ Nesta seção, você aprenderá a usar o armazenamento de BLOBs para armazenar e
 
    ![Habilitar monitoramento](./media/search-monitor-usage/enable-monitoring.png "habilitar monitoramento")
 
-3. Escolha os dados que você deseja exportar: Logs, métricas ou ambos. Você pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para Azure Monitor logs.
+3. Escolha os dados que você deseja exportar: logs, métricas ou ambos. Você pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para Azure Monitor logs.
 
    Para o armazenamento de arquivamento no BLOB, somente a conta de armazenamento deve existir. Contêineres e blobs serão criados conforme necessário quando os dados do log forem exportados.
 
@@ -92,10 +92,10 @@ Nesta seção, você aprenderá a usar o armazenamento de BLOBs para armazenar e
 
 O registro em log é habilitado quando você salva o perfil. Os contêineres são criados somente quando há uma atividade para log ou medida. Quando os dados são copiados para uma conta de armazenamento, os dados são formatados como JSON e colocados em dois contêineres:
 
-* insights-logs-operationlogs: para os registos de tráfego de pesquisa
-* as métricas-insights-pt1m: para métricas
+* insights-logs-operationlogs: para logs de tráfego de pesquisa
+* insights – métricas-PT1M: para métricas
 
-**It leva uma hora antes que os contêineres apareçam no armazenamento de BLOBs. Há um blob, por hora, por contêiner.**
+**Leva uma hora antes que os contêineres apareçam no armazenamento de BLOBs. Há um blob, por hora, por contêiner.**
 
 Você pode usar [Visual Studio Code](#download-and-open-in-visual-studio-code) ou outro editor de JSON para exibir os arquivos. 
 
@@ -105,52 +105,52 @@ Você pode usar [Visual Studio Code](#download-and-open-in-visual-studio-code) o
 resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
 ```
 
-## <a name="log-schema"></a>Esquema de registo
+## <a name="log-schema"></a>Esquema de log
 Os blobs que contêm os logs de tráfego do serviço de pesquisa são estruturados conforme descrito nesta seção. Cada blob tem um objeto raiz chamado **registros** contendo uma matriz de objetos de log. Cada blob contém registros para todas as operações que ocorreram durante a mesma hora.
 
-| Name | Tipo | Exemplo | Notas |
+| Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| hora |datetime |"2018-12-07T00:00:43.6872559Z" |TimeStamp da operação |
-| resourceId |cadeia |"/ SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>PADRÃO/RESOURCEGROUPS/FORNECEDORES /<br/> MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |O ResourceId |
-| operationName |cadeia |"Query.Search" |O nome da operação |
-| operationVersion |Cadeia de caracteres |"2019-05-06" |A api-version utilizada |
-| categoria |cadeia |"OperationLogs" |constante |
-| resultType |cadeia |"Êxito" |Valores possíveis: Êxito ou falha |
+| hora |datetime |"2018-12-07T00:00:43.6872559 Z" |Carimbo de data/hora da operação |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> O. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Seu ResourceId |
+| operationName |string |"Query. Search" |O nome da operação |
+| operationVersion |string |"2019-05-06" |A versão de API usada |
+| categoria |string |OperationLogs |amortiza |
+| resultType |string |Êxito |Valores possíveis: êxito ou falha |
 | resultSignature |int |200 |Código de resultado HTTP |
 | durationMS |int |50 |Duração da operação em milissegundos |
-| propriedades |objeto |consulte a tabela seguinte |Objeto que contém dados específicos da operação |
+| propriedades |objeto |consulte a tabela a seguir |Objeto que contém dados específicos da operação |
 
 **Esquema de propriedades**
 
 | Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| Descrição |cadeia |"Obter /indexes('content')/docs" |Ponto final da operação |
-| Consulta |Cadeia de caracteres |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Os parâmetros de consulta |
+| Descrição |string |"GET/Indexes (' content ')/docs" |O ponto de extremidade da operação |
+| Consulta |string |"? Search = AzureSearch & $count = true & API-Version = 2019-05-06" |Os parâmetros de consulta |
 | Documentos |int |42 |Número de documentos processados |
-| indexName |cadeia |"testindex" |Nome do índice associado à operação |
+| indexName |string |"testindex" |Nome do índice associado à operação |
 
 ## <a name="metrics-schema"></a>Esquema de métricas
 
 As métricas são capturadas para solicitações de consulta.
 
-| Name | Tipo | Exemplo | Notas |
+| Nome | Tipo | Exemplo | Notas |
 | --- | --- | --- | --- |
-| resourceId |cadeia |"/ SUBSCRIÇÕES/11111111-1111-1111-1111-111111111111 /<br/>PADRÃO/RESOURCEGROUPS/FORNECEDORES /<br/>MICROSOFT. PESQUISA/SEARCHSERVICES/SEARCHSERVICE" |o id de recurso |
-| MetricName |cadeia |"Latência" |o nome da métrica |
-| hora |datetime |"2018-12-07T00:00:43.6872559Z" |timestamp da operação |
-| média |int |64 |O valor médio dos exemplos não processados no intervalo de tempo de métrica |
-| mínimo |int |37 |O valor mínimo dos exemplos não processados no intervalo de tempo de métrica |
-| máximo |int |78 |O valor máximo das amostras não processados no intervalo de tempo de métrica |
-| total |int |258 |O valor total dos exemplos não processados no intervalo de tempo de métrica |
-| count |int |4 |O número de amostras não processados, utilizado para gerar a métrica |
-| intervalo de agregação |cadeia |"PT1M" |O intervalo de agregação da métrica no ISO 8601 |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>O. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |sua ID de recurso |
+| metricName |string |MOLAP |o nome da métrica |
+| hora |datetime |"2018-12-07T00:00:43.6872559 Z" |o carimbo de data/hora da operação |
+| cerca |int |64 |O valor médio das amostras brutas no intervalo de tempo da métrica |
+| Máximo |int |37 |O valor mínimo das amostras brutas no intervalo de tempo da métrica |
+| Maior |int |78 |O valor máximo das amostras brutas no intervalo de tempo da métrica |
+| completa |int |258 |O valor total das amostras brutas no intervalo de tempo da métrica |
+| count |int |4 |O número de amostras brutas usadas para gerar a métrica |
+| timegrain |string |PT1M |O intervalo de tempo da métrica no ISO 8601 |
 
-Todas as métricas são comunicadas em intervalos de um minuto. Cada medição expõe valores mínimos, máximo e médios por minuto.
+Todas as métricas são relatadas em intervalos de um minuto. Cada métrica expõe os valores mínimo, máximo e médio por minuto.
 
-Para a métrica de SearchQueriesPerSecond, o valor mais baixo para consultas de pesquisa por segundo que foram registadas durante esse minuto é mínimo. O mesmo se aplica ao valor máximo. Média, é a agregação em minuto completo.
-Pense neste cenário, durante um minuto: um segundo alta isto é carregar o máximo para SearchQueriesPerSecond, seguido de 58 segundos da carga média, e, finalmente, um segundo, com apenas uma consulta, que é o mínimo.
+Para a métrica SearchQueriesPerSecond, mínimo é o valor mais baixo para consultas de pesquisa por segundo que foi registrado durante esse minuto. O mesmo se aplica ao valor máximo. Média, é a agregação em todo o minuto.
+Pense nesse cenário durante um minuto: um segundo de alta carga que é o máximo para SearchQueriesPerSecond, seguido de 58 segundos de carga média e, por fim, um segundo com apenas uma consulta, que é o mínimo.
 
-Para ThrottledSearchQueriesPercentage, mínimo, máximo, média e total, todos têm o mesmo valor: a percentagem de consultas de pesquisa que eram limitados, do número total de consultas de pesquisa durante um minuto.
+Para ThrottledSearchQueriesPercentage, mínimo, máximo, média e total, todos têm o mesmo valor: a porcentagem de consultas de pesquisa que foram limitadas, do número total de consultas de pesquisa durante um minuto.
 
 ## <a name="download-and-open-in-visual-studio-code"></a>Baixar e abrir no Visual Studio Code
 
@@ -169,10 +169,10 @@ A API REST do Azure Search e o SDK do .NET fornecem acesso programático às mé
 
 * [Obter estatísticas de serviços](/rest/api/searchservice/get-service-statistics)
 * [Obter estatísticas de índice](/rest/api/searchservice/get-index-statistics)
-* [Contagem de documentos](/rest/api/searchservice/count-documents)
-* [Obter estado do indexador](/rest/api/searchservice/get-indexer-status)
+* [Contar documentos](/rest/api/searchservice/count-documents)
+* [Obter o status do indexador](/rest/api/searchservice/get-indexer-status)
 
-Para ativar a utilizar o PowerShell ou a CLI do Azure, consulte a documentação [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+Para habilitar o uso do PowerShell ou do CLI do Azure, consulte a documentação [aqui](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Passos seguintes
 

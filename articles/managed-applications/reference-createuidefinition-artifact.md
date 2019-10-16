@@ -1,20 +1,20 @@
 ---
 title: Referência de artefato createUiDefinition do aplicativo gerenciado do Azure
-description: Este artigo é uma referência ao artefato createUiDefinition.
+description: Mostra como criar o artefato createUiDefinition para um aplicativo gerenciado do Azure. O arquivo é denominado createUiDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 5168e977a7bc289ec8981ef1df8cddd5cc6df678
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 09364a849926fc829a890bfcdc8b760c7c7e189c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336481"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330186"
 ---
-# <a name="reference-user-interface-elements-artifact"></a>Referência: Artefato dos elementos da interface do usuário
+# <a name="reference-user-interface-elements-artifact"></a>Referência: artefato dos elementos da interface do usuário
 
 Este artigo é uma referência para um artefato *createUiDefinition. JSON* em aplicativos gerenciados do Azure. Para obter mais informações sobre a criação de elementos da interface do usuário, consulte [criar elementos da interface do usuário](create-uidefinition-elements.md).
 
@@ -83,6 +83,6 @@ O JSON a seguir mostra um exemplo de arquivo *createUiDefinition. JSON* para apl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar um aplicativo gerenciado com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
-- [Referência Artefato do modelo de implantação](reference-main-template-artifact.md)
-- [Referência Exibir artefato de definição](reference-view-definition-artifact.md)
+- [Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
+- [Referência: artefato do modelo de implantação](reference-main-template-artifact.md)
+- [Referência: Exibir artefato de definição](reference-view-definition-artifact.md)

@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719871"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331262"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração de serviço para Azure Search no portal do Azure
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Portal](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
@@ -34,8 +34,7 @@ O Azure Search é um serviço de pesquisa baseado em nuvem totalmente gerenciado
 
 Observe que a *atualização* não está listada como uma tarefa administrativa. Como os recursos são alocados quando o serviço é provisionado, a mudança para uma camada diferente requer um novo serviço. Para obter detalhes, consulte [criar um serviço de Azure Search](search-create-service-portal.md).
 
-> [!Tip]
-> Procurando ajuda sobre como analisar o desempenho de consulta ou o tráfego de pesquisa? Você pode monitorar o volume de consulta, quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedidos estão em orientar clientes para documentos específicos no índice. Para obter mais informações, consulte [pesquisar análise de tráfego por Azure Search](search-traffic-analytics.md), [monitorar as métricas de uso e consulta](search-monitor-usage.md)e o [desempenho e a otimização](search-performance-optimization.md).
+Você pode monitorar o volume de consulta e outras métricas e usar essas informações para ajustar seu serviço para tempos de resposta mais rápidos. Para obter mais informações, consulte [monitorar o uso e as métricas de consulta](search-monitor-usage.md) e [desempenho e otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ Em termos de informações gerais sobre seu serviço, você pode obter informaç
 
 * No portal, no painel de serviço, por meio de notificações, propriedades e mensagens de status.
 * Usando o [PowerShell](search-manage-powershell.md) ou a [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/) para [obter propriedades de serviço](https://docs.microsoft.com/rest/api/searchmanagement/services)ou status no uso de recursos de índice.
-* Por meio da [análise de tráfego de pesquisa](search-traffic-analytics.md), conforme observado anteriormente.
+
 
 <a id="sub-5"></a>
 
@@ -65,7 +64,7 @@ No painel, o monitoramento de recursos é limitado às informações mostradas n
 Usando a API REST do Serviço de Pesquisa, você pode obter uma contagem de documentos e índices programaticamente: 
 
 * [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Contagem de documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Contar documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interrupções de serviço e recuperação de desastre
 

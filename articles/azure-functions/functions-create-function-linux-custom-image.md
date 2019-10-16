@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 54d7dc4e57991f6b773169f539a86fdc8451cbba
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: d4a72edbe762afd2a94962c1440357ce3ad46862
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950379"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329594"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Criar uma função no Linux usando uma imagem personalizada
 
@@ -195,12 +195,12 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-A função disparada por HTTP que você criou requer uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade. Neste momento, a maneira mais fácil de obter a URL da função, incluindo a chave, é da [Azure portal]. 
+A função disparada por HTTP que você criou requer uma [chave de função](functions-bindings-http-webhook.md#authorization-keys) ao chamar o ponto de extremidade. Neste momento, a maneira mais fácil de obter a URL da função, incluindo a chave, é da [portal do Azure]. 
 
 > [!TIP]
 > Você também pode obter suas chaves de função usando as [APIs de gerenciamento de chaves](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), o que exige que você apresente um [token de portador para autenticação](/cli/azure/account#az-account-get-access-token).
 
-Localize seu novo aplicativo de funções no [Azure portal] digitando o nome do aplicativo de funções na caixa de **pesquisa** na parte superior da página e selecionando o recurso do **serviço de aplicativo** .
+Localize seu novo aplicativo de funções no [portal do Azure] digitando o nome do aplicativo de funções na caixa de **pesquisa** na parte superior da página e selecionando o recurso do **serviço de aplicativo** .
 
 Selecione a função **MyHttpTrigger** , selecione **</> URL de função Get** > **padrão (chave de função)**  > **cópia**.
 
@@ -365,11 +365,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 Use a mesma URL de antes do navegador para disparar sua função. Você deve ver a mesma resposta. No entanto, desta vez, a cadeia de caracteres que você passa como o parâmetro `name` é gravada na fila de armazenamento `outqueue`.
 
-### <a name="set-the-storage-account-connection"></a>Definir a conexão da conta de armazenamento
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Consultar a fila de armazenamento
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
@@ -383,4 +379,4 @@ Agora que você implantou com êxito seu contêiner personalizado em um aplicati
 + [Opções de escala e Hospedagem](functions-scale.md)
 + [Hospedagem sem servidor baseada em kubernetes](functions-kubernetes-keda.md)
 
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

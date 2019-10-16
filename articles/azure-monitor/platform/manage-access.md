@@ -13,24 +13,22 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695011"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329414"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar o acesso a dados de log e espaços de trabalho no Azure Monitor
 
-O Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics, que é essencialmente um contêiner que inclui dados e informações de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
+Azure Monitor armazena dados de [log](data-platform-logs.md) em um espaço de trabalho log Analytics. Um espaço de trabalho é um contêiner que inclui informações de dados e de configuração. Para gerenciar o acesso aos dados de log, você executa várias tarefas administrativas relacionadas ao seu espaço de trabalho.
 
-Este artigo explica como gerenciar o acesso aos logs e administrar os espaços de trabalho que os contêm, incluindo:
+Este artigo explica como gerenciar o acesso aos logs e administrar os espaços de trabalho que os contêm, incluindo como conceder acesso a: 
 
-* Como conceder acesso a usuários que precisam de acesso a dados de log de recursos específicos usando o RBAC (controle de acesso baseado em função) do Azure.
-
-* Como conceder acesso ao espaço de trabalho usando permissões de espaço de trabalho.
-
-* Como conceder acesso a usuários que precisam de acesso a dados de log em uma tabela específica no espaço de trabalho usando o RBAC do Azure.
+* O espaço de trabalho usando permissões de espaço de trabalho.
+* Usuários que precisam de acesso a dados de log de recursos específicos usando o RBAC (controle de acesso baseado em função) do Azure.
+* Usuários que precisam de acesso a dados de log em uma tabela específica no espaço de trabalho usando o RBAC do Azure.
 
 ## <a name="configure-access-control-mode"></a>Configurar o modo de controle de acesso
 
@@ -55,7 +53,7 @@ Você pode alterar essa configuração na página **Propriedades** do espaço de
 
 ![Alterar modo de acesso do espaço de trabalho](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 Use o seguinte comando para examinar o modo de controle de acesso para todos os espaços de trabalho na assinatura:
 
@@ -103,12 +101,12 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 Para configurar o modo de acesso em um modelo de Azure Resource Manager, defina o sinalizador de recurso **enableLogAccessUsingOnlyResourcePermissions** no espaço de trabalho para um dos valores a seguir.
 
-* **falso**: Defina o espaço de trabalho para permissões de contexto de espaço de trabalho. Essa será a configuração padrão se o sinalizador não estiver definido.
-* **verdadeiro**: Defina o espaço de trabalho para permissões de contexto de recurso.
+* **false**: defina o espaço de trabalho para permissões de contexto de espaço de trabalho. Essa será a configuração padrão se o sinalizador não estiver definido.
+* **true**: defina o espaço de trabalho para permissões de contexto de recurso.
 
 ## <a name="manage-access-using-workspace-permissions"></a>Gerenciar o acesso usando permissões de espaço de trabalho
 
-Cada área de trabalho pode ter múltiplas contas associadas e cada conta pode ter acesso a várias áreas de trabalho. O acesso é gerenciado usando o [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md).
+Cada espaço de trabalho pode ter várias contas associadas a ele, e cada conta pode ter acesso a vários espaços de trabalho. O acesso é gerenciado usando o [acesso baseado em função do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 As atividades seguintes também necessitam de permissões do Azure:
 
@@ -138,27 +136,27 @@ Os membros da função *Leitor do Log Analytics* podem:
 * Ver e procurar todos os dados de monitorização
 * Ver e monitorizar as definições, incluindo ver a configuração dos diagnósticos do Azure em todos os recursos do Azure.
 
-A função de leitor do Log Analytics inclui as seguintes ações do Azure:
+A função leitor de Log Analytics inclui as seguintes ações do Azure:
 
 | Tipo    | Permissão | Descrição |
 | ------- | ---------- | ----------- |
-| Ação | `*/read`   | Capacidade de ver todos os recursos do Azure e a configuração do recurso. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
-| Action | `Microsoft.Support/*` | Capacidade para abrir pedidos de suporte |
-|Ação Não | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impede a leitura da área de trabalho chave necessária para utilizar a API de recolha de dados e para instalar agentes. Isso evita que o utilizador a adição de novos recursos para a área de trabalho |
+| Ação | `*/read`   | Capacidade de exibir todos os recursos e a configuração de recursos do Azure. Inclui ver: <br> o estado da extensão da máquina virtual <br> a configuração dos diagnósticos do Azure nos recursos <br> Todas as propriedades e configurações de todos os recursos. <br> Para espaços de trabalho, ele permite permissões totalmente irrestritas para ler as configurações do espaço de trabalho e executar a consulta nos dados. Veja as opções mais granulares acima. |
+| Ação | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
+| Ação | `Microsoft.OperationalInsights/workspaces/search/action` | Preterido, sem necessidade de atribuí-los aos usuários. |
+| Ação | `Microsoft.Support/*` | Capacidade para abrir pedidos de suporte |
+|Ação Não | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impede a leitura da chave do espaço de trabalho necessária para usar a API de coleta de dados e para instalar agentes. Isso impede que o usuário adicione novos recursos ao espaço de trabalho |
 
 Os membros da função *Contribuidor do Log Analytics* podem:
 
-* Ler todos os dados de monitorização, como o leitor do Log Analytics pode
-* Criar e configurar contas de Automatização
+* Ler todos os dados de monitoramento que o leitor de Log Analytics pode
+* Criar e configurar contas de automação
 * Adicionar e remover soluções de gestão
 
     > [!NOTE]
-    > Para realizar com êxito as últimas duas ações, esta permissão tem de ser concedidas ao nível de grupo ou uma subscrição do recurso.
+    > Para executar as duas últimas ações com êxito, essa permissão precisa ser concedida no nível do grupo de recursos ou da assinatura.
 
-* Ler as chaves das contas de armazenamento
-* Configurar a recolha de registos a partir do Armazenamento do Azure
+* Ler chaves de conta de armazenamento
+* Configurar a coleta de logs do armazenamento do Azure
 * Editar as definições de monitorização para recursos do Azure, incluindo
   * Adicionar a extensão de VM a VMs
   * Configurar os diagnósticos do Azure em todos os recursos do Azure
@@ -166,7 +164,7 @@ Os membros da função *Contribuidor do Log Analytics* podem:
 > [!NOTE]
 > Pode utilizar a capacidade de adicionar uma extensão de máquina virtual a máquinas virtuais para obter o controlo total das mesmas.
 
-A função de Contribuidor do Log Analytics inclui as seguintes ações do Azure:
+A função colaborador de Log Analytics inclui as seguintes ações do Azure:
 
 | Permissão | Descrição |
 | ---------- | ----------- |
@@ -277,7 +275,7 @@ Para criar uma função com acesso somente a _SecurityBaseline_ e nenhuma outra 
     ],
 ```
 
-### <a name="custom-logs"></a>Registos Personalizados
+### <a name="custom-logs"></a>Registos personalizados
 
  Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](../log-query/get-started-portal.md#understand-the-schema).
 
@@ -291,7 +289,7 @@ Para criar uma função com acesso somente a _SecurityBaseline_ e nenhuma outra 
 
 ### <a name="considerations"></a>Considerações
 
-* Se um usuário receber permissão de leitura global com as funções leitor padrão ou colaborador que incluem a  _\*ação/Read_ , ele substituirá o controle de acesso por tabela e dará acesso a todos os dados de log.
+* Se um usuário receber permissão de leitura global com as funções leitor padrão ou colaborador que incluem a ação _\*/leitura_ , ele substituirá o controle de acesso por tabela e dará acesso a todos os dados de log.
 * Se um usuário receber acesso por tabela, mas nenhuma outra permissão, ele poderá acessar dados de log da API, mas não do portal do Azure. Para fornecer acesso do portal do Azure, use o leitor de Log Analytics como sua função base.
 * Os administradores da assinatura terão acesso a todos os tipos de dados, independentemente de quaisquer outras configurações de permissão.
 * Os proprietários do espaço de trabalho são tratados como qualquer outro usuário para o controle de acesso por tabela.
@@ -299,6 +297,6 @@ Para criar uma função com acesso somente a _SecurityBaseline_ e nenhuma outra 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Ver [descrição geral do agente do Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados de computadores no seu datacenter ou outro ambiente de cloud.
+* Consulte [visão geral do agente de log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para coletar dados de computadores em seu datacenter ou em outro ambiente de nuvem.
 
 * Consulte [coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar a coleta de dados de VMs do Azure.

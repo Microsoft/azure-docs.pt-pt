@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186454"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331185"
 ---
 # <a name="synonyms-in-azure-search"></a>Sinônimos no Azure Search
 
@@ -25,11 +25,11 @@ No Azure Search, a expansão do sinônimo é feita no momento da consulta. Você
 
 ## <a name="create-synonyms"></a>Criar sinônimos
 
-Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [Crie mapas](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)de sinônimos. Para C# os desenvolvedores, você pode começar a [Adicionar sinônimos na pesquisa do Azure C#usando ](search-synonyms-tutorial-sdk.md)o.
+Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [criar mapas de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# os desenvolvedores, você pode começar a [Adicionar sinônimos na pesquisa do Azure C#usando ](search-synonyms-tutorial-sdk.md)o.
 
 Opcionalmente, se você estiver usando [chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso, poderá aplicar essa proteção ao conteúdo do seu mapa de sinônimos.
 
-## <a name="use-synonyms"></a>Utilizar sinónimos
+## <a name="use-synonyms"></a>Usar sinônimos
 
 No Azure Search, o suporte a sinônimos é baseado em mapas de sinônimos que você define e carrega em seu serviço. Esses mapas constituem um recurso independente (como índices ou fontes de dados) e podem ser usados por qualquer campo pesquisável em qualquer índice em seu serviço de pesquisa.
 
@@ -41,13 +41,15 @@ A incorporação de sinônimos em seu aplicativo de pesquisa é um processo de d
 
 2.  Configure um campo pesquisável para usar o mapa de sinônimos na definição do índice.
 
+Você pode criar vários mapas de sinônimos para seu aplicativo de pesquisa (por exemplo, por idioma, se seu aplicativo oferecer suporte a uma base de clientes multilíngüe). Atualmente, um campo só pode usar um deles. Você pode atualizar a propriedade synonymMaps de um campo a qualquer momento.
+
 ### <a name="synonymmaps-resource-apis"></a>APIs de recurso SynonymMaps
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>Adicione ou atualize um mapa de sinônimos em seu serviço, usando POST ou PUT.
 
 Os mapas de sinônimos são carregados no serviço por meio de POST ou PUT. Cada regra deve ser delimitada pelo caractere de nova linha (' \n '). Você pode definir até 5.000 regras por mapa de sinônimos em um serviço gratuito e regras de 10.000 em todas as outras SKUs. Cada regra pode ter até 20 expansões.
 
-Mapas de sinônimos devem estar no formato Apache Solr, que é explicado abaixo. Se você tiver um dicionário de sinônimos existente em um formato diferente e quiser usá-lo diretamente, informe-nos [](https://feedback.azure.com/forums/263029-azure-search)no UserVoice.
+Mapas de sinônimos devem estar no formato Apache Solr, que é explicado abaixo. Se você tiver um dicionário de sinônimos existente em um formato diferente e quiser usá-lo diretamente, informe-nos no [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 Você pode criar um novo mapa de sinônimos usando HTTP POST, como no exemplo a seguir:
 
@@ -154,16 +156,9 @@ As expansões de sinônimo não se aplicam aos termos de pesquisa curinga; os te
 
 Se você precisar fazer uma única consulta que aplica a expansão de sinônimo e curinga, Regex ou pesquisas difusas, você pode combinar as consultas usando a sintaxe ou. Por exemplo, para combinar sinônimos com curingas para sintaxe de consulta simples, o termo seria `<query> | <query>*`.
 
-## <a name="tips-for-building-a-synonym-map"></a>Dicas para criar um mapa de sinônimos
+Se você tiver um índice existente em um ambiente de desenvolvimento (não de produção), experimente um pequeno dicionário para ver como a adição de sinônimos altera a experiência de pesquisa, incluindo impacto nos perfis de pontuação, realce de visita e sugestões.
 
-- Um mapa de sinônimos conciso e bem projetado é mais eficiente do que uma lista completa de possíveis correspondências. Dicionários excessivamente grandes ou complexos demoram mais para analisar e afetar a latência de consulta se a consulta se expandir para muitos sinônimos. Em vez de adivinhar em quais termos podem ser usados, você pode obter os termos reais por meio de um [relatório de análise de tráfego de pesquisa](search-traffic-analytics.md).
+## <a name="next-steps"></a>Passos seguintes
 
-- Como um exercício preliminar e de validação, habilite e use esse relatório para determinar precisamente quais termos se beneficiarão de uma correspondência de sinônimo e, em seguida, continue a usá-lo como validação de que seu mapa de sinônimos está produzindo um resultado melhor. No relatório predefinido, os blocos "consultas de pesquisa mais comuns" e "consultas de pesquisa de resultado zero" fornecerão as informações necessárias.
-
-- Você pode criar vários mapas de sinônimos para seu aplicativo de pesquisa (por exemplo, por idioma, se seu aplicativo oferecer suporte a uma base de clientes multilíngüe). Atualmente, um campo só pode usar um deles. Você pode atualizar a propriedade synonymMaps de um campo a qualquer momento.
-
-## <a name="next-steps"></a>Passos Seguintes
-
-- Se você tiver um índice existente em um ambiente de desenvolvimento (não de produção), experimente um pequeno dicionário para ver como a adição de sinônimos altera a experiência de pesquisa, incluindo impacto nos perfis de pontuação, realce de visita e sugestões.
-
-- [Habilite a análise de tráfego de pesquisa](search-traffic-analytics.md) e use o relatório de Power bi predefinido para saber quais termos são usados com mais freqüência e quais retornam zero documentos. Munido dessas informações, revise o dicionário para incluir sinônimos de consultas não contratadas que devem ser resolvidas para documentos no índice.
+> [!div class="nextstepaction"]
+> [Criar um mapa de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

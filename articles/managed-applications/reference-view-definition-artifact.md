@@ -1,20 +1,20 @@
 ---
 title: Referência de artefato de definição de exibição do aplicativo gerenciado do Azure
-description: Este artigo é uma referência para exibir o artefato de definição.
+description: Fornece um exemplo de artefato de definição de exibição para aplicativos gerenciados do Azure. O nome do arquivo é viewDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: e60f26fe0a7144d768bac020d62c61cb92594914
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1f56f6c9c519bd29423d92a8dc8b8ce5904b523c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336546"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332640"
 ---
-# <a name="reference-view-definition-artifact"></a>Referência: Artefacto de definição de vista
+# <a name="reference-view-definition-artifact"></a>Referência: Exibir artefato de definição
 
 Este artigo é uma referência para um artefato *viewDefinition. JSON* em aplicativos gerenciados do Azure. Para obter mais informações sobre criação de configurações de exibições, consulte [Exibir artefato de definição](concepts-view-definition.md).
 
@@ -87,8 +87,8 @@ O JSON a seguir mostra um exemplo de arquivo *viewDefinition. JSON* para aplicat
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Criar um aplicativo gerenciado com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
-- [Referência Artefato dos elementos da interface do usuário](reference-createuidefinition-artifact.md)
-- [Referência Artefato do modelo de implantação](reference-main-template-artifact.md)
+- [Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados](tutorial-create-managed-app-with-custom-provider.md)
+- [Referência: artefato dos elementos da interface do usuário](reference-createuidefinition-artifact.md)
+- [Referência: artefato do modelo de implantação](reference-main-template-artifact.md)

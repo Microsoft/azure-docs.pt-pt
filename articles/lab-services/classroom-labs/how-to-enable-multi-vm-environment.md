@@ -1,6 +1,6 @@
 ---
-title: Ativar ambientes de várias VMS no Azure Lab Services | Documentos da Microsoft
-description: Saiba como criar um ambiente com várias máquinas virtuais dentro de uma máquina virtual do modelo num laboratório de sala de aula do Azure Lab Services.
+title: Habilitar ambientes de várias VMs no Azure Lab Services | Microsoft Docs
+description: Saiba como criar um ambiente com várias máquinas virtuais dentro de uma máquina virtual de modelo em um laboratório de sala de aula de Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,93 +11,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 6faf32232c42f863bff52fdfb3c0714aee8e9b88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9a86ba803f899e78b2ba9640e6cc317966969e64
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60702443"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332333"
 ---
-# <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Criar um ambiente com várias VMs dentro de um modelo de VM de um laboratório de sala de aula
-Atualmente o Azure Lab Services permite-lhe configurar a máquina virtual de um modelo num laboratório e disponibilizar uma única cópia a cada um dos seus utilizadores. Mas se for um professor que ensina uma classe IT sobre como configurar a firewalls ou servidores, poderá ter de fornecer cada um dos seus estudantes com um ambiente em que várias máquinas virtuais podem se comunicar entre si através de uma rede.
+# <a name="create-an-environment-with-multiple-vms-inside-a-template-vm-of-a-classroom-lab"></a>Criar um ambiente com várias VMs dentro de uma VM de modelo de um laboratório de sala de aula
+Atualmente Azure Lab Services permite que você configure uma máquina virtual de modelo em um laboratório e disponibilize uma única cópia para cada um de seus usuários. Mas se você for um professor ensinando uma classe de ti sobre como configurar firewalls ou servidores, talvez seja necessário fornecer a cada um de seus alunos um ambiente no qual várias máquinas virtuais possam se comunicar entre si por meio de uma rede.
 
-Virtualização aninhada permite-lhe criar um ambiente de várias VMS dentro de máquina de virtual do modelo de um laboratório. Publicar o modelo fornece a cada usuário no laboratório com uma máquina virtual configurado com várias VMs dentro da mesma.
+A virtualização aninhada permite que você crie um ambiente de várias VMs dentro da máquina virtual de modelo de um laboratório. A publicação do modelo fornecerá a cada usuário do laboratório uma máquina virtual configurada com várias VMs dentro dela.
 
-## <a name="what-is-nested-virtualization"></a>O que é a virtualização aninhada?
-Virtualização aninhada permite-lhe criar máquinas virtuais dentro de uma máquina virtual. Virtualização aninhada é feita por meio do Hyper-V e só está disponível em VMs do Windows.
+## <a name="what-is-nested-virtualization"></a>O que é virtualização aninhada?
+A virtualização aninhada permite que você crie máquinas virtuais em uma máquina virtual. A virtualização aninhada é feita por meio do Hyper-V e só está disponível em VMs do Windows.
 
-Para obter mais informações sobre a virtualização aninhada, consulte os artigos seguintes:
+Para obter mais informações sobre a virtualização aninhada, consulte os seguintes artigos:
 
 - [Virtualização aninhada no Azure](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)
-- [Como ativar a virtualização aninhada na VM do Azure](../../virtual-machines/windows/nested-virtualization.md)
+- [Como habilitar a virtualização aninhada em uma VM do Azure](../../virtual-machines/windows/nested-virtualization.md)
 
-## <a name="use-nested-virtualization-in-azure-lab-services"></a>Utilizar a virtualização aninhada no Azure Lab Services
-Os passos importantes são:
+## <a name="use-nested-virtualization-in-azure-lab-services"></a>Usar a virtualização aninhada no Azure Lab Services
+As etapas importantes são:
 
-1. Criar uma **grandes** tamanho **Windows** máquina de modelo para o laboratório. 
-2. Ligar à mesma e [ativar a virtualização aninhada](../../virtual-machines/windows/nested-virtualization.md).
+1. Crie uma **grande** máquina de modelo do **Windows** para o laboratório. 
+2. Conecte-se a ele e [habilite a virtualização aninhada](../../virtual-machines/windows/nested-virtualization.md).
 
 
-O procedimento seguinte dá-lhe os passos detalhados: 
+O procedimento a seguir fornece as etapas detalhadas: 
 
-1. Se ainda não tiver uma, crie uma conta de laboratório. Para obter instruções, consulte [Tutorial: Configurar uma conta de laboratório com o Azure Lab Services](tutorial-setup-lab-account.md).
-2. Navegue para o [site do Azure Lab Services](https://labs.azure.com). 
-3. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
+1. Crie uma conta de laboratório se você ainda não tiver uma. Para obter instruções, consulte [tutorial: configurar uma conta de laboratório com Azure Lab Services](tutorial-setup-lab-account.md).
+1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). Observe que o Internet Explorer 11 ainda não tem suporte. 
+2. Selecione **Iniciar sessão** e introduza as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
+3. Selecione **novo laboratório**. 
+    
+    ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. Na janela **Novo Laboratório**, realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 
-    2. Especifique o número máximo **número de máquinas virtuais** no laboratório. Pode aumentar ou decreate o número de VMs, depois de criar o laboratório ou num laboratório existente. Para obter mais informações, consulte [atualizar o número de VMs num laboratório](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
-    6. Selecione **Guardar**.
+    2. Selecione **grande (virtualização aninhada)** ou **média (virtualização aninhada)** para o **tamanho da máquina virtual**.
+    6. Selecione uma **imagem** do Windows que você deseja usar. A virtualização aninhada só está disponível em computadores Windows. 
+    4. Em seguida, selecione **Seguinte**. 
 
-        ![Criar um laboratório de sala de aula](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. Na página **Selecionar especificações da máquina virtual**, execute os passos seguintes:
-    1. Selecione **grande** para o tamanho das máquinas virtuais (VMs) a ser criada no laboratório. Atualmente, apenas o tamanho grande suporta virtualização aninhada.
-    2. Escolha uma imagem de máquina virtual que é um **imagem do Windows**. Virtualização aninhada só está disponível nas máquinas do Windows. 
-    3. Selecione **Seguinte**.
+        ![Criar um laboratório de sala de aula](../media/how-to-enable-multi-vm-environment/new-lab-window.png)
+    1. Na página **credenciais da máquina virtual** , especifique as credenciais padrão para todas as VMs no laboratório. Especifique o **nome** e a **senha** para o usuário e, em seguida, selecione **Avançar**.  
 
-        ![Especificar as especificações de VM](../media/how-to-enable-multi-vm-environment/large-windows-vm.png)    
-5. Na página **Definir credenciais** , especifique as credenciais predefinidas para todas as VM do laboratório. 
-    1. Especifique o **nome de utilizador** de todas as VM do laboratório.
-    2. Especifique a **palavra-passe** do utilizador. 
+        ![Nova janela de laboratório](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
         > [!IMPORTANT]
         > Registe o nome de utilizador e a palavra-passe. Estas não serão apresentadas novamente.
-    3. Selecione **Criar**. 
+    3. Na página **políticas de laboratório** , insira o número de horas alocadas para cada usuário (**cota para cada usuário**) fora da hora agendada para o laboratório e selecione **concluir**. 
 
-        ![Definir credenciais](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. Na página **Configurar modelo**, verá o estado do processo de criação do laboratório. A criação do modelo no laboratório demora no máximo 20 minutos. 
+        ![Cota para cada usuário](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. Você deve ver a tela a seguir que mostra o status da criação da VM do modelo. A criação do modelo no laboratório demora no máximo 20 minutos. 
 
-    ![Configurar modelo](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. Depois de concluída a configuração do modelo, verá a página seguinte: 
+    ![Status da criação da VM do modelo](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+1. Na página **modelo** , selecione **Personalizar modelo** na barra de ferramentas. 
 
-    ![Configurar a página do modelo após a conclusão](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. Sobre o **modelo de configurar** página, selecione **Connect** para ligar ao modelo de VM para configurar a virtualização aninhada. Também pode configurar mais tarde depois de concluir os passos neste assistente. 
-9. Dentro da máquina virtual de modelo, configure a virtualização aninhada e configurar uma rede virtual com várias máquinas virtuais. Para obter instruções passo a passo detalhadas, consulte [como ativar a virtualização aninhada na VM do Azure](../../virtual-machines/windows/nested-virtualization.md). Aqui está um resumo rápido das etapas: 
-    1. Ative a funcionalidade de Hyper-V na máquina de virtual do modelo.
-    2. Configurar uma rede virtual interna com ligação à internet para as máquinas virtuais aninhadas
-    3. Criar máquinas virtuais através do Gestor de Hyper-V
-    4. Atribuir um endereço IP para as máquinas virtuais
-10. Selecione **Seguinte** na página do modelo. 
-11. Na página **Publicar o modelo**, execute as ações seguintes. 
-    1. Para publicar o modelo imediatamente e selecione **publicar**.  
+    ![Botão Personalizar modelo](../media/how-to-create-manage-template/customize-template-button.png)
+2. Na caixa de diálogo **Personalizar modelo** , selecione **continuar**. Depois de iniciar o modelo e fazer alterações, ele não terá mais a mesma configuração que as máquinas virtuais publicadas pela última vez para os usuários. As alterações de modelo não serão refletidas nas máquinas virtuais existentes de seus usuários até que você publique novamente.
 
-        > [!WARNING]
-        > Depois de publicar, não é possível anular a publicação. 
-    2. Para publicar mais tarde, selecione **Guardar para utilização posterior**. Pode publicar a VM de modelo depois de concluir o assistente. Para obter detalhes sobre como configurar e publicar depois de concluir o assistente, consulte a secção [Publicar o modelo](how-to-create-manage-template.md#publish-the-template-vm)no artigo [Como gerir laboratórios de sala de aula](how-to-manage-classroom-labs.md).
+    ![Caixa de diálogo Personalizar](../media/how-to-create-manage-template/customize-template-dialog.png)
+1. Selecione o botão **conectar ao modelo** na barra de ferramentas para se conectar à VM do modelo para configurar a virtualização aninhada. e siga as instruções. Se for um computador Windows, você verá uma opção para baixar o arquivo RDP. 
 
-        ![Publicar modelo](../media/how-to-enable-multi-vm-environment/publish-template-page.png)
-11. Verá o **progresso da publicação** do modelo. Este processo pode demorar até uma hora. 
+    ![Ligar à VM do modelo](../media/how-to-create-manage-template/connect-template-vm.png) 
+9. Dentro da máquina virtual de modelo, configure a virtualização aninhada e configure uma rede virtual com várias máquinas virtuais. Para obter instruções passo a passo detalhadas, consulte [como habilitar a virtualização aninhada em uma VM do Azure](../../virtual-machines/windows/nested-virtualization.md). Aqui está um resumo rápido das etapas: 
+    1. Habilite o recurso Hyper-V na máquina virtual do modelo.
+    2. Configurar uma rede virtual interna com conectividade com a Internet para as máquinas virtuais aninhadas
+    3. Criar máquinas virtuais por meio do Gerenciador do Hyper-V
+    4. Atribuir um endereço IP às máquinas virtuais
+10. Na página **modelo** , selecione **publicar** na barra de ferramentas. 
+
+    ![Botão Publicar modelo](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
+
+    > [!WARNING]
+    > Depois de publicar, não é possível anular a publicação. 
+8. Na página **Publicar modelo** , insira o número de máquinas virtuais que você deseja criar no laboratório e, em seguida, selecione **publicar**. 
+
+    ![Publicar modelo-número de VMs](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. Você verá o **status da publicação** do modelo na página. Este processo pode demorar até uma hora. 
 
     ![Publicar modelo – progresso](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Verá a página seguinte, quando o modelo for publicado com êxito. Selecione **Done** (Concluído).
-
-    ![Publicar modelo – êxito](../media/tutorial-setup-classroom-lab/publish-success.png)
-1. Verá o **dashboard** para o seu laboratório. 
-    
-    ![Dashboard de laboratório de sala de aula](../media/how-to-enable-multi-vm-environment/dashboard.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora, cada usuário obtém uma única máquina virtual que inclui um ambiente de várias VMS dentro da mesma. Para saber como adicionar utilizadores ao laboratório e enviar a ligação de registo-las, consulte o artigo seguinte: [Adicionar utilizadores ao laboratório](tutorial-setup-classroom-lab.md#add-users-to-the-lab).
+Agora, cada usuário Obtém uma única máquina virtual que inclui um ambiente de várias VMs dentro dela. Para saber como adicionar usuários ao laboratório e enviar um link de registro para eles, consulte o seguinte artigo: [Adicionar usuários ao laboratório](tutorial-setup-classroom-lab.md#add-users-to-the-lab).

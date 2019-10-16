@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177774"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332840"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico
 
@@ -108,7 +108,7 @@ Veja como configurar manualmente os contadores de desempenho recomendados:
 3. Na seção **configurações** , selecione **Configurações avançadas**.
 4. Depois disso, navegue até **dados** > **contadores de desempenho do Windows** e adicione os seguintes contadores:
 
-    -   LogicalDisk (\*) \|% de espaço livre
+    -   Disco lógico (\*) \%Free
     -   LogicalDisk (C:) \\Avg. comprimento da fila de disco
     -   Memória (\*) \\Available Mbytes
     -   Informações do processador (\*) \\Processor tempo
@@ -142,7 +142,7 @@ Para certificar-se de que seu espaço de trabalho Log Analytics tem os contadore
 3. Depois disso, vá para **dados** > **contadores de desempenho do Windows**.
 4. Verifique se os seguintes contadores estão pré-configurados:
 
-   - LogicalDisk (\*) \|% de espaço livre: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
+   - LogicalDisk (\*) \%Free: exibe a quantidade de espaço livre do total de espaço utilizável no disco como uma porcentagem.
    - LogicalDisk (C:) \\Avg. comprimento da fila de disco: o comprimento da solicitação de transferência de disco para a unidade C. O valor não deve exceder 2 por mais de um curto período de tempo.
    - Memória (\*) \\Available Mbytes: a memória disponível para o sistema em megabytes.
    - Informações do processador (\*) \\Processor tempo: a porcentagem de tempo decorrido que o processador gasta para executar um thread não ocioso.

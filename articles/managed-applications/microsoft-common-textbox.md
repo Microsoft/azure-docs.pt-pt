@@ -1,6 +1,6 @@
 ---
-title: Elemento de interface do Usuário de caixa de texto do Azure | Documentos da Microsoft
-description: Descreve o elemento de interface do Usuário de Microsoft.Common.TextBox para o portal do Azure.
+title: Elemento de IU da caixa de texto do Azure | Microsoft Docs
+description: Descreve o elemento Microsoft. Common. TextBox da interface do usuário para portal do Azure. Use para adicionar texto não formatado.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06e8b49efe8b6de720fa9bb819d4720e4f80fb6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b72bfcf06f4c7e256dd227e4edf781c4500c7b19
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61044551"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331609"
 ---
-# <a name="microsoftcommontextbox-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.TextBox
-Um controlo que pode ser usado para editar o texto formatado.
+# <a name="microsoftcommontextbox-ui-element"></a>Elemento de interface do usuário Microsoft. Common. TextBox
+Um controle que pode ser usado para editar texto não formatado.
 
-## <a name="ui-sample"></a>Exemplo de interface do Usuário
-![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
+## <a name="ui-sample"></a>Exemplo de interface do usuário
+![Microsoft. Common. TextBox](./media/managed-application-elements/microsoft.common.textbox.png)
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -44,10 +44,10 @@ Um controlo que pode ser usado para editar o texto formatado.
 ```
 
 ## <a name="remarks"></a>Observações
-- Se `constraints.required` está definido como **true**, em seguida, a caixa de texto tem de ter um valor para validar com êxito. O valor predefinido é **false**.
-- `constraints.regex` é um padrão de expressão regular de JavaScript. Se for especificado, em seguida, valor da caixa de texto tem de corresponder ao padrão para validar com êxito. O valor predefinido é **nulo**.
-- `constraints.validationMessage` é uma cadeia a apresentar quando o valor da caixa de texto falha na validação. Se não for especificado, em seguida, são utilizadas as mensagens de validação incorporadas a caixa de texto. O valor predefinido é **nulo**.
-- É possível especificar um valor para `constraints.regex` quando `constraints.required` está definida como **falso**. Neste cenário, um valor não a é necessário para a caixa de texto validar com êxito. Se for especificado, tem de corresponder o padrão de expressão regular.
+- Se `constraints.required` for definido como **true**, a caixa de texto deverá ter um valor para validar com êxito. O valor padrão é **false**.
+- `constraints.regex` é um padrão de expressão regular JavaScript. Se especificado, o valor da caixa de texto deve corresponder ao padrão para validar com êxito. O valor padrão é **NULL**.
+- `constraints.validationMessage` é uma cadeia de caracteres a ser exibida quando o valor da caixa de texto falha na validação. Se não for especificado, as mensagens de validação internas da caixa de texto serão usadas. O valor padrão é **NULL**.
+- É possível especificar um valor para `constraints.regex` quando `constraints.required` for definido como **false**. Nesse cenário, um valor não é necessário para que a caixa de texto seja validada com êxito. Se um for especificado, ele deverá corresponder ao padrão de expressão regular.
 
 ## <a name="sample-output"></a>Resultado da amostra
 
@@ -55,6 +55,6 @@ Um controlo que pode ser usado para editar o texto formatado.
 "my text value"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+## <a name="next-steps"></a>Passos seguintes
+* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).

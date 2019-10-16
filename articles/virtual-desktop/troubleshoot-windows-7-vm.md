@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: 7fdb46ac7cffc4eb6a791304c7a6b58378806296
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 282a4d166e48a41015cb2f08496fe39419bdcaf7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679896"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374267"
 ---
-# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Solucionar problemas de máquinas virtuais do Windows 7 na área de trabalho virtual do Windows
+# <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Resolução de problemas das máquinas virtuais do Windows 7 no Windows Virtual Desktop
 
 Use este artigo para solucionar problemas que você está tendo ao configurar as VMs (máquinas virtuais) do host de sessão de área de trabalho virtual do Windows.
 
@@ -30,7 +30,7 @@ A área de trabalho virtual do Windows só pode virtualizar áreas de trabalho c
 
 Embora não haja suporte para o dimensionamento automático de DPI, você pode alterar manualmente a resolução em sua máquina virtual clicando com o botão direito do mouse no ícone no cliente Área de Trabalho Remota e selecionando **resolução**.
 
-## <a name="error-cant-access-the-remote-desktop-user-group"></a>Erro: Não é possível acessar o grupo de usuários Área de Trabalho Remota
+## <a name="error-cant-access-the-remote-desktop-user-group"></a>Erro: não é possível acessar o grupo de usuários Área de Trabalho Remota
 
 Se a área de trabalho virtual do Windows não conseguir localizar você ou as credenciais de seus usuários no grupo Área de Trabalho Remota usuário, você poderá ver uma das seguintes mensagens de erro:
 
@@ -45,5 +45,5 @@ Para corrigir esse erro, adicione o usuário ao grupo de usuários Área de Trab
 4. Execute o seguinte comando com `<username>` substituído pelo nome do usuário que você deseja adicionar:
    
    ```cmd
-   localgroup "Remote Desktop Users" <username> /add
+   net localgroup "Remote Desktop Users" <username> /add
    ```

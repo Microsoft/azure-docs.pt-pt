@@ -1,20 +1,20 @@
 ---
-title: Monitorar Azure Site Recovery com logs de Azure Monitor (Log Analytics)
+title: Monitorar Azure Site Recovery com logs de Azure Monitor (Log Analytics) | Microsoft Docs
 description: Saiba como monitorar Azure Site Recovery com Azure Monitor logs (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718486"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331927"
 ---
-# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorar Site Recovery com logs de Azure Monitor
+# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
 Este artigo descreve como monitorar máquinas replicadas pelo Azure [site Recovery](site-recovery-overview.md), usando [Azure Monitor logs](../azure-monitor/platform/data-platform-logs.md)e [log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
@@ -25,10 +25,14 @@ Para Site Recovery, você pode Azure Monitor logs para ajudá-lo a fazer o segui
 - **Monitorar site Recovery integridade e status**. Por exemplo, você pode monitorar a integridade da replicação, o status do failover de teste, eventos de Site Recovery, RPOs (objetivos de ponto de recuperação) para computadores protegidos e taxas de alteração de disco/dados.
 - **Configure alertas para site Recovery**. Por exemplo, você pode configurar alertas para a integridade do computador, status do failover de teste ou Site Recovery status do trabalho.
 
-O uso de logs de Azure Monitor com Site Recovery tem suporte para a replicação do Azure para o Azure e para a replicação do VMware/servidor físico para Azure.
+O uso de logs de Azure Monitor com Site Recovery tem suporte para a replicação do Azure **para o Azure** e para a replicação do **VMware/servidor físico para Azure** .
+
+> [!NOTE]
+> Os logs de dados de rotatividade e os logs de taxa de upload estão disponíveis somente para VMs do Azure que replicam para uma região secundária do Azure.
+
 ## <a name="before-you-start"></a>Antes de começar
 
-Eis o que precisa:
+Eis o que necessita:
 
 - Pelo menos um computador protegido em um cofre dos serviços de recuperação.
 - Um espaço de trabalho Log Analytics para armazenar Site Recovery logs. [Saiba mais sobre como](../azure-monitor/learn/quick-create-workspace.md) configurar um espaço de trabalho.
@@ -38,13 +42,14 @@ Recomendamos que você revise as [perguntas comuns de monitoramento](monitoring-
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Configurar Site Recovery para enviar logs
 
-1. No cofre, clique em **configurações** > de diagnóstico**Adicionar configuração de diagnóstico**.
+1. No cofre, clique em **configurações de diagnóstico** > **Adicionar configuração de diagnóstico**.
 
     ![Selecionar log de diagnóstico](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. Em **configurações de diagnóstico**, especifique um nome para a ação de log e selecione **Enviar para log Analytics**.
+2. Em **configurações de diagnóstico**, especifique um nome e marque a caixa **Enviar para log Analytics**.
 3. Selecione a assinatura de logs de Azure Monitor e o espaço de trabalho Log Analytics.
-4. Na lista log, selecione todos os logs com o prefixo **AzureSiteRecovery**. Em seguida, clique em **OK**.
+4. Selecione **diagnóstico do Azure** na alternância.
+5. Na lista log, selecione todos os logs com o prefixo **AzureSiteRecovery**. Em seguida, clique em **OK**.
 
     ![Selecionar área de trabalho](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -61,7 +66,7 @@ Você recupera dados de logs usando consultas de log escritas com a [linguagem d
 
 ### <a name="query-replication-health"></a>Integridade da replicação de consulta
 
-Essa consulta Plota um gráfico de pizza para a integridade de replicação atual de todas as VMs do Azure protegidas, dividida em três Estados: Normal, aviso ou crítico.
+Essa consulta Plota um gráfico de pizza para a integridade de replicação atual de todas as VMs do Azure protegidas, dividida em três Estados: normal, aviso ou crítico.
 
 ```
 AzureDiagnostics  
@@ -88,7 +93,7 @@ AzureDiagnostics 
 
 ### <a name="query-rpo-time"></a>Tempo de RPO da consulta
 
-Essa consulta Plota um gráfico de barras de VMs do Azure replicadas com Site Recovery, divididas por RPO (objetivo de ponto de recuperação): Menos de 15 minutos, entre 15-30 minutos, mais de 30 minutos.
+Essa consulta Plota um gráfico de barras de VMs do Azure replicadas com Site Recovery, divididas por RPO (objetivo de ponto de recuperação): menos de 15 minutos, entre 15-30 minutos, mais de 30 minutos.
 
 ```
 AzureDiagnostics 
@@ -171,7 +176,10 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-for-a-vm"></a>Taxa de alteração de dados de consulta (rotatividade) para uma VM
 
-Essa consulta Plota um grafo de tendência para uma VM do Azure específica (ContosoVM123), que acompanha a taxa de alteração de dados (bytes de gravação por segundo) e a taxa de carregamento de dados. Essas informações estão disponíveis somente para VMs do Azure replicadas para uma região secundária do Azure.
+> [!NOTE] 
+> As informações de rotatividade só estão disponíveis para VMs do Azure que replicam para uma região secundária do Azure.
+
+Essa consulta Plota um grafo de tendência para uma VM do Azure específica (ContosoVM123), que acompanha a taxa de alteração de dados (bytes de gravação por segundo) e a taxa de carregamento de dados. 
 
 ```
 AzureDiagnostics   
@@ -319,6 +327,6 @@ AzureDiagnostics  
 
 Para o alerta, defina o **valor do limite** como 1 e **período** como 1440 minutos para verificar falhas no último dia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre](site-recovery-monitor-and-troubleshoot.md) o monitoramento de site Recovery interno.
