@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835361"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374039"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração com o Azure Active Directory
 
@@ -37,7 +37,7 @@ Há várias maneiras para seu aplicativo se integrar ao Azure AD. Aproveite o ma
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Suporte ao Azure AD como uma maneira de entrar em seu aplicativo
 
-**Reduzir o conflito de entrada e reduzir os custos de suporte.** Usando o Azure AD para entrar em seu aplicativo, os usuários não terão mais um nome e senha para se lembrar. Como desenvolvedor, você terá uma senha a menos para armazenar e proteger. Não ter que lidar com redefinições de senha esquecida pode ser apenas uma economia significativa. O Azure AD liga para alguns dos aplicativos em nuvem mais populares do mundo, incluindo o Office 365 e Microsoft Azure. Com centenas de milhões de usuários de milhões de organizações, é provável que seu usuário já esteja conectado ao Azure AD. Saiba mais sobre como [Adicionar suporte para entrar no Azure ad](authentication-scenarios.md).
+**Reduzir o conflito de entrada e reduzir os custos de suporte.** Usando o Azure AD para entrar em seu aplicativo, os usuários não terão mais um nome e senha para se lembrar. Como desenvolvedor, você terá uma senha a menos para armazenar e proteger. Não ter que lidar com redefinições de senha esquecida pode ser apenas uma economia significativa. O Azure AD liga para alguns dos aplicativos em nuvem mais populares do mundo, incluindo o Office 365 e Microsoft Azure. Com centenas de milhões de usuários de milhões de organizações, é provável que seu usuário já esteja conectado ao Azure AD. Saiba mais sobre como [Adicionar suporte para entrar no Azure ad](v1-authentication-scenarios.md).
 
 **Simplifique a inscrição para seu aplicativo.**  Durante a inscrição para seu aplicativo, o Azure AD pode enviar informações essenciais sobre um usuário para que você possa preencher previamente seu formulário de inscrição ou eliminá-lo completamente. Os usuários podem se inscrever no seu aplicativo usando sua conta do Azure AD por meio de uma experiência de consentimento familiar semelhante àquelas encontradas em mídia social e aplicativos móveis. Qualquer usuário pode se inscrever e entrar em um aplicativo integrado ao Azure AD sem a necessidade de envolvimento de ti. Saiba mais sobre como [inscrever seu aplicativo para o logon da conta do Azure ad](../../app-service/configure-authentication-provider-aad.md).
 
@@ -77,7 +77,7 @@ A integração com o Azure AD vem com benefícios que não exigem que você escr
 
 ### <a name="advanced-security-features"></a>Funcionalidades de segurança avançadas
 
-**Autenticação multifator.**  O Azure AD fornece autenticação multifator nativa. Os administradores de ti podem exigir a autenticação multifator para acessar seu aplicativo, para que você não precise codificar esse suporte por conta própria. Saiba mais sobre [a autenticação](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)multifator.
+**Autenticação multifator.**  O Azure AD fornece autenticação multifator nativa. Os administradores de ti podem exigir a autenticação multifator para acessar seu aplicativo, para que você não precise codificar esse suporte por conta própria. Saiba mais sobre [a autenticação multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Detecção de entrada anômala.**  O Azure AD processa mais de um bilhão de entradas por dia, enquanto usa algoritmos de aprendizado de máquina para detectar atividades suspeitas e notificar os administradores de ti de possíveis problemas. Ao dar suporte à entrada do Azure AD, seu aplicativo obtém o benefício dessa proteção. Saiba mais sobre como [exibir Azure Active Directory relatório de acesso](../active-directory-view-access-usage-reports.md).
 
@@ -93,9 +93,9 @@ A integração com o Azure AD vem com benefícios que não exigem que você escr
 
 **O Azure AD é implantado em data centers em todo o mundo e é gerenciado e monitorado em todo o relógio.**  O Azure AD é o sistema de gerenciamento de identidade para Microsoft Azure e Office 365 e é implantado em 28 datacenters em todo o mundo. Os dados do diretório são garantidos para serem replicados em pelo menos três datacenters. Os balanceadores de carga global garantem que os usuários acessem a cópia mais próxima do AD do Azure que contém seus dados e reroteiam automaticamente as solicitações para outros data centers se um problema for detectado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Comece a [escrever código](v2-overview.md#getting-started).
 
-[Conectar usuários usando a plataforma de identidade da Microsoft](authentication-scenarios.md)
+[Conectar usuários usando a plataforma de identidade da Microsoft](v1-authentication-scenarios.md)
 

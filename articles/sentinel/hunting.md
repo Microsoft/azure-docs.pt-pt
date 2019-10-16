@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240616"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372413"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel"></a>Procurar ameaças com o Azure Sentinel
 
@@ -35,20 +35,20 @@ Por exemplo, uma consulta interna fornece dados sobre os processos mais incomuns
 
 Com a busca do Azure Sentinel, você pode aproveitar os seguintes recursos:
 
-- Consultas internas: Para começar, uma página inicial fornece exemplos de consulta pré-carregados projetados para você começar e familiarizar-se com as tabelas e a linguagem de consulta. Essas consultas de busca interna são desenvolvidas pelos pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e ajustando as consultas existentes para fornecer a você um ponto de entrada para procurar novas detecções e descobrir onde começar a procurar o início de novos ataques. 
+- Consultas internas: para começar, uma página inicial fornece exemplos de consulta pré-carregados projetados para ajudá-lo a começar e a familiarizar-se com as tabelas e a linguagem de consulta. Essas consultas de busca interna são desenvolvidas pelos pesquisadores de segurança da Microsoft de forma contínua, adicionando novas consultas e ajustando as consultas existentes para fornecer a você um ponto de entrada para procurar novas detecções e descobrir onde começar a procurar o início de novos ataques. 
 
-- Linguagem de consulta avançada com o IntelliSense: Criado com base em uma linguagem de consulta que oferece a flexibilidade que você precisa para fazer buscas no próximo nível.
+- Linguagem de consulta avançada com o IntelliSense: criada com base em uma linguagem de consulta que oferece a flexibilidade que você precisa para dar uma busca ao próximo nível.
 
-- Crie seus próprios indicadores: Durante o processo de busca, você pode encontrar correspondências ou descobertas, painéis ou atividades que parecem incomuns ou suspeitas. Para marcar esses itens para que você possa voltar a eles no futuro, use a funcionalidade de indicador. Os indicadores permitem salvar itens para mais tarde, para serem usados para criar um incidente para investigação. Para obter mais informações sobre indicadores, consulte [usar indicadores na busca](hunting.md).
-- Use blocos de anotações para automatizar a investigação: Os notebooks são como guias passo a passo que você pode criar para percorrer as etapas de uma investigação e uma busca.  Os notebooks encapsulam todas as etapas de busca em um manual reutilizável que pode ser compartilhado com outras pessoas em sua organização. 
-- Consultar os dados armazenados: Os dados podem ser acessados em tabelas para consulta. Por exemplo, você pode consultar a criação de processos, eventos DNS e muitos outros tipos de eventos.
+- Crie seus próprios indicadores: durante o processo de busca, você pode encontrar correspondências ou descobertas, painéis ou atividades que parecem incomuns ou suspeitas. Para marcar esses itens para que você possa voltar a eles no futuro, use a funcionalidade de indicador. Os indicadores permitem salvar itens para mais tarde, para serem usados para criar um incidente para investigação. Para obter mais informações sobre indicadores, consulte [usar indicadores na busca](hunting.md).
+- Use blocos de anotações para automatizar a investigação: notebooks são como guias passo a passo que você pode criar para percorrer as etapas de uma investigação e uma busca.  Os notebooks encapsulam todas as etapas de busca em um manual reutilizável que pode ser compartilhado com outras pessoas em sua organização. 
+- Consultar os dados armazenados: os dados estão acessíveis em tabelas para consulta. Por exemplo, você pode consultar a criação de processos, eventos DNS e muitos outros tipos de eventos.
 
 - Links para a Comunidade: Aproveite o poder da comunidade maior para encontrar consultas e fontes de dados adicionais.
  
 ## <a name="get-started-hunting"></a>Introdução à busca
 
 1. No portal do Azure Sentinel, clique em **busca**.
-  ![O Azure Sentinel começa a buscar](media/tutorial-hunting/hunting-start.png)
+  @no__t 0Azure Sentinel começa a buscar @ no__t-1
 
 2. Quando você abre a página de **busca** , todas as consultas de busca são exibidas em uma única tabela. A tabela lista todas as consultas escritas pela equipe de analistas de segurança da Microsoft, bem como qualquer consulta adicional que você criou ou modificou. Cada consulta fornece uma descrição do que é buscado e em que tipo de dados ele é executado. Esses modelos são agrupados por suas várias táticas: os ícones à direita categorizam o tipo de ameaça, como o acesso inicial, a persistência e a vazamento. Você pode filtrar esses modelos de consulta buscados usando qualquer um dos campos. Você pode salvar qualquer consulta em seus favoritos. Ao salvar uma consulta em seus favoritos, a consulta é executada automaticamente sempre que a página de **busca** é acessada. Você pode criar sua própria consulta de busca ou clonar e personalizar um modelo de consulta de busca existente. 
  
@@ -68,7 +68,7 @@ Com a busca do Azure Sentinel, você pode aproveitar os seguintes recursos:
 
 ## <a name="query-language"></a>Linguagem de consulta 
 
-A busca no Azure Sentinel é baseada na linguagem de consulta de Log Analytics do Azure. Para obter mais informações sobre a linguagem de consulta e os operadores com suporte, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
+A busca no Azure Sentinel se baseia na linguagem de consulta Kusto. Para obter mais informações sobre a linguagem de consulta e os operadores com suporte, consulte [referência de linguagem de consulta](https://docs.loganalytics.io/docs/Language-Reference/).
 
 ## <a name="public-hunting-query-github-repository"></a>Repositório GitHub de consulta de busca pública
 
@@ -78,7 +78,7 @@ Confira o [repositório de consultas de busca](https://github.com/Azure/Orion). 
 
 ## <a name="sample-query"></a>Consulta de exemplo
 
-Uma consulta típica começa com um nome de tabela seguido por uma série de operadores separados \|por.
+Uma consulta típica começa com um nome de tabela seguido por uma série de operadores separados por \|.
 
 No exemplo acima, comece com o nome da tabela SecurityEvent e adicione os elementos de pipe conforme necessário.
 
@@ -119,7 +119,7 @@ A linguagem de consulta é poderosa e tem muitos operadores disponíveis, alguns
 
 Você pode criar ou modificar uma consulta e salvá-la como sua própria consulta ou compartilhá-la com usuários que estão no mesmo locatário.
 
-   ![Guardar consulta](./media/tutorial-hunting/save-query.png)
+   ![Salvar consulta](./media/tutorial-hunting/save-query.png)
 
 Criar uma nova consulta de busca:
 

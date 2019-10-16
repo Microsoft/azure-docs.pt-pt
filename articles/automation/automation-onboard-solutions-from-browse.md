@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534695"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372794"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Habilitar soluções de Gerenciamento de Atualizações, Controle de Alterações e inventário em várias VMs
 
@@ -76,7 +76,7 @@ As soluções a seguir são dependentes de um espaço de trabalho Log Analytics:
 
 * [Gestão de Atualizações](automation-update-management.md)
 * [Monitorização de Alterações](automation-change-tracking.md)
-* [Iniciar/parar VMs fora do horário de expediente](automation-solution-vm-management.md)
+* [Iniciar/Parar VMs fora do horário comercial](automation-solution-vm-management.md)
 
 Se você decidir que não deseja mais integrar sua conta de automação a um espaço de trabalho Log Analytics, você poderá desvincular sua conta diretamente da portal do Azure. Antes de prosseguir, primeiro você precisa remover as soluções mencionadas anteriormente; caso contrário, esse processo será impedido de continuar. Examine o artigo para a solução específica que você importou para entender as etapas necessárias para removê-lo.
 
@@ -101,7 +101,7 @@ Se você usou a solução Gerenciamento de Atualizações, opcionalmente, talvez
 
 * Grupos de Hybrid Worker criados para a solução-cada um será nomeado de forma semelhante a machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
 
-Se você usou a solução iniciar/parar VMs fora do horário comercial, opcionalmente, talvez você queira remover os itens a seguir que não são mais necessários após a remoção da solução.
+Se você usou a solução Iniciar/Parar VMs fora do horário comercial, opcionalmente, talvez queira remover os itens a seguir que não são mais necessários após a remoção da solução.
 
 * Iniciar e parar agendas de runbook de VM
 * Iniciar e parar runbooks de VM
@@ -111,17 +111,17 @@ Como alternativa, você também pode desvincular seu espaço de trabalho de sua 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Ao integrar vários computadores, pode haver computadores que mostram como **não podem**ser habilitados. Há diferentes motivos pelos quais algumas máquinas podem não estar habilitadas. As seções a seguir mostram possíveis motivos para o **não permitir** o estado em uma VM durante a tentativa de integração.
+Ao integrar vários computadores, pode haver computadores que mostram como **não podem ser habilitados**. Há diferentes motivos pelos quais algumas máquinas podem não estar habilitadas. As seções a seguir mostram possíveis motivos para o **não permitir** o estado em uma VM durante a tentativa de integração.
 
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Os relatórios da VM para um espaço de\<trabalho diferente\>: ' WorkspaceName '.  Altere a configuração para usá-la para habilitar
+### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>Relatórios de VM para um espaço de trabalho diferente: ' \<workspaceName @ no__t-1 '.  Altere a configuração para usá-la para habilitar
 
-**Motivo**: Esse erro mostra que a VM que você está tentando carregar relatórios em outro espaço de trabalho.
+**Causa**: esse erro mostra que a VM que você está tentando carregar relatórios em outro espaço de trabalho.
 
-**Solução**: Clique em **usar como configuração** para alterar a conta de automação de destino e log Analytics espaço de trabalho.
+**Solução**: clique em **usar como configuração** para alterar a conta de automação de destino e log Analytics espaço de trabalho.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>Os relatórios de VM para um espaço de trabalho que não está disponível nesta assinatura
 
-**Motivo**: O espaço de trabalho ao qual a máquina virtual se reporta:
+**Causa**: o espaço de trabalho ao qual a máquina virtual se reporta:
 
 * Está em uma assinatura diferente ou
 * Não existe mais ou
@@ -131,28 +131,35 @@ Ao integrar vários computadores, pode haver computadores que mostram como **nã
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>Não há suporte para a versão ou a distribuição do sistema operacional da VM
 
-**Faz** A solução não tem suporte para todas as distribuições Linux ou todas as versões do Windows.
+**Causa:** A solução não tem suporte para todas as distribuições Linux ou todas as versões do Windows.
 
-**Soluções** Consulte a [lista de clientes com suporte](automation-update-management.md#clients) para a solução.
+**Solução:** Consulte a [lista de clientes com suporte](automation-update-management.md#clients) para a solução.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>VMs clássicas não podem ser habilitadas
 
-**Motivo**: Não há suporte para máquinas virtuais que usam o modelo de implantação clássico.
+**Causa**: não há suporte para máquinas virtuais que usam o modelo de implantação clássico.
 
-**Solução**: Migre a máquina virtual para o modelo de implantação do Gerenciador de recursos. Para saber como fazer isso, consulte [migrar recursos de modelo de implantação clássico](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Solução**: migre a máquina virtual para o modelo de implantação do Gerenciador de recursos. Para saber como fazer isso, consulte [migrar recursos de modelo de implantação clássico](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>A VM foi interrompida. desalocada
 
-**Motivo**: A máquina virtual não está em estado de **execução** .
+**Causa**: a máquina virtual não está em estado de **execução** .
 
-**Solução**: Para carregar uma VM em uma solução, a VM deve estar em execução. Clique no link **iniciar a VM** embutida para iniciar a VM sem sair da página.
+**Solução**: para carregar uma VM em uma solução, a VM deve estar em execução. Clique no link **iniciar a VM** embutida para iniciar a VM sem sair da página.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Agora que a solução está habilitada para suas máquinas virtuais, visite o artigo Gerenciamento de Atualizações visão geral para saber como exibir a avaliação de atualização para seus computadores.
+Para remover uma VM do Gerenciamento de Atualizações:
+
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que a solução está habilitada para suas máquinas virtuais, visite o artigo Gerenciamento de Atualizações visão geral para saber como criar uma **implantação de atualização** para seus computadores.
 
 > [!div class="nextstepaction"]
-> [Gerenciamento de Atualizações-exibir avaliação de atualização](./automation-update-management.md#viewing-update-assessments)
+> [Gerenciamento de Atualizações-gerenciar atualizações e patches para suas VMs do Azure](./automation-tutorial-update-management.md)
 
 TUTORIAIS adicionais sobre as soluções e como usá-las:
 

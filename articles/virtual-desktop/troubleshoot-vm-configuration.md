@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274487"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330826"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuração da máquina virtual do anfitrião da sessão
 
@@ -302,10 +302,17 @@ Se você entrar no Windows 10 Enterprise Multi-Session usando uma conta administ
 
 Se o limite de tempo expirar, será exibida uma mensagem de erro dizendo "a sessão remota foi desconectada porque não há licenças de acesso de cliente Área de Trabalho Remota disponíveis para este computador".
 
-Se você vir uma dessas mensagens, isso significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que você está definindo o modo de licenciamento de Área de Trabalho Remota como **por usuário**. Remova qualquer configuração que esteja definindo essa política e siga as etapas para identificar a versão do Windows 10 Enterprise Multi-Session e instalar a atualização correspondente.  
+Se você vir uma dessas mensagens, isso significa que a imagem não tem as atualizações mais recentes do Windows instaladas ou que você está definindo o modo de licenciamento Área de Trabalho Remota por meio da diretiva de grupo. Siga as etapas nas próximas seções para verificar a configuração da política de grupo, identificar a versão do Windows 10 Enterprise Multi-Session e instalar a atualização correspondente.  
 
 >[!NOTE]
 >A área de trabalho virtual do Windows requer uma CAL (licença de acesso para cliente) do RDS quando o pool de hosts contém hosts de sessão do Windows Server. Para saber como configurar um RDS CAL, confira [licenciar sua implantação de RDS com licenças de acesso para cliente](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Desabilitar a configuração de política de grupo do modo de licenciamento Área de Trabalho Remota
+
+Verifique a configuração da política de grupo abrindo o editor de Política de Grupo na VM e navegando para **modelos administrativos** **componentes do Windows** >   > **serviços de área de trabalho remota** > **host da sessão da área de trabalho remota**@no o**Licenciamento**__t-7  > **define o modo de licenciamento área de trabalho remota**. Se a configuração política de grupo estiver **habilitada**, altere-a para **desabilitado**. Se ele já estiver desabilitado, deixe-o como está.
+
+>[!NOTE]
+>Se você definir a política de grupo por meio de seu domínio, desabilite essa configuração em políticas direcionadas a essas VMs de várias sessões do Windows 10 Enterprise.
 
 ### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identificar qual versão do Windows 10 Enterprise Multi-Session você está usando
 

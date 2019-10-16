@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9986f57b05032c1e12769d59781e8b7aca443abb
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298974"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330889"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Configurando a retenção no Time Series Insights
 
@@ -26,7 +26,7 @@ Este artigo descreve como configurar o **tempo de retenção de dados** e o **co
 
 Cada ambiente de Azure Time Series Insights tem uma configuração para configurar o **tempo de retenção de dados**. O valor se estende de 1 a 400 dias. Os dados são excluídos com base na capacidade de armazenamento do ambiente ou na duração da retenção (1-400), o que vier primeiro.
 
-Cada ambiente de TSI tem um comportamento de limite de armazenamento de configuração adicional **excedido**. Essa configuração controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher:
+Cada ambiente de Time Series Insights tem um comportamento de limite de armazenamento de configuração adicional **excedido**. Essa configuração controla o comportamento de entrada e limpeza quando a capacidade máxima de um ambiente é atingida. Há dois comportamentos para escolher:
 
 - **Limpar dados antigos** (padrão)
 - **Pausar entrada**
@@ -49,10 +49,14 @@ Para obter informações detalhadas para entender melhor essas configurações, 
 
 1. Alterne a configuração de **comportamento de limite de armazenamento excedido** . Selecione **limpar dados antigos** ou **Pausar** comportamento de entrada.
 
-    [a retenção de ![Data aceita e salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [retenção de ![Data-aceita e salva.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Aceite a caixa de seleção indicando que você analisou a documentação e entendeu os riscos potenciais de perda de dados. Selecione **salvar** para configurar as alterações.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações, consulte [noções básicas sobre retenção em time Series insights](time-series-insights-concepts-retention.md).
+
+- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).
+
+- Saiba mais sobre como [planejar o seu ambiente](time-series-insights-environment-planning.md).

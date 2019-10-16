@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124930"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373487"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro etapas para uma base de identidade forte com Azure Active Directory
 
@@ -81,9 +81,9 @@ O Proxy de Aplicativo do AD do Azure oferece os seguintes benefícios:
 
 Nas empresas modernas, os departamentos de ti geralmente não estão cientes de todos os aplicativos de nuvem que são usados pelos usuários para realizar seu trabalho. Quando os administradores de ti são solicitados a quantos aplicativos de nuvem eles acham que seus funcionários usam, em média, dizem 30 ou 40. Na realidade, a média é de mais de 1.000 aplicativos separados sendo usados por funcionários em sua organização. 80% dos funcionários usam aplicativos não aprovados que ninguém analisou e que podem não estar em conformidade com suas políticas de segurança e conformidade.
 
-[Microsoft Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) O (MCAS) pode ajudá-lo a identificar aplicativos úteis que são populares com usuários que podem ser aprovados e adicionados à galeria de aplicativos empresariais para que os usuários se beneficiem de recursos como o SSO e o acesso condicional.
+O [Microsoft Cloud app Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) pode ajudá-lo a identificar aplicativos úteis que são populares com usuários que podem ser aprovados e adicionados à galeria de aplicativos empresariais para que os usuários se beneficiem de recursos como o SSO e o acesso condicional.
 
-*" **Cloud app Security** nos ajuda a garantir que nossas pessoas estejam usando adequadamente nossos aplicativos de nuvem e SaaS, de maneiras que dão suporte às políticas de segurança fundamentais que ajudam a proteger a Accenture*". --- [John Blasi, diretor de gerenciamento, segurança de informações, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud app Security** nos ajuda a garantir que nossas pessoas estejam usando adequadamente nossos aplicativos de nuvem e SaaS, de maneiras que dão suporte às políticas de segurança fundamentais que ajudam a proteger a Accenture".</em> --- [John Blasi, diretor de gerenciamento, segurança de informações, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Além de detectar a ti sombra, o MCAS também pode determinar o nível de risco dos aplicativos, impedir o acesso não autorizado a dados corporativos, possível perda de dados e outros riscos de segurança inerentes aos aplicativos.
 
@@ -121,9 +121,9 @@ Para as organizações que já usam AD FS ou outro provedor de autenticação lo
 
 ### <a name="enable-automatic-deprovisioning-of-accounts"></a>Habilitar o desprovisionamento automático de contas
 
-A habilitação do provisionamento e desprovisionamento automatizados para seus aplicativos é a melhor estratégia para governar o ciclo de vida de identidades em vários sistemas. O Azure AD dá suporte ao [provisionamento automatizado e baseado em políticas e](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) ao desprovisionamento de contas de usuário para uma variedade de aplicativos SaaS populares, como ServiceNow e Salesforce, e outros que implementam o [protocolo scim 2,0](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Ao contrário das soluções de provisionamento tradicionais, que exigem código personalizado ou carregamento manual de arquivos CSV, o serviço de provisionamento é hospedado na nuvem e apresenta conectores previamente integrados que podem ser configurados e gerenciados usando o portal do Azure. Um dos principais benefícios do desprovisionamento automático é que ele ajuda a proteger sua organização removendo instantaneamente as identidades dos usuários dos principais aplicativos SaaS quando eles deixam a organização.
+A habilitação do provisionamento e desprovisionamento automatizados para seus aplicativos é a melhor estratégia para governar o ciclo de vida de identidades em vários sistemas. O Azure AD dá suporte ao [provisionamento automatizado e baseado em políticas e ao desprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) de contas de usuário para uma variedade de aplicativos SaaS populares, como ServiceNow e Salesforce, e outros que implementam o [protocolo scim 2,0](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups). Ao contrário das soluções de provisionamento tradicionais, que exigem código personalizado ou carregamento manual de arquivos CSV, o serviço de provisionamento é hospedado na nuvem e apresenta conectores previamente integrados que podem ser configurados e gerenciados usando o portal do Azure. Um dos principais benefícios do desprovisionamento automático é que ele ajuda a proteger sua organização removendo instantaneamente as identidades dos usuários dos principais aplicativos SaaS quando eles deixam a organização.
 
-Para saber mais sobre o provisionamento automático de conta de usuário e como ela funciona, confira automatizar o [provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Para saber mais sobre o provisionamento automático de conta de usuário e como ela funciona, confira [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
 
 ## <a name="step-3---empower-your-users-securely"></a>Etapa 3: Capacite seus usuários com segurança
 
@@ -133,7 +133,7 @@ Esta seção lista as recomendações para remover o conflito de sua organizaç�
 
 ### <a name="enable-self-service-password-reset-for-all-users"></a>Habilitar a redefinição de senha de autoatendimento para todos os usuários
 
-A SSPR (redefinição de [senha](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) de autoatendimento) do Azure oferece um meio simples para os administradores de ti permitirem que os usuários redefinam e desbloqueiem suas senhas ou contas sem intervenção do administrador. O sistema inclui relatórios detalhados que controlam quando os utilizadores acedem ao sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
+A SSPR ( [redefinição de senha de autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) ) do Azure oferece um meio simples para os administradores de ti permitirem que os usuários redefinam e desbloqueiem suas senhas ou contas sem intervenção do administrador. O sistema inclui relatórios detalhados que controlam quando os utilizadores acedem ao sistema, juntamente com notificações para o alertar quanto a utilizações indevidas ou abusos.
 
 Por padrão, o Azure AD desbloqueia as contas quando ele executa uma redefinição de senha. No entanto, ao habilitar [a integração de Azure ad Connect local](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks#on-premises-integration), você também tem a opção de separar essas duas operações, o que permite que os usuários desbloqueiem sua conta sem precisar redefinir a senha.
 
@@ -143,11 +143,11 @@ O Azure fornece relatórios que podem ser usados por você e sua organização p
 
 O [relatório de entradas](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) de MFA inclui informações sobre o uso de MFA e fornece uma visão sobre como a MFA está funcionando em sua organização. Ter acesso à atividade de entrada (e auditorias e detecções de riscos) para o Azure AD é crucial para solução de problemas, análise de uso e investigações forenses.
 
-Da mesma forma, o [relatório de gerenciamento de senhas](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) de autoatendimento pode ser usado para determinar quem tem (ou não) registrado para SSPR.
+Da mesma forma, o [relatório de gerenciamento de senhas de autoatendimento](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) pode ser usado para determinar quem tem (ou não) registrado para SSPR.
 
 ### <a name="self-service-app-management"></a>Gerenciamento de aplicativo de autoatendimento
 
-Antes que os usuários possam detectar aplicativos automaticamente no painel de acesso, você precisa habilitar o [acesso de aplicativo](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) de autoatendimento a todos os aplicativos que você deseja permitir que os usuários autodescubram e solicitem acesso ao. O acesso ao aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários autodescubram aplicativos e, opcionalmente, permitem que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para [aplicativos de logon único com senha](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) diretamente em seus painéis de acesso.
+Antes que os usuários possam detectar aplicativos automaticamente no painel de acesso, você precisa habilitar o [acesso de aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-manage-self-service-access) a todos os aplicativos que você deseja permitir que os usuários autodescubram e solicitem acesso ao. O acesso ao aplicativo de autoatendimento é uma ótima maneira de permitir que os usuários autodescubram aplicativos e, opcionalmente, permitem que o grupo de negócios aprove o acesso a esses aplicativos. Você pode permitir que o grupo de negócios gerencie as credenciais atribuídas a esses usuários para [aplicativos de logon único com senha](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-password-sso-gallery#configure-password-sso-for-an-azure-ad-gallery-app) diretamente em seus painéis de acesso.
 
 ### <a name="self-service-group-management"></a>Gestão de grupos self-service
 
@@ -156,7 +156,7 @@ A atribuição de usuários a aplicativos é melhor mapeada ao usar grupos, pois
 * Baseado em atributo usando a associação dinâmica de grupo
 * Delegação aos proprietários do aplicativo
 
-O Azure AD fornece a capacidade de gerenciar o acesso a recursos usando grupos de segurança e grupos do Office 365. Esses grupos podem ser gerenciados por um proprietário de grupo que pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Conhecido como [Gerenciamento de grupo](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)de autoatendimento, esse recurso poupa tempo, permitindo que os proprietários de grupos que não são atribuídos a uma função administrativa criem e gerenciem grupos sem precisar contar com os administradores para lidar com suas solicitações.
+O Azure AD fornece a capacidade de gerenciar o acesso a recursos usando grupos de segurança e grupos do Office 365. Esses grupos podem ser gerenciados por um proprietário de grupo que pode aprovar ou negar solicitações de associação e delegar o controle de associação de grupo. Conhecido como [Gerenciamento de grupo de autoatendimento](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management), esse recurso poupa tempo, permitindo que os proprietários de grupos que não são atribuídos a uma função administrativa criem e gerenciem grupos sem precisar contar com os administradores para lidar com suas solicitações.
 
 ## <a name="step-4---operationalize-your-insights"></a>Etapa 4-colocar suas ideias em operação
 
@@ -186,7 +186,7 @@ Para saber mais, acesse [monitorar AD FS usando Azure ad Connect Health](https:/
 
 O [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/overview) é um portal de monitoramento unificado para todos os logs do Azure AD, que fornece informações aprofundadas, análises avançadas e aprendizado inteligente de máquina. Com o Azure Monitor, você pode consumir logs e métricas no portal e via APIs para obter mais visibilidade sobre o estado e o desempenho de seus recursos. Ele permite um único painel de experiência de vidro no portal, permitindo, ao mesmo tempo, uma ampla gama de integrações de produtos por meio de APIs e opções de exportação de dados que dão suporte a sistemas SIEM de terceiros tradicionais. Azure Monitor também oferece a capacidade de configurar regras de alerta para ser notificado ou tomar ações automatizadas sobre problemas que afetam seus recursos.
 
-![Azure Monitor](./media/four-steps/image1.png)
+![Monitor do Azure](./media/four-steps/image1.png)
 
 ### <a name="create-custom-dashboards-for-your-leadership-and-your-day-to-day"></a>Crie painéis personalizados para sua liderança e seu dia a dia
 
@@ -227,7 +227,7 @@ Esperamos que este documento seja um roteiro útil para estabelecer uma base de 
 
 Recomendamos que você imprima a seguinte lista de verificação para referência ao começar sua jornada para uma base de identidade mais sólida em sua organização.
 
-### <a name="today"></a>Hoje
+### <a name="today"></a>Momento
 
 |Feito?|Item|
 |:-|:-|
@@ -247,7 +247,7 @@ Recomendamos que você imprima a seguinte lista de verificação para referênci
 ||Iniciar a migração de aplicativos do ADFS para o Azure AD|
 ||Crie painéis personalizados para sua liderança e seu dia a dia|
 
-### <a name="next-month"></a>Mês seguinte
+### <a name="next-month"></a>Próximo mês
 
 |Feito?|Item|
 |:-|:-|
@@ -265,7 +265,7 @@ Recomendamos que você imprima a seguinte lista de verificação para referênci
 ||Monitorar o uso de aplicativos para orientar o insights|
 ||Entenda seus drivers de chamada de suporte|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como você pode aumentar sua postura segura usando os recursos de Azure Active Directory e esta lista de verificação de cinco [etapas – cinco passos para proteger sua infraestrutura de identidade](https://aka.ms/securitysteps).
 

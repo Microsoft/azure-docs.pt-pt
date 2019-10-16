@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129141"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330850"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas em seu ambiente de Time Series Insights
 
@@ -34,17 +34,17 @@ Nenhum dado no [Azure Time Series insights Explorer](https://insights.timeseries
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Causa: os dados de origem do evento não estão no formato JSON
 
-Azure Time Series Insights dá suporte apenas a dados JSON. Para exemplos de JSON, veja [formas JSON suportadas](./how-to-shape-query-json.md).
+Azure Time Series Insights dá suporte apenas a dados JSON. Para obter exemplos de JSON, consulte [formas de JSON com suporte](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Causa B: a chave de origem do evento não tem uma permissão necessária
 
 * Para um hub IoT no Hub IoT do Azure, você deve fornecer a chave que tem permissões de **conexão de serviço** . Uma das **iothubowner** ou políticas de **serviço** funcionarão, pois ambas têm permissões de **conexão de serviço** .
 
-   [![Permissões de conexão do serviço do Hub IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [@no__t-permissões de conexão do serviço de Hub do 1IoT](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * Para um hub de eventos nos hubs de eventos do Azure, você deve fornecer a chave que tem permissões de **escuta** . Qualquer uma das políticas de **leitura** ou de **Gerenciamento** funcionará porque ambas têm permissões de **escuta** .
 
-   [![Permissões de escuta do hub de eventos](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [permissões de escuta do Hub @no__t 1Event](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Causa C: o grupo de consumidores fornecido não é exclusivo para Time Series Insights
 
@@ -69,7 +69,7 @@ O limite de limitação é imposto com base na capacidade e no tipo de SKU do am
 
 A figura a seguir mostra um ambiente Time Series Insights que tem uma SKU de S1 e uma capacidade de 3. Ele pode ingressar 3 milhões eventos por dia.
 
-[![Capacidade atual do SKU do ambiente](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[capacidade atual de SKU de @no__t 1Environment](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Como exemplo, suponha que um ambiente ingere mensagens de um hub de eventos. A taxa de entrada diária é de ~ 67.000 mensagens. Essa taxa se traduz em aproximadamente 46 mensagens a cada minuto. 
 
@@ -109,12 +109,12 @@ O primeiro cabeçalho de coluna deve ser seu nome de propriedade de carimbo de d
 
 Você não deve ver os seguintes valores:
 
-- *(abc)* : Indica que Time Series Insights está lendo os valores de dados como cadeias de caracteres.
-- *Ícone do calendário*: Indica que Time Series Insights está lendo o valor de dados como *DateTime*.
-- *#* : Indica que Time Series Insights está lendo os valores de dados como um número inteiro.
+- *(ABC)* : indica que Time Series insights está lendo os valores de dados como cadeias de caracteres.
+- *Ícone de calendário*: indica que Time Series insights está lendo o valor de dados como *DateTime*.
+- *#* : indica que Time Series insights está lendo os valores de dados como um número inteiro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Para obter ajuda, inicie uma conversa no [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+- Leia sobre [como mitigar a latência no Azure Time Series insights](time-series-insights-environment-mitigate-latency.md).
 
-- Para opções de suporte assistido, use o [suporte do Azure](https://azure.microsoft.com/support/options/).
+- Saiba [como dimensionar seu ambiente de time Series insights](time-series-insights-how-to-scale-your-environment.md).

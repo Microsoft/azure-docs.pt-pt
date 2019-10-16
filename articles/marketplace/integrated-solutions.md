@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70993631"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Soluções integradas no Azure Marketplace e AppSource
@@ -20,15 +20,15 @@ Uma solução integrada reúne as melhores tecnologias dos parceiros da Microsof
 
 Essas soluções são criadas para lidar com uma necessidade ou um cenário específico do cliente, que começa com uma compreensão do desafio ou dos pontos problemáticos do setor. Duas ou mais das melhores tecnologias são então integradas por um SI para criar uma experiência de implantação unificada e reproduzível para os clientes, para colocá-las em funcionamento rapidamente. O integrador de sistemas também fornece um único ponto de contato para o cliente, fornecendo personalização e consultoria relevantes e suporte em toda a solução.  O resultado é uma solução integrada, incluindo tecnologia e serviços.
 
-## <a name="advantages"></a>Vantagens
+## <a name="advantages"></a>Principais
 
 As vantagens de uma abordagem integrada são:
 
-* *Experiência do setor*: Integradores de sistemas que fornecem soluções e conhecimento específicos do setor
-* *Tempo de implantação*: Abordagem de implantação integrada para ajudá-lo a obter benefícios imediatos
-* *Melhores soluções*: Descubra a facilidade de uma experiência de compra e de implementação integrada
+* *Experiência do setor*: integradores de sistemas fornecendo conhecimento e soluções específicas do setor
+* *Tempo de*retorno: abordagem de implantação integrada para ajudá-lo a obter benefícios imediatos
+* *Melhores soluções*: Descubra a facilidade de uma experiência integrada de compra e de implementação
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Você pode descobrir soluções integradas e conectar-se com esses parceiros importantes visitando suas listagens aqui:
 

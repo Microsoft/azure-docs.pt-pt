@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 70da3a518746d1989e8807cee9bc7c87cc634c27
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: b08c7d1b91f89aba4c9cb8a23bb5c688521cb37e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873289"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372776"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica com um modelo do Resource Manager
 
@@ -22,7 +22,7 @@ ms.locfileid: "70873289"
 Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para configurar [alertas de métrica mais recentes](../../azure-monitor/platform/alerts-metric-near-real-time.md) no Azure monitor. Os modelos do Resource Manager permitem configurar alertas de forma programática de maneira consistente e reproduzível em seus ambientes. Os alertas de métrica mais recentes estão disponíveis atualmente neste [conjunto de tipos de recursos](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Modelo de recurso para criar alertas de métrica para o tipo de recurso: O espaço de trabalho log Analytics do Azure `Microsoft.OperationalInsights/workspaces`(ou seja,) requer etapas adicionais. Para obter detalhes, consulte o artigo sobre o [alerta de métrica para o modelo de recurso de logs](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Modelo de recurso para criar alertas de métrica para o tipo de recurso: o espaço de trabalho do Azure Log Analytics (ou seja,) `Microsoft.OperationalInsights/workspaces`, requer etapas adicionais. Para obter detalhes, consulte o artigo sobre o [alerta de métrica para o modelo de recurso de logs](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 As etapas básicas são as seguintes:
 
@@ -32,7 +32,7 @@ As etapas básicas são as seguintes:
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Modelo para um alerta de métrica de limite estático simples
 
-Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do `Microsoft.Insights/metricAlerts` tipo e preenche todas as propriedades relacionadas. Veja abaixo um modelo de exemplo que cria uma regra de alerta de métrica.
+Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do tipo `Microsoft.Insights/metricAlerts` e preenche todas as propriedades relacionadas. Veja abaixo um modelo de exemplo que cria uma regra de alerta de métrica.
 
 Salve o JSON abaixo como simplestaticmetricalert. JSON para fins deste passo a passos.
 
@@ -281,7 +281,7 @@ az group deployment create \
 
 ## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Modelo para um alerta de métrica de limites dinâmicos simples
 
-Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do `Microsoft.Insights/metricAlerts` tipo e preenche todas as propriedades relacionadas. Veja abaixo um modelo de exemplo que cria uma regra de alerta de métrica.
+Para criar um alerta usando um modelo do Resource Manager, você cria um recurso do tipo `Microsoft.Insights/metricAlerts` e preenche todas as propriedades relacionadas. Veja abaixo um modelo de exemplo que cria uma regra de alerta de métrica.
 
 Salve o JSON abaixo como simpledynamicmetricalert. JSON para fins deste passo a passos.
 
@@ -2480,7 +2480,7 @@ Salve o JSON abaixo como lista de VMs-static. JSON para fins deste passo a passo
                 "PT5M",
                 "PT15M",
                 "PT30M",
-                "PT1H""
+                "PT1H"
             ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"

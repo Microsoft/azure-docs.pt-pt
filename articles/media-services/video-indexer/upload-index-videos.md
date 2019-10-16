@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128206"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372383"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -29,14 +29,15 @@ O artigo mostra como utilizar a API [Carregar vídeo](https://api-portal.videoin
 
 Após o carregamento do vídeo, Video Indexer, opcionalmente, codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção pago, você cria uma conta de Video Indexer que está [conectada à sua assinatura do Azure e uma conta dos serviços de mídia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
 
-## <a name="uploading-considerations"></a>Considerações de carregamento
+## <a name="uploading-considerations-and-limitations"></a>Considerações sobre o carregamento e limitações
  
+- Um nome do vídeo não deve ter mais de 80 caracteres.
 - Ao carregar o vídeo com base na URL (preferencial), o ponto de extremidade deve ser protegido com o TLS 1,2 (ou superior).
 - O tamanho do carregamento com a opção de URL é limitado a 30 GB.
 - O comprimento da URL de solicitação é limitado a 6144 caracteres em que o comprimento da URL da cadeia de caracteres de consulta é limitado a 4096 caracteres.
 - O tamanho do carregamento com a opção de matriz de bytes é limitado a 2GB.
 - A opção de matriz de bytes atinge o tempo limite após 30 min.
-- A URL fornecida no `videoURL` parâmetro precisa ser codificada.
+- A URL fornecida no parâmetro `videoURL` precisa ser codificada.
 - A indexação de ativos de serviços de mídia tem a mesma limitação de indexação da URL.
 - Video Indexer tem um limite de duração máximo de 4 horas para um único arquivo.
 
@@ -60,22 +61,22 @@ Uma URL que é usada para notificar o cliente (usando uma solicitação POST) so
 - Alteração de estado de indexação: 
     - Properties    
     
-        |Name|Descrição|
+        |Nome|Descrição|
         |---|---|
-        |id|A ID do vídeo|
+        |ID|A ID do vídeo|
         |state|O estado do vídeo|  
-    - Exemplo: https:\//Test.com/Notifyme?projectName=MyProject&ID=1234abcd&State=Processed
+    - Exemplo: https: \//Test. com/Notifyme? projectName = MyProject & ID = 1234abcd & estado = processado
 - Pessoa identificada em vídeo:
-  - properties
+  - Propriedades
     
-      |Name|Descrição|
+      |Nome|Descrição|
       |---|---|
-      |id| A ID do vídeo|
+      |ID| A ID do vídeo|
       |faceId|A ID de face que aparece no índice de vídeo|
       |knownPersonId|A ID da pessoa que é exclusiva dentro de um modelo de face|
-      |personName|O nome da pessoa|
+      |PersonName|O nome da pessoa|
         
-    - Exemplo: https:\//Test.com/Notifyme?projectName=MyProject&ID=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exemplo: https: \//Test. com/Notifyme? projectName = MyProject & ID = 1234abcd & faceid = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & PersonName = Inigo_Montoya 
 
 #### <a name="notes"></a>Notas
 
@@ -92,9 +93,9 @@ Utilize este parâmetro se as gravações não processadas ou externas contivere
 
 O preço varia consoante a opção de indexação selecionada.  
 
-### <a name="priority"></a>priority
+### <a name="priority"></a>prioridade
 
-Os vídeos são indexados por Video Indexer de acordo com sua prioridade. Use o parâmetro **Priority** para especificar a prioridade do índice. Os seguintes valores são válidos: **Baixa**, **normal** (padrão) e **alta**.
+Os vídeos são indexados por Video Indexer de acordo com sua prioridade. Use o parâmetro **Priority** para especificar a prioridade do índice. Os valores a seguir são válidos: **baixo**, **normal** (padrão) e **alto**.
 
 O parâmetro **Priority** só tem suporte para contas pagas.
 
@@ -289,6 +290,6 @@ Os códigos de estado indicados na tabela seguinte podem ser devolvidos pela ope
 |400|VIDEO_ALREADY_IN_PROGRESS|O mesmo vídeo já está a ser processado na conta específica.|
 |400|VIDEO_ALREADY_FAILED|Falha ao processar o mesmo vídeo na conta específica há menos de 2 horas. Os clientes da API devem aguardar pelo menos 2 horas antes de voltarem a carregar um vídeo.|
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Examinar a saída do Video Indexer do Azure produzida pela API](video-indexer-output-json-v2.md)

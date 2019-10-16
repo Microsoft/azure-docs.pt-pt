@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950017"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372606"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Entender os modelos de objeto gêmeos digital e o grafo de inteligência espacial
 
@@ -78,14 +78,14 @@ Depois de implantar o gêmeos digital do [portal do Azure](https://portal.azure.
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | Substituir |
+| Nome | Substituir |
 | --- | --- |
-| YOUR_INSTANCE_NAME | O nome da sua instância de duplos Digital |
-| YOUR_LOCATION | Qual sua instância estiver alojada num servidor a região |
+| YOUR_INSTANCE_NAME | O nome da sua instância de gêmeos digital |
+| YOUR_LOCATION | Em qual região do servidor sua instância está hospedada |
 
  O formato da URL completa aparece nessa imagem.
 
-(![API de gerenciamento do digital gêmeos Portal](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (Media/Concepts/digital-Twins-Spatial-Graph-Management-API-URL. png # Lightbox)
+[API de gerenciamento do portal de gêmeos @no__t 1Digital](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Para obter mais detalhes sobre como usar grafos de inteligência espacial, visite a versão prévia de APIs de gerenciamento de gêmeos digital do Azure.
 

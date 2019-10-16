@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 11fda31cd06db67e0a11a68a02da8b91a77e04e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c44006b20f4c0ef186f406e554ff555cda0c1dd8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729220"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373393"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -67,7 +67,7 @@ Para ajudar a determinar qual opção de integração usar para seu aplicativo, 
 | Recursos habilitados ou aprimorados pelo provisionamento automático| Serviço de provisionamento do Azure AD (SCIM 2,0)| API de Microsoft Graph (OData v 4.0)| JIT DO SAML |
 |---|---|---|---|
 | Gerenciamento de usuários e grupos no Azure AD| √| √| Somente usuário |
-| Gerenciar usuários e grupos sincronizados do Active Directory local| √*| √*| Somente usuário * |
+| Gerenciar usuários e grupos sincronizados do Active Directory local| √| √| Somente usuário * |
 | Acessar dados além de usuários e grupos durante o provisionamento de acesso a dados do O365 (equipes, SharePoint, email, calendário, documentos etc.)| X +| √| X |
 | Criar, ler e atualizar usuários com base em regras de negócio| √| √| √ |
 | Excluir usuários com base em regras de negócio| √| √| X |
@@ -76,20 +76,20 @@ Para ajudar a determinar qual opção de integração usar para seu aplicativo, 
 | Suporte para contas de convidado (B2B)| √| √| √ |
 | Suporte a contas não empresariais (B2C)| X| √| √ |
 
-<sup>*</sup>– Azure AD Connect configuração é necessária para sincronizar usuários do AD para o Azure AD.  
-<sup>+</sup >– Usar o SCIM para provisionamento não impede que você faça a integração do seu aplicativo com o MIcrosoft Graph para outras finalidades.
+<sup>*</sup> – Azure ad Connect configuração é necessária para sincronizar usuários do AD para o Azure AD.  
+<sup>+</sup >– usar o scim para provisionamento não impede que você faça a integração do seu aplicativo com o Microsoft Graph para outros fins.
 
-## <a name="azure-ad-provisioning-service"></a>Serviço de provisionamento do Azure AD
+## <a name="azure-ad-provisioning-service-scim"></a>Serviço de provisionamento do AD do Azure (SCIM)
 
-Os serviços de provisionamento do Azure AD usam o SCIM, um protocolo com suporte de vários provedores de identidade (IdPs). Recomendamos que você use o serviço de provisionamento do Azure AD se quiser dar suporte ao IdPs além do Azure AD, já que qualquer IdP compatível com SCIM pode se conectar ao seu ponto de extremidade SCIM.
+Os serviços de provisionamento do Azure AD usam o [SCIM] (https://aka.ms/SCIMOverview, um protocolo com suporte de vários provedores de identidade (IdPs). Recomendamos que você use o serviço de provisionamento do Azure AD se quiser dar suporte ao IdPs além do Azure AD, já que qualquer IdP compatível com SCIM pode se conectar ao seu ponto de extremidade SCIM.
 
 Para obter mais informações sobre como os usuários do serviço de provisionamento do Azure AD SCIMm, consulte: 
+
+* [Saiba mais sobre o SCIM Standard](https://aka.ms/SCIMOverview)
 
 * [Usando o sistema para o SCIM (gerenciamento de identidades entre domínios) para provisionar automaticamente usuários e grupos de Azure Active Directory para aplicativos](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Entender a implementação de SCIM do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
-
-* [Criar um ponto de extremidade SCIM usando bibliotecas da CLI da Microsoft](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph para provisionamento
 

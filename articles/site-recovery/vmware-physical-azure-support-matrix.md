@@ -9,7 +9,7 @@ ms.date: 10/15/2019
 ms.author: raynew
 ms.openlocfilehash: b09639583c6147c4825b3d80ded421b4dc0cbc72
 ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/15/2019
 ms.locfileid: "72372292"

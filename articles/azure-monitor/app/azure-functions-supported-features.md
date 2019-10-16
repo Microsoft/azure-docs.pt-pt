@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 46e7f5b5376622be9a05265942b6aceb38feebac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959887"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372445"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights para Azure Functions recursos com suporte
 
-O Azure Functions oferece [integração interna](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) com o Application insights, que está disponível por meio da interface ILogger. Abaixo está a lista de recursos com suporte no momento. Examine o guia Azure Functions ' para [começar](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+O Azure Functions oferece [integração interna](../../azure-functions/functions-monitoring.md) com o Application insights, que está disponível por meio da interface ILogger. Abaixo está a lista de recursos com suporte no momento. Examine o guia Azure Functions ' para [começar](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
 ## <a name="supported-features"></a>Funcionalidades suportadas
 
@@ -34,10 +34,10 @@ O Azure Functions oferece [integração interna](https://docs.microsoft.com/azur
 | Exceções &bull;                   | Sim             | Sim               | 
 | Contadores de desempenho &bull;         | Sim             | Sim               |
 | Dependências &bull;                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Sim               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 HTTP      |                 | Sim               | 
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 ServiceBus|                 | Sim               | 
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 EventHub  |                 | Sim               | 
-| &nbsp;&nbsp;&nbsp;&mdash; SQL       |                 | Sim               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 SQL       |                 | Sim               | 
 | | | | 
 | **Recursos com suporte**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Sim             | Sim               | 

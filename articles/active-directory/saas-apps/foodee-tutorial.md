@@ -1,11 +1,11 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Foodee | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Foodee.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o alimento | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o alimento.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 7e28bd4a-5624-4c67-aebb-0856d97e82c5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,144 +13,163 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/25/2019
+ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c09752c1aa9840ab8dcdc1faa69222de4529644d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16e7c7e676737df7e755aa4e602f8ceabd8a002f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102145"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373191"
 ---
-# <a name="tutorial-integrate-foodee-with-azure-active-directory"></a>Tutorial: Integrar Foodee com o Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-foodee"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o alimento
 
-Neste tutorial, irá aprender como integrar Foodee com o Azure Active Directory (Azure AD). Quando integrar Foodee com o Azure AD, pode:
+Neste tutorial, você aprenderá a integrar o alimento com o Azure Active Directory (Azure AD). Ao integrar o alimento ao Azure AD, você pode:
 
-* Controlar no Azure AD que tenha acesso ao Foodee.
-* Permita que os utilizadores ser automaticamente sessão iniciada para Foodee com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao alimento.
+* Habilite seus usuários a entrarem automaticamente no alimento com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter um [conta gratuita](https://azure.microsoft.com/free/).
-* Foodee início de sessão único (SSO) ativado na subscrição.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para logon único (SSO) do alimento.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste. Suporta Foodee **SP e IDP** iniciou o SSO e suporta **Just In Time** aprovisionamento de utilizadores.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-## <a name="adding-foodee-from-the-gallery"></a>Adicionando Foodee da Galeria
+* O alimento dá suporte a **SP** iniciado pelo
+* O alimento dá suporte ao provisionamento **de usuário just in time**
 
-Para configurar a integração do Foodee com o Azure AD, terá de adicionar Foodee a partir da Galeria à sua lista de aplicações de SaaS geridas.
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
+
+## <a name="adding-foodee-from-the-gallery"></a>Adicionando o alimento da Galeria
+
+Para configurar a integração do alimento ao Azure AD, você precisará adicionar o alimento da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **Foodee** na caixa de pesquisa.
-1. Selecione **Foodee** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **alimento** na caixa de pesquisa.
+1. Selecione **alimento** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on-for-foodee"></a>Configurar e testar o logon único do Azure AD para o alimento
 
-Configurar e testar o SSO do Azure AD com Foodee com um utilizador de teste **B. Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Foodee.
+Configure e teste o SSO do Azure AD com o alimento usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no alimento.
 
-Para configurar e testar o SSO do Azure AD com Foodee, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o alimento, conclua os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
-1. **[Configurar Foodee](#configure-foodee)**  para configurar as definições de SSO no lado do aplicativo.
-1. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com Simon B.
-1. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar a Simon B. utilizar o Azure AD início de sessão único.
-1. **[Criar utilizador de teste Foodee](#create-foodee-test-user)**  para ter um equivalente de Simon B. no Foodee que está ligado à representação de utilizador do Azure AD.
-1. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do alimento](#configure-foodee-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar um usuário de teste do alimento](#create-foodee-test-user)** -para ter um equivalente de B. Simon no alimento que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **Foodee** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **alimento** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, executar o passo seguinte:
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-    Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão:  `https://concierge.food.ee/sso/saml/<INSTANCENAME>/consume`
+    Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://concierge.food.ee/sso/saml/<INSTANCENAME>/consume`
 
-1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL com o seguinte padrão:  `https://concierge.food.ee/sso/saml/<INSTANCENAME>`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://concierge.food.ee/sso/saml/<INSTANCENAME>`
 
     > [!NOTE]
-    > Estes valores não são reais. Atualize estes valores com o URL de resposta e o URL de início de sessão real. Contacte [equipa de suporte de cliente Foodee](mailto:dev@food.ee) obter esses valores. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de resposta e a URL de logon reais. Contate a [equipe de suporte ao cliente do alimento](mailto:dev@food.ee) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **XML de metadados de Federação** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-   ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
-1. Sobre o **configurar Foodee** secção, copie o URL adequado com base nos seus requisitos.
+1. Na seção **Configurar o alimento** , copie as URLs apropriadas com base em seu requisito.
 
-   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-foodee"></a>Configurar Foodee
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-1. Numa janela do browser web diferente, inicie sessão no Foodee como um administrador.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-1. Clique em **logótipo de perfil** no canto superior direito da página, em seguida, navegue para **início de sessão único** e execute os seguintes passos:
-
-   ![Configuração de Foodee](./media/foodee-tutorial/config01.png)
-
-   1. Na **IDP nome** texto, escreva o nome, como por exemplo: Azure.
-   1. Abra o XML de metadados de Federação no bloco de notas, copie o seu conteúdo e cole-na **XML de METADADOS de IDP** caixa de texto.
-   1. Clique em **Guardar**.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado Simon B.
-
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
-   1. No campo **Nome**, introduza `B. Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `BrittaSimon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta secção, irá ativar a Simon B. utilizar o Azure início de sessão único ao conceder acesso para Foodee.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao alimento.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **Foodee**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **alimento**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B. Simon** a partir da lista de utilizadores, em seguida, clique no **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-foodee-test-user"></a>Criar utilizador de teste Foodee
+### <a name="configure-foodee-sso"></a>Configurar SSO do alimento
 
-Nesta secção, um usuário chamado Simon B. é criado na Foodee. Foodee suporta o aprovisionamento de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no Foodee, uma nova é criada quando tentar acessar Foodee.
+1. Para automatizar a configuração no alimento, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-### <a name="test-sso"></a>Teste SSO
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
 
-Ao selecionar o mosaico Foodee no painel de acesso, deve ser automaticamente sessão iniciada no Foodee para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+2. Depois de adicionar a extensão ao navegador, clique em **Configurar o alimento** , você será direcionado para o aplicativo do alimento. A partir daí, forneça as credenciais de administrador para entrar no alimento. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-4.
+
+    ![Configuração da instalação](common/setup-sso.png)
+
+3. Se você quiser configurar o alimento manualmente, abra uma nova janela do navegador da Web e entre no site da empresa do alimento como administrador e execute as seguintes etapas:
+
+4. Clique no **logotipo do perfil** no canto superior direito da página e, em seguida, navegue até **logon único** e execute as seguintes etapas:
+
+   ![Configuração do alimento](./media/foodee-tutorial/config01.png)
+
+   1. Na caixa de texto **nome do IDP** , digite o nome como ex: Azure.
+   1. Abra o XML de metadados de Federação no bloco de notas, copie seu conteúdo e cole-o na caixa de texto **XML de metadados IDP** .
+   1. Clique em **Guardar**.
+
+### <a name="create-foodee-test-user"></a>Criar usuário de teste do alimento
+
+Nesta seção, um usuário chamado B. Simon é criado no alimento. O alimento dá suporte ao provisionamento just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no alimento, um novo será criado quando você tentar acessar o alimento.
+
+## <a name="test-sso"></a>Testar SSO 
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
+
+Ao clicar no bloco do alimento no painel de acesso, você deverá ser conectado automaticamente ao alimento para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o alimento com o Azure AD](https://aad.portal.azure.com/)
+

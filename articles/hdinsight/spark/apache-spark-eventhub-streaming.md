@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Processar dados de hubs de eventos do Azure com Apache Spark no HDInsight'
+title: 'Tutorial: processar dados de hubs de eventos do Azure com Apache Spark no HDInsight'
 description: Tutorial-conectar Apache Spark no Azure HDInsight aos hubs de eventos do Azure e processar os dados de streaming.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
 ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71266202"
 ---
-# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: Processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
+# <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
 
 Neste tutorial, você aprenderá a criar um aplicativo de streaming [Apache Spark](https://spark.apache.org/) para enviar Tweets para um hub de eventos do Azure e criar outro aplicativo para ler os tweets do hub de eventos. Para obter uma explicação detalhada do streaming do Spark, confira [Apache Spark visão geral do streaming](https://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). O HDInsight traz os mesmos recursos de streaming para um cluster Spark no Azure.
 
@@ -44,12 +44,12 @@ Para receber um fluxo de tweets, crie uma aplicação no Twitter. Siga as instru
 
 1. Forneça os seguintes valores:
 
-    |Propriedade |Value |
+    |Propriedade |Valor |
     |---|---|
-    |Name|Forneça o nome do aplicativo. O valor usado para este tutorial é **HDISparkStreamApp0423**. Esse nome deve ser um nome exclusivo.|
+    |Nome|Forneça o nome do aplicativo. O valor usado para este tutorial é **HDISparkStreamApp0423**. Esse nome deve ser um nome exclusivo.|
     |Descrição|Forneça uma breve descrição do aplicativo. O valor usado para este tutorial é **um aplicativo simples de streaming do HDInsight Spark**.|
-    |Web site|Forneça o site do aplicativo. Ele não precisa ser um site válido.  O valor usado para este tutorial é `http://www.contoso.com`.|
-    |Url de chamada de retorno|Você pode deixá-lo em branco.|
+    |Site|Forneça o site do aplicativo. Ele não precisa ser um site válido.  O valor usado para este tutorial é `http://www.contoso.com`.|
+    |URL de retorno de chamada|Você pode deixá-lo em branco.|
 
 1. Selecione **Sim, li e concordo com o contrato de desenvolvedor do Twitter**e, em seguida, selecione **criar seu aplicativo do Twitter**.
 
@@ -74,23 +74,23 @@ Você usa esse Hub de eventos para armazenar tweets.
 
 3. Em **Internet das coisas**, selecione **hubs de eventos**. 
 
-    ![Criar Hub de eventos para exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Criar Hub de eventos para exemplo de streaming do Spark")
+    ![Criar Hub de eventos para exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "criar Hub de eventos para exemplo de streaming do Spark")
 
 4. Selecione **+ Adicionar**.
 
 5. Insira os seguintes valores para o novo namespace de hubs de eventos:
 
-    |Propriedade |Value |
+    |Propriedade |Valor |
     |---|---|
-    |Name|Insira um nome para o Hub de eventos.  O valor usado para este tutorial é **myeventhubns20180403**.|
+    |Nome|Insira um nome para o Hub de eventos.  O valor usado para este tutorial é **myeventhubns20180403**.|
     |Escalão de preço|Selecione **padrão**.|
-    |Subscription|Selecione sua assinatura apropriada.|
-    |Resource group|Selecione um grupo de recursos existente na lista suspensa ou selecione **criar novo** para criar um novo grupo de recursos.|
-    |Location|Selecione o mesmo **local** que o cluster apache Spark no HDInsight para reduzir a latência e os custos.|
+    |Subscrição|Selecione sua assinatura apropriada.|
+    |Grupo de recursos|Selecione um grupo de recursos existente na lista suspensa ou selecione **criar novo** para criar um novo grupo de recursos.|
+    |Localização|Selecione o mesmo **local** que o cluster apache Spark no HDInsight para reduzir a latência e os custos.|
     |Habilitar o inflar automaticamente (opcional) |O inflar automaticamente dimensiona o número de unidades de produtividade atribuídas ao seu namespace de hubs de eventos quando o tráfego excede a capacidade das unidades de produtividade atribuídas a ela.  |
     |Unidades de taxa de transferência máximas de inflação automática (opcional)|Esse controle deslizante será exibido somente se você marcar **habilitar inflar automaticamente**.  |
 
-    ![Fornecer um nome do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornecer um nome do hub de eventos para o exemplo de streaming do Spark")
+    ![Fornecer um nome do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "fornecer um nome do hub de eventos para o exemplo de streaming do Spark")
 
 6. Selecione **criar** para criar o namespace.  A implantação será concluída em alguns minutos.
 
@@ -106,13 +106,13 @@ Crie um hub de eventos depois que o namespace dos hubs de eventos tiver sido imp
 1. Na página **namespace de hubs de eventos** , selecione **+ Hub de eventos**.  
 1. Insira os seguintes valores na página **criar Hub de eventos** :
 
-    - **Nome**: Dê um nome para o Hub de eventos. 
+    - **Nome**: dê um nome para seu hub de eventos. 
  
     - **Contagem de partições**: 10.  
 
     - **Retenção de mensagem**: 1.   
    
-      ![Fornecer detalhes do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Fornecer detalhes do hub de eventos para o exemplo de streaming do Spark")
+      ![Fornecer detalhes do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "fornecer detalhes do hub de eventos para o exemplo de streaming do Spark")
 
 1. Selecione **Criar**.  A implantação deve ser concluída em alguns segundos e você será retornado para a página de namespace de hubs de eventos.
 
@@ -120,7 +120,7 @@ Crie um hub de eventos depois que o namespace dos hubs de eventos tiver sido imp
 
 1. Selecione **RootManageSharedAccessKey**.
     
-     ![Definir políticas do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Definir políticas do hub de eventos para o exemplo de streaming do Spark")
+     ![Definir políticas do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "definir políticas do hub de eventos para o exemplo de streaming do Spark")
 
 1. Salve os valores da **chave primária** e da **chave primária da cadeia de conexão** para usar posteriormente no tutorial.
 
@@ -138,7 +138,7 @@ Crie um notebook Jupyter e nomeie-o **SendTweetsToEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. Edite o código a seguir `<Event hub name>`substituindo `<CONSUMER KEY>`, `<CONSUMER SECRET>` `<Event hub namespace connection string>`, `<ACCESS TOKEN>`,, `<TOKEN SECRET>` e pelos valores apropriados. Execute o código editado para enviar Tweets para o Hub de eventos:
+2. Edite o código a seguir substituindo `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` e `<TOKEN SECRET>` pelos valores apropriados. Execute o código editado para enviar Tweets para o Hub de eventos:
 
     ```scala
     import java.util._
@@ -220,7 +220,7 @@ Crie outro Notebook Jupyter e nomeie-o **ReadTweetsFromEventHub**.
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13"}}
     ```
 
-2. Edite o código abaixo substituindo `<Event hub name>`e `<Event hub namespace connection string>` pelos valores apropriados. Execute o código editado para ler tweets do seu hub de eventos:
+2. Edite o código a seguir substituindo `<Event hub name>` e `<Event hub namespace connection string>` pelos valores apropriados. Execute o código editado para ler tweets do seu hub de eventos:
 
     ```scala
     import org.apache.spark.eventhubs._
@@ -252,7 +252,7 @@ Com o HDInsight, seus dados são armazenados no armazenamento do Azure ou Azure 
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
-![Portal do Azure do HDInsight excluir cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
+![Portal do Azure do hdinsight excluir cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "excluir cluster hdinsight")
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, está a eliminar o cluster do Spark no HDInsight e a conta de armazenamento predefinida.
 

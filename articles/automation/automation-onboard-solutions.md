@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739637"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372822"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Carregar soluções de atualização e controlo de alterações para a Automatização do Azure
 
@@ -81,7 +81,7 @@ Agora que as soluções estão ativadas, pode adicionar uma VM do Azure para car
    ![Ativar a solução de atualização para a VM](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Se não esperar para outra solução concluir, quando ativar a solução seguinte, receberá uma mensagem que diz: *Instalação de outra solução está em curso nesta ou uma máquina virtual diferente. Assim que a instalação terminar, o botão Ativar será ativado e poderá pedir a instalação da solução nesta máquina virtual.*
+> Se você não aguardar a conclusão da outra solução, ao habilitar a próxima solução, você receberá uma mensagem informando: a *instalação de outra solução está em andamento nesta ou em uma máquina virtual diferente. Quando a instalação for concluída, o botão habilitar será habilitado e você poderá solicitar a instalação da solução nesta máquina virtual.*
 
 ## <a name="install-and-update-modules"></a>Instalar e atualizar módulos
 
@@ -131,7 +131,14 @@ Tem de ter carregado as soluções de controlo de alterações ou atualização 
 1. Selecione **OK** para iniciar a tarefa de runbook.
 1. Monitorize o progresso e os erros na página de tarefa de runbook.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Para remover uma VM do Gerenciamento de Atualizações:
+
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
+
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

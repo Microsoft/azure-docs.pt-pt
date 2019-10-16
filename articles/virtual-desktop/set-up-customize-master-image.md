@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710186"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330836"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Preparação e instalação de software
 
-Esta seção aborda como preparar e instalar o FSLogix, o Windows Defender e outros aplicativos comuns. 
+Esta seção aborda como preparar e instalar o FSLogix e o Windows Defender, bem como algumas opções de configuração básicas para aplicativos e o registro da imagem. 
 
-Se você estiver instalando o Office 365 ProPlus e o OneDrive em sua VM, consulte [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md). Siga o link nas próximas etapas do artigo para retornar a este artigo e concluir o processo mestre VHD.
+Se você estiver instalando o Office 365 ProPlus e o OneDrive em sua VM, vá para [instalar o Office em uma imagem VHD mestre](install-office-on-wvd-master-image.md) e siga as instruções para instalar os aplicativos. Depois de terminar, retorne a este artigo.
 
 Se os usuários precisarem acessar determinados aplicativos LOB, recomendamos que você os instale depois de concluir as instruções desta seção.
+
+### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
+
+Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
+
+### <a name="configure-windows-defender"></a>Configurar o Windows Defender
+
+Se o Windows Defender estiver configurado na VM, verifique se ele está configurado para não verificar todo o conteúdo dos arquivos VHD e VHDX durante o anexo.
+
+Essa configuração remove apenas a verificação de arquivos VHD e VHDX durante o anexo, mas não afeta a verificação em tempo real.
+
+Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+
+Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="disable-automatic-updates"></a>Desabilitar Atualizações Automáticas
 
@@ -88,20 +102,6 @@ Execute este comando para especificar um layout inicial para PCs com Windows 10.
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>Configurar o contêiner de perfil de usuário (FSLogix)
-
-Para incluir o contêiner FSLogix como parte da imagem, siga as instruções em [criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Você pode testar a funcionalidade do contêiner FSLogix com este guia de [início rápido](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial).
-
-### <a name="configure-windows-defender"></a>Configurar o Windows Defender
-
-Se o Windows Defender estiver configurado na VM, verifique se ele está configurado para não verificar todo o conteúdo dos arquivos VHD e VHDX durante o anexo.
-
-Essa configuração remove apenas a verificação de arquivos VHD e VHDX durante o anexo, mas não afeta a verificação em tempo real.
-
-Para obter instruções mais detalhadas sobre como configurar o Windows Defender no Windows Server, consulte [configurar exclusões do Windows Defender antivírus no Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
-
-Para saber mais sobre como configurar o Windows Defender para excluir determinados arquivos da verificação, consulte [configurar e validar exclusões com base na extensão do arquivo e no local da pasta](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="configure-session-timeout-policies"></a>Configurar políticas de tempo limite de sessão
 
@@ -225,7 +225,7 @@ As instruções a seguir lhe dirão como carregar sua imagem mestra em uma conta
 Agora que você tem uma imagem, você pode criar ou atualizar pools de hosts. Para saber mais sobre como criar e atualizar pools de hosts, consulte os seguintes artigos:
 
 - [Criar um pool de hosts com um modelo de Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutorial: Criar um pool de hosts com o Azure Marketplace @ no__t-0
+- [Tutorial: criar um pool de hosts com o Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Criar um pool de hosts com o PowerShell](create-host-pools-powershell.md)
 - [Criar um contêiner de perfil para um pool de hosts usando um compartilhamento de arquivos](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga de área de trabalho virtual do Windows](configure-host-pool-load-balancing.md)
