@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 4571b0e1a2c9207ce913901f11157f5155201393
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100043"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428070"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -38,7 +38,7 @@ ms.locfileid: "70100043"
 [sles-pacemaker]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker
 [sap-instfind]:https://help.sap.com/viewer/9e41ead9f54e44c1ae1a1094b0f80712/ALL/en-US/576f5c1808de4d1abecbd6e503c9ba42.html
 [nfs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs
-[sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
+[sles-ha-guide]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP4/
 [ascs-ha]:https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse
 
 [dbms-guide]:dbms-guide.md
@@ -62,31 +62,31 @@ Antes de iniciar uma instalação, consulte as seguintes notas e documentação 
 
 | Nota SAP | Descrição |
 | --- | --- |
-| [1928533] | Aplicativos SAP no Azure: Produtos com suporte e tipos de VM do Azure |
-| [2015553] | SAP no Azure: Pré-requisitos de suporte |
+| [1928533] | Aplicativos SAP no Azure: produtos com suporte e tipos de VM do Azure |
+| [2015553] | SAP no Azure: pré-requisitos de suporte |
 | [2178632] | Principais métricas de monitoramento para SAP no Azure |
-| [2191498] | SAP no Linux com o Azure: Monitoramento avançado |
-| [2243692] | VM do Linux no Azure (IaaS): Problemas de licença do SAP |
-| [1984787] | SUSE LINUX Enterprise Server 12: Notas de instalação |
+| [2191498] | SAP no Linux com o Azure: monitoramento avançado |
+| [2243692] | VM do Linux no Azure (IaaS): problemas de licença do SAP |
+| [1984787] | SUSE LINUX Enterprise Server 12: notas de instalação |
 | [1999351] | Solução de problemas de monitoramento aprimorado do Azure para SAP |
-| [2233094] | DB6: Aplicativos SAP no Azure que usam IBM DB2 para Linux, UNIX e Windows-informações adicionais |
-| [1612105] | DB6: Perguntas frequentes sobre DB2 com HADR |
+| [2233094] | DB6: aplicativos SAP no Azure que usam IBM DB2 para Linux, UNIX e Windows-informações adicionais |
+| [1612105] | DB6: perguntas frequentes sobre DB2 com HADR |
 
 
 | Documentação | 
 | --- |
-| [Wiki da Comunidade SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Tem todas as notas SAP necessárias para o Linux |
+| [Wiki da Comunidade SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): tem todas as notas SAP necessárias para o Linux |
 | [Planejamento e implementação de máquinas virtuais do Azure para SAP no][planning-guide] guia do Linux |
 | [Implantação de máquinas virtuais do Azure para SAP no Linux][deployment-guide] (este artigo) |
 | [Implantação do sistema de gerenciamento de banco de dados (DBMS) de máquinas virtuais do Azure para SAP no Linux][dbms-guide] |
 | [Lista de verificação de carga de trabalho do SAP no planejamento e implantação do Azure][azr-sap-plancheck] |
-| [Guias de práticas recomendadas do SUSE Linux Enterprise Server para aplicativos SAP 12 SP3][sles-for-sap-bp] |
-| [Extensão de alta disponibilidade do SUSE Linux Enterprise 12 SP3][sles-ha-guide] |
+| [Guias de práticas recomendadas do SUSE Linux Enterprise Server para aplicativos SAP 12 SP4][sles-for-sap-bp] |
+| [Extensão de alta disponibilidade do SUSE Linux Enterprise 12 SP4][sles-ha-guide] |
 | [Implantação de DBMS de máquinas virtuais do Azure do IBM DB2 para carga de trabalho do SAP][dbms-db2] |
 | [IBM DB2 HADR 11,1][db2-hadr-11.1] |
 | [IBM DB2 HADR R 10,5][db2-hadr-10.5] |
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Para obter alta disponibilidade, o IBM DB2 LUW com HADR é instalado em pelo menos duas máquinas virtuais do Azure, que são implantadas em um [conjunto de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) ou entre [zonas de disponibilidade do Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones). 
 
 Os gráficos a seguir exibem uma configuração de duas VMs do Azure do servidor de banco de dados. Ambas as VMs do Azure do servidor de banco de dados têm seu próprio armazenamento anexado e estão em execução. No HADR, uma instância de banco de dados em uma das VMs do Azure tem a função da instância primária. Todos os clientes estão conectados a esta instância primária. Todas as alterações nas transações de banco de dados são mantidas localmente no log de transações do DB2. Como os registros de log de transações são persistidos localmente, os registros são transferidos via TCP/IP para a instância do banco de dados no segundo servidor de banco de dados, no servidor em espera ou na instância em espera. A instância em espera atualiza o banco de dados local rolando os registros de log de transações transferidos. Dessa forma, o servidor em espera é mantido em sincronia com o servidor primário.
@@ -95,7 +95,7 @@ O HADR é apenas uma funcionalidade de replicação. Ele não tem detecção de 
 
 ![Visão geral de alta disponibilidade do IBM DB2](./media/dbms-guide-ha-ibm/ha-db2-hadr-lb.png)
 
-Para que os servidores de aplicativos SAP se conectem ao banco de dados primário, você precisa de um nome de host virtual e de um endereço IP virtual. No caso de um failover, os servidores de aplicativos SAP se conectarão à nova instância de banco de dados primário. Em um ambiente do Azure, um balanceador de [carga do Azure](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) é necessário para usar um endereço IP virtual da maneira necessária para o HADR do IBM DB2. 
+Para que os servidores de aplicativos SAP se conectem ao banco de dados primário, você precisa de um nome de host virtual e de um endereço IP virtual. No caso de um failover, os servidores de aplicativos SAP se conectarão à nova instância de banco de dados primário. Em um ambiente do Azure, um [balanceador de carga do Azure](https://microsoft.sharepoint.com/teams/WAG/AzureNetworking/Wiki/Load%20Balancing.aspx) é necessário para usar um endereço IP virtual da maneira necessária para o HADR do IBM DB2. 
 
 Para ajudá-lo a entender totalmente como o IBM DB2 LUW com o HADR e o pacemaker se encaixa em uma configuração de sistema SAP altamente disponível, a imagem a seguir apresenta uma visão geral de uma configuração altamente disponível de um sistema SAP com base no banco de dados IBM DB2. Este artigo aborda apenas o IBM DB2, mas fornece referências a outros artigos sobre como configurar outros componentes de um sistema SAP.
 
@@ -131,10 +131,10 @@ Conclua o processo de planejamento antes de executar a implantação. O planejam
 | Definir grupos de recursos do Azure | Grupos de recursos em que você implanta VM, VNet, Azure Load Balancer e outros recursos. Pode ser existente ou novo. |
 | Definição de rede virtual/sub-rede | Onde as VMs para IBM DB2 e Azure Load Balancer estão sendo implantadas. Pode ser existente ou criado recentemente. |
 | Máquinas virtuais que hospedam o IBM DB2 LUW | Tamanho da VM, armazenamento, rede, endereço IP. |
-| Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **db-virt-hostname**, **db-virt-ip**. |
+| Nome de host virtual e IP virtual para banco de dados IBM DB2| O IP virtual ou o nome do host que é usado para conexão de servidores de aplicativos SAP. **DB-virt-hostname**, **DB-virt-IP**. |
 | Isolamento do Azure | Isolamento do Azure ou isolamento SBD (altamente recomendado). Método para evitar situações de divisão Brain. |
 | VM SBD | Tamanho da máquina virtual SBD, armazenamento, rede. |
-| Balanceador de Carga do Azure | Uso de básico ou padrão (recomendado), porta de investigação para banco de dados DB2 (nossa recomendação 62500) **porta-investigação**. |
+| Azure Load Balancer | Uso de básico ou padrão (recomendado), porta de investigação para banco de dados DB2 (nossa recomendação 62500) **porta-investigação**. |
 | Resolução de nomes| Como a resolução de nomes funciona no ambiente. O serviço DNS é altamente recomendado. O arquivo de hosts local pode ser usado. |
     
 Para obter mais informações sobre o pacemaker do Linux no Azure, consulte [Configurar o pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker).
@@ -143,13 +143,13 @@ Para obter mais informações sobre o pacemaker do Linux no Azure, consulte [Con
 
 O agente de recursos para IBM DB2 LUW está incluído em SUSE Linux Enterprise Server para aplicativos SAP. Para a configuração descrita neste documento, você deve usar o servidor SUSE Linux para aplicativos SAP. O Azure Marketplace contém uma imagem para o SUSE Enterprise Server para aplicativos SAP 12 que você pode usar para implantar novas máquinas virtuais do Azure. Lembre-se dos vários modelos de suporte ou de serviço que são oferecidos pelo SUSE por meio do Azure Marketplace quando você escolhe uma imagem de VM no Marketplace de VM do Azure. 
 
-### <a name="hosts-dns-updates"></a>Hospedar Atualizações de DNS
+### <a name="hosts-dns-updates"></a>Hosts: atualizações de DNS
 Faça uma lista de todos os nomes de host, incluindo nomes de host virtuais, e atualize seus servidores DNS para habilitar o endereço IP apropriado para a resolução de nome de host. Se um servidor DNS não existir ou se você não puder atualizar e criar entradas DNS, será necessário usar os arquivos de host locais das VMs individuais que participam desse cenário. Se você estiver usando entradas de arquivos de host, certifique-se de que as entradas sejam aplicadas a todas as VMs no ambiente do sistema SAP. No entanto, é recomendável que você use o DNS que, idealmente, se estenda para o Azure
 
 
 ### <a name="manual-deployment"></a>Implantação manual
 
-Verifique se o sistema operacional selecionado tem suporte do IBM/SAP para IBM DB2 LUW. A lista de versões de sistema operacional com suporte para VMs do Azure e versões do DB2 está disponível na observação do SAP [1928533]. A lista de versões do sistema operacional por versão individual do DB2 está disponível na matriz de disponibilidade do produto SAP. É altamente recomendável um mínimo de SLES 12 SP3 devido a melhorias de desempenho relacionadas ao Azure neste ou em versões posteriores do SUSE Linux.
+Verifique se o sistema operacional selecionado tem suporte do IBM/SAP para IBM DB2 LUW. A lista de versões de sistema operacional com suporte para VMs do Azure e versões do DB2 está disponível na observação do SAP [1928533]. A lista de versões do sistema operacional por versão individual do DB2 está disponível na matriz de disponibilidade do produto SAP. É altamente recomendável um mínimo de SLES 12 SP4 devido a melhorias de desempenho relacionadas ao Azure neste ou em versões posteriores do SUSE Linux.
 
 1. Crie ou selecione um grupo de recursos.
 1. Crie ou selecione uma rede virtual e uma sub-rede.
@@ -171,7 +171,7 @@ Para criar um cluster pacemaker básico para este servidor IBM DB2, consulte [C
 
 Antes de iniciar a instalação de um ambiente SAP baseado em IBM DB2 LUW, examine a seguinte documentação:
 
-+ Documentação Azure
++ Documentação do Azure
 + Documentação do SAP
 + Documentação da IBM
 
@@ -183,7 +183,7 @@ Você pode encontrar os guias no portal de ajuda do SAP usando o [localizador de
 
 Você pode reduzir o número de guias exibidos no portal definindo os seguintes filtros:
 
-- Eu quero: "Instalar um novo sistema"
+- Desejo: "instalar um novo sistema"
 - Meu banco de dados: "IBM DB2 para Linux, UNIX e Windows"
 - Filtros adicionais para versões do SAP NetWeaver, configuração de pilha ou sistema operacional
 
@@ -201,15 +201,15 @@ Para configurar a instância de banco de dados do IBM DB2 LUW principal:
 
 Para configurar o servidor de banco de dados em espera usando o procedimento de cópia do sistema SAP homogêneo, execute estas etapas:
 
-1. Selecione a opção de **cópia do sistema** > instância de**banco de dados** **distribuído** > de **sistemas** > de destino.
+1. Selecione a opção de **cópia do sistema** > **sistemas de destino** > **Distributed** > **instância do banco de dados**.
 1. Como um método de cópia, selecione **sistema homogêneo** para que você possa usar o backup para restaurar um backup na instância do servidor em espera.
 1. Quando você chegar à etapa sair para restaurar o banco de dados para a cópia homogênea do sistema, saia do instalador. Restaure o banco de dados de um backup do host primário. Todas as fases de instalação subsequentes já foram executadas no servidor de banco de dados primário.
 1. Configure o HADR para IBM DB2.
 
    > [!NOTE]
-   > Para instalação e configuração específicas do Azure e pacemaker: Durante o procedimento de instalação por meio do Gerenciador de provisionamento de software SAP, há uma pergunta explícita sobre a alta disponibilidade do IBM DB2 LUW:
+   > Para instalação e configuração específicas do Azure e pacemaker: durante o procedimento de instalação por meio do Gerenciador de provisionamento de software SAP, há uma pergunta explícita sobre a alta disponibilidade do IBM DB2 LUW:
    >+ Não selecione **IBM DB2 pureScale**.
-   >+ Não selecione **instalar IBM Tivoli System Automation para**multiplataformas.
+   >+ Não selecione **instalar IBM Tivoli System Automation para multiplataformas**.
    >+ Não selecione **gerar arquivos de configuração de cluster**.
 
    Ao usar um dispositivo SBD para Linux pacemaker, defina os seguintes parâmetros do DB2 HADR:
@@ -223,7 +223,7 @@ Para configurar o servidor de banco de dados em espera usando o procedimento de 
 Recomendamos os parâmetros anteriores com base no teste inicial de failover/tomada. É obrigatório que você teste a funcionalidade adequada de failover e tomada com essas configurações de parâmetro. Como as configurações individuais podem variar, os parâmetros podem exigir ajuste. 
 
 > [!IMPORTANT]
-> Específico do IBM DB2 com a configuração HADR com inicialização normal: A instância de banco de dados secundária ou em espera deve estar ativa e em execução antes que você possa iniciar a instância do banco de dados primário.
+> Específico do IBM DB2 com a configuração HADR com inicialização normal: a instância de banco de dados secundária ou em espera deve estar ativa e em execução antes que você possa iniciar a instância do banco de dados primário.
 
 Para fins de demonstração e os procedimentos descritos neste artigo, o SID do banco de dados é **PTR**.
 
@@ -336,13 +336,13 @@ Ao usar o pacemaker para failover automático no caso de uma falha de nó, você
 
 Os seguintes itens são prefixados com um:
 
-- **[A]** : Aplicável a todos os nós
-- **[1]** : Aplicável somente ao nó 1 
-- **[2]** : Aplicável somente ao nó 2
+- **[A]** : aplicável a todos os nós
+- **[1]** : aplicável somente ao nó 1 
+- **[2]** : aplicável somente ao nó 2
 
 **[A]** pré-requisitos para a configuração do pacemaker:
-1. Desligue os servidores de banco de dados com\<o SID do DB2 do usuário > com db2stop.
-1. Altere o ambiente do Shell para\<DB2 Sid > usuário para */bin/ksh*. Recomendamos que você use a ferramenta YaST. 
+1. Desligue os servidores de banco de dados com o usuário DB2 @ no__t-0sid > com db2stop.
+1. Altere o ambiente do Shell para DB2 @ no__t-0sid > usuário para */bin/ksh*. Recomendamos que você use a ferramenta YaST. 
 
 
 ### <a name="pacemaker-configuration"></a>Configuração do pacemaker
@@ -402,10 +402,10 @@ sudo crm configure property maintenance-mode=false</pre></code>
 
 # <a name="full-list-of-resources"></a>Lista completa de recursos:
 
-#  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-SBD (stonith: External/SBD): Azibmdb02 iniciado
+#  <a name="stonith-sbd----stonithexternalsbd-started-azibmdb02"></a>stonith-SBD (stonith: External/SBD): azibmdb02 iniciado
 #  <a name="resource-group-g_ip_db2ptr_ptr"></a>Grupo de recursos: g_ip_db2ptr_PTR
-#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: Heartbeat: IPaddr2):       Azibmdb02 iniciado
-#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: Heartbeat: qualquer coisa):      Azibmdb02 iniciado
+#      <a name="rsc_ip_db2ptr_ptr--ocfheartbeatipaddr2-------started-azibmdb02"></a>rsc_ip_db2ptr_PTR (OCF:: Heartbeat: IPaddr2): iniciado azibmdb02
+#      <a name="rsc_nc_db2ptr_ptr--ocfheartbeatanything------started-azibmdb02"></a>rsc_nc_db2ptr_PTR (OCF:: Heartbeat: qualquer coisa): iniciado azibmdb02
 #  <a name="masterslave-set-msl_db2_db2ptr_ptr-rsc_db2_db2ptr_ptr"></a>Conjunto mestre/escravo: msl_Db2_db2ptr_PTR [rsc_Db2_db2ptr_PTR]
 #      <a name="masters--azibmdb02-"></a>Mestres: [azibmdb02]
 #      <a name="slaves--azibmdb01-"></a>Servidores subordinados: [azibmdb01]
@@ -432,7 +432,7 @@ Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standa
 
 1. Criar um pool de back-ends:
 
-   a. No portal do Azure, abra o Azure Load Balancer, selecione pools de **back-end**e, em seguida, selecione **Adicionar**.
+   a. No portal do Azure, abra o Azure Load Balancer, selecione **pools de back-end**e, em seguida, selecione **Adicionar**.
 
    b. Insira o nome do novo pool de back-end (por exemplo, **DB2-backend**).
 
@@ -474,12 +474,12 @@ Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standa
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Fazer alterações nos perfis SAP para usar o IP virtual para conexão
 Para se conectar à instância primária da configuração do HADR, a camada do aplicativo SAP precisa usar o endereço IP virtual que você definiu e configurou para o Azure Load Balancer. As seguintes alterações são necessárias:
 
-/sapmnt/\<Sid >/Profile/default. PFL
+/sapmnt/@no__t 0SID >/profile/DEFAULT. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<Sid >/global/DB6/db2cli.ini
+/sapmnt/@no__t 0SID >/global/DB6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -495,9 +495,9 @@ Se você executou a instalação antes de criar a configuração do DB2 HADR, fa
 
 Use a ferramenta de configuração do J2EE para verificar ou atualizar a URL JDBC. Como a ferramenta de configuração do J2EE é uma ferramenta gráfica, você precisa ter o X Server instalado:
  
-1. Entre no servidor de aplicativos primário da instância J2EE e execute:`sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
+1. Entre no servidor de aplicativos primário da instância J2EE e execute: `sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh`
 1. No quadro à esquerda, escolha **armazenamento de segurança**.
-1. No quadro à direita, escolha a chave JDBC/pool/\<sapsid >/URL.
+1. No quadro à direita, escolha a chave JDBC/pool/\<SAPSID >/URL.
 1. Altere o nome do host na URL JDBC para o nome do host virtual.
      `jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0`
 1. Selecione **Adicionar**.
@@ -512,7 +512,7 @@ O arquivamento de log é executado somente pelo banco de dados primário. Se voc
 
 É recomendável configurar um compartilhamento NFS comum em que os logs são gravados de ambos os nós. O compartilhamento NFS precisa estar altamente disponível. 
 
-Você pode usar compartilhamentos NFS altamente disponíveis existentes para transportes ou um diretório de perfil. Para obter mais informações, consulte:
+Você pode usar compartilhamentos NFS altamente disponíveis existentes para transportes ou um diretório de perfil. Para obter mais informações, veja:
 
 - [Alta disponibilidade para NFS em VMs do Azure no SUSE Linux Enterprise Server][nfs-ha] 
 - [Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server com Azure NetApp Files para aplicativos SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)
@@ -558,7 +558,7 @@ O status original em um sistema SAP está documentado em transação DBACOCKPIT 
 > Antes de iniciar o teste, verifique se:
 > * Pacemaker não tem nenhuma ação com falha (status do CRM).
 > * Não há restrições de local (sobras de teste de migração)
-> * A sincronização do IBM DB2 HADR está funcionando. Verificar com o >\<de SID do DB2 do usuário <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * A sincronização do IBM DB2 HADR está funcionando. Verifique com o usuário DB2 @ no__t-0sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre o nó que está executando o banco de dados DB2 primário executando o seguinte comando:
@@ -592,9 +592,9 @@ Migre o recurso de volta para *azibmdb01* e desmarque as restrições de local
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **RES_NAME do host \<de migração \<de recursos do CRM > >:** Cria restrições de local e pode causar problemas com tomada
-- **> \<RES_NAME de recursos do CRM**: Limpa as restrições de local
-- **> RES_NAME de \<limpeza de recursos CRM**: Limpa todos os erros do recurso
+- **@no__t de migração de recursos de CRM-1res_name > \<host >:** Cria restrições de local e pode causar problemas com tomada
+- **@no__t de recursos do CRM-1res_name >** : limpa as restrições de local
+- **limpeza de recursos de crm \<res_name >** : limpa todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>Testar o agente de isolamento
 
@@ -767,7 +767,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Como o usuário\<DB2 Sid > execute o comando db2stop Force:
+Como usuário DB2 @ no__t-0sid > execute o comando db2stop Force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 
@@ -895,7 +895,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb02
      Masters: [ azibmdb02 ]
      Slaves: [ azibmdb01 ]</code></pre>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - [Arquitetura e cenários de alta disponibilidade para o SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
 - [Configurar o pacemaker no SUSE Linux Enterprise Server no Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
 

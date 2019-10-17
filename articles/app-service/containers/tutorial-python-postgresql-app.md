@@ -15,18 +15,18 @@ ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: c816d2ee76002f60963415b1027579eb6db94089
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 34dbce2a6da2395bbc627a30d464a9817dfe76fe
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329980"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439487"
 ---
-# <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Compilar um aplicativo Web Python (Django) com PostgreSQL no serviço Azure App
+# <a name="tutorial-build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: compilar um aplicativo Web Python (Django) com PostgreSQL no serviço Azure App
 
 [O Serviço de Aplicações no Linux](app-service-linux-intro.md) oferece um serviço de alojamento na Web altamente dimensionável e com correção automática. Este tutorial mostra como criar um aplicativo Web Django (Python controlado por dados) usando PostgreSQL como o back-end do banco de dado. Quando terminar, você terá um aplicativo Web Django em execução no serviço Azure App no Linux.
 
-![Aplicativo Web python django no serviço de aplicativo no Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Aplicativo Web python django no serviço de Azure App no Linux](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 Neste tutorial, ficará a saber como:
 
@@ -147,7 +147,7 @@ Vá para `http://localhost:8000` em um navegador. Você deverá ver a mensagem `
 
 Vá para `http://localhost:8000/admin` e entre usando o usuário administrador que você criou na última etapa. Selecione **Adicionar** ao lado de **perguntas** e criar uma pergunta de sondagem com algumas opções.
 
-![Aplicativo python django em execução localmente](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![Executar o aplicativo python django nos serviços de aplicativos localmente](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 Vá para `http://localhost:8000` novamente e veja a pergunta de sondagem exibida.
 
@@ -276,7 +276,7 @@ Vá para `http://localhost:8000` novamente. Você deverá ver a mensagem `No pol
 
 Vá para `http://localhost:8000/admin` e entre usando o usuário administrador que você criou e crie uma pergunta de pesquisa como antes.
 
-![Aplicativo python django em execução no local](./media/tutorial-python-postgresql-app/django-admin-local.png)
+![Executar o aplicativo python django nos serviços de aplicativos localmente](./media/tutorial-python-postgresql-app/run-python-django-app-locally.png)
 
 Vá para `http://localhost:8000` novamente e veja a pergunta de sondagem exibida. Agora, seu aplicativo está gravando dados no banco de dado no Azure.
 
@@ -391,7 +391,7 @@ O serviço de aplicativo detecta um projeto Django em seu repositório procurand
 
 Acesse `<app-name>.azurewebsites.net` e entre usando o mesmo usuário administrador que você criou. Se desejar, tente criar mais algumas perguntas de pesquisa.
 
-![Aplicativo python django em execução no local](./media/tutorial-python-postgresql-app/django-admin-azure.png)
+![Executar o aplicativo python django nos serviços de aplicativos no Azure](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
 **Parabéns!** Você está executando um aplicativo Web Python (Django) no serviço Azure App para Linux.
 
@@ -405,11 +405,11 @@ Vá para a [portal do Azure](https://portal.azure.com) para ver o aplicativo que
 
 No menu à esquerda, selecione **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo do Azure.
 
-![Navegação do portal para a aplicação do Azure](./media/tutorial-python-postgresql-app/app-resource.png)
+![Navegue até seu aplicativo python django no portal do Azure](./media/tutorial-python-postgresql-app/navigate-to-django-app-in-app-services-in-the-azure-portal.png)
 
 Por padrão, o portal mostra a página de **visão geral** do aplicativo. Esta página proporciona-lhe uma vista do desempenho da aplicação. Aqui, também pode realizar tarefas de gestão básicas, como navegar, parar, iniciar, reiniciar e eliminar. Os separadores no lado esquerdo da página mostram as várias páginas de configuração que pode abrir.
 
-![Página Serviço de Aplicações no portal do Azure](./media/tutorial-python-postgresql-app/app-mgmt.png)
+![Gerencie seu aplicativo python django na página Visão geral no portal do Azure](./media/tutorial-python-postgresql-app/manage-django-app-in-app-services-in-the-azure-portal.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 

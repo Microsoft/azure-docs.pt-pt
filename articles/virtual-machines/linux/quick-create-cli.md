@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 440ba2cd7ac9cea19f903dff493790194962e1e8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299486"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427946"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Início Rápido: criar uma máquina virtual do Linux com a CLI do Azure
 
-Este guia de início rápido mostra como usar a CLI (interface de linha de comando) do Azure para implantar uma VM (máquina virtual) do Linux no Azure. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Neste tutorial, vamos instalar o Ubuntu 16.04 LTS. Para mostrar a VM em ação, irá ligar à mesma através de SSH e instalar o servidor Web NGINX.
+Este guia de início rápido mostra como usar a CLI (interface de linha de comando) do Azure para implantar uma VM (máquina virtual) do Linux no Azure. A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts.
+
+Neste tutorial, vamos instalar o Ubuntu 16.04 LTS. Para mostrar a VM em ação, irá ligar à mesma através de SSH e instalar o servidor Web NGINX.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -107,7 +113,7 @@ Quando terminar, escreva `exit` para deixar a sessão SSH.
 
 Utilize um browser à sua escolha para ver a página predefinida de boas-vindas do NGINX. Utilize o endereço IP público da VM como o endereço Web. O exemplo seguinte mostra o site predefinido do NGINX:
 
-![Página de boas-vindas do NGINX padrão](./media/quick-create-cli/nginix-welcome-page.png)
+![Ver a página de boas-vindas do NGINX](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

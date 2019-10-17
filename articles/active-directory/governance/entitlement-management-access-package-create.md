@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/24/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169999"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389519"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Criar um novo pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -36,15 +36,31 @@ Um pacote do Access permite que você faça uma configuração única de recurso
 
 Todos os pacotes de acesso devem ser colocados em um contêiner chamado catálogo. Um catálogo define quais recursos você pode adicionar ao seu pacote de acesso. Se você não especificar um catálogo, seu pacote de acesso será colocado no catálogo geral. No momento, não é possível mover um pacote do Access existente para um catálogo diferente.
 
-Todos os pacotes de acesso devem ter pelo menos uma política. As políticas especificam quem pode solicitar o pacote de acesso e também as configurações de aprovação e expiração. Ao criar um novo pacote do Access, você pode criar uma política inicial para os usuários em seu diretório, para os usuários que não estão em seu diretório, somente para atribuições diretas de administrador ou você pode optar por criar a política mais tarde.
+Se você for um Gerenciador de pacotes do Access, não poderá adicionar recursos que você possui a um catálogo. Você está restrito a usar os recursos disponíveis no catálogo. Se precisar adicionar recursos a um catálogo, você poderá solicitar o proprietário do catálogo.
 
-O diagrama a seguir mostra o processo de alto nível para criar um novo pacote de acesso.
+Todos os pacotes de acesso devem ter pelo menos uma política. As políticas especificam quem pode solicitar o pacote de acesso e também as configurações de aprovação e ciclo de vida. Ao criar um novo pacote do Access, você pode criar uma política inicial para os usuários em seu diretório, para os usuários que não estão em seu diretório, somente para atribuições diretas de administrador ou você pode optar por criar a política mais tarde.
 
-![Criar um processo de pacote de acesso](./media/entitlement-management-access-package-create/access-package-process.png)
+![Criar um pacote de acesso](./media/entitlement-management-access-package-create/access-package-create.png)
+
+Aqui estão as etapas de alto nível para criar um novo pacote de acesso.
+
+1. Em governança de identidade, inicie o processo para criar um novo pacote de acesso.
+
+1. Selecione o catálogo no qual você deseja criar o pacote de acesso.
+
+1. Adicione recursos do catálogo ao seu pacote de acesso.
+
+1. Atribua funções de recurso para cada recurso.
+
+1. Especifique os usuários que podem solicitar acesso.
+
+1. Especifique as configurações de aprovação.
+
+1. Especifique as configurações do ciclo de vida.
 
 ## <a name="start-new-access-package"></a>Iniciar novo pacote de acesso
 
-**Função de pré-requisito:** Administrador global, administrador de usuário ou proprietário do catálogo
+**Função de pré-requisito:** Administrador global, administrador de usuário, proprietário do catálogo ou Gerenciador de pacotes de acesso
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -64,20 +80,19 @@ Na guia **noções básicas** , você dá um nome ao pacote de acesso e especifi
 
 1. Na lista suspensa **Catálogo** , selecione o catálogo no qual você deseja criar o pacote de acesso. Por exemplo, você pode ter um proprietário de catálogo que gerencia todos os recursos de marketing que podem ser solicitados. Nesse caso, você pode selecionar o catálogo de marketing.
 
-    Você verá apenas os catálogos para os quais você tem permissão para criar pacotes de acesso. Para criar um pacote do Access em um catálogo existente, você deve ser pelo menos um administrador global, um administrador de usuário, um proprietário do catálogo nesse catálogo ou o Gerenciador de pacotes do Access nesse catálogo.
+    Você verá apenas os catálogos para os quais você tem permissão para criar pacotes de acesso. Para criar um pacote do Access em um catálogo existente, você deve ser um administrador global ou administrador de usuários, ou você deve ser um proprietário do catálogo ou um Gerenciador de pacotes do Access nesse catálogo.
 
     ![Pacote de acesso-noções básicas](./media/entitlement-management-access-package-create/basics.png)
 
-    Se você for um administrador global ou um administrador de usuário e quiser criar seu pacote de acesso em um novo catálogo que não esteja listado, clique em **criar novo**. Insira o nome do catálogo e a descrição e, em seguida, clique em **criar**.
+    Se você for um administrador global, um administrador de usuário ou um criador de catálogo e quiser criar seu pacote de acesso em um novo catálogo que não esteja listado, clique em **criar novo catálogo**. Insira o nome do catálogo e a descrição e, em seguida, clique em **criar**.
 
     O pacote de acesso que você está criando e todos os recursos incluídos nele serão adicionados ao novo catálogo. Você também pode adicionar mais proprietários de catálogo posteriormente.
-
 
 1. Clique em **Seguinte**.
 
 ## <a name="resource-roles"></a>Funções de recursos
 
-Na guia **funções de recurso** , selecione os recursos a serem incluídos no pacote de acesso.  Os usuários que solicitam e recebem o pacote de acesso receberão todas as funções de recurso no pacote de acesso.
+Na guia **funções de recurso** , selecione os recursos a serem incluídos no pacote de acesso. Os usuários que solicitam e recebem o pacote de acesso receberão todas as funções de recurso no pacote de acesso.
 
 1. Clique no tipo de recurso que você deseja adicionar (**grupos e equipes**, **aplicativos**ou **sites do SharePoint**).
 
@@ -97,19 +112,17 @@ Na guia **funções de recurso** , selecione os recursos a serem incluídos no p
 
 1. Clique em **Seguinte**.
 
-## <a name="policy"></a>Política
+## <a name="requests"></a>Pedidos
 
-Na guia **política** , você cria a primeira política para especificar quem pode solicitar o pacote de acesso e também as configurações de aprovação e expiração. Posteriormente, você pode criar mais políticas para permitir que grupos de usuários adicionais solicitem o pacote de acesso com suas próprias configurações de aprovação e expiração. Você também pode optar por criar a política mais tarde.
+Na guia **solicitações** , você cria a primeira política para especificar quem pode solicitar o pacote de acesso e também as configurações de aprovação. Posteriormente, você pode criar mais políticas de solicitação para permitir que grupos de usuários adicionais solicitem o pacote de acesso com suas próprias configurações de aprovação.
 
-1. Defina a opção **criar primeira política** como **agora** ou **posterior**.
+![Pacote de acesso – guia solicitações](./media/entitlement-management-access-package-create/requests.png)
 
-    ![Pacote de acesso-política](./media/entitlement-management-access-package-create/policy.png)
+Execute as etapas em uma das seções a seguir.
 
-1. Se você selecionar **mais tarde**, pule para a seção [revisar + criar](#review--create) para criar seu pacote de acesso.
+[!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
-1. Se você selecionar **agora**, execute as etapas em uma das seções de política a seguir.
-
-[!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="review--create"></a>Examinar + criar
 
@@ -125,4 +138,5 @@ Na guia **revisar + criar** , você pode examinar as configurações e verificar
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Editar e gerir um pacote de acesso existente](entitlement-management-access-package-edit.md)
+- [Compartilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
+- [Alterar funções de recurso para um pacote de acesso](entitlement-management-access-package-resources.md)

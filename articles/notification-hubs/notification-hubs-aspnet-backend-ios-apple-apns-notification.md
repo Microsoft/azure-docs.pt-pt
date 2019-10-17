@@ -1,5 +1,5 @@
 ---
-title: Notificações por push para usuários específicos usando os hubs de notificação do Azure | Microsoft Docs
+title: Enviar notificações por push para usuários específicos usando hubs de notificação do Azure | Microsoft Docs
 description: Saiba como enviar notificações push para utilizadores específicos com os Hubs de Notificação do Azure.
 documentationcenter: ios
 author: sethm
@@ -16,20 +16,20 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 85461f72d4385805e2aa13691a574a2161036ca5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 48135ea614bbab4ca6649a83895ae5f632918c61
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212230"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387465"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: Notificações por push para usuários específicos usando os hubs de notificação do Azure
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>Tutorial: enviar notificações por push para usuários específicos usando os hubs de notificação do Azure
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Este tutorial mostra-lhe como utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador específico da aplicação num dispositivo específico. Um back-end ASP.NET WebAPI é usado para autenticar clientes e gerar notificações, conforme mostrado no tópico de diretrizes [registrando-se no back-end do aplicativo](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
+Este tutorial mostra-lhe como pode utilizar os Hubs de Notificação do Azure para enviar notificações push para um utilizador da aplicação específico num dispositivo específico. Um back-end ASP.NET WebAPI é usado para autenticar clientes e gerar notificações, conforme mostrado no tópico de diretrizes [registrando-se no back-end do aplicativo](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend).
 
-Neste tutorial, siga os passos seguintes:
+Neste tutorial, siga os seguintes passos:
 
 > [!div class="checklist"]
 > * Criar o Projeto WebAPI
@@ -54,16 +54,16 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
    > [!NOTE]
    > Esta seção pressupõe que seu projeto esteja configurado com um nome de organização vazio. Caso contrário, você precisará preceder o nome da sua organização a todos os nomes de classe.
 
-2. `Main.storyboard` No arquivo, adicione os componentes mostrados na captura de tela da biblioteca de objetos.
+2. No arquivo `Main.storyboard`, adicione os componentes mostrados na captura de tela da biblioteca de objetos.
 
     ![Editar storyboard no Xcode Interface Builder][1]
 
-   * **Nome de usuário**: Um UITextField com texto de espaço reservado, *Insira o nome de usuário*, imediatamente abaixo do rótulo enviar resultados e restringido às margens esquerda e direita e abaixo do rótulo enviar resultados.
-   * **Senha**: Um UITextField com texto de espaço reservado, *digite a senha*, imediatamente abaixo do campo de texto nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto nome de usuário. Marque a opção de **entrada de texto seguro** no Inspetor de atributo, em *chave de retorno*.
-   * **Fazer logon**: Um UIButton rotulado imediatamente abaixo do campo de texto de senha e desmarque a opção **habilitado** no Inspetor de atributos, em *controle de conteúdo*
-   * **WNS**: Rotule e alterne para habilitar o envio do serviço de notificação do Windows de notificação se ele tiver sido configurado no Hub. Consulte o tutorial de [introdução do Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
-   * **GCM**: Rotule e alterne para habilitar o envio da notificação para Google Cloud Messaging se ela tiver sido configurada no Hub. Consulte o tutorial de [introdução do Android](notification-hubs-android-push-notification-google-gcm-get-started.md) .
-   * **APNS**: Rotule e alterne para habilitar o envio da notificação para o serviço de notificação da plataforma Apple.
+   * **Nome de usuário**: um UITextField com texto de espaço reservado, *Insira o nome de usuário*, imediatamente abaixo do rótulo enviar resultados e restringido às margens esquerda e direita e abaixo do rótulo enviar resultados.
+   * **Senha**: um UITextField com texto de espaço reservado, *Insira a senha*, imediatamente abaixo do campo de texto nome de usuário e restrito às margens esquerda e direita e abaixo do campo de texto nome de usuário. Marque a opção de **entrada de texto seguro** no Inspetor de atributo, em *chave de retorno*.
+   * **Fazer logon**: um UIButton rotulado imediatamente abaixo do campo de texto de senha e desmarque a opção **habilitado** no Inspetor de atributos, em *controle de conteúdo*
+   * **WNS**: rotule e alterne para habilitar o envio do serviço de notificação do Windows de notificação se ele tiver sido configurado no Hub. Consulte o tutorial de [introdução do Windows](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
+   * **GCM**: rotular e alternar para habilitar o envio da notificação para Google Cloud Messaging se ela tiver sido configurada no Hub. Consulte o tutorial de [introdução do Android](notification-hubs-android-push-notification-google-gcm-get-started.md) .
+   * **APNS**: Label e switch para habilitar o envio da notificação para o serviço de notificação da plataforma Apple.
    * **Nome de usuário do destinatário: um** UITextField com texto de espaço reservado, *marca de nome de usuário do destinatário*, imediatamente abaixo do rótulo do gcm e restrito às margens esquerda e direita e abaixo do rótulo gcm.
 
      Alguns componentes foram adicionados no tutorial [introdução com os hubs de notificação (Ios)](notification-hubs-ios-apple-push-notification-apns-get-started.md) .
@@ -88,13 +88,13 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. No `ViewController.h`, adicione o seguinte `#define` após as instruções de importação. Substitua o `<Enter Your Backend Endpoint>` espaço reservado pela URL de destino usada para implantar o back-end do aplicativo na seção anterior. Por exemplo, `http://your_backend.azurewebsites.net`.
+4. No `ViewController.h`, adicione o seguinte `#define` após as instruções de importação. Substitua o espaço reservado `<Enter Your Backend Endpoint>` pela URL de destino usada para implantar o back-end do aplicativo na seção anterior. Por exemplo, `http://your_backend.azurewebsites.net`.
 
     ```objc
     #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
     ```
 
-5. Em seu projeto, crie uma nova classe Cocoa Touch chamada `RegisterClient` para interface com o back-end ASP.NET que você criou. Crie a classe que herda de `NSObject`. Em seguida, adicione o código a `RegisterClient.h`seguir no.
+5. Em seu projeto, crie uma nova classe Cocoa Touch chamada `RegisterClient` para interface com o back-end ASP.NET que você criou. Crie a classe que herda de `NSObject`. Em seguida, adicione o código a seguir no `RegisterClient.h`.
 
     ```objc
     @interface RegisterClient : NSObject
@@ -109,7 +109,7 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     @end
     ```
 
-6. No, atualize a `@interface` seção: `RegisterClient.m`
+6. No `RegisterClient.m`, atualize a seção `@interface`:
 
     ```objc
     @interface RegisterClient ()
@@ -127,7 +127,7 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     @end
     ```
 
-7. Substitua a `@implementation` seção no RegisterClient. m pelo seguinte código:
+7. Substitua a seção `@implementation` no RegisterClient. m pelo seguinte código:
 
     ```objc
     @implementation RegisterClient
@@ -290,9 +290,9 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
 
     Esse código implementa a lógica explicada no artigo de diretrizes [registrando de seu back-end do aplicativo](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend) usando NSURLSession para executar chamadas REST para o back-end do aplicativo e NSUserDefaults para armazenar localmente o RegistrationId retornado pelo hub de notificação.
 
-    Essa classe requer que sua `authorizationHeader` Propriedade seja definida para funcionar corretamente. Essa propriedade é definida pela `ViewController` classe após o logon.
+    Essa classe requer que sua propriedade `authorizationHeader` seja definida para funcionar corretamente. Essa propriedade é definida pela classe `ViewController` após o logon.
 
-8. No `ViewController.h`, adicione uma `#import` instrução para `RegisterClient.h`. Em seguida, adicione uma declaração para o token do dispositivo e `RegisterClient` faça referência a `@interface` uma instância na seção:
+8. Em `ViewController.h`, adicione uma instrução `#import` para `RegisterClient.h`. Em seguida, adicione uma declaração para o token do dispositivo e faça referência a uma instância `RegisterClient` na seção `@interface`:
 
     ```objc
     #import "RegisterClient.h"
@@ -301,7 +301,7 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     @property (strong, nonatomic) RegisterClient* registerClient;
     ```
 
-9. Em ViewController. m, adicione uma declaração de método particular na `@interface` seção:
+9. Em ViewController. m, adicione uma declaração de método particular na seção `@interface`:
 
     ```objc
     @interface ViewController () <UITextFieldDelegate, NSURLConnectionDataDelegate, NSXMLParserDelegate>
@@ -314,9 +314,9 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     ```
 
     > [!NOTE]
-    > O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação `createAndSetAuthenticationHeaderWithUsername:AndPassword:` do pelo mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente de registro, por exemplo, OAuth, Active Directory.
+    > O trecho a seguir não é um esquema de autenticação seguro, você deve substituir a implementação do `createAndSetAuthenticationHeaderWithUsername:AndPassword:` pelo mecanismo de autenticação específico que gera um token de autenticação a ser consumido pela classe de cliente de registro, por exemplo, OAuth, Active Directory.
 
-10. Em seguida, `@implementation` na seção `ViewController.m`de, adicione o código a seguir, que adiciona a implementação para definir o cabeçalho de autenticação e o token de dispositivo.
+10. Em seguida, na seção `@implementation` de `ViewController.m`, adicione o código a seguir, que adiciona a implementação para definir o cabeçalho de autenticação e o token do dispositivo.
 
     ```objc
     -(void) setDeviceToken: (NSData*) deviceToken
@@ -446,7 +446,7 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     }
     ```
 
-13. Na função, adicione o seguinte para instanciar a `RegisterClient` instância e definir o delegado para seus campos de texto. `ViewDidLoad`
+13. Na função `ViewDidLoad`, adicione o seguinte para instanciar a instância de `RegisterClient` e definir o delegado para seus campos de texto.
 
     ```objc
     self.UsernameField.delegate = self;
@@ -455,7 +455,7 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     self.registerClient = [[RegisterClient alloc] initWithEndpoint:BACKEND_ENDPOINT];
     ```
 
-14. Agora, remova todo o conteúdo do método `application:didRegisterForPushNotificationWithDeviceToken:` e substitua-o pelo seguinte (para garantir que o controlador de exibição contenha o último token de dispositivo recuperado do APNs): `AppDelegate.m`
+14. Agora, em `AppDelegate.m`, remova todo o conteúdo do método `application:didRegisterForPushNotificationWithDeviceToken:` e substitua-o pelo seguinte (para garantir que o controlador de exibição contenha o token de dispositivo mais recente recuperado do APNs):
 
     ```objc
     // Add import to the top of the file
@@ -469,7 +469,7 @@ Se você quiser usar aplicativos móveis como seu serviço de back-end, consulte
     }
     ```
 
-15. Por fim `AppDelegate.m`, no, verifique se você tem o seguinte método:
+15. Por fim, no `AppDelegate.m`, verifique se você tem o seguinte método:
 
     ```objc
     - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {

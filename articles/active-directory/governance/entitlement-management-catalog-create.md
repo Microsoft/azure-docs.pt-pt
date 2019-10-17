@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169883"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429602"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Criar e gerenciar um catálogo de recursos no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -52,7 +52,7 @@ Um catálogo é um contêiner de recursos e pacotes de acesso. Você cria um cat
 
 1. Se você quiser permitir que os usuários em diretórios externos selecionados possam solicitar pacotes de acesso neste catálogo, defina **habilitado para usuários externos** como **Sim**.
 
-    ![Painel novo catálogo](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![Painel novo catálogo](./media/entitlement-management-shared/new-catalog.png)
 
 1. Clique em **criar** para criar o catálogo.
 
@@ -130,7 +130,9 @@ Você pode editar o nome e a descrição de um catálogo. Os usuários veem essa
 
 1. Na página **visão geral** do catálogo, clique em **Editar**.
 
-1. Edite o nome ou a descrição do catálogo.
+1. Edite o nome do catálogo, a descrição ou as configurações habilitadas.
+
+    ![Editar configurações do catálogo](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Clique em **Guardar**.
 

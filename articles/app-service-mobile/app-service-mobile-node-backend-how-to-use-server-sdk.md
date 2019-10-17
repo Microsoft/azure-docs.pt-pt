@@ -14,20 +14,21 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a3883d233bd621607ec724e0c85734b508195340
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027205"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388666"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Como usar o SDK do node. js de aplicativos móveis
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 > [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
+>
+>  Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este artigo fornece informações detalhadas e exemplos que mostram como trabalhar com um back-end do node. js no recurso aplicativos móveis do serviço de Azure App.
 
@@ -143,7 +144,7 @@ O Visual Studio 2015 requer uma extensão para desenvolver aplicativos node. js 
 
 ### <a name="create-node-backend-portal"></a>Criar um back-end do node. js usando o portal do Azure
 
-Você pode criar um back-end de aplicativos móveis diretamente no [Azure portal]. Você pode concluir as etapas a seguir ou criar um cliente e um servidor juntos seguindo o tutorial [criar um aplicativo móvel](app-service-mobile-ios-get-started.md) . O tutorial contém uma versão simplificada dessas instruções e é melhor para projetos de prova de conceito.
+Você pode criar um back-end de aplicativos móveis diretamente no [portal do Azure]. Você pode concluir as etapas a seguir ou criar um cliente e um servidor juntos seguindo o tutorial [criar um aplicativo móvel](app-service-mobile-ios-get-started.md) . O tutorial contém uma versão simplificada dessas instruções e é melhor para projetos de prova de conceito.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -340,7 +341,7 @@ Acesse o banco de dados por meio de uma conexão TCP/IP. Forneça um nome de usu
 
 ### <a name="howto-config-localdev"></a>Configurar seu projeto para desenvolvimento local
 
-Os aplicativos móveis lêem um arquivo JavaScript chamado *azureMobile. js* do sistema de arquivos local. Não use esse arquivo para configurar o SDK de aplicativos móveis em produção. Em vez disso, use **as configurações do aplicativo** no [Azure portal].
+Os aplicativos móveis lêem um arquivo JavaScript chamado *azureMobile. js* do sistema de arquivos local. Não use esse arquivo para configurar o SDK de aplicativos móveis em produção. Em vez disso, use **as configurações do aplicativo** no [portal do Azure].
 
 O arquivo azureMobile. js deve exportar um objeto de configuração. As configurações mais comuns são:
 
@@ -368,25 +369,25 @@ module.exports = {
 };
 ```
 
-Recomendamos que você adicione **azureMobile. js** ao arquivo **. gitignore** (ou outro controle de código-fonte ignora o arquivo) para impedir que as senhas sejam armazenadas na nuvem. Sempre defina as configurações de produção nas **configurações do aplicativo** dentro do [Azure portal].
+Recomendamos que você adicione **azureMobile. js** ao arquivo **. gitignore** (ou outro controle de código-fonte ignora o arquivo) para impedir que as senhas sejam armazenadas na nuvem. Sempre defina as configurações de produção nas **configurações do aplicativo** dentro do [portal do Azure].
 
 ### <a name="howto-appsettings"></a>Definir configurações de aplicativo para seu aplicativo móvel
 
-A maioria das configurações no arquivo azureMobile. js tem uma configuração de aplicativo equivalente no [Azure portal]. Use a lista a seguir para configurar seu aplicativo nas **configurações do aplicativo**:
+A maioria das configurações no arquivo azureMobile. js tem uma configuração de aplicativo equivalente no [portal do Azure]. Use a lista a seguir para configurar seu aplicativo nas **configurações do aplicativo**:
 
 | Configuração do aplicativo | configuração do azureMobile. js | Descrição | Valores válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Nome do aplicativo |Cadeia de caracteres |
-| **MS_MobileLoggingLevel** |logging.level |Nível mínimo de log das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, insimples |
-| **MS_DebugMode** |verificação |Habilita ou desabilita o modo de depuração |true, false |
-| **MS_TableSchema** |data.schema |Nome de esquema padrão para tabelas SQL |Cadeia de caracteres (padrão: dbo) |
-| **MS_DynamicSchema** |data.dynamicSchema |Habilita ou desabilita o modo de depuração |true, false |
-| **MS_DisableVersionHeader** |versão (definida como indefinida) |Desabilita o cabeçalho X-ZUMO-Server-Version |true, false |
-| **MS_SkipVersionCheck** |skipversioncheck |Desabilita a verificação de versão da API do cliente |true, false |
+| **MS_MobileAppName** |nome |Nome do aplicativo |string |
+| **MS_MobileLoggingLevel** |log. Level |Nível mínimo de log das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, insimples |
+| **MS_DebugMode** |verificação |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
+| **MS_TableSchema** |Data. Schema |Nome de esquema padrão para tabelas SQL |Cadeia de caracteres (padrão: dbo) |
+| **MS_DynamicSchema** |Data. dynamicSchema |Habilita ou desabilita o modo de depuração |verdadeiro, falso |
+| **MS_DisableVersionHeader** |versão (definida como indefinida) |Desabilita o cabeçalho X-ZUMO-Server-Version |verdadeiro, falso |
+| **MS_SkipVersionCheck** |skipversioncheck |Desabilita a verificação de versão da API do cliente |verdadeiro, falso |
 
 Para definir uma configuração de aplicativo:
 
-1. Inicie sessão no [Azure portal].
+1. Inicie sessão no [portal do Azure].
 1. Selecione **todos os recursos** ou **serviços de aplicativos**e, em seguida, selecione o nome do seu aplicativo móvel.
 1. O painel **configurações** é aberto por padrão. Se não estiver, selecione **configurações**.
 1. No menu **geral** , selecione **configurações do aplicativo**.
@@ -403,7 +404,7 @@ Alterar a maioria das configurações de aplicativo requer uma reinicialização
 
 O uso do banco de dados SQL do Azure como um repositório é idêntico em todos os tipos de aplicativos de serviço Azure App. Se você ainda não tiver feito isso, siga estas etapas para criar um back-end de aplicativos móveis:
 
-1. Inicie sessão no [Azure portal].
+1. Inicie sessão no [portal do Azure].
 1. No canto superior esquerdo da janela, selecione o botão **+ novo** > **Web + Celular** **aplicativo móvel**> e, em seguida, forneça um nome para o back-end de seus aplicativos móveis.
 1. Na caixa **grupo de recursos** , digite o mesmo nome que o seu aplicativo.
 1. O plano do serviço de aplicativo padrão é selecionado. Se você quiser alterar o plano do serviço de aplicativo:
@@ -441,7 +442,7 @@ A criação do banco de dados pode levar alguns minutos. Use a área **notifica�
 
 ### <a name="howto-tables-auth"></a>Exigir autenticação para acesso a tabelas
 
-Se você quiser usar a autenticação do serviço de aplicativo com o ponto de extremidade `tables`, deverá configurar a autenticação do serviço de aplicativo na [Azure portal] primeiro. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende usar:
+Se você quiser usar a autenticação do serviço de aplicativo com o ponto de extremidade `tables`, deverá configurar a autenticação do serviço de aplicativo na [portal do Azure] primeiro. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende usar:
 
 * [Configurar a autenticação Azure Active Directory]
 * [Configurar a autenticação do Facebook]
@@ -752,7 +753,7 @@ Quando você estiver se registrando para notificações por push de um cliente a
 
 Além da API de acesso a dados por meio do ponto de extremidade `/tables`, os aplicativos móveis podem fornecer cobertura de API personalizada. As APIs personalizadas são definidas de forma semelhante às definições de tabela e podem acessar todos os mesmos recursos, incluindo a autenticação.
 
-Se você quiser usar a autenticação do serviço de aplicativo com uma API personalizada, deverá configurar a autenticação do serviço de aplicativo na [Azure portal] primeiro. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende usar:
+Se você quiser usar a autenticação do serviço de aplicativo com uma API personalizada, deverá configurar a autenticação do serviço de aplicativo na [portal do Azure] primeiro. Para obter mais informações, consulte o guia de configuração para o provedor de identidade que você pretende usar:
 
 * [Configurar a autenticação Azure Active Directory]
 * [Configurar a autenticação do Facebook]
@@ -906,7 +907,7 @@ Para começar a solucionar problemas de back-end de aplicativos móveis do node.
 * [Habilitar o log de diagnóstico no serviço Azure App]
 * [Solucionar problemas de serviço Azure App no Visual Studio]
 
-Os aplicativos node. js têm acesso a uma ampla variedade de ferramentas de log de diagnóstico. Internamente, o SDK do node. js dos aplicativos móveis usa [Winston] para log de diagnóstico. O registro em log é habilitado automaticamente quando você habilita o modo de depuração ou define a configuração do aplicativo `MS_DebugMode` como true no [Azure portal]. Os logs gerados aparecem nos logs de diagnóstico no [Azure portal].
+Os aplicativos node. js têm acesso a uma ampla variedade de ferramentas de log de diagnóstico. Internamente, o SDK do node. js dos aplicativos móveis usa [Winston] para log de diagnóstico. O registro em log é habilitado automaticamente quando você habilita o modo de depuração ou define a configuração do aplicativo `MS_DebugMode` como true no [portal do Azure]. Os logs gerados aparecem nos logs de diagnóstico no [portal do Azure].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -942,7 +943,7 @@ Os aplicativos node. js têm acesso a uma ampla variedade de ferramentas de log 
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Azure portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [OData]: https://www.odata.org
 [Promessa]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [exemplo de aplicativo básico no GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

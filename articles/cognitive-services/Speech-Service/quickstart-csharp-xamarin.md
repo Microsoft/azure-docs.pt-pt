@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecimento de fala C# , (Xamarin)-serviço de fala'
+title: 'Início rápido: reconhecer fala C# , (Xamarin)-serviço de fala'
 titleSuffix: Azure Cognitive Services
 description: Neste artigo, você cria um aplicativo Xamarin de plataforma C# cruzada para o Windows UWP, Android e Ios usando o SDK de fala dos serviços cognitivas. Você transcreve a fala em texto em tempo real do microfone do seu dispositivo ou do simulador. O aplicativo é criado com o pacote NuGet do SDK de fala e Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: jhakulin
 ms.custom: ''
-ms.openlocfilehash: 02031e8e2800329134eaf34f5f99c93a20b99aac
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c9467bac8b5998252c021faca4eb4177c42a1736
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71804056"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387388"
 ---
-# <a name="quickstart-recognize-speech-using-cross-platform-xamarin-app-by-using-the-speech-sdk"></a>Início rápido: Reconhecer a fala usando o aplicativo Xamarin de plataforma cruzada usando o SDK de fala
+# <a name="quickstart-recognize-speech-using-cross-platform-xamarin-app-by-using-the-speech-sdk"></a>Início rápido: reconhecer a fala usando o aplicativo Xamarin de plataforma cruzada usando o SDK de fala
 
 Os guias de início rápido também estão disponíveis para [fala em texto](quickstart-csharp-uwp.md), [conversão](quickstart-translate-speech-uwp.md) [de texto em fala](quickstart-text-to-speech-csharp-uwp.md) e fala.
 
@@ -60,11 +60,13 @@ Agora, adicione o código XAML que define a interface do usuário do aplicativo 
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/MainPage.xaml.cs)]
 
-1. No manipulador do `OnRecognitionButtonClicked` arquivo de origem, localize a cadeia `YourSubscriptionKey`de caracteres e substitua-a pela sua chave de assinatura.
+1. No manipulador `OnRecognitionButtonClicked` do arquivo de origem, localize a cadeia de caracteres `YourSubscriptionKey` e substitua-a pela sua chave de assinatura.
 
 1. No manipulador `OnRecognitionButtonClicked`, localize a cadeia de caracteres `YourServiceRegion` e substitua-a pela [região](regions.md) associada à sua assinatura. (Por exemplo, use `westus` para a assinatura de avaliação gratuita.)
 
-1. Em seguida, você precisa criar um [serviço Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), que é usado para consultar permissões de microfone de diferentes projetos de plataforma (UWP, Android e Ios). Para fazer isso, adicione nova pasta `Services` no projeto `helloworld` e crie um C# novo arquivo de origem nele (clique com o botão direito do mouse em `Services` pasta e **adicione** > **novo item**de**código** > ) e renomeie-o como `IMicrophoneService.cs` e coloque todo o código do trecho a seguir nesse arquivo: 0 @ no__t-11
+1. Em seguida, você precisa criar um [serviço Xamarin](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), que é usado para consultar permissões de microfone de diferentes projetos de plataforma (UWP, Android e Ios). Para fazer isso, adicione nova pasta `Services` no projeto `helloworld` e crie um C# novo arquivo de origem nele (clique com o botão direito do mouse em `Services` pasta e **adicione** > **novo item**de**código** > ) e renomeie-o como `IMicrophoneService.cs` e coloque todo o código do trecho a seguir no arquivo:
+
+[!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Adicionar código de exemplo para o projeto `helloworld.Android`
 
@@ -101,7 +103,7 @@ Agora, adicione C# o código que define a parte específica do IOS do aplicativo
 
 1. Abra o info. plist no projeto `helloworld.iOS` para o editor de texto e adicione o seguinte par chave-valor na seção de dict <key>NSMicrophoneUsageDescription</key>
    <string>este aplicativo de exemplo requer acesso ao microfone</string>
-   > Nota: Caso você esteja direcionado para compilar para dispositivo iPhone, verifique se o `Bundle Identifier` corresponde à ID do aplicativo de perfil de provisionamento do seu dispositivo. caso contrário, a compilação falhará. Com o iPhoneSimulator, você pode deixá-lo como está.
+   > Observação: caso você esteja se concentrando para compilar para dispositivo iPhone, verifique se `Bundle Identifier` corresponde à ID do aplicativo de perfil de provisionamento do seu dispositivo. caso contrário, a compilação falhará. Com o iPhoneSimulator, você pode deixá-lo como está.
 
 1. Caso esteja criando no computador Windows, você precisa estabelecer conexão com o dispositivo Mac para a criação por meio de **ferramentas** > **Ios** > **par ao Mac**. Siga o assistente de instruções fornecido pelo Visual Studio para habilitar a conexão com o dispositivo Mac.
 
@@ -120,7 +122,7 @@ Agora, adicione C# o código que define a parte específica do UWP do aplicativo
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld.UWP/Services/MicrophoneService.cs)]
 
 1. Em seguida, clique duas vezes no arquivo `Package.appxmanifest` no projeto `helloworld.UWP` dentro do Visual Studio e em **recursos** > **microfone** está marcado e salve o arquivo.
-   > Nota: Caso você veja o aviso: O arquivo de certificado não existe: HelloWorld. UWP_TemporaryKey. pfx, consulte [a amostra de fala para texto](quickstart-csharp-uwp.md) para obter mais informações.
+   > Observação: caso você veja aviso: o arquivo de certificado não existe: HelloWorld. UWP_TemporaryKey. pfx, consulte [a amostra de fala para texto](quickstart-csharp-uwp.md) para obter mais informações.
 
 1. Na barra de menus, escolha **arquivo** > **salvar tudo** para salvar suas alterações.
 

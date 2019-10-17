@@ -7,12 +7,12 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 8c9043db8159e2b7ff6520e9525472048cf73ae1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5b618798c74393f3e7d89cfc69c67ba831356ce4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031282"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385543"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando o mapeamento de fluxos de dados
 
@@ -49,7 +49,7 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, yournameADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
         
      ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
-4. Selecione a **subscrição** do Azure na qual quer criar a fábrica de dados. 
+4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados. 
 5. Em **Grupo de Recursos**, efetue um destes passos:
      
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
@@ -115,7 +115,7 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
     ![Tela de fluxo de dados](media/tutorial-data-flow/dataflow5.png)
 1. Nomeie sua transformação de filtro **FilterYears**. Clique na caixa expressão ao lado de **filtrar em** para abrir o construtor de expressões. Aqui você especificará sua condição de filtragem. 
     
-    ![Filtro](media/tutorial-data-flow/filter1.png)
+    ![Filtrar](media/tutorial-data-flow/filter1.png)
 1. O construtor de expressões de fluxo de dados permite criar expressões interativamente para usar em várias transformações. As expressões podem incluir funções internas, colunas do esquema de entrada e parâmetros definidos pelo usuário. Para obter mais informações sobre como criar expressões, consulte [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md).
     
     Neste tutorial, você deseja filtrar filmes de gênero comédia que se passaram entre os anos 1910 e 2000. Como ano, atualmente é uma cadeia de caracteres, você precisa convertê-lo em um inteiro usando a função ```toInteger()```. Use os operadores maior que ou igual a (> =) e menor ou igual a (< =) para comparar com os valores de ano literal 1910 e 200-. Union essas expressões junto com o operador and (& &). A expressão é exibida como:
@@ -128,13 +128,13 @@ Depois de criar o fluxo de dados, você será enviado automaticamente para a tel
 
     Se você tiver um cluster de depuração ativo, poderá verificar sua lógica clicando em **Atualizar** para ver a saída da expressão em comparação com as entradas usadas. Há mais de uma resposta certa sobre como você pode realizar essa lógica usando a linguagem de expressão de fluxo de dados.
     
-    ![Filtro](media/tutorial-data-flow/filter2.png)
+    ![Filtrar](media/tutorial-data-flow/filter2.png)
 
     Clique em **salvar e concluir** quando terminar com sua expressão.
 
 1. Busque uma **visualização de dados** para verificar se o filtro está funcionando corretamente.
     
-    ![Filtro](media/tutorial-data-flow/filter3.png)
+    ![Filtrar](media/tutorial-data-flow/filter3.png)
 1. A próxima transformação que você adicionará é uma transformação **agregação** em **modificador de esquema**.
     
     ![Agregação](media/tutorial-data-flow/agg1.png)

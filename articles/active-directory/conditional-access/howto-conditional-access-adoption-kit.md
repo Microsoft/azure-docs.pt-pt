@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075279"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430049"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Adotando o acesso condicional do Azure AD
 
@@ -45,14 +45,14 @@ Para saber mais sobre as experiências de clientes e parceiros no acesso condici
 
 ## <a name="announcements"></a>Anúncios
 
-O Azure AD recebe melhorias de forma contínua. Para se manter atualizado com os desenvolvimentos mais recentes, consulte [o que há de novo na Azure Active Directory?](../fundamentals/whats-new.md)
+O Azure AD recebe melhorias em uma base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, consulte [o que há de novo na Azure Active Directory?](../fundamentals/whats-new.md)
 
 Blogs recentes da comunidade técnica e da divisão de identidade da Microsoft:
 
 * 24 de setembro de 2018, [Azure Active Directory acesso condicional no Azure Databricks](https://azure.microsoft.com/updates/azure-active-directory-conditional-access-in-azure-databricks/)
 * 21 de setembro de 2018, os [controles personalizados de acesso condicional do Azure ad estão em visualização pública](https://azure.microsoft.com/updates/azure-ad-conditional-access-custom-controls-are-in-public-preview/)
 * 21 de setembro de 2018, o [suporte ao acesso condicional do Azure ad para acesso limitado com o Microsoft Cloud app Security agora está disponível](https://azure.microsoft.com/updates/azure-ad-conditional-access-support-for-limited-access-with-microsoft-cloud-app-security-is-now-available/)
-* 21 de setembro de 2018 [, acesso condicional do Azure AD: Suporte de navegador gerenciado para plataformas iOS/Android agora em visualização](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
+* 21 de setembro de 2018, [acesso condicional ao Azure AD: suporte a navegador gerenciado para plataformas Ios/Android agora em visualização](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
 * 21 de setembro de 2018, o [acesso condicional do Azure ad para códigos de país está em visualização pública](https://azure.microsoft.com/updates/azure-ad-conditional-access-for-country-codes-is-in-public-preview/)
 * 21 de setembro de 2018, os [termos de uso do Azure ad agora estão disponíveis](https://azure.microsoft.com/updates/azure-ad-terms-of-use-now-available/)
 
@@ -69,7 +69,6 @@ Siga os links abaixo para obter uma visão geral de como o acesso condicional do
 
 Além disso, consulte os links a seguir para obter diretrizes para proteger o acesso a todos os serviços que são integrados com o Azure Active Directory.
 
-* [O que é proteção de linha de base (versão prévia)?](baseline-protection.md) A proteção de linha de base garante que você tenha pelo menos o nível de linha de base de segurança habilitado em seu ambiente de Azure Active Directory.
 * [Configurações de acesso de dispositivo e identidade](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Descreve como configurar o acesso seguro aos serviços de nuvem por meio de Enterprise Mobility + Security produtos implementando um ambiente e uma configuração recomendados, incluindo um conjunto prescrito de políticas de acesso condicional e recursos relacionados.
 * [Azure Active Directory referência de configurações de acesso condicional](technical-reference.md). Saber
    * Quais aplicativos usam o acesso condicional?
@@ -91,13 +90,13 @@ Além disso, consulte os links a seguir para obter diretrizes para proteger o ac
 
 Consulte os seguintes cursos de acesso condicional e muito mais em [pluralsight.com](https://www.pluralsight.com/):
 
-* Pluralsight.com: [Projete o gerenciamento de identidades no Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
+* Pluralsight.com: [design de gerenciamento de identidade em Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
    * "Este curso orienta você pelos principais itens que você precisa saber para projetar sua solução de gerenciamento de identidades com o Azure AD". O acesso condicional do Azure AD é abordado no módulo "usando funções e controle de acesso com o Azure AD".
 
-* Pluralsight.com: [Autenticação de design para Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
+* Pluralsight.com: [design de autenticação para Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
    * "Este curso explica como usar o Azure AD para resolver todos os seus requisitos de autenticação de nuvem." O acesso condicional do Azure AD é abordado no módulo "requisitos de autenticação para cenários diferentes".
 
-* Pluralsight.com: [Autorização de design para Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
+* Pluralsight.com: [design de autorização para Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
    * "Este curso ensina as opções de autorização disponíveis com o Azure e o Azure AD". O acesso condicional do Azure AD é abordado no módulo "autorização com Azure Resource Manager e Azure AD".
 
 ### <a name="books"></a>Livros
@@ -108,7 +107,7 @@ Consulte os seguintes cursos de acesso condicional e muito mais em [pluralsight.
 * Wiley [serviços de infraestrutura de Microsoft Azure de mestre](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
    * "Aqui está tudo o que você precisa para entender, avaliar, implantar e manter ambientes que utilizam Microsoft Azure".
 
-## <a name="white-papers"></a>Documentação técnica
+## <a name="white-papers"></a>Documentos técnicos
 
 * Publicado em 18 de dezembro de 2018, [crie uma estratégia de gerenciamento de controle de acesso resiliente com Azure Active Directory](../authentication/concept-resilient-controls.md)
    * Este documento fornece orientação sobre estratégias que uma organização pode adotar para fornecer resiliência para reduzir o risco de bloqueio durante interrupções imprevistas.
@@ -116,7 +115,7 @@ Consulte os seguintes cursos de acesso condicional e muito mais em [pluralsight.
 * Publicado em 18 de setembro de 2018, [recursos para migrar aplicativos para Azure Active Directory](../manage-apps/migration-resources.md)
    * Este White Paper inclui uma lista de recursos para ajudá-lo a migrar o acesso e a autenticação do aplicativo para o Azure Active Directory (Azure AD).
 
-* Publicado em 12 de julho [de 2018 Blueprint de segurança e conformidade do Azure: Hospedagem de aplicativos Web de PaaS para cargas de trabalho oficiais do Reino Unido](../../security/blueprints/ukofficial-paaswa-overview.md)
+* Publicado em 12 de julho de 2018 [Blueprint de segurança e conformidade do Azure: Hospedagem de aplicativo Web PaaS para cargas de trabalho oficiais do Reino Unido](../../security/blueprints/ukofficial-paaswa-overview.md)
    * Os planos gráficos do Azure consistem em documentos de orientação e modelos de automação que implantam arquiteturas baseadas em nuvem para oferecer soluções a cenários com requisitos de certificação ou conformidade.
 
 ## <a name="guidance-for-it-administrators"></a>Diretrizes para administradores de ti
@@ -129,32 +128,32 @@ Aqui estão links úteis para ajudá-lo a começar:
 
 * [Práticas recomendadas para acesso condicional no Azure Active Directory](best-practices.md)
 * [Usar as revisões de acesso do Azure AD para gerenciar usuários que foram excluídos das políticas de acesso condicional](../governance/conditional-access-exclusion.md)
-* [How To: Planejar sua implantação de acesso condicional no Azure Active Directory](plan-conditional-access.md)
-* [Quickstart: Exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md)
-* [Quickstart: Exigir que os termos de uso sejam aceitos antes de acessar os aplicativos de nuvem](require-tou.md)
-* [Quickstart: Bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional](app-sign-in-risk.md)
+* [Como planejar sua implantação de acesso condicional no Azure Active Directory](plan-conditional-access.md)
+* [Início rápido: exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional](app-based-mfa.md)
+* [Início rápido: exigir que os termos de uso sejam aceitos antes de acessar os aplicativos de nuvem](require-tou.md)
+* [Início rápido: bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional](app-sign-in-risk.md)
 * [Perguntas frequentes de acesso condicional do Azure AD](faqs.md)
    * Para outras perguntas, você também pode exibir o [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure).
    * Se você não conseguir encontrar a resposta a um problema, nossas equipes de suporte estarão sempre disponíveis para ajudá-lo. Use [entre em contato com o suporte da Microsoft](../authentication/active-directory-passwords-troubleshoot.md#contact-microsoft-support).
 
 ### <a name="tutorials"></a>Tutoriais
 
-* [**TUTORIAIS Exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional**](app-based-mfa.md)
+* [**Início rápido: exigir MFA para aplicativos específicos com Azure Active Directory acesso condicional**](app-based-mfa.md)
    * Este guia de início rápido mostra como configurar uma política de acesso condicional do Azure AD que requer autenticação multifator para um aplicativo de nuvem selecionado em seu ambiente.
 
-* [**TUTORIAIS Exigir que os termos de uso sejam aceitos antes de acessar os aplicativos de nuvem**](require-tou.md)
+* [**Início rápido: exigir que os termos de uso sejam aceitos antes de acessar os aplicativos de nuvem**](require-tou.md)
    * Este guia de início rápido mostra como configurar uma política de acesso condicional do Azure AD que exige que um ToU seja aceito para um aplicativo de nuvem selecionado em seu ambiente.
 
-* [**TUTORIAIS Bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional**](app-sign-in-risk.md)
+* [**Início rápido: bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional**](app-sign-in-risk.md)
    * Este guia de início rápido mostra como configurar uma política de acesso condicional que bloqueia uma entrada quando um nível de risco de entrada configurado for detectado.
 
-* [Tutorial: **Migre uma política clássica que exija autenticação multifator no portal do Azure**](policy-migration-mfa.md)
+* [Tutorial: **migrar uma política clássica que requer autenticação multifator no portal do Azure**](policy-migration-mfa.md)
    * Este tutorial mostra como migrar uma política clássica que exige a autenticação multifator (MFA) para um aplicativo de nuvem.
 
 ## <a name="end-user-readiness-and-communication"></a>Prontidão e comunicação do usuário final
 
 O acesso condicional usa outros recursos do Azure AD que podem afetar a experiência do usuário final. Por exemplo, você pode usar a autenticação multifator do Azure para habilitar a autenticação forte para usuários. Nesse caso, você usará os modelos de usuário final do Azure MFA.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Inicie sua implantação com a [documentação de planejamento de implantação de acesso condicional](plan-conditional-access.md).

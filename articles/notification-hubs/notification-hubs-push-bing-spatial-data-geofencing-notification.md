@@ -1,9 +1,9 @@
 ---
-title: As notificações push de perímetros geográficos e os Hubs de Notificação do Azure e Dados Geográficos do Bing | Microsoft Docs
+title: Enviar notificações por push com hubs de notificação do Azure e dados espaciais do Bing | Microsoft Docs
 description: Neste tutorial, irá aprender a entregar notificações push com base na localização com Hubs de Notificação do Azure e Dados Geográficos do Bing.
 services: notification-hubs
 documentationcenter: windows
-keywords: notificação push, notificação push
+keywords: notificações por push, notificações por push
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213240"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387489"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: Enviar notificações baseadas no local com os hubs de notificação do Azure e dados espaciais do Bing
+# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Tutorial: enviar notificações por push baseadas no local com os hubs de notificação do Azure e dados espaciais do Bing
 
 Neste tutorial, irá aprender a entregar notificações push com base na localização com Hubs de Notificação do Azure e Dados Geográficos do Bing.
 
@@ -53,7 +53,7 @@ Neste tutorial, siga os seguintes passos:
 3. Se não vir uma origem de dados existente, verá uma ligação para criar uma origem de dados. Selecione **Carregar dados como uma origem de dados**. Também pode utilizar o menu **Origens de dados** > **Carregar dados**.
 
     ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
-4. Crie um arquivo `NotificationHubsGeofence.pipe` no disco rígido com o seguinte conteúdo: Neste tutorial, você usa um arquivo baseado em pipe de exemplo que moldura uma área de São Francisco orla marítima:
+4. Crie um arquivo `NotificationHubsGeofence.pipe` no disco rígido com o seguinte conteúdo: neste tutorial, você usará um arquivo baseado em pipe de exemplo que moldura uma área da San Francisco orla marítima:
 
     ```text
     Bing Spatial Data Services, 1.0, TestBoundaries
@@ -66,7 +66,7 @@ Neste tutorial, siga os seguintes passos:
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Na página **Carregar uma origem de dados**, faça o seguinte:
    1. Selecione **pipe** para **Formato de dados**.
-   2. Procure e selecione o `NotificationHubGeofence.pipe` arquivo que você criou na etapa anterior.
+   2. Procure e selecione o arquivo `NotificationHubGeofence.pipe` que você criou na etapa anterior.
    3. Selecione o botão **Carregar**.
 
       > [!NOTE]

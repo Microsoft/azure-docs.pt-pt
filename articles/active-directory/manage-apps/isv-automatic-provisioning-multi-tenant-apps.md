@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: c44006b20f4c0ef186f406e554ff555cda0c1dd8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373393"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429461"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Habilitar o provisionamento automático de usuário para seu aplicativo multilocatário
 
@@ -81,7 +81,7 @@ Para ajudar a determinar qual opção de integração usar para seu aplicativo, 
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Serviço de provisionamento do AD do Azure (SCIM)
 
-Os serviços de provisionamento do Azure AD usam o [SCIM] (https://aka.ms/SCIMOverview, um protocolo com suporte de vários provedores de identidade (IdPs). Recomendamos que você use o serviço de provisionamento do Azure AD se quiser dar suporte ao IdPs além do Azure AD, já que qualquer IdP compatível com SCIM pode se conectar ao seu ponto de extremidade SCIM.
+Os serviços de provisionamento do Azure AD usam o [scim](https://aka.ms/SCIMOverview), um padrão da indústria para o provisionamento com suporte de vários provedores de identidade (IDPs), bem como aplicativos (por exemplo, margem de atraso, g Suite, Dropbox). Recomendamos que você use o serviço de provisionamento do Azure AD se quiser dar suporte ao IdPs além do Azure AD, já que qualquer IdP compatível com SCIM pode se conectar ao seu ponto de extremidade SCIM. Criando um ponto de extremidade simples/User, você pode habilitar o provisionamento sem a necessidade de manter seu próprio mecanismo de sincronização. 
 
 Para obter mais informações sobre como os usuários do serviço de provisionamento do Azure AD SCIMm, consulte: 
 
@@ -106,16 +106,6 @@ Saiba mais sobre como usar Microsoft Graph para provisionamento:
 * [Visão geral da autenticação Microsoft Graph](https://docs.microsoft.com/graph/auth/)
 
 * [Introdução ao Microsoft Graph](https://developer.microsoft.com/graph/get-started)
-
-* [Usar a API de Microsoft Graph](https://docs.microsoft.com/graph/use-the-api)
-
-* [Microsoft Graph Explorer](https://aka.ms/ge) 
-
-* [Referência de permissões de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
-
-* [Práticas recomendadas para trabalhar com Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept)
-
-* [Cenários em destaque para Microsoft Graph](https://developer.microsoft.com/graph/examples)
 
 ## <a name="using-saml-jit-for-provisioning"></a>Usando o JIT do SAML para provisionamento
 

@@ -3,15 +3,15 @@ title: Resolver erros comuns
 description: Saiba como solucionar problemas de consulta de recursos do Azure com o grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976614"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389691"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Solucionar erros usando o grafo de recursos do Azure
 
@@ -23,7 +23,7 @@ A maioria dos erros é o resultado de um problema durante a execução de uma co
 
 ## <a name="general-errors"></a>Erros gerais
 
-### <a name="toomanysubscription"></a>Cenário Excesso de assinaturas
+### <a name="toomanysubscription"></a>Cenário: muitas assinaturas
 
 #### <a name="issue"></a>Problema
 
@@ -39,7 +39,7 @@ Solicitações em lote para a consulta com um subconjunto de assinaturas para pe
 
 ```azurepowershell-interactive
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription
@@ -60,7 +60,7 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Cenário Cabeçalho REST de tipo de conteúdo sem suporte
+### <a name="rest-contenttype"></a>Cenário: cabeçalho REST de tipo de conteúdo sem suporte
 
 #### <a name="issue"></a>Problema
 
@@ -73,7 +73,8 @@ A API REST do grafo de recursos do Azure só dá suporte a um `Content-Type` de 
 #### <a name="resolution"></a>Resolução
 
 Valide se a ferramenta ou o agente que você está usando para consultar o grafo de recursos do Azure tem o cabeçalho da API REST `Content-Type` configurado para **Application/JSON**.
-### <a name="rest-403"></a>Cenário Nenhuma permissão de leitura para todas as assinaturas na lista
+
+### <a name="rest-403"></a>Cenário: nenhuma permissão de leitura para todas as assinaturas na lista
 
 #### <a name="issue"></a>Problema
 

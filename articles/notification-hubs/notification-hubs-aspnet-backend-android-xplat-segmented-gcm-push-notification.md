@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações push para dispositivos Android específicos através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging | Microsoft Docs
+title: Enviar notificações para dispositivos Android específicos usando hubs de notificação e Google Cloud Messaging do Azure | Microsoft Docs
 description: Saiba como utilizar os Hubs de Notificação para enviar notificações push para dispositivos Android específicos através dos Hubs de Notificação do Microsoft Azure e do Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
@@ -17,21 +17,21 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4a369b72d5c19a63c65f8d693d131b2c10ff2023
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: aa2aa7b77bf174f4a2ca89408ee037b398a32e4d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212814"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387431"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificações por push para dispositivos Android específicos usando hubs de notificação e Google Cloud Messaging do Azure (preterido)
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: notificações por push para dispositivos Android específicos usando hubs de notificação do Azure e Google Cloud Messaging (preterido)
 
 > [!WARNING]
 > A partir de 10 de abril de 2018, o Google preteriu Google Cloud Messaging (GCM). As APIs de cliente e servidor GCM foram preteridas e serão removidas assim que 29 de maio de 2019. Para obter mais informações, consulte perguntas frequentes do [GCM e do FCM](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este tutorial mostra como utilizar os Hubs de Notificação do Microsoft Azure para transmitir notificações de notícias de última hora para uma aplicação Android. Quando terminar, poderá registar-se para obter as categorias de notícias de última hora nas quais tem interesse e receber apenas notificações push para essas categorias. Este é um cenário com um padrão comum para muitas aplicações em que as notificações têm de ser enviadas para grupos de utilizadores que mostraram anteriormente interesse nas mesmas, por exemplo, leitor de RSS, aplicações para fãs de música, etc.
 
@@ -47,13 +47,13 @@ Neste tutorial, irá realizar as seguintes ações:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial se baseia no aplicativo criado no [tutorial: Notificações por push para dispositivos Android usando os hubs de notificação e][get-started]Google Cloud Messaging do Azure. Antes de iniciar este tutorial, conclua o [tutorial: Notificações por push para dispositivos Android usando os hubs de notificação e][get-started]Google Cloud Messaging do Azure.
+Este tutorial se baseia no aplicativo criado no [tutorial: notificações por push para dispositivos Android usando hubs de notificação e Google Cloud Messaging do Azure][get-started]. Antes de iniciar este tutorial, conclua o [tutorial: notificações por push para dispositivos Android usando hubs de notificação e Google Cloud Messaging do Azure][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Adicionar a seleção de categorias à aplicação
 
-O primeiro passo consiste em adicionar os elementos de IU à sua atividade principal existente, para permitir que o utilizador selecione categorias a registar. As categorias selecionadas pelo utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado o registo do dispositivo no seu Hub de Notificação com as categorias selecionadas como etiquetas.
+O primeiro passo consiste em adicionar os elementos de IU à sua atividade principal existente, para permitir que o utilizador selecione categorias a registar. As categorias selecionadas pelo utilizador são armazenadas no dispositivo. Quando a aplicação é iniciada, é criado um registo do dispositivo no seu hub de notificação com as categorias selecionadas como etiquetas.
 
-1. Abra o `res/layout/activity_main.xml file`e substitua o conteúdo pelo seguinte:
+1. Abra o `res/layout/activity_main.xml file` e substitua o conteúdo pelo seguinte:
 
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -106,7 +106,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
             />
     </LinearLayout>
     ```
-2. Abra o `res/values/strings.xml` arquivo e adicione as seguintes linhas:
+2. Abra o arquivo `res/values/strings.xml` e adicione as seguintes linhas:
 
     ```xml
     <string name="button_subscribe">Subscribe</string>
@@ -118,10 +118,10 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     <string name="label_sports">Sports</string>
     ```
 
-    O `main_activity.xml` layout gráfico deve se parecer com a imagem a seguir:
+    O layout gráfico `main_activity.xml` deve ser semelhante à imagem a seguir:
 
     ![][A1]
-3. Crie uma classe `Notifications` no mesmo pacote que a sua `MainActivity` classe.
+3. Crie uma classe `Notifications` no mesmo pacote que a classe `MainActivity`.
 
     ```java
     import java.util.HashSet;
@@ -196,14 +196,14 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     ```
 
     Esta classe utiliza o armazenamento local para armazenar as categorias de notícias que este dispositivo tem de receber. Contém também métodos para se registar nestas categorias.
-4. Em sua `MainActivity` classe, remova seus campos particulares `NotificationHub` para `GoogleCloudMessaging`e e adicione um campo para `Notifications`:
+4. Na sua classe `MainActivity`, remova seus campos particulares para `NotificationHub` e `GoogleCloudMessaging` e adicione um campo para `Notifications`:
 
     ```java
     // private GoogleCloudMessaging gcm;
     // private NotificationHub hub;
     private Notifications notifications;
     ```
-5. Em seguida, no `onCreate` método, remova a inicialização `hub` do campo e o `registerWithNotificationHubs` método. Em seguida, adicione as seguintes linhas, que inicializam uma `Notifications` instância da classe.
+5. Em seguida, no método `onCreate`, remova a inicialização do campo `hub` e o método `registerWithNotificationHubs`. Em seguida, adicione as seguintes linhas, que inicializam uma instância da classe `Notifications`.
 
     ```java
     protected void onCreate(Bundle savedInstanceState) {
@@ -223,7 +223,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     Confirme se o nome do hub e a cadeia de ligação estão definidos corretamente na classe NotificationSettings.
 
     > [!NOTE]
-    > Como as credenciais que são distribuídas com uma aplicação cliente não são geralmente seguras, só deve distribuir a chave de acesso de escuta com a sua aplicação cliente. O acesso de escuta permite que a sua aplicação seja registada para receber notificações, mas não é possível modificar os registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço back-end protegido para enviar notificações e alterar registos existentes.
+    > Uma vez que, de um modo geral, as credenciais que são distribuídas com uma aplicação cliente não são seguras, só deve distribuir a chave para acesso de escuta com a sua aplicação cliente. O acesso de escuta permite que a sua aplicação seja registada para receber notificações, mas não é possível modificar os registos existentes nem enviar notificações. A chave de acesso total é utilizada num serviço de back-end protegido para o envio de notificações e a alteração de registos existentes.
 
 6. Em seguida, adicione as seguintes importações:
 
@@ -261,7 +261,7 @@ O primeiro passo consiste em adicionar os elementos de IU à sua atividade princ
     }
     ```
 
-    Esse método cria uma lista de categorias e usa a `Notifications` classe para armazenar a lista no armazenamento local e registrar as marcas correspondentes no Hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
+    Esse método cria uma lista de categorias e usa a classe `Notifications` para armazenar a lista no armazenamento local e registrar as marcas correspondentes no Hub de notificação. Quando as categorias são alteradas, o registo é recriado com as novas categorias.
 
 A sua aplicação pode agora armazenar um conjunto de categorias no armazenamento local do dispositivo e ficar registada no Hub de Notificação sempre que o utilizador alterar a seleção das categorias.
 
@@ -272,7 +272,7 @@ Estes passos são registados no Hub de Notificação durante o arranque com as c
 > [!NOTE]
 > Como o registrationId atribuído pelo Google Cloud Messaging (GCM) pode mudar em qualquer altura, deve registar-se para receber notificações frequentemente para evitar falhas de notificação. Este exemplo é registado para notificação sempre que a aplicação é iniciada. Relativamente às aplicações executadas com frequência, ou seja, mais do que uma vez por dia, pode provavelmente ignorar o registo para poupar a largura de banda, caso tenha passado menos de um dia desde o registo anterior.
 
-1. Adicione o seguinte código ao final do `onCreate` método `MainActivity` na classe:
+1. Adicione o seguinte código ao final do método `onCreate` na classe `MainActivity`:
 
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());
@@ -309,13 +309,13 @@ Estes passos são registados no Hub de Notificação durante o arranque com as c
 
 A aplicação está agora completa e pode armazenar um conjunto de categorias no armazenamento local do dispositivo utilizado para ficar registada no Hub de Notificação sempre que o utilizador alterar a seleção das categorias. Em seguida, defina um back-end apto a enviar notificações de categoria para esta aplicação.
 
-## <a name="send-tagged-notifications"></a>Enviar notificações com etiquetas
+## <a name="send-tagged-notifications"></a>Enviar notificações marcadas
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="test-the-app"></a>Testar a aplicação
 
-1. No Android Studio, execute a aplicação no seu dispositivo Android ou emulador. A IU da aplicação fornece um conjunto de botões de alternar que lhe permite selecionar as categorias que pretende subscrever.
+1. No Android Studio, execute a aplicação no seu dispositivo Android ou emulador. A IU da aplicação disponibiliza um conjunto de seletores que lhe permitem escolher as categorias que quer subscrever.
 2. Ative um ou mais seletores de categorias e, em seguida, clique em **Subscrever**. A aplicação converte as categorias selecionadas em etiquetas e pede um novo registo do dispositivo para as etiquetas selecionadas do Hub de Notificação. As categorias registadas são devolvidas e apresentadas numa notificação de alerta.
 
     ![Subscrever categorias](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)

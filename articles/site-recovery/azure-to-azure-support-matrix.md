@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 3e62c19454808ad398dfb205eae9de19a671852d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: HT
+ms.openlocfilehash: 843cac8c7a5e6c80b7663df2a48079dd307b7d5a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376336"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383516"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de suporte para replicar VMs do Azure de uma região para outra
 
@@ -82,18 +82,21 @@ Site Recovery dá suporte à replicação de VMs do Azure que executam os sistem
 
 ### <a name="windows"></a>Windows
 
+
 **Sistema operativo** | **Detalhes**
 --- | ---
 Windows Server 2019 | Com suporte para Server Core, servidor com experiência desktop.
 Windows Server 2016  | Server Core com suporte, servidor com experiência desktop.
 Windows Server 2012 R2 | Suportado.
 Windows Server 2012 | Suportado.
-Windows Server 2008 R2 com SP1/SP2 | Suportado.<br/><br/> Da versão 9.30. x. x da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (Windows Servicing Stack Update)](https://support.microsoft.com/help/4490628) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 R2 SP1/SP2.  Se essas atualizações não estiverem instaladas, a extensão do agente talvez não seja instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
-Windows Server 2008 com SP2 | Da versão 9.30. x. x da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4493730) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 com SP2.  Se essas atualizações não estiverem instaladas, a extensão do agente talvez não seja instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 com SP1/SP2 | Suportado.<br/><br/> Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 R2 SP1/SP2.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows Server 2008 com SP2 | Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4493730) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows Server 2008 com SP2.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Suportado.
 Windows 8.1 (x64) | Suportado.
 Windows 8 (x64) | Suportado.
-Windows 7 (x64) com SP1 em diante | Da versão 9.30. x. x da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows 7 com SP1.  Se essas atualizações não estiverem instaladas, a extensão do agente talvez não seja instalada/atualizada conforme o esperado. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+Windows 7 (x64) com SP1 em diante | Da versão 9.30. x. x (liberação esperada a partir de novembro de 2019) da extensão do serviço de mobilidade para VMs do Azure, você precisa instalar uma atualização de [Ssu (atualização da pilha de manutenção](https://support.microsoft.com/help/4490628) do Windows) e [SHA-2](https://support.microsoft.com/help/4474419) em computadores que executam o Windows 7 com SP1.  O SHA-1 não tem suporte de setembro de 2019 e, se a assinatura de código SHA-2 não estiver habilitada, a extensão do agente não será instalada/atualizada conforme o esperado.. Saiba mais sobre [os requisitos e a atualização do SHA-2](https://aka.ms/SHA-2KB).
+
+
 
 #### <a name="linux"></a>Linux
 

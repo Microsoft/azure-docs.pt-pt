@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029313"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387798"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Transformação dinâmica do Azure data factory
 
@@ -34,13 +34,13 @@ A chave dinâmica é a coluna que o ADF dinamizará da linha para a coluna. Por 
 
 ## <a name="pivoted-columns"></a>Colunas dinâmicas
 
-![Opções dinâmicas](media/data-flow/pivot4.png "pivô 4")
+![Opções dinâmicas](media/data-flow/pivot4.png "tabela dinâmica 4")
 
 Por fim, você escolherá a agregação que deseja usar para os valores dinâmicos e como deseja que as colunas sejam exibidas na nova projeção de saída da transformação.
 
 Adicional Você pode definir um padrão de nomenclatura com um prefixo, meio e sufixo a ser adicionado a cada novo nome de coluna dos valores de linha.
 
-Por exemplo, dinamizar "vendas" por "Region" resultaria em novos valores de coluna de cada valor de vendas, ou seja, "25", "50", "1000", etc. No entanto, se você definir um valor de prefixo "Sales-", cada valor de coluna adicionará "Sales" ao início do valor.
+Por exemplo, dinamizar "vendas" por "Region" resultaria em novos valores de coluna de cada valor de vendas, ou seja, "25", "50", "1000" etc. No entanto, se você definir um valor de prefixo "Sales-", cada valor de coluna adicionará "Sales" ao início do valor.
 
 ![Opções dinâmicas](media/data-flow/pivot5.png "pivô 5")
 
@@ -60,7 +60,7 @@ A transformação dinâmica produzirá novos nomes de coluna dinâmicos com base
 
 A tabela dinâmica gera novos nomes de coluna dinamicamente com base em valores de linha. Você pode transformar essas novas colunas em metadados que podem ser referenciados posteriormente no fluxo de dados. Para fazer isso, clique na guia Visualização de dados. Todas as novas colunas geradas pela transformação dinâmica aparecem com um ícone "descompasso" no cabeçalho da tabela. Clique no botão "mapear descompassos" para transformar essas novas colunas em metadados, tornando-as parte do modelo do fluxo de dados.
 
-Colunas dinâmicas do(media/data-flow/newpivot1.png "mapa") ![de colunas]dinâmicas
+![Colunas dinâmicas](media/data-flow/newpivot1.png "Mapear colunas dinâmicas descompassos")
 
 ### <a name="landing-new-columns-in-sink"></a>Novas colunas de aterrissagem no coletor
 

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670839"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382016"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Conceder acesso limitado aos recursos de armazenamento do Azure usando SAS (assinaturas de acesso compartilhado)
 
@@ -24,9 +24,17 @@ Uma SAS (assinatura de acesso compartilhado) fornece acesso delegado seguro aos 
 
 O armazenamento do Azure dá suporte a três tipos de assinaturas de acesso compartilhado:
 
-- **SAS de delegação de usuário (visualização).** Uma SAS de delegação de usuário é protegida com as credenciais do Azure Active Directory (AD do Azure) e também pelas permissões especificadas para a SAS. Uma SAS de delegação de usuário se aplica somente ao armazenamento de BLOB. Para criar uma SAS de delegação de usuário, você deve primeiro solicitar uma chave de delegação de usuário, que é usada para assinar a SAS. Para obter mais informações sobre a SAS de delegação de usuário, consulte [criar uma delegação de usuário de SAS (API REST)](/rest/api/storageservices/create-user-delegation-sas).
-- **SAS de serviço.** Uma SAS de serviço é protegida com a chave da conta de armazenamento. Uma SAS de serviço Delega acesso a um recurso em apenas um dos serviços de armazenamento do Azure: Armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas ou arquivos do Azure. Para obter mais informações sobre a SAS do serviço, consulte [criar um serviço SAS (API REST)](/rest/api/storageservices/create-service-sas).
-- **SAS da conta.** Uma SAS de conta é protegida com a chave da conta de armazenamento. Uma conta SAS delega o acesso aos recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis por meio de uma SAS de delegação de serviço ou de usuário também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS da conta, você pode delegar acesso a operações que se aplicam ao nível do serviço, como **obter/definir propriedades de serviço** e obter as operações de **Estatísticas de serviço** . Também pode delegar o acesso às operações de leitura, escrita e eliminação em contentores de blobs, tabelas, filas e partilhas de ficheiros que não são permitidos com um serviço SAS. Para obter mais informações sobre a SAS da conta, [crie uma SAS da conta (API REST)](/rest/api/storageservices/create-account-sas).
+- **SAS de delegação de usuário (visualização).** Uma SAS de delegação de usuário é protegida com as credenciais do Azure Active Directory (AD do Azure) e também pelas permissões especificadas para a SAS. Uma SAS de delegação de usuário se aplica somente ao armazenamento de BLOB.
+
+    Para obter mais informações sobre a SAS de delegação de usuário, consulte [criar uma delegação de usuário de SAS (API REST)](/rest/api/storageservices/create-user-delegation-sas).
+
+- **SAS de serviço.** Uma SAS de serviço é protegida com a chave da conta de armazenamento. Uma SAS de serviço Delega acesso a um recurso em apenas um dos serviços de armazenamento do Azure: armazenamento de BLOBs, armazenamento de filas, armazenamento de tabelas ou arquivos do Azure. 
+
+    Para obter mais informações sobre a SAS do serviço, consulte [criar um serviço SAS (API REST)](/rest/api/storageservices/create-service-sas).
+
+- **SAS da conta.** Uma SAS de conta é protegida com a chave da conta de armazenamento. Uma conta SAS delega o acesso aos recursos em um ou mais dos serviços de armazenamento. Todas as operações disponíveis por meio de uma SAS de delegação de serviço ou de usuário também estão disponíveis por meio de uma SAS de conta. Além disso, com a SAS da conta, você pode delegar acesso a operações que se aplicam ao nível do serviço, como **obter/definir propriedades de serviço** e obter as operações de **Estatísticas de serviço** . Também pode delegar o acesso às operações de leitura, escrita e eliminação em contentores de blobs, tabelas, filas e partilhas de ficheiros que não são permitidos com um serviço SAS. 
+
+    Para obter mais informações sobre a SAS da conta, [crie uma SAS da conta (API REST)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
 > A Microsoft recomenda que você use as credenciais do Azure AD quando possível como uma prática recomendada de segurança, em vez de usar a chave de conta, que pode ser mais facilmente comprometida. Quando o design do aplicativo exigir assinaturas de acesso compartilhado para acesso ao armazenamento de BLOB, use as credenciais do Azure AD para criar uma SAS de delegação de usuário quando possível para segurança superior.
@@ -47,13 +55,13 @@ Uma assinatura de acesso compartilhado é um URI assinado que aponta para um ou 
 
 Você pode assinar uma SAS de uma das duas maneiras:
 
-- Com uma chave de delegação de usuário que foi criada usando as credenciais do Azure Active Directory (AD do Azure). Uma SAS de delegação de usuário é assinada com a chave de delegação de usuário.
+- Com uma *chave de delegação de usuário* que foi criada usando as credenciais do Azure Active Directory (AD do Azure). Uma SAS de delegação de usuário é assinada com a chave de delegação de usuário.
 
     Para obter a chave de delegação de usuário e criar a SAS, uma entidade de segurança do Azure AD deve ser atribuída a uma função de RBAC (controle de acesso baseado em função) que inclui a ação **Microsoft. Storage/storageAccounts/blobservices/generateUserDelegationKey** . Para obter informações detalhadas sobre as funções RBAC com permissões para obter a chave de delegação de usuário, consulte [criar uma delegação de usuário (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Com a chave da conta de armazenamento. Uma SAS de serviço e uma SAS de conta são assinadas com a chave da conta de armazenamento. Para criar uma SAS que é assinada com a chave de conta, um aplicativo deve ter acesso à chave de conta.
 
-### <a name="sas-token"></a>Token de SAS
+### <a name="sas-token"></a>Token SAS
 
 O token SAS é uma cadeia de caracteres que você gera no lado do cliente, por exemplo, usando uma das bibliotecas de cliente do armazenamento do Azure. O token SAS não é acompanhado pelo armazenamento do Azure de nenhuma forma. Você pode criar um número ilimitado de tokens SAS no lado do cliente. Depois de criar uma SAS, você pode distribuí-la aos aplicativos cliente que exigem acesso aos recursos em sua conta de armazenamento.
 
@@ -71,11 +79,11 @@ Um cenário comum em que uma SAS é útil é um serviço no qual os usuários l�
 
 1. Os clientes carregam e baixam dados por meio de um serviço de proxy front-end, que executa a autenticação. Esse serviço de proxy de front-end tem a vantagem de permitir a validação de regras de negócio, mas, para grandes quantidades de dados ou transações de alto volume, criar um serviço que pode ser dimensionado para corresponder a demanda pode ser caro ou difícil.
 
-   ![Diagrama de cenário: Serviço de proxy de front-end](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
+   ![Diagrama de cenário: serviço de proxy de front-end](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
 1. Um serviço leve autentica o cliente conforme necessário e, em seguida, gera uma SAS. Depois que o aplicativo cliente recebe a SAS, ele pode acessar os recursos da conta de armazenamento diretamente com as permissões definidas pela SAS e para o intervalo permitido pela SAS. A SAS mitiga a necessidade de rotear todos os dados por meio do serviço de proxy de front-end.
 
-   ![Diagrama de cenário: Serviço do provedor SAS](./media/storage-sas-overview/sas-storage-provider-service.png)
+   ![Diagrama de cenário: serviço de provedor SAS](./media/storage-sas-overview/sas-storage-provider-service.png)
 
 Muitos serviços do mundo real podem usar um híbrido dessas duas abordagens. Por exemplo, alguns dados podem ser processados e validados por meio do proxy de front-end, enquanto outros dados são salvos e/ou lidos diretamente usando SAS.
 

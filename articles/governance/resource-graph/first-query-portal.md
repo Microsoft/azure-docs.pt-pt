@@ -3,17 +3,17 @@ title: Executar sua primeira consulta usando o Gerenciador de grafo de recursos 
 description: Este artigo orienta você pelas etapas para executar sua primeira consulta de portal do Azure usando o Gerenciador de grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981254"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387607"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: Executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
 
 O poder do grafo de recursos do Azure está disponível diretamente no portal do Azure por meio do Gerenciador de grafo de recursos do Azure. O Gerenciador de grafo de recursos fornece informações navegáveis sobre o Azure Resource Manager tipos de recursos e propriedades que você pode consultar. O Gerenciador de gráficos de recursos também fornece uma interface limpa para trabalhar com várias consultas, avaliar os resultados e até mesmo converter os resultados de algumas consultas em um gráfico que pode ser fixado em um painel do Azure.
 
@@ -27,19 +27,19 @@ Abra o [portal do Azure](https://portal.azure.com) para localizar e usar o Geren
 
 1. Selecione **todos os serviços** no painel esquerdo. Pesquise e selecione **Explorador de grafo de recursos**.
 
-1. Na parte da **consulta 1** da janela, insira a consulta `project name, type | limit 5` e selecione **Executar consulta**.
+1. Na parte da **consulta 1** da janela, insira a consulta `Resources | project name, type | limit 5` e selecione **Executar consulta**.
 
    > [!NOTE]
    > Como esse exemplo de consulta não fornece um modificador de classificação, como `order by`, a execução dessa consulta várias vezes provavelmente produzirá um conjunto diferente de recursos por solicitação.
 
 1. Examine a resposta de consulta na guia **resultados** . Selecione a guia **mensagens** para ver detalhes sobre a consulta, incluindo a contagem de resultados e a duração da consulta. Os erros, se houver, são exibidos nessa guia.
 
-1. Atualize a consulta para `order by` a propriedade **Name** : `project name, type | limit 5 | order by name asc`. Em seguida, selecione **Executar consulta**.
+1. Atualize a consulta para `order by` a propriedade **Name** : `Resources | project name, type | limit 5 | order by name asc`. Em seguida, selecione **Executar consulta**.
 
    > [!NOTE]
    > Assim como na primeira consulta, é provável que executar esta consulta várias vezes produza um conjunto diferente de recursos em cada pedido. A ordem dos comandos da consulta é importante. Neste exemplo, `order by` vem depois de `limit`, ou seja, primeiro limita os resultados da consulta e, em seguida, ordena-os.
 
-1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` aos cinco primeiros resultados: `project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar consulta**.
+1. Atualize a consulta para primeiro `order by` a propriedade **Name** e, em seguida, `limit` aos cinco primeiros resultados: `Resources | project name, type | order by name asc | limit 5`. Em seguida, selecione **Executar consulta**.
 
 Quando a consulta final é executada várias vezes, supondo que nada em seu ambiente esteja sendo alterado, os resultados retornados são consistentes e conforme esperado – ordenados pela propriedade **Name** , mas ainda limitados aos cinco primeiros resultados.
 
@@ -54,7 +54,8 @@ Depois de executar a última consulta acima, se você selecionar a guia **gráfi
 1. Na parte **consulta 1** da janela, insira a consulta a seguir e selecione **Executar consulta**.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

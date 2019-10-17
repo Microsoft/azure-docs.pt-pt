@@ -1,6 +1,6 @@
 ---
-title: Visão geral do Azure Status Monitor v2 | Microsoft Docs
-description: Uma visão geral do Status Monitor v2. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
+title: Visão geral do agente do insights Aplicativo Azure | Microsoft Docs
+description: Uma visão geral do Application Insights Agent. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,23 +12,28 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 294b0d2d91650f33f0b92179a069a8c7cd845525
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286436"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389843"
 ---
-# <a name="status-monitor-v2"></a>Monitor de Estado v2
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implantar Azure Monitor agente de Application Insights para servidores locais
 
-Status Monitor V2 é um módulo do PowerShell publicado no [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+> [!IMPORTANT]
+> Estas diretrizes são recomendadas para implantações de nuvem locais e não Azure do Application Insights Agent. Aqui está a abordagem recomendada para [implantações de máquina virtual e conjunto de dimensionamento de máquinas virtuais do Azure](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+
+Application Insights agente (anteriormente denominado Status Monitor v2) é um módulo do PowerShell publicado no [Galeria do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 Ele substitui [status monitor](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-O módulo fornece instrumentação sem código de aplicativos Web .NET hospedados com o IIS.
 A telemetria é enviada para a portal do Azure, onde você pode [monitorar](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) seu aplicativo.
+
+> [!NOTE]
+> Atualmente, o módulo oferece suporte à instrumentação sem código de aplicativos Web .NET hospedados com o IIS. Use um SDK para instrumentar aplicativos ASP.NET Core, Java e node. js.
 
 ## <a name="powershell-gallery"></a>Galeria do PowerShell
 
-O Status Monitor v2 está localizado aqui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights agente está localizado aqui: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 ![Galeria do PowerShell](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -54,9 +59,9 @@ O Status Monitor v2 está localizado aqui: https://www.powershellgallery.com/pac
 
 ## <a name="faq"></a>FAQ
 
-- Status Monitor v2 oferece suporte a instalações de proxy?
+- O agente Application Insights dá suporte a instalações de proxy?
 
-  *Sim*. Há várias maneiras de baixar o Status Monitor v2. Se o seu computador tiver acesso à Internet, você poderá integrar ao Galeria do PowerShell usando parâmetros `-Proxy`.
+  *Sim*. Há várias maneiras de baixar o agente de Application Insights. Se o seu computador tiver acesso à Internet, você poderá integrar ao Galeria do PowerShell usando parâmetros `-Proxy`.
 Você também pode baixar manualmente o módulo e instalá-lo no seu computador ou usá-lo diretamente.
 Cada uma dessas opções é descrita nas [instruções detalhadas](status-monitor-v2-detailed-instructions.md).
 

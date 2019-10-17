@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169823"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389094"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Solicitar acesso a um pacote de acesso no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -30,7 +30,7 @@ ms.locfileid: "72169823"
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com o gerenciamento de direitos do Azure AD, os pacotes do Access permitem uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. 
+Com o gerenciamento de direitos do Azure AD, um pacote de acesso permite uma configuração única de recursos e políticas que administram automaticamente o acesso para a vida útil do pacote de acesso. 
 
 Um Gerenciador de pacotes de acesso pode configurar políticas para exigir aprovação para que os usuários tenham acesso aos pacotes do Access. Um usuário que precisa acessar um pacote do Access pode enviar uma solicitação para obter acesso. Este artigo descreve como enviar uma solicitação de acesso.
 
@@ -40,7 +40,7 @@ A primeira etapa é entrar no portal meu acesso, em que você pode solicitar ace
 
 **Função de pré-requisito:** Solicitante
 
-1. Procure um email ou uma mensagem do projeto ou gerente de negócios com o qual você está trabalhando. O email deve incluir um link para o pacote de acesso ao qual você precisará de acesso. O link começará com "myaccess", incluirá uma dica de diretório e terminará com uma ID de pacote de acesso semelhante à seguinte:
+1. Procure um email ou uma mensagem do projeto ou gerente de negócios com o qual você está trabalhando. O email deve incluir um link para o pacote de acesso ao qual você precisará de acesso. O link começa com `myaccess`, inclui uma dica de diretório e termina com uma ID de pacote de acesso.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

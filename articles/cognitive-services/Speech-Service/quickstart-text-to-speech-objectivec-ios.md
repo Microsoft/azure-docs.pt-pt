@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Sintetizar fala, Objective-C-Speech Service'
+title: 'Início rápido: sintetizar a fala, o Objective-C-Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Saiba como sintetizar a fala em Objective-C no iOS usando o SDK de fala
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 9d7fb4dfef2ac3ab14a8a10eb4d9a7afb91ac71e
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 099a2f707431827996aa304aa706a9efbe54f589
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803979"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438834"
 ---
-# <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: Sintetiza a fala em Objective-C no iOS usando o SDK de fala
+# <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Início rápido: sintetizar a fala em Objective-C no iOS usando o SDK de fala
 
 Os guias de início rápido também estão disponíveis para [reconhecimento de fala](quickstart-objectivec-ios.md).
 
@@ -25,10 +25,10 @@ Neste artigo, você aprende a criar um aplicativo iOS em Objective-C usando o SD
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, eis uma lista de pré-requisitos:
+Antes de começar, veja uma lista de pré-requisitos:
 
-* R [chave de subscrição](get-started.md) para o serviço de voz
-* Um computador macOS com [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
+* Uma [chave de assinatura](get-started.md) para o serviço de fala
+* Uma máquina macOS com o [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) ou posterior
 * O destino definido como iOS versão 9,3 ou posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obter o SDK de Voz para iOS
@@ -67,7 +67,8 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 ## <a name="add-the-sample-code"></a>Adicionar o código de exemplo
 
 1. Abra o espaço de trabalho `helloworld.xcworkspace` no Xcode.
-1. Substitua o conteúdo do arquivo `AppDelegate.m` gerado automaticamente por: [!code-objectivec @ no__t-2
+1. Substitua o conteúdo do ficheiro `AppDelegate.m` gerado automaticamente por:  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/AppDelegate.m#code)]
 1. Substitua o conteúdo do ficheiro `ViewController.m` gerado automaticamente por:  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Substitua a cadeia de carateres `YourSubscriptionKey` pela sua chave de subscrição.
@@ -88,7 +89,7 @@ Nas caixas de diálogo que se seguem, faça as seleções seguintes:
 > [!div class="nextstepaction"]
 > [Explorar exemplos de Objective-C no GitHub](https://aka.ms/csspeech/samples)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Personalizar fontes de voz](how-to-customize-voice-font.md)
 - [Gravar amostras de voz](record-custom-voice-samples.md)

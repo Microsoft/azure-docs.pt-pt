@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: queues
-ms.openlocfilehash: 02196a4df71bef767f8d1921f704907ad06e77b4
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 8ab4cb6b06f0f023a8f6368dac633a97afe29fd4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311148"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390028"
 ---
 # <a name="performance-and-scalability-checklist-for-queue-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de filas
 
@@ -55,7 +55,7 @@ Para obter mais informações sobre metas de escalabilidade para o serviço Fila
 
 ### <a name="maximum-number-of-storage-accounts"></a>Número máximo de contas de armazenamento
 
-Se estiver se aproximando do número máximo de contas de armazenamento permitidas para uma combinação de assinatura/região específica, você usará várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você aproveite os limites maiores de contas de armazenamento padrão para reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar limites maiores para sua conta de armazenamento. Para obter mais informações, consulte [anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+Se estiver se aproximando do número máximo de contas de armazenamento permitidas para uma combinação de assinatura/região específica, você usará várias contas de armazenamento para fragmentar para aumentar a entrada, a saída, as operações de e/s por segundo (IOPS) ou a capacidade? Nesse cenário, a Microsoft recomenda que você aproveite os limites maiores de contas de armazenamento para reduzir o número de contas de armazenamento necessárias para sua carga de trabalho, se possível. Contate o [suporte do Azure](https://azure.microsoft.com/support/options/) para solicitar limites maiores para sua conta de armazenamento. Para obter mais informações, consulte [anunciando contas de armazenamento maiores e de maior escala](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Metas de capacidade e de transação
 
@@ -195,6 +195,4 @@ Use filas para tornar a arquitetura do aplicativo escalonável. Veja a seguir al
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
-- [Lista de verificação de desempenho e escalabilidade para armazenamento de BLOBs](../blobs/storage-performance-checklist.md)
-- [Lista de verificação de desempenho e escalabilidade para o armazenamento de tabelas](../tables/storage-performance-checklist.md)
 - [Status e códigos de erro](/rest/api/storageservices/Status-and-Error-Codes2)

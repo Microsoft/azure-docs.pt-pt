@@ -2,23 +2,20 @@
 title: Gerenciar serviços de nuvem do Azure usando a automação do Azure | Microsoft Docs
 description: Saiba mais sobre como o serviço de automação do Azure pode ser usado para gerenciar os serviços de nuvem do Azure em escala.
 services: cloud-services, automation
-documentationcenter: ''
 author: jodoglevy
 manager: timlt
 editor: ''
 ms.assetid: 3789810a-2892-4eef-bf29-c781c1b5af48
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2016
 ms.author: timlt
-ms.openlocfilehash: 1fc1ac9668454578ee137a2ddd1b85319fea0a28
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 482fcf7d100a90d9527f510382c5dafb4f67adfa
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945508"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439067"
 ---
 # <a name="managing-azure-cloud-services-using-azure-automation"></a>Gerenciando serviços de nuvem do Azure usando a automação do Azure
 Este guia apresentará o serviço de automação do Azure e como ele pode ser usado para simplificar o gerenciamento de seus serviços de nuvem do Azure.
@@ -43,4 +40,3 @@ Agora que você aprendeu os conceitos básicos da automação do Azure e como el
 
 * [Visão geral da automação do Azure](../automation/automation-intro.md)
 * [O meu primeiro runbook](../automation/automation-first-runbook-graphical.md)
-* [Mapa de aprendizagem da automação do Azure](https://azure.microsoft.com/documentation/learning-paths/automation/)

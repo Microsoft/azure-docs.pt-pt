@@ -7,12 +7,12 @@ ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 605564ed541c23a9060879706fb25f91e97a8eac
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326539"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387351"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mapeando manipulação de JSON de fluxo de dados
 
@@ -28,7 +28,7 @@ No painel do lado do esquema de saída, passe o mouse sobre uma coluna e clique 
 
 Você pode adicionar colunas e Subcolunas adicionais da mesma maneira. Para cada campo não complexo, uma expressão pode ser adicionada no editor de expressão à direita.
 
-(media/data-flow/complexcolumn.png "Coluna complexa") de ![coluna complexa]
+![Coluna complexa](media/data-flow/complexcolumn.png "Coluna complexa")
 
 ### <a name="entering-the-json-structure-manually"></a>Inserindo a estrutura JSON manualmente
 
@@ -86,7 +86,7 @@ Se essa expressão foi inserida para uma coluna chamada "complexColumn", ela ser
 
 O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** .  
 
-![](media/data-flow/json-settings.png "Configurações JSON") configurações de JSON
+![Configurações de JSON](media/data-flow/json-settings.png "Configurações de JSON")
 
 ### <a name="default"></a>Predefinição
 

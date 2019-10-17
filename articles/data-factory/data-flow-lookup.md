@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249256"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387860"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
 
 Use Lookup para adicionar dados de referência de outra fonte ao fluxo de dados. A transformação pesquisa requer uma fonte definida que aponte para a tabela de referência e corresponde aos campos de chave.
 
-(media/data-flow/lookup1.png "Pesquisa") de ![transformação pesquisa]
+![Transformação pesquisa](media/data-flow/lookup1.png "Pesquisa")
 
 Selecione os campos de chave que você deseja corresponder entre os campos de fluxo de entrada e os campos da origem de referência. Primeiro, você deve ter criado uma nova origem na tela de design do fluxo de dados para usar como o lado direito da pesquisa.
 
@@ -33,7 +33,7 @@ Após a transformação pesquisa, você pode usar as transformações subsequent
 
 No Data Factory, os fluxos de dados são executados em ambientes Spark expandidos. Se o conjunto de seus conjuntos de trabalho puder se ajustar ao espaço de memória do nó do trabalhador, podemos otimizar seu desempenho de pesquisa.
 
-![](media/data-flow/broadcast.png "Junção de difusão") de junção de difusão
+![Junção de difusão](media/data-flow/broadcast.png "Junção de difusão")
 
 ### <a name="broadcast-join"></a>Junção de difusão
 

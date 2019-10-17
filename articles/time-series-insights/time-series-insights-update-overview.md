@@ -1,5 +1,5 @@
 ---
-title: 'Descrição geral: Visualização de Azure Time Series Insights | Microsoft Docs'
+title: 'Visão geral: Azure Time Series Insights visualização | Microsoft Docs'
 description: Visão geral de Azure Time Series Insights visualização.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da81d5603eb26ae3b209bbbc01a8d6fc31e1ba3a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978661"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382021"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>O que é a Pré-visualização do Azure Time Series Insights?
 
@@ -45,11 +45,11 @@ Como resultado, apenas uma fração dos dados é usada para fins operacionais e 
 
 Um fluxo de dados IoT típico é mostrado na imagem a seguir.
 
-  ![Fluxo de dados de IoT][1]
+  [fluxo de dados de @no__t 1IoT](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
-## <a name="azure-time-series-insights-for-industrial-iot"></a>O Azure Time Series Insights para o industrial IoT
+## <a name="azure-time-series-insights-for-industrial-iot"></a>Azure Time Series Insights para IoT industrial
 
-O atual cenário de IoT é diversificado. Os clientes abrangem os setores de manufatura, automotivo, energia, utilitários, prédios inteligentes e consultoria. Os cenários incluem a exploração de dados ad hoc em que a forma dos dados é desconhecida. Os cenários também incluem a análise operacional em esquematizados ou dados explicitamente modelados para impulsionar a eficiência operacional. Esses cenários normalmente existem lado a lado e dão suporte a diferentes casos de uso. Os recursos de plataforma que são fundamentais para o sucesso de empresas IoT industriais e sua revolução digital incluem:
+O cenário de IoT atual é diversificado. Os clientes abrangem os setores de manufatura, automotivo, energia, utilitários, prédios inteligentes e consultoria. Os cenários incluem a exploração de dados ad hoc em que a forma dos dados é desconhecida. Os cenários também incluem a análise operacional em esquematizados ou dados explicitamente modelados para impulsionar a eficiência operacional. Esses cenários normalmente existem lado a lado e dão suporte a diferentes casos de uso. Os recursos de plataforma que são fundamentais para o sucesso de empresas IoT industriais e sua revolução digital incluem:
 
 - Armazenamento em várias camadas, quente e frio.
 - A capacidade de armazenar décadas de dados de série temporal.
@@ -70,7 +70,7 @@ Juntos, as informações operacionais e a exploração de dados são oferecidas 
 
 Este diagrama de fluxo de dados de alto nível mostra as atualizações.
 
-  ![Principais capacidades][2]
+  [recursos de @no__t 1Key](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
 Com a introdução desses principais recursos de IoT industrial, Time Series Insights fornece os seguintes benefícios principais.
 
@@ -81,7 +81,7 @@ Com a introdução desses principais recursos de IoT industrial, Time Series Ins
 | Integração tranqüila e contínua com outras soluções de dados | Os dados no Time Series Insights são [armazenados](./time-series-insights-update-storage-ingress.md) em arquivos do Apache parquet de software livre. Essa integração com outras soluções de dados, seja pela primeira ou por terceiros, é fácil para cenários de ponta a ponta. Esses cenários incluem business intelligence, aprendizado avançado de máquina e análise preditiva. |
 | Exploração de dados quase em tempo real | A experiência do usuário do [Azure Time Series insights Preview Explorer](./time-series-insights-update-explorer.md) fornece visualização para todos os fluxos de dados por meio do pipeline de ingestão. Logo após a conexão de uma origem de evento, você pode exibir, explorar e consultar dados de evento. Dessa forma, você pode validar se um dispositivo emite dados conforme o esperado. Você também pode monitorar um ativo de IoT quanto à integridade, à produtividade e à eficácia geral. |
 | Análise de causa raiz e detecção de anomalias | O [Azure Time Series insights Preview Explorer](./time-series-insights-update-explorer.md) dá suporte a modos de exibição de padrão e perspectiva para conduzir e salvar a análise de causa raiz de várias etapas. Em combinação com Azure Stream Analytics, você pode usar Time Series Insights para detectar alertas e anomalias quase em tempo real. |
-| Aplicativos personalizados criados na plataforma Time Series Insights | Time Series Insights dá suporte ao [SDK do JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controles avançados e acesso simplificado às consultas. Use o SDK para criar aplicativos de IoT personalizados sobre Time Series Insights para atender às suas necessidades de negócios específicas. Você também pode usar as Time Series Insights [APIs de consulta](./time-series-insights-update-tsq.md) diretamente para impulsionar dados em aplicativos de IOT personalizados. |
+| Aplicativos personalizados criados na plataforma Time Series Insights | Time Series Insights dá suporte ao [SDK do JavaScript](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). O SDK fornece controles avançados e acesso simplificado a consultas. Use o SDK para criar aplicativos de IoT personalizados sobre Time Series Insights para atender às suas necessidades de negócios específicas. Você também pode usar as Time Series Insights [APIs de consulta](./time-series-insights-update-tsq.md) diretamente para impulsionar dados em aplicativos de IOT personalizados. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -90,11 +90,7 @@ Introdução à versão prévia do Azure Time Series Insights:
 > [!div class="nextstepaction"]
 > [Leia o guia de início rápido](./time-series-insights-update-quickstart.md)
 
-Saiba mais sobre casos de utilização:
+Saiba mais sobre os casos de uso:
 
 > [!div class="nextstepaction"]
 > [Azure Time Series Insights Visualizar casos de uso](./time-series-insights-update-use-cases.md)
-
-<!-- Images -->
-[1]: media/v2-update-overview/overview-one.png
-[2]: media/v2-update-overview/overview-two.png

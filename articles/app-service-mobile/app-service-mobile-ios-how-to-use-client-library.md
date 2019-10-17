@@ -13,27 +13,28 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 44b3259745877ddb43e643f1fa8307e100ca8b38
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025236"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435390"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Como usar a biblioteca de cliente do iOS para aplicativos móveis do Azure
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Este guia ensina a executar cenários comuns usando o SDK do [Ios dos aplicativos móveis do Azure][1]mais recentes. Se você for novo nos aplicativos móveis do Azure, primeiro conclua os [Início Rápido de aplicativos móveis do Azure] para criar um back-end, criar uma tabela e baixar um projeto do Xcode do IOS criado previamente. Neste guia, nos concentramos no SDK do iOS do lado do cliente. Para saber mais sobre o SDK do lado do servidor para o back-end, consulte o SDK do servidor HOWTO.
 
 ## <a name="reference-documentation"></a>Documentação de referência
 
-A documentação de referência para o SDK do cliente do iOS está localizada aqui: [Referência de cliente Ios dos aplicativos móveis do Azure][2].
+A documentação de referência para o SDK do cliente iOS está localizada aqui: [referência do cliente Ios dos aplicativos móveis do Azure][2].
 
 ## <a name="supported-platforms"></a>Plataformas com suporte
 
@@ -46,7 +47,7 @@ Esse SDK, portanto, não é adequado para o tipo de inspeção ou para dispositi
 
 Este guia pressupõe que você criou um back-end com uma tabela. Este guia pressupõe que a tabela tem o mesmo esquema que as tabelas nesses tutoriais. Este guia também pressupõe que, em seu código, você referencie `MicrosoftAzureMobile.framework` e importe `MicrosoftAzureMobile/MicrosoftAzureMobile.h`.
 
-## <a name="create-client"></a>Como: Criar cliente
+## <a name="create-client"></a>Como: criar cliente
 
 Para acessar um back-end de aplicativos móveis do Azure em seu projeto, crie um `MSClient`. Substitua `AppUrl` pela URL do aplicativo. Você pode deixar `gatewayURLString` e `applicationKey` vazio. Se você configurar um gateway para autenticação, preencha `gatewayURLString` com a URL do gateway.
 
@@ -62,7 +63,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-## <a name="table-reference"></a>Como: Criar referência de tabela
+## <a name="table-reference"></a>Como: criar referência de tabela
 
 Para atualizar ou aceder a dados, crie uma referência para a tabela de back-end. Substitua `TodoItem` pelo nome da sua tabela
 
@@ -78,7 +79,7 @@ MSTable *table = [client tableWithName:@"TodoItem"];
 let table = client.tableWithName("TodoItem")
 ```
 
-## <a name="querying"></a>Como: Consultar dados
+## <a name="querying"></a>Como consultar dados
 
 Para criar uma consulta de banco de dados, consulte o objeto `MSTable`. A consulta a seguir obtém todos os itens em `TodoItem` e registra o texto de cada item.
 
@@ -110,7 +111,7 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="filtering"></a>Como: Filtrar dados retornados
+## <a name="filtering"></a>Como filtrar dados retornados
 
 Para filtrar os resultados, há muitas opções disponíveis.
 
@@ -150,7 +151,7 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-## <a name="query-object"></a>Como: Usar o MSQuery
+## <a name="query-object"></a>Como: usar o MSQuery
 
 Para executar uma consulta complexa (incluindo classificação e paginação), crie um objeto `MSQuery`, diretamente ou usando um predicado:
 
@@ -179,7 +180,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 
 Execute uma consulta `MSQuery` chamando `readWithCompletion` no objeto.
 
-## <a name="sorting"></a>Como: Classificar dados com o MSQuery
+## <a name="sorting"></a>Como classificar dados com o MSQuery
 
 Para classificar os resultados, vejamos um exemplo. Para classificar por ' texto ' em ordem crescente, em seguida por ' Concluir ' decrescente, invoque `MSQuery` desta forma:
 
@@ -215,7 +216,7 @@ query.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>Como: Limitar campos e expandir parâmetros de cadeia de caracteres de consulta com MSQuery
+## <a name="selecting"></a><a name="parameters"></a>Como limitar campos e expandir parâmetros de cadeia de caracteres de consulta com o MSQuery
 
 Para limitar os campos a serem retornados em uma consulta, especifique os nomes dos campos na propriedade **selectFields** . Este exemplo retorna apenas o texto e os campos preenchidos:
 
@@ -248,7 +249,7 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>Como: Configurar tamanho da página
+## <a name="paging"></a>Como: configurar o tamanho da página
 
 Com os aplicativos móveis do Azure, o tamanho da página controla o número de registros que são recebidos por vez das tabelas de back-end. Uma chamada para dados `pull` resultaria em lote de dados, com base nesse tamanho de página, até que não haja mais registros para efetuar pull.
 
@@ -260,7 +261,7 @@ Essa configuração controla apenas o tamanho da página no lado do cliente. Se 
 
 Essa configuração também é o *número* de registros de dados, não o *tamanho do byte*.
 
-Se você aumentar o tamanho da página do cliente, também deverá aumentar o tamanho da página no servidor. Consulte [ "como: Ajuste o tamanho de paginação da tabela "](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para as etapas para fazer isso.
+Se você aumentar o tamanho da página do cliente, também deverá aumentar o tamanho da página no servidor. Consulte ["como ajustar o tamanho de paginação da tabela"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) para obter as etapas para fazer isso.
 
 **Objective-C**:
 
@@ -285,7 +286,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-## <a name="inserting"></a>Como: Inserir dados
+## <a name="inserting"></a>Como inserir dados
 
 Para inserir uma nova linha de tabela, crie um `NSDictionary` e invoque `table insert`. Se o [esquema dinâmico] estiver habilitado, o back-end do serviço de Azure App móvel gerará automaticamente novas colunas com base no `NSDictionary`.
 
@@ -319,7 +320,7 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-## <a name="modifying"></a>Como: Modificar dados
+## <a name="modifying"></a>Como modificar dados
 
 Para atualizar uma linha existente, modifique um item e chame `update`:
 
@@ -380,7 +381,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 No mínimo, o atributo `id` deve ser definido ao fazer atualizações.
 
-## <a name="deleting"></a>Como: Excluir dados
+## <a name="deleting"></a>Como excluir dados
 
 Para excluir um item, invoque `delete` com o item:
 
@@ -436,7 +437,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 No mínimo, o atributo `id` deve ser definido ao fazer exclusões.
 
-## <a name="customapi"></a>Como: Chamar API personalizada
+## <a name="customapi"></a>Como: chamar a API personalizada
 
 Com uma API personalizada, você pode expor qualquer funcionalidade de back-end. Ele não precisa ser mapeado para uma operação de tabela. Além de ter mais controle sobre as mensagens, você pode até mesmo ler/definir cabeçalhos e alterar o formato do corpo da resposta.
 
@@ -477,7 +478,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Como: Registrar modelos de push para enviar notificações entre plataformas
+## <a name="templates"></a>Como: registrar modelos de push para enviar notificações entre plataformas
 
 Para registrar modelos, passe modelos com seu **cliente. envie por push** o método registerDeviceToken em seu aplicativo cliente.
 
@@ -517,7 +518,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Todas as marcas são removidas da solicitação de segurança.  Para adicionar marcas a instalações ou modelos em instalações, consulte [trabalhar com o SDK do servidor de back-end do .net para aplicativos móveis do Azure][4].  Para enviar notificações usando esses modelos registrados, trabalhe com [APIs de hubs de notificação][3].
 
-## <a name="errors"></a>Como: Tratar erros
+## <a name="errors"></a>Como tratar erros
 
 Quando você chama um back-end móvel do serviço de Azure App, o bloco de conclusão contém um parâmetro `NSError`. Quando ocorre um erro, esse parâmetro é não nulo. Em seu código, você deve verificar esse parâmetro e tratar o erro conforme necessário, conforme demonstrado nos trechos de código anteriores.
 
@@ -549,7 +550,7 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Como: Autenticar usuários com o Biblioteca de Autenticação do Active Directory
+## <a name="adal"></a>Como autenticar usuários com o Biblioteca de Autenticação do Active Directory
 
 Você pode usar o Biblioteca de Autenticação do Active Directory (ADAL) para conectar usuários ao seu aplicativo usando Azure Active Directory. A autenticação de fluxo de cliente usando um SDK do provedor de identidade é preferível ao uso do método `loginWithProvider:completion:`.  A autenticação de fluxo de cliente fornece uma aparência de UX mais nativa e permite personalização adicional.
 
@@ -567,7 +568,7 @@ Você pode usar o Biblioteca de Autenticação do Active Directory (ADAL) para c
 3. Usando o terminal, execute `pod install` no diretório que contém o projeto e, em seguida, abra o espaço de trabalho do Xcode gerado (não o projeto).
 4. Adicione o código a seguir ao seu aplicativo, de acordo com o idioma que você está usando. Em cada, faça estas substituições:
 
-   * Substitua **Insert-Authority-aqui** pelo nome do locatário no qual você provisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Esse valor pode ser copiado da guia domínio em seu Azure Active Directory no [Azure portal].
+   * Substitua **Insert-Authority-aqui** pelo nome do locatário no qual você provisionou seu aplicativo. O formato deve ser https://login.microsoftonline.com/contoso.onmicrosoft.com. Esse valor pode ser copiado da guia domínio em seu Azure Active Directory no [portal do Azure].
    * Substitua **Insert-Resource-ID-aqui** pela ID do cliente para o back-end do aplicativo móvel. Você pode obter a ID do cliente na guia **avançado** em **configurações de Azure Active Directory** no Portal.
    * Substitua **Inserir-Client-ID-aqui** pela ID do cliente que você copiou do aplicativo cliente nativo.
    * Substitua **Insert-reredirect-URI-aqui** pelo ponto de extremidade */.auth/login/Done* do seu site, usando o esquema HTTPS. Esse valor deve ser semelhante a *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -636,7 +637,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 }
 ```
 
-## <a name="facebook-sdk"></a>Como: Autenticar usuários com o SDK do Facebook para iOS
+## <a name="facebook-sdk"></a>Como autenticar usuários com o SDK do Facebook para iOS
 
 Você pode usar o SDK do Facebook para iOS para conectar usuários ao seu aplicativo usando o Facebook.  O uso de uma autenticação de fluxo de cliente é preferível ao uso do método `loginWithProvider:completion:`.  A autenticação de fluxo de cliente fornece uma aparência de UX mais nativa e permite personalização adicional.
 
@@ -715,7 +716,7 @@ Você pode usar o SDK do Facebook para iOS para conectar usuários ao seu aplica
     }
     ```
 
-## <a name="twitter-fabric"></a>Como: Autenticar usuários com a malha do Twitter para iOS
+## <a name="twitter-fabric"></a>Como autenticar usuários com o Twitter Fabric para iOS
 
 Você pode usar a malha para iOS para conectar usuários ao seu aplicativo usando o Twitter. A autenticação de fluxo de cliente é preferível ao uso do método `loginWithProvider:completion:`, pois ele fornece uma aparência de UX mais nativa e permite personalização adicional.
 
@@ -797,7 +798,7 @@ Você pode usar a malha para iOS para conectar usuários ao seu aplicativo usand
     }
     ```
 
-## <a name="google-sdk"></a>Como: Autenticar usuários com o SDK de entrada do Google para iOS
+## <a name="google-sdk"></a>Como autenticar usuários com o SDK de entrada do Google para iOS
 
 Você pode usar o SDK de entrada do Google para iOS para conectar usuários ao seu aplicativo usando uma conta do Google.  O Google anunciou recentemente alterações em suas políticas de segurança OAuth.  Essas alterações de política exigirão o uso do SDK do Google no futuro.
 
@@ -903,13 +904,13 @@ Você pode usar o SDK de entrada do Google para iOS para conectar usuários ao s
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure portal]: https://portal.azure.com/
+[Portal do Azure]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Esquema dinâmico]: https://go.microsoft.com/fwlink/p/?LinkId=296271
+[Esquema dinâmico]: https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/dynamic-schema
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965

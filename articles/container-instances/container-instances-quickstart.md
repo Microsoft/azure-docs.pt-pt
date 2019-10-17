@@ -12,12 +12,12 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: 111191aa664650fe1ffdfd8de492e13e98349b34
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327439"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429219"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Início rápido: implantar uma instância de contêiner no Azure usando o CLI do Azure
 
@@ -25,7 +25,7 @@ Use as instâncias de contêiner do Azure para executar contêineres do Docker s
 
 Neste guia de início rápido, você usa o CLI do Azure para implantar um contêiner do Docker isolado e tornar seu aplicativo disponível com um FQDN (nome de domínio totalmente qualificado). Alguns segundos após a execução de um único comando de implantação, você pode navegar até o aplicativo em execução no contêiner:
 
-![Aplicação implementada com o Azure Container Instances vista no browser][aci-app-browser]
+![Exibir um aplicativo implantado em instâncias de contêiner do Azure no navegador][aci-app-browser]
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
 
@@ -72,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 Se o `ProvisioningState` do contêiner for **bem-sucedido**, vá para seu FQDN no navegador. Se lhe for apresentada uma página Web semelhante à seguinte, parabéns! Implementou com êxito uma aplicação em execução num contentor de Docker para Azure.
 
-![Captura de ecrã do browser a mostrar a aplicação em execução numa instância do contentor do Azure][aci-app-browser]
+![Exibir um aplicativo implantado em instâncias de contêiner do Azure no navegador][aci-app-browser]
 
 Se, inicialmente, a aplicação não for apresentada, poderá ter de aguardar alguns segundos enquanto o DNS propaga e, em seguida, tente atualizar o browser.
 
@@ -158,7 +158,7 @@ Neste guia de início rápido, você criou uma instância de contêiner do Azure
 Para testar as opções de execução de contêineres em um sistema de orquestração no Azure, consulte os guias de início rápido do [AKs (serviço kubernetes do Azure)][container-service] .
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

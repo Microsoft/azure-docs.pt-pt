@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1702a0c7ab2d2a76e6ec0e8b217539804a683ff7
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834830"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389602"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações de URI/URI de resposta
 
@@ -24,20 +24,26 @@ Um URI de redirecionamento, ou URL de resposta, é o local para o qual o servido
 
 ## <a name="maximum-number-of-redirect-uris"></a>Número máximo de URIs de redirecionamento
 
-A tabela a seguir mostra o número máximo de URIs de redirecionamento que você pode adicionar ao registrar seu aplicativo. 
+A tabela a seguir mostra o número máximo de URIs de redirecionamento que você pode adicionar ao registrar seu aplicativo.
 
 | Contas sendo conectadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
-| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | `signInAudience`o campo no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
-| Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | `signInAudience`o campo no manifesto do aplicativo é definido como *AzureADandPersonalMicrosoftAccount* |
+| Contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização | 256 | o campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs* |
+| Contas pessoais da Microsoft e contas corporativas e de estudante | 100 | o campo `signInAudience` no manifesto do aplicativo está definido como *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Comprimento máximo do URI
 
 Você pode usar um máximo de 256 caracteres para cada URI de redirecionamento que você adicionar a um registro de aplicativo.
 
+## <a name="supported-schemes"></a>Esquemas com suporte
+O modelo de aplicativo do Azure AD atualmente dá suporte a esquemas HTTP e HTTPS para aplicativos que entram em contas corporativas ou de estudante da Microsoft no locatário do Azure Active Directory (Azure AD) de qualquer organização. Ou seja, o campo `signInAudience` no manifesto do aplicativo é definido como *AzureADMyOrg* ou *AzureADMultipleOrgs*. Para os aplicativos que entram em contas pessoais da Microsoft e em contas corporativas e de estudante (ou seja, `signInAudience` definido como *AzureADandPersonalMicrosoftAccount*), somente o esquema HTTPS é permitido.
+
+> [!NOTE]
+> A nova experiência de [registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) não permite que os desenvolvedores adicionem URIs com esquema http na interface do usuário. A adição de URIs HTTP para aplicativos que entram em contas corporativas ou de estudante tem suporte apenas por meio do editor de manifesto de aplicativo. No futuro, novos aplicativos não poderão usar esquemas HTTP no URI de redirecionamento. No entanto, aplicativos mais antigos que contêm esquemas HTTP em URIs de redirecionamento continuarão a funcionar. Os desenvolvedores devem usar esquemas HTTPS nos URIs de redirecionamento.
+
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Restrições usando um curinga em URIs
 
-URIs curinga, `https://*.contoso.com`como, são convenientes, mas devem ser evitados. O uso de curingas no URI de redirecionamento tem implicações de segurança. De acordo com a especificação do OAuth 2,0 ([seção 3.1.2 da RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), um URI de ponto de extremidade de redirecionamento deve ser um URI absoluto. 
+URIs curinga, como `https://*.contoso.com`, são convenientes, mas devem ser evitados. O uso de curingas no URI de redirecionamento tem implicações de segurança. De acordo com a especificação do OAuth 2,0 ([seção 3.1.2 da RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)), um URI de ponto de extremidade de redirecionamento deve ser um URI absoluto. 
 
 O modelo de aplicativo do Azure AD não dá suporte a URIs curinga para aplicativos configurados para entrar em contas pessoais da Microsoft e contas corporativas ou de estudante. No entanto, URIs curinga são permitidos para aplicativos que estão configurados para entrar em contas corporativas ou de estudante no locatário do Azure AD de uma organização hoje. 
  
@@ -59,7 +65,7 @@ Nesta abordagem:
 1. Em seguida, o aplicativo pode usar o valor no parâmetro State para determinar a URL para a qual enviar o usuário. Certifique-se de validar para proteção do CSRF.
 
 > [!NOTE]
-> Essa abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro de estado, redirecionando, assim, o usuário para uma URL diferente, que é a ameaça de redirecionamento [aberta](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita na RFC 6819. Portanto, o cliente deve proteger esses parâmetros criptografando o estado ou verificando-o por outros meios, como validar o nome de domínio no URI de redirecionamento em relação ao token.
+> Essa abordagem permite que um cliente comprometido modifique os parâmetros adicionais enviados no parâmetro de estado, redirecionando, assim, o usuário para uma URL diferente, que é a [ameaça de redirecionamento aberta](https://tools.ietf.org/html/rfc6819#section-4.2.4) descrita na RFC 6819. Portanto, o cliente deve proteger esses parâmetros criptografando o estado ou verificando-o por outros meios, como validar o nome de domínio no URI de redirecionamento em relação ao token.
 
 ### <a name="add-redirect-uris-to-service-principals"></a>Adicionar URIs de redirecionamento às entidades de serviço
 

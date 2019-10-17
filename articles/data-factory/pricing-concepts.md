@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140947"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387461"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Noções básicas sobre preços Data Factory por meio de exemplos
 
@@ -42,19 +42,19 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 | --- | --- |
 | Criar serviço vinculado | 2 entidade de leitura/gravação  |
 | Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Criar pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 execuções de atividade (1 para execução de gatilho, 1 para execuções de atividade) |
 | Pressuposição de Copiar Dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
-| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
+| Monitorar a suposição de pipeline: apenas 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Preço do cenário total: $0.16811**
 
 - Operações de Data Factory = **$0.01**
-  - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
-- &amp; Execução de orquestração de pipeline = **$0.168**
-  - Execuções de atividade\*= 001 2 = 0, 2 [1 Run = $1/1000 = 0, 1]
+  - Leitura/gravação = 10 @ no__t-000001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 2 @ no__t-0000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+- Orquestração de pipeline &amp; execução = **$0.168**
+  - Execuções de atividade = 001 @ no__t-02 = 0, 2 [1 Run = $1/1000 = 0, 1]
   - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Copiar dados e transformar com Azure Databricks por hora
@@ -73,20 +73,20 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 | --- | --- |
 | Criar serviço vinculado | 3 entidade de leitura/gravação  |
 | Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Criar pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 3 execuções de atividade (1 para execução de gatilho, 2 para execuções de atividade) |
 | Pressuposição de Copiar Dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
-| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 3 registros de execução de monitoramento repetidos (1 para execução de pipeline, 2 para execução de atividade) |
+| Monitorar a suposição de pipeline: apenas 1 execução ocorreu | 3 registros de execução de monitoramento repetidos (1 para execução de pipeline, 2 para execução de atividade) |
 | Executar pressuposição de atividade do databricks: tempo de execução = 10 min | 10 minutos de execução de atividade de pipeline externo |
 
 **Preço do cenário total: $0.16916**
 
 - Operações de Data Factory = **$0.12**
-  - Leitura/gravação = 11\*00001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 3\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
-- &amp; Execução de orquestração de pipeline = **$0.16904**
-  - Execuções de atividade\*= 001 3 = 0, 3 [1 Run = $1/1000 = 0, 1]
+  - Leitura/gravação = 11 @ no__t-000001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 3 @ no__t-0000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+- Orquestração de pipeline &amp; execução = **$0.16904**
+  - Execuções de atividade = 001 @ no__t-03 = 0, 3 [1 Run = $1/1000 = 0, 1]
   - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
   - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
 
@@ -107,21 +107,21 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 | --- | --- |
 | Criar serviço vinculado | 3 entidade de leitura/gravação  |
 | Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Criar pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 4 execuções de atividade (1 para execução de gatilho, 3 para execuções de atividade) |
 | Pressuposição de Copiar Dados: tempo de execução = 10 min | 10 \* 4 Azure Integration Runtime (configuração padrão de DIU = 4) para obter mais informações sobre unidades de integração de dados e otimizar o desempenho de cópia, consulte [Este artigo](copy-activity-performance.md) |
-| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 4 registros de execução de monitoramento repetidos (1 para execução de pipeline, 3 para execução de atividade) |
+| Monitorar a suposição de pipeline: apenas 1 execução ocorreu | 4 registros de execução de monitoramento repetidos (1 para execução de pipeline, 3 para execução de atividade) |
 | Executar pressuposição de atividade de pesquisa: tempo de execução = 1 min | uma execução de atividade de pipeline mín. |
 | Executar pressuposição de atividade do databricks: tempo de execução = 10 min | 10 minutos de execução de atividade de pipeline externo |
 
 **Preço do cenário total: $0.17020**
 
 - Operações de Data Factory = **$0.13**
-  - Leitura/gravação = 11\*00001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 4\*000005 = $0.02 [1 monitoramento = $0,25/50000 = 0, 5]
-- &amp; Execução de orquestração de pipeline = **$0.17007**
-  - Execuções de atividade\*= 001 4 = 0, 4 [1 Run = $1/1000 = 0, 1]
+  - Leitura/gravação = 11 @ no__t-000001 = $0.11 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 4 @ no__t-0000005 = $0.02 [1 monitoramento = $0,25/50000 = 0, 5]
+- Orquestração de pipeline &amp; execução = **$0.17007**
+  - Execuções de atividade = 001 @ no__t-04 = 0, 4 [1 Run = $1/1000 = 0, 1]
   - Atividades de movimentação de dados = $0.166 (rateado por 10 minutos de tempo de execução. US $0,25/hora no Azure Integration Runtime)
   - Atividade de pipeline = $0.03 (rateado por 1 minuto de tempo de execução. $0,002/hora em Azure Integration Runtime)
   - Atividade de pipeline externo = $0.41 (rateado por 10 minutos de tempo de execução. $0.00025/hora em Azure Integration Runtime)
@@ -150,22 +150,22 @@ Para realizar o cenário, você precisa criar um pipeline com os seguintes itens
 | --- | --- |
 | Criar serviço vinculado | 2 entidade de leitura/gravação  |
 | Criar conjuntos de os | 4 entidades de leitura/gravação (2 para criação de conjunto de conjuntos, 2 para referências de serviço vinculado) |
-| Criar Pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
+| Criar pipeline | 3 entidades de leitura/gravação (1 para criação de pipeline, 2 para referências de DataSet) |
 | Obter pipeline | 1 entidade de leitura/gravação |
 | Executar pipeline | 2 execuções de atividade (1 para execução de gatilho, 1 para execuções de atividade) |
 | Pressuposições de fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 8 núcleos de computação geral com TTL de 10 |
-| Monitorar a pressuposição do pipeline: Somente 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
+| Monitorar a suposição de pipeline: apenas 1 execução ocorreu | 2 registros de execução de monitoramento repetidos (1 para execução de pipeline, 1 para execução de atividade) |
 
 **Preço do cenário total: $0.3011**
 
 - Operações de Data Factory = **$0.01**
-  - Leitura/gravação = 10\*00001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
-  - Monitoramento = 2\*000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
-- &amp; Execução de orquestração de pipeline = **$0.301**
-  - Execuções de atividade\*= 001 2 = 0, 2 [1 Run = $1/1000 = 0, 1]
+  - Leitura/gravação = 10 @ no__t-000001 = $0.01 [1 R/W = US $0,50/50000 = 0, 1]
+  - Monitoramento = 2 @ no__t-0000005 = $0.01 [1 monitoramento = $0,25/50000 = 0, 5]
+- Orquestração de pipeline &amp; execução = **$0.301**
+  - Execuções de atividade = 001 @ no__t-02 = 0, 2 [1 Run = $1/1000 = 0, 1]
   - Atividades de fluxo de dados = $0.299 rateado por 20 minutos (tempo de execução de 10 min + 10 minutos TTL). $0.112/hora em Azure Integration Runtime com 8 núcleos de computação geral
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você entendeu os preços de Azure Data Factory, você pode começar!
 

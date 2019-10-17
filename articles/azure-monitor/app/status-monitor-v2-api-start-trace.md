@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do Azure Status Monitor v2: Iniciar rastreamento | Microsoft Docs'
-description: Referência da API do Status Monitor v2. Start-Trace. Coletar logs do ETW do Status Monitor e do SDK do Application Insights.
+title: 'Referência da API do agente do insights Aplicativo Azure: Iniciar rastreamento | Microsoft Docs'
+description: Referência de API do agente Application Insights. Start-Trace. Coletar logs do ETW do Status Monitor e do SDK do Application Insights.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200368"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389855"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>API Status Monitor v2: Start-ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>API do agente de Application Insights: Start-ApplicationInsightsMonitoringTrace
 
 Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -29,7 +29,7 @@ Coleta [eventos ETW](https://docs.microsoft.com/windows/desktop/etw/event-tracin
 
 Os eventos coletados serão impressos no console em tempo real e salvos em um arquivo ETL. O arquivo ETL de saída pode ser aberto por [Perfview](https://github.com/microsoft/perfview) para investigação adicional.
 
-Este cmdlet será executado até atingir a duração do tempo limite (padrão 5 minutos) ou for interrompido manualmente`Ctrl + C`().
+Este cmdlet será executado até atingir a duração do tempo limite (padrão 5 minutos) ou for interrompido manualmente (`Ctrl + C`).
 
 > [!IMPORTANT] 
 > Este cmdlet requer uma sessão do PowerShell com permissões de administrador.
@@ -43,17 +43,17 @@ Normalmente, pedimos que você colete eventos para investigar por que seu aplica
 O tempo de execução de anexação com código emitirá eventos ETW quando o IIS for iniciado e quando seu aplicativo for iniciado.
 
 Para coletar esses eventos:
-1. Em um console cmd com privilégios de administrador, `iisreset /stop` execute para desligar o IIS e todos os aplicativos Web.
+1. Em um console cmd com privilégios de administrador, execute `iisreset /stop` para desligar o IIS e todos os aplicativos Web.
 2. Executar este cmdlet
-3. Em um console cmd com privilégios de administrador, `iisreset /start` execute para iniciar o IIS.
+3. Em um console cmd com privilégios de administrador, execute `iisreset /start` para iniciar o IIS.
 4. Tente navegar até seu aplicativo.
-5. Depois de concluir o carregamento do aplicativo, você pode interrompê`Ctrl + C`-lo manualmente () ou aguardar o tempo limite.
+5. Depois que o aplicativo terminar de ser carregado, você poderá interrompê-lo manualmente (`Ctrl + C`) ou aguardar o tempo limite.
 
 ### <a name="what-events-to-collect"></a>Quais eventos coletar
 
 Você tem três opções ao coletar eventos:
-1. Use a opção `-CollectSdkEvents` para coletar eventos emitidos pelo SDK do Application insights.
-2. Use a opção `-CollectRedfieldEvents` para coletar eventos emitidos por status monitor e o tempo de execução Redfield. Esses logs são úteis ao diagnosticar o IIS e a inicialização do aplicativo.
+1. Use a opção `-CollectSdkEvents` para coletar eventos emitidos do SDK do Application Insights.
+2. Use a opção `-CollectRedfieldEvents` para coletar eventos emitidos por Status Monitor e o tempo de execução Redfield. Esses logs são úteis ao diagnosticar o IIS e a inicialização do aplicativo.
 3. Use ambos os switches para coletar ambos os tipos de evento.
 4. Por padrão, se nenhuma opção for especificada, ambos os tipos de eventos serão coletados.
 
@@ -61,24 +61,24 @@ Você tem três opções ao coletar eventos:
 ## <a name="parameters"></a>Parâmetros
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**Opcional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. A predefinição é 5 minutos.
+**Adicional.** Use esse parâmetro para definir por quanto tempo esse script deve coletar eventos. A predefinição é 5 minutos.
 
 ### <a name="-logdirectory"></a>-LogDirectory
-**Opcional.** Use essa opção para definir o diretório de saída do arquivo ETL. Por padrão, esse arquivo será criado no diretório de módulos do PowerShell. O caminho completo será exibido durante a execução do script.
+**Adicional.** Use essa opção para definir o diretório de saída do arquivo ETL. Por padrão, esse arquivo será criado no diretório de módulos do PowerShell. O caminho completo será exibido durante a execução do script.
 
 
 ### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**Opcional.** Use essa opção para coletar Application Insights eventos do SDK.
+**Adicional.** Use essa opção para coletar Application Insights eventos do SDK.
 
 ### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**Opcional.** Use essa opção para coletar eventos de Status Monitor e o tempo de execução Redfield.
+**Adicional.** Use essa opção para coletar eventos de Status Monitor e o tempo de execução Redfield.
 
-### <a name="-verbose"></a>-Verbose
+### <a name="-verbose"></a>-Detalhado
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
 
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>Saída
 
 
 ### <a name="example-of-application-startup-logs"></a>Exemplo de logs de inicialização do aplicativo
@@ -121,7 +121,7 @@ Solução de problemas adicional:
 
 
 
- Faça mais com Status Monitor v2:
- - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.
+ Faça mais com Application Insights agente:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
  - [Obtenha a configuração](status-monitor-v2-api-get-config.md) para confirmar que as configurações foram registradas corretamente.
  - [Obtenha o status](status-monitor-v2-api-get-status.md) para inspecionar o monitoramento.

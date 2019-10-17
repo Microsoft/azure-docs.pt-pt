@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202203"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438625"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Aposentadoria dos recursos da central de segurança (julho de 2019)
 
@@ -47,13 +47,13 @@ A central de segurança usa Microsoft Monitoring Agent para coletar várias conf
 
 Desativamos o painel eventos que apareceu quando você selecionou um espaço de trabalho:
 
-![Dashboard de eventos][2]
+![Painel de eventos][2]
 
 ### <a name="events-dashboard---the-new-experience"></a>Painel de eventos – a nova experiência
 
 Incentivamos você a usar os recursos nativos do Azure Log Analytics para exibir eventos notáveis em seus espaços de trabalho.
 
-Se você criou eventos notáveis personalizados na central de segurança, eles estarão acessíveis. Em log Analytics, vá para **selecionar** > **pesquisas salvas**do espaço de trabalho. Seus dados não serão perdidos ou modificados. Os eventos notáveis nativos também estão disponíveis na mesma tela no Log Analytics.
+Se você criou eventos notáveis personalizados na central de segurança, eles estarão acessíveis. Em Log Analytics, vá para **selecionar espaço de trabalho** > **pesquisas salvas**. Seus dados não serão perdidos ou modificados. Os eventos notáveis nativos também estão disponíveis na mesma tela no Log Analytics.
 
 ![Pesquisas salvas do espaço de trabalho][3]
 
@@ -105,7 +105,7 @@ Removemos o botão **ir para mapa de eventos de segurança** e o painel por espa
 
 Quando você seleciona o botão **ir para mapa de eventos de segurança** , ele abriu o painel de inteligência contra ameaças (agora desativado).
 
-![Dashboard Informações sobre Ameaças][11]
+![Dashboard de Informações sobre ameaças][11]
 
 Ao escolher um espaço de trabalho para exibir seu painel de inteligência contra ameaças, você abriu a tela (visualização) mapa de alertas de segurança (versão prévia) no Log Analytics.
 
@@ -115,7 +115,7 @@ Os dados existentes permanecem disponíveis na solução de segurança Log Analy
 
 ### <a name="security-events-map---the-new-experience"></a>Mapa de eventos de segurança-a nova experiência
 
-Incentivamos você a usar a funcionalidade de mapa de alertas interna na central de segurança: **Mapa de alertas de segurança (versão prévia)** . Essa funcionalidade fornece uma experiência otimizada e funciona em todas as assinaturas e espaços de trabalho associados. Ele fornece uma exibição de alto nível em seu ambiente e não se concentra em um único espaço de trabalho.
+Incentivamos você a usar a funcionalidade de mapa de alertas criada na central **de segurança: mapa de alertas de segurança (versão prévia)** . Essa funcionalidade fornece uma experiência otimizada e funciona em todas as assinaturas e espaços de trabalho associados. Ele fornece uma exibição de alto nível em seu ambiente e não se concentra em um único espaço de trabalho.
 
 ## Regras de alerta personalizadas (versão prévia)<a name="menu_customalerts"></a>
 
@@ -169,7 +169,7 @@ Se você tiver soluções conectadas existentes, recomendamos que você passe pa
 
 O Centro de Segurança do Azure monitoriza as configurações de segurança através da aplicação de um conjunto de [mais de 150 regras recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) para proteger o SO. Essas regras pertencem a firewalls, auditoria, políticas de senha e muito mais. Se um computador apresentar uma configuração vulnerável, o Centro de Segurança gerará uma recomendação de segurança. A [tela Editar configuração de segurança](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) permite que os clientes personalizem a configuração de segurança do sistema operacional padrão na central de segurança.
 
-Desativamos esse recurso de visualização. Para redefinir as configurações de segurança de volta para seus valores padrão após a data de desativação, faça isso por meio da API ou do PowerShell usando as [instruções a seguir](https://aka.ms/ascresetsecurityconfigurations)
+Desativamos esse recurso de visualização. Para redefinir as configurações de segurança de volta para seus valores padrão após a data de desativação, faça isso por meio da API ou do PowerShell usando as [instruções a seguir](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
 
 ![Editar configurações de segurança][17]
 
