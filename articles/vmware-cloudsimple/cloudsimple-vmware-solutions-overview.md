@@ -8,16 +8,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6edbd21eaf6f0a6f4f07263e006cc31fb1529511
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 7b5017cdeade14e53778b58154456412507c5ce8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877827"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430700"
 ---
-# <a name="what-is-vmware-solution-on-azure-by-cloudsimple"></a>O que é a solução VMware no Azure por CloudSimple
+# <a name="what-is-azure-vmware-solution-by-cloudsimple"></a>O que é a solução do Azure VMware por CloudSimple
 
-A **solução VMware no Azure pela CloudSimple** é um serviço totalmente gerenciado que permite que você execute a plataforma VMware no Azure. Essa solução inclui vSphere, vCenter, vSAN, NSX-T e ferramentas correspondentes. Seu ambiente VMware é executado nativamente na infraestrutura bare-metal do Azure em locais de nuvem do Azure. O serviço inclui todos os recursos necessários para consumir as plataformas VMware de forma eficiente e segura.
+A **solução Azure VMware por CloudSimple** é um serviço totalmente gerenciado que permite que você execute a plataforma VMware no Azure. Essa solução inclui vSphere, vCenter, vSAN, NSX-T e ferramentas correspondentes. Seu ambiente VMware é executado nativamente na infraestrutura bare-metal do Azure em locais de nuvem do Azure. O serviço inclui todos os recursos necessários para consumir as plataformas VMware de forma eficiente e segura.
 
 ![Visão geral da solução VMware no Azure por CloudSimple](media/azure-vmware-solution-by-cloudsimple.png)
 
@@ -34,13 +34,13 @@ A **solução VMware no Azure pela CloudSimple** é um serviço totalmente geren
 * Recursos de gerenciamento, como gerenciamento de atividades, uso, cobrança/medição e gerenciamento de usuários.
 * atendimento ao cliente 24x7.
 
-## <a name="benefits"></a>Benefícios
+## <a name="benefits"></a>Vantagens
 
 * **Continuidade operacional**. O CloudSimple oferece acesso nativo às plataformas VMware. A arquitetura CloudSimple é compatível com o seu existente:
     * Aplicações
-    * Operações
+    * Operations
     * Segurança
-    * Criar cópia de segurança
+    * Backup
     * Recuperação após desastre
     * Auditoria
     * Ferramentas de conformidade

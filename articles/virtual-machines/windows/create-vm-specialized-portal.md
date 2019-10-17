@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079648"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390491"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Criar uma VM de um VHD usando o portal do Azure
 
 Há várias maneiras de criar uma VM (máquina virtual) no Azure: 
 
-- Se você já tiver um VHD (disco rígido virtual) para usar ou se quiser copiar o VHD de uma VM existente para usar, poderá criar uma nova VM anexando o VHD à nova VM como um disco do sistema operacional. 
+- Se você já tiver um VHD (disco rígido virtual) para usar ou se quiser copiar o VHD de uma VM existente para usar, poderá criar uma nova VM *anexando* o VHD à nova VM como um disco do sistema operacional. 
 
 - Você pode criar uma nova VM do VHD de uma VM que foi excluída. Por exemplo, se você tiver uma VM do Azure que não está funcionando corretamente, você poderá excluir a VM e usar seu VHD para criar uma nova VM. Você pode reutilizar o mesmo VHD ou criar uma cópia do VHD criando um instantâneo e, em seguida, criando um novo disco gerenciado a partir do instantâneo. Embora a criação de um instantâneo leve mais algumas etapas, ela preserva o VHD original e fornece um fallback.
 
@@ -34,6 +34,7 @@ Há várias maneiras de criar uma VM (máquina virtual) no Azure:
 
 Não use um disco especializado se desejar criar várias VMs. Em vez disso, para implantações maiores, [crie uma imagem](capture-image-resource.md) e, em seguida, [Use essa imagem para criar várias VMs](create-vm-generalized-managed.md).
 
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único instantâneo ou VHD. 
 
 ## <a name="copy-a-disk"></a>Copiar um disco
 
@@ -64,7 +65,7 @@ Depois de ter o VHD de disco gerenciado que você deseja usar, você pode criar 
 1. No [portal do Azure](https://portal.azure.com), no menu à esquerda, selecione **todos os serviços**.
 2. Na caixa de pesquisa **todos os serviços** , insira **discos** e, em seguida, selecione **discos** para exibir a lista de discos disponíveis.
 3. Selecione o disco que você deseja usar. A página **disco** desse disco é aberta.
-4. Na página **visão geral** , verifique se o **estado do disco** está listado como desanexado. Se não for, talvez seja necessário desanexar o disco da VM ou excluir a VM para liberar o disco.
+4. Na página **visão geral** , verifique se o **estado do disco** está listado como **desanexado**. Se não for, talvez seja necessário desanexar o disco da VM ou excluir a VM para liberar o disco.
 4. No menu na parte superior da página, selecione **criar VM**.
 5. Na página **noções básicas** da nova VM, insira um **nome de máquina virtual** e selecione um grupo de **recursos** existente ou crie um novo.
 6. Para **tamanho**, selecione **alterar tamanho** para acessar a página **tamanho** .
@@ -72,10 +73,11 @@ Depois de ter o VHD de disco gerenciado que você deseja usar, você pode criar 
 8. Na página **rede** , você pode permitir que o portal crie todos os novos recursos ou pode selecionar uma **rede virtual** existente e um **grupo de segurança de rede**. O portal sempre cria uma nova interface de rede e um endereço IP público para a nova VM. 
 9. Na página **Gerenciamento** , faça as alterações nas opções de monitoramento.
 10. Na página **configuração do convidado** , adicione todas as extensões, conforme necessário.
-11. Quando terminar, selecione revisar **+ criar**. 
+11. Quando terminar, selecione **revisar + criar**. 
 12. Se a configuração da VM passar na validação, selecione **criar** para iniciar a implantação.
 
-## <a name="next-steps"></a>Passos Seguintes
+
+## <a name="next-steps"></a>Passos seguintes
 
 Você também pode usar o PowerShell para [carregar um VHD no Azure e criar uma VM especializada](create-vm-specialized.md).
 

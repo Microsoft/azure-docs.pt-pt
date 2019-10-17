@@ -8,14 +8,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom: seo-python-october2019
+ms.openlocfilehash: d4cfba26192eb097d06f82e18acb41c1f9640e66
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020140"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437350"
 ---
-# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: Criar um aplicativo API de Tabela com Python e Azure Cosmos DB
+# <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Guia de Introdução: Criar uma aplicação de API de Tabela com Python e Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-table-dotnet.md)
@@ -84,7 +85,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**. 
 
-    ![Ver e copiar a CADEIA DE LIGAÇÃO no painel Cadeia de Ligação](./media/create-table-python/connection-string.png)
+    ![Exibir e copiar a cadeia de conexão nas configurações de cadeia de conexão](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Copie o NOME DA CONTA com o botão do lado direito.
 
@@ -94,7 +95,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 5. Cole a CHAVE PRIMÁRIA do portal no valor STORAGE_ACCOUNT_KEY na linha 20.
 
-3. Guarde o ficheiro config.py.
+6. Guarde o ficheiro config.py.
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
@@ -114,7 +115,7 @@ Agora, pode voltar ao Data Explorer e ver, consultar, modificar e trabalhar com 
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar uma tabela com o Data Explorer e a executar uma aplicação.  Agora, pode consultar os dados com a API de Tabela.  
 

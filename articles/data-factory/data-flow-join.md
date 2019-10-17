@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029315"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387226"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mapeando a transformação junção de fluxo de dados
 
@@ -20,7 +20,7 @@ ms.locfileid: "72029315"
 
 Use Join para combinar dados de duas tabelas em seu fluxo de dados. Clique na transformação que será a relação à esquerda e adicione uma transformação de junção da caixa de ferramentas. Dentro da transformação de junção, você selecionará outro fluxo de dados do seu fluxo de dados para ser a relação certa.
 
-![](media/data-flow/join.png "Junção de") transformação de junção
+![Transformação de junção](media/data-flow/join.png "Associar")
 
 ## <a name="join-types"></a>Tipos de junção
 
@@ -54,9 +54,9 @@ Você precisa inserir pelo menos uma (1.. n) condições de junção. Eles podem
 
 ## <a name="join-performance-optimizations"></a>Unir otimizações de desempenho
 
-Ao contrário da junção de mesclagem em ferramentas como o SSIS, a junção no fluxo de dados do ADF não é uma operação de junção de mesclagem obrigatória. Portanto, as chaves de junção não precisam ser classificadas primeiro. A operação de junção ocorrerá com base na operação de junção ideal no Spark: Junção do lado do mapa/difusão:
+Ao contrário da junção de mesclagem em ferramentas como o SSIS, a junção no fluxo de dados do ADF não é uma operação de junção de mesclagem obrigatória. Portanto, as chaves de junção não precisam ser classificadas primeiro. A operação de junção ocorrerá com base na operação de junção ideal no Spark: difusão/junção no lado do mapa:
 
-![Transformação de junção otimizar]a(media/data-flow/joinoptimize.png "otimização de junção")
+![Transformação de junção otimizar](media/data-flow/joinoptimize.png "Otimização de junção")
 
 Se o conjunto de seus conjuntos de trabalho puder se ajustar à memória do nó do trabalhador, podemos otimizar seu desempenho de junção. Você também pode especificar o particionamento de seus dados na operação de junção para criar conjuntos de dados que podem se ajustar melhor à memória por trabalhador.
 
@@ -64,7 +64,7 @@ Se o conjunto de seus conjuntos de trabalho puder se ajustar à memória do nó 
 
 Você pode obter condições de autojunção no fluxo de dados do ADF usando a transformação selecionar para alias de um fluxo existente. Primeiro, crie uma "nova ramificação" de um fluxo e, em seguida, adicione uma seleção para criar um alias do fluxo original inteiro.
 
-![](media/data-flow/selfjoin.png "Autojunção de") auto-associação
+![Auto-associação](media/data-flow/selfjoin.png "Auto-associação")
 
 No diagrama acima, a transformação selecionar está na parte superior. Tudo o que está fazendo é fazer o alias do fluxo original para "OrigSourceBatting". Na transformação junção realçada abaixo dela, você pode ver que usamos essa transmissão de alias Select como a junção à direita, permitindo que possamos fazer referência à mesma chave tanto no lado esquerdo & direito da junção interna.
 

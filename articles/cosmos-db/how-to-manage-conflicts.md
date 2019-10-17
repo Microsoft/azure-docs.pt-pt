@@ -4,14 +4,14 @@ description: Saiba como gerir conflitos no Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/15/2019
 ms.author: mjbrown
-ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4c62fcc81eb3b045d3b4233e1bb3770ecb9865b3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093215"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388090"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerenciar políticas de resolução de conflitos no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Com gravações de várias regiões, quando vários clientes gravam no mesmo ite
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Criar uma política de resolução de conflitos do last-writer-WINS
 
-Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos do last-writer-WINS. O caminho padrão para last-writer-WINS é o campo timestamp ou a `_ts` propriedade. Para a API do SQL, isso também pode ser definido como um caminho definido pelo usuário com um tipo numérico. Em um conflito, o valor mais alto vence. Se o caminho não for definido ou for inválido, o padrão `_ts`será. Os conflitos resolvidos com essa política não aparecem no feed de conflitos. Essa política pode ser usada por todas as APIs.
+Estes exemplos mostram como configurar um contêiner com uma política de resolução de conflitos do last-writer-WINS. O caminho padrão para last-writer-WINS é o campo timestamp ou a propriedade `_ts`. Para a API do SQL, isso também pode ser definido como um caminho definido pelo usuário com um tipo numérico. Em um conflito, o valor mais alto vence. Se o caminho não estiver definido ou for inválido, o padrão será `_ts`. Os conflitos resolvidos com essa política não aparecem no feed de conflitos. Essa política pode ser usada por todas as APIs.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>SDK DO .NET V2
 
@@ -107,15 +107,15 @@ Estes exemplos mostram como configurar um contentor com uma política de resolu�
 
 Procedimentos armazenados de resolução de conflitos personalizados devem ser implementados usando a assinatura de função mostrada abaixo. O nome da função não precisa corresponder ao nome usado ao registrar o procedimento armazenado com o contêiner, mas simplifica o nomear. Aqui está uma descrição dos parâmetros que devem ser implementados para esse procedimento armazenado.
 
-- **incomingItem**: O item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
-- **existingItem**: O item atualmente confirmado. Esse valor não é nulo em uma atualização e nulo para uma inserção ou exclusões.
-- **isTombstone**: Booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando true, existingItem também é nulo.
-- **conflictingItems**: Matriz da versão confirmada de todos os itens no contêiner que estão em conflito com incomingItem na ID ou qualquer outra propriedade de índice exclusivo.
+- **incomingItem**: o item que está sendo inserido ou atualizado na confirmação que está gerando os conflitos. É nulo para operações de exclusão.
+- **existingItem**: o item atualmente confirmado. Esse valor não é nulo em uma atualização e nulo para uma inserção ou exclusões.
+- isdelete: booliano que indica se o incomingItem está em conflito com um item excluído anteriormente. Quando true, existingItem também é nulo.
+- **conflictingItems**: matriz da versão confirmada de todos os itens no contêiner que estão em conflito com INCOMINGITEM na ID ou qualquer outra propriedade de índice exclusivo.
 
 > [!IMPORTANT]
 > Assim como ocorre com qualquer procedimento armazenado, um procedimento de resolução de conflitos personalizado pode acessar quaisquer dados com a mesma chave de partição e pode executar qualquer operação de inserção, atualização ou exclusão para resolver conflitos.
 
-Este procedimento armazenado de exemplo resolve conflitos selecionando o menor valor do `/myCustomId` caminho.
+Este procedimento armazenado de exemplo resolve conflitos selecionando o valor mais baixo do caminho `/myCustomId`.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -222,7 +222,7 @@ collection.setConflictResolutionPolicy(policy);
 DocumentCollection createdCollection = client.createCollection(databaseUri, collection, null).toBlocking().value();
 ```
 
-Depois que o contêiner for criado, você deverá criar `resolver` o procedimento armazenado.
+Depois que o contêiner for criado, você deverá criar o procedimento armazenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-java-sync"></a>SDK do Java Sync
 
@@ -235,7 +235,7 @@ udpCollection.setConflictResolutionPolicy(udpPolicy);
 DocumentCollection createdCollection = this.tryCreateDocumentCollection(createClient, database, udpCollection);
 ```
 
-Depois que o contêiner for criado, você deverá criar `resolver` o procedimento armazenado.
+Depois que o contêiner for criado, você deverá criar o procedimento armazenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-javascript"></a>SDK do Node.js/JavaScript/TypeScript
 
@@ -254,7 +254,7 @@ const { container: udpContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-Depois que o contêiner for criado, você deverá criar `resolver` o procedimento armazenado.
+Depois que o contêiner for criado, você deverá criar o procedimento armazenado `resolver`.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-python"></a>SDK do Python
 
@@ -270,7 +270,7 @@ udp_collection = self.try_create_document_collection(
     create_client, database, udp_collection)
 ```
 
-Depois que o contêiner for criado, você deverá criar `resolver` o procedimento armazenado.
+Depois que o contêiner for criado, você deverá criar o procedimento armazenado `resolver`.
 
 ## <a name="create-a-custom-conflict-resolution-policy"></a>Criar uma política de resolução de conflitos personalizada
 
@@ -363,7 +363,7 @@ FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.co
 ### <a id="read-from-conflict-feed-dotnet-v3"></a>SDK DO .NET V3
 
 ```csharp
-FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
 while (conflictFeed.HasMoreResults)
 {
     FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();
@@ -422,7 +422,7 @@ while conflict:
     conflict = next(conflicts_iterator, None)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os seguintes conceitos de Azure Cosmos DB:
 

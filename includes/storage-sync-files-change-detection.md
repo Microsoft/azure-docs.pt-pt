@@ -1,15 +1,15 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
-ms.openlocfilehash: 59adee2f1d6a99a0a984b9b63c7201266b6381d4
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: rogarana
+ms.openlocfilehash: 55456a6be938411d3c08a0eaa8fdbfb0844e7129
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69984555"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391751"
 ---
 As alterações feitas no compartilhamento de arquivos do Azure usando o portal do Azure ou SMB não são detectadas e replicadas imediatamente, como as alterações no ponto de extremidade do servidor. Os arquivos do Azure ainda não têm notificações de alteração ou registro em log, portanto, não há como iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados. No Windows Server, Sincronização de Arquivos do Azure usa o [diário de USN do Windows](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) para iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados.
 
@@ -20,4 +20,4 @@ Para sincronizar imediatamente os arquivos que são alterados no compartilhament
 >[!NOTE]
 >As alterações feitas em um compartilhamento de arquivos do Azure usando REST não atualizam a hora da última modificação do SMB e não serão vistas como uma alteração por sincronização.
 
-Estamos explorando adicionar a detecção de alterações para um compartilhamento de arquivos do Azure semelhante ao USN para volumes no Windows Server. Ajude-nos a priorizar esse recurso para desenvolvimento futuro, votando-o em UserVoice de [arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+Estamos explorando adicionar a detecção de alterações para um compartilhamento de arquivos do Azure semelhante ao USN para volumes no Windows Server. Ajude-nos a priorizar esse recurso para desenvolvimento futuro, votando-o em [UserVoice de arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).

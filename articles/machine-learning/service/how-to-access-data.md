@@ -11,22 +11,23 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 08/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8c9b8489ded264a895d480ed180b411da079e883
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 3576f7cc0297ff1e9b10373ccc27b09e1a0ae8ae
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950137"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436708"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Acessar dados nos serviços de armazenamento do Azure
 
-Neste artigo, saiba como acessar facilmente seus dados nos serviços de armazenamento do Azure por meio de repositórios de Azure Machine Learning. Os armazenamentos de dados são usados para armazenar informações de conexão, como sua ID de assinatura e autorização de token. O uso de armazenamentos de dados permite que você acesse seu armazenamento sem precisar codificar informações de conexão em seus scripts. Você pode criar repositórios de armazenamento a partir dessas [soluções de armazenamento do Azure](#matrix).
+Neste artigo, saiba como acessar facilmente seus dados nos serviços de armazenamento do Azure por meio de repositórios de Azure Machine Learning. Os armazenamentos de dados são usados para armazenar informações de conexão, como sua ID de assinatura e autorização de token. O uso de armazenamentos de dados permite que você acesse seu armazenamento sem precisar codificar informações de conexão em seus scripts. Você pode criar repositórios de armazenamento a partir dessas [soluções de armazenamento do Azure](#matrix). Para soluções de armazenamento sem suporte, para economizar o custo de egresso de dados durante experimentos de Machine Learning, recomendamos que você mova seus dados para nossas soluções de armazenamento do Azure com suporte. [Saiba como mover seus dados](#move). 
 
 Este "como" mostra exemplos das seguintes tarefas:
 * [Registrar repositórios de armazenamento](#access)
 * [Obter repositórios de armazenamento do espaço de trabalho](#get)
 * [Carregar e baixar dados usando armazenamentos](#up-and-down)
 * [Acessar dados durante o treinamento](#train)
+* [Mover dados para o Azure](#move)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -127,7 +128,7 @@ for name, datastore in datastores.items():
 
 Quando você cria um espaço de trabalho, um contêiner de BLOBs do Azure e um compartilhamento de arquivos do Azure são registrados no espaço de trabalho chamado `workspaceblobstore` e `workspacefilestore`, respectivamente. Eles armazenam as informações de conexão do contêiner de BLOB e o compartilhamento de arquivos que é provisionado na conta de armazenamento anexada ao espaço de trabalho. O `workspaceblobstore` é definido como o repositório de armazenamento padrão.
 
-Para obter o arquivo de dados do espaço de trabalho predefinido:
+Para obter o armazenamento de datastore padrão do espaço de trabalho:
 
 ```Python
 datastore = ws.get_default_datastore()
@@ -146,9 +147,9 @@ Os métodos [`upload()`](https://docs.microsoft.com/python/api/azureml-core/azur
 
 ### <a name="upload"></a>Carregar
 
- Carregar um diretório ou arquivos individuais para o arquivo de dados com o SDK de Python.
+ Carregue um diretório ou arquivos individuais no repositório de armazenamento usando o SDK do Python.
 
-Para carregar um diretório para um arquivo de dados `datastore`:
+Para carregar um diretório em um repositório de armazenamento `datastore`:
 
 ```Python
 import azureml.data
@@ -160,13 +161,13 @@ datastore.upload(src_dir='your source directory',
                  show_progress=True)
 ```
 
-O parâmetro `target_path` especifica o local no compartilhamento de arquivos (ou contêiner de BLOB) a ser carregado. Assume como predefinição `None`, caso em que os dados são carregados para a raiz. Quando `overwrite=True` todos os dados existentes em `target_path` são substituídos.
+O parâmetro `target_path` especifica o local no compartilhamento de arquivos (ou contêiner de BLOB) a ser carregado. O padrão é `None`, caso em que os dados são carregados para a raiz. Quando `overwrite=True` todos os dados existentes em `target_path` são substituídos.
 
 Ou carregue uma lista de arquivos individuais no repositório de armazenamento por meio do método `upload_files()`.
 
-### <a name="download"></a>Transferência
+### <a name="download"></a>Transferir
 
-Da mesma forma, transferir dados de um arquivo de dados para o sistema de ficheiros local.
+Da mesma forma, faça o download de dados de um datastore para o sistema de arquivos local.
 
 ```Python
 datastore.download(target_path='your target path',
@@ -174,7 +175,7 @@ datastore.download(target_path='your target path',
                    show_progress=True)
 ```
 
-O parâmetro `target_path` é o local do diretório local para o qual baixar os dados. Para especificar um caminho para a pasta na partilha de ficheiros (ou contentor de BLOBs) para transferir, fornecer esse caminho em `prefix`. Se `prefix` é `None`, todo o conteúdo da sua partilha de ficheiros (ou o contentor de BLOBs) que irá ser descarregado.
+O parâmetro `target_path` é o local do diretório local para o qual baixar os dados. Para especificar um caminho para a pasta no compartilhamento de arquivos (ou contêiner de BLOB) a ser baixado, forneça esse caminho para `prefix`. Se `prefix` for `None`, todo o conteúdo do compartilhamento de arquivos (ou contêiner de BLOB) será baixado.
 
 <a name="train"></a>
 ## <a name="access-your-data-during-training"></a>Acesse seus dados durante o treinamento
@@ -187,7 +188,7 @@ A tabela a seguir lista os métodos que dizem ao destino de computação como us
 Aparência|Método|Descrição|
 ----|-----|--------
 Montar| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| Use para montar o repositório de armazenamento no destino de computação.
-Transferência|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Use para baixar o conteúdo do seu repositório de armazenamento para o local especificado por `path_on_compute`. <br><br> Esse download ocorre antes da execução.
+Transferir|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|Use para baixar o conteúdo do seu repositório de armazenamento para o local especificado por `path_on_compute`. <br><br> Esse download ocorre antes da execução.
 Carregar|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| Use para carregar um arquivo do local especificado por `path_on_compute` em seu repositório de armazenamento. <br><br> Esse carregamento ocorre após a execução.
 
 Para fazer referência a uma pasta ou arquivo específico em seu repositório de armazenamento e disponibilizá-lo no destino de computação, use o método [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#path-path-none--data-reference-name-none-) do repositório de armazenamento.
@@ -241,13 +242,13 @@ Atualmente, os armazenamentos de dados dão suporte ao armazenamento de informa�
 
 |Computação|[AzureBlobDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azureblobdatastore?view=azure-ml-py)                                       |[AzureFileDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.azurefiledatastore?view=azure-ml-py)                                      |[AzureDataLakeDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakedatastore?view=azure-ml-py) |[AzureDataLakeGen2Datastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_data_lake_datastore.azuredatalakegen2datastore?view=azure-ml-py) [AzurePostgreSqlDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_postgre_sql_datastore.azurepostgresqldatastore?view=azure-ml-py) [AzureSqlDatabaseDatastore](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_sql_database_datastore.azuresqldatabasedatastore?view=azure-ml-py) |
 |--------------------------------|----------------------------------------------------------|----------------------------------------------------------|------------------------|----------------------------------------------------------------------------------------|
-| Localização|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |N/A                                                                         |
-| Computação do Azure Machine Learning |[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|[as_mount()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ML&nbsp;pipelines](concept-ml-pipelines.md)|N/A         |N/A                                                                         |
-| Máquinas virtuais               |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
-| HDInsight                      |[as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            | [as_download()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                            |N/A         |N/A                                                                         |
+| Local|[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)|N/A         |N/A                                                                         |
+| Computação Azure Machine Learning |[as_mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ml @ no__t-4pipelines](concept-ml-pipelines.md)|[as_mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--), [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-), [ml @ no__t-4pipelines](concept-ml-pipelines.md)|N/A         |N/A                                                                         |
+| Máquinas virtuais               |[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-), [as_upload ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)                           | [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload (](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-) )                            |N/A         |N/A                                                                         |
+| HDInsight                      |[as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload (](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-) )                            | [as_download ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-) [as_upload (](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-) )                            |N/A         |N/A                                                                         |
 | Transferência de dados                  |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |N/A                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)            |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                                                            |
 | Databricks                     |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                              |N/A                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
-| Azure Batch                    |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |N/A                                           |N/D         |N/A                                                                         |
+| Azure Batch                    |[ML @ no__t-1pipelines](concept-ml-pipelines.md)                                               |N/A                                           |N/A         |N/A                                                                         |
 | Azure datalake Analytics       |N/A                                           |N/A                                           |[ML @ no__t-1pipelines](concept-ml-pipelines.md)             |N/A                                                                         |
 
 > [!NOTE]
@@ -276,9 +277,13 @@ Azure Machine Learning fornece várias maneiras de usar seus modelos para pontua
 
 Para situações em que o SDK não fornece acesso a repositórios de dados, você poderá criar um código personalizado usando o SDK do Azure relevante para acessar o dado. Por exemplo, o [SDK do armazenamento do Azure para Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de cliente que você pode usar para acessar dados armazenados em BLOBs ou arquivos.
 
+<a name="move"></a>
+## <a name="move-data-to-supported-azure-storage-solutions"></a>Mover dados para soluções de armazenamento do Azure com suporte
+
+O serviço Azure Machine Learning dá suporte ao acesso a dados do blob do Azure, arquivo do Azure, Azure Data Lake Gen 1, Azure Data Lake Gen 2, Azure SQL, Azure PostgreSQL. Para armazenamento sem suporte, para economizar o custo de egresso de dados durante experimentos de Machine Learning, recomendamos que você mova seus dados para nossas soluções de armazenamento do Azure com suporte usando Azure Data Factory. Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores predefinidos, incluindo serviços de dados do Azure, fontes de dados locais, Amazon S3 e redshift e Google BigQuery, sem custo adicional. [Siga o guia passo a passo para mover seus dados usando Azure data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Preparar um modelo](how-to-train-ml-models.md)
+* [Treinar um modelo](how-to-train-ml-models.md)
 
 * [Implementar um modelo](how-to-deploy-and-where.md)

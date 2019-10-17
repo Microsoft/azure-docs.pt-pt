@@ -2,20 +2,20 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 05/05/2019
-ms.author: wgries
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e7aa2b4389fe60eed80b15aff04d6f7fcbc7b013
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: c04875f92ee58c24567fbb4d73d8d01697810f99
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68968918"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391745"
 ---
-| Resource | Destino | Limite rígido |
+| Recurso | Visar | Limite rígido |
 |----------|--------------|------------|
 | Serviços de sincronização de armazenamento por região | 20 serviços de sincronização de armazenamento | Sim |
 | Grupos de sincronização por serviço de sincronização de armazenamento | 100 grupos de sincronização | Sim |
@@ -26,9 +26,9 @@ ms.locfileid: "68968918"
 | Objetos do sistema de arquivos (diretórios e arquivos) por grupo de sincronização | 50 milhões objetos | Não |
 | Número máximo de objetos do sistema de arquivos (diretórios e arquivos) em um diretório | 5 milhões objetos | Sim |
 | Tamanho do descritor de segurança máximo de objetos (diretórios e arquivos) | 64 KiB | Sim |
-| Tamanho do ficheiro | 100 GiB | Não |
+| Tamanho dos ficheiros | 100 GiB | Não |
 | Tamanho mínimo de arquivo para que um arquivo seja em camadas | 64 KiB | Sim |
-| Sessões de sincronização simultâneas | Agente v4 e posterior: O limite varia de acordo com os recursos do sistema disponíveis. <BR> Agente V3: Duas sessões de sincronização ativas por processador ou um máximo de oito sessões de sincronização ativas por servidor. | Sim
+| Sessões de sincronização simultâneas | Agente v4 e posterior: o limite varia de acordo com os recursos do sistema disponíveis. <BR> Agente V3: duas sessões de sincronização ativas por processador ou um máximo de oito sessões de sincronização ativas por servidor. | Sim
 
 > [!Note]  
 > Um ponto de extremidade Sincronização de Arquivos do Azure pode ser escalado verticalmente para o tamanho de um compartilhamento de arquivos do Azure. Se o limite de tamanho do compartilhamento de arquivos do Azure for atingido, a sincronização não será capaz de operar.

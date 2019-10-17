@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 08/25/2019
+ms.date: 10/16/2019
 ms.author: memildin
-ms.openlocfilehash: 3b4b02574c028822d25d841376b127a718243b2e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 69b81417e541bd6853e02065e8cee08e3e04b4a2
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202574"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433891"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança no Centro de Segurança do Azure
 
@@ -47,34 +47,50 @@ Para detectar ameaças reais e reduzir falsos positivos, a central de segurança
 
 O Centro de Segurança emprega análises de segurança avançadas, que ultrapassam as abordagens baseadas na assinatura. Os avanços nas tecnologias de macrodados e [machine learning](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são aproveitados para avaliar eventos em toda a nuvem, o que permite a deteção de ameaças que seriam impossíveis de identificar através da utilização de abordagens manuais e a previsão da evolução de ataques. Estas análises de segurança incluem:
 
-* **Inteligência de ameaças integrada**: Procura atores ruins conhecidos aproveitando a inteligência contra ameaças globais dos produtos e serviços da Microsoft, da DCU (unidade de crimes digitais da Microsoft), do Microsoft Security Response Center (MSRC) e de feeds externos.
-* **Análise comportamental**: Aplica padrões conhecidos para descobrir comportamentos mal-intencionados.
-* **Detecção**de anomalias: Usa a criação de perfil estatística para criar uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
+* **Inteligência contra ameaças integrada**: procura atores ruins, aproveitando a inteligência contra ameaças globais dos produtos e serviços da Microsoft, da DCU (unidade de crimes digitais) da Microsoft, do MSRC (Microsoft Security Response Center) e de feeds externos.
+* **Análise comportamental**: aplica padrões conhecidos para descobrir comportamentos mal-intencionados.
+* **Detecção de anomalias**: usa a criação de perfil estatística para criar uma linha de base histórica. Alerta sobre os desvios de linhas de base estabelecidos em conformidade com um potencial vetor de ataque.
 
-Os tópicos a seguir abordam cada uma dessas análises com mais detalhes.
+As seções a seguir discutem cada uma dessas análises com mais detalhes.
 
 ### <a name="integrated-threat-intelligence"></a>Inteligência de ameaças integrada
 
-A Microsoft tem uma grande quantidade de informações sobre ameaças globais. A telemetria provém de várias origens, tal como o Azure, Office 365, Microsoft CRM online, Microsoft Dynamics AX, outlook.com, MSN.com, Unidade de Crimes Digitais (DCU) da Microsoft e Microsoft Security Response Center (MSRC). Os investigadores também recebem informações sobre ameaças que são partilhadas entre os grandes fornecedores de serviços em nuvem e subscrevem feeds de informações sobre ameaças de terceiros. O Centro de Segurança do Azure pode utilizar estas informações para alertá-lo de ameaças de pessoas mal-intencionadas conhecidas.
+A Microsoft tem uma grande quantidade de informações sobre ameaças globais. A telemetria flui de várias fontes, como o Azure, o Office 365, o Microsoft CRM Online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a unidade de crimes digitais da Microsoft (DCU) e o Microsoft Security Response Center (MSRC). Os pesquisadores também recebem informações de inteligência contra ameaças que são compartilhadas entre os principais provedores de serviços de nuvem e os feeds de terceiros. O Centro de Segurança do Azure pode utilizar estas informações para alertá-lo de ameaças de pessoas mal-intencionadas conhecidas.
 
 ### <a name="behavioral-analytics"></a>Análise comportamental
 
-A análise comportamental é uma técnica que analisa e compara os dados para uma coleção de padrões conhecidos. No entanto, estes padrões não são simples assinaturas. São determinados através de algoritmos complexos de machine learning aplicados a conjuntos de dados gigantescos. Também são determinados através de uma análise cuidada de comportamentos maliciosos pelos analistas especialistas. O Centro de Segurança do Azure pode utilizar a análise comportamental para identificar recursos comprometidos com base na análise dos registos das máquinas virtuais, dos registos dos dispositivos de rede virtual, dos registos de recursos de infraestrutura, das informações de falhas do sistema e de outras origens.
+A análise comportamental é uma técnica que analisa e compara os dados para uma coleção de padrões conhecidos. No entanto, estes padrões não são simples assinaturas. São determinados através de algoritmos complexos de machine learning aplicados a conjuntos de dados gigantescos. Também são determinados através de uma análise cuidada de comportamentos maliciosos pelos analistas especialistas. A central de segurança do Azure pode usar a análise comportamental para identificar recursos comprometidos com base na análise de logs de máquina virtual, logs de dispositivo de rede virtual, logs de malha, despejos de memória e outras fontes.
 
-Além disso, existe uma correlação com outros sinais para procurar provas de uma campanha ampla. Esta correlação ajuda a identificar eventos que são consistentes com indicadores estabelecidos de comprometimento. 
+Além disso, há correlação com outros sinais para verificar a evidência de suporte de uma campanha generalizada. Esta correlação ajuda a identificar eventos que são consistentes com indicadores estabelecidos de comprometimento. 
 
 ### <a name="anomaly-detection"></a>Deteção de anomalias
 
 O Centro de Segurança do Azure utiliza também a deteção de anomalias para identificar ameaças. Contrariamente à análise comportamental (que depende de padrões conhecidos derivados de grandes conjuntos de dados), a deteção de anomalias é mais “personalizada” e concentra-se nas linhas de base específicas das suas implementações. O machine Learning é utilizado para determinar a atividade normal das suas implementações e, em seguida, são geradas regras para definir condições de valores atípicos que podem representar um evento de segurança.
 
+## <a name="how-are-alerts-classified"></a>Como os alertas são classificados?
+
+A central de segurança atribui uma severidade aos alertas, para ajudá-lo a priorizar a ordem em que você participa de cada alerta, para que, quando um recurso for comprometido, você possa acessá-lo imediatamente. A gravidade se baseia em quão confiante a central de segurança está na localização ou análise usada para emitir o alerta, bem como o nível de confiança de que houve uma intenção mal-intencionada por trás da atividade que levou ao alerta.
+
+> [!NOTE]
+> A severidade do alerta é exibida de forma diferente no portal e na API REST, as diferenças são indicadas na lista abaixo.
+
+* **Alta:** Há uma alta probabilidade de o recurso ser comprometido. Você deve vê-lo imediatamente. A central de segurança tem alta confiança tanto na intenção mal-intencionada quanto nas conclusões usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida, como Mimikatz, uma ferramenta comum usada para roubo de credenciais.
+* **Média (baixa na API REST)** : provavelmente, uma atividade suspeita pode indicar que um recurso está comprometido.
+A confiança da central de segurança na análise ou na localização é média e a confiança da intenção mal-intencionada é média a alta. Normalmente, elas seriam aprendizado de máquina ou detecções baseadas em anomalias. Por exemplo, uma tentativa de entrada de um local anormal.
+* **Baixo (informações na API REST)** : pode ser um ataque benigno positivo ou bloqueado.
+   * A central de segurança não tem confiança suficiente de que a intenção é mal-intencionada e a atividade pode ser inocente. Por exemplo, a limpeza de log é uma ação que pode ocorrer quando um invasor tenta ocultar suas faixas, mas em muitos casos é uma operação de rotina executada pelos administradores.
+   * A central de segurança normalmente não informa quando os ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. 
+* **Informativo (silencioso na API REST)** : você verá apenas alertas informativos quando fizer uma busca detalhada em um incidente de segurança ou se usar a API REST com uma ID de alerta específica. Um incidente normalmente é composto por vários alertas, alguns dos quais podem aparecer por conta própria para que sejam apenas informativos, mas no contexto dos outros alertas podem ser mais valiosos. 
+ 
+
 ## <a name="continuous-monitoring-and-assessments"></a>Monitoramento e avaliações contínuos
 
 A central de segurança do Azure beneficia-se de ter equipes de pesquisa de segurança e ciência de dados em toda a Microsoft que monitoram continuamente as alterações no cenário de ameaças. Isto inclui as seguintes iniciativas:
 
-* **Monitoramento de inteligência contra ameaças**: A inteligência contra ameaças inclui mecanismos, indicadores, implicações e conselhos acionáveis sobre ameaças emergentes ou existentes. Esta informação é partilhada na comunidade de segurança e a Microsoft monitoriza continuamente os feeds de informações sobre ameaças de origens internas e externas.
-* **Compartilhamento de sinal**: As informações das equipes de segurança no amplo portfólio da Microsoft de serviços locais e de nuvem, servidores e dispositivos de ponto de extremidade de cliente são compartilhadas e analisadas.
-* **Especialistas em segurança da Microsoft**: Envolvimento em andamento com equipes da Microsoft que trabalham em campos de segurança especializados, como análise forense e detecção de ataques da Web.
-* **Ajuste de detecção**: Os algoritmos são executados em conjuntos de dados de clientes reais e pesquisadores de segurança funcionam com clientes para validar os resultados. Os verdadeiros e falsos positivos são utilizados para refinar os algoritmos do machine learning.
+* **Monitoramento de inteligência contra ameaças**: a inteligência contra ameaças inclui mecanismos, indicadores, implicações e conselhos acionáveis sobre ameaças emergentes ou existentes. Esta informação é partilhada na comunidade de segurança e a Microsoft monitoriza continuamente os feeds de informações sobre ameaças de origens internas e externas.
+* **Partilha de sinal**: os conhecimentos das equipas de segurança do amplo portefólio da Microsoft de serviços na nuvem e no local, servidores e dispositivos de ponto final de cliente são partilhados e analisados.
+* **Especialistas de segurança da Microsoft**: existe um envolvimento contínuo com equipas da Microsoft que trabalham em campos de segurança especializados, tal como a deteção de ataques da Web e forense.
+* **Otimização da deteção**: os algoritmos são executados em conjuntos de dados de clientes reais e os investigadores de segurança trabalham com os clientes para validar os resultados. Os verdadeiros e falsos positivos são utilizados para refinar os algoritmos do machine learning.
 
 Estes esforços combinados culminam em novas e melhoradas deteções das quais pode beneficiar de imediato, sem que seja precisa qualquer ação da sua parte.
 
@@ -99,7 +115,7 @@ Usando incidentes, a central de segurança fornece uma única exibição de uma 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, consulte:
+Neste artigo, você aprendeu sobre os diferentes tipos de alertas disponíveis na central de segurança. Para obter mais informações, veja:
 
 * [Guia de operações e planeamento do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [FAQ do Centro de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-faq)

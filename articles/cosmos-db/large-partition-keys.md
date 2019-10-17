@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811719"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436806"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar contêineres com chave de partição grande
 
@@ -21,7 +21,7 @@ Chaves de partição grandes têm suporte usando a funcionalidade de uma versão
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>Criar uma chave de partição grande (portal do Azure)
 
-Para criar uma chave de partição grande, enquanto você cria um novo contêiner usando o portal do Azure, verifique a opção **minha chave de partição é maior que 100-bytes** . Por padrão, todos os novos contêineres são aceitos usando as chaves de partição grandes. Desmarque a caixa de seleção se você não precisar de chaves de partição grandes ou se tiver aplicativos em execução na versão de SDKs com mais de 1,18.
+Para criar uma chave de partição grande, ao criar um novo contêiner usando o portal do Azure, verifique a opção **minha chave de partição é maior que 100-bytes** . Desmarque a caixa de seleção se você não precisar de chaves de partição grandes ou se tiver aplicativos em execução na versão de SDKs com mais de 1,18.
 
 ![Criar chaves de partição grandes usando portal do Azure](./media/large-partition-keys/large-partition-key-with-portal.png)
 
@@ -33,7 +33,7 @@ Para criar um contêiner com suporte de chave de partição grande, consulte
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>Criar uma chave de partição grande (SDK do .net)
 
-Para criar um contêiner com uma chave de partição grande usando o SDK do .net, `PartitionKeyDefinitionVersion.V2` especifique a propriedade. O exemplo a seguir mostra como especificar a Propriedade Version dentro do objeto PartitionKeyDefinition e defini-la como PartitionKeyDefinitionVersion. v2.
+Para criar um contêiner com uma chave de partição grande usando o SDK do .NET, especifique a propriedade `PartitionKeyDefinitionVersion.V2`. O exemplo a seguir mostra como especificar a Propriedade Version dentro do objeto PartitionKeyDefinition e defini-la como PartitionKeyDefinitionVersion. v2.
 
 ### <a name="v3-net-sdk"></a>SDK do .NET v3
 
@@ -71,7 +71,7 @@ As chaves de partição grandes têm suporte com as seguintes versões mínimas 
 |.Net     |    1,18     |
 |Sincronização de Java     |   2.4.0      |
 |Assíncrono de Java   |  2.5.0        |
-| API REST | versão superior `2017-05-03` a usando o cabeçalho `x-ms-version` de solicitação.|
+| API REST | versão superior a `2017-05-03` usando o cabeçalho de solicitação `x-ms-version`.|
 
 No momento, você não pode usar contêineres com chave de partição grande dentro do Power BI e aplicativos lógicos do Azure. Você pode usar contêineres sem uma chave de partição grande desses aplicativos.
 

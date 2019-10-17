@@ -7,21 +7,27 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: mlearned
-ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 1d700afe36d51f0b939629f86d770e54072f47a9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.custom:
+- H1Hack27Feb2017
+- mvc
+- devcenter
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: f98950a73c74537fb0d3762d08810646c9ecb875
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255522"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435612"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Início rápido: implantar um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure
+# <a name="quickstart-deploy-an-azure-kubernetes-service-cluster-using-the-azure-cli"></a>Início rápido: implantar um cluster do serviço kubernetes do Azure usando o CLI do Azure
 
 Neste guia de início rápido, você implanta um cluster do AKS (serviço kubernetes do Azure) usando o CLI do Azure. O AKS é um serviço gerenciado kubernetes que permite implantar e gerenciar clusters rapidamente. Um aplicativo de vários contêineres que inclui um front-end da Web e uma instância Redis é executado no cluster. Em seguida, você verá como monitorar a integridade do cluster e os pods que executam seu aplicativo.
 
 Se você quiser usar contêineres do Windows Server (atualmente em visualização no AKS), consulte [criar um cluster AKs que dá suporte a contêineres do Windows Server][windows-container-cli].
 
-![Aplicativo de votação do Azure em ação](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+![Aplicativo de votação implantado no serviço kubernetes do Azure](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 Este guia de introdução parte do princípio de que possui conhecimentos básicos dos conceitos do Kubernetes. Para obter mais informações, consulte [kubernetes Core Concepts for Azure kubernetes Service (AKs)][kubernetes-concepts].
 
@@ -230,7 +236,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Para ver o aplicativo de voto do Azure em ação, abra um navegador da Web para o endereço IP externo do seu serviço.
 
-![Aplicativo de votação do Azure em ação](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
+![Aplicativo de votação implantado no serviço kubernetes do Azure](./media/container-service-kubernetes-walkthrough/voting-app-deployed-in-azure-kubernetes-service.png)
 
 Quando o cluster AKS foi criado, [Azure monitor para contêineres](../azure-monitor/insights/container-insights-overview.md) foi habilitado para capturar métricas de integridade para ambos os nós de cluster e pods. Estas métricas de estado de funcionamento estão disponíveis no portal do Azure.
 

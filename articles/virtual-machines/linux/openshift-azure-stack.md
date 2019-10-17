@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/23/2018
+ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f9f1072954e01f718fd3d9f03430b6ed6666bb62
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97529118d420813cf638f211bdd5559068802c95
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082586"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390659"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Implantar a plataforma de contêiner OpenShift ou OKD no Azure Stack
 
@@ -45,7 +45,7 @@ Se estiver usando o modelo do Resource Manager, selecione o Branch apropriado (a
 ```
 
 Para todas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância de Red Hat Enterprise Linux é registrada na assinatura do Red Hat e anexada à ID do pool que contém os direitos para a plataforma de contêiner OpenShift.
-Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Como alternativa, você pode usar uma chave de ativação, ID da organização e ID do pool.  Você pode verificar essas informações entrando no https://access.redhat.com.
+Verifique se você tem um nome de usuário, senha e ID de pool válidos do RHSM (Red Hat Subscription Manager). Como alternativa, você pode usar uma chave de ativação, ID da organização e ID do pool.  Você pode verificar essas informações conectando-se a https://access.redhat.com.
 
 ## <a name="azure-stack-prerequisites"></a>Pré-requisitos de Azure Stack
 
@@ -66,9 +66,9 @@ Algumas opções de personalização comuns incluem, mas não se limitam a:
 - OpenShift específicas do cluster, modificadas por meio do arquivo de hosts (deployOpenShift.sh)
 - Referência de imagem RHEL (variável em azuredeploy. JSON)
 
-Para obter as etapas para implantar usando o CLI do Azure, siga a seção apropriada na seção [plataforma de contêiner OpenShift](./openshift-container-platform.md) ou na seção [OKD](./openshift-okd.md) .
+Para obter as etapas para implantar usando o CLI do Azure, siga a seção apropriada na seção [plataforma de contêiner OpenShift](./openshift-container-platform-3x.md) ou na seção [OKD](./openshift-okd.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Tarefas pós-implantação](./openshift-post-deployment.md)
-- [Solucionar problemas de implantação do OpenShift no Azure](./openshift-troubleshooting.md)
+- [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
+- [Solucionar problemas de implantação do OpenShift no Azure](./openshift-container-platform-3x-troubleshooting.md)

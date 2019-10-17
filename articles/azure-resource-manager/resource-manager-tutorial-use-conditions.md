@@ -1,6 +1,6 @@
 ---
 title: Condição de utilização dos modelos do Azure Resource Manager | Microsoft Docs
-description: Saiba como implementar recursos do Azure com base em condições.
+description: Saiba como implementar recursos do Azure com base em condições. Mostra como implantar um novo recurso ou usar um recurso existente.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5fa1db5131f555c92aa12fc01a109469c2cf819e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258868"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390197"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Usar condição em modelos de Azure Resource Manager
+# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Condição de utilização nos modelos do Azure Resource Manager
 
 Saiba como implementar recursos do Azure com base em condições.
 
@@ -36,9 +36,9 @@ Este tutorial abrange as seguintes tarefas:
 > * Implementar o modelo
 > * Limpar recursos
 
-Este tutorial aborda apenas um cenário básico do uso de condições. Para obter mais informações, consulte:
+Este tutorial aborda apenas um cenário básico do uso de condições. Para obter mais informações, veja:
 
-* [Estrutura do arquivo de modelo: Condição](conditional-resource-deployment.md).
+* [Estrutura do arquivo de modelo: condição](conditional-resource-deployment.md).
 * [Implantar condicionalmente um recurso em um modelo de Azure Resource Manager](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
 * [Função de modelo: If](./resource-group-template-functions-logical.md#if).
 * [Funções de comparação para modelos de Azure Resource Manager](./resource-group-template-functions-comparison.md)
@@ -56,7 +56,7 @@ Para concluir este artigo, precisa de:
     openssl rand -base64 32
     ```
 
-    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, [consulte Tutorial: Integre Azure Key Vault no Implantação de modelo](./resource-manager-tutorial-use-key-vault.md)do Resource Manager. Também recomendamos que atualize a palavra-passe a cada três meses.
+    O Azure Key Vault foi criado para salvaguardar chaves criptográficos e outros segredos. Para obter mais informações, veja [Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager](./resource-manager-tutorial-use-key-vault.md). Também recomendamos que atualize a palavra-passe a cada três meses.
 
 ## <a name="open-a-quickstart-template"></a>Abrir um modelo de Início Rápido
 
@@ -174,7 +174,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the same resource group name you u
 Remove-AzResourceGroup -Name $resourceGroupName
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, desenvolveu um modelo que permite que os utilizadores optem entre criar uma conta de armazenamento nova e utilizar uma conta de armazenamento existente. Para saber como obter segredos a partir do Azure Key Vault e utilizá-los como palavras-passe na implementação do modelo, veja:
 

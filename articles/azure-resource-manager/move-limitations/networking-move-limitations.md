@@ -4,14 +4,14 @@ description: Use Azure Resource Manager para mover redes virtuais e outros recur
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6ad7f32704d8cb73999a6e3cf60cb2a238268242
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14a7cb326a3017b1bdbcad21c8483eaaacd54674
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034554"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437816"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Mover diretrizes para recursos de rede
 
@@ -19,18 +19,20 @@ Este artigo descreve como mover redes virtuais e outros recursos de rede para ce
 
 ## <a name="dependent-resources"></a>Recursos dependentes
 
-Ao mover uma rede virtual, também tem de mover os recursos dependentes. Para Gateways de VPN, tem de mover os endereços IP, gateways de rede virtual e todos os recursos de ligação associada. Gateways de rede local podem estar num grupo de recursos diferente.
+Ao mover uma rede virtual, você também deve mover seus recursos dependentes. Para gateways de VPN, você deve mover endereços IP, gateways de rede virtual e todos os recursos de conexão associados. Os gateways de rede local podem estar em um grupo de recursos diferente.
 
-Para mover uma máquina virtual com uma placa de interface de rede, você deve mover todos os recursos dependentes. Mova a rede virtual para a placa de interface de rede, todas as outras placas de interface de rede para a rede virtual e os gateways de VPN.
+Para mover uma máquina virtual com uma placa de interface de rede para uma nova assinatura, você deve mover todos os recursos dependentes. Mova a rede virtual para a placa de interface de rede, todas as outras placas de interface de rede para a rede virtual e os gateways de VPN.
+
+Para obter mais informações, consulte [cenário para mover entre assinaturas](../resource-group-move-resources.md#scenario-for-move-across-subscriptions).
 
 ## <a name="peered-virtual-network"></a>Rede virtual emparelhada
 
-Para mover uma rede virtual em modo de peering, tem primeiro de desativar o peering de rede virtual. Uma vez desativada, pode mover a rede virtual. Após a mudança, reativar o peering de rede virtual.
+Para mover uma rede virtual emparelhada, primeiro você deve desabilitar o emparelhamento de rede virtual. Depois de desabilitado, você pode mover a rede virtual. Após a movimentação, reabilite o emparelhamento de rede virtual.
 
 ## <a name="subnet-links"></a>Links de sub-rede
 
-Não é possível mover uma rede virtual para uma subscrição diferente se a rede virtual contém uma sub-rede com ligações de navegação de recursos. Por exemplo, se uma Cache do Azure para o recurso de Redis é implementada numa sub-rede, o que a sub-rede tem uma ligação de navegação de recursos.
+Você não poderá mover uma rede virtual para uma assinatura diferente se a rede virtual contiver uma sub-rede com links de navegação de recursos. Por exemplo, se um cache do Azure para o recurso Redis for implantado em uma sub-rede, essa sub-rede terá um link de navegação de recurso.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).

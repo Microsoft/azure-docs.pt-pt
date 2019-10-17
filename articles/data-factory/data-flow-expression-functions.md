@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: c062a75516a1b865c1ff6c35f00d4fbf7c4881c6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d968aa5202fbeb38be9a2416514d2185c1d8b9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029366"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436735"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento 
 
@@ -68,7 +68,13 @@ ___
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
 Obtém a data atual em que esse trabalho começa a ser executado. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 Obtém o carimbo de data/hora atual quando o trabalho começa a ser executado com o fuso horário local * ``currentTimestamp() == toTimestamp('2250-12-31 12:12:12') -> false`` @ no__t-1 @ no__t-2<br/><br/>
-Obtém o carimbo de data/hora atual como UTC. Se desejar que a hora atual seja interpretada em um fuso horário diferente do fuso horário do cluster, você poderá passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo converta a hora UTC para um fuso horário diferente, use fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
+Obtém o carimbo de data/hora atual como UTC. Se desejar que a hora atual seja interpretada em um fuso horário diferente do fuso horário do cluster, você poderá passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para o fuso horário atual. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. Use [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) para converter a hora UTC em um fuso horário diferente, use fromUTC ().
+* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+___
+### <code>dayOfMonth</code>
+<code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Obtém o dia do mês de acordo com a data * ``dayOfMonth(toDate('2018-06-08')) -> 8`` @ no__t-1 @ no__t-2<br/><br/>
 Obtém o dia da semana de acordo com uma data. 1-domingo, 2-segunda-feira..., 7-sábado * ``dayOfWeek(toDate('2018-06-08')) -> 6`` @ no__t-1 @ no__t-2<br/><br/>
 Obtém o dia do ano de acordo com a data * ``dayOfYear(toDate('2016-04-09')) -> 100`` @ no__t-1 @ no__t-2<br/><br/>
@@ -84,20 +90,12 @@ Sempre retorna um valor falso. Use a sintaxe da função (false ()) se houver um
 Filtra elementos da matriz que não atendem ao predicado fornecido. O filtro espera uma referência a um elemento na função de predicado como #item * ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Obtém o primeiro valor de um grupo de colunas. Se o segundo parâmetro ignoreNulls for omitido, presume-se false * ``first(sales)`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Retorna o maior inteiro que não é maior que o número * ``floor(-0.1) -> -1`` @ no__t-1 @ no__t-2<br/><br/>
-Converte para o carimbo de data/hora do UTC. Opcionalmente, você pode passar o fuso horário na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
-* ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
-___
-### <code>greater</code>
-<code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
+Converte para o carimbo de data/hora do UTC. Opcionalmente, você pode passar o fuso horário na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Operador maior de comparação. O mesmo que > Operator * ``greater(12, 24) -> false`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Comparação de operador maior ou igual a. O mesmo que > = Operator * ``greaterOrEqual(12, 12) -> true`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Retorna o valor máximo entre a lista de valores como entrada ignorando valores nulos. Retornará NULL se todas as entradas forem nulas * ``greatest(10, 30, 15, 20) -> 30`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 Verifica o valor de uma coluna por nome no fluxo. Você pode passar um nome de fluxo opcional como o segundo argumento.  Nomes de coluna conhecidos em tempo de design devem ser abordados apenas por seu nome. Não há suporte para entradas computadas, mas você pode usar substituições de parâmetro * ``hasColumn('parent')`` @ no__t-1 @ no__t-2<br/><br/>
-Obtém o valor de hora de um timestamp. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
-* ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
-___
-### <code>hours</code>
-<code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Obtém o valor de hora de um timestamp. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Duração em milissegundos para o número de horas * ``hours(2) -> 7200000L`` @ no__t-1 @ no__t-2<br/><br/>
 Mapeia cada elemento da matriz para um novo elemento usando a expressão fornecida. O mapa espera uma referência a um elemento na função de expressão como #item e uma referência ao índice de elemento como #index * ``iMap([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]`` @ no__t-1 @ no__t-2<br/><br/>
 Com base em uma condição, aplica-se um valor ou outro. Se outro não for especificado, ele será considerado nulo. Ambos os valores devem ser compatíveis (Numeric, String...) * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
@@ -145,28 +143,18 @@ Com base em um critério, obtém o valor máximo de uma coluna * ``maxIf(region 
 Calcula o resumo MD5 do conjunto de colunas de tipos de datavariantes primitivos e retorna uma cadeia de caracteres hexadecimal de 32 caracteres. Ele pode ser usado para calcular uma impressão digital para uma linha * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'`` @ no__t-1 @ no__t-2<br/><br/>
 Obtém a média de valores de uma coluna. O mesmo que AVG * ``mean(sales)`` @ no__t-1 @ no__t-2<br/><br/>
 Com base em um critério, obtém a média de valores de uma coluna. O mesmo que avgIf * ``meanIf(region == 'West', sales)`` @ no__t-1 @ no__t-2<br/><br/>
-Obtém o valor de milissegundo de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
-___
-### <code>milliseconds</code>
-<code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Obtém o valor de milissegundo de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871`` @ no__t-2 @ no__t-3<br/><br/>
 Duração em milissegundos para o número de milissegundos * ``seconds(2) -> 2L`` @ no__t-1 @ no__t-2<br/><br/>
 Obtém o valor mínimo de uma coluna * ``min(sales)`` @ no__t-1 @ no__t-2<br/><br/>
 Com base em um critério, obtém o valor mínimo de uma coluna * ``minIf(region == 'West', sales)`` @ no__t-1 @ no__t-2<br/><br/>
 Subtrai números. Subtraia de um número de data de dias. Duração de Substract de um carimbo de data/hora. Substract dois carimbos de data/hora para obter a diferença em milissegundos. O mesmo que o operador * ``minus(20, 10) -> 10`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7<br/><br/>
-Obtém o valor de minuto de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
-* ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``
-___
-### <code>minutes</code>
-<code><b>minutes(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Obtém o valor de minuto de um carimbo de data/hora. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Duração em milissegundos para o número de minutos * ``minutes(2) -> 120000L`` @ no__t-1 @ no__t-2<br/><br/>
 Módulo de um par de números. O mesmo que o operador% * ``mod(20, 8) -> 4`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Obtém o valor de mês de uma data ou timestamp * ``month(toDate('2012-8-8')) -> 8`` @ no__t-1 @ no__t-2<br/><br/>
-Obtém o número de meses entre duas datas. Você pode arredondar o cálculo. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
-___
-### <code>multiply</code>
-<code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
+Obtém o número de meses entre duas datas. Você pode arredondar o cálculo. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677`` @ no__t-2 @ no__t-3<br/><br/>
 Multiplica o par de números. O mesmo que o operador * * ``multiply(20, 10) -> 200`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
-A função NTile divide as linhas de cada partição de janela em buckets `n` variando de 1 para no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: O tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
+A função NTile divide as linhas de cada partição de janela em buckets `n` variando de 1 para no máximo `n`. Os valores de Bucket serão diferentes por no máximo 1. Se o número de linhas na partição não dividir uniformemente o número de buckets, os valores restantes serão distribuídos um por Bucket, começando com o primeiro Bucket. A função NTile é útil para o cálculo de tertiles, quartils, decis e outras estatísticas de resumo comuns. A função calcula duas variáveis durante a inicialização: o tamanho de um Bucket regular terá uma linha extra adicionada a ele. Ambas as variáveis são baseadas no tamanho da partição atual. Durante o processo de cálculo, a função controla o número da linha atual, o número do Bucket atual e o número da linha na qual o Bucket será alterado (bucketThreshold). Quando o número da linha atual atingir o limite de Bucket, o valor do Bucket será aumentado em um e o limite será aumentado pelo tamanho do Bucket (mais um extra, se o Bucket atual for preenchido).
 * ``nTile()``
 * ``nTile(numOfBuckets)``
 ___
@@ -200,10 +188,7 @@ Arredonda um número de acordo com uma escala opcional e um modo de arredondamen
 Atribui uma numeração de linha sequencial para linhas em uma janela que começa com 1 * ``rowNumber()`` @ no__t-1 @ no__t-2<br/><br/>
 A direita pads a cadeia de caracteres pelo preenchimento fornecido até que seja de um determinado comprimento. Se a cadeia de caracteres for igual ou maior que o comprimento, ela será cortada para o comprimento * ``rpad('dumbo', 10, '-') -> 'dumbo-----'`` @ no__t-1 @ no__t-2 @ no__t-3rtrim @ no__t-4 @ no__t-5<br/><br/>
 A direita corta uma cadeia de caracteres à esquerda. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro * ``rtrim('  dumbo  ') -> '  dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
-Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
-___
-### <code>seconds</code>
-<code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Obtém o segundo valor de uma data. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O fuso horário local é usado como o padrão. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59`` @ no__t-2 @ no__t-3<br/><br/>
 Duração em milissegundos para o número de segundos * ``seconds(2) -> 2000L`` @ no__t-1 @ no__t-2<br/><br/>
 Calcula o resumo SHA-1 do conjunto de colunas de tipos de dataprimitivos variantes e retorna uma cadeia de caracteres hexadecimal de 40 caracteres. Ele pode ser usado para calcular uma impressão digital para uma linha * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'`` @ no__t-1 @ no__t-2<br/><br/>
 Calcula o resumo SHA-2 do conjunto de colunas de tipos de dados primitivos variados de acordo com um comprimento de bit que só pode ser de valores 0 (256), 224, 256, 384, 512. Ele pode ser usado para calcular uma impressão digital para uma linha * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'`` @ no__t-1 @ no__t-2<br/><br/>
@@ -243,11 +228,7 @@ Converte qualquer número ou cadeia de caracteres em um valor longo. Um formato 
 Converte qualquer número ou cadeia de caracteres em um valor curto. Um formato decimal do Java opcional pode ser usado para a conversão. Trunca qualquer inteiro, longo, float, duplo * ``toShort(123) -> 123`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Converte um tipo de dados primitivo em uma cadeia de caracteres. Para números e datas, um formato pode ser especificado. Se não for especificado, o padrão do sistema será escolhido. O formato decimal do Java é usado para números. Consulte Java SimpleDateFormat para todos os formatos de data possíveis; o formato padrão é AAAA-MM-DD * ``toString(10) -> '10'`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 @ no__t-8 @ no__t-9<br/><br/>
 Converte uma cadeia de caracteres em um timestamp dado um formato de carimbo de data/hora opcional. Consulte Java SimpleDateFormat para todos os formatos possíveis. Se o carimbo de data/hora for omitido, o padrão. YYYY-[M] M-[d] d hh: mm: SS [. f...] será usado. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. O carimbo de data/hora dá suporte à precisão de até milissegundos com o valor de SimpleDateFormat de 999Refer Java para formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6<br/><br/>
-Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
-___
-### <code>translate</code>
-<code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
+Converte o carimbo de data/hora em UTC. Você pode passar um fuso horário opcional na forma de ' GMT ', ' PST ', ' UTC ', ' América/Cayman '. Ele é padronizado para os SimpleDateFormat atuais do timezoneRefer Java para os formatos disponíveis. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Substituir um conjunto de caracteres por outro conjunto de caracteres na cadeia de caracteres. Os caracteres têm 1 a 1 substituição * ``translate('(bojjus)', '()', '[]') -> '[bojjus]'`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Corta uma cadeia de caracteres de caractere à esquerda e à direita. Se o segundo parâmetro não for especificado, ele cortará o espaço em branco. Caso contrário, ele apara qualquer caractere especificado no segundo parâmetro * ``trim('  dumbo  ') -> 'dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Sempre retorna um valor verdadeiro. Use a sintaxe da função (true ()) se houver uma coluna chamada ' true ' * ``(10 + 20 == 30) -> true`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>

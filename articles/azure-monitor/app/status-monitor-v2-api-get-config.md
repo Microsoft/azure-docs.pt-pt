@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do Azure Status Monitor v2: Obter configuração | Microsoft Docs'
-description: Referência da API do Status Monitor v2. Get-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
+title: 'Referência da API do agente do insights do Aplicativo Azure: Get config | Microsoft Docs'
+description: Referência de API do agente Application Insights. Get-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1da24a93a671b388c44d96711bc2fe007f33d197
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e0b389dfb27443b9b26b8ed650399c641c55eb86
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033163"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388273"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>API Status Monitor v2: Get-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>API do agente de Application Insights: Get-ApplicationInsightsMonitoringConfig
 
 Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -40,7 +40,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 Nenhum parâmetro é necessário.
 
-## <a name="output"></a>Output
+## <a name="output"></a>Saída
 
 
 #### <a name="example-output-from-reading-the-config-file"></a>Exemplo de saída da leitura do arquivo de configuração
@@ -53,10 +53,10 @@ Filters:
 2)InstrumentationKey: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxdefault AppFilter: .* MachineFilter: .*
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
   Ver a telemetria:
- - [Explore](../../azure-monitor/app/metrics-explorer.md) as métricas para monitorar o desempenho e o uso.
+ - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
 - [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 - Use a [análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
@@ -66,6 +66,6 @@ Filters:
 - [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
 - [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log.
  
- Faça mais com Status Monitor v2:
- - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.
+ Faça mais com Application Insights agente:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
  - Faça alterações na configuração usando o cmdlet [set config](status-monitor-v2-api-set-config.md) .

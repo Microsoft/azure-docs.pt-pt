@@ -9,14 +9,14 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 25b7e7015b32609356eb138c86fbe537a87a7a22
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 3dacfc0d8371ad9e8fa66d8bb1c5fafa59271ce0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595817"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388173"
 ---
-# <a name="frequently-asked-questions"></a>Perguntas mais frequentes
+# <a name="custom-translator-frequently-asked-questions"></a>Perguntas frequentes sobre o tradutor personalizado
 
 Este artigo contém respostas para perguntas frequentes sobre o [Tradutor personalizado](https://portal.customtranslator.azure.ai).
 
@@ -45,10 +45,10 @@ Os sistemas implantados podem ser acessados por meio do Microsoft API de Traduç
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Como fazer ignorar o alinhamento e a sentença de quebra se meus dados já estiverem alinhados na frase?
 
-O tradutor personalizado ignora o alinhamento da frase e a quebra de frase para arquivos TMX e para arquivos `.align` de texto com a extensão. `.align`os arquivos oferecem aos usuários uma opção para ignorar o processo de quebra de frase e alinhamento do tradutor personalizado para os arquivos que estão perfeitamente alinhados e não precisam de nenhum processamento adicional. É recomendável `.align` usar a extensão somente para arquivos perfeitamente alinhados.
+O tradutor personalizado ignora o alinhamento da frase e a quebra de frase para arquivos TMX e para arquivos de texto com a extensão `.align`. os arquivos `.align` oferecem aos usuários uma opção para ignorar o processo de quebra de frase e alinhamento do tradutor personalizado para os arquivos que estão perfeitamente alinhados e não precisam de nenhum processamento adicional. É recomendável usar a extensão `.align` somente para arquivos perfeitamente alinhados.
 
-Se o número de frases extraídas não corresponder aos dois arquivos com o mesmo nome base, o tradutor personalizado ainda executará o alinhador de `.align` sentença nos arquivos.
+Se o número de frases extraídas não corresponder aos dois arquivos com o mesmo nome base, o tradutor personalizado ainda executará o alinhador de sentença em arquivos `.align`.
 
 ## <a name="i-tried-uploading-my-tmx-but-it-says-document-processing-failed"></a>Tentei carregar meu TMX, mas ele diz "falha no processamento de documentos".
 
-Verifique se o TMX está em conformidade com a especificação do TMX 1.4 b <https://www.gala-global.org/tmx-14b>em.
+Verifique se o TMX está de acordo com a especificação do TMX 1.4 b em <https://www.gala-global.org/tmx-14b>.

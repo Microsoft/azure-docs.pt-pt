@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 80f0ec57aa287bae9b10d9a4cdb013014aab3332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2293eac45da6f53b0cd29fda68b0ddc76aea1a6c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082559"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390639"
 ---
 # <a name="openshift-in-azure"></a>OpenShift no Azure
 
@@ -31,7 +31,7 @@ O OpenShift inclui kubernetes para orquestração e gerenciamento de contêinere
 - Implantação e dimensionamento fáceis.
 - Manutenção de ciclo de vida de longo prazo para equipes e aplicativos.
 
-Há várias versões do OpenShift disponíveis.  Dessas versões, somente duas estão disponíveis hoje para que os clientes implantem no Azure: Plataforma de contêiner OpenShift e OKD (anteriormente OpenShift Origin).
+Há várias versões do OpenShift disponíveis.  Dessas versões, somente duas estão disponíveis atualmente para que os clientes implantem no Azure: plataforma de contêiner OpenShift e OKD (anteriormente OpenShift Origin).
 
 ## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -45,13 +45,13 @@ Como os próprios clientes "possuem" toda a plataforma, eles podem instalá-lo e
 
 ## <a name="okd"></a>OKD
 
-OKD é um [](https://www.okd.io/) projeto de upstream de software livre do OpenShift com suporte da Comunidade. O OKD pode ser instalado em CentOS ou Red Hat Enterprise Linux (RHEL).
+OKD [é um projeto de](https://www.okd.io/) upstream de software livre do OpenShift com suporte da Comunidade. O OKD pode ser instalado em CentOS ou Red Hat Enterprise Linux (RHEL).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar pré-requisitos comuns para o OpenShift no Azure](./openshift-prerequisites.md)
-- [Implantar a plataforma de contêiner OpenShift no Azure](./openshift-container-platform.md)
-- [Implantar a oferta do Marketplace autogerenciado da plataforma de contêiner do OpenShift](./openshift-marketplace-self-managed.md)
+- [Configurar pré-requisitos comuns para o OpenShift no Azure](./openshift-container-platform-3x-prerequisites.md)
+- [Implantar a plataforma de contêiner OpenShift no Azure](./openshift-container-platform-3x.md)
+- [Implantar a oferta do Marketplace autogerenciado da plataforma de contêiner do OpenShift](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Implantar OpenShift no Azure Stack](./openshift-azure-stack.md)
-- [Tarefas pós-implantação](./openshift-post-deployment.md)
-- [Solucionar problemas de implantação do OpenShift](./openshift-troubleshooting.md)
+- [Tarefas pós-implantação](./openshift-container-platform-3x-post-deployment.md)
+- [Solucionar problemas de implantação do OpenShift](./openshift-container-platform-3x-troubleshooting.md)

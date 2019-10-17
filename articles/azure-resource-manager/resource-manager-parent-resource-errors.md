@@ -1,25 +1,25 @@
 ---
-title: Erros de recurso principal do Azure | Documentos da Microsoft
-description: Descreve como resolver erros ao trabalhar com um recurso principal.
+title: Erros de recurso pai do Azure | Microsoft Docs
+description: Descreve como resolver erros ao trabalhar com um recurso pai em um modelo de Azure Resource Manager.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6111f9128c56fed97414734275a21612544cccb8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 197554e16e28b4928cab351838f00e1631c269fd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205397"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390243"
 ---
-# <a name="resolve-errors-for-parent-resources"></a>Resolva os erros para os recursos de principal
+# <a name="resolve-errors-for-parent-resources"></a>Resolver erros de recursos pai
 
-Este artigo descreve os erros que pode obter durante a implantação de um recurso que está dependente de um recurso principal.
+Este artigo descreve os erros que você pode obter ao implantar um recurso que é dependente de um recurso pai.
 
 ## <a name="symptom"></a>Sintoma
 
-Ao implementar um recurso que é um filho para outro recurso, poderá receber o erro seguinte:
+Ao implantar um recurso que seja filho de outro recurso, você pode receber o seguinte erro:
 
 ```
 Code=ParentResourceNotFound;
@@ -28,7 +28,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Causa
 
-Quando um recurso é um filho para outro recurso, o recurso principal tem de existir antes de criar o recurso de subordinados. O nome do recurso subordinado define a ligação com o recurso principal. O nome do recurso subordinado está no formato `<parent-resource-name>/<child-resource-name>`. Por exemplo, uma base de dados SQL pode ser definida como:
+Quando um recurso é filho para outro recurso, o recurso pai deve existir antes de criar o recurso filho. O nome do recurso filho define a conexão com o recurso pai. O nome do recurso filho está no formato `<parent-resource-name>/<child-resource-name>`. Por exemplo, um banco de dados SQL pode ser definido como:
 
 ```json
 {
@@ -37,13 +37,13 @@ Quando um recurso é um filho para outro recurso, o recurso principal tem de exi
   ...
 ```
 
-Se implementar o servidor e a base de dados no mesmo modelo, mas não especificar uma dependência no servidor, a implementação de base de dados pode iniciar antes de ter implementado o servidor. 
+Se você implantar o servidor e o banco de dados no mesmo modelo, mas não especificar uma dependência no servidor, a implantação do banco de dados poderá ser iniciada antes da implantação do servidor. 
 
-Se o recurso principal já existe e não está implementado no mesmo modelo, pode obter este erro quando o Gestor de recursos não é possível associar o recurso de subordinados com o elemento principal. Este erro poderá ocorrer se o recurso subordinado não está no formato correto ou o recurso de subordinado é implementado num grupo de recursos que é diferente do grupo de recursos para o recurso principal.
+Se o recurso pai já existir e não estiver implantado no mesmo modelo, você receberá esse erro quando o Gerenciador de recursos não puder associar o recurso filho ao pai. Esse erro pode ocorrer quando o recurso filho não está no formato correto ou o recurso filho é implantado em um grupo de recursos diferente do grupo de recursos para o recurso pai.
 
 ## <a name="solution"></a>Solução
 
-Para resolver este erro quando os recursos principais e subordinadas são implementados no mesmo modelo, inclua uma dependência.
+Para resolver esse erro quando os recursos pai e filho são implantados no mesmo modelo, inclua uma dependência.
 
 ```json
 "dependsOn": [
@@ -51,7 +51,7 @@ Para resolver este erro quando os recursos principais e subordinadas são implem
 ]
 ```
 
-Para resolver este erro quando o recurso principal foi anteriormente implementado num modelo diferente, não definir uma dependência. Em vez disso, implementar o filho no mesmo grupo de recursos e forneça o nome do recurso principal.
+Para resolver esse erro quando o recurso pai foi implantado anteriormente em um modelo diferente, você não define uma dependência. Em vez disso, implante o filho no mesmo grupo de recursos e forneça o nome do recurso pai.
 
 ```json
 {
@@ -81,4 +81,4 @@ Para resolver este erro quando o recurso principal foi anteriormente implementad
 }
 ```
 
-Para obter mais informações, consulte [definir a ordem para a implementação de recursos nos modelos do Azure Resource Manager](resource-group-define-dependencies.md).
+Para obter mais informações, consulte [definir a ordem de implantação de recursos em modelos de Azure Resource Manager](resource-group-define-dependencies.md).

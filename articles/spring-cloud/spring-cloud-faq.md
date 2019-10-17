@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 09970468a277dcaf3f28b4f5065572568089a12e
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039120"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433315"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas Mais Frequentes
 
@@ -30,9 +30,9 @@ O Azure Spring Cloud aprimora a experiência do Application Diagnostics para os 
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Quais planos de serviço o Azure Spring Cloud oferece?
 
-O Azure Spring Cloud é gratuito durante o período de versão prévia.
+O Azure Spring Cloud oferece um plano de serviço durante o período de versão prévia.
 
-Resource | Montante
+Recurso | Montante
 ------- | -------
 vCPU | 4
 Memória | 8 GBytes

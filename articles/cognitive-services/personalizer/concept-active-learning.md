@@ -1,5 +1,5 @@
 ---
-title: Aprendizado ativo-personalizador
+title: Eventos ativos e inativos – personalizador
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,47 +10,36 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663718"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429052"
 ---
-# <a name="active-learning-and-learning-policies"></a>Políticas de aprendizagem e aprendizado ativas 
+# <a name="active-and-inactive-events"></a>Eventos ativos e inativos
 
-Quando o aplicativo chama a API de classificação, você recebe uma classificação do conteúdo. A lógica de negócios pode usar essa classificação para determinar se o conteúdo deve ser exibido para o usuário. Quando você exibe o conteúdo classificado, esse é um evento de classificação _ativa_ . Quando seu aplicativo não exibe esse conteúdo classificado, isso é um evento de classificação inativo. 
+Quando o aplicativo chama a API de classificação, você recebe a ação que o aplicativo deve mostrar no campo rewardActionId.  A partir desse momento, o personalizador estará esperando uma chamada de recompensa com o mesmo eventId. A pontuação de recompensa será usada para treinar o modelo que será usado para futuras chamadas de classificação. Se nenhuma chamada de recompensa for recebida para o eventId, um prêmio bits será aplicado. As recompensas padrão são estabelecidas no portal do Azure.
 
-As informações de evento de classificação ativas são retornadas ao personalizador. Essas informações são usadas para continuar a treinar o modelo por meio da política de aprendizado atual.
-
-## <a name="active-events"></a>Eventos ativos
-
-Os eventos ativos devem ser sempre mostrados ao usuário e a chamada de recompensa deve ser retornada para fechar o loop de aprendizagem. 
-
-### <a name="inactive-events"></a>Eventos inativos 
-
-Eventos inativos não devem alterar o modelo subjacente porque o usuário não tinha a oportunidade de escolher o conteúdo classificado.
-
-## <a name="dont-train-with-inactive-rank-events"></a>Não treinar com eventos de classificação inativos 
-
-Para alguns aplicativos, talvez seja necessário chamar a API de classificação sem saber ainda se o aplicativo exibirá os resultados para o usuário. 
-
-Isso acontece quando:
+Em alguns casos, o aplicativo pode precisar chamar o diâmetro de ordem, até mesmo sabe se o resultado será usado ou disparado para o usuário. Isso pode acontecer em situações em que, por exemplo, a renderização de página de conteúdo promovido é substituída por uma campanha de marketing. Se o resultado da chamada de classificação nunca foi usado e o usuário nunca conseguiu vê-la, seria incorreto treiná-la com qualquer recompensa, zero ou de outra forma.
+Normalmente, isso acontece quando:
 
 * Você pode estar renderizando previamente alguma interface de usuário que o usuário pode ou não conseguir ver. 
 * Seu aplicativo pode estar fazendo uma personalização preditiva na qual as chamadas de classificação são feitas com um contexto menos em tempo real e sua saída pode ou não ser usada pelo aplicativo. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Desabilitar o aprendizado ativo para eventos de classificação inativos durante a chamada de classificação
+Nesses casos, a maneira correta de usar o personalizador é chamar rank solicitando que o evento fique _inativo_. O personalizador não esperará um prêmio para esse evento e também não aplicará uma recompensa padrão. Letr em sua lógica de negócios, se o aplicativo usar as informações da chamada de classificação, tudo o que você precisa fazer é _Ativar_ o evento. A partir do momento em que o evento está ativo, o personalizador esperará um prêmio para o evento ou aplicará um recompensa padrão se nenhuma chamada explícita for feita na API de recompensa.
 
-Para desabilitar o aprendizado automático, chame a classificação `learningEnabled = False`com.
+## <a name="get-inactive-events"></a>Obter eventos inativos
 
-O aprendizado de um evento inativo será ativado implicitamente se você enviar uma recompensa para a classificação.
+Para desabilitar o treinamento de um evento, chame Rank com `learningEnabled = False`.
 
-## <a name="learning-policies"></a>Políticas de aprendizado
+O aprendizado de um evento inativo será ativado implicitamente se você enviar uma recompensa para o eventId ou chamar a API `activate` para esse eventId.
 
-A política de aprendizado determina os hiperparâmetros específicos do treinamento do modelo. Dois modelos dos mesmos dados, treinados em diferentes políticas de aprendizagem, irão se comportar de maneira diferente.
+## <a name="learning-settings"></a>Configurações de aprendizado
 
-### <a name="importing-and-exporting-learning-policies"></a>Importando e exportando políticas de aprendizado
+As configurações de aprendizado determinam os *hiperparâmetros* específicos do treinamento do modelo. Dois modelos dos mesmos dados, treinados em diferentes configurações de aprendizado, acabarão sendo diferentes.
+
+### <a name="import-and-export-learning-policies"></a>Importar e exportar políticas de aprendizado
 
 Você pode importar e exportar arquivos de política de aprendizagem do portal do Azure. Isso permite que você salve as políticas existentes, teste-as, substitua-as e arquive-as no controle do código-fonte como artefatos para referência e auditoria futuras.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 5dc81f6e35f86c6dee77d44ff5c59c2657434a37
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376272"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434045"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>Usar o ia para entender os dados do blob
 
@@ -30,7 +30,7 @@ O enriquecimento de ia cria novas informações, capturadas como texto, armazena
 
 Neste artigo, veremos a sofisticação de AI por meio de uma ampla lente para que você possa entender rapidamente todo o processo, desde transformar dados brutos em BLOBs, até informações consultáveis em um índice de pesquisa ou em um repositório de conhecimento.
 
-## <a name="what-it-means-to-enrich-blob-data"></a>O que significa "enriquecer" os dados de BLOB
+## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>O que significa "enriquecer" os dados de blob com o ia
 
 O *enriquecimento de ia* faz parte da arquitetura de indexação do Azure Search que integra o ia interno da Microsoft ou do ia personalizado que você fornece. Ele ajuda a implementar cenários de ponta a ponta em que você precisa processar BLOBs (tanto os existentes como os novos quando eles chegam ou são atualizados), desaparecendo abrir todos os formatos de arquivo para extrair imagens e texto, extrair as informações desejadas usando vários recursos de ia e indexá-los em um índice de Azure Search para pesquisa rápida, recuperação e exploração. 
 
@@ -40,33 +40,37 @@ A saída é sempre um índice Azure Search, usado para pesquisa rápida de texto
 
 No, between é a própria arquitetura de pipeline. O pipeline é baseado no recurso de *indexador* , ao qual você pode atribuir um *skillset*, que é composto por uma ou mais *habilidades* que fornecem o ia. A finalidade do pipeline é produzir *documentos aprimorados* que entram como conteúdo bruto, mas coletam estrutura, contexto e informações adicionais ao passar pelo pipeline. Os documentos aprimorados são consumidos durante a indexação para criar índices invertidos e outras estruturas usadas em pesquisa de texto completo ou exploração e análise.
 
-## <a name="how-to-get-started"></a>Como começar
+## <a name="start-with-services-and-data"></a>Comece com serviços e dados
 
-Você pode iniciar diretamente em sua página do portal da conta de armazenamento. Clique em **adicionar Azure Search** e crie um novo serviço de Azure Search ou selecione um existente. Se você já tiver um serviço de pesquisa existente na mesma assinatura, clicar em **adicionar Azure Search** abrirá o assistente de importação de dados para que você possa percorrer imediatamente a indexação, o enriquecimento e a definição de índice.
+Você precisa do Azure Search e do armazenamento de BLOBs do Azure. No armazenamento de BLOBs, você precisa de um contêiner que forneça o conteúdo de origem.
 
-Depois de adicionar Azure Search à sua conta de armazenamento, você pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Supondo que você já tenha conteúdo de BLOB, você pode usar o assistente de importação de dados no Azure Search para obter uma introdução inicial fácil ao enriquecimento de ia. Este guia de início rápido explica as etapas: [criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md). 
+Você pode iniciar diretamente em sua página do portal da conta de armazenamento. Na página de navegação à esquerda, em **serviço blob** , clique em **Adicionar Azure Search** para criar um novo serviço ou selecione um existente. 
+
+Depois de adicionar Azure Search à sua conta de armazenamento, você pode seguir o processo padrão para enriquecer dados em qualquer fonte de dados do Azure. Recomendamos o assistente de **importação de dados** no Azure Search para obter uma introdução inicial fácil ao enriquecimento de ia. Este guia de início rápido orienta você pelas etapas: [criar um pipeline de enriquecimento de ia no portal](cognitive-search-quickstart-blob.md). 
 
 Nas seções a seguir, exploraremos mais componentes e conceitos.
 
-## <a name="begin-with-blob-indexers"></a>Começar com indexadores de BLOB
+## <a name="use-a-blob-indexer"></a>Usar um indexador de BLOB
 
-O enriquecimento de ia é um complemento em um pipeline de indexação e, em Azure Search, esses pipelines são criados sobre um *indexador*. Um indexador é um subserviço com reconhecimento de fonte de dados equipado com lógica interna para dados de amostragem, leitura de dados de metadados, recuperação de dados e serialização de dados de formatos nativos em documentos JSON para importação subsequente. Os indexadores geralmente são usados por si próprios para importação, separados do ia, mas se você quiser criar um pipeline de enriquecimento de ia, precisará de um indexador e de um configurador para seguir. Nesta seção, vamos nos concentrar no próprio indexador.
+O enriquecimento de ia é um complemento em um pipeline de indexação e, em Azure Search, esses pipelines são criados sobre um *indexador*. Um indexador é um subserviço com reconhecimento de fonte de dados equipado com lógica interna para dados de amostragem, leitura de dados de metadados, recuperação de dados e serialização de dados de formatos nativos em documentos JSON para importação subsequente. Os indexadores geralmente são usados por si próprios para importação, separados do ia, mas se você quiser criar um pipeline de enriquecimento de ia, precisará de um indexador e de um configurador para seguir. Esta seção destaca o indexador; a próxima seção se concentra em habilidades.
 
-Os BLOBs no armazenamento do Azure são indexados usando o [indexador de armazenamento de blobs Azure Search](search-howto-indexing-azure-blob-storage.md). Você invoca esse indexador definindo o tipo e fornecendo informações de conexão que incluem uma conta de armazenamento do Azure junto com um contêiner de BLOB. A menos que você tenha organizado BLOBs anteriormente em um diretório virtual, que você pode passar como um parâmetro, o indexador de blob efetua pull de todo o contêiner.
+Os BLOBs no armazenamento do Azure são indexados usando o [indexador de armazenamento de blobs Azure Search](search-howto-indexing-azure-blob-storage.md). Você pode invocar esse indexador usando o assistente de **importação de dados** , uma API REST ou o SDK do .net. No código, você usa esse indexador definindo o tipo e fornecendo informações de conexão que incluem uma conta de armazenamento do Azure junto com um contêiner de BLOB. Você pode subagrupar seus BLOBs criando um diretório virtual, que você pode então passar como um parâmetro ou filtrando uma extensão de tipo de arquivo.
 
-Um indexador faz a "quebra de documento" e, depois de se conectar à fonte de dados, é a primeira etapa no pipeline. Para dados de BLOB, é o local em que os documentos PDF, Office docs, imagem e outros tipos de conteúdo são detectados. A quebra de documentos com a extração de texto não é cobrada. A quebra de documento com extração de imagem é cobrada a taxas que você pode encontrar na [página de preços](https://azure.microsoft.com/pricing/details/search/)de Azure Search.
+Um indexador faz a "quebra de documento", abrindo um blob para inspecionar o conteúdo. Depois de se conectar à fonte de dados, é a primeira etapa no pipeline. Para dados de BLOB, é o local em que os documentos PDF, Office docs, imagem e outros tipos de conteúdo são detectados. A quebra de documentos com a extração de texto não é cobrada. A quebra de documento com extração de imagem é cobrada a taxas que você pode encontrar na [página de preços](https://azure.microsoft.com/pricing/details/search/)de Azure Search.
 
-Embora todos os documentos sejam rachados, o enriquecimento só ocorrerá se você fornecer explicitamente as habilidades para fazer isso. Por exemplo, se o pipeline consistir exclusivamente na análise de texto, todas as imagens em seu contêiner ou documentos serão ignoradas.
+Embora todos os documentos sejam rachados, o enriquecimento só ocorrerá se você fornecer explicitamente as habilidades para fazer isso. Por exemplo, se o pipeline consistir exclusivamente na análise de imagem, o texto em seu contêiner ou documentos será ignorado.
 
 O indexador de blob vem com parâmetros de configuração e oferece suporte ao controle de alterações se os dados subjacentes fornecerem informações suficientes. Você pode saber mais sobre a funcionalidade básica no [indexador de armazenamento de blobs Azure Search](search-howto-indexing-azure-blob-storage.md).
 
-## <a name="add-ai"></a>Adicionar ia
+## <a name="add-ai-components"></a>Adicionar componentes de ia
 
-As *habilidades* são os componentes individuais do processamento de ia que você pode usar autônomo ou em combinação com outras habilidades para o processamento sequencial. 
+O enriquecimento de ia se refere a módulos que procuram padrões ou características e, em seguida, executa uma operação de acordo. O reconhecimento facial em fotos, descrições de texto de fotos, detecção de frases-chave em um documento e OCR (ou reconhecimento de texto impresso ou manuscrito em arquivos binários) são exemplos ilustrativos.
 
-+ As habilidades internas são apoiadas por serviços cognitivas, com análise de imagem baseada em Pesquisa Visual Computacional e processamento de linguagem natural com base em Análise de Texto. Alguns exemplos são [OCR](cognitive-search-skill-ocr.md), [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md)e [análise de imagem](cognitive-search-skill-image-analysis.md). Você pode examinar a lista completa de habilidades internas em [habilidades predefinidas para o enriquecimento de conteúdo](cognitive-search-predefined-skills.md).
+Em Azure Search, as *habilidades* são os componentes individuais do processamento de ia que você pode usar autônomo ou em combinação com outras habilidades. 
 
-+ Habilidades personalizadas são código personalizado, encapsulado em uma definição de interface que permite a integração no pipeline. Nas soluções de clientes, é uma prática comum usar ambos, com habilidades personalizadas que fornecem módulos de ia de software livre, de terceiros ou de terceiros.
++ As habilidades internas são apoiadas por serviços cognitivas, com análise de imagem baseada em Pesquisa Visual Computacional e processamento de linguagem natural com base em Análise de Texto. Você pode examinar a lista completa de habilidades internas em [habilidades predefinidas para o enriquecimento de conteúdo](cognitive-search-predefined-skills.md).
+
++ Habilidades personalizadas são código personalizado, encapsulado em uma [definição de interface](cognitive-search-custom-skill-interface.md) que permite a integração no pipeline. Nas soluções de clientes, é uma prática comum usar ambos, com habilidades personalizadas que fornecem módulos de ia de software livre, de terceiros ou de terceiros.
 
 Um conjunto *de qualificações é a* coleção de habilidades usadas em um pipeline e é invocado depois que a fase de quebra de documento disponibiliza o conteúdo. Um indexador pode consumir exatamente um qualificable, mas esse qualificable existe independentemente de um indexador para que você possa reutilizá-lo em outros cenários.
 
@@ -90,9 +94,9 @@ For example, given a large blob of unstructured text, a sample order of operatio
 1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
 1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
-## <a name="how-to-use-ai-enriched-content"></a>Como usar o conteúdo aprimorado do ia
+## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>Consumir saída aprimorada do ia em soluções downstream
 
-A saída do enriquecimento de AI é um índice de pesquisa em Azure Search ou uma loja de conhecimento no armazenamento do Azure.
+A saída do enriquecimento de AI é um índice de pesquisa em Azure Search ou uma loja de [conhecimento](knowledge-store-concept-intro.md) no armazenamento do Azure.
 
 No Azure Search, um índice de pesquisa é usado para exploração interativa usando texto livre e consultas filtradas em um aplicativo cliente. Os documentos aprimorados criados por meio do ia são formatados em JSON e indexados da mesma forma que todos os documentos são indexados em Azure Search, aproveitando todos os benefícios que um indexador fornece. Por exemplo, durante a indexação, o indexador de blob refere-se aos parâmetros de configuração e configurações para utilizar qualquer mapeamento de campo ou lógica de detecção de alteração. Essas configurações estão totalmente disponíveis para indexação regular e cargas de trabalho de ia aprimoradas. Após a indexação, quando o conteúdo é armazenado no Azure Search, você pode criar consultas avançadas e expressões de filtro para entender o conteúdo.
 

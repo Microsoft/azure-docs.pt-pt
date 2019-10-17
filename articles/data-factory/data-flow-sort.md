@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 029ce3c509d3f4d241012d3786e60f0c6e95fdc2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029118"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387183"
 ---
 # <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory transformações de classificação de fluxo de dados
 
 
 
-![](media/data-flow/sort.png "Classificação") de configurações de classificação
+![Configurações de classificação](media/data-flow/sort.png "Ordenar")
 
 A transformação classificação permite que você classifique as linhas de entrada no fluxo de dados atual. As linhas de saída da transformação classificação, subsequentemente, seguirão as regras de ordenação que você definiu. Você pode escolher colunas individuais e classificá-las ASC ou DEC, usando o indicador de seta ao lado de cada campo. Se você precisar modificar a coluna antes de aplicar a classificação, clique em "colunas computadas" para iniciar o editor de expressão. Isso fornecerá uma oportunidade para criar uma expressão para a operação de classificação em vez de simplesmente aplicar uma coluna para a classificação.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 06/28/2019
-ms.openlocfilehash: b1331865224d34f731dbd388cebdaec8b7c9fe7f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: c7b6abb9874c8b6bb2469595b9ce53541656834f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264657"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430140"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados no aplicativo lógico do Azure
 
@@ -183,7 +183,7 @@ Para impedir que outras pessoas alterem ou excluam seu aplicativo lógico, você
 
 ## <a name="access-to-run-history-data"></a>Acesso a dados de histórico de execução
 
-Durante a execução de um aplicativo lógico, todos os dados são criptografados durante o trânsito usando [TLS (segurança de camada de transporte)](https://azure.microsoft.com/updates/app-service-and-functions-hosted-apps-can-now-update-tls-versions/) e em [repouso](../security/fundamentals/encryption-atrest.md). Quando seu aplicativo lógico terminar de ser executado, você poderá exibir o histórico dessa execução, incluindo as etapas que foram executadas junto com o status, a duração, as entradas e as saídas de cada ação. Esse detalhe rico fornece informações sobre como seu aplicativo lógico foi executado e onde você pode começar a solucionar problemas que surgem.
+Durante a execução de um aplicativo lógico, todos os dados são [criptografados durante o trânsito](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit) usando TLS (segurança de camada de transporte) e [em repouso](../security/fundamentals/encryption-atrest.md). Quando seu aplicativo lógico terminar de ser executado, você poderá exibir o histórico dessa execução, incluindo as etapas que foram executadas junto com o status, a duração, as entradas e as saídas de cada ação. Esse detalhe rico fornece informações sobre como seu aplicativo lógico foi executado e onde você pode começar a solucionar problemas que surgem.
 
 Quando você acessa o histórico de execução do aplicativo lógico, os aplicativos lógicos autenticam seu acesso e fornecem links para as entradas e saídas das solicitações e respostas na execução do seu aplicativo lógico. No entanto, para ações que lidam com senhas, segredos, chaves ou outras informações confidenciais, você deseja impedir que outras pessoas exibam e acessem esses dados. Por exemplo, se seu aplicativo lógico obtiver um segredo de [Azure Key Vault](../key-vault/key-vault-overview.md) para usar ao autenticar uma ação http, você deseja ocultar esse segredo da exibição.
 

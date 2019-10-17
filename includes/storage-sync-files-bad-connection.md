@@ -2,29 +2,29 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 07/08/2018
-ms.author: wgries
+ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 359347e41264711a6ac0fa4d2dd0c3633590e917
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 07cae1cee9810646de5bf9610a29991376736373
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184332"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391752"
 ---
-Este erro pode ocorrer sempre que o serviço de sincronização de ficheiros do Azure não está acessível a partir do servidor. Pode resolver este erro ao trabalhar com os seguintes passos:
+Esse erro pode ocorrer sempre que o serviço de Sincronização de Arquivos do Azure está inacessível do servidor. Você pode solucionar esse erro ao trabalhar com as seguintes etapas:
 
-1. Verificar se o serviço Windows `FileSyncSvc.exe` não está bloqueado pela firewall.
-2. Certifique-se de que a porta 443 está aberta para ligações de saída para o serviço de sincronização de ficheiros do Azure. Pode fazê-lo com o `Test-NetConnection` cmdlet. O URL para o `<azure-file-sync-endpoint>` marcador de posição abaixo pode encontrados no [definições de proxy e firewall do Azure File Sync](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall) documento. 
+1. Verifique se o serviço do Windows `FileSyncSvc.exe` não está bloqueado pelo firewall.
+2. Verifique se a porta 443 está aberta para conexões de saída para o serviço de Sincronização de Arquivos do Azure. Você pode fazer isso com o cmdlet `Test-NetConnection`. A URL para o espaço reservado `<azure-file-sync-endpoint>` abaixo pode ser encontrada no documento [sincronização de arquivos do Azure proxy e configurações de firewall](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall) . 
 
     ```powershell
     Test-NetConnection -ComputerName <azure-file-sync-endpoint> -Port 443
     ```
 
-3. Certifique-se de que a configuração de proxy está definida como previsto. Isso pode ser feito com o `Get-StorageSyncProxyConfiguration` cmdlet. Obter mais informações sobre como configurar a configuração de proxy para o Azure File Sync pode ser encontrado na [definições de proxy e firewall do Azure File Sync](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall).
+3. Verifique se a configuração de proxy está definida como prevista. Isso pode ser feito com o cmdlet `Get-StorageSyncProxyConfiguration`. Mais informações sobre como configurar a configuração de proxy para Sincronização de Arquivos do Azure podem ser encontradas nas [configurações de proxy e firewall do sincronização de arquivos do Azure](../articles/storage/files/storage-sync-files-firewall-and-proxy.md#firewall).
 
     ```powershell
     $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -32,4 +32,4 @@ Este erro pode ocorrer sempre que o serviço de sincronização de ficheiros do 
     Get-StorageSyncProxyConfiguration
     ```
     
-4. Contacte o administrador de rede para obter assistência adicional, resolução de problemas de conectividade de rede.
+4. Contate o administrador de rede para obter assistência adicional Solucionando problemas de conectividade de rede.

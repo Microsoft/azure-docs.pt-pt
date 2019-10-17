@@ -1,6 +1,6 @@
 ---
-title: Enviar notificações push para aplicações Android com Hubs de Notificação do Microsoft Azure e o Google Cloud Messaging | Microsoft Docs
-description: Neste tutorial, vai aprender a utilizar os Hubs de Notificação do Microsoft Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
+title: Enviar notificações por push para o Android usando hubs de notificação e Google Cloud Messaging do Azure | Microsoft Docs
+description: Neste tutorial, irá aprender a utilizar os Hubs de Notificação do Azure e o Google Firebase Cloud Messaging para enviar notificações push para dispositivos Android.
 services: notification-hubs
 documentationcenter: android
 keywords: notificações push, notificação push, notificação push android
@@ -18,21 +18,21 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 36af79b90722041ddb16bb90a73175a8635531fd
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: c938b6174226ef9ea1104c5e95968d6122e922cf
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212356"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72386309"
 ---
-# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Notificações por push para dispositivos Android usando hubs de notificação e Google Cloud Messaging do Azure (preterido)
+# <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: notificações por push para dispositivos Android usando hubs de notificação e Google Cloud Messaging do Azure (preterido)
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
 > [!WARNING]
 > A partir de 10 de abril de 2018, o Google preteriu Google Cloud Messaging (GCM). As APIs de cliente e servidor GCM foram preteridas e serão removidas assim que 29 de maio de 2019. Para obter mais informações, consulte perguntas frequentes do [GCM e do FCM](https://developers.google.com/cloud-messaging/faq).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Este tutorial mostra como utilizar os Notification Hubs do Azure para enviar notificações push para uma aplicação com Android.
 Vai criar uma aplicação Android em branco para receber notificações push através do Google Cloud Messaging (GCM).
@@ -43,7 +43,7 @@ Vai criar uma aplicação Android em branco para receber notificações push atr
 > [!IMPORTANT]
 > Este tópico demonstra as notificações push com o Google Cloud Messaging (GCM). Se utiliza o Firebase Cloud Messaging (FCM) da Google, veja [Sending push notifications to Android with Azure Notification Hubs and FCM (Enviar notificações push para o Android com Hubs de Notificação do Azure e FCM)](notification-hubs-android-push-notification-google-fcm-get-started.md).
 
-O código de conclusão para este tutorial pode ser transferido [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted) a partir do GitHub.
+Pode transferir o código completo para este tutorial [aqui](https://github.com/Azure/azure-notificationhubs-samples/tree/master/Android/GetStarted) no GitHub.
 
 Neste tutorial, irá realizar as seguintes ações:
 
@@ -166,9 +166,9 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
 
     Atualize os três marcadores de posição no seguinte código da classe `NotificationSettings`:
 
-   * `SenderId`: O número do projeto obtido anteriormente no [console do Google Cloud](https://cloud.google.com/console).
-   * `HubListenConnectionString`: A `DefaultListenAccessSignature` cadeia de conexão para o Hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [Azure portal].
-   * `HubName`: Use o nome do hub de notificação que aparece na página Hub no [Azure portal].
+   * `SenderId`: o número do projeto obtido anteriormente no [console do Google Cloud](https://cloud.google.com/console).
+   * `HubListenConnectionString`: a cadeia de conexão `DefaultListenAccessSignature` para o Hub. Pode copiar essa cadeia de ligação ao clicar em **Políticas de Acesso** na página **Definições** do hub no [Portal do Azure].
+   * `HubName`: Use o nome do seu hub de notificação que aparece na página Hub na [portal do Azure].
 
      Código `NotificationSettings`:
 
@@ -468,10 +468,10 @@ O Notification Hub está agora configurado para trabalhar com o GCM e tem as cad
 
 ### <a name="test-send-push-notifications-from-the-azure-portal"></a>Testar o envio de notificações push a partir do portal do Azure
 
-Pode testar a receção das notificações push na aplicação ao enviar notificações através do [Azure portal].
+Pode testar a receção das notificações push na aplicação ao enviar notificações através do [portal do Azure].
 
 1. Na secção **Resolução de Problemas**, selecione **Testar Envio**.
-2. Em **Plataformas**, selecione **Android**.
+2. Para **Plataformas**, selecione **Android**.
 3. Selecione **Enviar** para enviar a notificação de teste.
 4. Confirme que vê a mensagem de notificação no dispositivo Android.
 
@@ -483,7 +483,7 @@ Pode testar a receção das notificações push na aplicação ao enviar notific
 
 Se pretender testar as notificações push no interior de um emulador, certifique-se de que a imagem do emulador suporta o nível da API da Google que escolheu para a sua aplicação. Se a imagem não suportar as APIs nativas da Google, termina com a exceção **SERVIÇO\_NÃO\_DISPONÍVEL**.
 
-Além disso, confirme que adicionou a sua conta Google ao emulador em execução em **Definições** > **Contas**. Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
+Além disso, certifique-se de que adicionou a sua conta Google ao emulador em execução em **Definições** > **Contas**. Caso contrário, as tentativas para registar o GCM podem originar a exceção **FALHA DE\_AUTENTICAÇÃO**.
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcional) Enviar notificações push diretamente a partir da aplicação
 
@@ -518,7 +518,7 @@ Normalmente, enviaria notificações através de um servidor de backend. Em algu
     ```
 3. No seu ficheiro `NotificationSetting.java`, adicione a seguinte definição à classe `NotificationSettings`.
 
-    Atualize `HubFullAccess` com a cadeia de ligação **DefaultFullSharedAccessSignature** para o seu hub. Esta cadeia de ligação pode ser copiada do [Azure portal] ao clicar em **Políticas de Acesso** na página **Definições** do hub de notificação.
+    Atualize `HubFullAccess` com a cadeia de ligação **DefaultFullSharedAccessSignature** para o seu hub. Esta cadeia de ligação pode ser copiada do [portal do Azure] ao clicar em **Políticas de Acesso** na página **Definições** do hub de notificação.
 
     ```java
     public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
@@ -746,4 +746,4 @@ Neste tutorial, enviou notificações de difusão para todos os dispositivos And
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
-[Azure portal]: https://portal.azure.com
+[Portal do Azure]: https://portal.azure.com

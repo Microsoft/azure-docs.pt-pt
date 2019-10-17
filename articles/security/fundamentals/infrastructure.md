@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727065"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433505"
 ---
 # <a name="azure-infrastructure-security"></a>Segurança de infraestrutura do Azure
 O Microsoft Azure é executado em data centers gerenciados e operados pela Microsoft. Esses data centers dispersos geograficamente estão em conformidade com os principais padrões do setor, como ISO/IEC 27001:2013 e NIST SP 800-53, para segurança e confiabilidade. Os data centers são gerenciados, monitorados e administrados pela equipe de operações da Microsoft. A equipe de operações tem anos de experiência no fornecimento do maior serviços online do mundo com continuidade de 24 x 7.
@@ -45,14 +45,14 @@ Esta série de artigos fornece informações sobre o que a Microsoft faz para pr
 
 Você é sempre responsável pelo seguinte, independentemente do tipo de implantação:
 
-- Data
+- Dados
 - Pontos Finais
 - Conta
-- Gerenciamento de acesso
+- Gestão de acesso
 
-Certifique-se de entender a divisão de responsabilidade entre você e a Microsoft em uma implantação de SaaS, PaaS e IaaS. Para obter mais informações, consulte [responsabilidades compartilhadas para computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Certifique-se de entender a divisão de responsabilidade entre você e a Microsoft em uma implantação de SaaS, PaaS e IaaS. Para obter mais informações, consulte [responsabilidades compartilhadas para computação em nuvem](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre o que a Microsoft faz para ajudar a proteger a infraestrutura do Azure, consulte:
 
 - [Instalações do Azure, local e segurança física](physical-security.md)

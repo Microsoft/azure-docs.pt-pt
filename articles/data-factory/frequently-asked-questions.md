@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: Perguntas frequentes | Microsoft Docs'
+title: 'Azure Data Factory: perguntas frequentes | Microsoft Docs'
 description: Obtenha respostas para perguntas frequentes sobre Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141573"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387064"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes Azure Data Factory
 Este artigo fornece respostas para perguntas frequentes sobre Azure Data Factory.  
@@ -48,7 +48,7 @@ Data Factory fornece liberdade para modelar qualquer estilo de fluxo necessário
 - Fluxos Delta:
     - Os parâmetros podem ser usados para definir sua marca de água alta para cópia Delta ao mover tabelas de dimensão ou referência de um relational store, localmente ou na nuvem, para carregar os dados no Lake. 
 
-Para obter mais informações, [consulte Tutorial: Fluxos](tutorial-control-flow.md)de controle.
+Para obter mais informações, consulte [tutorial: fluxos de controle](tutorial-control-flow.md).
 
 ### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Dados transformados em escala com pipelines sem código
 A nova experiência de ferramentas baseada em navegador fornece criação e implantação de pipeline sem código com uma experiência moderna e interativa baseada na Web.
@@ -57,7 +57,7 @@ Para desenvolvedores de dados visuais e engenheiros de dados, o Data Factory int
 
 ### <a name="rich-cross-platform-sdks-for-advanced-users"></a>SDKs avançados de plataforma cruzada para usuários avançados
 O Data Factory v2 fornece um conjunto avançado de SDKs que podem ser usados para criar, gerenciar e monitorar pipelines usando o IDE favorito, incluindo:
-* SDK Python
+* Python SDK
 * CLI do PowerShell
 * SDK C#
 
@@ -94,9 +94,9 @@ Desde a versão prévia pública inicial em 2017, Data Factory adicionou os segu
 ## <a name="what-is-the-integration-runtime"></a>O que é o Integration Runtime?
 O Integration Runtime é a infraestrutura de computação que o Azure Data Factory usa para fornecer os seguintes recursos de integração de dados em vários ambientes de rede:
 
-- **Movimentação de dados**: Para a movimentação de dados, o Integration Runtime move os dados entre os armazenamentos de dados de origem e de destino, fornecendo suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados escalonável e de alto desempenho.
-- **Atividades de expedição**: Para a transformação, o Integration Runtime fornece a capacidade de executar pacotes SSIS nativamente.
-- **Executar pacotes SSIS**: O Integration Runtime executa nativamente pacotes do SSIS em um ambiente de computação gerenciado do Azure. O Integration Runtime também dá suporte a expedição e monitoramento de atividades de transformação em execução em uma variedade de serviços de computação, como Azure HDInsight, Azure Machine Learning, banco de dados SQL e SQL Server.
+- **Movimentação de dados**: para a movimentação de dados, o Integration Runtime move os dados entre os armazenamentos de dados de origem e de destino, fornecendo suporte para conectores internos, conversão de formato, mapeamento de coluna e transferência de dados escalonável e de alto desempenho.
+- **Atividades de expedição**: para transformação, o Integration Runtime fornece a capacidade de executar pacotes SSIS nativamente.
+- **Executar pacotes SSIS**: o Integration Runtime executa nativamente pacotes do SSIS em um ambiente de computação gerenciado do Azure. O Integration Runtime também dá suporte a expedição e monitoramento de atividades de transformação em execução em uma variedade de serviços de computação, como Azure HDInsight, Azure Machine Learning, banco de dados SQL e SQL Server.
 
 Você pode implantar uma ou várias instâncias do tempo de execução de integração conforme necessário para mover e transformar dados. O Integration Runtime pode ser executado em uma rede pública do Azure ou em uma rede privada (local, rede virtual do Azure ou Amazon Web Services nuvem privada virtual [VPC]). 
 
@@ -118,14 +118,14 @@ As atividades representam uma fase de processamento num pipeline. Por exemplo, v
 Os conjuntos de dados representam estruturas de dados nos arquivos de dados, que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas atividades como entrada ou saída. 
 
 ### <a name="linked-services"></a>Serviços ligados
-Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Imagine dessa forma: Um serviço vinculado define a conexão com a fonte de dados e um DataSet representa a estrutura dos dados. Por exemplo, um serviço vinculado do armazenamento do Azure especifica a cadeia de conexão para se conectar à conta de armazenamento do Azure. E um conjunto de dados de blob do Azure especifica o contêiner de BLOBs e a pasta que contém o dado.
+Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Imagine dessa forma: um serviço vinculado define a conexão com a fonte de dados, e um conjunto de dados representa a estrutura do dado. Por exemplo, um serviço vinculado do armazenamento do Azure especifica a cadeia de conexão para se conectar à conta de armazenamento do Azure. E um conjunto de dados de blob do Azure especifica o contêiner de BLOBs e a pasta que contém o dado.
 
 Os serviços vinculados têm duas finalidades no Data Factory:
 
 - Para representar um *armazenamento de dados* que inclui, mas não está limitado a, uma instância de SQL Server local, uma instância de banco de dado Oracle, um compartilhamento de arquivos ou uma conta de armazenamento de BLOBs do Azure. Para obter uma lista de armazenamentos de dados com suporte, consulte [atividade de cópia no Azure data Factory](copy-activity-overview.md).
 - Para representar um *recurso de computação* que pode alojar a execução de uma atividade. Por exemplo, a atividade hive do HDInsight é executada em um cluster Hadoop do HDInsight. Para obter uma lista de atividades de transformação e ambientes de computação com suporte, consulte [transformar dados em Azure data Factory](transform-data.md).
 
-### <a name="triggers"></a>Ativadores
+### <a name="triggers"></a>Acionadores
 Os gatilhos representam unidades de processamento que determinam quando uma execução de pipeline é inicializada. Existem diferentes tipos de acionadores para diferentes tipos de eventos. 
 
 ### <a name="pipeline-runs"></a>Execuções de pipeline
@@ -170,13 +170,13 @@ Sim, os parâmetros são um conceito de primeira classe e de nível superior em 
 Sim. Você pode definir valores padrão para os parâmetros nos pipelines. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Uma atividade em um pipeline pode consumir argumentos que são passados para uma execução de pipeline? 
-Sim. Cada atividade dentro do pipeline pode consumir o valor do parâmetro que é passado para o pipeline e executado com `@parameter` a construção. 
+Sim. Cada atividade dentro do pipeline pode consumir o valor do parâmetro que é passado para o pipeline e executado com a construção `@parameter`. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Uma propriedade de saída de atividade pode ser consumida em outra atividade? 
-Sim. Uma saída de atividade pode ser consumida em uma atividade `@activity` subsequente com a construção.
+Sim. Uma saída de atividade pode ser consumida em uma atividade subsequente com a construção `@activity`.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como fazer tratar normalmente valores nulos em uma saída de atividade? 
-Você pode usar a `@coalesce` construção nas expressões para manipular valores nulos normalmente. 
+Você pode usar a construção `@coalesce` nas expressões para manipular valores nulos normalmente. 
 
 ## <a name="mapping-data-flows"></a>Mapeando fluxos de dados
 
@@ -210,5 +210,5 @@ Use a atividade de cópia para preparar dados de qualquer um dos outros conector
 ## <a name="next-steps"></a>Passos seguintes
 Para obter instruções detalhadas sobre como criar um data factory, consulte os seguintes tutoriais:
 
-- [Quickstart: Criar um data factory](quickstart-create-data-factory-dot-net.md)
-- [Tutorial: Copiar dados na nuvem](tutorial-copy-data-dot-net.md)
+- [Início rápido: criar um data factory](quickstart-create-data-factory-dot-net.md)
+- [Tutorial: copiar dados na nuvem](tutorial-copy-data-dot-net.md)

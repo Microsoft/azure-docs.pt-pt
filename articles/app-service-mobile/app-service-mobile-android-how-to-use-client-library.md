@@ -13,18 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025441"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388923"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de aplicativos móveis do Azure para Android
 
 > [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 Este guia mostra como usar o SDK do cliente Android para aplicativos móveis para implementar cenários comuns, como:
 
@@ -164,8 +165,8 @@ O núcleo do SDK dos aplicativos móveis do Azure é fornecer acesso aos dados a
 
 Para acessar dados de tabelas SQL Azure, defina as classes de dados do cliente que correspondem às tabelas no back-end do aplicativo móvel. Os exemplos neste tópico pressupõem uma tabela chamada **MyDataTable**, que tem as seguintes colunas:
 
-* id
-* text
+* ID
+* texto
 * concluí
 
 O objeto do lado do cliente digitado correspondente reside em um arquivo chamado **MyDataTable. java**:
@@ -201,15 +202,15 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Para saber como criar tabelas adicionais em seu back-end de aplicativos móveis, consulte [How para: Defina um controlador de tabela @ no__t-0 (back-end do .NET) ou [defina tabelas usando um esquema dinâmico][16] (back-end do node. js).
+Para saber como criar tabelas adicionais em seu back-end de aplicativos móveis, consulte [como definir um controlador de tabela][15] (back-end do .net) ou [definir tabelas usando um esquema dinâmico][16] (back-end do node. js).
 
 Uma tabela de back-end dos aplicativos móveis do Azure define cinco campos especiais, quatro dos quais estão disponíveis para os clientes:
 
-* `String id`: A ID global exclusiva do registro.  Como prática recomendada, torne a ID a representação de cadeia de caracteres de um objeto [UUID][17] .
-* `DateTimeOffset updatedAt`: A data/hora da última atualização.  O campo updatedAt é definido pelo servidor e nunca deve ser definido pelo seu código de cliente.
-* `DateTimeOffset createdAt`: A data/hora em que o objeto foi criado.  O campo createdAt é definido pelo servidor e nunca deve ser definido pelo seu código de cliente.
-* `byte[] version`: Normalmente representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
-* `boolean deleted`: Indica que o registro foi excluído, mas ainda não foi limpo.  Não use `deleted` como uma propriedade em sua classe.
+* `String id`: a ID globalmente exclusiva para o registro.  Como prática recomendada, torne a ID a representação de cadeia de caracteres de um objeto [UUID][17] .
+* `DateTimeOffset updatedAt`: a data/hora da última atualização.  O campo updatedAt é definido pelo servidor e nunca deve ser definido pelo seu código de cliente.
+* `DateTimeOffset createdAt`: a data/hora em que o objeto foi criado.  O campo createdAt é definido pelo servidor e nunca deve ser definido pelo seu código de cliente.
+* `byte[] version`: normalmente representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
+* `boolean deleted`: indica que o registro foi excluído, mas ainda não foi limpo.  Não use `deleted` como uma propriedade em sua classe.
 
 O campo `id` é obrigatório.  O campo `updatedAt` e o campo `version` são usados para sincronização offline (para sincronização incremental e resolução de conflitos, respectivamente).  O campo `createdAt` é um campo de referência e não é usado pelo cliente.  Os nomes são nomes "através do fio" das propriedades e não são ajustáveis.  No entanto, você pode criar um mapeamento entre o objeto e os nomes "através do fio" usando a biblioteca [Gson][3] .  Por exemplo:
 
@@ -458,7 +459,7 @@ Uma solicitação para todos os registros que usam esse método cria um mínimo 
 > [!TIP]
 > Escolher o tamanho de página correto é um equilíbrio entre o uso de memória enquanto a solicitação está acontecendo, o uso da largura de banda e o atraso no recebimento completo dos dados.  O padrão (registros 50) é adequado para todos os dispositivos.  Se você operar exclusivamente em dispositivos de memória maiores, aumente até 500.  Descobrimos que aumentar o tamanho da página além de 500 registros resulta em atrasos inaceitáveis e grandes problemas de memória.
 
-### <a name="chaining"></a>Como: Concatenar métodos de consulta
+### <a name="chaining"></a>Como concatenar métodos de consulta
 
 Os métodos usados na consulta de tabelas de back-end podem ser concatenados. Os métodos de consulta de encadeamento permitem selecionar colunas específicas de linhas filtradas que são classificadas e paginadas. Você pode criar filtros lógicos complexos.  Cada método de consulta retorna um objeto de consulta. Para encerrar a série de métodos e, na verdade, executar a consulta, chame o método **Execute** . Por exemplo:
 
@@ -684,7 +685,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Como: Trabalhar com dados não tipados
+## <a name="untyped"></a>Como trabalhar com dados não tipados
 
 O modelo de programação não tipado oferece um controle exato sobre a serialização JSON.  Há alguns cenários comuns em que você talvez queira usar um modelo de programação não tipado. Por exemplo, se sua tabela de back-end contém muitas colunas e você só precisa fazer referência a um subconjunto das colunas.  O modelo tipado exige que você defina todas as colunas definidas no back-end de aplicativos móveis em sua classe de dados.  A maioria das chamadas à API para acessar dados é semelhante às chamadas de programação tipadas. A principal diferença é que, no modelo não tipado, você invoca métodos no objeto **MobileServiceJsonTable** , em vez do objeto **função mobileservicetable** .
 
@@ -779,10 +780,10 @@ O mesmo conjunto de métodos de filtragem, filtragem e paginação que estão di
 
 O SDK do cliente dos aplicativos móveis do Azure também implementa a sincronização offline de dados usando um banco de dados SQLite para armazenar uma cópia dos dados do servidor localmente.  As operações executadas em uma tabela offline não exigem que a conectividade móvel funcione.  A sincronização offline auxilia na resiliência e no desempenho às custas de lógica mais complexa para a resolução de conflitos.  O SDK do cliente dos aplicativos móveis do Azure implementa os seguintes recursos:
 
-* Sincronização incremental: Somente os registros atualizados e novos são baixados, economizando largura de banda e consumo de memória.
-* Simultaneidade otimista: As operações são consideradas com sucesso.  A resolução de conflitos é adiada até que as atualizações sejam executadas no servidor.
-* Resolução de conflitos: O SDK detecta quando uma alteração conflitante foi feita no servidor e fornece ganchos para alertar o usuário.
-* Exclusão reversível: Os registros excluídos são marcados como excluídos, permitindo que outros dispositivos atualizem seu cache offline.
+* Sincronização incremental: somente os registros atualizados e novos são baixados, economizando a largura de banda e o consumo de memória.
+* Simultaneidade otimista: presume-se que as operações tenham sucesso.  A resolução de conflitos é adiada até que as atualizações sejam executadas no servidor.
+* Resolução de conflitos: o SDK detecta quando uma alteração conflitante foi feita no servidor e fornece ganchos para alertar o usuário.
+* Exclusão reversível: registros excluídos são marcados como excluídos, permitindo que outros dispositivos atualizem seu cache offline.
 
 ### <a name="initialize-offline-sync"></a>Inicializar sincronização offline
 
@@ -919,7 +920,7 @@ Quatro etapas são necessárias para habilitar a autenticação em seu aplicativ
 
 Você pode definir permissões em tabelas para restringir o acesso para operações específicas somente a usuários autenticados. Você também pode usar o SID de um usuário autenticado para modificar solicitações.  Para obter mais informações, consulte Introdução [Introdução à autenticação] e à documentação do SDK do servidor HOWTO.
 
-### <a name="caching"></a>Authentication Fluxo do servidor
+### <a name="caching"></a>Autenticação: fluxo de servidor
 
 O código a seguir inicia um processo de logon de fluxo do servidor usando o provedor do Google.  A configuração adicional é necessária devido aos requisitos de segurança para o provedor do Google:
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71975331"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391748"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores de desempenho do aplicativo
 
@@ -92,16 +92,16 @@ A melhor maneira de medir os requisitos de desempenho do seu aplicativo é usar 
 
 Os contadores PerfMon estão disponíveis para processador, memória e, cada disco lógico e disco físico do servidor. Quando você usa discos de armazenamento Premium com uma VM, os contadores de disco físico são para cada disco de armazenamento Premium, e os contadores de disco lógico são para cada volume criado nos discos de armazenamento Premium. Você deve capturar os valores para os discos que hospedam a carga de trabalho do aplicativo. Se houver um mapeamento de um para um entre discos lógicos e físicos, você poderá consultar contadores de disco físico; caso contrário, consulte os contadores de disco lógico. No Linux, o comando iostat gera um relatório de utilização de CPU e disco. O relatório de utilização de disco fornece estatísticas por dispositivo físico ou partição. Se você tiver um servidor de banco de dados com seu log e seus logs em discos separados, colete esses dados para ambos os discos. A tabela abaixo descreve os contadores para discos, processadores e memória:
 
-| Contador | Descrição | PerfMon | Iostat |
+| Neutraliza | Descrição | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS ou transações por segundo** |Número de solicitações de e/s emitidas para o disco de armazenamento por segundo. |Leituras de disco/seg <br> Escritas de disco/seg |TPS <br> r/s <br> w/s |
+| **IOPS ou transações por segundo** |Número de solicitações de e/s emitidas para o disco de armazenamento por segundo. |Leituras de disco/s <br> Gravações de disco/s |TPS <br> r/s <br> w/s |
 | **Leituras e gravações de disco** |% de leituras e operações de gravação executadas no disco. |% De tempo de leitura de disco <br> % De tempo de gravação de disco |r/s <br> w/s |
-| **Débito** |Quantidade de dados lidos ou gravados no disco por segundo. |Bytes Lidos de Disco/seg <br> Bytes Escritos em Disco/seg |kB_read/s <br> kB_wrtn/s |
+| **Débito** |Quantidade de dados lidos ou gravados no disco por segundo. |Bytes de leitura de disco/s <br> Bytes de gravação no disco/s |kB_read/s <br> kB_wrtn/s |
 | **Latência** |Tempo total para concluir uma solicitação de e/s de disco. |Média de disco s/leitura <br> Média de disco s/gravação |expressões <br> svctm |
 | **Tamanho de e/s** |O tamanho dos problemas de solicitações de e/s para os discos de armazenamento. |Média de bytes de disco/leitura <br> Média de bytes de disco/gravação |avgrq-sz |
 | **Profundidade da fila** |Número de solicitações de e/s pendentes aguardando para serem lidas ou gravadas no disco de armazenamento. |Comprimento da fila de disco atual |avgqu-sz |
-| **Max. Memória @ no__t-0 |Quantidade de memória necessária para executar o aplicativo sem problemas |% Bytes confirmados em uso |Usar vmstat |
-| **Max. CPU** |Quantidade de CPU necessária para executar o aplicativo sem problemas |% De tempo do processador |% util |
+| **Maximizar. Memória** |Quantidade de memória necessária para executar o aplicativo sem problemas |% Bytes confirmados em uso |Usar vmstat |
+| **Maximizar. CPUs** |Quantidade de CPU necessária para executar o aplicativo sem problemas |% De tempo do processador |% util |
 
 Saiba mais sobre [iostat](https://linux.die.net/man/1/iostat) e [Perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
 
@@ -156,10 +156,10 @@ Aqui está um exemplo de como você pode calcular a IOPS e a taxa de transferên
 
 | Requisito de aplicativo | Tamanho de e/s | IOPS | Taxa de transferência/largura de banda |
 | --- | --- | --- | --- |
-| IOPS Máx. |8 KB |5,000 |40 MB por segundo |
+| IOPS máxima |8 KB |5000 |40 MB por segundo |
 | Taxa de transferência máxima |1024 KB |200 |200 MB por segundo |
-| Taxa de transferência máxima + IOPS alto |64 KB |3,200 |200 MB por segundo |
-| IOPS máxima + alta taxa de transferência |32 KB |5,000 |160 MB por segundo |
+| Taxa de transferência máxima + IOPS alto |64 KB |3\.200 |200 MB por segundo |
+| IOPS máxima + alta taxa de transferência |32 KB |5000 |160 MB por segundo |
 
 Para obter IOPS e largura de banda maiores que o valor máximo de um único disco de armazenamento Premium, use vários discos Premium distribuídos juntos. Por exemplo, distribua dois discos p30 para obter um IOPS combinado de 10.000 IOPS ou uma taxa de transferência combinada de 400 MB por segundo. Conforme explicado na próxima seção, você deve usar um tamanho de VM que dá suporte à taxa de transferência e IOPS de disco combinados.
 
@@ -174,10 +174,10 @@ Quando você começa a criar um aplicativo, uma das primeiras coisas a fazer é 
 
 As VMs de alta escala estão disponíveis em tamanhos diferentes com um número diferente de núcleos de CPU, memória, sistema operacional e tamanho de disco temporário. Cada tamanho de VM também tem o número máximo de discos de dados que você pode anexar à VM. Portanto, o tamanho escolhido da VM afetará a quantidade de capacidade de processamento, memória e armazenamento disponível para seu aplicativo. Ele também afeta o custo de computação e armazenamento. Por exemplo, abaixo estão as especificações do maior tamanho de VM em uma série DS, DSv2 Series e GS:
 
-| Tamanho da VM | Núcleos de CPU | Memória | Tamanhos de disco de VM | Um máximo de discos de dados | Tamanho da cache | IOPS | Limites de es de cache de largura de banda |
+| Tamanhos de VM | Núcleos de CPU | Memória | Tamanhos de disco de VM | Um máximo de discos de dados | Tamanho do cache | IOPS | Limites de es de cache de largura de banda |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_DS14 |16 |112 GB |OS = 1023 GB <br> SSD local = 224 GB |32 |576 GB |IOPS DE 50.000 <br> 512 MB por segundo |4\.000 IOPS e 33 MB por segundo |
-| Standard_GS5 |32 |448 GB |OS = 1023 GB <br> SSD local = 896 GB |64 |4224 GB |IOPS DE 80.000 <br> 2\.000 MB por segundo |5\.000 IOPS e 50 MB por segundo |
+| Standard_DS14 |16 |112 GB |SISTEMA OPERACIONAL = 1023 GB <br> SSD local = 224 GB |32 |576 GB |IOPS DE 50.000 <br> 512 MB por segundo |4\.000 IOPS e 33 MB por segundo |
+| Standard_GS5 |32 |448 GB |SISTEMA OPERACIONAL = 1023 GB <br> SSD local = 896 GB |64 |4224 GB |IOPS DE 80.000 <br> 2\.000 MB por segundo |5\.000 IOPS e 50 MB por segundo |
 
 Para exibir uma lista completa de todos os tamanhos de VM do Azure disponíveis, consulte [tamanhos de VM do Windows](../articles/virtual-machines/windows/sizes.md) ou tamanhos de VM do [Linux](../articles/virtual-machines/linux/sizes.md). Escolha um tamanho de VM que possa atender e dimensionar seus requisitos de desempenho de aplicativo desejados. Além disso, leve em consideração as seguintes considerações importantes ao escolher tamanhos de VM.
 
@@ -199,7 +199,7 @@ A tabela a seguir resume a divisão de custo desse cenário para o armazenamento
 | --- | --- | --- |
 | **Custo da VM por mês** |$1570.58 (padrão @ no__t-0D14) |$1003.66 (padrão @ no__t-0DS13) |
 | **Custo de discos por mês** |$1638.40 (32 x 1 TB de discos) |$544.34 (4 x p30 discos) |
-| **Custo geral por mês** |$3,208.98 |$1,544.34 |
+| **Custo geral por mês** |$3208.98 |$1544.34 |
 
 *Distribuições Linux*  
 
@@ -245,18 +245,18 @@ Para saber mais sobre como o BlobCache funciona, consulte a postagem no blog do 
 
 | **Tipo de disco** | **Configuração de cache padrão** |
 | --- | --- |
-| Disco do SO |Leitura/Escrita |
+| Disco do SO |ReadWrite |
 | Disco de dados |ReadOnly |
 
 A seguir estão as configurações de cache de disco recomendadas para discos de dados,
 
 | **Configuração de cache de disco** | **recomendação sobre quando usar essa configuração** |
 | --- | --- |
-| Nenhum |Configure o cache de host como nenhum para discos somente gravação e de gravação intensa. |
+| Nenhuma |Configure o cache de host como nenhum para discos somente gravação e de gravação intensa. |
 | ReadOnly |Configure o cache do host como ReadOnly para discos somente leitura e de leitura/gravação. |
-| Leitura/Escrita |Configure o cache do host como ReadWrite somente se seu aplicativo manipula corretamente a gravação de dados armazenados em cache em discos persistentes quando necessário. |
+| ReadWrite |Configure o cache do host como ReadWrite somente se seu aplicativo manipula corretamente a gravação de dados armazenados em cache em discos persistentes quando necessário. |
 
-*ReadOnly*  
+*Leitura*  
 Ao configurar o cache somente leitura em discos de dados de armazenamento Premium, você pode obter baixa latência de leitura e obter IOPS de leitura e taxa de transferência muito altas para seu aplicativo. Isso é devido a dois motivos,
 
 1. As leituras realizadas do cache, que estão na memória da VM e no SSD local, são muito mais rápidas do que as leituras do disco de dados, que está no armazenamento de BLOBs do Azure.  
@@ -265,7 +265,7 @@ Ao configurar o cache somente leitura em discos de dados de armazenamento Premiu
 *ReadWrite*  
 Por padrão, os discos do sistema operacional têm o cache ReadWrite habilitado. Recentemente, adicionamos suporte para cache ReadWrite em discos de dados. Se você estiver usando o cache ReadWrite, deverá ter uma maneira adequada de gravar os dados do cache em discos persistentes. Por exemplo, SQL Server lida com a gravação de dados armazenados em cache nos discos de armazenamento persistentes por conta própria. O uso do cache ReadWrite com um aplicativo que não lida com a persistência dos dados necessários pode levar à perda de dados, se a VM falhar.
 
-*Nenhum*  
+*None*  
 No momento, **nenhum** só tem suporte em discos de dados. Não há suporte para ele em discos do sistema operacional. Se você definir **nenhum** em um disco do sistema operacional, ele substituirá isso internamente e o definirá como **ReadOnly**.
 
 Por exemplo, você pode aplicar essas diretrizes para SQL Server em execução no armazenamento Premium fazendo o seguinte:
@@ -286,24 +286,24 @@ Para todos os SSDs ou ultra discos Premium com cache definido como **ReadOnly** 
 * Para discos de armazenamento Premium com cache definido como **ReadWrite**, habilite as barreiras para durabilidade de gravação.
 * Para que os rótulos de volume persistam depois de reiniciar a VM, você deve atualizar o/etc/fstab com as referências de UUID (identificador universal exclusivo) para os discos. Para obter mais informações, consulte [Adicionar um disco gerenciado a uma VM do Linux](../articles/virtual-machines/linux/add-disk.md).
 
-As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter melhor desempenho e estabilidade com o SSDs Premium, recomendamos que você atualize suas VMs para uma dessas versões ou posterior. 
+As seguintes distribuições Linux foram validadas para SSDs Premium. Para obter melhor desempenho e estabilidade com o SSDs Premium, recomendamos que você atualize suas VMs para uma dessas versões ou mais recente. 
 
 Algumas das versões exigem o mais recente Integration Services do Linux (LIS), v 4.0, para o Azure. Para baixar e instalar uma distribuição, siga o link listado na tabela a seguir. Adicionamos imagens à lista à medida que concluímos a validação. Nossas validações mostram que o desempenho varia de acordo com cada imagem. O desempenho depende das características da carga de trabalho e das configurações da imagem. Imagens diferentes são ajustadas para diferentes tipos de cargas de trabalho.
 
-| Distribuição | Version | Kernel com suporte | Detalhes |
+| Distribuição | Versão | Kernel com suporte | Detalhes |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7.x, 8.x | 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 necessário](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Ubuntu | 12, 4 ou mais recente| 3.2.0-75.110 + | Ubuntu-12_04_5-LTS-AMD64-Server-20150119-en-US-30 GB |
+| Ubuntu | 14, 4 ou mais recente| 3.13.0-44.73 +  | Ubuntu-14_04_1-LTS-AMD64-Server-20150123-en-US-30 GB |
+| Debian | 7. x, 8. x ou mais recente| 3.16.7-ckt4-1 + | &nbsp; |
+| SUSE | SLES 12 ou mais recente| 3.12.36-38.1 + | SuSE-SLES-12-Priority-v20150213 <br> SuSE-SLES-12-v20150213 |
+| SUSE | SLES 11 SP4 ou mais recente| 3.0.101-0.63.1 + | &nbsp; |
+| CoreOS | 584.0.0 + ou mais recente| 3.18.4 + | CoreOS 584.0.0 |
+| CentOS | 6,5, 6,6, 6,7, 7,0 ou mais recente| &nbsp; | [LIS4 necessário](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
+| CentOS | 7.1 + ou mais recente| 3.10.0-229.1.2. EL7 + | [LIS4 recomendado](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consulte a observação na próxima seção* |
+| Red Hat Enterprise Linux (RHEL) | 6.8 +, 7.2 + ou mais recente | &nbsp; | &nbsp; |
+| Oracle | 6.0 +, 7.2 + ou mais recente | &nbsp; | UEK4 ou RHCK |
+| Oracle | 7.0-7.1 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 ou mais recente | &nbsp; | UEK4 ou RHCK w/[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Drivers LIS para OpenLogic CentOS
 
@@ -322,7 +322,7 @@ Quando uma VM de alta escala é anexada a vários discos persistentes de armazen
 
 No Windows, você pode usar espaços de armazenamento para distribuir discos juntos. Você deve configurar uma coluna para cada disco em um pool. Caso contrário, o desempenho geral do volume distribuído pode ser menor do que o esperado, devido à distribuição irregular do tráfego entre os discos.
 
-Importante: Usando a interface do usuário do Gerenciador do Servidor, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de oito discos, use o PowerShell para criar o volume. Usando o PowerShell, você pode definir o número de colunas igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; Especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
+Importante: usando Gerenciador do Servidor interface do usuário, você pode definir o número total de colunas até 8 para um volume distribuído. Ao anexar mais de oito discos, use o PowerShell para criar o volume. Usando o PowerShell, você pode definir o número de colunas igual ao número de discos. Por exemplo, se houver 16 discos em um único conjunto de distribuição; Especifique 16 colunas no parâmetro *NumberOfColumns* do cmdlet *New-VirtualDisk* do PowerShell.
 
 No Linux, use o utilitário MDADM para distribuir discos juntos. Para obter etapas detalhadas sobre a distribuição de discos no Linux, consulte [Configurar o RAID de software no Linux](../articles/virtual-machines/linux/configure-raid.md).
 

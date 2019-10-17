@@ -6,18 +6,26 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
-ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620114"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433423"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Histórico de versão do Planejador de Implantações do Azure Site Recovery
 
 Este artigo fornece o histórico de todas as versões do Planejador de Implantações do Azure Site Recovery junto com as correções, limitações conhecidas em cada uma das datas de lançamento.
+
+## <a name="version-251"></a>Versão 2,51
+
+**Data de lançamento: 22 de agosto de 2019**
+
+**Contida**
+
+- Correção do problema de recomendação de custo com Planejador de Implantações versão 2,5
 
 ## <a name="version-25"></a>Versão 2,5
 
@@ -101,7 +109,7 @@ Este artigo fornece o histórico de todas as versões do Planejador de Implanta�
 
 **Limitações conhecidas:**
 
-- Para a recuperação de desastre do Hyper-V para o Azure, a VM com o `,`nome que `[`contém `]`os caracteres ``` ` ``` como:, `"`,, e não tem suporte. Se o perfil for criado, a geração de relatórios falhará ou terá um resultado incorreto.
+- Para a recuperação de desastre do Hyper-V para o Azure, a VM com o nome que contém os caracteres como: `,`, `"`, `[`, `]` e ``` ` ``` não tem suporte. Se o perfil for criado, a geração de relatórios falhará ou terá um resultado incorreto.
 - Para a recuperação de desastre do VMware para o Azure, não há suporte para VM com nome contendo vírgula. Se for criado um perfil, a geração de relatórios falhará ou terá um resultado incorreto.
 
 ## <a name="version-131"></a>1\.3.1 da versão

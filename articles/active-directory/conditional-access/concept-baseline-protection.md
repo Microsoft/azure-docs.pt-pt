@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533067"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430342"
 ---
 # <a name="what-are-baseline-policies"></a>O que são políticas de linha de base?
 
@@ -28,12 +28,12 @@ O gerenciamento de políticas de acesso condicional personalizado requer uma lic
 
 ![Políticas de linha de base de acesso condicional no portal do Azure](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Há quatro políticas de linha de base que as organizações podem habilitar:
+Há quatro políticas de linha de base:
 
-* [Exigir MFA para administradores (versão prévia)](howto-baseline-protect-administrators.md)
-* [Proteção do usuário final (versão prévia)](howto-baseline-protect-end-users.md)
-* [Bloquear autenticação herdada (versão prévia)](howto-baseline-protect-legacy-auth.md)
-* [Exigir MFA para gerenciamento de serviços (versão prévia)](howto-baseline-protect-azure.md)
+* Exigir MFA para administradores (versão prévia)
+* Proteção do usuário final (versão prévia)
+* Bloquear autenticação herdada (versão prévia)
+* Exigir MFA para gerenciamento de serviços (versão prévia)
 
 Todas as quatro políticas afetarão os fluxos de autenticação herdados como POP, IMAP e clientes de área de trabalho do Office mais antigos.
 
@@ -41,18 +41,18 @@ Todas as quatro políticas afetarão os fluxos de autenticação herdados como P
 
 Devido à potência e ao acesso que as contas de administrador têm, você deve tratá-las com cuidado especial. Um método comum para melhorar a proteção de contas com privilégios é exigir uma forma mais forte de verificação de conta quando eles são usados para entrar. No Azure Active Directory, você pode obter uma verificação de conta mais forte exigindo que os administradores se registrem e usem a autenticação multifator do Azure.
 
-[Exigir MFA para administradores (visualização)](howto-baseline-protect-administrators.md) é uma política de linha de base que requer MFA (autenticação multifator) para as seguintes funções de diretório, consideradas como as funções mais privilegiadas do Azure AD:
+Exigir MFA para administradores (visualização) é uma política de linha de base que requer MFA (autenticação multifator) para as seguintes funções de diretório, consideradas como as funções mais privilegiadas do Azure AD:
 
-* Administrador Global
-* Administrator do SharePoint
+* Administrador global
+* Administrador do SharePoint
 * Administrador do Exchange
-* Administrador de Acesso Condicional
+* Administrador de acesso condicional
 * Administrador de segurança
 * Administrador de assistência técnica/administrador de senha
-* Administrador de Faturação
-* Administrador de utilizadores
+* Administrador de faturação
+* Administrador do usuário
 
-Se sua organização tiver essas contas em uso em scripts ou código, considere substituí-las [](../managed-identities-azure-resources/overview.md)por identidades gerenciadas.
+Se sua organização tiver essas contas em uso em scripts ou código, considere substituí-las por [identidades gerenciadas](../managed-identities-azure-resources/overview.md).
 
 ### <a name="end-user-protection-preview"></a>Proteção do usuário final (versão prévia)
 
@@ -65,7 +65,7 @@ Todos os usuários sinalizados anteriormente para risco são bloqueados até a r
 
 ### <a name="block-legacy-authentication-preview"></a>Bloquear autenticação herdada (versão prévia)
 
-Protocolos de autenticação herdados (por exemplo: IMAP, SMTP, POP3) são protocolos normalmente usados por clientes de email mais antigos para autenticar. Os protocolos herdados não dão suporte à autenticação multifator. Mesmo que você tenha uma política que exija autenticação multifator para seu diretório, um ator inadequado pode autenticar usando um desses protocolos herdados e ignorar a autenticação multifator.
+Os protocolos de autenticação herdados (ex: IMAP, SMTP, POP3) são protocolos normalmente usados por clientes de email mais antigos para autenticar. Os protocolos herdados não dão suporte à autenticação multifator. Mesmo que você tenha uma política que exija autenticação multifator para seu diretório, um ator inadequado pode autenticar usando um desses protocolos herdados e ignorar a autenticação multifator.
 
 A melhor maneira de proteger sua conta contra solicitações de autenticação mal-intencionadas feitas por protocolos herdados é bloqueá-las.
 
@@ -83,23 +83,10 @@ Usar qualquer uma dessas ferramentas para executar o gerenciamento de recursos �
 
 Para proteger ações privilegiadas, isso **requer MFA para a política de gerenciamento de serviços (versão prévia)** exigirá autenticação multifator para qualquer usuário que acesse portal do Azure, Azure PowerShell ou CLI do Azure.
 
-## <a name="enable-a-baseline-policy"></a>Habilitar uma política de linha de base
+## <a name="next-steps"></a>Passos seguintes
 
-Para habilitar uma política de linha de base:
+Para obter mais informações, veja:
 
-1. Entre no **portal do Azure** como administrador global, administrador de segurança ou administrador de acesso condicional.
-1. Navegue até **Azure Active Directory** > **acesso condicional**.
-1. Na lista de políticas, selecione uma política de linha de base que você gostaria de habilitar.
-1. Defina **habilitar política** como **ativado**.
-1. Clique em Guardar.
-
-## <a name="next-steps"></a>Passos Seguintes
-
-Para obter mais informações, consulte:
-
+* [Políticas de acesso condicional comum](concept-conditional-access-policy-common.md)
 * [Cinco etapas para proteger sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md)
 * [O que é o acesso condicional no Azure Active Directory?](overview.md)
-* [Exigir MFA para administradores (versão prévia)](howto-baseline-protect-administrators.md)
-* [Proteção do usuário final (versão prévia)](howto-baseline-protect-end-users.md)
-* [Bloquear autenticação herdada (versão prévia)](howto-baseline-protect-legacy-auth.md)
-* [Exigir MFA para gerenciamento de serviços (versão prévia)](howto-baseline-protect-azure.md)

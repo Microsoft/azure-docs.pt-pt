@@ -1,20 +1,20 @@
 ---
-title: Tutorial implementar classificador de visão personalizada a um dispositivo - Azure IoT Edge | Documentos da Microsoft
-description: Neste tutorial, saiba como fazer com que um modelo de imagem digitalizada executado como um contêiner com visão personalizada e IoT Edge.
+title: Tutorial implantar Visão Personalizada classificador em um dispositivo-Azure IoT Edge | Microsoft Docs
+description: Neste tutorial, saiba como fazer com que um modelo de pesquisa Visual computacional seja executado como um contêiner usando Visão Personalizada e IoT Edge.
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/25/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 55203c4b555b54514425b484b367f8b735e98e40
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b84ab9691064e7040e586ad82835f27fa5555920
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003917"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434644"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -32,8 +32,7 @@ Neste tutorial, ficará a saber como:
 
 <center>
 
-![Diagrama-arquitetura do tutorial, preparar e implantar classificador](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
-</center>
+![Diagram-arquitetura do tutorial, preparar e implantar o classificador @ no__t-1 @ no__t-2
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +41,7 @@ Neste tutorial, ficará a saber como:
 >[!TIP]
 >Este tutorial é uma versão simplificada do [visão personalizada e Azure IOT Edge em um](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) projeto de exemplo do Raspberry Pi 3. Este tutorial foi projetado para ser executado em uma VM de nuvem e usa imagens estáticas para treinar e testar o classificador de imagem, o que é útil para alguém apenas começando a avaliar Visão Personalizada em IoT Edge. O projeto de exemplo usa o hardware físico e configura um feed de câmera ao vivo para treinar e testar o classificador de imagem, o que é útil para alguém que deseja experimentar um cenário mais detalhado e de vida real.
 
-Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente para o desenvolvimento de contêiner do Linux: [Desenvolva módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
+Antes de iniciar este tutorial, você deve ter passado pelo tutorial anterior para configurar seu ambiente para desenvolvimento de contêiner do Linux: [desenvolver módulos IOT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao concluir esse tutorial, você deve ter os seguintes pré-requisitos em vigor: 
 
 * Um [Hub IoT](../iot-hub/iot-hub-create-through-portal.md) no escalão gratuito ou standard no Azure.
 * Um [dispositivo Linux executando o Azure IOT Edge](quickstart-linux.md)
@@ -76,7 +75,7 @@ Quando o classificador de imagens estiver compilado e preparado, pode exportá-l
    | ----- | ----- |
    | Nome | Indique um nome para o projeto, como **EdgeTreeClassifier**. |
    | Descrição | Descrição do projeto opcional. |
-   | Grupo de Recursos | Selecione um dos grupos de recursos do Azure que inclui um recurso Serviço de Visão Personalizada ou **crie um novo** se você ainda não tiver adicionado um. |
+   | Recurso | Selecione um dos grupos de recursos do Azure que inclui um recurso Serviço de Visão Personalizada ou **crie um novo** se você ainda não tiver adicionado um. |
    | Project Types (Tipos de Projetos) | **Classification** (Classificação) |
    | Classification Types (Tipos de Classificações) | **Multiclass (single tag per image)** (Multiclasses [etiqueta individual por imagem]) |
    | Domínios | **General (compact)** (Geral [compacto]) |
@@ -102,7 +101,7 @@ A criação de um classificador de imagens precisa de um conjunto de imagens de 
 
 5. Selecione **Upload 10 files** (Até 10 ficheiros). 
 
-   ![Carregar ficheiros de hemlock etiquetado de visão personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
+   ![Carregar arquivos marcados do Hemlock para Visão Personalizada](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
 6. Quando as imagens estiverem carregadas, selecione **Done** (Concluído).
 
@@ -120,7 +119,7 @@ A criação de um classificador de imagens precisa de um conjunto de imagens de 
 
 1. Depois de preparar o classificador, selecione **Export** (Exportar), na página Performance (Desempenho) do mesmo. 
 
-   ![Exportar o seu classificador de preparação de imagem](./media/tutorial-deploy-custom-vision/export.png)
+   ![Exportar seu classificador de imagem treinado](./media/tutorial-deploy-custom-vision/export.png)
 
 2. Selecione **DockerFile** para a plataforma. 
 
@@ -142,11 +141,9 @@ Agora, tem os ficheiros para uma versão de contentor do classificador de imagen
 
 Uma solução é uma forma lógica de desenvolver e organizar vários módulos para uma implementação do IoT Edge individual. As soluções contêm código para um ou mais módulos, bem como o manifesto de implementação que declara como os mesmos vão ser configurados num dispositivo IoT Edge. 
 
-1. No Visual Studio Code, selecione **Vista** > **Terminal** para abrir o terminal integrado do VS Code.
-
 1. Selecione **Ver** > **Paleta de Comandos** para abrir a paleta de comandos do VS Code. 
 
-1. Na paleta de comandos, insira e execute o comando **Azure IOT Edge: Nova solução**de IOT Edge. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
+1. Na paleta de comandos, introduza e execute o comando **Azure IoT Edge: Nova solução do IoT Edge**. Na paleta de comandos, indique as seguintes informações para criar a sua solução: 
 
    | Campo | Valor |
    | ----- | ----- |
@@ -154,7 +151,7 @@ Uma solução é uma forma lógica de desenvolver e organizar vários módulos p
    | Indicar um nome para a solução | Introduza um nome descritivo para a solução, como **CustomVisionSolution**, ou aceite o predefinido. |
    | Selecionar modelo de módulo | Escolha **Python Module** (Módulo de Python). |
    | Indicar um nome para o módulo | Dê o nome **classifier** ao módulo.<br><br>É importante que o nome do módulo esteja em minúsculas. Quando referencia módulos, o IoT Edge é sensível a maiúsculas e minúsculas e esta solução utiliza uma biblioteca que formata todos os pedidos em minúsculas. |
-   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. A cadeia final é semelhante a \<registry name\>.azurecr.io/classifier. |
+   | Indicar o repositório de imagens do Docker para o módulo | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. A imagem de contentor é pré-preenchida no passo anterior. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure.<br><br>A cadeia de caracteres final é semelhante a **\<registry Name\>.azurecr.io/Classifier**. |
  
    ![Fornecer repositório de imagens do Docker](./media/tutorial-deploy-custom-vision/repository.png)
 
@@ -172,7 +169,7 @@ O ficheiro de ambiente armazena as credenciais do seu registo de contentor e par
 
 Atualmente, Visual Studio Code pode desenvolver módulos para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar qual arquitetura está sendo direcionada a cada solução, porque o contêiner é compilado e executado de forma diferente para cada tipo de arquitetura. O padrão é o Linux AMD64, que será usado para este tutorial. 
 
-1. Abra a paleta de comandos e procure **Azure IOT Edge: Defina a plataforma de destino padrão para**a solução de borda ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
+1. Abra a paleta de comandos e pesquise **Azure IOT Edge: definir a plataforma de destino padrão para a solução de borda**ou selecione o ícone de atalho na barra lateral na parte inferior da janela. 
 
 2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manterá o **AMD64**padrão. 
 
@@ -212,14 +209,14 @@ Numa implementação da Visão Personalizada real, as imagens ou as transmissõe
 
 Nesta secção, vai adicionar um módulo novo à mesma CustomVisionSolution e fornecer código para criar a câmara simulada. 
 
-1. Na mesma janela de Visual Studio Code, use a paleta de comandos para **executar Azure IOT Edge: Adicionar IoT Edge módulo**. Na paleta de comandos, indique as informações seguintes relativas ao módulo novo: 
+1. Na mesma janela do Visual Studio Code, utilize a paleta de comandos para executar **Azure IoT Edge: Add IoT Edge Module**. Na paleta de comandos, indique as informações seguintes relativas ao módulo novo: 
 
    | Mensagem | Valor | 
    | ------ | ----- |
    | Selecione o ficheiro de modelo da implementação | Selecione o ficheiro deployment.template.json na pasta CustomVisionSolution. |
    | Selecionar modelo de módulo | Selecione **Python Module** (Módulo de Python). |
    | Indicar um nome para o módulo | Dê ao módulo o nome **cameraCapture** |
-   | Indicar o repositório de imagens do Docker para o módulo | Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. A cadeia final é semelhante a **\<registryname\>.azurecr.io/cameracapture**. |
+   | Indicar o repositório de imagens do Docker para o módulo | Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry.<br><br>A cadeia final é semelhante a **\<registryname\>.azurecr.io/cameracapture**. |
 
    A janela do VS Code carrega o módulo novo na área de trabalho da solução e atualiza o ficheiro deployment.template.json. Deverá ver agora duas pastas do módulo, classifier e cameraCapture. 
 
@@ -381,7 +378,7 @@ Quando as imagens estiverem no registo, pode implementar a solução num disposi
 Primeiro, compile e envie a solução para o registo de contentor. 
 
 1. No explorador do VS Code, clique com o botão direito do rato no ficheiro **deployment.template.json** e selecione **Build and push IoT Edge solution** (Compilar e enviar solução do IoT Edge). Pode ver o progresso da operação no terminal integrado do VS Code. 
-2. Repare que foi adicionada uma pasta nova à solução, **config**. Expanda essa pasta e abra o ficheiro **deployment.json** no interior.
+2. Observe que uma nova pasta foi adicionada à sua solução, **configuração**. Expanda essa pasta e abra o arquivo **Deployment. JSON** dentro do.
 3. Reveja as informações no ficheiro deployment.json. O ficheiro deployment.json é criado (ou atualizado) automaticamente com base no ficheiro do modelo de implementação que foi configurado e nas informações da solução, incluindo o ficheiro .env e os ficheiros module.json. 
 
 Em seguida, selecione seu dispositivo e implante sua solução.
@@ -422,7 +419,7 @@ Caso contrário, você pode excluir as configurações locais e os recursos do A
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, preparou um modelo de Visão Personalizada e implementou-o como um módulo num dispositivo IoT Edge. Depois, compilou um módulo que pode consultar o servidor de classificação de imagens e comunicar os resultados ao Hub IoT. 
 

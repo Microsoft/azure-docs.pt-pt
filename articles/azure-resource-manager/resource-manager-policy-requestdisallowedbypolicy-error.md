@@ -1,6 +1,6 @@
 ---
 title: Erro de RequestDisallowedByPolicy com a política de recursos do Azure | Microsoft Docs
-description: Descreve a causa do erro RequestDisallowedByPolicy.
+description: Descreve a causa do erro RequestDisallowedByPolicy ao implantar recursos com Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e862637c688fd473b112fdfc0ee197da0444d02f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c791342bf68f84f6893e549d8528d1a861aa9040
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121241"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390286"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Erro de RequestDisallowedByPolicy com a política de recursos do Azure
 
@@ -45,7 +45,7 @@ Para recuperar detalhes sobre a política que bloqueou a implantação, use um d
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-No PowerShell, forneça esse identificador de política como `Id` o parâmetro para recuperar detalhes sobre a política que bloqueou a implantação.
+No PowerShell, forneça esse identificador de política como o parâmetro `Id` para recuperar detalhes sobre a política que bloqueou a implantação.
 
 ```powershell
 (Get-AzPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079675"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390598"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Criar uma VM do Windows a partir de um disco especializado usando o PowerShell
 
@@ -36,9 +36,9 @@ Você também pode usar o portal do Azure para [criar uma nova VM de um VHD espe
 
 Este artigo mostra como usar discos gerenciados. Se você tiver uma implantação herdada que requer o uso de uma conta de armazenamento, consulte [criar uma VM de um VHD especializado em uma conta de armazenamento](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+Recomendamos que você limite o número de implantações simultâneas a 20 VMs de um único VHD ou instantâneo. 
 
-## <a name="option-1-use-an-existing-disk"></a>Opção 1: Usar um disco existente
+## <a name="option-1-use-an-existing-disk"></a>Opção 1: usar um disco existente
 
 Se você tiver uma VM que você excluiu e quiser reutilizar o disco do sistema operacional para criar uma nova VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
 
@@ -51,7 +51,7 @@ $osDisk = Get-AzDisk `
 ```
 Agora você pode anexar esse disco como o disco do sistema operacional a uma [nova VM](#create-the-new-vm).
 
-## <a name="option-2-upload-a-specialized-vhd"></a>Opção 2: Carregar um VHD especializado
+## <a name="option-2-upload-a-specialized-vhd"></a>Opção 2: carregar um VHD especializado
 
 Você pode carregar o VHD de uma VM especializada criada com uma ferramenta de virtualização local, como o Hyper-V, ou uma VM exportada de outra nuvem.
 
@@ -82,7 +82,7 @@ Criar uma conta de armazenamento.
     Get-AzResourceGroup
     ```
 
-    Crie um grupo de recursos chamado MyResource Group na região *oeste dos EUA* .
+    Crie um grupo de recursos chamado *MyResource* Group na região *oeste dos EUA* .
 
     ```powershell
     New-AzResourceGroup `
@@ -102,7 +102,7 @@ Criar uma conta de armazenamento.
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Carregar o VHD em sua conta de armazenamento 
-Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar o VHD em um contêiner em sua conta de armazenamento. Este exemplo carrega o arquivo *myVHD. vhd* de "C:\Users\Public\Documents\Virtual discos\" rígidos para uma conta de armazenamento chamada *mystorageaccount* no grupo de recursos MyResource Group. O arquivo é armazenado no contêiner chamado *MyContainer* e o novo nome de arquivo será *myUploadedVHD. vhd*.
+Use o cmdlet [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) para carregar o VHD em um contêiner em sua conta de armazenamento. Este exemplo carrega o arquivo *myVHD. vhd* de "C:\Users\Public\Documents\Virtual discos rígidos @ no__t-1 para uma conta de armazenamento denominada *mystorageaccount* no grupo de recursos *MyResource* Group. O arquivo é armazenado no contêiner chamado *MyContainer* e o novo nome de arquivo será *myUploadedVHD. vhd*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -153,7 +153,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Opção 3: Copiar uma VM do Azure existente
+## <a name="option-3-copy-an-existing-azure-vm"></a>Opção 3: copiar uma VM do Azure existente
 
 Você pode criar uma cópia de uma VM que usa discos gerenciados tirando um instantâneo da VM e, em seguida, usando esse instantâneo para criar um novo disco gerenciado e uma nova VM.
 
@@ -353,13 +353,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifique se a VM foi criada
-Você deve ver a VM recém-criada na [portal do Azure](https://portal.azure.com) em **procurar** > **máquinas virtuais**ou usando os comandos do PowerShell a seguir.
+Você deve ver a VM recém-criada na [portal do Azure](https://portal.azure.com) em **procurar** **máquinas virtuais** >  ou usando os comandos do PowerShell a seguir.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup
 $vmList.Name
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Entre em sua nova máquina virtual. Para obter mais informações, consulte [como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows](connect-logon.md).
 

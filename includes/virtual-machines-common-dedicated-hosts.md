@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266862"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390552"
 ---
-## <a name="benefits"></a>Benefícios 
+## <a name="benefits"></a>Vantagens 
 
 Reservar o host inteiro oferece os seguintes benefícios:
 
@@ -42,7 +42,7 @@ Para alta disponibilidade, você deve implantar várias VMs, distribuídas entre
 
 ### <a name="use-availability-zones-for-fault-isolation"></a>Usar Zonas de Disponibilidade para o isolamento de falhas
 
-As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é constituída por um ou mais datacenters equipados com energia, refrigeração e redes. Um grupo de hosts é criado em uma única zona de disponibilidade. Depois de criada, todos os hosts serão colocados dentro dessa zona. Para obter alta disponibilidade entre zonas, você precisa criar vários grupos de hosts (um por zona) e distribuir os hosts adequadamente.
+As zonas de disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, refrigeração e rede independentes. Um grupo de hosts é criado em uma única zona de disponibilidade. Depois de criada, todos os hosts serão colocados dentro dessa zona. Para obter alta disponibilidade entre zonas, você precisa criar vários grupos de hosts (um por zona) e distribuir os hosts adequadamente.
 
 Se você atribuir um grupo de hosts a uma zona de disponibilidade, todas as VMs criadas nesse host deverão ser criadas na mesma zona.
 
@@ -83,6 +83,8 @@ Há um limite de cota padrão de 3000 vCPUs para hosts dedicados, por região. P
 
 Para obter mais informações, consulte [cotas de vCPU de máquina virtual](/azure/virtual-machines/windows/quotas).
 
+A avaliação gratuita e as assinaturas do MSDN não têm cota para hosts dedicados do Azure.
+
 ## <a name="pricing"></a>Preços
 
 Os usuários são cobrados por host dedicado, independentemente de quantas VMs são implantadas. Em sua declaração mensal, você verá um novo tipo de recurso Faturável de hosts. As VMs em um host dedicado ainda serão mostradas em sua instrução, mas terão um preço de 0.
@@ -97,11 +99,11 @@ Para obter mais informações, consulte [preços do host dedicado do Azure](http
 
 Uma SKU é definida para um host e representa a série de tamanho da VM e o tipo. Você pode misturar várias VMs de tamanhos diferentes em um único host, desde que eles tenham a mesma série de tamanho. O tipo é a geração de hardware disponível atualmente na região.
 
-Diferentes `types` para a mesma série de VMs serão de fornecedores de CPU diferentes e têm diferentes gerações de CPU e número de núcleos.
+Diferentes `types` para a mesma série de VMs serão de fornecedores de CPU diferentes e terão diferentes gerações de CPU e número de núcleos.
 
 Consulte a página de [preços](https://aka.ms/ADHPricing) do host para saber mais.
 
-Durante a versão prévia, ofereceremos suporte ao seguinte SKU\types de host:  DSv3_Type1 e ESv3_Type1
+Durante a visualização, teremos suporte para o seguinte host SKU\types: DSv3_Type1 e ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Ciclo de vida do host
@@ -109,10 +111,10 @@ Durante a versão prévia, ofereceremos suporte ao seguinte SKU\types de host:  
 
 O Azure monitora e gerencia o status de integridade de seus hosts. Os seguintes Estados serão retornados quando você consultar o host:
 
-| Estado de Funcionamento   | Descrição       |
+| Estado de integridade   | Descrição       |
 |----------|----------------|
 | Host disponível     | Não há problemas conhecidos com o host.   |
 | Host em investigação  | Estamos com alguns problemas com o host que estamos procurando. Esse é um estado de transição necessário para que o Azure tente e identifique o escopo e a causa raiz do problema identificado. As máquinas virtuais em execução no host podem ser afetadas. |
-| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se `autoReplaceOnFailure` o estiver habilitado, suas máquinas virtuais serão reparadas *para o* hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
-| Anfitrião desatribuído  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
+| Desalocação pendente do host   | O Azure não pode restaurar o host de volta para um estado íntegro e pedir que você reimplante suas máquinas virtuais fora desse host. Se @no__t- *0 estiver habilitado* , suas máquinas virtuais serão reparadas para o hardware íntegro. Caso contrário, sua máquina virtual pode estar em execução em um host que está prestes a falhar.|
+| Host desalocado  | Todas as máquinas virtuais foram removidas do host. Você não está mais sendo cobrado por esse host, pois o hardware foi retirado da rotação.   |
 

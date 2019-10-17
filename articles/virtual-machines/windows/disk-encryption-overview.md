@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e38a58d076f6a8b7b2b07e468c61835ed06f55a4
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 05db717f5d3adc2429431503f588f2cc7f79aef6
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255601"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435748"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Azure Disk Encryption para VMs do Windows 
 
@@ -32,7 +32,7 @@ Você pode aprender os conceitos básicos do Azure Disk Encryption para Windows 
 
 ### <a name="supported-vm-sizes"></a>Tamanhos de VM suportados
 
-As VMs do Windows estão disponíveis em [vários tamanhos](sizes-general.md). O Azure Disk Encryption não está disponível em [VMs básicas da série A](/pricing/details/virtual-machines/series/)ou em máquinas virtuais com menos de 2 GB de memória.
+As VMs do Windows estão disponíveis em [vários tamanhos](sizes-general.md). O Azure Disk Encryption não está disponível em [VMs básicas da série A](https://azure.microsoft.com/pricing/details/virtual-machines/series/)ou em máquinas virtuais com menos de 2 GB de memória.
 
 Azure Disk Encryption também está disponível para VMs com armazenamento Premium.
 

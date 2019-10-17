@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do Azure Status Monitor v2: Desabilitar mecanismo de instrumentação | Microsoft Docs'
-description: Referência da API do Status Monitor v2. Disable-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
+title: 'Referência da API do agente do insights Aplicativo Azure: desabilitar mecanismo de instrumentação | Microsoft Docs'
+description: Referência de API do agente Application Insights. Disable-InstrumentationEngine. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 98f70a457b1e09f755a854a28cfd31a8fc9ee9f2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: aaf493b5f2075ead62087824773f21643a1246e4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033182"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388297"
 ---
-# <a name="status-monitor-v2-api-disable-instrumentationengine"></a>API Status Monitor v2: Desabilitar-InstrumentationEngine
+# <a name="application-insights-agent-api-disable-instrumentationengine"></a>API do agente de Application Insights: Disable-InstrumentationEngine
 
 Este artigo descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -38,10 +38,10 @@ PS C:\> Disable-InstrumentationEngine
 
 ## <a name="parameters"></a>Parâmetros 
 
-### <a name="-verbose"></a>-Verbose
+### <a name="-verbose"></a>-Detalhado
 **Parâmetro comum.** Use essa opção para gerar logs detalhados.
 
-## <a name="output"></a>Output
+## <a name="output"></a>Saída
 
 
 #### <a name="example-output-from-successfully-disabling-the-instrumentation-engine"></a>Exemplo de saída de desabilitar o mecanismo de instrumentação com êxito
@@ -55,7 +55,7 @@ Configuring registry for instrumentation engine...
 ```
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
- Faça mais com Status Monitor v2:
- - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.
+ Faça mais com Application Insights agente:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.

@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: 2d90fe4d40c51b21deea23675d6b51b972429237
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390246"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429020"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair expressões-chave com a Análise de Texto
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: como extrair frases-chave usando Análise de Texto
 
 A [API de Extração de Expressões-Chave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) avalia o texto não estruturado e, para cada documento JSON, devolve uma lista de expressões-chave.
 
@@ -68,7 +68,7 @@ O tamanho do documento deve ter 5.120 ou menos caracteres por documento, e você
     }
 ```
 
-## <a name="step-1-structure-the-request"></a>Passo 1: Estruturar a solicitação
+## <a name="step-1-structure-the-request"></a>Passo 1: estruturar o pedido
 
 Para obter informações sobre a definição de solicitação, consulte [como chamar o API de análise de texto](text-analytics-how-to-call-api.md). Os seguintes pontos são novamente apresentados para sua comodidade:
 
@@ -83,15 +83,15 @@ Para obter informações sobre a definição de solicitação, consulte [como ch
 > [!Tip]
 > Utilize o [Postman](text-analytics-how-to-call-api.md) ou abra a **consola de teste da API** na [documentação](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) para estruturar um pedido e publicá-lo no serviço.
 
-## <a name="step-2-post-the-request"></a>Passo 2: Postar a solicitação
+## <a name="step-2-post-the-request"></a>Passo 2: publicar o pedido
 
 A análise é realizada aquando da receção do pedido. Para obter informações sobre o tamanho e o número de solicitações que você pode enviar por minuto ou por segundo, consulte a seção [limites de dados](../overview.md#data-limits) na visão geral.
 
 Lembre-se de que o serviço não tem estado. Não são armazenados dados na sua conta. Os resultados são devolvidos imediatamente na resposta.
 
-## <a name="step-3-view-results"></a>Passo 3: Ver resultados
+## <a name="step-3-view-results"></a>Passo 3: ver resultados
 
-Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas.
+Todos os pedidos POST devolvem uma resposta formatada JSON com os IDs e as propriedades detetadas. A ordem das frases-chave retornadas é determinada internamente pelo modelo.
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite JSON ou guardar o resultado num ficheiro no sistema local e, em seguida, importá-lo para uma aplicação que lhe permita ordenar, procurar e manipular os dados.
 
@@ -157,12 +157,12 @@ Neste artigo, você aprendeu conceitos e fluxo de trabalho para extração de fr
 + O pedido POST refere-se a um ponto final `/keyphrases` com recurso a uma [chave de acesso personalizada e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste em palavras-chave e frases para cada ID de documento, pode ser transmitida para qualquer aplicativo que aceite JSON, incluindo Microsoft Office Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
- [Visão geral de análise de texto](../overview.md) [Perguntas frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Perguntas](../text-analytics-resource-faq.md) frequentes [sobre análise de texto visão geral](../overview.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [API de Análise de Texto](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)

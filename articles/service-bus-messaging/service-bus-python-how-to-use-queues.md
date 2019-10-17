@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3561d7e3569b31698fbbc5f8cf2518d9fe1fc398
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 69ae02ea7c0c04312dd4e64125c80384172c6528
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331135"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438106"
 ---
-# <a name="how-to-use-service-bus-queues-with-python"></a>Como usar filas do barramento de serviço com o Python
+# <a name="tutorial-use-azure-service-bus-queues-with-python"></a>Tutorial: usar filas do barramento de serviço do Azure com Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 

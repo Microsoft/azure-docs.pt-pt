@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/22/2019
+ms.date: 10/16/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 705dfb0b62327d9675fe9bf3e5860b1396e2fab9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4384d29811d29f06422802abba5d3eb1ea5737e9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101312"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430087"
 ---
 # <a name="backup-and-restore"></a>Cópia de segurança e restauro
 
@@ -33,7 +33,7 @@ O backup de um banco de dados do, com a capacidade de restaurá-lo para qualquer
 
 Dois tipos de backups devem ser executados para alcançar a capacidade de restauração:
 
-- Backups de banco de dados: Backups completos, incrementais ou diferenciais
+- Backups de banco de dados: backups completos, incrementais ou diferenciais
 - Backups de log de transações
 
 Além dos backups completos de bancos de dados executados em um nível de aplicativo, você pode executar backups com instantâneos de armazenamento. Os instantâneos de armazenamento não substituem os backups de log de transações. Os backups de log de transações permanecem importantes para restaurar o banco de dados para um determinado ponto no tempo ou para esvaziar os logs de transações já confirmadas. Os instantâneos de armazenamento podem acelerar a recuperação fornecendo rapidamente uma imagem de avanço do banco de dados. 
@@ -67,7 +67,7 @@ Você pode executar instantâneos de armazenamento direcionados a três classes 
 - Um instantâneo separado sobre/Hana/logbackups.
 - Uma partição do sistema operacional.
 
-Para obter os scripts de instantâneo e a documentação mais recentes, consulte [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). Ao baixar o pacote de script de instantâneo do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1), você obtém três arquivos. Um dos arquivos é documentado em um PDF para a funcionalidade fornecida. Depois de baixar o conjunto de ferramentas, siga as instruções em "obter as ferramentas de instantâneo".
+Para obter os scripts de instantâneo e a documentação mais recentes, consulte [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). Ao baixar o pacote de script de instantâneo do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md), você obtém três arquivos. Um dos arquivos é documentado em um PDF para a funcionalidade fornecida. Depois de baixar o conjunto de ferramentas, siga as instruções em "obter as ferramentas de instantâneo".
 
 ## <a name="storage-snapshot-considerations"></a>Considerações de instantâneo de armazenamento
 
@@ -112,90 +112,90 @@ Para certificar-se de que o script de instantâneo seja executado com êxito, ve
 
 Para configurar instantâneos de armazenamento com instâncias grandes do HANA, siga estas etapas.
 1. Verifique se o Perl está instalado no sistema operacional Linux no servidor HANA em instâncias grandes.
-1. Modifique a configuração\_/etc/ssh/SSH para adicionar a linha _Macs HMAC-SHA1_.
+1. Modifique o/etc/ssh/SSH @ no__t-0config para adicionar a linha _Macs HMAC-SHA1_.
 1. Crie uma conta de usuário de backup SAP HANA no nó mestre para cada instância de SAP HANA que você executar, se aplicável.
 1. Instale o SAP HANA cliente HDB em todos os servidores SAP HANA em Instâncias Grandes.
 1. No primeiro SAP HANA em Instâncias Grandes servidor de cada região, crie uma chave pública para acessar a infraestrutura de armazenamento subjacente que controla a criação de instantâneos.
-1. Copie os scripts e o arquivo de configuração do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1) para o local do **hdbsql** na instalação do SAP Hana.
+1. Copie os scripts e o arquivo de configuração do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md) para o local do **hdbsql** na instalação do SAP Hana.
 1. Modifique o arquivo *arquivo hanabackupdetails. txt* conforme necessário para as especificações apropriadas do cliente.
 
-Obtenha os scripts de instantâneo e a documentação mais recentes do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). Para as etapas listadas anteriormente, consulte [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Obtenha os scripts de instantâneo e a documentação mais recentes do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). Para as etapas listadas anteriormente, consulte [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 ### <a name="consideration-for-mcod-scenarios"></a>Considerações para cenários de MCOD
-Se você executar um [cenário de MCOD](https://launchpad.support.sap.com/#/notes/1681092) com várias instâncias de SAP Hana em uma unidade de instância grande do Hana, você terá volumes de armazenamento separados provisionados para cada uma das instâncias de SAP Hana. Para obter mais informações sobre MDC e outras considerações, consulte "coisas importantes a serem lembradas" em [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Se você executar um [cenário de MCOD](https://launchpad.support.sap.com/#/notes/1681092) com várias instâncias de SAP Hana em uma unidade de instância grande do Hana, você terá volumes de armazenamento separados provisionados para cada uma das instâncias de SAP Hana. Para obter mais informações sobre MDC e outras considerações, consulte "coisas importantes a serem lembradas" em [Microsoft snapshot Tools for SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
  
 
-### <a name="step-1-install-the-sap-hana-hdb-client"></a>Passo 1: Instalar o SAP HANA cliente HDB
+### <a name="step-1-install-the-sap-hana-hdb-client"></a>Etapa 1: instalar o SAP HANA cliente HDB
 
-O sistema operacional Linux instalado em SAP HANA no Azure (instâncias grandes) inclui as pastas e os scripts necessários para executar SAP HANA instantâneos de armazenamento para fins de backup e recuperação de desastre. Verifique se há versões mais recentes no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). A versão de lançamento mais recente dos scripts é 4,1. Scripts diferentes podem ter versões secundárias diferentes na mesma versão principal.
+O sistema operacional Linux instalado em SAP HANA no Azure (instâncias grandes) inclui as pastas e os scripts necessários para executar SAP HANA instantâneos de armazenamento para fins de backup e recuperação de desastre. Verifique se há versões mais recentes no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/release.md). 
 
 É sua responsabilidade instalar o SAP HANA cliente HDB nas unidades do SAP HANA em instâncias grandes enquanto você instala o SAP HANA.
 
-### <a name="step-2-change-the-etcsshssh_config"></a>Passo 2: Alterar a configuração\_de/etc/ssh/SSH
+### <a name="step-2-change-the-etcsshssh_config"></a>Etapa 2: alterar o/etc/ssh/SSH @ no__t-0config
 
-Esta etapa é descrita em "habilitar a comunicação com o armazenamento" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Esta etapa é descrita em "habilitar a comunicação com o armazenamento" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 
-### <a name="step-3-create-a-public-key"></a>Passo 3: Criar uma chave pública
+### <a name="step-3-create-a-public-key"></a>Etapa 3: criar uma chave pública
 
 Para habilitar o acesso às interfaces de instantâneo de armazenamento do seu locatário de instância grande do HANA, estabeleça um procedimento de entrada por meio de uma chave pública. 
 
 No primeiro SAP HANA no servidor do Azure (instâncias grandes) em seu locatário, crie uma chave pública para acessar a infraestrutura de armazenamento. Com uma chave pública, uma senha não é necessária para entrar nas interfaces de instantâneo de armazenamento. Você também não precisa manter credenciais de senha com uma chave pública. 
 
-Para gerar uma chave pública, consulte "habilitar a comunicação com o armazenamento" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Para gerar uma chave pública, consulte "habilitar a comunicação com o armazenamento" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 
-### <a name="step-4-create-an-sap-hana-user-account"></a>Passo 4: Criar uma conta de usuário do SAP HANA
+### <a name="step-4-create-an-sap-hana-user-account"></a>Etapa 4: criar uma conta de usuário do SAP HANA
 
 Para iniciar a criação de instantâneos de SAP HANA, crie uma conta de usuário no SAP HANA que os scripts de instantâneo de armazenamento possam usar. Crie uma conta de usuário SAP HANA no SAP HANA Studio para essa finalidade. O usuário deve ser criado sob o SYSTEMDB e *não* no banco de dados Sid para MDC. No ambiente de contêiner único, o usuário é criado no banco de dados de locatário. Essa conta deve ter privilégios de **administrador de backup** e de **leitura de catálogo** . 
 
-Para configurar e usar uma conta de usuário, consulte "habilitar a comunicação com o SAP HANA" no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1).
+Para configurar e usar uma conta de usuário, consulte "habilitar a comunicação com o SAP HANA" no [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 
-### <a name="step-5-authorize-the-sap-hana-user-account"></a>Passo 5: Autorizar a conta de usuário do SAP HANA
+### <a name="step-5-authorize-the-sap-hana-user-account"></a>Etapa 5: autorizar a conta de usuário do SAP HANA
 
-Nesta etapa, você autoriza a conta de usuário SAP HANA que você criou para que os scripts não precisem enviar senhas em tempo de execução. O comando `hdbuserstore` SAP Hana permite a criação de uma SAP Hana chave de usuário. A chave é armazenada em um ou mais nós de SAP HANA. A chave de usuário permite que o usuário acesse SAP HANA sem precisar gerenciar senhas de dentro do processo de script. O processo de script é discutido posteriormente neste artigo.
+Nesta etapa, você autoriza a conta de usuário SAP HANA que você criou para que os scripts não precisem enviar senhas em tempo de execução. O comando SAP HANA `hdbuserstore` permite a criação de uma SAP HANA chave de usuário. A chave é armazenada em um ou mais nós de SAP HANA. A chave de usuário permite que o usuário acesse SAP HANA sem precisar gerenciar senhas de dentro do processo de script. O processo de script é discutido posteriormente neste artigo.
 
 >[!IMPORTANT]
 >Execute esses comandos de configuração com o mesmo contexto de usuário em que os comandos de instantâneo são executados. Caso contrário, os comandos de instantâneo não funcionarão corretamente.
 
 
-### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Passo 6: Obter os scripts de instantâneo, configurar os instantâneos e testar a configuração e a conectividade
+### <a name="step-6-get-the-snapshot-scripts-configure-the-snapshots-and-test-the-configuration-and-connectivity"></a>Etapa 6: obter os scripts de instantâneo, configurar os instantâneos e testar a configuração e a conectividade
 
-Baixe a versão mais recente dos scripts do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). A maneira como os scripts são instalados é alterada com a versão 4,1 dos scripts. Para obter mais informações, consulte "habilitar a comunicação com o SAP HANA" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Baixe a versão mais recente dos scripts do [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts/tree/master/snapshot_tools_v4.1). A maneira como os scripts são instalados é alterada com a versão 4,1 dos scripts. Para obter mais informações, consulte "habilitar a comunicação com o SAP HANA" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Para obter a seqüência exata de comandos, consulte "instalação fácil de ferramentas de instantâneo (padrão)" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). Recomendamos o uso da instalação padrão. 
+Para obter a seqüência exata de comandos, consulte "instalação fácil de ferramentas de instantâneo (padrão)" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). Recomendamos o uso da instalação padrão. 
 
-Para atualizar da versão 3. x para 4,1, consulte "atualizar uma instalação existente" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). Para desinstalar o conjunto de ferramentas 4,1, consulte "desinstalação das ferramentas de instantâneo" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Para atualizar da versão 3. x para 4,1, consulte "atualizar uma instalação existente" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). Para desinstalar o conjunto de ferramentas 4,1, consulte "desinstalação das ferramentas de instantâneo" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Não se esqueça de executar as etapas descritas em "concluir a instalação das ferramentas de instantâneo" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Não se esqueça de executar as etapas descritas em "concluir a instalação das ferramentas de instantâneo" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-A finalidade dos diferentes scripts e arquivos como eles foram instalados é descrita em "o que são essas ferramentas de instantâneo?" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+A finalidade dos diferentes scripts e arquivos como eles foram instalados é descrita em "o que são essas ferramentas de instantâneo?" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Antes de configurar as ferramentas de instantâneo, certifique-se de que você também configurou locais e configurações de backup do HANA corretamente. Para obter mais informações, consulte "configuração de SAP HANA" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Antes de configurar as ferramentas de instantâneo, certifique-se de que você também configurou locais e configurações de backup do HANA corretamente. Para obter mais informações, consulte "configuração de SAP HANA" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-A configuração do conjunto de ferramentas de instantâneo é descrita em "config file-HANABackupCustomerDetails. txt" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+A configuração do conjunto de ferramentas de instantâneo é descrita em "config file-HANABackupCustomerDetails. txt" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### <a name="test-connectivity-with-sap-hana"></a>Testar a conectividade com SAP HANA
 
-Depois de colocar todos os dados de configuração no arquivo *HANABackupCustomerDetails. txt* , verifique se as configurações estão corretas para os dados da instância do Hana. Use o script `testHANAConnection`, que é independente de uma configuração SAP Hana escalar verticalmente ou escalar horizontalmente.
+Depois de colocar todos os dados de configuração no arquivo *HANABackupCustomerDetails. txt* , verifique se as configurações estão corretas para os dados da instância do Hana. Use o script `testHANAConnection`, que é independente de uma configuração de expansão ou expansão de SAP HANA.
 
-Para obter mais informações, consulte "verificar a conectividade com o SAP HANA-testHANAConnection" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Para obter mais informações, consulte "verificar a conectividade com o SAP HANA-testHANAConnection" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 #### <a name="test-storage-connectivity"></a>Testar conectividade de armazenamento
 
-A próxima etapa de teste é verificar a conectividade com o armazenamento com base nos dados que você colocou no arquivo de configuração *HANABackupCustomerDetails. txt* . Em seguida, execute um instantâneo de teste. Antes de executar o `azure_hana_backup` comando, você deve executar este teste. Para obter a sequência de comandos para este teste, consulte "verificar a conectividade com armazenamento-testStorageSnapshotConnection" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+A próxima etapa de teste é verificar a conectividade com o armazenamento com base nos dados que você colocou no arquivo de configuração *HANABackupCustomerDetails. txt* . Em seguida, execute um instantâneo de teste. Antes de executar o comando `azure_hana_backup`, você deve executar esse teste. Para obter a sequência de comandos para este teste, consulte "verificar a conectividade com armazenamento-testStorageSnapshotConnection" no [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Após uma entrada bem-sucedida nas interfaces de máquina virtual de armazenamento, o script continua com a fase 2 e cria um instantâneo de teste. A saída é mostrada aqui para uma configuração de expansão de três nós de SAP HANA.
 
 Se o instantâneo de teste for executado com êxito com o script, você poderá agendar os instantâneos de armazenamento reais. Se ele não for bem-sucedido, investigue os problemas antes de prosseguir. O instantâneo de teste deve ficar em frente até que os primeiros instantâneos reais sejam concluídos.
 
 
-### <a name="step-7-perform-snapshots"></a>Passo 7: Executar instantâneos
+### <a name="step-7-perform-snapshots"></a>Etapa 7: executar instantâneos
 
 Quando as etapas de preparação forem concluídas, você poderá começar a configurar e agendar os instantâneos de armazenamento reais. O script a ser agendado funciona com SAP HANA configurações de expansão e expansão. Para execução periódica e regular do script de backup, agende o script usando o utilitário cron. 
 
-Para obter a sintaxe e a funcionalidade exatas do comando, consulte "executar backup de instantâneo-azure_hana_backup" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). 
+Para obter a sintaxe e a funcionalidade exatas do comando, consulte "executar backup de instantâneo-azure_hana_backup" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
 Quando o script `azure_hana_backup` é executado, ele cria o instantâneo de armazenamento nas três fases a seguir:
 
@@ -281,16 +281,16 @@ Se o banco de dados nunca tiver sido submetido a backup, a etapa final será exe
 ![Fazer um backup baseado em arquivo para criar uma única entrada de backup](./media/hana-overview-high-availability-disaster-recovery/image6-make-backup.png)
 
 
-Após a execução de seus primeiros instantâneos de armazenamento com êxito, exclua o instantâneo de teste executado na etapa 6. Para obter mais informações, consulte "remover instantâneos de teste-removeTestStorageSnapshot" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). 
+Após a execução de seus primeiros instantâneos de armazenamento com êxito, exclua o instantâneo de teste executado na etapa 6. Para obter mais informações, consulte "remover instantâneos de teste-removeTestStorageSnapshot" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
 
 ### <a name="monitor-the-number-and-size-of-snapshots-on-the-disk-volume"></a>Monitorar o número e o tamanho dos instantâneos no volume do disco
 
-Em um volume de armazenamento específico, você pode monitorar o número de instantâneos e o consumo de armazenamento desses instantâneos. O `ls` comando não mostra o diretório ou os arquivos do instantâneo. O comando `du` do sistema operacional Linux mostra detalhes sobre esses instantâneos de armazenamento porque eles são armazenados nos mesmos volumes. Use o comando com as seguintes opções:
+Em um volume de armazenamento específico, você pode monitorar o número de instantâneos e o consumo de armazenamento desses instantâneos. O comando `ls` não mostra o diretório ou os arquivos do instantâneo. O comando do sistema operacional Linux `du` mostra detalhes sobre esses instantâneos de armazenamento porque eles são armazenados nos mesmos volumes. Use o comando com as seguintes opções:
 
-- `du –sh .snapshot`: Essa opção fornece um total de todos os instantâneos no diretório do instantâneo.
-- `du –sh --max-depth=1`: Essa opção lista todos os instantâneos que são salvos na pasta **. snapshot** e o tamanho de cada instantâneo.
-- `du –hc`: Essa opção fornece o tamanho total usado por todos os instantâneos.
+- `du –sh .snapshot`: essa opção fornece um total de todos os instantâneos no diretório do instantâneo.
+- `du –sh --max-depth=1`: essa opção lista todos os instantâneos que são salvos na pasta **. snapshot** e o tamanho de cada instantâneo.
+- `du –hc`: essa opção fornece o tamanho total usado por todos os instantâneos.
 
 Use esses comandos para certificar-se de que os instantâneos que são criados e armazenados não consumam todo o armazenamento nos volumes.
 
@@ -302,12 +302,12 @@ Para obter mais detalhes sobre instantâneos, use o script `azure_hana_snapshot_
    * O tamanho do total de instantâneos em um volume
    * Os seguintes detalhes em cada instantâneo nesse volume: 
       - Nome do instantâneo 
-      - Hora de criação 
+      - Tempo de criação 
       - Tamanho do instantâneo
       - Frequência do instantâneo
       - ID de backup do HANA associada a esse instantâneo, se relevante
 
-Para obter a sintaxe do comando e das saídas, consulte "listar instantâneos-azure_hana_snapshot_details" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf). 
+Para obter a sintaxe do comando e das saídas, consulte "listar instantâneos-azure_hana_snapshot_details" em [Microsoft snapshot Tools para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
 
 
@@ -336,7 +336,7 @@ Uma segunda opção para excluir instantâneos específicos é usar o script `az
 
 <!-- hana, logs and boot are no spelling errors as Acrolinx indicates, but terms of parameter values -->
 
-Para obter mais informações sobre o script, consulte "excluir um instantâneo-azure_hana_snapshot_delete" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/snapshot_tools_v4.1/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20v4.1.pdf).
+Para obter mais informações sobre o script, consulte "excluir um instantâneo-azure_hana_snapshot_delete" nas [ferramentas de instantâneo da Microsoft para SAP Hana no Azure](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Execute o script como **raiz**do usuário.
 
@@ -363,7 +363,7 @@ Em uma situação diferente, uma recuperação pontual pode ser baixa urgência 
 
 Antes de enviar a solicitação, você precisa se preparar. A SAP HANA na equipe do Azure pode manipular a solicitação e fornecer os volumes restaurados. Depois disso, você restaura o banco de dados do HANA com base nos instantâneos.
 
-Para as possibilidades de obter um instantâneo restaurado com o novo conjunto de ferramentas, consulte "como restaurar um instantâneo" no [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
+Para as possibilidades de obter um instantâneo restaurado com o novo conjunto de ferramentas, consulte "como restaurar um instantâneo" no [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
 Para se preparar para a solicitação, siga estas etapas.
 
@@ -389,17 +389,17 @@ Para se preparar para a solicitação, siga estas etapas.
 
 
 
-Outra possibilidade de obter, por exemplo, SAP HANA arquivos de dados recuperados de um instantâneo de armazenamento, está documentada na etapa 7 no [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf).
+Outra possibilidade de obter, por exemplo, SAP HANA arquivos de dados recuperados de um instantâneo de armazenamento, está documentada na etapa 7 no [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md).
 
-Para restaurar de um backup de instantâneo, consulte [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf). 
+Para restaurar de um backup de instantâneo, consulte [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
 >[!Note]
 >Se o instantâneo foi restaurado pelas operações da Microsoft, você não precisa fazer a etapa 7.
 
 
 ### <a name="recover-to-another-point-in-time"></a>Recuperar em outro ponto no tempo
-Para restaurar para um determinado ponto no tempo, consulte "recuperar o banco de dados para o seguinte ponto no tempo" no [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/guides/Manual%20recovery%20of%20snapshot%20with%20HANA%20Studio.pdf). 
+Para restaurar para um determinado ponto no tempo, consulte "recuperar o banco de dados para o seguinte ponto no tempo" no [Guia de recuperação manual para SAP Hana no Azure de um instantâneo de armazenamento](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Consulte [princípios e preparação de recuperação de desastre](hana-concept-preparation.md).

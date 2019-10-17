@@ -14,17 +14,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 87c64a98d783d2604c985017fbce586ed51e5c9d
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5be72a4125b276d85174a7a056cbbc2c23053e89
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025437"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388891"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em aplicativos móveis e serviços móveis
 > [!NOTE]
-> O Visual Studio App Center dá suporte a serviços de ponta a ponta e integrados central ao desenvolvimento de aplicativos móveis. Os desenvolvedores podem usar **Compilar**, **testar** e **distribuir** serviços para configurar o pipeline de integração e entrega contínua. Depois que o aplicativo é implantado, os desenvolvedores podem monitorar o status e o uso de seus aplicativos usando os serviços de **análise** e **diagnóstico** e se envolver com os usuários usando o serviço de **envio por push** . Os desenvolvedores também podem aproveitar a **autenticação** para autenticar seus usuários e o serviço de **dados** para manter e sincronizar dados de aplicativos na nuvem.
-> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com App Center [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje.
+> O Visual Studio App Center suporta serviços de ponto a ponto e integrados, fundamentais para o desenvolvimento de aplicações móveis. Os programadores podem utilizar os serviços de **Compilação**, **Teste** e **Distribuição** para configurar o pipeline de Integração e Entrega Contínuas. Após a implementação da aplicação, os programadores podem monitorizar o estado e a utilização da aplicação através dos serviços de **Análise** e de **Diagnóstico** e interagir com os utilizadores através do serviço **Push**. Os programadores também podem tirar partido da **Autenticação** para autenticar os utilizadores e do serviço de **Dados** para manter e sincronizar os dados da aplicação na cloud.
+>
+> Se você estiver procurando integrar os serviços de nuvem em seu aplicativo móvel, Inscreva-se com o [app Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) hoje mesmo.
 
 A versão mais recente dos serviços móveis do Azure é o recurso de **aplicativos móveis** do serviço de Azure app.
 
@@ -40,7 +41,7 @@ Por exemplo:
 
 OBTER https://service.azurewebsites.net/tables/TodoItem
 
-CONECTOR ZUMO-API-VERSION: 2.0.0
+CABEÇALHOS: ZUMO-API-VERSION: 2.0.0
 
 POSTAR https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
@@ -54,7 +55,7 @@ Você pode recusar a verificação de versão definindo um valor de **true** par
 ### <a name="MobileAppsClients"></a>SDKs de cliente de *aplicativos* móveis
 A verificação de versão foi introduzida a partir das seguintes versões do SDK do cliente para **aplicativos móveis do Azure**:
 
-| Plataforma de cliente | Version | Valor do cabeçalho da versão |
+| Plataforma de cliente | Versão | Valor do cabeçalho da versão |
 | --- | --- | --- |
 | Cliente gerenciado (Windows, Xamarin) |[2.0.0](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/2.0.0) |2.0.0 |
 | iOS |[3.0.0](https://go.microsoft.com/fwlink/?LinkID=529823) |2.0.0 |
@@ -65,17 +66,17 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 
 | Plataforma de servidor | SDK | Cabeçalho de versão aceito |
 | --- | --- | --- |
-| .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
-| Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
+| .NET |[Microsoft. Azure. Mobile. Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
+| Node.js |[Azure-Mobile-Apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento de back-ends de aplicativos móveis
 | ZUMO-VERSÃO DE API | Valor de MS_SkipVersionCheck | Resposta |
 | --- | --- | --- |
-| x. y. z ou NULL |True |200 - OK |
+| x. y. z ou NULL |Verdadeiro |200-OK |
 | Null |False/não especificado |400 – Pedido Incorreto |
-| 1.x.y |False/não especificado |400 – Pedido Incorreto |
-| 2.0.0-2.x.y |False/não especificado |200 - OK |
-| 3.0.0-3.x.y |False/não especificado |400 – Pedido Incorreto |
+| 1. x. y |False/não especificado |400 – Pedido Incorreto |
+| 2.0.0-2. x. y |False/não especificado |200-OK |
+| 3.0.0-3. x. y |False/não especificado |400 – Pedido Incorreto |
 
 [Mobile Services clients]: #MobileServicesClients
 [Mobile Apps clients]: #MobileAppsClients

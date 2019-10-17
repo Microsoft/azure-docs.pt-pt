@@ -1,6 +1,6 @@
 ---
-title: 'Referência da API do Azure Status Monitor v2: Definir configuração | Microsoft Docs'
-description: Referência da API do Status Monitor v2. Set-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
+title: 'Referência da API do agente do insights Aplicativo Azure: set config | Microsoft Docs'
+description: Referência de API do agente Application Insights. Set-ApplicationInsightsMonitoringConfig. Monitore o desempenho do site sem reimplantar o site. Funciona com aplicativos Web ASP.NET hospedados localmente, em VMs ou no Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 6d93be5b01be63a75041b939f6b8deb9106c4262
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 2ab941b5587a8836f1e472fbce3966b12bfa1e11
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200441"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388262"
 ---
-# <a name="status-monitor-v2-api-set-applicationinsightsmonitoringconfig"></a>API Status Monitor v2: Set-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>API do agente de Application Insights: Set-ApplicationInsightsMonitoringConfig
 
 Este documento descreve um cmdlet que é membro do [módulo AZ. ApplicationMonitor do PowerShell](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -43,11 +43,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Exemplo com um mapa de chave de instrumentação
 Neste exemplo:
-- `MachineFilter`corresponde ao computador atual usando o `'.*'` caractere curinga.
-- `AppFilter='WebAppExclude'`fornece uma `null` chave de instrumentação. O aplicativo especificado não será instrumentado.
-- `AppFilter='WebAppOne'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- `AppFilter='WebAppTwo'`atribui ao aplicativo especificado uma chave de instrumentação exclusiva.
-- Por fim `AppFilter` , o também `'.*'` usa o curinga para corresponder a todos os aplicativos Web que não são compatíveis com as regras anteriores e atribuir uma chave de instrumentação padrão.
+- `MachineFilter` corresponde ao computador atual usando o curinga `'.*'`.
+- `AppFilter='WebAppExclude'` fornece uma chave de instrumentação `null`. O aplicativo especificado não será instrumentado.
+- `AppFilter='WebAppOne'` atribui a um aplicativo especificado uma chave de instrumentação exclusiva.
+- `AppFilter='WebAppTwo'` atribui a um aplicativo especificado uma chave de instrumentação exclusiva.
+- Por fim, `AppFilter` também usa o curinga `'.*'` para corresponder a todos os aplicativos Web que não são correspondentes pelas regras anteriores e atribuir uma chave de instrumentação padrão.
 - Os espaços são adicionados para facilitar a leitura.
 
 ```powershell
@@ -85,11 +85,11 @@ Você pode criar um único script de instalação para vários computadores defi
     - Deixe esse valor NULL se você quiser definir regras para excluir o monitoramento.
 
 
-### <a name="-verbose"></a>-Verbose
+### <a name="-verbose"></a>-Detalhado
 **Parâmetro comum.** Use essa opção para exibir logs detalhados.
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>Saída
 
 Por padrão, nenhuma saída.
 
@@ -122,7 +122,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 ## <a name="next-steps"></a>Passos seguintes
 
   Ver a telemetria:
- - [Explore](../../azure-monitor/app/metrics-explorer.md) as métricas para monitorar o desempenho e o uso.
+ - [Explore as métricas](../../azure-monitor/app/metrics-explorer.md) para monitorar o desempenho e o uso.
 - [Pesquise eventos e logs](../../azure-monitor/app/diagnostic-search.md) para diagnosticar problemas.
 - [Use a análise](../../azure-monitor/app/analytics.md) para consultas mais avançadas.
 - [Crie painéis](../../azure-monitor/app/overview-dashboard.md).
@@ -132,7 +132,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 - [Adicione telemetria de cliente Web](../../azure-monitor/app/javascript.md) para ver exceções do código de página da Web e para habilitar chamadas de rastreamento.
 - [Adicione o SDK do Application insights ao seu código](../../azure-monitor/app/asp-net.md) para que você possa inserir chamadas de rastreamento e log
  
- Faça mais com Status Monitor v2:
- - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) status monitor v2.
+ Faça mais com Application Insights agente:
+ - Use nosso guia para [solucionar problemas](status-monitor-v2-troubleshoot.md) do Application insights Agent.
  - [Obtenha a configuração](status-monitor-v2-api-get-config.md) para confirmar que as configurações foram registradas corretamente.
  - [Obtenha o status](status-monitor-v2-api-get-status.md) para inspecionar o monitoramento.

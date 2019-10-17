@@ -9,21 +9,21 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: b00e38259bc3fe8cb6998c64ec453a17963a5ee5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 77e731c1f737b579c68a0eba74fe9918b3f370d3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595783"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388143"
 ---
-# <a name="glossary"></a>Glossário
+# <a name="custom-translator-glossary"></a>Glossário do tradutor personalizado
 
 O Glossário do [Tradutor personalizado](https://portal.customtranslator.azure.ai) explica os termos que você pode encontrar enquanto trabalha com o tradutor personalizado.
 
 | **Palavra ou frase**       | **Definição**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Idioma de origem          | O idioma de origem é o idioma com o qual você está começando e deseja converter em outro idioma (o "destino").                                                                                                                                                                                                                                                                                                                                                         |
-| Idioma de Destino          | O idioma de destino é o idioma que você deseja que a tradução automática forneça depois de receber o idioma de origem.                                                                                                                                                                                                                                                                                                                                               |
+| Idioma de destino          | O idioma de destino é o idioma que você deseja que a tradução automática forneça depois de receber o idioma de origem.                                                                                                                                                                                                                                                                                                                                               |
 | Arquivo multilíngue         | Um arquivo multilíngue tem um único idioma que não é emparelhado com outro arquivo de um idioma diferente.                                                                                                                                                                                                                                                                                                                                                                 |
 | Arquivos paralelos           | Um arquivo paralelo é uma combinação de dois arquivos com o texto correspondente. Um arquivo tem o idioma de origem. O outro tem o idioma de destino.                                                                                                                                                                                                                                                                                                                                         |
 | Alinhamento de frase       | O conjunto de tempo paralelo deve ter frases alinhadas a frases que representam o mesmo texto em ambos os idiomas. Por exemplo, em um arquivo paralelo de origem, a primeira sentença deve, teoricamente, mapear para a primeira sentença no arquivo paralelo de destino.                                                                                                                                                                                                                               |

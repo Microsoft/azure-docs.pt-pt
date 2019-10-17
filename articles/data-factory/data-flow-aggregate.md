@@ -3,60 +3,86 @@ title: Transformação Agregação no fluxo de dados de mapeamento-Azure Data Fa
 description: Saiba como agregar dados em escala em Azure Data Factory com a transformação agregar fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/01/2019
-ms.openlocfilehash: 1dcc28313d1d8e59024fbc70738567cb59585d20
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 10/15/2019
+ms.openlocfilehash: 3f2a3219a731133ecaedf30fec1854f1a128caa3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326475"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431601"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação Agregação no fluxo de dados de mapeamento 
 
-
-
-A transformação agregação é onde você definirá agregações de colunas em seus fluxos de dados. Usando o construtor de expressões, você pode definir diferentes tipos de agregações como SUM, MIN, MAX e COUNT que podem ser agrupados por colunas computadas ou existentes.
+A transformação Agregação define as agregações de colunas em seus fluxos de dados. Usando o construtor de expressões, você pode definir diferentes tipos de agregações como SUM, MIN, MAX e COUNT agrupados por colunas computadas ou existentes.
 
 ## <a name="group-by"></a>Agrupar por
-Selecione uma coluna existente ou crie uma nova coluna computada para usar como uma cláusula Group by para sua agregação. Para usar uma coluna existente, selecione a coluna desejada na lista suspensa. Para criar uma nova coluna computada, passe o mouse sobre a cláusula e clique em ' coluna computada '. Isso abrirá o [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md). Depois de criar a coluna computada, insira o nome da coluna de saída no campo ' nome como '. Se você quiser adicionar uma cláusula Group by adicional, passe o mouse sobre uma cláusula existente e clique em ' + '.
 
-![Grupo de transformação agregado por]configurações(media/data-flow/agg.png "grupo de transformação agregado por configurações")
+Selecione uma coluna existente ou crie uma nova coluna computada para usar como uma cláusula Group by para sua agregação. Para usar uma coluna existente, selecione-a na lista suspensa. Para criar uma nova coluna computada, passe o mouse sobre a cláusula e clique em **coluna computada**. Isso abre o [Construtor de expressões de fluxo de dados](concepts-data-flow-expression-builder.md). Depois de criar a coluna computada, insira o nome da coluna de saída sob o campo **nome como** . Se você quiser adicionar uma cláusula Group by adicional, passe o mouse sobre uma cláusula existente e clique no ícone de adição.
 
-> [!NOTE]
-> Uma cláusula Group by é opcional em uma transformação Agregação.
+![Grupos de transformação agregados por configurações](media/data-flow/agg.png "Grupos de transformação agregados por configurações")
+
+Uma cláusula Group by é opcional em uma transformação Agregação.
 
 ## <a name="aggregate-column"></a>Coluna de agregação 
-Escolha a guia ' agregações ' para criar expressões de agregação. Você pode escolher uma coluna existente e substituir o valor pela agregação ou criar um novo campo com um novo nome. A expressão de agregação é inserida na caixa à direita ao lado do seletor de nome de coluna. Para editar a expressão, clique na caixa de texto para abrir o construtor de expressões. Para adicionar uma agregação adicional, passe o mouse sobre uma expressão existente e clique em ' + ' para criar um novo [padrão](concepts-data-flow-column-pattern.md)de coluna ou coluna de agregação.
 
-![](media/data-flow/agg2.png "Configurações de") agregação de transformação agregadas configurações de agregação agregadas
+Vá para a guia **agregações** para criar expressões de agregação. Você pode substituir uma coluna existente por uma agregação ou criar um novo campo com um novo nome. A expressão de agregação é inserida na caixa à direita ao lado do seletor de nome de coluna. Para editar a expressão, clique na caixa de texto para abrir o construtor de expressões. Para adicionar agregações adicionais, passe o mouse sobre uma expressão existente e clique no ícone de adição para criar uma nova coluna de agregação ou [padrão de coluna](concepts-data-flow-column-pattern.md).
 
-> [!NOTE]
-> Cada expressão de agregação deve conter pelo menos uma função de agregação.
+Cada expressão de agregação deve conter pelo menos uma função de agregação.
+
+![Configurações de agregação de transformação Agregação](media/data-flow/agg2.png "Configurações de agregação de transformação Agregação")
+
 
 > [!NOTE]
 > No modo de depuração, o construtor de expressões não pode produzir visualizações de dados com funções de agregação. Para exibir visualizações de dados para transformações agregadas, feche o construtor de expressões e exiba os dados por meio da guia ' Data preview '.
 
 ## <a name="reconnect-rows-and-columns"></a>Reconectar linhas e colunas
-As transformações agregadas são bastante equivalentes às consultas SELECT de agregação SQL. As colunas que não estão incluídas em sua cláusula Group by ou funções de agregação não fluirão para a saída da transformação Agregação. Se houver outras colunas que você deseja incluir com a saída de linhas agregadas, você deverá:
 
-* Use uma função de agregação para incluir essa coluna adicional, como Last () ou First ()
-* Ingresse novamente as colunas antes da agregação usando o [padrão de autojunção](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
+As transformações agregadas são semelhantes às consultas SELECT de agregação do SQL. As colunas que não estão incluídas em sua cláusula Group by ou funções de agregação não fluirão para a saída da transformação Agregação. Se você quiser incluir outras colunas em sua saída agregada, execute um dos seguintes métodos:
+
+* Use uma função de agregação como `last()` ou `first()` para incluir essa coluna adicional.
+* Reingresse as colunas no fluxo de saída usando o [padrão de autojunção](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 
-![](media/data-flow/aggdfs1.png "Script de fluxo de dados de agregação") de script de fluxo de dados
-
-* ```MoviesYear```: coluna derivada definindo colunas year e title
-* ```AvgComedyRatingByYear```: transformação agregação para classificação média de Comedies agrupadas por ano
-* ```avgrating```: nome da nova coluna que está sendo criada para conter o valor agregado
+### <a name="syntax"></a>Sintaxe
 
 ```
-MoviesYear aggregate(groupBy(year),
-    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
+<incomingStream>
+    aggregate(
+           groupBy(
+                <groupByColumnName> = <groupByExpression1>,
+                <groupByExpression2>
+               ),
+           <aggregateColumn1> = <aggregateExpression1>,
+           <aggregateColumn2> = <aggregateExpression2>,
+           each(
+                match(matchExpression),
+                <metadataColumn1> = <metadataExpression1>,
+                <metadataColumn2> = <metadataExpression2>
+               )
+          ) ~> <aggregateTransformationName>
 ```
-  
+
+### <a name="example"></a>Exemplo
+
+O exemplo abaixo usa um fluxo de entrada `MoviesYear` e agrupa as linhas por coluna `year`. A transformação cria uma coluna de agregação `avgrating` que é avaliada como a média da coluna `Rating`. Essa transformação agregada é denominada `AvgComedyRatingsByYear`. No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+
+![Agrupar por exemplo](media/data-flow/agg-script1.png "Agrupar por exemplo")
+
+![Exemplo de agregação](media/data-flow/agg-script2.png "Exemplo de agregação")
+
+O script de fluxo de dados para essa transformação está no trecho de código abaixo.
+
+```
+MoviesYear aggregate(
+                groupBy(year),
+                avgrating = avg(toInteger(Rating))
+            ) ~> AvgComedyRatingByYear
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * Definir a agregação baseada em janela usando a [transformação janela](data-flow-window.md)
