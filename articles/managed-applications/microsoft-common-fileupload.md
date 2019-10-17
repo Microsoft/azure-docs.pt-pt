@@ -1,6 +1,6 @@
 ---
 title: Elemento de interface do usuário do Azure FileUpload | Microsoft Docs
-description: Descreve o elemento Microsoft. Common. FileUpload da interface do usuário para portal do Azure.
+description: Descreve o elemento Microsoft. Common. FileUpload da interface do usuário para portal do Azure. Permite que os usuários carreguem arquivos ao implantar um aplicativo gerenciado.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828006"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331705"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elemento de interface do usuário Microsoft. Common. FileUpload
 Um controle que permite que um usuário especifique um ou mais arquivos a serem carregados.
 
 ## <a name="ui-sample"></a>Exemplo de interface do usuário
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+![Microsoft. Common. FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -49,7 +49,7 @@ Um controle que permite que um usuário especifique um ou mais arquivos a serem 
 
 ## <a name="remarks"></a>Observações
 - `constraints.accept` especifica os tipos de arquivos que são mostrados na caixa de diálogo arquivo do navegador. Consulte a [especificação do HTML5](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) para obter os valores permitidos. O valor padrão é **NULL**.
-- Se `options.multiple` for definido como **true**, o usuário poderá selecionar mais de um arquivo na caixa de diálogo de arquivo do navegador. O valor predefinido é **false**.
+- Se `options.multiple` for definido como **true**, o usuário poderá selecionar mais de um arquivo na caixa de diálogo de arquivo do navegador. O valor padrão é **false**.
 - Esse elemento dá suporte ao carregamento de arquivos em dois modos com base no valor de `options.uploadMode`. Se o **arquivo** for especificado, a saída terá o conteúdo do arquivo como um blob. Se a **URL** for especificada, o arquivo será carregado em um local temporário e a saída terá a URL do blob. Os BLOBs temporários serão limpos após 24 horas. O valor padrão é **File**.
 - Um arquivo carregado está protegido. A URL de saída inclui um [token SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para acessar o arquivo durante a implantação.
 - O valor de `options.openMode` determina como o arquivo é lido. Se for esperado que o arquivo seja de texto sem formatação, especifique o **texto**; caso contrário, especifique **Binary**. O valor padrão é **Text**.

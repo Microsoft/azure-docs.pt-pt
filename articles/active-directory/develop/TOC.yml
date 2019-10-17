@@ -345,6 +345,8 @@
               href: active-directory-how-applications-are-added.md
             - name: Redirecionar restrições e limitações de URI/URI de resposta
               href: reply-url.md
+            - name: Diferenças de validação por tipos de conta suportados
+              href: supported-accounts-validation.md
             - name: Aplicações de inquilino único e multi-inquilino
               href: single-and-multi-tenant-apps.md
         - name: Permissões e consentimento

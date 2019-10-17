@@ -12,12 +12,12 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   monikerRange: ''
-  ms.openlocfilehash: 2bd0c4f7230b47c38f8aa75ace0870ac9cd87737
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 34a27a3339112688bec767954a1a6fe722ee3c53
+  ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72242259"
+  ms.lasthandoff: 10/16/2019
+  ms.locfileid: "72386994"
 landingContent:
 - title: Acerca do Azure Data Factory
   linkLists:
@@ -89,7 +89,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: O que é o Mapeamento de Fluxos de Dados?
+    - text: O que são fluxos de dados de mapeamento?
       url: /azure/data-factory/concepts-data-flow-overview
   - linkListType: tutorial
     links:

@@ -80,7 +80,7 @@
           items:
             - name: Ferramenta Copiar Dados
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: Transformar os dados com o Fluxo de Dados de Mapeamento
+    - name: Transformar dados com o fluxo de dados de mapeamento
       href: tutorial-data-flow.md
     - name: Transformar dados na cloud
       items:
@@ -143,7 +143,7 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Runtime de integração
       href: concepts-integration-runtime.md
-    - name: Mapeamento de Fluxos de Dados
+    - name: Fluxos de dados de mapeamento
       items:
         - name: Descrição geral do fluxo de dados de mapeamento
           href: concepts-data-flow-overview.md
@@ -616,7 +616,7 @@
           href: data-migration-guidance-hdfs-azure-storage.md
         - name: Migrar dados do servidor Netezza no local para o Azure
           href: data-migration-guidance-netezza-azure-sqldw.md
-    - name: Transformação com o Fluxo de Dados de Mapeamento
+    - name: Transformação com o fluxo de dados de mapeamento
       items:
         - name: Processar ficheiros de texto de largura fixa
           href: how-to-fixed-width.md

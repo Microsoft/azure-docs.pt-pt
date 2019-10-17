@@ -1,21 +1,21 @@
 ---
-title: Cláusula ORDER BY na Azure Cosmos DB
-description: Saiba mais sobre a cláusula SQL ORDER BY para o Azure Cosmos DB. Utilize o SQL como uma linguagem de consulta JSON do Azure Cosmos DB.
+title: Cláusula ORDER BY no Azure Cosmos DB
+description: Saiba mais sobre a cláusula ORDER BY do SQL para Azure Cosmos DB. Use SQL como uma linguagem de consulta JSON Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: d0a1ed33d5848c3ed8d5f83af8b320d77fe0dc65
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342701"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326841"
 ---
-# <a name="order-by-clause"></a>Cláusula ORDER BY
+# <a name="order-by-clause-in-azure-cosmos-db"></a>Cláusula ORDER BY no Azure Cosmos DB
 
-A cláusula ORDER BY opcional especifica a ordem de classificação para obter os resultados devolvidos pela consulta.
+A cláusula ORDER BY opcional especifica a ordem de classificação dos resultados retornados pela consulta.
 
 ## <a name="syntax"></a>Sintaxe
   
@@ -29,31 +29,31 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   Especifica uma expressão no qual ordenar o conjunto de resultados de consulta ou de propriedade. Uma coluna de ordenação pode ser especificada como um alias de nome ou propriedade.  
+   Especifica uma propriedade ou expressão na qual classificar o conjunto de resultados da consulta. Uma coluna de classificação pode ser especificada como um nome ou alias de propriedade.  
   
-   É possível especificar várias propriedades. Nomes de propriedade tem de ser exclusivos. A sequência das propriedades do tipo na cláusula ORDER BY define a organização do conjunto de resultados classificados. Ou seja, o conjunto de resultados é ordenado pela primeira propriedade e, em seguida, essa lista ordenada é ordenada pela propriedade segundo e assim por diante.  
+   Várias propriedades podem ser especificadas. Os nomes de propriedade devem ser exclusivos. A sequência das propriedades de classificação na cláusula ORDER BY define a organização do conjunto de resultados classificado. Ou seja, o conjunto de resultados é classificado pela primeira propriedade e, em seguida, essa lista ordenada é classificada pela segunda propriedade e assim por diante.  
   
-   Os nomes de propriedade referenciados na cláusula ORDER BY tem de corresponder a qualquer um de uma propriedade na lista de seleção ou para uma propriedade definida na coleção especificada na cláusula FROM sem qualquer ambigüidade.  
+   Os nomes de propriedade referenciados na cláusula ORDER BY devem corresponder a uma propriedade na lista de seleção ou a uma propriedade definida na coleção especificada na cláusula FROM sem nenhuma ambiguidade.  
   
 - `<sort_expression>`  
   
-   Especifica um ou mais propriedades ou expressões no qual ordenar o conjunto de resultados de consulta.  
+   Especifica uma ou mais propriedades ou expressões nas quais classificar o conjunto de resultados da consulta.  
   
 - `<scalar_expression>`  
   
-   Consulte a [expressões escalares](sql-query-scalar-expressions.md) secção para obter detalhes.  
+   Consulte a seção [expressões escalares](sql-query-scalar-expressions.md) para obter detalhes.  
   
 - `ASC | DESC`  
   
-   Especifica que os valores na coluna especificada devem ser classificados em ordem ascendente ou descendente. ASC ordena a partir do valor mais baixo valor mais alto. DESC ordena a partir do valor mais alto valor mais baixo. ASC é a ordem de classificação padrão. Valores nulos são tratados como os valores possíveis mais baixos.  
+   Especifica que os valores na coluna especificada devem ser classificados em ordem crescente ou decrescente. ASC classifica o valor mais baixo para o valor mais alto. DESC classifica o valor mais alto para o valor mais baixo. ASC é a ordem de classificação padrão. Os valores nulos são tratados como os valores mais baixos possíveis.  
   
 ## <a name="remarks"></a>Observações  
   
-   A cláusula ORDER BY requer que a política de indexação incluem um índice para os campos que está a ser ordenados. O tempo de execução de consulta do Azure Cosmos DB suporta a classificação em relação a um nome de propriedade e não contra as propriedades calculadas. Azure Cosmos DB suporta várias propriedades de ORDER BY. Para executar uma consulta com várias propriedades de ORDER BY, deve definir um [índice composto](index-policy.md#composite-indexes) nos campos de que está a ser ordenados.
+   A cláusula ORDER BY requer que a política de indexação inclua um índice para os campos que estão sendo classificados. O tempo de execução de Azure Cosmos DB consulta dá suporte à classificação em relação a um nome de propriedade e não a Propriedades computadas. Azure Cosmos DB dá suporte a várias propriedades ORDER BY. Para executar uma consulta com várias propriedades ORDER BY, você deve definir um [índice composto](index-policy.md#composite-indexes) nos campos que estão sendo classificados.
 
 ## <a name="examples"></a>Exemplos
 
-Por exemplo, eis uma consulta que obtém as famílias em ordem ascendente do nome da cidade residente:
+Por exemplo, aqui está uma consulta que recupera famílias em ordem crescente do nome da cidade residente:
 
 ```sql
     SELECT f.id, f.address.city
@@ -76,7 +76,7 @@ Os resultados são:
     ]
 ```
 
-A seguinte consulta obtém família `id`s por ordem de sua data de criação de item. Item `creationDate` é um número que representa o *hora "Epoch"* , ou o tempo decorrido desde 1 de Janeiro de 1970 em segundos.
+A consulta a seguir recupera a família `id`s na ordem de sua data de criação do item. O item `creationDate` é um número que representa o *tempo de época*ou tempo decorrido desde Jan. 1, 1970 em segundos.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -99,7 +99,7 @@ Os resultados são:
     ]
 ```
 
-Além disso, pode ordenar por várias propriedades. Necessita de uma consulta que ordena por várias propriedades de um [índice composto](index-policy.md#composite-indexes). Considere a seguinte consulta:
+Além disso, você pode ordenar por várias propriedades. Uma consulta que ordena por várias propriedades requer um [índice composto](index-policy.md#composite-indexes). Considere a seguinte consulta:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -107,9 +107,9 @@ Além disso, pode ordenar por várias propriedades. Necessita de uma consulta qu
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-Esta consulta obtém a família `id` em ordem ascendente do nome de cidade. Se vários itens têm o mesmo nome de cidade, a consulta será ordenar pelo `creationDate` por ordem descendente.
+Essa consulta recupera a família `id` em ordem crescente do nome da cidade. Se vários itens tiverem o mesmo nome de cidade, a consulta será ordenada pelo `creationDate` em ordem decrescente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Introdução](sql-query-getting-started.md)
 - [Cláusula SELECT](sql-query-select.md)

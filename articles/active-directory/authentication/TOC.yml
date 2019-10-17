@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: Sem palavra-passe
       items:
+        - name: Implementar sem palavra-passe
+          href: howto-authentication-passwordless-deployment.md
         - name: Chaves de segurança sem palavra-passe
           href: howto-authentication-passwordless-security-key.md
         - name: Início de sessão no telefone sem palavra-passe

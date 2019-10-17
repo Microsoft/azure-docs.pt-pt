@@ -9,12 +9,12 @@ ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3c27c268ed2a1c369c9b42bd1cd5a2365547c52f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: e117c6f8aa8526392678f37a05ec61b55983a1c7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667467"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374424"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Soluções integradas de Gerenciamento de Atualizações, Controle de Alterações e inventário
 
@@ -47,7 +47,7 @@ Selecione **Gerenciamento de atualizações** em **Gerenciamento de atualizaçõ
 
 ![Carregar solução de atualização](media/automation-onboard-solutions-from-automation-account/onboardsolutions2.png)
 
-## <a name="scope-configuration"></a>Configuração de Âmbito
+## <a name="scope-configuration"></a>Configuração de escopo
 
 Cada solução usa uma configuração de escopo dentro do espaço de trabalho para direcionar os computadores que obtêm a solução. A configuração de escopo é um grupo de uma ou mais pesquisas salvas que são usadas para limitar o escopo da solução a computadores específicos. Para acessar as configurações de escopo, em sua conta de automação em **recursos relacionados**, selecione **espaço de trabalho**. Em seguida, no espaço de trabalho em **fontes de dados do espaço de trabalho**, selecione configurações de **escopo**.
 
@@ -55,24 +55,24 @@ Se o espaço de trabalho selecionado não tiver as soluções Gerenciamento de A
 
 * **MicrosoftDefaultScopeConfig-ChangeTracking**
 
-* **MicrosoftDefaultScopeConfig-Updates**
+* **MicrosoftDefaultScopeConfig-atualizações**
 
 Se o espaço de trabalho selecionado já tiver a solução, a solução não será reimplantada e a configuração de escopo não será adicionada a ela.
 
-## <a name="saved-searches"></a>Pesquisas guardadas
+## <a name="saved-searches"></a>Pesquisas salvas
 
 Quando um computador é adicionado ao Gerenciamento de Atualizações ou às soluções de Controle de Alterações e inventário, eles são adicionados a uma das duas pesquisas salvas em seu espaço de trabalho. Essas pesquisas salvas são consultas que contêm os computadores que são direcionados para essas soluções.
 
 Navegue até sua conta de automação e selecione **pesquisas salvas** em **geral**. As duas pesquisas salvas usadas por essas soluções podem ser vistas na tabela a seguir:
 
-|Nome     |Category  |Alias  |
+|Nome     |Categoria  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Atualizações        | Updates__MicrosoftDefaultComputerGroup         |
 
 Selecione a pesquisa salva para exibir a consulta usada para popular o grupo. A imagem a seguir mostra a consulta e seus resultados:
 
-![Pesquisas guardadas](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
+![Pesquisas salvas](media/automation-onboard-solutions-from-automation-account/savedsearch.png)
 
 ## <a name="onboard-azure-vms"></a>Carregar VMs do Azure
 
@@ -94,7 +94,7 @@ Computadores ou máquinas instalados manualmente que já estão se comunicando a
 
 Selecione **gerenciar computadores**. Essa ação abre a página **gerenciar computadores** . Esta página permite que você habilite a solução em um conjunto selecionado de computadores, em todos os computadores disponíveis ou habilite a solução para todos os computadores atuais e habilite-o em todos os computadores futuros. O botão **gerenciar máquinas** pode ficar esmaecido se você tiver escolhido a opção **habilitar em todos os computadores disponíveis e futuros**.
 
-![Pesquisas guardadas](media/automation-onboard-solutions-from-automation-account/managemachines.png)
+![Pesquisas salvas](media/automation-onboard-solutions-from-automation-account/managemachines.png)
 
 ### <a name="all-available-machines"></a>Todos os computadores disponíveis
 
@@ -106,7 +106,7 @@ Para habilitar a solução para todos os computadores disponíveis e futuros, se
 
 Você pode adicionar as configurações de escopo de volta adicionando as pesquisas iniciais salvas de volta. Para obter mais informações, consulte [pesquisas salvas](#saved-searches).
 
-### <a name="selected-machines"></a>Máquinas selecionadas
+### <a name="selected-machines"></a>Computadores selecionados
 
 Para habilitar a solução para um ou mais computadores, selecione **habilitar em computadores selecionados** e clique em **Adicionar** ao lado de cada computador que você deseja adicionar à solução. Essa tarefa adiciona os nomes de computador selecionados à consulta de pesquisa salva do grupo de computadores para a solução.
 
@@ -116,7 +116,7 @@ As soluções a seguir são dependentes de um espaço de trabalho Log Analytics:
 
 * [Gestão de Atualizações](automation-update-management.md)
 * [Monitorização de Alterações](automation-change-tracking.md)
-* [Iniciar/parar VMs fora do horário de expediente](automation-solution-vm-management.md)
+* [Iniciar/Parar VMs fora do horário comercial](automation-solution-vm-management.md)
 
 Se você decidir que não deseja mais integrar sua conta de automação a um espaço de trabalho Log Analytics, você poderá desvincular sua conta diretamente da portal do Azure.  Antes de continuar, primeiro você precisa remover as soluções mencionadas anteriormente; caso contrário, esse processo será impedido de continuar. Examine o artigo da solução específica que você importou para entender as etapas necessárias para removê-lo.
 
@@ -148,6 +148,13 @@ Se você usou a solução iniciar e parar VMs fora do horário comercial, opcion
 * Variáveis
 
 Como alternativa, você também pode desvincular seu espaço de trabalho de sua conta de automação do seu espaço de trabalho Log Analytics. Em seu espaço de trabalho, selecione **conta de automação** em **recursos relacionados**. Na página conta de automação, selecione **desvincular conta**.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Para remover uma VM do Gerenciamento de Atualizações:
+
+* No espaço de trabalho Log Analytics, remova a VM da pesquisa salva para a configuração de escopo `MicrosoftDefaultScopeConfig-Updates`. As pesquisas salvas podem ser encontradas em **geral** em seu espaço de trabalho.
+* Remova o [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) ou o [agente de log Analytics para Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Passos seguintes
 

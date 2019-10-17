@@ -271,6 +271,8 @@
                   href: sql-database-xevent-code-event-file.md
                 - name: Eventos expandidos - memória intermédia em anel
                   href: sql-database-xevent-code-ring-buffer.md
+        - name: Diagnóstico de desempenho do Hyperscale
+          href: sql-database-hyperscale-performance-diagnostics.md
     - name: Escalabilidade
       items:
         - name: Documentação de escalabilidade

@@ -71,6 +71,10 @@
       items:
         - name: Gerir os seus recursos do Azure
           href: ./ansible-manage-azure-dynamic-inventories.md
+    - name: Máquinas virtuais
+      items:
+        - name: Criar Shared Image Gallery
+          href: ansible-vm-create-from-shared-generalized-image.md
     - name: Conjuntos de dimensionamento de máquinas virtuais
       items:
         - name: Configurar
@@ -81,6 +85,8 @@
           href: ./ansible-auto-scale-vmss.md
         - name: Atualizar imagem personalizada
           href: ./ansible-vmss-update-image.md
+        - name: Criar Shared Image Gallery
+          href: ansible-vm-create-from-shared-generalized-image.md
     - name: Rede virtual
       items:
         - name: Configurar o peering

@@ -1,6 +1,6 @@
 ---
-title: Elemento de interface do Usuário de lista pendente do Azure | Documentos da Microsoft
-description: Descreve o elemento de interface do Usuário de Microsoft.Common.DropDown para o portal do Azure.
+title: Elemento de interface do usuário da lista suspensa do Azure | Microsoft Docs
+description: Descreve o elemento Microsoft. Common. DropDown da interface do usuário para portal do Azure. Use para selecionar as opções disponíveis ao implantar um aplicativo gerenciado.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5784b5df9b522f0489ca1f6087627b45cec5349d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117306"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331747"
 ---
-# <a name="microsoftcommondropdown-ui-element"></a>Elemento de interface do Usuário de Microsoft.Common.DropDown
-Um controlo de seleção com uma lista suspensa.
+# <a name="microsoftcommondropdown-ui-element"></a>Elemento de interface do usuário Microsoft. Common. DropDown
+Um controle de seleção com uma lista suspensa.
 
-## <a name="ui-sample"></a>Exemplo de interface do Usuário
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
+## <a name="ui-sample"></a>Exemplo de interface do usuário
+![Menu suspenso Microsoft. Common.](./media/managed-application-elements/microsoft.common.dropdown.png)
 
 ## <a name="schema"></a>Esquema
 ```json
@@ -53,16 +53,16 @@ Um controlo de seleção com uma lista suspensa.
 
 ## <a name="remarks"></a>Observações
 
-- A etiqueta de `constraints.allowedValues` é o texto de exibição para um item, e seu valor é o valor de saída do elemento quando selecionado.
-- Se for especificado, o valor predefinido tem de ser uma etiqueta presente no `constraints.allowedValues`. Se não for especificado, o primeiro item na `constraints.allowedValues` está selecionada. O valor predefinido é **nulo**.
-- `constraints.allowedValues` tem de ter pelo menos um item.
-- Para emular um valor não sendo necessário, adicione um item com uma etiqueta e valor de `""` (cadeia de caracteres vazia) para `constraints.allowedValues`.
+- O rótulo de `constraints.allowedValues` é o texto de exibição de um item e seu valor é o valor de saída do elemento quando selecionado.
+- Se especificado, o valor padrão deve ser um rótulo presente no `constraints.allowedValues`. Se não for especificado, o primeiro item em `constraints.allowedValues` será selecionado. O valor padrão é **NULL**.
+- `constraints.allowedValues` deve ter pelo menos um item.
+- Para emular um valor que não está sendo necessário, adicione um item com um rótulo e um valor de `""` (cadeia de caracteres vazia) a `constraints.allowedValues`.
 
 ## <a name="sample-output"></a>Resultado da amostra
 ```json
 "two"
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para obter uma introdução à criação de definições de interface do Usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
-* Para obter uma descrição das propriedades comuns em elementos de interface do Usuário, consulte [CreateUiDefinition elementos](create-uidefinition-elements.md).
+## <a name="next-steps"></a>Passos seguintes
+* Para obter uma introdução à criação de definições de interface do usuário, consulte [introdução ao CreateUiDefinition](create-uidefinition-overview.md).
+* Para obter uma descrição das propriedades comuns nos elementos da interface do usuário, consulte [elementos CreateUiDefinition](create-uidefinition-elements.md).
