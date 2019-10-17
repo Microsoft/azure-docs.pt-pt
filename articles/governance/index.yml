@@ -11,12 +11,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/10/2019
-  ms.openlocfilehash: 32fe6f5967c6f09b095fc1128d7ffa5007b03c59
-  ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+  ms.openlocfilehash: 926220dc7260798ed9b2ffd9f6317fc97be198ac
+  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/02/2019
-  ms.locfileid: "71802775"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72529525"
 highlightedContent:
   items:
   - title: Descrição geral da governação
@@ -191,7 +191,7 @@ additionalContent:
         url: https://rubygems.org/gems/azure_mgmt_resourcegraph
         note: (Gem)
       - text: REST
-        url: /rest/api/azureresourcegraph/resources/resources
+        url: /rest/api/azure-resourcegraph/
     - title: Gestão de Custos
       links:
       - text: REST

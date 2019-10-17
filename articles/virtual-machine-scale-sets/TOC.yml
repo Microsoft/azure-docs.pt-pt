@@ -150,8 +150,14 @@
     - name: Automatização de infraestruturas
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Segurança e política
-      href: ../virtual-machines/windows/security-policy.md
+    - name: Segurança
+      items:
+        - name: Segurança e política
+          href: ../virtual-machines/windows/security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Controlos de segurança incorporados
+          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Monitorização
       href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
           maintainContext: true
     - name: FAQ do Conjunto de Dimensionamento
       href: virtual-machine-scale-sets-faq.md
-    - name: Controlos de segurança incorporados
-      href: virtual-machine-scale-sets-security-controls.md
 - name: Procedimento
   items:
     - name: Planear e conceber
@@ -212,12 +216,15 @@
         - name: Encriptar discos em conjuntos de dimensionamento
           items:
             - name: Utilizar o PowerShell
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+              href: disk-encryption-powershell.md
             - name: Utilizar a CLI do Azure
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+              href: disk-encryption-cli.md
+            - name: Use Azure Resource Manager templates (Utilizar modelos do Azure Resource Manager)
+              href: disk-encryption-azure-resource-manager.md
             - name: Sequenciamento de extensão
-              href: ../security/azure-security-disk-encryption-extension-sequencing.md
-              maintainContext: true
+              href: disk-encryption-extension-sequencing.md
+            - name: Cofre de chaves para o Azure Disk Encryption
+              href: disk-encryption-key-vault.md
         - name: Trabalhar com conjuntos de dimensionamento de grande escala
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido

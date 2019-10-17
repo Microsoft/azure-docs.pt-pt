@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentação das Aplicações Geridas do Azure
 metadata:
-  title: 'Documentação das Aplicações Geridas do Azure - Tutoriais, Referência da API'
+  title: Documentação das Aplicações Geridas do Azure
   description: Utilize as Aplicações Geridas do Azure para publicar soluções cloud que os consumidores têm mais facilidade em manter.
   services: managed-applications
   author: tfitzmac
