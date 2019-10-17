@@ -1,24 +1,22 @@
 ---
 title: Executar o Azure Functions de um pacote | Microsoft Docs
 description: Faça com que o tempo de execução de Azure Functions execute suas funções montando um arquivo de pacote de implantação que contém os arquivos de projeto do aplicativo de funções.
-services: functions
-documentationcenter: na
 author: ggailey777
 manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: glenga
-ms.openlocfilehash: b6a2347ff79268cdaf54993952d59bd700b781bc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 549768473460dcb97b66c3589d71c02039220605
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095951"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389954"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Executar o Azure Functions de um arquivo de pacote
 
-No Azure, você pode executar suas funções diretamente de um arquivo de pacote de implantação em seu aplicativo de funções. A outra opção é implantar seus arquivos no `d:\home\site\wwwroot` diretório do seu aplicativo de funções.
+No Azure, você pode executar suas funções diretamente de um arquivo de pacote de implantação em seu aplicativo de funções. A outra opção é implantar seus arquivos no diretório `d:\home\site\wwwroot` do seu aplicativo de funções.
 
 Este artigo descreve os benefícios da execução de suas funções a partir de um pacote. Ele também mostra como habilitar essa funcionalidade em seu aplicativo de funções.
 
@@ -32,18 +30,18 @@ Há vários benefícios em executar a partir de um arquivo de pacote:
 + Reduz o risco de problemas de bloqueio de cópia de arquivo.
 + Pode ser implantado em um aplicativo de produção (com reinicialização).
 + Você pode ter alguns arquivos em execução em seu aplicativo.
-+ Melhora o desempenho de implantações de [Azure Resource Manager](functions-infrastructure-as-code.md).
++ Melhora o desempenho de [implantações de Azure Resource Manager](functions-infrastructure-as-code.md).
 + Pode reduzir os horários de início frio, especialmente para funções de JavaScript com árvores de pacote NPM de grande porte.
 
 Para obter mais informações, consulte [este comunicado](https://github.com/Azure/app-service-announcements/issues/84).
 
 ## <a name="enabling-functions-to-run-from-a-package"></a>Habilitando funções para execução a partir de um pacote
 
-Para permitir que seu aplicativo de funções seja executado a partir de um pacote, `WEBSITE_RUN_FROM_PACKAGE` basta adicionar uma configuração às configurações do aplicativo de funções. A `WEBSITE_RUN_FROM_PACKAGE` configuração pode ter um dos seguintes valores:
+Para permitir que seu aplicativo de funções seja executado a partir de um pacote, basta adicionar uma configuração `WEBSITE_RUN_FROM_PACKAGE` às configurações do aplicativo de funções. A configuração `WEBSITE_RUN_FROM_PACKAGE` pode ter um dos seguintes valores:
 
-| Value  | Descrição  |
+| Valor  | Descrição  |
 |---------|---------|
-| **`1`**  | Recomendado para aplicativos de funções em execução no Windows. Execute de um arquivo de pacote na `d:\home\data\SitePackages` pasta do seu aplicativo de funções. Se não estiver implantando [com a implantação de zip](#integration-with-zip-deployment), essa opção exigirá que a pasta `packagename.txt`também tenha um arquivo chamado. Esse arquivo contém apenas o nome do arquivo de pacote na pasta, sem nenhum espaço em branco. |
+| **`1`**  | Recomendado para aplicativos de funções em execução no Windows. Execute de um arquivo de pacote na pasta `d:\home\data\SitePackages` do seu aplicativo de funções. Se não estiver [implantando com a implantação de zip](#integration-with-zip-deployment), essa opção exigirá que a pasta também tenha um arquivo chamado `packagename.txt`. Esse arquivo contém apenas o nome do arquivo de pacote na pasta, sem nenhum espaço em branco. |
 |**`<url>`**  | Local de um arquivo de pacote específico que você deseja executar. Ao usar o armazenamento de BLOBs, você deve usar um contêiner privado com uma [SAS (assinatura de acesso compartilhado)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para permitir que o tempo de execução do Functions acesse o pacote. Você pode usar o [Gerenciador de armazenamento do Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) para carregar arquivos de pacote na sua conta de armazenamento de BLOBs.         |
 
 > [!CAUTION]
@@ -58,7 +56,7 @@ O seguinte mostra um aplicativo de funções configurado para ser executado a pa
 
 ## <a name="integration-with-zip-deployment"></a>Integração com a implantação de zip
 
-A [implantação de zip][Zip deployment for Azure Functions] é um recurso do serviço de Azure app que permite que você implante seu projeto `wwwroot` de aplicativo de funções no diretório. O projeto é empacotado como um arquivo de implantação. zip. As mesmas APIs podem ser usadas para implantar o pacote `d:\home\data\SitePackages` na pasta. Com o `WEBSITE_RUN_FROM_PACKAGE` valor de configuração do `1`aplicativo de, as APIs de implantação zip copiam `d:\home\data\SitePackages` o pacote para a pasta em vez de `d:\home\site\wwwroot`extrair os arquivos para o. Ele também cria o `packagename.txt` arquivo. O aplicativo de funções é então executado a partir do pacote após uma reinicialização e `wwwroot` torna-se somente leitura. Para obter mais informações sobre a implantação de zip, consulte [implantação de zip para Azure Functions](deployment-zip-push.md).
+A [implantação de zip][Zip deployment for Azure Functions] é um recurso do serviço de Azure app que permite que você implante seu projeto de aplicativo de funções no diretório `wwwroot`. O projeto é empacotado como um arquivo de implantação. zip. As mesmas APIs podem ser usadas para implantar o pacote na pasta `d:\home\data\SitePackages`. Com o valor de configuração de aplicativo `WEBSITE_RUN_FROM_PACKAGE` de `1`, as APIs de implantação zip copiam o pacote para a pasta `d:\home\data\SitePackages` em vez de extrair os arquivos para `d:\home\site\wwwroot`. Ele também cria o arquivo `packagename.txt`. Após uma reinicialização, o pacote é montado em `wwwroot` como um sistema de arquivos somente leitura. Para obter mais informações sobre a implantação de zip, consulte [implantação de zip para Azure Functions](deployment-zip-push.md).
 
 ## <a name="adding-the-website_run_from_package-setting"></a>Adicionando a configuração WEBSITE_RUN_FROM_PACKAGE
 
@@ -66,10 +64,10 @@ A [implantação de zip][Zip deployment for Azure Functions] é um recurso do se
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-- Executar do pacote torna `wwwroot` -se somente leitura, portanto, você receberá um erro ao gravar arquivos nesse diretório.
+- Executar do pacote torna `wwwroot` somente leitura, portanto, você receberá um erro ao gravar arquivos nesse diretório.
 - Não há suporte para formatos tar e gzip.
 - Esse recurso não compõe o cache local.
-- Para obter um desempenho de inicialização a frio aprimorado, use a`WEBSITE_RUN_FROM_PACKAGE`opção de zip local (= 1).
+- Para obter um desempenho de inicialização a frio aprimorado, use a opção de zip local (`WEBSITE_RUN_FROM_PACKAGE` = 1).
 
 ## <a name="next-steps"></a>Passos seguintes
 

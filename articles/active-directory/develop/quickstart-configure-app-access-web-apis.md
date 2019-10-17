@@ -16,14 +16,14 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 937fca5698378a8c877b4a981557f87d06170e9a
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879354"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389613"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início rápido: Configurar uma aplicação cliente para aceder a APIs Web.
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Início rápido: configurar um aplicativo cliente para acessar APIs Web
 
 Para que uma aplicação cliente Web/confidencial possa participar num fluxo de concessão de autorização que precise de autenticação (e obter um token de acesso), essa aplicação tem de estabelecer credenciais seguras. O método de autenticação predefinido que o portal do Azure suporta é ID de cliente + chave secreta.
 
@@ -58,7 +58,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
 1. Se sua conta fornecer acesso a mais de um locatário, selecione sua conta no canto superior direito e defina a sessão do portal para o locatário do Azure AD desejado.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** e, em seguida, selecione **registros de aplicativo**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
+1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição geral** da aplicação ou a página de registo principal.
 1. Siga os passos para configurar a aplicação para aceder às APIs Web:
     * [Adicionar URIs de redirecionamento à aplicação](#add-redirect-uris-to-your-application)
     * [Definir configurações avançadas para seu aplicativo](#configure-advanced-settings-for-your-application)
@@ -80,8 +80,9 @@ Para adicionar um URI de redirecionamento à aplicação:
 
 1. Para escolher de entre os URIs de Redirecionamento sugeridos para clientes públicos (móveis, ambiente de trabalho), siga estes passos:
     1. Localize a secção **URIs de Redirecionamento sugeridos para clientes públicos (móveis, ambiente de trabalho)** .
-    1. Utilize as caixas de verificação para selecionar o URI ou URIs de Redirecionamento adequados para a sua aplicação.
+    1. Utilize as caixas de verificação para selecionar o URI ou URIs de Redirecionamento adequados para a sua aplicação. Você também pode inserir um URI de redirecionamento personalizado. Se você não tiver certeza do que usar, confira a documentação da biblioteca.
 
+Há certas restrições que se aplicam a URIs de redirecionamento. Saiba mais sobre [restrições e limitações de URI de redirecionamento](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
 > [!NOTE]
 > Experimente a nova experiência de configurações de **autenticação** , na qual você pode definir configurações para seu aplicativo com base na plataforma ou no dispositivo que você deseja direcionar.
 >
@@ -112,11 +113,11 @@ Depois [de configurar os tipos de conta com suporte](quickstart-register-app.md)
 
 Para alterar os tipos de conta com suporte para um registro de aplicativo existente:
 
-* Consulte [Configurar o manifesto do aplicativo](reference-app-manifest.md) e atualizar `signInAudience` a chave.
+* Consulte [Configurar o manifesto do aplicativo](reference-app-manifest.md) e atualizar a chave `signInAudience`.
 
 ## <a name="configure-platform-settings-for-your-application"></a>Definir configurações de plataforma para seu aplicativo
 
-[![Definir configurações para seu aplicativo com base na plataforma ou no dispositivo](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
+[configurações de @no__t 1Configure para seu aplicativo com base na plataforma ou no dispositivo](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-expanded.png)](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations-small.png#lightbox)
 
 Para definir as configurações do aplicativo com base na plataforma ou no dispositivo, você está direcionando:
 
@@ -128,10 +129,10 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
 
    | Plataforma                | Durante              | Definições de configuração            |
    |-------------------------|----------------------|-----------------------------------|
-   | **Aplicações Web**    | **Web**              | Insira o **URI** de redirecionamento para seu aplicativo. |
+   | **Aplicações Web**    | **Web**              | Insira o **URI de redirecionamento** para seu aplicativo. |
    | **Aplicativos móveis** | **iOS**              | Insira a ID do **pacote**do aplicativo, que pode ser encontrada no Xcode no info. plist ou configurações de compilação. Adicionar a ID do pacote cria automaticamente um URI de redirecionamento para o aplicativo. |
    |                         | **Android**          | * Forneça o nome do **pacote**do aplicativo, que pode ser encontrado no arquivo AndroidManifest. xml.<br/>* Gerar e inserir o **hash de assinatura**. Adicionar o hash de assinatura cria automaticamente um URI de redirecionamento para o aplicativo.  |
-   | **Dispositivos desktop +**   | **Dispositivos desktop +** | Adicional. Selecione um dos **URIs** de redirecionamento sugeridos se você estiver criando aplicativos para desktops e dispositivos.<br/>Adicional. Insira um **URI**de redirecionamento personalizado, que é usado como o local onde o Azure ad redirecionará os usuários em resposta às solicitações de autenticação. Por exemplo, para aplicativos .NET Core em que você deseja interação, `https://localhost`use. |
+   | **Dispositivos desktop +**   | **Dispositivos desktop +** | Adicional. Selecione um dos URIs de **redirecionamento sugeridos** se você estiver criando aplicativos para desktops e dispositivos.<br/>Adicional. Insira um **URI de redirecionamento personalizado**, que é usado como o local onde o Azure ad redirecionará os usuários em resposta às solicitações de autenticação. Por exemplo, para aplicativos .NET Core em que você deseja interação, use `https://localhost`. |
 
    > [!IMPORTANT]
    > Para aplicativos móveis que não estão usando a biblioteca MSAL mais recente ou não usando um agente, você deve configurar os URIs de redirecionamento para esses aplicativos em **dispositivos desktop +** .
@@ -139,7 +140,7 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
 1. Dependendo da plataforma escolhida, pode haver configurações adicionais que podem ser configuradas. Para aplicativos **Web** , você pode:
     * Adicionar mais URIs de redirecionamento
     * Configure a **concessão implícita** para selecionar os tokens que você deseja que sejam emitidos pelo ponto de extremidade de autorização:
-        * Para aplicativos de página única, selecione tokens de **acesso** e tokens de **ID**
+        * Para aplicativos de página única, selecione **tokens de acesso** e **tokens de ID**
         * Para aplicativos Web, selecione **tokens de ID**
 
 ## <a name="add-credentials-to-your-web-application"></a>Adicionar credenciais à aplicação Web
@@ -177,7 +178,7 @@ Para adicionar uma ou mais permissões para aceder às APIs de recursos a partir
 1. Depois de selecionar as APIs, verá a página **Pedir Permissões de API**. Se a API expuser as permissões delegadas e as permissões da aplicação, selecione o tipo de permissão de que a sua aplicação precisa.
 1. Quando tiver concluído, selecione **Adicionar permissões**. É reencaminhado para a página **Permissões da API** na qual as permissões foram guardadas e adicionadas à tabela.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre outros inícios rápidos de gestão de aplicações relacionados:
 

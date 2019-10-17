@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030684"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387325"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Mapeando o guia de desempenho e ajuste do fluxo de dados
 
@@ -23,11 +23,11 @@ Ao projetar e testar fluxos de dados do UX do ADF, certifique-se de alternar no 
 
 Ao criar fluxos de dados de mapeamento, você pode testar cada transformação clicando na guia Visualização de dados no painel de configuração. Depois de verificar sua lógica, teste seu fluxo de dados de ponta a ponta como uma atividade em um pipeline. Adicione uma atividade executar fluxo de dados e use o botão depurar para testar o desempenho do fluxo de dados. Para abrir o plano de execução e o perfil de desempenho do fluxo de dados, clique no ícone de óculos em ' ações ' na guia saída do pipeline.
 
-Monitor de fluxo de dados do ![Monitor de fluxo de dados](media/data-flow/mon002.png "2")
+![Monitor de fluxo de dados](media/data-flow/mon002.png "Monitor de fluxo de dados 2")
 
  Você pode usar essas informações para estimar o desempenho do fluxo de dados em fontes de dados de tamanhos diferentes. Para obter mais informações, consulte [monitoramento de fluxos de dados de mapeamento](concepts-data-flow-monitoring.md).
 
-Monitor de fluxo de dados de ![monitoramento de fluxo de dados](media/data-flow/mon003.png "3")
+![Monitorização de Fluxo de Dados](media/data-flow/mon003.png "Monitor de fluxo de dados 3")
 
  Para execuções de depuração de pipeline, cerca de um minuto de tempo de configuração de cluster em seus cálculos de desempenho geral são necessários para um cluster quente. Se você estiver inicializando o Azure Integration Runtime padrão, o tempo de rotação poderá levar cerca de 5 minutos.
 
@@ -37,7 +37,7 @@ Um Integration Runtime com mais núcleos aumenta o número de nós nos ambientes
 * Experimente um cluster **otimizado para computação** se você quiser que sua taxa de processamento seja maior do que a sua taxa de entrada
 * Experimente um cluster com **otimização de memória** se você quiser armazenar em cache mais dados na memória.
 
-![Novo](media/data-flow/ir-new.png "ir novo") ir
+![Novo IR](media/data-flow/ir-new.png "Novo IR")
 
 Para obter mais informações sobre como criar um Integration Runtime, consulte [Integration Runtime em Azure data Factory](concepts-integration-runtime.md).
 
@@ -56,7 +56,7 @@ Por padrão, a ativação da depuração usará o tempo de execução de integra
 1. Se você selecionou **coluna**, escolha a coluna partição.
 1. Se você selecionou **consulta**, insira uma consulta que corresponda ao esquema de particionamento de sua tabela de banco de dados. Essa consulta permite que o mecanismo de banco de dados de origem Aproveite a eliminação de partição. As tabelas do banco de dados de origem não precisam ser particionadas. Se sua fonte já não estiver particionada, o ADF ainda usará o particionamento de dados no ambiente de transformação do Spark com base na chave que você selecionar na transformação origem.
 
-![](media/data-flow/sourcepart3.png "Parte de origem") da parte de origem
+![Parte de origem](media/data-flow/sourcepart3.png "Parte de origem")
 
 ### <a name="source-batch-size-input-and-isolation-level"></a>Tamanho do lote de origem, entrada e nível de isolamento
 
@@ -66,13 +66,13 @@ Em **Opções de origem** na transformação origem, as configurações a seguir
 * A definição de uma consulta pode permitir que você filtre linhas na origem antes que elas cheguem ao fluxo de dados para processamento. Isso pode tornar a aquisição de dados inicial mais rápida. Se você usar uma consulta, poderá adicionar dicas de consulta opcionais para seu banco de BD SQL do Azure, como leitura não confirmada.
 * A leitura não confirmada fornecerá resultados de consulta mais rápidos na transformação de origem
 
-![Origem](media/data-flow/source4.png "Origem") do
+![Origem](media/data-flow/source4.png "Origem")
 
 ### <a name="sink-batch-size"></a>Tamanho do lote do coletor
 
 Para evitar o processamento de linha por linha de seus fluxos de dados, defina o **tamanho do lote** na guia Configurações para o BD SQL do Azure e coletores do Azure SQL DW. Se o tamanho do lote for definido, o ADF processará gravações de banco de dados em lotes com base no tamanho fornecido.
 
-![Coletor](media/data-flow/sink4.png "Coletor")
+![Coletar](media/data-flow/sink4.png "Sink")
 
 ### <a name="partitioning-on-sink"></a>Particionamento no coletor
 
@@ -101,7 +101,7 @@ Em cada transformação, você pode definir o esquema de particionamento que des
 Durante a depuração na visualização de dados e na depuração de pipeline, os tamanhos de limite e amostragem para DataSets de origem baseados em arquivo se aplicam apenas ao número de linhas retornadas, e não ao número de linhas lidas. Isso pode afetar o desempenho de suas execuções de depuração e possivelmente causar falha no fluxo.
 * Os clusters de depuração são pequenos clusters de nó único por padrão e recomendamos o uso de arquivos pequenos de exemplo para depuração. Vá para configurações de depuração e aponte para um pequeno subconjunto de dados usando um arquivo temporário.
 
-    Configurações ![da depuração configurações]de(media/data-flow/debugsettings3.png "depuração")
+    ![Configurações de depuração](media/data-flow/debugsettings3.png "Configurações de depuração")
 
 ### <a name="file-naming-options"></a>Opções de nomenclatura de arquivo
 

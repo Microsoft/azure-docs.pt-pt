@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910261"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383520"
 ---
 # <a name="dynamic-packaging"></a>Empacotamento dinâmico
 
@@ -26,11 +26,11 @@ Serviços de Mídia do Microsoft Azure pode ser usado para codificar vários for
 
 Nos serviços de mídia, um [ponto de extremidade de streaming](streaming-endpoint-concept.md) representa um serviço de empacotamento e origem (just-in-time) dinâmico que pode entregar seu conteúdo ao vivo e sob demanda diretamente a um aplicativo de player de cliente, usando um dos protocolos de mídia de streaming comuns mencionado na seção a seguir. O Empacotamento Dinâmico é uma funcionalidade padrão em todos os Pontos Finais de Transmissão em Fluxo (Standard ou Premium). 
 
-## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Para preparar os arquivos de origem para entrega
+## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>To preparar seus arquivos de origem para entrega
 
 Para tirar proveito do empacotamento dinâmico, você precisa [codificar](encoding-concept.md) seu arquivo de mezanino (fonte) em um conjunto de arquivos MP4 (ISO Base Media 14496-12) de taxa de bits múltipla. Você precisa ter um [ativo](assets-concept.md) com os arquivos MP4 codificados e os arquivos de configuração de streaming necessários para o empacotamento dinâmico dos serviços de mídia. A partir desse conjunto de arquivos MP4, você pode usar o empacotamento dinâmico para fornecer vídeo por meio dos seguintes protocolos de mídia de streaming:
 
-|Protocol|Exemplo|
+|Protocolo|Exemplo|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
@@ -98,14 +98,14 @@ Para obter informações sobre a transmissão ao vivo nos serviços de mídia v3
 O empacotamento dinâmico dá suporte a arquivos MP4 que contêm vídeo que é codificado com [H. 264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC ou AVC1) ou [H. 265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, HEV1 ou hvc1).
 
 > [!NOTE]
-> As resoluções de até 4K e as taxas de quadros de até 60 quadros/segundo foram testadas com o empacotamento dinâmico. O [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para H. 265, por meio das APIs v2 herdadas. Entre em amshelp@microsoft.com contato com se você tiver dúvidas sobre este tópico. 
+> As resoluções de até 4K e as taxas de quadros de até 60 quadros/segundo foram testadas com o empacotamento dinâmico. O [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para H. 265, por meio das APIs v2 herdadas. Entre em contato com amshelp@microsoft.com se você tiver dúvidas sobre este tópico. 
 
-## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Codecs de áudio com suporte do empacotamento dinâmico
+## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a>codecs <a id="audio-codecs"/>Audio com suporte do empacotamento dinâmico
 
 O empacotamento dinâmico dá suporte a áudio codificado com os seguintes protocolos:
 
 * [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 ou HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Avançado AC-3 ou E-AC3)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (avançado AC-3 ou e-AC3)
 * Dolby Atmos<br />
    O conteúdo Dolby Atmos do streaming tem suporte para padrões como o protocolo MPEG-DASH com o formato de streaming comum (CSF) ou o MP4 fragmentado do CMAF (formato de aplicativo de mídia comum) e via HTTP Live Streaming (HLS) com CMAF.
 
@@ -124,7 +124,7 @@ O empacotamento dinâmico dá suporte a várias faixas de áudio com DASH ou HLS
 O empacotamento dinâmico não dá suporte a arquivos que contêm áudio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) (é um codec herdado).
 
 > [!NOTE]
-> O [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para Dolby Digital Plus, por meio das APIs v2 herdadas. Entre em amshelp@microsoft.com contato com se você tiver dúvidas sobre este tópico. 
+> O [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) dá suporte à codificação para Dolby Digital Plus, por meio das APIs v2 herdadas. Entre em contato com amshelp@microsoft.com se você tiver dúvidas sobre este tópico. 
 
 ## <a name="manifests"></a>Manifestos 
  
@@ -220,7 +220,7 @@ Aqui está um exemplo de um arquivo de manifesto Smooth Streaming:
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>Nomenclatura de faixas no manifesto
 
-Se um nome de faixa de áudio for especificado no arquivo. ISM, os serviços de `Label` mídia adicionarão `AdaptationSet` um elemento em um para especificar as informações de textural para a faixa de áudio específica. Um exemplo do manifesto de traço de saída:
+Se um nome de faixa de áudio for especificado no arquivo. ISM, os serviços de mídia adicionarão um elemento `Label` em um `AdaptationSet` para especificar as informações de textural para a faixa de áudio específica. Um exemplo do manifesto de traço de saída:
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -232,29 +232,48 @@ Se um nome de faixa de áudio for especificado no arquivo. ISM, os serviços de 
 </AdaptationSet>
 ```
 
-O player pode usar o `Label` elemento para exibir em sua interface do usuário.
+O player pode usar o elemento `Label` para exibir em sua interface do usuário.
 
 ### <a name="signaling-audio-description-tracks"></a>Sinalizando faixas de descrição de áudio
 
-Um cliente pode anotar uma faixa de áudio como descrição de áudio no manifesto. Para fazer isso, eles adicionariam os parâmetros "Accessibility" e "role" ao arquivo. ISM. Os serviços de mídia reconhecerão a descrição de áudio se uma faixa de áudio tiver o parâmetro "Accessibility" com o valor "Description" e param "role" com o valor "Alternate". Se os serviços de mídia detectarem a descrição de áudio no arquivo. ISM, as informações de descrição de áudio serão passadas `Role="alternate"` para o manifesto `StreamIndex` do cliente como `Accessibility="description"` atributos e no elemento.
+Você pode adicionar uma faixa de narração ao seu vídeo para ajudar os clientes com deficiência visual a seguirem a gravação de vídeo ouvindo a narração. Você precisa anotar uma faixa de áudio como descrição de áudio no manifesto. Para fazer isso, adicione os parâmetros "Accessibility" e "role" ao arquivo. ISM. É sua responsabilidade definir esses parâmetros corretamente para sinalizar uma faixa de áudio como descrição de áudio. Por exemplo, adicione `<param name="accessibility" value="description" />` e `<param name="role" value="alternate"` ao arquivo. ISM para uma faixa de áudio específica. 
 
-Se a combinação de "acessibilidade" = "Descrição" e "função" = "alternativo" estiver definida no arquivo. ISM, o manifesto de traço e os valores de manifesto de Smooth serão definidos conforme definido nos parâmetros de "acessibilidade" e "função". É responsabilidade do cliente definir esses dois valores certos e marcar uma faixa de áudio como descrição de áudio. Por especificação de traço, "acessibilidade" = "Descrição" e "função" = "alternativo" em conjunto significa que uma faixa de áudio é uma descrição de áudio.
+Para obter mais informações, consulte o [como sinalizar um exemplo de faixa de áudio descritiva](signal-descriptive-audio-howto.md) .
 
-Para HLS v7 e posterior (`format=m3u8-cmaf`), sua lista de `CHARACTERISTICS="public.accessibility.describes-video"` reprodução só transporta quando a combinação de "acessibilidade" = "Descrição" e "função" = "alternativo" é definida no arquivo. ISM. 
+#### <a name="smooth-streaming-manifest"></a>Manifesto Smooth Streaming
+
+Se você estiver executando um fluxo de Smooth Streaming, o manifesto transportaria valores nos atributos `Accessibility` e `Role` para essa faixa de áudio. Por exemplo, `Role="alternate" Accessibility="description"` seria adicionado no elemento `StreamIndex` para indicar que é uma descrição de áudio.
+
+#### <a name="dash-manifest"></a>Manifesto DASH
+
+Para o manifesto DASH, os dois elementos a seguir seriam adicionados para sinalizar a descrição do áudio:
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>HLS playlist
+
+Para HLS v7 e superior `(format=m3u8-cmaf)`, sua lista de reprodução seria transportada `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` quando a faixa de descrição de áudio é sinalizada.
+
+#### <a name="example"></a>Exemplo
+
+Para obter mais informações, consulte [como sinalizar faixas de descrição de áudio](signal-descriptive-audio-howto.md).
 
 ## <a name="dynamic-manifest"></a>Manifesto dinâmico
 
 Para controlar o número de faixas, formatos, taxas de bits e janelas de tempo de apresentação que são enviadas aos players, você pode usar a filtragem dinâmica com o empacotador dinâmico dos serviços de mídia. Para obter mais informações, consulte [pré-filtrando manifestos com o Gerenciador dinâmico](filters-dynamic-manifest-overview.md).
 
-## <a name="dynamic-encryption"></a>Encriptação dinâmica
+## <a name="dynamic-encryption"></a>Criptografia dinâmica
 
-Você pode usar a *criptografia dinâmica* para criptografar dinamicamente seu conteúdo em tempo real ou sob demanda com o AES-128 ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço para a entrega de chaves AES e licenças DRM para clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
+Você pode usar a *criptografia dinâmica* para criptografar dinamicamente seu conteúdo em tempo real ou sob demanda com o AES-128 ou qualquer um dos três principais sistemas de DRM (gerenciamento de direitos digitais): Microsoft PlayReady, Google Widevine e Apple Fairplay. Os serviços de mídia também fornecem um serviço para a entrega de chaves AES e licenças DRM para clientes autorizados. Para obter mais informações, consulte [criptografia dinâmica](content-protection-overview.md).
 
 ## <a name="more-information"></a>Mais informações
 
 Confira a [Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras de fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!NOTE]
 > Atualmente, não pode utilizar o portal do Azure para gerir recursos v3. Utilize a [API REST](https://aka.ms/ams-v3-rest-ref), a [CLI](https://aka.ms/ams-v3-cli-ref) ou um dos [SDKs](media-services-apis-overview.md#sdks) suportados.

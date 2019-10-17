@@ -7,12 +7,12 @@ ms.date: 08/21/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 575f23aef9534696566080257e61b2fa84de5d0f
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 1f13efeb5c2ebcb8b23dea6f9ae997039972f089
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013546"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428311"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usar o emulador de armazenamento do Azure para desenvolvimento e teste
 
@@ -42,10 +42,10 @@ Existem algumas diferenças na funcionalidade entre o emulador de armazenamento 
 Para iniciar o emulador de armazenamento do Azure:
 
 1. Selecione o botão **Iniciar** ou pressione a tecla **Windows** .
-2. Comece a `Azure Storage Emulator`digitar.
+2. Comece digitando `Azure Storage Emulator`.
 3. Selecione o emulador na lista de aplicativos exibidos.
 
-Quando o emulador de armazenamento for iniciado, uma janela de prompt de comando será exibida. Você pode usar essa janela do console para iniciar e parar o emulador de armazenamento. Você também pode limpar os dados, obter o status e inicializar o emulador no prompt de comando. Para obter mais informações, consulte a seção [referência da ferramenta de linha de comando](#storage-emulator-command-line-tool-reference) do emulador de armazenamento mais adiante neste artigo.
+Quando o emulador de armazenamento for iniciado, uma janela de prompt de comando será exibida. Você pode usar essa janela do console para iniciar e parar o emulador de armazenamento. Você também pode limpar os dados, obter o status e inicializar o emulador no prompt de comando. Para obter mais informações, consulte a seção [referência da ferramenta de linha de comando do emulador de armazenamento](#storage-emulator-command-line-tool-reference) mais adiante neste artigo.
 
 > [!NOTE]
 > O emulador de armazenamento do Azure pode não iniciar corretamente se outro emulador de armazenamento, como azurite, estiver em execução no sistema.
@@ -56,10 +56,10 @@ Quando você fechar a janela do prompt de comando do emulador de armazenamento, 
 
 Na primeira vez que você executar o emulador de armazenamento, o ambiente de armazenamento local será inicializado para você. O processo de inicialização cria um banco de dados no LocalDB e reserva portas HTTP para cada serviço de armazenamento local.
 
-O emulador de armazenamento é instalado por `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`padrão no.
+O emulador de armazenamento é instalado por padrão para `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> Você pode usar o [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com) para trabalhar com recursos de emulador de armazenamento local. Procure "(desenvolvimento)" em "contas de armazenamento" na árvore de recursos Gerenciador de Armazenamento depois de instalar e iniciar o emulador de armazenamento.
+> Você pode usar o [Gerenciador de armazenamento do Microsoft Azure](https://storageexplorer.com) para trabalhar com recursos de emulador de armazenamento local. Procure "(portas padrão do emulador) (chave)" em "local & anexado" na árvore de recursos do Gerenciador de Armazenamento depois de instalar e iniciar o emulador de armazenamento.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inicializar o emulador de armazenamento para usar um banco de dados SQL diferente
@@ -67,7 +67,7 @@ O emulador de armazenamento é instalado por `C:\Program Files (x86)\Microsoft S
 Você pode usar a ferramenta de linha de comando do emulador de armazenamento para inicializar o emulador de armazenamento para apontar para uma instância do banco de dados SQL diferente da instância LocalDB padrão:
 
 1. Abra a janela do console do emulador de armazenamento conforme descrito na seção [Iniciar e inicializar o emulador de armazenamento](#start-and-initialize-the-storage-emulator) .
-1. Na janela do console, digite o seguinte comando, em `<SQLServerInstance>` que é o nome da instância de SQL Server. Para usar o LocalDB, `(localdb)\MSSQLLocalDb` especifique como a instância de SQL Server.
+1. Na janela do console, digite o seguinte comando, em que `<SQLServerInstance>` é o nome da instância de SQL Server. Para usar o LocalDB, especifique `(localdb)\MSSQLLocalDb` como a instância de SQL Server.
 
    `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
@@ -79,10 +79,10 @@ Você pode usar a ferramenta de linha de comando do emulador de armazenamento pa
 
    `AzureStorageEmulator.exe init /forceCreate`
 
-Para obter mais informações sobre esses comandos, consulte [referência da ferramenta de linha de comando](#storage-emulator-command-line-tool-reference)do emulador de armazenamento.
+Para obter mais informações sobre esses comandos, consulte [referência da ferramenta de linha de comando do emulador de armazenamento](#storage-emulator-command-line-tool-reference).
 
 > [!TIP]
-> Você pode usar o SSMS ( [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ) para gerenciar suas instâncias de SQL Server, incluindo a instalação do LocalDB. No diálogo SMSs **conectar ao servidor** , especifique `(localdb)\MSSQLLocalDb` no campo **nome do servidor:** para se conectar à instância de LocalDB.
+> Você pode usar o SSMS ( [Microsoft SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) ) para gerenciar suas instâncias de SQL Server, incluindo a instalação do LocalDB. No diálogo SMSS **conectar ao servidor** , especifique `(localdb)\MSSQLLocalDb` no campo **nome do servidor:** para se conectar à instância de LocalDB.
 
 ## <a name="authenticating-requests-against-the-storage-emulator"></a>Autenticando solicitações no emulador de armazenamento
 
@@ -103,7 +103,7 @@ Algumas bibliotecas de cliente de armazenamento do Azure, como a biblioteca do X
 Você também pode gerar um token SAS usando Azure PowerShell. O exemplo a seguir gera um token SAS com permissões completas para um contêiner de blob:
 
 1. Instale Azure PowerShell se você ainda não (usando a versão mais recente dos cmdlets Azure PowerShell é recomendado). Para obter instruções de instalação, consulte [instalar e configurar o Azure PowerShell](/powershell/azure/install-Az-ps).
-2. Abra Azure PowerShell e execute os comandos a seguir, `CONTAINER_NAME` substituindo pelo nome de sua escolha:
+2. Abra Azure PowerShell e execute os comandos a seguir, substituindo `CONTAINER_NAME` por um nome de sua escolha:
 
 ```powershell
 $context = New-AzStorageContext -Local
@@ -147,9 +147,9 @@ Por exemplo, o endereço a seguir pode ser usado para acessar um blob no emulado
 
 Os pontos de extremidade de serviço do emulador de armazenamento são:
 
-* Serviço blob:`http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Serviço Fila:`http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Serviço tabela:`http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Serviço blob: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Serviço Fila: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Serviço tabela: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Endereçando a conta secundária com RA-GRS
 
@@ -184,8 +184,8 @@ Para ver a lista de opções, escreva `/help` na linha de comandos.
 | **Começar** |Inicia o emulador de armazenamento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocessar*: Inicie o emulador no processo atual em vez de criar um novo processo. |
 | **Deixar** |Interrompe o emulador de armazenamento. |`AzureStorageEmulator.exe stop` | |
 | **Estado** |Imprime o status do emulador de armazenamento. |`AzureStorageEmulator.exe status` | |
-| **Formatação** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: Limpa os dados do blob. <br/>*fila*: Limpa os dados da fila. <br/>*tabela*: Limpa os dados da tabela. <br/>*todos*: Limpa todos os dados em todos os serviços. |
-| **Iniciar** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-nomedoservidor \ NomedaInstância do servidor*: Especifica o servidor que hospeda a instância do SQL. <br/>*-SQLInstance InstanceName*: Especifica o nome da instância SQL a ser usada na instância de servidor padrão. <br/>*-forcecreate*: Força a criação do banco de dados SQL, mesmo que ele já exista. <br/>*-skipcreate*: Ignora a criação do banco de dados SQL. Isso tem precedência sobre-forcecreate.<br/>*-reserveports*: Tenta reservar as portas HTTP associadas aos serviços.<br/>*-unreserveports*: Tenta remover reservas para as portas HTTP associadas aos serviços. Isso tem precedência sobre-reserveports.<br/>*-inprocessar*: Executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deve ser iniciado com permissões elevadas se estiver alterando as reservas de porta. |
+| **Formatação** |Limpa os dados em todos os serviços especificados na linha de comando. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: limpa os dados do blob. <br/>*fila*: limpa os dados da fila. <br/>*tabela*: limpa os dados da tabela. <br/>*todos*: limpa todos os dados em todos os serviços. |
+| **Iniciar** |Executa a inicialização única para configurar o emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-nomedoservidor \ NomedaInstância do servidor*: especifica o servidor que hospeda a instância do SQL. <br/>*-SQLInstance InstanceName*: especifica o nome da instância do SQL a ser usada na instância do servidor padrão. <br/>*-forcecreate*: força a criação do banco de dados SQL, mesmo que ele já exista. <br/>*-skipcreate*: ignora a criação do banco de dados SQL. Isso tem precedência sobre-forcecreate.<br/>*-reserveports*: tenta reservar as portas http associadas aos serviços.<br/>*-unreserveports*: tenta remover reservas para as portas http associadas aos serviços. Isso tem precedência sobre-reserveports.<br/>*-inprocess*: executa a inicialização no processo atual em vez de gerar um novo processo. O processo atual deve ser iniciado com permissões elevadas se estiver alterando as reservas de porta. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferenças entre o emulador de armazenamento e o armazenamento do Azure
 
@@ -194,7 +194,7 @@ Como o emulador de armazenamento é um ambiente emulado local, há diferenças e
 * O emulador de armazenamento dá suporte a apenas uma única conta fixa e uma chave de autenticação conhecida.
 * O emulador de armazenamento não é um serviço de armazenamento escalonável e não dá suporte a um grande número de clientes simultâneos.
 * Conforme descrito em [endereçando recursos no emulador de armazenamento](#addressing-resources-in-the-storage-emulator), os recursos são tratados de forma diferente no emulador de armazenamento em comparação com uma conta de armazenamento do Azure. A diferença é porque a resolução de nomes de domínio está disponível na nuvem, mas não no computador local.
-* A partir da versão 3,1, a conta do emulador de armazenamento dá suporte à replicação com redundância geográfica com acesso de leitura (RA-GRS). No emulador, todas as contas têm o RA-GRS habilitado e nunca há qualquer retardo entre as réplicas primária e secundária. As operações obter estatísticas do serviço BLOB, obter estatísticas do serviço fila e obter estatísticas do serviço tabela têm suporte no secundário da conta e sempre retornarão o valor `LastSyncTime` do elemento Response como a hora atual de acordo com o banco de dados SQL subjacente.
+* A partir da versão 3,1, a conta do emulador de armazenamento dá suporte à replicação com redundância geográfica com acesso de leitura (RA-GRS). No emulador, todas as contas têm o RA-GRS habilitado e nunca há qualquer retardo entre as réplicas primária e secundária. As operações obter estatísticas do serviço BLOB, obter estatísticas do serviço fila e obter estatísticas do serviço tabela têm suporte na conta secundária e sempre retornarão o valor do elemento de resposta `LastSyncTime` como a hora atual de acordo com o banco de dados SQL subjacente.
 * Atualmente, os pontos de extremidade do serviço de arquivo e do protocolo SMB não têm suporte no emulador de armazenamento.
 * Se você usar uma versão dos serviços de armazenamento que não tem suporte no emulador, o emulador retornará um erro VersionNotSupportedByEmulator (código de status HTTP 400-solicitação inválida).
 
@@ -216,7 +216,7 @@ As seguintes diferenças se aplicam ao armazenamento de tabela no emulador:
 * As propriedades de data no serviço tabela no emulador de armazenamento dão suporte apenas ao intervalo suportado pelo SQL Server 2005 (eles precisam ser posteriores a 1º de janeiro de 1753). Todas as datas antes de 1º de janeiro de 1753 são alteradas para esse valor. A precisão das datas é limitada à precisão de SQL Server 2005, o que significa que as datas são precisas para 1/1/300 de um segundo.
 * O emulador de armazenamento oferece suporte a valores de propriedade de chave de partição e chaves de linha de menos de 512 bytes. O tamanho total do nome da conta, do nome da tabela e dos nomes de propriedade de chave juntos não pode exceder 900 bytes.
 * O tamanho total de uma linha em uma tabela no emulador de armazenamento é limitado a menos de 1 MB.
-* No emulador de armazenamento, as propriedades do `Edm.Guid` tipo `Edm.Binary` de dados ou `Equal (eq)` oferecem `NotEqual (ne)` suporte apenas aos operadores de comparação e nas cadeias de caracteres de filtro de consulta.
+* No emulador de armazenamento, as propriedades do tipo de dados `Edm.Guid` ou `Edm.Binary` dão suporte apenas aos operadores de comparação `Equal (eq)` e `NotEqual (ne)` em cadeias de caracteres de filtro de consulta.
 
 ### <a name="differences-for-queue-storage"></a>Diferenças de armazenamento de filas
 
@@ -264,7 +264,7 @@ Não há diferenças específicas para o armazenamento de fila no emulador.
 
 ### <a name="version-51"></a>Versão 5,1
 
-* Corrigido um bug em que o emulador de armazenamento `DataServiceVersion` estava retornando o cabeçalho em algumas respostas em que o serviço não estava.
+* Corrigido um bug em que o emulador de armazenamento estava retornando o cabeçalho `DataServiceVersion` em algumas respostas em que o serviço não era.
 
 ### <a name="version-50"></a>Versão 5,0
 
@@ -315,7 +315,7 @@ Não há diferenças específicas para o armazenamento de fila no emulador.
 
 ### <a name="version-31"></a>Versão 3,1
 
-* O armazenamento com redundância geográfica com acesso de leitura (RA-GRS) agora tem suporte no emulador de armazenamento. As `Get Blob Service Stats`APIs `Get Queue Service Stats`,, `Get Table Service Stats` e têm suporte para a conta secundária e sempre retornarão o valor do elemento de resposta LastSyncTime como a hora atual de acordo com o banco de dados SQL subjacente. Para acesso programático ao secundário com o emulador de armazenamento, use a biblioteca de cliente de armazenamento para .NET versão 3,2 ou posterior. Consulte a referência da biblioteca de cliente do Armazenamento do Microsoft Azure para .NET para obter detalhes.
+* O armazenamento com redundância geográfica com acesso de leitura (RA-GRS) agora tem suporte no emulador de armazenamento. As APIs `Get Blob Service Stats`, `Get Queue Service Stats` e `Get Table Service Stats` têm suporte para a conta secundária e sempre retornarão o valor do elemento de resposta LastSyncTime como a hora atual de acordo com o banco de dados SQL subjacente. Para acesso programático ao secundário com o emulador de armazenamento, use a biblioteca de cliente de armazenamento para .NET versão 3,2 ou posterior. Consulte a referência da biblioteca de cliente do Armazenamento do Microsoft Azure para .NET para obter detalhes.
 
 ### <a name="version-30"></a>Versão 3,0
 

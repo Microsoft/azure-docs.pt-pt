@@ -4,12 +4,13 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 935a6201e24e97deaa0a1a65e499310f74a49e2d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 92f638666d9ac832ee5e6a7d4dccf9a9e669f908
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059044"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427997"
 ---
 ## <a name="what-is-queue-storage"></a>O que é o armazenamento de filas?
 
@@ -19,16 +20,16 @@ O Armazenamento de Filas do Azure é um serviço para armazenar um grande númer
 
 O serviço Fila do Azure contém os seguintes componentes:
 
-![Queue1](./media/storage-queue-concepts-include/queue1.png)
+![Componentes do serviço Fila do Azure](./media/storage-queue-concepts-include/azure-queue-service-components.png)
 
-* **Formato da URL:** As filas são endereçáveis usando o seguinte formato de URL:   
+* **Formato do URL:** os ficheiros são endereçáveis com o seguinte formato de URL:   
     http://`<storage account>`.queue.core.windows.net/`<queue>` 
   
     O seguinte URL endereça uma fila no diagrama:  
   
     `http://myaccount.queue.core.windows.net/images-to-download`
 
-* **Conta de armazenamento:** Todo o acesso ao armazenamento do Azure é feito por meio de uma conta de armazenamento. Veja [Metas de Desempenho e Escalabilidade do Storage do Azure](../articles/storage/common/storage-scalability-targets.md) para obter detalhes acerca da capacidade das contas de armazenamento.
-* **Espera** Uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
-* **Mensagem:** Uma mensagem, em qualquer formato, de até 64 KB. O tempo máximo que uma mensagem pode permanecer na fila de espera é de 7 dias.
+* **Conta de Armazenamento:** todos os acessos ao Storage do Azure são efetuados através de uma conta de armazenamento. Veja [Metas de Desempenho e Escalabilidade do Storage do Azure](../articles/storage/common/storage-scalability-targets.md) para obter detalhes acerca da capacidade das contas de armazenamento.
+* **Fila:** uma fila contém um conjunto de mensagens. Todas as mensagens têm de estar numa fila. Tenha em atenção que o nome da fila tem de estar todo em minúsculas. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](https://msdn.microsoft.com/library/azure/dd179349.aspx).
+* **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. O tempo máximo que uma mensagem pode permanecer na fila de espera é de 7 dias.
 

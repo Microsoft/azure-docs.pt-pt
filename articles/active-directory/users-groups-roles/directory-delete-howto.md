@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4fb2019b0298520d6bc2400e9fc2a2732664812
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329909"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439350"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Excluir um diretório no Azure Active Directory
 
@@ -69,25 +69,29 @@ Você pode colocar uma assinatura no estado **desprovisionado** para ser excluí
 
 1. Entre no centro de [Administração do Microsoft 365](https://admin.microsoft.com) com uma conta que seja um administrador global em sua organização. Se você estiver tentando excluir o diretório "contoso" que tem o domínio padrão inicial contoso.onmicrosoft.com, entre com um UPN como admin@contoso.onmicrosoft.com.
 
-2. Você precisa cancelar uma assinatura para poder excluí-la. Selecione **cobrança** e selecione **produtos & serviços**e, em seguida, selecione **cancelar assinatura** para a assinatura que você deseja cancelar. Você será levado a uma página de comentários.
+2. Visualize o novo centro de administração do Microsoft 365 verificando se a opção **experimentar o novo centro de administração** está habilitada.
+
+   ![Visualizar a nova experiência do centro de administração do M365](./media/directory-delete-howto/preview-toggle.png)
+
+3. Depois que o novo centro de administração estiver habilitado, você precisará cancelar uma assinatura para poder excluí-la. Selecione **cobrança** e selecione **produtos & serviços**e, em seguida, selecione **cancelar assinatura** para a assinatura que você deseja cancelar. Você será levado a uma página de comentários.
 
    ![Escolha uma assinatura para cancelar](./media/directory-delete-howto/cancel-choose-subscription.png)
 
-3. Preencha o formulário de comentários e selecione **cancelar assinatura** para cancelar a assinatura.
+4. Preencha o formulário de comentários e selecione **cancelar assinatura** para cancelar a assinatura.
 
    ![Comando Cancel na versão prévia da assinatura](./media/directory-delete-howto/cancel-command.png)
 
-4. Agora você pode excluir a assinatura. Selecione **excluir** para a assinatura que você deseja excluir. Se você não conseguir encontrar a assinatura na página **produtos & Services** , verifique se você tem o **status da assinatura** definido como **todos**.
+5. Agora você pode excluir a assinatura. Selecione **excluir** para a assinatura que você deseja excluir. Se você não conseguir encontrar a assinatura na página **produtos & Services** , verifique se você tem o **status da assinatura** definido como **todos**.
 
    ![Excluir o link para excluir a assinatura](./media/directory-delete-howto/delete-command.png)
 
-5. Selecione **excluir assinatura** para excluir a assinatura e aceitar os termos e condições. Todos os dados são excluídos permanentemente dentro de três dias. Você pode [reativar a assinatura](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante o período de três dias se mudar de ideia.
+6. Selecione **excluir assinatura** para excluir a assinatura e aceitar os termos e condições. Todos os dados são excluídos permanentemente dentro de três dias. Você pode [reativar a assinatura](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) durante o período de três dias se mudar de ideia.
   
    ![Leia atentamente os termos e condições](./media/directory-delete-howto/delete-terms.png)
 
-6. Agora, o estado da assinatura foi alterado e a assinatura está marcada para exclusão. A assinatura entra no estado **desprovisionado** 72 horas depois.
+7. Agora, o estado da assinatura foi alterado e a assinatura está marcada para exclusão. A assinatura entra no estado **desprovisionado** 72 horas depois.
 
-7. Depois de ter excluído uma assinatura em seu diretório e 72 horas decorridos, você pode entrar novamente no centro de administração do Azure AD e não deve haver nenhuma ação necessária e nenhuma assinatura bloqueando a exclusão do diretório. Você deve ser capaz de excluir com êxito seu diretório do Azure AD.
+8. Depois de ter excluído uma assinatura em seu diretório e 72 horas decorridos, você pode entrar novamente no centro de administração do Azure AD e não deve haver nenhuma ação necessária e nenhuma assinatura bloqueando a exclusão do diretório. Você deve ser capaz de excluir com êxito seu diretório do Azure AD.
   
    ![aprovação da verificação da assinatura na tela de exclusão](./media/directory-delete-howto/delete-checks-passed.png)
 

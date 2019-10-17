@@ -17,14 +17,14 @@ ms.author: yegu
 ms.custom:
 - mvc
 - seo-python-october2019
-ms.openlocfilehash: 87c22d3497765fca6f0dcae445152e6e2923510e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5367896c931bf7c5f52b0874d49ede2fc78614ab
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329872"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435518"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Início rápido: usar o cache do Azure para Redis com Python
+# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Início rápido: criar um aplicativo Python que usa o cache do Azure para Redis
 
 Neste artigo, você incorporará o cache do Azure para Redis em um aplicativo Python para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure.
 
@@ -48,7 +48,7 @@ O exemplo a seguir usa *pip3* para Python3 para instalar o pacote Redis-py no Wi
     pip3 install redis
 ```
 
-![Instalar redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![Instalar a interface Python Redis-py no cache do Azure para Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
 ## <a name="read-and-write-to-the-cache"></a>Ler e escrever na cache
@@ -100,7 +100,7 @@ for c in result:
 
 Execute o script com o Python.
 
-![Teste de Python concluído](./media/cache-python-get-started/cache-python-completed.png)
+![Executar script Python para testar o acesso ao cache no cache do Azure para Redis](./media/cache-python-get-started/cache-python-completed.png)
 
 
 ## <a name="clean-up-resources"></a>Limpar recursos
@@ -117,7 +117,7 @@ Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grup
 
 Na caixa de texto **Filtrar por nome...** , insira o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. Em seu grupo de recursos na lista de resultados, selecione **...** em seguida, **excluir grupo de recursos**.
 
-![Eliminar](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Excluir o grupo de recursos de início rápido para o cache do Azure para Redis](./media/cache-web-app-howto/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 É-lhe pedido que confirme a eliminação do grupo de recursos. Insira o nome do grupo de recursos a ser confirmado e selecione **excluir**.
 
