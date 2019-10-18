@@ -4,15 +4,15 @@ description: Veja o enquadramento geral do Analysis Services no Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 25366a550887461c6d36d4870a2c9062120ede47
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294767"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512608"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -134,11 +134,11 @@ O custo total depende de diversos fatores; por exemplo, a região escolhida, o e
 
 ## <a name="built-on-sql-server-analysis-services"></a>Baseado no SQL Server Analysis Services
 
-O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspectivas, segurança em nível de linha, relações bidirecionais e traduções são todas com suporte para @ no__t-0. *Não* há suporte para modelos multidimensionais e PowerPivot para SharePoint no Azure Analysis Services.
+O Azure Analysis Services é compatível com inúmeras funcionalidades excelentes já existentes no SQL Server Analysis Services Enterprise Edition. O Azure Analysis Services suporta modelos em tabela nos [níveis de compatibilidade](analysis-services-compat-level.md) 1200 ou superiores. Os modelos em tabela são construções de modelos relacionais (modelos, tabelas, colunas) articulados em definições de objetos de metadados tabulares em Linguagem de Scripting de Modelos Tabulares (TMSL) e código de Modelo de Objetos Tabulares (TOM). Partições, perspectivas, segurança em nível de linha, relações bidirecionais e traduções são todas \* com suporte. *Não* há suporte para modelos multidimensionais e PowerPivot para SharePoint no Azure Analysis Services.
 
 Os modelos em tabela nos modos dentro da memória e DirectQuery são suportados. Os modelos em tabela em modo dentro da memória (predefinição) suportam várias origens de dados. Uma vez que os dados de modelos são altamente comprimidos e colocados em cache na memória. Este modo proporciona a resposta de consulta mais rápida em grandes quantidades de dados. Também proporciona a maior flexibilidade para consultas e conjuntos de dados complexos. A criação de partições permite carregamentos incrementais, aumenta a paralelização e reduz o consumo de memória. Outras funcionalidades avançadas de modelação de dados, como tabelas calculadas e todas as funções DAX, são suportadas. Os modelos dentro da memória têm de ser atualizados (processados) para atualizar os dados em cache das origens de dados. Com o suporte da entidade de serviço do Azure, as operações de atualização autônoma usando o PowerShell, TOM, TMSL e REST oferecem flexibilidade para garantir que os dados do modelo estejam sempre atualizados. 
 
-O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. Os conjuntos de dados extremamente grandes em origens de dados únicas do SQL Server, SQL Server Data Warehouse, Base de Dados SQL do Azure, Azure SQL Data Warehouse, Oracle e Teradata são suportados. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Também existem algumas restrições, como os tipos de origens de dados limitados, as limitações às fórmulas DAX e o facto de algumas funcionalidades avançadas de modelação de dados não serem suportadas. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
+O modo DirectQuery* tira partido da base de dados relacional de back-end para armazenamento e execução de consultas. Os conjuntos de dados extremamente grandes em origens de dados únicas do SQL Server, SQL Server Data Warehouse, Base de Dados SQL do Azure, Azure SQL Data Warehouse, Oracle e Teradata são suportados. Os conjuntos de dados de back-end podem ultrapassar a memória dos recursos de servidores disponíveis. Não são necessários cenários complexos de atualização de modelos de dados. Também há algumas restrições, como tipos de fonte de dados limitados, limitações de fórmulas DAX e alguns recursos de modelagem de dados avançados. Antes de determinar o modo mais adequado para si, veja o [modo do Direct Query](https://docs.microsoft.com/analysis-services/tabular-models/directquery-mode-ssas-tabular).
 
 \* A disponibilidade das funcionalidades varia consoante o escalão.
 
@@ -200,7 +200,7 @@ Para saber mais sobre a Segurança do Azure, veja o [Centro de Fidedignidade do 
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Desenvolva e implemente modelos com o [SQL Server Data Tools (SSDT) para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) gratuito. O SSDT inclui modelos de projeto do Analysis Services que lhe permitem começar rapidamente. O SSDT inclui, agora, a funcionalidade de mashup e consultas de origens de dados Obter Dados para modelos 1400 em tabela. Se estiver familiarizado com Obter Dados no Power BI Desktop e no Excel 2016, já sabe como é fácil criar consultas de origens de dados altamente personalizadas. 
+Desenvolva e implemente modelos com o [SQL Server Data Tools (SSDT) para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) gratuito. O SSDT inclui modelos de projeto do Analysis Services que lhe permitem começar rapidamente. O SSDT agora inclui a funcionalidade moderna de consulta de fonte de dados Get Data e mashup para modelos tabulares 1400. Se estiver familiarizado com Obter Dados no Power BI Desktop e no Excel 2016, já sabe como é fácil criar consultas de origens de dados altamente personalizadas. 
 
 Se você estiver usando o Visual Studio 2017 ou posterior, os projetos do Microsoft Analysis Services estarão disponíveis como um pacote VSIX instalável gratuito. [Transferir do Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 

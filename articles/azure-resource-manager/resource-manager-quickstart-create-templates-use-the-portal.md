@@ -1,5 +1,5 @@
 ---
-title: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure | Microsoft Docs
+title: Implantar modelo do Resource Manager-portal do Azure
 description: Saiba como criar o seu primeiro modelo do Azure Resource Manager com o portal do Azure e como implementá-lo.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 708656ee88f5bacaa498bcd84fde34d69228d28b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 109c838d903faee7510441a8b3d502a7e95d8bb4
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170272"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533663"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure
 
@@ -45,7 +45,7 @@ Muitos desenvolvedores de modelos experientes usam esse método para gerar model
     |Nome|Valor|
     |----|----|
     |**Grupo de recursos**|Selecione **criar novo**e especifique um nome de grupo de recursos de sua escolha. Na captura de ecrã, o nome do grupo de recursos é *mystorage1016rg*. O grupo de recursos é um contêiner para recursos do Azure. O grupo de recursos torna mais fácil gerenciar recursos do Azure. |
-    |**Nome**|Dê um nome exclusivo à sua conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "o nome da conta de armazenamento ' mystorage1016 ' já está sendo usado", tente usar o **nome &lt;your > armazenamento @ no__t-2Today's data em MMDD >** , por exemplo, **johndolestorage1016**. Para obter mais informações, consulte [nomenclatura de regras e restrições](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
+    |**Nome**|Dê um nome exclusivo à sua conta de armazenamento. O nome da conta de armazenamento deve ser exclusivo em todo o Azure e conter apenas letras minúsculas e números. O nome deve ter entre 3 e 24 caracteres. Se você receber uma mensagem de erro informando "o nome da conta de armazenamento ' mystorage1016 ' já está sendo usado", tente usar **&lt;your nome > data do &lt;Today de armazenamento em MMDD >** , por exemplo **johndolestorage1016**. Para obter mais informações, consulte [nomenclatura de regras e restrições](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Pode utilizar os valores predefinidos para as restantes propriedades.
 

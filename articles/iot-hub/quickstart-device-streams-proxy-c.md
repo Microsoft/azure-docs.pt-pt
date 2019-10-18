@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 23a005ebb16f4786c7dde9ec5b2a7ae7c5685cb8
-ms.sourcegitcommit: b49431b29a53efaa5b82f9be0f8a714f668c38ab
+ms.openlocfilehash: 4474a36c2b87a618a9f755d2f42e330e837568f4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68377229"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516486"
 ---
-# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início rápido: Habilitar SSH e RDP em um fluxo de dispositivo do Hub IoT usando um aplicativo de proxy C (versão prévia)
+# <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>Início rápido: habilitar SSH e RDP em um fluxo de dispositivo do Hub IoT usando um aplicativo de proxy C (versão prévia)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
@@ -28,7 +28,7 @@ Este guia de início rápido descreve a configuração do tráfego SSH (Secure S
 
 ## <a name="how-it-works"></a>Como funciona
 
-A figura a seguir ilustra como os programas de proxy local do dispositivo e do serviço permitem a conectividade de ponta a ponta entre os processos do cliente SSH e do daemon SSH. Durante a visualização pública, o SDK do C dá suporte a fluxos de dispositivo somente no lado do dispositivo. Como resultado, este guia de início rápido aborda instruções para executar apenas o aplicativo de proxy de dispositivo local. Você deve executar um dos seguintes guias de início rápido do lado do serviço:
+A figura a seguir ilustra como os programas de proxy local do dispositivo e do serviço permitem a conectividade de ponta a ponta entre os processos do cliente SSH e do daemon SSH. Durante a visualização pública, o SDK do C dá suporte a fluxos de dispositivo somente no lado do dispositivo. Como resultado, este guia de início rápido aborda instruções para executar apenas o aplicativo de proxy de dispositivo local. Para compilar e executar o aplicativo do lado do serviço que acompanha, siga as instruções em um dos seguintes guias de início rápido:
 
 * [SSH/RDP em fluxos de dispositivo do Hub C# IOT usando proxy](./quickstart-device-streams-proxy-csharp.md)
 * [SSH/RDP em fluxos de dispositivo do Hub IOT usando o proxy NodeJS](./quickstart-device-streams-proxy-nodejs.md).
@@ -54,8 +54,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
 
-  * EUA Central
-  * E.U.A. Central EUAP
+  * Centro dos E.U.A.
+  * EUA Central EUAP
 
 * Instale o [Visual Studio 2019](https://www.visualstudio.com/vs/) com o [desenvolvimento de C++ desktop com](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) a carga de trabalho habilitada.
 * Instale a versão mais recente do [Git](https://git-scm.com/download/).
@@ -123,23 +123,23 @@ Para este guia de início rápido, você usa o [SDK do dispositivo IOT do Azure 
 1. Para criar a identidade do dispositivo, execute o seguinte comando no Cloud Shell:
 
    > [!NOTE]
-   > * Substitua o espaço reservado *nomedoseuhubiot* pelo nome que você escolher para o Hub IOT.
-   > * Use *MyDevice*, conforme mostrado. É o nome fornecido para o dispositivo registrado. Se você escolher um nome diferente para seu dispositivo, use esse nome em todo este artigo e atualize o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
+   > * Substitua o espaço reservado *nomedoseuhubiot* pelo nome que você escolheu para o Hub IOT.
+   > * Para o nome do dispositivo que você está registrando, é recomendável usar *MyDevice* , conforme mostrado. Se você escolher um nome diferente para seu dispositivo, use esse nome em todo este artigo e atualize o nome do dispositivo nos aplicativos de exemplo antes de executá-los.
 
     ```azurecli-interactive
-    az iot hub device-identity create --hub-name YourIoTHubName --device-id MyDevice
+    az iot hub device-identity create --hub-name {YourIoTHubName} --device-id MyDevice
     ```
 
 1. Para obter a *cadeia de conexão do dispositivo* que você acabou de registrar, execute os seguintes comandos no Cloud Shell:
 
    > [!NOTE]
-   > Substitua o espaço reservado *nomedoseuhubiot* pelo nome que você escolher para o Hub IOT.
+   > Substitua o espaço reservado *nomedoseuhubiot* pelo nome que você escolheu para o Hub IOT.
 
     ```azurecli-interactive
-    az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyDevice --output table
+    az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyDevice --output table
     ```
 
-    Observe a cadeia de conexão do dispositivo para uso posterior neste guia de início rápido. O aspeto é igual ao do exemplo abaixo:
+    Observe a cadeia de conexão do dispositivo retornado para uso posterior neste guia de início rápido. O aspeto é igual ao do exemplo abaixo:
 
    `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyDevice;SharedAccessKey={YourSharedAccessKey}`
 
@@ -149,12 +149,12 @@ Nesta seção, você estabelece um fluxo de ponta a ponta para encapsular o trá
 
 ### <a name="run-the-device-local-proxy-application"></a>Executar o aplicativo de proxy de dispositivo local
 
-1. Edite o arquivo de origem *iothub_client_c2d_streaming_proxy_sample. c* na pasta *iothub_client/Samples/iothub_client_c2d_streaming_proxy_sample*e forneça a cadeia de conexão do dispositivo, o IP/nome do host do dispositivo de destino e a porta SSH 22
+1. Edite o arquivo de origem **iothub_client_c2d_streaming_proxy_sample. c** na pasta `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample` e forneça a cadeia de conexão do dispositivo, o IP/nome do host do dispositivo de destino e a porta SSH 22:
 
    ```C
-   /* Paste in your iothub connection string  */
-   static const char* connectionString = "[Connection string of IoT Hub]";
-   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   /* Paste in your device connection string  */
+   static const char* connectionString = "{DeviceConnectionString}";
+   static const char* localHost = "{IP/Host of your target machine}"; // Address of the local server to connect to.
    static const size_t localPort = 22; // Port of the local server to connect to.
    ```
 
@@ -198,12 +198,12 @@ Conforme discutido na seção "como funciona", estabelecer um fluxo de ponta a p
 Depois que os proxies locais do dispositivo e do serviço estiverem em execução, use o programa cliente SSH e conecte-se ao proxy local do serviço na porta 2222 (em vez do daemon SSH diretamente).
 
 ```cmd/sh
-ssh <username>@localhost -p 2222
+ssh {username}@localhost -p 2222
 ```
 
 Neste ponto, a janela de entrada SSH solicita que você insira suas credenciais.
 
-A imagem a seguir mostra a saída do console no proxy local do dispositivo, que se conecta ao daemon SSH `IP_address:22`em:
+A imagem a seguir mostra a saída do console no proxy local do dispositivo, que se conecta ao daemon SSH em `IP_address:22`:
 
 ![Saída do proxy local do dispositivo](./media/quickstart-device-streams-proxy-c/device-console-output.png)
 
@@ -217,7 +217,7 @@ A imagem a seguir mostra a saída do console do programa cliente SSH. O cliente 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia de início rápido, você configurou um hub IoT, registrou um dispositivo, implantou um dispositivo e um programa proxy de serviço local para estabelecer um fluxo de dispositivo por meio do Hub IoT e usou os proxies para encapsular o tráfego SSH.
+Neste guia de início rápido, você configura um hub IoT, registrou um dispositivo, implantou um dispositivo e um programa de proxy de serviço local para estabelecer um fluxo de dispositivo por meio do Hub IoT e usou os proxies para encapsular o tráfego SSH.
 
 Para saber mais sobre fluxos de dispositivo, consulte:
 
