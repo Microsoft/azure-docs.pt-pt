@@ -49,16 +49,6 @@
             - name: Sobre o Azure Disk Encryption
               displayName: 'BitLocker, bek'
               href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Inícios rápidos
-              items:
-                - name: Encriptar uma VM do Linux com a CLI do Azure
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart'
-                - name: Encriptar uma VM do Linux com o Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart'
-                - name: Encriptar uma VM do Windows com a CLI do Azure
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart'
-                - name: Encriptar uma VM do Windows com o Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart'
             - name: Azure Disk Encryption
               items:
                 - name: Pré-requisitos de encriptação de disco
@@ -151,8 +141,6 @@
           href: network-best-practices.md
         - name: Proteção contra DDOS
           href: ddos-best-practices.md
-        - name: Segurança de limites
-          href: network-best-practices.md
 - name: Aplicação
   items:
     - name: PaaS
@@ -185,9 +173,6 @@
   items:
     - name: Auditoria e registo
       items:
-        - name: Gestão de segurança
-          displayName: 'vulnerability, incident, virus,'
-          href: 'https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
         - name: Segurança da gestão remota
           href: management.md
         - name: Integração de registos do Azure
@@ -199,9 +184,6 @@
             - name: Integrar registos de auditoria do Azure AD
               displayName: active directory
               href: azure-log-integration-ad.md
-            - name: Integrar alertas do Centro de Segurança
-              displayName: splunk
-              href: 'https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
             - name: Integrar registos do Key Vault
               displayName: keyvault
               href: azure-log-integration-keyvault-eventhub.md

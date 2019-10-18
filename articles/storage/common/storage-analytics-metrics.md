@@ -8,12 +8,12 @@ ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: ca831fe66a0ce6a2dbfafc54a761b86473067b10
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 897ae1fa474de8726ed0caa1def162a00e142dbe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68846897"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514774"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas da análise de armazenamento do Azure (clássico)
 
@@ -30,7 +30,7 @@ Análise de Armazenamento pode armazenar métricas que incluem estatísticas de 
 
  Os dados de transação são registrados em dois níveis: o nível de serviço e o nível de operação da API. No nível de serviço, as estatísticas que resumem todas as operações de API solicitadas são gravadas em uma entidade de tabela a cada hora, mesmo que nenhuma solicitação tenha sido feita ao serviço. No nível de operação da API, as estatísticas serão gravadas somente em uma entidade se a operação tiver sido solicitada nessa hora.  
 
- Por exemplo, se você executar uma operação getBlob em seu serviço Blob, análise de armazenamento métricas registrará a solicitação e a incluirá nos dados agregados para o serviço BLOB, bem como a operação **getBlob** . No entanto, se nenhuma operação getBlob for solicitada durante a hora, uma entidade não será gravada no *$MetricsTransactionsBlob* para essa operação.  
+ Por exemplo, se você executar uma operação **getBlob** em seu serviço Blob, análise de armazenamento métricas registrará a solicitação e a incluirá nos dados agregados para o serviço BLOB, bem como a operação **getBlob** . No entanto, se nenhuma operação **getBlob** for solicitada durante a hora, uma entidade não será gravada no *$MetricsTransactionsBlob* para essa operação.  
 
  As métricas de transação são registradas para solicitações de usuário e solicitações feitas por Análise de Armazenamento si mesma. Por exemplo, as solicitações por Análise de Armazenamento para gravar logs e entidades de tabela são registradas.
 
@@ -39,13 +39,13 @@ Análise de Armazenamento pode armazenar métricas que incluem estatísticas de 
 > [!NOTE]
 >  Atualmente, as métricas de capacidade estão disponíveis apenas para o serviço BLOB.
 
- Os dados de capacidade são gravados diariamente para o serviço blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados do usuário e a outra fornece estatísticas sobre o `$logs` contêiner de blob usado pelo análise de armazenamento. A tabela *$MetricsCapacityBlob* inclui as seguintes estatísticas:  
+ Os dados de capacidade são gravados diariamente para o serviço blob de uma conta de armazenamento e duas entidades de tabela são gravadas. Uma entidade fornece estatísticas para dados do usuário e a outra fornece estatísticas sobre o contêiner de BLOBs `$logs` usado pelo Análise de Armazenamento. A tabela *$MetricsCapacityBlob* inclui as seguintes estatísticas:  
 
-- **Capacidade**: A quantidade de armazenamento usada pelo serviço BLOB da conta de armazenamento, em bytes.  
-- **ContainerCount**: O número de contêineres de blob no serviço BLOB da conta de armazenamento.  
-- **ObjectCount**: O número de blobs de blocos ou páginas confirmados e não confirmados no serviço BLOB da conta de armazenamento.  
+- **Capacidade**: a quantidade de armazenamento usada pelo serviço BLOB da conta de armazenamento, em bytes.  
+- **ContainerCount**: o número de contêineres de blob no serviço BLOB da conta de armazenamento.  
+- **ObjectCount**: o número de blobs de blocos ou páginas confirmados e não confirmados no serviço BLOB da conta de armazenamento.  
 
-  Para obter mais informações sobre as métricas de capacidade, consulte [análise de armazenamento esquema de tabela](/rest/api/storageservices/storage-analytics-metrics-table-schema)de métricas.  
+  Para obter mais informações sobre as métricas de capacidade, consulte [análise de armazenamento esquema de tabela de métricas](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
 ## <a name="how-metrics-are-stored"></a>Como as métricas são armazenadas  
 
@@ -53,14 +53,14 @@ Análise de Armazenamento pode armazenar métricas que incluem estatísticas de 
 
 |Nível de métricas|Nomes de tabela|Com suporte para versões|  
 |-------------------|-----------------|----------------------------|  
-|Métricas por hora, local principal|-$MetricsTransactionsBlob<br />-   $MetricsTransactionsTable<br />-$MetricsTransactionsQueue|Versões anteriores a 2013-08-15 apenas. Embora esses nomes ainda tenham suporte, é recomendável que você alterne para o usando as tabelas listadas abaixo.|  
-|Métricas por hora, local principal|-   $MetricsHourPrimaryTransactionsBlob<br />-   $MetricsHourPrimaryTransactionsTable<br />-   $MetricsHourPrimaryTransactionsQueue<br />-   $MetricsHourPrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de arquivo está disponível somente na versão 2015-04-05 e posterior.|  
-|Métricas de minutos, localização primária|-   $MetricsMinutePrimaryTransactionsBlob<br />-   $MetricsMinutePrimaryTransactionsTable<br />-   $MetricsMinutePrimaryTransactionsQueue<br />-   $MetricsMinutePrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de arquivo está disponível somente na versão 2015-04-05 e posterior.|  
-|Métricas por hora, local secundário|-   $MetricsHourSecondaryTransactionsBlob<br />-   $MetricsHourSecondaryTransactionsTable<br />-   $MetricsHourSecondaryTransactionsQueue|Todas as versões. A replicação com redundância geográfica com acesso de leitura deve estar habilitada.|  
-|Métricas de minuto, local secundário|-   $MetricsMinuteSecondaryTransactionsBlob<br />-   $MetricsMinuteSecondaryTransactionsTable<br />-   $MetricsMinuteSecondaryTransactionsQueue|Todas as versões. A replicação com redundância geográfica com acesso de leitura deve estar habilitada.|  
+|Métricas por hora, local principal|-$MetricsTransactionsBlob<br />-$MetricsTransactionsTable<br />-$MetricsTransactionsQueue|Versões anteriores a 2013-08-15 apenas. Embora esses nomes ainda tenham suporte, é recomendável que você alterne para o usando as tabelas listadas abaixo.|  
+|Métricas por hora, local principal|-$MetricsHourPrimaryTransactionsBlob<br />-$MetricsHourPrimaryTransactionsTable<br />-$MetricsHourPrimaryTransactionsQueue<br />-$MetricsHourPrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de arquivo está disponível somente na versão 2015-04-05 e posterior.|  
+|Métricas de minutos, localização primária|-$MetricsMinutePrimaryTransactionsBlob<br />-$MetricsMinutePrimaryTransactionsTable<br />-$MetricsMinutePrimaryTransactionsQueue<br />-$MetricsMinutePrimaryTransactionsFile|Todas as versões. O suporte para métricas de serviço de arquivo está disponível somente na versão 2015-04-05 e posterior.|  
+|Métricas por hora, local secundário|-$MetricsHourSecondaryTransactionsBlob<br />-$MetricsHourSecondaryTransactionsTable<br />-$MetricsHourSecondaryTransactionsQueue|Todas as versões. A replicação com redundância geográfica com acesso de leitura deve estar habilitada.|  
+|Métricas de minuto, local secundário|-$MetricsMinuteSecondaryTransactionsBlob<br />-$MetricsMinuteSecondaryTransactionsTable<br />-$MetricsMinuteSecondaryTransactionsQueue|Todas as versões. A replicação com redundância geográfica com acesso de leitura deve estar habilitada.|  
 |Capacidade (somente serviço BLOB)|$MetricsCapacityBlob|Todas as versões.|  
 
- Essas tabelas são criadas automaticamente quando Análise de Armazenamento está habilitado para um ponto de extremidade de serviço de armazenamento. Eles são acessados por meio do namespace da conta de armazenamento, `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`por exemplo:. As tabelas de métricas não aparecem em uma operação de listagem e devem ser acessadas diretamente por meio do nome da tabela.  
+ Essas tabelas são criadas automaticamente quando Análise de Armazenamento está habilitado para um ponto de extremidade de serviço de armazenamento. Eles são acessados por meio do namespace da conta de armazenamento, por exemplo: `https://<accountname>.table.core.windows.net/Tables("$MetricsTransactionsBlob")`. As tabelas de métricas não aparecem em uma operação de listagem e devem ser acessadas diretamente por meio do nome da tabela.  
 
 ## <a name="enable-metrics-using-the-azure-portal"></a>Habilitar métricas usando o portal do Azure
 Siga estas etapas para habilitar as métricas no [portal do Azure](https://portal.azure.com):
@@ -74,50 +74,47 @@ Siga estas etapas para habilitar as métricas no [portal do Azure](https://porta
 
 O [portal do Azure](https://portal.azure.com) atualmente não permite que você configure métricas de minutos em sua conta de armazenamento; Você deve habilitar as métricas de minuto usando o PowerShell ou programaticamente.
 
-> [!NOTE]
->  Observe que o portal do Azure atualmente não permite que você configure as métricas de minuto em sua conta de armazenamento. Você deve habilitar as métricas de minuto usando o PowerShell ou programaticamente.
-
 ## <a name="enable-storage-metrics-using-powershell"></a>Habilitar métricas de armazenamento usando o PowerShell  
-Você pode usar o PowerShell em seu computador local para configurar as métricas de armazenamento em sua conta de armazenamento usando o cmdlet Azure PowerShell **Get-AzureStorageServiceMetricsProperty** para recuperar as configurações atuais e o cmdlet  **Set-AzureStorageServiceMetricsProperty** para alterar as configurações atuais.  
+Você pode usar o PowerShell em seu computador local para configurar as métricas de armazenamento em sua conta de armazenamento usando o cmdlet Azure PowerShell **Get-AzStorageServiceMetricsProperty** para recuperar as configurações atuais e o cmdlet  **Set-AzStorageServiceMetricsProperty** para alterar as configurações atuais.  
 
 Os cmdlets que controlam as métricas de armazenamento usam os seguintes parâmetros:  
 
 * **ServiceType**, o valor possível são **blob**, **fila**, **tabela**e **arquivo**.
 * **Valorespossíveis metricstype**, os valores possíveis são **Hour** e **minute**.  
 * **MetricsLevel**, os valores possíveis são:
-* **Nenhum**: Desativa o monitoramento.
-* **Serviço**: Coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxito, que são agregadas para os serviços BLOB, fila, tabela e arquivo.
-* **ServiceAndApi**: Além das métricas de serviço, o coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do serviço de armazenamento do Azure.
+* **Nenhum**: desativa o monitoramento.
+* **Serviço**: coleta métricas como entrada/saída, disponibilidade, latência e porcentagens de êxito, que são agregadas para os serviços BLOB, fila, tabela e arquivo.
+* **ServiceAndApi**: além das métricas de serviço, o coleta o mesmo conjunto de métricas para cada operação de armazenamento na API do serviço de armazenamento do Azure.
 
 Por exemplo, o comando a seguir alterna as métricas de minuto para o serviço blob em sua conta de armazenamento com o período de retenção definido como cinco dias: 
 
 > [!NOTE]
-> Esse comando pressupõe que você tenha entrado em sua assinatura do Azure usando `Connect-AzAccount` o comando.
+> Esse comando pressupõe que você tenha entrado em sua assinatura do Azure usando o comando `Connect-AzAccount`.
 
-```  
+```powershell
 $storageAccount = Get-AzStorageAccount -ResourceGroupName "<resource-group-name>" -AccountName "<storage-account-name>"
 
-Set-AzureStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
+Set-AzStorageServiceMetricsProperty -MetricsType Minute -ServiceType Blob -MetricsLevel ServiceAndApi  -RetentionDays 5 -Context $storageAccount.Context
 ```  
 
-* Substitua o `<resource-group-name>` valor do espaço reservado pelo nome do seu grupo de recursos.
-
-* Substitua o `<storage-account-name>` valor do espaço reservado pelo nome da sua conta de armazenamento.
+* Substitua o valor do espaço reservado `<resource-group-name>` pelo nome do seu grupo de recursos.
+        
+* Substitua o valor de espaço reservado `<storage-account-name>` pelo nome da sua conta de armazenamento.
 
 
 
 O comando a seguir recupera o nível de métrica por hora atual e os dias de retenção para o serviço blob em sua conta de armazenamento padrão:  
 
-```  
-Get-AzureStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
+```powershell
+Get-AzStorageServiceMetricsProperty -MetricsType Hour -ServiceType Blob -Context $storagecontext.Context
 ```  
 
-Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão a ser usada, consulte: [Como instalar e configurar Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão a ser usada, consulte: [como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ## <a name="enable-storage-metrics-programmatically"></a>Habilitar métricas de armazenamento programaticamente  
 Além de usar os cmdlets portal do Azure ou Azure PowerShell para controlar as métricas de armazenamento, você também pode usar uma das APIs de armazenamento do Azure. Por exemplo, se você estiver usando uma linguagem .NET, poderá usar a biblioteca de cliente de armazenamento.  
 
-As classes **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**e **CloudFileClient** têm métodos como setserviceproperties e **SetServicePropertiesAsync** que usam umObjeto serviceproperties como um parâmetro. Você pode usar o objeto serviceproperties para configurar as métricas de armazenamento. Por exemplo, o trecho C# a seguir mostra como alterar o nível de métricas e os dias de retenção para as métricas de fila por hora:  
+As classes **CloudBlobClient**, **CloudQueueClient**, **CloudTableClient**e **CloudFileClient** têm métodos como **setserviceproperties** e **SetServicePropertiesAsync** que usam um  **Objeto serviceproperties** como um parâmetro. Você pode usar o objeto **serviceproperties** para configurar as métricas de armazenamento. Por exemplo, o trecho C# a seguir mostra como alterar o nível de métricas e os dias de retenção para as métricas de fila por hora:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -153,15 +150,15 @@ Se você quiser baixar as métricas para armazenamento de longo prazo ou analis�
 |Métricas de minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Só pode ser habilitado usando o PowerShell ou programaticamente.<br /><br /> As métricas para o serviço de arquivo estão disponíveis a partir da versão 2015-04-05.|  
 |Capacidade|$MetricsCapacityBlob|Somente serviço BLOB.|  
 
-Você pode encontrar detalhes completos dos esquemas para essas tabelas em [análise de armazenamento esquema de tabela](/rest/api/storageservices/storage-analytics-metrics-table-schema)de métricas. As linhas de exemplo a seguir mostram apenas um subconjunto das colunas disponíveis, mas ilustram alguns recursos importantes da maneira como as métricas de armazenamento salvam essas métricas:  
+Você pode encontrar detalhes completos dos esquemas para essas tabelas em [análise de armazenamento esquema de tabela de métricas](/rest/api/storageservices/storage-analytics-metrics-table-schema). As linhas de exemplo a seguir mostram apenas um subconjunto das colunas disponíveis, mas ilustram alguns recursos importantes da maneira como as métricas de armazenamento salvam essas métricas:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
 |**PartitionKey**|**RowKey**|**Estampa**|**TotalRequests**|**TotalBillableRequests**|**TotalIngress**|**TotalEgress**|**Disponibilidade**|**AverageE2ELatency**|**AverageServerLatency**|**PercentSuccess**|  
-|20140522T1100|usuário Os|2014-05-22T11:01:16.7650250Z|7|7|4003|46801|100|104.4286|6.857143|100|  
-|20140522T1100|usuário QueryEntities|2014-05-22T11:01:16.7640250Z|5|5|2694|45951|100|143.8|7.8|100|  
-|20140522T1100|user;QueryEntity|2014-05-22T11:01:16.7650250Z|1|1|538|633|100|3|3|100|  
-|20140522T1100|user;UpdateEntity|2014-05-22T11:01:16.7650250Z|1|1|771|217|100|9|6|100|  
+|20140522T1100|usuário Os|2014-05-22T11:01:16.7650250 Z|7|7|4003|46801|100|104,4286|6,857143|100|  
+|20140522T1100|usuário QueryEntities|2014-05-22T11:01:16.7640250 Z|5|5|2694|45951|100|143,8|7,8|100|  
+|20140522T1100|usuário QueryEntity|2014-05-22T11:01:16.7650250 Z|1|1|538|633|100|3|3|100|  
+|20140522T1100|usuário UpdateEntity|2014-05-22T11:01:16.7650250 Z|1|1|771|217|100|9|6|100|  
 
 Neste exemplo de dados de métricas de minuto, a chave de partição usa a resolução de tempo em minutos. A chave de linha identifica o tipo de informações que são armazenadas na linha e isso é composto por duas partes de informações, o tipo de acesso e o tipo de solicitação:  
 
@@ -234,7 +231,7 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 -   Se, em cada hora, um serviço utilizar cada API no serviço, aproximadamente 12KB de dados serão armazenados a cada hora nas tabelas de transação de métricas se você tiver habilitado apenas o resumo de nível de serviço.  
 -   A tabela de capacidade para BLOBs tem duas linhas adicionadas por dia, desde que você tenha optado por logs. Isso implica que, todos os dias, o tamanho dessa tabela aumenta em até cerca de 300 bytes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Como monitorar uma conta de armazenamento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
 * [Esquema de tabela de métricas Análise de Armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
 * [Análise de Armazenamento mensagens de status e operações registradas](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   

@@ -1,5 +1,5 @@
 ---
-title: Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
+title: Enviar solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como enviar consultas de pesquisa para o API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahill
-ms.openlocfilehash: ba2036c58ae54cc665623e63129ecea6c530b27d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 96f92f0dc1e9e0c6c409fe17680fc57412e2b7d3
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878994"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512510"
 ---
 # <a name="sending-search-requests-to-the-bing-video-search-api"></a>Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
 
@@ -39,7 +39,7 @@ https://api.cognitive.microsoft.com/bing/v7.0/videos/search
    
 O pedido tem de utilizar o protocolo HTTPS.
 
-Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente abre mais oportunidades de acesso à mesma a terceiros mal-intencionados. Fazer chamadas de um servidor também fornece um único ponto de atualização para versões futuras da API.
+Recomendamos que todos os pedidos tenham origem num servidor. Distribuir a chave como parte de uma aplicação cliente fornece mais oportunidades para terceiros mal-intencionados acederem à mesma. Fazer chamadas de um servidor também fornece um único ponto de atualização para versões futuras da API.
 
   
 O pedido tem de especificar o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query), que contém o termo de pesquisa do utilizador. Embora seja opcional, o pedido deve também especificar o parâmetro de consulta [mkt](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#mkt), que identifica o mercado de onde pretende que os resultados provenham. Para obter uma lista opcional de parâmetros de consulta, como `pricing`, veja [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query-parameters). Todos os valores de parâmetro de consulta têm de estar codificados com URL.  
@@ -145,7 +145,7 @@ BingAPIs-Market: en-US
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Experimente a API. Aceda a [Consola de Testes da API da Pesquisa de Vídeos](https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8). 
 

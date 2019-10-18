@@ -1,23 +1,23 @@
 ---
 title: Portas usadas pelos serviços do Hadoop no HDInsight – Azure
-description: Isso fornece uma lista de portas usadas por Apache Hadoop serviços em execução no Azure HDInsight
+description: Este artigo fornece uma lista de portas usadas por Apache Hadoop serviços em execução no Azure HDInsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1fe66c1c171e779f48f4cc7c6767307feaafbd5f
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/15/2019
+ms.openlocfilehash: 46c2cd49258b8eb6813caaf50e9895990ce67287
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733415"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529559"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portas usadas pelos serviços de Apache Hadoop no HDInsight
 
-Este documento fornece uma lista das portas usadas por Apache Hadoop serviços em execução em clusters HDInsight baseados em Linux. Ele também fornece informações sobre as portas usadas para se conectar ao cluster usando o SSH.
+Este documento fornece uma lista das portas usadas por Apache Hadoop serviços em execução em clusters HDInsight. Ele também fornece informações sobre as portas usadas para se conectar ao cluster usando o SSH.
 
 ## <a name="public-ports-vs-non-public-ports"></a>Portas públicas vs. portas não públicas
 
@@ -34,7 +34,7 @@ Para unir computadores adicionais à rede virtual, você deve primeiro criar a r
 
 Todos os nós em um cluster HDInsight estão localizados em uma rede virtual do Azure e não podem ser acessados diretamente pela Internet. Um gateway público fornece acesso à Internet para as seguintes portas, que são comuns em todos os tipos de cluster HDInsight.
 
-| Serviço | Port | Protocol | Descrição |
+| Serviço | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- |
 | sshd |22 |SSH |Conecta clientes ao sshd no cabeçalho primário. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
 | sshd |22 |SSH |Conecta clientes a sshd no nó de borda. Para obter mais informações, veja [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md). |
@@ -47,18 +47,18 @@ Todos os nós em um cluster HDInsight estão localizados em uma rede virtual do 
 
 Os itens a seguir estão disponíveis para tipos de cluster específicos:
 
-| Serviço | Port | Protocol | Tipo de cluster | Descrição |
+| Serviço | Porta | Protocolo | Tipo de cluster | Descrição |
 | --- | --- | --- | --- | --- |
 | Stargate |443 |HTTPS |HBase |API REST do HBase. Consulte [introdução ao uso do Apache HBase](hbase/apache-hbase-tutorial-get-started-linux.md) |
 | Livy |443 |HTTPS |Spark |API REST do Spark. Consulte [enviar trabalhos de Apache Spark remotamente usando o Apache Livy](spark/apache-spark-livy-rest-interface.md) |
 | Servidor Spark thrift |443 |HTTPS |Spark |Servidor Spark Thrift usado para enviar consultas de Hive. Consulte [usar o beeline com o Apache Hive no HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Interface do usuário da Web do Storm. Consulte [implantar e gerenciar topologias de Apache Storm no HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autenticação
 
 Todos os serviços publicamente expostos na Internet devem ser autenticados:
 
-| Port | Credenciais |
+| Porta | Credenciais |
 | --- | --- |
 | 22 ou 23 |As credenciais de usuário SSH especificadas durante a criação do cluster |
 | 443 |O nome de logon (padrão: admin) e a senha que foram definidos durante a criação do cluster |
@@ -73,18 +73,18 @@ Todos os serviços publicamente expostos na Internet devem ser autenticados:
 
 ### <a name="ambari"></a>Ambari
 
-| Serviço | Nós | Port | Caminho do URL | Protocol | 
+| Serviço | Nós | Porta | Caminho da URL | Protocolo |
 | --- | --- | --- | --- | --- |
 | Interface do usuário da Web do amAmbari | Nós de cabeça | 8080 | / | HTTP |
 | API REST do Ambari | Nós de cabeça | 8080 | /api/v1 | HTTP |
 
 Exemplos:
 
-* API REST do Ambari:`curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
+* API REST do Ambari: `curl -u admin "http://10.0.0.11:8080/api/v1/clusters"`
 
 ### <a name="hdfs-ports"></a>Portas do HDFS
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | Interface do usuário da Web do amNameNode |Nós de cabeça |30070 |HTTPS |Interface do usuário da Web para exibir o status |
 | Serviço de metadados NameNode |nós de cabeçalho |8020 |IPC |Metadados do sistema de arquivos |
@@ -95,7 +95,7 @@ Exemplos:
 
 ### <a name="yarn-ports"></a>Portas YARN
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | Interface do usuário da Web do Resource Manager |Nós de cabeça |8088 |HTTP |Interface do usuário da Web para o Gerenciador de recursos |
 | Interface do usuário da Web do Resource Manager |Nós de cabeça |8090 |HTTPS |Interface do usuário da Web para o Gerenciador de recursos |
@@ -109,20 +109,20 @@ Exemplos:
 
 ### <a name="hive-ports"></a>Portas do hive
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | HiveServer2 |Nós de cabeça |10001 |Thrift |Serviço para conexão com o hive (Thrift/JDBC) |
 | Metastore do Hive |Nós de cabeça |9083 |Thrift |Serviço para se conectar a metadados do hive (Thrift/JDBC) |
 
 ### <a name="webhcat-ports"></a>Portas WebHCat
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | Servidor WebHCat |Nós de cabeça |30111 |HTTP |API da Web sobre HCatalog e outros serviços do Hadoop |
 
 ### <a name="mapreduce-ports"></a>Portas MapReduce
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | JobHistory |Nós de cabeça |19888 |HTTP |Interface do usuário da Web do MapReduce JobHistory |
 | JobHistory |Nós de cabeça |10020 |&nbsp; |Servidor JobHistory MapReduce |
@@ -130,21 +130,21 @@ Exemplos:
 
 ### <a name="oozie"></a>Oozie
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | Servidor Oozie |Nós de cabeça |11000 |HTTP |URL para o serviço Oozie |
 | Servidor Oozie |Nós de cabeça |11001 |HTTP |Porta para administrador do Oozie |
 
 ### <a name="ambari-metrics"></a>Métricas do Ambari
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | Linha do tempo (histórico do aplicativo) |Nós de cabeça |6188 |HTTP |A IU da Web do serviço de linha do tempo |
 | Linha do tempo (histórico do aplicativo) |Nós de cabeça |30200 |RPC |A IU da Web do serviço de linha do tempo |
 
 ### <a name="hbase-ports"></a>Portas do HBase
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | HMaster |Nós de cabeça |16000 |&nbsp; |&nbsp; |
 | Interface do usuário da Web do HMaster info |Nós de cabeça |16010 |HTTP |A porta para a interface do usuário da Web do HBase Master |
@@ -153,14 +153,14 @@ Exemplos:
 
 ### <a name="kafka-ports"></a>Portas Kafka
 
-| Serviço | Nós | Port | Protocol | Descrição |
+| Serviço | Nós | Porta | Protocolo | Descrição |
 | --- | --- | --- | --- | --- |
 | Orienta |Nós de trabalho |9092 |[Protocolo de transmissão Kafka](https://kafka.apache.org/protocol.html) |Usado para comunicação do cliente |
 | &nbsp; |Nós do Zookeeper |2181 |&nbsp; |A porta que os clientes usam para se conectar ao Zookeeper |
 
 ### <a name="spark-ports"></a>Portas do Spark
 
-| Serviço | Nós | Port | Protocol | Caminho do URL | Descrição |
+| Serviço | Nós | Porta | Protocolo | Caminho da URL | Descrição |
 | --- | --- | --- | --- | --- | --- |
 | Servidores Spark thrift |Nós de cabeça |10002 |Thrift | &nbsp; | Serviço para se conectar ao Spark SQL (Thrift/JDBC) |
 | Servidor Livy | Nós de cabeça | 8998 | HTTP | &nbsp; | Serviço para executar instruções, trabalhos e aplicativos |

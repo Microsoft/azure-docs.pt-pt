@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 04cd5035d012e7846cc97a5a057fd71ebe103ce3
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 242cdcc07821151503dc6765f820187c0c3dfc53
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168756"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515561"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -37,7 +37,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
 
 ## <a name="create-a-virtual-network"></a>Criar rede virtual
 
-1. Selecione **+ criar um recurso**@no__t **-1 rede** > **Virtual Network**.
+1. Selecione **+ criar um recurso**  > **rede**  > **rede virtual**.
 2. Insira ou selecione valores para as seguintes configurações e, em seguida, selecione **criar**:
    - **Nome**: o nome deve ser exclusivo no [grupo de recursos](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) em que você selecionar para criar a rede virtual. Você não pode alterar o nome depois que a rede virtual é criada. Você pode criar várias redes virtuais ao longo do tempo. Para obter sugestões de nomenclatura, consulte [convenções de nomenclatura](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming). Seguir uma Convenção de nomenclatura pode ajudar a facilitar o gerenciamento de várias redes virtuais.
    - **Espaço de endereço**: o espaço de endereço para uma rede virtual é composto por um ou mais intervalos de endereços não sobrepostos que são especificados na notação CIDR. O intervalo de endereços definido pode ser público ou privado (RFC 1918). Independentemente de você definir o intervalo de endereços como público ou privado, o intervalo de endereços pode ser acessado somente de dentro da rede virtual, de redes virtuais interconectadas e de qualquer rede local que você tenha conectado à rede virtual. Você não pode adicionar os seguintes intervalos de endereços:
@@ -47,7 +47,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
      - 169.254.0.0/16 (link-local)
      - 168.63.129.16/32 (DNS interno, DHCP e Azure Load Balancer [investigação de integridade](../load-balancer/load-balancer-custom-probe-overview.md#probesource))
 
-     Embora seja possível definir apenas um intervalo de endereços ao criar a rede virtual, você pode adicionar mais intervalos de endereços ao espaço de endereço após a criação da rede virtual. Para saber como adicionar um intervalo de endereços a uma rede virtual existente, consulte [Adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
+     Embora você possa definir apenas um intervalo de endereços ao criar a rede virtual no portal, é possível adicionar mais intervalos de endereços ao espaço de endereço depois que a rede virtual é criada. Para saber como adicionar um intervalo de endereços a uma rede virtual existente, consulte [Adicionar ou remover um intervalo de endereços](#add-or-remove-an-address-range).
 
      >[!WARNING]
      >Se uma rede virtual tiver intervalos de endereços que se sobrepõem a outra rede virtual ou rede local, as duas redes não poderão ser conectadas. Antes de definir um intervalo de endereços, considere se você pode querer conectar a rede virtual a outras redes virtuais ou redes locais no futuro.

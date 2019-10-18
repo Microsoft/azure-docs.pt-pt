@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Bloco de anotações do Azure-personalizador'
+title: 'Tutorial: Azure Notebook-personalizador'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial simula um loop personalizado _system em um bloco de anotações do Azure, que sugere o tipo de café que um cliente deve solicitar. Os usuários e suas preferências são armazenados em um conjunto de um usuário. As informações sobre o café também estão disponíveis e armazenadas em um conjunto de dados de café.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: b724e54eb2d9e61bd576ab8a094489bbed6db20d
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975409"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515164"
 ---
-# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: Usar personalizador no bloco de anotações do Azure
+# <a name="tutorial-use-personalizer-in-azure-notebook"></a>Tutorial: usar o personalizador no bloco de anotações do Azure
 
 Este tutorial executa um loop personalizador em um bloco de anotações do Azure, demonstrando o ciclo de vida de ponta a ponta de um loop personalizador. 
 
@@ -29,16 +29,16 @@ O notebook seleciona um usuário aleatório, a hora do dia e o tipo de clima do 
 
 |Clientes-recursos de contexto|Horas do dia|Tipos de clima|
 |--|--|--|
-|Alice<br>BOB<br>Cathy<br>Dave|Manhã<br>Tarde<br>À|Ensolarado<br>Rainy<br>Nevado| 
+|Maria<br>José<br>Cathy<br>Dave|Manhã<br>Tarde<br>À|Ensolarado<br>Rainy<br>Nevado| 
 
 Para ajudar a personalizar o aprendizado, ao longo do tempo, a seleção de café correta para cada pessoa, o _sistema_ também conhece os detalhes sobre o café.
 
 |Recursos de ação de café|Tipos de temperatura|Locais de origem|Tipos de assado|Sistemático|
 |--|--|--|--|--|
-|Cappacino|Frequente|Quénia|Escuro|Sistemático|
+|Cappacino|Acesso Frequente|Quénia|Escuro|Sistemático|
 |Brew frio|Frio|Brasil|Claro|Sistemático|
 |Iced Mocha|Frio|Etiópia|Claro|Não orgânica|
-|Expresso|Frequente|Brasil|Escuro|Não orgânica|
+|Expresso|Acesso Frequente|Brasil|Escuro|Não orgânica|
 
 
 A **finalidade** do loop do personalizador é encontrar a melhor correspondência entre os usuários e o café o máximo possível. 
@@ -83,7 +83,7 @@ Descrições de arquivo:
 
 Na portal do Azure, configure o [recurso personalizado](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) com a frequência do **modelo de atualização** definido como 15 segundos e um **tempo de espera de recompensa** de 15 segundos. Essas configurações são encontradas na página **[configurações](how-to-settings.md#configure-service-settings-in-the-azure-portal)** . 
 
-|Definição|Value|
+|Definição|Valor|
 |--|--|
 |atualizar frequência do modelo|15 segundos|
 |tempo de espera de recompensa|15 segundos|
@@ -114,7 +114,7 @@ import uuid
 
 ### <a name="set-personalizer-resource-key-and-name"></a>Definir o nome e a chave de recurso do personalizador
 
-Na portal do Azure, localize sua chave e ponto de extremidade na página **início rápido** do recurso personalizado. Altere o valor de `<your-resource-name>` para o nome do recurso personalizado. Altere o valor de `<your-resource-key>` para a chave do personalizador. 
+Na portal do Azure, localize sua chave e ponto de extremidade na página **início rápido** do recurso personalizado. Altere o valor de `<your-resource-name>` para o nome do seu recurso personalizador. Altere o valor de `<your-resource-key>` para a chave do personalizador. 
 
 ```python
 # Replace 'personalization_base_url' and 'resource_key' with your valid endpoint values.
@@ -122,7 +122,7 @@ personalization_base_url = "https://<your-resource-name>.cognitiveservices.azure
 resource_key = "<your-resource-key>"
 ```
 
-### <a name="print-current-data-and-time"></a>Imprimir dados e hora atuais
+### <a name="print-current-date-and-time"></a>Imprimir data e hora atuais
 Use essa função para anotar as horas de início e de término da função iterativa, iterações.
 
 Essas células não têm nenhuma saída. A função faz a saída da data e hora atual quando chamada.
@@ -198,10 +198,10 @@ Esta célula
 * define o cabeçalho de segurança usando a chave de recurso do personalizador 
 * define a semente aleatória para a ID do evento de classificação
 * leituras nos arquivos de dados JSON
-* chama o método `get_last_updated`-a política de aprendizagem foi removida na saída de exemplo
-* chama o método `get_service_settings`
+* chama `get_last_updated` método – a política de aprendizado foi removida na saída de exemplo
+* chama `get_service_settings` método
 
-A célula tem uma saída da chamada para as funções `get_last_updated` e `get_service_settings`.
+A célula tem saída da chamada para funções de `get_last_updated` e `get_service_settings`.
 
 ```python
 # build URLs
@@ -245,7 +245,7 @@ print(f'User count {len(userpref)}')
 print(f'Coffee count {len(actionfeaturesobj)}')
 ```
 
-Verifique se os `rewardWaitTime` e `modelExportFrequency` da saída estão definidos como 15 segundos. 
+Verifique se os `rewardWaitTime` e os `modelExportFrequency` da saída estão definidos como 15 segundos. 
     
 ```console
 -----checking model
@@ -392,7 +392,7 @@ A próxima célula é o trabalho _principal_ do notebook, obtendo um usuário al
 
 O loop é executado por `num_requests` vezes. O personalizador precisa de algumas mil chamadas para classificar e recompensar a criação de um modelo. 
 
-Segue um exemplo do JSON enviado para a API de classificação. A lista de café não está completa, por concisão. Você pode ver o JSON inteiro para café no `coffee.json`.
+Segue um exemplo do JSON enviado para a API de classificação. A lista de café não está completa, por concisão. Você pode ver o JSON inteiro para café em `coffee.json`.
 
 JSON enviado para a API de classificação:
 
@@ -608,7 +608,7 @@ Saiba mais sobre o [tempo de espera de recompensa](concept-rewards.md#reward-wai
 get_service_settings()
 ```
 
-Verifique se os `rewardWaitTime` e `modelExportFrequency` da saída estão definidos como 5 minutos. 
+Verifique se os `rewardWaitTime` e os `modelExportFrequency` da saída estão definidos como 5 minutos. 
 ```console
 -----checking model
 <Response [200]>

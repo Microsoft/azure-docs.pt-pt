@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com Achieve3000 | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Achieve3000.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Achieve3000 | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o Achieve3000.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,223 +8,159 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 83a83d07-ff9c-46c4-b5ba-25fe2b2cd003
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8aa86f75d70e7253fa250893ce685b90d6a02f01
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a56c567d9548fd42be33cb9da7898029614ef61
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107411"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533058"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-achieve3000"></a>Tutorial: Integração do Active Directory do Azure com Achieve3000
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-achieve3000"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Achieve3000
 
-Neste tutorial, saiba como integrar Achieve3000 com o Azure Active Directory (Azure AD).
-Integrar Achieve3000 no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o Achieve3000 com o Azure Active Directory (Azure AD). Ao integrar o Achieve3000 ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso ao Achieve3000.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada para Achieve3000 (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao Achieve3000.
+* Habilite seus usuários a serem conectados automaticamente ao Achieve3000 com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Achieve3000, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Achieve3000 logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do Achieve3000.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta Achieve3000 **SP** iniciada SSO
+* O Achieve3000 dá suporte ao SSO iniciado por **SP**
 
-## <a name="adding-achieve3000-from-the-gallery"></a>Adicionando Achieve3000 da Galeria
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
-Para configurar a integração do Achieve3000 com o Azure AD, terá de adicionar Achieve3000 a partir da Galeria à sua lista de aplicações de SaaS geridas.
+## <a name="adding-achieve3000-from-the-gallery"></a>Adicionando o Achieve3000 da Galeria
 
-**Para adicionar Achieve3000 a partir da galeria, execute os seguintes passos:**
+Para configurar a integração do Achieve3000 ao Azure AD, você precisará adicionar o Achieve3000 da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **Achieve3000** na caixa de pesquisa.
+1. Selecione **Achieve3000** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+## <a name="configure-and-test-azure-ad-single-sign-on-for-achieve3000"></a>Configurar e testar o logon único do Azure AD para o Achieve3000
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+Configure e teste o SSO do Azure AD com o Achieve3000 usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no Achieve3000.
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+Para configurar e testar o SSO do Azure AD com o Achieve3000, conclua os seguintes blocos de construção:
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do Achieve3000](#configure-achieve3000-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do Achieve3000](#create-achieve3000-test-user)** – para ter um equivalente de B. Simon em Achieve3000 que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-4. Na caixa de pesquisa, escreva **Achieve3000**, selecione **Achieve3000** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-     ![Achieve3000 na lista de resultados](common/search-new-app.png)
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Achieve3000** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Achieve3000 com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no Achieve3000 deve ser estabelecido.
+1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-Para configurar e testar o Azure AD início de sessão único com Achieve3000, tem de concluir os seguintes blocos de construção:
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://saml.achieve3000.com/district/<District Identifier>`
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar Achieve3000 Single Sign-On](#configure-achieve3000-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste Achieve3000](#create-achieve3000-test-user)**  - para ter um equivalente da Eduarda Almeida na Achieve3000 que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
-
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com Achieve3000, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **Achieve3000** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, execute os seguintes passos:
-
-    ![Achieve3000 domínio e URLs únicas início de sessão em informações](common/sp-identifier.png)
-
-    a. Na **iniciar sessão no URL** caixa de texto, escreva um URL com o seguinte padrão: `https://saml.achieve3000.com/district/<District Identifier>`
-
-    b. Na **identificador (ID de entidade)** texto, escreva o valor: `achieve3000-saml`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite um valor: `achieve3000-saml`
 
     > [!NOTE]
-    > O valor de URL de início de sessão não é real. Atualize o valor com o URL de início de sessão real. Contacte [equipa de suporte de cliente Achieve3000](https://www.achieve3000.com/contact-us/) para obter o valor. Também pode consultar os padrões mostrados a **configuração básica de SAML** secção no portal do Azure.
+    > O valor da URL de logon não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente do Achieve3000](https://www.achieve3000.com/contact-us/) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
-5. Aplicação de Achieve3000 espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+5. O aplicativo Achieve3000 espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
-6. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
+6. Além de acima, o aplicativo Achieve3000 espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito. 
 
-    | Name |  Atributo de origem|
+    | Nome |  Atributo de origem|
     | ---------------| --------- |
-    | studentID     | user.mail |
-    | | |
+    | studentID     | User. mail |
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![image](common/new-save-attribute.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
-    ![image](common/new-attribute-details.png)
+1. Na seção **Configurar Achieve3000** , copie as URLs apropriadas com base em seu requisito.
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    c. Deixe o **espaço de nomes** em branco.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    d. Selecione a origem de dado **atributo**.
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-    f. Clique em **Ok**
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-    g. Clique em **Guardar**.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao Achieve3000.
 
-7. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **Achieve3000**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![O link de download de certificado](common/metadataxml.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-8. Sobre o **configurar Achieve3000** secção, copie os URLs apropriados de acordo com seus requisitos.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-    a. URL de início de sessão
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-    b. Azure Ad Identifier
+## <a name="configure-achieve3000-sso"></a>Configurar o SSO do Achieve3000
 
-    c. URL de fim de sessão
+Para configurar o logon único no lado do **Achieve3000** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a equipe de suporte do [Achieve3000](https://www.achieve3000.com/contact-us/). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="configure-achieve3000-single-sign-on"></a>Configurar Achieve3000 início de sessão único
+### <a name="create-achieve3000-test-user"></a>Criar usuário de teste do Achieve3000
 
-Para configurar o início de sessão único num **Achieve3000** lado, terá de enviar o transferido **XML de metadados de Federação** e adequadas copiados URLs a partir do portal do Azure para [Achieve3000 a equipa de suporte ](https://www.achieve3000.com/contact-us/). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Nesta seção, você criará um usuário chamado B. Simon em Achieve3000. Trabalhe com a [equipe de suporte do Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os usuários na plataforma do Achieve3000. Os usuários devem ser criados e ativados antes de usar o logon único.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+## <a name="test-sso"></a>Testar SSO 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+Ao clicar no bloco do Achieve3000 no painel de acesso, você deverá ser conectado automaticamente ao Achieve3000 para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+## <a name="additional-resources"></a>Recursos adicionais
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-    ![Novo utilizador botão](common/new-user.png)
-
-3. Nas propriedades do utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
-
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida utilizar o Azure início de sessão único ao conceder acesso para Achieve3000.
-
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Achieve3000**.
-
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **Achieve3000**.
-
-    ![A ligação de Achieve3000 na lista de aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-achieve3000-test-user"></a>Criar utilizador de teste Achieve3000
-
-Nesta secção, vai criar um usuário chamado Eduarda Almeida no Achieve3000. Trabalhar com [equipa de suporte de Achieve3000](https://www.achieve3000.com/contact-us/) para adicionar os utilizadores na plataforma Achieve3000. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
-
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
-
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
-
-Quando clica no mosaico Achieve3000 no painel de acesso, deve ser automaticamente sessão iniciada no Achieve3000 para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
-
-## <a name="additional-resources"></a>Recursos Adicionais
-
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o Achieve3000 com o Azure AD](https://aad.portal.azure.com/)
 

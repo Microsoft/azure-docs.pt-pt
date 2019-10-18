@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente do personalizador para .NET | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do personalizador para .NET | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Introdução à biblioteca de cliente do personalizador para .NET usando um loop de aprendizado.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345231"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515589"
 ---
-# <a name="quickstart-personalize-client-library-for-net"></a>Início rápido: Personalizar a biblioteca de cliente para .NET
+# <a name="quickstart-personalizer-client-library-for-net"></a>Início rápido: biblioteca de cliente do personalizador para .NET
 
 Exiba o conteúdo personalizado neste C# guia de início rápido com o serviço personalizado.
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para .NET. Siga estas et
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview) |  | [Exemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) de pacote de[código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)[(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) | da biblioteca de documentação de referência
+[Documentação de referência](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.Personalizer?view=azure-dotnet-preview)  | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples) do NuGet ([código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Personalizer)  | [do pacote)  |  de](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Personalizer/) biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,8 +53,8 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 <!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas [variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_RESOURCE_KEY`para a chave de recurso.
-* `PERSONALIZER_RESOURCE_ENDPOINT`para o ponto de extremidade do recurso.
+* `PERSONALIZER_RESOURCE_KEY` para a chave de recurso.
+* `PERSONALIZER_RESOURCE_ENDPOINT` para o ponto de extremidade do recurso.
 
 No portal do Azure, os valores de chave e ponto de extremidade estão disponíveis na página **início rápido** .
 
@@ -70,7 +70,7 @@ Quando um loop do personalizador é instanciado pela primeira vez, não há nenh
 
 Crie um novo aplicativo .NET Core em seu editor ou IDE preferido. 
 
-Em uma janela de console (como cmd, PowerShell ou bash), use o comando dotnet `new` para criar um novo aplicativo de console com o nome `personalizer-quickstart`. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de `Program.cs`origem:. 
+Em uma janela de console (como cmd, PowerShell ou bash), use o comando dotnet `new` para criar um novo aplicativo de console com o nome `personalizer-quickstart`. Este comando cria um projeto simples de " C# Olá, mundo" com um único arquivo de origem: `Program.cs`. 
 
 ```console
 dotnet new console -n personalizer-quickstart
@@ -122,13 +122,13 @@ Esses trechos de código mostram como fazer o seguinte com a biblioteca de clien
 
 ## <a name="add-the-dependencies"></a>Adicionar as dependências
 
-No diretório do projeto, abra o arquivo **Program.cs** no seu editor ou IDE preferido. Substitua o código `using` existente pelas seguintes `using` diretivas:
+No diretório do projeto, abra o arquivo **Program.cs** no seu editor ou IDE preferido. Substitua o código de `using` existente pelas seguintes diretivas de `using`:
 
 [!code-csharp[Using statements](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=Dependencies)]
 
 ## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos do personalizador
 
-Na classe **programa** , crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das variáveis `PERSONALIZER_RESOURCE_KEY` de `PERSONALIZER_RESOURCE_ENDPOINT`ambiente, nomeadas e. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
+Na classe **programa** , crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraído das variáveis de ambiente, chamadas `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
 
 [!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=classVariables)]
 
@@ -146,7 +146,7 @@ As ações representam as opções de conteúdo que você deseja que o personali
 
 [!code-csharp[Present food taste preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTastePreference)]
 
-Ambos os métodos usam `GetKey` o método para ler a seleção do usuário na linha de comando. 
+Ambos os métodos usam o método `GetKey` para ler a seleção do usuário na linha de comando. 
 
 [!code-csharp[Read user's choice from the command line](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=readCommandLine)]
 
@@ -154,7 +154,7 @@ Ambos os métodos usam `GetKey` o método para ler a seleção do usuário na li
 
 O loop de aprendizagem personalizador é um ciclo de chamadas de classificação e recompensa. Neste guia de início rápido, cada chamada de classificação, para personalizar o conteúdo, é seguida por uma chamada de recompensa para informar ao personalizado o quão bem o serviço classificou o conteúdo. 
 
-O código a seguir no `main` método do programa executa um loop em um ciclo de solicitar ao usuário suas preferências na linha de comando, enviando essas informações ao personalizador para classificação, apresentando a seleção classificada ao cliente para escolher entre as e, em seguida, enviar um prêmio para o personalizado sinalizando o quão bem o serviço fez ao classificar a seleção.
+O código a seguir no método `main` do programa faz um loop em um ciclo de solicitar ao usuário suas preferências na linha de comando, enviando essas informações ao personalizador para classificação, apresentando a seleção classificada ao cliente para escolher entre a lista e, em seguida, enviar um prêmio para o personalizado sinalizando o quão bem o serviço fez ao classificar a seleção.
 
 ```csharp
 static void Main(string[] args)
@@ -242,7 +242,7 @@ Adicione os seguintes métodos, que [obtêm as opções de conteúdo](#get-conte
 
 ## <a name="request-a-rank"></a>Solicitar uma classificação
 
-Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar `currentContent` uma das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
+Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar uma `currentContent` das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
 
 Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](concept-feature-evaluation.md) [ações e recursos](concepts-features.md) pode ser uma questão não trivial.  
 
@@ -258,7 +258,7 @@ Este início rápido atribui um número simples como um recompensa, um zero ou u
 
 ## <a name="run-the-program"></a>Execute o programa
 
-Execute o aplicativo com o comando `run` dotnet do diretório do aplicativo.
+Execute o aplicativo com o comando dotnet `run` no diretório do aplicativo.
 
 ```console
 dotnet run

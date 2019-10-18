@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3cf30b53f950ff18dd6dcde332b7e97e332133aa
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034196"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516560"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Usar IoT Edge no Windows para executar contêineres do Linux
 
@@ -28,7 +28,7 @@ Este artigo lista as etapas para instalar o Azure IoT Edge tempo de execução u
 
 Use esta seção para examinar se o dispositivo Windows pode dar suporte a IoT Edge e prepará-lo para um mecanismo de contêiner antes da instalação. 
 
-### <a name="supported-windows-versions"></a>Versões suportadas do Windows
+### <a name="supported-windows-versions"></a>Versões do Windows com suporte
 
 Azure IoT Edge com contêineres do Linux podem ser executados em qualquer versão do Windows que atenda aos [requisitos do Docker desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)
 
@@ -47,7 +47,7 @@ Se o dispositivo de IoT Edge for um computador com Windows, verifique se ele ate
 ## <a name="install-iot-edge-on-a-new-device"></a>Instalar IoT Edge em um novo dispositivo
 
 >[!NOTE]
->Pacotes de software do Azure IoT Edge são sujeita aos termos de licença localizados nos pacotes (no diretório de licença). Leia os termos de licença antes de utilizar o pacote. A instalação e a utilização do pacote constitui a sua aceitação destes termos. Se não concordar com os termos de licenciamento, não utilize o pacote.
+>Azure IoT Edge pacotes de software estão sujeitos aos termos de licença localizados nos pacotes (no diretório de licença). Leia os termos de licença antes de usar o pacote. A instalação e o uso do pacote constituem sua aceitação desses termos. Se você não concordar com os termos de licença, não use o pacote.
 
 Um script do PowerShell baixa e instala o daemon de segurança Azure IoT Edge. Em seguida, o daemon de segurança inicia o primeiro de dois módulos de tempo de execução, o agente de IoT Edge, que habilita as implantações remotas de outros módulos. 
 
@@ -57,7 +57,7 @@ Você pode ler mais sobre as diferentes opções de instalação e parâmetros n
 
 1. Se você ainda não fez isso, registre um novo dispositivo de IoT Edge e recupere a cadeia de conexão do dispositivo. Copie a cadeia de conexão a ser usada posteriormente nesta seção. Você pode concluir esta etapa usando as seguintes ferramentas:
 
-   * [Azure portal](how-to-register-device-portal.md)
+   * [Portal do Azure](how-to-register-device-portal.md)
    * [CLI do Azure](how-to-register-device-cli.md)
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
@@ -88,24 +88,29 @@ Você pode ler mais sobre as diferentes opções de instalação e parâmetros n
 
 6. Quando solicitado, forneça a cadeia de conexão do dispositivo que você recuperou na etapa 1. A cadeia de conexão do dispositivo associa o dispositivo físico a uma ID do dispositivo no Hub IoT. 
 
-   A cadeia de conexão do dispositivo usa o seguinte formato e não deve incluir aspas:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   A cadeia de conexão do dispositivo usa o seguinte formato e não deve incluir aspas: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
-## <a name="verify-successful-installation"></a>Certifique-se a instalação com êxito
+## <a name="verify-successful-installation"></a>Verificar a instalação bem-sucedida
 
-Verifique o estado do serviço IoT Edge. Ele deve estar listado como em execução.  
+Verifique o status do serviço de IoT Edge: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Examine os registos do serviço dos últimos 5 minutos. 
+Examine os logs de serviço dos últimos 5 minutos: 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Lista de módulos em execução. Após uma nova instalação, o único módulo que você deve ver em execução é **edgeAgent**. Depois de [implantar os módulos do IOT Edge](how-to-deploy-modules-portal.md) pela primeira vez, o outro módulo do sistema, **edgeHub**, também será iniciado no dispositivo. 
+Execute uma verificação automatizada para os erros mais comuns de configuração e rede: 
 
+```powershell
+iotedge check
+```
+
+Listar módulos em execução. Após uma nova instalação, o único módulo que você deve ver em execução é **edgeAgent**. Depois de [implantar os módulos do IOT Edge](how-to-deploy-modules-portal.md) pela primeira vez, o outro módulo do sistema, **edgeHub**, também será iniciado no dispositivo. 
 
 ```powershell
 iotedge list
@@ -113,7 +118,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que tiver um dispositivo IoT Edge aprovisionado com o tempo de execução instalado, pode [implementar módulos IoT Edge](how-to-deploy-modules-portal.md).
+Agora que você tem um dispositivo IoT Edge provisionado com o tempo de execução instalado, você pode [implantar IOT Edge módulos](how-to-deploy-modules-portal.md).
 
 Se você estiver tendo problemas para instalar o IoT Edge corretamente, confira a página de [solução de problemas](troubleshoot.md) .
 

@@ -9,10 +9,10 @@ ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
 ms.openlocfilehash: f65e3c4f9582fcc5c28412d44e513fa6bcb9e870
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71262339"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Criar configuração de diagnóstico no Azure usando um modelo do Resource Manager
@@ -59,7 +59,7 @@ Dependendo dos [destinos](diagnostic-settings.md#destinations) da configuração
 ```
 
 ### <a name="resources"></a>Recursos
-Na matriz de recursos do recurso para o qual você deseja criar a configuração de diagnóstico, adicione um recurso do tipo `[resource namespace]/providers/diagnosticSettings`. A seção Propriedades segue o formato descrito em [configurações de diagnóstico – criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicione a `metrics` propriedade para coletar métricas de recurso para os mesmos destinos se o [recurso der suporte a métricas](metrics-supported.md).
+Na matriz de recursos do recurso para o qual você deseja criar a configuração de diagnóstico, adicione um recurso do tipo `[resource namespace]/providers/diagnosticSettings`. A seção Propriedades segue o formato descrito em [configurações de diagnóstico – criar ou atualizar](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Adicione a propriedade `metrics` para coletar métricas de recurso para os mesmos destinos se o [recurso der suporte a métricas](metrics-supported.md).
    
 ```json
 "resources": [

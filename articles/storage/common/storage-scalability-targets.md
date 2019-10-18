@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 046c2308d5cef2df7e12b6185fc24b8df4f821dc
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 293d0de024ad815b4755d48833b7058c29ebcd5a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326960"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513287"
 ---
 # <a name="azure-storage-scalability-and-performance-targets-for-storage-accounts"></a>Escalabilidade e metas de desempenho do armazenamento do Azure para contas de armazenamento
 
@@ -39,15 +39,15 @@ Quando seu aplicativo atinge o limite do que uma partição pode manipular para 
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
-## <a name="azure-files-scale-targets"></a>Alvos de dimensionamento de ficheiros do Azure
+## <a name="azure-files-scale-targets"></a>Destinos de escala de arquivos do Azure
 
 Para obter mais informações sobre as metas de escala e desempenho para arquivos e Sincronização de Arquivos do Azure do Azure, consulte [metas de desempenho e escalabilidade de arquivos do Azure](../files/storage-files-scale-targets.md).
 
 > [!IMPORTANT]
 > Os limites da conta de armazenamento são aplicados a todos os compartilhamentos. A expansão para o máximo de contas de armazenamento só será atingível se houver apenas um compartilhamento por conta de armazenamento.
 >
-> Compartilhamentos de arquivos padrão maiores que 5 TiB estão em visualização e têm certas limitações.
-> Para obter uma lista de limitações e integrar a visualização desses tamanhos maiores de compartilhamento de arquivos, consulte a seção compartilhamentos de arquivos [padrão](../files/storage-files-planning.md#standard-file-shares) do guia de planejamento de arquivos do Azure.
+> Compartilhamentos de arquivos padrão maiores que 5 TiB têm certas limitações e restrições regionais.
+> Para obter uma lista de limitações, informações regionais e instruções para habilitar esses tamanhos maiores de compartilhamento de arquivos, consulte a seção [integração a compartilhamentos de arquivos maiores (camada Standard)](../files/storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) do guia de planejamento de arquivos do Azure.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
@@ -55,13 +55,13 @@ Para obter mais informações sobre as metas de escala e desempenho para arquivo
 
 Há três categorias de limitações a serem consideradas para arquivos Premium: contas de armazenamento, compartilhamentos e arquivos.
 
-Por exemplo: Um único compartilhamento pode alcançar 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, por exemplo, se você tiver três arquivos em um único compartilhamento, o máximo de IOPs que você pode obter desse compartilhamento é 15.000.
+Por exemplo: um único compartilhamento pode alcançar 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, por exemplo, se você tiver três arquivos em um único compartilhamento, o máximo de IOPs que você pode obter desse compartilhamento é 15.000.
 
 #### <a name="premium-file-share-limits"></a>Limites de compartilhamento de arquivos Premium
 
 [!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
-### <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
+### <a name="azure-file-sync-scale-targets"></a>Destinos de escala Sincronização de Arquivos do Azure
 
 A Sincronização de Arquivos do Azure foi projetada com o objetivo de uso ilimitado, mas o uso ilimitado nem sempre é possível. A tabela a seguir indica os limites do teste da Microsoft e também indica quais destinos são os limites rígidos:
 
@@ -75,7 +75,7 @@ A Sincronização de Arquivos do Azure foi projetada com o objetivo de uso ilimi
 
 [!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 - [Assinatura do Azure e limites de serviço, cotas e restrições](../../azure-subscription-service-limits.md)

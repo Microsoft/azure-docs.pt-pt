@@ -4,25 +4,24 @@ description: Saiba como criar backups de seus aplicativos no serviço Azure App.
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/06/2016
+ms.date: 10/16/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 8784a06306f59015b95293d90ff5509dcfcae045
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bbfab41c3324bc16874463d2fc0201f99ee9284b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057941"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516962"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
-O recurso de backup e restauração no [serviço Azure app](overview.md) permite que você crie facilmente backups de aplicativos manualmente ou em um agendamento.  Os backups podem ser configurados para serem retidos por um período indefinido de tempo. Você pode restaurar o aplicativo para um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
+O recurso de backup e restauração no [serviço Azure app](overview.md) permite que você crie facilmente backups de aplicativos manualmente ou em um agendamento. Você pode configurar os backups a serem mantidos até um período indefinido de tempo. Você pode restaurar o aplicativo para um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo.
 
 Para obter informações sobre como restaurar um aplicativo do backup, consulte [restaurar um aplicativo no Azure](web-sites-restore.md).
 
@@ -31,26 +30,26 @@ Para obter informações sobre como restaurar um aplicativo do backup, consulte 
 ## <a name="what-gets-backed-up"></a>O que é feito backup
 O serviço de aplicativo pode fazer backup das informações a seguir em uma conta de armazenamento do Azure e um contêiner que você configurou para usar o aplicativo. 
 
-* Configuração da aplicação
-* Conteúdo do ficheiro
+* Configuração do aplicativo
+* Conteúdo do arquivo
 * Banco de dados conectado ao seu aplicativo
 
 As seguintes soluções de banco de dados têm suporte com o recurso de backup: 
-   - [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-   - [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
-   - [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
-   - [MySQL no aplicativo](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
+
+- [Base de Dados SQL](https://azure.microsoft.com/services/sql-database/)
+- [Base de Dados do Azure para MySQL](https://azure.microsoft.com/services/mysql)
+- [Base de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql)
+- [MySQL no aplicativo](https://azure.microsoft.com/en-us/blog/mysql-in-app-preview-app-service/)
  
 
 > [!NOTE]
->  Cada backup é uma cópia offline completa do seu aplicativo, não uma atualização incremental.
->  
+> Cada backup é uma cópia offline completa do seu aplicativo, não uma atualização incremental.
+>
 
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Requisitos e restrições
-* O recurso de backup e restauração requer que o plano do serviço de aplicativo esteja na camada **Standard** ou **Premium** . Para obter mais informações sobre como dimensionar seu plano do serviço de aplicativo para usar uma camada mais alta, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).  
-  A camada **Premium** permite um número maior de back-ups diários do que a camada **Standard** .
+* O recurso de backup e restauração requer que o plano do serviço de aplicativo esteja na camada **Standard** ou **Premium** . Para obter mais informações sobre como dimensionar seu plano do serviço de aplicativo para usar uma camada mais alta, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md). A camada **Premium** permite um número maior de back-ups diários do que a camada **Standard** .
 * Você precisa de uma conta de armazenamento do Azure e um contêiner na mesma assinatura que o aplicativo do qual você deseja fazer backup. Para obter mais informações sobre contas de armazenamento do Azure, consulte [visão geral da conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview).
 * Os backups podem ter até 10 GB de conteúdo de aplicativo e de banco de dados. Se o tamanho do backup exceder esse limite, você receberá um erro.
 * Não há suporte para backups do banco de dados do Azure habilitado para SSL para MySQL. Se um backup estiver configurado, você receberá os backups com falha.
@@ -63,52 +62,54 @@ As seguintes soluções de banco de dados têm suporte com o recurso de backup:
 
 ## <a name="create-a-manual-backup"></a>Criar uma cópia de segurança manual
 1. Na [portal do Azure](https://portal.azure.com), navegue até a página do aplicativo, selecione **backups**. A página **backups** é exibida.
-   
-    ![Página de backups][ChooseBackupsPage]
-   
-   > [!NOTE]
-   > Se você vir a seguinte mensagem, clique nela para atualizar seu plano do serviço de aplicativo antes de prosseguir com os backups.
-   > Para obter mais informações, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).  
-   > ![Escolher conta de armazenamento](./media/web-sites-backup/01UpgradePlan1.png)
-   > 
-   > 
 
-2. Na página **backup** , clique em **Configurar**
-![clique em configurar](./media/web-sites-backup/ClickConfigure1.png)
-3. Na página **configuração de backup** , clique **em armazenamento: Não configurado** para configurar uma conta de armazenamento.
-   
-    ![Escolher conta de armazenamento][ChooseStorageAccount]
+    ![Página de backups](./media/manage-backup/access-backup-page.png)
+
+    > [!NOTE]
+    > Se você vir a seguinte mensagem, clique nela para atualizar seu plano do serviço de aplicativo antes de prosseguir com os backups.
+    > Para obter mais informações, consulte [escalar verticalmente um aplicativo no Azure](manage-scale-up.md).
+    > ![Choose ](./media/manage-backup/upgrade-plan.png) de conta de armazenamento
+    > 
+    > 
+
+2. Na página **backup** , selecione o **backup não está configurado. Clique aqui para configurar o backup para seu aplicativo**.
+
+    ![Clique em configurar](./media/manage-backup/configure-start.png)
+
+3. Na página **configuração de backup** , clique em **armazenamento não configurado** para configurar uma conta de armazenamento.
+
+    ![Escolher conta de armazenamento](./media/manage-backup/configure-storage.png)
+
 4. Escolha o destino do backup selecionando uma **conta de armazenamento** e um **contêiner**. A conta de armazenamento deve pertencer à mesma assinatura que o aplicativo que você deseja fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas páginas. Quando terminar, clique em **selecionar**.
-   
-    ![Escolher conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. Na página **configuração de backup** que ainda é deixada aberta, você pode configurar o **banco de dados de backup**e, em seguida, selecionar os bancos que deseja incluir nos backups (banco de dados SQL ou MySQL) e clicar em **OK**.  
-   
-    ![Escolher conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
-   
-   > [!NOTE]
-   > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **cadeias de conexão** da página de **configurações do aplicativo** para seu aplicativo. 
-   >
-   > Os bancos de dados MySQL no aplicativo são submetidos a backup automaticamente sem nenhuma configuração. Se você fizer configurações manualmente para bancos de dados MySQL no aplicativo, como adicionar cadeias de conexão, os backups podem não funcionar corretamente.
-   > 
-   > 
-6. Na página **configuração de backup** , clique em **salvar**.    
+
+5. Na página **configuração de backup** que ainda é deixada aberta, você pode configurar o **banco de dados de backup**e, em seguida, selecionar os bancos que deseja incluir nos backups (banco de dados SQL ou MySQL) e clicar em **OK**.
+
+    ![Escolher conta de armazenamento](./media/manage-backup/configure-database.png)
+
+    > [!NOTE]
+    > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **cadeias de conexão** da página de **configurações do aplicativo** para seu aplicativo. 
+    >
+    > Os bancos de dados MySQL no aplicativo são submetidos a backup automaticamente sem nenhuma configuração. Se você fizer configurações manualmente para bancos de dados MySQL no aplicativo, como adicionar cadeias de conexão, os backups podem não funcionar corretamente.
+    > 
+    > 
+
+6. Na página **configuração de backup** , clique em **salvar**.
 7. Na página **backups** , clique em **backup**.
-   
-    ![Botão BackUpNow][BackUpNow]
-   
+
+    ![Botão BackUpNow](./media/manage-backup/manual-backup.png)
+
     Você verá uma mensagem de progresso durante o processo de backup.
 
-Depois que a conta de armazenamento e o contêiner estiverem configurados, você poderá iniciar um backup manual a qualquer momento.  
+Depois que a conta de armazenamento e o contêiner estiverem configurados, você poderá iniciar um backup manual a qualquer momento.
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configurar backups automatizados
 1. Na página **configuração de backup** , defina **backup agendado** como **ativado**. 
-   
-    ![Escolher conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
-2. As opções de agendamento de backup serão exibidas, defina **backup agendado** para **ativado**e configure o agendamento de backup conforme desejado e clique em **OK**.
-   
-    ![Habilitar backups automatizados][SetAutomatedBackupOn]
+
+    ![Habilitar backups automatizados](./media/manage-backup/scheduled-backup.png)
+
+2. Configure o agendamento de backup conforme desejado e selecione **OK**.
 
 <a name="partialbackups"></a>
 
@@ -125,38 +126,37 @@ Os backups parciais permitem que você escolha exatamente quais arquivos deseja 
 > Bancos de dados individuais no backup podem ter 4 GB máx, mas o tamanho máximo total do backup é 10 GB
 
 ### <a name="exclude-files-from-your-backup"></a>Excluir arquivos do backup
-Suponha que você tenha um aplicativo que contém arquivos de log e imagens estáticas que foram efetuadas backup uma vez e não serão alteradas. Nesses casos, você pode excluir essas pastas e arquivos de serem armazenados em seus backups futuros. Para excluir arquivos e pastas de seus backups, crie `_backup.filter` um arquivo `D:\home\site\wwwroot` na pasta do seu aplicativo. Especifique a lista de arquivos e pastas que você deseja excluir neste arquivo. 
+Suponha que você tenha um aplicativo que contém arquivos de log e imagens estáticas que foram efetuadas backup uma vez e não serão alteradas. Nesses casos, você pode excluir essas pastas e arquivos de serem armazenados em seus backups futuros. Para excluir arquivos e pastas de seus backups, crie um arquivo de `_backup.filter` na pasta `D:\home\site\wwwroot` do seu aplicativo. Especifique a lista de arquivos e pastas que você deseja excluir neste arquivo. 
 
-Uma maneira fácil de acessar seus arquivos é usar o kudu. Clique em **ferramentas avançadas – configuração do > go** para seu aplicativo Web para acessar o kudu.
+Você pode acessar seus arquivos navegando até `https://<app-name>.scm.azurewebsites.net/DebugConsole`. Se solicitado, entre em sua conta do Azure.
 
-![Kudu usando o portal][kudu-portal]
+Identifique as pastas que você deseja excluir dos seus backups. Por exemplo, você deseja filtrar a pasta e os arquivos realçados.
 
-Identifique as pastas que você deseja excluir dos seus backups.  Por exemplo, você deseja filtrar a pasta e os arquivos realçados.
+![Pasta de imagens](./media/manage-backup/kudu-images.png)
 
-![Pasta de imagens][ImagesFolder]
+Crie um arquivo chamado `_backup.filter` e coloque a lista anterior no arquivo, mas remova `D:\home`. Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
 
-Crie um arquivo chamado `_backup.filter` e coloque a lista anterior no arquivo, mas remova. `D:\home` Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
- ```bash
-    \site\wwwroot\Images\brand.png
-    \site\wwwroot\Images\2014
-    \site\wwwroot\Images\2013
+ ```
+\site\wwwroot\Images\brand.png
+\site\wwwroot\Images\2014
+\site\wwwroot\Images\2013
 ```
 
-Carregue `_backup.filter` o`D:\home\site\wwwroot\` arquivo no diretório do seu site usando [FTP](deploy-ftp.md) ou qualquer outro método. Se desejar, você pode criar o arquivo diretamente usando kudu `DebugConsole` e inserir o conteúdo lá.
+Carregue `_backup.filter` arquivo no diretório `D:\home\site\wwwroot\` do seu site usando [FTP](deploy-ftp.md) ou qualquer outro método. Se desejar, você pode criar o arquivo diretamente usando kudu `DebugConsole` e inserir o conteúdo lá.
 
 Execute backups da mesma maneira que faria normalmente, [manual](#create-a-manual-backup) ou [automaticamente](#configure-automated-backups). Agora, todos os arquivos e pastas especificados no `_backup.filter` são excluídos dos backups futuros agendados ou iniciados manualmente. 
 
 > [!NOTE]
 > Restaure backups parciais do seu site da mesma maneira que você [restauraria um backup regular](web-sites-restore.md). O processo de restauração faz a coisa certa.
 > 
-> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista de bloqueios ou em qualquer arquivo na lista de bloqueios é deixado como está.
+> Quando um backup completo é restaurado, todo o conteúdo do site é substituído por qualquer coisa que esteja no backup. Se um arquivo estiver no site, mas não no backup, ele será excluído. Mas quando um backup parcial é restaurado, qualquer conteúdo localizado em um dos diretórios na lista negra ou em qualquer arquivo na lista de bloqueios é deixado como está.
 > 
 
 
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Como os backups são armazenados
-Depois de ter feito um ou mais backups para seu aplicativo, os backups são visíveis na página **contêineres** da sua conta de armazenamento e seu aplicativo. Na conta de armazenamento, cada backup consiste em um`.zip` arquivo que contém os dados de backup e `.xml` um arquivo que `.zip` contém um manifesto do conteúdo do arquivo. Você pode descompactar e procurar esses arquivos se desejar acessar os backups sem realmente executar uma restauração de aplicativo.
+Depois de ter feito um ou mais backups para seu aplicativo, os backups são visíveis na página **contêineres** da sua conta de armazenamento e seu aplicativo. Na conta de armazenamento, cada backup consiste em um arquivo de `.zip` que contém os dados de backup e um arquivo de `.xml` que contém um manifesto do conteúdo do arquivo de `.zip`. Você pode descompactar e procurar esses arquivos se desejar acessar os backups sem realmente executar uma restauração de aplicativo.
 
 O backup do banco de dados para o aplicativo é armazenado na raiz do arquivo. zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados SQL com base na exportação de BACPAC, consulte [importar um arquivo BACPAC para criar um novo banco de dados de usuário](https://technet.microsoft.com/library/hh710052.aspx).
 
@@ -178,16 +178,3 @@ Para obter exemplos, consulte:
 
 ## <a name="next-steps"></a>Próximos Passos
 Para obter informações sobre como restaurar um aplicativo de um backup, consulte [restaurar um aplicativo no Azure](web-sites-restore.md). 
-
-
-<!-- IMAGES -->
-[ChooseBackupsPage]: ./media/web-sites-backup/01ChooseBackupsPage1.png
-[ChooseStorageAccount]: ./media/web-sites-backup/02ChooseStorageAccount-1.png
-[BackUpNow]: ./media/web-sites-backup/04BackUpNow1.png
-[SetAutomatedBackupOn]: ./media/web-sites-backup/06SetAutomatedBackupOn1.png
-[SaveIcon]: ./media/web-sites-backup/10SaveIcon.png
-[ImagesFolder]: ./media/web-sites-backup/11Images.png
-[LogsFolder]: ./media/web-sites-backup/12Logs.png
-[GhostUpgradeWarning]: ./media/web-sites-backup/13GhostUpgradeWarning.png
-[kudu-portal]:./media/web-sites-backup/kudu-portal.PNG
-

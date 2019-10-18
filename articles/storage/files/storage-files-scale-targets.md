@@ -1,41 +1,41 @@
 ---
-title: Azure destinos de escalabilidade e desempenho de ficheiros | Documentos da Microsoft
-description: Saiba mais sobre os destinos de escalabilidade e desempenho para ficheiros do Azure, incluindo a capacidade, taxa de pedidos e limites de largura de banda de entrada e saída.
+title: Metas de desempenho e escalabilidade de arquivos do Azure | Microsoft Docs
+description: Saiba mais sobre as metas de escalabilidade e desempenho para arquivos do Azure, incluindo capacidade, taxa de solicitação e limites de largura de banda de entrada e saída.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 5/5/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ed4aa832c4ec7ccda760d535aa920be8d5c4e2e3
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699629"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514858"
 ---
-# <a name="azure-files-scalability-and-performance-targets"></a>Azure destinos de escalabilidade e desempenho de ficheiros
+# <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade de arquivos do Azure
 
-[Os ficheiros do Azure](storage-files-introduction.md) oferece totalmente geridos partilhas de ficheiros na cloud que estão acessíveis através do protocolo SMB padrão do setor. Este artigo aborda os destinos de escalabilidade e desempenho para ficheiros do Azure e Azure File Sync.
+Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio do protocolo SMB padrão do setor. Este artigo discute as metas de desempenho e escalabilidade para arquivos e Sincronização de Arquivos do Azure do Azure.
 
-Os destinos de escalabilidade e desempenho aqui listados são os destinos de alta tecnologia, mas podem ser afetados pelas outras variáveis na sua implementação. Por exemplo, a taxa de transferência para um ficheiro pode também ser limitada pelo sua largura de banda de rede disponível, não apenas os servidores que aloja o serviço de ficheiros do Azure. Recomendamos vivamente que teste o seu padrão de utilização para determinar se a escalabilidade e desempenho dos ficheiros do Azure satisfazer os seus requisitos. Estamos também empenhados em aumentar estes limites ao longo do tempo. Não hesite em enviar-nos comentários, tanto nos comentários abaixo ou no [UserVoice de ficheiros do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files), sobre os limites gostariam de ver-na aumentar.
+Os destinos de escalabilidade e desempenho listados aqui são destinos de alto nível, mas podem ser afetados por outras variáveis em sua implantação. Por exemplo, a taxa de transferência de um arquivo também pode ser limitada por sua largura de banda de rede disponível, não apenas pelos servidores que hospedam o serviço arquivos do Azure. É altamente recomendável testar seu padrão de uso para determinar se a escalabilidade e o desempenho dos arquivos do Azure atendem às suas necessidades. Também estamos comprometidos em aumentar esses limites ao longo do tempo. Não hesite em nos enviar comentários, seja nos comentários abaixo ou no [UserVoice do Azure files](https://feedback.azure.com/forums/217298-storage/category/180670-files), sobre quais limites você gostaria de ver aumentamos.
 
-## <a name="azure-storage-account-scale-targets"></a>Metas de dimensionamento de conta de armazenamento do Azure
+## <a name="azure-storage-account-scale-targets"></a>Destinos de escala da conta de armazenamento do Azure
 
-O recurso principal para uma partilha de ficheiros do Azure é uma conta de armazenamento do Azure. Uma conta de armazenamento representa um agrupamento de armazenamento do Azure que pode ser utilizado por vários serviços de armazenamento, incluindo ficheiros do Azure, para armazenar dados. Outros serviços que armazenam dados em contas de armazenamento são o armazenamento de Blobs do Azure, o armazenamento de filas do Azure e o armazenamento de tabelas do Azure. Os destinos seguintes aplicam-se todos os serviços de armazenamento armazenar dados numa conta de armazenamento:
+O recurso pai de um compartilhamento de arquivos do Azure é uma conta de armazenamento do Azure. Uma conta de armazenamento representa um pool de armazenamento no Azure que pode ser usado por vários serviços de armazenamento, incluindo arquivos do Azure, para armazenar dados. Outros serviços que armazenam dados em contas de armazenamento são o armazenamento de BLOBs do Azure, o armazenamento de filas do Azure e o armazenamento de tabelas do Azure. Os destinos a seguir aplicam todos os serviços de armazenamento que armazenam dados em uma conta de armazenamento:
 
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 > [!Important]  
-> A utilização da conta de armazenamento de uso geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se atingir a capacidade de conta de armazenamento máximo com o armazenamento de Blobs do Azure, não poderá criar novos ficheiros na partilha de ficheiros do Azure, mesmo se a partilha de ficheiros estiver abaixo do tamanho máximo de partilha.
+> A utilização da conta de armazenamento de uso geral de outros serviços de armazenamento afeta os compartilhamentos de arquivos do Azure em sua conta de armazenamento. Por exemplo, se você atingir a capacidade máxima da conta de armazenamento com o armazenamento de BLOBs do Azure, não poderá criar novos arquivos no compartilhamento de arquivos do Azure, mesmo que o compartilhamento de arquivos do Azure esteja abaixo do tamanho máximo de compartilhamento.
 
-## <a name="azure-files-scale-targets"></a>Alvos de dimensionamento de ficheiros do Azure
+## <a name="azure-files-scale-targets"></a>Destinos de escala de arquivos do Azure
 
 Há três categorias de limitações a serem consideradas para os arquivos do Azure: contas de armazenamento, compartilhamentos e arquivos.
 
-Por exemplo: Com compartilhamentos de arquivos premium, um único compartilhamento pode atingir 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, se você tiver três arquivos em um único compartilhamento, o máximo de IOPS que você pode obter desse compartilhamento é 15.000.
+Por exemplo: com compartilhamentos de arquivos premium, um único compartilhamento pode atingir 100.000 IOPS e um único arquivo pode ser dimensionado para até 5.000 IOPS. Portanto, se você tiver três arquivos em um único compartilhamento, o máximo de IOPS que você pode obter desse compartilhamento é 15.000.
 
 ### <a name="standard-storage-account-limits"></a>Limites de conta de armazenamento Standard
 
@@ -51,68 +51,68 @@ Consulte a seção [destinos de escala da conta de armazenamento do Azure](#azur
 ### <a name="file-share-and-file-scale-targets"></a>Destinos de escala de arquivo e compartilhamento de arquivos
 
 > [!NOTE]
-> Compartilhamentos de arquivos padrão maiores que 5 TiB estão em visualização e têm certas limitações.
-> Para obter uma lista de limitações e integrar a visualização desses tamanhos maiores de compartilhamento de arquivos, consulte a seção compartilhamentos de [arquivos padrão](storage-files-planning.md#standard-file-shares) do guia de planejamento.
+> Compartilhamentos de arquivos padrão maiores que 5 TiB têm certas limitações e restrições regionais.
+> Para obter uma lista de limitações, informações regionais e instruções para habilitar esses tamanhos maiores de compartilhamento de arquivos, consulte a seção [integrado a compartilhamentos de arquivos maiores](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) do guia de planejamento.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 [!INCLUDE [storage-files-premium-scale-targets](../../../includes/storage-files-premium-scale-targets.md)]
 
-## <a name="azure-file-sync-scale-targets"></a>Alvos de dimensionamento do Azure File Sync
+## <a name="azure-file-sync-scale-targets"></a>Destinos de escala Sincronização de Arquivos do Azure
 
 A Sincronização de Arquivos do Azure foi projetada com o objetivo de uso ilimitado, mas o uso ilimitado nem sempre é possível. A tabela a seguir indica os limites do teste da Microsoft e também indica quais destinos são os limites rígidos:
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
-### <a name="azure-file-sync-performance-metrics"></a>Métricas de desempenho de sincronização de ficheiros do Azure
+### <a name="azure-file-sync-performance-metrics"></a>Sincronização de Arquivos do Azure métricas de desempenho
 
-Como o agente de Sincronização de Arquivos do Azure é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização efetivo depende de vários fatores em sua infraestrutura: O Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, o tamanho do arquivo, o tamanho total do conjunto de espaço e a atividade no conjunto de um. Uma vez que o Azure File Sync funciona no nível de arquivo, as características de desempenho de uma solução baseada no Azure File Sync melhor é medido no número de objetos (ficheiros e diretórios) processado por segundo.
+Como o agente de Sincronização de Arquivos do Azure é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização efetivo depende de vários fatores em sua infraestrutura: Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o armazenamento do Azure, o tamanho do arquivo, o tamanho total do conjunto de arquivos e a atividade no conjunto de um. Como Sincronização de Arquivos do Azure funciona no nível do arquivo, as características de desempenho de uma solução baseada em Sincronização de Arquivos do Azure são mais bem medidas no número de objetos (arquivos e diretórios) processados por segundo.
 
-Para o Azure File Sync, o desempenho é essencial em duas fases:
+Por Sincronização de Arquivos do Azure, o desempenho é crítico em dois estágios:
 
-1. **Provisionamento de uso único inicial**: Para otimizar o desempenho no provisionamento inicial, consulte [integração com sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implantação ideais.
-2. **Sincronização em andamento**: Depois que os dados são inicialmente propagados nos compartilhamentos de arquivos do Azure, Sincronização de Arquivos do Azure mantém vários pontos de extremidade em sincronia.
+1. **Provisionamento de uso único inicial**: para otimizar o desempenho no provisionamento inicial, consulte [integração com sincronização de arquivos do Azure](storage-sync-files-deployment-guide.md#onboarding-with-azure-file-sync) para obter os detalhes de implantação ideais.
+2. **Sincronização em andamento**: depois que os dados são inicialmente propagados nos compartilhamentos de arquivos do Azure, sincronização de arquivos do Azure mantém vários pontos de extremidade em sincronia.
 
-Para ajudar a planear a implementação para cada uma das etapas, abaixo estão os resultados observados durante os testes internos num sistema com uma configuração
+Para ajudá-lo a planejar sua implantação para cada um dos estágios, abaixo estão os resultados observados durante o teste interno em um sistema com uma configuração
 
 | Configuração do sistema |  |
 |-|-|
-| CPU | 64 núcleos virtuais com a cache de MiB L3 64 |
+| CPU | 64 núcleos virtuais com 64 MiB L3 cache |
 | Memória | 128 GiB |
-| Disco | Cache de segurança de discos SAS com o RAID 10 com bateria |
+| Discos | Discos SAS com RAID 10 com cache com bateria reserva |
 | Rede | Rede de 1 Gbps |
-| Carga de trabalho | Servidor de ficheiros para fins gerais|
+| Carga de trabalho | Uso Geral servidor de arquivos|
 
-| Aprovisionamento de uma única vez inicial  |  |
+| Provisionamento de uso único inicial  |  |
 |-|-|
 | Número de objetos | 25 milhões objetos |
-| Tamanho do conjunto de dados| ~ 4,7 TiB |
-| Tamanho do arquivo média | ~ 200 KiB (maior arquivo: 100 GiB) |
-| Carregar o débito | 20 objetos por segundo |
-| Espaço de nomes Download débito * | 400 objetos por segundo |
+| Tamanho do conjunto de um| ~ 4,7 TiB |
+| Tamanho médio do arquivo | ~ 200 KiB (maior arquivo: 100 GiB) |
+| Carregar taxa de transferência | 20 objetos por segundo |
+| Taxa de transferência de download do namespace * | 400 objetos por segundo |
 
-\* Quando é criado um novo ponto de final de servidor, o agente do Azure File Sync não transferir os conteúdos do ficheiro. -Lo primeiro sincroniza o espaço de nomes completo e, em seguida, os acionadores em segundo plano Lembre-se para transferir os ficheiros, qualquer um em sua totalidade ou, se em camada de cloud está ativada para a política de disposição em camadas na cloud, defina o ponto final de servidor.
+\* Quando um novo ponto de extremidade do servidor for criado, o agente de Sincronização de Arquivos do Azure não baixará nenhum conteúdo do arquivo. Primeiro, ele sincroniza o namespace completo e, em seguida, dispara a recall em segundo plano para baixar os arquivos, em sua totalidade ou, se a disposição em camadas da nuvem estiver habilitada, para a política de camadas de nuvem definida no ponto de extremidade do servidor.
 
-| Sincronização em curso  |   |
+| Sincronização em andamento  |   |
 |-|--|
-| Número de objetos sincronizados| 125,000 objetos (alterações a % de ~ 1) |
-| Tamanho do conjunto de dados| 50 giB |
-| Tamanho do arquivo média | ~ 500 KiB |
-| Carregar o débito | objetos de 30 por segundo |
-| Débito de transferência completa * | 60 objetos por segundo |
+| Número de objetos sincronizados| 125.000 objetos (cerca de 1% de variação) |
+| Tamanho do conjunto de um| 50 GiB |
+| Tamanho médio do arquivo | ~ 500 KiB |
+| Carregar taxa de transferência | 30 objetos por segundo |
+| Taxa de transferência de download completo * | 60 objetos por segundo |
 
-\* Se cloud em camadas estiver ativada, o que é provável que observar um melhor desempenho, como apenas alguns do ficheiro de dados são transferidos. O Azure File Sync transfere apenas os dados de ficheiros em cache quando eles são alterados em qualquer um dos pontos finais. Para ficheiros em camadas ou criados recentemente, o agente não transfere os dados de ficheiro e, em vez disso, só sincroniza o espaço de nomes para todos os pontos finais do servidor. O agente também suporta parciais transferências de ficheiros em camadas como estes são acedidos pelo utilizador. 
+\* Se a disposição em camadas da nuvem estiver habilitada, você provavelmente observará melhor desempenho, já que apenas alguns dos dados do arquivo são baixados. Sincronização de Arquivos do Azure apenas baixa os dados de arquivos armazenados em cache quando eles são alterados em qualquer um dos pontos de extremidade. Para qualquer arquivo em camadas ou recém-criados, o agente não baixa os dados do arquivo e sincroniza apenas o namespace para todos os pontos de extremidade do servidor. O agente também dá suporte a downloads parciais de arquivos em camadas conforme eles são acessados pelo usuário. 
 
 > [!Note]  
-> Os números acima não são uma indicação do desempenho que irá ocorrer. O desempenho real dependerá vários fatores, conforme descrito no início desta secção.
+> Os números acima não são uma indicação do desempenho que você vai experimentar. O desempenho real dependerá de vários fatores, conforme descrito no início desta seção.
 
-Como um guia Geral para a sua implementação, deve manter algumas coisas em mente:
+Como um guia geral para sua implantação, você deve ter algumas coisas em mente:
 
-- Aproximadamente dimensiona o débito de objeto forma proporcional, segundo o número de grupos de sincronização no servidor. Dividir dados em vários grupos de sincronização num servidor produz o melhor débito, também é limitado pela rede e do servidor.
-- O débito de objeto é inversamente proporcional ao MiB por segundo de débito. Para ficheiros mais pequenos, terá um débito mais elevado em termos de número de objetos processados por segundo, mas inferior MiB por segundo de débito. Por outro lado, para arquivos grandes, irá obter menos objetos processados por segundo, mas superior MiB por segundo de débito. O MiB por segundo de débito é limitado pelos alvos de dimensionamento de ficheiros do Azure.
+- A taxa de transferência do objeto aproximadamente é dimensionada em proporção ao número de grupos de sincronização no servidor. A divisão de dados em vários grupos de sincronização em um servidor produz uma melhor taxa de transferência, que também é limitada pelo servidor e pela rede.
+- A taxa de transferência do objeto é inversamente proporcional à taxa de transferência MiB por segundo. Para arquivos menores, você passará por uma taxa de transferência mais alta em termos do número de objetos processados por segundo, mas com uma taxa de transferência de MiB por segundo mais baixa. Por outro lado, para arquivos maiores, você obterá menos objetos processados por segundo, mas taxa de transferência de MiB por segundo superior. A taxa de transferência de MiB por segundo é limitada pelos destinos de escala de arquivos do Azure.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Planear uma implementação dos Ficheiros do Azure](storage-files-planning.md)
 - [Planear uma implementação do Azure File Sync](storage-sync-files-planning.md)
-- [Metas de escalabilidade e desempenho para outros serviços de armazenamento](../common/storage-scalability-targets.md)
+- [Escalabilidade e metas de desempenho para outros serviços de armazenamento](../common/storage-scalability-targets.md)

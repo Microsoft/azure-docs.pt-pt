@@ -1,17 +1,17 @@
 ---
-title: Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
+title: Solicitar acesso just-in-time-aplicativos gerenciados do Azure
 description: Descreve como os editores de aplicativos gerenciados do Azure solicitam acesso just-in-time a um aplicativo gerenciado.
 author: MSEvanhi
 ms.service: managed-applications
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: evanhi
-ms.openlocfilehash: 0d595d4c96e9f87f1c8eece5d47bf4c8cdd58d7c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: fdd1dcf5ab6b58a91534a465a8c92c10de0d2097
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69574980"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528963"
 ---
 # <a name="enable-and-request-just-in-time-access-for-azure-managed-applications"></a>Habilitar e solicitar o acesso just-in-time para aplicativos gerenciados do Azure
 
@@ -105,12 +105,12 @@ Para enviar uma solicitação de acesso JIT:
 
 1. Para exibir o status de todas as solicitações JIT de um aplicativo gerenciado, selecione **acesso JIT** e **histórico de solicitações**.
 
-   ![Exibir status](./media/request-just-in-time-access/view-status.png)
+   ![Ver estado](./media/request-just-in-time-access/view-status.png)
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
 A ID da entidade de segurança da conta que solicita acesso JIT deve ser incluída explicitamente na definição do aplicativo gerenciado. A conta não pode ser incluída apenas por meio de um grupo especificado no pacote. Essa limitação será corrigida em uma versão futura.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a aprovação de solicitações de acesso JIT, consulte [aprovar o acesso just-in-time em aplicativos gerenciados do Azure](approve-just-in-time-access.md).

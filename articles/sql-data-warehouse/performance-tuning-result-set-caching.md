@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
-ms.openlocfilehash: 2fa3da028e6e897921786889579c6de9a048c3e8
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f6323501fc0078677c4c0e2cd0e43a15583df29b
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392647"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513977"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ajuste de desempenho com cache de conjunto de resultados  
 Quando o cache do conjunto de resultados estiver habilitado, o Azure SQL Data Warehouse armazenará em cache automaticamente os resultados da consulta no banco de dados do usuário para uso repetitivo.  Isso permite que as execuções de consulta subsequentes obtenham resultados diretamente do cache persistente, de modo que a recomputação não seja necessária.   O cache do conjunto de resultados melhora o desempenho da consulta e reduz o uso de recursos de computação.  Além disso, as consultas que usam resultados em cache definidos não usam nenhum slot de simultaneidade e, portanto, não contam com os limites de simultaneidade existentes. Por segurança, os usuários só poderão acessar os resultados armazenados em cache se tiverem as mesmas permissões de acesso a dados que os usuários que criam os resultados armazenados em cache.  
@@ -37,6 +37,8 @@ Quando o cache do conjunto de resultados está ativado para um banco de dados, o
 - Consultas retornando dados com tamanho de linha maior que 64 KB
 
 Consultas com grandes conjuntos de resultados (por exemplo, > 1 milhão linhas) podem sofrer um desempenho mais lento durante a primeira execução quando o cache de resultados está sendo criado.
+
+O cache do conjunto de resultados não dá suporte à segurança em nível de linha.  
 
 ## <a name="when-cached-results-are-used"></a>Quando os resultados armazenados em cache são usados
 

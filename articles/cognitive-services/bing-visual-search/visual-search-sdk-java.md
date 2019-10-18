@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente Pesquisa Visual do Bing para Java | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do Pesquisa Visual do Bing para Java | Microsoft Docs'
 description: Carregue uma imagem usando o SDK do Pesquisa Visual do Bing e obtenha informações sobre ele.
 services: cognitive-services
 author: aahill
@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.date: 09/30/2019
 ms.author: aahi
 ms.openlocfilehash: 7fb00fd3ce588aeeba4f315f191f6b82d6b75715
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
+ms.lasthandoff: 10/17/2019
 ms.locfileid: "71695863"
 ---
-# <a name="quickstart-bing-visual-search-client-library-for-java"></a>Início rápido: Biblioteca de cliente Pesquisa Visual do Bing para Java
+# <a name="quickstart-bing-visual-search-client-library-for-java"></a>Início rápido: biblioteca de cliente Pesquisa Visual do Bing para Java
 
 Introdução à biblioteca de cliente do Pesquisa Visual do Bing para Java. Siga estas etapas para instalar o pacote e experimentar o código de exemplo para tarefas básicas. 
 
@@ -25,7 +25,7 @@ Use a biblioteca de cliente do Pesquisa Visual do Bing para Java para:
 * Carregue uma imagem para enviar uma solicitação de pesquisa visual.
 * Obtenha o token do insight de imagem e as marcas de pesquisa visual.
 
-[](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) de artefato do | [código-fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch)[de documentação de referência (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) | 
+[Documentação de referência](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-java-stable)  | [exemplos](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) do  | [do Maven (](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-visualsearch/) [código-fonte de biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingVisualSearch) )  | 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 * Obtenha uma [chave de avaliação](https://azure.microsoft.com/try/cognitive-services/#decision) válida por sete dias gratuitamente. Depois de se inscrever, ele estará disponível no [site do Azure](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Exiba seu recurso no [portal do Azure](https://portal.azure.com/).
 
-Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave `BING_SEARCH_V7_SUBSCRIPTION_KEY`, denominada.
+Depois de obter uma chave de sua assinatura ou recurso de avaliação, [crie uma variável de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) para a chave chamada `BING_SEARCH_V7_SUBSCRIPTION_KEY`.
 
 ### <a name="create-a-new-gradle-project"></a>Criar um novo projeto gradle
 
@@ -52,7 +52,7 @@ Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o `gradle init` comando do seu diretório de trabalho. Este comando criará arquivos de Build essenciais para gradle, incluindo *Build. gradle. KTs* , que é usado em tempo de execução para criar e configurar seu aplicativo.
+Execute o comando `gradle init` do seu diretório de trabalho. Este comando criará arquivos de Build essenciais para gradle, incluindo *Build. gradle. KTs* , que é usado em tempo de execução para criar e configurar seu aplicativo.
 
 ```console
 gradle init --type basic
@@ -92,7 +92,7 @@ Crie uma pasta para a imagem que você deseja carregar na API. Coloque a imagem 
 mkdir -p src/main/resources
 ``` 
 
-Navegue até a nova pasta e crie um arquivo chamado *BingVisualSearchSample. java*. Abra-o em seu editor ou IDE preferido e adicione as `import` seguintes instruções:
+Navegue até a nova pasta e crie um arquivo chamado *BingVisualSearchSample. java*. Abra-o em seu editor ou IDE preferido e adicione as seguintes instruções de `import`:
 
 [!code-java[Import statements](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=imports)]
 
@@ -103,7 +103,7 @@ public class BingVisualSearchSample {
 }
 ```
 
-No método `main` do aplicativo, crie variáveis para o ponto de extremidade e a chave do Azure do recurso. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que o executa para acessar a variável. Em seguida, crie um `byte[]` para a imagem que você carregará. Crie um bloco `try` para os métodos que você definirá posteriormente, e carregue a imagem e converta-a em bytes usando `toByteArray()`.
+No método de `main` do aplicativo, crie variáveis para o ponto de extremidade e a chave do Azure do recurso. Se você criou a variável de ambiente depois de iniciar o aplicativo, será necessário fechar e reabrir o editor, IDE ou shell que o executa para acessar a variável. Em seguida, crie um `byte[]` para a imagem que você carregará. Crie um bloco de `try` para os métodos que você definirá posteriormente e carregue a imagem e converta-a em bytes usando `toByteArray()`.
 
 [!code-java[Main method](~/cognitive-services-java-sdk-samples/Search/BingVisualSearch/src/main/java/BingVisualSearchSample.java?name=main)]
 
@@ -162,7 +162,7 @@ Você pode compilar o aplicativo com:
 gradle build
 ```
 
-Execute o aplicativo com o `run` objetivo:
+Execute o aplicativo com a meta `run`:
 
 ```console
 gradle run

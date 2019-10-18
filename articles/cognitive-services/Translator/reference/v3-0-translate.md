@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: bc03e10e40e90845c8e1a3dd064c4f50fafeac00
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 24f27dfde34413d1ac98f795eddc07103d3cbf3c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299822"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515252"
 ---
 # <a name="translator-text-api-30-translate"></a>API de Tradução de Texto 3,0: traduzir
 
@@ -102,7 +102,7 @@ Os cabeçalhos de solicitação incluem:
   </tr>
   <tr>
     <td>Tipo de conteúdo</td>
-    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Especifica o tipo de conteúdo da carga. Os valores possíveis são: <code>application/json</code>.</td>
+    <td><em>Cabeçalho de solicitação necessário</em>.<br/>Especifica o tipo de conteúdo da carga.<br/> O valor aceito é <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Comprimento do conteúdo</td>
@@ -234,7 +234,7 @@ Se ocorrer um erro, a solicitação também retornará uma resposta de erro JSON
 Este exemplo mostra como converter uma única frase de Inglês para chinês simplificado.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 O corpo da resposta é:
@@ -256,7 +256,7 @@ A matriz `translations` inclui um elemento, que fornece a tradução da única p
 Este exemplo mostra como converter uma única frase de Inglês para chinês simplificado. A solicitação não especifica o idioma de entrada. Em vez disso, a detecção automática do idioma de origem é usada.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 O corpo da resposta é:
@@ -278,7 +278,7 @@ A resposta é semelhante à resposta do exemplo anterior. Como a detecção auto
 Vamos estender o exemplo anterior adicionando transliteração. A solicitação a seguir solicita uma tradução chinesa escrita em script latino.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 O corpo da resposta é:
@@ -305,7 +305,7 @@ O resultado da conversão agora inclui uma propriedade `transliteration`, que fo
 A conversão de várias cadeias de caracteres de uma vez é simplesmente uma questão de especificar uma matriz de cadeias de caracteres no corpo da solicitação.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 O corpo da resposta é:
@@ -330,7 +330,7 @@ O corpo da resposta é:
 Este exemplo mostra como converter a mesma entrada em vários idiomas em uma solicitação.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 O corpo da resposta é:
@@ -374,17 +374,17 @@ Se você quiser evitar a irprofanação na tradução, independentemente da pres
     <td>Palavras obscenas são substituídas por um marcador na saída. O marcador depende do parâmetro <code>ProfanityMarker</code>.<br/><br/>
 Para <code>ProfanityMarker=Asterisk</code>, palavras impróprias são substituídas por <code>***</code>:<br/>
     <strong>Exemplo de origem (japonês)</strong>: 彼はジャッカスです Marketplace.<br/>
-    <strong>Tradução de exemplo (inglês)</strong>: ele é um \* @ no__t-2 @ no__t-3.<br/><br/>
-Para <code>ProfanityMarker=Tag</code>, as palavras obscenas são cercadas por marcas XML &lt;profanity @ no__t-2 e &lt;/profanaity @ no__t-4:<br/>
+    <strong>Tradução de exemplo (inglês)</strong>: ele é um \* \* \*.<br/><br/>
+Por <code>ProfanityMarker=Tag</code>, palavras obscenas são cercadas por marcas XML &lt;profanity &gt; e &lt;/profanity &gt;:<br/>
     <strong>Exemplo de origem (japonês)</strong>: 彼はジャッカスです Marketplace.<br/>
-    <strong>Tradução de exemplo (inglês)</strong>: ele é um &lt;profanity @ no__t-2jackass @ no__t-3/profanaity @ no__t-4.
+    <strong>Tradução de exemplo (inglês)</strong>: ele é um &lt;profanity &gt;jackass &lt;/profanity &gt;.
   </tr>
 </table> 
 
 Por exemplo:
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 Isso retorna:
 
@@ -401,7 +401,7 @@ Isso retorna:
 Comparar com:
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 Essa última solicitação retorna:
@@ -428,7 +428,7 @@ Essa última solicitação retorna:
 Aqui está uma solicitação de exemplo para ilustrar.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 A resposta é:
@@ -448,7 +448,7 @@ A resposta é:
 Para receber informações de alinhamento, especifique `includeAlignment=true` na cadeia de caracteres de consulta.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
 
 A resposta é:
@@ -484,7 +484,7 @@ Observe as seguintes restrições:
 Para receber informações sobre o tamanho da sentença no texto de origem e no texto traduzido, especifique `includeSentenceLength=true` na cadeia de caracteres de consulta.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
 
 A resposta é:
@@ -516,7 +516,7 @@ A marcação a ser fornecida usa a sintaxe a seguir.
 Por exemplo, considere a frase em inglês "a palavra WordOMatic é uma entrada de dicionário". Para preservar a palavra _WordOMatic_ na tradução, envie a solicitação:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 O resultado é:

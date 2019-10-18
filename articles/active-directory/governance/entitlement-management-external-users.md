@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcf4a0272e21a1fba3cf9adbd9158492e4318578
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452994"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527110"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD (versão prévia)
 
@@ -90,12 +90,15 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 
 1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser bloqueá-las de entrar nesse diretório, defina o **bloco usuário externo de entrar nesse diretório** como **Sim**.
 
-1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser remover sua conta de usuário convidado em seu diretório, defina **remover usuário externo** como **Sim**.
+    > [!NOTE]
+    > Se um usuário estiver impedido de entrar nesse diretório, o usuário não poderá solicitar novamente o pacote de acesso ou solicitar acesso adicional nesse diretório. Não configure o bloqueio da entrada se eles posteriormente precisarem solicitar acesso a outros pacotes de acesso.
+
+1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser remover sua conta de usuário convidado nesse diretório, defina **remover usuário externo** como **Sim**.
 
     > [!NOTE]
-    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e removido do seu diretório, mesmo que esse usuário tenha sido adicionado aos recursos no diretório que não tenham as atribuições de pacote. Se o convidado estava presente no seu diretório antes de receber atribuições de pacote de acesso, ele permanecerá. No entanto, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
+    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e remover esse diretório, mesmo que esse usuário tenha sido adicionado aos recursos nesse diretório que não tenham acesso às atribuições de pacote. Se o convidado estava presente nesse diretório antes de receber atribuições de pacote de acesso, ele permanecerá. No entanto, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
 
-1. Se você quiser remover a conta de usuário convidado em seu diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
+1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
 
 1. Clique em **Guardar**.
 
@@ -113,6 +116,6 @@ Você também pode alterar essa configuração depois de criar o catálogo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Para usuários que não estão em seu diretório](entitlement-management-access-package-create.md#for-users-not-in-your-directory)
+- [Para usuários que não estão em seu diretório](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [Criar e gerenciar um catálogo de recursos](entitlement-management-catalog-create.md)
 - [Delegação e funções](entitlement-management-delegate.md)

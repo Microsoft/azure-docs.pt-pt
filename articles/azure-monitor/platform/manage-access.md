@@ -1,6 +1,6 @@
 ---
 title: Gerenciar espaços de trabalho do Log Analytics no Azure Monitor | Microsoft Docs
-description: Você pode gerenciar o acesso aos dados armazenados em um espaço de trabalho do Log Analytics no Azure Monitor usando permissões de recurso, espaço de trabalho ou nível de tabela. Este artigo fornece detalhes sobre como concluí-los.
+description: Você pode gerenciar o acesso aos dados armazenados em um espaço de trabalho do Log Analytics no Azure Monitor usando permissões de recurso, espaço de trabalho ou nível de tabela. Este artigo fornece detalhes sobre como concluir.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2f9c50053fca73aeee0ed9a286b4c286486bac86
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329414"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532322"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar o acesso a dados de log e espaços de trabalho no Azure Monitor
 
@@ -148,7 +148,7 @@ A função leitor de Log Analytics inclui as seguintes ações do Azure:
 
 Os membros da função *Contribuidor do Log Analytics* podem:
 
-* Ler todos os dados de monitoramento que o leitor de Log Analytics pode
+* Inclui todos os privilégios da *função leitor de log Analytics*, permitindo que o usuário Leia todos os dados de monitoramento
 * Criar e configurar contas de automação
 * Adicionar e remover soluções de gestão
 
@@ -187,7 +187,7 @@ Utilize estas funções para conceder aos utilizadores acesso em âmbitos difere
 * Grupo de Recursos - acesso a todas as áreas de trabalho no grupo de recursos
 * Recurso - acesso apenas à área de trabalho especificada
 
-Você deve executar atribuições no nível de recurso (espaço de trabalho) para garantir o controle de acesso preciso.  Utilize [funções personalizadas](../../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
+É recomendável executar atribuições no nível de recurso (espaço de trabalho) para garantir o controle de acesso preciso. Utilize [funções personalizadas](../../role-based-access-control/custom-roles.md) para criar funções com as permissões específicas necessárias.
 
 ### <a name="resource-permissions"></a>Permissões de recurso
 
@@ -198,7 +198,7 @@ Quando os usuários consultam logs de um espaço de trabalho usando acesso de co
 | `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemplos:<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacidade de exibir todos os dados de log para o recurso.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Capacidade de definir a configuração de diagnóstico para permitir a configuração de logs para este recurso. |
 
-a permissão `/read` geralmente é concedida de uma função que inclui as permissões _\*/ler ou_ _\*_ , como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Observe que as funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
+a permissão `/read` geralmente é concedida de uma função que inclui as permissões _\*/ler ou_ _\*_ , como as funções de [leitor](../../role-based-access-control/built-in-roles.md#reader) e [colaborador](../../role-based-access-control/built-in-roles.md#contributor) internas. Funções personalizadas que incluem ações específicas ou funções internas dedicadas podem não incluir essa permissão.
 
 Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo se você quiser criar um controle de acesso diferente para tabelas diferentes.
 
@@ -224,7 +224,7 @@ Consulte [definindo o controle de acesso por tabela](#table-level-rbac) abaixo s
 
     * Conceda aos usuários as seguintes permissões para seus recursos: `Microsoft.Insights/logs/*/read`.
 
-    * Adicione a seguinte não ação para impedir que os usuários leiam o tipo SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read`. A não ação deve estar na mesma função personalizada que a ação que fornece a permissão de leitura (`Microsoft.Insights/logs/*/read`). Se o usuário inerente à ação de leitura de outra função atribuída a esse recurso ou à assinatura ou ao grupo de recursos, ele poderá ler todos os tipos de log. Isso também é verdadeiro se eles herdam `*/read` que existem por exemplo, com a função leitor ou colaborador.
+    * Adicione a seguinte não ação para impedir que os usuários leiam o tipo SecurityEvent: `Microsoft.Insights/logs/SecurityEvent/read`. A não ação deve estar na mesma função personalizada que a ação que fornece a permissão de leitura (`Microsoft.Insights/logs/*/read`). Se o usuário inerente à ação de leitura de outra função atribuída a esse recurso ou à assinatura ou ao grupo de recursos, ele poderá ler todos os tipos de log. Isso também é verdadeiro se eles herdam `*/read`, que existem por exemplo, com a função de leitor ou colaborador.
 
 4. Para conceder a um usuário acesso a dados de log de seus recursos e ler todos os dados de logon do Azure AD e ler Gerenciamento de Atualizações de log da solução no espaço de trabalho, execute o seguinte:
 
@@ -293,7 +293,7 @@ Para criar uma função com acesso somente a _SecurityBaseline_ e nenhuma outra 
 * Se um usuário receber acesso por tabela, mas nenhuma outra permissão, ele poderá acessar dados de log da API, mas não do portal do Azure. Para fornecer acesso do portal do Azure, use o leitor de Log Analytics como sua função base.
 * Os administradores da assinatura terão acesso a todos os tipos de dados, independentemente de quaisquer outras configurações de permissão.
 * Os proprietários do espaço de trabalho são tratados como qualquer outro usuário para o controle de acesso por tabela.
-* Você deve atribuir funções a grupos de segurança em vez de usuários individuais para reduzir o número de atribuições. Isso também ajudará você a usar as ferramentas de gerenciamento de grupo existentes para configurar e verificar o acesso.
+* É recomendável atribuir funções a grupos de segurança em vez de usuários individuais para reduzir o número de atribuições. Isso também ajudará você a usar as ferramentas de gerenciamento de grupo existentes para configurar e verificar o acesso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

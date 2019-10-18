@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286544"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533186"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
@@ -37,7 +37,7 @@ Talvez você queira executar um experimento que contenha apenas o conjunto de um
  
 Antes da correção, você pode conectar o conjunto de dados a qualquer módulo de Data Transformation (selecione as colunas no DataSet, editar metadados, dividir dados etc.) e executar o experimento. Em seguida, você pode visualizar o conjunto de os. 
 
-A imagem abaixo mostra como: ![visulize-data @ no__t-1
+A imagem abaixo mostra como: ![visulize-data ](./media/resource-known-issues/aml-visualize-data.png)
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalação do SDK
 
@@ -130,7 +130,7 @@ Se essas etapas não resolverem o problema, tente reiniciar o cluster.
 
 Se você vir um erro `FailToSendFeather` ao ler dados no cluster Azure Databricks, consulte as seguintes soluções:
 
-* Atualize o pacote `azureml-sdk[automl_databricks]` para a versão mais recente.
+* Atualize `azureml-sdk[automl]` pacote para a versão mais recente.
 * Adicione `azure-dataprep` versão 1.1.8 ou superior.
 * Adicione `pyarrow` versão 0,11 ou superior.
 
@@ -218,7 +218,7 @@ kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes armazena os segredos no formato codificado em base-64. Você precisará definir-64 decodificar os componentes `cert.pem` e `key.pem` dos segredos antes de fornecer a `attach_config.enable_ssl`. 
+>Kubernetes armazena os segredos no formato codificado em base-64. Você precisará definir-64 decodificar os `cert.pem` e `key.pem` os componentes dos segredos antes de fornecer a eles `attach_config.enable_ssl`. 
 
 ## <a name="recommendations-for-error-fix"></a>Recomendações para correção de erro
 Com base na observação geral, aqui estão as recomendações do Azure ML para corrigir alguns dos erros comuns no Azure ML.
@@ -226,7 +226,7 @@ Com base na observação geral, aqui estão as recomendações do Azure ML para 
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (nenhum módulo chamado)
 Se você estiver executando o ModuleErrors enquanto envia experimentos no Azure ML, significa que o script de treinamento está esperando que um pacote seja instalado, mas não adicionado. Depois de fornecer o nome do pacote, o Azure ML instalará o pacote no ambiente usado para seu treinamento. 
 
-Se você estiver usando [estimadores](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) para enviar experimentos, poderá especificar um nome de pacote por meio do parâmetro `pip_packages` ou `conda_packages` no estimador com base em qual fonte você deseja instalar o pacote. Você também pode especificar um arquivo yml com todas as suas dependências usando `conda_dependencies_file`or listar todos os seus requisitos de Pip em um arquivo txt usando o parâmetro `pip_requirements_file`.
+Se você estiver usando [estimadores](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) para enviar experimentos, poderá especificar um nome de pacote por meio de `pip_packages` ou `conda_packages` parâmetro no estimador com base em qual fonte você deseja instalar o pacote. Você também pode especificar um arquivo yml com todas as suas dependências usando `conda_dependencies_file`or listar todos os seus requisitos de Pip em um arquivo txt usando `pip_requirements_file` parâmetro.
 
 O Azure ML também fornece estimadores específicos da estrutura para Tensorflow, PyTorch, chainer e SKLearn. Usar esses estimadores garantirá que as dependências de estrutura sejam instaladas em seu nome no ambiente usado para treinamento. Você tem a opção de especificar dependências extras, conforme descrito acima. 
  
@@ -239,4 +239,4 @@ As dependências específicas à estrutura são listadas no respectivo Framework
 Essa exceção deve vir de seus scripts de treinamento. Você pode examinar os arquivos de log de portal do Azure para obter mais informações sobre o nome específico não definido ou erro de atributo. No SDK, você pode usar `run.get_details()` para examinar a mensagem de erro. Isso também listará todos os arquivos de log gerados para sua execução. Certifique-se de dar uma olhada no script de treinamento, corrija o erro antes de tentar novamente. 
 
 ### <a name="horovod-is-shutdown"></a>Horovod está desligado
-Na maioria dos casos, essa exceção significa que houve uma exceção subjacente em um dos processos que causaram o desligamento de horovod. Cada classificação no trabalho MPI obtém seu próprio arquivo de log dedicado no Azure ML. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que causou o desligamento do horovod, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos driver_log. Um desses arquivos fornecerá a exceção subjacente real. 
+Na maioria dos casos, essa exceção significa que houve uma exceção subjacente em um dos processos que causaram o desligamento de horovod. Cada classificação no trabalho MPI obtém seu próprio arquivo de log dedicado no Azure ML. Esses logs são nomeados `70_driver_logs`. No caso de treinamento distribuído, os nomes de log têm o sufixo `_rank` para facilitar a diferenciação dos logs. Para localizar o erro exato que causou o desligamento de horovod, percorra todos os arquivos de log e procure `Traceback` no final dos arquivos driver_log. Um desses arquivos fornecerá a exceção subjacente real. 

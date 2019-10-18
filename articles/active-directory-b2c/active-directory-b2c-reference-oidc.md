@@ -11,12 +11,12 @@ ms.date: 08/22/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 12b21717bd36f5577336ebbc3a236747ae7fc1be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 45ecfc896132eace3ca0babde509e82896c9a394
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72385907"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533103"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ Azure AD B2C estende o protocolo OpenID Connect padrão para fazer mais do que a
 
 Quando seu aplicativo Web precisa autenticar o usuário e executar um fluxo de usuário, ele pode direcionar o usuário para o ponto de extremidade `/authorize`. O usuário executa a ação dependendo do fluxo do usuário.
 
-Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no parâmetro `scope` e especifica o fluxo de usuário a ser executado. Para ter uma ideia de como a solicitação funciona, tente colar a solicitação em um navegador e executá-la. Substitua `{tenant}` pelo nome do seu locatário. Substitua `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` pela ID do aplicativo que você registrou anteriormente em seu locatário. Além disso, altere o nome da política (`{policy}`) para o nome da política que você tem em seu locatário, por exemplo, `b2c_1_sign_in`.
+Nessa solicitação, o cliente indica as permissões que precisa adquirir do usuário no parâmetro `scope` e especifica o fluxo de usuário a ser executado. Para ter uma ideia de como a solicitação funciona, tente colar a solicitação em um navegador e executá-la. Substitua `{tenant}` pelo nome do seu locatário. Substitua `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` pela ID do aplicativo que você registrou anteriormente em seu locatário. Além disso, altere o nome da política (`{policy}`) para o nome da política que você tem em seu locatário, por exemplo `b2c_1_sign_in`.
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -51,10 +51,10 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | regras | Sim | O fluxo do usuário a ser executado. Especifique o nome de um fluxo de usuário que você criou em seu locatário Azure AD B2C. Por exemplo: `b2c_1_sign_in`, `b2c_1_sign_up` ou `b2c_1_edit_profile`. |
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | momentos | Sim | Um valor incluído na solicitação (gerado pelo aplicativo) que é incluído no token de ID resultante como uma declaração. O aplicativo pode, então, verificar esse valor para atenuar os ataques de reprodução de token. O valor normalmente é uma cadeia de caracteres exclusiva aleatória que pode ser usada para identificar a origem da solicitação. |
-| response_type | Sim | Deve incluir um token de ID para o OpenID Connect. Se seu aplicativo Web também precisar de tokens para chamar uma API da Web, você poderá usar `code+id_token`. |
-| scope | Sim | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. O escopo `offline_access` é opcional para aplicativos Web. Isso indica que seu aplicativo precisará de um *token de atualização* para acesso estendido aos recursos. |
+| response_type | Sim | Deve incluir um token de ID para o OpenID Connect. Se o aplicativo Web também precisar de tokens para chamar uma API Web, você poderá usar `code+id_token`. |
+| scope | Sim | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. O escopo de `offline_access` é opcional para aplicativos Web. Isso indica que seu aplicativo precisará de um *token de atualização* para acesso estendido aos recursos. |
 | Aviso | Não | O tipo de interação do usuário que é necessário. O único valor válido no momento é `login`, o que força o usuário a inserir suas credenciais nessa solicitação. |
-| redirect_uri | Não | O parâmetro `redirect_uri` do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos parâmetros `redirect_uri` que você registrou na portal do Azure, exceto pelo fato de que ele deve ser codificado por URL. |
+| redirect_uri | Não | O parâmetro `redirect_uri` do seu aplicativo, em que as respostas de autenticação podem ser enviadas e recebidas pelo seu aplicativo. Ele deve corresponder exatamente a um dos parâmetros de `redirect_uri` que você registrou na portal do Azure, exceto pelo fato de que ele deve ser codificado por URL. |
 | response_mode | Não | O método usado para enviar o código de autorização resultante de volta para seu aplicativo. Ele pode ser `query`, `form_post` ou `fragment`.  O modo de resposta `form_post` é recomendado para obter a melhor segurança. |
 | state | Não | Um valor incluído na solicitação que também é retornado na resposta do token. Pode ser uma cadeia de caracteres de qualquer conteúdo desejado. Um valor exclusivo gerado aleatoriamente geralmente é usado para impedir ataques de solicitação entre sites forjado. O estado também é usado para codificar informações sobre o estado do usuário no aplicativo antes que a solicitação de autenticação ocorra, como a página em que eles estavam. |
 
@@ -62,7 +62,7 @@ Neste ponto, o usuário é solicitado a concluir o fluxo de trabalho. O usuário
 
 Depois que o usuário conclui o fluxo do usuário, uma resposta é retornada ao seu aplicativo no parâmetro `redirect_uri` indicado, usando o método especificado no parâmetro `response_mode`. A resposta é a mesma para cada um dos casos anteriores, independentemente do fluxo do usuário.
 
-Uma resposta bem-sucedida usando `response_mode=fragment` teria a seguinte aparência:
+Uma resposta bem-sucedida usando `response_mode=fragment` seria semelhante a:
 
 ```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -77,7 +77,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 | Auto-completar | O código de autorização que o aplicativo solicitou, se você usou `response_type=code+id_token`. O aplicativo pode usar o código de autorização para solicitar um token de acesso para um recurso de destino. Os códigos de autorização normalmente expiram após cerca de 10 minutos. |
 | state | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
 
-As respostas de erro também podem ser enviadas para o parâmetro `redirect_uri` para que o aplicativo possa tratá-las adequadamente:
+As respostas de erro também podem ser enviadas ao parâmetro `redirect_uri` para que o aplicativo possa tratá-las adequadamente:
 
 ```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | Auto-completar | Sim | O código de autorização que você adquiriu no início do fluxo do usuário. |
 | grant_type | Sim | O tipo de concessão, que deve ser `authorization_code` para o fluxo do código de autorização. |
 | redirect_uri | Sim | O parâmetro `redirect_uri` do aplicativo em que você recebeu o código de autorização. |
-| scope | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de parâmetros id_token. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O escopo `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
+| scope | Não | Uma lista de escopos separados por espaços. O escopo de `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de parâmetros id_token. Ele pode ser usado para obter tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O escopo de `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
 
 Uma resposta de token bem-sucedida é semelhante A:
 
@@ -175,7 +175,7 @@ Uma resposta de token bem-sucedida é semelhante A:
 | access_token | O token JWT assinado que você solicitou. |
 | scope | Os escopos para os quais o token é válido. |
 | expires_in | O período de tempo que o token de acesso é válido (em segundos). |
-| refresh_token | Um token de atualização OAuth 2,0. O aplicativo pode usar esse token para adquirir tokens adicionais depois que o token atual expirar. Os tokens de atualização podem ser usados para manter o acesso aos recursos por longos períodos de tempo. O escopo `offline_access` deve ter sido usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
+| refresh_token | Um token de atualização OAuth 2,0. O aplicativo pode usar esse token para adquirir tokens adicionais depois que o token atual expirar. Os tokens de atualização podem ser usados para manter o acesso aos recursos por longos períodos de tempo. O `offline_access` de escopo deve ter sido usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
 
 As respostas de erro são semelhantes a:
 
@@ -210,7 +210,7 @@ POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
 Host: {tenant}.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
-grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
+grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
 | Parâmetro | Obrigatório | Descrição |
@@ -220,9 +220,9 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=op
 | client_id | Sim | A ID do aplicativo que o [portal do Azure](https://portal.azure.com/) atribuído ao seu aplicativo. |
 | client_secret | Sim | O segredo do aplicativo que foi gerado no [portal do Azure](https://portal.azure.com/). Esse segredo de aplicativo é um importante artefato de segurança. Você deve armazená-lo com segurança em seu servidor. Altere esse segredo do cliente periodicamente. |
 | grant_type | Sim | O tipo de concessão, que deve ser um token de atualização para esta parte do fluxo do código de autorização. |
-| refresh_token | Sim | O token de atualização original que foi adquirido na segunda parte do fluxo. O escopo `offline_access` deve ser usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
+| refresh_token | Sim | O token de atualização original que foi adquirido na segunda parte do fluxo. O escopo de `offline_access` deve ser usado tanto na autorização quanto nas solicitações de token para receber um token de atualização. |
 | redirect_uri | Não | O parâmetro `redirect_uri` do aplicativo em que você recebeu o código de autorização. |
-| scope | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. Ele pode ser usado para enviar tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O escopo `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
+| scope | Não | Uma lista de escopos separados por espaços. O escopo `openid` indica uma permissão para conectar o usuário e obter dados sobre o usuário na forma de tokens de ID. Ele pode ser usado para enviar tokens para a própria API Web de back-end do seu aplicativo, que é representada pela mesma ID do aplicativo que o cliente. O escopo de `offline_access` indica que seu aplicativo precisa de um token de atualização para acesso estendido aos recursos. |
 
 Uma resposta de token bem-sucedida é semelhante A:
 
@@ -274,8 +274,8 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | --------- | -------- | ----------- |
 | vários | Sim | Nome do seu locatário de Azure AD B2C |
 | regras | Sim | O fluxo de usuário que você deseja usar para desconectar o usuário do seu aplicativo. |
-| id_token_hint| Não | Um token de ID emitido anteriormente para passar para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. O `id_token_hint` garante que o `post_logout_redirect_uri` seja uma URL de resposta registrada nas configurações do aplicativo Azure AD B2C. |
-| post_logout_redirect_uri | Não | A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, Azure AD B2C mostrará ao usuário uma mensagem genérica. A menos que você forneça um `id_token_hint`, não deverá registrar essa URL como uma URL de resposta em suas configurações do aplicativo Azure AD B2C. |
+| id_token_hint| Não | Um token de ID emitido anteriormente para passar para o ponto de extremidade de logout como uma dica sobre a sessão autenticada atual do usuário final com o cliente. O `id_token_hint` garante que a `post_logout_redirect_uri` é uma URL de resposta registrada em suas configurações de aplicativo Azure AD B2C. |
+| post_logout_redirect_uri | Não | A URL para a qual o usuário deve ser redirecionado após a saída bem-sucedida. Se não estiver incluído, Azure AD B2C mostrará ao usuário uma mensagem genérica. A menos que você forneça um `id_token_hint`, você não deve registrar essa URL como uma URL de resposta em suas configurações de aplicativo Azure AD B2C. |
 | state | Não | Se um parâmetro `state` for incluído na solicitação, o mesmo valor deverá aparecer na resposta. O aplicativo deve verificar se os valores `state` na solicitação e na resposta são idênticos. |
 
 ### <a name="secure-your-logout-redirect"></a>Proteger seu redirecionamento de logout
@@ -284,4 +284,4 @@ Após o logout, o usuário é redirecionado para o URI especificado no parâmetr
 
 ### <a name="external-identity-provider-sign-out"></a>Logout do provedor de identidade externo
 
-Direcionar o usuário para o ponto de extremidade `end_session` limpa parte do estado de logon único do usuário com Azure AD B2C, mas não desconecta o usuário de sua sessão do IDP (provedor de identidade social). Se o usuário selecionar o mesmo IDP durante uma entrada subsequente, ele será reautenticado sem inserir suas credenciais. Se um usuário quiser sair do aplicativo, isso não significa necessariamente que deseja sair de sua conta do Facebook. No entanto, se forem usadas contas locais, a sessão do usuário será encerrada corretamente.
+Direcionar o usuário para o ponto de extremidade `end_session` limpa parte do estado de logon único do usuário com Azure AD B2C, mas ele não desconecta o usuário de sua sessão do IDP (provedor de identidade social). Se o usuário selecionar o mesmo IDP durante uma entrada subsequente, ele será reautenticado sem inserir suas credenciais. Se um usuário quiser sair do aplicativo, isso não significa necessariamente que deseja sair de sua conta do Facebook. No entanto, se forem usadas contas locais, a sessão do usuário será encerrada corretamente.

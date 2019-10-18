@@ -12,12 +12,12 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   monikerRange: ''
-  ms.openlocfilehash: 34a27a3339112688bec767954a1a6fe722ee3c53
-  ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+  ms.openlocfilehash: 570a549bc132b1126d904d52af3066e152687e72
+  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/16/2019
-  ms.locfileid: "72386994"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72554848"
 landingContent:
 - title: Acerca do Azure Data Factory
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
     - text: Copiar dados de forma incremental
       url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
     - text: Carregar o ADLS Gen2
-      url: /azure/data-factory/continuous-integration-deployment
+      url: /azure/data-factory/load-azure-data-lake-storage-gen2
     - text: Carregar o SQL DW
       url: /azure/data-factory/load-azure-sql-data-warehouse
     - text: Carregar o SAP BW

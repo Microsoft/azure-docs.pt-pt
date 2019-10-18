@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 5/3/2019
+ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: a9987808feb895276f3f9e62fe66c1b353b52e72
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ecc46f9ce4ec953d481bf8110326630053938524
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073082"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533333"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Implementar e configurar o Azure Firewall numa rede híbrida com o Azure PowerShell
 
@@ -43,7 +43,7 @@ Neste artigo, vai aprender a:
 > * Criar as máquinas virtuais
 > * Testar a firewall
 
-Se você quiser usar portal do Azure em vez de concluir este tutorial, consulte [o tutorial: Implante e configure o Firewall do Azure em uma rede híbrida usando](tutorial-hybrid-portal.md)o portal do Azure.
+Se você quiser usar portal do Azure em vez de concluir este tutorial, consulte [tutorial: implantar e configurar o Firewall do Azure em uma rede híbrida usando o portal do Azure](tutorial-hybrid-portal.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,9 +62,9 @@ Existem três requisitos chave para este cenário funcionar corretamente:
 Consulte a seção [criar rotas](#create-the-routes) neste artigo para ver como essas rotas são criadas.
 
 >[!NOTE]
->O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprende uma rota padrão para sua rede local via BGP, você deve substituí-lo por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet. Por padrão, o Firewall do Azure não dá suporte a túnel forçado para uma rede local.
+>O Firewall do Azure deve ter conectividade direta com a Internet. Se o seu AzureFirewallSubnet aprende uma rota padrão para sua rede local via BGP, você deve substituí-lo por um UDR 0.0.0.0/0 com o valor **NextHopType** definido como **Internet** para manter a conectividade direta com a Internet.
 >
->No entanto, se sua configuração exigir túnel forçado para uma rede local, a Microsoft dará suporte a isso caso a caso. Contate o suporte para que possamos examinar seu caso. Se aceito, colocaremos sua assinatura na lista de permissões e garantiremos a manutenção necessária da conectividade com a Internet do firewall.
+>No momento, o Firewall do Azure não dá suporte a túnel forçado. Se sua configuração requer o túnel forçado para uma rede local e você pode determinar os prefixos de IP de destino para seus destinos de Internet, você pode configurar esses intervalos com a rede local como o próximo salto por meio de uma rota definida pelo usuário no AzureFirewallSubnet. Ou, você pode usar o BGP para definir essas rotas.
 
 >[!NOTE]
 >O tráfego entre VNets emparelhadas diretamente é roteado diretamente mesmo se um UDR aponta para o Firewall do Azure como o gateway padrão. Para enviar a sub-rede ao tráfego de sub-rede para o firewall nesse cenário, um UDR deve conter o prefixo de rede de sub-rede de destino explicitamente em ambas as sub-redes.
@@ -464,7 +464,7 @@ No portal do Azure, ligue à máquina virtual **VM-Onprem**.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.
 
    You should get a reply.--->
-Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP\>privado.
+Abra um navegador da Web em **VM-local**e navegue até http://\<VM-spoke-01 IP privado \>.
 
 Deverá ver a página predefinida dos Serviços de Informação Internet.
 
@@ -497,4 +497,4 @@ Pode manter os recursos da firewall para o próximo tutorial. Se já não precis
 
 Em seguida, pode monitorizar os registos do Azure Firewall.
 
-[Tutorial: Monitorar logs de firewall do Azure](./tutorial-diagnostics.md)
+[Tutorial: monitorizar registos do Azure Firewall](./tutorial-diagnostics.md)

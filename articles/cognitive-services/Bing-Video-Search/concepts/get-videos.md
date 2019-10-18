@@ -1,5 +1,5 @@
 ---
-title: Envio de solicitações de pesquisa para o API de Pesquisa de Vídeo do Bing
+title: Pesquisar vídeos usando o API de Pesquisa de Vídeo do Bing
 titleSuffix: Azure Cognitive Services
 description: Saiba mais sobre como enviar consultas de pesquisa para o API de Pesquisa de Vídeo do Bing.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: b565ad8be1d8529d3650ec36fe7c4d61f6c5dc8f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879094"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512417"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Pesquisar vídeos com o API de Pesquisa de Vídeo do Bing
 
@@ -144,7 +144,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Expandir a consulta
 
-Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta estivesse *limpando medianizes*, as consultas expandidas podem ser: **Ferramentas**de limpeza de medianiz, limpeza **de medianizes do zero**, **computador**de limpeza de medianiz e limpeza **fácil** de medianiz.
+Se o Bing conseguir expandir a consulta para restringir a pesquisa original, o objeto [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) irá conter o campo `queryExpansions`. Por exemplo, se a consulta tiver sido *Limpeza de Algeroz*, as consultas expandidas poderão ser: **Ferramentas** de Limpeza de Algerozes, Limpeza de Algerozes **a Partir do Chão**, **Máquina** de Limpeza de Algerozes e **Fácil** Limpeza de Algerozes.
 
 O exemplo seguinte mostra as consultas expandidas para *Limpeza de Algerozes*.
 
@@ -226,6 +226,6 @@ Para cada pivô, a resposta contém uma lista de objetos de [Consulta](https://d
 
 Pode utilizar os campos `text` e `thumbnail` para apresentar as cadeias de consulta expandidas ao utilizador no caso de a cadeia de consulta expandida ser realmente aquilo que procura. Torne a miniatura e o texto clicáveis com o URL `webSearchUrl` ou o URL `searchLink`. Utilize `webSearchUrl` para encaminhar o utilizador para os resultados de pesquisa do Bing ou `searchLink` se fornecer a sua própria página de resultados.
 
-## <a name="throttling-requests"></a>Limitar pedidos
+## <a name="throttling-requests"></a>Pedidos de limitação
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../../includes/cognitive-services-bing-throttling-requests.md)]

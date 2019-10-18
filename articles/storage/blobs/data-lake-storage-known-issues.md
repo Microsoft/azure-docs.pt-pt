@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 300da59aa1a16bb2c4cfeaf8035cbe882ae83358
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f635360c5a6da19d60f3992878a8950b03c5f748
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300239"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513876"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com o Azure Data Lake Storage Gen2
 
@@ -105,7 +105,8 @@ A tabela a seguir lista todos os outros recursos e ferramentas que ainda não t�
 | **Camadas de nível de objeto** |As camadas frias e de arquivo são suportadas pelo [acesso de vários protocolos na](data-lake-storage-multi-protocol-access.md) versão prévia do data Lake Storage. <br><br> Todas as outras camadas de acesso ainda não têm suporte.|
 | **Suporte ao PowerShell e à CLI** | Funcionalidade limitada <br><br>As operações de gerenciamento, como a criação de uma conta, têm suporte. As operações do plano de dados, como carregar e baixar arquivos, estão em visualização pública como parte do [acesso de vários protocolos em data Lake Storage](data-lake-storage-multi-protocol-access.md). O trabalho com diretórios e a configuração de listas de controle de acesso (ACLs) ainda não têm suporte. |
 | **Sites estáticos** |Ainda não tem suporte <br><br>Especificamente, a capacidade de fornecer arquivos para [sites estáticos](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Aplicativos de terceiros** | Suporte limitado <br><br>Aplicativos de terceiros que usam APIs REST para trabalhar continuarão a funcionar se você usá-los com Data Lake Storage Gen2. <br>Aplicativos que chamam APIs de blob provavelmente funcionarão com a visualização pública de [acesso multiprotocolo em data Lake Storage](data-lake-storage-multi-protocol-access.md). 
-| **Recursos de controle de versão** |Ainda não tem suporte <br><br>Isso inclui [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob) e [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete).|
+| **Aplicativos de terceiros** | Suporte limitado <br><br>Aplicativos de terceiros que usam APIs REST para trabalhar continuarão a funcionar se você usá-los com Data Lake Storage Gen2. <br>Aplicativos que chamam APIs de blob provavelmente funcionarão com a visualização pública de [acesso multiprotocolo em data Lake Storage](data-lake-storage-multi-protocol-access.md). |
+|**Exclusão reversível** |Ainda não tem suporte|
+| **Recursos de controle de versão** |Ainda não tem suporte <br><br>Isso inclui [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete)e outros recursos de controle de versão, como [instantâneos](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
 
 

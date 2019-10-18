@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: f5694e18d5743118e2b6e73708dd3acb17151198
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874927"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529116"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda da rede da máquina virtual
 
@@ -39,10 +39,10 @@ As máquinas virtuais do Azure devem ter uma, mas podem ter várias interfaces d
 A taxa de transferência de saída esperada e o número de interfaces de rede com suporte de cada tamanho de VM são detalhados em tamanhos de VM [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) do Azure. Selecione um tipo, como finalidade geral e, em seguida, selecione uma série de tamanho na página resultante, como a série Dv2. Cada série tem uma tabela com especificações de rede na última coluna intitulada, **máximo de NICs/desempenho de rede esperado (Mbps)** . 
 
 O limite de taxa de transferência se aplica à máquina virtual. A taxa de transferência não é afetada pelos seguintes fatores:
-- **Número de interfaces de rede**: O limite de largura de banda é cumulativo de todo o tráfego de saída da máquina virtual.
-- **Rede acelerada**: Embora o recurso possa ser útil para atingir o limite publicado, ele não altera o limite.
-- **Destino do tráfego**: Todos os destinos contam para o limite de saída.
-- **Protocolo**: Todo o tráfego de saída em todos os protocolos conta em direção ao limite.
+- **Número de interfaces de rede**: o limite de largura de banda é cumulativo de todo o tráfego de saída da máquina virtual.
+- **Rede acelerada**: embora o recurso possa ser útil para atingir o limite publicado, ele não altera o limite.
+- **Destino do tráfego**: todos os destinos contam para o limite de saída.
+- **Protocolo**: todo o tráfego de saída em todos os protocolos conta em direção ao limite.
 
 ## <a name="network-flow-limits"></a>Limites de fluxo de rede
 
@@ -60,15 +60,15 @@ Hoje, a pilha de rede do Azure dá suporte a fluxos totais de rede 250 mil com b
 |---|---|---|
 |<b>Bom desempenho</b>|100 mil fluxos |Fluxos de 250 mil|
 |<b>Desempenho degradado</b>|Acima de 100 mil fluxos|Fluxos de 250 mil acima|
-|<b>Limite de fluxo</b>|1 milhão de fluxos|1 milhão de fluxos|
+|<b>Limite de fluxo</b>|Fluxos de 500 mil|Fluxos de 500 mil|
 
 As métricas estão disponíveis em [Azure monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para controlar o número de fluxos de rede e a taxa de criação de fluxo em suas instâncias de VM ou VMSS.
 
-![azure-monitor-flow-metrics.png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
+![Azure-monitor-Flow-Metrics. png](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 
 As taxas de estabelecimento e término da conexão também podem afetar o desempenho da rede, pois o estabelecimento da conexão e o encerramento compartilham a CPU com rotinas de processamento de pacotes É recomendável que você compare as cargas de trabalho com os padrões de tráfego esperados e escale horizontalmente as cargas de trabalho de acordo com suas necessidades de desempenho. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Otimizar o débito de rede para o sistema operativo de uma máquina virtual](virtual-network-optimize-network-bandwidth.md)
 - [Testar a taxa de transferência de rede](virtual-network-bandwidth-testing.md) para uma máquina virtual.

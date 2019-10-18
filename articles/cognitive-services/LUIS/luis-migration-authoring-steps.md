@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935207"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516792"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Etapas para migrar para o recurso de criação do Azure
 
@@ -43,7 +43,7 @@ O processo de migração estará disponível se você for o proprietário de qua
 
     ![Primeira janela pop-up no processo de migração, selecione migrar agora.](./media/migrate-authoring-key/migrate-now.png)
 
-1. Opcionalmente, se algum dos seus aplicativos tiver colaboradores, você será solicitado a **enviar um email** informando-os sobre a migração. Este é um passo opcional. 
+1. Opcionalmente, se algum dos seus aplicativos tiver colaboradores, você será solicitado a **enviar um email** informando-os sobre a migração. Esta é uma etapa opcional. 
 
     Depois de migrar sua conta para o Azure, seus aplicativos não estarão mais disponíveis para colaboradores.
 
@@ -98,7 +98,7 @@ O processo de migração estará disponível se você for o proprietário de qua
 
 ## <a name="app-contributor-begins-the-migration-process"></a>O colaborador do aplicativo começa o processo de migração
 
-Siga as mesmas etapas do proprietário do aplicativo para a migração. O processo cria um novo recurso de criação de tipo `LUIS.Authoring`. 
+Siga as mesmas etapas do proprietário do aplicativo para a migração. O processo cria um novo recurso de criação do tipo `LUIS.Authoring`. 
 
 Você precisa migrar sua conta para ser adicionada como um colaborador a aplicativos migrados pertencentes a outros.  
 
@@ -110,9 +110,9 @@ Saiba [como adicionar colaboradores](luis-how-to-collaborate.md).
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>Solucionando erros com o processo de migração
 
-Se você receber um `MissingSubscriptionRegistration` erro no portal do Luis com uma barra de notificação vermelha durante o processo de migração, crie um recurso de serviço cognitiva no [portal do Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [CLI do Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre as [causas desse erro](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
+Se você receber um erro de `MissingSubscriptionRegistration` no portal do LUIS com uma barra de notificação vermelha durante o processo de migração, crie um recurso de serviço cognitiva no [portal do Azure](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) ou [CLI do Azure](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Saiba mais sobre as [causas desse erro](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 
 * Examinar [conceitos](luis-concept-keys.md) sobre criação e chaves de tempo de execução

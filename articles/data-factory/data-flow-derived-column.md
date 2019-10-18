@@ -1,17 +1,17 @@
 ---
-title: Transformação coluna derivada no fluxo de dados de mapeamento-Azure Data Factory | Microsoft Docs
+title: Transformação de coluna derivada no fluxo de dados de mapeamento de Azure Data Factory | Microsoft Docs
 description: Saiba como transformar dados em escala em Azure Data Factory com a transformação coluna derivada de fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 5a4ee90717d46fe593d9e10083b349e069216dac
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
-ms.translationtype: HT
+ms.openlocfilehash: 60451fa6152590ed0fde51be436c867f39906acf
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436762"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514810"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>Transformação coluna derivada no fluxo de dados de mapeamento
 
@@ -46,7 +46,9 @@ Para adicionar mais colunas derivadas, passe o mouse sobre uma coluna derivada e
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo é uma coluna derivada chamada `CleanData` que usa um fluxo de entrada `MoviesYear` e cria duas colunas derivadas. A primeira coluna derivada substitui a coluna `Rating` com o valor da classificação como um tipo inteiro. A segunda coluna derivada é um padrão que corresponde a cada coluna cujo nome começa com ' filmes '. Para cada coluna correspondente, ela cria uma coluna `movie` que é igual ao valor da coluna correspondente prefixada com ' movie_ '. No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+O exemplo abaixo é uma coluna derivada chamada `CleanData` que usa um fluxo de entrada `MoviesYear` e cria duas colunas derivadas. A primeira coluna derivada substitui a coluna `Rating` com o valor da classificação como um tipo inteiro. A segunda coluna derivada é um padrão que corresponde a cada coluna cujo nome começa com ' filmes '. Para cada coluna correspondente, ele cria uma coluna `movie` que é igual ao valor da coluna correspondente prefixada com ' movie_ '. 
+
+No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
 ![Obter exemplo](media/data-flow/derive-script1.png "Obter exemplo")
 

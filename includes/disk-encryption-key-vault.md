@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: e145c7af3ff3cdd6d3cca2a7b0da0fdc23a418b7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245256"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72511511"
 ---
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -131,7 +131,7 @@ Se você quiser usar uma chave de criptografia de chave (KEK) para obter uma cam
 
 Você pode gerar um novo KEK usando o comando CLI do Azure [AZ keyvault Key Create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) , o cmdlet Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) ou o [portal do Azure](https://portal.azure.com/). Você deve gerar um tipo de chave RSA; Azure Disk Encryption ainda não dá suporte ao uso de chaves de curva elíptica.
 
-Em vez disso, você pode importar um KEK do HSM de gerenciamento de chaves local. Para obter mais informações, consulte a [documentação do Key Vault](/key-vault/key-vault-hsm-protected-keys). 
+Em vez disso, você pode importar um KEK do HSM de gerenciamento de chaves local. Para obter mais informações, consulte a [documentação do Key Vault](/azure/key-vault/key-vault-hsm-protected-keys).
 
 As URLs de KEK do cofre de chaves devem ter controle de versão. O Azure impõe essa restrição de controle de versão. Para obter as URLs válidas de segredo e KEK, consulte os exemplos a seguir:
 

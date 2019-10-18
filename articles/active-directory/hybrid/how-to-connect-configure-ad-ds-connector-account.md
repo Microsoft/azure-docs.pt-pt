@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Configurar as permissões de conta do AD DS conector | Documentos da Microsoft'
-description: Este documento fornece detalhes sobre como configurar a conta do conector do AD DS com o novo módulo do PowerShell de ADSyncConfig
+title: 'Azure AD Connect: configurar permissões de conta do conector de AD DS | Microsoft Docs'
+description: Este documento detalha como configurar a conta do conector de AD DS com o novo módulo ADSyncConfig do PowerShell
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,39 +11,39 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff151ff8e14b5cf9602d4e7e2e9c6cb2118a8a65
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eeb80c3a94e63a886e4a16c0b8fa445b2a8a34e4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64918514"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515812"
 ---
-# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurar as permissões de conta do AD DS conector 
+# <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: configurar permissões de conta do conector de AD DS 
 
-O módulo do PowerShell com o nome [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) foi introduzida com compilação 1.1.880.0 (lançado em Agosto de 2018), que inclui um conjunto de cmdlets para o ajudar a configurar as permissões corretas do Active Directory para o Azure AD Ligue-se a implementação. 
+O módulo do PowerShell chamado [ADSyncConfig. psm1](reference-connect-adsyncconfig.md) foi introduzido com Build 1.1.880.0 (lançado em agosto de 2018) que inclui uma coleção de cmdlets para ajudá-lo a configurar as permissões de Active Directory corretas para sua implantação de Azure ad Connect. 
 
-## <a name="overview"></a>Descrição geral 
-Os seguintes cmdlets PowerShell pode ser utilizado para configurar permissões do Active Directory da conta do conector do AD DS, para cada funcionalidade que optar por ativar no Azure AD Connect. Para evitar quaisquer problemas, deve preparar permissões do Active Directory com antecedência sempre que deseja instalar o Azure AD Connect com uma conta de domínio personalizado para ligar à sua floresta. Este módulo de ADSyncConfig também pode ser utilizado para configurar permissões após a implementação do Azure AD Connect.
+## <a name="overview"></a>Visão geral 
+Os cmdlets do PowerShell a seguir podem ser usados para configurar Active Directory permissões da conta do conector de AD DS, para cada recurso que você selecionar para habilitar no Azure AD Connect. Para evitar problemas, você deve preparar Active Directory permissões com antecedência sempre que desejar instalar Azure AD Connect usando uma conta de domínio personalizada para se conectar à sua floresta. Esse módulo ADSyncConfig também pode ser usado para configurar permissões depois que Azure AD Connect for implantado.
 
-![Descrição geral da conta do ad ds](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![Visão geral da conta do AD DS](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
-Para a instalação do Azure AD Connect Express, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada no Active Directory com todas as permissões necessárias, para que não é necessário utilizar este módulo ADSyncConfig, exceto se o ter bloqueado permissões herança em unidades organizacionais ou em objetos específicos do Active Directory que pretende sincronizar com o Azure AD. 
+Para Azure AD Connect instalação expressa, uma conta gerada automaticamente (MSOL_nnnnnnnnnn) é criada em Active Directory com todas as permissões necessárias, portanto, não é necessário usar esse módulo ADSyncConfig, a menos que você tenha permissões bloqueadas herança em unidades organizacionais ou em objetos Active Directory específicos que você deseja sincronizar com o Azure AD. 
  
 ### <a name="permissions-summary"></a>Resumo das permissões 
-A tabela seguinte fornece um resumo das permissões necessárias em objetos do AD: 
+A tabela a seguir fornece um resumo das permissões necessárias nos objetos do AD: 
 
 | Funcionalidade | Permissões |
 | --- | --- |
-| funcionalidade do MS-DS-ConsistencyGuid |Permissões de escrita para o atributo ms-DS-ConsistencyGuid documentado em [conceitos de Design - usando o ms-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Sincronização de hash de palavra-passe |<li>Replicar as alterações de diretório</li>  <li>Diretório de replicar muda tudo |
-| Implementação híbrida do Exchange |Permissões de escrita para os atributos documentados em [repetição de escrita do Exchange híbrido](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para utilizadores, grupos e contactos. |
-| Pasta de públicas de correio do Exchange |Permissões de leitura para os atributos documentados em [pastas públicas de correio Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para as pastas públicas. | 
-| Repetição de escrita de palavras-passe |Permissões de escrita para os atributos documentados em [introdução à gestão de palavra-passe](../authentication/howto-sspr-writeback.md) para os utilizadores. |
-| Repetição de escrita do dispositivo |Permissões de escrita para objetos de dispositivo e os contentores documentados em [repetição de escrita do dispositivo](how-to-connect-device-writeback.md). |
-| Repetição de escrita do grupo |Ler, criar, atualizar e eliminar grupo objetos para sincronizados **grupos do Office 365**.  Para obter mais informações, consulte [repetição de escrita do grupo](how-to-connect-preview.md#group-writeback).|
+| recurso ms-DS-ConsistencyGuid |Permissões de leitura e gravação para o atributo ms-DS-ConsistencyGuid documentado em [conceitos de design – usando MS-DS-ConsistencyGuid como sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
+| Sincronização de hash de senha |<li>Replicar alterações de diretório</li>  <li>Replicar todas as alterações de diretório |
+| Implantação híbrida do Exchange |Permissões de leitura e gravação para os atributos documentados no [write-back híbrido do Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) para usuários, grupos e contatos. |
+| Pasta pública de email do Exchange |Permissões de leitura para os atributos documentados na [pasta pública do Exchange mail](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) para pastas públicas. | 
+| Repetição de escrita de palavras-passe |Permissões de leitura e gravação para os atributos documentados em [introdução ao gerenciamento de senhas](../authentication/howto-sspr-writeback.md) para usuários. |
+| Repetição de escrita do dispositivo |Permissões de leitura e gravação para objetos de dispositivo e contêineres documentados no [write-back do dispositivo](how-to-connect-device-writeback.md). |
+| Repetição de escrita do grupo |Ler, criar, atualizar e excluir objetos de grupo para **grupos do Office 365**sincronizados.  Para obter mais informações, consulte [Group write-back](how-to-connect-preview.md#group-writeback).|
 
-## <a name="using-the-adsyncconfig-powershell-module"></a>Com o módulo ADSyncConfig PowerShell 
-O módulo de ADSyncConfig requer o [remoto administração ferramentas servidor (FARS) para o AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) , uma vez que ele depende do módulo do PowerShell do AD DS e ferramentas. Para instalar o FARS para AD DS, abra uma janela do Windows PowerShell com "Executar como administrador" e execute: 
+## <a name="using-the-adsyncconfig-powershell-module"></a>Usando o módulo do PowerShell do ADSyncConfig 
+O módulo ADSyncConfig requer o [ferramentas de administração de servidor remoto (RSAT) para AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) já que depende do módulo e das ferramentas do AD DS PowerShell. Para instalar o RSAT para AD DS, abra uma janela do Windows PowerShell com ' Executar como administrador ' e execute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -51,15 +51,15 @@ Install-WindowsFeature RSAT-AD-Tools
 ![Configurar](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
 >[!NOTE]
->Também pode copiar o ficheiro **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** para um controlador de domínio que já tem as FARS para AD DS instalada e utilizar este módulo do PowerShell a partir daí.
+>Você também pode copiar o arquivo **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** para um controlador de domínio que já tem o RSAT para AD DS instalado e usar esse módulo do PowerShell a partir daí.
 
-Para começar a utilizar o ADSyncConfig terá de carregar o módulo numa janela do Windows PowerShell: 
+Para começar a usar o ADSyncConfig, você precisa carregar o módulo em uma janela do Windows PowerShell: 
 
 ``` powershell
 Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\AdSyncConfig.psm1" 
 ```
 
-Para verificar todos os cmdlets incluídos neste módulo, que pode digitar:  
+Para verificar todos os cmdlets incluídos neste módulo, você pode digitar:  
 
 ``` powershell
 Get-Command -Module AdSyncConfig  
@@ -67,15 +67,15 @@ Get-Command -Module AdSyncConfig
 
 ![Marcar](media/how-to-connect-configure-ad-ds-connector-account/configure3.png)
 
-Cada cmdlet tem os mesmos parâmetros de entrada a conta de conector do AD DS e um comutador de AdminSDHolder. Para especificar a sua conta de conector do AD DS, pode fornecer o nome da conta e domínio ou apenas a conta DN (nome distinto),
+Cada cmdlet tem os mesmos parâmetros para inserir a conta do conector de AD DS e uma opção AdminSDHolder. Para especificar sua conta do conector de AD DS, você pode fornecer o nome da conta e o domínio, ou apenas o DN (nome distinto da conta),
 
-p. ex.:
+por exemplo:
 
 ```powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
 ```
 
-Ou;
+Or
 
 ```powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
@@ -83,201 +83,201 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
 
 Certifique-se de substituir `<ADAccountName>`, `<ADDomainName>` e `<ADAccountDN>` pelos valores adequados para o seu ambiente.
 
-No caso de não pretender modificar as permissões no contêiner AdminSDHolder, use a opção `-SkipAdminSdHolders`. 
+Caso você não queira modificar permissões no contêiner AdminSDHolder, use a opção `-SkipAdminSdHolders`. 
 
-Por predefinição, todos os cmdlets de permissões do conjunto tentará definir permissões do AD DS na raiz de cada domínio na floresta, que significa que o utilizador a executar a sessão do PowerShell requer direitos de administrador de domínio em cada domínio na floresta.  Devido a esse requisito, é recomendado utilizar um administrador empresarial de raiz da floresta. Se a sua implementação do Azure AD Connect tem múltiplos conectores do AD DS, será necessário para executar o mesmo cmdlet em cada floresta que possua um conector do AD DS. 
+Por padrão, todos os cmdlets Set Permissions tentarão definir AD DS permissões na raiz de cada domínio na floresta, o que significa que o usuário que está executando a sessão do PowerShell requer direitos de administrador de domínio em cada domínio na floresta.  Devido a esse requisito, é recomendável usar um administrador corporativo da raiz da floresta. Se sua implantação de Azure AD Connect tiver vários conectores de AD DS, será necessário executar o mesmo cmdlet em cada floresta que tenha um conector de AD DS. 
 
-Também pode definir permissões num objeto específico da UO ou o AD DS utilizando o parâmetro `-ADobjectDN` seguido o DN do objeto de destino em que pretende definir permissões. Quando utilizar um destino ADobjectDN, o cmdlet irá permissões u tohoto objektu nastavit apenas e não na raiz do domínio ou contêiner AdminSDHolder. Este parâmetro pode ser útil quando tem determinadas UOs ou objetos de AD DS que tenha a herança de permissões desativado (Consulte localizar AD DS objetos com a herança de permissão desativada) 
+Você também pode definir permissões em um objeto UO ou AD DS específico usando o parâmetro `-ADobjectDN` seguido pelo DN do objeto de destino onde você deseja definir permissões. Ao usar um ADobjectDN de destino, o cmdlet definirá permissões somente nesse objeto e não na raiz do domínio ou no contêiner AdminSDHolder. Esse parâmetro pode ser útil quando você tem determinadas UOs ou AD DS objetos que têm herança de permissão desabilitada (consulte localizar objetos AD DS com herança de permissão desabilitada) 
 
-Exceções para estes parâmetros comuns são o `Set-ADSyncRestrictedPermissions` cmdlet, que é usado para definir as permissões da conta de conector do AD DS em si, e o `Set-ADSyncPasswordHashSyncPermissions` cmdlet, uma vez que as permissões necessárias para a sincronização de Hash de palavra-passe apenas estão definidas na raiz do domínio, por isso Este cmdlet não inclui a `-ObjectDN` ou `-SkipAdminSdHolders` parâmetros.
+As exceções a esses parâmetros comuns são o cmdlet `Set-ADSyncRestrictedPermissions`, que é usado para definir as permissões na própria conta do conector de AD DS e o cmdlet `Set-ADSyncPasswordHashSyncPermissions`, pois as permissões necessárias para a sincronização de hash de senha são definidas apenas na raiz do domínio , portanto, esse cmdlet não inclui os parâmetros `-ObjectDN` ou `-SkipAdminSdHolders`.
 
-### <a name="determine-your-ad-ds-connector-account"></a>Determinar o conector do AD DS conta 
-No caso do Azure AD Connect já está instalado e pretende verificar o que é a conta de conector do AD DS atualmente em uso pelo Azure AD Connect, pode executar o cmdlet: 
+### <a name="determine-your-ad-ds-connector-account"></a>Determinar sua conta do conector de AD DS 
+Caso Azure AD Connect já esteja instalado e você queira verificar qual é a conta do conector de AD DS atualmente em uso pelo Azure AD Connect, você pode executar o cmdlet: 
 
 ``` powershell
 Get-ADSyncADConnectorAccount 
 ```
-### <a name="locate-ad-ds-objects-with-permission-inheritance-disabled"></a>Localizar objetos de AD DS com a herança de permissão desativada 
-Caso queira verificar que se há qualquer objeto do AD DS com a herança de permissão desativada, pode executar: 
+### <a name="locate-ad-ds-objects-with-permission-inheritance-disabled"></a>Localizar objetos de AD DS com herança de permissão desabilitada 
+Caso você queira verificar se há algum objeto de AD DS com a herança de permissão desabilitada, você pode executar: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' 
 ```
-Por predefinição, este cmdlet irá apenas procurar UOs com a herança desativada, mas pode especificar outras classes de objeto do AD DS no `-ObjectClass` parâmetro ou utilize "*" para todas as classes, de objeto da seguinte forma: 
+Por padrão, esse cmdlet só procurará UOs com herança desabilitada, mas você pode especificar outras classes de objeto AD DS no parâmetro `-ObjectClass` ou usar ' * ' para todas as classes de objeto, da seguinte maneira: 
 
 ``` powershell
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -ObjectClass * 
 ```
  
-### <a name="view-ad-ds-permissions-of-an-object"></a>Ver permissões de AD DS de um objeto 
-Pode utilizar o cmdlet abaixo para ver a lista de permissões atualmente definido num objeto do Active Directory, fornecendo o DistinguishedName: 
+### <a name="view-ad-ds-permissions-of-an-object"></a>Exibir AD DS permissões de um objeto 
+Você pode usar o cmdlet abaixo para exibir a lista de permissões definidas atualmente em um objeto Active Directory fornecendo seu DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
 ```
 
-## <a name="configure-ad-ds-connector-account-permissions"></a>Configurar as permissões de conta do AD DS conector 
+## <a name="configure-ad-ds-connector-account-permissions"></a>Configurar permissões de conta do conector de AD DS 
  
-### <a name="configure-basic-read-only-permissions"></a>Configurar permissões só de leitura básicas 
-Para definir permissões só de leitura básicas para a conta do conector do AD DS quando não utilizar qualquer funcionalidade do Azure AD Connect, execute: 
+### <a name="configure-basic-read-only-permissions"></a>Configurar permissões básicas somente leitura 
+Para definir permissões básicas somente leitura para a conta do conector de AD DS quando não estiver usando qualquer recurso de Azure AD Connect, execute: 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
-Ou; 
+Or 
 
 ``` powershell
 Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
 
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
  
 
-|Tipo |Name |Access |Aplica-se a| 
+|Tipo |Nome |Access |Aplica-se a| 
 |-----|-----|-----|-----|
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de dispositivo subordinados| 
-|Permitir |Conta do conector do AD DS|Ler todas as propriedades |Objetos de InetOrgPerson subordinados| 
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de computador subordinados| 
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de foreignSecurityPrincipal subordinados| 
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de grupo descendente| 
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de utilizador de subordinados| 
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de contato subordinados| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos de dispositivo descendentes| 
+|Permitir |Conta do conector de AD DS|Ler todas as propriedades |Objetos InetOrgPerson descendentes| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos de computador descendentes| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos foreignSecurityPrincipal descendentes| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos de grupo descendentes| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos de usuário descendentes| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos de contato descendentes| 
 
  
-### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar permissões de MS-DS-consistência-Guid 
-Para definir permissões para a conta do conector do AD DS quando utiliza o atributo ms-Ds-consistência-Guid como a âncora de origem (também conhecido como opção "Permitir que o Azure gerir a âncora de origem para mim"), execute: 
+### <a name="configure-ms-ds-consistency-guid-permissions"></a>Configurar as permissões do MS-DS-Consistency-GUID 
+Para definir permissões para a conta do conector de AD DS ao usar o atributo ms-DS-Consistency-GUID como a âncora de origem (também conhecido como "permitir que o Azure gerencie a fonte âncora para mim"), execute: 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
-Ou; 
+Or 
 
 ``` powershell
 Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir|Conta do conector do AD DS|Propriedade de leitura/escrita|Objetos de utilizador de subordinados|
+|Permitir|Conta do conector de AD DS|Propriedade de leitura/gravação|Objetos de usuário descendentes|
 
-### <a name="permissions-for-password-hash-synchronization"></a>Permissões para a sincronização de Hash de palavra-passe 
-Para definir permissões para a conta do conector do AD DS ao utilizar a sincronização de Hash de palavra-passe, execute: 
+### <a name="permissions-for-password-hash-synchronization"></a>Permissões para sincronização de hash de senha 
+Para definir permissões para a conta do conector de AD DS ao usar a sincronização de hash de senha, execute: 
 
 ``` powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [<CommonParameters>] 
 ```
 
 
-Ou; 
+Or 
 
 ``` powershell
 Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonParameters>] 
 ```
 
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir |Conta do conector do AD DS |Replicação de alterações de diretório |Apenas este objeto (raiz de domínio)| 
-|Permitir |Conta do conector do AD DS |Replicar diretório muda tudo |Apenas este objeto (raiz de domínio)| 
+|Permitir |Conta do conector de AD DS |Replicando alterações de diretório |Somente este objeto (raiz do domínio)| 
+|Permitir |Conta do conector de AD DS |Replicando todas as alterações de diretório |Somente este objeto (raiz do domínio)| 
   
-### <a name="permissions-for-password-writeback"></a>Permissões para a repetição de escrita de palavra-passe 
-Para definir permissões para a conta do conector do AD DS ao utilizar a repetição de escrita de palavra-passe, execute: 
+### <a name="permissions-for-password-writeback"></a>Permissões para Write-back de senha 
+Para definir permissões para a conta do conector de AD DS ao usar o Write-back de senha, execute: 
 
 ``` powershell
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
-Ou;
+Or
 
 ``` powershell
 Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir |Conta do conector do AD DS |Repor palavra-passe |Objetos de utilizador de subordinados| 
-|Permitir |Conta do conector do AD DS |Escrever a propriedade lockoutTime |Objetos de utilizador de subordinados| 
-|Permitir |Conta do conector do AD DS |Escrever a propriedade pwdLastSet |Objetos de utilizador de subordinados| 
+|Permitir |Conta do conector de AD DS |Repor palavra-passe |Objetos de usuário descendentes| 
+|Permitir |Conta do conector de AD DS |Gravar locktime de propriedade |Objetos de usuário descendentes| 
+|Permitir |Conta do conector de AD DS |PwdLastSet de propriedade de gravação |Objetos de usuário descendentes| 
 
-### <a name="permissions-for-group-writeback"></a>Permissões para a repetição de escrita do grupo 
-Para definir permissões para a conta do conector do AD DS ao utilizar a repetição de escrita do grupo, execute: 
+### <a name="permissions-for-group-writeback"></a>Permissões para Write-back de grupo 
+Para definir permissões para a conta do conector de AD DS ao usar o Write-back de grupo, execute: 
 
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
-Ou; 
+Or 
 
 ``` powershell
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir |Conta do conector do AD DS |Leitura/gravação genérica |Todos os atributos do grupo de tipo de objeto e subobjetos| 
-|Permitir |Conta do conector do AD DS |Criar/eliminar objeto subordinado |Todos os atributos do grupo de tipo de objeto e subobjetos| 
-|Permitir |Conta do conector do AD DS |Objetos da árvore de eliminação/eliminação|Todos os atributos do grupo de tipo de objeto e subobjetos|
+|Permitir |Conta do conector de AD DS |Leitura/gravação genérica |Todos os atributos do grupo de tipos de objeto e subobjetos| 
+|Permitir |Conta do conector de AD DS |Criar/excluir objeto filho |Todos os atributos do grupo de tipos de objeto e subobjetos| 
+|Permitir |Conta do conector de AD DS |Excluir/excluir objetos de árvore|Todos os atributos do grupo de tipos de objeto e subobjetos|
 
-### <a name="permissions-for-exchange-hybrid-deployment"></a>Permissões para implementação híbrida do Exchange 
-Para definir permissões para a conta do conector do AD DS ao utilizar a implementação híbrida do Exchange, execute: 
+### <a name="permissions-for-exchange-hybrid-deployment"></a>Permissões para a implantação híbrida do Exchange 
+Para definir permissões para a conta do conector de AD DS ao usar a implantação híbrida do Exchange, execute: 
 
 ``` powershell
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
-Ou; 
+Or 
 
 ``` powershell
 Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
 
-Este cmdlet irá definir as seguintes permissões:  
+Esse cmdlet definirá as seguintes permissões:  
  
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir |Conta do conector do AD DS |Leitura/escrita todas as propriedades |Objetos de utilizador de subordinados| 
-|Permitir |Conta do conector do AD DS |Leitura/escrita todas as propriedades |Objetos de InetOrgPerson subordinados| 
-|Permitir |Conta do conector do AD DS |Leitura/escrita todas as propriedades |Objetos de grupo descendente| 
-|Permitir |Conta do conector do AD DS |Leitura/escrita todas as propriedades |Objetos de contato subordinados| 
+|Permitir |Conta do conector de AD DS |Ler/gravar todas as propriedades |Objetos de usuário descendentes| 
+|Permitir |Conta do conector de AD DS |Ler/gravar todas as propriedades |Objetos InetOrgPerson descendentes| 
+|Permitir |Conta do conector de AD DS |Ler/gravar todas as propriedades |Objetos de grupo descendentes| 
+|Permitir |Conta do conector de AD DS |Ler/gravar todas as propriedades |Objetos de contato descendentes| 
 
-### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Permissões para pastas públicas de correio do Exchange (pré-visualização) 
-Para definir permissões para a conta do conector do AD DS quando utilizar a funcionalidade de pastas públicas de correio Exchange, execute: 
+### <a name="permissions-for-exchange-mail-public-folders-preview"></a>Permissões para pastas públicas do Exchange mail (versão prévia) 
+Para definir permissões para a conta do conector de AD DS ao usar o recurso de pastas públicas do Exchange mail, execute: 
 
 ``` powershell
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 
 
-Ou; 
+Or 
 
 ``` powershell
 Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>] 
 ```
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir |Conta do conector do AD DS |Ler todas as propriedades |Objetos de PublicFolder subordinados| 
+|Permitir |Conta do conector de AD DS |Ler todas as propriedades |Objetos PublicFolder descendentes| 
 
-### <a name="restrict-permissions-on-the-ad-ds-connector-account"></a>Restringir as permissões no conector AD DS conta 
-Este script do PowerShell irá restringir permissões para a conta de conector AD fornecido como parâmetro. Fortalecendo permissões envolve os seguintes passos: 
+### <a name="restrict-permissions-on-the-ad-ds-connector-account"></a>Restringir permissões na conta do conector de AD DS 
+Esse script do PowerShell restringirá as permissões para a conta do AD Connector fornecida como um parâmetro. As permissões de estreitamento envolvem as seguintes etapas: 
 
-- Desativar a herança do objeto especificado 
-- Remova todas as ACEs de objeto específico, exceto ACEs específicos para o próprio que queremos manter as permissões predefinidas intactos quando se trata-se para o próprio. 
+- Desabilitar herança no objeto especificado 
+- Remova todas as ACEs no objeto específico, exceto ACEs específicas da própria, pois queremos manter as permissões padrão intactas quando se trata de si mesma. 
  
-  O parâmetro - ADConnectorAccountDN é a conta do AD tem de ser fortalecida cujas permissões. Isso normalmente é a conta de domínio de MSOL_nnnnnnnnnnnn que está configurada no conector AD DS (consulte determinar sua conta de conector do AD DS). -Credential parâmetro é necessário especificar a conta de administrador que tem os privilégios necessários para restringir as permissões do Active Directory no objeto de destino AD. Isto é, normalmente, o Enterprise ou o administrador de domínio.  
+  O parâmetro-ADConnectorAccountDN é a conta do AD cujas permissões precisam ser reforçadas. Normalmente, essa é a conta de domínio MSOL_nnnnnnnnnnnn configurada no conector de AD DS (consulte determinar sua conta de conector de AD DS). O parâmetro-Credential é necessário para especificar a conta de administrador que tem os privilégios necessários para restringir Active Directory permissões no objeto do AD de destino. Normalmente, esse é o administrador corporativo ou de domínio.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
@@ -290,24 +290,24 @@ $credential = Get-Credential
 Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
-Este cmdlet irá definir as seguintes permissões: 
+Esse cmdlet definirá as seguintes permissões: 
 
-|Tipo |Name |Access |Aplica-se a|
+|Tipo |Nome |Access |Aplica-se a|
 |-----|-----|-----|-----| 
-|Permitir |SISTEMA |Controlo total |Este objeto 
-|Permitir |Administradores da empresa |Controlo total |Este objeto 
-|Permitir |Admins do domínio |Controlo total |Este objeto 
-|Permitir |Administradores |Controlo total |Este objeto 
-|Permitir |Controladores de domínio de empresa |Listar conteúdo |Este objeto 
-|Permitir |Controladores de domínio de empresa |Ler todas as propriedades |Este objeto 
-|Permitir |Controladores de domínio de empresa |Permissões de leitura |Este objeto 
-|Permitir |Utilizadores autenticados |Listar conteúdo |Este objeto 
-|Permitir |Utilizadores autenticados |Ler todas as propriedades |Este objeto 
-|Permitir |Utilizadores autenticados |Permissões de leitura |Este objeto 
+|Permitir |SISTEMA |Controle total |Este objeto 
+|Permitir |Administradores corporativos |Controle total |Este objeto 
+|Permitir |Administradores de domínio |Controle total |Este objeto 
+|Permitir |Administradores |Controle total |Este objeto 
+|Permitir |Controladores de domínio da empresa |Listar conteúdo |Este objeto 
+|Permitir |Controladores de domínio da empresa |Ler todas as propriedades |Este objeto 
+|Permitir |Controladores de domínio da empresa |Permissões de leitura |Este objeto 
+|Permitir |Usuários autenticados |Listar conteúdo |Este objeto 
+|Permitir |Usuários autenticados |Ler todas as propriedades |Este objeto 
+|Permitir |Usuários autenticados |Permissões de leitura |Este objeto 
 
 ## <a name="next-steps"></a>Próximos Passos
 - [Azure AD Connect: contas e permissões](reference-connect-accounts-permissions.md)
-- [Instalação rápida](how-to-connect-install-express.md)
+- [Instalação expressa](how-to-connect-install-express.md)
 - [Instalação personalizada](how-to-connect-install-custom.md)
 - [Referência de ADSyncConfig](reference-connect-adsyncconfig.md)
 

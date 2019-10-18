@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente personalizado para Python | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do personalizador para Python | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Introdução à biblioteca de cliente do personalizador para Python usando um loop de aprendizado.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 947ca0b603483479479285ff14636240d2ac7433
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802537"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515182"
 ---
-# <a name="quickstart-personalize-client-library-for-python"></a>Início rápido: Personalizar a biblioteca de cliente para Python
+# <a name="quickstart-personalizer-client-library-for-python"></a>Início rápido: biblioteca de cliente do personalizador para Python
 
 Exiba o conteúdo personalizado neste guia de início rápido do Python com o serviço personalizado.
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para Python. Siga estas 
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[Amostras de pacote (PyPI)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
+[Pacote (PyPI)](https://pypi.org/project/azure-cognitiveservices-personalizer/)  | [amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,8 +54,8 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas [variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_KEY`para a chave de recurso.
-* `PERSONALIZER_ENDPOINT`para o ponto de extremidade do recurso.
+* `PERSONALIZER_KEY` para a chave de recurso.
+* `PERSONALIZER_ENDPOINT` para o ponto de extremidade do recurso.
 
 No portal do Azure, os valores de chave e ponto de extremidade estão disponíveis na página **início rápido** .
 
@@ -96,7 +96,7 @@ Esses trechos de código mostram como fazer o seguinte com a biblioteca de clien
 
 ## <a name="create-a-new-python-application"></a>Criar um novo aplicativo Python
 
-Crie um novo aplicativo Python no editor preferencial ou no IDE chamado `sample.py`. 
+Crie um novo aplicativo Python em seu editor preferencial ou IDE chamado `sample.py`. 
 
 ## <a name="add-the-dependencies"></a>Adicionar as dependências
 
@@ -106,7 +106,7 @@ No diretório do projeto, abra o arquivo **Sample.py** no seu editor ou IDE pref
 
 ## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos do personalizador
 
-Crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das `PERSONALIZER_RESOURCE_KEY` variáveis `PERSONALIZER_RESOURCE_ENDPOINT`de ambiente, nomeadas e. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
+Crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das variáveis de ambiente, chamadas `PERSONALIZER_RESOURCE_KEY` e `PERSONALIZER_RESOURCE_ENDPOINT`. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
 
 O nome do recurso faz parte da URL do ponto de extremidade: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
@@ -146,7 +146,7 @@ Adicione os seguintes métodos, que [obtêm as opções de conteúdo](#get-conte
 
 ## <a name="request-a-rank"></a>Solicitar uma classificação
 
-Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar `currentContent` uma das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
+Para concluir a solicitação de classificação, o programa solicita as preferências do usuário para criar uma `currentContent` das opções de conteúdo. O processo pode criar conteúdo para excluir da classificação, mostrada como `excludeActions`. A solicitação de classificação precisa das ações, currentContext, excludeActions e uma ID de evento de classificação exclusiva (como um GUID) para receber a resposta classificada. 
 
 Este guia de início rápido tem recursos de contexto simples de hora do dia e preferência de alimentos do usuário. Em sistemas de produção, determinar e [avaliar](concept-feature-evaluation.md) [ações e recursos](concepts-features.md) pode ser uma questão não trivial.  
 

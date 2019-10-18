@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023595"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512359"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -27,16 +27,16 @@ Este artigo descreve como registrar seu SQL Server VM (máquina virtual) no Azur
 
 A implantação de uma imagem SQL Server VM do Azure Marketplace por meio do portal do Azure registra automaticamente a VM SQL Server com o provedor de recursos. Se você optar por instalar automaticamente SQL Server em uma máquina virtual do Azure em vez de escolher uma imagem do Azure Marketplace ou se provisionar uma VM do Azure de um VHD personalizado com SQL Server, deverá registrar sua VM do SQL Server com o provedor de recursos para :
 
-- **Simplifique o gerenciamento de licenças**: De acordo com os termos de produto da Microsoft, os clientes devem informar à Microsoft quando estiverem usando o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). O registro com o provedor de recursos de VM do SQL simplifica SQL Server gerenciamento de licenças e permite que você identifique rapidamente SQL Server VMs usando o Benefício Híbrido do Azure no [portal](virtual-machines-windows-sql-manage-portal.md) ou AZ CLI: 
+- **Simplifique o gerenciamento de licenças**: de acordo com os termos de produto da Microsoft, os clientes devem dizer à Microsoft quando estiverem usando o [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit/). O registro com o provedor de recursos de VM do SQL simplifica SQL Server gerenciamento de licenças e permite que você identifique rapidamente SQL Server VMs usando o Benefício Híbrido do Azure no [portal](virtual-machines-windows-sql-manage-portal.md) ou AZ CLI: 
 
    ```azurecli-interactive
    $vms = az sql vm list | ConvertFrom-Json
    $vms | Where-Object {$_.sqlServerLicenseType -eq "AHUB"}
    ```
 
-- **Benefícios do recurso**: Registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md)e os recursos de monitoramento e capacidade de gerenciamento. Ele também desbloqueia a flexibilidade de [Licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM do Azure Marketplace.
+- **Benefícios do recurso**: registrar seu SQL Server VM com o provedor de recursos desbloqueia a [aplicação de patch automatizada](virtual-machines-windows-sql-automated-patching.md), o [backup automatizado](virtual-machines-windows-sql-automated-backup-v2.md)e os recursos de monitoramento e capacidade de gerenciamento. Ele também desbloqueia a flexibilidade de [Licenciamento](virtual-machines-windows-sql-ahb.md) e de [edição](virtual-machines-windows-sql-change-edition.md) . Anteriormente, esses recursos estavam disponíveis apenas para SQL Server imagens de VM do Azure Marketplace.
 
-- **Gerenciamento gratuito**:  O registro com o provedor de recursos de VM do SQL e todos os modos de gerenciamento são completamente gratuitos. Não há custo adicional associado ao provedor de recursos ou com a alteração dos modos de gerenciamento. 
+- **Gerenciamento gratuito**: o registro com o provedor de recursos da VM do SQL e todos os modos de gerenciamento são completamente gratuitos. Não há custo adicional associado ao provedor de recursos ou com a alteração dos modos de gerenciamento. 
 
 Para utilizar o provedor de recursos da VM do SQL, você também deve registrar o provedor de recursos da VM do SQL com sua assinatura. Você pode fazer isso usando o portal do Azure, o CLI do Azure ou o PowerShell. 
 
@@ -52,7 +52,7 @@ Para obter mais informações sobre os benefícios de usar o provedor de recurso
 
 Para registrar sua VM SQL Server com o provedor de recursos, você precisará do seguinte: 
 
-- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
+- Uma [assinatura do Azure](https://azure.microsoft.com/free/).
 - Uma [VM SQL Server](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
 - A versão mais recente do [CLI do Azure](/cli/azure/install-azure-cli) ou do [PowerShell](/powershell/azure/new-azureps-module-az). 
 
@@ -122,7 +122,7 @@ A tabela a seguir detalha os valores aceitáveis para os parâmetros fornecidos 
 
 | Parâmetro | Valores aceitáveis                                 |
 | :------------------| :--------------------------------------- |
-| **sqlLicenseType** | `AHUB` ou `PAYG`                    |
+| **sqllicenciadotype** | `AHUB` ou `PAYG`                    |
 | **sqlImageOffer**  | `SQL2008-WS2008` ou `SQL2008R2-WS2008`|
 | &nbsp;             | &nbsp;                                   |
 
@@ -203,7 +203,7 @@ Você pode exibir o modo atual de seu SQL Server agente IaaS usando o PowerShell
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server VMs que têm a extensão de IaaS *leve* instalada podem atualizar o modo para _completo_ usando o portal do Azure. SQL Server VMs no modo _no-Agent_ podem ser atualizadas para _Full_ depois que o sistema operacional for atualizado para o Windows 2008 R2 e superior. Não é possível fazer o downgrade – para isso, você precisará desinstalar completamente a extensão IaaS do SQL e instalá-la novamente. 
+SQL Server VMs que têm a extensão de IaaS *leve* instalada podem atualizar o modo para _completo_ usando o portal do Azure. SQL Server VMs no modo _no-Agent_ podem ser atualizadas para _Full_ depois que o sistema operacional for atualizado para o Windows 2008 R2 e superior. Não é possível fazer o downgrade – para isso, você precisará excluir o recurso do provedor de recursos da VM do SQL usando o portal do Azure e registrar com o provedor de recursos da VM do SQL novamente. 
 
 Para atualizar o modo do agente para completo: 
 
@@ -353,7 +353,7 @@ Sim. A atualização do modo de gerenciamento de Lightweight para Full tem supor
 
 Não. Não há suporte para o downgrade do modo de gerenciamento de extensão IaaS SQL Server. Não é possível fazer downgrade do modo de gerenciamento completo para o modo leve ou sem agente, e ele não pode ser desatualizado do modo leve para o modo sem agente. 
 
-Para alterar o modo de gerenciamento da capacidade de gerenciamento total, remova a extensão SQL Server IaaS. Em seguida, descarte o recurso Microsoft. SqlVirtualMachine e registre novamente o SQL Server VM com o provedor de recursos de VM do SQL.
+Para alterar o modo de gerenciamento da capacidade de gerenciamento total, descarte o recurso Microsoft. SqlVirtualMachine e registre novamente a VM de SQL Server com o provedor de recursos de VM do SQL.
 
 **Posso registrar com o provedor de recursos de VM do SQL na portal do Azure?**
 
