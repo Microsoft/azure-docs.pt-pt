@@ -1,5 +1,5 @@
 ---
-title: Referência de artefato createUiDefinition do aplicativo gerenciado do Azure
+title: Artefato createUiDefinition do aplicativo gerenciado do Azure
 description: Mostra como criar o artefato createUiDefinition para um aplicativo gerenciado do Azure. O arquivo é denominado createUiDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 09364a849926fc829a890bfcdc8b760c7c7e189c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3e952476373d1692494d06f22dfeb202cab6d6d7
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330186"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528965"
 ---
 # <a name="reference-user-interface-elements-artifact"></a>Referência: artefato dos elementos da interface do usuário
 

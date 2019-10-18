@@ -1,17 +1,17 @@
 ---
-title: Solucionar erros ao mover recursos do Azure para uma nova assinatura ou grupo de recursos
-description: Utilize o Azure Resource Manager para mover recursos para um novo grupo de recursos ou subscrição.
+title: Solucionar erros de movimentação-Azure Resource Manager
+description: Use Azure Resource Manager para mover recursos para um novo grupo de recursos ou assinatura.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: d56f6a5ffe01540b9ce1e5a20ec628a90da594c6
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 383098ab227013119bca668b42035c93334c8464
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061772"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533349"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Solucionar problemas de movimentação de recursos do Azure para novo grupo de recursos ou assinatura
 
@@ -21,10 +21,10 @@ Este artigo fornece sugestões para ajudar a resolver problemas ao mover recurso
 
 Se você realmente deseja atualizar sua assinatura do Azure (como alternar de gratuita para pré-pago), precisa converter sua assinatura.
 
-* Para atualizar uma versão de avaliação gratuita, consulte [atualizar a sua subscrição de avaliação gratuita ou o Microsoft Imagine Azure para pay as you go](../billing/billing-upgrade-azure-subscription.md).
-* Para alterar uma conta pay as you go, consulte [alterar a sua subscrição pay as you go do Azure para outra oferta](../billing/billing-how-to-switch-azure-offer.md).
+* Para atualizar uma avaliação gratuita, consulte [atualizar sua avaliação gratuita ou Microsoft imagine assinatura do Azure para](../billing/billing-upgrade-azure-subscription.md)pré-pago.
+* Para alterar uma conta paga conforme o uso, consulte [alterar sua assinatura paga conforme o uso do Azure para uma oferta diferente](../billing/billing-how-to-switch-azure-offer.md).
 
-Se não é possível converter a subscrição [criar um pedido de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **gestão de subscrições** para o tipo de problema.
+Se você não puder converter a assinatura, [crie uma solicitação de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Selecione **Gerenciamento de assinatura** para o tipo de problema.
 
 ## <a name="service-limitations"></a>Limitações de serviço
 
@@ -39,7 +39,7 @@ Alguns serviços exigem considerações adicionais ao mover recursos. Se você e
 
 ## <a name="large-requests"></a>Solicitações grandes
 
-Sempre que possível, quebra de grandes passa para operações de movimentação separado. O Resource Manager retorna imediatamente um erro quando há mais de 800 recursos em uma única operação. No entanto, o mover os recursos de menos de 800 também poderá falhar por tempo limite.
+Quando possível, divida grandes movimentações em operações de movimentação separadas. O Resource Manager retorna imediatamente um erro quando há mais de 800 recursos em uma única operação. No entanto, a movimentação de menos de 800 recursos também pode falhar por tempo limite.
 
 ## <a name="resource-not-in-succeeded-state"></a>Recurso que não está no estado com êxito
 
@@ -49,6 +49,6 @@ Se o grupo de recursos de origem ou de destino contiver uma rede virtual, os Est
 
 Ao receber esse erro, você tem duas opções. Mova seus recursos para um grupo de recursos que não tem uma rede virtual ou [contate o suporte](../azure-supportability/how-to-create-azure-support-request.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](resource-group-move-resources.md).

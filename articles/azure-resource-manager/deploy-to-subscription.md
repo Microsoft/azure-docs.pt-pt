@@ -1,17 +1,17 @@
 ---
-title: Criar grupos de recursos e recursos no modelo de Azure Resource Manager de assinatura
+title: Implantar nível de assinatura-modelo de Azure Resource Manager
 description: Descreve como criar um grupo de recursos em um modelo de Azure Resource Manager. Ele também mostra como implantar recursos no escopo de assinatura do Azure.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 913014a9b7e24345cd21979ba20ea1a1a938d022
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001595"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532188"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Criar grupos de recursos e recursos no nível da assinatura
 
@@ -153,7 +153,7 @@ Use o [elemento copiar](resource-group-create-multiple.md) com grupos de recurso
 }
 ```
 
-Para obter informações sobre a iteração de recurso, consulte [implantar mais de uma instância de um recurso ou propriedade em modelos de Azure Resource Manager](./resource-group-create-multiple.md)e [Tutorial: Crie várias instâncias de recurso com modelos do Resource Manager @ no__t-0.
+Para obter informações sobre a iteração de recurso, consulte [implantar mais de uma instância de um recurso ou propriedade em modelos de Azure Resource Manager](./resource-group-create-multiple.md)e [tutorial: criar várias instâncias de recurso com modelos do Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-group-and-resources"></a>Grupo de recursos e recursos
 

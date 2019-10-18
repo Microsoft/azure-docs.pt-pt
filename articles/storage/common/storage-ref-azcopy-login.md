@@ -4,18 +4,18 @@ description: Este artigo fornece informações de referência para o comando de 
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 2938d85becbea738acc21fc7b15991301eef759f
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 058506110a8ac4b11f272406a854f72062a1c90d
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195727"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514713"
 ---
-# <a name="azcopy-login"></a>logon do azcopy
+# <a name="azcopy-login"></a>azcopy login
 
 Faz logon no Azure Active Directory para acessar os recursos de armazenamento do Azure.
 
@@ -50,25 +50,25 @@ Fazer logon interativamente com uma ID de locatário especificada:
 azcopy login --tenant-id "[TenantID]"
 ```
 
-Faça logon usando a identidade atribuída pelo sistema de uma VM:
+Faça logon usando a identidade atribuída pelo sistema de uma VM (máquina virtual):
 
 ```azcopy
 azcopy login --identity
 ```
 
-Faça logon usando a identidade atribuída pelo usuário de uma VM com uma ID de cliente da identidade do serviço:
+Faça logon usando a identidade atribuída pelo usuário de uma VM e uma ID de cliente da identidade do serviço:
 
 ```azcopy
 azcopy login --identity --identity-client-id "[ServiceIdentityClientID]"
 ```
 
-Faça logon usando a identidade atribuída pelo usuário de uma VM com uma ID de objeto da identidade do serviço:
+Faça logon usando a identidade atribuída pelo usuário de uma VM e uma ID de objeto da identidade do serviço:
 
 ```azcopy
 azcopy login --identity --identity-object-id "[ServiceIdentityObjectID]"
 ```
 
-Faça logon usando a identidade atribuída pelo usuário de uma VM com uma ID de recurso da identidade do serviço:
+Faça logon usando a identidade atribuída pelo usuário de uma VM e uma ID de recurso da identidade do serviço:
 
 ```azcopy
 azcopy login --identity --identity-resource-id "/subscriptions/<subscriptionId>/resourcegroups/myRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID"
@@ -101,7 +101,7 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 |--identidade-Client-ID cadeia de caracteres|ID do cliente da identidade atribuída pelo usuário.|
 |--Identity-Object-ID String|ID de objeto da identidade atribuída pelo usuário.|
 |--Identity-Resource-ID String|ID de recurso da identidade atribuída pelo usuário.|
-|--entidade de serviço|Faça logon via SPN (nome da entidade de serviço) usando um certificado ou um segredo. O segredo do cliente ou a senha do certificado devem ser colocados na variável de ambiente apropriada. Digite `AzCopy env` para ver os nomes e as descrições das variáveis de ambiente.|
+|--entidade de serviço|Faça logon via SPN (nome da entidade de serviço) usando um certificado ou um segredo. O segredo do cliente ou a senha do certificado devem ser colocados na variável de ambiente apropriada. Digite `AzCopy env` para ver os nomes e descrições das variáveis de ambiente.|
 |--Tenant-ID da cadeia| a ID de locatário do Azure Active Directory a ser usada para o logon interativo do dispositivo OAuth.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
@@ -111,6 +111,6 @@ Certifique-se de tratar/Path/to/My/CERT como um caminho para um arquivo PEM ou P
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [azcopy](storage-ref-azcopy.md)

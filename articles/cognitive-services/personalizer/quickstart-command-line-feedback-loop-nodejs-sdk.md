@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Biblioteca de cliente personalizado para node. js | Microsoft Docs'
+title: 'Início rápido: biblioteca de cliente do personalizador para node. js | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Introdução à biblioteca de cliente do personalizador para node. js usando um loop de aprendizado.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345243"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515201"
 ---
-# <a name="quickstart-personalize-client-library-for-nodejs"></a>Início rápido: Personalizar a biblioteca de cliente para o Node. js
+# <a name="quickstart-personalizer-client-library-for-nodejs"></a>Início rápido: biblioteca de cliente do personalizador para node. js
 
 Exiba o conteúdo personalizado neste guia de início rápido do node. js com o serviço de personalização.
 
@@ -26,7 +26,7 @@ Introdução à biblioteca de cliente do personalizador para node. js. Siga esta
  * Classifique uma lista de ações para personalização.
  * Relatório de Pontuação de recompensa indicando o sucesso da ação de classificação mais alta.
 
-[](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer) | [Exemplos](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) [de NPM (pacote de](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) | código-fonte de biblioteca)
+[Amostras](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/node/sample.js) [de  |  do NPM (](https://www.npmjs.com/package/@azure/cognitiveservices-personalizer) [código-fonte](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-personalizer)  |  pacote)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -54,8 +54,8 @@ Os serviços cognitivas do Azure são representados pelos recursos do Azure que 
 
 Depois de obter uma chave de sua assinatura ou recurso de avaliação, crie duas [variáveis de ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_KEY`para a chave de recurso.
-* `PERSONALIZER_ENDPOINT`para o ponto de extremidade do recurso.
+* `PERSONALIZER_KEY` para a chave de recurso.
+* `PERSONALIZER_ENDPOINT` para o ponto de extremidade do recurso.
 
 No portal do Azure, os valores de chave e ponto de extremidade estão disponíveis na página **início rápido** .
 
@@ -68,7 +68,7 @@ Em uma janela de console (como cmd, PowerShell ou bash), crie um novo diretório
 mkdir myapp && cd myapp
 ```
 
-Execute o `npm init -y` comando para criar um `package.json` arquivo. 
+Execute o comando `npm init -y` para criar um arquivo de `package.json`. 
 
 ```console
 npm init -y
@@ -126,7 +126,7 @@ Abra o arquivo **Sample. js** em seu editor ou IDE preferido. Adicione o seguint
 
 ## <a name="add-personalizer-resource-information"></a>Adicionar informações de recursos do personalizador
 
-Crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das `PERSONALIZER_KEY` variáveis `PERSONALIZER_ENDPOINT`de ambiente, nomeadas e. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
+Crie variáveis para a chave do Azure do recurso e o ponto de extremidade extraídos das variáveis de ambiente, chamadas `PERSONALIZER_KEY` e `PERSONALIZER_ENDPOINT`. Se você criou as variáveis de ambiente depois que o aplicativo é iniciado, o editor, IDE ou shell que o executa precisará ser fechado e recarregado para acessar a variável. Os métodos serão criados posteriormente neste guia de início rápido.
 
 [!code-javascript[Add Personalizer resource information](~/samples-personalizer/quickstarts/node/sample.js?name=AuthorizationVariables)]
 

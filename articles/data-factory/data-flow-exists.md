@@ -1,39 +1,76 @@
 ---
-title: Transformação do fluxo de dados de mapeamento de Azure Data Factory existe
-description: Como verificar as linhas existentes usando o mapeamento de data factory fluxos de dados com a transformação Exists
+title: Existe transformação no fluxo de dados de mapeamento de Azure Data Factory | Microsoft Docs
+description: Verificar as linhas existentes usando a transformação Exists no fluxo de dados de mapeamento Azure Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: 6048a6d30d37b9d2b46c3105c5f8eac0a9ca41c0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
-ms.translationtype: HT
+ms.date: 10/16/2019
+ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387846"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72527441"
 ---
-# <a name="mapping-data-flow-exists-transformation"></a>Transformação de fluxo de dados de mapeamento existe
+# <a name="exists-transformation-in-mapping-data-flow"></a>Existe transformação no fluxo de dados de mapeamento
 
+A transformação Exists é uma transformação de filtragem de linha que verifica se os dados existem em outra fonte ou fluxo. O fluxo de saída inclui todas as linhas no fluxo à esquerda que existem ou não existem no fluxo correto. A transformação Exists é semelhante a ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```.
 
+## <a name="configuration"></a>Configuração
 
-A transformação Exists é uma transformação de filtragem de linha que interrompe ou permite que as linhas em seus dados fluam. A transformação Exists é semelhante a ```SQL WHERE EXISTS``` e ```SQL WHERE NOT EXISTS```. Após a transformação Exists, as linhas resultantes do fluxo de dados incluirão todas as linhas em que os valores de coluna da origem 1 existem na origem 2 ou não existem na origem 2.
+Escolha qual fluxo de dados você está verificando a existência no menu suspenso de **fluxo à direita** .
+
+Especifique se você está procurando os dados existentes ou não existentes na configuração de **tipo exist** .
+
+Escolha quais colunas de chave você deseja comparar como suas condições de existência. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor de computação, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
 
 ![Configurações existentes](media/data-flow/exists.png "existe 1")
 
-Escolha a segunda fonte para o seu Exists para que o fluxo de dados possa comparar valores do fluxo 1 com o fluxo 2.
+### <a name="multiple-exists-conditions"></a>Várias condições existentes
 
-Selecione a coluna da origem 1 e da origem 2 cujos valores você deseja verificar para que exista ou não exista.
+Para comparar várias colunas de cada fluxo, adicione uma nova condição EXISTS clicando no ícone de adição ao lado de uma linha existente. Cada condição adicional é unida por uma instrução "and". Comparar duas colunas é o mesmo que a seguinte expressão:
 
-## <a name="multiple-exists-conditions"></a>Várias condições existentes
+`source1@column1 == source2@column1 && source1@column2 == source2@column2`
 
-Ao lado de cada linha em suas condições de coluna para existir, você encontrará um sinal de + disponível quando passar o mouse sobre a linha de alcance. Isso permitirá que você adicione várias linhas para as condições existentes. Cada condição adicional é um "e".
+### <a name="custom-expression"></a>Expressão personalizada
 
-## <a name="custom-expression"></a>Expressão personalizada
+Para criar uma expressão de forma livre que contenha operadores diferentes de "and" e "Equals to", selecione o campo **expressão personalizada** . Insira uma expressão personalizada por meio do construtor de expressões de fluxo de dados clicando na caixa azul.
 
 ![Existe configurações personalizadas](media/data-flow/exists1.png "existe personalizado")
 
-Você pode clicar em "expressão personalizada" para, em vez disso, criar uma expressão de forma livre como sua condição EXISTS ou NOT-EXISTS. Marcar essa caixa permitirá que você digite sua própria expressão como uma condição.
+## <a name="data-flow-script"></a>Script de fluxo de dados
+
+### <a name="syntax"></a>Sintaxe
+
+```
+<leftStream>, <rightStream>
+    exists(
+        <conditionalExpression>,
+        negate: { true | false },
+        broadcast: {'none' | 'left' | 'right' | 'both'}
+    ) ~> <existsTransformationName>
+```
+
+### <a name="example"></a>Exemplo
+
+O exemplo abaixo é uma transformação Exists chamada `checkForChanges` que usa o fluxo à esquerda `NameNorm2` e o `TypeConversions` de fluxo à direita.  A condição EXISTS é a `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region` de expressão que retorna true se as colunas `EMPID` e `Region` em cada fluxo correspondem. Como estamos verificando a existência, `negate` é false. Não habilitamos nenhuma difusão na guia otimizar para que `broadcast` tenha valor `'none'`.
+
+No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+
+![Exemplo de Exists](media/data-flow/exists-script.png "Exemplo de Exists")
+
+O script de fluxo de dados para essa transformação está no trecho de código abaixo:
+
+```
+NameNorm2, TypeConversions
+    exists(
+        NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region,
+        negate:false,
+        broadcast: 'none'
+    ) ~> checkForChanges
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 

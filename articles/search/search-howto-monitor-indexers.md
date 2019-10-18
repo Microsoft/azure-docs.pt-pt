@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6a8eaca029767e1d6bce4bc8ce22ce5523be26d8
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186588"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533713"
 ---
 # <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Como monitorar Azure Search o status e os resultados do indexador
 
@@ -27,7 +27,7 @@ O monitoramento do indexador é útil quando você deseja:
 * Examine os resultados da execução do indexador em andamento ou anterior.
 * Identificar erros de indexador de nível superior e erros ou avisos sobre documentos individuais que estão sendo indexados.
 
-## <a name="find-indexer-status-and-history-details"></a>Localizar detalhes de status e histórico do indexador
+## <a name="get-status-and-history"></a>Obter status e histórico
 
 Você pode acessar as informações de monitoramento do indexador de várias maneiras, incluindo:
 
@@ -45,11 +45,11 @@ Os indexadores que processam grandes volumes de dados podem levar muito tempo pa
 
 <a name="portal"></a>
 
-## <a name="monitor-indexers-in-the-portal"></a>Monitorar indexadores no portal
+## <a name="monitor-using-the-portal"></a>Monitorar usando o portal
 
-Você pode ver o status atual de todos os seus indexadores na lista de indexadores na página de visão geral do serviço de pesquisa.
+Você pode ver o status atual de todos os seus indexadores na lista de **indexadores** na página de visão geral do serviço de pesquisa.
 
-   ![Lista] de indexadores (media/search-monitor-indexers/indexers-list.png "Lista") de indexadores
+   ![Lista de indexadores](media/search-monitor-indexers/indexers-list.png "Lista de indexadores")
 
 Quando um indexador está em execução, o status na lista mostra **em andamento**e o valor **documentos com êxito** mostra o número de documentos processados até o momento. Pode levar alguns minutos para que o portal atualize os valores de status e contagens de documentos do indexador.
 
@@ -61,13 +61,13 @@ Clique em um indexador na lista para ver mais detalhes sobre as execuções atua
 
    ![Resumo do indexador e histórico de execução](media/search-monitor-indexers/indexer-summary.png "Resumo do indexador e histórico de execução")
 
-O gráfico de **Resumo** do indexador exibe um grafo do número de documentos processados em suas execuções mais recentes.
+O gráfico de **Resumo do indexador** exibe um grafo do número de documentos processados em suas execuções mais recentes.
 
 A lista **detalhes da execução** mostra até 50 dos resultados de execução mais recentes.
 
 Clique em um resultado de execução na lista para ver as informações específicas sobre essa execução. Isso inclui os horários de início e término e quaisquer erros e avisos ocorridos.
 
-   ![Detalhes de execução] do indexador (media/search-monitor-indexers/indexer-execution.png "Detalhes de execução") do indexador
+   ![Detalhes de execução do indexador](media/search-monitor-indexers/indexer-execution.png "Detalhes de execução do indexador")
 
 Se houver problemas específicos ao documento durante a execução, eles serão listados nos campos erros e avisos.
 
@@ -79,9 +79,9 @@ Para obter mais informações sobre como investigar erros e avisos do indexador,
 
 <a name="restapi"></a>
 
-## <a name="monitor-indexers-using-the-rest-api"></a>Monitorar indexadores usando a API REST
+## <a name="monitor-using-rest-apis"></a>Monitorar usando APIs REST
 
-Você pode recuperar o status e o histórico de execução de um indexador usando o [comando obter status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)do indexador:
+Você pode recuperar o status e o histórico de execução de um indexador usando o [comando obter status do indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
 
     GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2019-05-06
     api-key: [Search service admin key]
@@ -120,13 +120,13 @@ Observe que há dois valores de status diferentes. O status de nível superior �
 
 Cada execução do indexador também tem seu próprio status que indica se a execução específica está em andamento (**em execução**) ou já concluída com o status **êxito**, **transientFailure**ou **persistentFailure** . 
 
-Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico de execução separada é adicionada com um status de redefinição.
+Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico de execução separada é adicionada com um status de **redefinição** .
 
 Para obter mais detalhes sobre códigos de status e dados de monitoramento do indexador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
-## <a name="monitor-indexers-using-the-net-sdk"></a>Monitorar indexadores usando o SDK do .NET
+## <a name="monitor-using-the-net-sdk"></a>Monitorar usando o SDK do .NET
 
 Você pode definir a agenda para um indexador usando o SDK do .NET Azure Search. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
 
@@ -177,10 +177,10 @@ Observe que há dois valores de status diferentes. O status de nível superior �
 
 Cada execução do indexador também tem seu próprio status para se a execução específica está em andamento (**em execução**) ou já foi concluída com um status de **êxito** ou **TransientError** . 
 
-Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico separada é adicionada com um status de redefinição.
+Quando um indexador é redefinido para atualizar seu estado de controle de alterações, uma entrada de histórico separada é adicionada com um status de **redefinição** .
 
 Para obter mais detalhes sobre códigos de status e informações de monitoramento do indexador, consulte [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) na API REST.
 
-Detalhes sobre erros específicos de documento ou avisos podem ser recuperados enumerando as listas `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings`.
+Detalhes sobre erros ou avisos específicos do documento podem ser recuperados enumerando as listas `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings`.
 
 Para obter mais informações sobre as classes do SDK do .NET usadas para monitorar indexadores, consulte [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

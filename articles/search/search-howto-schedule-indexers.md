@@ -9,12 +9,12 @@ services: search
 ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
-ms.openlocfilehash: f72067637f9db84a432562ea5502861355426469
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186568"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533617"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Como agendar indexadores para Azure Search
 Um indexador normalmente é executado uma vez, imediatamente após sua criação. Você pode executá-lo novamente sob demanda usando o portal, a API REST ou o SDK do .NET. Você também pode configurar um indexador para ser executado periodicamente em um agendamento.
@@ -48,7 +48,7 @@ Vamos considerar um exemplo para tornar isso mais concreto. Suponha que configur
 
 <a name="portal"></a>
 
-## <a name="define-a-schedule-in-the-portal"></a>Definir uma agenda no portal
+## <a name="schedule-in-the-portal"></a>Agendar no portal
 
 O assistente de importação de dados no portal permite que você defina a agenda para um indexador no momento da criação. A configuração de agendamento padrão é por **hora**, o que significa que o indexador é executado uma vez após sua criação e é executado novamente a cada hora depois.
 
@@ -60,11 +60,11 @@ Quando você define o agendamento como **personalizado**, os campos são exibido
 
 Depois que um indexador tiver sido criado, você poderá alterar as configurações de agendamento usando o painel de edição do indexador. Os campos de agendamento são os mesmos do assistente de importação de dados.
 
-   ![Definindo a agenda no painel de edição] do indexador (media/search-howto-schedule-indexers/schedule-edit.png "Definindo a agenda no painel de edição") do indexador
+   ![Definindo a agenda no painel de edição do indexador](media/search-howto-schedule-indexers/schedule-edit.png "Definindo a agenda no painel de edição do indexador")
 
 <a name="restApi"></a>
 
-## <a name="define-a-schedule-using-the-rest-api"></a>Definir uma agenda usando a API REST
+## <a name="schedule-using-rest-apis"></a>Agendar usando APIs REST
 
 Você pode definir o agendamento de um indexador usando a API REST. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar o indexador. O exemplo a seguir mostra uma solicitação PUT para atualizar um indexador existente:
 
@@ -78,15 +78,15 @@ Você pode definir o agendamento de um indexador usando a API REST. Para fazer i
         "schedule" : { "interval" : "PT10M", "startTime" : "2015-01-01T00:00:00Z" }
     }
 
-O parâmetro **Interval** é obrigatório. O intervalo refere-se ao tempo entre o início de duas execuções de indexador consecutivas. O menor intervalo permitido é de 5 minutos; o mais longo é um dia. Ele deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` para cada 15 minutos, `PT2H` para cada 2 horas.
+O parâmetro **Interval** é obrigatório. O intervalo refere-se ao tempo entre o início de duas execuções de indexador consecutivas. O menor intervalo permitido é de 5 minutos; o mais longo é um dia. Ele deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). O padrão para isso é: `P(nD)(T(nH)(nM))`. Exemplos: `PT15M` a cada 15 minutos `PT2H` para cada 2 horas.
 
-O **StartTime** opcional indica quando as execuções agendadas devem começar. Se for omitido, a hora UTC atual será usada. Esse tempo pode estar no passado, caso em que a primeira execução é agendada como se o indexador fosse executado continuamente desde o iníciotimeoriginal.
+O **StartTime** opcional indica quando as execuções agendadas devem começar. Se for omitido, a hora UTC atual será usada. Esse tempo pode estar no passado, caso em que a primeira execução é agendada como se o indexador fosse executado continuamente desde o **iníciotime**original.
 
 Você também pode executar um indexador sob demanda a qualquer momento usando a chamada executar indexador. Para obter mais informações sobre a execução de indexadores e a configuração de agendas do indexador, consulte [executar indexador](https://docs.microsoft.com/rest/api/searchservice/run-indexer), [obter indexador](https://docs.microsoft.com/rest/api/searchservice/get-indexer)e [Atualizar INDEXADOR](https://docs.microsoft.com/rest/api/searchservice/update-indexer) na referência da API REST.
 
 <a name="dotNetSdk"></a>
 
-## <a name="define-a-schedule-using-the-net-sdk"></a>Definir uma agenda usando o SDK do .NET
+## <a name="schedule-using-the-net-sdk"></a>Agendar usando o SDK do .NET
 
 Você pode definir a agenda para um indexador usando o SDK do .NET Azure Search. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
 
@@ -106,9 +106,9 @@ O exemplo C# a seguir cria um indexador, usando uma fonte de dados predefinida e
 ```
 Se o parâmetro de **agendamento** for omitido, o indexador será executado apenas uma vez logo após sua criação.
 
-O parâmetro StartTime pode ser definido como uma hora no passado. Nesse caso, a primeira execução é agendada como se o indexador fosse executado continuamente desde o início de **StartTime**.
+O parâmetro **StartTime** pode ser definido como uma hora no passado. Nesse caso, a primeira execução é agendada como se o indexador fosse executado continuamente desde o início de **StartTime**.
 
-O agendamento é definido usando a classe [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) . O construtor **IndexingSchedule** requer um parâmetro de **intervalo** especificado usando um objeto **TimeSpan** . O menor valor de intervalo permitido é de 5 minutos e o maior é de 24 horas. O segundo parâmetro StartTime, especificado como um objeto **DateTimeOffset** , é opcional.
+O agendamento é definido usando a classe [IndexingSchedule](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingschedule?view=azure-dotnet) . O construtor **IndexingSchedule** requer um parâmetro de **intervalo** especificado usando um objeto **TimeSpan** . O menor valor de intervalo permitido é de 5 minutos e o maior é de 24 horas. O segundo parâmetro **StartTime** , especificado como um objeto **DateTimeOffset** , é opcional.
 
 O SDK do .NET permite controlar as operações do indexador usando a classe [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient) e sua propriedade [Indexers](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , que implementa métodos da interface **IIndexersOperations** . 
 

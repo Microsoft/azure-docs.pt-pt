@@ -1,73 +1,73 @@
 ---
-title: Mover os recursos de serviço de aplicações do Azure para a nova subscrição ou grupo de recursos
-description: Utilize o Azure Resource Manager para mover os recursos de serviço de aplicações para um novo grupo de recursos ou subscrição.
+title: Mover Azure App recursos do serviço
+description: Use Azure Resource Manager para mover os recursos do serviço de aplicativo para um novo grupo de recursos ou assinatura.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c1a09ff4c29a2fedfea2c165a95c042985b3c83a
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67723574"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533576"
 ---
-# <a name="move-guidance-for-app-service-resources"></a>Mover a documentação de orientação para os recursos de serviço de aplicações
+# <a name="move-guidance-for-app-service-resources"></a>Mover diretrizes para recursos do serviço de aplicativo
 
-Os passos para mover os recursos de serviço de aplicações são diferentes com base em se estiver a mover os recursos numa subscrição ou para uma nova subscrição.
+As etapas para mover os recursos do serviço de aplicativo são diferentes se você estiver movendo os recursos dentro de uma assinatura ou para uma nova assinatura.
 
-## <a name="move-in-same-subscription"></a>Mover na mesma subscrição
+## <a name="move-in-same-subscription"></a>Mover na mesma assinatura
 
-Ao mover uma aplicação Web _dentro da mesma subscrição_, não é possível mover certificados SSL de terceiros. No entanto, pode mover uma aplicação Web para o novo grupo de recursos sem mover o seu certificado de terceiros, e a funcionalidade SSL de seu aplicativo ainda funciona.
+Ao mover um aplicativo Web _na mesma assinatura_, você não pode mover certificados SSL de terceiros. No entanto, você pode mover um aplicativo Web para o novo grupo de recursos sem mover seu certificado de terceiros, e a funcionalidade SSL do aplicativo ainda funciona.
 
-Se pretender mover o certificado SSL com a aplicação Web, siga estes passos:
+Se você quiser mover o certificado SSL com o aplicativo Web, siga estas etapas:
 
-1. Eliminar o certificado de terceiros a partir da aplicação Web, mas mantenha uma cópia do seu certificado
-2. Mova a aplicação Web.
-3. Carregue o certificado de terceiros para a aplicação Web movido.
+1. Excluir o certificado de terceiros do aplicativo Web, mas manter uma cópia do seu certificado
+2. Mova o aplicativo Web.
+3. Carregue o certificado de terceiros para o aplicativo Web movido.
 
-## <a name="move-across-subscriptions"></a>Mover entre subscrições
+## <a name="move-across-subscriptions"></a>Mover entre assinaturas
 
-Ao mover uma aplicação Web _entre subscrições_, as seguintes limitações aplicam-se:
+Ao mover um aplicativo Web _entre assinaturas_, as seguintes limitações se aplicam:
 
-- O grupo de recursos de destino não deve ter quaisquer recursos existentes do serviço de aplicações. Os recursos de serviço de aplicações incluem:
+- O grupo de recursos de destino não deve ter nenhum recurso de serviço de aplicativo existente. Os recursos do serviço de aplicativo incluem:
     - Aplicações Web
     - Planos do Serviço de Aplicações
     - Certificados SSL carregados ou importados
-    - Ambientes do App Service
-- Todos os recursos de serviço de aplicações no grupo de recursos tem de ser movidos em conjunto.
-- Recursos de serviço de aplicações só podem ser movidos do grupo de recursos em que foram originalmente criados. Se um recurso de serviço de aplicações não se encontra no respetivo grupo de recursos original, mova-o novamente ao respetivo grupo de recursos original. Em seguida, mova o recurso nas subscrições.
+    - Ambientes de Serviço de Aplicações
+- Todos os recursos do serviço de aplicativo no grupo de recursos devem ser movidos juntos.
+- Os recursos do serviço de aplicativo só podem ser movidos do grupo de recursos no qual foram criados originalmente. Se um recurso do serviço de aplicativo não estiver mais em seu grupo de recursos original, mova-o de volta para seu grupo de recursos original. Em seguida, mova o recurso entre assinaturas.
 
-Se não sabe o grupo de recursos original, pode encontrá-lo por meio de diagnóstico. Para a sua aplicação web, selecione **diagnosticar e resolver problemas**. Em seguida, selecione **configuração e gestão**.
+Se você não se lembrar do grupo de recursos original, poderá encontrá-lo por meio de diagnóstico. Para seu aplicativo Web, selecione **diagnosticar e resolver problemas**. Em seguida, selecione **configuração e gerenciamento**.
 
-![Selecione o diagnóstico](./media/app-service-move-limitations/select-diagnostics.png)
+![Selecionar diagnóstico](./media/app-service-move-limitations/select-diagnostics.png)
 
-Selecione **opções de migração**.
+Selecione **Opções de migração**.
 
-![Selecione as opções de migração](./media/app-service-move-limitations/select-migration.png)
+![Selecionar opções de migração](./media/app-service-move-limitations/select-migration.png)
 
-Selecione a opção para obter os passos recomendados mover a aplicação web.
+Selecione a opção para obter as etapas recomendadas para mover o aplicativo Web.
 
-![Selecione os passos recomendados](./media/app-service-move-limitations/recommended-steps.png)
+![Selecione as etapas recomendadas](./media/app-service-move-limitations/recommended-steps.png)
 
-Ver as ações recomendadas antes de mover os recursos. As informações incluem o grupo de recursos original para a aplicação web.
+Você vê as ações recomendadas a serem executadas antes de mover os recursos. As informações incluem o grupo de recursos original para o aplicativo Web.
 
 ![Recomendações](./media/app-service-move-limitations/recommendations.png)
 
-## <a name="move-app-service-certificate"></a>Mover o certificado de serviço de aplicações
+## <a name="move-app-service-certificate"></a>Mover Certificado do Serviço de Aplicativo
 
-Pode mover o seu certificado de serviço de aplicações para um novo grupo de recursos ou subscrição. Se o certificado de serviço de aplicações estiver vinculado a uma aplicação web, tem de seguir alguns passos antes de mover os recursos para uma nova subscrição. Elimine o enlace SSL e certificado privado da aplicação web antes de mover os recursos. O certificado de serviço de aplicações não precisa de ser eliminada, apenas o certificado privado na aplicação web.
+Você pode mover seu Certificado do Serviço de Aplicativo para um novo grupo de recursos ou assinatura. Se o Certificado do Serviço de Aplicativo estiver associado a um aplicativo Web, você deverá executar algumas etapas antes de mover os recursos para uma nova assinatura. Exclua a associação SSL e o certificado privado do aplicativo Web antes de mover os recursos. O Certificado do Serviço de Aplicativo não precisa ser excluído, apenas o certificado privado no aplicativo Web.
 
 ## <a name="move-support"></a>Suporte para movimentação
 
-Para determinar quais recursos de serviço de aplicações podem ser movidos, veja mover o estado do suporte para:
+Para determinar quais recursos do serviço de aplicativo podem ser movidos, consulte mover status de suporte para:
 
-- [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
-- [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
-- [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
-- [Microsoft.Web](../move-support-resources.md#microsoftweb)
+- [Microsoft. AppService](../move-support-resources.md#microsoftappservice)
+- [Microsoft. CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
+- [Microsoft. DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
+- [Microsoft. Web](../move-support-resources.md#microsoftweb)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter comandos mover os recursos, veja [mover recursos para um novo grupo de recursos ou subscrição](../resource-group-move-resources.md).
+Para obter comandos para mover recursos, consulte [mover recursos para um novo grupo de recursos ou assinatura](../resource-group-move-resources.md).

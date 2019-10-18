@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b7c7bfffb5ddf947dc9bd25e6828e2816a7325cd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4f5163ba448e4cc7e18b0e794a44003ce5ab1dce
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559736"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516758"
 ---
 # <a name="speech-services-for-telephony-data"></a>Serviços de fala para dados de telefonia
 
@@ -40,7 +40,7 @@ Além do aspecto funcional dos serviços de fala, sua principal finalidade – q
 * Processamento de análise em tempo real do sinal de áudio para extrair várias informações à medida que a chamada está ocorrendo (com sentimentos sendo um caso de uso proeminente) e
 * Bots (assistentes virtuais), orientando a caixa de diálogo entre o cliente e o bot em uma tentativa de resolver o problema do cliente sem participação no agente ou ser a aplicação de protocolos de ia para auxiliar o agente.
 
-Um diagrama de arquitetura típico da implementação de um cenário de lote é descrito na imagem abaixo ![da arquitetura de transcrição do Call Center](media/scenarios/call-center-transcription-architecture.png)
+Um diagrama de arquitetura típico da implementação de um cenário de lote é descrito na figura abaixo ![Call arquitetura de transcrição do centro ](media/scenarios/call-center-transcription-architecture.png)
 
 ## <a name="speech-analytics-technology-components"></a>Componentes de tecnologia de análise de fala
 
@@ -66,7 +66,7 @@ Nossa latência de ponta a ponta está muito baixa considerando as várias tecno
 
 Nossas novas vozes também são indistinguíveis de vozes humanas. Você pode usar vozes para dar a seu bot sua personalidade exclusiva.
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Procurar
 Outro grampo da análise é identificar as interações em que ocorreu um evento ou experiência específica. Isso normalmente é feito com uma das duas abordagens, uma pesquisa ad hoc em que o usuário simplesmente digita uma frase e o sistema responde, ou uma consulta mais estruturada, em que um analista pode criar um conjunto de instruções lógicas que identificam um cenário em uma chamada e cada chamada pode ser indexada em relação a esse conjunto de consultas. Um bom exemplo de pesquisa é a declaração de conformidade onipresente "esta chamada deve ser registrada para fins de qualidade... "– como muitas empresas desejam ter certeza de que seus agentes estão fornecendo esse aviso aos clientes antes que a chamada seja realmente registrada. A maioria dos sistemas de análise tem a capacidade de analisar os comportamentos encontrados por algoritmos de/Search de consulta – pois esse relatório de tendências é, em última instância, uma das funções mais importantes de um sistema de análise. Por meio do [diretório de serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/directory/search/) , sua solução de ponta a ponta pode ser significativamente aprimorada com recursos de indexação e pesquisa.
 
 ### <a name="key-phrase-extraction"></a>Extração de Expressões-Chave
@@ -78,9 +78,9 @@ Agora, vamos dar uma olhada no processamento em lotes e nos pipelines em tempo r
 
 Para transcrever a massa de áudio, desenvolvemos a [API de transcrição do lote](batch-transcription.md). A API de transcrição do lote foi desenvolvida para transcrever grandes quantidades de dados de áudio de forma assíncrona. Com relação à desativação de dados do Call Center, nossa solução é baseada nesses pilares:
 
-* **Precisão**: Com modelos unificados de quarta geração, oferecemos qualidade de transcrição insuperável.
-* **Latência**: Entendemos que, ao fazer transcrições em massa, as transcrições são necessárias rapidamente. Os trabalhos de transcrição iniciados por meio da [API de transcrição do lote](batch-transcription.md) serão colocados em fila imediatamente e, depois que o trabalho começar a ser executado, ele será executado mais rapidamente do que a transcrição em tempo real.
-* **Segurança**: Entendemos que as chamadas podem conter dados confidenciais. Tenha certeza de que a segurança é uma de nossas prioridades mais altas. Nosso serviço obteve as certificações ISO, SOC, HIPAA e PCI.
+* **Precisão**: com modelos unificados de quarta geração, oferecemos qualidade de transcrição insuperável.
+* **Latência**: entendemos que, ao fazer transcrições em massa, as transcrições são necessárias rapidamente. Os trabalhos de transcrição iniciados por meio da [API de transcrição do lote](batch-transcription.md) serão colocados em fila imediatamente e, depois que o trabalho começar a ser executado, ele será executado mais rapidamente do que a transcrição em tempo real.
+* **Segurança**: entendemos que as chamadas podem conter dados confidenciais. Tenha certeza de que a segurança é uma de nossas prioridades mais altas. Nosso serviço obteve as certificações ISO, SOC, HIPAA e PCI.
 
 Os centros de chamadas geram grandes volumes de dados de áudio diariamente. Se sua empresa armazena dados de telefonia em um local central, como o armazenamento do Azure, você pode usar a [API de transcrição do lote](batch-transcription.md) para solicitar e receber transcrições de forma assíncrona.
 
@@ -89,10 +89,10 @@ Uma solução típica usa esses serviços:
 * Os serviços de fala do Azure são usados para transcrever a conversão de fala em texto. Uma assinatura padrão (portanto) para os serviços de fala é necessária para usar a API de transcrição do lote. As assinaturas gratuitas (F0) não funcionarão.
 * O [armazenamento do Azure](https://azure.microsoft.com/services/storage/) é usado para armazenar dados de telefonia e as transcrições retornadas pela API de transcrição do lote. Essa conta de armazenamento deve usar notificações, especificamente para quando novos arquivos forem adicionados. Essas notificações são usadas para disparar o processo de transcrição.
 * [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) é usado para criar o URI de SAS (assinaturas de acesso compartilhado) para cada gravação e disparar a solicitação HTTP post para iniciar uma transcrição. Além disso, Azure Functions é usado para criar solicitações para recuperar e excluir transcrições usando a API de transcrição do lote.
-* [](webhooks.md) WebHooks são usados para obter notificações quando as transcrições são concluídas.
+* [WebHooks](webhooks.md) são usados para obter notificações quando as transcrições são concluídas.
 
 Internamente, estamos usando as tecnologias acima para dar suporte a chamadas de clientes da Microsoft no modo de lote.
-![Arquitetura do lote](media/scenarios/call-center-batch-pipeline.png)
+Arquitetura de ![Batch ](media/scenarios/call-center-batch-pipeline.png)
 
 ## <a name="real-time-transcription-for-call-center-data"></a>Transcrição em tempo real para dados do Call Center
 
@@ -110,7 +110,7 @@ Os serviços de fala podem ser facilmente integrados em qualquer solução usand
 
 Vários produtos de serviço IVR ou de telefonia (como Genesys ou AudioCodes) oferecem recursos de integração que podem ser utilizados para habilitar a passagem de áudio de entrada e saída para um serviço do Azure. Basicamente, um serviço do Azure personalizado pode fornecer uma interface específica para definir sessões de chamada telefônica (como início da chamada ou término da chamada) e expor uma API WebSocket para receber áudio de fluxo de entrada que é usado com os serviços de fala. As respostas de saída, como a transcrição de conversa ou conexões com o bot Framework, podem ser sintetizadas com o serviço de conversão de texto em fala da Microsoft e retornadas ao IVR para reprodução.
 
-Outro cenário é a integração direta de SIP. Um serviço do Azure se conecta a um servidor SIP, obtendo, assim, um fluxo de entrada e um fluxo de saída, que é usado para as fases de conversão de texto em texto e Text-to-Speech. Para se conectar a um servidor SIP, há ofertas de software comercial, como o Ozeki SDK, ou [as equipes que chamam e API de reuniões](https://docs.microsoft.com/graph/api/resources/calls-api-overview?view=graph-rest-beta) (atualmente em versão beta), que foram projetadas para dar suporte a esse tipo de cenário para chamadas de áudio.
+Outro cenário é a integração direta de SIP. Um serviço do Azure se conecta a um servidor SIP, obtendo, assim, um fluxo de entrada e um fluxo de saída, que é usado para as fases de conversão de texto em texto e Text-to-Speech. Para se conectar a um servidor SIP, há ofertas de software comercial, como o Ozeki SDK, ou [as equipes que chamam e API de reuniões](/graph/api/resources/communications-api-overview) (atualmente em versão beta), que foram projetadas para dar suporte a esse tipo de cenário para chamadas de áudio.
 
 ## <a name="customize-existing-experiences"></a>Personalizar experiências existentes
 
@@ -120,7 +120,7 @@ Os serviços de fala do Azure funcionam bem com modelos internos, no entanto, ta
 |----------------|-------|-------------|
 | Conversão de voz em texto | [Modelo acústico](how-to-customize-acoustic-models.md) | Crie um modelo acústico personalizado para aplicativos, ferramentas ou dispositivos que são usados em ambientes específicos, como em um carro ou em um piso de fábrica, cada um com condições de gravação específicas. Os exemplos incluem fala acentuada, ruídos de fundo específicos ou uso de um microfone específico para gravação. |
 | | [Modelo de linguagem](how-to-customize-language-model.md) | Crie um modelo de linguagem personalizado para melhorar a transcrição do vocabulário e da gramática específicos do setor, como terminologia médica ou jargão de ti. |
-| | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com os termos personalizados, tais como nomes de produto ou acrônimos. Tudo o que precisa para começar a utilizar é um ficheiro de pronúncia – um arquivo. txt simples. |
+| | [Modelo de pronúncia](how-to-customize-pronunciation.md) | Com um modelo de pronúncia personalizada, você pode definir o formulário fonético e a exibição de uma palavra ou termo. É útil para lidar com termos personalizados, como nomes de produtos ou acrônimos. Tudo o que você precisa para começar é um arquivo de pronúncia, um arquivo. txt simples. |
 | Conversão de texto em voz | [Tipo de voz](how-to-customize-voice-font.md) | Fontes de voz personalizadas permitem que você crie uma voz de um tipo reconhecível para sua marca. Ele só leva uma pequena quantidade de dados para começar. Quanto mais dados você fornecer, mais natural e humana, como a fonte de voz soará. |
 
 ## <a name="sample-code"></a>Código de exemplo
@@ -135,11 +135,11 @@ O código de exemplo está disponível no GitHub para cada um dos serviços de f
 
 * [SDK de Voz](speech-sdk-reference.md)
 * [SDK de dispositivos de fala](speech-devices-sdk.md)
-* [API REST: Conversão de fala em texto](rest-speech-to-text.md)
-* [API REST: Conversão de texto em fala](rest-text-to-speech.md)
-* [API REST: Transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: conversão de fala em texto](rest-speech-to-text.md)
+* [API REST: conversão de texto em fala](rest-text-to-speech.md)
+* [API REST: transcrição e personalização do lote](https://westus.cris.ai/swagger/ui/index)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Obtenha uma chave de assinatura de serviços de fala gratuitamente](get-started.md)

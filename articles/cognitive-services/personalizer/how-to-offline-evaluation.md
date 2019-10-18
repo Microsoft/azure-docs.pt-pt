@@ -1,5 +1,5 @@
 ---
-title: Avaliação offline – personalizador
+title: Como executar a avaliação offline – personalizador
 titleSuffix: Azure Cognitive Services
 description: Saiba como analisar seu loop de aprendizagem com uma avaliação offline
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: a157b36ad2b4f5a7f2e50a9609d8acd621efd5a8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884466"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515224"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analise seu loop de aprendizagem com uma avaliação offline
 
@@ -35,7 +35,7 @@ Leia sobre [avaliações offline](concepts-offline-evaluation.md) para saber mai
 
 1. No [portal do Azure](https://azure.microsoft.com/free/), localize o recurso de personalização.
 1. Na portal do Azure, vá para a seção **avaliações** e selecione **criar avaliação**.
-    ![Na portal do Azure, vá para a seção * * avaliações * * e selecione * * criar avaliação * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+    ![In o portal do Azure, vá para a seção * * avaliações * * e selecione * * criar avaliação * *. ](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Selecione as seguintes configurações:
 
     * Um nome de avaliação
@@ -54,11 +54,11 @@ Depois de concluído, você pode selecionar a avaliação na lista de avaliaçõ
 
 As comparações das políticas de aprendizado incluem:
 
-* **Política online**: A política de aprendizado atual usada no Personalizador
-* **Linha de base**: O padrão do aplicativo (conforme determinado pela primeira ação enviada em chamadas de classificação),
-* **Política aleatória**: Um comportamento de classificação imaginário que sempre retorna a opção aleatória de ações dos fornecidos.
-* **Políticas personalizadas**: Políticas de aprendizado adicionais carregadas ao iniciar a avaliação.
-* **Política otimizada**: Se a avaliação foi iniciada com a opção de descobrir uma política otimizada, ela também será comparada e você poderá baixá-la ou torná-la a política de aprendizado online, substituindo a atual.
+* **Política online**: a política de aprendizado atual usada no Personalizador
+* **Linha de base**: o padrão do aplicativo (conforme determinado pela primeira ação enviada em chamadas de classificação),
+* **Política aleatória**: um comportamento de classificação imaginário que sempre retorna a opção aleatória de ações dos fornecidos.
+* **Políticas personalizadas**: políticas de aprendizado adicionais carregadas ao iniciar a avaliação.
+* **Política otimizada**: se a avaliação foi iniciada com a opção de descobrir uma política otimizada, ela também será comparada e você poderá baixá-la ou torná-la a política de aprendizado online, substituindo a atual.
 
 ![Gráfico de resultados das configurações de avaliação offline](./media/offline-evaluation/evaluation-results.png)
 

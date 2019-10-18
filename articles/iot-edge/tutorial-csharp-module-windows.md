@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88ff026ea56e5f41b3b124c2d5594822ffeb6830
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286676"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529266"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutorial: desenvolver um C# módulo IOT Edge para dispositivos Windows
 
@@ -80,11 +80,11 @@ As ferramentas de Azure IoT Edge fornecem modelos de projeto para todas as lingu
    | ----- | ----- |
    | Selecionar um modelo | Selecione  **C# módulo**. | 
    | Nome do projeto de módulo | Atribua o nome **CSharpModule** ao módulo. | 
-   | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é semelhante a @no__t 0registry name\>.azurecr.io/csharpmodule. |
+   | Repositório de imagens do Docker | Os repositórios de imagens incluem o nome do seu registo de contentor e o nome da sua imagem de contentor. Sua imagem de contêiner é preenchida previamente a partir do valor do nome do projeto de módulo. Substitua **localhost:5000** pelo valor do servidor de início de sessão do registo de contentor do Azure Container Registry. Pode obter o servidor de início de sessão na página Overview (Descrição Geral) do registo de contentor no portal do Azure. <br><br> O repositório de imagens final é semelhante a \<registry nome \>. azurecr.io/csharpmodule. |
 
    ![Configurar seu projeto para o dispositivo de destino, o tipo de módulo e o registro de contêiner](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. Selecione **OK** para aplicar suas alterações. 
+5. Selecione **Adicionar** para criar o projeto. 
 
 ### <a name="add-your-registry-credentials"></a>Adicionar as credenciais do registo
 

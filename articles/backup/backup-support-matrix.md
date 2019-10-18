@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981097"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533140"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para o backup do Azure
 
@@ -35,7 +35,7 @@ A tabela a seguir descreve os recursos dos cofres dos serviços de recuperação
 **Cofres na assinatura** | Até 500 cofres de serviços de recuperação em uma única assinatura.
 **Computadores em um cofre** | Até 1.000 VMs do Azure em um único cofre.<br/><br/> Até 50 servidores MABS podem ser registrados em um único cofre.
 **Fontes de dados no armazenamento do cofre** | Máximo de 54.400 GB. Não há limite para backups de VM do Azure.
-**Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos pelo DPM/MABS:** Duas vezes por dia.<br/><br/> **Backup de máquinas diretamente usando o agente MARS:** Três vezes por dia.
+**Backups no cofre** | **VMs do Azure:** Uma vez por dia.<br/><br/>**Computadores protegidos pelo DPM/mAbs:** Duas vezes por dia.<br/><br/> Backup de **máquinas diretamente usando o agente Mars:** Três vezes por dia.
 **Backups entre cofres** | O backup está dentro de uma região.<br/><br/> Você precisa de um cofre em todas as regiões do Azure que contenham VMs das quais você deseja fazer backup. Não é possível fazer backup em uma região diferente.
 **Mover cofres** | Você pode [mover cofres](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) entre assinaturas ou entre grupos de recursos na mesma assinatura.
 **Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
@@ -45,7 +45,7 @@ A tabela a seguir descreve os recursos dos cofres dos serviços de recuperação
 
 Veja os que têm suporte se você quiser fazer backup de computadores locais:
 
-**Tradução** | **O que é feito backup** | **Location** | **Funcionalidades**
+**Tradução** | **O que é feito backup** | **Localização** | **Funcionalidades**
 --- | --- | --- | ---
 **Backup direto do computador Windows com o agente MARS** | Arquivos, pastas, estado do sistema | Faça backup no cofre dos serviços de recuperação. | Fazer backup três vezes por dia<br/><br/> Nenhum backup com reconhecimento de aplicativo<br/><br/> Restaurar arquivo, pasta, volume
 **Backup direto do computador Linux com agente MARS** | Backup sem suporte
@@ -59,13 +59,13 @@ Veja os que têm suporte se você quiser fazer backup de computadores locais:
 **Limite** | **Detalhes**
 --- | ---
 **Discos de dados de VM do Azure** | Limite de 16
-**Tamanho do disco de dados da VM do Azure** | Dá suporte ao backup de máquinas virtuais com cada tamanho de disco de até 30 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
+**Tamanho do disco de dados da VM do Azure** | O tamanho do disco individual pode ter até 32 TB e um máximo de 256 TB combinados para todos os discos em uma VM.
 
 ### <a name="azure-vm-backup-options"></a>Opções de backup da VM do Azure
 
 Aqui estão as suportadas se você quiser fazer backup de VMs do Azure:
 
-**Tradução** | **O que é feito backup** | **Location** | **Funcionalidades**
+**Tradução** | **O que é feito backup** | **Localização** | **Funcionalidades**
 --- | --- | --- | ---
 **Backup de VM do Azure usando a extensão de VM** | VM inteira | Faça backup no cofre. | Extensão instalada quando você habilita o backup para uma VM.<br/><br/> Fazer backup uma vez por dia.<br/><br/> Backup com reconhecimento de aplicativo para VMs do Windows; backup consistente com o arquivo para VMs Linux. Você pode configurar a consistência de aplicativos para computadores Linux usando scripts personalizados.<br/><br/> Restaure a VM ou o disco.<br/><br/> Não é possível fazer backup de uma VM do Azure em uma localização local.
 **Backup de VM do Azure usando o agente MARS** | Arquivos, pastas, estado do sistema | Faça backup no cofre. | Faça backup três vezes por dia.<br/><br/> Se você quiser fazer backup de arquivos ou pastas específicas em vez de toda a VM, o agente MARS poderá ser executado junto com a extensão de VM.
@@ -108,7 +108,7 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
     > [!WARNING]
     > Depois de configurar o cofre, somente você terá acesso à chave de criptografia. A Microsoft nunca mantém uma cópia e não tem acesso à chave. Se a chave estiver incorreta, a Microsoft não poderá recuperar os dados de backup.
 
-### <a name="data-security"></a>Segurança de dados
+### <a name="data-security"></a>Segurança dos dados
 
 - Quando estiver fazendo backup de VMs do Azure, você precisará configurar a criptografia *na* máquina virtual.
 - O Azure Backup suporta o Azure Disk Encryption, que utiliza o BitLocker nas máquinas virtuais do Windows e **dm-crypt** nas máquinas virtuais do Linux.
@@ -121,7 +121,7 @@ O backup do Azure dá suporte à criptografia para dados em trânsito e em repou
 **Máquinas Windows locais ou VMs do Azure com o DPM** | ![Sim][green] | ![Sim][green]
 **Máquinas Windows locais ou VMs do Azure com MABS** | ![Sim][green] | ![Sim][green]
 
-## <a name="compression-support"></a>Suporte de compressão
+## <a name="compression-support"></a>Suporte à compactação
 
 O backup dá suporte à compactação de tráfego de backup, conforme resumido na tabela a seguir.
 
@@ -130,8 +130,8 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 
 **Tradução** | **Compactar para MABS/DPM (TCP)** | **Compactar para o cofre (HTTPS)**
 --- | --- | ---
-**Backup direto de máquinas locais do Windows** | ND | ![Sim][green]
-**Backup de VMs do Azure usando a extensão de VM** | ND | ND
+**Backup direto de máquinas locais do Windows** | N/D | ![Sim][green]
+**Backup de VMs do Azure usando a extensão de VM** | N/D | N/D
 **Backup em computadores locais/do Azure usando o MABS/DPM** | ![Sim][green] | ![Sim][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
@@ -141,7 +141,7 @@ O backup dá suporte à compactação de tráfego de backup, conforme resumido n
 **Máximo de pontos de recuperação por instância protegida (máquina ou carga de trabalho)** | 9\.999
 **Tempo máximo de expiração para um ponto de recuperação** | Sem limite
 **Frequência máxima de backup para o DPM/MABS** | A cada 15 minutos para o SQL Server<br/><br/> Uma vez por hora para outras cargas de trabalho
-**Frequência máxima de backup para o cofre** | **Máquinas Windows locais ou VMs do Azure executando MARS:** Três por dia<br/><br/> **DPM/MABS:** Dois por dia<br/><br/> **Backup de VM do Azure:** Um por dia
+**Frequência máxima de backup para o cofre** | **Máquinas Windows locais ou VMS do Azure executando Mars:** Três por dia<br/><br/> **DPM/mAbs:** Dois por dia<br/><br/> **Backup de VM do Azure:** Um por dia
 **Retenção do ponto de recuperação** | Diariamente, semanalmente, mensalmente, anualmente
 **Período de retenção máximo** | Depende da frequência da cópia de segurança
 **Pontos de recuperação no disco do DPM/MABS** | 64 para servidores de arquivos; 448 para servidores de aplicativos <br/><br/>Pontos de recuperação de fita ilimitados para o DPM local

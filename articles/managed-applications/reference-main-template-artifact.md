@@ -1,5 +1,5 @@
 ---
-title: Referência de artefato do modelo de implantação de aplicativo gerenciado do Azure
+title: Referência de artefato do modelo de aplicativo gerenciado do Azure
 description: Fornece um exemplo do artefato do modelo de implantação para aplicativos gerenciados do Azure.
 services: managed-applications
 ms.service: managed-applications
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b260524c7e23e68bf6cd57a88356568faf724605
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330178"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528935"
 ---
 # <a name="reference-deployment-template-artifact"></a>Referência: artefato do modelo de implantação
 

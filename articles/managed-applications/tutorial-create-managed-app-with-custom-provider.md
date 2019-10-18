@@ -1,5 +1,5 @@
 ---
-title: Criar um aplicativo gerenciado do Azure com ações e recursos personalizados
+title: Aplicativo gerenciado do Azure com ações personalizadas & recursos
 description: Este tutorial descreve como criar um aplicativo gerenciado do Azure com um provedor personalizado do Azure.
 services: managed-applications
 ms.service: managed-applications
@@ -7,16 +7,16 @@ ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
-ms.openlocfilehash: 3dd0887114156956b55f554d0265e3ca2b9b10ab
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: f70bb768dae3de80f85ffc49558b9ef51d2fce49
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336000"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529211"
 ---
-# <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Criar um aplicativo gerenciado com ações e recursos personalizados
+# <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: criar um aplicativo gerenciado com ações e recursos personalizados
 
-Neste tutorial, você criará seu próprio aplicativo gerenciado com ações e recursos personalizados. O aplicativo gerenciado conterá uma ação personalizada na `Overview` página, um tipo de recurso personalizado exibido como um item de menu separado no `Table of Content` e uma ação de contexto Personalizada na página de recursos personalizada.
+Neste tutorial, você criará seu próprio aplicativo gerenciado com ações e recursos personalizados. O aplicativo gerenciado conterá uma ação personalizada na página `Overview`, um tipo de recurso personalizado exibido como um item de menu separado em `Table of Content` e uma ação de contexto Personalizada na página de recursos personalizados.
 
 Este tutorial inclui as seguintes etapas:
 
@@ -42,7 +42,7 @@ Para concluir este tutorial, você precisa saber:
 
 Neste tutorial, você criará um aplicativo gerenciado e seu grupo de recursos gerenciado conterá a instância personalizada do provedor, a conta de armazenamento e a função. A função do Azure usada neste exemplo implementa uma API que manipula operações de provedor personalizadas para ações e recursos. A conta de armazenamento do Azure é usada como armazenamento básico para os recursos do provedor personalizado.
 
-A definição da interface do usuário para criar uma instância de `funcname` aplicativo `storagename` gerenciado inclui e elementos de entrada. O nome da conta de armazenamento e o nome da função devem ser globalmente exclusivos. Por padrão, os arquivos de função serão implantados do [pacote de funções de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), mas você pode alterá-los adicionando um elemento de entrada para um link de pacote em *createUIDefinition. JSON*:
+A definição da interface do usuário para criar uma instância de aplicativo gerenciado inclui `funcname` e `storagename` elementos de entrada. O nome da conta de armazenamento e o nome da função devem ser globalmente exclusivos. Por padrão, os arquivos de função serão implantados do [pacote de funções de exemplo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip), mas você pode alterá-los adicionando um elemento de entrada para um link de pacote em *createUIDefinition. JSON*:
 
 ```json
 {
@@ -83,13 +83,13 @@ e a saída em *createUIDefinition. JSON*:
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-O exemplo *createUIDefinition. JSON* completo pode ser encontrado na [referência: Artefatos](reference-createuidefinition-artifact.md)de elementos da interface do usuário.
+O exemplo *createUIDefinition. JSON* completo pode ser encontrado em [referência: artefatos de elementos da interface do usuário](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Modelo com provedor personalizado
 
-Para criar uma instância de aplicativo gerenciado com o provedor personalizado, você precisa definir o recurso de provedor personalizado com o nome **público** e digitar **Microsoft. CustomProviders/resourceProviders** em seu **MainTemplate. JSON**. Nesse recurso, você define os tipos de recursos e as ações para o serviço. Para implantar as instâncias do Azure Function e da conta de armazenamento do `Microsoft.Web/sites` Azure `Microsoft.Storage/storageAccounts` , defina os recursos do tipo e, respectivamente.
+Para criar uma instância de aplicativo gerenciado com o provedor personalizado, você precisa definir o recurso de provedor personalizado com o nome **público** e digitar **Microsoft. CustomProviders/resourceProviders** em seu **MainTemplate. JSON**. Nesse recurso, você define os tipos de recursos e as ações para o serviço. Para implantar as instâncias do Azure Function e da conta de armazenamento do Azure, defina os recursos do tipo `Microsoft.Web/sites` e `Microsoft.Storage/storageAccounts` respectivamente.
 
-Neste tutorial, você criará um tipo `users` de recurso, `ping` uma ação personalizada e `users/contextAction` uma ação personalizada que será executada em um contexto de um `users` recurso personalizado. Para cada tipo de recurso e ação, forneça um ponto de extremidade apontando para a função com o nome fornecido em [createUIDefinition. JSON](#user-interface-definition). Especifique o  tipo de roteamento `Proxy,Cache` como para os tipos `Proxy` de recurso e ações:
+Neste tutorial, você criará um `users` tipo de recurso, `ping` ação personalizada e `users/contextAction` ação personalizada que será executada em um contexto de um recurso personalizado `users`. Para cada tipo de recurso e ação, forneça um ponto de extremidade apontando para a função com o nome fornecido em [createUIDefinition. JSON](#user-interface-definition). Especifique o tipo de **Roteamento** como `Proxy,Cache` para tipos de recursos e `Proxy` para ações:
 
 ```json
 {
@@ -124,16 +124,16 @@ Neste tutorial, você criará um tipo `users` de recurso, `ping` uma ação pers
 }
 ```
 
-O exemplo *MainTemplate. JSON* completo pode ser encontrado na [referência: Artefato](reference-main-template-artifact.md)do modelo de implantação.
+O exemplo *MainTemplate. JSON* completo pode ser encontrado na [referência: artefato do modelo de implantação](reference-main-template-artifact.md).
 
 ## <a name="view-definition-artifact"></a>Artefacto de definição de vista
 
 Para definir a interface do usuário que inclui ações personalizadas e recursos personalizados em seu aplicativo gerenciado, você precisa criar o artefato **viewDefinition. JSON** . Para obter mais informações sobre o artefato de definição de exibição, consulte [Exibir artefato de definição em aplicativos gerenciados do Azure](concepts-view-definition.md).
 
 Neste tutorial, você definirá:
-* Uma página de *visão geral* com botão de barra de ferramentas `TestAction` que representa uma ação personalizada com entrada de texto básica.
-* Uma página de *usuários* que representa um tipo `users`de recurso personalizado.
-* Uma ação `users/contextAction` de recurso Personalizada na página *usuários* que será executada em um contexto de recurso personalizado do tipo `users`.
+* Uma página de *visão geral* com botão de barra de ferramentas que representa uma ação personalizada `TestAction` com entrada de texto básica.
+* Uma página de *usuários* que representa um tipo de recurso personalizado `users`.
+* Uma ação de recurso Personalizada `users/contextAction` na página *usuários* que será executada em um contexto de recurso personalizado do tipo `users`.
 
 O exemplo a seguir mostra a configuração de exibição para uma página de "visão geral":
 
@@ -176,13 +176,13 @@ O exemplo a seguir inclui a configuração da página de recursos "usuários" co
   }
 ```
 
-O exemplo *viewDefinition. JSON* completo pode ser encontrado na [referência: Exibir artefato](reference-view-definition-artifact.md)de definição.
+O exemplo *viewDefinition. JSON* completo pode ser encontrado em [referência: Exibir artefato de definição](reference-view-definition-artifact.md).
 
 ## <a name="managed-application-definition"></a>Definição de aplicativo gerenciado
 
 Empacote os seguintes artefatos de aplicativo gerenciado para Zip Archive e carregue-os no armazenamento:
 
-* createUiDefinition.json
+* createUiDefinition. JSON
 * MainTemplate. JSON
 * viewDefinition. JSON
 
@@ -328,7 +328,7 @@ az managedapp create \
 
 ## <a name="custom-actions-and-resources"></a>Ações e recursos personalizados
 
-Depois que a instância do aplicativo do catálogo de serviços tiver sido implantada, você terá dois novos grupos de recursos. O primeiro grupo `applicationGroup` de recursos contém uma instância do aplicativo gerenciado, o segundo `managedResourceGroup` grupo de recursos mantém os recursos do aplicativo gerenciado, incluindo o **provedor personalizado**.
+Depois que a instância do aplicativo do catálogo de serviços tiver sido implantada, você terá dois novos grupos de recursos. O primeiro grupo de recursos `applicationGroup` contém uma instância do aplicativo gerenciado, o segundo grupo de recursos `managedResourceGroup` contém os recursos para o aplicativo gerenciado, incluindo o **provedor personalizado**.
 
 ![Grupos de recursos do aplicativo](./media/managed-application-with-custom-providers/application-resource-groups.png)
 
@@ -352,6 +352,6 @@ Você pode ir para a instância do aplicativo gerenciado e executar a **ação p
 
 Se você tiver dúvidas sobre os aplicativos gerenciados do Azure, tente solicitar [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). Uma pergunta semelhante pode já ter sido solicitada e respondida, portanto, verifique primeiro antes de lançar. Adicione a marca `azure-managedapps` para obter uma resposta rápida!
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para publicar a aplicação gerida no Microsoft Azure Marketplace, veja [Aplicações geridas do Azure no Marketplace](publish-marketplace-app.md).

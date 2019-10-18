@@ -1,5 +1,5 @@
 ---
-title: Avaliação offline – personalizador
+title: Usar o método de avaliação offline-personalizador
 titleSuffix: Azure Cognitive Services
 description: Crie um loop de comentários C# neste guia de início rápido com o serviço personalizado.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662851"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515580"
 ---
 # <a name="offline-evaluation"></a>Avaliação offline
 
@@ -98,5 +98,5 @@ As avaliações offline podem fornecer informações sobre quanto dos recursos e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Configurar o personalizado](how-to-settings.md)
+[Configurar o personalizador](how-to-settings.md) 
 [executar avaliações offline](how-to-offline-evaluation.md) entender [como o personalizador funciona](how-personalizer-works.md)

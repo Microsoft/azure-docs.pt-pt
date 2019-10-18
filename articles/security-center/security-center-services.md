@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: b6de3a520150a95316371c4454fd2537f2beab5d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 275598aa50c252512348f4a04543e1beaf538626
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331147"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529478"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Recursos com suporte disponíveis na central de segurança do Azure
 
@@ -96,14 +96,14 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 |MySQL|✔| ✔|
 |CosmosDB|X| ✔|
 |Armazenamento de blobs|✔| ✔|
-|Conta de armazenamento|✔| N/D|
+|Conta de armazenamento|✔| X|
 |Serviço de aplicativo|✔| ✔|
 |Função|✔| X|
 |Serviço Cloud|✔| X|
-|VNet|✔| N/D|
-|Subrede|✔| N/D|
-|NIC|✔| N/D|
-|NSG|✔| N/D|
+|VNet|✔| X|
+|Subrede|✔| X|
+|NIC|✔| X|
+|NSG|✔| X|
 |Subscrição|✔ * *| ✔|
 |Conta do Batch|✔| X|
 |Conta do Service Fabric|✔| X|
@@ -114,14 +114,14 @@ Os recursos de PaaS a seguir têm suporte na central de segurança do Azure:
 |Stream Analytics|✔| X|
 |Espaço de nomes do hub de eventos|✔| X|
 |Aplicações lógicas|✔| X|
-|Redis|✔| N/D|
+|Redis|✔| X|
 |Data Lake Analytics|✔| X|
 |Arquivo do Data Lake|✔| X|
 |Key vault|✔| X|
 
 \* esses recursos têm suporte atualmente na visualização pública.
 
-as recomendações \* @ no__t-1 Azure Active Directory (Azure AD) estão disponíveis somente para assinaturas padrão.
+as recomendações do \* \* Azure Active Directory (AD do Azure) estão disponíveis somente para assinaturas padrão.
 
 ## <a name="next-steps"></a>Passos seguintes
 

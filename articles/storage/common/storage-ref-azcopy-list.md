@@ -4,18 +4,18 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8c40241c49917c6db6663f346aed0ec5d3b96be7
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b7348e3790166e1a1aecab422e571b8f2fc7cd5f
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195948"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72513515"
 ---
-# <a name="azcopy-list"></a>lista de azcopy
+# <a name="azcopy-list"></a>azcopy list
 
 Lista as entidades em um determinado recurso.
 
@@ -49,6 +49,6 @@ azcopy list [containerURL]
 |--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
 |--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [azcopy](storage-ref-azcopy.md)

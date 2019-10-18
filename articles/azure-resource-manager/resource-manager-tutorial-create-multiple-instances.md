@@ -1,5 +1,5 @@
 ---
-title: Criar várias instâncias de recursos com o Azure Resource Manager | Microsoft Docs
+title: Criar várias instâncias de recurso-Azure Resource Manager
 description: Saiba como criar um modelo do Azure Resource Manager para criar várias instâncias de recursos do Azure.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: cf2559b280a1c43269c0cf45d77ee98dcd5ee5a8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b1233ff4695a1f715801d78d70ea80ab84be2a36
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388799"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528260"
 ---
-# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Criar várias instâncias de recursos com modelos do Resource Manager
+# <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: criar várias instâncias de recursos com modelos do Resource Manager
 
 Saiba como iterar no seu modelo do Azure Resource Manager para criar várias instâncias de um recurso do Azure. Neste tutorial, modifica um modelo para criar três instâncias de contas de armazenamento.
 
-![O Azure Resource Manager cria vários diagrama de instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
+![Azure Resource Manager cria o diagrama de várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances-diagram.png)
 
 Este tutorial abrange as seguintes tarefas:
 
@@ -64,7 +64,7 @@ No Visual Studio Code, efetue as seguintes quatro alterações:
 ![O Azure Resource Manager cria várias instâncias](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. Adicione um elemento `copy` à definição do recurso de conta de armazenamento. No elemento de cópia, especifique o número de iterações e uma variável para este ciclo. O valor tem de ser um número inteiro positivo e não pode ser mais de 800.
-2. A função `copyIndex()` devolve a iteração atual no ciclo. Utilize o índice como o prefixo do nome. `copyIndex()` é baseado em zero. Para deslocar o valor de índice, pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)*.
+2. A função `copyIndex()` devolve a iteração atual no ciclo. Utilize o índice como o prefixo do nome. `copyIndex()` é baseado em zero. Para deslocar o valor de índice, pode passar um valor na função copyIndex(). Por exemplo, *copyIndex(1)* .
 3. Elimine o elemento **variables**, dado que já não é utilizado.
 4. Elimine o elemento **outputs**. Já não é necessário.
 
@@ -153,7 +153,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 3. Selecione o nome do grupo de recursos.  Verá um total de seis recursos no grupo de recursos.
 4. Selecione **Eliminar grupo de recursos** no menu superior.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar várias instâncias de contas de armazenamento.  No próximo tutorial, vai desenvolver um modelo com vários recursos e vários tipos de recurso. Alguns dos recursos têm recursos dependentes.
 

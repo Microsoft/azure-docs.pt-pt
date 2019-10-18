@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: b9b4a33e5aee92a4e8caa7a1128538cb2f1a8a7e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.openlocfilehash: 65ad9e1f5ef62ab2dd9f37a13d3c18871c30e603
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933123"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515496"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Entender a integridade de suas máquinas virtuais do Azure
 
@@ -36,7 +36,7 @@ Para obter informações sobre como configurar Azure Monitor para VMs, consulte 
 
 Esta seção descreve os critérios de integridade padrão para monitorar as VMs do Windows e Linux do Azure. Todos os critérios de integridade são pré-configurados para enviar um alerta quando detectam uma condição não íntegra.
 
-| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operator | Limiar | Alertar no estado | Severity | Categoria da carga de trabalho | 
+| Nome do monitor | Frequência (min) | Duração de Lookback (min) | Operador | Os | Alertar no estado | Gravidade | Categoria da carga de trabalho | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
 | Disco lógico online | 5 | 15 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
 | Espaço livre em disco lógico | 5 | 15 | < | 200 MB (aviso)<br> 100 MB (crítico) | Aviso | Sev1<br> Sev2 | Linux | 
@@ -44,9 +44,9 @@ Esta seção descreve os critérios de integridade padrão para monitorar as VMs
 | % De espaço livre no disco lógico | 5 | 15 | < | 5% | Crítico | Sev1 | Linux | 
 | Status do adaptador de rede | 5 | 15 | <> | 1 (verdadeiro) | Aviso | Sev2 | Linux | 
 | Memória de megabytes disponíveis do sistema operacional | 5 | 10 | < | 2,5 MB | Crítico | Sev1 | Linux | 
-| Média de disco Disco seg/leitura | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
-| Média de disco Disco seg/transferência | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
-| Média de disco Disco seg/escritas | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Média de disco s/leitura de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Média de disco s/transferência de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
+| Média de disco s/gravação de disco | 5 | 25 | > | 0,05 s | Crítico | Sev1 | Linux | 
 | Status do disco | 5 | 25 | <> | 1 (verdadeiro) | Crítico | Sev1 | Linux | 
 | Porcentagem total de tempo do processador do sistema operacional | 5 | 10 | >= | 95% | Crítico | Sev1 | Linux | 
 | Porcentagem de utilização total da CPU | 5 | 10 | >= | 95% | Crítico | Sev1 | Windows | 
@@ -105,7 +105,7 @@ Selecionar o estado ao lado do componente abrirá a experiência de diagnóstico
 
 Os Estados de integridade definidos para uma VM são descritos na tabela a seguir:
 
-|Ícone |Estado de funcionamento |Significado |
+|Cone |Estado de integridade |Significado |
 |-----|-------------|---------------|
 | |Bom estado de funcionamento |A VM está dentro das condições de integridade definidas. Esse estado indica que não há nenhum problema detectado e a VM está funcionando normalmente. Com um monitor de rollup pai, a integridade acumula e reflete o estado de melhor caso ou o pior caso do filho.|
 | |Crítico |O estado não está dentro da condição de integridade definida, indicando que um ou mais problemas críticos foram detectados. Esses problemas devem ser resolvidos para restaurar a funcionalidade normal. Com um monitor de rollup pai, o estado de integridade acumula e reflete o estado de melhor caso ou pior caso do filho.|
@@ -117,7 +117,7 @@ Um estado de integridade desconhecido pode ser causado pelos seguintes problemas
 - O agente foi reconfigurado e não fornece mais relatórios para o espaço de trabalho especificado quando Azure Monitor para VMs foi habilitado. Para configurar o agente para relatar ao espaço de trabalho, consulte [adicionando ou removendo um espaço de trabalho](../platform/agent-manage.md#adding-or-removing-a-workspace).
 - A VM foi excluída.
 - O espaço de trabalho associado a Azure Monitor para VMs foi excluído. Você pode recuperar o espaço de trabalho se tiver benefícios de suporte Premier. Vá para [Premier](https://premier.microsoft.com/) e abra uma solicitação de suporte.
-- As dependências da solução foram excluídas. Para reabilitar as soluções ServiceMap e InfrastructureInsights em seu espaço de trabalho Log Analytics, reinstale essas soluções usando o [modelo Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-and-infrastructureinsights-solutions). Ou use a opção Configurar espaço de trabalho encontrada na guia introdução.
+- As dependências da solução foram excluídas. Para reabilitar as soluções ServiceMap e InfrastructureInsights em seu espaço de trabalho Log Analytics, reinstale a solução ServiceMap usando o [modelo Azure Resource Manager](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution). Para reinstalar a solução InfastructureInsights, vminsights@microsoft.com de email. 
 - A VM foi desligada.
 - O serviço de VM do Azure está indisponível ou a manutenção está sendo executada.
 - O [limite de retenção ou dados diário](../platform/manage-cost-storage.md) do espaço de trabalho foi atingido.
@@ -214,13 +214,13 @@ Todos os critérios de integridade definidos para um componente, como disco lóg
 
 Além disso, a categoria de critérios pode ser vista ao lado da coluna **critérios de integridade** . Se os critérios não corresponderem à categoria selecionada, uma mensagem informando **que nenhum critério de integridade disponível para a categoria selecionada** aparecerá na coluna **critérios de integridade** .
 
-O estado de um critério de integridade é definido por um dos quatro tipos: **Crítico**, de **aviso**, **íntegro**e **desconhecido**. Os três primeiros são configuráveis, o que significa que você pode modificar os valores de limite dos monitores diretamente no painel de configuração de **critérios de integridade** . Isso também é possível usando a Azure Monitor [operação do monitor de atualização](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)da API REST. **Desconhecido** não é configurável e está reservado para cenários específicos.
+O estado de um critério de integridade é definido por um dos quatro tipos: **crítico**, **aviso**, **íntegro**e **desconhecido**. Os três primeiros são configuráveis, o que significa que você pode modificar os valores de limite dos monitores diretamente no painel de configuração de **critérios de integridade** . Isso também é possível usando a Azure Monitor [operação do monitor de atualização](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update)da API REST. **Desconhecido** não é configurável e está reservado para cenários específicos.
 
 A página **diagnóstico de integridade** tem três seções principais:
 
-* Modelo do Componente
+* Modelo de componente
 * Critérios de Estado de Funcionamento
-* Alterações de Estado
+* Alterações de estado
 
 ![Seções da página diagnóstico de integridade](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -282,7 +282,7 @@ As três colunas são interligadas entre si. Quando você seleciona uma instânc
 
 Por exemplo, se você selecionar *disco-1 D:* na lista em **modelo de componente**, **critérios de integridade** filtros para *disco-1D:* e **alterações de estado** mostrarão a alteração de estado com base na disponibilidade do *disco-1 D:* .
 
-Para ver um estado de integridade atualizado, você pode atualizar a página de diagnóstico de integridade selecionando o link **Atualizar** . Se houver uma atualização para o estado de integridade do critério de integridade com base no intervalo de sondagem predefinido, essa tarefa permitirá que você evite aguardar e reflita o estado de integridade mais recente. O **estado dos critérios de integridade** é um filtro que permite o escopo dos resultados com base no estado de integridade selecionado: Íntegro, aviso, crítico, desconhecido e tudo. A hora da **última atualização** no canto superior direito representa a última vez em que a página de diagnóstico de integridade foi atualizada.
+Para ver um estado de integridade atualizado, você pode atualizar a página de diagnóstico de integridade selecionando o link **Atualizar** . Se houver uma atualização para o estado de integridade do critério de integridade com base no intervalo de sondagem predefinido, essa tarefa permitirá que você evite aguardar e reflita o estado de integridade mais recente. O **estado dos critérios de integridade** é um filtro que permite o escopo dos resultados com base no estado de integridade selecionado: íntegro, aviso, crítico, desconhecido e todos. A hora da **última atualização** no canto superior direito representa a última vez em que a página de diagnóstico de integridade foi atualizada.
 
 ## <a name="alerts"></a>Alertas
 
@@ -302,16 +302,16 @@ Os alertas de outros tipos de recursos ou serviços não devem ser incluídos ne
 
 Você pode filtrar essa exibição selecionando valores nos menus suspensos na parte superior da página.
 
-|Coluna |Descrição |
+|Column |Descrição |
 |-------|------------|
-|Subscription |Selecione uma subscrição do Azure. Somente os alertas na assinatura selecionada são incluídos na exibição. |
+|Subscrição |Selecione uma subscrição do Azure. Somente os alertas na assinatura selecionada são incluídos na exibição. |
 |Grupo de Recursos |Selecione um único grupo de recursos. Somente os alertas com destinos no grupo de recursos selecionado são incluídos na exibição. |
 |Tipo de recurso |Selecione um ou mais tipos de recurso. Por padrão, somente alertas de **máquinas virtuais** de destino são selecionados e incluídos nessa exibição. Esta coluna só estará disponível depois que um grupo de recursos tiver sido especificado. |
-|Resource |Selecione um recurso. Somente os alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
-|Severity |Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
-|Condição do Monitor |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
-|Estado de alerta |Selecione um estado de alerta, **novo**, **reconhecer**, **fechado**ou **todos** para incluir alertas de todos os Estados. |
-|Monitorizar serviço |Selecione um serviço ou selecione **todos** para incluir todos os serviços. Somente os alertas do VM insights têm suporte para esse recurso.|
+|Recurso |Selecione um recurso. Somente os alertas com esse recurso como um destino são incluídos na exibição. Esta coluna só estará disponível depois que um tipo de recurso tiver sido especificado. |
+|Gravidade |Selecione uma severidade de alerta ou selecione **tudo** para incluir alertas de todas as severidades. |
+|Condição do monitor |Selecione uma condição de monitor para filtrar alertas se eles tiverem sido acionados ou resolvidos pelo sistema se a condição não estiver mais ativa. Ou selecione **todos** para incluir alertas de todas as condições. |
+|Estado do alerta |Selecione um estado de alerta, **novo**, **reconhecer**, **fechado**ou **todos** para incluir alertas de todos os Estados. |
+|Monitorar serviço |Selecione um serviço ou selecione **todos** para incluir todos os serviços. Somente os alertas do VM insights têm suporte para esse recurso.|
 |Intervalo de tempo| Somente os alertas acionados na janela de tempo selecionada são incluídos na exibição. Os valores com suporte são a última hora, as últimas 24 horas, os últimos 7 dias e os últimos 30 dias. |
 
 Quando você seleciona um alerta, a página de **detalhes do alerta** é exibida. Esta página fornece detalhes do alerta e permite que você altere seu estado.
@@ -438,7 +438,8 @@ O Azure Monitor para VMs Health dá suporte a notificações de SMS e email quan
     }
     ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
+
 - Para saber mais sobre dependências de aplicativo descobertas, consulte [exibir mapa de Azure monitor para VMs](vminsights-maps.md).

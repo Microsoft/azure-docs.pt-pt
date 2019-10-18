@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com PandaDoc | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e PandaDoc.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o PandaDoc | Microsoft Docs'
+description: Saiba como configurar o logon único entre o Azure Active Directory e o PandaDoc.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -13,163 +13,153 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/13/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0c8359e568fb8bbf134ec1ad3b105b061dc9d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c1dcc1103b3c5f77bd5df52d70d35442235e8ea
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67108330"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532968"
 ---
-# <a name="tutorial-integrate-pandadoc-with-azure-active-directory"></a>Tutorial: Integrar PandaDoc com o Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pandadoc"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o PandaDoc
 
-Neste tutorial, irá aprender como integrar PandaDoc com o Azure Active Directory (Azure AD). Quando integrar PandaDoc com o Azure AD, pode:
+Neste tutorial, você aprenderá a integrar o PandaDoc com o Azure Active Directory (Azure AD). Ao integrar o PandaDoc ao Azure AD, você pode:
 
-* Controlar no Azure AD que tenha acesso ao PandaDoc.
-* Permita que os utilizadores ser automaticamente sessão iniciada para PandaDoc com as suas contas do Azure AD.
-* Gira as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso ao PandaDoc.
+* Habilite seus usuários a serem conectados automaticamente ao PandaDoc com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Para saber mais sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver uma subscrição, pode obter a versão de avaliação gratuita de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
-* PandaDoc início de sessão único (SSO) ativado na subscrição.
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* Assinatura habilitada para SSO (logon único) do PandaDoc.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configurar e testar o SSO do Azure AD num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta PandaDoc **SP e IDP** iniciada SSO
-* Suporta PandaDoc **Just In Time** aprovisionamento de utilizadores
+* O PandaDoc dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* O PandaDoc dá suporte ao provisionamento **de usuário just in time**
 
-## <a name="adding-pandadoc-from-the-gallery"></a>Adicionando PandaDoc da Galeria
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
-Para configurar a integração do PandaDoc com o Azure AD, terá de adicionar PandaDoc a partir da Galeria à sua lista de aplicações de SaaS geridas.
+## <a name="adding-pandadoc-from-the-gallery"></a>Adicionando o PandaDoc da Galeria
+
+Para configurar a integração do PandaDoc ao Azure AD, você precisará adicionar o PandaDoc da Galeria à sua lista de aplicativos SaaS gerenciados.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. No painel de navegação esquerdo, selecione o **do Azure Active Directory** serviço.
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **todos os aplicativos**.
-1. Para adicionar nova aplicação, selecione **nova aplicação**.
-1. Na **adicionar a partir da galeria** secção, escreva **PandaDoc** na caixa de pesquisa.
-1. Selecione **PandaDoc** do painel de resultados e, em seguida, adicionar a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **PandaDoc** na caixa de pesquisa.
+1. Selecione **PandaDoc** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on-for-pandadoc"></a>Configurar e testar o logon único do Azure AD para o PandaDoc
 
-Configurar e testar o SSO do Azure AD com PandaDoc com um utilizador de teste **B.Simon**. Para SSO para funcionar, tem de estabelecer uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado no PandaDoc.
+Configure e teste o SSO do Azure AD com o PandaDoc usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado no PandaDoc.
 
-Para configurar e testar o SSO do Azure AD com PandaDoc, conclua os seguintes blocos de construção:
+Para configurar e testar o SSO do Azure AD com o PandaDoc, conclua os seguintes blocos de construção:
 
-1. **[Configurar o SSO do Azure AD](#configure-azure-ad-sso)**  para permitir aos utilizadores utilizar esta funcionalidade.
-2. **[Configurar o PandaDoc SSO](#configure-pandadoc-sso)**  para configurar as definições de SSO no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  para testar o Azure AD início de sessão único com B.Simon.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  para ativar B.Simon utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste PandaDoc](#create-pandadoc-test-user)**  para ter um equivalente de B.Simon no PandaDoc que está ligado à representação de utilizador do Azure AD.
-6. **[Testar o SSO](#test-sso)**  para verificar se a configuração funciona.
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO do PandaDoc](#configure-pandadoc-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    1. **[Criar usuário de teste do PandaDoc](#create-pandadoc-test-user)** – para ter um equivalente de B. Simon em PandaDoc que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-Siga estes passos para ativar o SSO do Azure AD no portal do Azure.
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na **PandaDoc** página de integração de aplicativo, encontrar o **gerir** secção e selecione **início de sessão único**.
-1. Sobre o **selecionar um método de início de sessão único** , selecione **SAML**.
-1. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique no ícone de edição/caneta para **configuração básica de SAML** para editar as definições.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **PandaDoc** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-   ![Editar a configuração SAML do básico](common/edit-urls.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-1. Sobre o **configuração básica de SAML** secção, o utilizador não tem de realizar qualquer passo como a aplicação já está pré-integrada com o Azure.
+1. Na **configuração básica do SAML** section o aplicativo é pré-configurado no modo  initiated **IDP**e as URLs necessárias já estão preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando em **salvar** button.
 
-    ![PandaDoc domínio e URLs únicas início de sessão em informações](common/preintegrated.png)
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-1. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+    Na caixa de texto **URL de logon** , digite uma URL: `https://app.pandadoc.com/sso-login/`
 
-    ![PandaDoc domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
+1. O aplicativo PandaDoc espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão
 
-    Na **URL de início de sessão** caixa de texto, escreva um URL:  `https://app.pandadoc.com/sso-login/`
+    ![imagem](common/edit-attribute.png)
 
-1. Aplicação de PandaDoc espera que as asserções SAML num formato específico. Configure as seguintes declarações para esta aplicação. Pode gerir os valores destes atributos do **atributos de utilizador** secção na página de integração de aplicações. Sobre o **definido no início de sessão único com o SAML** página, clique em **editar** botão para abrir **atributos de utilizador** caixa de diálogo.
+1. Além de acima, o aplicativo PandaDoc espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
 
-    ![image](common/edit-attribute.png)
-
-1. No **afirmações de utilizador** secção sobre o **atributos de utilizador** caixa de diálogo, editar as afirmações utilizando **ícone de edição** ou adicionar as afirmações utilizando **Adicionar nova afirmação**para configurar o atributo de token SAML conforme mostrado na imagem acima e execute os seguintes passos: 
-
-    | Name | Espaço de Nomes  |
+    | Nome | Namespace  |
     | ---------------| ---------|
-    | FirstName | user.givenname |
-    | LastName | user.surname |
+    | firstName | User. excertoname |
+    | lastName | User. sobrenome |
 
-    a. Clique em **Adicionar nova afirmação** para abrir o **afirmações de utilizador de gerir** caixa de diálogo.
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    b. Na **nome** caixa de texto, escreva o nome de atributo apresentado para essa linha.
+    ![O link de download do certificado](common/certificatebase64.png)
 
-    c. Deixe o **espaço de nomes** em branco.
+1. Na seção **Configurar PandaDoc** , copie as URLs apropriadas com base em seu requisito.
 
-    d. Selecione a origem de dado **atributo**.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    e. Partir do **atributo de origem** lista, digite o valor de atributo apresentado para essa linha.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    f. Clique em **Ok**
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    g. Clique em **Guardar**.
-
-1. No **definir a segurança de início de sessão único com o SAML** na página a **certificado de assinatura SAML** secção, encontrar **certificado (Base64)** e selecione **transferir** para transferir o certificado e guarde-o no seu computador.
-
-   ![O link de download de certificado](common/certificatebase64.png)
-
-1. Sobre o **configurar PandaDoc** secção, copie o URL adequado com base nos seus requisitos.
-
-   ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-### <a name="configure-pandadoc-sso"></a>Configure PandaDoc SSO
-
-Para configurar o início de sessão único num **PandaDoc** lado, terá de enviar o transferido **certificado (Base64)** e adequadas copiados URLs a partir do portal do Azure para [equipa de suporte de PandaDoc](mailto:support@pandadoc.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
-
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
-
-Nesta secção, irá criar um utilizador de teste no portal do Azure chamado B.Simon.
-
-1. No painel à esquerda no portal do Azure, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
-1. Na **utilizador** propriedades, siga estes passos:
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
-   1. Na **nome de utilizador** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
-   1. Selecione o **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na **palavra-passe** caixa.
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta secção, irá ativar B.Simon utilizar o Azure início de sessão único ao conceder acesso para PandaDoc.
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao PandaDoc.
 
-1. No portal do Azure, selecione **aplicações empresariais**e, em seguida, selecione **todos os aplicativos**.
-1. Na lista de aplicações, selecione **PandaDoc**.
-1. Na página de descrição geral da aplicação, localize a **Manage** secção e selecione **utilizadores e grupos**.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **PandaDoc**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-1. Selecione **adicionar utilizador**, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-    ![A ligação de adicionar utilizador](common/add-assign-user.png)
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-1. Na **utilizadores e grupos** caixa de diálogo, selecione **B.Simon** a partir da lista de utilizadores, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na asserção de SAML, no **selecionar função** caixa de diálogo, selecione a função adequada para o utilizador a partir da lista e, em seguida, clique nas **selecione** na parte inferior do ecrã.
-1. Na **adicionar atribuição** caixa de diálogo, clique nas **atribuir** botão.
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-### <a name="create-pandadoc-test-user"></a>Criar utilizador de teste PandaDoc
+## <a name="configure-pandadoc-sso"></a>Configurar o SSO do PandaDoc
 
-Nesta secção, um usuário chamado B.Simon é criado na PandaDoc. PandaDoc suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir no PandaDoc, é criado um novo após a autenticação.
+Para configurar o logon único no lado do **PandaDoc** , é necessário enviar o **certificado (Base64)** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do PandaDoc](mailto:support@pandadoc.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
-### <a name="test-sso"></a>Teste SSO
+### <a name="create-pandadoc-test-user"></a>Criar usuário de teste do PandaDoc
 
-Ao selecionar o mosaico PandaDoc no painel de acesso, deve ser automaticamente sessão iniciada no PandaDoc para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Nesta seção, um usuário chamado B. Simon é criado em PandaDoc. O PandaDoc dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir no PandaDoc, um novo será criado após a autenticação.
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="test-sso"></a>Testar SSO 
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+Ao clicar no bloco do PandaDoc no painel de acesso, você deverá ser conectado automaticamente ao PandaDoc para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente o PandaDoc com o Azure AD](https://aad.portal.azure.com/)
+

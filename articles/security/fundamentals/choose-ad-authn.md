@@ -9,18 +9,14 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 22a5a2e157c0b2095673e75e7a3bc9ccb80f8ffd
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4de4da63abea1c4f6ab006ffd65a58ea0e34c015
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "69997807"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529391"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para sua solução de identidade híbrida Azure Active Directory 
-
-Este artigo inicia uma série de artigos que ajudam as organizações a implementar uma solução de identidade híbrida completa do Azure Active Directory (Azure AD). Essa solução foi descrita como a estrutura de [transformação digital de identidade híbrida](https://aka.ms/aadframework). Ele abrange os resultados de negócios e as metas às quais as organizações podem se concentrar para implementar uma solução de identidade híbrida robusta e segura. 
-
-O primeiro resultado comercial da estrutura verifica os requisitos para que as organizações protejam o processo de autenticação quando os usuários acessam aplicativos de nuvem. A primeira meta de negócios no resultado comercial seguro da autenticação é a capacidade dos usuários de entrar em aplicativos de nuvem usando seus nomes de usuário e senhas locais. Esse processo de entrada e autenticação torna tudo na nuvem possível.
 
 Escolher o método de autenticação correto é a primeira preocupação para as organizações que desejam mover seus aplicativos para a nuvem. Não tome essa decisão levemente, pelos seguintes motivos:
 

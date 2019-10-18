@@ -1,6 +1,6 @@
 ---
-title: Criar relatórios interativos com pastas de trabalho do Azure Monitor | Documentos da Microsoft
-description: Simplifica a complexa relatórios com pastas de trabalho parametrizadas predefinidas e personalizadas para o Azure Monitor para as VMs.
+title: Criar relatórios interativos com Azure Monitor pastas de trabalho | Microsoft Docs
+description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas para Azure Monitor para VMs.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -11,45 +11,45 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/05/2019
+ms.date: 10/15/2019
 ms.author: magoedte
-ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 9e1427ce8cd83b49f4b9b39fa82eff1e8a32cd10
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61387282"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515427"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com pastas de trabalho do Azure Monitor
+# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Criar relatórios interativos com Azure Monitor pastas de trabalho
 
-Pastas de trabalho do texto, de combinar [registar as consultas](../log-query/query-language.md), métricas e parâmetros em relatórios interativos avançados. Pastas de trabalho são editáveis por quaisquer outros membros da Equipe que têm acesso aos mesmos recursos do Azure.
+As pastas de trabalho combinam texto, [consultas de log](../log-query/query-language.md), métricas e parâmetros em relatórios interativos sofisticados. As pastas de trabalho são editáveis por outros membros da equipe que têm acesso aos mesmos recursos do Azure.
 
-Pastas de trabalho são úteis para cenários, tais como:
+As pastas de trabalho são úteis para cenários como:
 
-* Explorar a utilização da sua máquina virtual, quando não sabe de antemão as métricas de interesse: Utilização da CPU, espaço em disco, memória, as dependências de rede, etc. Ao contrário de outras ferramentas de análise de utilização, as pastas de trabalho permitem-lhe combinar vários tipos de visualizações e análises, tornando-os excelentes para esse tipo de exploração de forma livre.
-* Para a sua equipa, que explica como uma VM recentemente aprovisionada está sendo executada, mostrando as métricas dos principais contadores e outros eventos de registo.
-* Compartilhamento dos resultados de uma experimentação de redimensionamento da sua VM com outros membros da sua equipa. Pode explicar os objetivos para a experimentação com o texto, em seguida, mostrar cada utilização de consultas de análises e métrica utilizada para avaliar a experimentação, juntamente com claras explicativos para se cada uma foi acima ou abaixo-soltar.
-* O impacto de uma indisponibilidade de relatórios sobre a utilização da sua VM, a combinação de dados, a explicação de texto e uma discussão das próximas etapas para evitar interrupções no futuro.
+* Explorando o uso de sua máquina virtual quando você não conhece as métricas de interesse com antecedência: utilização da CPU, espaço em disco, memória, dependências de rede etc. Ao contrário de outras ferramentas de análise de uso, as pastas de trabalho permitem combinar vários tipos de visualizações e análises, tornando-as excelentes para esse tipo de exploração de forma livre.
+* Explicando à sua equipe como uma VM provisionada recentemente está sendo executada, mostrando métricas para contadores-chave e outros eventos de log.
+* Compartilhando os resultados de um teste de redimensionamento de sua VM com outros membros de sua equipe. Você pode explicar as metas para o experimento com texto e, em seguida, mostrar cada métrica de uso e as consultas de análise usadas para avaliar o experimento, juntamente com as chamadas claras para se cada métrica estava acima ou abaixo do destino.
+* Relatar o impacto de uma interrupção no uso de sua VM, combinar dados, explicação de texto e uma discussão das próximas etapas para evitar interrupções no futuro.
 
-Monitor do Azure para VMs inclui várias pastas de trabalho para começar e a tabela seguinte resume-los.
+O Azure Monitor para VMs inclui várias pastas de trabalho para você começar e a tabela a seguir as resume.
 
-| Pasta de trabalho | Descrição | Scope |
+| Pasta | Descrição | Âmbito |
 |----------|-------------|-------|
-| Desempenho | Fornece uma versão personalizável de nossa lista de N principais e exibição de gráficos numa única pasta de trabalho que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
-| Contadores de desempenho | Uma vista de gráfico de Top N num grande conjunto de contadores de desempenho. | Em escala |
-| Ligações | As ligações fornecem uma visão detalhada das ligações de entrada e saídas suas VMS monitorizadas. | Em escala |
-| Portas Ativas | Fornece uma lista dos processos que tenha associado às portas em VMs monitorizadas e da respetiva atividade no período de tempo escolhido. | Em escala |
-| Portas Abertas | Fornece o número de portas abertas nas suas VMs monitorizadas e os detalhes nos abrir portas. | Em escala |
-| Ligações com Falhas | Mostra a contagem de ligações com falhas nas suas VMs monitorizadas, a tendência de falha, e se a percentagem de falhas está a aumentar ao longo do tempo. | Em escala |
-| Segurança e Auditoria | Uma análise do tráfego TCP/IP que relate ligações geral, ligações maliciosas, onde os pontos de extremidade IP residem globalmente.  Para ativar todas as funcionalidades, terá de ativar a deteção de segurança. | Em escala |
-| Tráfego TCP | Um relatório classificado para as suas VMs monitorizadas e respetiva rede enviado, recebido e total de tráfego numa grade e apresentados como uma linha de tendência. | Em escala |
-| Comparação de Tráfego | Este pastas de trabalho permite-lhe comparar tendências de tráfego de rede para uma única máquina ou um grupo de máquinas. | Em escala |
-| Desempenho | Fornece uma versão personalizável de nossa vista de desempenho que aproveita todos os contadores de desempenho do Log Analytics que ativou. | VM única | 
-| Ligações | As ligações fornecem uma visão detalhada das ligações de entrada e saídas da VM. | VM única |
+| Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
+| Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
+| Ligações | Conexões fornece uma exibição detalhada das conexões de entrada e saída de suas VMs monitoradas. | Em escala |
+| Portas Ativas | Fornece uma lista dos processos que foram vinculados às portas nas VMs monitoradas e suas atividades no período de tempo escolhido. | Em escala |
+| Portas Abertas | Fornece o número de portas abertas em suas VMs monitoradas e os detalhes sobre essas portas abertas. | Em escala |
+| Ligações com Falhas | Exiba a contagem de conexões com falha em suas VMs monitoradas, a tendência de falha e se a porcentagem de falhas estiver aumentando com o passar do tempo. | Em escala |
+| Segurança e Auditoria | Uma análise de seu tráfego TCP/IP que relata sobre conexões gerais, conexões mal-intencionadas, em que os pontos de extremidade de IP residem globalmente.  Para habilitar todos os recursos, será necessário habilitar a detecção de segurança. | Em escala |
+| Tráfego TCP | Um relatório classificado para suas VMs monitoradas e seus tráfegos de rede enviados, recebidos e totais em uma grade e exibidos como uma linha de tendência. | Em escala |
+| Comparação de Tráfego | Essas pastas de trabalho permitem comparar as tendências de tráfego de rede para um único computador ou um grupo de computadores. | Em escala |
+| Desempenho | Fornece uma versão personalizável do nosso modo de exibição de desempenho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou. | VM única | 
+| Ligações | Conexões fornece uma exibição detalhada das conexões de entrada e saída de sua VM. | VM única |
  
-## <a name="starting-with-a-template-or-saved-workbook"></a>Começando com um modelo ou de pasta de trabalho guardada
+## <a name="starting-with-a-template-or-saved-workbook"></a>Iniciando com um modelo ou pasta de trabalho salva
 
-Uma pasta de trabalho é constituída por secções que consiste de forma independente editáveis gráficos, tabelas, texto e os controles de entrada. Para compreender melhor as pastas de trabalho, vamos começar abrindo um modelo e como criar uma pasta de trabalho personalizada. 
+Uma pasta de trabalho é composta por seções que consistem em gráficos, tabelas, texto e controles de entrada independentemente de serem editados. Para entender melhor as pastas de trabalho, vamos começar abrindo um modelo e percorrer a criação de uma pasta de trabalho personalizada. 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -57,87 +57,87 @@ Uma pasta de trabalho é constituída por secções que consiste de forma indepe
 
 3. Na lista, selecione uma VM.
 
-4. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
+4. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
 
-5. Na página de informações VM, selecione **desempenho** ou **Maps** separador e, em seguida, selecione **pastas de trabalho do modo de exibição** da ligação na página. 
+5. Na página de informações da VM, selecione a guia **desempenho** ou **mapas** e, em seguida, selecione **exibir pastas de trabalho** no link na página. 
 
-    ![Captura de ecrã de navegação para pastas de trabalho](media/vminsights-workbooks/workbook-option-01.png)
+    ![Captura de tela de navegação para pastas de trabalho](media/vminsights-workbooks/workbook-option-01.png)
 
-6. Na lista pendente, selecione **vá para a galeria** na parte inferior da lista.
+6. Na lista suspensa, selecione **ir para a Galeria** na parte inferior da lista.
 
-    ![Captura de ecrã da pasta de trabalho na lista pendente](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
+    ![Captura de tela da lista suspensa da pasta de trabalho](media/vminsights-workbooks/workbook-dropdown-gallery-01.png)
 
-    Ele inicia a Galeria de pasta de trabalho com um número de pastas de trabalho criados previamente para ajudar a começar.
+    Ele inicia a Galeria de pastas de trabalho com várias pastas de trabalho predefinidas para ajudá-lo a começar.
 
-7. Vamos começar com o **modelo predefinido**, que se encontra sob o cabeçalho **guia de introdução**.
+7. Começaremos com o **modelo padrão**, localizado no **início rápido**do título.
 
-    ![Captura de ecrã da Galeria de livro](media/vminsights-workbooks/workbook-gallery-01.png)
+    ![Captura de tela da Galeria de pastas de trabalho](media/vminsights-workbooks/workbook-gallery-01.png)
 
-## <a name="editing-workbook-sections"></a>Edição de livro de secções
+## <a name="editing-workbook-sections"></a>Editando seções da pasta de trabalho
 
-Pastas de trabalho tem dois modos: **modo de edição**, e **modo de leitura**. Quando a pasta de trabalho de modelo padrão é iniciado pela primeira vez, é aberto no **modo de edição**. Mostra todo o conteúdo da pasta de trabalho, inclusive todos os passos e parâmetros que caso contrário, estão ocultas. **Modo de leitura** apresenta uma vista de estilo do relatório simplificada. Modo de leitura permite-lhe abstrair a complexidade que se seguiu à criação de um relatório enquanto ainda tem o mecanismo subjacente apenas alguns cliques de distância quando necessário para modificação.
+As pastas de trabalho têm dois modos: **modo de edição**e **modo de leitura**. Quando a pasta de trabalho de modelo padrão é iniciada pela primeira vez, ela é aberta no **modo de edição**. Ele mostra todo o conteúdo da pasta de trabalho, incluindo quaisquer etapas e parâmetros ocultos. O **modo de leitura** apresenta uma exibição de estilo de relatório simplificada. O modo de leitura permite abstrair a complexidade que deu na criação de um relatório enquanto ainda tem a mecânica subjacente apenas alguns cliques quando necessário para modificação.
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/workbook-new-workbook-editor-01.png)
 
-1. Quando terminar uma seção de edição, clique em **feito editando** no canto inferior esquerdo da secção.
+1. Quando terminar de editar uma seção, clique em **edição concluída** no canto inferior esquerdo da seção.
 
-2. Para criar um duplicado de uma seção, clique a **clonar esta secção** ícone. A criação de secções duplicadas é uma ótima maneira de iterar numa consulta sem perder iterações anteriores.
+2. Para criar uma duplicata de uma seção, clique no ícone **clonar esta seção** . A criação de seções duplicadas é uma ótima maneira de iterar em uma consulta sem perder as iterações anteriores.
 
-3. Para mover para cima uma seção numa pasta de trabalho, clique nas **mover para cima** ou **mover para baixo** ícone.
+3. Para mover uma seção para cima em uma pasta de trabalho, clique no ícone **mover para cima** ou **mover para baixo** .
 
-4. Para remover permanentemente uma secção, clique a **remover** ícone.
+4. Para remover uma seção permanentemente, clique no ícone **remover** .
 
-## <a name="adding-text-and-markdown-sections"></a>Adicionar texto e secções do Markdown
+## <a name="adding-text-and-markdown-sections"></a>Adicionando seções de texto e redução
 
-Adicionar títulos, explicações e comentários para os livros o ajuda a transformar um conjunto de tabelas e gráficos numa narrativa. Secções de texto no suporte de pastas de trabalho do [sintaxe de Markdown](https://daringfireball.net/projects/markdown/) para formatação de texto, como cabeçalhos, negrito, itálico e listas com marcas.
+Adicionar títulos, explicações e comentários às suas pastas de trabalho ajuda a transformar um conjunto de tabelas e gráficos em uma narração. As seções de texto em pastas de trabalho dão suporte à [sintaxe de redução](https://daringfireball.net/projects/markdown/) para formatação de texto, como títulos, negrito, itálico e listas com marcadores.
 
-Para adicionar uma secção de texto ao seu livro, utilize o **adicionar texto** botão na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+Para adicionar uma seção de texto à pasta de trabalho, use o botão **Adicionar texto** na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
 
-## <a name="adding-query-sections"></a>Adicionar as secções de consulta
+## <a name="adding-query-sections"></a>Adicionando seções de consulta
 
-![Secção de consulta em pastas de trabalho](media/vminsights-workbooks/005-workbook-query-section.png)
+![Seção de consulta em pastas de trabalho](media/vminsights-workbooks/005-workbook-query-section.png)
 
-Para adicionar a secção de consulta ao seu livro, utilize o **adicionar consulta** botão na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
+Para adicionar a seção de consulta à sua pasta de trabalho, use o botão **Adicionar consulta** na parte inferior da pasta de trabalho ou na parte inferior de qualquer seção.
 
-As secções de consulta são altamente flexíveis e podem ser utilizadas para responder a perguntas como:
+As seções de consulta são altamente flexíveis e podem ser usadas para responder a perguntas como:
 
-* Como foi a minha utilização da CPU durante o período de tempo mesmo como um aumento no tráfego de rede?
-* Qual era a tendência no espaço disponível no disco durante o mês passado?
-* Como muitas falhas de ligação de rede a minha VM experiência durante as últimas duas semanas? 
+* Qual a minha utilização da CPU durante o mesmo período de tempo que um aumento no tráfego de rede?
+* Qual foi a tendência no espaço em disco disponível no último mês?
+* Quantas falhas de conexão de rede tinham minha experiência de VM nas últimas duas semanas? 
 
-Também não está apenas limitadas a consulta do contexto da máquina virtual iniciada a pasta de trabalho de. Pode consultar em várias máquinas virtuais, como áreas de trabalho do Log Analytics, desde que tem a permissão de acesso a esses recursos.
+Você também não está limitado à consulta no contexto da máquina virtual da qual iniciou a pasta de trabalho. Você pode consultar entre várias máquinas virtuais, bem como Log Analytics espaços de trabalho, desde que tenha permissão de acesso a esses recursos.
 
-Para incluir dados de outras áreas de trabalho do Log Analytics ou de um específico Application Insights de aplicação com o **área de trabalho** identificador. Para saber mais sobre consultas entre recursos, consulte a [obter diretrizes oficiais](../log-query/cross-workspace-query.md).
+Para incluir dados de outros espaços de trabalho do Log Analytics ou de um aplicativo Application Insights específico usando o identificador do **espaço de trabalho** . Para saber mais sobre consultas entre recursos, consulte a [orientação oficial](../log-query/cross-workspace-query.md).
 
-### <a name="advanced-analytic-query-settings"></a>Definições de consulta de análise avançadas
+### <a name="advanced-analytic-query-settings"></a>Configurações avançadas de consulta analítica
 
-Cada secção tem suas próprias definições avançadas, que podem ser acedidas através das definições ![livros secção controles de edição](media/vminsights-workbooks/006-settings.png) ícone localizado à direita do **adicionar parâmetros** botão.
+Cada seção tem suas próprias configurações avançadas, que podem ser acessadas por meio das configurações ![Workbooks seção editando controles ](media/vminsights-workbooks/006-settings.png) ícone localizado à direita do botão **adicionar parâmetros** .
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/007-settings-expanded.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/007-settings-expanded.png)
 
 |         |          |
 | ---------------- |:-----|
-| **Largura personalizada**    | Faz com que um item um tamanho arbitrário, pelo que pode ajustar o número de itens numa única linha, permitindo-lhe organizar melhor seus gráficos e tabelas em relatórios interativos avançados.  |
-| **Condicionalmente visível** | Especifique para ocultar os passos com base num parâmetro quando no modo de leitura. |
-| **Exportar um parâmetro**| Permitir que uma linha selecionada na grelha ou gráfico para fazer com que os passos posteriores alterar os valores ou fiquem visíveis.  |
-| **Mostrar a consulta durante a edição não** | Apresenta a consulta acima do gráfico ou na tabela, mesmo quando no modo de leitura.
-| **Mostrar abrir no botão análise quando não a editar** | Adiciona o ícone de análise azul para o canto direito do gráfico para permitir o acesso de um clique.|
+| **Largura personalizada**    | Torna um item um tamanho arbitrário, para que você possa ajustar muitos itens em uma única linha, permitindo que você organize melhor seus gráficos e tabelas em relatórios interativos sofisticados.  |
+| **Condicionalmente visível** | Especifique para ocultar as etapas com base em um parâmetro no modo de leitura. |
+| **Exportar um parâmetro**| Permitir que uma linha selecionada na grade ou no gráfico cause etapas posteriores para alterar valores ou tornar-se visível.  |
+| **Mostrar consulta quando não estiver editando** | Exibe a consulta acima do gráfico ou tabela, mesmo quando estiver no modo de leitura.
+| **Mostrar botão abrir no Analytics quando não estiver editando** | Adiciona o ícone de análise azul ao canto direito do gráfico para permitir o acesso com um clique.|
 
-A maioria destas definições são bastante intuitiva, mas entender **exportar um parâmetro** é melhor examinar uma pasta de trabalho que utiliza essa funcionalidade.
+A maioria dessas configurações é bastante intuitiva, mas para entender a **exportação de um parâmetro** , é melhor examinar uma pasta de trabalho que usa essa funcionalidade.
 
-Uma das pastas de trabalho criados previamente - **tráfego TCP**, fornece informações sobre as métricas de ligação a partir de uma VM.
+Uma das pastas de trabalho predefinidas – **tráfego TCP**, fornece informações sobre métricas de conexão de uma VM.
 
-A primeira secção da pasta de trabalho baseia-se nos dados de consulta de registo. A segunda seção também se baseia nos dados de consulta de registo, mas a seleção de uma linha na primeira tabela interativamente irá atualizar o conteúdo dos gráficos:
+A primeira seção da pasta de trabalho é baseada em dados de consulta de log. A segunda seção também é baseada em dados de consulta de log, mas a seleção de uma linha na primeira tabela atualizará interativamente o conteúdo dos gráficos:
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/008-workbook-tcp-traffic.png)
 
-O comportamento é possível através da utilização do **quando um item é selecionado, exportar um parâmetro** definições, o que são ativadas na consulta de registo da tabela avançadas.
+O comportamento é possível por meio do uso de **quando um item é selecionado, exportar um parâmetro** configurações avançadas, que são habilitadas na consulta de log da tabela.
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/009-settings-export.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/009-settings-export.png)
 
-A segunda consulta de registo, em seguida, utiliza os valores exportados quando uma linha está selecionada para criar um conjunto de valores que, em seguida, são utilizados pelo cabeçalho de secção e gráficos. Se nenhuma linha for selecionada, ele oculta o cabeçalho de secção e gráficos. 
+A segunda consulta de log utiliza os valores exportados quando uma linha é selecionada para criar um conjunto de valores que são usados pelo cabeçalho e pelos gráficos da seção. Se nenhuma linha for selecionada, ela ocultará o cabeçalho e os gráficos da seção. 
 
-Por exemplo, o parâmetro oculto a segunda seção utiliza a seguinte referência da linha selecionada na grade:
+Por exemplo, o parâmetro Hidden na segunda seção usa a seguinte referência da linha selecionada na grade:
 
 ```
 VMConnection
@@ -146,58 +146,58 @@ VMConnection
 | summarize Sent = sum(BytesSent), Received = sum(BytesReceived) by bin(TimeGenerated, {TimeRange:grain})
 ```
 
-## <a name="adding-metrics-sections"></a>Adicionar as secções de métricas
+## <a name="adding-metrics-sections"></a>Adicionando seções de métricas
 
-As secções de métricas dão-lhe acesso total ao incorporar dados de métricas do Azure Monitor para os relatórios interativos. No Azure Monitor para as VMs, as pastas de trabalho criados previamente, normalmente, irão conter dados de consulta de análise, em vez de dados de métrica.  Pode optar por criar pastas de trabalho com dados de métrica, permitindo-lhe tirar partido das funcionalidades de ambos os tudo num único local. Também tem a capacidade para enviar dados de métrica de recursos em qualquer uma das subscrições que tem acesso.
+As seções de métricas oferecem acesso completo para incorporar Azure Monitor dados de métricas em seus relatórios interativos. Em Azure Monitor para VMs, as pastas de trabalho predefinidas normalmente conterão dados de consulta analítica em vez de dados de métrica.  Você pode optar por criar pastas de trabalho com dados de métrica, permitindo que você aproveite ao máximo os dois recursos em um só lugar. Você também tem a capacidade de extrair dados de métrica de recursos em qualquer uma das assinaturas às quais você tem acesso.
 
-Eis um exemplo de dados de máquina virtual que está a ser extraídos numa pasta de trabalho para fornecer uma visualização de grade de desempenho de CPU:
+Aqui está um exemplo de dados da máquina virtual que estão sendo obtidos em uma pasta de trabalho para fornecer uma visualização em grade do desempenho da CPU:
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/010-metrics-grid.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/010-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Adicionar parâmetro secções
+## <a name="adding-parameter-sections"></a>Adicionando seções de parâmetro
 
-Parâmetros de pasta de trabalho permitem-lhe alterar valores na pasta de trabalho sem ter de editar manualmente as secções de consulta ou de texto. Isso remove a necessidade de que precisam de compreender a linguagem de consulta do analytics subjacente e expandindo imensamente o público-alvo potencial de relatórios com base no livro.
+Os parâmetros da pasta de trabalho permitem alterar valores na pasta de trabalho sem precisar editar manualmente as seções de consulta ou texto. Isso elimina a necessidade de entender a linguagem de consulta de análise subjacente e expandir muito o possível público de relatórios baseados em pastas de trabalho.
 
-Os valores dos parâmetros são substituídos na consulta, texto ou outras seções de parâmetro ao colocar o nome do parâmetro entre chavetas, como ``{parameterName}``. Os nomes dos parâmetros estão limitados a regras semelhantes como identificadores de JavaScript, caracteres alfabéticos ou carateres de sublinhado, seguidos por carateres alfanuméricos ou carateres de sublinhado. Por exemplo, **a1** é permitido, mas **1a** não é permitida.
+Os valores dos parâmetros são substituídos em seções de consulta, texto ou outro parâmetro, colocando o nome do parâmetro entre chaves, como ``{parameterName}``. Os nomes de parâmetro são limitados a regras semelhantes como identificadores de JavaScript, caracteres alfabéticos ou sublinhados, seguidos de caracteres alfanuméricos ou sublinhados. Por exemplo, **a1** é permitido, mas **1a** não é permitido.
 
-Os parâmetros são lineares, começando do início de uma pasta de trabalho e que flui para baixo para passos posteriores.  Parâmetros declarados posteriormente numa pasta de trabalho podem substituir parâmetros que foram declarados anteriormente. Isso também permite que os parâmetros que usar consultas para acessar os valores de parâmetros definidos anteriormente. No passo de um parâmetro em si, os parâmetros são também lineares, à esquerda para a direita, em que parâmetros para a direita podem depender de um parâmetro que declarei anteriormente nesse mesmo passo.
+Os parâmetros são lineares, começando na parte superior de uma pasta de trabalho e fluindo para etapas posteriores.  Parâmetros declarados posteriormente em uma pasta de trabalho podem substituir parâmetros que foram declarados anteriormente. Isso também permite que os parâmetros que usam consultas acessem os valores dos parâmetros definidos anteriormente. Dentro da própria etapa de um parâmetro, os parâmetros também são lineares, da esquerda para a direita, em que os parâmetros à direita podem depender de um parâmetro declarado anteriormente na mesma etapa.
  
-Existem quatro tipos diferentes de parâmetros, que são atualmente suportados:
+Há quatro tipos diferentes de parâmetros, que atualmente têm suporte:
 
 |                  |      |
 | ---------------- |:-----|
-| **Texto**    | Permite ao utilizador editar uma caixa de texto e, opcionalmente, pode fornecer uma consulta para preencher o valor predefinido. |
-| **Lista pendente** | Permite ao utilizador escolher a partir de um conjunto de valores. |
-| **Seletor de intervalo de tempo**| Permite ao utilizador escolher a partir de um conjunto predefinido de valores de intervalo de tempo ou escolha entre mais de um intervalo de tempo personalizado.|
-| **Seleccionador de recursos** | Permite ao utilizador escolher entre os recursos selecionados para a pasta de trabalho.|
+| **Text** (Texto)    | Permite que o usuário edite uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
+| **Lista suspensa** | Permite que o usuário escolha entre um conjunto de valores. |
+| **Seletor de intervalo de tempo**| Permite que o usuário escolha entre um conjunto predefinido de valores de intervalo de tempo ou escolha um intervalo de tempo personalizado.|
+| **Seletor de recursos** | Permite que o usuário escolha entre os recursos selecionados para a pasta de trabalho.|
 
-### <a name="using-a-text-parameter"></a>Com um parâmetro de texto
+### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 
-O valor de um usuário digitar na caixa de texto é substituído diretamente na consulta, sem carateres de escape ou aspas. Se o valor que precisa é uma cadeia de caracteres, a consulta deve ter o parâmetro entre aspas (como **'{parameter}'** ).
+O valor que um usuário digita na caixa de texto é substituído diretamente na consulta, sem escape ou quot. Se o valor necessário for uma cadeia de caracteres, a consulta deverá ter aspas em volta do parâmetro (como **' {Parameter} '** ).
 
-O parâmetro de texto permite que o valor numa caixa de texto a ser utilizado em qualquer lugar. Pode ser um nome de tabela, nome da coluna, nome da função, operador, etc.  O tipo de parâmetro de texto tem uma definição **obter o valor predefinido de consulta do analytics**, que permite que o autor do livro para usar uma consulta para preencher o valor predefinido para essa caixa de texto.
+O parâmetro text permite que o valor em uma caixa de texto seja usado em qualquer lugar. Pode ser um nome de tabela, nome de coluna, nome de função, operador, etc.  O tipo de parâmetro text tem uma configuração **obter valor padrão da consulta Analytics**, que permite que o autor da pasta de trabalho use uma consulta para popular o valor padrão dessa caixa de texto.
 
-Ao utilizar o valor predefinido de uma consulta de registo, apenas o primeiro valor da primeira linha (0 de linha, coluna 0) é utilizado como o valor predefinido. Portanto, é recomendado para limitar a consulta para devolver apenas uma linha e uma coluna. Todos os dados devolvidos pela consulta são ignorados. 
+Ao usar o valor padrão de uma consulta de log, somente o primeiro valor da primeira linha (linha 0, coluna 0) é usado como o valor padrão. Portanto, é recomendável limitar sua consulta para retornar apenas uma linha e uma coluna. Todos os outros dados retornados pela consulta são ignorados. 
 
-O valor que a consulta devolve será substituído diretamente sem carateres de escape ou aspas. Se a consulta retornaria nenhuma linha, o resultado do parâmetro é uma cadeia vazia (se o parâmetro não for necessário) ou não definida (se o parâmetro é necessário).
+Qualquer valor que a consulta retornar será substituído diretamente sem escape ou quot. Se a consulta não retornar nenhuma linha, o resultado do parâmetro será uma cadeia de caracteres vazia (se o parâmetro não for necessário) ou indefinido (se o parâmetro for necessário).
 
-### <a name="using-a-drop-down"></a>Utilizar um lista pendente
+### <a name="using-a-drop-down"></a>Usando uma lista suspensa
 
-O tipo de parâmetro de lista pendente permite-lhe criar um controle de lista pendente, que permite a seleção de um ou vários valores.
+O tipo de parâmetro DropDown permite criar um controle suspenso, permitindo a seleção de um ou vários valores.
 
-A lista pendente é preenchido por uma consulta de registo ou JSON. Se a consulta devolve uma coluna, os valores nessa coluna são o valor e a etiqueta no controle de lista pendente. Se a consulta devolve duas colunas, a primeira coluna é o valor e a segunda coluna é a etiqueta mostrada a lista pendente. Se a consulta devolve três colunas, a terceira coluna é utilizada para indicar a seleção predefinida nessa lista suspensa. Esta coluna pode ser qualquer tipo, mas o mais simples é usar bool ou tipos numéricos, em que 0 é false e 1 é verdadeiro.
+A lista suspensa é preenchida por uma consulta de log ou JSON. Se a consulta retornar uma coluna, os valores nessa coluna serão o valor e o rótulo no controle suspenso. Se a consulta retornar duas colunas, a primeira coluna será o valor e a segunda coluna será o rótulo mostrado na lista suspensa. Se a consulta retornar três colunas, a terceira coluna será usada para indicar a seleção padrão nesse menu suspenso. Essa coluna pode ser qualquer tipo, mas a mais simples é usar tipos bool ou numéricos, em que 0 é false e 1 é verdadeiro.
 
-Se a coluna é um tipo de cadeia de caracteres, cadeia de caracteres nulos/vazios é considerada FALSO e qualquer outro valor é considerado verdadeira. Para seleção única suspensas, o primeiro valor com um valor VERDADEIRO é utilizado como a seleção predefinida.  Para vários seleção mais listas pendentes, todos os valores com um valor VERDADEIRO são utilizados como o conjunto predefinido selecionado. Os itens na lista pendente são apresentados em qualquer ordem, a consulta devolveu linhas. 
+Se a coluna for um tipo de cadeia de caracteres, uma cadeia de caracteres nula/vazia será considerada falsa e qualquer outro valor será considerado verdadeiro. Para menus suspensos de seleção única, o primeiro valor com um valor true é usado como a seleção padrão.  Para menus suspensos com várias seleções, todos os valores com um valor true são usados como o conjunto selecionado padrão. Os itens na lista suspensa são mostrados em qualquer ordem em que a consulta retorna linhas. 
 
-Vamos examinar os parâmetros presentes no relatório de descrição geral das ligações. Clique no símbolo de edição junto a **direção**.
+Vamos examinar os parâmetros presentes no relatório visão geral de conexões. Clique no símbolo de edição ao lado de **direção**.
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/011-workbook-using-dropdown.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/011-workbook-using-dropdown.png)
 
-Isso iniciará o **Edit Parameter** item de menu.
+Isso abrirá o item de menu **Editar parâmetro** .
 
-![O Azure Monitor para a secção de pastas de trabalho de VMs, controles de edição](media/vminsights-workbooks/012-workbook-edit-parameter.png)
+![Controles de edição da seção Azure Monitor para VMs pastas de trabalho](media/vminsights-workbooks/012-workbook-edit-parameter.png)
 
-O JSON permite-lhe gerar uma tabela arbitrária preenchida com conteúdo. Por exemplo, o JSON seguinte gera dois valores na lista pendente:
+O JSON permite gerar uma tabela arbitrária populada com conteúdo. Por exemplo, o JSON a seguir gera dois valores na lista suspensa:
 
 ```
 [
@@ -206,7 +206,7 @@ O JSON permite-lhe gerar uma tabela arbitrária preenchida com conteúdo. Por ex
 ]
 ```
 
-Um exemplo mais aplicável está a utilizar um lista pendente para escolher a partir de um conjunto de contadores de desempenho por nome:
+Um exemplo mais aplicável é usar uma lista suspensa para escolher um conjunto de contadores de desempenho por nome:
 
 ```
 Perf
@@ -215,41 +215,44 @@ Perf
 | project Counter = pack('counter', CounterName, 'object', ObjectName), CounterName, group = ObjectName
 ```
 
-A consulta mostra os resultados da seguinte forma:
+A consulta exibirá os resultados da seguinte maneira:
 
-![Lista pendente de contador de desempenho](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
+![Lista suspensa do contador de desempenho](media/vminsights-workbooks/013-workbook-edit-parameter-perf-counters.png)
 
-Listas pendentes são incrivelmente poderosas ferramentas para personalizar e criar relatórios interativos.
+Os menus suspensos são ferramentas incrivelmente poderosas para personalizar e criar relatórios interativos.
 
 ### <a name="time-range-parameters"></a>Parâmetros de intervalo de tempo
 
-Enquanto pode fazer o seu parâmetro de intervalo de tempo personalizado através do tipo de parâmetro de lista pendente, também pode utilizar o tipo de parâmetro de intervalo de tempo de out-of-box, se não tiver o mesmo grau de flexibilidade. 
+Embora seja possível criar seu próprio parâmetro de intervalo de tempo personalizado por meio do tipo de parâmetro DropDown, você também pode usar o tipo de parâmetro de intervalo de tempo pronto para uso se não precisar do mesmo grau de flexibilidade. 
 
-Tipos de parâmetros de intervalo de tempo tem 15 intervalos predefinidos que vão de cinco minutos para os últimos 90 dias. Também é uma opção para permitir a seleção de intervalo de tempo personalizado, que permite que o operador do relatório para escolha explícita iniciar e parar valores para o intervalo de tempo.
+Os tipos de parâmetro de intervalo de tempo têm 15 intervalos padrão que vão de cinco minutos até os últimos 90 dias. Há também uma opção para permitir a seleção de intervalo de tempo personalizado, que permite que o operador do relatório escolha valores explícitos de início e parada para o intervalo de tempo.
 
-### <a name="resource-picker"></a>Seleccionador de recursos
+### <a name="resource-picker"></a>Seletor de recursos
 
-O tipo de parâmetro de Seletor de recurso dá-lhe a capacidade de definir o âmbito do relatório para determinados tipos de recursos. Um exemplo de uma pasta de trabalho pré-criados que aproveita o tipo de Seletor de recurso é o **desempenho** pasta de trabalho.
+O tipo de parâmetro do seletor de recursos oferece a capacidade de fazer o escopo do relatório para determinados tipos de recursos. Um exemplo de uma pasta de trabalho predefinida que utiliza o tipo de seletor de recursos é a pasta de trabalho de **desempenho** .
 
-![Lista pendente de áreas de trabalho](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
+![Menu suspenso espaços de trabalho](media/vminsights-workbooks/014-workbook-edit-parameter-workspaces.png)
 
-## <a name="saving-and-sharing-workbooks-with-your-team"></a>A guardar e partilhar pastas de trabalho com a sua equipa
+## <a name="saving-and-sharing-workbooks-with-your-team"></a>Salvando e compartilhando pastas de trabalho com sua equipe
 
-Pastas de trabalho são salvas dentro de uma área de trabalho do Log Analytics ou um recurso de máquina virtual, dependendo de como acessa a Galeria de pastas de trabalho. A pasta de trabalho pode ser guardada para o **os meus relatórios** secção é privada para ou na **relatórios partilhados** secção que esteja acessível para todos os utilizadores com acesso ao recurso. Para ver todas as pastas de trabalho no recurso, clique a **aberto** botão na barra de ação.
+As pastas de trabalho são salvas em um Log Analytics espaço de trabalho ou em um recurso de máquina virtual, dependendo de como você acessa a Galeria de pastas de trabalho. A pasta de trabalho pode ser salva na seção **meus relatórios** que é particular para você ou na seção **relatórios compartilhados** que é acessível a todos com acesso ao recurso. Para exibir todas as pastas de trabalho no recurso, clique no botão **abrir** na barra de ação.
 
-Para partilhar uma pasta de trabalho que se encontra atualmente num **os meus relatórios**:
+Para compartilhar uma pasta de trabalho que está atualmente em **meus relatórios**:
 
-1. Clique em **aberto** na barra de ação
-2. Clique no botão "..." ao lado da pasta de trabalho que pretende partilhar
-3. Clique em **mover para relatórios partilhados**.
+1. Clique em **abrir** na barra de ação
+2. Clique no botão "..." botão ao lado da pasta de trabalho que você deseja compartilhar
+3. Clique em **mover para relatórios compartilhados**.
 
-Para partilhar uma pasta de trabalho com uma ligação ou através de e-mail, clique em **partilhar** na barra de ação. Tenha em atenção que os destinatários da ligação precisam de acesso a este recurso no portal do Azure para ver a pasta de trabalho. Para fazer edições, os destinatários precisam, pelo menos, permissões de Contribuidor para o recurso.
+Para compartilhar uma pasta de trabalho com um link ou por email, clique em **compartilhar** na barra de ação. Tenha em mente que os destinatários do link precisam de acesso a esse recurso no portal do Azure para exibir a pasta de trabalho. Para fazer edições, os destinatários precisam de pelo menos permissões de colaborador para o recurso.
 
-Para afixar uma ligação para uma pasta de trabalho a um Dashboard do Azure:
+Para fixar um link em uma pasta de trabalho em um painel do Azure:
 
-1. Clique em **aberto** na barra de ação
-2. Clique no botão "..." ao lado da pasta de trabalho que pretende afixar
-3. Clique em **afixar ao dashboard**.
+1. Clique em **abrir** na barra de ação
+2. Clique no botão "..." botão ao lado da pasta de trabalho que você deseja fixar
+3. Clique em **fixar no painel**.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para saber como utilizar a funcionalidade de estado de funcionamento, veja [Ver estado de funcionamento do Azure VM](vminsights-health.md), ou para ver dependências de aplicações detetadas, consulte [vista de Azure Monitor para o mapa de VMs](vminsights-maps.md). 
+## <a name="next-steps"></a>Passos seguintes
+
+- Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
+
+- Para saber mais sobre dependências de aplicativo descobertas, consulte [exibir mapa de Azure monitor para VMs](vminsights-maps.md).

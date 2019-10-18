@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar um modelo ONNX com o Windows ML-Serviço de Visão Personalizada'
+title: 'Tutorial: Utilizar um modelo ONNX com o Windows ML – Serviço de Visão Personalizada'
 titleSuffix: Azure Cognitive Services
 description: Saiba como criar uma aplicação UWP do Windows que utiliza um modelo ONNX exportado dos Serviços Cognitivos do Azure.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: larryfr
-ms.openlocfilehash: 65956ab9fa182794b4cb9ac1fc1800198f2dcdaa
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 025779edd1400c65d10788def17529e84349d582
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561110"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515758"
 ---
-# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Usar um modelo ONNX do Visão Personalizada com o Windows ML (versão prévia)
+# <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Utilizar um modelo ONNX da Visão Personalizada com o Windows ML (pré-visualização)
 
 Saiba como utilizar um modelo ONNX exportado do Serviço de Visão Personalizada com o Windows ML (pré-visualização).
 
@@ -31,9 +31,9 @@ As informações neste documento mostram como utilizar um ficheiro ONNX exportad
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Windows 10 versão 17738 ou superior
+* Windows 10 versão 1809 ou superior
 
-* Windows SDK para a versão 17738 ou superior
+* SDK do Windows para Build 17763 ou superior
 
 * O Visual Studio 2017 versão 15.7 ou posterior com a carga de trabalho de __programação da Plataforma Universal do Windows__ ativada.
 
@@ -45,7 +45,7 @@ A aplicação é uma aplicação UWP do Windows genérica. Permite-lhe seleciona
 
 ## <a name="get-the-example-code"></a>Obter o código de exemplo
 
-A aplicação de exemplo está disponível em [https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/](https://github.com/Azure-Samples/cognitive-services-onnx12-customvision-sample/).
+A aplicação de exemplo está disponível em [https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample](https://github.com/Azure-Samples/cognitive-services-onnx-customvision-sample).
 
 ## <a name="run-the-example"></a>Executar o exemplo
 
@@ -59,7 +59,7 @@ Para utilizar o seu próprio modelo, execute os seguintes passos:
 
 1. [Criar e preparar](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) um classificador com o Serviço de Visão Personalizada. Para exportar o modelo, selecione um domínio __compacto__, como **Geral (compacto)** . Para exportar um classificador existente, converta o domínio a compactar ao selecionar o ícone de engrenagem na parte superior direita. Em __Definições__, escolha um modelo compacto, guarde e prepare o seu projeto.  
 
-1. [Exporte o modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) através do separador Desempenho. Selecione uma iteração preparada com um domínio compacto e será apresentado um botão "Exportar". Selecione *Exportar*, *ONNX*, *ONNX1.2* e, em seguida *Exportar*. Assim que o ficheiro estiver pronto, selecione o botão *Transferir*.
+1. [Exporte seu modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) acessando a guia desempenho. Selecione uma iteração treinada com um domínio compacto, um botão "exportar" será exibido. Selecione *Exportar*, *ONNX*e *Exportar*. Assim que o ficheiro estiver pronto, selecione o botão *Transferir*.
 
 1. Coloque o ficheiro ONNX na pasta __Assets__ (Recursos) do projeto. 
 
@@ -76,7 +76,7 @@ Para utilizar o seu próprio modelo, execute os seguintes passos:
 
 1. Clique no botão para selecionar a imagem a avaliar.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para descobrir outras formas de exportar e utilizar um modelo de Visão Personalizada, veja os seguintes documentos:
 

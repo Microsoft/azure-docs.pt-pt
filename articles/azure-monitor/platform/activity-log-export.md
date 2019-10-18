@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 925fed320359edc04ad6c91fe7a7d9bde5370254
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 68bf455bbdfb6d2d45c5eccc60c3ad8ce40d3247
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258476"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515778"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportar o log de atividades do Azure para o armazenamento ou hubs de eventos do Azure
 O [log de atividades do Azure](activity-logs-overview.md) fornece informações sobre eventos no nível da assinatura que ocorreram em sua assinatura do Azure. Além de exibir o log de atividades no portal do Azure ou copiá-lo para um espaço de trabalho Log Analytics onde ele pode ser analisado com outros dados coletados pelo Azure Monitor, você pode criar um perfil de log para arquivar o log de atividades em uma conta de armazenamento do Azure ou transmiti-lo para um  Hub de eventos.
@@ -23,8 +23,8 @@ O arquivamento do log de atividades em uma conta de armazenamento é útil se vo
 
 ## <a name="stream-activity-log-to-event-hub"></a>Transmitir log de atividades para o Hub de eventos
 Os [hubs de eventos do Azure](/azure/event-hubs/) são uma plataforma de streaming de dados e um serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Duas maneiras de usar o recurso de streaming para o log de atividades são:
-* **Transmitir para sistemas de registro em log e telemetria de**terceiros: Ao longo do tempo, o streaming dos hubs de eventos do Azure se tornará o mecanismo para canalizar seu log de atividades em soluções de SIEM de terceiros e do log Analytics.
-* **Crie uma plataforma de registro em log e telemetria personalizada**: Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite que você inscreva com flexibilidade o log de atividades. 
+* **Transmitir para sistemas de registro em log e telemetria de**terceiros: ao longo do tempo, o streaming de hubs de eventos do Azure se tornará o mecanismo para canalizar seu log de atividades em soluções de Siem e do log Analytics de terceiros.
+* **Crie uma plataforma de registro em log e telemetria personalizada**: se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos hubs de eventos permite ingerir o log de atividades com flexibilidade. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,9 +55,9 @@ O perfil de log define o seguinte.
 
 **Quais regiões (locais) devem ser exportadas.** Você deve incluir todos os locais, pois muitos eventos no log de atividades são eventos globais.
 
-**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** A retenção de zero dias significa que os registos são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
+**Por quanto tempo o log de atividades deve ser retido em uma conta de armazenamento.** Uma retenção de zero dias significa que os logs são mantidos para sempre. Caso contrário, o valor pode ser qualquer número de dias entre 1 e 365.
 
-Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. Políticas de retenção são aplicado por dia, portanto, no final do dia (UTC), registos a partir do dia em que está, agora, além de retenção de política são eliminadas. Por exemplo, se tivesse uma política de retenção de um dia, no início do dia hoje os registos de ontem de before dia serão eliminados. O processo de eliminação começa a meia-noite UTC, mas tenha em atenção que pode demorar até 24 horas para os registos para ser eliminado da sua conta de armazenamento.
+Se as políticas de retenção forem definidas, mas o armazenamento de logs em uma conta de armazenamento estiver desabilitado, as políticas de retenção não terão nenhum efeito. As políticas de retenção são aplicadas por dia, portanto, no final de um dia (UTC), os logs do dia que estão além da política de retenção são excluídos. Por exemplo, se você tivesse uma política de retenção de um dia, no início do dia, hoje os logs do dia antes de ontem seriam excluídos. O processo de exclusão começa à meia-noite UTC, mas observe que pode levar até 24 horas para que os logs sejam excluídos da sua conta de armazenamento.
 
 
 > [!IMPORTANT]
@@ -107,14 +107,14 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
     Add-AzLogProfile -Name my_log_profile -StorageAccountId /subscriptions/s1/resourceGroups/myrg1/providers/Microsoft.Storage/storageAccounts/my_storage -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Location global,westus,eastus -RetentionInDays 90 -Category Write,Delete,Action
     ```
 
-    | Propriedade | Requerido | Descrição |
+    | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
-    | Name |Sim |Nome do seu perfil de log. |
+    | Nome |Sim |Nome do seu perfil de log. |
     | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
-    | serviceBusRuleId |Não |ID da regra do barramento de serviço para o namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o `{service bus resource ID}/authorizationrules/{key name}`formato:. |
-    | Location |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do log de atividades. |
+    | serviceBusRuleId |Não |ID da regra do barramento de serviço para o namespace do barramento de serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}`. |
+    | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do log de atividades. |
     | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
-    | Category |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletadas. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
+    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletadas. Os valores possíveis são _gravação_, _exclusão_e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que grava o log de atividades em uma conta de armazenamento e no Hub de eventos.
@@ -150,14 +150,14 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
    az monitor log-profiles create --name "default" --location null --locations "global" "eastus" "westus" --categories "Delete" "Write" "Action"  --enabled false --days 0 --service-bus-rule-id "/subscriptions/<YOUR SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.EventHub/namespaces/<EVENT HUB NAME SPACE>/authorizationrules/RootManageSharedAccessKey"
    ```
 
-    | Propriedade | Requerido | Descrição |
+    | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
-    | name |Sim |Nome do seu perfil de log. |
-    | storage-account-id |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
-    | locations |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Você pode exibir uma lista de todas as regiões da sua assinatura `az account list-locations --query [].name`usando o. |
-    | days |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro habilitado deverá ser definido como true. |
-    |enabled | Sim |VERDADEIRO ou FALSO.  Usado para habilitar ou desabilitar a política de retenção.  Se for true, o parâmetro Days deverá ser um valor maior que 0.
-    | categorias |Sim |Lista separada por espaços de categorias de eventos que devem ser coletadas. Os valores possíveis são gravação, exclusão e ação. |
+    | nome |Sim |Nome do seu perfil de log. |
+    | ID da conta de armazenamento |Sim |ID de recurso da conta de armazenamento na qual os logs de atividade devem ser salvos. |
+    | locais |Sim |Lista separada por espaços de regiões para as quais você gostaria de coletar eventos do log de atividades. Você pode exibir uma lista de todas as regiões para sua assinatura usando `az account list-locations --query [].name`. |
+    | dias |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
+    |Habilitado | Sim |True ou false.  Usado para habilitar ou desabilitar a política de retenção.  Se for true, o parâmetro Days deverá ser um valor maior que 0.
+    | categories |Sim |Lista separada por espaços de categorias de eventos que devem ser coletadas. Os valores possíveis são gravação, exclusão e ação. |
 
 
 
@@ -226,20 +226,20 @@ Os elementos neste JSON são descritos na tabela a seguir.
 
 | Nome do elemento | Descrição |
 | --- | --- |
-| time |Carimbo de data/hora quando o evento foi gerado pelo serviço do Azure processando a solicitação correspondente ao evento. |
+| hora |Carimbo de data/hora quando o evento foi gerado pelo serviço do Azure processando a solicitação correspondente ao evento. |
 | resourceId |ID de recurso do recurso afetado. |
 | operationName |Nome da operação. |
-| category |Categoria da ação, por exemplo, Gravação, leitura, ação. |
+| categoria |Categoria da ação, por exemplo, Gravação, leitura, ação. |
 | resultType |O tipo do resultado, por exemplo, Êxito, falha, início |
 | resultSignature |Depende do tipo de recurso. |
 | durationMs |Duração da operação em milissegundos |
 | callerIpAddress |Endereço IP do usuário que realizou a operação, declaração de UPN ou declaração de SPN com base na disponibilidade. |
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Eventos que compartilham uma CorrelationId pertencem à mesma ação Uber. |
-| identity |Blob JSON que descreve a autorização e as declarações. |
-| authorization |Blob de propriedades RBAC do evento. Geralmente inclui as propriedades "Action", "role" e "Scope". |
-| level |Nível do evento. Um dos seguintes valores: _Crítico_, _erro_, _aviso_, _informativo_e _detalhado_ |
-| location |Região em que o local ocorreu (ou global). |
-| properties |Conjunto de `<Key, Value>` pares (ou seja, dicionário) que descreve os detalhes do evento. |
+| identidade |Blob JSON que descreve a autorização e as declarações. |
+| nesse |Blob de propriedades RBAC do evento. Geralmente inclui as propriedades "Action", "role" e "Scope". |
+| Geral |Nível do evento. Um dos seguintes valores: _crítico_, _erro_, _aviso_, _informativo_e _detalhado_ |
+| localização |Região em que o local ocorreu (ou global). |
+| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, dicionário) que descreve os detalhes do evento. |
 
 > [!NOTE]
 > As propriedades e o uso dessas propriedades podem variar dependendo do recurso.

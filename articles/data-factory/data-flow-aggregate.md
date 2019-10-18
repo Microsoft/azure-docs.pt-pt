@@ -1,5 +1,5 @@
 ---
-title: Transformação Agregação no fluxo de dados de mapeamento-Azure Data Factory | Microsoft Docs
+title: Transformação Agregação no fluxo de dados de mapeamento de Azure Data Factory | Microsoft Docs
 description: Saiba como agregar dados em escala em Azure Data Factory com a transformação agregar fluxo de dados de mapeamento.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 3f2a3219a731133ecaedf30fec1854f1a128caa3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
-ms.translationtype: HT
+ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431601"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514839"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Transformação Agregação no fluxo de dados de mapeamento 
 
@@ -68,7 +68,9 @@ As transformações agregadas são semelhantes às consultas SELECT de agregaç�
 
 ### <a name="example"></a>Exemplo
 
-O exemplo abaixo usa um fluxo de entrada `MoviesYear` e agrupa as linhas por coluna `year`. A transformação cria uma coluna de agregação `avgrating` que é avaliada como a média da coluna `Rating`. Essa transformação agregada é denominada `AvgComedyRatingsByYear`. No Data Factory UX, essa transformação é semelhante à imagem abaixo:
+O exemplo abaixo usa um fluxo de entrada `MoviesYear` e agrupa as linhas por coluna `year`. A transformação cria uma coluna de agregação `avgrating` que é avaliada como a média da coluna `Rating`. Essa transformação agregada é denominada `AvgComedyRatingsByYear`.
+
+No Data Factory UX, essa transformação é semelhante à imagem abaixo:
 
 ![Agrupar por exemplo](media/data-flow/agg-script1.png "Agrupar por exemplo")
 

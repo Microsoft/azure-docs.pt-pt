@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Reconhecer tinta digital com a API REST do reconhecedor de tinta eC#'
+title: 'Início rápido: reconhecer tinta digital com a API REST do reconhecedor de tinta eC#'
 titleSuffix: Azure Cognitive Services
 description: Use a API do reconhecedor de tinta para começar a reconhecer os traços de tinta digital.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 0c7d3ed7e2cbaee7d30f368efa004bbb3daaafdd
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 6ef58d1444eb0ec7b2b8891f944b428a613edf3a
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996879"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515608"
 ---
-# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Início rápido: Reconhecer tinta digital com a API REST do reconhecedor de tinta eC#
+# <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Início rápido: reconhecer tinta digital com a API REST do reconhecedor de tinta eC#
 
 Use este guia de início rápido para começar a enviar traços de tinta digital para a API do reconhecedor de tinta. Esse C# aplicativo envia uma solicitação de API que contém dados de traço de tinta formatados para JSON e obtém a resposta.
 
@@ -32,7 +32,7 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Qualquer edição do [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
-- [Newtonsoft.Json](https://www.newtonsoft.com/json)
+- [Newtonsoft. JSON](https://www.newtonsoft.com/json)
     - Para instalar o Newtonsoft. JSON como um pacote NuGet no Visual Studio:
         1. Clique com o botão direito do mouse no **Gerenciador de soluções**
         2. Clique em **gerenciar pacotes NuGet...**
@@ -49,17 +49,17 @@ O código-fonte para este guia de início rápido pode ser encontrado no [GitHub
 
 1. No Visual Studio, crie uma nova solução de console e adicione os pacotes a seguir. 
     
-    [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
+    [!code-csharp[import statements](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
 2. Crie variáveis para sua chave de assinatura e ponto de extremidade e o exemplo de arquivo JSON. O ponto de extremidade posteriormente será combinado com `inkRecognitionUrl` para acessar a API. 
 
-    [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
+    [!code-csharp[endpoint file and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Criar uma função para enviar solicitações
 
 1. Crie uma nova função Async chamada `Request` que usa as variáveis criadas acima.
 
-2. Defina o protocolo de segurança do cliente e as informações de cabeçalho usando um objeto `HttpClient`. Certifique-se de adicionar sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`. Em seguida, crie um objeto `StringContent` para a solicitação.
+2. Defina o protocolo de segurança do cliente e as informações de cabeçalho usando um objeto `HttpClient`. Certifique-se de adicionar sua chave de assinatura ao cabeçalho `Ocp-Apim-Subscription-Key`. Em seguida, crie um objeto de `StringContent` para a solicitação.
  
 3. Envie a solicitação com `PutAsync()`. Se a solicitação for bem-sucedida, retorne a resposta.  
     
@@ -96,7 +96,7 @@ Execute a aplicação. Uma resposta bem-sucedida é retornada no formato JSON. V
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência da API REST](https://go.microsoft.com/fwlink/?linkid=2089907)
+> [REST API reference (Referência da API REST)](https://go.microsoft.com/fwlink/?linkid=2089907)
 
 
 Para ver como a API de reconhecimento de tinta funciona em um aplicativo de escrita digital, dê uma olhada nos seguintes aplicativos de exemplo no GitHub:

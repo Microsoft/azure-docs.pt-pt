@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434045"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529374"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>Usar o ia para entender os dados do blob
 
@@ -40,7 +40,7 @@ A saída é sempre um índice Azure Search, usado para pesquisa rápida de texto
 
 No, between é a própria arquitetura de pipeline. O pipeline é baseado no recurso de *indexador* , ao qual você pode atribuir um *skillset*, que é composto por uma ou mais *habilidades* que fornecem o ia. A finalidade do pipeline é produzir *documentos aprimorados* que entram como conteúdo bruto, mas coletam estrutura, contexto e informações adicionais ao passar pelo pipeline. Os documentos aprimorados são consumidos durante a indexação para criar índices invertidos e outras estruturas usadas em pesquisa de texto completo ou exploração e análise.
 
-## <a name="start-with-services-and-data"></a>Comece com serviços e dados
+## <a name="start-with-services"></a>Iniciar com serviços
 
 Você precisa do Azure Search e do armazenamento de BLOBs do Azure. No armazenamento de BLOBs, você precisa de um contêiner que forneça o conteúdo de origem.
 

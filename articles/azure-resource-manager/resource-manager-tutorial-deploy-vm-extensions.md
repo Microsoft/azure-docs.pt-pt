@@ -1,5 +1,5 @@
 ---
-title: Implementar extensões de máquina virtual com modelos do Azure Resource Manager | Microsoft Docs
+title: Implantar extensões de VM-modelos de Azure Resource Manager
 description: Saiba como implementar extensões de máquina virtual com modelos do Azure Resource Manager
 services: azure-resource-manager
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 5eb7a8d82f7f61e18afc49c61444354dcde77b5e
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169290"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533439"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Tutorial: Implementar extensões de máquina virtual com modelos do Azure Resource Manager
 

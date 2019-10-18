@@ -13,24 +13,21 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4412bc9ce8d78b5810b25b60724575af66774127
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 8ff4234d9fd28e655e868108e37b09c5afe2767c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146268"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517122"
 ---
 # <a name="bulk-import-group-members-preview-in-azure-active-directory"></a>Importar membros do grupo (visualização) em massa no Azure Active Directory
 
 Usando o portal do Azure Active Directory (AD do Azure), você pode adicionar um grande número de membros a um grupo usando um arquivo CSV (valores separados por vírgula) para importar membros do grupo em massa.
 
-> [!NOTE]
-> As operações em massa do Azure AD são um recurso de visualização pública do Azure AD e estão disponíveis com qualquer plano de licença pago do Azure AD. Para obter mais informações sobre os termos de uso de visualização, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="to-bulk-import-group-members"></a>Para importar membros do grupo em massa
 
 1. Entre no [portal do Azure](https://portal.azure.com) com uma conta de administrador de usuário na organização. Os proprietários do grupo também podem importar em massa membros de grupos que possuem.
-1. No Azure AD, selecione **grupos** > **todos os grupos**.
+1. No Azure AD, selecione **grupos**  > **todos os grupos**.
 1. Abra o grupo ao qual você está adicionando Membros e, em seguida, selecione **Membros**.
 1. Na página **Membros** , selecione **importar Membros**.
 1. Na página **membros do grupo de importação em massa (versão prévia)** , selecione **baixar** para obter o modelo de arquivo CSV com as propriedades necessárias do membro do grupo.

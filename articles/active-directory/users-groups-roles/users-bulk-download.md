@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174200"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72517072"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Baixar uma lista de usuários (versão prévia) no portal Azure Active Directory
 
@@ -35,6 +35,38 @@ Para baixar a lista de usuários do centro de administração do Azure AD, você
 1. Na página **baixar usuários** , selecione **Iniciar** para receber um arquivo CSV listando propriedades de perfil de usuário. Se houver erros, você poderá baixar e exibir o arquivo de resultados na página resultados da operação em massa. O arquivo contém o motivo de cada erro.
 
    ![Selecione onde você deseja que a lista os usuários que deseja baixar](./media/users-bulk-download/bulk-download.png)
+
+   O arquivo de download conterá a lista filtrada de usuários.
+
+   Os seguintes atributos de usuário serão incluídos: 
+
+   - userPrincipalName
+   - DisplayName
+   - Sobrenome
+   - Mescla
+   - GivenName
+   - objectId
+   - userType
+   - JobTitle
+   - Inteiros
+   - Manager
+   - AccountEnabled
+   - usageLocation
+   - streetAddress
+   - state
+   - País
+   - physicalDeliveryOfficeName
+   - city
+   - PostalCode
+   - TelephoneNumber
+   - móveis
+   - authenticationPhoneNumber
+   - authenticationAlternativePhoneNumber
+   - authenticationEmail
+   - alternateEmailAddress
+   - ageGroup
+   - consentProvidedForMinor
+   - legalAgeGroupClassification
 
 ## <a name="check-status"></a>Verificar o estado
 

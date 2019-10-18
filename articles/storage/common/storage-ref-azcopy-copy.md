@@ -4,35 +4,37 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 08/26/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c15d188e333bea5e74fa65d2bbdf38ae7fadc246
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195740"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514770"
 ---
-# <a name="azcopy-copy"></a>cópia azcopy
+# <a name="azcopy-copy"></a>azcopy copy
 
 Copia os dados de origem para um local de destino.
 
 ## <a name="synopsis"></a>Resumo
 
-As instruções com suporte são:
+Copia os dados de origem para um local de destino. As instruções com suporte são:
 
-- < local-> blob do Azure (autenticação SAS ou OAuth)
-- < local-> arquivo do Azure (autenticação SAS de compartilhamento/diretório)
-- < local-> ADLS Gen 2 (autenticação SAS, OAuth ou SharedKey)
-- Blob do Azure (SAS ou público) <-> blob do Azure (autenticação SAS ou OAuth)
-- Arquivo do Azure (SAS)-> blob de blocos do Azure (autenticação SAS ou OAuth)
-- AWS S3 (chave de acesso)-> blob de blocos do Azure (autenticação SAS ou OAuth)
+  - < local-> blob do Azure (autenticação SAS ou OAuth)
+  - < locais-> arquivos do Azure (autenticação SAS de compartilhamento/diretório)
+  - < local-> ADLS Gen 2 (autenticação SAS, OAuth ou SharedKey)
+  - Blob do Azure (SAS ou público)-> blob do Azure (autenticação SAS ou OAuth)
+  - Blob do Azure (SAS ou público)-> arquivos do Azure (SAS)
+  - Arquivos do Azure (SAS)-> arquivos do Azure (SAS)
+  - Arquivos do Azure (SAS)-> blob do Azure (autenticação SAS ou OAuth)
+  - AWS S3 (chave de acesso)-> blob de blocos do Azure (autenticação SAS ou OAuth)
 
 Consulte os exemplos para obter mais informações.
 
-### <a name="advanced"></a>Avançadas
+## <a name="advanced"></a>Segurança
 
 O AzCopy detecta automaticamente o tipo de conteúdo dos arquivos ao carregar do disco local, com base na extensão de arquivo ou no conteúdo (se nenhuma extensão for especificada).
 
@@ -44,199 +46,194 @@ A tabela de pesquisa interna é pequena, mas no UNIX, ela é aumentada pelos arq
 
 No Windows, os tipos de MIME são extraídos do registro. Esse recurso pode ser desativado com a ajuda de um sinalizador. Veja a seção sinalizador.
 
-> [!IMPORTANT]
-> Se você definir uma variável de ambiente usando a linha de comando, essa variável será legível no seu histórico de linha de comando. Considere limpar as variáveis que contêm credenciais do seu histórico de linha de comando. Para impedir que as variáveis apareçam no seu histórico, você pode usar um script para solicitar ao usuário suas credenciais e definir a variável de ambiente.
+Se você definir uma variável de ambiente usando a linha de comando, essa variável será legível no seu histórico de linha de comando. Considere limpar as variáveis que contêm credenciais do seu histórico de linha de comando. Para impedir que as variáveis apareçam no seu histórico, você pode usar um script para solicitar ao usuário suas credenciais e definir a variável de ambiente.
 
-```azcopy
+```
 azcopy copy [source] [destination] [flags]
 ```
 
 ## <a name="examples"></a>Exemplos
 
-Carregar um único arquivo usando a autenticação OAuth.
+Carregar um único arquivo usando a autenticação OAuth. Se você ainda não fez logon no AzCopy, execute o comando de logon AzCopy antes de executar o comando a seguir.
 
-Se você ainda não fez logon no AzCopy, use `azcopy login` o comando antes de executar o comando a seguir.
-
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
-```
+- azcopy CP "/Path/to/file.txt" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]"
 
 O mesmo que acima, mas desta vez também calcula o hash MD5 do conteúdo do arquivo e o salva como a propriedade Content-MD5 do blob:
 
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
-```
+- azcopy CP "/Path/to/file.txt" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]"--Put-MD5
 
-Carregar um único arquivo com uma SAS:
+Carregar um único arquivo usando um token SAS:
 
-```azcopy
-azcopy cp "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+- azcopy CP "/Path/to/file.txt" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] "
 
-Carregar um único arquivo com uma SAS usando o encanamento (somente blobs de blocos):
+Carregar um único arquivo usando um token e um pipe SAS (somente blobs de blocos):
+  
+- gato "/Path/to/file.txt" | azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] "
 
-```azcopy
-cat "/path/to/file.txt" | azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
-
-Carregar um diretório inteiro com uma SAS:
-
-```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+Carregar um diretório inteiro usando um token SAS:
+  
+- azcopy CP "/Path/to/dir" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/diretório]? [SAS] "--recursivo = true
 
 ou
 
-```azcopy
-azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true --put-md5
-```
+- azcopy CP "/Path/to/dir" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/diretório]? [SAS] "--recursivo = true--Put-MD5
 
-Carregar um conjunto de arquivos com uma SAS usando caracteres curinga:
+Carregue um conjunto de arquivos usando um token SAS e caracteres curinga (*):
 
-```azcopy
-azcopy cp "/path/*foo/*bar/*.pdf" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]"
-```
+- azcopy CP "/Path/*foo/* bar/*. pdf" "https://[conta]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "
 
-Carregar arquivos e diretórios com uma SAS usando caracteres curinga:
+Carregar arquivos e diretórios usando um token SAS e caracteres curinga (*):
 
-```azcopy
-azcopy cp "/path/*foo/*bar*" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- azcopy CP "/Path/*foo/* bar *" "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/diretório]? [SAS] "--recursivo = true
 
-Baixe um único arquivo usando a autenticação OAuth.
+Baixe um único arquivo usando a autenticação OAuth. Se você ainda não fez logon no AzCopy, execute o comando de logon AzCopy antes de executar o comando a seguir.
 
-Se você ainda não fez logon no AzCopy, use `azcopy login` o comando antes de executar o comando a seguir.
+- azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]" "/Path/to/file.txt"
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]" "/path/to/file.txt"
-```
+Baixar um único arquivo usando um token SAS:
 
-Baixar um único arquivo com uma SAS:
+- azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] ""/Path/to/file.txt "
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "/path/to/file.txt"
-```
+Baixar um único arquivo usando um token SAS e, em seguida, canalizando a saída para um arquivo (somente blobs de blocos):
+  
+- azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/blob]? [SAS] ">"/Path/to/file.txt "
 
-Baixar um único arquivo com uma SAS usando o encanamento (somente blobs de blocos):
+Baixe um diretório inteiro usando um token SAS:
+  
+- azcopy CP "https://[conta]. blob. Core. Windows. net/[contêiner]/[caminho/para/diretório]? [SAS] ""/Path/to/dir "--recursivo = true
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" > "/path/to/file.txt"
-```
+Uma observação sobre como usar um caractere curinga (*) em URLs:
 
-Baixar um diretório inteiro com uma SAS:
+Há apenas duas maneiras suportadas de usar um caractere curinga em uma URL. 
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "/path/to/dir" --recursive=true
-```
+- Você pode usar um logo após a barra final (/) de uma URL. Isso copia todos os arquivos em um diretório diretamente para o destino, sem colocá-los em um subdiretório.
 
-Baixe um conjunto de arquivos com uma SAS usando caracteres curinga:
+- Você também pode usar um no nome de um contêiner, desde que a URL se refira apenas a um contêiner e não a um blob. Você pode usar essa abordagem para obter arquivos de um subconjunto de contêineres.
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir"
-```
+Baixe o conteúdo de um diretório sem copiar o próprio diretório recipiente.
 
-Baixar arquivos e diretórios com uma SAS usando caracteres curinga:
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net/[Container]/[caminho/para/pasta]/*? [SAS] ""/Path/to/dir "
 
-```azcopy
-azcopy cp "https://[account].blob.core.windows.net/[container]/foo*?[SAS]" "/path/to/dir" --recursive=true
-```
+Baixe uma conta de armazenamento inteira.
 
-Copiar um único blob com SAS para outro blob com SAS:
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net/" "/Path/to/dir"--recursivo
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+Baixe um subconjunto de contêineres em uma conta de armazenamento usando um símbolo curinga (*) no nome do contêiner.
 
-Copie um único blob com SAS para outro blob com o token OAuth.
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net/[contêiner * Name]" "/Path/to/dir"--recursivo
 
-Se você ainda não fez logon no AzCopy, use `azcopy login` o comando antes de executar o comando a seguir. O token OAuth é usado para acessar a conta de armazenamento de destino.
+Copiar um único blob para outro blob usando um token SAS.
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]"
-```
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "" https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
 
-Copie um diretório inteiro do diretório virtual de blob com SAS para outro diretório virtual de blob com SAS:
+Copie um único blob para outro blob usando um token SAS e um token OAuth. Você precisa usar um token SAS no final da URL da conta de origem, mas a conta de destino não precisará de uma se você fizer logon no AzCopy usando o comando de logon AzCopy. 
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "" https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob] "
 
-Copie os dados de uma conta inteira da conta de blob com SAS para outra conta de blob com SAS:
+Copie um diretório virtual de BLOB para outro usando um token SAS:
 
-```azcopy
-azcopy cp "https://[srcaccount].blob.core.windows.net?[SAS]" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "" https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
 
-Copiar um único objeto do S3 com a chave de acesso para o blob com SAS:
+Copie todos os contêineres de BLOB, diretórios e blobs da conta de armazenamento para outra usando um token SAS:
 
-Defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3.
+- azcopy CP "https://[srcaccount]. blob. Core. Windows. net? [SAS] "" https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
-```
+Copie um único objeto para o armazenamento de blobs de Amazon Web Services (AWS) S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
+  
+- azcopy CP "https://s3.amazonaws.com/ [Bucket]/[Object]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/blob]? [SAS] "
 
-Copie um diretório inteiro do S3 com a chave de acesso para o diretório virtual do blob com SAS:
+Copie um diretório inteiro para o armazenamento de BLOBs do AWS S3 usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
-```
+- azcopy CP "https://s3.amazonaws.com/ [Bucket]/[pasta]" "https://[destaccount]. blob. Core. Windows. net/[Container]/[caminho/para/diretório]? [SAS] "--recursivo = true
 
-Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para saber mais sobre o que [Folder] significa para S3. Defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3.
+Consulte https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html para entender melhor o espaço reservado [pasta].
 
-Copie todos os buckets no serviço S3 com a chave de acesso para a conta de blob com SAS:
+Copie todos os buckets para o armazenamento de blobs de Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-Defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3.
+- azcopy CP "https://s3.amazonaws.com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
-```azcopy
-azcopy cp "https://s3.amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+Copie todos os buckets para o armazenamento de blobs de uma região Amazon Web Services (AWS) usando uma chave de acesso e um token SAS. Primeiro, defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-Copie todos os buckets em uma região S3 com a chave de acesso para a conta de blob com SAS:
+- azcopy CP "https://s3- [Region]. amazonaws. com/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
-```azcopy
-azcopy cp "https://s3-[region].amazonaws.com/" "https://[destaccount].blob.core.windows.net?[SAS]" --recursive=true
-```
+Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket. Como nos exemplos anteriores, você precisará de uma chave de acesso e um token SAS. Certifique-se de definir a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3 AWS.
 
-Defina a variável de ambiente AWS_ACCESS_KEY_ID e AWS_SECRET_ACCESS_KEY para a origem S3.
+- azcopy CP "https://s3.amazonaws.com/ [Bucket * Name]/" "https://[destaccount]. blob. Core. Windows. net? [SAS] "--recursivo = true
 
 ## <a name="options"></a>Opções
 
-|Opção|Descrição|
-|--|--|
-|--blob-tipo de cadeia de caracteres|Define o tipo de blob no destino. Isso é usado para carregar BLOBs e ao copiar entre contas (o padrão é "None").|
-|--bloco-blob-cadeia de caracteres da camada|Carregar blob de blocos no armazenamento do Azure usando esta camada de BLOB. (padrão "None").|
-|--bloco-tamanho-MB float |Use esse tamanho de bloco (especificado em MiB) ao carregar para o armazenamento do Azure e baixar do armazenamento do Azure. O valor padrão é calculado automaticamente com base no tamanho do arquivo. Frações decimais são permitidas (por exemplo: 0,25).|
-|--Cadeia de controle de cache|Defina o cabeçalho Cache-Control. Retornado no download.|
-|--verificação-cadeia de caracteres MD5|Especifica como os hashes MD5 estritamente devem ser validados durante o download. Disponível somente ao baixar. Opções disponíveis: NOCHECK, LogOn, FailIfDifferent, FailIfDifferentOrMissing. (padrão "FailIfDifferent")|
-|--Cadeia de caracteres de disposição de conteúdo|Defina o cabeçalho de disposição de conteúdo. Retornado no download.|
-|--Cadeia de caracteres de codificação de conteúdo|Defina o cabeçalho de codificação de conteúdo. Retornado no download.|
-|--Cadeia de caracteres de linguagem de conteúdo|Defina o cabeçalho de linguagem de conteúdo. Retornado no download.|
-|--Content-Type cadeia de caracteres |Especifica o tipo de conteúdo do arquivo. Implica no tipo não-palpite-MIME. Retornado no download.|
-|--excluir cadeia de caracteres|Exclua esses arquivos ao copiar. Suporte ao uso de *.|
-|--Exclude-blob-tipo de cadeia de caracteres|Opcionalmente, especifica o tipo de BLOB (BlockBlob/PageBlob/AppendBlob) a ser excluído ao copiar BLOBs do contêiner ou da conta. O uso desse sinalizador não é aplicável para copiar dados de não Azure-Service para o serviço. Mais de um blob deve ser separado por '; '.|
-|--Follow-symlinks|Siga links simbólicos ao carregar do sistema de arquivos local.|
-|--Cadeia de caracteres de-para|Opcionalmente, especifica a combinação de destino de origem. Por exemplo: LocalBlob, BlobLocal, LocalBlobFS.|
-|-h,--ajuda|Mostra o conteúdo da ajuda para o comando de cópia. |
-|--Cadeia de caracteres de nível de log|Defina o detalhamento de log para o arquivo de log, níveis disponíveis: INFORMAÇÕES (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão "INFO").|
-|--Cadeia de caracteres de metadados|Carregue no armazenamento do Azure com esses pares de chave-valor como metadados.|
-|--no-palpite-tipo MIME|Impede que o AzCopy detecte o tipo de conteúdo com base na extensão ou no conteúdo do arquivo.|
-|--substituir|Substitua os arquivos/BLOBs conflitantes no destino se esse sinalizador for definido como true. (padrão true).|
-|--página – cadeia de caracteres de camada de BLOB |Carregue o blob de páginas no armazenamento do Azure usando essa camada de BLOB. (padrão "None").|
-|--preservar-último-modificado-hora|Disponível somente quando o destino é sistema de arquivos.|
-|--Put-MD5|Crie um hash MD5 de cada arquivo e salve o hash como a propriedade Content-MD5 do BLOB ou arquivo de destino. (Por padrão, o hash não é criado.) Disponível somente ao carregar.|
-|--recursivo|Examine os subdiretórios recursivamente ao carregar do sistema de arquivos local.|
-|--S2S-Detect-origem-alterado|Verifique se a origem foi alterada após a enumeração. Para a cópia S2S, como a origem é um recurso remoto, validar se a origem foi alterada precisa de custos de solicitação adicionais.|
-|--S2S-Handle-inválida-cadeia de caracteres de metadados |Especifica como as chaves de metadados inválidas são tratadas. Opções disponíveis: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (padrão "ExcludeIfInvalid").|
-|--S2S-preserve-acesso-camada|Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte armazenamento de [BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](../blobs/storage-blob-storage-tiers.md) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso.  (padrão true).|
-|--S2S-preserve-Propriedades|Preserve as propriedades completas durante a cópia de serviço para serviço. Para S3 e fonte de arquivo não único de arquivo do Azure, como a operação de lista não retorna propriedades completas de objetos e arquivos, para preservar as propriedades completas, o AzCopy precisa enviar uma solicitação adicional por objeto e arquivo. (padrão true).|
+**--blob-Type** cadeia de caracteres define o tipo de blob no destino. Isso é usado para carregar BLOBs e ao copiar entre contas (padrão ' detect '). Os valores válidos incluem ' detect ', ' BlockBlob ', ' PageBlob ' e ' AppendBlob '. Ao copiar entre contas, um valor de "detectar" faz com que o AzCopy use o tipo de blob de origem para determinar o tipo do blob de destino. Ao carregar um arquivo, ' detect ' determina se o arquivo é um VHD ou um arquivo VHDX com base na extensão de arquivo. Se o arquivo for ether a um VHD ou arquivo VHDX, AzCopy tratará o arquivo como um blob de páginas. (padrão "detectar")
+
+**--Block-blob-camada** carregar blob de blocos para o armazenamento do Azure usando esta camada de BLOB. (padrão "None")
+
+**--Block-size-MB** float Use esse tamanho de bloco (especificado na MIB) ao carregar no armazenamento do Azure e baixar do armazenamento do Azure. O valor padrão é calculado automaticamente com base no tamanho do arquivo. Frações decimais são permitidas (por exemplo: 0,25).
+
+**--Cache-Control** String defina o cabeçalho Cache-Control. Retornado no download.
+
+**--comprimento da verificação**                         Verifique o comprimento de um arquivo no destino após a transferência. Se houver uma incompatibilidade entre a origem e o destino, a transferência será marcada como com falha. (padrão true)
+
+--a cadeia de caracteres **de verificação MD5** especifica como os hashes MD5 estritamente devem ser validados durante o download. Disponível somente ao baixar. Opções disponíveis: NOCHECK, LogOn, FailIfDifferent, FailIfDifferentOrMissing. (padrão ' FailIfDifferent ') (padrão "FailIfDifferent")
+
+**--** cadeia de caracteres de disposição de conteúdo defina o cabeçalho de disposição de conteúdo. Retornado no download.
+
+**--** cadeia de codificação de conteúdo defina o cabeçalho Content-Encoding. Retornado no download.
+
+**--** cadeia de caracteres de linguagem de conteúdo defina o cabeçalho de linguagem de conteúdo. Retornado no download.
+
+**--Content-Type** String especifica o tipo de conteúdo do arquivo. Implica no tipo não-palpite-MIME. Retornado no download.
+
+**--descompactar**                           Descompacte automaticamente os arquivos durante o download, se sua codificação de conteúdo indicar que eles estão compactados. Os valores de codificação de conteúdo com suporte são ' gzip ' e ' deflate '. As extensões de arquivo '. gz '/'. gzip ' ou '. ZZ ' não são necessárias, mas serão removidas se estiverem presentes.
+
+**--Exclude-atributos** String (somente Windows) exclua os arquivos cujos atributos correspondem à lista de atributos. Por exemplo: A; & D
+
+**--Exclude-blob-tipo** de cadeia de caracteres especifica opcionalmente o tipo de BLOB (BlockBlob/PageBlob/AppendBlob) a ser excluído ao copiar BLOBs do contêiner ou da conta. O uso desse sinalizador não é aplicável para copiar dados de não Azure-Service para o serviço. Mais de um blob deve ser separado por '; '.
+
+**--Exclude-cadeia de** caracteres de caminho exclua esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf). Quando usado em combinação com passagem de conta, os caminhos não incluem o nome do contêiner.
+
+**--a cadeia de caracteres de exclusão-padrão** exclui esses arquivos ao copiar. Esta opção dá suporte a caracteres curinga (*)
+
+**--follow-symlinks**                      Siga links simbólicos ao carregar do sistema de arquivos local.
+
+**--a cadeia de caracteres de-para** especifica opcionalmente a combinação de destino de origem. Por exemplo: LocalBlob, BlobLocal, LocalBlobFS.
+
+**-h,-** ajuda ajuda para cópia
+
+**--include-Attributes** (somente Windows) inclua arquivos cujos atributos correspondam à lista de atributos. Por exemplo: A; & D
+
+--a cadeia de caracteres **include-path** inclui apenas esses caminhos ao copiar. Essa opção não dá suporte a caracteres curinga (*). Verifica o prefixo de caminho relativo (por exemplo: MyFolder; MyFolder/subDirName/File. pdf).
+
+**--include-a cadeia de caracteres de padrão** inclui apenas esses arquivos ao copiar. Essa opção dá suporte a caracteres curinga (*). Separar arquivos usando um '; '.
+
+**--** cadeia de caracteres de nível de log defina o detalhamento de log para o arquivo de log, níveis disponíveis: informações (todas as solicitações/respostas), aviso (respostas lentas), erro (somente solicitações com falha) e nenhum (nenhum log de saída). (padrão ' INFO '). (padrão "INFO")
+
+**--** carregamento da cadeia de caracteres de metadados para o armazenamento do Azure com esses pares de chave-valor como metadados.
+
+**--no-palpite-tipo MIME**                   Impede que o AzCopy detecte o tipo de conteúdo com base na extensão ou no conteúdo do arquivo.
+
+**--substituir** cadeia de caracteres substituirá os arquivos conflitantes e os BLOBs no destino se esse sinalizador for definido como true. (padrão ' true ') Os valores possíveis incluem ' true ', ' false ' e ' prompt '. (padrão "true")
+
+**--Page-blob-camada – blob de** página de carregamento de cadeia de caracteres para o armazenamento do Azure usando essa camada de BLOB. (padrão ' none '). (padrão "None")
+
+**--preservar-último-modificado-hora**          Disponível somente quando o destino é sistema de arquivos.
+
+**--Put-MD5**                             Crie um hash MD5 de cada arquivo e salve o hash como a propriedade Content-MD5 do BLOB ou arquivo de destino. (Por padrão, o hash não é criado.) Disponível somente ao carregar.
+
+**--recursivo**                            Examine os subdiretórios recursivamente ao carregar do sistema de arquivos local.
+
+**--S2S-Detect-origem-alterado**           Verifique se a origem foi alterada após a enumeração.
+
+**--S2S-Handle-inválida-a cadeia de caracteres de metadados** especifica como as chaves de metadados inválidas são tratadas. Opções disponíveis: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (padrão ' ExcludeIfInvalid '). (padrão "ExcludeIfInvalid")
+
+**--S2S-preserve-acesso-camada**             Preserve a camada de acesso durante a cópia de serviço para serviço. Consulte armazenamento de [BLOBs do Azure: camadas de acesso quentes, frias e de arquivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para garantir que a conta de armazenamento de destino dê suporte à configuração da camada de acesso. Nos casos em que não há suporte para a configuração da camada de acesso, use s2sPreserveAccessTier = false para ignorar a cópia da camada de acesso. (padrão true).  (padrão true)
+
+**--S2S-preserve-Propriedades**              Preserve as propriedades completas durante a cópia de serviço para serviço. Para AWS S3 e fonte de arquivo não único de arquivo do Azure, a operação de lista não retorna propriedades completas de objetos e arquivos. Para preservar as propriedades completas, o AzCopy precisa enviar uma solicitação adicional por objeto ou arquivo. (padrão true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opções herdadas de comandos pai
 
-|Opção|Descrição|
-|---|---|
-|--Cap-Mbps UInt32|Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.|
-|--Cadeia de caracteres de tipo de saída|Formato da saída do comando. As opções incluem: Text, JSON. O valor padrão é "text".|
+**--Cap-Mbps UInt32**      Limita a taxa de transferência, em megabits por segundo. A taxa de transferência por minuto pode variar um pouco a partir do limite. Se essa opção for definida como zero ou for omitida, a taxa de transferência não será limitada.
 
-## <a name="see-also"></a>Consulte também
+**--** formato da cadeia de caracteres do tipo de saída da saída do comando. As opções incluem: Text, JSON. O valor padrão é ' Text '. (padrão "texto")
+
+## <a name="see-also"></a>Ver também
 
 - [azcopy](storage-ref-azcopy.md)

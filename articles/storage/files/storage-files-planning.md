@@ -4,15 +4,15 @@ description: Saiba o que deve ser considerado ao planejar uma implantação de a
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249357"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72514661"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -26,7 +26,7 @@ Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos
 
 * **Conta de Armazenamento**: todos os acessos ao Armazenamento do Azure são feitos através de uma conta de armazenamento. Veja [Metas de Escalabilidade e Desempenho](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) para obter detalhes sobre a capacidade das contas de armazenamento.
 
-* **Partilha:** uma partilha do Armazenamento de Ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total do compartilhamento de arquivos. Para compartilhamentos de arquivos padrão, a capacidade total é de até 5 TiB (GA) ou 100 TiB (versão prévia), para compartilhamentos de arquivos premium, a capacidade total é de até 100 TiB.
+* **Partilha:** uma partilha do Armazenamento de Ficheiros é uma partilha de ficheiros SMB no Azure. Todos os ficheiros e diretórios têm de ser criados numa partilha principal. Uma conta pode conter um número ilimitado de compartilhamentos e um compartilhamento pode armazenar um número ilimitado de arquivos, até a capacidade total do compartilhamento de arquivos. A capacidade total para compartilhamentos de arquivos Premium e Standard é de 100 TiB.
 
 * **Diretório**: uma hierarquia opcional de diretórios.
 
@@ -79,10 +79,8 @@ Os arquivos do Azure oferecem dois níveis de desempenho: Standard e Premium.
 
 Os compartilhamentos de arquivos padrão são apoiados por HDDs (unidades de disco rígido). Os compartilhamentos de arquivos padrão fornecem um desempenho confiável para cargas de trabalho de e/s que são menos sensíveis à variabilidade de desempenho, como compartilhamentos de arquivos de uso geral e ambientes de desenvolvimento/teste. Os compartilhamentos de arquivos padrão só estão disponíveis em um modelo de cobrança pago conforme o uso.
 
-Os compartilhamentos de arquivos padrão de até 5 TiB de tamanho estão disponíveis como uma oferta GA. Enquanto os compartilhamentos de arquivos maiores, que são compartilhamentos maiores que 5 TiB, até um máximo de 100 TiB, estão disponíveis atualmente como uma oferta de visualização.
-
 > [!IMPORTANT]
-> Consulte a seção [carregar para compartilhamentos de arquivos maiores (camada Standard)](#onboard-to-larger-file-shares-standard-tier) para obter as etapas para carregar, bem como o escopo e as restrições da versão prévia.
+> Se você quiser usar compartilhamentos de arquivos maiores que 5 TiB, consulte a seção [integração a compartilhamentos de arquivos maiores (camada Standard)](#onboard-to-larger-file-shares-standard-tier) para obter as etapas para carregar, bem como a disponibilidade e as restrições regionais.
 
 ### <a name="premium-file-shares"></a>Compartilhamentos de arquivos Premium
 
@@ -195,75 +193,43 @@ Tenha esses pontos em mente ao decidir qual opção de replicação usar:
 
 ## <a name="onboard-to-larger-file-shares-standard-tier"></a>Integração com compartilhamentos de arquivos maiores (camada Standard)
 
-Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos os compartilhamentos de arquivos premium estão disponíveis com 100 TiB como uma oferta GA.
+Esta seção se aplica somente aos compartilhamentos de arquivos padrão. Todos os compartilhamentos de arquivos premium estão disponíveis com capacidade de 100 TiB.
 
 ### <a name="restrictions"></a>Restrições
 
-- Os [termos](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de visualização do Azure se aplicam a compartilhamentos de arquivos grandes enquanto estão em visualização, incluindo quando usados com sincronização de arquivos do Azure implantações.
-- Exige que você crie uma nova conta de armazenamento de uso geral (não é possível expandir as contas de armazenamento existentes).
-- A conversão de conta de LRS/ZRS para GRS/GZRS não será possível em nenhuma nova conta de armazenamento criada depois que a assinatura for aceita para a versão prévia de compartilhamentos de arquivo maior.
-
+- A conversão de conta de LRS/ZRS para GRS/GZRS não será possível para nenhuma conta de armazenamento com grandes compartilhamentos de arquivos habilitados.
 
 ### <a name="regional-availability"></a>Disponibilidade regional
 
-Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões de até 5 TiB. Em determinadas regiões, ele está disponível com um limite de TiB de 100, essas regiões são listadas na tabela a seguir:
+Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiões de até 5 TiB. Em determinadas regiões, elas estão disponíveis com um limite de TiB de 100, essas regiões são listadas na tabela a seguir:
 
-|Região |Redundância com suporte |Dá suporte a contas de armazenamento existentes |Suporte do portal * |
-|-------|---------|---------|---------|
-|Leste da Austrália |LRS     |Não    |Sim|
-|Sudeste da Austrália|LRS |Não    |Sim|
-|Centro da Índia  |LRS     |Não    |Sim|
-|Este Asiático      |LRS     |Não    |Sim|
-|Este dos E.U.A.        |LRS     |Não    |Sim|
-|França Central |LRS, ZRS|Não    |Sim|
-|Sul da França   |LRS     |Não    |Sim|
-|Europa do Norte   |LRS     |Não    |Ainda não|
-|Sul da Índia    |LRS     |Não    |Sim|
-|Sudeste Asiático |LRS, ZRS|Não    |Sim|
-|E.U.A. Centro-Oeste|LRS     |Não    |Sim|
-|Europa Ocidental    |LRS, ZRS|Não    |Sim|
-|Oeste dos E.U.A.        |LRS     |Não    |Sim|
-|E.U.A. Oeste 2      |LRS, ZRS|Não    |Sim|
+|Região |Redundância com suporte |
+|-------|---------|
+|Leste da Austrália |LRS     |
+|Sudeste da Austrália|LRS |
+|Centro da Índia  |LRS     |
+|Este Asiático      |LRS     |
+|Leste dos EUA *        |LRS     |
+|França Central |LRS, ZRS|
+|Sul de França   |LRS     |
+|Sul da Índia    |LRS     |
+|Sudeste Asiático |LRS, ZRS|
+|E.U.A. Centro-Oeste|LRS     |
+|Europa Ocidental *    |LRS, ZRS|
+|Oeste dos EUA *        |LRS     |
+|E.U.A. Oeste 2      |LRS, ZRS|
 
-
-\* Para regiões sem suporte ao portal, você ainda pode usar o PowerShell ou a CLI (interface de linha de comando) do Azure para criar mais de 5 compartilhamentos TiB. Como alternativa, crie um novo compartilhamento por meio do portal sem especificar a cota. Isso criará um compartilhamento com o tamanho padrão de 100 TiB, que pode ser atualizado posteriormente por meio do PowerShell ou CLI do Azure.
+\* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização.
 
 Para nos ajudar a priorizar novas regiões e recursos, preencha esta [pesquisa](https://aka.ms/azurefilesatscalesurvey).
 
-### <a name="steps-to-onboard"></a>Etapas para carregar
+### <a name="enable-and-create-larger-file-shares"></a>Habilitar e criar compartilhamentos de arquivos maiores
 
-Para registrar sua assinatura na versão prévia de compartilhamentos de arquivos maiores, você precisa usar Azure PowerShell. Você pode usar [Azure cloud Shell](https://shell.azure.com/) ou instalar o [módulo Azure PowerShell localmente](https://docs.microsoft.com/powershell/azure/install-Az-ps?view=azps-2.4.0) para executar os seguintes comandos do PowerShell:
-
-Primeiro, verifique se a assinatura que você deseja registrar na visualização está selecionada:
-
-```powershell
-$context = Get-AzSubscription -SubscriptionId ...
-Set-AzContext $context
-```
-
-Em seguida, registre-se na versão prévia usando os seguintes comandos:
-
-```powershell
-Register-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-Sua assinatura será aprovada automaticamente depois que os dois comandos forem executados.
-
-Para verificar o status do registro, você pode executar o seguinte comando:
-
-```powershell
-Get-AzProviderFeature -FeatureName AllowLargeFileShares -ProviderNamespace Microsoft.Storage
-```
-
-Pode levar até 15 minutos para que o status seja atualizado para **registrado**. Depois que seu status for **registrado**, você poderá usar o recurso.
-
-### <a name="use-larger-file-shares"></a>Usar compartilhamentos de arquivos maiores
-
-Para começar a usar compartilhamentos de arquivos maiores, crie uma nova conta de armazenamento de uso geral V2 e um novo compartilhamento de arquivos.
+Para começar a usar compartilhamentos de arquivos maiores, consulte nosso artigo [habilitar compartilhamentos de arquivos grandes](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 
-Hoje, o tamanho máximo de um compartilhamento de arquivos do Azure é 5 TiB (100 TiB em versão prévia). Devido a essa limitação atual, você deve considerar o crescimento de dados esperado ao implantar um compartilhamento de arquivos do Azure.
+Hoje, o tamanho máximo de um compartilhamento de arquivos do Azure é de 100 TiB. Devido a essa limitação atual, você deve considerar o crescimento de dados esperado ao implantar um compartilhamento de arquivos do Azure.
 
 É possível sincronizar vários compartilhamentos de arquivos do Azure com um único servidor de arquivos do Windows com o Sincronização de Arquivos do Azure. Isso permite que você garanta que os compartilhamentos de arquivos grandes e antigos que você pode ter no local possam ser colocados em Sincronização de Arquivos do Azure. Para obter mais informações, consulte [planejando uma implantação de sincronização de arquivos do Azure](storage-files-planning.md).
 

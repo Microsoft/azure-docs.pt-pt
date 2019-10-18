@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: d193dcd0c0539c2daa7220d915fdc3e02c8ea798
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828661"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512434"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Carregar um VHD no Azure usando o Azure PowerShell
 
@@ -27,7 +27,7 @@ Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrã
 
 - Baixe a versão mais recente [do AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-Az-ps).
-- Se você pretende carregar um VHD de em PEM: Um VHD que foi [preparado para o Azure](prepare-for-upload-vhd-image.md), armazenado localmente.
+- Se você pretende carregar um VHD de on-PEM: um VHD que foi [preparado para o Azure](prepare-for-upload-vhd-image.md), armazenado localmente.
 - Ou, um disco gerenciado no Azure, se você pretende executar uma ação de cópia.
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
@@ -77,7 +77,7 @@ Esse carregamento tem a mesma taxa de transferência que o [HDD padrão](disks-t
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
-Se a sua SAS expirar durante o carregamento e você ainda não `revoke-access` tiver chamado, poderá obter uma nova SAS para continuar o carregamento usando `grant-access`novamente.
+Se sua SAS expirar durante o carregamento e você ainda não tiver chamado `revoke-access`, poderá obter uma nova SAS para continuar o carregamento usando `grant-access`, novamente.
 
 Depois que o upload for concluído e você não precisar mais gravar mais dados no disco, revogue a SAS. A revogação da SAS alterará o estado do disco gerenciado e permitirá que você anexe o disco a uma VM.
 
@@ -94,7 +94,7 @@ O script a seguir fará isso para você, o processo é semelhante às etapas des
 > [!IMPORTANT]
 > Você precisa adicionar um deslocamento de 512 quando estiver fornecendo o tamanho do disco em bytes de um disco gerenciado do Azure. Isso ocorre porque o Azure omite o rodapé ao retornar o tamanho do disco. A cópia falhará se você não fizer isso. O script a seguir já faz isso para você.
 
-Substitua o `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) com seus valores e, em seguida, execute o seguinte script para copiar um disco gerenciado.
+Substitua o `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` e `<yourTargetLocationHere>` (um exemplo de um valor de local seria uswest2) com seus valores e, em seguida, execute o script a seguir para copiar um disco gerenciado.
 
 ```powershell
 
@@ -128,4 +128,4 @@ Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName
 
 Agora que você carregou com êxito um VHD em um disco gerenciado, você pode anexar o disco a uma VM e começar a usá-lo.
 
-Para saber como anexar um disco a uma VM, consulte nosso artigo sobre o assunto: [Anexe um disco de dados a uma VM do Windows com o PowerShell](attach-disk-ps.md).
+Para saber como anexar um disco de dados a uma VM, consulte nosso artigo sobre o assunto: [anexar um disco de dados a uma VM do Windows com o PowerShell](attach-disk-ps.md). Para usar o disco como o disco do sistema operacional, consulte [criar uma VM do Windows de um disco especializado](create-vm-specialized.md#create-the-new-vm).

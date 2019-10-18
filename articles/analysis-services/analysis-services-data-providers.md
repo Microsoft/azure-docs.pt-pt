@@ -4,15 +4,15 @@ description: Descreve as bibliotecas de cliente necessárias para que os aplicat
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298656"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512766"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conexão com o Azure Analysis Services
 
@@ -44,7 +44,7 @@ Analysis Services utilizam três bibliotecas de cliente, também conhecidas como
 
 Aplicativos cliente da Microsoft como Power BI Desktop e Excel instalam todas as três bibliotecas de cliente e as atualizam quando novas versões estão disponíveis. Dependendo da versão ou da frequência das atualizações, algumas bibliotecas de cliente podem não ser as versões mais recentes exigidas pelo Azure Analysis Services. O mesmo se aplica a aplicações personalizadas ou a outras interfaces, como sCmd, TOM ou ADOMD.NET. Esses aplicativos exigem a instalação manual ou programática das bibliotecas. As bibliotecas de cliente para instalação manual estão incluídas no SQL Server Feature packs como pacotes distribuíveis. No entanto, essas bibliotecas de cliente estão vinculadas à versão SQL Server e podem não ser as mais recentes.  
 
-As bibliotecas de cliente para conexões de cliente são diferentes dos provedores de dados necessários para se conectar de um servidor de Azure Analysis Services a uma fonte de dados. Para saber mais sobre conexões de DataSource, consulte [conexões de fonte de origem](analysis-services-datasource.md).
+As bibliotecas de cliente para conexões de cliente são diferentes dos provedores de dados necessários para se conectar de um servidor de Azure Analysis Services a uma fonte de dados. Para saber mais sobre conexões de fonte de dados, consulte [conexões de fonte de dados](analysis-services-datasource.md).
 
 ## <a name="client-library-types"></a>Tipos de biblioteca de cliente
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com o SurveyMonkey Enterprise | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o SurveyMonkey Enterprise | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o SurveyMonkey Enterprise.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce7f40c300a86acd101d1b38cfef4b2af91c4085
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 4238033f94fe8bfdc677c9eb623a2eab3cdf371c
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772680"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532931"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com o SurveyMonkey Enterprise
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-surveymonkey-enterprise"></a>Tutorial: integração de SSO (logon único) Azure Active Directory com o SurveyMonkey Enterprise
 
 Neste tutorial, você aprenderá a integrar o SurveyMonkey Enterprise ao Azure Active Directory (Azure AD). Ao integrar o SurveyMonkey Enterprise ao Azure AD, você pode:
 
@@ -45,6 +45,9 @@ Para começar, você precisa dos seguintes itens:
 Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
 * O SurveyMonkey Enterprise dá suporte ao SSO iniciado pelo **IDP**
+
+> [!NOTE]
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que apenas uma instância pode ser configurada em um locatário.
 
 ## <a name="adding-surveymonkey-enterprise-from-the-gallery"></a>Adicionando o SurveyMonkey Enterprise da Galeria
 
@@ -82,27 +85,39 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , o aplicativo é pré-configurado e as URLs necessárias já foram preenchidas previamente com o Azure. O usuário precisa salvar a configuração clicando no botão **salvar** .
 
+1. O aplicativo SurveyMonkey Enterprise espera que as asserções SAML estejam em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
+
+    ![imagem](common/edit-attribute.png)
+
+6. Além de acima, o aplicativo SurveyMonkey Enterprise espera que mais alguns atributos sejam passados de volta na resposta SAML, que são mostrados abaixo. Esses atributos também são preenchidos previamente, mas você pode examiná-los de acordo com seu requisito.
+
+    | Nome | Atributo de origem|
+    | ---------------| --------------- |
+    | E-mail | User. mail |
+    | firstName | User. excertoname |
+    | lastName | User. sobrenome |
+
 1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
 1. Na seção **Configurar o surveymonkey Enterprise** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso ao SurveyMonkey Enterprise.
 
@@ -110,7 +125,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **surveymonkey Enterprise**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -122,15 +137,15 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 ## <a name="configure-surveymonkey-enterprise-sso"></a>Configurar o SSO corporativo do SurveyMonkey
 
-Para configurar o logon único no lado do **surveymonkey Enterprise** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do surveymonkey Enterprise](mailto:support@selerix.com). Se definir esta definição para que a ligação de SAML SSO definidas corretamente em ambos os lados.
+Para configurar o logon único no lado do **surveymonkey Enterprise** , é necessário enviar o XML de **metadados de Federação** baixado e as URLs copiadas apropriadas de portal do Azure para a [equipe de suporte do surveymonkey Enterprise](mailto:support@selerix.com). Eles definem essa configuração para que a conexão de SSO do SAML seja definida corretamente em ambos os lados.
 
 ### <a name="create-surveymonkey-enterprise-test-user"></a>Criar usuário de teste do SurveyMonkey Enterprise
 
-Nesta seção, você criará um usuário chamado B. Simon no SurveyMonkey Enterprise. Trabalhe com a [equipe de suporte do surveymonkey Enterprise](mailto:support@selerix.com) para adicionar os usuários na plataforma do surveymonkey Enterprise. Os utilizadores tem de ser criados e ativados antes de utilizar o início de sessão único.
+Não é necessário criar um usuário de teste no SurveyMonkey Enterprise. As contas de usuário serão provisionadas se o usuário optar por criar uma nova conta, com base na declaração SAML. O Gerenciador de sucesso do cliente do SurveyMonkey Enterprise fornecerá etapas para concluir esse processo depois que os metadados do Azure tiverem sido adicionados à configuração do SurveyMonkey Enterprise e estiverem prontos para serem validados.
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do SurveyMonkey Enterprise no painel de acesso, você deverá entrar automaticamente no SurveyMonkey Enterprise para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

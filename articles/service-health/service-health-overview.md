@@ -1,74 +1,74 @@
 ---
-title: Descrição geral do Estado de funcionamento do serviço | Documentos da Microsoft
-description: Obter informações personalizadas sobre como as aplicações do Azure são afetadas por problemas de serviço do Azure, atuais e futuras e manutenção.
+title: Visão geral da integridade do serviço | Microsoft Docs
+description: Informações personalizadas sobre como seus aplicativos do Azure são afetados por problemas e manutenção atuais e futuros do serviço do Azure.
 author: stephbaron
 ms.author: stbaron
 services: service-health
 ms.service: service-health
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: a6f6288aebe599db794a7f15fc733563d26c66cc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3e3c83b7233ad4da263dec31c6012209ebaca0fe
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067102"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515844"
 ---
-# <a name="service-health-overview"></a>Descrição geral do Estado de funcionamento do serviço
+# <a name="service-health-overview"></a>Visão geral da integridade do serviço
 
-Serviço de estado de funcionamento fornece um dashboard personalizável que controla o estado de funcionamento dos seus serviços do Azure nas regiões onde usá-los. Neste dashboard, pode controlar o Active Directory eventos como problemas de serviço em curso, futura manutenção planeada ou aconselhamentos sobre o estado de funcionamento relevantes. Quando eventos tornam-se inativos, eles serão colocados no seu histórico de estado de funcionamento até 90 dias. Por fim, pode utilizar o dashboard de estado de funcionamento do serviço para criar e gerir alertas de estado de funcionamento do serviço que proativamente notificá-lo quando os problemas de serviço estão a afetar.
+A integridade do serviço fornece um painel personalizável que controla a integridade dos serviços do Azure nas regiões em que você os utiliza. Nesse painel, você pode acompanhar eventos ativos, como problemas de serviço contínuos, manutenção planejada futura ou comunicados de integridade relevantes. Quando os eventos se tornam inativos, eles são colocados em seu histórico de integridade por até 90 dias. Por fim, você pode usar o painel de integridade do serviço para criar e gerenciar alertas de integridade do serviço que notificam proativamente quando problemas de serviço estão afetando você.
 
-## <a name="service-health-events"></a>Eventos de estado de funcionamento do serviço
+## <a name="service-health-events"></a>Eventos de integridade do serviço
 
-Estado de funcionamento do serviço controla os três tipos de eventos de estado de funcionamento que possam afetar seus recursos:
+A integridade do serviço rastreia três tipos de eventos de integridade que podem afetar seus recursos:
 
-1. **Problemas de serviço** -problemas nos serviços do Azure que afetá-lo neste momento. 
-2. **A manutenção planeada** -manutenção futura, que pode afetar a disponibilidade dos seus serviços no futuro.  
-3. **Aconselhamentos sobre o estado de funcionamento** -as alterações nos serviços do Azure que necessitam da sua atenção. Os exemplos incluem quando as funcionalidades do Azure foram preteridas ou se exceder a quota de utilização.
+1. **Problemas de serviço** -problemas nos serviços do Azure que afetam você no momento. 
+2. **Manutenção planejada** – manutenção futura que pode afetar a disponibilidade de seus serviços no futuro.  
+3. **Comunicados de integridade** – alterações nos serviços do Azure que exigem sua atenção. Os exemplos incluem quando os recursos do Azure são preteridos ou se você excede uma cota de uso.
 
 > [!NOTE]
-> Para ver eventos de estado de funcionamento do serviço, os utilizadores devem ter a função de leitor numa subscrição.
+> Para exibir eventos de integridade do serviço, os usuários devem receber [a função leitor](../role-based-access-control/role-assignments-portal.md) em uma assinatura.
 
-## <a name="get-started-with-service-health"></a>Introdução ao serviço de estado de funcionamento
+## <a name="get-started-with-service-health"></a>Introdução à integridade do serviço
 
-Para iniciar o seu dashboard de estado de funcionamento do serviço, selecione o mosaico de estado de funcionamento do serviço no dashboard do portal. Se anteriormente tiver removido o mosaico ou estiver a utilizar o dashboard personalizado, procure por serviço de estado de funcionamento do serviço em "Mais serviços" (à esquerda no seu dashboard em baixo).
+Para iniciar o painel de integridade do serviço, selecione o bloco integridade do serviço no painel do Portal. Se você tiver removido o bloco anteriormente ou estiver usando o painel personalizado, procure serviço de integridade do serviço em "mais serviços" (no canto inferior esquerdo no painel).
 
-![Introdução ao serviço de estado de funcionamento](./media/service-health-overview/azure-service-health-overview-1.png)
+![Introdução à integridade do serviço](./media/service-health-overview/azure-service-health-overview-1.png)
 
-## <a name="see-current-issues-which-impact-your-services"></a>Ver problemas recentes de que afetar seus serviços
+## <a name="see-current-issues-which-impact-your-services"></a>Veja os problemas atuais que afetam seus serviços
 
-O **problemas do serviço** vista mostra todos os problemas em curso nos serviços do Azure que estejam a afetar seus recursos. Pode compreender quando o problema começou e que serviços e regiões são afetados. Também é possível ler a atualização mais recente para compreender o que está fazendo Azure para resolver o problema. 
+A exibição **problemas de serviço** mostra os problemas em andamento nos serviços do Azure que estão afetando seus recursos. Você pode entender quando o problema começou e quais serviços e regiões são afetados. Você também pode ler a atualização mais recente para entender o que o Azure está fazendo para resolver o problema. 
 
-![Gerir o problema de serviço](./media/service-health-overview/azure-service-health-overview-2.png)
+![Gerenciar problema de serviço](./media/service-health-overview/azure-service-health-overview-2.png)
 
-Escolha o **impacto potencial** separador para ver a lista específica de recursos é proprietário, que poderão ser afetados pelo problema. Pode transferir uma lista CSV destes recursos para partilhar com a sua equipa.
+Escolha a guia **impacto potencial** para ver a lista específica de recursos que você possui que podem ser afetados pelo problema. Você pode baixar uma lista CSV desses recursos para compartilhar com sua equipe.
 
-![Gerir o problema de serviço – impacto](./media/service-health-overview/azure-service-health-overview-4.png)
+![Gerenciar problema de serviço-impacto](./media/service-health-overview/azure-service-health-overview-4.png)
 
-## <a name="get-links-and-downloadable-explanations"></a>Obtenha ligações e explicações para download 
+## <a name="get-links-and-downloadable-explanations"></a>Obter links e explicações para download 
 
-Pode obter uma ligação para o problema utilizar no seu sistema de gestão de problemas. Pode baixar PDF e, às vezes, ficheiros CSV para partilhar com pessoas que não têm acesso ao portal do Azure.   
+Você pode obter um link para o problema a ser usado no sistema de gerenciamento de problemas. Você pode baixar PDF e, às vezes, arquivos CSV para compartilhar com pessoas que não têm acesso ao portal do Azure.   
 
-![Gerir problemas no serviço - Gestão de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
+![Gerenciar problema de serviço-gerenciamento de problemas](./media/service-health-overview/azure-service-health-overview-3.png)
 
-## <a name="get-support-from-microsoft"></a>Obter suporte da Microsoft
+## <a name="get-support-from-microsoft"></a>Obtenha suporte da Microsoft
 
-Se o seu recurso resta num Estado incorreto, mesmo depois do problema foi resolvido, contacte o suporte.  Use os links de suporte no lado direito da página.  
+Contate o suporte se o recurso for deixado em um estado inadequado mesmo depois que o problema for resolvido.  Use os links de suporte à direita da página.  
 
-## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Afixar um mapa de estado de funcionamento personalizado ao dashboard
+## <a name="pin-a-personalized-health-map-to-your-dashboard"></a>Fixar um mapa de integridade personalizado em seu painel
 
-Filtre o estado de funcionamento do serviço para mostrar as suas subscrições empresariais críticas, regiões e tipos de recursos. Guarde o filtro e afixar mapa-mundo um Estado de funcionamento personalizado ao dashboard do portal. 
+Filtre a integridade do serviço para mostrar suas assinaturas, regiões e tipos de recursos críticos para os negócios. Salve o filtro e fixe um mapa do World Health personalizado no painel do Portal. 
 
-![Mapa de estado de funcionamento personalizado de filtro](./media/service-health-overview/azure-service-health-overview-6a.png)
+![Filtrar mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6a.png)
 
-![Afixar um mapa de estado de funcionamento personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
+![Fixar um mapa de integridade personalizado](./media/service-health-overview/azure-service-health-overview-6b.png)
 
-## <a name="configure-service-health-alerts"></a>Configurar alertas de estado de funcionamento do serviço
+## <a name="configure-service-health-alerts"></a>Configurar alertas de integridade do serviço
 
-Service Health integra-se com o Azure Monitor para alertá-lo através de e-mails, mensagens de texto e notificações de webhook quando os seus recursos críticos para o negócio são afetados. Configure um alerta de registo de atividade para o evento de estado de funcionamento do serviço apropriado. Encaminhe esse alerta para as pessoas adequadas na sua organização utilizando grupos de ação. Para obter mais informações, consulte [configurar alertas de estado de funcionamento do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
+A integridade do serviço integra-se com o Azure Monitor para alertá-lo por emails, mensagens de texto e notificações de webhook quando seus recursos críticos para os negócios são afetados. Configure um alerta do log de atividades para o evento de integridade do serviço apropriado. Encaminhe esse alerta para as pessoas apropriadas em sua organização usando grupos de ação. Para obter mais informações, consulte [configurar alertas para integridade do serviço](../azure-monitor/platform/alerts-activity-log-service-notifications.md)
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Configure alertas para que seja notificado de problemas de estado de funcionamento. Para obter mais informações, consulte [melhores práticas para configurar alertas de estado de funcionamento do serviço do Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 
+Configure alertas para que você seja notificado sobre problemas de integridade. Para obter mais informações, consulte [práticas recomendadas para configurar alertas de integridade do serviço do Azure](https://www.youtube.com/watch?v=k5d5ca8K6tc&list=PLLasX02E8BPBBSqygdRvlTnHfp1POwE8K&index=6&t=0s). 

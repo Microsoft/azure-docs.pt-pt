@@ -4,15 +4,15 @@ description: Descreve as fontes de dados com suporte para modelos de dados no Az
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c6043d9e18c364073ad1ea46e26335577e0ec3b2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298631"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72512453"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Fontes de dados com suporte no Azure Analysis Services
 
@@ -20,7 +20,7 @@ As fontes de dados e conectores mostrados no Assistente para obter dados ou impo
 
 ## <a name="azure-data-sources"></a>Origens de dados do Azure
 
-|Origem de dados  |Dentro da memória  |DirectQuery  |
+|Fonte de dados  |Dentro da memória  |DirectQuery  |
 |---------|---------|---------|
 |Banco de dados SQL do Azure<sup>[2](#azsqlmanaged)</sup>     |   Sim      |    Sim      |
 |Armazém de Dados SQL do Azure     |   Sim      |   Sim       |
@@ -38,7 +38,7 @@ Não há <a name="databricks">suporte para o</a> Azure Databricks usando o conec
 Não há suporte para <a name="gen2">4</a> -ADLS Gen2 no momento.
 
 
-@No__t do **provedor**-1  
+@No__t_1 do **provedor**  
 Modelos na memória e DirectQuery que se conectam a fontes de dados do Azure usam .NET Framework Provedor de Dados para SQL Server.
 
 ## <a name="other-data-sources"></a>Outras fontes de dados
@@ -47,7 +47,7 @@ Conectar-se a fontes de dados locais do e do Azure como servidor requer um gatew
 
 ### <a name="in-memory-and-directquery"></a>Na memória e DirectQuery
 
-|Origem de dados | Provedor na memória | Provedor DirectQuery |
+|Fonte de dados | Provedor na memória | Provedor DirectQuery |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11,0, provedor de OLE DB da Microsoft para SQL Server, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
 | SQL Server data warehouse |SQL Server Native Client 11,0, provedor de OLE DB da Microsoft para SQL Server, .NET Framework Provedor de Dados para SQL Server | .NET Framework Provedor de Dados para SQL Server |
@@ -57,7 +57,7 @@ Conectar-se a fontes de dados locais do e do Azure como servidor requer um gatew
 
 ### <a name="in-memory-only"></a>Somente na memória
 
-|Origem de dados  |  
+|Fonte de dados  |  
 |---------|
 |Banco de dados do Access     |  
 |Active Directory<sup>[1](#tab1400b)</sup>     |  
@@ -118,6 +118,6 @@ Para fontes de dados de nuvem:
 Para modelos de tabela no nível de compatibilidade 1400 e superior, o banco de dados SQL do Azure, o Azure SQL Data Warehouse, o Dynamics 365 e a lista do SharePoint dão suporte a credenciais OAuth. Azure Analysis Services gerencia a atualização de token para fontes de dados OAuth para evitar tempos limite para operações de atualização de execução longa. Para gerar tokens válidos, defina as credenciais usando o SSMS.
 
 ## <a name="next-steps"></a>Passos seguintes
-@No__t de [Gateway local](analysis-services-gateway.md)-1  
+@No__t_1 [de gateway local](analysis-services-gateway.md)  
 [Gerenciar seu servidor](analysis-services-manage.md)   
 
