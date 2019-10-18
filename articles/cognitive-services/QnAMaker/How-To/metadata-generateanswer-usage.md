@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: a63b6773a7546f8add0b2f2ab6280801e90bccca
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248644"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554871"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -48,7 +48,7 @@ Depois de publicar sua base de dados de conhecimento, seja no [portal de QnA Mak
 Para obter os detalhes do ponto de extremidade:
 1. Inicie sessão em [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. Em **minhas bases de dados de conhecimento**, selecione **Exibir código** para sua base de dados de conhecimento.
-    ![Screenshot de minhas bases de dados de conhecimento @ no__t-1
+    ![Screenshot de minhas bases de dados de conhecimento ](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os detalhes do ponto de extremidade do GenerateAnswer.
 
     ![Captura de tela dos detalhes do ponto de extremidade](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -83,6 +83,7 @@ Um exemplo de corpo JSON é semelhante a:
     "top": 6,
     "isTest": true,
     "scoreThreshold": 30,
+    "rankerType": "" // values: QuestionOnly
     "strictFilters": [
     {
         "name": "category",
@@ -91,6 +92,8 @@ Um exemplo de corpo JSON é semelhante a:
     "userId": "sd53lsY="
 }
 ```
+
+Saiba mais sobre o [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
 O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite. 
 
