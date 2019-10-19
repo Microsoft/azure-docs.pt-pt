@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Documentação do Azure Notebooks
 metadata:
-  title: 'Documentação do Azure Notebooks - Inícios rápidos, Tutoriais, Guias | Microsoft Docs'
+  title: Documentação do Azure Notebooks
   description: 'Saiba como criar, executar e partilhar blocos de notas Jupyter através do serviço alojado do Azure Notebooks.'
   services: notebooks
   author: kraigb
