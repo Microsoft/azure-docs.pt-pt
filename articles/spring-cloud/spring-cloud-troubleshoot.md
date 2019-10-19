@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ebb960085691206b096090813636ef56366e6536
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
-ms.translationtype: MT
+ms.openlocfilehash: 51062437b4fc1169ce166eb27067e56b9de262e6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039029"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554370"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Guia de solução de problemas comuns
 
@@ -31,7 +31,7 @@ Encontrar o seguinte erro em seus logs indica um dos dois prováveis problemas:
 `org.springframework.context.ApplicationContextException: Unable to start web server`
 
 * Um dos Beans ou uma de suas dependências está ausente.
-* Uma das propriedades do bean está em falta ou é inválida. Você provavelmente verá `java.lang.IllegalArgumentException` nesse caso.
+* Uma das propriedades do bean está em falta ou é inválida. Você provavelmente verá `java.lang.IllegalArgumentException`, nesse caso.
 
 As associações de serviço também podem causar falhas de início do aplicativo. Utilize palavras-chave relacionadas com os serviços vinculados para consultar os registos.  Por exemplo, suponha que seu aplicativo tenha uma associação a uma instância do MySQL definida como hora do sistema local. Se o aplicativo falhar ao iniciar, você poderá encontrar o seguinte erro no log:
 
@@ -49,11 +49,11 @@ Ao depurar o aplicativo falhar, comece verificando o status de execução e o st
 * Se o status da descoberta estiver _ativo_, vá para _métricas_ para verificar a integridade do aplicativo. Inspecione as seguintes métricas:
 
 
-  - `TomcatErrorCount` (_tomcat.global.error_): todas as exceções da aplicação Spring serão contabilizadas aqui. Se esse número for grande, vá para o _Azure log Analytics_ para inspecionar os logs do aplicativo.
+  - `TomcatErrorCount` (_tomcat. global. Error_): todas as exceções de aplicativo Spring serão contadas aqui. Se esse número for grande, vá para o _Azure log Analytics_ para inspecionar os logs do aplicativo.
 
-  - `AppMemoryMax` (_jvm.memory.max_): A quantidade máxima de memória disponível para o aplicativo. Ele pode ser indefinido ou ser alterado ao longo do tempo, se definido. A quantidade de memória utilizada e consolidada será sempre inferior ou igual à máxima, se definida. No entanto, a alocação de memória poderá falhar com `OutOfMemoryError` se tentar aumentar a memória utilizada, de forma que a utilizada > consolidada mesmo se utilizada <= máx. continuar a ser verdadeira. Nesta situação, tente aumentar o tamanho máximo da área dinâmica para dados através do parâmetro `-Xmx`.
+  - `AppMemoryMax` (_JVM. Memory. Max_): a quantidade máxima de memória disponível para o aplicativo. Ele pode ser indefinido ou ser alterado ao longo do tempo, se definido. A quantidade de memória utilizada e consolidada será sempre inferior ou igual à máxima, se definida. No entanto, a alocação de memória poderá falhar com `OutOfMemoryError` se tentar aumentar a memória utilizada, de forma que a utilizada > consolidada mesmo se utilizada <= máx. continuar a ser verdadeira. Nesta situação, tente aumentar o tamanho máximo da área dinâmica para dados através do parâmetro `-Xmx`.
 
-  - `AppMemoryUsed` (_jvm.memory.used_): A quantidade de memória, em bytes, que é usada atualmente pelo aplicativo. Para uma aplicação Java de carregamento normal, esta série de métricas formará um padrão de “dentes de serra”, em que a utilização de memória aumenta e diminui de forma constante em pequenos incrementos e, em seguida, tem uma queda brusca, sendo este um padrão repetitivo. Isso ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no ' sawteeth '.
+  - `AppMemoryUsed` (_JVM. Memory. Used_): a quantidade de memória em bytes que é usada atualmente pelo aplicativo. Para uma aplicação Java de carregamento normal, esta série de métricas formará um padrão de “dentes de serra”, em que a utilização de memória aumenta e diminui de forma constante em pequenos incrementos e, em seguida, tem uma queda brusca, sendo este um padrão repetitivo. Isso ocorre devido à coleta de lixo dentro da máquina virtual Java, em que as ações de coleta representam quedas no ' sawteeth '.
     Essa métrica é importante para identificar problemas de memória, como: * explosão de memória no começo * alocação de memória de surto para um caminho lógico específico * vazamentos de memória gradual
 
   Para obter mais detalhes, visite [métricas](spring-cloud-concept-metrics.md).
@@ -107,7 +107,7 @@ No entanto, se você tentar provisionar a instância do serviço de _nuvem Sprin
 
 Se você tentar provisionar a instância do serviço de _nuvem Spring do Azure_ por meio do modelo do Resource Manager, visite https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates para verificar a sintaxe do modelo.
 
-O nome da instância do serviço de _nuvem do Azure Spring_ será usado para solicitar um nome de subdomínio em `azureapps.io`, portanto, o provisionamento falhará se o nome estiver em conflito com um existente. Pode encontrar mais detalhes nos registos de atividade.
+O nome da instância do serviço de _nuvem do Azure Spring_ será usado para solicitar um nome de subdomínio em `azureapps.io`, de modo que o provisionamento falhará se o nome estiver em conflito com um existente. Pode encontrar mais detalhes nos registos de atividade.
 
 ### <a name="i-cannot-deploy-a-jar-package"></a>Não consigo implementar um pacote JAR
 
@@ -147,11 +147,51 @@ Você também pode verificar os logs _do cliente do registro de serviço_ no _Az
 
 Visite [Este artigo de introdução](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) para começar a usar o _Azure log Analytics_. Consulte os logs usando a [linguagem de consulta Kusto](https://docs.microsoft.com/azure/kusto/query/).
 
+### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Quero inspecionar as variáveis de ambiente do meu aplicativo
+
+As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garantindo que o Azure entenda onde e como configurar os serviços que compõem seu aplicativo.  Garantir que suas variáveis de ambiente estejam corretas é uma primeira etapa necessária para solucionar problemas em potencial.  Você pode usar o ponto de extremidade do acionador do Spring boot para examinar suas variáveis de ambiente.  
+
+[!WARNING]
+> Este procedimento pode expor suas variáveis de ambiente.  Não prossiga se o ponto de extremidade de teste estiver publicamente acessível ou se você tiver atribuído um nome de domínio ao seu aplicativo.
+
+1. Navegue até esta URL: `https://<your application test endpoint>/actuator/health`.  
+    - Uma resposta semelhante a `{"status":"UP"}` indica que o ponto de extremidade foi habilitado.
+    - Se a resposta for negativa, inclua a seguinte dependência em seu `POM.xml`:
+
+        ```xml
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        ```
+
+1. Com o ponto de extremidade do acionador do Spring Boot habilitado, vá para a portal do Azure e localize a página de configuração do seu aplicativo.  Adicione uma variável de ambiente com o nome `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value ` * '. 
+
+1. Reinicie o aplicativo.
+
+1. Navegue até `https://<the test endpoint of your app>/actuator/env` e inspecione a resposta.  Deve ter o seguinte aspeto:
+
+    ```json
+    {
+        "activeProfiles": [],
+        "propertySources": {,
+            "name": "server.ports",
+            "properties": {
+                "local.server.port": {
+                    "value": 1025
+                }
+            }
+        }
+    }
+    ```
+
+Localize o nó filho chamado `systemEnvironment`.  Esse nó contém as variáveis de ambiente do seu aplicativo.
+
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>Não consigo localizar as métricas ou os registos da minha aplicação
 
 Vá para _Gerenciamento de aplicativo_ para verificar se o aplicativo está _em execução e em funcionamento_ .
 
-Se você puder ver as métricas da _JVM_ , mas nenhuma métrica do _tomcat_, verifique se a dependência @ no__t-2 está habilitada no pacote do aplicativo e se foi inicializada com êxito.
+Se você puder ver as métricas da _JVM_ , mas nenhuma métrica do _tomcat_, verifique se a dependência de `spring-boot-actuator` está habilitada no pacote do aplicativo e se foi inicializada com êxito.
 
 ```xml
 <dependency>

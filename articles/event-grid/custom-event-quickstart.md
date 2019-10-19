@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: fb57d69b4969bcbf66717a8ca29ede23f2ed8e43
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 30ffcd9bdb8170777c245d95b0c07198a34c5464
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429113"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72556086"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Início rápido: rotear eventos personalizados para o ponto de extremidade da Web com CLI do Azure e a grade de eventos
 
@@ -27,7 +27,7 @@ Normalmente, envia eventos para um ponto final que processa os dados de eventos 
 
 Quando tiver terminado, verá que os dados do evento foram enviados para a aplicação Web.
 
-![Usar o Visualizador de grade de eventos do Azure para verificar se os dados do evento foram enviados](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
+![Exibir resultados no Visualizador de grade de eventos do Azure](./media/custom-event-quickstart/azure-event-grid-viewer-record-inserted-event.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -98,7 +98,8 @@ az eventgrid event-subscription create \
 
 Verifique a aplicação Web novamente e repare que um evento de validação de subscrição foi enviado para a mesma. Selecione o ícone do olho para expandir os dados do evento. O Event Grid envia o evento de validação para que o ponto final possa verificar que pretende receber dados de eventos. A aplicação Web inclui código para validar a subscrição.
 
-![Exibir o código de validação da assinatura no Visualizador de grade de eventos do Azure](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
+![Exibir o evento de assinatura no Visualizador de grade de eventos do Azure](./media/custom-event-quickstart/azure-event-grid-viewer-subscription-validation-event.png)
+
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Enviar um evento para o tópico personalizado
 

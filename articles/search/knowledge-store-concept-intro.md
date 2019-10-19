@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: overview
 ms.date: 08/02/2019
 ms.author: heidist
-ms.openlocfilehash: b092c7251bc2a6794db36f8eaa279a7eeb931723
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
-ms.translationtype: HT
+ms.openlocfilehash: 8a0022ce429b1359d8771f5089589fc779b8a751
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533774"
+ms.locfileid: "72554884"
 ---
 # <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de conhecimento em Azure Search?
 
@@ -21,17 +21,17 @@ ms.locfileid: "72533774"
 > A loja de conhecimento está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
 
-O repositório de conhecimento é um recurso do Azure Search que persiste a saída de um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) para análise posterior ou outro processamento downstream. Um *documento aprimorado* é a saída de um pipeline, criada a partir de conteúdo que foi extraído, estruturado e analisado usando recursos em serviços cognitivas. Em um pipeline baseado em ia padrão, os documentos aprimorados são transitórios, usados somente durante a indexação e, em seguida, descartados. Com a loja de conhecimento, os documentos são salvos para uso em outros aplicativos ou cargas de trabalho de ciência de dados downstream. 
+O repositório de conhecimento é um recurso do Azure Search que persiste a saída de um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) para análise posterior ou outro processamento downstream. Um *documento aprimorado* é a saída de um pipeline, criada a partir do conteúdo que foi extraído, estruturado e analisado usando processos de ia. Em um pipeline de ia padrão, os documentos aprimorados são transitórios, usados somente durante a indexação e, em seguida, descartados. Com a loja de conhecimento, os documentos aprimorados são preservados. 
 
-Se você usou habilidades de ia com Azure Search no passado, já sabe que *habilidades* são usadas para mover um documento por uma sequência de aprimoramentos. O resultado pode ser um índice Azure Search ou (novo nesta visualização) projeções em uma loja de conhecimento. As duas saídas, índice de pesquisa e repositório de conhecimento são fisicamente distintas umas das outras. Eles compartilham o mesmo conteúdo, mas são armazenados e usados de maneiras muito diferentes.
+Se você usou habilidades de ia com Azure Search no passado, já sabe que o *habilidades* move um documento por uma sequência de aprimoramentos. O resultado pode ser um índice de pesquisa ou (novo nesta visualização) projeções em uma loja de conhecimento. As duas saídas, o índice de pesquisa e o repositório de conhecimento, compartilham o mesmo conteúdo, mas são armazenados e usados de maneiras muito diferentes.
 
-Fisicamente, uma loja de conhecimento é uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), como o armazenamento de tabelas do Azure, o armazenamento de BLOBs do Azure ou ambos, dependendo de como você configura o pipeline. Qualquer ferramenta ou processo que possa se conectar a uma conta de armazenamento do Azure pode consumir o conteúdo de uma loja de conhecimento.
+Fisicamente, uma loja de conhecimento é o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), o armazenamento de tabelas do Azure, o armazenamento de BLOBs do Azure ou ambos. Qualquer ferramenta ou processo que possa se conectar ao armazenamento do Azure pode consumir o conteúdo de uma loja de conhecimento.
 
-As projeções são seu mecanismo para estruturar dados em uma loja de conhecimento. Por exemplo, por meio de projeções, você pode escolher se a saída é salva como um único BLOB ou uma coleção de tabelas relacionadas. Uma maneira fácil de exibir o conteúdo da loja de conhecimento é por meio do [Gerenciador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) interno para o armazenamento do Azure.
+![Repositório de conhecimento no diagrama de pipeline](./media/knowledge-store-concept-intro/knowledge-store-concept-intro.svg "Repositório de conhecimento no diagrama de pipeline")
 
-![Repositório de conhecimento no diagrama de pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Repositório de conhecimento no diagrama de pipeline")
+As projeções são seu mecanismo para estruturar dados em uma loja de conhecimento. Por exemplo, por meio de projeções, você pode escolher se a saída é salva como um único BLOB ou uma coleção de tabelas relacionadas. 
 
-Para usar o repositório de conhecimento, adicione um elemento de `knowledgeStore` a um conconhecedor que defina operações passo-a-bit em um pipeline de indexação. Durante a execução, Azure Search cria um espaço em sua conta de armazenamento do Azure e projeta os documentos aprimorados com a definição criada no pipeline.
+Para usar o repositório de conhecimento, adicione um elemento de `knowledgeStore` a um conconhecedor que defina operações passo-a-bit em um pipeline de indexação. Durante a execução, Azure Search cria um espaço em sua conta de armazenamento do Azure e projeta os documentos aprimorados como BLOBs ou tabelas, dependendo de sua configuração.
 
 ## <a name="benefits-of-knowledge-store"></a>Benefícios da loja de conhecimento
 

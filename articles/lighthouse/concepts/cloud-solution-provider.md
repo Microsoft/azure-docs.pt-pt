@@ -1,24 +1,27 @@
 ---
 title: Considerações sobre o programa do Fornecedor de Soluções Cloud
-description: Ao usar o gerenciamento de recursos delegado do Azure, é importante considerar a segurança e o controle de acesso.
+description: Para parceiros CSP, o gerenciamento de recursos delegado do Azure ajuda a melhorar a segurança e o controle habilitando permissões granulares.
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 08/22/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 76df2942b176fd7d0e785213e44655ffd11da410
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: cdb9eaf0b1f1a6e7a136432586ad186308e4e3d3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286212"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550290"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>O Azure Lighthouse e o programa de provedor de soluções na nuvem
 
 Se você for um parceiro [CSP (provedor de soluções na nuvem)](https://docs.microsoft.com/partner-center/csp-overview) , você já poderá acessar as assinaturas do Azure criadas para seus clientes por meio do programa CSP usando a funcionalidade [administrar em nome de (Aobo)](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) . Esse acesso permite que você dê suporte, configure e gerencie diretamente as assinaturas de seus clientes.
 
 Com o Azure Lighthouse, você pode usar o gerenciamento de recursos delegado do Azure junto com o AOBO. Isso ajuda a melhorar a segurança e reduz o acesso desnecessário habilitando permissões mais granulares para seus usuários. Ele também permite maior eficiência e escalabilidade, pois os usuários podem trabalhar em várias assinaturas de clientes usando um único logon em seu locatário.
+
+> [!TIP]
+> Para ajudar a proteger os recursos do cliente, leia e siga nossas [práticas recomendadas de segurança](recommended-security-practices.md) junto com os [requisitos de segurança do parceiro](https://docs.microsoft.com/partner-center/partner-security-requirements).
 
 ## <a name="administer-on-behalf-of-aobo"></a>Administrar em nome de (AOBO)
 

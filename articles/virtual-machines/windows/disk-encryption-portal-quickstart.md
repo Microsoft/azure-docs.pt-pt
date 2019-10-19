@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 240c0e157d7fcd8b76ee7f42f4c780361df6281d
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: bde0c483eacec7fb8e076530bba594eb33a32a12
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72246124"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553450"
 ---
 # <a name="quickstart-create-and-encrypt-a-windows-virtual-machine-with-the-azure-portal"></a>Início rápido: criar e criptografar uma máquina virtual do Windows com o portal do Azure
 
@@ -60,8 +60,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Para **região**, selecione a mesma região que você usou ao tornar o cofre de chaves acima (por exemplo, **leste dos EUA**).
 1. Verifique se o **tamanho** é *Standard D2s v3*.
 1. Em **conta de administrador**, selecione **senha**. Insira um nome de usuário e uma senha.
-    tela de criação do ![ResourceGroup @ no__t-1
-1. Selecione a guia "gerenciamento" e verifique se você tem uma conta de armazenamento de diagnóstico. Se você não tiver contas de armazenamento, selecione "criar nova", dê um nome à sua nova conta e selecione "OK" @no__t tela de criação de 0ResourceGroup @ no__t-1
+    ](../media/disk-encryption/portal-qs-windows-vm-creation.png) da tela de criação de ![ResourceGroup
+1. Selecione a guia "gerenciamento" e verifique se você tem uma conta de armazenamento de diagnóstico. Se você não tiver contas de armazenamento, selecione "criar nova", dê um nome à sua nova conta e selecione "OK" ![ResourceGroup tela de criação ](../media/disk-encryption/portal-qs-vm-creation-storage.png)
 1. Clique em "revisar + criar".
 1. Na página **Criar uma máquina virtual**, pode ver os detalhes sobre a VM que está prestes a criar. Quando estiver pronto, selecione **Criar**.
 
@@ -77,7 +77,7 @@ Irá demorar alguns minutos até a VM ser implementada. Quando a implementação
 
 1. Na tela criptografia, em **discos para criptografar**, escolha **sistema operacional e discos de dados**.
 1. Em **configurações de criptografia**, clique em "selecionar um cofre de chaves e uma chave para criptografia".
-1. Na barra lateral direita, selecione o nome do cofre de chaves que você criou anteriormente como o valor para * Key Vault * * e clique em **selecionar**.
+1. Na barra lateral direita, selecione o nome do cofre de chaves que você criou anteriormente como o valor para o **cofre de chaves**e clique em **selecionar**.
 
     ![seleção de discos e criptografia](../media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. Na parte superior da tela criptografia, clique em "salvar". Um pop-up avisará que a VM será reinicializada. Clique em **Sim**.

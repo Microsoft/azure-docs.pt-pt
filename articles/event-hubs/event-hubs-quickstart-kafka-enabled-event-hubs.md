@@ -1,21 +1,21 @@
 ---
-title: Dados de transmissão em fluxo com Hubs de eventos do Azure utilizando o protocolo de Kafka | Documentos da Microsoft
-description: Este artigo fornece informações sobre como stream, nos Hubs de eventos do Azure utilizando o protocolo de Kafka e APIs.
+title: Streaming de dados com hubs de eventos do Azure usando o protocolo Kafka | Microsoft Docs
+description: Este artigo fornece informações sobre como transmitir para os hubs de eventos do Azure usando o protocolo e as APIs do Kafka.
 services: event-hubs
-author: basilhariri
-ms.author: bahariri
+author: ShubhaVijayasarathy
+ms.author: shvija
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 05/06/2019
-ms.openlocfilehash: a4e050fdef20cdc62ee92e6383c455ffcb9abc90
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ebe3dc39cf135f09c084a8325d380b9bc9ef48dc
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65203911"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554966"
 ---
-# <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Dados de transmissão em fluxo com Hubs de eventos com o protocolo de Kafka
+# <a name="data-streaming-with-event-hubs-using-the-kafka-protocol"></a>Streaming de dados com hubs de eventos usando o protocolo Kafka
 Este início rápido mostra como transmitir para Hubs de Eventos ativados pelo Kafka, sem alterar os clientes de protocolo nem a execução dos seus próprios clusters. Vai aprender a utilizar os seus produtores e consumidores para comunicar com Hubs de Eventos ativados pelo Kafka, com apenas uma alteração de configuração nas aplicações. Os Hubs de Eventos do Azure suportam o [Apache Kafka versão 1.0](https://kafka.apache.org/10/documentation.html)
 
 > [!NOTE]
@@ -34,13 +34,13 @@ Para concluir este início rápido, certifique-se de que tem os seguintes pré-r
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos ativado para Kafka
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e clique em **criar um recurso** na parte superior esquerda do ecrã.
+1. Entre no [portal do Azure](https://portal.azure.com)e clique em **criar um recurso** na parte superior esquerda da tela.
 
 2. Procure por Hubs de Eventos e selecione as opções mostradas aqui:
     
     ![Procurar por Hubs de Eventos no portal](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Indique um nome exclusivo e ative o Kafka no espaço de nomes. Clique em **Criar**. Nota: Os Hubs de eventos para o Kafka é apenas suportada pelo Standard e escalão dos Hubs de eventos dedicado. Escalão básico dos Hubs de eventos irá devolver um erro de autorização de tópico em resposta a todas as operações de Kafka.
+3. Indique um nome exclusivo e ative o Kafka no espaço de nomes. Clique em **Criar**. Observação: os hubs de eventos para Kafka só têm suporte nos hubs de eventos de camada padrão e dedicada. Os hubs de eventos de camada básica retornarão um erro de autorização de tópico em resposta a qualquer operação de Kafka.
     
     ![Criar um espaço de nomes](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  
@@ -98,11 +98,11 @@ Agora, já pode transmitir em fluxo eventos das suas aplicações que utilizam o
 
 Se o cluster Kafka dos Hubs de Eventos tiver eventos, começará agora a recebê-los do consumidor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a transmitir para os Hubs de Eventos ativados para Kafka, sem alterar os clientes de protocolo nem executar os seus próprios clusters. Para obter mais informações, avance para o próximo tutorial:
 
 * [Saiba mais sobre Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Saiba mais sobre Hubs de Eventos para o Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 * [Explore mais exemplos sobre os Hubs de Eventos do GitHub do Kafka](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Uso [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [eventos de fluxo do Kafka no local para o Kafka ativado os Hubs de eventos na cloud.](event-hubs-kafka-mirror-maker-tutorial.md)
+* Use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) para [transmitir eventos do Kafka local para os hubs de eventos do Kafka habilitados na nuvem.](event-hubs-kafka-mirror-maker-tutorial.md)
 * Saiba como transmitir para os Hubs de Eventos ativados pelo Kafka através do [Apache Flink](event-hubs-kafka-flink-tutorial.md) ou [Akka Streams](event-hubs-kafka-akka-streams-tutorial.md)
