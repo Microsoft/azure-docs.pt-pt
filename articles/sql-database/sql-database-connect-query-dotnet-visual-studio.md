@@ -11,14 +11,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 4472ff10c42cd9163693e7316b6bdaef50258db6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ed11d2b1628cecc0696e4c37135cfc7d2190de5
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569234"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597911"
 ---
-# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Início rápido: Usar o .NET C# e o Visual Studio para se conectar e consultar um banco de dados SQL do Azure
+# <a name="quickstart-use-net-and-c-in-visual-studio-to-connect-to-and-query-an-azure-sql-database"></a>Início rápido: usar o C# .net e o Visual Studio para se conectar e consultar um banco de dados SQL do Azure
 
 Este guia de início rápido mostra como usar o [.NET Framework](https://www.microsoft.com/net/) e C# o código no Visual Studio para consultar um banco de dados SQL do Azure com instruções Transact-SQL.
 
@@ -28,9 +28,9 @@ Para concluir este guia de início rápido, necessita de:
 
 - Uma base de dados SQL do Azure. Você pode usar um desses guias de início rápido para criar e, em seguida, configurar um banco de dados no banco de dados SQL do Azure:
 
-  || Base de dados individual | Instância gerida |
+  || Base de dados única | Instância gerida |
   |:--- |:--- |:---|
-  | Criar| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Configurar | [Regra de firewall de IP de nível de servidor](sql-database-server-level-firewall-rule.md)| [Conectividade de uma VM](sql-database-managed-instance-configure-vm.md)|
@@ -56,13 +56,13 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="create-code-to-query-the-sql-database"></a>Criar código para consultar o banco de dados SQL
 
-1. No Visual Studio, selecione **arquivo** > **novo** > **projeto**. 
+1. No Visual Studio, selecione **arquivo**  > **novo** **projeto**de  > . 
    
 1. Na caixa de diálogo **novo projeto** , **selecione C#Visual** e, em seguida, selecione **aplicativo de console (.NET Framework)** .
    
 1. Insira *sqltest* para o nome do projeto e, em seguida, selecione **OK**. O novo projeto é criado. 
    
-1. Selecione **projeto** > **gerenciar pacotes NuGet**. 
+1. Selecione **projeto**  > **gerenciar pacotes NuGet**. 
    
 1. No **Gerenciador de pacotes NuGet**, selecione a guia **procurar** e, em seguida, procure e selecione **sistema. Data. SqlClient**.
    
@@ -72,7 +72,7 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
    
 1. Quando a instalação for concluída, você poderá fechar o **Gerenciador de pacotes NuGet**. 
    
-1. No editor de código, substitua o conteúdo **Program.cs** pelo código a seguir. Substitua os valores para `<server>`, `<username>`, `<password>`e `<database>`.
+1. No editor de código, substitua o conteúdo **Program.cs** pelo código a seguir. Substitua seus valores por `<server>`, `<username>`, `<password>` e `<database>`.
    
    >[!IMPORTANT]
    >O código neste exemplo usa os dados AdventureWorksLT de exemplo, que você pode escolher como fonte ao criar o banco de dado. Se o seu banco de dados tiver um dado diferente, use tabelas do seu próprio banco na consulta SELECT. 
@@ -133,10 +133,10 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 ## <a name="run-the-code"></a>Executar o código
 
-1. Para executar o aplicativo, selecione **depurar** > **Iniciar Depuração**ou selecione **Iniciar** na barra de ferramentas ou pressione **F5**.
+1. Para executar o aplicativo, selecione **depurar**  > **Iniciar Depuração**ou selecione **Iniciar** na barra de ferramentas ou pressione **F5**.
 1. Verifique se as 20 principais linhas de categoria/produto do banco de dados são retornadas e feche a janela do aplicativo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [se conectar e consultar um banco de dados SQL do Azure usando o .NET Core](sql-database-connect-query-dotnet-core.md) no Windows/Linux/MacOS.  
 - Saiba mais sobre a [Introdução ao .NET Core com Windows/Linux/macOS, utilizando a linha de comandos](/dotnet/core/tutorials/using-with-xplat-cli).
@@ -147,5 +147,5 @@ Obtenha as informações de conexão necessárias para se conectar ao banco de d
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 

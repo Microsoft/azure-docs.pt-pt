@@ -18,13 +18,13 @@ ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f9c8e4a2e5dadf64312481f33993911177c90bc7
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "68989280"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início rápido: Configurar um aplicativo para expor APIs Web
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Início rápido: configurar um aplicativo para expor APIs Web
 
 Pode programar uma API Web e expor [permissões/âmbitos](developer-glossary.md#scopes) e [funções](developer-glossary.md#roles) para a disponibilizar às aplicações cliente. As APIs Web configuradas corretamente são disponibilizadas tal e qual as outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365.
 
@@ -52,7 +52,7 @@ Antes de poder configurar a aplicação, siga estes passos:
 
 ## <a name="expose-a-new-scope-through-the-ui"></a>Expor um novo âmbito através da IU
 
-[![Mostra como expor uma API usando a interface do usuário](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Shows como expor uma API usando a interface do usuário](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 Para expor um novo âmbito através da IU:
 

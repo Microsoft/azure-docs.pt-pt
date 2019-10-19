@@ -4,14 +4,14 @@ description: Use o Visual Studio para criar um projeto de grupo de recursos do A
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.date: 06/20/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: c7f71dbadf24244756cf65f68ceea24547190737
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: ae7ff9370bd289dfdec578e6daeb471bbd53a072
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170245"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597734"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Criar e implementar grupos de recursos do Azure através do Visual Studio
 
@@ -23,7 +23,8 @@ Este artigo mostra como usar [o Visual Studio 2019 ou posterior com as cargas de
 
 Nesta seção, você cria um projeto de grupo de recursos do Azure com um modelo de **aplicativo Web** .
 
-1. No Visual Studio, escolha **arquivo**, **novo**e **projeto**. Selecione o modelo de projeto do **grupo de recursos do Azure** e **Avançar**.
+1. No Visual Studio, escolha **arquivo** >**novo** **projeto**de >.
+1. Selecione o modelo de projeto do **grupo de recursos do Azure** e **Avançar**.
 
     ![Criar o projeto](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
@@ -247,7 +248,7 @@ Ele deve ter a seguinte aparência:
 "packageUri": "[concat(parameters('_artifactsLocation'), parameters('ExampleAppPackageFolder'), '/', parameters('ExampleAppPackageFileName'), parameters('_artifactsLocationSasToken'))]",
 ```
 
-Observe no exemplo anterior que não há `'/',` entre os **parâmetros (' _artifactsLocation ')** e os **parâmetros (' ExampleAppPackageFolder ')** .
+Observe que no exemplo anterior não há nenhum `'/',` entre os **parâmetros (' _artifactsLocation ')** e os **parâmetros (' ExampleAppPackageFolder ')** .
 
 Recompile o projeto. A criação do projeto garante que os arquivos que você precisa implantar sejam adicionados à pasta de preparo.
 
@@ -283,7 +284,7 @@ Para o script do módulo AzureRM, use o Visual Studio:
 
 Não está limitado apenas aos recursos disponíveis através da interface do Visual Studio. Pode personalizar a sua implementação, ao adicionar um recurso personalizado ao seu modelo. Para mostrar a adição de um recurso, adicione um dashboard operacional para gerir os recursos que implementou.
 
-1. Abra o arquivo site. JSON e adicione o JSON a seguir após o recurso de conta de armazenamento, mas antes do fechamento `]` da seção de recursos.
+1. Abra o arquivo site. JSON e adicione o JSON a seguir após o recurso de conta de armazenamento, mas antes do `]` de fechamento da seção de recursos.
 
    ```json
     ,{

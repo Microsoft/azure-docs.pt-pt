@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e1ae0501e2a558967b7d53229dc629e035c5e067
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676557"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597910"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>O que é o Windows Virtual Desktop? 
 
@@ -64,10 +64,10 @@ Há algumas coisas que você precisa para configurar a área de trabalho virtual
 
 Planejamos adicionar suporte para os seguintes SOS, portanto, verifique se você tem as [licenças apropriadas](https://azure.microsoft.com/pricing/details/virtual-desktop/) para seus usuários com base na área de trabalho e nos aplicativos que planeja implantar:
 
-|OS|Licença necessária|
+|SO|Licença necessária|
 |---|---|
-|Windows 10 Enterprise Multi-Session ou Windows 10 Enterprise|Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
-|Windows 7 Enterprise |Microsoft 365 E3, E5, A3, A5, F1, Business<br>Windows E3, E5, A3, A5|
+|Windows 10 Enterprise Multi-Session ou Windows 10 Enterprise|Microsoft 365 E3, e5, a3, a5, F1, negócios<br>Windows E3, e5, a3, a5|
+|Windows 7 Enterprise |Microsoft 365 E3, e5, a3, a5, F1, negócios<br>Windows E3, e5, a3, a5|
 |Windows Server 2012 R2, 2016, 2019|CAL (licença de acesso para cliente) do RDS com Software Assurance|
 
 Sua infraestrutura precisa dos seguintes itens para dar suporte à área de trabalho virtual do Windows:
@@ -75,14 +75,14 @@ Sua infraestrutura precisa dos seguintes itens para dar suporte à área de trab
 * Um [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
 * Um Active Directory do Windows Server em sincronia com o Azure Active Directory. Isso pode ser habilitado por meio de:
   * Azure AD Connect
-  * Azure AD Domain Services
-  >[!NOTE]
-  >A área de trabalho virtual do Windows só dá suporte a Azure AD Domain Services usuários originados de Azure Active Directory. Os usuários originados no AD do Windows Server não têm suporte no momento.
+  * Serviços de Domínio do Azure AD
+     >[!NOTE]
+     >Se você usar Azure AD Domain Services, os usuários deverão ser originados de Azure Active Directory. O uso de Azure AD Domain Services com usuários originados no AD do Windows Server não tem suporte no momento.
 * Uma assinatura do Azure, que contém uma rede virtual que contém ou está conectada ao Windows Server Active Directory
   
 As máquinas virtuais do Azure criadas para a área de trabalho virtual do Windows devem ser:
 
-* Ingressado no AD [padrão](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou [híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). As máquinas virtuais não podem ser ingressadas no Azure AD.
+* [Ingressado no AD](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan) [padrão](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) ou híbrido. As máquinas virtuais não podem ser ingressadas no Azure AD.
 * Executando uma das seguintes [imagens de sistema operacional com suporte](#supported-virtual-machine-os-images).
 
 >[!NOTE]
@@ -92,7 +92,7 @@ As máquinas virtuais do Azure que você cria para a área de trabalho virtual d
 
 * *. wvd.microsoft.com
 * *.blob.core.windows.net
-* *.core.windows.net
+* *. core.windows.net
 * *.servicebus.windows.net
 * prod.warmpath.msftcloudes.com
 * catalogartifact.azureedge.net
@@ -122,7 +122,7 @@ A área de trabalho virtual do Windows dá suporte às seguintes imagens de so:
 * Várias sessões do Windows 10 Enterprise
 * Windows 10 Enterprise
 * Windows 7 Enterprise
-* Windows Server de 2019
+* Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
 
@@ -135,7 +135,7 @@ As opções de automação e implantação disponíveis dependem do sistema oper
 |Windows 10 Enterprise, versão 1903|Sim|Sim|Sim|Sim|Automático|
 |Windows 10 Enterprise, versão 1809|Sim|Sim|Não|Não|Automático|
 |Windows 7 Enterprise|Sim|Sim|Não|Não|Manual|
-|Windows Server de 2019|Sim|Sim|Não|Não|Automático|
+|Windows Server 2019|Sim|Sim|Não|Não|Automático|
 |Windows Server 2016|Sim|Sim|Sim|Sim|Automático|
 |Windows Server 2012 R2|Sim|Sim|Não|Não|Automático|
 

@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 51062437b4fc1169ce166eb27067e56b9de262e6
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554370"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592472"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>Guia de solução de problemas comuns
 
@@ -151,8 +151,8 @@ Visite [Este artigo de introdução](https://docs.microsoft.com/azure/azure-moni
 
 As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garantindo que o Azure entenda onde e como configurar os serviços que compõem seu aplicativo.  Garantir que suas variáveis de ambiente estejam corretas é uma primeira etapa necessária para solucionar problemas em potencial.  Você pode usar o ponto de extremidade do acionador do Spring boot para examinar suas variáveis de ambiente.  
 
-[!WARNING]
-> Este procedimento pode expor suas variáveis de ambiente.  Não prossiga se o ponto de extremidade de teste estiver publicamente acessível ou se você tiver atribuído um nome de domínio ao seu aplicativo.
+> [!WARNING]
+> Este procedimento expõe suas variáveis de ambiente usando seu ponto de extremidade de teste.  Não prossiga se o ponto de extremidade de teste estiver publicamente acessível ou se você tiver atribuído um nome de domínio ao seu aplicativo.
 
 1. Navegue até esta URL: `https://<your application test endpoint>/actuator/health`.  
     - Uma resposta semelhante a `{"status":"UP"}` indica que o ponto de extremidade foi habilitado.
@@ -186,6 +186,9 @@ As variáveis de ambiente informam a estrutura de nuvem Spring do Azure, garanti
     ```
 
 Localize o nó filho chamado `systemEnvironment`.  Esse nó contém as variáveis de ambiente do seu aplicativo.
+
+> [!IMPORTANT]
+> Lembre-se de reverter a exposição de suas variáveis de ambiente antes de tornar seu aplicativo acessível ao público.  Vá para a portal do Azure, localize a página de configuração do seu aplicativo e exclua essa variável de ambiente: `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE`.
 
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>Não consigo localizar as métricas ou os registos da minha aplicação
 

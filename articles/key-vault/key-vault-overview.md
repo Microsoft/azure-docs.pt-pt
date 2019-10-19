@@ -10,14 +10,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e814c9f7859fb18280c3a9ffd72bd4053a4895ad
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cfaa2598d53fa57b4a628a7ad1b847a9b078bf2b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883215"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598163"
 ---
-# <a name="what-is-azure-key-vault"></a>O que é o cofre de chave do Azure?
+# <a name="what-is-azure-key-vault"></a>O que é o Azure Key Vault?
 
 Azure Key Vault ajuda a resolver os seguintes problemas:
 
@@ -71,13 +71,13 @@ Além disso, o Azure Key Vault permite-lhe segregar segredos das aplicações. O
 ### <a name="integrate-with-other-azure-services"></a>Integrar com outros serviços do Azure
 
 Como um repositório seguro no Azure, o Key Vault foi usado para simplificar cenários como:
--  [Azure Disk Encryption](../security/azure-security-disk-encryption.md)
+-  [Azure Disk Encryption](../security/fundamentals/encryption-overview.md)
 -  A funcionalidade [Always Encrypted]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) no SQL Server e no banco de dados SQL do Azure
 - [Serviço de Azure app]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
 
 O próprio Key Vault pode ser integrado em Contas de Armazenamento, em Hubs de Eventos e no Log Analytics.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Criar um Azure Key Vault usando a CLI](quick-create-cli.md)
+- [Quickstart: Create an Azure Key Vault using the CLI](quick-create-cli.md) (Início Rápido: Criar um Cofre de Chaves do Azure com a CLI do Azure)
 - [Configure an Azure web application to read a secret from Key vault](tutorial-web-application-keyvault.md) (Configurar uma aplicação Web do Azure para ler segredos em cofres de segurança)
