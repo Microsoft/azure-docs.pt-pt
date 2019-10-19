@@ -1,33 +1,27 @@
 ---
-title: Ativar o Azure Monitor para VMs (pré-visualização) para avaliação | Documentos da Microsoft
-description: Saiba como avaliar o Azure Monitor para VMs numa única máquina virtual do Azure ou num conjunto de dimensionamento de máquina virtual.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: Habilitar Azure Monitor para VMs (visualização) para avaliação | Microsoft Docs
+description: Saiba como avaliar Azure Monitor para VMs em uma única máquina virtual do Azure ou em um conjunto de dimensionamento de máquinas virtuais.
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/09/2019
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: ec909bcd16f923bbd7036f6a69df2bbb07e561b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 05/09/2019
+ms.openlocfilehash: 1182f48d2d05c90cc90b1832f9305001dd2d1211
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67122469"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553815"
 ---
-# <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Ativar o Azure Monitor para VMs (pré-visualização) para avaliação
+# <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>Habilitar Azure Monitor para VMs (versão prévia) para avaliação
 
-Pode avaliar o Azure Monitor para VMs (pré-visualização) num pequeno número de máquinas virtuais do Azure (VMs) ou num único de dimensionamento de VM ou numa máquina virtual definido. É a forma mais fácil e mais direta para ativar a monitorização do portal do Azure. Seu objetivo é monitorizar as suas VMs e descobrir quaisquer problemas de disponibilidade ou desempenho. 
+Você pode avaliar Azure Monitor para VMs (versão prévia) em um pequeno número de VMs (máquinas virtuais) do Azure ou em uma única VM ou conjunto de dimensionamento de máquinas virtuais. A maneira mais fácil e direta de habilitar o monitoramento é da portal do Azure. Seu objetivo é monitorar suas VMs e descobrir problemas de desempenho ou disponibilidade. 
 
-Antes de começar, reveja os [pré-requisitos](vminsights-enable-overview.md) e certificar-se de que a sua subscrição e recursos de cumprir os requisitos.  
+Antes de começar, examine os [pré-requisitos](vminsights-enable-overview.md) e verifique se sua assinatura e seus recursos atendem aos requisitos.  
 
-## <a name="enable-monitoring-for-a-single-azure-vm"></a>Ativar a monitorização para uma única VM do Azure
-Para ativar a monitorização da sua VM do Azure:
+## <a name="enable-monitoring-for-a-single-azure-vm"></a>Habilitar o monitoramento para uma única VM do Azure
+Para habilitar o monitoramento de sua VM do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -35,55 +29,55 @@ Para ativar a monitorização da sua VM do Azure:
 
 1. Na lista, selecione uma VM.
 
-1. Na página de VM, na **monitorização** secção, selecione **Insights (pré-visualização)** .
+1. Na página VM, na seção **monitoramento** , selecione **insights (versão prévia)** .
 
-1. Sobre o **Insights (pré-visualização)** página, selecione **Experimente agora o**.
+1. Na página **insights (versão prévia)** , selecione **experimentar agora**.
 
-    ![Ativar o Azure Monitor para as VMs para uma VM](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![Habilitar Azure Monitor para VMs para uma VM](./media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
 
-1. Sobre o **integração de informações do Azure Monitor** página, se tiver um existentes do Log Analytics área de trabalho na mesma subscrição, selecione-o na lista pendente.  
+1. Na página de **integração do Azure monitor insights** , se você tiver um espaço de trabalho log Analytics existente na mesma assinatura, selecione-o na lista suspensa.  
 
-    A lista preselects a área de trabalho predefinida e localização em que a VM é implementada na subscrição. 
+    A lista seleciona o espaço de trabalho padrão e o local onde a VM é implantada na assinatura. 
 
     >[!NOTE]
-    >Para criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização da VM, veja [criar uma área de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). A área de trabalho do Log Analytics têm de pertencer a um da [regiões suportadas](vminsights-enable-overview.md#log-analytics).
+    >Para criar um novo espaço de trabalho Log Analytics para armazenar os dados de monitoramento da VM, consulte [criar um espaço de trabalho log Analytics](../../azure-monitor/learn/quick-create-workspace.md). Seu espaço de trabalho do Log Analytics deve pertencer a uma das [regiões com suporte](vminsights-enable-overview.md#log-analytics).
 
-Depois de ativar a monitorização, poderá ter de esperar cerca de 10 minutos antes de poder visualizar as métricas de estado de funcionamento para a VM.
+Depois de habilitar o monitoramento, talvez seja necessário aguardar cerca de 10 minutos para poder exibir as métricas de integridade da VM.
 
-![Ativar o Azure Monitor para monitorização de processamento da implementação de VMs](./media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Habilitar o processamento de implantação de monitoramento de Azure Monitor para VMs](./media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
 
-## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Ative a monitorização para um conjunto de dimensionamento de máquina virtual única
+## <a name="enable-monitoring-for-a-single-virtual-machine-scale-set"></a>Habilitar o monitoramento para um único conjunto de dimensionamento de máquinas virtuais
 
-Para ativar a monitorização do seu conjunto de dimensionamento de máquina virtual do Azure:
+Para habilitar o monitoramento do conjunto de dimensionamento de máquinas virtuais do Azure:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 2. Selecione **conjuntos de dimensionamento de máquinas virtuais**.
 
-3. Na lista, selecione um conjunto de dimensionamento de máquina virtual.
+3. Na lista, selecione um conjunto de dimensionamento de máquinas virtuais.
 
-4. Na máquina virtual de conjunto de dimensionamento de página, além da **monitorização** secção, selecione **Insights (pré-visualização)** .
+4. Na página conjunto de dimensionamento de máquinas virtuais, na seção **monitoramento** , selecione **insights (versão prévia)** .
 
-5. Sobre o **Insights (pré-visualização)** página, se pretender utilizar uma área de trabalho do Log Analytics existente, selecione-o na lista pendente.
+5. Na página **insights (versão prévia)** , se você quiser usar um espaço de trabalho log Analytics existente, selecione-o na lista suspensa.
 
-    A lista preselects a área de trabalho predefinida e a localização que a VM é implementada na subscrição. 
+    A lista seleciona o espaço de trabalho padrão e o local em que a VM é implantada na assinatura. 
 
-    ![Ativar o Azure Monitor para as VMs para um conjunto de dimensionamento de máquinas virtuais](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
+    ![Habilitar Azure Monitor para VMs para um conjunto de dimensionamento de máquinas virtuais](./media/vminsights-enable-single-vm/enable-vminsights-vmss-portal-01.png)
 
     >[!NOTE]
-    >Para criar uma nova área de trabalho do Log Analytics para armazenar os dados de monitorização do conjunto de dimensionamento de máquina virtual, veja [criar uma área de trabalho do Log Analytics](../learn/quick-create-workspace.md). A área de trabalho do Log Analytics têm de pertencer a um da [regiões suportadas](vminsights-enable-overview.md#log-analytics).
+    >Para criar um novo espaço de trabalho Log Analytics para armazenar os dados de monitoramento do conjunto de dimensionamento de máquinas virtuais, consulte [criar um espaço de trabalho log Analytics](../learn/quick-create-workspace.md). Seu espaço de trabalho do Log Analytics deve pertencer a uma das [regiões com suporte](vminsights-enable-overview.md#log-analytics).
 
-Depois de ativar a monitorização, poderá ter de esperar cerca de 10 minutos antes de poder ver os dados de monitorização para o conjunto de dimensionamento.
+Depois de habilitar o monitoramento, talvez seja necessário aguardar cerca de 10 minutos antes de exibir os dados de monitoramento para o conjunto de dimensionamento.
 
 >[!NOTE]
->Se utilizar um modelo de atualização manual para o conjunto de dimensionamento, Atualize as instâncias para concluir a configuração. Pode começar as atualizações a partir da **instâncias** página, além do **definições** secção.
+>Se você usar um modelo de atualização manual para seu conjunto de dimensionamento, atualize as instâncias para concluir a instalação. Você pode iniciar as atualizações na página **instâncias** , na seção **configurações** .
 
-![Ativar o Azure Monitor para monitorização de processamento da implementação de VMs](./media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status-01.png)
+![Habilitar o processamento de implantação de monitoramento de Azure Monitor para VMs](./media/vminsights-enable-single-vm/onboard-vminsights-vmss-portal-status-01.png)
 
-Agora que ativou a monitorização para o conjunto de dimensionamento VM ou numa máquina virtual, as informações de monitorização estão disponíveis para análise no Azure Monitor para as VMs. 
+Agora que você habilitou o monitoramento para sua VM ou conjunto de dimensionamento de máquinas virtuais, as informações de monitoramento estão disponíveis para análise no Azure Monitor para VMs. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para saber como utilizar a funcionalidade de estado de funcionamento, veja [compreender o estado de funcionamento das suas VMs do Azure Monitor](vminsights-health.md). 
-* Para ver dependências de aplicações detetadas, consulte [utilização do Azure Monitor para o mapa de VMs](vminsights-maps.md). 
-* Para identificar afunilamentos, a utilização geral e desempenho da sua VM, consulte [o desempenho da VM do Azure de modo de exibição](vminsights-performance.md).
+* Para saber como usar o recurso de integridade, consulte [entender a integridade de suas VMs de Azure monitor](vminsights-health.md). 
+* Para exibir dependências de aplicativo descobertas, consulte [usar o mapa de Azure monitor para VMs](vminsights-maps.md). 
+* Para identificar afunilamentos, a utilização geral e o desempenho da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
