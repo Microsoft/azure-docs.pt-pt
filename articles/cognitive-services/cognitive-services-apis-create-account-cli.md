@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972672"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595321"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Criar um recurso de serviços cognitivas usando a CLI (interface de linha de comando) do Azure
 
@@ -74,12 +74,19 @@ az group create \
 
 Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja usar, juntamente com o tipo de [preço](https://azure.microsoft.com/pricing/details/cognitive-services/) (ou SKU) desejado. Você usará essa e outras informações como parâmetros ao criar o recurso.
 
+### <a name="multi-service"></a>Vários serviços
+
+| Serviço                    | quase                      |
+|----------------------------|---------------------------|
+| Vários serviços. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/cognitive-services/) para obter mais detalhes.            | `CognitiveServices`     |
+
+
 > [!NOTE]
-> Muitos serviços cognitivas têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como a SKU para seu recurso.
+> Muitos dos serviços cognitivas abaixo têm uma camada gratuita que você pode usar para experimentar o serviço. Para usar a camada gratuita, use `F0` como a SKU para seu recurso.
 
 ### <a name="vision"></a>Visão
 
-| Serviço                    | Tipo                      |
+| Serviço                    | quase                      |
 |----------------------------|---------------------------|
 | Imagem Digitalizada            | `ComputerVision`          |
 | Visão Personalizada-previsão | `CustomVision.Prediction` |
@@ -88,26 +95,26 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 | Reconhecedor de Formato            | `FormRecognizer`          |
 | Reconhecedor de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Pesquisa
+### <a name="search"></a>Procurar
 
-| Serviço            | Tipo                  |
+| Serviço            | quase                  |
 |--------------------|-----------------------|
 | Sugestão Automática do Bing   | `Bing.Autosuggest.v7` |
 | Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
 | Pesquisa de Entidades do Bing | `Bing.EntitySearch`   |
 | Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
+| Verificação de Ortografia do Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Voz
 
-| Serviço            | Tipo                 |
+| Serviço            | quase                 |
 |--------------------|----------------------|
 | Serviços de Voz    | `SpeechServices`     |
-| Reconhecimento de Voz | `SpeakerRecognition` |
+| Reconhecimento de voz | `SpeakerRecognition` |
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
-| Serviço            | Tipo                |
+| Serviço            | quase                |
 |--------------------|---------------------|
 | Compreensão do formulário | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
@@ -117,7 +124,7 @@ Ao criar um novo recurso, você precisará saber o "tipo" de serviço que deseja
 
 ### <a name="decision"></a>Decisão
 
-| Serviço           | Tipo               |
+| Serviço           | quase               |
 |-------------------|--------------------|
 | Detetor de Anomalias  | `AnomalyDetector`  |
 | Content Moderator | `ContentModerator` |
@@ -191,7 +198,7 @@ Para remover o grupo de recursos e seus recursos associados, use o comando AZ Gr
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Autenticar solicitações para serviços cognitivas do Azure](authentication.md)
 * [O que são os serviços cognitivas do Azure?](Welcome.md)
