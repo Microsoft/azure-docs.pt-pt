@@ -1,19 +1,18 @@
 ---
 title: Entender o esquema de webhook usado em alertas do log de atividades
 description: Saiba mais sobre o esquema do JSON que é Postado em uma URL de webhook quando um alerta do log de atividades é ativado.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/31/2017
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: b9ba809baa8fc4adddfad1344d6f36375cb361c4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/31/2017
+ms.openlocfilehash: a79bf07c91ef80509355a10c1401d1ab94cc5118
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675229"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552748"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>WebHooks para alertas do log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Com WebHooks, você pode rotear essas notificações para outros sistemas para pós-processamento ou ações personalizadas. Este artigo mostra a aparência da carga do HTTP POST para um webhook.
@@ -261,32 +260,32 @@ Para obter detalhes sobre o esquema específico sobre alertas de log de atividad
 | Nome do elemento | Descrição |
 | --- | --- |
 | status |Usado para alertas de métrica. Sempre definido como "ativado" para alertas do log de atividades. |
-| Noticioso |Contexto do evento. |
+| noticioso |Contexto do evento. |
 | resourceProviderName |O provedor de recursos do recurso afetado. |
 | conditionType |Sempre "evento". |
-| name |Nome da regra de alerta. |
-| id |ID de recurso do alerta. |
-| description |Descrição do alerta definida quando o alerta é criado. |
+| nome |Nome da regra de alerta. |
+| ID |ID de recurso do alerta. |
+| descrição |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |ID da assinatura do Azure. |
-| timestamp |Hora em que o evento foi gerado pelo serviço do Azure que processou a solicitação. |
+| carimbo de data/hora |Hora em que o evento foi gerado pelo serviço do Azure que processou a solicitação. |
 | resourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos para o recurso afetado. |
-| properties |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
-| event |Elemento que contém metadados sobre o evento. |
-| authorization |As propriedades do controle de acesso baseado em função do evento. Essas propriedades geralmente incluem a ação, a função e o escopo. |
-| category |Categoria do evento. Os valores com suporte incluem administrativo, alerta, segurança, integridade e recomendação. |
+| propriedades |Conjunto de pares de `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
+| circunstância |Elemento que contém metadados sobre o evento. |
+| nesse |As propriedades do controle de acesso baseado em função do evento. Essas propriedades geralmente incluem a ação, a função e o escopo. |
+| categoria |Categoria do evento. Os valores com suporte incluem administrativo, alerta, segurança, integridade e recomendação. |
 | chamado |Endereço de email do usuário que realizou a operação, declaração de UPN ou declaração de SPN com base na disponibilidade. Pode ser NULL para determinadas chamadas do sistema. |
 | correlationId |Geralmente um GUID no formato de cadeia de caracteres. Os eventos com CorrelationId pertencem à mesma ação maior e geralmente compartilham uma CorrelationId. |
 | eventDescription |Descrição de texto estático do evento. |
 | eventDataId |Identificador exclusivo do evento. |
 | eventSource |Nome do serviço do Azure ou da infraestrutura que gerou o evento. |
 | httpRequest |A solicitação geralmente inclui o método clientRequestId, clientIpAddress e HTTP (por exemplo, PUT). |
-| level |Um dos seguintes valores: Crítico, erro, aviso e informativo. |
+| Geral |Um dos seguintes valores: crítico, erro, aviso e informativo. |
 | operationId |Geralmente, um GUID compartilhado entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
-| properties |Propriedades do evento. |
-| status |Strings. Estado da operação. Os valores comuns incluem iniciado, em andamento, com êxito, com falha, ativo e resolvido. |
-| subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Ele também pode incluir outras cadeias de caracteres que descrevem um substatus. Os valores de substatus comuns incluem OK (código de status HTTP: 200), criado (código de status HTTP: 201), aceito (código de status HTTP: 202), sem conteúdo (código de status HTTP: 204), solicitação inadequada (código de status HTTP: 400), não encontrado (código de status HTTP: 404), conflito (código de status HTTP: 409), erro interno do servidor (código de status HTTP: 500), serviço não disponível (código de status HTTP: 503) e tempo limite do gateway (código de status HTTP: 504). |
+| propriedades |Propriedades do evento. |
+| status |Strings. Status da operação. Os valores comuns incluem iniciado, em andamento, com êxito, com falha, ativo e resolvido. |
+| subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Ele também pode incluir outras cadeias de caracteres que descrevem um substatus. Valores de substatus comuns incluem OK (código de status HTTP: 200), criado (código de status HTTP: 201), aceito (código de status HTTP: 202), sem conteúdo (código de status HTTP: 204), solicitação incorreta (código de status http: 400), não encontrado (código de status HTTP: 404), conflito (código de status http: 409 ), Erro interno do servidor (código de status HTTP: 500), serviço não disponível (código de status HTTP: 503) e tempo limite do gateway (código de status HTTP: 504). |
 
 Para obter detalhes sobre o esquema específico sobre todos os outros alertas do log de atividades, consulte [visão geral do log de atividades do Azure](../../azure-monitor/platform/activity-logs-overview.md).
 

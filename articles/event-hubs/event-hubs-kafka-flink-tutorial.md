@@ -1,73 +1,73 @@
 ---
-title: Utilizar Apache Flink para o Apache Kafka - Hubs de eventos do Azure | Documentos da Microsoft
-description: Este artigo fornece informações sobre como ligar Apache Flink para um Apache Kafka ativado para o hub de eventos do Azure
+title: Usar o Apache Flink para Apache Kafka-hubs de eventos do Azure | Microsoft Docs
+description: Este artigo fornece informações sobre como conectar o Apache Flink a um hub de eventos do Azure habilitado Apache Kafka
 services: event-hubs
 documentationcenter: ''
-author: basilhariri
+author: ShubhaVijayasarathy
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.author: bahariri
-ms.openlocfilehash: dc4a982dde62f62eb8f2d91a61fd70ba79fa13d5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: shvija
+ms.openlocfilehash: 881546a97b01bef993cc24c6b868ec97ddf5ac36
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821434"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555716"
 ---
-# <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Utilizar Apache Flink com os Hubs de eventos do Azure para o Apache Kafka
-Este tutorial mostra-lhe como ligar Apache Flink aos hubs de eventos de Kafka-ativado sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Os Hubs de eventos do Azure suporta [Apache Kafka versão 1.0.](https://kafka.apache.org/10/documentation.html).
+# <a name="use-apache-flink-with-azure-event-hubs-for-apache-kafka"></a>Usar o Apache Flink com hubs de eventos do Azure para Apache Kafka
+Este tutorial mostra como conectar o Apache Flink a hubs de eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. Os hubs de eventos do Azure dão suporte à [Apache Kafka versão 1,0.](https://kafka.apache.org/10/documentation.html).
 
-Uma das principais vantagens da utilização do Apache Kafka é o ecossistema das estruturas que pode estabelecer ligação ao. Kafka ativada combina os Hubs de eventos a flexibilidade do Kafka com a escalabilidade, consistência e suporte do ecossistema do Azure.
+Um dos principais benefícios do uso do Apache Kafka é o ecossistema de estruturas ao qual ele pode se conectar. Os hubs de eventos habilitados para Kafka combinam a flexibilidade do Kafka com a escalabilidade, a consistência e o suporte do ecossistema do Azure.
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
-> * Execute o produtor Flink 
-> * Execução de Flink de consumidor
+> * Executar o produtor do Flink 
+> * Executar o consumidor do Flink
 
 > [!NOTE]
 > Este exemplo está disponível no [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/flink)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, certifique-se de que tem os seguintes pré-requisitos:
+Para concluir este tutorial, verifique se você tem os seguintes pré-requisitos:
 
 * Leia o artigo [Hubs de Eventos para o Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md). 
 * Uma subscrição do Azure. Se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de começar.
 * [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Certifique-se de que define a variável de ambiente JAVA_HOME para apontar para a pasta onde está instalado o JDK.
-* [Baixe](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) num arquivo binário Maven
+* [Baixar](https://maven.apache.org/download.cgi) e [instalar](https://maven.apache.org/install.html) um arquivo binário Maven
     * No Ubuntu, pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/downloads)
     * No Ubuntu, pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-an-event-hubs-namespace"></a>Criar um espaço de nomes dos Hubs de Eventos
 
-Um espaço de nomes de Hubs de eventos é necessário para enviar ou receber a partir de qualquer serviço de Hubs de eventos. Ver [criar Kafka ativado os Hubs de eventos](event-hubs-create-kafka-enabled.md) para obter informações sobre como obter um ponto de extremidade do Kafka de Hubs de eventos. Certifique-se copiar a cadeia de ligação de Hubs de eventos para utilização posterior.
+Um namespace de hubs de eventos é necessário para enviar ou receber de qualquer serviço de hubs de eventos. Consulte [criar hubs de eventos habilitados para Kafka](event-hubs-create-kafka-enabled.md) para obter informações sobre como obter um ponto de extremidade Kafka dos hubs de eventos. Certifique-se de copiar a cadeia de conexão dos hubs de eventos para uso posterior.
 
 ## <a name="clone-the-example-project"></a>Clonar o projeto de exemplo
 
-Agora que tem uma cadeia de ligação de Hubs de eventos habilitados no Kafka, clonar os Hubs de eventos do Azure para o repositório do Kafka e navegue para o `flink` subpasta:
+Agora que você tem uma cadeia de conexão de hubs de eventos habilitada para Kafka, clone os hubs de eventos do Azure para o repositório Kafka e navegue até a subpasta `flink`:
 
 ```shell
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
 cd azure-event-hubs-for-kafka/tutorials/flink
 ```
 
-## <a name="run-flink-producer"></a>Execute o produtor Flink
+## <a name="run-flink-producer"></a>Executar o produtor do Flink
 
-Usando o exemplo de produtor Flink fornecido, envie mensagens para o serviço de Hubs de eventos.
+Usando o exemplo de produtor do Flink fornecido, envie mensagens para o serviço de hubs de eventos.
 
-### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto de extremidade do Kafka de Hubs de eventos
+### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto de extremidade Kafka dos hubs de eventos
 
-#### <a name="producerconfig"></a>Producer.config
+#### <a name="producerconfig"></a>produtor. config
 
-Atualização do `bootstrap.servers` e `sasl.jaas.config` valores em `producer/src/main/resources/producer.config` para direcionar o produtor para o ponto de final do Kafka de Hubs de eventos com a autenticação correta.
+Atualize os valores de `bootstrap.servers` e `sasl.jaas.config` no `producer/src/main/resources/producer.config` para direcionar o produtor para o ponto de extremidade Kafka dos hubs de eventos com a autenticação correta.
 
 ```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -79,26 +79,26 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
    password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-### <a name="run-producer-from-the-command-line"></a>Execute o produtor a partir da linha de comandos
+### <a name="run-producer-from-the-command-line"></a>Executar o Producer na linha de comando
 
-Para executar o produtor da linha de comando, gerar JAR e, em seguida, execute a partir de Maven (ou gerar JAR com o Maven, em seguida, executar em Java, adicionando o JAR(s) de Kafka necessário para o caminho da classe):
+Para executar o produtor da linha de comando, gere o JAR e, em seguida, execute de dentro do Maven (ou gere o JAR usando o Maven, em seguida, execute em Java adicionando os Kafka JAR necessários ao classpath):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestProducer"
 ```
 
-O produtor começará agora a enviar eventos para o Kafka ativado para o Hub de eventos no tópico `test` e imprimir os eventos para stdout.
+Agora, o produtor começará a enviar eventos para o Hub de eventos habilitado para Kafka no tópico `test` e imprimir os eventos para stdout.
 
-## <a name="run-flink-consumer"></a>Execução de Flink de consumidor
+## <a name="run-flink-consumer"></a>Executar o consumidor do Flink
 
-Usando o exemplo de consumidor fornecido, receber mensagens dos Hubs de eventos de ativado o Kafka.
+Usando o exemplo de consumidor fornecido, receba mensagens dos hubs de eventos habilitados para Kafka.
 
-### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto de extremidade do Kafka de Hubs de eventos
+### <a name="provide-an-event-hubs-kafka-endpoint"></a>Fornecer um ponto de extremidade Kafka dos hubs de eventos
 
-#### <a name="consumerconfig"></a>Consumer.config
+#### <a name="consumerconfig"></a>Consumer. config
 
-Atualização do `bootstrap.servers` e `sasl.jaas.config` valores em `consumer/src/main/resources/consumer.config` para direcionar o consumidor para o ponto de final do Kafka de Hubs de eventos com a autenticação correta.
+Atualize os valores de `bootstrap.servers` e `sasl.jaas.config` no `consumer/src/main/resources/consumer.config` para direcionar o consumidor para o ponto de extremidade Kafka dos hubs de eventos com a autenticação correta.
 
 ```xml
 bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
@@ -110,27 +110,27 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
    password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
 ```
 
-### <a name="run-consumer-from-the-command-line"></a>Execute o consumidor da linha de comando
+### <a name="run-consumer-from-the-command-line"></a>Executar o consumidor na linha de comando
 
-Para executar o consumidor da linha de comando, gerar JAR e, em seguida, execute a partir de Maven (ou gerar JAR com o Maven, em seguida, executar em Java, adicionando o JAR(s) de Kafka necessário para o caminho da classe):
+Para executar o consumidor a partir da linha de comando, gere o JAR e, em seguida, execute de dentro do Maven (ou gere o JAR usando o Maven, em seguida, execute em Java adicionando os Kafka JAR necessários ao classpath):
 
 ```shell
 mvn clean package
 mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 ```
 
-Se o hub de eventos habilitados no Kafka tem eventos (por exemplo, se o produtor também estiver em execução), em seguida, o consumidor começa agora a receção de eventos do tópico `test`.
+Se o Hub de eventos habilitado para Kafka tiver eventos (por exemplo, se o seu produtor também estiver em execução), o consumidor agora começará a receber eventos do tópico `test`.
 
-Confira [guia de conector do Kafka do Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) para obter mais informações sobre a ligação Flink ao Kafka.
+Confira o [Guia do conector do Kafka da Flink](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) para obter informações mais detalhadas sobre como conectar o Flink ao Kafka.
 
-## <a name="next-steps"></a>Passos Seguintes
-Neste tutorial, a aprender como ligar Apache Flink aos hubs de eventos de Kafka-ativado sem alterar os seus clientes de protocolo ou os seus próprios clusters em execução. Efetuar os passos seguintes como parte deste Tutorial: 
+## <a name="next-steps"></a>Passos seguintes
+Neste tutorial, você aprendeu a conectar o Apache Flink a hubs de eventos habilitados para Kafka sem alterar seus clientes de protocolo ou executar seus próprios clusters. Você realizou as seguintes etapas como parte deste tutorial: 
 
 > [!div class="checklist"]
 > * Criar um espaço de nomes dos Hubs de Eventos
 > * Clonar o projeto de exemplo
-> * Execute o produtor Flink 
-> * Execução de Flink de consumidor
+> * Executar o produtor do Flink 
+> * Executar o consumidor do Flink
 
 Para saber mais sobre os Hubs de Eventos e os Hubs de Eventos para Kafka, veja os tópicos seguintes:  
 

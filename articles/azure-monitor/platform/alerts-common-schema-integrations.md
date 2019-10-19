@@ -1,25 +1,24 @@
 ---
 title: Como integrar o esquema de alerta comum com aplicativos lógicos
 description: Saiba como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
-author: ananthradhakrishnan
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/27/2019
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 569b97ecc24306741c3323ce5bc526f88645c1dd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: ananthradhakrishnan
+ms.author: robb
+ms.date: 05/27/2019
+ms.openlocfilehash: 50a6067d271ad824f17df1ece36c3dd919c7b55b
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702956"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555645"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com aplicativos lógicos
 
 Este artigo mostra como criar um aplicativo lógico que aproveita o esquema de alerta comum para lidar com todos os seus alertas.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 O [esquema de alerta comum](https://aka.ms/commonAlertSchemaDocs) fornece um esquema JSON padronizado e extensível em todos os tipos de alerta diferentes. O esquema de alerta comum é mais útil quando aproveitado programaticamente – por meio de WebHooks, runbooks e aplicativos lógicos. Neste artigo, demonstramos como um único aplicativo lógico pode ser criado para lidar com todos os seus alertas. Os mesmos princípios podem ser aplicados a outros métodos programáticos. O aplicativo lógico descrito neste artigo cria variáveis bem definidas para os [campos ' essenciais '](alerts-common-schema-definitions.md#essentials)e também descreve como você pode manipular a lógica específica do [tipo de alerta](alerts-common-schema-definitions.md#alert-context) .
 
@@ -35,9 +34,9 @@ Este artigo pressupõe que o leitor esteja familiarizado com
 
 1. Siga as [etapas descritas para criar seu aplicativo lógico](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups-logic-app). 
 
-1.  Selecione o gatilho: **Quando uma solicitação HTTP é recebida**.
+1.  Selecione o gatilho: **quando uma solicitação HTTP é recebida**.
 
-    ![Gatilhos de aplicativo lógico](media/action-groups-logic-app/logic-app-triggers.png "Gatilhos de aplicativo lógico")
+    ![Gatilhos de aplicativo lógico](media/action-groups-logic-app/logic-app-triggers.png "Acionadores da aplicação lógica")
 
 1.  Selecione **Editar** para alterar o gatilho de solicitação HTTP.
 

@@ -1,38 +1,32 @@
 ---
-title: O Azure Monitor para problemas conhecidos VMs (pré-visualização) | Documentos da Microsoft
-description: Este artigo aborda problemas conhecidos com o Azure Monitor para as VMs, uma solução no Azure que combina o estado de funcionamento, a deteção de dependências de aplicativo e a monitorização do desempenho do sistema de operacional de VM do Azure.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
+title: Problemas conhecidos do Azure Monitor para VMs (versão prévia) | Microsoft Docs
+description: Este artigo aborda problemas conhecidos com o Azure Monitor para VMs, uma solução no Azure que combina integridade, descoberta de dependência de aplicativos e monitoramento de desempenho do sistema operacional da VM do Azure.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 04/02/2019
+ms.openlocfilehash: f6719a8c28571faceb6ebad0567d13a4edc60fe6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522133"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553773"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (pré-visualização)
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conhecidos com o Azure Monitor para VMs (versão prévia)
 
-Este artigo aborda problemas conhecidos com o Azure Monitor para as VMs, uma solução no Azure que combina o estado de funcionamento, a deteção de componentes da aplicação e a monitorização do desempenho do sistema de operacional de VM do Azure. 
+Este artigo aborda problemas conhecidos com o Azure Monitor para VMs, uma solução no Azure que combina integridade, descoberta de componentes de aplicativos e monitoramento de desempenho do sistema operacional da VM do Azure. 
 
-## <a name="health"></a>Estado de Funcionamento 
-Os seguintes são problemas conhecidos da versão atual do recurso de estado de funcionamento:
+## <a name="health"></a>Saúde 
+Veja a seguir os problemas conhecidos com a versão atual do recurso de integridade:
 
-- Se uma VM do Azure é removida ou eliminada, é apresentada na vista de lista de VM durante algum tempo. Além disso, o estado de uma VM removida ou eliminada de clicar abre o **diagnóstico de estado de funcionamento** ver e, em seguida, inicia um ciclo de carregamento. Selecionar o nome da VM eliminada é aberto um painel com uma mensagem a indicar que a VM tiver sido eliminada.
-- Alterações de configuração, como atualizar um limite, demorar até 30 minutos, mesmo que o portal ou a API de Monitor da carga de trabalho pode atualizá-las imediatamente. 
-- O diagnóstico de estado de funcionamento experiência mais rapidamente do que as outras vistas de atualizações. As informações podem estar atrasadas quando alternar entre elas. 
-- Para VMs do Linux, o título da página listando os critérios de estado de funcionamento para uma única vista VM com o nome de domínio completo da VM em vez do nome VM definido pelo utilizador. 
-- Depois de desativar a monitorização para uma VM através de um dos métodos suportados e tentar implementar novamente, deve implantá-lo na mesma área de trabalho. Se optar por uma área de trabalho diferente e tente ver o estado de funcionamento para essa VM, poderá mostrar comportamento inconsistente.
-- Depois de remover os componentes da solução da sua área de trabalho, pode continuar a ver o estado de funcionamento das VMs do Azure; especificamente mapa de dados de desempenho e ao navegar para a vista no portal. Dados, eventualmente, deixará de aparecer a partir da vista de desempenho e mapa após algum tempo; No entanto, a vista de estado de funcionamento irá continuar Mostrar o estado de funcionamento para as suas VMs. O **Experimente agora o** opção estará disponível para carregar para o re de vistas de desempenho e mapa.
+- Se uma VM do Azure for removida ou excluída, ela será exibida no modo de exibição de lista de VMs por algum tempo. Além disso, clicar no estado de uma VM removida ou excluída abre a exibição **diagnóstico de integridade** e, em seguida, inicia um loop de carregamento. A seleção do nome da VM excluída abre um painel com uma mensagem informando que a VM foi excluída.
+- Alterações de configuração, como a atualização de um limite, levam até 30 minutos, mesmo que o portal ou a API do monitor de carga de trabalho possa atualizá-los imediatamente. 
+- A experiência de diagnóstico de integridade é atualizada mais rapidamente do que as outras exibições. As informações podem ser atrasadas quando você alterna entre elas. 
+- Para VMs do Linux, o título da página que lista os critérios de integridade para uma única exibição de VM tem o nome de domínio inteiro da VM em vez do nome da VM definida pelo usuário. 
+- Depois de desabilitar o monitoramento de uma VM usando um dos métodos com suporte e tentar implantá-lo novamente, você deve implantá-lo no mesmo espaço de trabalho. Se você escolher um espaço de trabalho diferente e tentar exibir o estado de integridade dessa VM, ele poderá mostrar um comportamento inconsistente.
+- Depois de remover os componentes da solução do espaço de trabalho, você pode continuar a ver o estado de integridade de suas VMs do Azure; especificamente o desempenho e o mapa de dados quando você navega para o modo de exibição no Portal. Eventualmente, os dados deixarão de aparecer da exibição de desempenho e de mapa depois de algum tempo; no entanto, a exibição de integridade continuará a mostrar o status de integridade para suas VMs. A opção **experimentar agora** estará disponível para re-integrar de modo de exibição de desempenho e de mapa.
 
-## <a name="next-steps"></a>Passos Seguintes
-Para compreender os requisitos e métodos para ativar a monitorização das suas máquinas virtuais, consulte [ativar o Azure Monitor para VMs](vminsights-enable-overview.md).
+## <a name="next-steps"></a>Passos seguintes
+Para entender os requisitos e métodos para habilitar o monitoramento de suas máquinas virtuais, examine [habilitar Azure monitor para VMs](vminsights-enable-overview.md).

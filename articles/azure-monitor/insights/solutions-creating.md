@@ -1,86 +1,80 @@
 ---
-title: Criar uma solução de gestão no Azure | Documentos da Microsoft
-description: Soluções de gestão incluem cenários de gestão em pacote no Azure que os clientes podem adicionar a sua área de trabalho do Log Analytics.  Este artigo fornece detalhes sobre como pode criar soluções de gestão para ser usado em seu próprio ambiente ou disponibilizada aos seus clientes.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
+title: Criar uma solução de gerenciamento no Azure | Microsoft Docs
+description: As soluções de gerenciamento incluem cenários de gerenciamento empacotados no Azure que os clientes podem adicionar ao seu espaço de trabalho de Log Analytics.  Este artigo fornece detalhes sobre como você pode criar soluções de gerenciamento para serem usadas em seu próprio ambiente ou disponibilizadas para seus clientes.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef1af4d3d27bc098341a4de716e293557baa946a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 97472a65af6eb2c5c2da93d93f38450cc021f680
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595817"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555301"
 ---
-# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Conceber e criar uma solução de gestão no Azure (pré-visualização)
+# <a name="design-and-build-a-management-solution-in-azure-preview"></a>Projetar e criar uma solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
-> Esta é a documentação preliminar para a criação de soluções de gestão no Azure que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.
 
-[Soluções de gestão]( solutions.md) fornecer cenários de pacote de gestão que os clientes podem adicionar a sua área de trabalho do Log Analytics.  Este artigo apresenta um processo básico para projetar e criar uma solução de gestão que é adequada para os requisitos mais comuns.  Se estiver a criar soluções de gestão, em seguida, pode utilizar este processo como um ponto de partida e, em seguida, tirar partido dos conceitos para soluções mais complexas, à medida que os seus requisitos evoluem.
+As [soluções de gerenciamento]( solutions.md) fornecem cenários de gerenciamento empacotados que os clientes podem adicionar ao seu espaço de trabalho de log Analytics.  Este artigo apresenta um processo básico para projetar e criar uma solução de gerenciamento adequada para os requisitos mais comuns.  Se você for novo na criação de soluções de gerenciamento, poderá usar esse processo como um ponto de partida e, em seguida, aproveitar os conceitos para soluções mais complexas à medida que suas necessidades evoluem.
 
-## <a name="what-is-a-management-solution"></a>O que é uma solução de gestão?
+## <a name="what-is-a-management-solution"></a>O que é uma solução de gerenciamento?
 
-Soluções de gestão contêm recursos do Azure que funcionam em conjunto para obter um cenário de gestão específico.  Eles são implementados como [modelos de gestão de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) que contêm detalhes sobre como instalar e configurar os recursos contidos quando a solução é instalada.
+As soluções de gerenciamento contêm recursos do Azure que trabalham em conjunto para alcançar um cenário de gerenciamento específico.  Eles são implementados como [modelos de gerenciamento de recursos](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) que contêm detalhes de como instalar e configurar seus recursos contidos quando a solução é instalada.
 
-A estratégia básica é começar a sua solução de gestão com a criação de componentes individuais no seu ambiente do Azure.  Assim que tiver a funcionalidade funcionar corretamente, pode começar a empacotá-los para um [arquivo da solução de gestão]( solutions-solution-file.md). 
+A estratégia básica é iniciar sua solução de gerenciamento criando componentes individuais em seu ambiente do Azure.  Depois que a funcionalidade estiver funcionando corretamente, você poderá começar a compactá-las em um [arquivo de solução de gerenciamento]( solutions-solution-file.md). 
 
 
 ## <a name="design-your-solution"></a>Conceba a sua solução
-O padrão mais comuns para uma solução de gestão é mostrado no diagrama seguinte.  Os diferentes componentes neste padrão são apresentados a seguir.
+O padrão mais comum para uma solução de gerenciamento é mostrado no diagrama a seguir.  Os diferentes componentes neste padrão são discutidos no abaixo.
 
-![Descrição geral da solução de gestão](media/solutions-creating/solution-overview.png)
+![Visão geral da solução de gerenciamento](media/solutions-creating/solution-overview.png)
 
 
 ### <a name="data-sources"></a>Origens de dados
-A primeira etapa na criação de uma solução é determinar os dados que necessita a partir do repositório do Log Analytics.  Estes dados podem ser recolhidos por um [origem de dados](../../azure-monitor/platform/agent-data-sources.md) ou [outra solução]( solutions.md), ou a sua solução talvez seja necessário fornecer o processo de recolha-lo.
+A primeira etapa na criação de uma solução é determinar os dados que você precisa do repositório Log Analytics.  Esses dados podem ser coletados por uma [fonte de dados](../../azure-monitor/platform/agent-data-sources.md) ou [outra solução]( solutions.md), ou sua solução pode precisar fornecer o processo para coletá-lo.
 
-Existem várias maneiras de origens de dados que podem ser recolhidas no repositório do Log Analytics, conforme descrito em [origens de dados no Log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Isto inclui eventos no registo de eventos do Windows ou gerado pelo Syslog, além de contadores de desempenho, para clientes Windows e Linux.  Também pode recolher dados dos recursos do Azure recolhidos pelo Monitor do Azure.  
+Há várias maneiras pelas quais as fontes de dados podem ser coletadas no repositório Log Analytics, conforme descrito em [fontes de dados no log Analytics](../../azure-monitor/platform/agent-data-sources.md).  Isso inclui eventos no log de eventos do Windows ou gerados pelo syslog, além de contadores de desempenho para clientes Windows e Linux.  Você também pode coletar dados dos recursos do Azure coletados pelo Azure Monitor.  
 
-Se necessitar de dados que não são acessíveis através de qualquer uma das origens de dados disponíveis, em seguida, pode utilizar o [HTTP Data Collector API](../../azure-monitor/platform/data-collector-api.md) que permite-lhe escrever dados para o repositório do Log Analytics a partir de qualquer cliente que pode chamar uma API REST.  Os meios mais comuns de recolha de dados personalizados numa solução de gestão de consiste em criar uma [runbook na automatização do Azure](../../automation/automation-runbook-types.md) que recolhe os dados necessários a partir dos recursos do Azure ou externos e utiliza a API de Recoletor de dados para escrever o repositório.  
+Se você precisar de dados que não estão acessíveis por meio de qualquer uma das fontes de dados disponíveis, poderá usar a [API do coletor de dados http](../../azure-monitor/platform/data-collector-api.md) , que permite gravar dados no repositório de log Analytics de qualquer cliente que possa chamar uma API REST.  O meio mais comum de coleta de dados personalizada em uma solução de gerenciamento é criar um [runbook na automação do Azure](../../automation/automation-runbook-types.md) que coleta os dados necessários do Azure ou recursos externos e usa a API do coletor de dados para gravar no repositório.  
 
-### <a name="log-searches"></a>Pesquisas de registos
-[Pesquisas de registos](../../azure-monitor/log-query/log-query-overview.md) são usados para extrair e analisar dados no repositório do Log Analytics.  São utilizados pelas vistas e alertas, além de permitir que o usuário execute análise ad hoc de dados no repositório.  
+### <a name="log-searches"></a>Pesquisas de log
+[Pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) são usadas para extrair e analisar dados no repositório log Analytics.  Eles são usados por exibições e alertas, além de permitir que o usuário execute a análise ad hoc de dados no repositório.  
 
-Deve definir todas as consultas que acredita que serão úteis para os utilizadores, mesmo que eles não são utilizados por quaisquer vistas ou alertas.  Estes vão estar disponíveis a eles como pesquisas guardadas no portal e também pode incluir os mesmos num [parte de visualização de lista de consultas](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) na vista personalizada.
+Você deve definir todas as consultas que considerar que serão úteis para o usuário, mesmo que não sejam usadas por exibições ou alertas.  Eles estarão disponíveis para eles como pesquisas salvas no portal, e você também pode incluí-los em uma [lista de visualização de consultas](../../azure-monitor/platform/view-designer-parts.md#list-of-queries-part) no modo de exibição personalizado.
 
 ### <a name="alerts"></a>Alertas
-[Alertas do Log Analytics](../../azure-monitor/platform/alerts-overview.md) identificar problemas através de [pesquisas de registos](#log-searches) relativamente aos dados no repositório.  Eles ou notificar o utilizador ou executam automaticamente uma ação em resposta. Deve identificar diferentes condições de alerta para a sua aplicação e incluir regras de alerta correspondentes no seu ficheiro de solução.
+[Alertas no log Analytics](../../azure-monitor/platform/alerts-overview.md) identificam problemas por meio de [pesquisas de log](#log-searches) em relação aos dados no repositório.  Eles notificam o usuário ou executam automaticamente uma ação em resposta. Você deve identificar diferentes condições de alerta para seu aplicativo e incluir as regras de alerta correspondentes em seu arquivo de solução.
 
-Se o problema potencialmente pode ser corrigido com um processo automatizado, normalmente, irá criar um runbook na automatização do Azure para realizar essa correção.  Os serviços mais do Azure podem ser geridos com [cmdlets](/powershell/azure/overview) que o runbook poderia aproveitar para fazer essa funcionalidade.
+Se o problema puder ser corrigido com um processo automatizado, você normalmente criará um runbook na automação do Azure para executar essa correção.  A maioria dos serviços do Azure pode ser gerenciada com [cmdlets](/powershell/azure/overview) que o runbook aproveitaria para executar essa funcionalidade.
 
-Se sua solução requer funcionalidade externa em resposta a um alerta, em seguida, pode utilizar um [resposta do webhook](../../azure-monitor/platform/alerts-metric.md).  Isto permite-lhe chamar um serviço web externo enviar informações a partir do alerta.
+Se sua solução exigir a funcionalidade externa em resposta a um alerta, você poderá usar uma [resposta de webhook](../../azure-monitor/platform/alerts-metric.md).  Isso permite que você chame um serviço Web externo enviando informações do alerta.
 
 ### <a name="views"></a>Vistas
-Vistas no Log Analytics são utilizadas para visualizar dados do repositório do Log Analytics.  Cada solução normalmente irá conter uma única vista com um [mosaico](../../azure-monitor/platform/view-designer-tiles.md) que é apresentado no dashboard principal do usuário.  A vista pode conter qualquer número de [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para fornecer visualizações diferentes dos dados recolhidos para o usuário.
+Exibições em Log Analytics são usadas para visualizar dados do repositório de Log Analytics.  Em geral, cada solução contém uma única exibição com um [bloco](../../azure-monitor/platform/view-designer-tiles.md) que é exibido no painel principal do usuário.  O modo de exibição pode conter qualquer número de [partes de visualização](../../azure-monitor/platform/view-designer-parts.md) para fornecer diferentes visualizações dos dados coletados ao usuário.
 
-[Criar vistas personalizadas com o estruturador de vista](../../azure-monitor/platform/view-designer.md) que mais tarde, pode exportar para inclusão no seu ficheiro de solução.  
-
-
-## <a name="create-solution-file"></a>Criar ficheiro de solução
-Depois de ter configurado e testado os componentes que farão parte da sua solução, pode [criar o arquivo da solução]( solutions-solution-file.md).  Irá implementar os componentes da solução num [modelo do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que inclua um [recursos de solução]( solutions-solution-file.md#solution-resource) com relações aos outros recursos no arquivo.  
+Você [cria exibições personalizadas usando o designer de exibição](../../azure-monitor/platform/view-designer.md) , que pode ser exportado posteriormente para inclusão em seu arquivo de solução.  
 
 
-## <a name="test-your-solution"></a>Testar a sua solução
-Enquanto estiver a desenvolver sua solução, terá de instalar e testá-lo na sua área de trabalho.  Pode fazê-lo usando qualquer um dos métodos disponíveis para [testar e instalar os modelos do Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
-
-## <a name="publish-your-solution"></a>Publicar a sua solução
-Depois de concluída e testada sua solução, pode disponibilizá-lo para os clientes através de qualquer uma das seguintes origens.
-
-- **Modelos de início rápido do Azure**.  [Modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) é um conjunto de modelos do Resource Manager contribuído pela Comunidade através do GitHub.  É possível disponibilizar sua solução por seguintes informações na [guia de contribuições](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
-- **O Azure Marketplace**.  O [do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) permite distribuir e vender a sua solução para outros desenvolvedores, ISVs e os profissionais de TI.  Pode aprender a publicar a sua solução no Azure Marketplace em [sobre como publicar e gerir uma oferta no Azure Marketplace](../../marketplace/marketplace-publishers-guide.md).
+## <a name="create-solution-file"></a>Criar arquivo de solução
+Depois de configurar e testar os componentes que serão parte de sua solução, você pode [criar o arquivo de solução]( solutions-solution-file.md).  Você implementará os componentes da solução em um [modelo do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) que inclui um [recurso de solução]( solutions-solution-file.md#solution-resource) com relações com os outros recursos no arquivo.  
 
 
+## <a name="test-your-solution"></a>Testar sua solução
+Enquanto estiver desenvolvendo sua solução, você precisará instalá-la e testá-la em seu espaço de trabalho.  Você pode fazer isso usando qualquer um dos métodos disponíveis para [testar e instalar modelos do Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
 
-## <a name="next-steps"></a>Passos Seguintes
-* Saiba como [criar um arquivo de solução]( solutions-solution-file.md) para a sua solução de gestão.
-* Saiba os detalhes de [modelos Authoring Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
-* Pesquisa [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates) exemplos dos diferentes modelos do Resource Manager.
+## <a name="publish-your-solution"></a>Publicar sua solução
+Depois de concluir e testar sua solução, você poderá disponibilizá-la para os clientes por meio das seguintes fontes.
+
+- **Modelos de início rápido do Azure**.  Os [modelos de início rápido do Azure](https://azure.microsoft.com/resources/templates/) são um conjunto de modelos do Resource Manager contribuídos pela Comunidade por meio do github.  Você pode disponibilizar sua solução seguindo as informações no [Guia de contribuição](https://github.com/Azure/azure-quickstart-templates/tree/master/1-CONTRIBUTION-GUIDE).
+- **Azure Marketplace**.  O [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) permite que você distribua e venda sua solução para outros desenvolvedores, ISVs e profissionais de ti.  Você pode aprender a publicar sua solução no Azure Marketplace em [como publicar e gerenciar uma oferta no Azure Marketplace](../../marketplace/marketplace-publishers-guide.md).
+
+
+
+## <a name="next-steps"></a>Passos seguintes
+* Saiba como [criar um arquivo de solução]( solutions-solution-file.md) para sua solução de gerenciamento.
+* Conheça os detalhes da [criação de modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Pesquise [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates) para obter exemplos de modelos diferentes do Resource Manager.

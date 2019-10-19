@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2fcace82eed81b85571ba88243a3de991ae01aa0
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180100"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550634"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Escala e Hospedagem de Azure Functions
 
-Ao criar um aplicativo de funções no Azure, você deve escolher um plano de hospedagem para seu aplicativo. Há três planos de hospedagem disponíveis para Azure Functions: Plano de [consumo](#consumption-plan), [plano Premium](#premium-plan)e [plano do serviço de aplicativo](#app-service-plan).
+Ao criar um aplicativo de funções no Azure, você deve escolher um plano de hospedagem para seu aplicativo. Há três planos de hospedagem disponíveis para Azure Functions: [plano de consumo](#consumption-plan), [plano Premium](#premium-plan)e [plano do serviço de aplicativo](#app-service-plan).
 
 O plano de hospedagem que você escolher ditará os seguintes comportamentos:
 
@@ -47,8 +47,8 @@ A tabela a seguir indica o nível de suporte atual para os três planos de hospe
 
 | | Plano de consumo | Plano Premium | Plano dedicado |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | pré-visualização | GA |
-| Linux | GA | pré-visualização | GA |
+| Windows | GA (Geographic Availability, Disponibilidade Geográfica) | pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) |
+| Linux | GA (Geographic Availability, Disponibilidade Geográfica) | pré-visualização | GA (Geographic Availability, Disponibilidade Geográfica) |
 
 ## <a name="consumption-plan"></a>Plano de consumo
 
@@ -78,11 +78,12 @@ Quando você estiver usando o plano Premium, as instâncias do host Azure Functi
 
 Informações sobre como você pode configurar essas opções podem ser encontradas no [documento Azure Functions plano Premium](functions-premium-plan.md).
 
-Em vez de cobrança por execução e memória consumida, a cobrança para o plano Premium baseia-se no número de segundos de núcleo, tempo de execução e memória usados nas instâncias necessárias e reservadas.  Pelo menos uma instância deve estar sempre em espera. Isso significa que há um custo mensal fixo por plano ativo, independentemente do número de execuções.
+Em vez de cobrança por execução e memória consumida, a cobrança pelo plano Premium é baseada no número de segundos de núcleo e na memória usada nas instâncias necessárias e pré-configuradas. Pelo menos uma instância deve estar sempre em espera por plano. Isso significa que há um custo mensal mínimo por plano ativo, independentemente do número de execuções. Tenha em mente que todos os aplicativos de funções em um plano Premium compartilham instâncias ativas e pré-configuradas.
 
 Considere o plano Azure Functions Premium nas seguintes situações:
 
 * Seus aplicativos de funções são executados continuamente ou quase continuamente.
+* Você tem um número alto de execuções pequenas e tem uma cobrança de alta execução, mas a cobrança de baixo GB por segundo no plano de consumo.
 * Você precisa de mais opções de CPU ou memória do que o fornecido pelo plano de consumo.
 * Seu código precisa ser executado por mais tempo do que o [máximo permitido](#timeout) no plano de consumo.
 * Você precisa de recursos que estão disponíveis apenas em um plano Premium, como conectividade VNET/VPN.
@@ -112,7 +113,7 @@ Se você executar em um plano do serviço de aplicativo, habilite a configuraç�
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-Mesmo com Always on habilitado, o tempo limite de execução para funções individuais é controlado `functionTimeout` pela configuração no arquivo de projeto [host. JSON](functions-host-json.md#functiontimeout) .
+Mesmo com Always On habilitado, o tempo limite de execução para funções individuais é controlado pela configuração de `functionTimeout` no arquivo de projeto [host. JSON](functions-host-json.md#functiontimeout) .
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>Determinar o plano de Hospedagem de um aplicativo existente
 

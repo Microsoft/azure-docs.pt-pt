@@ -1,126 +1,123 @@
 ---
-title: Informações do grupo de recursos do Azure Monitor | Documentos da Microsoft
-description: Compreender o estado de funcionamento e o desempenho dos aplicativos distribuídos e serviços ao nível do grupo de recursos com o Azure Monitor
-services: azure-monitor
-author: NumberByColors
-manager: carmonm
+title: Azure Monitor informações do grupo de recursos | Microsoft Docs
+description: Entenda a integridade e o desempenho de seus aplicativos e serviços distribuídos no nível do grupo de recursos com Azure Monitor
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.subservice: ''
 ms.topic: conceptual
+author: NumberByColors
+ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.author: daviste
-ms.openlocfilehash: d5c07e0d4aca8bda42ea9f78a1475ea7bb5861f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fba94a5e723bfbc2719b3b4cf5cd130eda382276
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119426"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553986"
 ---
-# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorizar grupos de recursos com o Azure Monitor (pré-visualização)
+# <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorar grupos de recursos com Azure Monitor (versão prévia)
 
-Aplicativos modernos costumam ser complexos e altamente distribuídos com muitas partes discretas trabalhar em conjunto para prestar um serviço. RECONHECENDO essa complexidade, o Azure Monitor fornece informações de monitorização para grupos de recursos. Isto torna mais fácil fazer a triagem e diagnosticar quaisquer problemas que encontram os recursos individuais, oferecendo contexto relativamente ao estado de funcionamento e o desempenho do grupo de recursos&mdash;e a sua aplicação&mdash;como um todo.
+Os aplicativos modernos costumam ser complexos e altamente distribuídos com muitas partes discretas trabalhando em conjunto para fornecer um serviço. Reconhecendo essa complexidade, Azure Monitor fornece informações de monitoramento para grupos de recursos. Isso facilita a triagem e o diagnóstico de quaisquer problemas que seus recursos individuais encontrem, ao mesmo tempo em que oferece contexto para a integridade e o desempenho do grupo de recursos &mdash;and seu aplicativo &mdash;as um todo.
 
-## <a name="access-insights-for-resource-groups"></a>Aceder a informações para grupos de recursos
+## <a name="access-insights-for-resource-groups"></a>Acessar informações para grupos de recursos
 
-1. Selecione **grupos de recursos** na barra de navegação esquerda.
-2. Escolha um dos seus grupos de recursos que queira explorar. (Se tiver um grande número de grupos de recursos, a filtragem por subscrição pode por vezes, ser útil.)
-3. Para aceder a informações para um grupo de recursos, clique em **Insights** no menu da esquerda de qualquer grupo de recursos.
+1. Selecione **grupos de recursos** na barra de navegação do lado esquerdo.
+2. Escolha um dos seus grupos de recursos que você deseja explorar. (Se você tiver um grande número de grupos de recursos, a filtragem por assinatura pode, às vezes, ser útil).
+3. Para acessar informações de um grupo de recursos, clique em **percepções** no menu do lado esquerdo de qualquer grupo de recursos.
 
-![Captura de ecrã da página de descrição geral de informações de grupo de recursos](./media/resource-group-insights/0001-overview.png)
+![Captura de tela da página Visão geral do grupo de recursos](./media/resource-group-insights/0001-overview.png)
 
-## <a name="resources-with-active-alerts-and-health-issues"></a>Recursos com problemas de estado de funcionamento e de alertas ativos
+## <a name="resources-with-active-alerts-and-health-issues"></a>Recursos com alertas ativos e problemas de integridade
 
-A página de visão geral mostra quantos alertas foi acionadas e ainda estão ativas, juntamente com o Azure Resource Health atual de cada recurso. Em conjunto, estas informações podem ajudá-lo a detetar rapidamente quaisquer recursos que estão a ter problemas. Alertas ajudam a detectar problemas em seu código e como configurou sua infraestrutura. Problema de superfícies de estado de funcionamento de recursos do Azure com a própria plataforma do Azure, que não são específicos para seus aplicativos individuais.
+A página Visão geral mostra quantos alertas foram acionados e ainda estão ativos, juntamente com o Azure Resource Health atual de cada recurso. Juntas, essas informações podem ajudá-lo a identificar rapidamente todos os recursos que estão enfrentando problemas. Os alertas ajudam a detectar problemas em seu código e como você configurou sua infraestrutura. Azure Resource Health o problema de superfícies com a própria plataforma do Azure, que não é específica para seus aplicativos individuais.
 
-![Painel de captura de ecrã do Azure Resource Health](./media/resource-group-insights/0002-overview.png)
+![Captura de tela do painel de Azure Resource Health](./media/resource-group-insights/0002-overview.png)
 
 ### <a name="azure-resource-health"></a>Azure Resource Health
 
-Para apresentar o estado de funcionamento do Azure recursos, consulte a **Mostrar o Azure Resource Health** caixa superior da tabela. Esta coluna está oculta por predefinição, para ajudar a página carregada rapidamente.
+Para exibir Azure Resource Health, marque a caixa **mostrar Azure Resource Health** acima da tabela. Essa coluna fica oculta por padrão para ajudar a carregar a página rapidamente.
 
-![Captura de ecrã com o gráfico de estado de funcionamento de recursos adicionado](./media/resource-group-insights/0003-overview.png)
+![Captura de tela com grafo Resource Health adicionado](./media/resource-group-insights/0003-overview.png)
 
-Por predefinição, os recursos são agrupados por tipo de recurso e de camada de aplicação. **Camada de aplicação** a categorização simples de tipos de recursos, que só existe dentro do contexto da página de descrição geral de informações do grupo de recursos. Existem tipos de recursos relacionados ao código do aplicativo, infraestrutura, redes, armazenamento + bases de dados de computação. Ferramentas de gestão obtém suas próprias camadas da aplicação e todos os outros recursos é categorizado como pertencentes à **outros** camada de aplicação. Este agrupamento pode ajudá-lo a ver em breve os subsistemas da sua aplicação estão em bom estado e mau estado de funcionamento.
+Por padrão, os recursos são agrupados por camada de aplicativo e tipo de recurso. A **camada de aplicativo** é uma categorização simples de tipos de recursos, que existe apenas dentro do contexto da página Visão geral do grupo de recursos. Há tipos de recursos relacionados ao código do aplicativo, infraestrutura de computação, rede, armazenamento + bancos de dados. As ferramentas de gerenciamento obtêm suas próprias camadas de aplicativo e todos os outros recursos são categorizados como pertencentes à **outra** camada de aplicativo. Esse agrupamento pode ajudá-lo a ver rapidamente quais subsistemas de seu aplicativo estão íntegros e não íntegros.
 
-## <a name="diagnose-issues-in-your-resource-group"></a>Diagnosticar problemas no seu grupo de recursos
+## <a name="diagnose-issues-in-your-resource-group"></a>Diagnosticar problemas em seu grupo de recursos
 
-A página de informações do grupo de recursos fornece várias outras ferramentas para ajudar a diagnosticar problemas de âmbito
+A página de informações do grupo de recursos fornece várias outras ferramentas com escopo para ajudá-lo a diagnosticar problemas
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Ver, criar e gerir os alertas. |
-   | [**Métricas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize e explore os seus dados com base métrica.    |
-   | [**Registos de atividades**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Subscrição nível eventos que ocorreram no Azure.  |
-   | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) (Mapeamento de aplicações) | Navegue até a topologia da sua aplicação distribuída para identificar afunilamentos de desempenho ou de hotspots de falha. |
+   | [**Alertas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Exiba, crie e gerencie seus alertas. |
+   | [**Métricas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualize e explore seus dados baseados em métrica.    |
+   | [**Logs de atividade**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Eventos de nível de assinatura que ocorreram no Azure.  |
+   | [**Application map**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) (Mapeamento de aplicações) | Navegue pela topologia do aplicativo distribuído para identificar gargalos de desempenho ou pontos de interativações de falha. |
 
-## <a name="failures-and-performance"></a>Desempenho e falhas
+## <a name="failures-and-performance"></a>Falhas e desempenho
 
-E se reparou que seu aplicativo está sendo lentamente executada ou que os usuários relataram erros? É demorado Procurar em todos os seus recursos para isolar problemas.
+E se você observou que o aplicativo está em execução lentamente ou se os usuários relataram erros? É muito demorado Pesquisar em todos os seus recursos para isolar problemas.
 
-O **desempenho** e **falhas** separadores simplificam este processo ao reunir o desempenho e falha vistas de diagnóstico para muitos tipos de recursos comuns.
+As guias **desempenho** e **falhas** simplificam esse processo reunindo exibições de diagnóstico de desempenho e falha para muitos tipos de recursos comuns.
 
-A maioria dos tipos de recursos serão aberto um modelos da galeria do Azure Monitor livro. Cada pasta de trabalho que cria pode ser personalizada, guardado, partilhado com a sua equipa e reutilizados no futuro para diagnosticar problemas semelhantes.
+A maioria dos tipos de recursos abrirá uma galeria de modelos de pasta de trabalho Azure Monitor. Cada pasta de trabalho criada pode ser personalizada, salva, compartilhada com sua equipe e reutilizada no futuro para diagnosticar problemas semelhantes.
 
 ### <a name="investigate-failures"></a>Investigar falhas
 
-Para testar a selecionar o separador de falhas **falhas** sob **investigar** no menu da esquerda.
+Para testar a guia falhas, selecione **falhas** em **investigar** no menu à esquerda.
 
-Barra de menus do esquerda é alterado após a seleção é feita, oferecendo a novas opções.
+A barra de menus do lado esquerdo é alterada depois que a seleção é feita, oferecendo novas opções.
 
-![Painel de descrição geral de captura de ecrã de falha](./media/resource-group-insights/00004-failures.png)
+![Captura de tela do painel Visão geral da falha](./media/resource-group-insights/00004-failures.png)
 
-Quando o serviço de aplicações for escolhido, é apresentada com um modelo de galeria do Azure Monitor livro.
+Quando o serviço de aplicativo for escolhido, você verá uma galeria de Azure Monitor modelos de pasta de trabalho.
 
-![Captura de ecrã da Galeria de pasta de trabalho de aplicações](./media/resource-group-insights/0005-failure-insights-workbook.png)
+![Captura de tela da Galeria de pastas de trabalho do aplicativo](./media/resource-group-insights/0005-failure-insights-workbook.png)
 
-Escolher o modelo para as informações de falha, abrirá o livro.
+A escolha do modelo para informações de falha abrirá a pasta de trabalho.
 
-![Captura de ecrã do relatório de falha](./media/resource-group-insights/0006-failure-visual.png)
+![Captura de tela do relatório de falha](./media/resource-group-insights/0006-failure-visual.png)
 
-Pode selecionar qualquer uma das linhas. A seleção, em seguida, é apresentada numa vista de detalhes do gráfico.
+Você pode selecionar qualquer uma das linhas. Em seguida, a seleção é exibida em uma exibição de detalhes gráficos.
 
-![Captura de ecrã de detalhes da falha](./media/resource-group-insights/0007-failure-details.png)
+![Captura de tela de detalhes da falha](./media/resource-group-insights/0007-failure-details.png)
 
-Pastas de trabalho abstraem o difícil trabalho de criação de relatórios personalizados e visualizações para um formato de facilmente consumível. Embora alguns usuários poderão apenas pretender ajustar os parâmetros criados previamente, pastas de trabalho são totalmente personalizáveis.
+As pastas de trabalho abstraim o trabalho difícil de criar relatórios personalizados e visualizações em um formato facilmente consumível. Embora alguns usuários possam querer apenas ajustar os parâmetros predefinidos, as pastas de trabalho são completamente personalizáveis.
 
-Para obter uma noção de como este livro funciona internamente, selecione **editar** na barra superior.
+Para ter uma noção de como essa pasta de trabalho funciona internamente, selecione **Editar** na barra superior.
 
-![Captura de ecrã da opção de editar adicionais](./media/resource-group-insights/0008-failure-edit.png)
+![Captura de tela da opção de edição adicional](./media/resource-group-insights/0008-failure-edit.png)
 
-Diversas **editar** aparecem de caixas de perto os vários elementos da pasta de trabalho. Selecione o **editar** caixa abaixo da tabela de operações.
+Várias caixas de **edição** aparecem perto dos vários elementos da pasta de trabalho. Selecione a caixa de **edição** abaixo da tabela de operações.
 
-![Captura de ecrã das caixas de edição](./media/resource-group-insights/0009-failure-edit-graph.png)
+![Captura de tela das caixas de edição](./media/resource-group-insights/0009-failure-edit-graph.png)
 
-Isso revela a consulta do log subjacente que está a orientar a visualização de tabela.
+Isso revela a consulta de log subjacente que está orientando a visualização de tabela.
 
- ![Captura de ecrã da janela de consulta de registo](./media/resource-group-insights/0010-failure-edit-query.png)
+ ![Captura de tela da janela de consulta de log](./media/resource-group-insights/0010-failure-edit-query.png)
 
-É possível modificar a consulta diretamente. Ou pode usá-la como uma referência e emprestam ao conceber a sua própria pasta de trabalho parametrizada personalizada.
+Você pode modificar a consulta diretamente. Ou você pode usá-lo como uma referência e um empréstimo dele ao criar sua própria pasta de trabalho com parâmetros personalizados.
 
-### <a name="investigate-performance"></a>Investigue o desempenho
+### <a name="investigate-performance"></a>Investigar o desempenho
 
-Desempenho oferece sua própria Galeria de pastas de trabalho. Serviço de aplicações, a pasta de trabalho de desempenho de aplicações pré-criadas oferece a vista seguinte:
+O desempenho oferece sua própria galeria de pastas de trabalho. Para o serviço de aplicativo, a pasta de trabalho de desempenho de aplicativo predefinida oferece o seguinte modo de exibição:
 
- ![Captura de ecrã da vista de desempenho](./media/resource-group-insights/0011-performance.png)
+ ![Captura de tela da exibição de desempenho](./media/resource-group-insights/0011-performance.png)
 
-Neste caso, se selecionar edição verá que este conjunto de visualizações utiliza a tecnologia de monitorizar as métricas do Azure.
+Nesse caso, se você selecionar Editar, verá que esse conjunto de visualizações é alimentado por Azure Monitor métricas.
 
- ![Captura de ecrã da vista de desempenho com a métrica do Azure](./media/resource-group-insights/0012-performance-metrics.png)
+ ![Captura de tela do modo de exibição de desempenho com métricas do Azure](./media/resource-group-insights/0012-performance-metrics.png)
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-### <a name="enabling-access-to-alerts"></a>Permitir o acesso aos alertas
+### <a name="enabling-access-to-alerts"></a>Habilitando o acesso a alertas
 
-Para ver os alertas no Azure Monitor para grupos de recursos, alguém com uma função de proprietário ou contribuinte para esta subscrição tem de abrir o Azure Monitor para grupos de recursos para qualquer grupo de recursos na subscrição. Isso permitirá que qualquer pessoa com acesso de leitura para ver alertas no Azure Monitor para grupos de recursos para todos os grupos de recursos na subscrição. Se tiver uma função de proprietário ou contribuinte, atualize esta página dentro de alguns minutos.
+Para ver alertas em Azure Monitor para grupos de recursos, alguém com uma função de proprietário ou colaborador para essa assinatura precisa abrir Azure Monitor para grupos de recursos para qualquer grupo de recursos na assinatura. Isso permitirá que qualquer pessoa com acesso de leitura Veja alertas no Azure Monitor para grupos de recursos para todos os grupos de recursos na assinatura. Se você tiver uma função de proprietário ou colaborador, atualize esta página em alguns minutos.
 
-O Azure Monitor para grupos de recursos se baseia no sistema de gestão de alertas do Azure Monitor para obter o estado do alerta. Gestão de alertas não está configurado para cada grupo de recursos e subscrição por predefinição e só pode ser ativada por alguém com uma função de proprietário ou contribuinte. Pode ser ativado por:
-* Abrir o Monitor do Azure para grupos de recursos para qualquer grupo de recursos na subscrição.
-* Ou ao aceder à subscrição, ao clicar **fornecedores de recursos**, em seguida, clicar em **se registrar para Alerts.Management**.
+Azure Monitor para grupos de recursos depende do sistema de gerenciamento de alertas de Azure Monitor para recuperar o status do alerta. O gerenciamento de alertas não está configurado para cada grupo de recursos e assinatura por padrão e só pode ser habilitado por alguém com uma função de proprietário ou colaborador. Ele pode ser habilitado por:
+* Abrir Azure Monitor para grupos de recursos para qualquer grupo de recursos na assinatura.
+* Ou acessando a assinatura, clicando em **provedores de recursos**e, em seguida, clicando em **registrar para alertas. gerenciamento**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Pastas de trabalho do Azure Monitor](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
+- [Azure Monitor pastas de trabalho](https://docs.microsoft.com/azure/application-insights/app-insights-usage-workbooks)
 - [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Alertas de Monitor do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Alertas de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)

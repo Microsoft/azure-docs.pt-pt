@@ -1,20 +1,18 @@
 ---
 title: Monitorar serviços e aplicativos do Azure usando o Grafana
 description: Azure Monitor de rota e dados de Application Insights para que você possa exibi-los em Grafana.
-services: azure-monitor
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: ''
+ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 11/06/2017
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ''
-ms.openlocfilehash: b9a9d0a16a31d06d0d4edc1b6f0617a5771b179e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f5464710d5c7908eeec5dd917bfeff4756ff4e80
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872831"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552098"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar seus serviços do Azure no Grafana
 Agora você pode monitorar os serviços e aplicativos do Azure do [Grafana](https://grafana.com/) usando o [plug-in Azure monitor Data Source](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in coleta dados de desempenho do aplicativo coletados por Azure Monitor, incluindo vários logs e métricas. Você pode exibir esses dados em seu painel do Grafana.
@@ -47,7 +45,7 @@ Para configurar um servidor Grafana local, [Baixe e instale o Grafana em seu amb
 
 ## <a name="sign-in-to-grafana"></a>Entrar no Grafana
 
-1. Usando o endereço IP do seu servidor, abra a página de logon *em\<http://endereço\>IP: 3000* ou  *\<DnsName >\:3000* em seu navegador. Embora 3000 seja a porta padrão, observe que você pode ter selecionado uma porta diferente durante a instalação. Você deve ver uma página de logon para o servidor Grafana que criou.
+1. Usando o endereço IP do seu servidor, abra a página de logon em *http://\<IP endereço \>:3000* ou *\<DNSName > \:3000* em seu navegador. Embora 3000 seja a porta padrão, observe que você pode ter selecionado uma porta diferente durante a instalação. Você deve ver uma página de logon para o servidor Grafana que criou.
 
     ![Tela de logon do Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
@@ -82,7 +80,7 @@ Uma vez conectado com êxito, você verá que o plug-in de fonte de dados Azure 
 5. Se você usar Application Insights, também poderá incluir sua API de Application Insights e a ID do aplicativo para coletar métricas baseadas em Application Insights. Para obter mais informações, consulte [obtendo sua chave de API e a ID do aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 6. Selecione **salvar**e o Grafana testará as credenciais para cada API. Você deverá ver uma mensagem semelhante à seguinte.  
-    ![Configuração da fonte de dados Grafana aprovada](./media/grafana-plugin/grafana-data-source-config-approved-dark.png)
+    ![Grafana ](./media/grafana-plugin/grafana-data-source-config-approved-dark.png) de configuração de fonte de dados aprovada
 
 ## <a name="build-a-grafana-dashboard"></a>Criar um painel do Grafana
 
@@ -91,11 +89,11 @@ Uma vez conectado com êxito, você verá que o plug-in de fonte de dados Azure 
 2. No novo painel, selecione o **grafo**. Você pode experimentar outras opções de gráfico, mas este artigo usa o *grafo* como exemplo.
 
 3. Um gráfico em branco é exibido no seu painel. Clique no título do painel e selecione **Editar** para inserir os detalhes dos dados que você deseja plotar neste gráfico de gráfico.
-    ![Grafana novo grafo](./media/grafana-plugin/grafana-new-graph-dark.png)
+    ![Grafana novo grafo ](./media/grafana-plugin/grafana-new-graph-dark.png)
 
 4. Selecione a fonte de dados Azure Monitor que você configurou.
    * Coletando métricas de Azure Monitor-selecione **Azure monitor** na lista suspensa serviço. Uma lista de seletores é mostrada, onde você pode selecionar os recursos e a métrica a serem monitorados neste gráfico. Para coletar métricas de uma VM, use o namespace **Microsoft. Compute/VirtualMachines**. Depois de selecionar as VMs e as métricas, você pode começar a exibir seus dados no painel.
-     ![Configuração do grafo Grafana para Azure Monitor](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
+     ![Grafana configuração de grafo para Azure Monitor ](./media/grafana-plugin/grafana-graph-config-for-azure-monitor-dark.png)
    * Coletando dados de log de Azure Monitor-selecione **log Analytics do Azure** na lista suspensa serviço. Selecione o espaço de trabalho que você gostaria de consultar e definiu o texto da consulta. Você pode copiar aqui qualquer consulta de log que já tenha ou criar uma nova. Conforme você digita em sua consulta, o IntelliSense aparecerá e sugerirá opções de preenchimento automático. Selecione o tipo de visualização, **tabela**de **série temporal** e execute a consulta.
     
      > [!NOTE]
@@ -106,10 +104,10 @@ Uma vez conectado com êxito, você verá que o plug-in de fonte de dados Azure 
      ![Configuração do grafo Grafana para o Azure Log Analytics](./media/grafana-plugin/grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Veja a seguir um painel simples com dois gráficos. Aquele à esquerda mostra o percentual de CPU de duas VMs. O gráfico à direita mostra as transações em uma conta de armazenamento do Azure dividida pelo tipo de API de transação.
-    ![Exemplo de dois gráficos do Grafana](media/grafana-plugin/grafana6.png)
+    ![Grafana exemplo de dois gráficos ](media/grafana-plugin/grafana6.png)
 
 
-## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: Monitorar suas métricas personalizadas no mesmo servidor Grafana
+## <a name="optional-monitor-your-custom-metrics-in-the-same-grafana-server"></a>Opcional: monitorar suas métricas personalizadas no mesmo servidor Grafana
 
 Você também pode instalar o Telegraf e o InfluxDB para coletar e plotar as métricas personalizadas e baseadas em agente mesma instância de Grafana. Há muitos plug-ins de fonte de dados que você pode usar para trazer essas métricas juntas em um painel.
 
@@ -121,7 +119,7 @@ Aqui estão bons artigos de referência sobre como usar Telegraf, InfluxDB, Prom
  - [Uma solução de monitoramento para hosts do Docker, contêineres e serviços em contêineres](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Aqui está uma imagem de um painel Grafana completo que tem métricas de Azure Monitor e Application Insights.
-![Métricas de exemplo do Grafana](media/grafana-plugin/grafana8.png)
+![Grafana métricas de exemplo ](media/grafana-plugin/grafana8.png)
 
 ## <a name="advanced-grafana-features"></a>Recursos avançados do Grafana
 
@@ -137,7 +135,7 @@ Usage
 Você pode configurar uma variável que listará todos os valores de **solução** disponíveis e, em seguida, atualizar sua consulta para usá-lo.
 Para criar uma nova variável, clique no botão Configurações do painel na área superior direita, selecione **variáveis**e, em seguida, **novo**.
 Na página variável, defina a fonte de dados e a consulta a serem executadas para obter a lista de valores.
-![Grafana configurar variável](./media/grafana-plugin/grafana-configure-variable-dark.png)
+![Grafana configurar ](./media/grafana-plugin/grafana-configure-variable-dark.png) variável
 
 Depois de criada, ajuste a consulta para usar os valores selecionados e seus gráficos responderão de forma adequada:
 ```
@@ -162,6 +160,6 @@ Se você configurou um ambiente Grafana no Azure, você será cobrado quando as 
 1. No menu à esquerda no portal do Azure, clique em grupos de **recursos** e, em seguida, clique em **Grafana**.
 2. Na página do grupo de recursos, clique em **excluir**, digite **Grafana** na caixa de texto e clique em **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Visão geral de métricas de Azure Monitor](data-platform.md)
 

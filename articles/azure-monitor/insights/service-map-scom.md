@@ -1,24 +1,18 @@
 ---
 title: Integração do Azure Monitor para VMs com o System Center Operations Manager | Microsoft Docs
 description: Azure Monitor para VMs descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo aborda o uso do recurso de mapa para criar automaticamente diagramas de aplicativos distribuídos no Operations Manager.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: e8614a5a-9cf8-4c81-8931-896d358ad2cb
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: b16505eb2c12819532b8675472cf0e6f4177f7bf
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.date: 07/12/2019
+ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68489727"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553970"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>Integração do System Center Operations Manager com o recurso de mapa do Azure Monitor para VMs
 
@@ -78,7 +72,7 @@ Para configurar a integração do mapa do Azure Monitor para VMs, faça o seguin
 
      ![O grupo de configuração Operations Manager](media/service-map-scom/scom-config-group.png)
 
-6. Opcional: Selecione o pool de recursos de todos os servidores de gerenciamento para se comunicar com Log Analytics e, em seguida, clique em **adicionar espaço de trabalho**.
+6. Opcional: selecione o pool de recursos de todos os servidores de gerenciamento para se comunicar com Log Analytics e, em seguida, clique em **adicionar espaço de trabalho**.
 
     ![O pool de recursos de configuração do Operations Manager](media/service-map-scom/scom-config-pool.png)
 
@@ -94,26 +88,26 @@ Depois que o espaço de trabalho do Log Analytics estiver conectado, uma nova pa
 
 A pasta Mapa do Serviço tem quatro nós:
 
-* **Alertas ativos**: Lista todos os alertas ativos sobre a comunicação entre Operations Manager e Azure Monitor.  
+* **Alertas ativos**: lista todos os alertas ativos sobre a comunicação entre Operations Manager e Azure monitor.  
 
   >[!NOTE]
   >Esses alertas não são Log Analytics alertas sincronizados com o Operations Manager, eles são gerados no grupo de gerenciamento com base em fluxos de trabalho definidos no pacote de gerenciamento do Mapa do Serviço.
 
-* **Servidores**: Lista os servidores monitorados que estão configurados para sincronização de Azure Monitor para VMs recurso de mapa.
+* **Servidores**: lista os servidores monitorados que estão configurados para sincronização de Azure monitor para VMs recurso de mapa.
 
     ![O painel Operations Manager servidores de monitoramento](media/service-map-scom/scom-monitoring-servers.png)
 
-* **Exibições de dependência do grupo de computadores**: Lista todos os grupos de computadores que são sincronizados a partir do recurso de mapa. Você pode clicar em qualquer grupo para exibir seu diagrama de aplicativo distribuído.
+* **Exibições de dependência do grupo de computadores**: lista todos os grupos de computadores que são sincronizados a partir do recurso de mapa. Você pode clicar em qualquer grupo para exibir seu diagrama de aplicativo distribuído.
 
     ![O diagrama de aplicativo distribuído Operations Manager](media/service-map-scom/scom-group-dad.png)
 
-* **Exibições de dependência do servidor**: Lista todos os servidores que são sincronizados a partir do recurso de mapa. Você pode clicar em qualquer servidor para exibir seu diagrama de aplicativo distribuído.
+* **Exibições de dependência do servidor**: lista todos os servidores que são sincronizados a partir do recurso de mapa. Você pode clicar em qualquer servidor para exibir seu diagrama de aplicativo distribuído.
 
     ![O diagrama de aplicativo distribuído Operations Manager](media/service-map-scom/scom-dad.png)
 
 ## <a name="edit-or-delete-the-workspace"></a>Editar ou excluir o espaço de trabalho
 
-Você pode editar ou excluir o espaço de trabalho configurado por meio do painel de **visão geral mapa do serviço** (painel**Administração** > **Operations Management Suite** > **mapa do serviço**).
+Você pode editar ou excluir o espaço de trabalho configurado por meio do painel de **visão geral mapa do serviço** (painel**Administração** > **operations Management Suite**  > **mapa do serviço**).
 
 >[!NOTE]
 >[O Operations Management Suite foi uma coleção de serviços](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand) que incluíam log Analytics, que agora faz parte do [Azure monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md).
@@ -128,10 +122,10 @@ Uma regra, *Microsoft. SystemCenter. ServiceMapImport. Rule*, busca periodicamen
 
 ![A Operations Manager substitui a janela Propriedades](media/service-map-scom/scom-overrides.png)
 
-* **Habilitado**: Habilitar ou desabilitar as atualizações automáticas.
-* **IntervalMinutes**: Especifica o tempo entre as atualizações. O intervalo padrão é de uma hora. Se você quiser sincronizar mapas com mais frequência, poderá alterar o valor.
-* **TimeoutSeconds**: Especifica o período de tempo antes que a solicitação expire.
-* **TimeWindowMinutes**: Especifica a janela de tempo para consultar dados. O padrão é 60 minutos, que é o intervalo máximo permitido.
+* **Habilitado**: habilitar ou desabilitar atualizações automáticas.
+* **IntervalMinutes**: especifica o tempo entre as atualizações. O intervalo padrão é de uma hora. Se você quiser sincronizar mapas com mais frequência, poderá alterar o valor.
+* **TimeoutSeconds**: especifica o período de tempo antes que a solicitação expire.
+* **TimeWindowMinutes**: especifica a janela de tempo para consultar dados. O padrão é 60 minutos, que é o intervalo máximo permitido.
 
 ## <a name="known-issues-and-limitations"></a>Problemas e limitações conhecidos
 

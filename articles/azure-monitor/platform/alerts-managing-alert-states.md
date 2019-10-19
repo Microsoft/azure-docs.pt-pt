@@ -1,19 +1,18 @@
 ---
 title: Gerir estados de alertas e de grupos inteligentes
 description: Gerenciando os Estados das instâncias de alerta e grupo inteligente
-author: anantr
-services: monitoring
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: f72abd1168d14cae703f7fcfc7b58eaa56bdc592
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 09/24/2018
+ms.openlocfilehash: fd2a2a4b7d5033ecd35d02baa240bc7586e7a25d
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702942"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555663"
 ---
 # <a name="manage-alert-and-smart-group-states"></a>Gerir estados de alertas e de grupos inteligentes
 Os alertas no Azure Monitor agora têm um [estado de alerta e uma condição de monitor](https://aka.ms/azure-alerts-overview) e, da mesma forma, os grupos inteligentes têm um estado de [grupo inteligente](https://aka.ms/smart-groups). As alterações no estado agora são capturadas no histórico associado ao respectivo alerta ou grupo inteligente. Este artigo orienta você pelo processo de alteração do estado, para um alerta e um grupo inteligente.

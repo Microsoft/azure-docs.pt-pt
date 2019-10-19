@@ -1,45 +1,39 @@
 ---
-title: Criar um ficheiro de solução de gestão no Azure | Documentos da Microsoft
-description: Soluções de gerenciamento fornecem os cenários de pacote de gestão que os clientes podem adicionar ao seu ambiente do Azure.  Este artigo fornece detalhes sobre como pode criar soluções de gestão para ser usado em seu próprio ambiente ou disponibilizada aos seus clientes.
-services: monitoring
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 1915e204-ba7e-431b-9718-9eb6b4213ad8
+title: Criando um arquivo de solução de gerenciamento no Azure | Microsoft Docs
+description: As soluções de gerenciamento fornecem cenários de gerenciamento empacotados que os clientes podem adicionar ao seu ambiente do Azure.  Este artigo fornece detalhes sobre como você pode criar soluções de gerenciamento para serem usadas em seu próprio ambiente ou disponibilizadas para seus clientes.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
+ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e5c27911fe86a6916235014f8602327df929e20
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 47ee691186da7f915ca8fcf87415784ab12ef1e0
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60595768"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553858"
 ---
-# <a name="creating-a-management-solution-file-in-azure-preview"></a>Criar um ficheiro de solução de gestão no Azure (pré-visualização)
+# <a name="creating-a-management-solution-file-in-azure-preview"></a>Criando um arquivo de solução de gerenciamento no Azure (versão prévia)
 > [!NOTE]
-> Esta é a documentação preliminar para a criação de soluções de gestão no Azure que estão atualmente em pré-visualização. Qualquer esquema descrita abaixo está sujeitas a alterações.  
+> Esta é uma documentação preliminar para criar soluções de gerenciamento no Azure que estão atualmente em versão prévia. Qualquer esquema descrito abaixo está sujeito a alterações.  
 
-Soluções de gestão do Azure são implementadas como [modelos do Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  A principal tarefa em aprender a criar soluções de gestão é aprender como [criar um modelo](../../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos de modelos utilizados para soluções e como configurar recursos de solução típica.
+As soluções de gerenciamento no Azure são implementadas como [modelos do Resource Manager](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  A principal tarefa em aprender a criar soluções de gerenciamento é aprender a [criar um modelo](../../azure-resource-manager/resource-group-authoring-templates.md).  Este artigo fornece detalhes exclusivos dos modelos usados para soluções e como configurar recursos típicos da solução.
 
 
 ## <a name="tools"></a>Ferramentas
 
-Pode utilizar qualquer editor de texto para trabalhar com arquivos de solução, mas recomendamos aproveitando os recursos fornecidos no Visual Studio ou o Visual Studio Code, conforme descrito nos seguintes artigos.
+Você pode usar qualquer editor de texto para trabalhar com arquivos de solução, mas é recomendável aproveitar os recursos fornecidos no Visual Studio ou Visual Studio Code conforme descrito nos artigos a seguir.
 
-- [Criar e implementar grupos de recursos do Azure através do Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Trabalhar com modelos Azure Resource Manager no Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
-
-
+- [Criando e implantando grupos de recursos do Azure por meio do Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
+- [Trabalhando com modelos de Azure Resource Manager no Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
-## <a name="structure"></a>estrutura
-A estrutura básica de um ficheiro de solução de gestão é o mesmo que um [modelo do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#template-format), que é o seguinte.  Cada uma das secções abaixo descreve os elementos de nível superior e seu conteúdo numa solução.  
+
+
+## <a name="structure"></a>estruturá
+A estrutura básica de um arquivo de solução de gerenciamento é a mesma do [modelo do Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#template-format), que é o seguinte.  Cada uma das seções a seguir descreve os elementos de nível superior e seu conteúdo em uma solução.  
 
     {
        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -51,9 +45,9 @@ A estrutura básica de um ficheiro de solução de gestão é o mesmo que um [mo
     }
 
 ## <a name="parameters"></a>Parâmetros
-[Parâmetros](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) são valores que exigem do usuário durante a instalação da solução de gestão.  Existem parâmetros padrão, que terão todas as soluções e pode adicionar parâmetros adicionais conforme necessário para a sua solução específica.  Como os utilizadores irão fornecer valores de parâmetros durante a instalação sua solução dependerá o parâmetro específico e como a solução está a ser instalada.
+[Parâmetros](../../azure-resource-manager/resource-group-authoring-templates.md#parameters) são valores que você precisa do usuário ao instalar a solução de gerenciamento.  Há parâmetros padrão que todas as soluções terão, e você pode adicionar parâmetros adicionais conforme necessário para sua solução específica.  A forma como os usuários fornecerão valores de parâmetro quando eles instalam sua solução dependerá do parâmetro específico e de como a solução está sendo instalada.
 
-Quando um usuário [instala a sua solução de gestão](solutions.md#install-a-monitoring-solution) através de modelos do Azure Marketplace ou do início rápido do Azure, são-lhe pedido para selecionar um [área de trabalho do Log Analytics e a conta de automatização](solutions.md#log-analytics-workspace-and-automation-account).  Estes são utilizados para preencher os valores de cada um dos parâmetros padrão.  Não é pedido ao utilizador diretamente fornecer valores para os parâmetros padrão, mas são lhe for pedidos para fornecer valores para todos os parâmetros adicionais.
+Quando um usuário [instala sua solução de gerenciamento](solutions.md#install-a-monitoring-solution) por meio do Azure Marketplace ou modelos de início rápido do Azure, eles são solicitados a selecionar um [espaço de trabalho log Analytics e uma conta de automação](solutions.md#log-analytics-workspace-and-automation-account).  Eles são usados para preencher os valores de cada um dos parâmetros padrão.  Não é solicitado que o usuário forneça diretamente valores para os parâmetros padrão, mas eles são solicitados a fornecer valores para quaisquer parâmetros adicionais.
 
 
 Um parâmetro de exemplo é mostrado abaixo.  
@@ -66,34 +60,34 @@ Um parâmetro de exemplo é mostrado abaixo.
             "category": "Schedule"
         }
 
-A tabela seguinte descreve os atributos de um parâmetro.
+A tabela a seguir descreve os atributos de um parâmetro.
 
 | Atributo | Descrição |
 |:--- |:--- |
-| type |Tipo de dados para o parâmetro. O controlo de entrada apresentado para o utilizador depende do tipo de dados.<br><br>bool - caixa pendente<br>cadeia de caracteres - caixa de texto<br>Int - caixa de texto<br>SecureString - campo palavra-passe<br> |
-| category |Categoria opcional para o parâmetro.  Parâmetros da mesma categoria são agrupados em conjunto. |
-| control |Funcionalidades adicionais para os parâmetros de cadeia de caracteres.<br><br>DateTime - controle de Datetime é apresentado.<br>GUID - valor Guid é gerado automaticamente e o parâmetro não é apresentado. |
-| description |Descrição opcional para o parâmetro.  Apresentado num balão de informações junto do parâmetro. |
+| tipo |Tipo de dados para o parâmetro. O controle de entrada exibido para o usuário depende do tipo de dados.<br><br>bool-caixa suspensa<br>Cadeia de caracteres – caixa de texto<br>int – caixa de texto<br>SecureString-campo de senha<br> |
+| categoria |Categoria opcional para o parâmetro.  Os parâmetros na mesma categoria são agrupados juntos. |
+| Controlo |Funcionalidade adicional para parâmetros de cadeia de caracteres.<br><br>DateTime-o controle DateTime é exibido.<br>GUID-o valor GUID é gerado automaticamente e o parâmetro não é exibido. |
+| descrição |Descrição opcional para o parâmetro.  Exibido em um balão de informações ao lado do parâmetro. |
 
 ### <a name="standard-parameters"></a>Parâmetros padrão
-A tabela seguinte lista os parâmetros padrão para todas as soluções de gestão.  Estes valores são preenchidos para o utilizador em vez de solicitar para os mesmos, quando a sua solução é instalada a partir do Azure Marketplace ou modelos de início rápido.  O utilizador tem de fornecer valores para os mesmos se a solução estiver instalada com outro método.
+A tabela a seguir lista os parâmetros padrão para todas as soluções de gerenciamento.  Esses valores são populados para o usuário em vez de solicitá-los quando sua solução for instalada do Azure Marketplace ou modelos de início rápido.  O usuário deverá fornecer valores para eles se a solução for instalada com outro método.
 
 > [!NOTE]
-> A interface de utilizador no Azure Marketplace e modelos de início rápido está à espera os nomes dos parâmetros na tabela.  Se utilizar os nomes de parâmetros diferentes, em seguida, será pedido ao utilizador para os mesmos e eles não estarão automaticamente preenchidos.
+> A interface do usuário no Azure Marketplace e modelos de início rápido estão esperando os nomes de parâmetro na tabela.  Se você usar nomes de parâmetro diferentes, o usuário será solicitado a fornecê-los e eles não serão preenchidos automaticamente.
 >
 >
 
 | Parâmetro | Tipo | Descrição |
 |:--- |:--- |:--- |
-| accountName |string |Nome da conta de automatização do Azure. |
-| pricingTier |string |Escalão de preço da área de trabalho do Log Analytics e a conta de automatização do Azure. |
-| regionId |string |Região da conta de automatização do Azure. |
-| solutionName |string |Nome da solução.  Se estiver a implementar sua solução por meio de modelos de início rápido, em seguida, deve definir solutionName como um parâmetro para que pode definir uma cadeia de caracteres em vez disso, exigir que o utilizador especifique um. |
-| workspaceName |string |Nome de área de trabalho do log Analytics. |
-| workspaceRegionId |string |Região da área de trabalho do Log Analytics. |
+| accountName |string |Nome da conta de automação do Azure. |
+| pricingTier |string |Tipo de preço do espaço de trabalho Log Analytics e da conta de automação do Azure. |
+| regionId |string |Região da conta de automação do Azure. |
+| solutionName |string |Nome da solução.  Se você estiver implantando sua solução por meio de modelos de início rápido, defina solutionName como um parâmetro para que você possa definir uma cadeia de caracteres, em vez de exigir que o usuário especifique um. |
+| workspaceName |string |Nome do espaço de trabalho Log Analytics. |
+| workspaceRegionId |string |Região do espaço de trabalho Log Analytics. |
 
 
-Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu arquivo de solução.  
+A seguir está a estrutura dos parâmetros padrão que você pode copiar e colar em seu arquivo de solução.  
 
     "parameters": {
         "workspaceName": {
@@ -129,12 +123,12 @@ Segue-se a estrutura dos parâmetros padrão que pode copiar e colar no seu arqu
     }
 
 
-Consulte a valores de parâmetro em outros elementos da solução com a sintaxe **parâmetros ('nome do parâmetro')** .  Por exemplo, para acessar o nome de área de trabalho, usaria **parameters('workspaceName')**
+Você se refere a valores de parâmetro em outros elementos da solução com os **parâmetros de sintaxe (' Parameter Name ')** .  Por exemplo, para acessar o nome do espaço de trabalho, você usaria **parâmetros (' WorkspaceName ')**
 
 ## <a name="variables"></a>Variáveis
-[Variáveis](../../azure-resource-manager/resource-group-authoring-templates.md#variables) são valores que irá utilizar no restante da solução de gestão.  Estes valores não são expostos ao utilizador instalar a solução.  Eles têm a finalidade de fornecer o autor com uma única localização onde é possível gerenciar os valores que podem ser utilizadas várias vezes em toda a solução. Deve colocar todos os valores específicos à sua solução em variáveis em vez de pré-programá-la-os na **recursos** elemento.  Isso torna o código mais legível e permite-lhe facilmente alterar estes valores nas versões posteriores.
+[Variáveis](../../azure-resource-manager/resource-group-authoring-templates.md#variables) são valores que serão usados no restante da solução de gerenciamento.  Esses valores não são expostos ao usuário que está instalando a solução.  Eles se destinam a fornecer ao autor um único local onde podem gerenciar valores que podem ser usados várias vezes em toda a solução. Você deve colocar quaisquer valores específicos à sua solução em variáveis, em vez de codificá-los de forma rígida no elemento **Resources** .  Isso torna o código mais legível e permite que você altere esses valores facilmente em versões posteriores.
 
-Segue-se um exemplo de um **variáveis** elemento com parâmetros comuns utilizados em soluções.
+Veja a seguir um exemplo de um elemento **Variables** com parâmetros típicos usados em soluções.
 
     "variables": {
         "SolutionVersion": "1.1",
@@ -144,9 +138,9 @@ Segue-se um exemplo de um **variáveis** elemento com parâmetros comuns utiliza
         "AutomationApiVersion": "2015-10-31"
     },
 
-Consulte os valores das variáveis através da solução com a sintaxe **variáveis ("nome da variável")** .  Por exemplo, para aceder à variável SolutionName, usaria **variables('SolutionName')** .
+Você se refere a valores de variáveis por meio da solução com as variáveis de sintaxe **(' nome da variável ')** .  Por exemplo, para acessar a variável SolutionName, você usaria **variáveis (' SolutionName ')** .
 
-Também pode definir variáveis de complexo esse múltiplo de conjuntos de valores.  Estes são particularmente úteis em soluções de gestão onde está a definir várias propriedades para diferentes tipos de recursos.  Por exemplo, pode reestruturar as variáveis de solução mostradas acima para o seguinte.
+Você também pode definir variáveis complexas que contenham vários conjuntos de valores.  Elas são particularmente úteis em soluções de gerenciamento nas quais você está definindo várias propriedades para diferentes tipos de recursos.  Por exemplo, você pode reestruturar as variáveis da solução mostradas acima para o seguinte.
 
     "variables": {
         "Solution": {
@@ -158,21 +152,21 @@ Também pode definir variáveis de complexo esse múltiplo de conjuntos de valor
         "AutomationApiVersion": "2015-10-31"
     },
 
-Neste caso, consultar os valores das variáveis através da solução com a sintaxe **variables('variable name').property**.  Por exemplo, para acessar a variável do nome da solução, usaria **variables('Solution'). Nome**.
+Nesse caso, você se refere a valores de variáveis por meio da solução com as variáveis de sintaxe **(' variable name '). Property**.  Por exemplo, para acessar a variável nome da solução, você usaria **variáveis (' Solution '). Nome**.
 
 ## <a name="resources"></a>Recursos
-[Recursos](../../azure-resource-manager/resource-group-authoring-templates.md#resources) definem os recursos diferentes que sua solução de gestão irão instalar e configurar.  Esta será a parte maior e mais complexa do modelo.  Pode obter a estrutura e a descrição completa dos elementos de recurso na [modelos Authoring Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Recursos diferentes que, normalmente, irá definir são detalhados em outros artigos nesta documentação. 
+Os [recursos](../../azure-resource-manager/resource-group-authoring-templates.md#resources) definem os diferentes recursos que sua solução de gerenciamento instalará e configurará.  Essa será a parte maior e mais complexa do modelo.  Você pode obter a estrutura e a descrição completa dos elementos de recurso na [criação de modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md#resources).  Recursos diferentes que você normalmente definirão são detalhados em outros artigos nesta documentação. 
 
 
 ### <a name="dependencies"></a>Dependências
-O **dependsOn** elemento Especifica um [dependência](../../azure-resource-manager/resource-group-define-dependencies.md) outro recurso.  Quando a solução é instalada, um recurso não é criado até que todas as dependências foram criadas.  Por exemplo, talvez a sua solução [iniciar um runbook](solutions-resources-automation.md#runbooks) quando é instalado com uma [recursos da tarefa](solutions-resources-automation.md#automation-jobs).  O recurso de tarefa seria dependente do recurso de runbook para se certificar de que o runbook é criado antes da tarefa é criada.
+O elemento **dependy** especifica uma [dependência](../../azure-resource-manager/resource-group-define-dependencies.md) em outro recurso.  Quando a solução é instalada, um recurso não é criado até que todas as suas dependências tenham sido criadas.  Por exemplo, sua solução pode [Iniciar um runbook](solutions-resources-automation.md#runbooks) quando ele é instalado usando um [recurso de trabalho](solutions-resources-automation.md#automation-jobs).  O recurso de trabalho seria dependente do recurso de runbook para garantir que o runbook seja criado antes de o trabalho ser criado.
 
-### <a name="log-analytics-workspace-and-automation-account"></a>Área de trabalho do log Analytics e a conta de automatização
-Soluções de gestão requerem uma [área de trabalho do Log Analytics](../../azure-monitor/platform/manage-access.md) para conter as vistas e um [conta de automatização](../../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados.  Estes têm de estar disponíveis antes dos recursos da solução são criados e não devem ser definidos na solução em si.  O utilizador irá [especifique uma área de trabalho e conta](solutions.md#log-analytics-workspace-and-automation-account) quando implementar a sua solução, mas como o autor deve considerar os seguintes pontos.
+### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics o espaço de trabalho e a conta de automação
+As soluções de gerenciamento exigem um [espaço de trabalho log Analytics](../../azure-monitor/platform/manage-access.md) para conter exibições e uma [conta de automação](../../automation/automation-security-overview.md#automation-account-overview) para conter runbooks e recursos relacionados.  Eles devem estar disponíveis antes de os recursos na solução serem criados e não devem ser definidos na própria solução.  O usuário [especificará um espaço de trabalho e uma conta](solutions.md#log-analytics-workspace-and-automation-account) ao implantar sua solução, mas como o autor, você deve considerar os pontos a seguir.
 
 
-## <a name="solution-resource"></a>Recursos de solução
-Cada solução requer uma entrada de recurso no **recursos** elemento que define a solução em si.  Isto irá ter um tipo de **Microsoft.OperationsManagement/solutions** e ter a seguinte estrutura. Isto inclui [parâmetros padrão](#parameters) e [variáveis](#variables) que são normalmente utilizadas para definir propriedades da solução.
+## <a name="solution-resource"></a>Recurso de solução
+Cada solução requer uma entrada de recurso no elemento **Resources** que define a solução em si.  Isso terá um tipo de **Microsoft. OperationsManagement/Solutions** e ter a estrutura a seguir. Isso inclui [parâmetros](#parameters) e [variáveis](#variables) padrão que normalmente são usados para definir as propriedades da solução.
 
 
     {
@@ -206,34 +200,34 @@ Cada solução requer uma entrada de recurso no **recursos** elemento que define
 
 
 ### <a name="dependencies"></a>Dependências
-O recurso de solução tem de ter uma [dependência](../../azure-resource-manager/resource-group-define-dependencies.md) em todos os outros recursos da solução, uma vez que eles têm de existir antes da solução pode ser criada.  Fazer isso adicionando uma entrada para cada recurso o **dependsOn** elemento.
+O recurso de solução deve ter uma [dependência](../../azure-resource-manager/resource-group-define-dependencies.md) em todos os outros recursos na solução, já que eles precisam existir antes que a solução possa ser criada.  Você faz isso adicionando uma entrada para cada recurso no elemento **depende** .
 
 ### <a name="properties"></a>Propriedades
-O recurso de solução tem as propriedades na tabela seguinte.  Isto inclui os recursos referenciados e contidas pela solução que define como o recurso é gerido depois da solução está instalada.  Cada recurso na solução deverá ser listado em ambos os **referencedResources** ou o **containedResources** propriedade.
+O recurso de solução tem as propriedades na tabela a seguir.  Isso inclui os recursos referenciados e contidos na solução que define como o recurso é gerenciado depois que a solução é instalada.  Cada recurso na solução deve ser listado na propriedade **referencedResources** ou **containedResources** .
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| workspaceResourceId |ID da área de trabalho do Log Analytics no formulário  *\<ID do grupo de recursos > /providers/Microsoft.OperationalInsights/workspaces/\<nome da área de trabalho\>* . |
+| workspaceResourceId |ID do espaço de trabalho Log Analytics no formato *\<Resource ID do grupo >/providers/Microsoft.OperationalInsights/workspaces/\<Workspace nome \>* . |
 | referencedResources |Lista de recursos na solução que não devem ser removidos quando a solução é removida. |
 | containedResources |Lista de recursos na solução que devem ser removidos quando a solução é removida. |
 
-O exemplo acima é uma solução com um runbook, uma agenda e o modo de exibição.  A agenda e um runbook são *referenciado* no **propriedades** , de modo que eles não são removidos quando a solução é removida.  A visualização é *contidos* para que este é removido quando a solução é removida.
+O exemplo acima é para uma solução com um runbook, uma agenda e uma exibição.  O agendamento e o runbook são *referenciados* no elemento **Properties** para que não sejam removidos quando a solução for removida.  A exibição está *contida* para que seja removida quando a solução for removida.
 
-### <a name="plan"></a>Planear
-O **plano** entidade do recurso de solução tem as propriedades na tabela seguinte.
+### <a name="plan"></a>Plano
+A entidade de **plano** do recurso de solução tem as propriedades na tabela a seguir.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| name |Nome da solução. |
-| version |Versão da solução conforme determinado pelo autor. |
-| product |Cadeia de caracteres exclusiva para identificar a solução. |
-| publisher |Editor da solução. |
+| nome |Nome da solução. |
+| versão |Versão da solução como determinada pelo autor. |
+| produto |Cadeia de caracteres exclusiva para identificar a solução. |
+| Programa |Editor da solução. |
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
-* [Adicionar pesquisas guardadas e alertas](solutions-resources-searches-alerts.md) à sua solução de gestão.
-* [Adicionar vistas](solutions-resources-views.md) à sua solução de gestão.
-* [Adicionar runbooks e outros recursos de automatização](solutions-resources-automation.md) à sua solução de gestão.
-* Saiba os detalhes de [modelos Authoring Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
-* Pesquisa [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates) exemplos dos diferentes modelos do Resource Manager.
+## <a name="next-steps"></a>Passos seguintes
+* [Adicionar alertas e pesquisas salvas](solutions-resources-searches-alerts.md) à sua solução de gerenciamento.
+* [Adicione exibições](solutions-resources-views.md) à sua solução de gerenciamento.
+* [Adicione runbooks e outros recursos de automação](solutions-resources-automation.md) à sua solução de gerenciamento.
+* Conheça os detalhes da [criação de modelos de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
+* Pesquise [modelos de início rápido do Azure](https://azure.microsoft.com/documentation/templates) para obter exemplos de modelos diferentes do Resource Manager.

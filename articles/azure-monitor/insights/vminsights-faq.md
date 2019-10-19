@@ -1,141 +1,138 @@
 ---
-title: Monitor do Azure para VMs (pré-visualização) perguntas mais frequentes | Documentos da Microsoft
-description: Monitor do Azure para VMs é uma solução no Azure que combina o estado de funcionamento e desempenho de monitorização do sistema de operacional de VM do Azure, bem como detetar automaticamente os componentes da aplicação e dependências com outros recursos e mapeia a comunicação entre -los. Este artigo responde a perguntas comuns.
-services: azure-monitor
-author: mgoedtel
-manager: carmonm
-editor: tysonn
+title: Perguntas frequentes sobre Azure Monitor para VMs (versão prévia) | Microsoft Docs
+description: Azure Monitor para VMs é uma solução no Azure que combina o monitoramento de integridade e desempenho do sistema operacional da VM do Azure, bem como a descoberta automática de componentes e dependências de aplicativos com outros recursos e mapeia a comunicação entre -los. Este artigo responde a perguntas comuns.
 ms.service: azure-monitor
-ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/09/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 01/09/2018
+ms.openlocfilehash: 675277a33a5613507297f1c77ee9cef3215b22a2
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65522212"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555207"
 ---
-# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Monitor do Azure para VMs (pré-visualização) perguntas mais frequentes
-O FAQ do Microsoft é uma lista de perguntas freqüentes sobre o Azure Monitor para as VMs. Se tiver perguntas adicionais sobre a solução, vá para o [fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é colocada frequentemente, adicionamo-la a este artigo para que ele pode ser encontrado rapidamente e facilmente.
+# <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Perguntas frequentes sobre Azure Monitor para VMs (versão prévia)
+Esta FAQ da Microsoft é uma lista de perguntas frequentes sobre Azure Monitor para VMs. Se você tiver outras dúvidas sobre a solução, vá para o [Fórum de discussão](https://feedback.azure.com/forums/34192--general-feedback) e poste suas perguntas. Quando uma pergunta é frequente, a adicionamos a este artigo para que ela possa ser encontrada de forma rápida e fácil.
 
-## <a name="can-i-onboard-to-an-existing-workspace"></a>Posso carregar para uma área de trabalho existente?
-Se as máquinas virtuais já estiverem ligadas a uma área de trabalho do Log Analytics, pode continuar a usar essa área de trabalho quando a integração para o Azure Monitor para as VMs, fornecidas for em uma das regiões suportadas listadas [aqui](vminsights-enable-overview.md#prerequisites).
+## <a name="can-i-onboard-to-an-existing-workspace"></a>Posso carregar um espaço de trabalho existente?
+Se suas máquinas virtuais já estiverem conectadas a um espaço de trabalho Log Analytics, você poderá continuar a usar esse espaço de trabalho ao realizar a integração com o Azure Monitor para VMs, desde que ele esteja em uma das regiões com suporte listadas [aqui](vminsights-enable-overview.md#prerequisites).
 
-Quando a integração, podemos configurar contadores de desempenho para a área de trabalho que fará com que todas as VMs a comunicar dados para a área de trabalho para iniciar a recolha destas informações para exibição e análise no Azure Monitor para as VMs.  Como resultado, verá os dados de desempenho de todas as VMs ligadas à área de trabalho selecionada.  As funcionalidades de estado de funcionamento e o mapa apenas estão ativadas para as VMs que especificou para carregar.
+Ao realizar a integração, configuramos contadores de desempenho para o espaço de trabalho que fará com que todas as VMs que relatam dados para o espaço de trabalho comecem a coletar essas informações para exibição e análise no Azure Monitor para VMs.  Como resultado, você verá dados de desempenho de todas as VMs conectadas ao espaço de trabalho selecionado.  Os recursos de integridade e de mapa são habilitados somente para as VMs que você especificou para carregar.
 
-Para obter mais informações sobre o desempenho do que os contadores estão ativados, consulte a nossa [descrição geral de ativar](vminsights-enable-overview.md#performance-counters-enabled) artigo.
+Para obter mais informações sobre quais contadores de desempenho estão habilitados, consulte nosso artigo [habilitar visão geral](vminsights-enable-overview.md#performance-counters-enabled) .
 
-## <a name="can-i-onboard-to-a-new-workspace"></a>Posso carregar para uma nova área de trabalho? 
-Se as suas VMs não estiverem atualmente ligadas numa área de trabalho do Log Analytics existente, tem de criar uma nova área de trabalho para armazenar os dados. Criar uma nova área de trabalho padrão é feito automaticamente se configurar o numa única VM do Azure para o Azure Monitor para VMs através do portal do Azure.
+## <a name="can-i-onboard-to-a-new-workspace"></a>Posso carregar um novo espaço de trabalho? 
+Se suas VMs não estiverem atualmente conectadas a um espaço de trabalho Log Analytics existente, você precisará criar um novo espaço de trabalho para armazenar seus dados. A criação de um novo espaço de trabalho padrão será feita automaticamente se você configurar uma única VM do Azure para Azure Monitor para VMs por meio do portal do Azure.
 
-Se optar por utilizar o método baseado em script, essas etapas são abordadas os [ativar o Azure Monitor para VMs (pré-visualização) com o modelo do Azure PowerShell ou do Resource Manager](vminsights-enable-at-scale-powershell.md) artigo. 
+Se você optar por usar o método baseado em script, essas etapas serão abordadas no artigo [habilitar Azure monitor para VMs (visualização) usando o Azure PowerShell ou o modelo do Resource Manager](vminsights-enable-at-scale-powershell.md) . 
 
-## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>O que devo fazer se a minha VM já está a comunicar com uma área de trabalho existente?
-Se já está a recolher dados das suas máquinas virtuais, poderá ter já configurado-lo a dados de relatórios numa área de trabalho do Log Analytics existente.  Desde que essa área de trabalho é de uma de nossas regiões suportadas, pode ativar o Azure Monitor para VMs a essa área de trabalho já existente.  Se já estiver a utilizar a área de trabalho não estiver em uma de nossas regiões suportadas, não será capaz de carregar para o Azure Monitor para VMs neste momento.  Estamos a trabalhar ativamente para oferecer suporte a mais regiões.
+## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>O que devo fazer se minha VM já estiver se comunicando a um espaço de trabalho existente?
+Se você já estiver coletando dados de suas máquinas virtuais, talvez já o tenha configurado para relatar dados a um espaço de trabalho Log Analytics existente.  Contanto que esse espaço de trabalho esteja em uma de nossas regiões com suporte, você pode habilitar Azure Monitor para VMs para esse espaço de trabalho já existente.  Se o espaço de trabalho que você já está usando não estiver em uma de nossas regiões com suporte, você não poderá integrar ao Azure Monitor para VMs no momento.  Estamos trabalhando ativamente para dar suporte a regiões adicionais.
 
 >[!NOTE]
->Podemos configurar contadores de desempenho para a área de trabalho que afeta todas as VMs que reportam à área de trabalho, se é ou não tiver optado por carregá-los para o Azure Monitor para as VMs. Para obter mais detalhes sobre como os contadores de desempenho são configurados para a área de trabalho, consulte nosso [documentação](../../azure-monitor/platform/data-sources-performance-counters.md). Para obter informações sobre os contadores configurado para o Azure Monitor para VMs, consulte nosso [ativar o Azure Monitor para VMs](vminsights-enable-overview.md#performance-counters-enabled) artigo.  
+>Configuramos contadores de desempenho para o espaço de trabalho que afeta todas as VMs que se reportam ao espaço de trabalho, independentemente de você ter optado por integrá-las ao Azure Monitor para VMs. Para obter mais detalhes sobre como os contadores de desempenho são configurados para o espaço de trabalho, consulte nossa [documentação](../../azure-monitor/platform/data-sources-performance-counters.md). Para obter informações sobre os contadores configurados para Azure Monitor para VMs, consulte nosso artigo [habilitar Azure monitor para VMs](vminsights-enable-overview.md#performance-counters-enabled) .  
 
-## <a name="why-did-my-vm-fail-to-onboard"></a>Por que a minha VM não conseguir carregar?
-Quando uma VM do Azure no portal do Azure de integração, ocorrem os seguintes passos:
+## <a name="why-did-my-vm-fail-to-onboard"></a>Por que minha VM falhou ao carregar?
+Ao integrar uma VM do Azure da portal do Azure, ocorrem as seguintes etapas:
 
-* Uma área de trabalho do Log Analytics do padrão é criada, se que a opção tiver sido selecionada.
-* Os contadores de desempenho são configurados para a área de trabalho selecionada. Caso este passo falhe, observe que algumas das tabelas e gráficos de desempenho não estão a mostrar dados para a VM efetuou. Pode corrigir este problema ao executar o script do PowerShell documentado [aqui](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
-* O agente Log Analytics está instalado em VMs do Azure com uma extensão de VM, se for determinado é necessário.  
-* O Azure Monitor para agente de dependência de mapa de VMs é instalado em VMs do Azure com uma extensão, se for determinado é necessário.  
-* Componentes de Monitor do Azure que suporta a funcionalidade de estado de funcionamento estão configurados, se necessário, e a VM está configurada para dados de estado de funcionamento do relatório.
+* Um espaço de trabalho de Log Analytics padrão será criado, se essa opção tiver sido selecionada.
+* Os contadores de desempenho são configurados para o espaço de trabalho selecionado. Se essa etapa falhar, você observará que alguns dos gráficos de desempenho e tabelas não estão mostrando dados para a VM que você integrou. Você pode corrigir isso executando o script do PowerShell documentado [aqui](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
+* O agente de Log Analytics é instalado em VMs do Azure usando uma extensão de VM, se determinado for necessário.  
+* O agente de dependência do mapa de Azure Monitor para VMs é instalado em VMs do Azure usando uma extensão, se determinado for necessário.  
+* Azure Monitor componentes que dão suporte ao recurso de integridade são configurados, se necessário, e a VM é configurada para relatar dados de integridade.
 
-Durante o processo de inclusão, verificamos para obter o estado em cada um dos acima descritos para retornar um status de notificação para si no portal. Configuração de área de trabalho e a instalação do agente normalmente demora 5 a 10 minutos. Visualização de dados de monitorização e estado de funcionamento no portal do demoram um 5 a 10 minutos adicionais.  
+Durante o processo integrado, verificamos o status em cada um dos itens acima para retornar um status de notificação para você no Portal. A configuração do espaço de trabalho e a instalação do agente normalmente leva de 5 a 10 minutos. A exibição de dados de monitoramento e integridade no portal leva um adicional de 5 a 10 minutos.  
 
-Se iniciou a integração e consulte as mensagens que indica que a VM tem de ser carregada, permitem até 30 minutos para a VM concluir o processo. 
+Se você iniciou a integração e confira mensagens indicando que a VM precisa ser integrada, aguarde até 30 minutos para que a VM conclua o processo. 
 
-## <a name="i-only-enabled-azure-monitor-for-vms-why-do-i-see-all-my-vms-monitored-by-the-health-feature"></a>Apenas eu ativado o Azure Monitor para as VMs, por que razão vejo todas as minhas VMs monitorizadas pela funcionalidade de estado de funcionamento?
-A funcionalidade de estado de funcionamento está ativada para todas as VMs que estão ligadas à área de trabalho do Log Analytics, mesmo quando a ação de início de uma única VM.
+## <a name="i-only-enabled-azure-monitor-for-vms-why-do-i-see-all-my-vms-monitored-by-the-health-feature"></a>Habilitei apenas Azure Monitor para VMs, por que vejo todas as minhas VMs monitoradas pelo recurso de integridade?
+O recurso de integridade é habilitado para todas as VMs que estão conectadas ao espaço de trabalho Log Analytics, mesmo quando a ação é iniciada para uma única VM.
 
-## <a name="can-i-modify-the-schedule-for-when-health-criteria-evaluates-a-condition"></a>Pode modificar a agenda para quando os critérios de estado de funcionamento avalia uma condição?
-Não, o período de tempo e a frequência dos critérios de estado de funcionamento não podem ser modificados com esta versão. 
+## <a name="can-i-modify-the-schedule-for-when-health-criteria-evaluates-a-condition"></a>Posso modificar o agendamento de quando os critérios de integridade avaliam uma condição?
+Não, o período de tempo e a frequência dos critérios de integridade não podem ser modificados com esta versão. 
 
-## <a name="can-i-disable-health-criteria-for-a-condition-i-dont-need-to-monitor"></a>Pode desativar os critérios de estado de funcionamento de uma condição, não preciso monitorizar?
-Critérios de estado de funcionamento não não possível desativar nesta versão.
+## <a name="can-i-disable-health-criteria-for-a-condition-i-dont-need-to-monitor"></a>Posso desabilitar critérios de integridade para uma condição que não preciso monitorar?
+Os critérios de integridade não podem ser desabilitados nesta versão.
 
-## <a name="are-the-health-alert-severities-configurable"></a>É o estado de funcionamento gravidades alerta configuráveis?  
-Não é possível alterar a gravidade do alerta de estado de funcionamento, eles só podem ser ativados ou desativados. Além disso, alguns alerta gravidades atualizar com base no estado de critérios de estado de funcionamento. 
+## <a name="are-the-health-alert-severities-configurable"></a>As severidades de alerta de integridade são configuráveis?  
+A severidade do alerta de integridade não pode ser modificada, só pode ser habilitada ou desabilitada. Além disso, algumas severidades de alerta são atualizadas com base no estado dos critérios de integridade. 
 
-## <a name="if-i-reconfigure-the-settings-of-a-particular-health-criteria-can-it-be-scoped-to-a-specific-instance"></a>Se eu reconfigurar as definições de um critério de estado de funcionamento específico, pode ela ser confinada para uma instância específica?  
-Se modificar qualquer definição de uma instância de critério de estado de funcionamento, todas as instâncias de critérios de estado de funcionamento do mesmo tipo na VM do Azure são modificadas. Por exemplo, se o limiar da instância de critério de estado de funcionamento do espaço livre de disco que corresponde ao disco lógico c: for modificado, este limite aplica-se a todos os outros discos lógicos que são detetados e monitorizados para a mesma VM.
+## <a name="if-i-reconfigure-the-settings-of-a-particular-health-criteria-can-it-be-scoped-to-a-specific-instance"></a>Se eu reconfigurar as configurações de um determinado critério de integridade, ele poderá ser definido como escopo para uma instância específica?  
+Se você modificar qualquer configuração de uma instância de critério de integridade, todas as instâncias de critérios de integridade do mesmo tipo na VM do Azure serão modificadas. Por exemplo, se o limite da instância do critério de integridade de espaço livre em disco que corresponde ao disco lógico C: for modificado, esse limite se aplicará a todos os outros discos lógicos que são descobertos e monitorados para a mesma VM.
 
-## <a name="does-the-health-feature-monitor-logical-processors-and-cores"></a>A funcionalidade de estado de funcionamento monitoriza processadores lógicos e núcleos?
-Não, processador individual e critérios de estado de funcionamento ao nível do processador lógico não está incluída para um Windows, apenas a utilização Total de CPU é monitorizada por predefinição para avaliar efetivamente a pressão de CPU com base no número total de CPUs lógicas disponíveis para a VM do Azure. 
+## <a name="does-the-health-feature-monitor-logical-processors-and-cores"></a>O recurso de integridade monitora processadores e núcleos lógicos?
+Não, os critérios de integridade de processador individual e de nível de processador lógico não estão incluídos para um Windows, apenas a utilização total da CPU é monitorada por padrão para avaliar efetivamente a pressão da CPU com base no número total de CPUs lógicas disponíveis para a VM do Azure. 
 
-## <a name="are-all-health-criteria-thresholds-configurable"></a>É o estado de funcionamento de todos os limiares de critérios configuráveis?  
-Os limites de critérios de estado de funcionamento que se destinam uma VM do Windows não são fáceis de serem modificados, porque os Estados de funcionamento estão definidos como *em execução* ou *disponível*. Quando consulta o estado de funcionamento do [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), ele exibe a *comparisonOperator* valor de **LessThan** ou **GreaterThan** com um *limiar* o valor de **4** para a entidade ou o serviço se:
-   - Estado de funcionamento do serviço do cliente DNS – serviço não está em execução. 
-   - Estado de funcionamento do serviço do cliente DHCP – serviço não está em execução. 
-   - Estado de funcionamento do serviço RPC – serviço não está em execução. 
-   - Estado de funcionamento do serviço do firewall de Windows – serviço não está em execução.
-   - Estado de funcionamento do serviço do registo de eventos de Windows – serviço não está em execução. 
-   - Estado de funcionamento do servidor service – serviço não está em execução. 
-   - Funcionamento de serviço de gestão remota do Windows – serviço não está em execução. 
-   - Erro de sistema de ficheiros ou corrupção – disco lógico não está disponível.
+## <a name="are-all-health-criteria-thresholds-configurable"></a>Todos os limites de critérios de integridade são configuráveis?  
+Os limites de critérios de integridade direcionados a uma VM do Windows não podem ser modificados, pois seus Estados de integridade estão definidos para *execução* ou *disponível*. Quando você consulta o estado de integridade da [API do monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components), ele exibe o valor *comparisonOperator* de **LessThan** ou **GreaterThan** com um valor *limite* de **4** para o serviço ou entidade se:
+   - Integridade do serviço de cliente DNS – o serviço não está em execução. 
+   - Integridade do serviço de cliente DHCP – o serviço não está em execução. 
+   - Integridade do serviço RPC – o serviço não está em execução. 
+   - Integridade do serviço de firewall do Windows – o serviço não está em execução.
+   - Integridade do serviço log de eventos do Windows – o serviço não está em execução. 
+   - Integridade do serviço do servidor – o serviço não está em execução. 
+   - Integridade do serviço de gerenciamento remoto do Windows – o serviço não está em execução. 
+   - Erro do sistema de arquivos ou corrupção – o disco lógico está indisponível.
 
-Limiares para os seguintes critérios de estado de funcionamento do Linux não são fáceis de serem modificados, porque o respetivo estado de funcionamento já está definido como *true*. Apresenta o estado de funcionamento a *comparisonOperator* com um valor **LessThan** e *limiar* valor de **1** quando consultados a partir do Carga de trabalho monitorização o API para a entidade, dependendo de seu contexto:
-   - Estado do disco lógico – o disco lógico não está online / disponíveis
-   - Estado do disco – o disco não está online / disponíveis
-   - Estado do adaptador de rede - placa de rede está desativado
+Os limites dos seguintes critérios de integridade do Linux não são modificáveis, pois seu estado de integridade já está definido como *true*. O estado de integridade exibe o *comparisonOperator* com um valor **LessThan** e o valor *limite* de **1** quando consultados da API de monitoramento de carga de trabalho para a entidade, dependendo de seu contexto:
+   - Status do disco lógico – o disco lógico não está online/disponível
+   - Status do disco – o disco não está online/disponível
+   - Status do adaptador de rede-o adaptador de rede está desabilitado
 
-## <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>Como posso modificar alertas que estão incluídas com a funcionalidade de estado de funcionamento?
-Regras de alerta que estão definidas para cada critério de estado de funcionamento não são apresentadas no portal do Azure. Pode ativar ou desativar um alerta de estado de funcionamento apenas na regra a [API do Monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Além disso, não é possível atribuir um [grupo de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) para alertas de estado de funcionamento no portal do Azure. Só pode utilizar a API de definição de notificação para configurar um grupo de ação para ser acionada sempre que é acionado um alerta de estado de funcionamento. Atualmente, pode atribuir grupos de ação em relação a uma VM para que todos os *alertas de estado de funcionamento* disparado contra o acionador VM, os mesmos grupos de ação. Ao contrário dos alertas do Azure tradicionais, não há conceito de um grupo de ação separada para cada regra de alerta de estado de funcionamento. Além disso, apenas os grupos de ação que estão configurados para fornecer e-mail ou notificações por SMS são suportados quando são acionados alertas de estado de funcionamento. 
+## <a name="how-do-i-modify-alerts-that-are-included-with-the-health-feature"></a>Como fazer modificar alertas incluídos com o recurso de integridade?
+As regras de alerta definidas para cada critério de integridade não são exibidas no portal do Azure. Você pode habilitar ou desabilitar uma regra de alerta de integridade somente na [API do monitor de carga de trabalho](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Além disso, você não pode atribuir um [grupo de ação Azure monitor](../../azure-monitor/platform/action-groups.md) para alertas de integridade no portal do Azure. Você só pode usar a API de configuração de notificação para configurar um grupo de ações a ser disparado sempre que um alerta de integridade for acionado. No momento, você pode atribuir grupos de ação em uma VM para que todos os *alertas de integridade* acionados na VM disparem os mesmos grupos de ação. Ao contrário dos alertas tradicionais do Azure, não há nenhum conceito de um grupo de ação separado para cada regra de alerta de integridade. Além disso, somente os grupos de ação configurados para fornecer notificações por email ou SMS têm suporte quando os alertas de integridade são disparados. 
 
-## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Não vejo algumas ou quaisquer dados nos gráficos de desempenho para a minha VM
-Se não vir dados de desempenho na tabela de disco ou em alguns dos gráficos de desempenho, em seguida, os contadores de desempenho não podem ser configurados na área de trabalho. Para resolver, execute o seguinte [script do PowerShell](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
+## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>Não vejo alguns ou nenhum dado nos gráficos de desempenho da minha VM
+Se você não vir dados de desempenho na tabela de disco ou em alguns dos gráficos de desempenho, os contadores de desempenho não poderão ser configurados no espaço de trabalho. Para resolver, execute o seguinte [script do PowerShell](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
-## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>O que diferencia Azure Monitor para a funcionalidade de mapa de VMs do mapa de serviço?
-O Azure Monitor para a funcionalidade de mapa de VMs é baseado em mapa de serviço, mas tem as seguintes diferenças:
+## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>Como Azure Monitor para VMs recurso de mapa é diferente do Mapa do Serviço?
+O recurso de mapa de Azure Monitor para VMs é baseado em Mapa do Serviço, mas tem as seguintes diferenças:
 
-* A vista do mapa pode ser acessada do painel da VM e do Azure Monitor para VMs do Azure Monitor.
-* As ligações no mapa estão agora clicáveis e apresentam uma vista dos dados de métrica de ligação no painel lateral para a ligação selecionada.
-* Há uma nova API, que é utilizada para criar os mapas para suportar melhor mapas mais complexos.
-* VMs monitorizadas agora estão incluídas no nó do grupo de cliente e o gráfico em anel mostra a proporção de máquinas virtuais não monitorizadas do vs monitorizados no grupo.  Também pode ser utilizado para filtrar a lista de máquinas quando o grupo é expandido.
-* Monitorizado máquinas de virtuais agora são incluídas em nós de grupo de porta de servidor e o gráfico em anel mostra a proporção de máquinas não monitorizadas do vs monitorizados no grupo.  Também pode ser utilizado para filtrar a lista de máquinas quando o grupo é expandido.
-* O estilo de mapa foi atualizado para ser mais consistente com o mapa da aplicação do Application insights.
-* Os painéis do lado foram atualizados e não tem o conjunto completo de integração que eram suportadas no mapa de serviço - Gestão de atualizações, controlo de alterações, segurança e serviço de atendimento. 
-* A opção para escolher os grupos e as máquinas para mapear foi atualizada e agora suporta subscrições, grupos de recursos, os conjuntos de dimensionamento de máquina virtual do Azure e serviços em nuvem.
-* Não é possível criar novos grupos de máquina de mapa de serviço no Azure Monitor para a funcionalidade de mapa de VMs.  
+* O modo de exibição de mapa pode ser acessado na folha da VM e de Azure Monitor para VMs em Azure Monitor.
+* As conexões no mapa agora são clicáveis e exibem uma exibição dos dados de métrica de conexão no painel lateral da conexão selecionada.
+* Há uma nova API que é usada para criar os mapas para dar melhor suporte a mapas mais complexos.
+* As VMs monitoradas agora estão incluídas no nó do grupo de clientes e o gráfico de rosca mostra a proporção de máquinas virtuais monitoradas vs não monitoradas no grupo.  Ele também pode ser usado para filtrar a lista de computadores quando o grupo é expandido.
+* As máquinas virtuais monitoradas agora estão incluídas nos nós do grupo de portas do servidor e o gráfico de rosca mostra a proporção de computadores monitorados vs não monitorados no grupo.  Ele também pode ser usado para filtrar a lista de computadores quando o grupo é expandido.
+* O estilo de mapa foi atualizado para ser mais consistente com o mapa de aplicativos do Application insights.
+* Os painéis do lado foram atualizados e não têm o conjunto completo de integração que foram compatíveis com Mapa do Serviço Gerenciamento de Atualizações, Controle de Alterações, segurança e central de serviços. 
+* A opção de escolher grupos e máquinas para mapear foi atualizada e agora dá suporte a assinaturas, grupos de recursos, conjuntos de dimensionamento de máquinas virtuais do Azure e serviços de nuvem.
+* Você não pode criar novos grupos de computadores Mapa do Serviço no recurso de mapa de Azure Monitor para VMs.  
 
-## <a name="why-do-my-performance-charts-show-dotted-lines"></a>Por que motivo é que meu gráficos de desempenho mostra linhas pontilhadas?
-Isto pode ocorrer por diversos motivos.  Em casos onde há uma lacuna na recolha de dados Vamos descrever as linhas como pontilhada.  Se modificar a frequência de amostragem de dados para os contadores de desempenho ativado (a predefinição é recolher dados de 60 em 60 segundos), pode ver linhas pontilhadas no gráfico, se optar por um intervalo de tempo de estreito para o gráfico e a frequência de amostragem é inferior a o tamanho de registo utilizado no gráfico (por exemplo, a frequência de amostragem é de 10 minutos e cada bucket no gráfico é de 5 minutos).  Escolher um intervalo de tempo maior para ver deve fazer com que as linhas do gráfico para aparecem como linhas sólidas em vez de pontos neste caso.
+## <a name="why-do-my-performance-charts-show-dotted-lines"></a>Por que meus gráficos de desempenho mostram linhas pontilhadas?
+Isso pode ocorrer por alguns motivos.  Em casos em que há uma lacuna na coleta de dados, descrevemos as linhas como pontilhadas.  Se você tiver modificado a frequência de amostragem de dados para os contadores de desempenho habilitados (a configuração padrão é coletar dados a cada 60 segundos), você poderá ver linhas pontilhadas no gráfico se escolher um intervalo de tempo estreito para o gráfico e sua frequência de amostragem for menor que o tamanho do Bucket usado no gráfico (por exemplo, a frequência de amostragem é a cada 10 minutos e cada bucket no gráfico é de 5 minutos).  Escolher um intervalo de tempo maior para exibir deve fazer com que as linhas do gráfico sejam exibidas como linhas sólidas em vez de pontos nesse caso.
 
-## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>São os grupos suportados com o Azure Monitor para VMs?
-Sim, depois de instalar o agente de dependência informações que recolhemos as VMs para apresentar grupos com base na subscrição, grupo de recursos, máquina virtual conjuntos de dimensionamento e serviços cloud.  Se tem estado a utilizar o mapa de serviço e criar grupos de máquinas, estas serão apresentadas também.  Grupos de computadores também serão apresentada no filtro de grupos, se tiver criado para a área de trabalho que está a visualizar. 
+## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Há grupos com suporte com Azure Monitor para VMs?
+Sim, depois de instalar o agente de dependência, coletamos informações das VMs para exibir grupos com base na assinatura, grupo de recursos, conjuntos de dimensionamento de máquinas virtuais e serviços de nuvem.  Se você estiver usando Mapa do Serviço e tiver criado grupos de computadores, eles também serão exibidos.  Os grupos de computadores também serão exibidos no filtro grupos se você os tiver criado para o espaço de trabalho que está sendo exibido. 
 
-## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Como posso ver os detalhes para o que está orientando o é o percentil 95 gráficos de linhas no agregado desempenho?
-Por predefinição, a lista é ordenada para mostrar a as VMs que tenham o valor mais alto para o percentil 95 para a métrica selecionada, exceto para o gráfico de memória disponível, que mostra as máquinas com o menor valor de percentil de 5.  Ao clicar no gráfico abrirá o **lista de N principais** vista com a métrica apropriada selecionada.
+## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Como fazer Ver os detalhes do que está conduzindo a linha do 95 º percentil nos gráficos de desempenho agregados?
+Por padrão, a lista é classificada para mostrar as VMs que têm o valor mais alto para o percentil de 95 º para a métrica selecionada, exceto para o gráfico de memória disponível, que mostra as máquinas com o menor valor do quinto percentil.  Clicar no gráfico abrirá o modo de exibição de **lista N superior** com a métrica apropriada selecionada.
 
-## <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>Como a funcionalidade de mapa com IPs duplicado em diferentes vnets e sub-redes?
-Se está duplicando intervalos de IP com VMs ou máquina virtual do Azure com conjuntos de dimensionamento em vnets e sub-redes, pode causar Azure Monitor para o mapa de VMs apresentar informações incorretas. Este é um problema conhecido e estamos a analisar opções para melhorar esta experiência.
+## <a name="how-does-the-map-feature-handle-duplicate-ips-across-different-vnets-and-subnets"></a>Como o recurso de mapa lida com IPs duplicados entre diferentes vnets e sub-redes?
+Se você estiver duplicando intervalos de IP com VMs ou conjuntos de dimensionamento de máquinas virtuais do Azure em sub-redes e vnets, isso poderá fazer com que Azure Monitor para VMs mapa exiba informações incorretas. Esse é um problema conhecido e estamos investigando opções para melhorar essa experiência.
 
-## <a name="does-map-feature-support-ipv6"></a>É mapeado suporte a recursos IPv6?
-Funcionalidade do mapa atualmente suporta apenas IPv4 e estamos a analisar o suporte para IPv6. Também suportamos IPv4 encapsulado dentro de IPv6.
+## <a name="does-map-feature-support-ipv6"></a>O recurso de mapa dá suporte a IPv6?
+Atualmente, o recurso de mapa dá suporte apenas para IPv4 e estamos investigando suporte para IPv6. Também há suporte para IPv4 que é túnel dentro do IPv6.
 
-## <a name="when-i-load-a-map-for-a-resource-group-or-other-large-group-the-map-is-difficult-to-view"></a>Quando carrego um mapa de um grupo de recursos ou outro grupo grandes mapa é difícil ver
-Embora tenhamos feito melhorias ao mapa para lidar com configurações de grandes e complexas, percebemos que um mapa pode ter muitos de nós, ligações e a funcionar como um cluster de nó.  Estamos empenhados em continuar melhorar o suporte para aumentar a escalabilidade.   
+## <a name="when-i-load-a-map-for-a-resource-group-or-other-large-group-the-map-is-difficult-to-view"></a>Ao carregar um mapa para um grupo de recursos ou outro grupo grande, é difícil exibir o mapa
+Embora tenhamos feito melhorias para mapear para lidar com configurações grandes e complexas, percebemos que um mapa pode ter muitos nós, conexões e nó funcionando como um cluster.  Estamos comprometidos em continuar a aprimorar o suporte para aumentar a escalabilidade.   
 
-## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Por que o gráfico de rede na guia desempenho ter um aspeto diferente no gráfico de rede na página de descrição geral de VM do Azure?
+## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>Por que o gráfico de rede na guia desempenho é diferente do gráfico de rede na página Visão geral da VM do Azure?
 
-A página de descrição geral para uma VM do Azure apresenta gráficos com base em medição do anfitrião da atividade na VM do convidado.  Para o gráfico de rede na descrição de geral de VM do Azure, mostra apenas o tráfego de rede que será cobrado.  Isso não inclui o tráfego de inter-vnet.  Os dados e gráficos mostrados para o Azure Monitor para VMs é baseado nos dados da VM do convidado e a rede de gráficos apresenta todo o tráfego de TCP/IP que é a entrada e saída para essa VM, incluindo inter-vnet.
+A página de visão geral de uma VM do Azure exibe gráficos com base na medição de atividade do host na VM convidada.  Para o gráfico de rede na visão geral da VM do Azure, ele exibe apenas o tráfego de rede que será cobrado.  Isso não inclui tráfego entre redes virtuais.  Os dados e gráficos mostrados para Azure Monitor para VMs baseiam-se nos dados da VM convidada e o gráfico de rede exibe todo o tráfego TCP/IP que é de entrada e saída para essa VM, incluindo inter-vnet.
 
-## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Como o tempo de resposta é medido para dados armazenados no VMConnection e apresentado no painel de ligação e pastas de trabalho?
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>Como o tempo de resposta é medido para os dados armazenados em VMConnection e exibidos no painel de conexão e nas pastas de trabalho?
 
-Tempo de resposta é uma aproximação. Uma vez que não podemos instrumentar o código do aplicativo, que não realmente sabemos quando começa um pedido e ao receber a resposta. Em vez disso, vamos observar a ser enviados numa conexão de dados e, em seguida, dados que regressam nessa ligação. Nosso agente controla estes envia e recebe e tenta pareá-las: recebe uma seqüência de envia, seguido de uma seqüência de é interpretado como um par de solicitação/resposta. O período de tempo entre estas operações é o tempo de resposta. Ele inclui a latência de rede e o tempo de processamento do servidor.
+O tempo de resposta é uma aproximação. Como não instrumento o código do aplicativo, não sabemos realmente quando uma solicitação começa e quando chega a resposta. Em vez disso, observamos os dados que estão sendo enviados em uma conexão e, em seguida, os dados voltam para essa conexão. Nosso agente controla esses envios e recebe e tenta emparelhar: uma sequência de envios, seguida por uma sequência de receives, é interpretada como um par de solicitação/resposta. O intervalo entre essas operações é o tempo de resposta. Incluirá a latência de rede e o tempo de processamento do servidor.
 
-Essa aproximação funciona bem para protocolos que são de solicitação/resposta com base em: uma única solicitação sai na ligação e uma única resposta chega. Esse é o caso para HTTP (S) (sem o pipelining), mas não satisfeita para outros protocolos.
+Essa aproximação funciona bem para protocolos que são baseados em solicitação/resposta: uma única solicitação sai da conexão e uma única resposta chega. Esse é o caso para HTTP (S) (sem Pipeline), mas não é atendido para outros protocolos.
 
-## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>São as suas limitações se estou no plano de preços gratuito do Log Analytics?
-Se tiver configurado o Azure Monitor com uma área de trabalho do Log Analytics a utilizar o *gratuito* preços escalão, o Azure Monitor para a funcionalidade de mapa de VMs só irá suportar cinco máquinas ligadas ligado à área de trabalho. Se tiver cinco VMs ligadas a uma área de trabalho gratuita, desligar uma das VMs e, em seguida, ligar mais tarde uma nova VM, a nova VM não é monitorizada e refletida na página de mapa.  
+## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Suas limitações se eu estiver no plano de preços de Log Analytics gratuito?
+Se você tiver configurado Azure Monitor com um espaço de trabalho Log Analytics usando o tipo de preço *gratuito* , Azure monitor para VMs recurso de mapa dará suporte apenas a cinco computadores conectados conectados ao espaço de trabalho. Se você tiver cinco VMs conectadas a um espaço de trabalho gratuito, desconecte uma das VMs e, posteriormente, conecte uma nova VM, a nova VM não será monitorada e refletida na página do mapa.  
 
-Sob essa condição, serão solicitadas com o **experimentar agora** opção quando abrir a VM e selecione **Insights (pré-visualização)** no painel esquerdo, até mesmo depois que tiver sido já instalado na VM.  No entanto, não obterá opções tal como faria normalmente se esta VM não foram carregadas para o Azure Monitor para as VMs. 
+Sob essa condição, você será avisado com a opção **Experimente agora** quando abrir a VM e selecionar **insights (versão prévia)** no painel esquerdo, mesmo depois que ela já tiver sido instalada na VM.  No entanto, as opções não são solicitadas como normalmente ocorrerão se essa VM não estivesse integrada a Azure Monitor para VMs. 
 
-## <a name="next-steps"></a>Passos Seguintes
-Revisão [ativar o Azure Monitor para VMs](vminsights-enable-overview.md) para compreender os requisitos e métodos para ativar a monitorização das suas máquinas virtuais.
+## <a name="next-steps"></a>Passos seguintes
+Examine [habilitar Azure monitor para VMs](vminsights-enable-overview.md) para entender os requisitos e os métodos para habilitar o monitoramento de suas máquinas virtuais.

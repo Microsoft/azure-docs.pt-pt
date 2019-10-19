@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: atsenthi
-ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d9d135136efea72017399b5888bc6591582ffe67
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168840"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553553"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Suporte à implantação do Docker Compose no Azure Service Fabric (versão prévia)
 
 O Docker usa o arquivo [Docker-Compose. yml](https://docs.docker.com/compose) para definir aplicativos de vários contêineres. Para facilitar para os clientes familiarizados com o Docker para orquestrar os aplicativos de contêiner existentes no Azure Service Fabric, incluímos o suporte de visualização para Docker Compose implantação nativamente na plataforma. Service Fabric pode aceitar a versão 3 e posterior de arquivos `docker-compose.yml`. 
 
-Como esse suporte está em visualização, há suporte para apenas um subconjunto de diretivas de composição. Por exemplo, não há suporte para atualizações de aplicativos. No entanto, você sempre pode remover e implantar aplicativos em vez de atualizá-los.
+Como esse suporte está em visualização, há suporte para apenas um subconjunto de diretivas de composição.
 
 Para usar essa visualização, crie seu cluster com a versão 5,7 ou superior do tempo de execução Service Fabric por meio do portal do Azure junto com o SDK correspondente. 
 

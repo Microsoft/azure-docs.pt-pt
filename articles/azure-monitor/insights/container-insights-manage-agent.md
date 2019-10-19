@@ -1,45 +1,39 @@
 ---
-title: Como gerir o Azure Monitor para agente de contentores | Documentos da Microsoft
-description: Este artigo descreve a gerir as tarefas de manutenção mais comuns com o agente do Log Analytics em contentores utilizado pelo Azure Monitor para contentores.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
+title: Como gerenciar o Azure Monitor para agente de contêineres | Microsoft Docs
+description: Este artigo descreve o gerenciamento das tarefas de manutenção mais comuns com o agente de Log Analytics em contêineres usado pelo Azure Monitor para contêineres.
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2018
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: e1d47be159d4721aed4b055a51acf675688b855e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/06/2018
+ms.openlocfilehash: bfedd7989e71bcb8cf58cef7ad7122749350ae26
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65071806"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554048"
 ---
-# <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Como gerir o Azure Monitor para agente de contentores
-Monitor do Azure para contentores utiliza uma versão em contentores do agente do Log Analytics para Linux. Após a implementação inicial, existem tarefas opcionais que poderá ter de efetuar durante seu ciclo de vida ou de rotina. Este artigo descreve a sobre como atualizar o agente e desativar a recolha de variáveis de ambiente de um determinado contêiner manualmente. 
+# <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>Como gerenciar o Azure Monitor para agente de contêineres
+Azure Monitor para contêineres usa uma versão em contêiner do agente de Log Analytics para Linux. Após a implantação inicial, há tarefas rotineiras ou opcionais que talvez você precise executar durante seu ciclo de vida. Este artigo detalha como atualizar manualmente o agente e desabilitar a coleta de variáveis ambientais de um contêiner específico. 
 
-## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Como atualizar o Azure Monitor para agente de contentores
-Monitor do Azure para contentores utiliza uma versão em contentores do agente do Log Analytics para Linux. Quando for lançada uma nova versão do agente, o agente é automaticamente atualizado nos seus clusters do Kubernetes geridos alojados no Azure Kubernetes Service (AKS).  
+## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>Como atualizar o Azure Monitor para agente de contêineres
+Azure Monitor para contêineres usa uma versão em contêiner do agente de Log Analytics para Linux. Quando uma nova versão do agente é liberada, o agente é atualizado automaticamente em seus clusters kubernetes gerenciados hospedados no AKS (serviço kubernetes do Azure).  
 
-Se a atualização de agente falhar, este artigo descreve o processo de atualizar manualmente o agente. Para seguir as versões lançadas, consulte [anúncios de lançamentos de agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).   
+Se a atualização do agente falhar, este artigo descreverá o processo para atualizar manualmente o agente. Para seguir as versões lançadas, consulte [comunicados de versão do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).   
 
-### <a name="upgrading-agent-on-monitored-kubernetes-cluster"></a>Atualizar o agente no cluster de Kubernetes monitorizado
-O processo para atualizar o agente consiste em dois passos direta. A primeira etapa é desativar a monitorização com o Azure Monitor para contentores com a CLI do Azure.  Siga os passos descritos no [desativar a monitorização](container-insights-optout.md?#azure-cli) artigo. Com a CLI do Azure permite-nos remover o agente a partir de nós do cluster sem afetar a solução e os dados correspondentes, que são armazenados na área de trabalho. 
+### <a name="upgrading-agent-on-monitored-kubernetes-cluster"></a>Atualizando o agente no cluster kubernetes monitorado
+O processo para atualizar o agente consiste em duas etapas diretas. A primeira etapa é desabilitar o monitoramento com Azure Monitor para contêineres usando CLI do Azure.  Siga as etapas descritas no artigo [desabilitar monitoramento](container-insights-optout.md?#azure-cli) . O uso de CLI do Azure nos permite remover o agente dos nós no cluster sem afetar a solução e os dados correspondentes que são armazenados no espaço de trabalho. 
 
 >[!NOTE]
->Enquanto estiver a efetuar esta atividade de manutenção, os nós do cluster não estão a reencaminhar os dados recolhidos e vistas de desempenho não apresentará dados entre a hora a remover o agente e instalar a nova versão. 
+>Enquanto você estiver executando essa atividade de manutenção, os nós no cluster não estão encaminhando dados coletados e as exibições de desempenho não mostrarão dados entre o momento em que você remover o agente e instalar a nova versão. 
 >
 
-Para instalar a nova versão do agente, siga os passos descritos na [ativar a monitorização com a CLI do Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli), para concluir este processo.  
+Para instalar a nova versão do agente, siga as etapas descritas em [habilitar monitoramento usando CLI do Azure](container-insights-enable-new-cluster.md#enable-using-azure-cli)para concluir este processo.  
 
-Depois da ativar a monitorização, poderá demorar cerca de 15 minutos antes de poder visualizar as métricas de estado de funcionamento atualizado para o cluster. Para verificar se o agente atualizado com êxito, execute o comando: `kubectl logs omsagent-484hw --namespace=kube-system`
+Depois de habilitar novamente o monitoramento, pode levar cerca de 15 minutos para que você possa exibir as métricas de integridade atualizadas para o cluster. Para verificar se o agente foi atualizado com êxito, execute o comando: `kubectl logs omsagent-484hw --namespace=kube-system`
 
-O estado deve assemelhar-se o exemplo seguinte, onde o valor para *omi* e *omsagent* deve corresponder à versão mais recente especificada no [histórico de versões de agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
+O status deve ser semelhante ao exemplo a seguir, em que o valor de *OMI* e *omsagent* deve corresponder à versão mais recente especificada no [histórico de lançamento do agente](https://github.com/microsoft/docker-provider/tree/ci_feature_prod).  
 
     User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
     :
@@ -60,26 +54,26 @@ O estado deve assemelhar-se o exemplo seguinte, onde o valor para *omi* e *omsag
     omsagent 1.6.0-163
     docker-cimprov 1.0.0.31
 
-## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Como desativar a coleção de variáveis de ambiente num contêiner
-Monitor do Azure para contentores recolhe variáveis de ambiente de contentores em execução num pod e apresenta-os no painel de propriedades do contentor selecionado na **contentores** vista. Pode controlar esse comportamento ao desativar a coleção para um contentor específico durante a implementação do AKS cluster, ou depois de definir a variável de ambiente *AZMON_COLLECT_ENV*. Esta funcionalidade está disponível a partir da versão de agente – ciprod11292018 e superior.  
+## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>Como desabilitar a coleção de variáveis de ambiente em um contêiner
+Azure Monitor para contêineres coleta variáveis ambientais dos contêineres em execução em um pod e as apresenta no painel de propriedades do contêiner selecionado na exibição **contêineres** . Você pode controlar esse comportamento desabilitando a coleta de um contêiner específico durante a implantação do cluster AKS ou depois definindo a variável de ambiente *AZMON_COLLECT_ENV*. Esse recurso está disponível na versão do agente – ciprod11292018 e superior.  
 
-Para desativar a coleção de variáveis de ambiente num contêiner de novo ou existente, defina a variável **AZMON_COLLECT_ENV** com um valor de **falso** no seu ficheiro de configuração de yaml de implementação de Kubernetes.   
+Para desabilitar a coleta de variáveis de ambiente em um contêiner novo ou existente, defina a variável **AZMON_COLLECT_ENV** com um valor de **false** em seu arquivo de configuração YAML de implantação do kubernetes.   
 
 ```  
 - name: AZMON_COLLECT_ENV  
   value: "False"  
 ```  
 
-Execute o seguinte comando para aplicar a alteração para o seu contentor do AKS: `kubectl apply -f  <path to yaml file>`.
+Execute o seguinte comando para aplicar a alteração ao seu contêiner AKS: `kubectl apply -f  <path to yaml file>`.
 
-Para verificar a alteração da configuração demorou efeito, selecione um contentor no **contentores** ver no Azure Monitor para contentores e, no painel de propriedade, expanda **variáveis de ambiente**.  A secção deve mostrar apenas a variável que criou anteriormente - **AZMON_COLLECT_ENV = FALSE**. Para todos os outros contentores, a secção de variáveis de ambiente deve listar todas as variáveis de ambiente detetadas.   
+Para verificar se as alterações de configuração entraram em vigor, selecione um contêiner na exibição **contêineres** em Azure monitor para contêineres e, no painel de propriedades, expanda **variáveis de ambiente**.  A seção deve mostrar apenas a variável criada anteriormente- **AZMON_COLLECT_ENV = false**. Para todos os outros contêineres, a seção variáveis de ambiente deve listar todas as variáveis de ambiente descobertas.   
 
-Para voltar a ativar a deteção de variáveis de ambiente, aplicar o mesmo processo anteriormente e altere o valor de **False** ao **True**e, em seguida, volte a executar o `kubectl` comando para atualizar o contentor.  
+Para reabilitar a descoberta das variáveis ambientais, aplique o mesmo processo anteriormente e altere o valor de **false** para **true**e, em seguida, execute novamente o comando `kubectl` para atualizar o contêiner.  
 
 ```  
 - name: AZMON_COLLECT_ENV  
   value: "True"  
 ```  
 
-## <a name="next-steps"></a>Passos Seguintes
-Se ocorrerem problemas durante a atualização do agente, consulte a [guia de resolução de problemas](container-insights-troubleshoot.md) para o suporte.
+## <a name="next-steps"></a>Passos seguintes
+Se você tiver problemas ao atualizar o agente, examine o [Guia de solução de problemas](container-insights-troubleshoot.md) para obter suporte.

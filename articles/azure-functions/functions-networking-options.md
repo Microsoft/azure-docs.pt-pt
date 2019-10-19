@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: ca7985ee302b35f8e7b39c46c229c7b0b263ffce
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170666"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550857"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
@@ -33,11 +33,11 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 
 |                |[Plano de consumo](functions-scale.md#consumption-plan)|[Plano Premium (visualização)](functions-scale.md#premium-plan)|[Plano do Serviço de Aplicações](functions-scale.md#app-service-plan)|[Ambiente do Serviço de Aplicações](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Restrições de IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅ Sim|✅ Sim|✅ Sim|✅ Sim|
-|[Integração da rede virtual](#virtual-network-integration)|❌ Não|✅ Sim (regional)|✅ Sim (regional e gateway)|✅ Sim|
-|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌ Não| ❌ Não|✅ Sim|✅ Sim|
-|[Ligações Híbridas](#hybrid-connections)|❌ Não|❌ Não|✅ Sim|✅ Sim|
-|[Restrições de IP de saída](#outbound-ip-restrictions)|❌ Não| ❌ Não|❌ Não|✅ Sim|
+|[Restrições de IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Integração da rede virtual](#virtual-network-integration)|❌No|✅Yes (regional)|✅Yes (regional e gateway)|✅Yes|
+|[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
+|[Ligações Híbridas](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[Restrições de IP de saída](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
 ## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
@@ -52,7 +52,7 @@ Para saber mais, consulte [Azure app restrições de acesso estático do serviç
 ## <a name="private-site-access"></a>O acesso a sites privados
 
 Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma rede virtual do Azure. 
-* O acesso ao site privado está disponível no plano [Premium](./functions-premium-plan.md), [consumo](functions-scale.md#consumption-plan) e [serviço de aplicativo](functions-scale.md#app-service-plan) quando os pontos de **extremidade de serviço** são configurados. 
+* O acesso ao site privado está disponível nos serviços [Premium](./functions-premium-plan.md), [consumo], (funções-escala. MD # consumo-plano) e [serviço de aplicativo](functions-scale.md#app-service-plan) quando os pontos de **extremidade de serviço** são configurados. 
     * Os pontos de extremidade de serviço podem ser configurados por aplicativo em recursos da plataforma > rede > configurar restrições de acesso > Adicionar regra. As redes virtuais podem ser selecionadas agora como o "tipo" de uma regra.
     * Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Tenha em mente que, com os pontos de extremidade de serviço, sua função ainda tem acesso total de saída à Internet, mesmo com a integração de rede virtual configurada.
@@ -87,14 +87,14 @@ Independentemente da versão usada, a integração VNet dá ao seu aplicativo de
 O recurso de integração VNet:
 
 * Requer um plano do serviço de aplicativo Standard, Premium ou PremiumV2
-* Dá suporte a TCP e UDP
-* Funciona com aplicativos do serviço de aplicativo e aplicativos de funções
+* dá suporte a TCP e UDP
+* funciona com aplicativos do serviço de aplicativo e aplicativos de funções
 
 Há algumas coisas para as quais a integração VNet não oferece suporte, incluindo:
 
 * A montagem de drives
-* A integração do AD 
-* NetBios
+* Integração do AD 
+* A NetBios
 
 A integração de rede virtual no functions usa a infraestrutura compartilhada com aplicativos Web do serviço de aplicativo. Para ler mais sobre os dois tipos de integração de rede virtual, consulte:
 * [Integração VNET regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
@@ -102,12 +102,20 @@ A integração de rede virtual no functions usa a infraestrutura compartilhada c
 
 Para saber mais sobre como usar a integração de rede virtual, consulte [integrar um aplicativo de funções a uma rede virtual do Azure](functions-create-vnet.md).
 
-### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringindo sua conta de armazenamento a uma rede virtual
+## <a name="connecting-to-service-endpoint-secured-resources"></a>Conectando a recursos protegidos do ponto de extremidade de serviço
 
 > [!note] 
-> Temporariamente, pode levar até 12 horas para que sua conta de armazenamento fique disponível para seu aplicativo de funções depois que você configurar restrições de acesso nessa conta de armazenamento. Durante esse tempo, seu aplicativo ficará completamente offline.
+> Temporariamente, pode levar até 12 horas para que novos pontos de extremidade de serviço fiquem disponíveis para seu aplicativo de funções depois que você configurar restrições de acesso no recurso downstream. Durante esse tempo, o recurso ficará completamente indisponível para seu aplicativo.
 
-Para fornecer um nível mais alto de segurança, você pode restringir a conta de armazenamento do aplicativo a uma rede virtual. Em seguida, você deve integrar seu site com essa rede virtual para acessar sua conta de armazenamento. Essa configuração tem suporte em todos os planos que dão suporte à integração de rede virtual.
+Para fornecer um nível mais alto de segurança, você pode restringir vários serviços do Azure a uma rede virtual usando pontos de extremidade de serviço. Em seguida, você deve integrar seu aplicativo de funções com essa rede virtual para acessar o recurso. Essa configuração tem suporte em todos os planos que dão suporte à integração de rede virtual.
+
+[Leia mais sobre os pontos de extremidade de serviço de rede virtual aqui.](../virtual-network/virtual-network-service-endpoints-overview.md)
+
+### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringindo sua conta de armazenamento a uma rede virtual
+Ao criar um aplicativo de funções, você deve criar ou vincular a uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de BLOBs, filas e tabelas. No momento, não é possível usar nenhuma restrição de rede virtual nesta conta. Se você configurar um ponto de extremidade de serviço de rede virtual na conta de armazenamento que você está usando para seu aplicativo de funções, ele interromperá seu aplicativo.
+
+[Leia mais sobre os requisitos de conta de armazenamento aqui.](./functions-create-function-app-portal.md#storage-account-requirements
+) 
 
 ## <a name="virtual-network-triggers-non-http"></a>Gatilhos de rede virtual (não HTTP)
 
@@ -131,7 +139,7 @@ As restrições de IP de saída estão disponíveis somente para funções impla
 
 Ao integrar um aplicativo de funções em um plano Premium ou plano do serviço de aplicativo com uma rede virtual, o aplicativo ainda é capaz de fazer chamadas de saída para a Internet.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre rede e Azure Functions: 
 
 * [Siga o tutorial sobre como começar com a integração de rede virtual](./functions-create-vnet.md)

@@ -1,23 +1,18 @@
 ---
 title: Solução de gerenciamento do Office 365 no Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre a configuração e o uso da solução Office 365 no Azure.  Ele inclui uma descrição detalhada dos registros do Office 365 criados no Azure Monitor.
-services: operations-management-suite
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
 ms.service: azure-monitor
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 08/13/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 3818547eee05a1d6f8cf84ccb0f5f4ecb44a9ab3
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.date: 08/13/2019
+ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061691"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553948"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Azure (versão prévia)
 
@@ -66,16 +61,16 @@ Antes de iniciar este procedimento, reúna as informações a seguir.
 
 Do seu espaço de trabalho do Log Analytics:
 
-- Nome do espaço de trabalho: O espaço de trabalho em que os dados do Office 365 serão coletados.
-- Nome do grupo de recursos: O grupo de recursos que contém o espaço de trabalho.
-- ID da assinatura do Azure: A assinatura que contém o espaço de trabalho.
+- Nome do espaço de trabalho: o espaço de trabalho em que os dados do Office 365 serão coletados.
+- Nome do grupo de recursos: o grupo de recursos que contém o espaço de trabalho.
+- ID da assinatura do Azure: a assinatura que contém o espaço de trabalho.
 
 Da sua assinatura do Office 365:
 
-- Usu Endereço de email de uma conta administrativa.
-- ID do locatário: ID exclusiva da assinatura do Office 365.
-- ID do cliente: Cadeia de caracteres de 16 caracteres que representa o cliente do Office 365.
-- Segredo do cliente: Cadeia de caracteres criptografada necessária para autenticação.
+- Nome de usuário: endereço de email de uma conta administrativa.
+- ID do locatário: ID exclusiva para assinatura do Office 365.
+- ID do cliente: cadeia de 16 caracteres que representa o cliente do Office 365.
+- Segredo do cliente: cadeia de caracteres criptografada necessária para autenticação.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Criar um aplicativo do Office 365 no Azure Active Directory
 
@@ -88,10 +83,10 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
     ![Adicionar registro de aplicativo](media/solution-office-365/add-app-registration.png)
 1. Insira um **nome**de aplicativo. Selecione **contas em qualquer diretório organizacional (qualquer diretório do Azure ad-multilocatário)** para os **tipos de conta com suporte**.
     
-    ![Criar aplicação](media/solution-office-365/create-application.png)
+    ![Criar aplicativo](media/solution-office-365/create-application.png)
 1. Clique em **registrar** e validar as informações do aplicativo.
 
-    ![Aplicação registada](media/solution-office-365/registered-app.png)
+    ![Aplicativo registrado](media/solution-office-365/registered-app.png)
 
 ### <a name="configure-application-for-office-365"></a>Configurar o aplicativo para o Office 365
 
@@ -191,7 +186,7 @@ Para habilitar a conta administrativa pela primeira vez, você deve fornecer con
 
 1. Será exibida uma janela semelhante à mostrada abaixo. Clique em **aceitar**.
     
-    ![Consentimento de admin](media/solution-office-365/admin-consent.png)
+    ![Consentimento do administrador](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Assinar Log Analytics espaço de trabalho
 
@@ -507,14 +502,14 @@ A solução do Office 365 não recupera dados de nenhum dos [agentes de log Anal
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
-Pode levar algumas horas para que os dados sejam coletados inicialmente. Depois de começar a coletar, o Office 365 envia uma [notificação](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) de webhook com dados detalhados para Azure monitor cada vez que um registro é criado. Esse registro está disponível em Azure Monitor em alguns minutos após ser recebido.
+Pode levar algumas horas para que os dados sejam coletados inicialmente. Depois de começar a coletar, o Office 365 envia uma [notificação de webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) com dados detalhados para Azure monitor cada vez que um registro é criado. Esse registro está disponível em Azure Monitor em alguns minutos após ser recebido.
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 Quando você adicionar a solução do Office 365 ao seu espaço de trabalho do Log Analytics, o bloco do **office 365** será adicionado ao seu painel. Este mosaico apresenta uma contagem e uma representação gráfica do número de computadores no seu ambiente e a respetiva conformidade de atualização.<br><br>
-![Bloco de resumo do Office 365](media/solution-office-365/tile.png)  
+Bloco de resumo do ![Office 365 ](media/solution-office-365/tile.png)  
 
 Clique no bloco do **office 365** para abrir o painel do **Office 365** .
 
@@ -522,10 +517,10 @@ Clique no bloco do **office 365** para abrir o painel do **Office 365** .
 
 O dashboard inclui as colunas da tabela seguinte. Cada coluna lista os dez principais alertas por contagem que correspondem aos critérios da coluna para o escopo e o intervalo de tempo especificados. Você pode executar uma pesquisa de logs que fornece a lista inteira clicando em ver todos na parte inferior da coluna ou clicando no cabeçalho da coluna.
 
-| Coluna | Descrição |
+| Column | Descrição |
 |:--|:--|
-| Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
-| Exchange | Mostra a divisão das atividades do Exchange Server, como a permissão Add-Mailbox, ou Set-Mailbox. |
+| Operations | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
+| Trocar | Mostra a divisão das atividades do Exchange Server, como a permissão Add-Mailbox, ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz Drill-down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento acessado por arquivo, você poderá ver o documento que está sendo acessado, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do usuário, como redefinir tentativas de logon e senha de usuário. Ao fazer drill down, você poderá ver os detalhes dessas atividades, como o status do resultado. Isso será útil principalmente se você quiser monitorar atividades suspeitas em seu Azure Active Directory. |
 
@@ -534,7 +529,7 @@ O dashboard inclui as colunas da tabela seguinte. Cada coluna lista os dez princ
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor registros de log
 
-Todos os registros criados no espaço de trabalho Log Analytics no Azure Monitor pela solução do Office 365 têm um **tipo** de **OfficeActivity**.  A propriedade **OfficeWorkload** determina qual serviço do Office 365 o registro se refere a-Exchange, AzureActiveDirectory, SharePoint ou onedrive.  A Propriedade RecordType especifica o tipo de operação.  As propriedades irão variar para cada tipo de operação e são mostradas nas tabelas a seguir.
+Todos os registros criados no espaço de trabalho Log Analytics no Azure Monitor pela solução do Office 365 têm um **tipo** de **OfficeActivity**.  A propriedade **OfficeWorkload** determina qual serviço do Office 365 o registro se refere a-Exchange, AzureActiveDirectory, SharePoint ou onedrive.  A propriedade **RecordType** especifica o tipo de operação.  As propriedades irão variar para cada tipo de operação e são mostradas nas tabelas a seguir.
 
 ### <a name="common-properties"></a>Propriedades comuns
 
@@ -542,16 +537,16 @@ As propriedades a seguir são comuns a todos os registros do Office 365.
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| Type | *OfficeActivity* |
-| ClientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
-| OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
+| Tipo | *OfficeActivity* |
+| clientIP | O endereço IP do dispositivo que foi usado quando a atividade foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
+| OfficeWorkload | Serviço do Office 365 ao qual o registro se refere.<br><br>AzureActiveDirectory<br>Trocar<br>SharePoint|
 | Operação | O nome da atividade de usuário ou administrador.  |
 | OrganizationId | O GUID do locatário do Office 365 da sua organização. Esse valor será sempre o mesmo para sua organização, independentemente do serviço do Office 365 no qual ele ocorre. |
 | RecordType | Tipo de operação executada. |
 | ResultStatus | Indica se a ação (especificada na Propriedade Operation) foi bem-sucedida ou não. Os valores possíveis são Succeeded, PartiallySucceeded ou Failed. Para a atividade de administração do Exchange, o valor é true ou false. |
-| UserId | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
+| ID | O UPN (nome UPN) do usuário que realizou a ação que resultou no registro em log; por exemplo, my_name@my_domain_name. Observe que os registros para a atividade executada por contas do sistema (como SHAREPOINT\system ou NTAUTHORITY\SYSTEM) também estão incluídos. | 
 | UserKey | Uma ID alternativa para o usuário identificado na propriedade UserId.  Por exemplo, essa propriedade é populada com a PUID (ID exclusiva) do Passport para eventos executados por usuários no SharePoint, OneDrive for Business e Exchange. Essa propriedade também pode especificar o mesmo valor que a Propriedade UserID para eventos que ocorrem em outros serviços e eventos executados por contas do sistema|
-| UserType | O tipo de usuário que realizou a operação.<br><br>administrador<br>Aplicação<br>DcAdmin<br>Normal<br>Reservado<br>ServicePrincipal<br>Sistema |
+| userType | O tipo de usuário que realizou a operação.<br><br>ADM<br>Candidatura<br>DcAdmin<br>Regularmente<br>Reservado<br>ServicePrincipal<br>Sistema |
 
 
 ### <a name="azure-active-directory-base"></a>Base de Azure Active Directory
@@ -563,7 +558,7 @@ As propriedades a seguir são comuns a todos os registros de Azure Active Direct
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectory |
 | AzureActiveDirectory_EventType | O tipo de evento do Azure AD. |
-| ExtendedProperties | As propriedades estendidas do evento do Azure AD. |
+| extendedProperties | As propriedades estendidas do evento do Azure AD. |
 
 
 ### <a name="azure-active-directory-account-logon"></a>Logon da conta do Azure Active Directory
@@ -592,7 +587,7 @@ Esses registros são criados quando alterações ou adições são feitas em obj
 | Ator | O usuário ou a entidade de serviço que realizou a ação. |
 | ActorContextId | O GUID da organização ao qual o ator pertence. |
 | ActorIpAddress | O endereço IP do ator no formato de endereço IPV4 ou IPV6. |
-| InterSystemsId | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
+| Intersystemid | O GUID que acompanha as ações entre os componentes no serviço do Office 365. |
 | IntraSystemId |   O GUID gerado por Azure Active Directory para rastrear a ação. |
 | SupportTicketId | A ID do tíquete de suporte ao cliente para a ação em situações "agir em nome de". |
 | TargetContextId | O GUID da organização ao qual o usuário de destino pertence. |
@@ -620,7 +615,7 @@ Esses registros são criados quando são feitas alterações na configuração d
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Trocar |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Especifica se o cmdlet foi executado por um usuário em sua organização, pela equipe do datacenter da Microsoft ou por uma conta de serviço do Datacenter ou por um administrador delegado. O valor false indica que o cmdlet foi executado por alguém em sua organização. O valor true indica que o cmdlet foi executado pela equipe do datacenter, por uma conta de serviço do Datacenter ou por um administrador delegado. |
 | ModifiedObjectResolvedName |  Esse é o nome de usuário amigável do objeto que foi modificado pelo cmdlet. Isso será registrado somente se o cmdlet modificar o objeto. |
@@ -635,7 +630,7 @@ Esses registros são criados quando alterações ou adições são feitas nas ca
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Trocar |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Informações sobre o cliente de email que foi usado para executar a operação, como uma versão do navegador, versão do Outlook e informações de dispositivo móvel. |
 | Client_IPAddress | O endereço IP do dispositivo que foi usado quando a operação foi registrada. O endereço IP é exibido em um formato de endereço IPv4 ou IPv6. |
@@ -658,7 +653,7 @@ Esses registros são criados quando uma entrada de auditoria de caixa de correio
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Trocar |
 | RecordType     | ExchangeItem |
 | Item | Representa o item no qual a operação foi executada | 
 | SendAsUserMailboxGuid | O GUID do Exchange da caixa de correio que foi acessada para enviar email como. |
@@ -673,7 +668,7 @@ Esses registros são criados quando alterações ou adições são feitas em gru
 
 | Propriedade | Descrição |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Trocar |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Informações sobre cada item no grupo. |
 | CrossMailboxOperations | Indica se a operação envolvia mais de uma caixa de correio. |
@@ -694,11 +689,11 @@ Essas propriedades são comuns a todos os registros do SharePoint.
 |:--- |:--- |
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
-| EventSource | Identifica que ocorreu um evento no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
+| eventSource | Identifica que ocorreu um evento no SharePoint. Os valores possíveis são SharePoint ou ObjectModel. |
 | ItemType | O tipo de objeto que foi acessado ou modificado. Consulte a tabela ItemType para obter detalhes sobre os tipos de objetos. |
 | MachineDomainInfo | Informações sobre operações de sincronização de dispositivo. Essas informações serão informadas apenas se estiverem presentes na solicitação. |
 | MachineId |   Informações sobre operações de sincronização de dispositivo. Essas informações serão informadas apenas se estiverem presentes na solicitação. |
-| Site_ | O GUID do site em que o arquivo ou pasta acessado pelo usuário está localizado. |
+| Locais | O GUID do site em que o arquivo ou pasta acessado pelo usuário está localizado. |
 | Source_Name | A entidade que disparou a operação auditada. Os valores possíveis são SharePoint ou ObjectModel. |
 | UserAgent | Informações sobre o cliente ou o navegador do usuário. Essas informações são fornecidas pelo cliente ou pelo navegador. |
 
@@ -744,14 +739,14 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos d
 | Consulta | Descrição |
 | --- | --- |
 |Contagem de todas as operações na sua assinatura do Office 365 |OfficeActivity &#124; resume contagem () por operação |
-|Uso de sites do SharePoint|OfficeActivity &#124; em que OfficeWorkload = ~ "SharePoint &#124; " resumir contagem () \| por SiteUrl classificar por contagem ASC|
+|Uso de sites do SharePoint|OfficeActivity &#124; em que OfficeWorkload = ~ "SharePoint &#124; " resumir contagem () por SiteUrl \| classificar por contagem ASC|
 |Operações de acesso de arquivo por tipo de usuário|Pesquisar em (OfficeActivity) OfficeWorkload = ~ "azureactivedirectory" e "myTest"|
 |Pesquisar com uma palavra-chave específica|Tipo = OfficeActivity OfficeWorkload = azureactivedirectory "myTest"|
 |Monitorar ações externas no Exchange|OfficeActivity &#124; em que OfficeWorkload = ~ "Exchange" e ExternalAccess = = true|
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Use [consultas de log em Azure monitor](../log-query/log-query-overview.md) para exibir dados de atualização detalhados.
 * [Crie seus próprios painéis](../learn/tutorial-logs-dashboards.md) para exibir suas consultas de pesquisa favoritas do Office 365.

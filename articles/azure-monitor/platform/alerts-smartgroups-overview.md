@@ -1,19 +1,18 @@
 ---
 title: Grupos inteligentes
 description: Os grupos inteligentes são agregações de alertas que ajudam a reduzir o ruído de alerta
-author: anantr
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/15/2018
-ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.topic: conceptual
+author: anantr
+ms.author: robb
+ms.date: 05/15/2018
+ms.openlocfilehash: 83ea68ad92a6c78ccf56483e1f0c2cbcbcd7d22a
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702863"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552360"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
 Um desafio comum enfrentado ao lidar com alertas é examinar o ruído para descobrir o que realmente importa, os grupos inteligentes se destinam a ser a solução para esse problema.  
@@ -29,11 +28,11 @@ O estado do grupo inteligente é um conceito semelhante ao estado do alerta, que
 
 Há suporte para os seguintes Estados de grupo inteligente.
 
-| State | Descrição |
+| Estado | Descrição |
 |:---|:---|
 | Novo | O problema acabou de ser detectado e ainda não foi revisado. |
-| Reconhecido | Um administrador analisou o grupo inteligente e começou a trabalhar nele. |
-| Fechado | O problema foi resolvido. Depois que um grupo inteligente for fechado, você poderá reabri-lo alterando-o para outro Estado. |
+| Confirmada | Um administrador analisou o grupo inteligente e começou a trabalhar nele. |
+| Legenda | O problema foi resolvido. Depois que um grupo inteligente for fechado, você poderá reabri-lo alterando-o para outro Estado. |
 
 [Saiba como alterar o estado do seu grupo inteligente.](https://aka.ms/managing-alert-smart-group-states)
 

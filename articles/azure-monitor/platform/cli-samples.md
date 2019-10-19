@@ -1,81 +1,80 @@
 ---
-title: Exemplos de início rápido do Azure CLI de Monitor
-description: Comandos da CLI de exemplo para recursos do Azure Monitor. Monitor do Azure é um serviço do Microsoft Azure que lhe permite enviar notificações de alerta, chamar URLs da web com base nos valores de dados de telemetria configurado e serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web.
-author: rboucher
-services: azure-monitor
+title: Exemplos de início rápido da CLI do Azure Monitor
+description: Comandos de exemplo da CLI para recursos de Azure Monitor. Azure Monitor é um serviço de Microsoft Azure que permite enviar notificações de alerta, chamar URLs da Web com base em valores de dados de telemetria configurados e serviços de nuvem de dimensionamento automático, máquinas virtuais e aplicativos Web.
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 05/16/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: fa3293346fee6f6666db01dab5587dd760df84b2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 05/16/2018
+ms.openlocfilehash: 48ce748a95f58abb060cd6f54ac29c877356f5de
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740888"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555580"
 ---
-# <a name="azure-monitor-cli-quick-start-samples"></a>Exemplos de início rápido do Azure CLI de Monitor
-Este artigo mostra-lhe exemplo comandos de interface de linha de comandos (CLI) para o ajudar a aceder aos recursos do Azure Monitor. O Azure Monitor permite-lhe para serviços de Cloud de dimensionamento automático, as máquinas virtuais e aplicações Web e para enviar notificações de alerta ou chamar URLs da web com base nos valores de dados de telemetria configurado.
+# <a name="azure-monitor-cli-quick-start-samples"></a>Exemplos de início rápido da CLI do Azure Monitor
+Este artigo mostra exemplos de comandos da CLI (interface de linha de comando) para ajudá-lo a acessar recursos do Azure Monitor. Azure Monitor permite dimensionar automaticamente serviços de nuvem, máquinas virtuais e aplicativos Web e enviar notificações de alerta ou chamar URLs da Web com base em valores de dados de telemetria configurados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se ainda não instalou a CLI do Azure, siga as instruções para [instalar a CLI do Azure](/cli/azure/install-azure-cli). Também pode utilizar [Azure Cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa no seu browser. Veja uma referência completa de todos os comandos disponíveis na [referência da CLI do Azure Monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
+Se você ainda não instalou o CLI do Azure, siga as instruções para [instalar o CLI do Azure](/cli/azure/install-azure-cli). Você também pode usar [Azure cloud Shell](/azure/cloud-shell) para executar a CLI como uma experiência interativa em seu navegador. Consulte uma referência completa de todos os comandos disponíveis na [referência da CLI do Azure monitor](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest). 
 
 ## <a name="log-in-to-azure"></a>Iniciar sessão no Azure
-A primeira etapa é para início de sessão sua conta do Azure.
+A primeira etapa é fazer logon em sua conta do Azure.
 
 ```azurecli
 az login
 ```
 
-Depois de executar este comando, terá de iniciar sessão através das instruções no ecrã. Funcionam todos os comandos no contexto de sua assinatura padrão.
+Depois de executar esse comando, você precisa entrar usando as instruções na tela. Todos os comandos funcionam no contexto da sua assinatura padrão.
 
-Para listar os detalhes da sua subscrição atual, utilize o seguinte comando.
+Para listar os detalhes de sua assinatura atual, use o comando a seguir.
 
 ```azurecli
 az account show
 ```
 
-Para alterar o contexto de trabalho para uma subscrição diferente, utilize o seguinte comando.
+Para alterar o contexto de trabalho para uma assinatura diferente, use o comando a seguir.
 
 ```azurecli
 az account set -s <Subscription ID or name>
 ```
 
-Para ver uma lista de todos os comandos do Azure Monitor suportados, execute o seguinte.
+Para exibir uma lista de todos os comandos de Azure Monitor com suporte, execute o seguinte.
 
 ```azurecli
 az monitor -h
 ```
 
-## <a name="view-activity-log-for-a-subscription"></a>Ver o registo de atividade para uma subscrição
+## <a name="view-activity-log-for-a-subscription"></a>Exibir o log de atividades de uma assinatura
 
-Para ver uma lista de eventos de registo de atividade, execute o seguinte.
+Para exibir uma lista de eventos do log de atividades, execute o seguinte.
 
 ```azurecli
 az monitor activity-log list
 ```
 
-Experimente o seguinte para ver todas as opções disponíveis.
+Tente o seguinte para exibir todas as opções disponíveis.
 
 ```azurecli
 az monitor activity-log list -h
 ```
 
-Eis um exemplo para registos de lista por um resourceGroup
+Aqui está um exemplo para listar os logs por um resourcegroup
 
 ```azurecli
 az monitor activity-log list --resource-group <group name>
 ```
 
-Exemplo para registos de lista pelo autor da chamada
+Exemplo para listar logs por chamador
 
 ```azurecli
 az monitor activity-log list --caller myname@company.com
 ```
 
-Exemplo para registos de lista pelo autor da chamada num tipo de recurso, dentro de um intervalo de datas
+Exemplo para listar logs por chamador em um tipo de recurso, dentro de um intervalo de datas
 
 ```azurecli
 az monitor activity-log list --resource-provider Microsoft.Web \
@@ -86,16 +85,16 @@ az monitor activity-log list --resource-provider Microsoft.Web \
 
 ## <a name="work-with-alerts"></a>Trabalhar com alertas 
 > [!NOTE]
-> Neste momento, apenas alertas (clássicos) é suportada na CLI. 
+> Somente os alertas (clássicos) têm suporte na CLI no momento. 
 
-### <a name="get-alert-classic-rules-in-a-resource-group"></a>Obter regras de alerta (clássicas) num grupo de recursos
+### <a name="get-alert-classic-rules-in-a-resource-group"></a>Obter regras de alerta (clássico) em um grupo de recursos
 
 ```azurecli
 az monitor activity-log alert list --resource-group <group name>
 az monitor activity-log alert show --resource-group <group name> --name <alert name>
 ```
 
-### <a name="create-a-metric-alert-classic-rule"></a>Criar uma regra de (clássica) alerta métrica
+### <a name="create-a-metric-alert-classic-rule"></a>Criar uma regra de alerta de métrica (clássico)
 
 ```azurecli
 az monitor alert create --name <alert name> --resource-group <group name> \
@@ -105,24 +104,24 @@ az monitor alert create --name <alert name> --resource-group <group name> \
     --condition "<METRIC> {>,>=,<,<=} <THRESHOLD> {avg,min,max,total,last} ##h##m##s"
 ```
 
-### <a name="delete-an-alert-classic-rule"></a>Eliminar uma regra de alerta (clássica)
+### <a name="delete-an-alert-classic-rule"></a>Excluir uma regra de alerta (clássico)
 
 ```azurecli
 az monitor alert delete --name <alert name> --resource-group <group name>
 ```
 
-## <a name="log-profiles"></a>Perfis de registo
+## <a name="log-profiles"></a>Perfis de log
 
-Utilize as informações nesta secção para trabalhar com perfis de registo.
+Use as informações desta seção para trabalhar com perfis de log.
 
-### <a name="get-a-log-profile"></a>Obter um perfil de registo
+### <a name="get-a-log-profile"></a>Obter um perfil de log
 
 ```azurecli
 az monitor log-profiles list
 az monitor log-profiles show --name <profile name>
 ```
 
-### <a name="add-a-log-profile-with-retention"></a>Adicionar um perfil de registo com retenção
+### <a name="add-a-log-profile-with-retention"></a>Adicionar um perfil de log com retenção
 
 ```azurecli
 az monitor log-profiles create --name <profile name> --location <location of profile> \
@@ -133,7 +132,7 @@ az monitor log-profiles create --name <profile name> --location <location of pro
     --storage-account-id <storage account ID to store the logs in>
 ```
 
-### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Adicionar um perfil de registo com retenção e de EventHub
+### <a name="add-a-log-profile-with-retention-and-eventhub"></a>Adicionar um perfil de log com retenção e EventHub
 
 ```azurecli
 az monitor log-profiles create --name <profile name> --location <location of profile> \
@@ -145,23 +144,23 @@ az monitor log-profiles create --name <profile name> --location <location of pro
     --service-bus-rule-id <service bus rule ID to stream to>
 ```
 
-### <a name="remove-a-log-profile"></a>Remover um perfil de registo
+### <a name="remove-a-log-profile"></a>Remover um perfil de log
 
 ```azurecli
 az monitor log-profiles delete --name <profile name>
 ```
 
-## <a name="diagnostics"></a>Diagnóstico
+## <a name="diagnostics"></a>Diagnósticos
 
-Utilize as informações nesta secção para trabalhar com definições de diagnóstico.
+Use as informações desta seção para trabalhar com as configurações de diagnóstico.
 
-### <a name="get-a-diagnostic-setting"></a>Obter uma definição de diagnóstico
+### <a name="get-a-diagnostic-setting"></a>Obter uma configuração de diagnóstico
 
 ```azurecli
 az monitor diagnostic-settings list --resource <target resource ID>
 ```
 
-### <a name="create-a-diagnostic-log-setting"></a>Criar uma definição de registo de diagnóstico 
+### <a name="create-a-diagnostic-log-setting"></a>Criar uma configuração de log de diagnóstico 
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \
@@ -178,30 +177,30 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-### <a name="delete-a-diagnostic-setting"></a>Eliminar uma definição de diagnóstico
+### <a name="delete-a-diagnostic-setting"></a>Excluir uma configuração de diagnóstico
 
 ```azurecli
 az monitor diagnostic-settings delete --name <diagnostic name> \
     --resource <target resource ID>
 ```
 
-## <a name="autoscale"></a>Dimensionamento Automático
+## <a name="autoscale"></a>Dimensionamento automático
 
-Utilize as informações nesta secção para trabalhar com definições de dimensionamento automático. Terá de modificar estes exemplos.
+Use as informações nesta seção para trabalhar com as configurações de dimensionamento automático. Você precisa modificar esses exemplos.
 
-### <a name="get-autoscale-settings-for-a-resource-group"></a>Obter definições de dimensionamento automático para um grupo de recursos
+### <a name="get-autoscale-settings-for-a-resource-group"></a>Obter configurações de AutoEscala para um grupo de recursos
 
 ```azurecli
 az monitor autoscale list --resource-group <group name>
 ```
 
-### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Obter definições de dimensionamento automático por nome num grupo de recursos
+### <a name="get-autoscale-settings-by-name-in-a-resource-group"></a>Obter configurações de autoescala por nome em um grupo de recursos
 
 ```azurecli
 az monitor autoscale show --name <settings name> --resource-group <group name>
 ```
 
-### <a name="set-autoscale-settings"></a>Configurações do conjunto de dimensionamento automático
+### <a name="set-autoscale-settings"></a>Definir configurações de dimensionamento automático
 
 ```azurecli
 az monitor autoscale create --name <settings name> --resource-group <group name> \

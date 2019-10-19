@@ -1,22 +1,22 @@
 ---
 title: Criar, exibir e gerenciar alertas do log de atividades no Azure Monitor
 description: Crie alertas do log de atividades usando o portal do Azure, um modelo de Azure Resource Manager e Azure PowerShell.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.date: 06/25/2019
+author: rboucher
 ms.author: robb
-ms.openlocfilehash: e93b6f9c74bb44cb7341f5763261ecb699432ae2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 06/25/2019
+ms.openlocfilehash: 6c133f99ce31d4994753aba11cee90cfc1b5afc9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675264"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552814"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando Azure Monitor  
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Alertas do log de atividades são os alertas que são ativados quando ocorre um novo evento do log de atividades que corresponde às condições especificadas no alerta.
 
 Esses alertas são para recursos do Azure e podem ser criados usando um modelo de Azure Resource Manager. Eles também podem ser criados, atualizados ou excluídos no portal do Azure. Normalmente, você cria alertas do log de atividades para receber notificações quando ocorrem alterações específicas nos recursos em sua assinatura do Azure. Os alertas geralmente são delimitados a recursos ou grupos de recursos específicos. Por exemplo, talvez você queira ser notificado quando qualquer máquina virtual no grupo de recursos de exemplo **myProductionResourceGroup** for excluída. Ou talvez você queira ser notificado se alguma nova função for atribuída a um usuário em sua assinatura.
@@ -40,7 +40,7 @@ Você pode usar o portal do Azure para criar e modificar as regras de alerta do 
 
 Use o procedimento a seguir.
 
-1. Na portal do Azure, selecione **monitorar** > **alertas**.
+1. Na portal do Azure, selecione **monitorar**  > **alertas**.
 2. Selecione **nova regra de alerta** no canto superior esquerdo da janela **alertas** .
 
      ![Nova regra de alerta](media/alerts-activity-log/AlertsPreviewOption.png)
@@ -51,7 +51,7 @@ Use o procedimento a seguir.
 
 3. Em **definir condição de alerta**, forneça as seguintes informações e selecione **concluído**:
 
-   - **Destino do alerta:** Para exibir e selecionar o destino do novo alerta, use **Filtrar por** / filtro de assinatura**por tipo de recurso**. Selecione o recurso ou grupo de recursos na lista exibida.
+   - **Destino do alerta:** Para exibir e selecionar o destino do novo alerta, use **Filtrar por assinatura**  / **Filtrar por tipo de recurso**. Selecione o recurso ou grupo de recursos na lista exibida.
 
      > [!NOTE]
      > 
@@ -59,7 +59,7 @@ Use o procedimento a seguir.
 
      **Exibição de exemplo de destino de alerta**
 
-     ![Selecionar destino](media/alerts-activity-log/select-target.png)
+     ![Selecionar o destino](media/alerts-activity-log/select-target.png)
 
    - Em **critérios de destino**, selecione **Adicionar critérios**. Todos os sinais disponíveis para o destino são exibidos, o que os inclui de várias categorias de **log de atividades**. O nome da categoria é anexado ao nome do **serviço monitor** .
 
@@ -71,13 +71,13 @@ Use o procedimento a seguir.
 
      ![Adicionar critérios](media/alerts-activity-log/add-criteria.png)
 
-     - **Tempo do histórico**: Os eventos disponíveis para a operação selecionada podem ser plotados nas últimas 6, 12 ou 24 horas ou na última semana.
+     - **Tempo do histórico**: os eventos disponíveis para a operação selecionada podem ser plotados nas últimas 6, 12 ou 24 horas ou na última semana.
 
      - **Lógica de alerta**:
 
-       - **Nível do evento**: O nível de severidade do evento: _Detalhado_,informativo, _aviso_, _erro_ou _crítico_.
-       - **Status**: O status do evento: _Iniciado_, _com falha ou com_ _êxito_.
-       - **Evento iniciado por**: Também conhecido como chamador. O endereço de email ou o identificador de Azure Active Directory do usuário que realizou a operação.
+       - **Nível de evento**: o nível de severidade do evento: _detalhado_, _informativo_, _aviso_, _erro_ou _crítico_.
+       - **Status**: o status do evento: _iniciado_, _com falha_ou com _êxito_.
+       - **Evento iniciado por**: também conhecido como chamador. O endereço de email ou o identificador de Azure Active Directory do usuário que realizou a operação.
 
        Este grafo de sinal de exemplo tem a lógica de alerta aplicada:
 
@@ -85,9 +85,9 @@ Use o procedimento a seguir.
 
 4. Em **definir detalhes do alerta**, forneça os seguintes detalhes:
 
-    - **Nome da regra de alerta**: O nome da nova regra de alerta.
-    - **Descrição**: A descrição da nova regra de alerta.
-    - **Salvar alerta no grupo de recursos**: Selecione o grupo de recursos no qual você deseja salvar essa nova regra.
+    - **Nome da regra de alerta**: o nome da nova regra de alerta.
+    - **Descrição**: a descrição da nova regra de alerta.
+    - **Salvar alerta no grupo de recursos**: selecione o grupo de recursos no qual você deseja salvar essa nova regra.
 
 5. Em **grupo de ações**, no menu suspenso, especifique o grupo de ações que você deseja atribuir a essa nova regra de alerta. Ou [crie um novo grupo de ação](../../azure-monitor/platform/action-groups.md) e atribua-o à nova regra. Para criar um novo grupo, selecione **+ novo grupo**.
 
@@ -106,9 +106,9 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 ### <a name="view-and-manage-in-the-azure-portal"></a>Exibir e gerenciar no portal do Azure
 
-1. Na portal do Azure, selecione **monitorar** > **alertas**. Selecione **gerenciar regras de alerta** no canto superior esquerdo da janela.
+1. Na portal do Azure, selecione **monitorar**  > **alertas**. Selecione **gerenciar regras de alerta** no canto superior esquerdo da janela.
 
-    ![Gere regras do alerta](media/alerts-activity-log/manage-alert-rules.png)
+    ![Gerenciar regras de alerta](media/alerts-activity-log/manage-alert-rules.png)
 
     A lista de regras disponíveis é exibida.
 
@@ -124,13 +124,13 @@ Uma analogia simples para entender as condições em que as regras de alerta pod
 
 3. Selecione a regra e clique duas vezes para editar as opções de regra. Faça as alterações necessárias e, em seguida, selecione **salvar**.
 
-   ![Gere regras do alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Gerenciar regras de alerta](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Você pode habilitar, desabilitar ou excluir uma regra. Selecione a opção apropriada na parte superior da janela depois de selecionar a regra, conforme descrito na etapa 2.
 
 
 ## <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
-Para criar um alerta do log de atividades usando um modelo de Azure Resource Manager, você cria um recurso do `microsoft.insights/activityLogAlerts`tipo. Em seguida, você preenche todas as propriedades relacionadas. Aqui está um modelo que cria um alerta do log de atividades:
+Para criar um alerta do log de atividades usando um modelo de Azure Resource Manager, você cria um recurso do tipo `microsoft.insights/activityLogAlerts`. Em seguida, você preenche todas as propriedades relacionadas. Aqui está um modelo que cria um alerta do log de atividades:
 
 ```json
 {
@@ -222,10 +222,10 @@ em que sampleActivityLogAlert. Parameters. JSON contém os valores fornecidos pa
 
 Os alertas do log de atividades têm cmdlets dedicados do PowerShell disponíveis:
 
-- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): Cria um novo alerta do log de atividades ou atualiza um alerta do log de atividades existente.
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert): cria um novo alerta do log de atividades ou atualiza um alerta do log de atividades existente.
 - [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert): Obtém um ou mais recursos de alerta do log de atividades.
-- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): Habilita um alerta do log de atividades existente e define suas marcas.
-- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): Desabilita um alerta do log de atividades existente e define suas marcas.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert): habilita um alerta do log de atividades existente e define suas marcas.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert): desabilita um alerta do log de atividades existente e define suas marcas.
 - [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert): Remove um alerta do log de atividades.
 
 ## <a name="azure-cli"></a>CLI do Azure
@@ -234,12 +234,12 @@ Os comandos de CLI do Azure dedicados sob o [alerta Set AZ monitor Activity-log]
 
 Para criar uma nova regra de alerta do log de atividades, use os seguintes comandos nesta ordem:
 
-1. [AZ monitor atividade – alerta de log criar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): Criar um novo recurso de regra de alerta do log de atividades.
-1. [AZ monitor atividade-escopo do alerta do log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Adicionar escopo para a regra de alerta do log de atividades criado.
-1. [az monitor activity-log alert action-group](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): Adicione um grupo de ações à regra de alerta do log de atividades.
+1. [AZ monitor atividade – alerta de log criar](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-create): criar um novo recurso de regra de alerta do log de atividades.
+1. [AZ monitor atividade – escopo do alerta do log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/scope): Adicionar escopo para a regra de alerta do log de atividades criado.
+1. [AZ monitor Activity – alerta do log de ações-grupo](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert/action-group): adicionar um grupo de ação à regra de alerta do log de atividades.
 
-Para recuperar um recurso de regra de alerta do log de atividades, [use o comando CLI do Azure AZ monitor atividade](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
-)-log Alert show. Para exibir todos os recursos de regra de alerta do log de atividades em um grupo de recursos, use a [lista de alertas AZ monitor Activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
+Para recuperar um recurso de regra de alerta do log de atividades, use o comando CLI do Azure [AZ monitor atividade-log Alert show](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-show
+). Para exibir todos os recursos de regra de alerta do log de atividades em um grupo de recursos, use a [lista de alertas AZ monitor Activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-list).
 Os recursos da regra de alerta do log de atividades podem ser removidos usando o comando CLI do Azure [AZ monitor atividade-log Delete](https://docs.microsoft.com/cli/azure/monitor/activity-log/alert#az-monitor-activity-log-alert-delete).
 
 ## <a name="next-steps"></a>Passos seguintes

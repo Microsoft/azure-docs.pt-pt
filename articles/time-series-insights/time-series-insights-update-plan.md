@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 780e639ad6e1ee721820749da2df9ea6efa07bd6
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: b97db5fcebeea67cc593a4d2c1fd677a55ad8559
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273733"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550170"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planejar seu ambiente de Azure Time Series Insights Preview
 
@@ -54,7 +54,7 @@ Para começar, você precisa de três itens adicionais:
 Para criar um novo ambiente de Time Series Insights, selecione uma ID de série temporal. Fazer isso age como uma partição lógica para seus dados. Conforme observado, certifique-se de que as IDs de série temporal estão prontas.
 
 > [!IMPORTANT]
-> As IDs de série temporal são *imutáveis* e *não podem ser alteradas posteriormente*. Verifique cada uma antes da seleção final e do primeiro uso.
+> As IDs de série temporal *não podem ser alteradas posteriormente*. Verifique cada uma antes da seleção final e do primeiro uso.
 
 Você pode selecionar até três chaves para diferenciar exclusivamente seus recursos. Para obter mais informações, leia [as práticas recomendadas para escolher uma ID de série temporal e o](./time-series-insights-update-how-to-id.md) [armazenamento e a entrada](./time-series-insights-update-storage-ingress.md).
 

@@ -1,19 +1,18 @@
 ---
 title: Configurar Diagnóstico do Azure para enviar dados para Application Insights
 description: Atualize a configuração pública do Diagnóstico do Azure para enviar dados para Application Insights.
-services: azure-monitor
-author: rboucher
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 03/19/2016
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f7e21b805c64522005dce3e7d04aa158e1c21032
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 03/19/2016
+ms.openlocfilehash: 5328d2be4b8bf733041c39fe029ae2d02ecc3a6e
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60396143"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72552055"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Enviar dados de diagnóstico de serviço de nuvem, máquina virtual ou Service Fabric para Application Insights
 Serviços de nuvem, máquinas virtuais, conjuntos de dimensionamento de máquinas virtuais e Service Fabric todos usam a extensão Diagnóstico do Azure para coletar dados.  O diagnóstico do Azure envia dados para tabelas de armazenamento do Azure.  No entanto, você também pode canalizar todos ou um subconjunto dos dados para outros locais usando Diagnóstico do Azure extensão 1,5 ou posterior.
@@ -64,11 +63,11 @@ Exemplo de configuração de um coletor para Application Insights:
     - Se você não tiver um recurso de Application Insights existente, consulte [criar um novo recurso de Application insights](../../azure-monitor/app/create-new-resource.md ) para obter mais informações sobre como criar um recurso e obter a chave de instrumentação.
     - Se você estiver desenvolvendo um serviço de nuvem com o SDK do Azure 2,8 e posteriores, essa chave de instrumentação será preenchida automaticamente. O valor é baseado na definição de configuração do serviço **APPINSIGHTS_INSTRUMENTATIONKEY** ao empacotar o projeto de serviço de nuvem. Consulte [usar Application insights com serviços de nuvem](../../azure-monitor/app/cloudservices.md).
 
-- O elemento Channels contém um ou mais elementos **Channel** .
+- O elemento **Channels** contém um ou mais elementos **Channel** .
     - O atributo *Name* se refere exclusivamente a esse canal.
     - O atributo *logLevel* permite especificar o nível de log que o canal permite. Os níveis de log disponíveis em ordem de mais de menos informações são:
-        - Verboso
-        - Information
+        - Extensa
+        - Proteção das
         - Aviso
         - Erro
         - Crítico

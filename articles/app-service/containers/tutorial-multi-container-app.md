@@ -4,8 +4,8 @@ description: Saiba como usar vários contêineres no Azure com Docker Compose, W
 keywords: serviço de aplicativo do Azure, aplicativo Web, Linux, Docker, compor, multirecipiente, vários contêineres, aplicativo Web para contêineres, vários contêineres, contêiner, WordPress, BD do Azure para MySQL, banco de dados de produção com contêineres
 services: app-service
 documentationcenter: ''
-author: msangapu
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.service: app-service
 ms.workload: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/29/2019
 ms.author: msangapu
-ms.openlocfilehash: b83edae698ed62deea189c979478c2170a034fc8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f4a366809bd5c6267ef76632e8990309f100c393
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070867"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554937"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Tutorial: Criar uma aplicação com vários contentores (pré-visualização) na Aplicação Web para Contentores
 
@@ -42,11 +42,9 @@ Para concluir este tutorial, você precisa ter experiência com o [Docker Compos
 
 ## <a name="download-the-sample"></a>Transferir o exemplo
 
-Para este tutorial, utilize o ficheiro compose do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mas irá modificá-lo ao incluir a Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis. O ficheiro de configuração pode ser encontrado em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress).
+Para este tutorial, utilize o ficheiro compose do [Docker](https://docs.docker.com/compose/wordpress/#define-the-project), mas irá modificá-lo ao incluir a Base de Dados do Azure para MySQL, o armazenamento persistente e o Redis. O ficheiro de configuração pode ser encontrado em [Exemplos do Azure](https://github.com/Azure-Samples/multicontainerwordpress). Para obter as opções de configuração com suporte, consulte [Opções de Docker Compose](configure-custom-container.md#docker-compose-options).
 
 [!code-yml[Main](../../../azure-app-service-multi-container/docker-compose-wordpress.yml)]
-
-Para obter as opções de configuração com suporte, consulte [Opções de Docker Compose](configure-custom-container.md#docker-compose-options).
 
 No Cloud Shell, crie um diretório de tutorial e, em seguida, altere-o.
 
@@ -114,7 +112,7 @@ Quando o plano do Serviço de Aplicações tiver sido criado, o Cloud Shell most
 
 ## <a name="create-a-docker-compose-app"></a>Criar uma aplicação Docker Compose
 
-No seu Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir  _\<o nome do aplicativo >_ por um nome de aplicativo exclusivo.
+No seu Cloud Shell, crie uma [aplicação Web](app-service-linux-intro.md) com vários contentores no plano do Serviço de Aplicações `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). Não se esqueça de substituir _> de nome de \<app_ por um nome de aplicativo exclusivo.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -153,7 +151,7 @@ Não é recomendado utilizar os contentores da base de dados num ambiente de pro
 
 Criar uma Base de Dados do Azure para servidor MySQL com o comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-No comando a seguir, substitua o nome do servidor MySQL em que você vê `0-9`o `-` `a-z`  _&lt;espaço reservado MySQL-Server-Name >_ (os caracteres válidos são, e). Este nome faz parte do nome de anfitrião do servidor MySQL (`<mysql-server-name>.database.windows.net`); tem de ser globalmente exclusivo.
+No comando a seguir, substitua o nome do servidor MySQL em que você vê o espaço reservado _&lt;mysql-Server-name >_ (os caracteres válidos são `a-z`, `0-9` e `-`). Este nome faz parte do nome de anfitrião do servidor MySQL (`<mysql-server-name>.database.windows.net`); tem de ser globalmente exclusivo.
 
 ```azurecli-interactive
 az mysql server create --resource-group myResourceGroup --name <mysql-server-name>  --location "South Central US" --admin-user adminuser --admin-password My5up3rStr0ngPaSw0rd! --sku-name B_Gen4_1 --version 5.7
@@ -284,7 +282,7 @@ Guarde as alterações e feche o nano. Utilize o comando `^O` para guardar e `^X
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar a aplicação com uma nova configuração
 
-No Cloud Shell, reconfigure a [aplicação Web](app-service-linux-intro.md) de vários contentores com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Não se esqueça de substituir  _\<o nome do aplicativo >_ pelo nome do aplicativo Web criado anteriormente.
+No Cloud Shell, reconfigure a [aplicação Web](app-service-linux-intro.md) de vários contentores com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Não se esqueça de substituir o _nome de \<app >_ pelo nome do aplicativo Web que você criou anteriormente.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -309,7 +307,7 @@ Navegue para a aplicação implementada em (`http://<app-name>.azurewebsites.net
 
 ## <a name="add-persistent-storage"></a>Adicionar armazenamento persistente
 
-Os seus vários contentores estão agora em execução na Aplicação Web para Contentores. No entanto, se instalar o WordPress agora e reiniciar a aplicação mais tarde, irá ver que a sua instalação do WordPress foi removida. Isto acontece porque a configuração do Docker Compose está atualmente a apontar para uma localização de armazenamento no interior do contentor. Os ficheiros instalados no seu contentor não persistem para além do reinício da aplicação. Nesta seção, você adicionará [armazenamento persistente](configure-custom-container.md#use-persistent-shared-storage) ao seu contêiner do WordPress.
+Os seus vários contentores estão agora em execução na Aplicação Web para Contentores. No entanto, se instalar o WordPress agora e reiniciar a aplicação mais tarde, irá ver que a sua instalação do WordPress foi removida. Isto acontece porque a configuração do Docker Compose está atualmente a apontar para uma localização de armazenamento no interior do contentor. Os ficheiros instalados no seu contentor não persistem para além do reinício da aplicação. Nesta seção, você [adicionará armazenamento persistente](configure-custom-container.md#use-persistent-shared-storage) ao seu contêiner do WordPress.
 
 ### <a name="configure-environment-variables"></a>Configurar as variáveis de ambiente
 
@@ -360,7 +358,7 @@ services:
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar a aplicação com uma nova configuração
 
-No Cloud Shell, reconfigure a [aplicação Web](app-service-linux-intro.md) de vários contentores com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Não se esqueça de substituir  _\<o nome do aplicativo >_ por um nome de aplicativo exclusivo.
+No Cloud Shell, reconfigure a [aplicação Web](app-service-linux-intro.md) de vários contentores com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Não se esqueça de substituir _> de nome de \<app_ por um nome de aplicativo exclusivo.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file docker-compose-wordpress.yml
@@ -444,7 +442,7 @@ Quando a definição de aplicação tiver sido criada, o Cloud Shell mostra info
 
 ### <a name="update-app-with-new-configuration"></a>Atualizar a aplicação com uma nova configuração
 
-No Cloud Shell, reconfigure a [aplicação Web](app-service-linux-intro.md) de vários contentores com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Não se esqueça de substituir  _\<o nome do aplicativo >_ por um nome de aplicativo exclusivo.
+No Cloud Shell, reconfigure a [aplicação Web](app-service-linux-intro.md) de vários contentores com o comando [az webapp config container set](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set). Não se esqueça de substituir _> de nome de \<app_ por um nome de aplicativo exclusivo.
 
 ```azurecli-interactive
 az webapp config container set --resource-group myResourceGroup --name <app-name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
@@ -469,7 +467,7 @@ Conclua os passos e instale o WordPress.
 
 ### <a name="connect-wordpress-to-redis"></a>Ligar o WordPress ao Redis
 
-Entre no administrador do WordPress. No painel de navegação esquerdo, selecione **Plugins** e, em seguida, selecione **Installed Plugins** (Plug-ins instalados).
+Entre no administrador do WordPress. No painel de navegação esquerdo, selecione **plugins**e, em seguida, selecione **plug-ins instalados**.
 
 ![Selecionar os Plug-ins do WordPress][2]
 
@@ -515,7 +513,7 @@ Pode ver um registo para cada contentor e um registo adicional para o processo p
 
 [!INCLUDE [Clean-up section](../../../includes/cli-script-clean-up.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 > [!div class="checklist"]
@@ -529,7 +527,7 @@ Neste tutorial, ficou a saber como:
 Avance para o próximo tutorial para saber como mapear um nome DNS personalizado para seu aplicativo.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: mapear o nome DNS personalizado para seu aplicativo](../app-service-web-tutorial-custom-domain.md)
 
 Ou então, confira outros recursos:
 

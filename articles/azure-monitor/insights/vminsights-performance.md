@@ -1,24 +1,18 @@
 ---
 title: Como exibir o desempenho de gráficos com Azure Monitor para VMs (visualização) | Microsoft Docs
 description: O desempenho é um recurso do Azure Monitor para VMs que descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em uma variedade de cenários.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 10/15/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: cdfc0115beecd69ec50e8b7fd026563d145e1761
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: HT
+ms.date: 10/15/2019
+ms.openlocfilehash: f8879ac2d7827732112fa1a7504484209461b196
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515301"
+ms.locfileid: "72555168"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Como exibir o desempenho de gráficos com Azure Monitor para VMs (versão prévia)
 

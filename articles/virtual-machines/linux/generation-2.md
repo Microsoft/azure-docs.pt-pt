@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/16/2019
 ms.author: lahugh
-ms.openlocfilehash: 6f787760c1224172982e0818d8592ce0d36b5e2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
-ms.translationtype: HT
+ms.openlocfilehash: 3d4585e032d92049a4f087cd510bdef963025250
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527284"
+ms.locfileid: "72550143"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Suporte para VMs de geração 2 (versão prévia) no Azure
 
@@ -52,8 +52,8 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure. O Azure 
 * [Série NVv3](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
 
 
->[!NOTE]
->O uso de imagens de VM de geração 2 para Mv2 está disponível em geral, já que a série Mv2 funciona com imagens de VM de geração 2 exclusivamente. As imagens de VM de geração 1 não estão funcionando com a série Mv2. 
+> [!NOTE]
+> O uso de imagens de VM de geração 2 para VMs da série Mv2 está geralmente disponível, já que a série Mv2 funciona com imagens de VM de geração 2 exclusivamente. Não há suporte para imagens de VM de geração 1 em VMs da série Mv2. 
 
 ## <a name="generation-2-vm-images-in-azure-marketplace"></a>Imagens de VM de geração 2 no Azure Marketplace
 

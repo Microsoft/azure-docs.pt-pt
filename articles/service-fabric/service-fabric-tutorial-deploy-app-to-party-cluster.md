@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: d637b01eb9e4d1664def9eb537b810603eea18ea
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4767f43171e8576fcf35ba7304c48b05b85745c4
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598804"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553584"
 ---
-# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implantar um aplicativo Service Fabric em um cluster no Azure
+# <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutorial: Implementar uma aplicação do Service Fabric num cluster no Azure
 
 Este tutorial é a segunda parte de uma série. Mostra-lhe como implementar uma aplicação do Azure Service Fabric num novo cluster no Azure.
 
@@ -46,6 +46,9 @@ Antes de começar este tutorial:
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Instale o Visual Studio 2019](https://www.visualstudio.com/)e instale as cargas de trabalho de desenvolvimento e **ASP.net e** desenvolvimento para a Web **do Azure** .
 * [Instale o SDK do Service Fabric](service-fabric-get-started.md).
+
+> [!NOTE]
+> Uma conta gratuita pode não atender aos requisitos para criar uma máquina virtual. Isso impedirá a conclusão do tutorial.
 
 ## <a name="download-the-voting-sample-application"></a>Transferir o exemplo de aplicação de votação
 
@@ -105,7 +108,7 @@ Quando o novo cluster estiver pronto, você poderá implantar o aplicativo de vo
 No Explorador de Soluções, clique com o botão direito do rato em **Voting** e selecione **Publish** (Publicar). É apresentada a caixa de diálogo **Publicar**.
 
 Em **ponto de extremidade de conexão**, selecione o ponto de extremidade para o cluster que você criou na etapa anterior.  Por exemplo, "mytestcluster.southcentral.cloudapp.azure.com:19000". Se você selecionar **parâmetros de conexão avançados**, as informações do certificado deverão ser preenchidas automaticamente.  
-![Publicar um aplicativo Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
+![Publish um aplicativo Service Fabric ](./media/service-fabric-tutorial-deploy-app-to-party-cluster/publish-app.png)
 
 Selecione **Publicar**.
 
@@ -114,7 +117,7 @@ Depois que o aplicativo for implantado, abra um navegador e insira o endereço d
 ![Exemplo de votação do Service Fabric](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-screenshot-new-azure.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Nesta parte do tutorial, ficou a saber como:
 
 > [!div class="checklist"]

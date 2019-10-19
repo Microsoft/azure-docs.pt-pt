@@ -1,19 +1,18 @@
 ---
 title: Exemplos de início rápido do Azure Monitor PowerShell
 description: Use o PowerShell para acessar recursos do Azure Monitor, como dimensionamento automático, alertas, WebHooks e pesquisar logs de atividade.
-author: rboucher
-services: azure-monitor
 ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 2/14/2018
-ms.author: robb
 ms.subservice: ''
-ms.openlocfilehash: 886eb8578e004eba3b6fabc1deb42db0fb7fac70
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.topic: conceptual
+author: rboucher
+ms.author: robb
+ms.date: 2/14/2018
+ms.openlocfilehash: d1aa4b4e2d72f10ca73616bc7e69b0d02f13a501
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350255"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551845"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do Azure Monitor PowerShell
 Este artigo mostra exemplos de comandos do PowerShell para ajudá-lo a acessar recursos do Azure Monitor.
@@ -98,7 +97,7 @@ O comando a seguir recupera os últimos 1000 eventos do log de atividades:
 Get-AzLog -MaxRecord 10
 ```
 
-`Get-AzLog` dá suporte a muitos outros parâmetros. Consulte a referência `Get-AzLog` para obter mais informações.
+o `Get-AzLog` dá suporte a muitos outros parâmetros. Consulte a referência de `Get-AzLog` para obter mais informações.
 
 > [!NOTE]
 > `Get-AzLog` fornece apenas 15 dias de histórico. O uso do parâmetro **-MaxRecords** permite consultar os últimos N eventos, além de 15 dias. Para acessar eventos com mais de 15 dias, use a API REST ou oC# SDK (exemplo usando o SDK). Se você não incluir **StartTime**, o valor padrão será **EndTime** menos uma hora. Se você não incluir **EndTime**, o valor padrão será current time. Todas as horas estão em UTC.
@@ -150,18 +149,18 @@ Você pode criar propriedades de email e webhook usando `New-AzAlertRuleEmail` e
 
 A tabela a seguir descreve os parâmetros e valores usados para criar um alerta usando uma métrica.
 
-| Meter | value |
+| Meter | valor |
 | --- | --- |
-| Name |simpletestdiskwrite |
-| Local desta regra de alerta |East US |
+| Nome |simpletestdiskwrite |
+| Local desta regra de alerta |Este dos E.U.A. |
 | ResourceGroup |montest |
 | TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
-| Metricname do alerta que é criado |\PhysicalDisk(_Total)\Disk Writes/sec. See the `Get-MetricDefinitions` cmdlet about how to retrieve the exact metric names |
-| operator |GreaterThan |
+| Metricname do alerta que é criado |\PhysicalDisk (_ total) \Bytes gravações de/s. Consulte o cmdlet `Get-MetricDefinitions` sobre como recuperar os nomes de métricas exatas |
+| operador |GreaterThan |
 | Valor de limite (contagem/s para esta métrica) |1 |
 | WindowSize (formato hh: mm: SS) |00:05:00 |
-| agregador (estatística da métrica, que usa a contagem média, neste caso) |Average |
-| emails personalizados (matriz de cadeia de caracteres) |'foo@example.com','bar@example.com' |
+| agregador (estatística da métrica, que usa a contagem média, neste caso) |Média |
+| emails personalizados (matriz de cadeia de caracteres) |' foo@example.com ', ' bar@example.com ' |
 | Enviar email para proprietários, colaboradores e leitores |-SendToServiceOwners |
 
 Criar uma ação de email
@@ -229,7 +228,7 @@ Estas são as etapas a serem usadas:
 
 1. Criar regra (s).
 2. Criar perfil (s) mapeando as regras que você criou anteriormente para os perfis.
-3. Opcional: Crie notificações para dimensionamento automático configurando as propriedades webhook e email.
+3. Opcional: Crie notificações para dimensionamento automático configurando as propriedades de webhook e email.
 4. Crie uma configuração de dimensionamento automático com um nome no recurso de destino mapeando os perfis e as notificações que você criou nas etapas anteriores.
 
 Os exemplos a seguir mostram como você pode criar uma configuração de dimensionamento automático para um conjunto de dimensionamento de máquinas virtuais para um sistema operacional Windows baseado usando a métrica de utilização da CPU.
@@ -389,7 +388,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-in
 
 ```
 
-Observe que a propriedade Workspaceid usa a *ID do recurso* do espaço de trabalho. Pode obter o ID de recurso da sua área de trabalho do Log Analytics com o seguinte comando:
+Observe que a propriedade Workspaceid usa a *ID do recurso* do espaço de trabalho. Você pode obter a ID de recurso do seu espaço de trabalho Log Analytics usando o seguinte comando:
 
 ```powershell
 (Get-AzOperationalInsightsWorkspace).ResourceId

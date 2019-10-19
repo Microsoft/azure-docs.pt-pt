@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: db96663ef3d901546e1b32362a9eb9c9ae09dd21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377515"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72553641"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -26,15 +26,15 @@ Como Azure Machine Learning rastreia informações de um repositório git local,
 
 Quando você envia uma execução de treinamento do SDK do Python ou da CLI do Machine Learning, os arquivos necessários para treinar o modelo são carregados no espaço de trabalho. Se o comando `git` estiver disponível em seu ambiente de desenvolvimento, o processo de carregamento o usará para verificar se os arquivos estão armazenados em um repositório git. Nesse caso, as informações do repositório git também são carregadas como parte da execução do treinamento. Essas informações são armazenadas nas seguintes propriedades para a execução de treinamento:
 
-| Propriedade | Descrição |
-| ----- | ----- |
-| `azureml.git.repository_uri` | O URI do qual o repositório foi clonado. |
-| `mlflow.source.git.repoURL` | O URI do qual o repositório foi clonado. |
-| `azureml.git.branch` | A ramificação ativa quando a execução foi enviada. |
-| `mlflow.source.git.branch` | A ramificação ativa quando a execução foi enviada. |
-| `azureml.git.commit` | O hash de confirmação do código que foi enviado para a execução. |
-| `mlflow.source.git.commit` | O hash de confirmação do código que foi enviado para a execução. |
-| `azureml.git.dirty` | `True`, se a confirmação for suja; caso contrário, `false`. |
+| Propriedade | Comando git usado para obter o valor | Descrição |
+| ----- | ----- | ----- |
+| `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
+| `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI do qual o repositório foi clonado. |
+| `azureml.git.branch` | `git symbolic-ref --short HEAD` | A ramificação ativa quando a execução foi enviada. |
+| `mlflow.source.git.branch` | `git symbolic-ref --short HEAD` | A ramificação ativa quando a execução foi enviada. |
+| `azureml.git.commit` | `git rev-parse HEAD` | O hash de confirmação do código que foi enviado para a execução. |
+| `mlflow.source.git.commit` | `git rev-parse HEAD` | O hash de confirmação do código que foi enviado para a execução. |
+| `azureml.git.dirty` | `git status --porcelain .` | `True`, se a ramificação/confirmação estiver suja; caso contrário, `false`. |
 
 Essas informações são enviadas para execuções que usam um estimador, pipeline de Machine Learning ou execução de script.
 
@@ -49,7 +49,9 @@ As informações do git são armazenadas nas propriedades de uma execução de t
 1. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho.
 1. Selecione __experimentos__e, em seguida, selecione um de seus experimentos.
 1. Selecione uma das execuções na coluna __número da execução__ .
-1. Selecione __logs__e, em seguida, expanda os __logs__ e as entradas do __azureml__ . Selecione o link que começa com __### @ no__t-2azure__.
+1. Selecione __logs__e, em seguida, expanda os __logs__ e as entradas do __azureml__ . Selecione o link que começa com __### \_azure__.
+
+    ![A entrada # # #_azure no portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
 As informações registradas em log contêm texto semelhante ao JSON a seguir:
 

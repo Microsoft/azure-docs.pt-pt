@@ -1,28 +1,22 @@
 ---
 title: Usando Mapa do Serviço solução no Azure | Microsoft Docs
-description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes para implementar o mapa de serviço no seu ambiente e utilizá-lo numa variedade de cenários.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: 3ceb84cc-32d7-4a7a-a916-8858ef70c0bd
+description: O Mapa de Serviços é uma solução no Azure que deteta componentes da aplicação em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como implantar Mapa do Serviço em seu ambiente e usá-lo em vários cenários.
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/24/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: mgoedtel
 ms.author: magoedte
-ms.openlocfilehash: 98bf38a6c293f6d339413b5395bb32d74bcb30c0
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 07/24/2019
+ms.openlocfilehash: 00bb58c88b7dc535bf76e1a96e9748a2c366b338
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69905723"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554009"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando Mapa do Serviço solução no Azure
 
-O Mapa de Serviço deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
+O Mapa de Serviços deteta automaticamente componentes de aplicações em sistemas Windows e Linux e mapeia a comunicação entre serviços. Com o Mapa de Serviços, pode ver os seus servidores da mesma forma como os conceptualiza: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre servidores, os processos, a latência da ligação de entrada e de saída e as portas em qualquer arquitetura ligada por TCP, em que a única configuração necessária é a instalação de um agente.
 
 Este artigo descreve os detalhes de integração e uso de Mapa do Serviço. Para obter informações sobre como configurar os pré-requisitos para essa solução, consulte [habilitar a Azure monitor para VMs visão geral](vminsights-enable-overview.md#prerequisites). Para resumir, você precisa do seguinte:
 
@@ -44,15 +38,15 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 1. Habilite a solução de Mapa do Serviço do [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) ou usando o processo descrito em [Adicionar soluções de monitoramento do Galeria de soluções](solutions.md).
 1. [Instale o Dependency Agent no Windows](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) ou [Instale o Dependency Agent no Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) em cada computador em que você deseja obter dados. O Agente de Dependência pode monitorizar as ligações dos vizinhos imediatos, pelo que poderá não precisar de um agente em cada computador.
 
-Você acessa Mapa do Serviço no portal do Azure de seu espaço de trabalho do Log Analytics e seleciona a opção **soluções** no painel esquerdo.<br><br> ![Selecione a opção de soluções](./media/service-map/select-solution-from-workspace.png)no espaço de trabalho.<br> Na lista de soluções, selecione **ServiceMap (WorkspaceName)** e, na página Visão geral da solução mapa do serviço, clique no bloco resumo de mapa do serviço.<br><br> ![Mapa do Serviço bloco](./media/service-map/service-map-summary-tile.png)de resumo.
+Você acessa Mapa do Serviço no portal do Azure de seu espaço de trabalho do Log Analytics e seleciona a opção **soluções** no painel esquerdo.<br><br> ![Select opção de soluções no ](./media/service-map/select-solution-from-workspace.png) de espaço de trabalho.<br> Na lista de soluções, selecione **ServiceMap (WorkspaceName)** e, na página Visão geral da solução mapa do serviço, clique no bloco resumo de mapa do serviço.<br><br> ](./media/service-map/service-map-summary-tile.png) de bloco de resumo do mapa de ![Service.
 
-## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: Torne seus processos de ti cientes da dependência
+## <a name="use-cases-make-your-it-processes-dependency-aware"></a>Casos de uso: torne seus processos de ti cientes da dependência
 
 ### <a name="discovery"></a>Deteção
 
 Mapa do Serviço cria automaticamente um mapa de referência comum de dependências em seus servidores, processos e serviços de terceiros. Ele descobre e mapeia todas as dependências de TCP, identificando conexões surpresa, sistemas remotos de terceiros dos quais você depende e dependências para áreas escuras tradicionais da sua rede, como Active Directory. Mapa do Serviço descobre conexões de rede com falha que os sistemas gerenciados estão tentando fazer, ajudando você a identificar possíveis erros de configuração, interrupção do serviço e problemas de rede.
 
-### <a name="incident-management"></a>gestão de incidentes
+### <a name="incident-management"></a>Gerenciamento de incidentes
 
 Mapa do Serviço ajuda a eliminar a adivinhação do isolamento de problemas, mostrando como os sistemas estão conectados e afetando uns aos outros. Além de identificar conexões com falha, ele ajuda a identificar balanceadores de carga configurados incorretamente, carga surpreendente ou excessiva em serviços críticos e clientes não autorizados, como computadores de desenvolvedor conversando com sistemas de produção. Usando fluxos de trabalho integrados com Controle de Alterações, você também pode ver se um evento de alteração em um computador de back-end ou serviço explica a causa raiz de um incidente.
 
@@ -60,7 +54,7 @@ Mapa do Serviço ajuda a eliminar a adivinhação do isolamento de problemas, mo
 
 Usando Mapa do Serviço, você pode efetivamente planejar, acelerar e validar migrações do Azure, o que ajuda a garantir que nada seja deixado para trás e interrupções surpresa não ocorram. Você pode descobrir todos os sistemas interdependentes que precisam ser migrados juntos, avaliar a capacidade e a configuração do sistema e identificar se um sistema em execução ainda está atendendo aos usuários ou se é um candidato ao encerramento em vez da migração. Depois que a movimentação for concluída, você poderá verificar a carga e a identidade do cliente para verificar se os sistemas de teste e os clientes estão se conectando. Se as definições de firewall e de planejamento de sub-rede tiverem problemas, as conexões com falha no Mapa do Serviço mapas apontarão para os sistemas que precisam de conectividade.
 
-### <a name="business-continuity"></a>Continuidade do negócio
+### <a name="business-continuity"></a>Continuidade de negócio
 
 Se você estiver usando Azure Site Recovery e precisar de ajuda para definir a sequência de recuperação para seu ambiente de aplicativo, Mapa do Serviço poderá mostrar automaticamente como os sistemas dependem uns dos outros para garantir que seu plano de recuperação seja confiável. Ao escolher um servidor ou grupo crítico e exibir seus clientes, você pode identificar quais sistemas front-end serão recuperados depois que o servidor for restaurado e estiver disponível. Por outro lado, examinando as dependências de back-end dos servidores críticos, você pode identificar quais sistemas serão recuperados antes de seus sistemas de foco serem restaurados.
 
@@ -104,7 +98,7 @@ Os usuários selecionam quais servidores pertencem a um grupo juntos e escolhem 
 
 Para criar um grupo, selecione o computador ou as máquinas que você deseja na lista computadores e clique em **Adicionar ao grupo**.
 
-![Create Group](media/service-map/machine-groups-create.png)
+![Criar Grupo](media/service-map/machine-groups-create.png)
 
 Lá, você pode escolher **criar novo** e dar um nome ao grupo.
 
@@ -120,7 +114,7 @@ Depois de criar alguns grupos, você pode exibi-los escolhendo a guia grupos.
 ![Guia grupos](media/service-map/machine-groups-tab.png)
 
 Em seguida, selecione o nome do grupo para exibir o mapa desse grupo de computadores.
-![Grupo](media/service-map/machine-group.png) de computadores os computadores que pertencem ao grupo são descritos em branco no mapa.
+![Machine grupo ](media/service-map/machine-group.png) as máquinas que pertencem ao grupo são descritas em branco no mapa.
 
 Expandir o grupo listará os computadores que compõem o grupo de computadores.
 
@@ -165,26 +159,26 @@ Determinados processos atendem a funções específicas em computadores: servido
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicativos](media/service-map/role-application-server.png) | Servidor de aplicativos |
-| ![Servidor de bases de dados](media/service-map/role-database.png) | Servidor de bases de dados |
+| ![Servidor de banco de dados](media/service-map/role-database.png) | Servidor de banco de dados |
 | ![Servidor LDAP](media/service-map/role-ldap.png) | Servidor LDAP |
 | ![Servidor SMB](media/service-map/role-smb.png) | Servidor SMB |
 
 ![Ícones de função](media/service-map/role-icons.png)
 
 
-## <a name="failed-connections"></a>Ligações com falhas
+## <a name="failed-connections"></a>Conexões com falha
 
 As conexões com falha são mostradas no Mapa do Serviço Maps para processos e computadores, com uma linha vermelha tracejada indicando que um sistema cliente está falhando em alcançar um processo ou uma porta. As conexões com falha são relatadas de qualquer sistema com um agente de Mapa do Serviço implantado se esse sistema for o que está tentando a conexão com falha. Mapa do Serviço mede esse processo observando os soquetes TCP que falham ao estabelecer uma conexão. Essa falha pode resultar de um firewall, uma configuração incorreta no cliente ou servidor, ou um serviço remoto estar indisponível.
 
-![Ligações com falhas](media/service-map/failed-connections.png)
+![Conexões com falha](media/service-map/failed-connections.png)
 
 A compreensão de conexões com falha pode ajudar na solução de problemas, validação de migração, análise de segurança e compreensão geral da arquitetura. As conexões com falha são algumas vezes inofensivas, mas elas geralmente apontam diretamente para um problema, como um ambiente de failover que está ficando inacessível repentinamente ou duas camadas de aplicativo não podem se comunicar após uma migração de nuvem.
 
-## <a name="client-groups"></a>Grupos de Clientes
+## <a name="client-groups"></a>Grupos de clientes
 
 Grupos de clientes são caixas no mapa que representam computadores cliente que não têm agentes de dependência. Um único grupo de clientes representa os clientes de um computador ou processo individual.
 
-![Grupos de Clientes](media/service-map/client-groups.png)
+![Grupos de clientes](media/service-map/client-groups.png)
 
 Para ver os endereços IP dos servidores em um grupo de clientes, selecione o grupo. O conteúdo do grupo é listado no painel **Propriedades do grupo de clientes** .
 
@@ -196,11 +190,11 @@ Os grupos de portas do servidor são caixas que representam portas de servidor e
 
 ![Grupos de portas do servidor](media/service-map/server-port-groups.png)
 
-## <a name="context-menu"></a>Menu de contexto
+## <a name="context-menu"></a>Menu Contexto
 
 Clicar nas reticências (...) na parte superior direita de qualquer servidor exibe o menu de contexto desse servidor.
 
-![Ligações com falhas](media/service-map/context-menu.png)
+![Conexões com falha](media/service-map/context-menu.png)
 
 ### <a name="load-server-map"></a>Carregar mapa do servidor
 
@@ -280,16 +274,16 @@ O painel **desempenho do computador** exibe as métricas de desempenho padrão p
 Para ver os dados de desempenho, talvez seja necessário [habilitar os contadores de desempenho apropriados de log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Os contadores que você deseja habilitar:
 
 Windows:
-- Processador (*)\\% tempo do processador
-- Memória\\-% bytes confirmados em uso
-- Adaptador de rede (*\\) bytes enviados/s
-- Adaptador de rede (*\\) bytes recebidos/s
+- Processador (*) \\% tempo do processador
+- Memória \\% de bytes confirmados em uso
+- Adaptador de rede (*) \\Bytes enviados/s
+- Adaptador de rede (*) \\Bytes recebidos/s
 
 Linux:
-- Processador (*)\\% tempo do processador
-- Memória (*)\\% memória usada
-- Adaptador de rede (*\\) bytes enviados/s
-- Adaptador de rede (*\\) bytes recebidos/s
+- Processador (*) \\% tempo do processador
+- Memória (*) \\% de memória usada
+- Adaptador de rede (*) \\Bytes enviados/s
+- Adaptador de rede (*) \\Bytes recebidos/s
 
 Para obter os dados de desempenho de rede, você também deve ter habilitado a solução Wire Data 2.0 em seu espaço de trabalho.
  
@@ -320,8 +314,8 @@ Um registro é gerado por hora para cada computador e processo exclusivo, além 
 
 Há Propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
-- Ele Use ResourceId ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho log Analytics.
-- Processo: Use ResourceId para identificar exclusivamente um processo dentro de um espaço de trabalho log Analytics. *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
+- Computador: use *ResourceId* ou *ResourceName_s* para identificar exclusivamente um computador em um espaço de trabalho log Analytics.
+- Processo: use *ResourceId* para identificar exclusivamente um processo em um espaço de trabalho log Analytics. *ResourceName_s* é exclusivo no contexto do computador no qual o processo está em execução (MachineResourceName_s) 
 
 Como vários registros podem existir para um processo especificado e um computador em um intervalo de tempo especificado, as consultas podem retornar mais de um registro para o mesmo computador ou processo. Para incluir apenas o registro mais recente, adicione "| eliminação de duplicatas "para a consulta.
 
@@ -390,7 +384,7 @@ O *VMConnection* também inclui informações de localização geográfica para 
 | `RemoteLatitude` |A latitude de geolocalização.  Por exemplo, *47,68* |
 | `RemoteLongitude` |A longitude da geolocalização.  Por exemplo, *-122,12* |
 
-#### <a name="malicious-ip"></a>IP malicioso
+#### <a name="malicious-ip"></a>IP mal-intencionado
 
 Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em relação a um conjunto de IPS com atividade mal-intencionada conhecida. Se o RemoteIp for identificado como mal-intencionado, as propriedades a seguir serão preenchidas (estão vazias, quando o IP não for considerado mal-intencionado) nas seguintes propriedades do registro:
 
@@ -410,7 +404,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em rela
 
 ### <a name="servicemapcomputer_cl-records"></a>Registros de ServiceMapComputer_CL
 
-Os registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes de mapa do serviço. Estes registos têm as propriedades na tabela a seguir:
+Os registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário para servidores com agentes de mapa do serviço. Esses registros têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -436,7 +430,7 @@ Os registros com um tipo de *ServiceMapComputer_CL* têm dados de inventário pa
 
 ### <a name="servicemapprocess_cl-type-records"></a>Registros do tipo ServiceMapProcess_CL
 
-Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados por TCP em servidores com agentes de mapa do serviço. Estes registos têm as propriedades na tabela a seguir:
+Os registros com um tipo de *ServiceMapProcess_CL* têm dados de inventário para processos conectados por TCP em servidores com agentes de mapa do serviço. Esses registros têm as propriedades na tabela a seguir:
 
 | Propriedade | Descrição |
 |:--|:--|
@@ -492,7 +486,7 @@ ServiceMapProcess_CL | em que MachineResourceName_s = = "m-559dbcd8-3130-454D-8d
 
 ### <a name="list-all-computers-running-sql"></a>Listar todos os computadores que executam SQL
 
-ServiceMapComputer_CL | onde ResourceName_s ((Pesquisar em (ServiceMapProcess_CL) "\*SQL\*" | DISTINCT MachineResourceName_s)) | DISTINCT ComputerName_s
+ServiceMapComputer_CL | onde ResourceName_s ((Pesquisar em (ServiceMapProcess_CL) "\*sql \*" | DISTINCT MachineResourceName_s)) | ComputerName_s distinto
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Listar todas as versões de produto exclusivas da ondulação em meu datacenter
 
@@ -500,7 +494,7 @@ ServiceMapProcess_CL | em que ExecutableName_s = = "Ondulação" | ProductVersio
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Criar um grupo de computador de todos os computadores que executam o CentOS
 
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+ServiceMapComputer_CL | em que OperatingSystemFullName_s contains_cs "CentOS" | ComputerName_s distinto
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Resumir as conexões de saída de um grupo de computadores
 
@@ -549,45 +543,45 @@ let remoteMachines = remote | summarize by RemoteMachine;
 
 Todos os dados de servidor, processo e dependência no Mapa do Serviço estão disponíveis por meio da [API REST do mapa do serviço](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Dados de utilização e diagnóstico
+## <a name="diagnostic-and-usage-data"></a>Dados de diagnóstico e de uso
 
-A Microsoft recolhe automaticamente dados de utilização e desempenho através da utilização do serviço do mapa de serviço. A Microsoft utiliza estes dados para fornecer e melhorar a qualidade, segurança e integridade do serviço de mapa de serviço. Para fornecer recursos de solução de problemas precisos e eficientes, os dados incluem informações sobre a configuração do software, como sistema operacional e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
+A Microsoft coleta automaticamente dados de uso e de desempenho por meio do uso do serviço de Mapa do Serviço. A Microsoft usa esses dados para fornecer e aprimorar a qualidade, a segurança e a integridade do serviço de Mapa do Serviço. Para fornecer recursos de solução de problemas precisos e eficientes, os dados incluem informações sobre a configuração do software, como sistema operacional e versão, endereço IP, nome DNS e nome da estação de trabalho. A Microsoft não coleta nomes, endereços ou outras informações de contato.
 
-Para obter mais informações sobre a recolha de dados e a utilização, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
+Para obter mais informações sobre a coleta e o uso de dados, consulte a [declaração de privacidade do Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as [pesquisas de log](../../azure-monitor/log-query/log-query-overview.md) no log Analytics para recuperar dados coletados pelo mapa do serviço.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Se tiver quaisquer problemas de instalação ou execução de mapa de serviço, nesta secção pode ajudar. Se ainda não é possível resolver o problema, entre em contato com Support da Microsoft.
+Se você tiver problemas ao instalar ou executar o Mapa do Serviço, esta seção poderá ajudá-lo. Se você ainda não conseguir resolver o problema, entre em contato com Suporte da Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemas de instalação do agente de dependência
 
-#### <a name="installer-prompts-for-a-reboot"></a>Pedidos de instalador de um reinício
-O agente de dependência *geralmente* não requer uma reinicialização após a instalação ou remoção. No entanto, em certos casos raros, Windows Server exige uma reinicialização para continuar com uma instalação. Isso acontece quando uma dependência, geralmente, a biblioteca C++ redistribuível do Microsoft Visual requer uma reinicialização devido a um arquivo bloqueado.
+#### <a name="installer-prompts-for-a-reboot"></a>O instalador solicita uma reinicialização
+O agente de dependência *geralmente* não requer uma reinicialização após a instalação ou remoção. No entanto, em determinados casos raros, o Windows Server requer uma reinicialização para continuar com uma instalação. Isso acontece quando uma dependência, geralmente, a biblioteca C++ redistribuível do Microsoft Visual requer uma reinicialização devido a um arquivo bloqueado.
 
-#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Mensagem "não é possível instalar o agente de dependência: Falha ao instalar bibliotecas de tempo de execução do Visual Studio (Code = [code_number]) "
+#### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--code_number-appears"></a>Mensagem "não é possível instalar o agente de dependência: as bibliotecas de tempo de execução do Visual Studio não puderam ser instaladas (código = [code_number])" aparece
 
-O agente do Microsoft Dependency baseia-se as bibliotecas de tempo de execução do Microsoft Visual Studio. Obterá uma mensagem se existe um problema durante a instalação das bibliotecas. 
+O Microsoft Dependency Agent foi criado no Microsoft Visual Studio bibliotecas de tempo de execução. Você receberá uma mensagem se houver um problema durante a instalação das bibliotecas. 
 
-Os programas de instalação de biblioteca de tempo de execução criam registos na pasta %LOCALAPPDATA%\temp. O arquivo é `dd_vcredist_arch_yyyymmddhhmmss.log`, onde *Arch* é `x86` ou `amd64` e *AAAAMMDDHHMMSS* é a data e hora (relógio de 24 horas) quando o log foi criado. O registo fornece detalhes sobre o problema que está a bloquear a instalação.
+Os instaladores da biblioteca de tempo de execução criam logs na pasta%LOCALAPPDATA%\temp O arquivo é `dd_vcredist_arch_yyyymmddhhmmss.log`, em que *Arch* é `x86` ou `amd64` e *AAAAMMDDHHMMSS* é a data e a hora (relógio de 24 horas) quando o log foi criado. O log fornece detalhes sobre o problema que está bloqueando a instalação.
 
 Pode ser útil instalar primeiro as [bibliotecas de tempo de execução mais recentes](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) .
 
-A tabela seguinte apresenta uma lista de números de código e resoluções sugeridas.
+A tabela a seguir lista os números de código e as resoluções sugeridas.
 
 | Código | Descrição | Resolução |
 |:--|:--|:--|
-| 0x17 | O instalador de biblioteca exige uma atualização do Windows que não foi instalada. | Procure no registo do instalador mais recente da biblioteca.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` , você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção pré-requisitos no artigo [tempo de execução universal C no Windows](https://support.microsoft.com/kb/2999226) . Poderá ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do agente Microsoft Dependency novamente. |
+| 0x17 | O instalador da biblioteca requer uma atualização do Windows que não foi instalada. | Examine o log do instalador de biblioteca mais recente.<br><br>Se uma referência a `Windows8.1-KB2999226-x64.msu` for seguida por uma linha `Error 0x80240017: Failed to execute MSU package,` você não terá os pré-requisitos para instalar o KB2999226. Siga as instruções na seção pré-requisitos no artigo [tempo de execução universal C no Windows](https://support.microsoft.com/kb/2999226) . Talvez seja necessário executar Windows Update e reinicializar várias vezes para instalar os pré-requisitos.<br><br>Execute o instalador do Microsoft Dependency Agent novamente. |
 
-### <a name="post-installation-issues"></a>Problemas de pós-instalação
+### <a name="post-installation-issues"></a>Problemas após a instalação
 
-#### <a name="server-doesnt-appear-in-service-map"></a>Servidor não aparece no mapa de serviço
+#### <a name="server-doesnt-appear-in-service-map"></a>O servidor não aparece no Mapa do Serviço
 
 Se a instalação do agente de dependência for bem-sucedida, mas você não vir seu computador na solução Mapa do Serviço:
-* O agente de dependência é instalado com êxito? Pode confirmar isto, verificando se o serviço está instalado e em execução.<br><br>
+* O agente de dependência foi instalado com êxito? Você pode validar isso verificando se o serviço está instalado e em execução.<br><br>
 **Windows**: Procure o serviço chamado **Microsoft Dependency Agent**.
 **Linux**: Procure o processo em execução **Microsoft-Dependency-Agent**.
 
@@ -599,13 +593,13 @@ Se a instalação do agente de dependência for bem-sucedida, mas você não vir
     Usage | where Computer == "admdemo-appsvr" | summarize sum(Quantity), any(QuantityUnit) by DataType
     ```
 
-Obteve uma variedade de eventos nos resultados? Os dados são recentes? Nesse caso, seu agente de Log Analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso contrário, verifique o agente em seu computador: Solução [de problemas do log Analytics Agent para Windows](../platform/agent-windows-troubleshoot.md) ou solução [de problemas do agente log Analytics para Linux](../platform/agent-linux-troubleshoot.md).
+Você obteve vários eventos nos resultados? Os dados são recentes? Nesse caso, seu agente de Log Analytics está operando corretamente e se comunicando com o espaço de trabalho. Caso contrário, verifique o agente em seu computador: [log Analytics agente para solução de problemas do Windows](../platform/agent-windows-troubleshoot.md) ou solução [de problemas do agente log Analytics para Linux](../platform/agent-linux-troubleshoot.md).
 
-#### <a name="server-appears-in-service-map-but-has-no-processes"></a>Servidor é apresentado no mapa de serviço, mas não tem nenhum processo
+#### <a name="server-appears-in-service-map-but-has-no-processes"></a>O servidor aparece na Mapa do Serviço mas não tem processos
 
 Se você vir seu computador no Mapa do Serviço, mas ele não tem nenhum processo ou dados de conexão, isso indica que o agente de dependência está instalado e em execução, mas o driver do kernel não foi carregado. 
 
-Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As última linhas do ficheiro devem indicar por que não carregou o kernel. Por exemplo, o kernel poderá não ser suportado no Linux, se atualizou o kernel.
+Verifique o `C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log file` (Windows) ou `/var/opt/microsoft/dependency-agent/log/service.log file` (Linux). As últimas linhas do arquivo devem indicar por que o kernel não foi carregado. Por exemplo, o kernel pode não ter suporte no Linux se você tiver atualizado o kernel.
 
 ## <a name="feedback"></a>Comentários
 
