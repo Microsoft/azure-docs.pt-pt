@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 514248446798e8c806252707cc5b332a7d1a4f87
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518541"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597960"
 ---
-# <a name="reserved-public-ipv6-address-prefix"></a>Prefixo de endereço IPv6 público reservado
+# <a name="reserved-public-ipv6-address-prefix-preview"></a>Prefixo de endereço IPv6 público reservado (versão prévia)
 
 No Azure, as redes virtuais (VNet) e as VMs (máquinas virtuais) de pilha dupla (IPv4 + IPv6) são protegidas por padrão, pois não têm conectividade com a Internet. Você pode adicionar facilmente uma conectividade com a Internet IPv6 aos balanceadores de carga e às VMs do Azure com os endereços IPv6 públicos obtidos do Azure.
 
@@ -29,6 +29,9 @@ Todos os IPs públicos reservados estão associados a uma região do Azure de su
 > Tome cuidado para não excluir seus endereços IP públicos acidentalmente. Excluir um IP público o Remove da sua assinatura e você não poderá recuperá-lo (nem mesmo com a ajuda do suporte do Azure).
 
 Além de reservar endereços IPv6 individuais, Reserve intervalos contíguos de endereços IPv6 do Azure (conhecido como prefixo IP) para seu uso.  Semelhante a endereços IP individuais, os prefixos reservados são associados a uma região do Azure de sua escolha e com sua assinatura do Azure. Reservar um intervalo previsível e contíguo de endereços tem muitos usos. Por exemplo, você pode simplificar bastante a *lista* de permissões de IP de seus aplicativos hospedados no Azure por sua empresa e seus clientes, já que seus intervalos de IP estáticos podem ser prontamente programados em firewalls locais.  Você pode criar IPs públicos individuais do seu prefixo IP conforme necessário e, quando você exclui esses IPs públicos individuais, eles são *retornados* para o intervalo reservado para que você possa reutilizá-los mais tarde. Todos os endereços IP em seu prefixo IP são reservados para seu uso exclusivo até o momento em que você excluir o prefixo.
+
+> [!Important]
+> O IPv6 para a rede virtual do Azure está atualmente em visualização pública. Esta pré-visualização é disponibilizada sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Veja os [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para obter mais informações.
 
 ## <a name="ipv6-prefix-sizes"></a>Tamanhos de prefixo IPv6
 Os seguintes tamanhos de prefixo IP público estão disponíveis:

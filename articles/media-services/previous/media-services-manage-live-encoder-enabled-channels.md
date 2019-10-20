@@ -1,6 +1,6 @@
 ---
 title: Transmissão ao vivo usando os serviços de mídia do Azure para criar fluxos de múltiplas taxas de bits | Microsoft Docs
-description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo de taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os serviços de mídia. O fluxo pode então ser entregue a aplicativos de reprodução de cliente por meio de um ou mais pontos de extremidade de streaming, usando um dos seguintes protocolos de streaming adaptável: HLS, Smooth Stream e MPEG DASH.'
+description: 'Este tópico descreve como configurar um canal que recebe uma transmissão ao vivo de taxa de bits única de um codificador local e, em seguida, executa a codificação ativa para o fluxo de taxa de bits adaptável com os serviços de mídia. Em seguida, o fluxo pode ser entregue a aplicativos de reprodução de cliente por meio de um ou mais pontos de extremidade de streaming, usando um dos seguintes protocolos de streaming adaptável: HLS, Smooth Stream e MPEG DASH.'
 services: media-services
 documentationcenter: ''
 author: anilmur
@@ -15,23 +15,23 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: a828d03093c73d5c65a92ccf899fbaa1ef622bd6
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 4131e9b0ec057c16516f5a656debcf7053c2c1fe
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016496"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598308"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão em fluxo em direto utilizando os Serviços de Multimédia do Azure para criar transmissões com velocidade de transmissão múltipla
 
 > [!NOTE]
 > A partir de 12 de maio de 2018, os canais ao vivo não serão mais compatíveis com o protocolo de ingestão de fluxo de transporte RTP/MPEG-2. Migre do RTP/MPEG-2 para protocolos de ingestão RTMP ou MP4 fragmentado (Smooth Streaming).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 No AMS (serviços de mídia do Azure), um **canal** representa um pipeline para o processamento de conteúdo de transmissão ao vivo. Um **canal** recebe fluxos de entrada ao vivo de uma das duas maneiras:
 
 * Um codificador ao vivo local envia um fluxo de taxa de bits única para o canal que está habilitado para executar a codificação ativa com os serviços de mídia em um dos seguintes formatos: RTMP ou Smooth Streaming (MP4 fragmentado). O Canal, em seguida, realiza live encoding da transmissão em fluxo de velocidade de transmissão única de entrada para uma transmissão em fluxo de vídeo com várias velocidades (adaptável). Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
-* Um codificador ao vivo local envia um **RTMP** de múltiplas taxas de bits ou **Smooth streaming** (MP4 fragmentado) para o canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelo **canal**s sem nenhum processamento adicional. Esse método é chamado **de passagem**. Você pode usar os codificadores dinâmicos a seguir que geram Smooth Streaming de múltiplas taxas de bits: MediaExcel, Ateme, imagine Communications, envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: O Adobe Flash Media Live encoder (FMLE), o Telestream Wirecast, o HaiVision, o Teradek e o TriCaster codificadores.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
+* Um codificador ao vivo local envia um **RTMP** de múltiplas taxas de bits ou **Smooth streaming** (MP4 fragmentado) para o canal que não está habilitado para executar a codificação ativa com o AMS. Os fluxos ingeridos passam pelo **canal**s sem nenhum processamento adicional. Esse método é chamado **de passagem**. Você pode usar os codificadores ao vivo a seguir que geram várias taxas de bits Smooth Streaming: MediaExcel, Ateme, imagine Communications, envivio, Cisco e Elemental. Os seguintes codificadores dinâmicos produzem RTMP: os codificadores do Adobe Flash Media Live encoder (FMLE), Telestream Wirecast, HaiVision, Teradek e TriCaster.  Um codificador em direto pode também enviar uma transmissão em fluxo de velocidade de transmissão única para um canal, que não está ativado para live encoding, mas tal não é recomendado. Quando solicitado, os Media Services disponibilizam a transmissão em fluxo para os clientes.
 
   > [!NOTE]
   > Usar um método de passagem é a maneira mais econômica de realizar a transmissão ao vivo.
@@ -51,7 +51,7 @@ A partir da versão 2,10 dos serviços de mídia, ao criar um canal, você pode 
 > 
 
 ## <a name="billing-implications"></a>Implicações de cobrança
-Um canal de codificação ativa começa a cobrança assim que é transição de estado para "em execução" por meio da API.   Você também pode exibir o estado na portal do Azure ou na ferramenta do Gerenciador de serviços de mídia do Azure https://aka.ms/amse) (.
+Um canal de codificação ativa começa a cobrança assim que é transição de estado para "em execução" por meio da API.   Você também pode exibir o estado na portal do Azure ou na ferramenta do Gerenciador de serviços de mídia do Azure (https://aka.ms/amse).
 
 A tabela a seguir mostra como os Estados de canal são mapeados para os Estados de cobrança na API e portal do Azure. Os Estados são ligeiramente diferentes entre a API e o UX do Portal. Assim que um canal estiver no estado "em execução" por meio da API, ou no estado "pronto" ou "streaming" na portal do Azure, a cobrança estará ativa.
 Para impedir que o canal faça uma cobrança adicional, você precisa interromper o canal por meio da API ou na portal do Azure.
@@ -70,9 +70,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 
 | Estado do canal | Indicadores IU do portal | É cobrança? |
 | --- | --- | --- |
-| A iniciar |A iniciar |Não (estado transitório) |
-| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |SIM |
-| A parar |A parar |Não (estado transitório) |
+| A Iniciar |A Iniciar |Não (estado transitório) |
+| A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Ok |
+| A Parar |A Parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
 ### <a name="automatic-shut-off-for-unused-channels"></a>Desligamento automático para canais não utilizados
@@ -89,9 +89,11 @@ O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo em q
 Os seguintes são passos gerais referentes à criação de aplicações comuns de transmissão em fluxo em direto.
 
 > [!NOTE]
-> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos. Há um impacto de cobrança para a codificação ativa e você deve se lembrar de que deixar um canal de codificação ativa no estado "em execução" incorrerá em encargos de cobrança por hora.  É recomendável parar imediatamente os canais em execução após a conclusão do evento de transmissão ao vivo para evitar cobranças por hora extra. 
+> Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas.
+>
+> Há um impacto de cobrança para a codificação ativa e você deve se lembrar de que deixar um canal de codificação ativa no estado "em execução" incorrerá em encargos de cobrança por hora. É recomendável parar imediatamente os canais em execução após a conclusão do evento de transmissão ao vivo para evitar cobranças por hora extra. 
 
-1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador ao vivo local que pode gerar um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth Streaming. 
+1. Ligue uma câmara de vídeo a um computador. Inicie e configure um codificador ao vivo local que pode gerar um fluxo de taxa de bits **única** em um dos seguintes protocolos: RTMP ou Smooth streaming. 
 
     Este passo também pode ser realizado depois de criar o Canal.
 2. Crie e inicie um Canal. 
@@ -123,7 +125,7 @@ Os seguintes são passos gerais referentes à criação de aplicações comuns d
 
 ## <a id="channel"></a>Configurações de entrada (ingestão) do canal
 ### <a id="Ingest_Protocols"></a>Protocolo de streaming de ingestão
-Se o **tipo** de codificador for definido como **padrão**, as opções válidas serão:
+Se o **tipo de codificador** for definido como **padrão**, as opções válidas serão:
 
 * **RTMP** de taxa de bits única
 * **MP4 fragmentado** de taxa de bits única (Smooth streaming)
@@ -172,7 +174,7 @@ Você pode definir os endereços IP que têm permissão para publicar o vídeo n
 
 Se não for especificado qualquer endereço IP e não existir nenhuma definição de regra, então, não será permitido qualquer endereço IP. Para permitir um endereço IP, crie uma regra e defina 0.0.0.0/0.
 
-## <a name="channel-preview"></a>Pré-visualização do canal
+## <a name="channel-preview"></a>Visualização do canal
 ### <a name="preview-urls"></a>URLs de visualização
 Os canais fornecem um ponto de extremidade de visualização (URL de visualização) que você usa para visualizar e validar seu fluxo antes do processamento e da entrega.
 
@@ -205,26 +207,24 @@ Um sinalizador opcional que informa o codificador ao vivo para ignorar os dados 
 #### <a name="index"></a>Índice
 É recomendável enviar em um fluxo de transporte de programa único (SPTS). Se o fluxo de entrada contiver vários programas, o codificador ao vivo dentro do canal analisa a tabela de mapa do programa (PGTO) na entrada, identifica as entradas que têm um nome de tipo de fluxo de MPEG-2 AAC ADTS ou AC-3 System-A ou AC-3 sistema-B ou MPEG-2 Private PES ou MPEG-1 Áudio ou MPEG-2 Audio e os organiza na ordem especificada no pgto. Em seguida, o índice de base zero é usado para pegar a entrada n-ésimo nesse arranjo.
 
-#### <a name="language"></a>Idioma
+#### <a name="language"></a>Linguagem
 O identificador de idioma do fluxo de áudio, em conformidade com o ISO 639-2, como ENG. Se não estiver presente, o padrão será UND (indefinido).
 
 ### <a id="preset"></a>Predefinição do sistema
 Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste canal. Atualmente, o único valor permitido é **default720p** (padrão).
 
-Observe que, se você precisar de predefinições personalizadas, entre amshelp@microsoft.comem contato com.
-
 **Default720p** codificará o vídeo nas 6 camadas a seguir.
 
 #### <a name="output-video-stream"></a>Fluxo de vídeo de saída
 
-| BitRate | Largura | Altura | MaxFPS | Perfil | Nome do fluxo de saída |
+| 720p | Largura | Tamanho | MaxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Elevado |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Elevado |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Elevado |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Elevado |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Elevado |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Elevado |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 
@@ -240,7 +240,7 @@ Quando o canal tiver a codificação ativa habilitada, você terá um componente
 
 A seguir estão as propriedades que você pode definir ao sinalizar anúncios. 
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Duração
 A duração, em segundos, do intervalo comercial. Isso deve ser um valor positivo diferente de zero para iniciar o intervalo comercial. Quando um intervalo comercial está em andamento, e a duração é definida como zero com o CueId correspondente ao intervalo comercial contínuo, essa interrupção é cancelada.
 
 ### <a name="cueid"></a>CueId
@@ -256,11 +256,11 @@ O codificador ao vivo dentro do canal pode ser sinalizado para alternar para uma
 
 O codificador ao vivo pode ser configurado para alternar para uma imagem Slate e ocultar o sinal de vídeo de entrada em determinadas situações – por exemplo, durante um intervalo de anúncio. Se esse Slate não estiver configurado, o vídeo de entrada não será mascarado durante esse intervalo de anúncio.
 
-### <a name="duration"></a>Duration
+### <a name="duration"></a>Duração
 A duração do Slate em segundos. Isso deve ser um valor positivo diferente de zero para iniciar o Slate. Se houver um Slate contínuo e uma duração igual a zero for especificada, esse Tablet contínuo será encerrado.
 
-### <a name="insert-slate-on-ad-marker"></a>Inserir imagem fixa num marcador de publicidade
-Quando definido como true, essa configuração configura o codificador ao vivo para inserir uma imagem de Slate durante um intervalo de anúncio. O valor predefinido é verdadeiro. 
+### <a name="insert-slate-on-ad-marker"></a>Inserir Slate no marcador do anúncio
+Quando definido como true, essa configuração configura o codificador ao vivo para inserir uma imagem de Slate durante um intervalo de anúncio. O valor padrão é true. 
 
 ### <a id="default_slate"></a>ID do ativo de Slate padrão
 
@@ -269,7 +269,6 @@ Opcional. Especifica a ID de ativo do ativo dos serviços de mídia que contém 
 
 > [!NOTE] 
 > Antes de criar o canal, a imagem Slate com as seguintes restrições deve ser carregada como um ativo dedicado (nenhum outro arquivo deve estar nesse ativo). Essa imagem é usada somente quando o codificador ao vivo está inserindo um Slate devido a um intervalo de anúncio ou foi sinalizado explicitamente para inserir um Slate. Atualmente, não há nenhuma opção para usar uma imagem personalizada quando o codificador ao vivo entra no estado ' sinal de entrada perdido '. Você pode votar neste recurso [aqui](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/10190457-define-custom-slate-image-on-a-live-encoder-channel).
-
 
 * No máximo 1920 x 1080 na resolução.
 * No máximo 3 Mbytes de tamanho.
@@ -313,9 +312,9 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 
 | Estado do canal | Indicadores IU do portal | Foi cobrado? |
 | --- | --- | --- |
-| A iniciar |A iniciar |Não (estado transitório) |
+| A Iniciar |A Iniciar |Não (estado transitório) |
 | A executar |Pronto (nenhum programa em execução)<br/>ou<br/>A Transmitir em fluxo (pelo menos um programa em execução) |Sim |
-| A parar |A parar |Não (estado transitório) |
+| A Parar |A Parar |Não (estado transitório) |
 | Parada |Parada |Não |
 
 > [!NOTE]
@@ -331,7 +330,7 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * Por padrão, você só pode adicionar 5 canais à sua conta de serviços de mídia. Esta é uma cota flexível em todas as novas contas. Para obter mais informações, consulte [cotas e limitações](media-services-quotas-and-limitations.md).
 * Não é possível alterar o protocolo de entrada enquanto o Canal ou os seus programas associados estiverem em execução. Se necessitar de protocolos diferentes, deve criar canais separados para cada protocolo de entrada.
 * Você só será cobrado quando o canal estiver no estado **executando** . Para obter mais informações, consulte [esta](media-services-manage-live-encoder-enabled-channels.md#states) seção.
-* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. Contacte a amshelp@microsoft.com se tiver de executar um Canal durante períodos de tempo mais longos.
+* Atualmente, a duração máxima recomendada de um evento em direto é de 8 horas. 
 * Certifique-se de ter o ponto de extremidade de streaming do qual você deseja transmitir conteúdo no estado de **execução** .
 * A predefinição de codificação usa a noção de "taxa de quadros máxima" de 30 fps. Portanto, se a entrada for 60fps/59,94 i, os quadros de entrada serão descartados/desentrelaçados a 30/29,97 fps. Se a entrada for 50fps/50i, os quadros de entrada serão descartados/desentrelaçados para 25 fps. Se a entrada for 25 fps, a saída permanecerá em 25 fps.
 * Não se esqueça de parar seus canais quando terminar. Caso contrário, a cobrança continuará.
@@ -341,7 +340,12 @@ A tabela seguinte mostra como os estados de um Canal mapeiam para o modo de fatu
 * As imagens de Slate devem estar em conformidade com as restrições descritas [aqui](media-services-manage-live-encoder-enabled-channels.md#default_slate). Se você tentar criar um canal com um Slate padrão maior que 1920 x 1080, a solicitação eventualmente falhará.
 * Mais uma vez.... Não se esqueça de parar seus canais quando terminar de transmitir. Caso contrário, a cobrança continuará.
 
+## <a name="need-help"></a>Precisa de ajuda?
+
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
 ## <a name="next-step"></a>Passo seguinte
+
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

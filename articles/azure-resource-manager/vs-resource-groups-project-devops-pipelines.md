@@ -4,14 +4,14 @@ description: Descreve como configurar a integração contínua no Azure Pipeline
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 10/17/2019
 ms.author: tomfitz
-ms.openlocfilehash: ae896fa0820fbd25ed3f2d29c89fbcd56e7fd6f5
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982450"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597504"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com o Azure Pipelines
 
@@ -71,7 +71,7 @@ steps:
   inputs:
     azureSubscription: 'demo-deploy-sp'
     ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
-    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus' 
+    ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'centralus'
     azurePowerShellVersion: LatestVersion
 ```
 
@@ -89,7 +89,7 @@ inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-Para `scriptPath`, forneça o caminho relativo do arquivo de pipeline para o script. Você pode procurar no repositório para ver o caminho.
+Para `scriptPath`, forneça o caminho relativo do arquivo de pipeline para o seu script. Você pode procurar no repositório para ver o caminho.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -139,7 +139,7 @@ Você pode selecionar o pipeline em execução no momento para ver detalhes sobr
 
 ## <a name="copy-and-deploy-tasks"></a>Copiar e implantar tarefas
 
-Esta seção mostra como configurar a implantação contínua usando duas tarefas para preparar os artefatos e implantar o modelo. 
+Esta seção mostra como configurar a implantação contínua usando duas tarefas para preparar os artefatos e implantar o modelo.
 
 O YAML a seguir mostra a [tarefa cópia de arquivo do Azure](/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops):
 
@@ -176,35 +176,45 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-O YAML a seguir mostra a [tarefa de implantação do grupo de recursos do Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops):
+O YAML a seguir mostra a [tarefa de implantação de modelo de Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md):
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'centralus'
+    location: 'Central US'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-Há várias partes dessa tarefa a serem revisadas para o seu ambiente. Para `azureSubscription`, forneça o nome da conexão de serviço que você criou.
+Há várias partes dessa tarefa a serem revisadas para o seu ambiente.
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- `deploymentScope`: selecione o escopo de implantação nas opções: `Management Group`, `Subscription` e `Resource Group`. Use o **grupo de recursos** nesta passagem. Para saber mais sobre os escopos, consulte [escopos de implantação](./resource-group-template-deploy-rest.md#deployment-scope).
 
-Para `resourceGroupName` o `location`e o, forneça o nome e o local do grupo de recursos no qual você deseja implantar. A tarefa cria o grupo de recursos, caso ele não exista.
+- `ConnectedServiceName`: forneça o nome da conexão de serviço que você criou.
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
 
-A tarefa de implantação é vinculada a `WebSite.json` um modelo chamado e um arquivo de parâmetros chamado website. Parameters. JSON. Use os nomes dos arquivos de modelo e parâmetro.
+- `subscriptionName`: forneça a ID da assinatura de destino. Essa propriedade só se aplica ao escopo de implantação do grupo de recursos e à contexto de implantação da assinatura.
+
+- `resourceGroupName` e `location`: forneça o nome e o local do grupo de recursos no qual você deseja implantar. A tarefa cria o grupo de recursos, caso ele não exista.
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
+
+A tarefa de implantação é vinculada a um modelo chamado `WebSite.json` e um arquivo de parâmetros chamado WebSite. Parameters. JSON. Use os nomes dos arquivos de modelo e parâmetro.
 
 Agora que você entende como criar as tarefas, vamos percorrer as etapas para editar o pipeline.
 
@@ -226,16 +236,20 @@ Agora que você entende como criar as tarefas, vamos percorrer as etapas para ed
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'centralus'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'Central US'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. Selecione **Guardar**.
@@ -248,6 +262,6 @@ Agora que você entende como criar as tarefas, vamos percorrer as etapas para ed
 
 Você pode selecionar o pipeline em execução no momento para ver detalhes sobre as tarefas. Quando ele for concluído, você verá os resultados de cada etapa.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para obter um processo passo a passo sobre como usar Azure pipelines com modelos do Resource Manager [, consulte o tutorial: Integração contínua de modelos de Azure Resource Manager com](resource-manager-tutorial-use-azure-pipelines.md)Azure pipelines.
+Para obter um processo passo a passo sobre como usar Azure Pipelines com modelos do Resource Manager, consulte [tutorial: integração contínua de modelos de Azure Resource Manager com o Azure pipelines](resource-manager-tutorial-use-azure-pipelines.md).

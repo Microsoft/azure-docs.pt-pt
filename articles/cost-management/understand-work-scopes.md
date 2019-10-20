@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 10/17/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1f02cf3abaae7d67ba3d204dc9419d9fbfa4a86d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374491"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597087"
 ---
 # <a name="understand-and-work-with-scopes"></a>Compreender e trabalhar com âmbitos
 
@@ -132,6 +132,7 @@ As contas de cobrança do contrato de cliente da Microsoft têm os seguintes esc
 
 Ao contrário dos escopos de cobrança EA, as contas de cobrança do contrato do cliente _são_ associadas a um único diretório e não podem ter assinaturas em vários diretórios do Azure AD.
 
+Os escopos de cobrança do contrato do cliente não se aplicam aos parceiros. As funções e permissões de parceiro são documentadas em [atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
 Os escopos de cobrança do contrato do cliente dão suporte às seguintes funções:
 
@@ -159,11 +160,25 @@ Após a conclusão da integração do AWS, consulte Configurar [e configurar a i
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Escopos do CSP (provedor de soluções na nuvem)
 
-Os parceiros do CSP (provedor de soluções na nuvem) não têm suporte no gerenciamento de custos atualmente. Em vez disso, você pode usar o [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
+Os seguintes escopos têm suporte para CSPs com clientes em um contrato de cliente da Microsoft:
+
+- **Conta de cobrança** – representa um contrato de cliente para vários produtos e serviços da Microsoft. As contas de cobrança do contrato do cliente não são funcionalmente iguais a registros de EA. Os registros de EA estão mais bem alinhados aos perfis de cobrança.
+
+    Tipo de recurso: `Microsoft.Billing/billingAccounts (accountType = Organization)`
+
+- **Perfil de cobrança** – define as assinaturas que são incluídas em uma fatura. Os perfis de cobrança são o equivalente funcional de um registro de EA, pois esse é o escopo em que as notas fiscais são geradas. Da mesma forma, as compras que não são baseadas em uso (como Marketplace e reservas) estão disponíveis somente nesse escopo.
+
+    Tipo de recurso: `Microsoft.Billing/billingAccounts/billingProfiles`
+
+- **Cliente** -representa um grupo de assinaturas que estão associadas a um cliente específico que é integrado a um contrato de cliente da Microsoft por um parceiro.
+
+Somente os usuários com funções de *administrador global* e *agente de administração* podem gerenciar e exibir os custos de contas de cobrança, perfis de cobrança e clientes diretamente no locatário do Azure do parceiro. Para obter mais informações sobre as funções do Partner Center, consulte [atribuir funções e permissões de usuários](/partner-center/permissions-overview).
+
+O gerenciamento de custos do Azure só dá suporte a clientes de parceiros CSP se os clientes tiverem um contrato com o cliente da Microsoft. Para clientes com suporte do CSP que ainda não estão em um contrato com o cliente da Microsoft, confira [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Alternar entre escopos no gerenciamento de custos
 
-Todas as exibições de gerenciamento de custos na portal do Azure incluem uma seleção de **escopo** para a parte superior esquerda da exibição. Use-o para alterar o escopo rapidamente. Clique no **escopo** Pill para abrir o seletor de escopo. Ele mostra contas de cobrança, o grupo de gerenciamento raiz e todas as assinaturas que não estão aninhadas no grupo de gerenciamento raiz. Para selecionar um escopo, clique no plano de fundo para realçá-lo e, em seguida, clique em **selecionar** na parte inferior. Para fazer drill-in em escopos aninhados, como grupos de recursos em uma assinatura, clique no link nome do escopo. Para selecionar o escopo pai em qualquer nível aninhado, clique em **selecionar este &lt;scope @ no__t-2** na parte superior do seletor de escopo.
+Todas as exibições de gerenciamento de custos na portal do Azure incluem uma seleção de **escopo** para a parte superior esquerda da exibição. Use-o para alterar o escopo rapidamente. Clique no **escopo** Pill para abrir o seletor de escopo. Ele mostra contas de cobrança, o grupo de gerenciamento raiz e todas as assinaturas que não estão aninhadas no grupo de gerenciamento raiz. Para selecionar um escopo, clique no plano de fundo para realçá-lo e, em seguida, clique em **selecionar** na parte inferior. Para fazer drill-in em escopos aninhados, como grupos de recursos em uma assinatura, clique no link nome do escopo. Para selecionar o escopo pai em qualquer nível aninhado, clique em **selecionar esta &lt;scope &gt;** na parte superior do seletor de escopo.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identificar a ID do recurso para um escopo
 

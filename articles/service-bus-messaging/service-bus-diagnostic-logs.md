@@ -15,66 +15,39 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6443cb727573645792a4e6c929b80c3406d72025
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 41e0bdc1f04c9491ebe939f46b59ae4eb2bc7ab6
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261808"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592432"
 ---
-# <a name="service-bus-diagnostic-logs"></a>Logs de diagnóstico do barramento de serviço
+# <a name="enable-diagnostic-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
 
-Você pode exibir dois tipos de logs para o barramento de serviço do Azure:
-* **[Logs de atividade](../azure-monitor/platform/activity-logs-overview.md)** . Esses logs contêm informações sobre as operações executadas em um trabalho. Os registos são sempre ativados.
-* **[Logs de diagnóstico](../azure-monitor/platform/resource-logs-overview.md)** . Você pode configurar os logs de diagnóstico para obter informações mais detalhadas sobre tudo o que acontece em um trabalho. Atividades de capa registos de diagnóstico desde o momento, que a tarefa é criada até que o trabalho é eliminado, incluindo atualizações e as atividades que ocorrem enquanto a tarefa está em execução.
+Ao começar a usar o namespace do barramento de serviço do Azure, convém monitorar como e quando o namespace é criado, excluído ou acessado. Este artigo fornece uma visão geral de todos os logs operacionais/de diagnóstico que estão disponíveis.
 
-## <a name="turn-on-diagnostic-logs"></a>Ativar registos de diagnóstico
+Atualmente, o barramento de serviço do Azure dá suporte a logs de atividade/operacionais que capturam **operações de gerenciamento** executadas no namespace do barramento de serviço do Azure. Especificamente, esses logs capturam o tipo de operação, incluindo a criação da fila, os recursos usados e o status da operação.
 
-Os logs de diagnóstico estão desabilitados por padrão. Para habilitar os logs de diagnóstico, execute as seguintes etapas:
+## <a name="operational-logs-schema"></a>Esquema de logs operacionais
 
-1.  Na [portal do Azure](https://portal.azure.com), em **monitorização + gestão**, clique em **registos de diagnóstico**.
+Todos os logs são armazenados no formato JavaScript Object Notation (JSON) nos dois locais abaixo.
 
-    ![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)
+- **AzureActivity** -exibe logs de operações/ações realizadas em relação ao namespace no portal ou por meio de implantações de modelo de Azure Resource Manager.
+- **AzureDiagnostics** -exibe logs de operações/ações realizadas em relação ao namespace usando a API ou por meio de clientes de gerenciamento no SDK do idioma.
 
-2. Clique em recursos que pretende monitorizar.  
+As cadeias de caracteres JSON do log operacional incluem elementos listados na tabela a seguir:
 
-3.  Clique em **Ativar diagnósticos**.
-
-    ![Ativar logs de diagnóstico](./media/service-bus-diagnostic-logs/image2.png)
-
-4.  Para **Status**, clique em **no**.
-
-    ![alterar logs de diagnóstico de status](./media/service-bus-diagnostic-logs/image3.png)
-
-5.  Defina o destino de arquivo desejado; por exemplo, uma conta de armazenamento, um hub de eventos ou logs de Azure Monitor.
-
-6.  Guarde as novas definições de diagnóstico.
-
-Novas definições entrem em vigor em cerca de 10 minutos. Depois disso, os logs aparecem no destino de arquivamento configurado, na folha **logs de diagnóstico** .
-
-Para obter mais informações sobre como configurar diagnósticos, consulte a [descrição geral dos registos de diagnóstico do Azure](../azure-monitor/platform/resource-logs-overview.md).
-
-## <a name="diagnostic-logs-schema"></a>Esquema de registos de diagnóstico
-
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na seção a seguir.
-
-## <a name="operational-logs-schema"></a>Esquema de registos operacionais
-
-Os logs na categoria **OperationalLogs** capturam o que acontece durante as operações do barramento de serviço. Especificamente, esses logs capturam o tipo de operação, incluindo a criação da fila, os recursos usados e o status da operação.
-
-Cadeias de caracteres JSON de registo operacional incluem elementos listados na tabela a seguir:
-
-Nome | Descrição
-------- | -------
-ActivityId | ID interna, usada para acompanhamento
-EventName | Nome da operação           
-resourceId | ID do recurso de Azure Resource Manager
-SubscriptionId | ID da subscrição
-EventTimeString | Tempo de operação
-EventProperties | Propriedades da operação
-State | Estado da operação
-Caller | Chamador de operação (portal do Azure ou cliente de gerenciamento)
-category | OperationalLogs
+| Nome | Descrição |
+| ------- | ------- |
+| ActivityId | ID interna, usada para identificar a atividade especificada |
+| eventName | Nome da operação |
+| ResourceId | ID do recurso de Azure Resource Manager |
+| SubscriptionId | ID de Subscrição |
+| EventTimeString | Tempo de operação |
+| Eventoproperties | Propriedades da operação |
+| Estado | Estado da operação |
+| Autor da chamada | Chamador de operação (portal do Azure ou cliente de gerenciamento) |
+| Categoria | OperationalLogs |
 
 Aqui está um exemplo de uma cadeia de caracteres JSON do log operacional:
 
@@ -91,6 +64,54 @@ Aqui está um exemplo de uma cadeia de caracteres JSON do log operacional:
   "category": "OperationalLogs"
 }
 ```
+
+## <a name="what-eventsoperations-are-captured-in-operational-logs"></a>Quais eventos/operações são capturados em logs operacionais?
+
+Logs de operação capturam todas as operações de gerenciamento executadas no namespace do barramento de serviço do Azure. As operações de dados não são capturadas devido ao alto volume de operações de dados que são realizadas no barramento de serviço do Azure.
+
+> [!NOTE]
+> Para acompanhar melhor as operações de dados, é recomendável usar o rastreamento do lado do cliente.
+
+As operações de gerenciamento abaixo são capturadas em logs operacionais- 
+
+| Âmbito | Operação|
+|-------| -------- |
+| Namespace | <ul> <li> Criar namespace</li> <li> Atualizar namespace </li> <li> Excluir namespace </li>  </ul> | 
+| Fila | <ul> <li> Criar fila</li> <li> Atualizar fila</li> <li> Excluir fila </li> </ul> | 
+| Tópico | <ul> <li> Criar tópico </li> <li> Atualizar tópico </li> <li> Excluir tópico </li> </ul> |
+| Subscrição | <ul> <li> Criar Subscrição </li> <li> Atualizar assinatura </li> <li> Excluir assinatura </li> </ul> |
+
+> [!NOTE]
+> Atualmente, as operações de **leitura** não são acompanhadas nos logs operacionais.
+
+## <a name="how-to-enable-operational-logs"></a>Como habilitar logs operacionais?
+
+Os logs operacionais são desabilitados por padrão. Para habilitar os logs de diagnóstico, execute as seguintes etapas:
+
+1. No [portal do Azure](https://portal.azure.com), navegue até o namespace do barramento de serviço do Azure e, em **monitoramento**, clique em **configurações de diagnóstico**.
+
+   ![navegação de folha para logs de diagnóstico](./media/service-bus-diagnostic-logs/image1.png)
+
+2. Clique em **Adicionar configuração de diagnóstico** para definir as configurações de diagnóstico.  
+
+   ![ativar logs de diagnóstico](./media/service-bus-diagnostic-logs/image2.png)
+
+3. Definir as configurações de diagnóstico
+   1. Digite um **nome** para identificar as configurações de diagnóstico.
+   2. Escolha um destino para o diagnóstico.
+      - Se você escolher a **conta de armazenamento**, precisará configurar a conta de armazenamento na qual o diagnóstico será armazenado.
+      - Se você escolher os **hubs de eventos**, precisará configurar o Hub de eventos apropriado para o qual as configurações de diagnóstico serão transmitidas.
+      - Se você escolher **log Analytics**, precisará especificar qual instância do log Analytics o diagnóstico será enviado.
+    3. Verifique **OperationalLogs**.
+
+       ![alterar logs de diagnóstico de status](./media/service-bus-diagnostic-logs/image3.png)
+
+4. Clique em **Guardar**.
+
+
+As novas configurações entram em vigor em cerca de 10 minutos. Depois disso, os logs aparecem no destino de arquivamento configurado, na folha **logs de diagnóstico** .
+
+Para obter mais informações sobre como configurar o diagnóstico, consulte a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

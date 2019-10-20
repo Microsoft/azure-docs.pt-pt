@@ -10,10 +10,10 @@ ms.service: search
 ms.devlang: ''
 ms.topic: conceptual
 ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "72533617"
 ---
 # <a name="how-to-schedule-indexers-for-azure-search"></a>Como agendar indexadores para Azure Search

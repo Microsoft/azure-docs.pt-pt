@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 5fc9262dd53f390dbc43646626cc324d8655f1de
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387782"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596529"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
@@ -61,6 +61,10 @@ Ao desligar o mapeamento automático, você terá a opção de adicionar mapeame
 Ao escolher o mapeamento baseado em regras, você está instruindo o ADF a avaliar sua expressão de correspondência para corresponder às regras de padrão de entrada e definir os nomes de campo de saída. Você pode adicionar qualquer combinação de mapeamentos com base em campo e em regra. Os nomes de campo são então gerados em tempo de execução pelo ADF com base nos metadados de entrada da origem. Você pode exibir os nomes dos campos gerados durante a depuração e usando o painel de visualização de dados.
 
 Os detalhes sobre a correspondência de padrões estão na [documentação do padrão da coluna](concepts-data-flow-column-pattern.md).
+
+Você também pode inserir padrões de expressão regular ao usar a correspondência baseada em regra, expandindo a linha e inserindo uma expressão regular ao lado de "nome corresponde:".
+
+![Mapeamento de Regex](media/data-flow/scdt1g4.png "Mapeamento de Regex")
 
 ## <a name="file-name-options"></a>Opções de nome de arquivo
 

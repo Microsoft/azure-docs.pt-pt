@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: ef46c1a631a79dd1c50b2bf7d263538298de233f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3305590f2d8abf0d894bc1df42b84edcc96a2b2d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333316"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598228"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Perguntas frequentes (FAQ) sobre o observador de rede do Azure
 O serviço [observador de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) fornece um conjunto de ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure. Este artigo responde a perguntas comuns sobre o serviço.
@@ -54,16 +54,26 @@ Visite a [página de preços](https://azure.microsoft.com/pricing/details/networ
 ### <a name="which-regions-is-network-watcher-available-in"></a>Em quais regiões o observador de rede está disponível?
 Você pode exibir a disponibilidade regional mais recente na [página de disponibilidade do serviço do Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
+### <a name="what-are-resource-limits-on-network-watcher"></a>O que são limites de recursos no observador de rede?
+Consulte a página [limites de serviço](https://docs.microsoft.com/azure/azure-subscription-service-limits#network-watcher-limits) para todos os limites.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Por que apenas uma instância do observador de rede é permitida por região?
+O observador de rede precisa ser habilitado apenas uma vez para uma assinatura para que seus recursos funcionem, esse não é um limite de serviço.
+
 ## <a name="nsg-flow-logs"></a>Logs de fluxo do NSG
 
 ### <a name="what-does-nsg-flow-logs-do"></a>O que os logs de fluxo do NSG fazem?
 Os recursos de rede do Azure podem ser combinados e gerenciados por meio [de NSGs (grupos de segurança de rede)](https://docs.microsoft.com/azure/virtual-network/security-overview). Os logs de fluxo do NSG permitem que você registre informações de fluxo de 5 tuplas sobre todo o tráfego por meio de seu NSGs. Os logs de fluxo brutos são gravados em uma conta de armazenamento do Azure de onde eles podem ser processados, analisados, consultados ou exportados conforme necessário.
 
-### <a name="are-there-caveats-for-using-nsg-flow-logs"></a>Há limitações para usar os logs de fluxo do NSG?
+### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>Há alguma advertência para usar os logs de fluxo do NSG?
 Não há pré-requisitos para o uso de logs de fluxo de NSG. No entanto, há duas limitações
 - Os **pontos de extremidade de serviço não devem estar presentes em sua VNET**: os logs de fluxo NSG são emitidos de agentes em suas VMs para contas de armazenamento. No entanto, hoje você só pode emitir logs diretamente para contas de armazenamento e não pode usar um ponto de extremidade de serviço adicionado à sua VNET.
 
-Existem duas formas de corrigir este problema:
+- A **conta de armazenamento não deve ser armazenada em Firewall**: devido a limitações internas, as contas de armazenamento devem estar acessíveis por meio da Internet pública para que os logs de fluxo do NSG funcionem com elas. O tráfego ainda será roteado por meio do Azure internamente e você não enfrentará encargos de egresso extras.
+
+Consulte as duas próximas perguntas para obter instruções sobre como contornar esses problemas. Espera-se que ambas as limitações sejam abordadas por Jan 2020.
+
+### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>Como fazer usar logs de fluxo NSG com pontos de extremidade de serviço?
 
 *Opção 1: reconfigurar os logs de fluxo de NSG para emitir para a conta de armazenamento do Azure sem pontos de extremidade de VNET*
 
@@ -88,8 +98,7 @@ Pode verificar os registos de armazenamento após alguns minutos; deve ver um ca
 
 Se os pontos finais do serviço Microsoft.Storage forem obrigatórios, terá de desativar os Registos do Fluxo do NSG.
 
-
-- **As contas de armazenamento não devem ser**modeladas: devido a limitações internas, as contas de armazenamento devem estar acessíveis por meio da Internet pública para que os logs de fluxo do NSG funcionem com elas. O tráfego ainda será roteado por meio do Azure internamente e você não enfrentará encargos de egresso extras.
+### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>Como fazer desabilitar o firewall na minha conta de armazenamento?
 
 Esse problema é resolvido ao habilitar "todas as redes" para acessar a conta de armazenamento:
 
@@ -97,8 +106,6 @@ Esse problema é resolvido ao habilitar "todas as redes" para acessar a conta de
 * Navegue até à conta de armazenamento ao introduzir o nome da conta de armazenamento na pesquisa global no portal
 * Na secção **DEFINIÇÕES**, selecione **Firewalls e redes virtuais**
 * Selecione **Todas as redes** e guarde-a. Se já estiver selecionada, não é preciso alterar nada.  
-
-Espera-se que ambas as limitações sejam abordadas por Jan 2020.
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Qual é a diferença entre as versões 1 & 2 dos logs de fluxo?
 Os logs de fluxo versão 2 apresentam o conceito de *estado de fluxo* & armazena informações sobre bytes e pacotes transmitidos. [Leia mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

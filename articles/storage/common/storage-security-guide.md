@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299616"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598097"
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do armazenamento do Azure
 
@@ -25,7 +25,7 @@ O armazenamento do Azure fornece um conjunto abrangente de recursos de seguranç
     - Você pode atribuir funções RBAC com escopo à conta de armazenamento para entidades de segurança e usar o Azure AD para autorizar operações de gerenciamento de recursos, como o gerenciamento de chaves.
     - A integração do Azure AD tem suporte para operações de dados de BLOB e de fila. Você pode atribuir funções de RBAC com escopo para uma assinatura, grupo de recursos, conta de armazenamento ou um contêiner ou fila individual para uma entidade de segurança ou uma identidade gerenciada para recursos do Azure. Para obter mais informações, consulte [autenticar o acesso ao armazenamento do Azure usando o Azure Active Directory](storage-auth-aad.md).   
 - Os dados podem ser protegidos em trânsito entre um aplicativo e o Azure usando [criptografia do lado do cliente](../storage-client-side-encryption.md), HTTPS ou SMB 3,0.  
-- O sistema operacional e OS discos de dados usados pelas máquinas virtuais do Azure podem ser criptografados usando [Azure Disk Encryption](../../security/azure-security-disk-encryption.md).
+- O sistema operacional e OS discos de dados usados pelas máquinas virtuais do Azure podem ser criptografados usando [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md).
 - O acesso delegado aos objetos de dados no armazenamento do Azure pode ser concedido usando uma assinatura de acesso compartilhado. Para obter mais informações, consulte [conceder acesso limitado aos recursos de armazenamento do Azure usando assinaturas de acesso compartilhado (SAS)](storage-sas-overview.md).
 
 Este artigo fornece uma visão geral de cada um desses recursos de segurança que podem ser usados com o armazenamento do Azure. São fornecidos links para artigos que fornecerão detalhes de cada recurso para que você possa fazer mais investigações em cada tópico.
@@ -186,7 +186,7 @@ Além disso, você pode especificar que as solicitações feitas usando uma SAS 
 #### <a name="definition-of-a-shared-access-signature"></a>Definição de uma assinatura de acesso compartilhado
 Uma assinatura de acesso compartilhado é um conjunto de parâmetros de consulta anexados à URL que aponta para o recurso
 
-Isso fornece informações sobre o acesso permitido e o período de tempo para o qual o acesso é permitido. Aqui está um exemplo; esse URI fornece acesso de leitura a um blob por cinco minutos. Observe que os parâmetros de consulta SAS devem ser codificados em URL, como% 3A para dois-pontos (:) ou% 20 para um espaço.
+Isso fornece informações sobre o acesso permitido e o período de tempo para o qual o acesso é permitido. Aqui está um exemplo; esse URI fornece acesso de leitura a um blob por cinco minutos. Observe que os parâmetros de consulta SAS devem ser codificados em URL, como% 3A para dois-pontos (:) ou %20 para um espaço.
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -328,7 +328,7 @@ A solução não dá suporte aos seguintes cenários, recursos e tecnologia na v
 Esse recurso garante que todos os dados em seus discos de máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 
 #### <a name="resources"></a>Recursos
-* [Azure Disk Encryption para VMs IaaS Windows e Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption)
+* [Azure Disk Encryption para VMs IaaS Windows e Linux](../../security/fundamentals/encryption-overview.md)
 
 ### <a name="comparison-of-azure-disk-encryption-sse-and-client-side-encryption"></a>Comparação entre Azure Disk Encryption, SSE e criptografia do lado do cliente
 
@@ -389,7 +389,7 @@ Há um artigo listado nos recursos abaixo que fornece a lista de muitos campos n
 
 ![Instantâneo de campos em um arquivo de log](./media/storage-security-guide/image3.png)
 
-Estamos interessados nas entradas para getBlob e como elas são autorizadas, portanto, precisamos procurar entradas com o tipo de operação "Get-blob" e verificar o status da solicitação (quarta @ no__t-0 coluna) e o tipo de autorização (oitava @ no__t-1 coluna).
+Estamos interessados nas entradas para getBlob e como elas são autorizadas, portanto, precisamos procurar entradas com o tipo de operação "Get-blob" e verificar a solicitação-status (quarta </sup> coluna) e o tipo de autorização (oitava </sup> coluna).
 
 Por exemplo, nas primeiras linhas da listagem acima, a solicitação-status é "êxito" e o tipo de autorização é "autenticado". Isso significa que a solicitação foi autorizada usando a chave da conta de armazenamento.
 

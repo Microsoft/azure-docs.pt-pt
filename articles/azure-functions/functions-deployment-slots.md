@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
 ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "70085670"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions slots de implantação
@@ -33,9 +33,9 @@ O seguinte reflete como as funções são afetadas por slots de permuta:
 
 Há várias vantagens em usar slots de implantação. Os cenários a seguir descrevem usos comuns para Slots:
 
-- **Ambientes diferentes para finalidades diferentes**: O uso de Slots diferentes oferece a oportunidade de diferenciar as instâncias do aplicativo antes de alternar para a produção ou para um slot de preparo.
-- **Preaquecimento**: A implantação em um slot em vez de diretamente na produção permite que o aplicativo fique quente antes de entrar no ar. Além disso, o uso de Slots reduz a latência para cargas de trabalho disparadas por HTTP. As instâncias são ativadas antes da implantação, o que reduz a inicialização a frio para funções implantadas recentemente.
-- **Fallbacks fáceis**: Após uma troca com a produção, o slot com um aplicativo previamente preparado agora tem o aplicativo de produção anterior. Se as alterações trocadas no slot de produção não forem as esperadas, você poderá reverter a troca imediatamente para obter a "última instância boa conhecida" de volta.
+- **Ambientes diferentes para finalidades diferentes**: usar Slots diferentes oferece a oportunidade de diferenciar instâncias de aplicativo antes de alternar para a produção ou para um slot de preparo.
+- **Preaquecimento**: a implantação em um slot em vez de diretamente na produção permite que o aplicativo fique quente antes de entrar no ar. Além disso, o uso de Slots reduz a latência para cargas de trabalho disparadas por HTTP. As instâncias são ativadas antes da implantação, o que reduz a inicialização a frio para funções implantadas recentemente.
+- **Fallbacks fáceis**: após uma troca com produção, o slot com um aplicativo previamente preparado agora tem o aplicativo de produção anterior. Se as alterações trocadas no slot de produção não forem as esperadas, você poderá reverter a troca imediatamente para obter a "última instância boa conhecida" de volta.
 
 ## <a name="swap-operations"></a>Operações de permuta
 
@@ -52,7 +52,7 @@ Durante uma troca, um slot é considerado a origem e o outro destino. O slot de 
 
 1. **Repetir operação:** Agora que o slot de origem tem o aplicativo de pré-permuta anteriormente no slot de destino, execute a mesma operação aplicando todas as configurações e reiniciando as instâncias do slot de origem.
 
-Tenha em mente os seguintes pontos:
+Tenha em consideração os seguintes pontos:
 
 - Em qualquer ponto da operação de permuta, a inicialização dos aplicativos trocados ocorre no slot de origem. O slot de destino permanece online enquanto o slot de origem está sendo preparado, se a troca é bem-sucedida ou falha.
 
@@ -93,7 +93,7 @@ Todos os slots são dimensionados para o mesmo número de trabalhadores que o sl
 - Para planos de consumo, o slot é dimensionado conforme o aplicativo de funções é dimensionado.
 - Para planos do serviço de aplicativo, o aplicativo é dimensionado para um número fixo de trabalhadores. Os slots são executados no mesmo número de trabalhadores que o plano do aplicativo.
 
-## <a name="add-a-slot"></a>Adicionar uma ranhura
+## <a name="add-a-slot"></a>Adicionar um slot
 
 Você pode adicionar um slot por meio da [CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create) ou por meio do Portal. As etapas a seguir demonstram como criar um novo slot no Portal:
 
@@ -111,8 +111,8 @@ Você pode trocar os slots por meio da [CLI](https://docs.microsoft.com/cli/azur
 
 1. Navegue até o aplicativo de funções
 1. Clique no nome do slot de origem que você deseja alternar
-1. Na guia *visão geral* , clique no ![botão **alternar** trocar Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. Verifique os parâmetros de configuração para sua permuta e clique em **trocar** ![permuta Azure Functions slot de implantação](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. Na guia *visão geral* , clique no botão **alternar** ![Swap Azure Functions slot de implantação ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. Verifique os parâmetros de configuração de sua permuta e clique em **trocar** ![Swap Azure Functions slot de implantação ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 A operação pode demorar um pouco enquanto a operação de permuta está em execução.
 
@@ -169,15 +169,15 @@ Use as etapas a seguir para alterar o plano do serviço de aplicativo de um slot
 Azure Functions slots de implantação têm as seguintes limitações:
 
 - O número de slots disponíveis para um aplicativo depende do plano. O plano de consumo só é permitido para um slot de implantação. Slots adicionais estão disponíveis para aplicativos em execução no plano do serviço de aplicativo.
-- A troca de um slot redefine chaves para aplicativos que têm `AzureWebJobsSecretStorageType` uma configuração de aplicativo `files`igual a.
+- A troca de um slot redefine chaves para aplicativos que têm uma configuração de aplicativo `AzureWebJobsSecretStorageType` igual a `files`.
 - Os slots não estão disponíveis para o plano de consumo do Linux.
 
 ## <a name="support-levels"></a>Níveis de suporte
 
 Há dois níveis de suporte para slots de implantação:
 
-- **Disponibilidade geral (GA)** : Suporte completo e aprovado para uso em produção.
-- Versão **prévia**: Ainda não tem suporte, mas é esperado alcançar o status de GA no futuro.
+- **Disponibilidade geral (GA)** : suporte completo e aprovado para uso em produção.
+- Versão **prévia**: ainda não tem suporte, mas é esperado para alcançar o status de GA no futuro.
 
 | Sistema operacional/plano de hospedagem           | Nível de suporte     |
 | ------------------------- | -------------------- |
@@ -188,6 +188,6 @@ Há dois níveis de suporte para slots de implantação:
 | Linux Premium (versão prévia)   | Pré-visualização              |
 | Linux dedicado           | Disponibilidade geral |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Tecnologias de implantação no Azure Functions](./functions-deployment-technologies.md)

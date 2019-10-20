@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1ebf4feb0687d9580bba29cd8213030e542a06da
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 1bfd156f9fbdb69766e4588a342a695fbd79ca3a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268835"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595302"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor de Azure Key Vault
 
@@ -28,7 +28,7 @@ Para obter mais informações gerais sobre Azure Key Vault, consulte [o que é K
 
 ## <a name="public-previews"></a>Visualizações públicas
 
-Periodicamente, lançamos uma visualização pública de um novo recurso Key Vault. Experimente-os e diga-nos o que você imagina azurekeyvault@microsoft.compor meio de nosso endereço de email de comentários.
+Periodicamente, lançamos uma visualização pública de um novo recurso Key Vault. Experimente-os e diga-nos o que você imagina por meio de azurekeyvault@microsoft.com, nosso endereço de email de comentários.
 
 ## <a name="creating-and-managing-key-vaults"></a>Criando e gerenciando cofres de chaves
 
@@ -84,7 +84,7 @@ No node. js, a API de gerenciamento de Key Vault e a API de objeto de Key Vault 
 
 [Azure PowerShell para Key Vault](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)
 
-### <a name="quick-start-guides"></a>Guias de introdução rápida
+### <a name="quickstart-guides"></a>Guias de início rápido
 
 - [Criar Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
 - [Introdução ao Key Vault no node. js](https://github.com/Azure-Samples/key-vault-node-getting-started)
@@ -117,7 +117,7 @@ Os seguintes artigos e cenários fornecem diretrizes específicas para tarefas p
 
 Estes artigos são sobre outros cenários e serviços que usam ou integram com Key Vault.
 
-- [Azure Disk Encryption](../security/azure-security-disk-encryption.md) aproveita o recurso de [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados. A solução é integrada com Azure Key Vault para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves, garantindo que todos os dados nos discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure.
+- [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) aproveita o recurso de [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão do setor do Windows e o recurso [DM-cript](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer criptografia de volume para o sistema operacional e os discos de dados. A solução é integrada com Azure Key Vault para ajudá-lo a controlar e gerenciar as chaves de criptografia de disco e os segredos em sua assinatura do cofre de chaves, garantindo que todos os dados nos discos da máquina virtual sejam criptografados em repouso no armazenamento do Azure.
 - [Azure data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md) fornece a opção para a criptografia de dados armazenados na conta. Para o gerenciamento de chaves, Data Lake Store fornece dois modos para gerenciar suas chaves de criptografia mestras (MEKs), que são necessárias para descriptografar todos os dados armazenados no Data Lake Store. Você pode permitir que Data Lake Store gerenciar o MEKs para você ou optar por manter a propriedade do MEKs usando sua conta de Azure Key Vault. Você especifica o modo de gerenciamento de chaves ao criar uma conta de Data Lake Store.
 - A [proteção de informações do Azure](/azure/information-protection/plan-implement-tenant-key) permite que você Manager sua própria chave de locatário. Por exemplo, em vez de Microsoft gerenciar sua chave de locatário (o padrão), você pode gerenciar sua própria chave de locatário para obedecer a regulamentos específicos que se aplicam à sua organização. Gerenciar sua própria chave de locatário também é conhecido como trazer sua própria chave, ou BYOK.
 

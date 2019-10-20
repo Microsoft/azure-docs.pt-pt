@@ -1,22 +1,18 @@
 ---
 title: Gestão do Azure e Operations Management Suite (OMS) | Microsoft Docs
 description: Descrição geral das áreas de gestão para aplicações e recursos do Azure com ligações a conteúdo em ferramentas de gestão do Azure que anteriormente foram agrupadas como o Operations Management Suite (OMS).
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 09/07/2018
+ms.subservice: ''
+ms.topic: conceptual
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 4096ee477dc1d40ff6b98b20dd384c6ffad17e5f
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.date: 09/07/2018
+ms.openlocfilehash: 7f515c1c5d44058e14f02f7681bfbb7fd2787c6f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779277"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597357"
 ---
 # <a name="azure-management---monitoring"></a>Gestão do Azure - Monitorização
 
@@ -42,13 +38,13 @@ Configurar refere-se à implementação inicial e à configuração dos recursos
 ## <a name="govern"></a>Governação
 A governação fornece mecanismos e processos para manter o controlo sobre os recursos e aplicações no Azure.  A governação envolve o planeamento das suas iniciativas e a definição de prioridades estratégicas.  A governação no Azure é implementada principalmente com dois serviços.  O [Azure Policy](../governance/policy/overview.md) permite-lhe criar, atribuir e gerir definições de política que impõem diferentes regras e ações aos recursos, para que esses recursos mantenham a conformidade face às normas empresariais e aos contratos de nível de serviço. O [Gerenciamento de custos do Azure](../cost-management/overview-cost-mgt.md) permite que você acompanhe o uso e as despesas da nuvem para seus recursos do Azure e outros provedores de nuvem, incluindo o AWS e o Google.
 
-## <a name="secure"></a>Proteger
+## <a name="secure"></a>Segura
 Gerir a segurança dos seus recursos, aplicações e dados passa por combinar a avaliação de ameaças, a recolha e análise de dados de segurança e garantir que os seus recursos e aplicações são concebidos e configurados com toda a segurança.  A monitorização da segurança e a análise de ameaças são fornecidas pelo [Centro de Segurança do Azure](../security-center/security-center-intro.md), o que inclui gestão de segurança unificada e proteção avançada contra ameaças entre cargas de trabalho na cloud híbrida.  Também deve ver a [Introdução à Segurança do Azure](../security/fundamentals/overview.md) para obter informações abrangentes sobre segurança no Azure e orientação sobre como configurar recursos do Azure com segurança.
 
 
-## <a name="protect"></a>proteger
+## <a name="protect"></a>Proteger
 Proteção passa por se certificar de que os seus dados e aplicações estão sempre disponíveis, mesmo em caso de falhas que estejam para além do seu controlo.  A proteção no Azure é fornecida por dois serviços.  O [Azure Backup](../backup/backup-introduction-to-azure-backup.md) garante a cópia de segurança e a recuperação dos seus dados, seja na cloud ou no local.    O [Azure Site Recovery](../site-recovery/site-recovery-overview.md) garante a elevada disponibilidade da sua aplicação ao assegurar a continuidade do negócio e a recuperação imediata em caso de desastre.
 
-## <a name="migrate"></a>Migrar 
+## <a name="migrate"></a>Migração 
 Migração refere-se à transição das cargas de trabalho atualmente em execução no local para a cloud do Azure.  O [Azure Migrate](../migrate/migrate-overview.md) é um serviço que o ajuda a avaliar a adequação da migração, incluindo o dimensionamento com base no desempenho e estimativas de custos, de máquinas virtuais no local para o Azure.  O Azure Site Recovery pode ajudá-lo a fazer a migração real de máquinas virtuais a partir [do local](../site-recovery/migrate-tutorial-on-premises-azure.md) ou [do Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md).  O [Azure Database Migration](../dms/dms-overview.md) irá ajudá-lo a migrar várias origens de dados para as Plataformas de Dados do Azure.
 

@@ -4,12 +4,12 @@ ms.service: container-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: cb24e2e1511c64024d4fefdc8accab53db3f2071
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 2a1249d134c23f47f939913fa1c9887d2a8e1f63
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530124"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72601081"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Baixar e instalar o binário do cliente Linkerd Linkerd
 
@@ -31,7 +31,7 @@ O binário de cliente do `linkerd` é executado no computador cliente e permite 
 New-Item -ItemType Directory -Force -Path "C:\Linkerd"
 Copy-Item -Path ".\linkerd2-cli-$LINKERD_VERSION-windows.exe" -Destination "C:\Linkerd\linkerd.exe"
 
-# Add C:\Istio to PATH. 
+# Add C:\Linkerd to PATH. 
 # Make the new PATH permanently available for the current User, and also immediately available in the current shell.
 $PATH = [environment]::GetEnvironmentVariable("PATH", "User") + "; C:\Linkerd\"
 [environment]::SetEnvironmentVariable("PATH", $PATH, "User") 

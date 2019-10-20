@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad2f56388b49692d799202d06ed3dc0123f272e5
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ad7bdfd3abc4d3b4b672f5471ea826d4cef0f3fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294356"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596876"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Otimizar o desempenho e a confiabilidade do Azure Functions
 
-Este artigo fornece orientação para melhorar o desempenho e a confiabilidade de seus aplicativos de funções sem [servidor](https://azure.microsoft.com/solutions/serverless/) . 
+Este artigo fornece orientação para melhorar o desempenho e a confiabilidade de seus aplicativos de funções sem [servidor](https://azure.microsoft.com/solutions/serverless/) .  
 
 ## <a name="general-best-practices"></a>Melhores práticas gerais
 
@@ -100,7 +100,7 @@ A programação assíncrona é uma prática recomendada. No entanto, sempre Evit
 
 Alguns gatilhos como o Hub de eventos permitem o recebimento de um lote de mensagens em uma única invocação.  O envio de mensagens em lote tem um desempenho muito melhor.  Você pode configurar o tamanho máximo do lote no arquivo `host.json`, conforme detalhado na [documentação de referência do host. JSON](functions-host-json.md)
 
-Para C# funções, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez de `EventData sensorEvent`, a assinatura do método poderia ser `EventData[] sensorEvent`.  Para outras linguagens, você precisará definir explicitamente a propriedade cardinalidade em seu `function.json` como `many` para habilitar o envio em lote [, conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
+Para C# funções, você pode alterar o tipo para uma matriz fortemente tipada.  Por exemplo, em vez de `EventData sensorEvent` a assinatura do método poderia ser `EventData[] sensorEvent`.  Para outras linguagens, você precisará definir explicitamente a propriedade cardinalidade em seu `function.json` como `many` para habilitar o envio em lote [, conforme mostrado aqui](https://github.com/Azure/azure-webjobs-sdk-templates/blob/df94e19484fea88fc2c68d9f032c9d18d860d5b5/Functions.Templates/Templates/EventHubTrigger-JavaScript/function.json#L10).
 
 ### <a name="configure-host-behaviors-to-better-handle-concurrency"></a>Configurar comportamentos de host para lidar melhor com a simultaneidade
 

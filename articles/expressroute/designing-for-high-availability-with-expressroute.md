@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/28/2019
 ms.author: rambala
 ms.openlocfilehash: 4984b30daf6170873cad9472bfed2d879af57efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
+ms.lasthandoff: 10/18/2019
 ms.locfileid: "67466651"
 ---
 # <a name="designing-for-high-availability-with-expressroute"></a>Projetando para alta disponibilidade com o ExpressRoute
@@ -54,7 +54,7 @@ Como alternativa, executar as conexões primária e secundária de um circuito d
 
 O emparelhamento da Microsoft foi projetado para comunicação entre pontos de extremidade públicos. Normalmente, os pontos de extremidade privados locais são endereços de rede traduzidos (NATed) com IP público no cliente ou na rede de parceiros antes de se comunicarem por emparelhamento da Microsoft. Supondo que você use as conexões primária e secundária no modo ativo-ativo, onde e como o NAT tem um impacto sobre a rapidez de recuperação após uma falha em uma das conexões do ExpressRoute. Duas opções de NAT diferentes são ilustradas na figura a seguir:
 
-[![3]][3]
+[![Beta]][3]
 
 Na opção 1, o NAT é aplicado após a divisão do tráfego entre as conexões primárias e secundárias do ExpressRoute. Para atender aos requisitos de estado do NAT, os pools de NAT independentes são usados entre os dispositivos primário e secundário para que o tráfego de retorno chegue ao mesmo dispositivo de borda por meio do qual o fluxo foi enviado.
 
@@ -80,16 +80,16 @@ Uma zona de disponibilidade em uma região do Azure é uma combinação de um do
 
 O ExpressRoute dá suporte a BFD sobre emparelhamento privado. O BFD reduz o tempo de detecção de falha na rede de camada 2 entre o Microsoft Enterprise Edge (MSEEs) e seus vizinhos de BGP no lado local de cerca de 3 minutos (padrão) a menos de um segundo. O tempo de detecção de falha rápida ajuda a hastening a recuperação de falhas. Para saber mais, confira [Configurar o BFD no ExpressRoute][BFD].
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, discutimos como projetar para alta disponibilidade de uma conectividade de circuito do ExpressRoute. Um ponto de emparelhamento de circuito do ExpressRoute é fixado em uma localização geográfica e, portanto, pode ser afetado por uma falha catastrófica que afete todo o local. 
 
 Para considerações de design para criar conectividade de rede com redundância geográfica para o backbone da Microsoft que pode suportar falhas catastróficas, que afetam toda a região, consulte [projetando para recuperação de desastres com o emparelhamento privado do ExpressRoute][DR].
 
 <!--Image References-->
-[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png  "Maneira recomendada de se conectar usando o ExpressRoute"
-[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png  "Conectividade da última quilometragem com qualidade inferior"
-[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png  "Opções de NAT"
+[1]: ./media/designing-for-high-availability-with-expressroute/exr-reco.png "maneira recomendada de se conectar usando o ExpressRoute"
+[2]: ./media/designing-for-high-availability-with-expressroute/suboptimal-lastmile-connectivity.png "conectividade de última quilometragem de nível inferior"
+[3]: ./media/designing-for-high-availability-with-expressroute/nat-options.png "Opções de NAT"
 
 
 <!--Link References-->

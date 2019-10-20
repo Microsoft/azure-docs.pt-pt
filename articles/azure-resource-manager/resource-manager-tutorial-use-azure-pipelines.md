@@ -10,17 +10,17 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122229"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597230"
 ---
-# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos de Azure Resource Manager com Azure Pipelines
+# <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutorial: integração contínua de modelos de Azure Resource Manager com Azure Pipelines
 
 Saiba como usar Azure Pipelines para criar e implantar continuamente projetos de modelo de Azure Resource Manager.
 
@@ -91,7 +91,7 @@ Esse repositório é conhecido como *repositório remoto*. Cada um dos desenvolv
 
     Substitua **[YourAccountName]** pelo nome da sua conta do GitHub e substitua **[YourGitHubRepositoryName]** pelo nome do repositório que você criou no procedimento anterior.
 
-    As capturas de tela a seguir mostram um exemplo.
+    A captura de tela a seguir mostra um exemplo.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines criar bash do GitHub](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -126,7 +126,7 @@ O azuredeploy. JSON foi adicionado ao repositório local. Em seguida, carregue o
     ```
 
     Você pode receber um aviso sobre LF. Você pode ignorar o aviso. **mestre** é a ramificação mestre.  Normalmente, você cria uma ramificação para cada atualização. Para simplificar o tutorial, você usa a ramificação mestre diretamente.
-1. Navegue até o repositório GitHub em um navegador.  A URL é  **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . Você deverá ver a pasta **CreateAzureStorage** e **Azuredeploy. JSON** dentro da pasta.
+1. Navegue até o repositório GitHub em um navegador.  A URL é **https://github.com/ [YourAccountName]/[YourGitHubRepository]** . Você deverá ver a pasta **CreateAzureStorage** e **Azuredeploy. JSON** dentro da pasta.
 
 Até agora, você criou um repositório GitHub e carregou um modelo para o repositório.
 
@@ -143,7 +143,7 @@ Uma organização DevOps é necessária para que você possa prosseguir para o p
 1. Introduza os seguintes valores:
 
     * **Nome do projeto**: Insira um nome de projeto. Você pode usar o nome do projeto que você escolheu no início do tutorial.
-    * **Controle de versão**: Selecione **git**. Talvez seja necessário expandir **avançado** para ver o **controle de versão**.
+    * **Controle de versão**: selecione **git**. Talvez seja necessário expandir **avançado** para ver o **controle de versão**.
 
     Use o valor padrão para as outras propriedades.
 1. Selecione **Create project** (Criar projeto).
@@ -158,7 +158,7 @@ Crie uma conexão de serviço que é usada para implantar projetos no Azure.
     * **Nome da conexão**: Insira um nome de conexão. Por exemplo, **AzureRmPipeline-Conn**. Anote esse nome, você precisará do nome ao criar seu pipeline.
     * **Nível de escopo**: selecione **assinatura**.
     * **Assinatura**: selecione sua assinatura.
-    * **Grupo de recursos**: Deixe em branco.
+    * **Grupo de recursos**: deixe em branco.
     * **Permitir que todos os pipelines usem esta conexão**. Selecione
 1. Selecione **OK**.
 
@@ -183,9 +183,11 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 
     Efetue as seguintes alterações:
 
-    * **azureSubscription**: Atualize o valor com a conexão de serviço criada no procedimento anterior.
+    * **deloymentScope**: selecione o escopo de implantação nas opções: `Management Group`, `Subscription` e `Resource Group`. Use o **grupo de recursos** neste tutorial. Para saber mais sobre os escopos, consulte [escopos de implantação](./resource-group-template-deploy-rest.md#deployment-scope).
+    * **ConnectedServiceName**: especifique o nome da conexão de serviço que você criou anteriormente.
+    * **Subscriptionname**: ESPECIFIQUE a ID da assinatura de destino.
     * **ação**: a ação **criar ou atualizar grupo de recursos** executa duas ações-1. criar um grupo de recursos se um novo nome de grupo de recursos for fornecido; 2. implante o modelo especificado.
     * **resourceGroupName**: especifique um novo nome de grupo de recursos. Por exemplo, **AzureRmPipeline-RG**.
     * **local**: especifique o local para o grupo de recursos.
     * **templateLocation**: quando o **artefato vinculado** é especificado, a tarefa procura o arquivo de modelo diretamente do repositório conectado.
     * **csmFile** é o caminho para o arquivo de modelo. Você não precisa especificar um arquivo de parâmetros de modelo porque todos os parâmetros definidos no modelo têm valores padrão.
 
-    Para obter mais informações sobre a tarefa, consulte [tarefa de implantação do grupo de recursos do Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+    Para obter mais informações sobre a tarefa, consulte tarefa de [implantação de grupo de recursos do Azure](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)e [tarefa de implantação de modelo de Azure Resource Manager](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. Selecione **Guardar e executar**.
 1. Selecione **salvar e executar** novamente. Uma cópia do arquivo YAML é salva no repositório conectado. Você pode ver o arquivo YAML navegando até o repositório.
 1. Verifique se o pipeline foi executado com êxito.
@@ -219,7 +223,7 @@ Para criar um pipeline com uma etapa para implantar um modelo:
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Abra o grupo de recursos. O nome é o que você especificou no arquivo YAML do pipeline.  Você deverá ver uma conta de armazenamento criada.  O nome da conta de armazenamento começa com **Store**.
 1. Selecione o nome da conta de armazenamento para abri-lo.
-1. Selecione **propriedades**. Observe que o **SKU** é **Standard_LRS**.
+1. Selecione **Propriedades**. Observe que o **SKU** é **Standard_LRS**.
 
     ![Azure Resource Manager a verificação do portal de Azure Pipelines do Azure DevOps](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 

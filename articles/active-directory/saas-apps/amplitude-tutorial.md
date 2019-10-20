@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integração do Active Directory do Azure com a Amplitude | Documentos da Microsoft'
-description: Saiba como configurar o início de sessão único entre o Azure Active Directory e Amplitude.
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com amplitude | Microsoft Docs'
+description: Saiba como configurar o logon único entre Azure Active Directory e amplitude.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -8,221 +8,179 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 496c9ffa-c833-41fa-8d17-2dc3044954d1
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/17/2019
+ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eba2aad0c758aeff189ba8638d92c46ed0902c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d077da34a6e82ced957c4da1e6abf7a5e294e78
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107089"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596260"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-amplitude"></a>Tutorial: Integração do Active Directory do Azure com a Amplitude
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amplitude"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com amplitude
 
-Neste tutorial, saiba como integrar a Amplitude com o Azure Active Directory (Azure AD).
-Integrar a Amplitude no Azure AD fornece as seguintes vantagens:
+Neste tutorial, você aprenderá a integrar o amplitude ao Azure Active Directory (Azure AD). Ao integrar o amplitude ao Azure AD, você pode:
 
-* Pode controlar no Azure AD que tenha acesso a Amplitude.
-* Pode permitir que os utilizadores ser automaticamente sessão iniciada a Amplitude (Single Sign-On) com as suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Controle no Azure AD quem tem acesso à amplitude.
+* Habilite seus usuários a serem automaticamente conectados ao amplitude com suas contas do Azure AD.
+* Gerencie suas contas em um local central-o portal do Azure.
 
-Se quiser saber mais detalhes sobre a integração de aplicações SaaS com o Azure AD, veja [o que é o acesso a aplicações e início de sessão único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+Para saber mais sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração do Azure AD com Amplitude, terá dos seguintes itens:
+Para começar, você precisa dos seguintes itens:
 
-* Uma subscrição do Azure AD. Se não tiver um ambiente do Azure AD, pode obter a versão de avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/)
-* Amplitude logon único habilitado subscrição
+* Uma assinatura do Azure AD. Se você não tiver uma assinatura, poderá obter uma [conta gratuita](https://azure.microsoft.com/free/).
+* A amplitude de assinatura habilitada para SSO (logon único).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configure e teste do Azure AD início de sessão único num ambiente de teste.
+Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste.
 
-* Suporta a amplitude **SP e IDP** iniciada SSO
-* Suporta a amplitude **Just In Time** aprovisionamento de utilizadores
+* A amplitude dá suporte ao **SP e** ao SSO iniciado pelo IDP
+* A amplitude dá suporte ao provisionamento **de usuário just in time**
 
-## <a name="adding-amplitude-from-the-gallery"></a>Adicionando a Amplitude da Galeria
+## <a name="adding-amplitude-from-the-gallery"></a>Adicionando amplitude da Galeria
 
-Para configurar a integração da Amplitude para o Azure AD, terá de adicionar a Amplitude da Galeria à sua lista de aplicações de SaaS geridas.
+Para configurar a integração do amplitude ao Azure AD, você precisa adicionar amplitude da Galeria à sua lista de aplicativos SaaS gerenciados.
 
-**Para adicionar a Amplitude da galeria, execute os seguintes passos:**
+1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Active Directory** .
+1. Navegue até **aplicativos empresariais** e, em seguida, selecione **todos os aplicativos**.
+1. Para adicionar um novo aplicativo, selecione **novo aplicativo**.
+1. Na seção **Adicionar da Galeria** , digite **amplitude** na caixa de pesquisa.
+1. Selecione **amplitude** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+## <a name="configure-and-test-azure-ad-single-sign-on-for-amplitude"></a>Configurar e testar o logon único do Azure AD para amplitude
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+Configure e teste o SSO do Azure AD com amplitude usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado em amplitude.
 
-2. Navegue para **aplicações empresariais** e, em seguida, selecione a **todos os aplicativos** opção.
+Para configurar e testar o SSO do Azure AD com amplitude, conclua os seguintes blocos de construção:
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
+    * **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
+    * **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
+1. **[Configurar o SSO de amplitude](#configure-amplitude-sso)** – para configurar as configurações de logon único no lado do aplicativo.
+    * **[Criar usuário de teste do amplitude](#create-amplitude-test-user)** – para ter um equivalente de B. Simon em amplitude que esteja vinculado à representação do usuário no Azure AD.
+1. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-4. Na caixa de pesquisa, escreva **Amplitude**, selecione **Amplitude** no painel de resultados, em seguida, clique em **Add** botão para adicionar a aplicação.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos **amplitude** , localize a seção **gerenciar** e selecione **logon único**.
+1. Na página **selecionar um método de logon único** , selecione **SAML**.
+1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
-    ![Amplitude na lista de resultados](common/search-new-app.png)
+   ![Editar configuração básica de SAML](common/edit-urls.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+1. Na seção **configuração básica do SAML** , se você quiser configurar o aplicativo no modo iniciado pelo **IDP** , insira os valores para os seguintes campos:
 
-Nesta secção, configure e teste do Azure AD início de sessão único com Amplitude com base num utilizador de teste **Eduarda Almeida**.
-Para o início de sessão único funcionar, uma relação de ligação entre um utilizador do Azure AD e o utilizador relacionado na Amplitude deve ser estabelecido.
+    a. Na caixa de texto **identificador** , digite uma URL: `https://amplitude.com/saml/sso/metadata`
 
-Para configurar e testar o Azure AD início de sessão único com Amplitude, tem de concluir os seguintes blocos de construção:
-
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
-2. **[Configurar a Amplitude Single Sign-On](#configure-amplitude-single-sign-on)**  - para configurar as definições de início de sessão único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
-5. **[Criar utilizador de teste da Amplitude](#create-amplitude-test-user)**  - para ter um equivalente da Eduarda Almeida na Amplitude que está ligado à representação de utilizador do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
-
-Nesta secção, vai ativar o Azure AD início de sessão único no portal do Azure.
-
-Para configurar o Azure AD início de sessão único com Amplitude, execute os seguintes passos:
-
-1. Na [portal do Azure](https://portal.azure.com/), na **Amplitude** página de integração de aplicações, selecione **início de sessão único**.
-
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
-
-2. Sobre o **selecionar um método de início de sessão único** caixa de diálogo, selecione **SAML/WS-Fed** modo para ativar o início de sessão único.
-
-    ![Único início de sessão em modo de seleção](common/select-saml-option.png)
-
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
-
-    ![Editar a configuração SAML do básico](common/edit-urls.png)
-
-4. Sobre o **configuração básica de SAML** secção, se desejar configurar a aplicação no **IDP** iniciada pelo modo, execute os seguintes passos:
-
-    ![Amplitude domínio e URLs únicas início de sessão em informações](common/idp-intiated.png)
-
-    a. Na **identificador** caixa de texto, escreva o URL: `https://amplitude.com/saml/sso/metadata`
-
-    b. Na **URL de resposta** caixa de texto, escreva um URL com o seguinte padrão: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://analytics.amplitude.com/saml/sso/<uniqueid>`
 
     > [!NOTE]
-    > O valor de URL de resposta não é real. Obterá o valor de URL de resposta mais tarde neste tutorial.
+    > O valor da URL de resposta não é real. Você receberá o valor da URL de resposta mais adiante neste tutorial.
 
-5. Clique em **definir URLs adicionais** e executar o passo seguinte, se desejar configurar a aplicação na **SP** iniciada pelo modo:
+1. Clique em **definir URLs adicionais** e execute a seguinte etapa se desejar configurar o aplicativo no modo iniciado pelo **SP** :
 
-    ![Amplitude domínio e URLs únicas início de sessão em informações](common/metadata-upload-additional-signon.png)
+    Na caixa de texto **URL de logon** , digite uma URL: `https://analytics.amplitude.com/sso`
 
-    Na **URL de início de sessão** caixa de texto, escreva o URL:  `https://analytics.amplitude.com/sso`
+1. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-6. No **definido no início de sessão único com o SAML** página, além do **certificado de assinatura SAML** secção, clique em **transferir** para transferir o **XML de metadados de Federação**  entre as opções de determinado de acordo com seus requisitos e guarde-o no seu computador.
+    ![O link de download do certificado](common/metadataxml.png)
 
-    ![O link de download de certificado](common/metadataxml.png)
+1. Na seção **Configurar amplitude** , copie as URLs apropriadas com base em seu requisito.
 
-7. Sobre o **configurar a Amplitude** secção, copie os URLs apropriados de acordo com seus requisitos.
+    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    ![URLs de configuração de cópia](common/copy-configuration-urls.png)
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-    a. URL de início de sessão
+Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
-    b. Azure Ad Identifier
+1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
+1. Selecione **novo usuário** na parte superior da tela.
+1. Nas propriedades do **usuário** , siga estas etapas:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
+   1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
+   1. Clique em **Criar**.
 
-    c. URL de fim de sessão
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-### <a name="configure-amplitude-single-sign-on"></a>Configurar a Amplitude início de sessão único
+Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso à amplitude.
 
-1. Início de sessão no site da sua empresa Amplitude como administrador.
+1. Na portal do Azure, selecione **aplicativos empresariais**e, em seguida, selecione **todos os aplicativos**.
+1. Na lista de aplicativos, selecione **amplitude**.
+1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-2. Clique nas **planear a administração** na barra de navegação esquerdo.
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
-    ![Configurar o início de sessão único](./media/amplitude-tutorial/configure1.png)
+1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
-3. Selecione **metadados do Microsoft Azure Active Directory** partir a **SSO integração**.
+    ![O link Adicionar usuário](common/add-assign-user.png)
 
-    ![Configurar o início de sessão único](./media/amplitude-tutorial/configure2.png)
+1. Na caixa de diálogo **usuários e grupos** , selecione **B. Simon** na lista usuários e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
+1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-4. Sobre o **definido no início de sessão único** secção, execute os seguintes passos:
+## <a name="configure-amplitude-sso"></a>Configurar o SSO de amplitude
 
-    ![Configurar o início de sessão único](./media/amplitude-tutorial/configure3.png)
+1. Para automatizar a configuração na amplitude, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
-    a. Abra o transferido **Xml de metadados** partir do portal do Azure no bloco de notas, cole o conteúdo para o **metadados do Microsoft Azure Active Directory** caixa de texto.
+    ![Extensão de meus aplicativos](common/install-myappssecure-extension.png)
 
-    b. Cópia a **URL de resposta (ACS)** valor e cole-o para o **URL de resposta** caixa de texto de **configuração básica de SAML** no portal do Azure.
+1. Depois de adicionar a extensão ao navegador, clique em **Configurar amplitude** direcionará você para o aplicativo amplitude. A partir daí, forneça as credenciais de administrador para entrar em amplitude. A extensão do navegador irá configurar automaticamente o aplicativo para você e automatizar as etapas de 3-6.
 
-    c. Clique em **Guardar**
+    ![Configuração da instalação](common/setup-sso.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+1. Se você quiser configurar a amplitude manualmente, abra uma nova janela do navegador da Web e entre no site da sua empresa amplitude como administrador e execute as seguintes etapas:
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+1. Clique no **administrador do plano** na barra de navegação à esquerda.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+    ![Configurar logon único](./media/amplitude-tutorial/configure1.png)
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+1. Selecione **Microsoft Azure Active Directory metadados** da **integração de SSO**.
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+    ![Configurar logon único](./media/amplitude-tutorial/configure2.png)
 
-    ![Novo utilizador botão](common/new-user.png)
+1. Na seção **Configurar logon único** , execute as seguintes etapas:
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+    ![Configurar logon único](./media/amplitude-tutorial/configure3.png)
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    a. Abra o **XML de metadados** baixado de portal do Azure no bloco de notas, Cole o conteúdo na caixa de texto **metadados de Microsoft Azure Active Directory** .
 
-    a. Na **Name** campo introduza **BrittaSimon**.
-  
-    b. Na **nome de utilizador** tipo de campo **brittasimon\@yourcompanydomain.extension**  
-    Por exemplo, BrittaSimon@contoso.com
+    b. Copie o valor da **URL de resposta (ACS)** e cole-o na caixa de texto **URL de resposta** da **configuração de SAML básica** no portal do Azure.
 
-    c. Selecione **palavra-passe de Show** caixa de verificação e, em seguida, anote o valor que é apresentado na caixa de palavra-passe.
+    c. Clicar em **Guardar**
 
-    d. Clique em **Criar**.
+### <a name="create-amplitude-test-user"></a>Criar usuário de teste de amplitude
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
-
-Nesta secção, vai ativar Eduarda Almeida a utilizar do Azure-início de sessão único, conceder acesso à Amplitude.
-
-1. No portal do Azure, selecione **aplicações empresariais**, selecione **todos os aplicativos**, em seguida, selecione **Amplitude**.
-
-    ![Painel de aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, selecione **Amplitude**.
-
-    ![A ligação da Amplitude na lista de aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique nas **adicionar utilizador** botão, em seguida, selecione **utilizadores e grupos** no **adicionar atribuição** caixa de diálogo.
-
-    ![O painel Adicionar atribuição](common/add-assign-user.png)
-
-5. Na **utilizadores e grupos** caixa de diálogo select **Eduarda Almeida** na lista de utilizadores, em seguida, clique o **selecionar** na parte inferior do ecrã.
-
-6. Se está esperando a qualquer valor de função a asserção de SAML, em seguida, no **selecionar função** caixa de diálogo selecione a função adequada para o utilizador na lista, em seguida, clique o **selecione** na parte inferior do ecrã.
-
-7. Na **adicionar atribuição** clique da caixa de diálogo a **atribuir** botão.
-
-### <a name="create-amplitude-test-user"></a>Criar utilizador de teste da Amplitude
-
-Nesta secção, um usuário chamado Eduarda Almeida é criado na Amplitude. Amplitude suporta o aprovisionamento de utilizadores de just-in-time, que está ativado por predefinição. Não existe nenhum item de ação para nesta secção. Se um utilizador já não existir na Amplitude, é criado um novo após a autenticação.
+Nesta seção, um usuário chamado B. Simon é criado em amplitude. A amplitude dá suporte ao provisionamento de usuário just-in-time, que é habilitado por padrão. Não há nenhum item de ação para você nesta seção. Se um usuário ainda não existir em amplitude, um novo será criado após a autenticação.
 
 > [!Note]
-> Se precisar de criar manualmente um utilizador, contacte [equipa de suporte da Amplitude](https://amplitude.zendesk.com).
+> Se você precisar criar um usuário manualmente, entre em contato com a [equipe de suporte do amplitude](https://amplitude.zendesk.com).
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-sso"></a>Testar SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
-Quando clica no mosaico da Amplitude no painel de acesso, deve ser automaticamente sessão iniciada no Amplitude para o qual configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Ao clicar no bloco amplitude no painel de acesso, você deverá ser conectado automaticamente à amplitude para a qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## <a name="additional-resources"></a>Recursos Adicionais
+## <a name="additional-resources"></a>Recursos adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
+- [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [O que é o acesso condicional no Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Experimente a amplitude com o Azure AD](https://aad.portal.azure.com/)

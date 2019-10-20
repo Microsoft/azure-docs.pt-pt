@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/03/2019
 ms.author: iainfou
-ms.openlocfilehash: 64e1095466f9494ccd8aa052a739729542920784
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 4add98ae092359c6f070bfc93b69257894f44e48
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305043"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596424"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Perguntas frequentes (FAQs)
 
@@ -47,7 +47,7 @@ As redes virtuais clássicas não têm suporte para novas implantações. Os dom
 Sim. Azure AD Domain Services pode ser habilitado em uma rede virtual Azure Resource Manager. As redes virtuais clássicas do Azure não são mais compatíveis com o quando você cria um novo domínio gerenciado.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar meu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager?
-Neste momento, não. Há um trabalho contínuo de engenharia para migrar os domínios gerenciados existentes de uma rede virtual clássica para uma rede virtual do Resource Manager.
+Sim, esse recurso está em versão prévia. Para obter mais informações, consulte [migrar Azure AD Domain Services do modelo de rede virtual clássica para o Gerenciador de recursos (versão prévia)] [migrar de-Classic-vnet.md]
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Posso habilitar Azure AD Domain Services em uma assinatura do Azure CSP (provedor de soluções na nuvem)?
 Sim. Para obter mais informações, consulte [como habilitar Azure AD Domain Services em assinaturas do Azure CSP](csp.md).
@@ -143,7 +143,7 @@ Consulte a página [Serviços do Azure por região](https://azure.microsoft.com/
 
 Consulte o [Guia de solução de problemas](troubleshoot.md) para obter soluções para problemas comuns com a configuração ou administração de Azure AD Domain Services.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre Azure AD Domain Services, confira [o que é Azure Active Directory Domain Services?](overview.md).
 

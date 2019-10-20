@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f30174f6271a3aa85ecf277531b34ff932644e3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 1a1cba2c4572b2f898f631aefbbf316fae1195ac
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518398"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596349"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
 
@@ -87,4 +87,4 @@ Ao implantar o VDI não persistente, os administradores de ti devem prestar aten
  
 ## <a name="next-steps"></a>Passos seguintes
 
-[Configurando a junção híbrida do Azure AD para dispositivos Windows ingressados no domínio que são federados usando o ADFS](manage-stale-devices.md)
+[Configurando a junção de Azure Active Directory híbrida para o ambiente federado](hybrid-azuread-join-federated-domains.md)

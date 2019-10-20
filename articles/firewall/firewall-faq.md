@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 10/19/2019
 ms.author: victorh
-ms.openlocfilehash: cb5b8bbb322dc401c7a8b057418d392120ef68e3
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130212"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596786"
 ---
 # <a name="azure-firewall-faq"></a>Perguntas frequentes do firewall do Azure
 
@@ -40,7 +40,7 @@ A vantagem desse modelo é a capacidade de exercer controle central em vários V
 
 ## <a name="how-can-i-install-the-azure-firewall"></a>Como posso instalar o Firewall do Azure?
 
-Você pode configurar o Firewall do Azure usando o portal do Azure, o PowerShell, a API REST ou o usando modelos. Consulte [o tutorial: Implante e configure o Firewall do Azure usando](tutorial-firewall-deploy-portal.md) o portal do Azure para obter instruções passo a passo.
+Você pode configurar o Firewall do Azure usando o portal do Azure, o PowerShell, a API REST ou o usando modelos. Consulte [tutorial: implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md) para obter instruções passo a passo.
 
 ## <a name="what-are-some-azure-firewall-concepts"></a>Quais são alguns dos conceitos de firewall do Azure?
 
@@ -50,7 +50,7 @@ Há três tipos de coleções de regras:
 
 * *Regras de aplicativo*: Configure FQDNs (nomes de domínio totalmente qualificados) que podem ser acessados de uma sub-rede.
 * *Regras de rede*: Configure regras que contêm endereços de origem, protocolos, portas de destino e endereços de destino.
-* *Regras de NAT*: Configure as regras de DNAT para permitir conexões de entrada.
+* *Regras de NAT*: configurar regras de DNAT para permitir conexões de entrada.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Firewall do Azure dá suporte à filtragem de tráfego de entrada?
 
@@ -58,7 +58,7 @@ O Firewall do Azure dá suporte à filtragem de entrada e saída. A proteção d
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Quais serviços de log e de análise têm suporte no firewall do Azure?
 
-O Firewall do Azure é integrado com Azure Monitor para exibir e analisar logs de firewall. Os logs podem ser enviados para Log Analytics, armazenamento do Azure ou hubs de eventos. Eles podem ser analisados em Log Analytics ou em ferramentas diferentes, como Excel e Power BI. Para obter mais informações, [consulte Tutorial: Monitorar logs](tutorial-diagnostics.md)de firewall do Azure.
+O Firewall do Azure é integrado com Azure Monitor para exibir e analisar logs de firewall. Os logs podem ser enviados para Log Analytics, armazenamento do Azure ou hubs de eventos. Eles podem ser analisados em Log Analytics ou em ferramentas diferentes, como Excel e Power BI. Para obter mais informações, consulte [tutorial: monitorar logs de firewall do Azure](tutorial-diagnostics.md).
 
 ## <a name="how-does-azure-firewall-work-differently-from-existing-services-such-as-nvas-in-the-marketplace"></a>Como o Firewall do Azure funciona de maneira diferente dos serviços existentes, como o NVAs no Marketplace?
 
@@ -145,7 +145,7 @@ Não. As regras de NAT adicionam implicitamente uma regra de rede correspondente
 
 Se você configurar * **. contoso.com**, ele permitirá *anyvalue*. contoso.com, mas não contoso.com (o Apex do domínio). Se você quiser permitir o Apex do domínio, deverá configurá-lo explicitamente como um FQDN de destino.
 
-## <a name="what-does-provisioning-state-failed-mean"></a>O que *é o estado de provisionamento: Falha* ao significar?
+## <a name="what-does-provisioning-state-failed-mean"></a>O que significa o *estado de provisionamento: falha na* média?
 
 Sempre que uma alteração de configuração é aplicada, o Firewall do Azure tenta atualizar todas as suas instâncias de back-end subjacentes. Em casos raros, uma dessas instâncias de back-end pode falhar ao atualizar com a nova configuração e o processo de atualização é interrompido com um estado de provisionamento com falha. O Firewall do Azure ainda está operacional, mas a configuração aplicada pode estar em um estado inconsistente, em que algumas instâncias têm a configuração anterior, em que outras têm a regra atualizada definida. Se isso acontecer, tente atualizar sua configuração mais uma vez até que a operação seja bem-sucedida e o firewall esteja em um estado de provisionamento *bem-sucedido* .
 
@@ -163,6 +163,14 @@ O Firewall do Azure deve provisionar mais instâncias de máquina virtual confor
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>O tamanho da sub-rede do firewall precisa ser alterado conforme o serviço é dimensionado?
 
 Não. O Firewall do Azure não precisa de uma sub-rede maior que/26.
+
+## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a taxa de transferência do meu firewall?
+
+A capacidade de taxa de transferência inicial do firewall do Azure é de 2,5 a 3 Gbps. Atualmente, o scale out é baseado apenas no uso da CPU. Em alguns casos, um firewall com regras de rede não escalará verticalmente para aumentar a taxa de transferência, pois as regras de rede não afetam significativamente o uso da CPU. Se precisar de uma taxa de transferência maior para o firewall, entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall.
+
+## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Quanto tempo leva para o Firewall do Azure escalar horizontalmente?
+
+Atualmente, leva de cinco a sete minutos para que o Firewall do Azure Escale horizontalmente. Se você tiver intermitências que exigem um dimensionamento automático mais rápido, entre em contato com o suporte para aumentar a capacidade de taxa de transferência inicial do firewall.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Firewall do Azure permite acesso a Active Directory por padrão?
 

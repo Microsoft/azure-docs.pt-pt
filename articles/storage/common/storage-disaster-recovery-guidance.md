@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671082"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595191"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperação de desastres e failover de conta de armazenamento (versão prévia) no armazenamento do Azure
 
@@ -47,16 +47,16 @@ Outras opções de redundância de armazenamento do Azure incluem ZRS (armazenam
 
 É importante projetar seu aplicativo para alta disponibilidade desde o início. Consulte estes recursos do Azure para obter orientação sobre como projetar seu aplicativo e planejar a recuperação de desastres:
 
-* [Criando aplicativos resilientes para o Azure](https://docs.microsoft.com/azure/architecture/resiliency/): Uma visão geral dos principais conceitos para a arquitetura de aplicativos altamente disponíveis no Azure.
-* [Lista de verificação de disponibilidade](https://docs.microsoft.com/azure/architecture/checklist/availability): Uma lista de verificação para verificar se seu aplicativo implementa as melhores práticas de design para alta disponibilidade.
-* [Criando aplicativos altamente disponíveis usando o Ra-grs](storage-designing-ha-apps-with-ragrs.md): Diretrizes de design para a criação de aplicativos para tirar proveito do RA-GRS.
-* [Tutorial: Crie um aplicativo altamente disponível com o armazenamento de BLOBs @ no__t-0: Um tutorial que mostra como criar um aplicativo altamente disponível que alterna automaticamente entre pontos de extremidade como falhas e recuperações são simuladas. 
+* [Criando aplicativos resilientes para o Azure](https://docs.microsoft.com/azure/architecture/resiliency/): uma visão geral dos principais conceitos para a arquitetura de aplicativos altamente disponíveis no Azure.
+* [Lista de verificação de disponibilidade](https://docs.microsoft.com/azure/architecture/checklist/availability): uma lista de verificação para verificar se o aplicativo implementa as melhores práticas de design para alta disponibilidade.
+* [Criando aplicativos altamente disponíveis usando o Ra-grs](storage-designing-ha-apps-with-ragrs.md): diretrizes de design para a criação de aplicativos para tirar proveito do Ra-grs.
+* [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md): um tutorial que mostra como criar um aplicativo altamente disponível que alterna automaticamente entre pontos de extremidade como falhas e recuperações são simuladas. 
 
 Além disso, tenha em mente essas práticas recomendadas para manter a alta disponibilidade para os dados do armazenamento do Azure:
 
-* **Discos** Use o [backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos de VM usados por suas máquinas virtuais do Azure. Considere também o uso de [Azure site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger suas VMs no caso de um desastre regional.
+* **Discos:** Use o [backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos de VM usados por suas máquinas virtuais do Azure. Considere também o uso de [Azure site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger suas VMs no caso de um desastre regional.
 * **Blobs de blocos:** Ative a [exclusão reversível](../blobs/storage-blob-soft-delete.md) para proteger contra exclusões em nível de objeto e substituições ou copie blobs de blocos para outra conta de armazenamento em uma região diferente usando [AzCopy](storage-use-azcopy.md), [Azure PowerShell](storage-powershell-guide-full.md)ou a [biblioteca de movimentação de dados do Azure](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/).
-* **Arquivos** Use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
+* **Arquivos:** Use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
 * **Tabelas:** use [AzCopy](storage-use-azcopy.md) para exportar dados de tabela para outra conta de armazenamento em uma região diferente.
 
 ## <a name="track-outages"></a>Acompanhar interrupções
@@ -119,8 +119,14 @@ Você pode iniciar um failover de conta do portal do Azure, do PowerShell, do CL
 
 O failover de conta está disponível em versão prévia para todos os clientes que usam GRS ou RA-GRS com implantações Azure Resource Manager. Há suporte para os tipos de conta de armazenamento de blob v1, de finalidade geral V2 e de uso geral. o failover de conta está disponível atualmente nestas regiões:
 
-- Oeste dos E.U.A 2
+- Ásia Oriental
+- Sudeste Asiático
+- Leste da Austrália
+- Sudeste da Austrália
+- Centro dos EUA
+- Este dos EUA 2
 - E.U.A. Centro-Oeste
+- E.U.A. Oeste 2
 
 A versão prévia destina-se apenas ao uso de não produção. Os SLAs (contratos de nível de serviço) de produção não estão disponíveis no momento.
 
@@ -170,7 +176,7 @@ Os seguintes recursos ou serviços não têm suporte para failover de conta para
 - Sincronização de Arquivos do Azure não dá suporte ao failover da conta de armazenamento. As contas de armazenamento que contêm compartilhamentos de arquivos do Azure que estão sendo usados como pontos de extremidade de nuvem no Sincronização de Arquivos do Azure não devem passar pelo failover. Fazer isso fará com que a sincronização pare de funcionar e também pode causar perda de dados inesperada no caso de arquivos recentemente em camadas.  
 - Não é possível fazer failover de uma conta de armazenamento contendo BLOBs arquivados. Manter BLOBs arquivados em uma conta de armazenamento separada que você não planeja fazer failover.
 - Não é possível fazer failover de uma conta de armazenamento contendo blobs de blocos Premium. As contas de armazenamento que dão suporte a blobs de blocos Premium atualmente não dão suporte à redundância geográfica.
-- Depois que o failover for concluído, os seguintes recursos deixarão de funcionar se originalmente habilitados: [Assinaturas de evento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), [políticas de ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) [análise de armazenamento log](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
+- Após a conclusão do failover, os seguintes recursos deixarão de funcionar se originalmente habilitados: [assinaturas de evento](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-overview), políticas de [ciclo de vida](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts) [análise de armazenamento log](https://docs.microsoft.com/rest/api/storageservices/about-storage-analytics-logging).
 
 ## <a name="copying-data-as-an-alternative-to-failover"></a>Copiando dados como uma alternativa ao failover
 
@@ -180,8 +186,8 @@ Se sua conta de armazenamento estiver configurada para RA-GRS, você terá acess
 
 Em circunstâncias extremas em que uma região é perdida devido a um desastre significativo, a Microsoft pode iniciar um failover regional. Nesse caso, nenhuma ação de sua parte é necessária. Até que o failover gerenciado pela Microsoft seja concluído, você não terá acesso de gravação à sua conta de armazenamento. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Iniciar um failover de conta (versão prévia)](storage-initiate-account-failover.md)
 * [Conceber aplicações de elevada disponibilidade com o RA-GRS](storage-designing-ha-apps-with-ragrs.md)
-* [Tutorial: Crie um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 
+* [Tutorial: criar um aplicativo altamente disponível com o armazenamento de BLOBs](../blobs/storage-create-geo-redundant-storage.md) 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/27/2019
-ms.openlocfilehash: f6c74582760d77ae4318739c74f77d0bcd0501fe
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.date: 10/17/2019
+ms.openlocfilehash: b7395a8ab71e860c2e584339dcd581077a4f4020
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950368"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595459"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Análise de Desempenho de Consultas no banco de dados do Azure para MySQL
 
@@ -24,7 +24,7 @@ Análise de Desempenho de Consultas ajuda a identificar rapidamente o que são s
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
-### <a name="long-running-queries"></a>Consultas de execução longa
+### <a name="long-running-queries"></a>Consultas de longa execução
 
 - Identificando consultas de execução mais longa nas últimas X horas
 - Identificando as N principais consultas que estão aguardando recursos
@@ -48,7 +48,7 @@ A vista [Query Performance Insight](concepts-query-performance-insight.md) no po
 
 Na página do portal do seu banco de dados do Azure para servidor MySQL, selecione **análise de desempenho de consultas** na seção **desempenho inteligente** da barra de menus.
 
-### <a name="long-running-queries"></a>Consultas de execução longa
+### <a name="long-running-queries"></a>Consultas de longa execução
 
 A guia **consultas de longa execução** mostra as 5 principais consultas por duração média por execução, agregadas em intervalos de 15 minutos. Você pode exibir mais consultas selecionando na lista suspensa **número de consultas** . Ao fazer isso, as cores do gráfico podem ser alteradas para um ID de Consulta específico.
 
@@ -59,7 +59,7 @@ Pode clicar e arrastar no gráfico para restringir a uma janela de tempo especí
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
 > [!NOTE]
-> Estatísticas de espera são destinadas a solucionar problemas de desempenho de consulta. É recomendável que seja ativado apenas para fins de solução de problemas.
+> Estatísticas de espera são destinadas a solucionar problemas de desempenho de consulta. É recomendável que seja ativado apenas para fins de solução de problemas. <br>Se você receber a mensagem de erro no portal do Azure "*o problema encontrado para ' Microsoft. DBforMySQL '; Não é possível atender à solicitação. Se esse problema continuar ou for inesperado, entre em contato com o suporte com essas informações.* " ao exibir estatísticas de espera, use um período de tempo menor.
 
 Estatísticas de espera fornece uma exibição dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de evento de espera na [documentação do mecanismo MySQL](https://go.microsoft.com/fwlink/?linkid=2098206).
 
@@ -69,6 +69,6 @@ As consultas exibidas na exibição Estatísticas de espera são agrupadas pelas
 
 ![Estatísticas de esperas de Análise de Desempenho de Consultas](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [monitoramento e ajuste](concepts-monitoring.md) no banco de dados do Azure para MySQL.

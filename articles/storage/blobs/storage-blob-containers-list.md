@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a76b83218a194c2b5cbf3ce582e8094014004123
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: b7e5b0725049fa5de95f435c848502c36a3a1726
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803383"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598130"
 ---
 # <a name="list-blob-containers-with-net"></a>Listar contêineres de blob com .NET
 
@@ -30,21 +30,21 @@ As sobrecargas para esses métodos fornecem opções adicionais para o gerenciam
 
 ### <a name="manage-how-many-results-are-returned"></a>Gerenciar quantos resultados são retornados
 
-Por padrão, uma operação de listagem retorna até 5000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero `maxresults` para o parâmetro ao chamar um dos métodos **ListContainerSegmented** .
+Por padrão, uma operação de listagem retorna até 5000 resultados por vez. Para retornar um conjunto menor de resultados, forneça um valor diferente de zero para o parâmetro `maxresults` ao chamar um dos métodos **ListContainerSegmented** .
 
-Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um `maxresults` valor para tal que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com o lista de contêineres. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
+Se sua conta de armazenamento contiver mais de 5000 contêineres ou se você tiver especificado um valor para `maxresults` de modo que a operação de listagem retorne um subconjunto de contêineres na conta de armazenamento, o armazenamento do Azure retornará um *token de continuação* com a lista de recipientes. Um token de continuação é um valor opaco que você pode usar para recuperar o próximo conjunto de resultados do armazenamento do Azure.
 
 Em seu código, verifique o valor do token de continuação para determinar se ele é nulo. Quando o token de continuação é nulo, o conjunto de resultados é concluído. Se o token de continuação não for nulo, chame **ListContainersSegmented** ou **ListContainersSegmentedAsync** novamente, passando o token de continuação para recuperar o próximo conjunto de resultados, até que o token de continuação seja nulo.
 
 ### <a name="filter-results-with-a-prefix"></a>Filtrar resultados com um prefixo
 
-Para filtrar a lista de contêineres, especifique uma cadeia de `prefix` caracteres para o parâmetro. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. Em seguida, o armazenamento do Azure retorna somente os contêineres cujos nomes começam com esse prefixo.
+Para filtrar a lista de contêineres, especifique uma cadeia de caracteres para o parâmetro `prefix`. A cadeia de caracteres de prefixo pode incluir um ou mais caracteres. Em seguida, o armazenamento do Azure retorna somente os contêineres cujos nomes começam com esse prefixo.
 
-### <a name="return-container-metadata"></a>Retornar metadados do contêiner
+### <a name="return-metadata"></a>Retornar metadados
 
-Para retornar metadados de contêiner com os resultados, especifique o valor de **metadados** para a enumeração [ContainerListDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . O armazenamento do Azure inclui metadados com cada contêiner retornado, portanto, você também não precisa chamar um dos métodos fetchattributes para recuperar os metadados do contêiner.
+Para retornar metadados de contêiner com os resultados, especifique o valor de **metadados** para a enumeração [ContainerListingDetails](/dotnet/api/microsoft.azure.storage.blob.containerlistingdetails) . O armazenamento do Azure inclui metadados com cada contêiner retornado, portanto, você também não precisa chamar um dos métodos **fetchattributes** para recuperar os metadados do contêiner.
 
-## <a name="example-list-containers"></a>Exemplo: Listar contentores
+## <a name="example-list-containers"></a>Exemplo: listar contêineres
 
 O exemplo a seguir lista de forma assíncrona os contêineres em uma conta de armazenamento que começam com um prefixo especificado. O exemplo lista os contêineres em incrementos de 5 resultados por vez e usa o token de continuação para obter o próximo segmento de resultados. O exemplo também retorna metadados de contêiner com os resultados.
 
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-[Listar contêineres](/rest/api/storageservices/list-containers2)
-que[enumeram recursos de blob](/rest/api/storageservices/enumerating-blob-resources)
+[Listar contêineres](/rest/api/storageservices/list-containers2) 
+[enumerando recursos de blob](/rest/api/storageservices/enumerating-blob-resources)

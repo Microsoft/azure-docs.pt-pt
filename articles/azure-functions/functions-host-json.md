@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: b714559c6c009139da97c7d90425011fb3130ef8
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 9eb68bb4accafa708d738ea40210980358f60f24
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263323"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596863"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>referência de host. JSON para Azure Functions 2. x  
 
@@ -69,7 +69,7 @@ Os arquivos *host. JSON* de exemplo a seguir têm todas as opções possíveis e
         "applicationInsights": {
             "samplingSettings": {
               "isEnabled": true,
-              "maxTelemetryItemsPerSecond" : 5
+              "maxTelemetryItemsPerSecond" : 20
             }
         }
     },
@@ -104,7 +104,7 @@ Controla o [recurso de amostragem no Application insights](./functions-monitorin
     "applicationInsights": {
         "samplingSettings": {
           "isEnabled": true,
-          "maxTelemetryItemsPerSecond" : 5
+          "maxTelemetryItemsPerSecond" : 20
         }
     }
 }
@@ -116,7 +116,7 @@ Controla o [recurso de amostragem no Application insights](./functions-monitorin
 |Propriedade  |Predefinição | Descrição |
 |---------|---------|---------| 
 |isEnabled|true|Habilita ou desabilita a amostragem.| 
-|maxTelemetryItemsPerSecond|5|O limite no qual a amostragem começa.| 
+|maxTelemetryItemsPerSecond|20|O limite no qual a amostragem começa.| 
 |EnableLiveMetrics |true|Habilita a coleta de métricas em tempo real.|
 |EnableDependencyTracking|true|Habilita o rastreamento de dependência.|
 |EnablePerformanceCountersCollection|true|Habilita a coleta de contadores de desempenho kudu.|

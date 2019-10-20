@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b7fc3508f7f672e277577f92218ff1860b676cb
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: f54382d652c3fc59b8ff462d41ec8c0fbdbe8498
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559479"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596699"
 ---
 # <a name="troubleshoot-a-problem-with-privileged-identity-management"></a>Solucionar um problema com Privileged Identity Management
 
@@ -28,7 +28,7 @@ Você está tendo um problema com Privileged Identity Management (PIM) no Azure 
 
 ### <a name="problem"></a>Problema
 
-Você recebe um erro de autorização quando tenta tornar um usuário qualificado para uma função de administrador do Azure AD e não consegue acessar os recursos do Azure em Privileged Identity Management. Você não poderá acessar os recursos do Azure em Privileged Identity Management mesmo se você for um administrador global e o proprietário da assinatura.
+Como um proprietário ativo ou administrador de acesso de usuário para um recurso do Azure, você pode ver seu recurso dentro de Privileged Identity Management mas não pode executar ações como fazer uma atribuição qualificada ou exibir uma lista de atribuições de função do recurso página de visão geral. Qualquer uma dessas ações resulta em um erro de autorização.
 
 ### <a name="cause"></a>Causa
 

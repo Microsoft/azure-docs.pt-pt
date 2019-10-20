@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: dfd304b0c15b325208daba104bb79863fcd3f53f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527441"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596500"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>Existe transformação no fluxo de dados de mapeamento
 
@@ -20,11 +20,10 @@ A transformação Exists é uma transformação de filtragem de linha que verifi
 
 ## <a name="configuration"></a>Configuração
 
-Escolha qual fluxo de dados você está verificando a existência no menu suspenso de **fluxo à direita** .
-
-Especifique se você está procurando os dados existentes ou não existentes na configuração de **tipo exist** .
-
-Escolha quais colunas de chave você deseja comparar como suas condições de existência. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor de computação, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
+1. Escolha qual fluxo de dados você está verificando a existência no menu suspenso de **fluxo à direita** .
+1. Especifique se você está procurando os dados existentes ou não existentes na configuração de **tipo exist** .
+1. Selecione se deseja ou não uma **expressão personalizada**.
+1. Escolha quais colunas de chave você deseja comparar como suas condições de existência. Por padrão, o fluxo de dados procura igualdade entre uma coluna em cada fluxo. Para comparar por meio de um valor calculado, passe o mouse sobre a lista suspensa coluna e selecione **coluna computada**.
 
 ![Configurações existentes](media/data-flow/exists.png "existe 1")
 

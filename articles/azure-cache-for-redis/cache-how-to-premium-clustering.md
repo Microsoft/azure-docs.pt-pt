@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: a919ccd2a23acf6e1bd04cda8a5dd18782ff31b0
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315986"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596910"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Como configurar o clustering do Redis para um cache Premium do Azure para Redis
 O cache do Azure para Redis tem diferentes ofertas de cache, que fornecem flexibilidade na escolha do tamanho e dos recursos do cache, incluindo recursos da camada Premium, como clustering, persistência e suporte à rede virtual. Este artigo descreve como configurar o clustering em um cache do Azure Premium para a instância do Redis.
@@ -31,8 +31,8 @@ O cache do Azure para Redis oferece o cluster Redis conforme [implementado no Re
 
 * A capacidade de dividir automaticamente seu conjunto de recursos entre vários nós. 
 * A capacidade de continuar as operações quando um subconjunto de nós estiver apresentando falhas ou não conseguir se comunicar com o restante do cluster. 
-* Mais taxa de transferência: A taxa de transferência aumenta linearmente à medida que você aumenta o número de fragmentos. 
-* Mais tamanho de memória: Aumenta linearmente à medida que você aumenta o número de fragmentos.  
+* Mais taxa de transferência: a taxa de transferência aumenta linearmente à medida que você aumenta o número de fragmentos. 
+* Mais tamanho de memória: aumenta linearmente à medida que você aumenta o número de fragmentos.  
 
 O clustering não aumenta o número de conexões disponíveis para um cache clusterizado. Para obter mais informações sobre tamanho, taxa de transferência e largura de banda com caches Premium, consulte [qual cache do Azure para oferta de Redis e tamanho devo usar?](cache-faq.md#what-azure-cache-for-redis-offering-and-size-should-i-use)
 
@@ -109,9 +109,9 @@ A lista a seguir contém respostas para perguntas frequentes sobre o cache do Az
 * Se você estiver usando o provedor de estado de sessão do Redis ASP.NET, deverá usar o 2.0.1 ou superior. Veja posso [usar o clustering com o estado de sessão do Redis ASP.net e os provedores de cache de saída?](#can-i-use-clustering-with-the-redis-aspnet-session-state-and-output-caching-providers)
 
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>Como as chaves são distribuídas em um cluster?
-De acordo com a documentação do [modelo de distribuição de chaves](https://redis.io/topics/cluster-spec#keys-distribution-model) Redis: O espaço de chave é dividido em slots de 16384. Cada chave é codificada em hash e atribuída a um desses slots, que são distribuídos entre os nós do cluster. Você pode configurar qual parte da chave é configurada em hash para garantir que várias chaves estejam localizadas no mesmo fragmento usando marcas de hash.
+De acordo com a documentação do [modelo de distribuição de chaves](https://redis.io/topics/cluster-spec#keys-distribution-model) Redis: o espaço de chave é dividido em slots de 16384. Cada chave é codificada em hash e atribuída a um desses slots, que são distribuídos entre os nós do cluster. Você pode configurar qual parte da chave é configurada em hash para garantir que várias chaves estejam localizadas no mesmo fragmento usando marcas de hash.
 
-* Chaves com uma marca de hash – se qualquer parte da chave estiver entre `{` e `}`, somente essa parte da chave será codificada com hash para fins de determinação do slot de hash de uma chave. Por exemplo, as três chaves a seguir seriam localizadas no mesmo fragmento: `{key}1`, `{key}2`e `{key}3` já que apenas a `key` parte do nome é com hash. Para obter uma lista completa de especificações de marca de hash de chaves, consulte [marcas de hash de chaves](https://redis.io/topics/cluster-spec#keys-hash-tags).
+* Chaves com uma marca de hash – se qualquer parte da chave estiver entre `{` e `}`, somente essa parte da chave será codificada para fins de determinação do slot de hash de uma chave. Por exemplo, as três chaves a seguir estarão localizadas no mesmo fragmento: `{key}1`, `{key}2` e `{key}3`, já que apenas a parte `key` do nome tem hash. Para obter uma lista completa de especificações de marca de hash de chaves, consulte [marcas de hash de chaves](https://redis.io/topics/cluster-spec#keys-hash-tags).
 * Chaves sem uma marca de hash-o nome de chave inteiro é usado para hash. Isso resulta em uma distribuição estatisticamente uniforme entre os fragmentos do cache.
 
 Para obter o melhor desempenho e a taxa de transferência, é recomendável distribuir as chaves uniformemente. Se você estiver usando chaves com uma marca de hash, é responsabilidade do aplicativo garantir que as chaves sejam distribuídas uniformemente.
@@ -124,9 +124,9 @@ Para obter um exemplo de código sobre como trabalhar com clustering e localizar
 O maior tamanho de cache Premium é de 120 GB. Você pode criar até 10 fragmentos, fornecendo um tamanho máximo de 1,2 TB GB. Se você precisar de um tamanho maior, poderá [solicitar mais](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase). Para obter mais informações, consulte [Azure cache for Redis Pricing](https://azure.microsoft.com/pricing/details/cache/).
 
 ### <a name="do-all-redis-clients-support-clustering"></a>Todos os clientes do Redis dão suporte ao clustering?
-No momento, nem todos os clientes dão suporte ao clustering Redis. StackExchange. Redis é aquele que dá suporte a ele. Para obter mais informações sobre outros clientes, consulte a seção [jogando com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [tutorial do cluster Redis](https://redis.io/topics/cluster-tutorial). 
+Nem todos os clientes dão suporte ao clustering Redis! Verifique a documentação da biblioteca que você está usando para verificar se você está usando uma biblioteca e uma versão que dão suporte a clustering. StackExchange. Redis é uma biblioteca que oferece suporte a clustering, em suas versões mais recentes. Para obter mais informações sobre outros clientes, consulte a seção [jogando com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) do [tutorial do cluster Redis](https://redis.io/topics/cluster-tutorial). 
 
-O protocolo de clustering Redis requer que cada cliente se conecte a cada fragmento diretamente no modo de clustering. A tentativa de usar um cliente que não dê suporte ao clustering provavelmente resultará em muitas [exceções de redirecionamento movidas](https://redis.io/topics/cluster-spec#moved-redirection).
+O protocolo de clustering Redis requer que cada cliente se conecte a cada fragmento diretamente no modo de clustering e também defina novas respostas de erro, como ' MOVEd ' na ' CROSSSLOTS '. A tentativa de usar um cliente que não dá suporte ao clustering com um cache de modo de cluster pode resultar em muitas [exceções de redirecionamento movidas](https://redis.io/topics/cluster-spec#moved-redirection)ou apenas interromper seu aplicativo, se você estiver fazendo solicitações de várias chaves de slot.
 
 > [!NOTE]
 > Se você estiver usando o StackExchange. Redis como seu cliente, verifique se está usando a versão mais recente do [stackexchange. Redis](https://www.nuget.org/packages/StackExchange.Redis/) 1.0.481 ou posterior para que o clustering funcione corretamente. Se você tiver problemas com as exceções de movimentação, consulte [mover exceções](#move-exceptions) para obter mais informações.
@@ -137,7 +137,7 @@ O protocolo de clustering Redis requer que cada cliente se conecte a cada fragme
 Você pode se conectar ao seu cache usando os mesmos [pontos de extremidade](cache-configure.md#properties), [portas](cache-configure.md#properties)e [chaves](cache-configure.md#access-keys) que você usa ao se conectar a um cache que não tem o clustering habilitado. O Redis gerencia o clustering no back-end para que você não precise gerenciá-lo do seu cliente.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>Posso me conectar diretamente aos fragmentos individuais do meu cache?
-O protocolo de clustering requer que o cliente faça as conexões de fragmento corretas. Portanto, o cliente deve fazer isso corretamente para você. Dito isso, cada fragmento consiste em um par de cache primário/de réplica, coletivamente conhecido como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário Redis-CLI na ramificação [instável](https://redis.io/download) do repositório Redis no github. Esta versão implementa o suporte básico quando iniciada `-c` com o comutador. Para obter mais informações, consulte [jogando com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) [https://redis.io](https://redis.io) no [tutorial do cluster Redis](https://redis.io/topics/cluster-tutorial).
+O protocolo de clustering requer que o cliente faça as conexões de fragmento corretas. Portanto, o cliente deve fazer isso corretamente para você. Dito isso, cada fragmento consiste em um par de cache primário/de réplica, coletivamente conhecido como uma instância de cache. Você pode se conectar a essas instâncias de cache usando o utilitário Redis-CLI na ramificação [instável](https://redis.io/download) do repositório Redis no github. Esta versão implementa o suporte básico quando iniciada com a opção `-c`. Para obter mais informações, consulte [jogando com o cluster](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) em [https://redis.io](https://redis.io) no [tutorial do cluster Redis](https://redis.io/topics/cluster-tutorial).
 
 Para não SSL, use os comandos a seguir.
 
@@ -150,7 +150,10 @@ Para não SSL, use os comandos a seguir.
 Para SSL, substitua `1300N` por `1500N`.
 
 ### <a name="can-i-configure-clustering-for-a-previously-created-cache"></a>Posso configurar o clustering para um cache criado anteriormente?
-No momento, você só pode habilitar o clustering ao criar um cache. Você pode alterar o tamanho do cluster após a criação do cache, mas não pode adicionar clustering a um cache Premium ou remover o clustering de um cache Premium após a criação do cache. Um cache Premium com clustering habilitado e apenas um fragmento é diferente de um cache Premium do mesmo tamanho sem clustering.
+Sim. Primeiro, verifique se o cache é Premium, dimensionando se não for. Em seguida, você deve ser capaz de ver as opções de configuração de cluster, incluindo uma opção para habilitar cluster. Você pode alterar o tamanho do cluster após a criação do cache ou depois de ter habilitado o clustering pela primeira vez.
+
+   >[!IMPORTANT]
+   >Não é possível desfazer a habilitação do clustering. E um cache com clustering habilitado e apenas um fragmento se comporta de *forma diferente* de um cache do mesmo tamanho *sem* clustering.
 
 ### <a name="can-i-configure-clustering-for-a-basic-or-standard-cache"></a>Posso configurar o clustering para um cache básico ou Standard?
 O clustering só está disponível para caches Premium.
@@ -162,7 +165,7 @@ O clustering só está disponível para caches Premium.
 <a name="move-exceptions"></a>
 
 ### <a name="i-am-getting-move-exceptions-when-using-stackexchangeredis-and-clustering-what-should-i-do"></a>Estou obtendo exceções de movimentação ao usar StackExchange. Redis e clustering, o que devo fazer?
-Se você estiver usando stackexchange. Redis e receber `MOVE` exceções ao usar o clustering, verifique se está usando [stackexchange. Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) ou posterior. Para obter instruções sobre como configurar seus aplicativos .NET para usar o StackExchange. Redis, consulte [configurar os clientes de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
+Se você estiver usando StackExchange. Redis e receber `MOVE` exceções ao usar o clustering, verifique se está usando [stackexchange. Redis 1.1.603](https://www.nuget.org/packages/StackExchange.Redis/) ou posterior. Para obter instruções sobre como configurar seus aplicativos .NET para usar o StackExchange. Redis, consulte [configurar os clientes de cache](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
 ## <a name="next-steps"></a>Passos seguintes
 Saiba como usar mais recursos de cache Premium.

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65cd59933fa31d870a507cbe80b454934c9008d0
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 626f446c18acf1f07f458fb1b4238f182546e479
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265090"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596933"
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook do Python
 
@@ -173,8 +173,8 @@ Teste e execute o runbook novamente para ver que ele inicia a VM.
 Atualmente, o runbook usa valores embutidos em código para os nomes do grupo de recursos e da VM.
 Agora, vamos adicionar o código que obtém esses valores dos parâmetros de entrada.
 
-Você usa a `sys.argv` variável para obter os valores de parâmetro.
-Adicione o seguinte código ao runbook imediatamente após as outras `import` instruções:
+Você usa a variável `sys.argv` para obter os valores de parâmetro.
+Adicione o seguinte código ao runbook imediatamente após as outras instruções `import`:
 
 ```python
 import sys
@@ -183,7 +183,7 @@ resource_group_name = str(sys.argv[1])
 vm_name = str(sys.argv[2])
 ```
 
-Isso importa o `sys` módulo e cria duas variáveis para manter os nomes do grupo de recursos e da VM.
+Isso importa o módulo `sys` e cria duas variáveis para armazenar os nomes do grupo de recursos e da VM.
 Observe que o elemento da lista de argumentos, `sys.argv[0]`, é o nome do script e não é inserido pelo usuário.
 
 Agora você pode modificar as duas últimas linhas do runbook para usar os valores de parâmetro de entrada em vez de usar valores embutidos em código:
@@ -198,13 +198,37 @@ Ao iniciar um runbook do Python (na página de **teste** ou como um runbook publ
 
 Depois que você começar a inserir um valor na primeira caixa, um segundo será exibido, e assim por diante, para que você possa inserir quantos valores de parâmetro forem necessários.
 
-Os valores estão disponíveis para o script como a `sys.argv` matriz, como no código que você acabou de adicionar.
+Os valores estão disponíveis para o script como a matriz de `sys.argv` como no código que você acabou de adicionar.
 
 Insira o nome do seu grupo de recursos como o valor do primeiro parâmetro e o nome da VM para iniciar como o valor do segundo parâmetro.
 
 ![Inserir valores de parâmetro](media/automation-first-runbook-textual-python/runbook-python-params.png)
 
 Clique em **OK** para iniciar o runbook. O runbook é executado e inicia a VM que você especificou.
+
+## <a name="error-handling-in-python"></a>Tratamento de erros no Python
+
+Você também pode usar as seguintes convenções para recuperar vários fluxos de seus runbooks do Python, incluindo fluxos de **aviso**, **erro**e **depuração** .
+
+```python
+print("Hello World output") 
+print("ERROR: - Hello world error")
+print("WARNING: - Hello world warning")
+print("DEBUG: - Hello world debug")
+print("VERBOSE: - Hello world verbose")
+```
+
+O exemplo a seguir mostra essa convenção usada em um bloco de `try...except`.
+
+```python
+try:
+    raise Exception('one', 'two')
+except Exception as detail:
+    print 'ERROR: Handling run-time error:', detail
+```
+
+> [!NOTE]
+> Não há suporte para **Sys. stderr** na automação do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
-ms.openlocfilehash: a2041aefcfdcb1746e64f50c7cb53b3bfaec3299
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 75e806e56fa94916f76f9e7fa6572ae07987e017
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69872795"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595561"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>APIs de preenchimento de SaaS, versão 2 
 
@@ -31,13 +31,13 @@ A tabela a seguir lista os Estados de provisionamento para uma assinatura de Saa
 
 #### <a name="provisioning"></a>Aprovisionamento
 
-Quando um cliente inicia uma compra, o parceiro recebe essas informações em um código de autorização em uma página da Web interativa do cliente que usa um parâmetro de URL. Um exemplo é `https://contoso.com/signup?token=..`, enquanto a URL da página de aterrissagem no `https://contoso.com/signup`Partner Center é. O código de autorização pode ser validado e trocado para obter os detalhes do serviço de provisionamento chamando a API de resolução.  Quando um serviço SaaS conclui o provisionamento, ele envia uma chamada de ativação para sinalizar que o preenchimento foi concluído e que o cliente pode ser cobrado. 
+Quando um cliente inicia uma compra, o parceiro recebe essas informações em um código de autorização em uma página da Web interativa do cliente que usa um parâmetro de URL. Um exemplo é `https://contoso.com/signup?token=..`, enquanto a URL da página de aterrissagem no Partner Center é `https://contoso.com/signup`. O código de autorização pode ser validado e trocado para obter os detalhes do serviço de provisionamento chamando a API de resolução.  Quando um serviço SaaS conclui o provisionamento, ele envia uma chamada de ativação para sinalizar que o preenchimento foi concluído e que o cliente pode ser cobrado. 
 
 O diagrama a seguir mostra a sequência de chamadas de API para um cenário de provisionamento.  
 
 ![Chamadas à API para provisionamento de um serviço SaaS](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>Aprovisionado
+#### <a name="provisioned"></a>Aprovisionada
 
 Esse estado é o estado estacionário de um serviço provisionado.
 
@@ -65,14 +65,14 @@ Esse estado indica que o pagamento de um cliente não foi recebido. Por polític
 - A assinatura deve ser mantida em um estado recuperável que possa restaurar a funcionalidade completa sem qualquer perda de dados ou configurações. 
 - Espere obter uma solicitação de reaplicar para essa assinatura por meio das APIs de preenchimento ou uma solicitação de desprovisionamento no final do período de carência. 
 
-#### <a name="unsubscribed"></a>Com subscrição anulada 
+#### <a name="unsubscribed"></a>Cancelou 
 
 As assinaturas atingem esse estado em resposta a uma solicitação de cliente explícita ou a não pagamento de dívidas. A expectativa do parceiro é que os dados do cliente sejam retidos para recuperação na solicitação por um determinado número de dias e, em seguida, excluídos. 
 
 
-## <a name="api-reference"></a>Referência da API
+## <a name="api-reference"></a>Referência de API
 
-Esta seção documenta a *API da assinatura* SaaS e a *API de operações*.  O valor do parâmetro `api-version` para as APIs da versão 2 `2018-08-31`é.  
+Esta seção documenta a *API da assinatura* SaaS e a *API de operações*.  O valor do parâmetro `api-version` para APIs da versão 2 é `2018-08-31`.  
 
 
 ### <a name="parameter-and-entity-definitions"></a>Definições de parâmetro e entidade
@@ -87,7 +87,7 @@ A tabela a seguir lista as definições para parâmetros comuns e entidades usad
 | `offerId`                | Um identificador de cadeia de caracteres exclusivo para cada oferta (por exemplo: "offer1").  |
 | `planId`                 | Um identificador de cadeia de caracteres exclusivo para cada plano/SKU (por exemplo: "prata"). |
 | `operationId`            | O identificador GUID de uma operação específica.  |
-|  `action`                | A ação que está sendo executada em um recurso `unsubscribe`, `suspend` `reinstate`ou,, `changePlan`ou `changeQuantity`, `transfer`,.  |
+|  `action`                | A ação que está sendo executada em um recurso, seja `unsubscribe`, `suspend`, `reinstate` ou `changePlan`, `changeQuantity`, `transfer`.  |
 |   |   |
 
 Identificadores globais exclusivos ([GUIDs](https://en.wikipedia.org/wiki/Universally_unique_identifier)) são números de 128 bits (32-hexadecimal) que normalmente são gerados automaticamente. 
@@ -96,7 +96,7 @@ Identificadores globais exclusivos ([GUIDs](https://en.wikipedia.org/wiki/Univer
 
 O ponto de extremidade de resolução permite que o Publicador resolva um token do Marketplace para uma ID de recurso persistente. A ID de recurso é o identificador exclusivo para uma assinatura de SaaS. Quando um usuário é redirecionado para o site de um parceiro, a URL contém um token nos parâmetros de consulta. O parceiro deve usar esse token e fazer uma solicitação para resolvê-lo. A resposta contém a ID de assinatura SaaS exclusiva, o nome, a ID da oferta e o plano para o recurso. Esse token é válido somente por uma hora. 
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Publicar<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionsresolveapi-versionapiversion"></a>Postar<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -109,14 +109,14 @@ O ponto de extremidade de resolução permite que o Publicador resolva um token 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Tipo de conteúdo      | `application/json` |
-|  x-ms-requestid    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`". |
-|  x-ms-marketplace-token  |  O parâmetro de consulta de token na URL quando o usuário é redirecionado para o site do parceiro de SaaS do Azure (por `https://contoso.com/signup?token=..`exemplo:). *Nota:* A URL decodifica o valor do token do navegador antes de usá-lo.  |
+|  x-MS-RequestId    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  x-MS-CorrelationId |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`". |
+|  x-MS-Marketplace-token  |  O parâmetro de consulta de token na URL quando o usuário é redirecionado para o site do parceiro de SaaS do Azure (por exemplo: `https://contoso.com/signup?token=..`). *Observação:* A URL decodifica o valor do token do navegador antes de usá-lo.  |
 
 *Códigos de resposta:*
 
-Auto-completar 200<br>
+Código: 200<br>
 Resolve o token opaco para uma assinatura de SaaS. Corpo da resposta:
  
 
@@ -130,16 +130,16 @@ Resolve o token opaco para uma assinatura de SaaS. Corpo da resposta:
 }
 ```
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada. x-MS-Marketplace-token está ausente, malformado ou expirou.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -153,10 +153,10 @@ Erro interno do servidor.
 
 ### <a name="subscription-api"></a>API de assinatura
 
-A API de assinatura do oferece suporte às seguintes operações HTTPS: **Get**, **post**, **patch**e **delete**.
+A API de assinatura do dá suporte às seguintes operações HTTPS: **Get**, **post**, **patch**e **delete**.
 
 
-#### <a name="list-subscriptions"></a>Listar subscrições
+#### <a name="list-subscriptions"></a>Listar assinaturas
 
 Lista todas as assinaturas de SaaS para um Publicador.
 
@@ -173,15 +173,19 @@ Lista todas as assinaturas de SaaS para um Publicador.
 |                    |                   |
 |  ---------------   |  ---------------  |
 | Tipo de conteúdo       |  `application/json`  |
-| x-ms-requestid     |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-| x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-| authorization      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
+| x-MS-RequestId     |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+| x-MS-CorrelationId |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+| nesse      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Auto-completar 200 <br/>
+Código: 200 <br/>
 Obtém o Publicador e as assinaturas correspondentes para todas as ofertas do Publicador, com base no token de autenticação.
-Carga de resposta:<br>
+
+>[!Note]
+>As [APIs de simulação](#mock-apis) são usadas quando você desenvolve a oferta pela primeira vez, enquanto as APIs reais precisam ser usadas na realidade da publicação da oferta.  APIs reais e APIs de simulação diferem na primeira linha do código.  Na API real, há a `subscription` seção, enquanto essa seção não existe para a API de simulação.
+
+Carga de resposta para a API de simulação:<br>
 
 ```json
 {
@@ -215,13 +219,52 @@ Carga de resposta:<br>
   "continuationToken": ""
 }
 ```
+E para a API real: <br>
 
+```json
+{
+  "subscriptions": [
+      {
+          "id": "<guid>",
+          "name": "Contoso Cloud Solution",
+          "publisherId": "contoso",
+          "offerId": "offer1",
+          "planId": "silver",
+          "quantity": "10",
+          "beneficiary": { // Tenant, object id and email address for which SaaS subscription is purchased.
+              "emailId": "<email>",
+              "objectId": "<guid>",                     
+              "tenantId": "<guid>"
+          },
+          "purchaser": { // Tenant, object id and email address that purchased the SaaS subscription. These could be different for reseller scenario
+              "emailId": "<email>",
+              "objectId": "<guid>",                      
+              "tenantId": "<guid>"
+          },
+            "term": {
+                "startDate": "2019-05-31",
+                "endDate": "2019-06-29",
+                "termUnit": "P1M"
+          },
+          "allowedCustomerOperations": [
+              "Read" // Possible Values: Read, Update, Delete.
+          ], // Indicates operations allowed on the SaaS subscription. For CSP-initiated purchases, this will always be Read.
+          "sessionMode": "None", // Possible Values: None, DryRun (Dry Run indicates all transactions run as Test-Mode in the commerce stack)
+          "isFreeTrial": true, // true – the customer subscription is currently in free trial, false – the customer subscription is not currently in free trial.(optional field – default false)
+          "isTest": false, //indicating whether the current subscription is a test asset
+          "sandboxType": "None", // Possible Values: None, Csp (Csp sandbox purchase)
+          "saasSubscriptionStatus": "Subscribed" // Indicates the status of the operation: [NotStarted, PendingFulfillmentStart, Subscribed, Suspended, Unsubscribed]
+      }
+  ],
+  "@nextLink": ""
+}
+```
 O token de continuação estará presente somente se houver "páginas" adicionais de planos para recuperar. 
 
-Auto-completar 403 <br>
+Código: 403 <br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual. 
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -251,13 +294,13 @@ Obtém a assinatura SaaS especificada. Use esta chamada para obter informações
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Tipo de conteúdo      |  `application/json`  |
-|  x-ms-requestid    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
+|  x-MS-RequestId    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  x-MS-CorrelationId |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Auto-completar 200<br>
+Código: 200<br>
 Obtém a assinatura de SaaS do identificador. Carga de resposta:<br>
 
 ```json
@@ -287,13 +330,13 @@ Response Body:
 }
 ```
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.<br> 
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.<br>
 
 ```json
@@ -321,13 +364,13 @@ Use essa chamada para descobrir se há alguma oferta privada ou pública para o 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Tipo de conteúdo     |  `application/json` |
-|   x-ms-requestid   |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid  | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
+|   x-MS-RequestId   |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  x-MS-CorrelationId  | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
 
 *Códigos de resposta:*
 
-Auto-completar 200<br>
+Código: 200<br>
 Obtém uma lista de planos disponíveis para um cliente. Corpo da resposta:
 
 ```json
@@ -340,13 +383,13 @@ Obtém uma lista de planos disponíveis para um cliente. Corpo da resposta:
 }
 ```
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.<br> 
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual. <br> 
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.<br>
 
 ```json
@@ -359,7 +402,7 @@ Erro interno do servidor.<br>
 
 #### <a name="activate-a-subscription"></a>Ativar uma assinatura
 
-##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Publicar<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
+##### <a name="postbrhttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidactivateapi-versionapiversion"></a>Postar<br>`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -373,9 +416,9 @@ Erro interno do servidor.<br>
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Tipo de conteúdo      | `application/json`  |
-|  x-ms-requestid    | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid  | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Essa cadeia de caracteres correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
+|  x-MS-RequestId    | Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  x-MS-CorrelationId  | Um valor de cadeia de caracteres exclusivo para a operação no cliente. Essa cadeia de caracteres correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`". |
 
 *Carga da solicitação:*
 
@@ -388,19 +431,19 @@ Erro interno do servidor.<br>
 
 *Códigos de resposta:*
 
-Auto-completar 200<br>
+Código: 200<br>
 Ativa a assinatura.<br>
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada: falhas de validação.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -416,7 +459,7 @@ Erro interno do servidor.
 
 Atualize o plano na assinatura.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Correção<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Distribuído<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -430,9 +473,9 @@ Atualize o plano na assinatura.
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Tipo de conteúdo      | `application/json` |
-|  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
-| authorization      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-MS-RequestId    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  x-MS-CorrelationId  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
+| nesse      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Carga da solicitação:*
 
@@ -451,19 +494,19 @@ Request Body:
 
 *Códigos de resposta:*
 
-Auto-completar 202<br>
+Código: 202<br>
 A solicitação para alterar o plano foi aceita. O parceiro deve sondar o local da operação para determinar um êxito ou uma falha. <br>
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada: falhas de validação.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -476,7 +519,7 @@ Erro interno do servidor.
 ```
 
 >[!Note]
->Somente um plano ou uma quantidade pode ser corrigida ao mesmo tempo, não ambos. As edições em uma assinatura com a **atualização** não `allowedCustomerOperations`estão em.
+>Somente um plano ou uma quantidade pode ser corrigida ao mesmo tempo, não ambos. As edições em uma assinatura com a **atualização** não estão em `allowedCustomerOperations`.
 
 #### <a name="change-the-quantity-on-the-subscription"></a>Alterar a quantidade na assinatura
 
@@ -496,9 +539,9 @@ Atualize a quantidade na assinatura.
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Tipo de conteúdo      | `application/json` |
-|  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
-| authorization      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-MS-RequestId    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  x-MS-CorrelationId  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.    |
+| nesse      |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Carga da solicitação:*
 
@@ -517,20 +560,20 @@ Request Body:
 
 *Códigos de resposta:*
 
-Auto-completar 202<br>
+Código: 202<br>
 A solicitação para alterar a quantidade foi aceita. O parceiro deve sondar o local da operação para determinar um êxito ou uma falha. <br>
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada: falhas de validação.
 
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -543,7 +586,7 @@ Erro interno do servidor.
 ```
 
 >[!Note]
->Somente um plano ou uma quantidade pode ser corrigida ao mesmo tempo, não ambos. As edições em uma assinatura com a **atualização** não `allowedCustomerOperations`estão em.
+>Somente um plano ou uma quantidade pode ser corrigida ao mesmo tempo, não ambos. As edições em uma assinatura com a **atualização** não estão em `allowedCustomerOperations`.
 
 #### <a name="delete-a-subscription"></a>Excluir uma assinatura
 
@@ -563,25 +606,25 @@ Cancelar assinatura e excluir a assinatura especificada.
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Tipo de conteúdo     |  `application/json` |
-|  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-|  x-ms-correlationid  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-MS-RequestId    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+|  x-MS-CorrelationId  |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.   |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Auto-completar 202<br>
+Código: 202<br>
 O parceiro iniciou uma chamada para cancelar a inscrição de uma assinatura de SaaS.<br>
 
-Auto-completar 400<br>
-Excluir em uma assinatura com **excluir** não em `allowedCustomerOperations`.
+Código: 400<br>
+Excluir em uma assinatura com **exclusão** não em `allowedCustomerOperations`.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -616,13 +659,13 @@ Lista as operações pendentes para o Publicador atual.
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Tipo de conteúdo     |  `application/json` |
-|  x-ms-requestid    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|  x-MS-RequestId    |  Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  x-MS-CorrelationId |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*
 
-Auto-completar 200<br> Obtém a lista de operações pendentes em uma assinatura. Carga de resposta:
+Código: 200<br> Obtém a lista de operações pendentes em uma assinatura. Carga de resposta:
 
 ```json
 [{
@@ -640,16 +683,16 @@ Auto-completar 200<br> Obtém a lista de operações pendentes em uma assinatura
 ```
 
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada: falhas de validação.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br>
+Código: 500<br>
 Erro interno do servidor.
 
 ```json
@@ -664,7 +707,7 @@ Erro interno do servidor.
 
 #### <a name="get-operation-status"></a>Obter status da operação
 
-Permite que o Publicador acompanhe o status da operação assíncrona acionada especificada ( `subscribe`como `unsubscribe` `changePlan`,, ou `changeQuantity`).
+Permite que o Publicador acompanhe o status da operação assíncrona disparada especificada (como `subscribe`, `unsubscribe`, `changePlan` ou `changeQuantity`).
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Obter<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -679,13 +722,13 @@ Permite que o Publicador acompanhe o status da operação assíncrona acionada e
 |                    |                   |
 |  ---------------   |  ---------------  |
 |  Tipo de conteúdo      |  `application/json`   |
-|  x-ms-requestid    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
+|  x-MS-RequestId    |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  x-MS-CorrelationId |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta.  |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app). Por exemplo: "`Bearer <access_token>`".  |
 
 *Códigos de resposta:*<br>
 
-Auto-completar 200<br> Obtém a operação SaaS pendente especificada. Carga de resposta:
+Código: 200<br> Obtém a operação SaaS pendente especificada. Carga de resposta:
 
 ```json
 Response body:
@@ -704,16 +747,16 @@ Response body:
 
 ```
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada: falhas de validação.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
  
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 500<br> Erro interno do servidor.
+Código: 500<br> Erro interno do servidor.
 
 ```json
 {
@@ -728,7 +771,7 @@ Auto-completar 500<br> Erro interno do servidor.
 
 Atualize o status de uma operação para indicar êxito ou falha com os valores fornecidos.
 
-##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Correção<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
+##### <a name="patchbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Distribuído<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -743,9 +786,9 @@ Atualize o status de uma operação para indicar êxito ou falha com os valores 
 |                    |                   |
 |  ---------------   |  ---------------  |
 |   Tipo de conteúdo     | `application/json`   |
-|   x-ms-requestid   |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  x-ms-correlationid |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
-|  authorization     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
+|   x-MS-RequestId   |   Um valor de cadeia de caracteres exclusivo para acompanhar a solicitação do cliente, preferivelmente um GUID. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  x-MS-CorrelationId |  Um valor de cadeia de caracteres exclusivo para a operação no cliente. Esse parâmetro correlaciona todos os eventos da operação do cliente com eventos no lado do servidor. Se esse valor não for fornecido, um será gerado e fornecido nos cabeçalhos de resposta. |
+|  nesse     |  [Obter token de portador JWT (token Web JSON)](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-registration#get-a-token-based-on-the-azure-ad-app).  Por exemplo: "`Bearer <access_token>`".  |
 
 *Carga da solicitação:*
 
@@ -760,21 +803,21 @@ Atualize o status de uma operação para indicar êxito ou falha com os valores 
 
 *Códigos de resposta:*
 
-Auto-completar 200<br> Uma chamada para informar a conclusão de uma operação no lado do parceiro. Por exemplo, essa resposta pode sinalizar a alteração de estações ou planos.
+Código: 200<br> Uma chamada para informar a conclusão de uma operação no lado do parceiro. Por exemplo, essa resposta pode sinalizar a alteração de estações ou planos.
 
-Auto-completar 400<br>
+Código: 400<br>
 Solicitação inadequada: falhas de validação.
 
-Auto-completar 403<br>
+Código: 403<br>
 Não autorizado. O token de autenticação não foi fornecido ou é inválido ou a solicitação está tentando acessar uma aquisição que não pertence ao Publicador atual.
 
-Auto-completar 404<br>
+Código: 404<br>
 Não encontrado.
 
-Auto-completar 409<br>
+Código: 409<br>
 Houver. Por exemplo, uma transação mais recente já foi cumprida.
 
-Auto-completar 500<br> Erro interno do servidor.
+Código: 500<br> Erro interno do servidor.
 
 ```json
 {
@@ -807,11 +850,11 @@ O Publicador deve implementar um webhook nesse serviço SaaS para notificar os u
 }
 ```
 Onde a ação pode ser uma das seguintes: 
-- `unsubscribe`(quando o recurso tiver sido excluído)
-- `changePlan`(quando a operação do plano de alteração for concluída)
-- `changeQuantity`(quando a operação de alteração de quantidade for concluída)
-- `suspend`(quando o recurso tiver sido suspenso)
-- `reinstate`(quando o recurso tiver sido restabelecido após a suspensão)
+- `unsubscribe` (quando o recurso foi excluído)
+- `changePlan` (quando a operação do plano de alteração for concluída)
+- `changeQuantity` (quando a operação de alteração de quantidade for concluída)
+- `suspend` (quando o recurso foi suspenso)
+- `reinstate` (quando o recurso foi restabelecido após a suspensão)
 
 Em que o status pode ser um dos seguintes: 
 - **NotStarted** <br>
@@ -820,20 +863,20 @@ Em que o status pode ser um dos seguintes:
 - **Falha ao** <br>
 - **Houver** <br>
 
-Em uma notificação de webhook, os status acionáveis são **bem-sucedidos** e **falharam**. O ciclo de vida de uma operação é de não ser **iniciado** para um estado de terminal como **êxito**, **falha**ou **conflito**. Se você receber não inicializado ou estiver inprogredindo, continue solicitando o status por meio da API Get até que a operação alcance um estado terminal antes de tomar uma ação. 
+Em uma notificação de webhook, os status acionáveis são **bem-sucedidos** e **falharam**. O ciclo de vida de uma operação é de não ser **iniciado** para um estado de terminal como **êxito**, **falha**ou **conflito**. Se você receber não **inicializado** ou estiver **inprogredindo**, continue solicitando o status por meio da API Get até que a operação alcance um estado terminal antes de tomar uma ação. 
 
 ## <a name="mock-apis"></a>APIs de simulação
 
 Você pode usar nossas APIs fictícias para ajudá-lo a se familiarizar com o desenvolvimento, especialmente com protótipos, bem como para testar projetos. 
 
-Ponto de extremidade `https://marketplaceapi.microsoft.com/api` do host: (nenhuma autenticação necessária)<br/>
-Versão da API:`2018-09-15`<br/>
-URI de exemplo:`https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
+Ponto de extremidade do host: `https://marketplaceapi.microsoft.com/api` (nenhuma autenticação necessária)<br/>
+Versão da API: `2018-09-15`<br/>
+URI de exemplo: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Os caminhos de ponto de extremidade de API são os mesmos em APIs de simulação e reais, mas as versões de API são diferentes. A versão é `2018-09-15` para a versão de simulação `2018-08-31` e para a versão de produção. 
+Os caminhos de ponto de extremidade de API são os mesmos em APIs de simulação e reais, mas as versões de API são diferentes. A versão é `2018-09-15` para a versão de simulação e `2018-08-31` para a versão de produção. 
 
 Qualquer uma das chamadas à API neste artigo pode ser feita no ponto de extremidade do host fictício. Em geral, espere obter dados fictícios de volta como uma resposta. As chamadas para os métodos de assinatura de atualização na API de simulação sempre retornam 500. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os desenvolvedores também podem recuperar e manipular programaticamente cargas de trabalho, ofertas e perfis de Publicador usando as [APIs REST do portal do Cloud Partner](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

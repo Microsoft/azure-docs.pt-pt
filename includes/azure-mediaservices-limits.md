@@ -4,17 +4,17 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: de3fd8dc0d45ea10e64af8e2258682a9e98639dc
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e61b804c20063e87c19df4484291f81fdbb03a7b
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67184640"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72601077"
 ---
 >[!NOTE]
 >Para recursos que não são corrigidos, abra um tíquete de suporte para solicitar um aumento nas cotas. Não crie outras contas dos serviços de mídia do Azure em uma tentativa de obter limites mais altos.
 
-| Resource | Limite predefinido | 
+| Recurso | Limite predefinido | 
 | --- | --- | 
 | Contas dos serviços de mídia do Azure em uma única assinatura | 25 (fixo) |
 | Unidades reservadas de mídia por conta de serviços de mídia |25 (S1)<br/>10 (S2, S3)<sup>1</sup> | 
@@ -31,7 +31,7 @@ ms.locfileid: "67184640"
 | Unidades de transmissão em fluxo por ponto final de transmissão em fluxo |10 |
 | Contas de armazenamento | 1000<sup>5</sup> (fixo) |
 | Políticas | 1 000 000<sup>6</sup> |
-| Tamanho do ficheiro| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para processamento nos serviços de mídia. <sup>7</sup> |
+| Tamanho dos ficheiros| Em alguns cenários, há um limite no tamanho máximo de arquivo com suporte para processamento nos serviços de mídia. <sup>7</sup> |
 
 <sup>1</sup> Se você alterar o tipo, por exemplo, de S2 para S1, os limites de unidade reservados máximos serão redefinidos.
 
@@ -52,7 +52,7 @@ A partir de 1º de abril de 2017, qualquer registro de trabalho em sua conta com
 
 <sup>7</sup> O tamanho máximo com suporte para um único blob atualmente é de até 5 TB no armazenamento de BLOBs do Azure. Limites adicionais se aplicam aos serviços de mídia com base nos tamanhos de VM que são usados pelo serviço. O limite de tamanho se aplica aos arquivos que você carrega e também aos arquivos que são gerados como resultado do processamento de serviços de mídia (codificação ou análise). Se o arquivo de origem for maior do que 260 GB, provavelmente haverá falha no trabalho. 
 
-A tabela a seguir mostra os limites nas unidades reservadas de mídia S1, S2 e S3. Se o arquivo de origem for maior do que os limites definidos na tabela, o trabalho de codificação falhará. Se você codificar fontes de resolução de 4K de longa duração, será necessário usar unidades reservadas de mídia S3 para atingir o desempenho necessário. Se você tiver um conteúdo de 4K maior do que o limite de 260 GB nas unidades reservadas de mídia S3, entre amshelp@microsoft.com em contato conosco em para obter possíveis mitigações para dar suporte ao seu cenário.
+A tabela a seguir mostra os limites nas unidades reservadas de mídia S1, S2 e S3. Se o arquivo de origem for maior do que os limites definidos na tabela, o trabalho de codificação falhará. Se você codificar fontes de resolução de 4K de longa duração, será necessário usar unidades reservadas de mídia S3 para atingir o desempenho necessário. Se você tiver um conteúdo de 4K maior do que o limite de 260 GB nas unidades reservadas de mídia S3, abra um tíquete de suporte.
 
 |Tipo de unidade reservada de mídia   |Tamanho máximo de entrada (GB)|
 |---|---|

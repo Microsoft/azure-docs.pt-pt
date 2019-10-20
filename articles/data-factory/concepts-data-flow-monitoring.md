@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 5d69e29c83bcbe433b800d6877ba1c7440eceedc
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387974"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597098"
 ---
 # <a name="monitor-data-flows"></a>Monitorar fluxos de dados
 
@@ -47,6 +47,11 @@ Quando o fluxo de dados é executado no Spark, Azure Data Factory determina cami
   * Computado: você usa a coluna para processamento condicional ou dentro de uma expressão em seu fluxo de dados, mas não a Lande no coletor
   * Derivado: a coluna é uma nova coluna que você gerou em seu fluxo, ou seja, ela não estava presente na origem
   * Mapeado: a coluna originada da origem e sua está sendo mapeada para um campo de coletor
+  * Status do fluxo de dados: o status atual de sua execução
+  * Tempo de inicialização do cluster: a quantidade de tempo para adquirir o ambiente de computação do Spark JIT para a execução do fluxo de dados
+  * Número de transformações: quantas etapas de transformação estão sendo executadas em seu fluxo
+  
+![Monitoramento do fluxo de dados do ACIT](media/data-flow/monitornew.png "Novo monitoramento de fluxo de dados")  
   
 ## <a name="monitor-icons"></a>Ícones de monitor
 

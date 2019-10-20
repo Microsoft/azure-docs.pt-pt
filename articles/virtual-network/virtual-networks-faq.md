@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 642b99e3eaaf73844d30d1cd464ae0b777b0b3fa
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 30398b5f81ac1893129ba222c5f1a2d762ad1e7f
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71957809"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595067"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Perguntas frequentes sobre a rede virtual do Azure
 
@@ -35,7 +35,7 @@ Use VNets para:
 
 * Habilite cenários de nuvem híbrida. O VNets oferece a flexibilidade para dar suporte a uma variedade de cenários de nuvem híbrida. Você pode conectar aplicativos baseados em nuvem com segurança a qualquer tipo de sistema local, como mainframes e sistemas UNIX.
 
-### <a name="how-do-i-get-started"></a>Como posso começar?
+### <a name="how-do-i-get-started"></a>Como começo?
 Visite a [documentação da rede virtual](https://docs.microsoft.com/azure/virtual-network/) para começar. Este conteúdo fornece informações de visão geral e de implantação para todos os recursos de VNet.
 
 ### <a name="can-i-use-vnets-without-cross-premises-connectivity"></a>Posso usar VNets sem conectividade entre locais?
@@ -63,17 +63,17 @@ Qualquer intervalo de endereços IP definido no [RFC 1918](https://tools.ietf.or
 * 168.63.129.16/32 (DNS interno)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Posso ter endereços IP públicos em meu VNets?
-Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Endereços IP públicos não são diretamente acessíveis a partir da internet.
+Sim. Para obter mais informações sobre intervalos de endereços IP públicos, consulte [criar uma rede virtual](manage-virtual-network.md#create-a-virtual-network). Os endereços IP públicos não são acessíveis diretamente da Internet.
 
 ### <a name="is-there-a-limit-to-the-number-of-subnets-in-my-vnet"></a>Há um limite para o número de sub-redes na minha VNet?
 Sim. Consulte [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) para obter detalhes. Espaços de endereço de sub-rede não podem se sobrepor um ao outro.
 
 ### <a name="are-there-any-restrictions-on-using-ip-addresses-within-these-subnets"></a>Há alguma restrição sobre o uso de endereços IP dentro dessas sub-redes?
 Sim. O Azure reserva cinco endereços IP em cada sub-rede. Esses são x. x. x. 0-x. x. x. 3 e o último endereço da sub-rede. x. x. x. 1-x. x. 3 é reservado em cada sub-rede para os serviços do Azure.   
-- x. x. x. 0: Endereço de rede
-- x. x. x. 1: Reservado pelo Azure para o gateway padrão
-- x. x. x. 2, x. x. x. 3: Reservado pelo Azure para mapear os IPs de DNS do Azure para o espaço VNet
-- x. x. x. 255: Endereço de difusão de rede
+- x. x. x. 0: endereço de rede
+- x. x. x. 1: reservado pelo Azure para o gateway padrão
+- x. x. x. 2, x. x. 3: reservado pelo Azure para mapear os IPs de DNS do Azure para o espaço da VNet
+- x. x. x. 255: endereço de difusão de rede
 
 ### <a name="how-small-and-how-large-can-vnets-and-subnets-be"></a>Qual é o tamanho e o tamanho de VNets e sub-redes?
 A menor sub-rede com suporte é/29 e a maior é/8 (usando definições de sub-rede CIDR).
@@ -116,8 +116,8 @@ Não. Uma VNet é limitada a uma única região. No entanto, uma rede virtual ab
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>Posso conectar uma VNet a outra VNet no Azure?
 Sim. Você pode conectar uma VNet a outra VNet usando:
-- **Emparelhamento de rede virtual**: Para obter detalhes, consulte [visão geral de emparelhamento VNet](virtual-network-peering-overview.md)
-- **Um gateway de VPN do Azure**: Para obter detalhes, consulte [Configurar uma conexão vnet a vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Emparelhamento de rede virtual**: para obter detalhes, consulte [visão geral de emparelhamento VNet](virtual-network-peering-overview.md)
+- **Um gateway de VPN do Azure**: para obter detalhes, consulte [Configurar uma conexão de vnet para vnet](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Resolução de nomes (DNS)
 
@@ -131,7 +131,7 @@ Sim. Você pode especificar endereços IP do servidor DNS nas configurações de
 Faça referência aos [limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits).
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>Posso modificar meus servidores DNS depois de ter criado a rede?
-Sim. Você pode alterar a lista de servidores DNS para sua VNet a qualquer momento. Se você alterar a lista de servidores DNS, será necessário reiniciar cada uma das VMs em sua VNet para que elas obtenham o novo servidor DNS.
+Sim. Você pode alterar a lista de servidores DNS para sua VNet a qualquer momento. Se você alterar a lista de servidores DNS, será necessário executar uma renovação de concessão DHCP em todas as VMs afetadas na VNet para que as novas configurações de DNS entrem em vigor. Para VMs que executam o sistema operacional Windows, você pode fazer isso digitando `ipconfig /renew` diretamente na VM. Para outros tipos de sistema operacional, consulte a documentação de renovação de concessão de DHCP para o tipo de SO específico. 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>O que é o DNS fornecido pelo Azure e ele funciona com o VNets?
 O DNS fornecido pelo Azure é um serviço DNS de vários locatários oferecido pela Microsoft. O Azure registra todas as suas VMs e instâncias de função de serviço de nuvem nesse serviço. Esse serviço fornece a resolução de nomes pelo nome do host para VMs e instâncias de função contidas no mesmo serviço de nuvem e pelo FQDN para VMs e instâncias de função na mesma VNet. Para saber mais sobre o DNS, consulte [resolução de nomes para instâncias de função de VMs e serviços de nuvem](virtual-networks-name-resolution-for-vms-and-role-instances.md).
@@ -150,12 +150,12 @@ Não. Você não pode especificar um sufixo DNS personalizado para seu VNets.
 Sim. Todas as NICs (interfaces de rede) conectadas a uma VM implantada por meio do modelo de implantação do Resource Manager devem estar conectadas a uma VNet. As VMs implantadas por meio do modelo de implantação clássico podem ser conectadas opcionalmente a uma VNet.
 
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quais são os diferentes tipos de endereços IP que posso atribuir a VMs?
-* **Pessoal** Atribuído a cada NIC em cada VM. O endereço é atribuído usando o método estático ou dinâmico. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da sua VNet. Os recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados, mesmo que não estejam conectados a uma VNet. O comportamento do método de alocação é diferente dependendo se um recurso foi implantado com o modelo de implantação do Resource Manager ou clássico: 
+* **Particular:** Atribuído a cada NIC em cada VM. O endereço é atribuído usando o método estático ou dinâmico. Os endereços IP privados são atribuídos do intervalo que você especificou nas configurações de sub-rede da sua VNet. Os recursos implantados por meio do modelo de implantação clássico recebem endereços IP privados, mesmo que não estejam conectados a uma VNet. O comportamento do método de alocação é diferente dependendo se um recurso foi implantado com o modelo de implantação do Resource Manager ou clássico: 
 
-  - **Gerenciador de recursos**: Um endereço IP privado atribuído com o método dinâmico ou estático permanece atribuído a uma máquina virtual (Resource Manager) até que o recurso seja excluído. A diferença é que você seleciona o endereço a ser atribuído ao usar estático e o Azure escolhe ao usar dinâmico. 
-  - **Clássico**: Um endereço IP privado atribuído com o método dinâmico pode ser alterado quando uma VM de máquina virtual (clássica) é reiniciada depois de ter sido no estado parado (desalocado). Se você precisar garantir que o endereço IP privado para um recurso implantado por meio do modelo de implantação clássico nunca seja alterado, atribua um endereço IP privado com o método estático.
+  - **Gerenciador de recursos**: um endereço IP privado atribuído com o método dinâmico ou estático permanece atribuído a uma máquina virtual (Resource Manager) até que o recurso seja excluído. A diferença é que você seleciona o endereço a ser atribuído ao usar estático e o Azure escolhe ao usar dinâmico. 
+  - **Clássico**: um endereço IP privado atribuído com o método dinâmico pode ser alterado quando uma VM de máquina virtual (clássica) é reiniciada depois de ter sido no estado parado (desalocado). Se você precisar garantir que o endereço IP privado para um recurso implantado por meio do modelo de implantação clássico nunca seja alterado, atribua um endereço IP privado com o método estático.
 
-* **Publicada** Opcionalmente atribuída a NICs anexadas a VMs implantadas por meio do modelo de implantação Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estático ou dinâmico. Todas as instâncias de função de VMs e serviços de nuvem implantadas por meio do modelo de implantação clássico existem em um serviço de nuvem, que é atribuído a um endereço VIP (IP virtual público) *dinâmico*. Um endereço IP *estático* público, chamado de [endereço IP reservado](virtual-networks-reserved-public-ip.md), pode, opcionalmente, ser atribuído como um VIP. Você pode atribuir endereços IP públicos a VMs individuais ou instâncias de função de serviços de nuvem implantadas por meio do modelo de implantação clássico. Esses endereços são chamados de [IP público em nível de instância (endereços ILPIP](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
+* **Público:** Opcionalmente atribuída a NICs anexadas a VMs implantadas por meio do modelo de implantação Azure Resource Manager. O endereço pode ser atribuído com o método de alocação estático ou dinâmico. Todas as instâncias de função de VMs e serviços de nuvem implantadas por meio do modelo de implantação clássico existem em um serviço de nuvem, que é atribuído a um endereço VIP (IP virtual público) *dinâmico*. Um endereço IP *estático* público, chamado de [endereço IP reservado](virtual-networks-reserved-public-ip.md), pode, opcionalmente, ser atribuído como um VIP. Você pode atribuir endereços IP públicos a VMs individuais ou instâncias de função de serviços de nuvem implantadas por meio do modelo de implantação clássico. Esses endereços são chamados de [IP público em nível de instância (endereços ILPIP](virtual-networks-instance-level-public-ip.md) e podem ser atribuídos dinamicamente.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>Posso reservar um endereço IP privado para uma VM que vou criar em um momento posterior?
 Não. Você não pode reservar um endereço IP privado. Se um endereço IP privado estiver disponível, ele será atribuído a uma VM ou instância de função pelo servidor DHCP. A VM pode ou não ser aquela à qual você deseja que o endereço IP privado seja atribuído. No entanto, você pode alterar o endereço IP privado de uma VM já criada, para qualquer endereço IP privado disponível.
@@ -232,7 +232,7 @@ Sim. Saiba mais sobre como usar:
 - PowerShell para gerenciar o VNets implantado por meio do [Resource Manager](/powershell/module/az.network) e dos modelos de implantação [clássicos](/powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0) .
 - A CLI (interface de linha de comando) do Azure para implantar e gerenciar VNets implantadas por meio do [Resource Manager](/cli/azure/network/vnet) e dos modelos de implantação [clássicos](../virtual-machines/azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-commands-to-manage-network-resources) .  
 
-## <a name="vnet-peering"></a>VNet peering
+## <a name="vnet-peering"></a>VNet Peering
 
 ### <a name="what-is-vnet-peering"></a>O que é emparelhamento VNet?
 O emparelhamento VNet (ou emparelhamento de rede virtual) permite que você conecte redes virtuais. Uma conexão de emparelhamento VNet entre redes virtuais permite rotear o tráfego entre elas de forma privada por meio de endereços IPv4. As máquinas virtuais no VNets emparelhado podem se comunicar entre si como se estivessem dentro da mesma rede. Essas redes virtuais podem estar na mesma região ou em regiões diferentes (também conhecidas como emparelhamento de VNet global). As conexões de emparelhamento VNet também podem ser criadas nas assinaturas do Azure.
@@ -251,7 +251,7 @@ Os recursos a seguir usam balanceadores de carga básicos, o que significa que v
 - MI SQL
 - Gestão de API
 - Serviço de Domínio do Active Directory (ADDS)
-- Aplicações Lógicas
+- Logic Apps
 - HDInsight
 -   Azure Batch
 - Ambiente do Serviço de Aplicações
@@ -402,13 +402,13 @@ Não há limite para o número total de pontos de extremidade de serviço de VNe
 |||
 |---|---|
 |Serviço do Azure| Limites nas regras de VNet|
-|Storage do Azure| 100|
+|Armazenamento do Azure| 100|
 |SQL do Azure| 128|
-|Azure SQL Data Warehouse|  128|
+|Armazém de Dados SQL do Azure|  128|
 |Cofre de chaves do Azure|    127|
 |Azure Cosmos DB|   64|
 |Hub de Eventos do Azure|   128|
-|Service Bus do Azure| 128|
+|Azure Service Bus| 128|
 |Azure Data Lake Store v1|  100|
  
 >[!NOTE]

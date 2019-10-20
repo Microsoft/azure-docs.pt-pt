@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387860"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596590"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Transformação de pesquisa de fluxo de dados de mapeamento de Azure Data Factory
 
@@ -29,6 +29,20 @@ A transformação pesquisa executa o equivalente a uma junção externa esquerda
 
 Após a transformação pesquisa, você pode usar as transformações subsequentes para inspecionar os resultados de cada linha correspondente usando a função de expressão `isMatch()` para fazer mais escolhas em sua lógica com base em se a pesquisa resultou ou não em uma correspondência de linha ou não.
 
+![Padrão de pesquisa](media/data-flow/lookup111.png "Padrão de pesquisa")
+
+Depois de usar a transformação pesquisa, você pode adicionar uma divisão de transformação de divisão condicional na função ```isMatch()```. No exemplo acima, as linhas correspondentes passam pelo fluxo superior e as linhas não correspondentes fluem por meio do fluxo de ```NoMatch```.
+
+## <a name="first-or-last-value"></a>Primeiro ou último valor
+
+Quando você tiver várias correspondências de sua pesquisa, convém reduzir as várias linhas correspondentes escolhendo a primeira ou a última correspondência. Você pode fazer isso usando uma transformação Agregação após a pesquisa.
+
+Nesse caso, uma transformação agregada chamada ```PickFirst``` é usada para escolher o primeiro valor das correspondências de pesquisa.
+
+![Agregação de pesquisa](media/data-flow/lookup333.png "Agregação de pesquisa")
+
+![Pesquisar primeiro](media/data-flow/lookup444.png "Pesquisar primeiro")
+
 ## <a name="optimizations"></a>Otimizações
 
 No Data Factory, os fluxos de dados são executados em ambientes Spark expandidos. Se o conjunto de seus conjuntos de trabalho puder se ajustar ao espaço de memória do nó do trabalhador, podemos otimizar seu desempenho de pesquisa.
@@ -45,4 +59,5 @@ Você também pode especificar o particionamento de seus dados selecionando "def
 
 ## <a name="next-steps"></a>Passos seguintes
 
-As transformações [Join](data-flow-join.md) e [Exists](data-flow-exists.md) executam tarefas semelhantes em fluxos de dados de mapeamento do ADF. Observe essas transformações em seguida.
+* As transformações [Join](data-flow-join.md) e [Exists](data-flow-exists.md) executam tarefas semelhantes em fluxos de dados de mapeamento do ADF. Observe essas transformações em seguida.
+* Usar uma [divisão condicional](data-flow-conditional-split.md) com ```isMatch()``` para dividir linhas em valores correspondentes e não correspondentes

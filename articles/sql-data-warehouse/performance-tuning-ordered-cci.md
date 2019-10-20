@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 0acdf1496151df57d4097ce5bc71d782dc465873
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554545"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595374"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Ajuste de desempenho com o índice columnstore clusterizado ordenado  
 
@@ -125,10 +125,6 @@ A criação de um CCI ordenado é uma operação offline.  Para tabelas sem part
 4.  Execute ALTER INDEX < Ordered_CCI_Index > em < Table_B > REBUILD PARTITION = < Partition_ID > na tabela B para recompilar a partição alternada.  
 5.  Repita as etapas 3 e 4 para cada partição em Table_A.
 6.  Depois que todas as partições forem alternadas de Table_A para Table_B e tiverem sido recriadas, solte Table_A e renomeie Table_B para Table_A. 
-
->[!NOTE]
->Durante a visualização do CCI (índice columnstore clusterizado) ordenado no Azure SQL Data Warehouse, os dados duplicados poderão ser gerados se o CCI ordenado for criado ou recriado por meio de criar índice COLUMNSTORE CLUSTERIZAdo em uma tabela particionada. Não há perda de dados envolvida. Uma correção para esse problema estará disponível em breve. Para uma solução alternativa, os usuários podem criar um CCI ordenado em uma tabela particionada usando o comando CTAS
-
 
 ## <a name="examples"></a>Exemplos
 

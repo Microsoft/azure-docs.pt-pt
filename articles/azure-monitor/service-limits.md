@@ -1,23 +1,18 @@
 ---
 title: Azure Monitor limites de serviço | Microsoft Docs
 description: Lista os limites em diferentes áreas do Azure Monitor.
-author: bwren
-manager: carmonm
-editor: tysonn
-services: azure-monitor
-documentationcenter: azure-monitor
 ms.service: azure-monitor
+ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/10/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 0386700c238c213fd9cde3ca1b49e5e598d05bfd
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.date: 06/10/2019
+ms.openlocfilehash: 37401a8eb2a8da82cef4854ab41e40b81ba429fa
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405691"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597278"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites de serviço Azure Monitor
 
@@ -27,7 +22,7 @@ Este artigo lista os limites em diferentes áreas do Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-alerts.md)]
 
-## <a name="action-groups"></a>Grupos de ações
+## <a name="action-groups"></a>Grupos de ação
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
 
@@ -39,7 +34,7 @@ Este artigo lista os limites em diferentes áreas do Azure Monitor.
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-workspaces.md)]
 
-## <a name="application-insights"></a>Application Insights
+## <a name="application-insights"></a>Estatísticas das Aplicações
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-app-insights.md)]
 
