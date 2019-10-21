@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 10/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6e1ab2c2b02ab4279e95840135bdc87710cd66
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 56e5fb986431ec47a34b81491bc61b4c38a24e31
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551653"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592895"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões de função de administrador no Azure Active Directory
 
@@ -224,12 +224,14 @@ Os usuários nessa função podem ler configurações e informações administra
 > [!NOTE]
 > A função de leitor global tem algumas limitações no momento-
 >
->* Centro de administração do SharePoint – o centro de administração do SharePoint não oferece suporte à função de leitor global. Você não verá o ' SharePoint ' no painel esquerdo em centros de administração no [centro de administração Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage)e terá acesso negado quando tentar ir para *https://{Azure ad Organization name}-admin.SharePoint.com*.
+>* Centro de administração do SharePoint – o centro de administração do SharePoint não oferece suporte à função de leitor global. Você não verá o ' SharePoint ' no painel esquerdo em centros de administração no [centro de administração do Microsoft 365](https://admin.microsoft.com/Adminportal/Home#/homepage).
+>* [Centro de administração do onedrive](https://admin.onedrive.com/) – o centro de administração do onedrive não dá suporte à função de leitor global.
 >* [Portal do AD do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -o leitor global não pode ler o modo de provisionamento de um aplicativo empresarial.
 >* [Centro de administração do M365](https://admin.microsoft.com/Adminportal/Home#/homepage) -o leitor global não pode ler solicitações de lockbox do cliente. Você não encontrará a guia **solicitações de lockbox do cliente** em **suporte** no painel esquerdo do centro de administração do M365.
 >* [Central de segurança do M365](https://security.microsoft.com/homepage) -o leitor global não pode ler rótulos de sensibilidade e retenção. Você não encontrará **Rótulos de sensibilidade**, **Rótulos de retenção**e guias de análise de **rótulo** no painel esquerdo da central de segurança do M365.
 >* [Centro de administração do teams](https://admin.teams.microsoft.com) – o leitor global não pode ler o **ciclo de vida das equipes**, **relatórios de & de análise**, gerenciamento de dispositivo de **telefone IP** e **Catálogo**
 >* [Privileged Access Management (PAM)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) não oferece suporte à função de leitor global.
+>* [Proteção de informações do Azure](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) – o leitor global tem suporte apenas para [relatórios centrais](https://docs.microsoft.com/azure/information-protection/reports-aip) e, quando o locatário não está na [plataforma de rotulamento unificado](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
 > No momento, esses recursos estão em desenvolvimento.
 >

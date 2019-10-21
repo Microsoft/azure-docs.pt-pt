@@ -1,138 +1,144 @@
 ---
-title: As funções runtime versões descrição geral do Azure
-description: As funções do Azure suporta várias versões do tempo de execução. Aprenda as diferenças entre eles e como escolher aquele que é ideal para.
-services: functions
-documentationcenter: ''
+title: Visão geral das versões do Azure Functions Runtime
+description: O Azure Functions dá suporte a várias versões do tempo de execução. Aprenda as diferenças entre elas e como escolher a mais adequada para você.
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/03/2018
+ms.date: 10/10/2019
 ms.author: glenga
-ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca7006bb842cbe235d2e982e611613e1fd74ed9
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61036319"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597393"
 ---
-# <a name="azure-functions-runtime-versions-overview"></a>As funções runtime versões descrição geral do Azure
+# <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões do Azure Functions Runtime
 
- Existem duas versões principais do runtime das funções do Azure: 1.x e 2.x. A versão atual, onde os projetos de novos recursos e melhorias estão sendo feitas é 2.x, embora ambos são suportadas para cenários de produção.  Os seguintes detalhes algumas das diferenças entre os dois, como pode criar cada versão e atualizar a partir do 1.x 2.x.
+As versões principais do tempo de execução do Azure Functions estão relacionadas à versão do .NET na qual o tempo de execução se baseia. A tabela a seguir indica a versão atual do tempo de execução, o nível de versão e a versão do .NET relacionada. 
 
-> [!NOTE]
-> Este artigo refere-se ao serviço cloud, as funções do Azure. Para obter informações sobre o produto de pré-visualização permite-lhe executar as funções do Azure no local, consulte a [descrição geral de tempo de execução de funções do Azure](functions-runtime-overview.md).
+| Versão de tempo de execução | Nível de liberação<sup>1</sup> | Versão do .NET | 
+| --------------- | ------------- | ------------ |
+| Win  | pré-visualização | .NET Core 3. x | 
+| 2.x | GA (Geographic Availability, Disponibilidade Geográfica) | .NET Core 2.2 |
+| 1.x | GA<sup>2</sup> | .NET Framework 4,6<sup>3</sup> |
 
-## <a name="cross-platform-development"></a>Desenvolvimento entre plataformas
+<sup>1</sup> As versões de GA têm suporte para cenários de produção.   
+<sup>2</sup> A versão 1. x está no modo de manutenção. Os aprimoramentos são fornecidos somente em versões posteriores.   
+<sup>3</sup> O só dá suporte ao desenvolvimento no portal do Azure ou localmente em computadores com Windows.
 
-A versão 2.x do runtime é executado no .NET Core 2, que permite que seja executado em todas as plataformas suportadas pelo .NET Core, incluindo o macOS e Linux. Em execução no .NET Core permite o desenvolvimento entre plataformas e cenários de hospedagem.
+>[!NOTE]  
+> A versão 3. x do tempo de execução do Functions está em versão prévia e não tem suporte para ambientes de produção. Para obter mais informações sobre como experimentar a versão 3. x, consulte [este comunicado](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
 
-Por comparação, o tempo de execução do versão 1.x só oferece suporte a desenvolvimento e hospedagem no portal do Azure ou em computadores Windows.
+Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Idiomas
 
-A versão 2.x do runtime usa um novo modelo de extensibilidade do idioma. Na versão 2.x, todas as funções na aplicação de função têm de partilhar o mesmo idioma. O idioma das funções numa aplicação de funções é escolhido ao criar a aplicação.
+A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade de linguagem e todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. O idioma das funções em um aplicativo de funções é escolhido ao criar o aplicativo e é mantido na configuração [\_WORKER \_RUNTIME do Functions](functions-app-settings.md#functions_worker_runtime) . 
 
-Linguagens experimentais do Azure funções 1.x não serão atualizadas para usar o novo modelo, para que eles não têm suporte no 2.x. A tabela seguinte indica quais linguagens de programação são atualmente suportadas em cada versão de runtime.
+As linguagens experimentais Azure Functions 1. x não podem usar o novo modelo, portanto, não há suporte no 2. x. A tabela a seguir indica quais linguagens de programação têm suporte no momento em cada versão de tempo de execução.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 Para obter mais informações, veja [Idiomas suportados](supported-languages.md).
 
-## <a name="creating-1x-apps"></a>É executado na versão 1.x
+## <a name="creating-1x-apps"></a>Executar em uma versão específica
 
-Por predefinição, as aplicações de funções criadas no portal do Azure estão definidas para a versão 2.x. Sempre que possível, deve utilizar esta versão do tempo de execução, em que estão sendo feitos novos investimentos de funcionalidade. Se for necessário, pode executar uma aplicação de funções o tempo de execução do versão 1.x. Só pode alterar a versão de tempo de execução depois de criar a sua aplicação de função, mas antes de adicionar quaisquer funções. Para saber como afixar a versão de runtime para 1.x, veja [veja e atualize a versão atual do tempo de execução](set-runtime-version.md#view-and-update-the-current-runtime-version).
+Por padrão, os aplicativos de funções criados no portal do Azure e pelo CLI do Azure são definidos como a versão 2. x. Quando possível, você deve usar essa versão de tempo de execução. Se precisar, você ainda poderá executar um aplicativo de funções no tempo de execução da versão 1. x. Você só pode alterar a versão de tempo de execução depois de criar seu aplicativo de funções, mas antes de adicionar qualquer função. Para saber como fixar a versão de tempo de execução para 1. x, consulte [Exibir e atualizar a versão de tempo de execução atual](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-## <a name="migrating-from-1x-to-2x"></a>Migrando do 1.x para o 2.x
+Você também pode atualizar para a versão 3. x do tempo de execução, que está em visualização. Faça isso se você precisar ser capaz de executar suas funções no .NET Core 3. x. Para saber como atualizar para o 3. x, consulte [Exibir e atualizar a versão de tempo de execução atual](set-runtime-version.md#view-and-update-the-current-runtime-version).
 
-Pode optar por migrar uma aplicação existente, escrita para utilizar o tempo de execução do versão 1.x para utilizar em vez disso, a versão 2.x. A maioria das alterações que precisa para está relacionada a alterações no tempo de execução do idioma, como alterações de API c# entre o .NET Framework 4.7 e .NET Core 2. Também precisará certificar-se de que seu código e bibliotecas são compatíveis com o runtime de linguagem que escolher. Por fim, certifique-se de que tenha em atenção a quaisquer alterações no acionador, ligações e recursos, realçados abaixo. Para obter melhores resultados de migração, deve criar uma nova aplicação de função para a versão 2.x e a porta para a nova aplicação de código de sua função de 1.x versão existente.  
+## <a name="migrating-from-1x-to-later-versions"></a>Migrando do 1. x para versões posteriores
 
-### <a name="changes-in-triggers-and-bindings"></a>Alterações em acionadores e enlaces
+Você pode optar por migrar um aplicativo existente gravado para usar o tempo de execução da versão 1. x para, em vez disso, usar a versão 2. x. A maioria das alterações que você precisa fazer está relacionada a alterações no tempo de execução de linguagem, C# como alterações de API entre o .NET Framework 4,7 e o .NET Core 2. Você também precisará certificar-se de que seu código e suas bibliotecas são compatíveis com o Language Runtime escolhido. Por fim, lembre-se de anotar as alterações em gatilho, associações e recursos realçados abaixo. Para obter os melhores resultados de migração, você deve criar um novo aplicativo de funções para a versão 2. x e portar seu código de função existente da versão 1. x para o novo aplicativo.  
 
-Versão 2.x precisa que instale as extensões para específicos acionadores e enlaces utilizados pelas funções na sua aplicação. A única exceção para esta acionadores HTTP e timer, que não necessitam de uma extensão.  Para obter mais informações, consulte [Registre-se e instalar as extensões de enlace](./functions-bindings-register.md).
+### <a name="changes-in-triggers-and-bindings"></a>Alterações em gatilhos e associações
 
-Também há algumas alterações no `function.json` ou atributos da função entre versões. Por exemplo, o Hub de eventos `path` propriedade é agora `eventHubName`. Consulte a [tabela de associação existente](#bindings) para obter ligações para documentação para cada ligação.
+A versão 2. x exige que você instale as extensões para gatilhos e associações específicas usados pelas funções em seu aplicativo. A única exceção para esses gatilhos HTTP e Timer, que não exigem uma extensão.  Para obter mais informações, consulte [registrar e instalar extensões de associação](./functions-bindings-register.md).
 
-### <a name="changes-in-features-and-functionality"></a>Alterações em recursos e funcionalidades
+Também há algumas alterações no `function.json` ou atributos da função entre as versões. Por exemplo, a propriedade `path` do hub de eventos agora é `eventHubName`. Consulte a [tabela de associação existente](#bindings) para obter links para a documentação de cada associação.
 
-Alguns recursos também foram removidos, atualizados ou substituídos na nova versão. Esta secção descreve as alterações que pode ver na versão 2.x depois de ter usado a versão 1.x.
+### <a name="changes-in-features-and-functionality"></a>Alterações nos recursos e funcionalidades
 
-Na versão 2.x, as seguintes alterações foram feitas:
+Alguns recursos que também foram removidos, atualizados ou substituídos na nova versão. Esta seção detalha as alterações que você vê na versão 2. x após ter usado a versão 1. x.
 
-* Chaves para chamar pontos finais HTTP são sempre armazenadas encriptados no armazenamento de Blobs do Azure. Na versão 1.x, as chaves foram armazenadas no armazenamento de ficheiros do Azure ser predefinido. Ao atualizar uma aplicação a partir da versão 1.x para a versão 2.x, segredos existentes que estão no armazenamento de ficheiros são repostos.
+Na versão 2. x, as seguintes alterações foram feitas:
 
-* A versão 2.x do runtime não inclui suporte incorporado para fornecedores de webhook. Esta alteração foi feita para melhorar o desempenho. Pode continuar a utilizar acionadores HTTP como pontos finais para webhooks.
+* As chaves para chamar pontos de extremidade HTTP são sempre armazenadas criptografadas no armazenamento de BLOBs do Azure. Na versão 1. x, as chaves armazenadas no armazenamento de arquivos do Azure são padrão. Ao atualizar um aplicativo da versão 1. x para a versão 2. x, os segredos existentes que estão no armazenamento de arquivos são redefinidos.
 
-* O ficheiro de configuração de anfitrião (Host. JSON) deve estar vazio ou tem a cadeia de caracteres `"version": "2.0"`.
+* O tempo de execução da versão 2. x não inclui suporte interno para provedores de webhook. Essa alteração foi feita para melhorar o desempenho. Você ainda pode usar gatilhos HTTP como pontos de extremidade para WebHooks.
 
-* Para melhorar a monitorização, o dashboard de WebJobs no portal, o que é utilizado o [ `AzureWebJobsDashboard` ](functions-app-settings.md#azurewebjobsdashboard) definição é substituída pelo Azure Application Insights, que usa o [ `APPINSIGHTS_INSTRUMENTATIONKEY` ](functions-app-settings.md#appinsights_instrumentationkey) definição. Para obter mais informações, consulte [as funções do Azure de Monitor](functions-monitoring.md).
+* O arquivo de configuração do host (host. JSON) deve estar vazio ou ter a cadeia de caracteres `"version": "2.0"`.
 
-* Todas as funções na aplicação de função têm de partilhar o mesmo idioma. Quando cria uma aplicação de funções, tem de escolher uma pilha de runtime para a aplicação. A pilha de tempo de execução é especificada pela [ `FUNCTIONS_WORKER_RUNTIME` ](functions-app-settings.md#functions_worker_runtime) valor existente nas definições de aplicação. Este requisito foi adicionado para melhorar o tempo de requisitos de espaço e de inicialização. Ao desenvolver localmente, esta definição no também tem de incluir o [Settings ficheiro](functions-run-local.md#local-settings-file).
+* Para melhorar o monitoramento, o painel trabalhos Web no portal, que usou a configuração [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard) , é substituído por aplicativo Azure insights, que usa a configuração [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey) . Para obter mais informações, consulte [monitorar Azure Functions](functions-monitoring.md).
 
-* O tempo limite predefinido para funções num plano do serviço de aplicações é alterado para 30 minutos. Pode alterar manualmente o tempo limite para ilimitado, utilizando o [functionTimeout](functions-host-json.md#functiontimeout) definir no Host. JSON.
+* Todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. Ao criar um aplicativo de funções, você deve escolher uma pilha de tempo de execução para o aplicativo. A pilha de tempo de execução é especificada pelo valor [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) nas configurações do aplicativo. Esse requisito foi adicionado para melhorar a superfície e o tempo de inicialização. Ao desenvolver localmente, você também deve incluir essa configuração no [arquivo local. Settings. JSON](functions-run-local.md#local-settings-file).
 
-* Limitações de simultaneidade HTTP são implementadas por predefinição para as funções do plano de consumo, com uma predefinição de 100 pedidos em simultâneo por instância. Pode alterá-lo no [ `maxConcurrentRequests` ](functions-host-json.md#http) definição no ficheiro de Host. JSON.
+* O tempo limite padrão para funções em um plano do serviço de aplicativo é alterado para 30 minutos. Você pode alterar manualmente o tempo limite de volta para ilimitado usando a configuração [functionTimeout](functions-host-json.md#functiontimeout) em host. JSON.
 
-* Devido [limitações do .NET core](https://github.com/Azure/azure-functions-host/issues/3414), o suporte para F# funções de script (.fsx) foi removido. Compilado F# funções (soubor) ainda são suportadas.
+* As restrições de simultaneidade HTTP são implementadas por padrão para funções de plano de consumo, com um padrão de 100 solicitações simultâneas por instância. Você pode alterar isso na configuração de [`maxConcurrentRequests`](functions-host-json.md#http) no arquivo host. JSON.
 
-* O formato de URL de webhooks de Acionador do Event Grid foi alterado para `https://{app}/runtime/webhooks/{triggerName}`.
+* Devido a [limitações do .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), o F# suporte para funções de script (. fsx) foi removido. As F# funções compiladas (. FS) ainda têm suporte.
 
-### <a name="migrating-a-locally-developed-application"></a>Migração de um aplicativo desenvolvido localmente
+* O formato da URL dos WebHooks do gatilho da grade de eventos foi alterado para `https://{app}/runtime/webhooks/{triggerName}`.
 
-Pode ter existente funcionar os projetos de aplicativos que desenvolveu localmente com o tempo de execução do versão 1.x. Para atualizar para versão 2.x, deve criar um projeto de aplicação de função local na versão 2.x e a porta já existentes de código para a nova aplicação. Pode atualizar manualmente o projeto existente e código, uma espécie de "atualização no local". No entanto, existem vários outros aprimoramentos entre a versão 1.x e a versão 2.x que ainda poderá ter de fazer. Por exemplo, no c# o objeto de depuração foi alterado de `TraceWriter` para `ILogger`. Ao criar um novo projeto de 2.x de versão, começa com as funções atualizadas com base nos modelos de 2.x versão mais recente.
+### <a name="migrating-a-locally-developed-application"></a>Migrando um aplicativo desenvolvido localmente
+
+Você pode ter projetos de aplicativo de funções existentes que você desenvolveu localmente usando o tempo de execução da versão 1. x. Para atualizar para a versão 2. x, você deve criar um projeto de aplicativo de função local com a versão 2. x e portar seu código existente para o novo aplicativo. Você pode atualizar manualmente o projeto e o código existentes, um tipo de atualização "in-loco". No entanto, há uma série de outros aprimoramentos entre a versão 1. x e a versão 2. x que talvez você ainda precise fazer. Por exemplo, no C# objeto de depuração foi alterado de `TraceWriter` para `ILogger`. Ao criar um novo projeto de versão 2. x, você começa com as funções atualizadas com base nos modelos da versão 2. x mais recentes.
 
 #### <a name="visual-studio-runtime-versions"></a>Versões de tempo de execução do Visual Studio
 
-No Visual Studio, selecione a versão de runtime quando cria um projeto. Ferramentas de funções do Azure para Visual Studio oferece suporte a ambas as versões principais do tempo de execução. A versão correta é utilizada quando a depuração e publicação com base nas configurações de projeto. As definições de versão são definidas no `.csproj` ficheiro nas seguintes propriedades:
+No Visual Studio, você seleciona a versão de tempo de execução ao criar um projeto. O Azure Functions Tools para Visual Studio dá suporte às principais versões de tempo de execução. A versão correta é usada ao depurar e publicar com base nas configurações do projeto. As configurações de versão são definidas no arquivo de `.csproj` nas seguintes propriedades:
 
-##### <a name="version-1x"></a>Versão 1.x
+##### <a name="version-1x"></a>Versão 1. x
 
 ```xml
 <TargetFramework>net461</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
-##### <a name="version-2x"></a>Versão 2.x
+##### <a name="version-2x"></a>Versão 2. x
 
 ```xml
 <TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-Para depurar ou publicar o seu projeto, é utilizada a versão correta do runtime.
+Quando você depura ou publica seu projeto, a versão correta do tempo de execução é usada.
 
-#### <a name="vs-code-and-azure-functions-core-tools"></a>O VS Code e ferramentas de núcleo das funções do Azure
+#### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code e Azure Functions Core Tools
 
-[As ferramentas de núcleo das funções do Azure](functions-run-local.md) é utilizado para o desenvolvimento de linha de comandos e também pela [extensão de funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code. Para desenvolver na versão 2.x, instalação versão 2.x das ferramentas de núcleo. Desenvolvimento do versão 1.x requer a versão 1.x das ferramentas de núcleo. Para obter mais informações, consulte [instalar as ferramentas de núcleo de funções do Azure](functions-run-local.md#install-the-azure-functions-core-tools).
+[Azure Functions Core Tools](functions-run-local.md) é usado para o desenvolvimento de linha de comando e também pela [extensão de Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para Visual Studio Code. Para desenvolver na versão 2. x, instale a versão 2. x das principais ferramentas. O desenvolvimento da versão 1. x requer a versão 1. x das principais ferramentas. Para obter mais informações, consulte [instalar o Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-Para o desenvolvimento do Visual Studio Code, também poderá ter de atualizar a definição de utilizador para o `azureFunctions.projectRuntime` para corresponder à versão das ferramentas instalado.  Esta definição também atualiza os modelos e linguagens utilizadas durante a criação de aplicações de função.
+Para o desenvolvimento de Visual Studio Code, talvez você também precise atualizar a configuração de usuário do `azureFunctions.projectRuntime` para corresponder à versão das ferramentas instaladas.  Essa configuração também atualiza os modelos e os idiomas usados durante a criação do aplicativo de funções.
 
-### <a name="changing-version-of-apps-in-azure"></a>Alterar versão das aplicações no Azure
+### <a name="changing-version-of-apps-in-azure"></a>Alterando a versão dos aplicativos no Azure
 
-A versão do runtime das funções utilizado por aplicações publicadas no Azure é ditada pelos [ `FUNCTIONS_EXTENSION_VERSION` ](functions-app-settings.md#functions_extension_version) definição da aplicação. Um valor de `~2` destina-se a versão 2.x do runtime e `~1` destina-se o tempo de execução do versão 1.x. Arbitrariamente é não altere esta definição, porque outras alterações de definição de aplicação e as alterações de código nas suas funções são provável que necessário. Para saber mais sobre a forma recomendada para migrar a sua aplicação de funções para uma versão de runtime diferentes, veja [como versões de tempo de execução de funções do Azure de destino](set-runtime-version.md).
+A versão do tempo de execução do Functions usada por aplicativos publicados no Azure é ditada pela configuração do aplicativo [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version) . Um valor de `~2` tem como alvo o tempo de execução da versão 2. x e `~1` tem como alvo o tempo de execução da versão 1. x. Não altere arbitrariamente essa configuração, pois é provável que outras alterações de configuração de aplicativo e alterações de código em suas funções sejam necessárias. Para saber mais sobre a maneira recomendada de migrar seu aplicativo de funções para uma versão de tempo de execução diferente, consulte [como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md).
 
 ## <a name="bindings"></a>Enlaces
 
-A versão 2.x do runtime usa um novo [modelo de extensibilidade de ligação](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) que oferece essas vantagens:
+A partir da versão 2. x, o tempo de execução usa um novo [modelo de extensibilidade de associação](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) que oferece essas vantagens:
 
-* Suporte para extensões de vinculação de terceiros.
+* Suporte para extensões de associação de terceiros.
 
-* Desacoplamento do tempo de execução e enlaces. Esta alteração permite que as extensões de vinculação ser uma versão e lançado de forma independente. Pode, por exemplo, optar por atualizar para uma versão de uma extensão que se baseia numa versão mais recente de um SDK subjacente.
+* Desacoplamento de tempo de execução e associações. Essa alteração permite que as extensões de ligação tenham controle de versão e sejam liberadas de forma independente. Você pode, por exemplo, optar por atualizar para uma versão de uma extensão que dependa de uma versão mais recente de um SDK subjacente.
 
-* Um mais leve ambiente de execução, em que apenas as associações em utilização são conhecidas e carregadas pelo tempo de execução.
+* Um ambiente de execução mais leve, em que apenas as associações em uso são conhecidas e carregadas pelo tempo de execução.
 
-Com exceção dos acionadores HTTP e timer, todos os enlaces tem de ser explicitamente adicionados ao projeto de aplicação de função ou registados no portal. Para obter mais informações, consulte [registar as extensões de vinculação](./functions-bindings-expressions-patterns.md).
+Com exceção dos gatilhos HTTP e Timer, todas as associações devem ser adicionadas explicitamente ao projeto de aplicativo de funções ou registradas no Portal. Para obter mais informações, consulte [registrar extensões de associação](./functions-bindings-expressions-patterns.md).
 
-A tabela seguinte mostra as ligações são suportadas em cada versão de runtime.
+A tabela a seguir mostra quais associações têm suporte em cada versão de tempo de execução.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, consulte os seguintes recursos:
 
 * [Criar código e testar as Funções do Azure localmente](functions-run-local.md)
-* [Como as versões de tempo de execução de funções do Azure de destino](set-runtime-version.md)
+* [Como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md)
 * [Notas de versão](https://github.com/Azure/azure-functions-host/releases)
