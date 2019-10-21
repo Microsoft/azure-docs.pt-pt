@@ -4,16 +4,16 @@ description: Este artigo explica as tarefas comuns que um administrador realiza 
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f344436b1e1f1a97b981c1ead469d965b06a12ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035217"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329341"
 ---
 # <a name="azure-ea-portal-administration"></a>Administração do Azure EA Portal
 
@@ -62,7 +62,7 @@ Tenha os seguintes pontos em mente ao transferir uma conta corporativa para uma 
 
 A data de transferência efetiva pode ser uma data na ou posterior à data de início da inscrição que pretende transferir. A inscrição que está a transferir é a _inscrição de destino_. Após a transferência da conta, todas as informações de utilização na conta antes da data de transferência efetiva permanecem na inscrição de que está a transferir. A inscrição de que está a transferir é a _inscrição de origem_.  A utilização da inscrição de origem é cobrada como alocação monetária ou utilização excedida. A utilização que ocorre após a data de transferência efetiva é transferida para a nova inscrição e cobrada em conformidade.
 
-Pode voltar a uma transferência de conta até à data de início da inscrição de destino. Ou, até à data de início efetiva da inscrição de origem.
+Pode voltar a uma transferência de inscrição anterior até à data de início da inscrição de destino. Ou, até à data de início efetiva da inscrição de origem.
 
 ### <a name="monetary-commitment"></a>Alocação monetária
 
@@ -212,12 +212,11 @@ Se uma notificação não for recebida por um utilizador, verifique se as defini
 ![Exemplo que mostra a caixa Adicionar Contacto ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Oferta do Azure Sponsorship
+
 A oferta do Azure Sponsorship é uma conta do Microsoft Azure patrocinada limitada. Está disponível apenas por convite por e-mail para um número de clientes limitado que são selecionados pela Microsoft. Se for elegível para a oferta do Microsoft Azure Sponsorship, receberá um convite por e-mail para o seu ID de conta.
+
 Para obter mais informações, consulte:
 
-- Descrição geral da oferta do Sponsorship – https://azure.microsoft.com/en-us/offers/ms-azr-0143p/
-- Portal de saldo do Sponsorship – https://www.microsoftazuresponsorships.com/balance  
-- Perguntas frequentes externas sobre o Sponsorship – https://azuresponsorships-staging.azurewebsites.net/faq
 - Pedido de suporte para a ativação do Sponsorship –  http://aka.ms/azrsponsorship
 
 ## <a name="next-steps"></a>Passos seguintes

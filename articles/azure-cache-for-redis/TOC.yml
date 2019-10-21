@@ -39,6 +39,8 @@
           href: cache-best-practices.md
         - name: Melhores Práticas de Colocação em Cache da Arquitetura do Azure
           href: 'https://docs.microsoft.com/azure/architecture/best-practices/caching?toc=%2Fazure%2Fredis-cache%2Ftoc.json'
+    - name: Explicações sobre ativação pós-falha e aplicação de patches
+      href: cache-failover.md
 - name: Guias de procedimentos
   items:
     - name: Planear

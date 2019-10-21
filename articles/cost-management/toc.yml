@@ -32,6 +32,8 @@
       items:
         - name: Atribuir acesso aos dados
           href: assign-access-acm-data.md
+        - name: Utilizar a análise de custos para tarefas comuns
+          href: cost-analysis-common-uses.md
         - name: Utilizar alertas de custos
           href: cost-mgt-alerts-monitor-usage-spending.md
         - name: Definir e configurar a integração do AWS

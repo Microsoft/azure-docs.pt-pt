@@ -83,6 +83,8 @@
           href: azure-pim-resource-rbac.md
         - name: Utilizar funções personalizadas
           href: pim-resource-roles-custom-role-policy.md
+    - name: Resolução de problemas do PIM
+      href: pim-troubleshoot.md
     - name: Revisões de acesso
       items:
         - name: Funções do Azure AD

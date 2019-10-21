@@ -12,18 +12,18 @@ metadata:
   author: curtand
   ms.author: curtand
   ms.date: 08/28/2019
-  ms.openlocfilehash: b1782c41bce2de6a9da0858519dfeb87f6597df8
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: 80b562ff3f5fba7c57253e3761802dd3379b017b
+  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70127409"
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72554327"
 landingContent:
 - title: Sobre o Privileged Identity Management
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o Azure AD PIM?
+    - text: O que é o Azure AD Privileged Identity Management?
       url: pim-configure.md
   - linkListType: concept
     links:
@@ -37,9 +37,9 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Implementar o PIM
+    - text: Implementar o Privileged Identity Management
       url: pim-deployment-plan.md
-    - text: Comece a utilizar o PIM
+    - text: Começar a utilizar o Privileged Identity Management
       url: pim-getting-started.md
 - title: Ativar as minhas funções (utilizadores com funções elegíveis e ativas)
   linkLists:

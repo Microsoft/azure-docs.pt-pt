@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
-ms.openlocfilehash: f89f9a08feb2ea2bcb7a9e8180002557df1d2b56
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e652237e6faa705aa3ea09e7cf80c4eb692acc98
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300300"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375592"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito do Azure
 
@@ -131,7 +131,7 @@ Se quiser mudar o método de pagamento predefinido para cheque/transferência ba
 1. Selecione um cartão existente ou adicione um novo.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
-Se estiver a receber erros ao adicionar ou atualizar o seu cartão de crédito, tente abrir o browser em modo privado.
+Não suportamos cartões virtuais ou pré-pagos. Se ocorrerem erros ao adicionar ou atualizar um cartão de crédito válido, tente abrir o browser em modo privado.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 As secções a seguir respondem a perguntas frequentes sobre como alterar as informações do cartão de crédito.

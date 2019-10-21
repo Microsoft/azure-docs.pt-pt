@@ -10,19 +10,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: ed69775de71a371153a888749efc9069389e61d5
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 90fa6b0db180ca93d9b57178c32c5e156ecc3bb0
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709691"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375808"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Criar serviços incluídos na conta gratuita do Azure
 
-A conta gratuita do Azure inclui uma quantidade limitada de serviços gratuitos durante 12 meses. Para obter mais informações, veja [O que é a conta gratuita do Azure](https://azure.microsoft.com/free/free-account-faq/). O Azure controla a utilização de cada serviço e nada lhe será cobrado, a não ser que exceda os limites. Dentro destes limites, a conta gratuita do Azure permite-lhe utilizar várias configurações dos serviços à medida das suas necessidades.
+A conta gratuita do Azure inclui uma quantidade limitada de serviços gratuitos durante 12 meses. Dentro destes limites, tem a flexibilidade de utilizar os serviços gratuitos em várias configurações à medida das suas necessidades.
 
 ## <a name="create-free-services-in-the-azure-portal"></a>Criar os serviços gratuitos no portal do Azure
-Recomendamos que utilize a [página dos Serviços gratuitos](https://go.microsoft.com/fwlink/?linkid=859151) para criar novos serviços. Em alternativa, pode iniciar sessão no [portal do Azure](https://portal.azure.com), selecionar **Todos os serviços** à esquerda e procurar os **serviços gratuitos**.
+Recomendamos que utilize a ligação para a página dos [Serviços gratuitos](https://go.microsoft.com/fwlink/?linkid=859151) para criar serviços gratuitos. Em alternativa, pode iniciar sessão no [portal do Azure](https://portal.azure.com) e procurar os **serviços gratuitos**. Quando cria serviços na página de serviços gratuitos, a maioria dos campos está previamente selecionada para que possa criar serviços gratuitos com facilidade.
+
+![Captura de ecrã que mostra a página dos serviços gratuitos](./media/billing-create-free-services-included-free-account/billing-freeservices-grid.png)
 
 ## <a name="services-can-be-created-in-any-region"></a>Pode criar os serviços em qualquer região
 Contanto que esteja dentro dos limites, pode criar serviços gratuitamente em qualquer região em que os serviços estejam disponíveis. Por exemplo, com a conta gratuita do Azure obtém 750 horas de uma máquina virtual Windows B1S gratuita todos os meses. Pode criar a máquina virtual em qualquer região em que as máquinas virtuais da série B estejam disponíveis. O Azure só começará a cobrar se exceder as 750 horas. Por exemplo, um cliente nos EUA pode aprovisionar uma máquina virtual do Windows B1S na Europa Ocidental e utilizá-la gratuitamente durante 750 horas.
@@ -37,5 +39,5 @@ Pode criar várias instâncias dos serviços gratuitamente, desde que o total da
 Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos seguintes
-
+- Saiba como [Verificar a utilização dos serviços gratuitos incluídos com a conta gratuita do Azure](billing-check-free-service-usage.md).
 - Saiba como [Evitar custos com a sua conta gratuita do Azure](billing-avoid-charges-free-account.md).

@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: bb90a9dec161746356b8c13df448718c53626684
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806342"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390166"
 ---
 # <a name="what-are-azure-reservations"></a>O que é o Azure Reservations?
 
@@ -40,11 +40,11 @@ Para máquinas virtuais do Windows e Bases de Dados SQL, pode abranger os custos
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Quem é elegível para comprar uma reserva?
 
-Para comprar um plano, tem de ter uma função de proprietário de subscrição numa subscrição Enterprise (MS-AZR-0017P ou MS-AZR-0148P) ou Pay As You Go (MS-AZR-0003P ou MS-AZR-0023P). Os fornecedores de soluções cloud podem utilizar o portal do Azure ou o  [Centro de Parceiros](/partner-center/azure-reservations)  para comprar o Azure Reservations.
+Para comprar um plano, tem de ter uma função de proprietário da subscrição numa subscrição Enterprise (MS-AZR-0017P ou MS-AZR-0148P), Pay As You Go (MS-AZR-0003P ou MS-AZR-0023P) ou Contrato de Cliente da Microsoft. Os fornecedores de soluções cloud podem utilizar o portal do Azure ou o  [Centro de Parceiros](/partner-center/azure-reservations)  para comprar o Azure Reservations.
 
 Os clientes do Contrato Enterprise (EA) podem limitar as compras a administradores do EA ao desativar a opção **Adicionar Instâncias Reservadas** no EA Portal. Os administradores do EA têm de ser o proprietário de, pelo menos, uma subscrição do EA para poderem comprar uma reserva. A opção mencionada é útil para as empresas que pretendem uma equipa centralizada encarregue de comprar reservas para diferentes centros de custos. Após a compra, as equipas centralizadas podem adicionar proprietários de centros de custos às reservas. Posteriormente, os proprietários podem definir o âmbito da reserva para as respetivas subscrições. A equipa centralizada não precisa de ter acesso de proprietário da subscrição nos locais onde a compra da reserva já foi concluída.
 
-Os descontos de reserva só se aplicam a recursos associados a subscrições compradas através de planos de Fornecedor de Soluções Cloud (CSP), Enterprise e individuais com taxas pay as you go.
+Os descontos de reserva só se aplicam a recursos associados a subscrições compradas através do Enterprise, do Fornecedor de Soluções Cloud (CSP), do Contrato de Cliente da Microsoft e de planos individuais com taxas pay as you go.
 
 ## <a name="scope-reservations"></a>Definir o âmbito de reservas
 
@@ -56,7 +56,7 @@ Com a definição do âmbito para o grupo de recursos, terá três opções para
 
 - **Âmbito de grupo de recursos único** – aplica o desconto de reserva aos recursos correspondentes apenas no grupo de recursos selecionado.
 - **Âmbito de subscrição individual** – aplica o desconto de reserva aos recursos correspondentes na subscrição selecionada.
-- **Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para clientes do Contrato Enterprise, o contexto de faturação é a inscrição. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
+- **Âmbito partilhado** – aplica o desconto de reserva aos recursos correspondentes em subscrições elegíveis que estejam no contexto de faturação. Para clientes do Contrato Enterprise, o contexto de faturação é a inscrição. Para clientes do Contrato de Cliente da Microsoft, o âmbito de faturação é o perfil de faturação. Para subscrições individuais com taxas pay as you go, o âmbito da faturação reside em todas as subscrições elegíveis criadas pelo administrador de conta.
 
 Enquanto aplica descontos de reserva sobre a sua utilização, o Azure processa a reserva pela seguinte ordem:
 
@@ -84,7 +84,7 @@ Pode sempre atualizar o âmbito após comprar uma reserva. Para tal, aceda à re
 
 Pode monitorizar a utilização da sua reserva de várias formas: através do portal do Azure, de APIs ou dos dados de utilização. Para ver todas as reservas a que tem acesso, aceda a **Reservas** no portal do Azure. A grelha de reservas mostra o registo da percentagem de utilização mais recente da reserva em causa. Clique na reserva para ver a utilização a longo prazo da reserva.
 
-Também pode verificar a utilização da reserva através de [APIs](billing-reservation-apis.md#see-reservation-usage) e dos seus [dados de utilização](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se for um cliente do Contrato Enterprise.
+Também poderá verificar a utilização da reserva através das [APIs](billing-reservation-apis.md#see-reservation-usage) e dos [dados de utilização](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) se for um cliente do Contrato Enterprise ou do Contrato de Cliente da Microsoft.
 
 Se reparar que a utilização da sua reserva com âmbito definido para o grupo de recursos é baixa, poderá atualizar o âmbito da reserva para uma subscrição individual ou partilhar a reserva pelo contexto de faturação. Também poderá dividir a reserva e aplicar as reservas resultantes a diferentes grupos de recursos.
 
@@ -99,6 +99,7 @@ Um âmbito de reserva não é atualizado automaticamente se mover o grupo de rec
 Os descontos da reserva aplicam-se às seguintes subscrições e tipos de oferta elegíveis.
 
 - Contrato Enterprise (números de oferta: MS-AZR-0017P ou MS-AZR-0148P)
+- Subscrições do Contrato de Cliente da Microsoft.
 - Planos individuais com preços pay as you go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P)
 - Subscrições CSP
 
@@ -106,7 +107,7 @@ Os recursos executados numa subscrição com outros tipos de oferta não recebem
 
 ## <a name="how-is-a-reservation-billed"></a>Como é que uma reserva é faturada?
 
-A reserva é cobrada de acordo com o método de pagamento associado à subscrição. Se tiver uma subscrição Enterprise, o custo da reserva será deduzido do saldo da sua alocação monetária. Quando o saldo da sua alocação monetária não cobrir o custo da reserva, ser-lhe-á faturada a utilização excedida. Se tiver uma subscrição de um plano individual com taxas pay as you go, o cartão de crédito na sua conta será cobrado de imediato por compras adiantadas. Os pagamentos mensais são apresentados na sua fatura e o seu cartão de crédito é cobrado mensalmente. Ao optar pelo custo por fatura, verá os custos na sua próxima fatura.
+A reserva é cobrada de acordo com o método de pagamento associado à subscrição. O custo da reserva será deduzido do saldo da alocação monetária, se disponível. Quando o saldo da sua alocação monetária não cobrir o custo da reserva, ser-lhe-á faturada a utilização excedida. Se tiver uma subscrição de um plano individual com taxas pay as you go, o cartão de crédito na sua conta será cobrado de imediato por compras adiantadas. Os pagamentos mensais são apresentados na sua fatura e o seu cartão de crédito é cobrado mensalmente. Ao optar pelo custo por fatura, verá os custos na sua próxima fatura.
 
 ## <a name="how-reservation-discount-is-applied"></a>De que forma o desconto de reserva é aplicado
 
@@ -120,7 +121,7 @@ Por exemplo, poderá criar um recurso mais tarde e ter uma reserva correspondent
 
 Se as máquinas virtuais estiverem a ser executadas em subscrições diferentes na sua inscrição/conta, selecione o âmbito como sendo partilhado. O âmbito partilhado permite que o desconto de reserva seja aplicado em várias subscrições. Pode sempre alterar o âmbito após comprar uma reserva. Para obter mais informações, veja [Gerir o Azure Reservations](billing-manage-reserved-vm-instance.md).
 
-Um desconto de reserva só é aplicado a recursos associados a um Contrato Enterprise, CSPs ou subscrições com taxas pay as you go. Os recursos executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva.
+Um desconto de reserva só é aplicado a recursos associados a um Contrato Enterprise, um Contrato de Cliente da Microsoft, CSPs ou subscrições com taxas pay as you go. Os recursos executados numa subscrição com outros tipos de oferta não recebem o desconto de reserva.
 
 ## <a name="when-the-reservation-term-expires"></a>Quando o termo de reserva expira
 

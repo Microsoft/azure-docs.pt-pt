@@ -65,6 +65,8 @@
           href: notifications.md
         - name: Eliminar um domínio gerido
           href: delete-aadds.md
+        - name: Migrar de uma implementação Clássica (pré-visualização)
+          href: migrate-from-classic-vnet.md
     - name: Proteger o Azure AD DS
       items:
         - name: Proteja o seu domínio gerido
