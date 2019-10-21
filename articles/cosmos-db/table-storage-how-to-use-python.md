@@ -1,6 +1,6 @@
 ---
 title: Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
-description: Armazene dados estruturados na cloud com o armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
+description: Armazene dados estruturados na cloud com o Armazenamento de Tabelas do Azure ou a API de Tabelas do Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
@@ -9,12 +9,12 @@ ms.date: 04/05/2018
 author: wmengmsft
 ms.author: wmeng
 ms.reviewer: sngun
-ms.openlocfilehash: 0f0acc721fd8888953d80976234b431943985ebf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 883965d1d59e5523527a6aab1e83521d7491bf82
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68356278"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675701"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Introdução ao armazenamento de Tabelas do Azure e à API de Tabela do Azure Cosmos DB com Python
 
@@ -44,7 +44,7 @@ Para concluir este exemplo com êxito, precisa do seguinte:
 ## <a name="create-an-azure-service-account"></a>Criar uma conta de serviço do Azure
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
-### <a name="create-an-azure-storage-account"></a>Criar uma conta do Storage do Azure
+### <a name="create-an-azure-storage-account"></a>Criar uma conta de armazenamento do Azure
 [!INCLUDE [cosmos-db-create-storage-account](../../includes/cosmos-db-create-storage-account.md)]
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Criar uma conta da API de Tabelas do Azure Cosmos DB
@@ -76,7 +76,7 @@ table_service = TableService(account_name='myaccount', account_key='mykey')
 Para ligar ao Azure Cosmos DB, copie a cadeia de ligação principal a partir do portal do Azure e crie um objeto [TableService][py_TableService] com a cadeia de ligação copiada:
 
 ```python
-table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;)
+table_service = TableService(connection_string='DefaultEndpointsProtocol=https;AccountName=myaccount;AccountKey=mykey;TableEndpoint=myendpoint;')
 ```
 
 ## <a name="create-a-table"></a>Criar uma tabela
@@ -228,12 +228,12 @@ Se você não precisar mais de uma tabela ou de qualquer uma das entidades dentr
 table_service.delete_table('tasktable')
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [FAQ - Develop with the Table API](https://docs.microsoft.com/azure/cosmos-db/faq) (FAQ - Desenvolver com a API de Tabela)
 * [Azure Cosmos DB SDK for Python API reference](https://docs.microsoft.com/python/api/overview/azure/cosmosdb?view=azure-python) (Referência da API do SDK do Azure Cosmos DB para Python)
 * [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)
-* [Gerenciador de armazenamento do Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md): Um aplicativo gratuito de plataforma cruzada para trabalhar visualmente com os dados do armazenamento do Azure no Windows, no macOS e no Linux.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md): A free, cross-platform application for working visually with Azure Storage data on Windows, macOS, and Linux (Explorador de Armazenamento do Microsoft Azure: uma aplicação multiplataformas gratuita para trabalhar visualmente com dados do Armazenamento do Azure em Windows, macOS e Linux).
 * [Working with Python in Visual Studio (Windows)](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio) (Trabalhar com Python no Visual Studio [Windows])
 
 

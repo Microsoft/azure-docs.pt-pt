@@ -1,6 +1,6 @@
 ---
-title: Codificar um ficheiro remoto com base na URL e transmissão em fluxo utilizando o Media Services do Azure - REST | Documentos da Microsoft
-description: Siga os passos deste tutorial para um ficheiro com base numa URL de codificar e transmitir o seu conteúdo com os serviços de multimédia do Azure com REST.
+title: Codificar um arquivo remoto com base na URL e no fluxo usando os serviços de mídia do Azure-REST | Microsoft Docs
+description: Siga as etapas deste tutorial para codificar um arquivo com base em uma URL e transmitir seu conteúdo com os serviços de mídia do Azure usando o REST.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,25 +12,25 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/22/2019
 ms.author: juliako
-ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb62a28798010d3e18c5f19fa0062001a70b9622
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055299"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675661"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Um ficheiro remoto com base no URL de codificar e transmitir o vídeo - REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST
 
-Serviços de multimédia do Azure permite-lhe a codificar seus arquivos de suporte de dados em formatos que podem ser jogados numa grande variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
+Os serviços de mídia do Azure permitem que você codifique seus arquivos de mídia em formatos que podem ser reproduzidos em uma ampla variedade de navegadores e dispositivos. Por exemplo, pode querer transmitir o conteúdo nos formatos HLS ou MPEG DASH da Apple. Antes de transmissão, deve codificar o ficheiro de multimédia digital de alta qualidade. Para obter orientações sobre a codificação, veja [Conceito de codificação](encoding-concept.md).
 
-Este tutorial mostra como um ficheiro com base numa URL de codificar e transmitir o vídeo com os serviços de multimédia do Azure com REST. 
+Este tutorial mostra como codificar um arquivo com base em uma URL e transmitir o vídeo com os serviços de mídia do Azure usando REST. 
 
 ![Reproduzir o vídeo](./media/stream-files-tutorial-with-api/final-video.png)
 
 Este tutorial mostrar-lhe como:    
 
 > [!div class="checklist"]
-> * Criar uma conta dos Media Services
+> * Criar uma conta de Serviços de Multimédia
 > * Aceder à API dos Serviços de Multimédia
 > * Transferir ficheiros do Postman
 > * Configurar o Postman
@@ -42,13 +42,13 @@ Este tutorial mostrar-lhe como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Media Services](create-account-cli-how-to.md).
+- [Crie uma conta dos serviços de mídia](create-account-cli-how-to.md).
 
-    Lembre-se de que não se esqueça dos valores que utilizou para o nome do grupo de recursos e o nome de conta de serviços de multimédia
+    Lembre-se de lembrar os valores que você usou para o nome do grupo de recursos e o nome da conta dos serviços de mídia
 
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas: **Visual Studio Code** com o plug-in do REST ou **Telerik Fiddler**. 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
 
 ## <a name="download-postman-files"></a>Transferir ficheiros do Postman
 
@@ -62,11 +62,9 @@ Clone o repositório do GitHub que contém os ficheiros de ambiente e coleção 
 
 ## <a name="configure-postman"></a>Configurar o Postman
 
-Esta secção configura o Postman.
-
 ### <a name="configure-the-environment"></a>Configurar o ambiente 
 
-1. Abra o **Postman**.
+1. Abra o aplicativo do **postmaster** .
 2. À direita do ecrã, selecione a opção **Gerir ambiente**.
 
     ![Gerir ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -97,17 +95,17 @@ Nesta secção, enviamos pedidos que são relevantes para a codificação e cria
 
 1. Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço
 2. Criar um elemento de saída
-3. Criar um **transformar**
-4. Criar um **tarefa**
-5. Criar um **localizador de transmissão em fluxo**
-6. Lista de caminhos do **localizador de transmissão em fluxo**
+3. Criar uma **transformação**
+4. Criar um **trabalho**
+5. Criar um **localizador de streaming**
+6. Listar caminhos do **localizador de streaming**
 
 > [!Note]
 >  Este tutorial assume que está a criar todos os recursos com nomes exclusivos.  
 
 ### <a name="get-azure-ad-token"></a>Obter o Token do Microsoft Azure AD 
 
-1. Na janela à esquerda do Postman, selecione "passo 1: Obter autenticação do AAD token".
+1. Na janela à esquerda do aplicativo do postmaster, selecione "etapa 1: obter token de autenticação do AAD".
 2. Em seguida, selecione "Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço".
 3. Prima **Enviar**.
 
@@ -125,7 +123,7 @@ Nesta secção, enviamos pedidos que são relevantes para a codificação e cria
 
 A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o resultado da tarefa de codificação. 
 
-1. Na janela da esquerda do Postman, selecione "Elementos".
+1. Na janela à esquerda do aplicativo de postmaster, selecione "ativos".
 2. Em seguida, selecione "Criar ou atualizar um Elemento".
 3. Prima **Enviar**.
 
@@ -147,16 +145,16 @@ A saída [Asset](https://docs.microsoft.com/rest/api/media/assets) armazena o re
 
 ### <a name="create-a-transform"></a>Criar uma transformação
 
-Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao enviar novas tarefas para cada novo vídeo, está aplicando essa fórmula para todos os vídeos na sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
+Ao codificar ou processar conteúdos nos Serviços de Multimédia, é comum configurar as definições de codificação como uma receita. Em seguida, deverá submeter uma **Tarefa** para aplicar essa receita a um vídeo. Ao enviar novos trabalhos para cada novo vídeo, você está aplicando essa receita a todos os vídeos em sua biblioteca. Uma receita nos Serviços de Multimédia chama-se uma **Transformação**. Para obter mais informações, veja [Transforms and Jobs](transform-concept.md) (Transformações e Trabalhos). O exemplo descrito neste tutorial define uma receita que codifica o vídeo para transmiti-lo numa variedade de dispositivos iOS e Android. 
 
-Ao criar uma nova instância [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar o que pretende produzir como uma saída. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
+Ao criar uma nova instância [Transformar](https://docs.microsoft.com/rest/api/media/transforms), tem de especificar a saída resultante que pretende. O parâmetro necessário é um objeto **TransformOutput**. Cada **TransformOutput** contém uma **Predefinição**. A **Predefinição** descreve as instruções passo a passo das operações de processamento de áudio e/ou vídeo que estão a ser utilizadas para gerir o **TransformOutput** pretendido. O exemplo descrito neste artigo utiliza uma Predefinição incorporada chamada **AdaptiveStreaming**. A Predefinição codifica o vídeo de entrada para uma escala de bits gerada automaticamente (pares de resolução/velocidade de transmissão) com base na resolução e velocidade de transmissão de entrada e produz ficheiros ISO MP4 com vídeo H.264 e áudio AAC correspondente a cada par de resolução/velocidade de transmissão. Para obter informações sobre esta Predefinição, veja [Auto-generating bitrate ladder](autogen-bitrate-ladder.md) (Escala de bits gerada automaticamente).
 
 Pode utilizar um EncoderNamedPreset incorporadi ou utilizar as predefinições personalizadas. 
 
 > [!Note]
 > Ao criar uma [Transformação](https://docs.microsoft.com/rest/api/media/transforms), tem de verificar primeiro se já existe uma utilização o método **Obter**. Este tutorial assume que está a criar a transformação com um nome exclusivo.
 
-1. Na janela da esquerda do Postman, selecione "Codificação e Análise".
+1. Na janela à esquerda do aplicativo de postmaster, selecione "codificação e análise".
 2. Em seguida, selecione "Criar Transformação".
 3. Prima **Enviar**.
 
@@ -187,11 +185,11 @@ Pode utilizar um EncoderNamedPreset incorporadi ou utilizar as predefinições p
 
 ### <a name="create-a-job"></a>Criar uma tarefa
 
-Uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido atual para os Serviços de Multimédia aplicarem a **Transformação** criada a determinado conteúdo de vídeo ou áudio de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização da saída.
+Uma [Tarefa](https://docs.microsoft.com/rest/api/media/jobs) é o pedido atual para os Serviços de Multimédia aplicarem a **Transformação** criada a determinado conteúdo de vídeo ou áudio de entrada. A **Tarefa** especifica informações como a localização do vídeo de entrada e a localização para a saída.
 
-Neste exemplo, a entrada da tarefa se baseia num URL HTTPS ("https: \/ /nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
+Neste exemplo, a entrada do trabalho é baseada em uma URL HTTPS ("https: \//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
-1. Na janela da esquerda do Postman, selecione "Codificação e Análise".
+1. Na janela à esquerda do aplicativo de postmaster, selecione "codificação e análise".
 2. Em seguida, selecione "Criar ou Atualizar Tarefa".
 3. Prima **Enviar**.
 
@@ -224,26 +222,26 @@ Neste exemplo, a entrada da tarefa se baseia num URL HTTPS ("https: \/ /nimbuscd
 
 A tarefa demora algum tempo a terminar, por isso irá querer receber uma notificação quando for concluída. Para ver o progresso do trabalho, recomendamos a utilização do Event Grid. Foi concebido para ter uma elevada disponibilidade, um desempenho consistente e um dimensionamento dinâmico. Com o Event Grid, as aplicações podem escutar e reagir a eventos a partir de praticamente todos os serviços do Azure, bem como de origens personalizadas. O processamento de eventos simples, reativo e baseado em HTTP ajuda-o a criar soluções eficientes através da filtragem e do encaminhamento inteligente de eventos.  Veja [Route events to a custom web endpoint](job-state-events-cli-how-to.md) (Encaminhar eventos para um ponto final de Web personalizado).
 
-O **tarefa** normalmente atravessa os seguintes Estados: **Agendado**, **em fila**, **processamento**, **concluído** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver prestes a ser cancelada, obterá **A cancelar** e **Cancelada** quando terminar.
+Normalmente, a **Tarefa** passa pelos seguintes estados: **Agendada**, **Em fila**, **Em processamento**, **Concluída** (o estado final). Se a tarefa encontrar um erro, obterá um estado de **Erro**. Se a tarefa estiver a ser cancelada, verá **A cancelar** e **Cancelada** quando terminar.
 
 #### <a name="job-error-codes"></a>Códigos de erro das tarefas
 
-Ver [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Consulte [códigos de erro](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Criar um localizador de transmissão
 
-Depois de concluída a tarefa de codificação, a próxima etapa é tornar o vídeo no resultado **Asset** disponível para os clientes para a reprodução. Isso pode ser feito em duas etapas: primeiro, crie uma [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators)e em segundo lugar, criar os URLs de transmissão em fluxo que os clientes podem utilizar. 
+Depois que o trabalho de codificação for concluído, a próxima etapa será disponibilizar o vídeo no **ativo** de saída para os clientes para reprodução. Você pode fazer isso em duas etapas: primeiro, criar um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)e, em segundo lugar, criar as URLs de streaming que os clientes podem usar. 
 
-O processo de criação de um **localizador de transmissão em fluxo** é chamado de publicação. Por predefinição, o **localizador de transmissão em fluxo** é válido, imediatamente após fazer as chamadas à API e dura até serem eliminada, a menos que configure o início opcional e de horas de fim. 
+O processo de criação de um **localizador de streaming** é chamado publicação. Por padrão, o **localizador de streaming** é válido imediatamente depois que você faz as chamadas à API e dura até que ela seja excluída, a menos que você configure as horas de início e término opcionais. 
 
-Ao criar um [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators), tem de especificar o pretendido **StreamingPolicyName**. Neste exemplo, irá ser transmissão em fluxo conteúdo em Limpar (ou não encriptada), para que o predefinidos limpar política de transmissão em fluxo "Predefined_ClearStreamingOnly" é utilizado.
+Ao criar um [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators), você precisa especificar o **StreamingPolicyName**desejado. Neste exemplo, você passará por um conteúdo transparente (ou não criptografado), portanto a política de streaming de limpeza predefinida "Predefined_ClearStreamingOnly" será usada.
 
 > [!IMPORTANT]
 > Quando utilizar uma [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, deve conceber um conjunto limitado dessas políticas para a sua conta dos Serviços de Multimédia e utilizá-las novamente para os StreamingLocators sempre que são necessárias as mesmas opções de encriptação e os mesmos protocolos. 
 
-A conta de serviço de suporte de dados tem uma quota para o número de **política de transmissão em fluxo** entradas. Deve não ser a criar uma nova **política de transmissão em fluxo** para cada **localizador de transmissão em fluxo**.
+Sua conta de serviço de mídia tem uma cota para o número de entradas de **política de streaming** . Você não deve criar uma nova **política de streaming** para cada **localizador de streaming**.
 
-1. Na janela da esquerda do Postman, selecione "Políticas de Transmissão".
+1. Na janela à esquerda do aplicativo do postmaster, selecione "políticas de streaming".
 2. Em seguida, selecione "Criar um Localizador de Transmissão".
 3. Prima **Enviar**.
 
@@ -267,9 +265,9 @@ A conta de serviço de suporte de dados tem uma quota para o número de **polít
 
 #### <a name="list-paths"></a>Listar caminhos
 
-Agora que o [localizador de transmissão em fluxo](https://docs.microsoft.com/rest/api/media/streaminglocators) tiver sido criado, pode obter os URLs de transmissão em fluxo
+Agora que o [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators) foi criado, você pode obter as URLs de streaming
 
-1. Na janela da esquerda do Postman, selecione "Políticas de Transmissão".
+1. Na janela à esquerda do aplicativo do postmaster, selecione "políticas de streaming".
 2. Em seguida, selecione "Listar Caminhos".
 3. Prima **Enviar**.
 
@@ -320,7 +318,7 @@ Nesta secção, criemos um URL de transmissão HLS. Os URL são compostos pelos 
 
 2. Nome do anfitrião do StreamingEndpoint. Neste caso, o nome é "amsaccount-usw22.streaming.media.azure.net".
 
-    Para obter o nome de anfitrião, pode utilizar a seguinte operação de obtenção:
+    Para obter o nome de host, você pode usar a seguinte operação GET:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -338,7 +336,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 
 
 > [!NOTE]
-> Certifique-se de que o **ponto final de transmissão em fluxo** do qual pretende o fluxo está em execução.
+> Verifique se o **ponto de extremidade de streaming** do qual você deseja transmitir está em execução.
 
 Para testar a transmissão, este artigo utiliza o Leitor de Multimédia do Azure. 
 
@@ -350,13 +348,13 @@ O Leitor de Multimédia do Azure pode ser utilizado para fins de teste, mas não
 
 ## <a name="clean-up-resources-in-your-media-services-account"></a>Limpar os recursos na conta dos Serviços de Multimédia
 
-Em geral, deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, irá reutilizar **transforma**, e serão mantidos **localizadores de transmissão em fluxo**, etc.). Se quiser que a sua conta seja limpa após fazer experiências, deverá eliminar os recursos que não planeia reutilizar.  
+Em geral, você deve limpar tudo, exceto os objetos que pretende reutilizar (normalmente, você reutilizará **transformações**e persistirá os **localizadores de streaming**, etc.). Se quiser que a sua conta seja limpa após fazer experiências, deverá eliminar os recursos que não planeia reutilizar.  
 
 Para eliminar um recurso, selecione a operação "Eliminar…" sob o recurso que pretende eliminar.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se já não precisar de nenhum dos recursos presentes no seu grupo de recursos, incluindo a conta dos Serviços de Multimédia e a conta de armazenamento que criou para este tutorial, elimine o grupo de recursos anteriormente criado.  
+Se já não precisa de nenhum dos recursos presentes no seu grupo de recursos, incluindo as contas de armazenamento que criou e os Serviços de Multimédia que carregou neste tutorial, elimine o grupo de recursos que criou anteriormente.  
 
 Execute o seguinte comando da CLI:
 
@@ -364,11 +362,11 @@ Execute o seguinte comando da CLI:
 az group delete --name amsResourceGroup
 ```
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, comentários, obter atualizações
+## <a name="ask-questions-give-feedback-get-updates"></a>Faça perguntas, envie comentários, obtenha atualizações
 
-Veja a [Comunidade dos serviços de multimédia do Azure](media-services-community.md) artigo para ver formas diferentes, pode fazer perguntas, comentários e obter atualizações sobre os serviços de multimédia.
+Confira o artigo [da Comunidade dos serviços de mídia do Azure](media-services-community.md) para ver diferentes maneiras que você pode fazer perguntas, fornecer comentários e obter atualizações sobre os serviços de mídia.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como carregar, codificar e transmitir o vídeo, veja o artigo seguinte: 
 

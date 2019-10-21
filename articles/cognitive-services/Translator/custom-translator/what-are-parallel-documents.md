@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: fb54df2e1eb89d30e62ae80355635356343994ee
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d7c38a44e3111a319e4146b3c9b71a22b0d31bfd
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595442"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675473"
 ---
 # <a name="what-are-parallel-documents"></a>O que são documentos paralelos?
 
@@ -23,7 +23,7 @@ Não importa qual idioma está marcado como "origem" e qual idioma está marcado
 
 ## <a name="requirements"></a>Requisitos
 
-Você precisará de, no mínimo, 10.000 sentenças paralelas exclusivas para treinar um sistema. Como prática recomendada, você pode adicionar continuamente mais conteúdo paralelo e readaptação, para melhorar a qualidade do seu sistema de tradução.
+Você precisará de um mínimo de 10.000 sentenças paralelas alinhadas exclusivamente para treinar um sistema. Essa limitação é uma rede de segurança para garantir que suas frases paralelas contenham um vocabulário exclusivo suficiente para treinar com êxito um modelo de tradução. Como prática recomendada, adicione continuamente mais conteúdo paralelo e retreine para melhorar a qualidade do seu sistema de tradução. Consulte alinhamento de [frase](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment).
 
 A Microsoft exige que os documentos carregados no Tradutor personalizado não violem as propriedades intelectuais ou de direitos autorais de terceiros. Para obter mais informações, consulte os [termos de uso](https://azure.microsoft.com/support/legal/cognitive-services-terms/).
 Carregar um documento usando o portal não altera a propriedade da propriedade intelectual no próprio documento.
@@ -44,6 +44,6 @@ Os documentos carregados são privados em cada espaço de trabalho e podem ser u
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como usar um [dicionário](what-is-dictionary.md) no Tradutor personalizado.

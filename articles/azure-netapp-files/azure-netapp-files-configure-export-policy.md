@@ -1,6 +1,6 @@
 ---
-title: Configurar a política de exportação para um volume NFS usando arquivos de NetApp do Azure | Documentos da Microsoft
-description: Descreve como configurar a política de exportação para controlar o acesso a um volume NFS usando arquivos de NetApp do Azure
+title: Configurar a política de exportação para um volume NFS usando Azure NetApp Files | Microsoft Docs
+description: Descreve como configurar a política de exportação para controlar o acesso a um volume NFS usando o Azure NetApp Files
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,22 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 10/18/2019
 ms.author: b-juche
-ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d323bd0b9684cfe4930d8c779a6728fcfd3836fb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61086172"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674934"
 ---
 # <a name="configure-export-policy-for-an-nfs-volume"></a>Configurar a política de exportação para um volume NFS
 
-Pode optar por configurar a política de exportação para controlo de acesso a um volume do Azure NetApp Files. Política de exportação é o suporte apenas para volumes NFS. 
+Pode optar por configurar a política de exportação para controlo de acesso a um volume do Azure NetApp Files. Azure NetApp Files política de exportação dá suporte apenas a volumes NFS.  Há suporte para NFSv3 e NFSv4. 
 
 ## <a name="steps"></a>Passos 
 
-1.  Clique no painel **Criar Política de Exportação** no painel Gerir Volume. 
+1.  Clique em **Exportar política** no painel de navegação Azure NetApp files. 
 
 2.  Especifique informações para os seguintes campos para criar uma regra de política de exportação:   
     *  **Índice**   
@@ -45,14 +45,10 @@ Pode optar por configurar a política de exportação para controlo de acesso a 
         * Leitura e Escrita
         * Só de Leitura
 
-    * **Protocolos**   
-        Especifique o protocolo a usar para a política de exportação.   
-        Atualmente, a política de exportação de ficheiros do Azure NetApp suporta apenas NFSv3.
-
     ![Política de exportação](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 
 
-## <a name="next-steps"></a>Passos Seguintes 
+## <a name="next-steps"></a>Passos seguintes 
 * [Gerir volumes](azure-netapp-files-manage-volumes.md)
 * [Montar ou desmontar um volume para máquinas virtuais](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Gerir instantâneos](azure-netapp-files-manage-snapshots.md)

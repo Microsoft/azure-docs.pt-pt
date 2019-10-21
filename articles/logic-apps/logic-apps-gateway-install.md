@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 09/01/2019
-ms.openlocfilehash: 7384f058c82699095e1209e677dc5c6f61b57178
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.date: 10/18/2019
+ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309861"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675694"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalar o gateway de dados local para aplicativos lógicos do Azure
 
@@ -31,17 +31,21 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se você não tiver uma conta do Azure com uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-  * Você deve usar a mesma conta do Azure para instalar e administrar o gateway. Durante a instalação, você usa essa conta do Azure para associar o gateway em seu computador a uma assinatura do Azure. Posteriormente, você usará a mesma conta do Azure ao criar um recurso do Azure no portal do Azure para a instalação do gateway. 
+  * Você precisa usar a mesma conta do Azure para instalar e administrar o gateway no computador local.
 
-  * Você deve entrar com uma conta corporativa ou de estudante, também conhecida como uma conta de *organização* , que se parece `username@contoso.com`com. Você não pode usar contas do Azure B2B (convidado) ou contas pessoais da @hotmail.com Microsoft, como ou. @outlook.com
+    Durante a instalação do gateway, você entra com sua conta do Azure, que vincula a instalação do seu gateway à sua conta do Azure e somente essa conta. Posteriormente, no portal do Azure, você precisa usar a mesma conta do Azure para criar um recurso de gateway do Azure que registra e declara a instalação do seu gateway. Em aplicativos lógicos do Azure, gatilhos e ações locais usam o recurso de gateway para se conectar a fontes de dados locais.
+
+    > [!NOTE]
+    > Você pode vincular apenas uma instalação de gateway e um recurso de gateway do Azure entre si. Não é possível vincular a mesma instalação de gateway a várias contas do Azure ou recursos de gateway do Azure. No entanto, uma conta do Azure pode ser vinculada a várias instalações de gateway e recursos de gateway do Azure. Em um gatilho ou ação local, você pode selecionar entre suas várias assinaturas do Azure e, em seguida, selecionar um recurso de gateway associado.
+
+  * Você precisa entrar com uma conta corporativa ou de estudante, também conhecida como uma conta da *organização* , que se parece com `username@contoso.com`. Você não pode usar contas do Azure B2B (convidado) ou contas pessoais da Microsoft, como @hotmail.com ou @outlook.com.
 
     > [!TIP]
-    > Se você se inscreveu para uma oferta do Office 365 e não forneceu seu endereço de email de trabalho, `username@domain.onmicrosoft.com`seu endereço pode ser semelhante a. Sua conta é armazenada em um locatário em um Azure Active Directory (Azure AD). Na maioria dos casos, o nome principal do usuário (UPN) para sua conta do Azure AD é o mesmo que seu endereço de email.
+    > Se você se inscreveu para uma oferta do Office 365 e não forneceu seu endereço de email de trabalho, seu endereço pode ser semelhante a `username@domain.onmicrosoft.com`. Sua conta é armazenada em um locatário em um Azure Active Directory (Azure AD). Na maioria dos casos, o nome principal do usuário (UPN) para sua conta do Azure AD é o mesmo que seu endereço de email.
     >
-    > Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associada a um conta Microsoft, primeiro [crie um locatário no Azure ad](../active-directory/develop/quickstart-create-new-tenant.md)ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e conceda a esse usuário acesso à sua assinatura. 
-    > Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
+    > Para usar uma [assinatura padrão do Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) que esteja vinculada a um conta Microsoft, primeiro [crie um locatário no Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) ou use o diretório padrão. Adicione um usuário com uma senha ao diretório e conceda a esse usuário acesso à sua assinatura do Azure. Em seguida, você pode entrar durante a instalação do gateway com esse nome de usuário e senha.
 
 * Aqui estão os requisitos para seu computador local:
 
@@ -75,7 +79,7 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
   * O gateway tem dois modos: modo padrão e modo pessoal, que se aplica somente a Power BI. Você não pode ter mais de um gateway em execução no mesmo modo no mesmo computador.
 
-  * O aplicativo lógico do Azure dá suporte a operações de gravação, incluindo inserções e atualizações, por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * O aplicativo lógico do Azure dá suporte a operações de leitura e gravação por meio do gateway. No entanto, essas operações têm [limites de seu tamanho de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -95,15 +99,15 @@ Este artigo mostra como baixar, instalar e configurar seu gateway de dados local
 
    ![Revise os requisitos e aceite os termos de uso](./media/logic-apps-gateway-install/accept-terms.png)
 
-1. Depois que o gateway for instalado com êxito, forneça o endereço de email para sua conta da organização e, em seguida, selecione **entrar**, por exemplo:
+1. Depois que o gateway for instalado com êxito, forneça o endereço de email para sua conta do Azure e, em seguida, selecione **entrar**, por exemplo:
 
    ![Entrar com uma conta corporativa ou de estudante](./media/logic-apps-gateway-install/sign-in-gateway-install.png)
 
-   Agora você está conectado à sua conta.
+   A instalação do gateway pode ser vinculada a apenas uma conta do Azure.
 
-1. Selecione **registrar um novo gateway neste computador** > em**seguida**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
+1. Selecione **registrar um novo gateway neste computador** > **Avançar**. Essa etapa registra a instalação do gateway com o [serviço de nuvem do gateway](#gateway-cloud-service).
 
-   ![Registar gateway](./media/logic-apps-gateway-install/register-gateway.png)
+   ![Registrar gateway](./media/logic-apps-gateway-install/register-gateway.png)
 
 1. Forneça essas informações para a instalação do gateway:
 
@@ -155,7 +159,7 @@ O gateway de dados local depende do [barramento de serviço do Azure](../service
 
 Para evitar pontos únicos de falha para acesso a dados local, você pode ter várias instalações de gateway (somente no modo padrão) com cada um em um computador diferente e configurá-las como um cluster ou grupo. Dessa forma, se o gateway primário não estiver disponível, as solicitações de dados serão roteadas para o segundo gateway e assim por diante. Como você pode instalar apenas um gateway padrão em um computador, você deve instalar cada gateway adicional que está no cluster em um computador diferente. Todos os conectores que trabalham com o gateway de dados local dão suporte à alta disponibilidade.
 
-* Você já deve ter pelo menos uma instalação de gateway na mesma assinatura do Azure que o gateway primário e a chave de recuperação para essa instalação.
+* Você já deve ter pelo menos uma instalação de gateway com a mesma conta do Azure que o gateway primário e a chave de recuperação para essa instalação.
 
 * O gateway primário deve estar executando a atualização do gateway de novembro de 2017 ou posterior.
 
@@ -175,7 +179,7 @@ Se for necessário alterar o local do gateway, mover a instalação do gateway p
 
 1. Depois que o instalador for aberto, entre com a mesma conta do Azure que foi usada para instalar o gateway.
 
-1. Selecione **migrar, restaurar ou tomada um gateway** > existente**em seguida**, por exemplo:
+1. Selecione **migrar, restaurar ou tomada um gateway existente**  > **Avançar**, por exemplo:
 
    ![Selecione "migrar, restaurar ou tomada um gateway existente"](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 
@@ -195,7 +199,7 @@ Para obter visibilidade de todos os gateways de dados locais em um locatário do
 
 ## <a name="restart-gateway"></a>Reiniciar gateway
 
-Por padrão, a instalação do gateway no computador local é executada como uma conta de serviço do Windows denominada "serviço de gateway de dados local". No entanto, a instalação do `NT SERVICE\PBIEgwService` gateway usa o nome para suas credenciais de conta "fazer logon como" e tem permissões para "fazer logon como um serviço".
+Por padrão, a instalação do gateway no computador local é executada como uma conta de serviço do Windows denominada "serviço de gateway de dados local". No entanto, a instalação do gateway usa o nome do `NT SERVICE\PBIEgwService` para suas credenciais de conta "fazer logon como" e tem permissões para "fazer logon como um serviço".
 
 > [!NOTE]
 > Sua conta de serviço do Windows difere da conta usada para conectar-se a fontes de dados locais e da conta do Azure que você usa ao entrar nos serviços de nuvem.
@@ -235,19 +239,19 @@ Estas etapas descrevem o que acontece quando você interage com um elemento que 
 
 Uma credencial armazenada é usada para se conectar do gateway para fontes de dados locais. Independentemente do usuário, o gateway usa a credencial armazenada para se conectar. Pode haver exceções de autenticação para serviços específicos, como DirectQuery e LiveConnect para Analysis Services em Power BI.
 
-### <a name="azure-active-directory"></a>Azure Active Directory
+### <a name="azure-active-directory-azure-ad"></a>Azure Active Directory (Azure AD)
 
-Os serviços de nuvem da Microsoft usam o [Azure Active Directory (AD do Azure)](../active-directory/fundamentals/active-directory-whatis.md) para autenticar usuários. Um locatário do Azure AD contém nomes de domínio e grupos de segurança. Normalmente, o endereço de email que você usa para entrar é o mesmo que o UPN (nome principal do usuário) da sua conta.
+Os serviços de nuvem da Microsoft usam o [Azure ad](../active-directory/fundamentals/active-directory-whatis.md) para autenticar usuários. Um locatário do Azure AD contém nomes de domínio e grupos de segurança. Normalmente, o endereço de email que você usa para entrar é o mesmo que o UPN (nome principal do usuário) da sua conta.
 
 ### <a name="what-is-my-upn"></a>Qual é o meu UPN?
 
-Se você não for um administrador de domínio, talvez não saiba seu UPN. Para localizar o UPN para sua conta, execute o `whoami /upn` comando de sua estação de trabalho. Embora o resultado seja como um endereço de email, o resultado é o UPN para sua conta de domínio local.
+Se você não for um administrador de domínio, talvez não saiba seu UPN. Para localizar o UPN para sua conta, execute o comando `whoami /upn` da sua estação de trabalho. Embora o resultado seja como um endereço de email, o resultado é o UPN para sua conta de domínio local.
 
-### <a name="synchronize-an-on-premises-active-directory-with-azure-active-directory"></a>Sincronizar um Active Directory local com Azure Active Directory
+### <a name="synchronize-an-on-premises-active-directory-with-azure-ad"></a>Sincronizar um Active Directory local com o Azure AD
 
-O UPN para suas contas de Active Directory locais e contas do Azure AD deve ser o mesmo. Portanto, certifique-se de que cada conta de Active Directory local corresponde à sua conta do Azure AD. Os serviços de nuvem sabem apenas sobre contas no Azure AD. Portanto, você não precisa adicionar uma conta ao seu Active Directory local. Se a conta não existir no Azure AD, você não poderá usar essa conta. 
+O UPN para suas contas de Active Directory locais e contas do Azure AD deve ser o mesmo. Portanto, certifique-se de que cada conta de Active Directory local corresponde à sua conta do Azure AD. Os serviços de nuvem sabem apenas sobre contas no Azure AD. Portanto, você não precisa adicionar uma conta ao seu Active Directory local. Se a conta não existir no Azure AD, você não poderá usar essa conta.
 
-Aqui estão as maneiras pelas quais você pode corresponder às suas contas de Active Directory locais com o Azure AD. 
+Aqui estão as maneiras pelas quais você pode corresponder às suas contas de Active Directory locais com o Azure AD.
 
 * Adicione contas manualmente ao Azure AD.
 

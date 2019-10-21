@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 10/03/2019
+ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: cad57e3e7e52ec291819110bab9d8d79f51e5a2f
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: e862cd604263c5125259344baf2e990ad56a3291
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958160"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675843"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Partilhar vistas personalizadas com um URL parametrizado
 
@@ -34,7 +34,7 @@ O parâmetro `environmentId=<guid>` especifica o ID do ambiente de destino. É u
 
 Um exemplo de parâmetro de ID de ambiente é `?environmentId=10000000-0000-0000-0000-100000000108`.
 
-## <a name="time"></a>Time
+## <a name="time"></a>Tempo
 
 Pode especificar valores de hora absolutos ou relativos com URLs parametrizados.
 
@@ -56,7 +56,7 @@ Por exemplo, `&relativeMillis=3600000` apresenta os 60 segundos de dados mais re
 Os valores aceitos correspondem ao menu de **tempo rápido** do time Series insights Explorer e incluem:
 
 * `1800000` (últimos 30 minutos)
-* `3600000` (último 60 min)
+* `3600000` (últimas 60 min)
 * `10800000` (últimas 3 horas)
 * `21600000` (últimas 6 horas)
 * `43200000` (últimas 12 horas)
@@ -70,20 +70,20 @@ O parâmetro `timeSeriesDefinitions=<collection of term objects>` especifica os 
 
 | Parâmetro | Item de URL | Descrição |
 | --- | --- | --- |
-| **name** | `\<string>` | É o nome do *termo*. |
+| **nomes** | `\<string>` | É o nome do *termo*. |
 | **splitBy** | `\<string>` | É o nome da coluna pela qual *dividir*. |
 | **measureName** | `\<string>` | É o nome da coluna da *medida*. |
 | **predicado** | `\<string>` | É a cláusula *where* para a filtragem do lado do servidor. |
-| **useSum** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
+| **Uso** | `true` | Um parâmetro opcional que especifica o uso da soma para sua medida. </br>  Observe que, se `Events` for a medida selecionada, Count será selecionado por padrão.  </br>  Se `Events` não for selecionado, a média será selecionada por padrão. |
 
-* O par chave-valor `multiChartStack=<true/false>` habilita o empilhamento no gráfico.
-* O par chave-valor `multiChartSameScale=<true/false>` habilita a mesma escala do eixo Y entre os termos dentro de um parâmetro opcional.  
+* O par `multiChartStack=<true/false>` chave-valor habilita o empilhamento no gráfico.
+* O par `multiChartSameScale=<true/false>` chave-valor habilita a mesma escala do eixo Y entre os termos dentro de um parâmetro opcional.  
 * O `timeBucketUnit=<Unit>&timeBucketSize=<integer>` permite que você ajuste o controle deslizante de intervalo para fornecer uma exibição mais granular ou mais suave do gráfico.  
 * O parâmetro `timezoneOffset=<integer>` permite que você defina o fuso horário do gráfico a ser exibido como um deslocamento para UTC.
 
 | Par (es) | Descrição |
 | --- | --- |
-| `multiChartStack=false` | o `true` é habilitado por padrão, assim, passe `false` para pilha. |
+| `multiChartStack=false` | o `true` é habilitado por padrão, assim, passe `false` para Stack. |
 | `multiChartStack=false&multiChartSameScale=true` | O empilhamento tem de estar ativado para utilizar a mesma escala de eixo Y entre termos.  É `false` por padrão, então a passagem de ' true ' habilita essa funcionalidade. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Unidades = dias, horas, minutos, segundos, milissegundos.  Capitalize sempre a unidade. </br> Defina o número de unidades transferindo o número inteiro pretendido para timeBucketSize.  Tenha em atenção que tem até 7 dias.  |
 | `timezoneOffset=-<integer>` | O número inteiro é sempre em milissegundos. </br> Observe que essa funcionalidade é um pouco diferente do que habilitamos no Time Series Insights Explorer, no qual podemos permitir que você escolha local (horário do navegador) ou UTC. |
@@ -114,11 +114,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 A URL acima descreve e compila a exibição do Time Series Insights Explorer:
 
-[1Time-termos do Gerenciador do insights da série @no__t](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[Termos do Gerenciador de informações do ![Time Series](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 A exibição completa (incluindo o gráfico):
 
-[exibição de @no__t 1Chart](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![Chart exibição](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 

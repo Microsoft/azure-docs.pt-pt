@@ -11,16 +11,22 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b69eda59c9c8032510df036d3aa0d160105fbc16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533186"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675635"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Problemas conhecidos e solução de problemas Azure Machine Learning
 
 Este artigo ajuda você a encontrar e corrigir erros ou falhas encontrados ao usar Azure Machine Learning.
+
+## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>Próxima atualização de SR-IOV para computadores NCv3 no AmlCompute
+
+A computação do Azure atualizará os SKUs do NCv3 a partir de novembro para dar suporte a todas as implementações e versões de MPI e verbos RDMA para máquinas virtuais equipados com InfiniBand. Isso exigirá um breve tempo de inatividade- [Leia mais sobre a atualização de Sr-IOV](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku).
+
+Como cliente da AmlCompute (oferta de computação gerenciada) de Azure Machine Learning, não é necessário fazer nenhuma alteração no momento. Com base na [agenda de atualização](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) , você precisaria planejar um pequeno intervalo de treinamento. O serviço assumirá a responsabilidade de atualizar as imagens de VM em seus nós de cluster e escalonar automaticamente o cluster. Depois que a atualização for concluída, você poderá usar todos os outros discibutions MPI (como o OpenMPi com Pytorch) Além de obter largura de banda InfiniBand mais alta, latências menores e melhor desempenho de aplicativo distribuído.
 
 ## <a name="visual-interface-issues"></a>Problemas de interface visual
 

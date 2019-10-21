@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: juliako
-ms.openlocfilehash: d25596884acdb356779eafa4348240239855ce37
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c402381534087f1e8cdab711bd1b2a34c78417f4
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308457"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675729"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurar o postmaster para chamadas da API REST dos serviços de mídia
 
-Este artigo mostra como configurar o **postmaster** para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS). O artigo mostra como importar arquivos de ambiente e de coleção para o **postmaster**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs REST dos serviços de mídia do Azure (AMS). O arquivo de ambiente contém variáveis que são usadas pela coleção.
+Este artigo mostra como configurar o **postmaster** para que ele possa ser usado para chamar as APIs REST dos serviços de mídia do Azure (AMS). O artigo mostra como importar arquivos de ambiente e de coleção para o **postmaster**. A coleção contém definições agrupadas de solicitações HTTP que chamam as APIs REST dos serviços de mídia do Azure (AMS). O ficheiro de ambiente contém variáveis que são utilizadas pela coleção.
 
 Antes de começar a desenvolver, examine o [desenvolvimento com as APIs dos serviços de mídia v3](media-services-apis-overview.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Media Services](create-account-cli-how-to.md). Lembre-se de que não se esqueça de que o nome do grupo de recursos e o nome da conta dos serviços de multimédia. 
+- [Crie uma conta dos serviços de mídia](create-account-cli-how-to.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta dos serviços de mídia. 
 - Obter as informações necessárias para [acessar as APIs](access-api-cli-how-to.md)
 - Instale o cliente REST do [Postman](https://www.getpostman.com/) para executar as API REST mostradas em alguns dos tutoriais sobre AMS REST. 
 
-    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas: **Visual Studio Code** com o plug-in REST ou o **Fiddler Telerik**. 
+    Estamos a utilizar o **Postman**, mas qualquer ferramenta REST seria adequada. Outras alternativas são: **Visual Studio Code** com o plug-in REST ou **Telerik Fiddler**. 
 
 > [!IMPORTANT]
 > Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
@@ -47,11 +47,9 @@ Clone o repositório do GitHub que contém os ficheiros de ambiente e coleção 
 
 ## <a name="configure-postman"></a>Configurar o Postman
 
-Esta secção configura o Postman.
-
 ### <a name="configure-the-environment"></a>Configurar o ambiente 
 
-1. Abra o **Postman**.
+1. Abra o aplicativo do **postmaster** .
 2. À direita do ecrã, selecione a opção **Gerir ambiente**.
 
     ![Gerir ambiente](./media/develop-with-postman/postman-import-env.png)
@@ -80,7 +78,7 @@ Esta secção configura o Postman.
 
 Antes de começar a manipular os recursos do AMS v3, você precisa obter e definir o token do Azure AD para a autenticação de entidade de serviço.
 
-1. Na janela à esquerda do postmaster, selecione "etapa 1: Obter token de autenticação do AAD ".
+1. Na janela à esquerda do aplicativo do postmaster, selecione "etapa 1: obter token de autenticação do AAD".
 2. Em seguida, selecione "Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço".
 3. Prima **Enviar**.
 
@@ -94,7 +92,7 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Carregar arquivos em uma conta dos serviços de mídia-REST](upload-files-rest-how-to.md)
 - [Criar filtros com os serviços de mídia-REST](filters-dynamic-manifest-rest-howto.md)
@@ -103,4 +101,4 @@ Antes de começar a manipular os recursos do AMS v3, você precisa obter e defin
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Transmita arquivos com REST](stream-files-tutorial-with-rest.md).  
-- [Tutorial: Encode a remote file based on URL and stream the video - REST](stream-files-tutorial-with-rest.md) (Codificar ficheiros remotos com base no URL e transmitir o vídeo em fluxo - REST)
+- [Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST](stream-files-tutorial-with-rest.md)

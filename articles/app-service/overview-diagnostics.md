@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: c9d6bc8802b54e970fe863ed6a7283f01c947916
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066860"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675177"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral do diagnóstico do serviço Azure App
 
@@ -37,7 +37,7 @@ Para Azure Functions, navegue até seu aplicativo de funções e, na barra de na
 
 Na home page do diagnóstico do serviço de aplicativo, você pode escolher a categoria que melhor descreve o problema com seu aplicativo usando as palavras-chave em cada bloco de página inicial. Além disso, essa página é onde você pode encontrar **ferramentas de diagnóstico** para aplicativos do Windows. Consulte [ferramentas de diagnóstico (somente para o aplicativo do Windows)](#diagnostic-tools-only-for-windows-app).
 
-![Home page](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+![Principal](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
 
 ## <a name="interactive-interface"></a>Interface interativa
 
@@ -76,9 +76,9 @@ Há quatro grafos diferentes na verificação de integridade.
 
 Como muitos problemas de aplicativo estão relacionados a problemas no código do aplicativo, o diagnóstico do serviço de aplicativo integra-se com [Application insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) para realçar exceções e problemas de dependência para correlacionar com o tempo de inatividade selecionado. O Application Insights precisa ser habilitado separadamente.
 
-![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
+![Estatísticas das Aplicações](./media/app-service-diagnostics/application-insights-7.png)
 
-Para exibir Application Insights exceções e dependências, selecione o **aplicativo Web inoperante** ou atalhos de bloco lentos do **aplicativo Web** .
+Para exibir Application Insights exceções e dependências, selecione o **aplicativo Web inoperante** ou atalhos de bloco **lentos do aplicativo Web** .
 
 ### <a name="troubleshooting-steps-only-for-windows-app"></a>Etapas de solução de problemas (somente para o aplicativo do Windows)
 
@@ -92,17 +92,17 @@ As ferramentas de diagnóstico incluem ferramentas de diagnóstico mais avançad
 
 ### <a name="proactive-cpu-monitoring"></a>Monitoramento proativo de CPU
 
-O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada.
+O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada. Para obter mais informações, consulte [atenuar os problemas de CPU antes que eles ocorram](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html). O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada.
 
 ![Monitoramento proativo de CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
 ### <a name="auto-healing-and-proactive-auto-healing"></a>Recuperação automática e auto-recuperação proativa
 
-A recuperação automática é uma ação de mitigação que você pode tomar quando seu aplicativo estiver tendo um comportamento inesperado. Você pode definir suas próprias regras com base na contagem de solicitações, solicitação lenta, limite de memória e código de status HTTP para disparar ações de mitigação. Use a ferramenta para mitigar temporariamente um comportamento inesperado até encontrar a causa raiz.
+A recuperação automática é uma ação de mitigação que você pode tomar quando seu aplicativo estiver tendo um comportamento inesperado. Você pode definir suas próprias regras com base na contagem de solicitações, solicitação lenta, limite de memória e código de status HTTP para disparar ações de mitigação. Use a ferramenta para mitigar temporariamente um comportamento inesperado até encontrar a causa raiz. Para obter mais informações, consulte [anunciando a nova experiência de recuperação automática no diagnóstico do serviço de aplicativo](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ![Autorrecuperação](./media/app-service-diagnostics/auto-healing-10.png)
 
-Como o monitoramento proativo de CPU, a auto-recuperação proativa é uma solução de chave para reduzir o comportamento inesperado de seu aplicativo. A recuperação automática proativa reinicia seu aplicativo quando o serviço de aplicativo determina que seu aplicativo está em um estado irrecuperável. Para obter mais informações, consulte [anunciando a nova experiência de recuperação automática no diagnóstico do serviço de aplicativo](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Como o monitoramento proativo de CPU, a auto-recuperação proativa é uma solução de chave para reduzir o comportamento inesperado de seu aplicativo. A recuperação automática proativa reinicia seu aplicativo quando o serviço de aplicativo determina que seu aplicativo está em um estado irrecuperável. Para obter mais informações, consulte [introdução à reparo automático proativo](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html).
 
 ## <a name="navigator-and-change-analysis-only-for-windows-app"></a>Navegador e análise de alterações (somente para aplicativo do Windows)
 

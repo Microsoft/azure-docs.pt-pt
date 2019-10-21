@@ -4,15 +4,15 @@ description: AzCopy é um utilitário de linha de comando que você pode usar pa
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274638"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675868"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -174,7 +174,7 @@ Se preferir usar suas próprias credenciais para autorização, você poderá ca
 
 Além de carregar seu certificado para o registro do aplicativo, você também precisará ter uma cópia do certificado salvo no computador ou na VM em que o AzCopy será executado. Esta cópia do certificado deve estar no. PFX ou. O formato PEM e deve incluir a chave privada. A chave privada deve ser protegida por senha. Se você estiver usando o Windows e seu certificado existir somente em um repositório de certificados, certifique-se de exportar esse certificado para um arquivo PFX (incluindo a chave privada). Para obter diretrizes, consulte [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate?view=win10-ps)
 
-Em seguida, defina a variável de ambiente `AZCOPY_SPA_CERT_PASSWORD` para a senha do certificado.
+Em seguida, defina a variável de ambiente `AZCOPY_SPA_CERT_PASSWORD` como a senha do certificado.
 
 > [!NOTE]
 > Certifique-se de definir esse valor no prompt de comando e não nas configurações de variável de ambiente do seu sistema operacional. Dessa forma, o valor estará disponível somente para a sessão atual.
@@ -293,7 +293,15 @@ A URL aparece na saída deste comando. O script pode então baixar o AzCopy usan
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Caracteres especiais de escape em tokens SAS
 
-Em arquivos em lotes que têm a extensão `.cmd`, você terá que escapar os caracteres `%` que aparecem em tokens SAS. Você pode fazer isso adicionando um caractere `%` de adição ao lado dos caracteres `%` existentes na cadeia de caracteres do token SAS.
+Em arquivos em lotes que têm a extensão `.cmd`, você terá que escapar os caracteres de `%` que aparecem em tokens SAS. Você pode fazer isso adicionando um caractere de `%` de adição ao lado dos caracteres `%` existentes na cadeia de caracteres do token SAS.
+
+### <a name="run-scripts-by-using-jenkins"></a>Executar scripts usando Jenkins
+
+Se você planeja usar o [Jenkins](https://jenkins.io/) para executar scripts, certifique-se de colocar o comando a seguir no início do script.
+
+```
+/usr/bin/keyctl new_session
+```
 
 ## <a name="use-azcopy-in-storage-explorer"></a>Usar AzCopy no Gerenciador de Armazenamento
 

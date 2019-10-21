@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 97b954ee5e00c13211a3b2a2254b6d34bccb780c
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243284"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72674947"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor do Azure Functions Python
 
@@ -28,7 +28,7 @@ Para projetos de exemplo de função autônoma no Python, consulte os [exemplos 
 
 ## <a name="programming-model"></a>Modelo de programação
 
-Azure Functions espera que uma função seja um método sem estado em seu script Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no arquivo `__init__.py`. Você também pode [especificar um ponto de entrada alternativo](#alternate-entry-point).
+Azure Functions espera que uma função seja um método sem estado em seu script Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no arquivo de `__init__.py`. Você também pode [especificar um ponto de entrada alternativo](#alternate-entry-point).
 
 Os dados de gatilhos e associações são associados à função por meio de atributos de método usando a propriedade `name` definida no arquivo *Function. JSON* . Por exemplo, a _Function. JSON_ abaixo descreve uma função simples disparada por uma solicitação HTTP denominada `req`:
 
@@ -50,7 +50,7 @@ Os dados de gatilhos e associações são associados à função por meio de atr
 }
 ```
 
-O arquivo `__init__.py` contém o seguinte código de função:
+O arquivo de `__init__.py` contém o seguinte código de função:
 
 ```python
 def main(req):
@@ -280,7 +280,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 Nessa função, o valor do parâmetro de consulta `name` é obtido do parâmetro `params` do objeto [HttpRequest] . O corpo da mensagem codificada em JSON é lido usando o método `get_json`. 
 
-Da mesma forma, você pode definir o `status_code` e o `headers` para a mensagem de resposta no objeto [HttpResponse] retornado.
+Da mesma forma, você pode definir o `status_code` e `headers` para a mensagem de resposta no objeto [HttpResponse] retornado.
 
 ## <a name="concurrency"></a>Simultaneidade
 
@@ -398,22 +398,15 @@ pip install -r requirements.txt
 
 Quando você estiver pronto para publicar, verifique se todas as suas dependências estão listadas no arquivo *requirements. txt* , que está localizado na raiz do diretório do projeto. Azure Functions pode [criar](functions-deployment-technologies.md#remote-build) essas dependências remotamente.
 
-Arquivos de projeto e pastas que são excluídos da publicação, incluindo a pasta de ambiente virtual, são listados no arquivo. funcignore.  
+Arquivos de projeto e pastas que são excluídos da publicação, incluindo a pasta de ambiente virtual, são listados no arquivo. funcignore. 
 
-Para implantar no Azure e executar uma compilação remota, use o seguinte comando:
+O [Azure Functions Core Tools](functions-run-local.md#v2) e a [extensão de Azure Functions para vs Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) executarão uma compilação remota por padrão. Por exemplo, use o seguinte comando:
 
 ```bash
-func azure functionapp publish <app name> --build remote
+func azure functionapp publish <app name>
 ```
 
-Se você não estiver usando a compilação remota e estiver usando um pacote que exige um compilador e não oferecer suporte à instalação de muitas rodas compatíveis com Linux do PyPI, a publicação no Azure sem a criação local falhará com o seguinte erro:
-
-```
-There was an error restoring dependencies.ERROR: cannot install <package name - version> dependency: binary dependencies without wheels are not supported.  
-The terminal process terminated with exit code: 1
-```
-
-Para criar localmente e configurar os binários necessários, [Instale o Docker](https://docs.docker.com/install/) no computador local e execute o comando a seguir para publicar usando o [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Lembre-se de substituir `<app name>` pelo nome do seu aplicativo de funções no Azure. 
+Se você quiser criar seu aplicativo localmente, em vez de no Azure, [Instale o Docker](https://docs.docker.com/install/) no computador local e execute o comando a seguir para publicar usando o [Azure Functions Core Tools](functions-run-local.md#v2) (Func). Lembre-se de substituir `<app name>` pelo nome do seu aplicativo de funções no Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps

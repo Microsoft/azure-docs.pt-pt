@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 1d13db922ae84e4032304a8865ba6fcdafa65748
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bdb0322083f842922359f0c91da77f5df81613cb
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201628"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675818"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -41,15 +41,15 @@ As seções a seguir listam os sistemas operacionais de servidor com suporte nos
 
 ### Sistemas operacionais Windows Server<a name="os-windows"></a>
 
-* Windows Server de 2019
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
-* Windows Server 2008
-
-> [!NOTE]
-> A integração com o Microsoft defender ATP dá suporte apenas ao Windows Server 2012 R2 e ao Windows Server 2016.
+[!div class="mx-tableFixed"]
+|SO|Com suporte na central de segurança do Azure|Suporte para integração com o Microsoft defender ATP|
+|---|---|---|
+|Windows Server 2019|✔|X|
+|Windows Server 2016|✔|✔|
+|Windows Server 2012 R2|✔|✔|
+|Windows Server 2012|✔|✔|
+|Windows Server 2008 R2|✔|✔|
+|Windows Server 2008|✔|✔|
 
 Para saber mais sobre os recursos com suporte para os sistemas operacionais Windows listados acima, consulte [recursos com suporte do servidor/máquina virtual](security-center-services.md##vm-server-features).
 
@@ -94,26 +94,26 @@ Os seguintes recursos de PaaS do Azure têm suporte na central de segurança do 
 * MySQL
 * CosmosDB
 * Conta de armazenamento
-* Serviço de aplicações
+* Serviço de aplicativo
 * Função
-* Serviço em Nuvem
-* VNET
-* Subnet
+* Serviço Cloud
+* VNet
+* Subrede
 * NIC
 * NSG
 * Conta do Batch
 * Conta do Service Fabric
 * Conta de automatização
 * Balanceador de carga
-* Pesquisa
-* Espaço de nomes do Service Bus
+* Procurar
+* Namespace do barramento de serviço
 * Stream Analytics
 * Espaço de nomes do hub de eventos
 * Aplicações lógicas
 * Redis
 * Data Lake Analytics
-* Data Lake Store
-* Cofre de chaves
+* Arquivo do Data Lake
+* Key vault
 
 Para saber mais sobre os recursos com suporte para a lista acima de recursos de PaaS, consulte [recursos compatíveis com serviços de PaaS](security-center-services.md#paas-services).
 
