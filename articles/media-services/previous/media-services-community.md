@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 8070d0cc302e0c0745216cdd40c9cbbf34e2bf58
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c4798fa9140f277d5383d2830eefb9bcc8d7c984
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016640"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598335"
 ---
 # <a name="azure-media-services-community"></a>Comunidade dos Serviços de Multimédia do Azure  
 
@@ -36,7 +36,7 @@ Esta página da Comunidade dos serviços de mídia do Azure (AMS) discute difere
 ## <a name="provide-feedback-and-make-suggestions"></a>Fornecer comentários e fazer sugestões
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="discussion"></a>Discussão
+## <a name="discussion"></a>Debate
 
 ### <a name="twitter"></a>Twitter
 
@@ -54,10 +54,10 @@ A equipe também monitora as perguntas marcadas em Stack Overflow com ' Azure-Me
 
 [![StackOverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
-## <a name="contact-the-team"></a>Contactar a equipa
+## <a name="need-help"></a>Precisa de ajuda?
 
-O email de suporte primário dos serviços de **amshelp@microsoft.com** mídia do Azure é:.
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Descrição Geral](media-services-overview.md)
+[Descrição geral](media-services-overview.md)

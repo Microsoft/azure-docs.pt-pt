@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 208ebaa2e22f4cd0ee2138f3e49f78c1e56860cf
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 235cdff1297b840bfd1a522e265633b47094c855
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260325"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597974"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Log de diagnóstico e métricas do banco de dados SQL do Azure
 
@@ -50,8 +50,8 @@ Você pode habilitar e gerenciar as métricas e o log de telemetria de diagnóst
 Ao habilitar as métricas e o log de diagnóstico, você precisa especificar o destino de recurso do Azure para coletar a telemetria de diagnóstico. As opções disponíveis incluem:
 
 - Análise de SQL do Azure
-- Azure Event Hubs
-- Storage do Azure
+- Hubs de Eventos do Azure
+- Armazenamento do Azure
 
 Você pode provisionar um novo recurso do Azure ou selecionar um recurso existente. Depois de escolher um recurso usando a opção **configurações de diagnóstico** , especifique quais dados coletar.
 
@@ -63,16 +63,16 @@ Você pode configurar bancos de dados SQL do Azure e bancos de dados de instânc
 
 | Monitorando a telemetria para bancos de dados | Banco de dados individual e suporte a banco de dados em pool | Suporte a banco de dados de instância |
 | :------------------- | ----- | ----- |
-| [Métricas básicas](#basic-metrics): Contém percentual de DTU/CPU, limite de DTU/CPU, percentual de leitura de dados físicos, porcentagem de gravação de log, êxito/falha/bloqueado por conexões de firewall, porcentagem de sessões, percentual de trabalhos, porcentagem de armazenamento, porcentagem de armazenamento e porcentagem de armazenamento XTP. | Sim | Não |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de execução de consulta, como uso da CPU e estatísticas de duração da consulta. | Sim | Sim |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (as suas consultas que aguardaram), tais como CPU, LOG e bloqueio. | Sim | Sim |
-| [Erros](#errors-dataset): Contém informações sobre erros do SQL em um banco de dados. | Sim | Sim |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo um banco de dados gastou aguardando em diferentes tipos de espera. | Sim | Não |
-| [Tempos limite](#time-outs-dataset): Contém informações sobre tempos limite em um banco de dados. | Sim | Não |
-| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos em um banco de dados. | Sim | Não |
-| [Deadlocks](#deadlocks-dataset): Contém informações sobre eventos de deadlock em um banco de dados. | Sim | Não |
-| [AutomaticTuning](#automatic-tuning-dataset): Contém informações sobre as recomendações de ajuste automático para um banco de dados. | Sim | Não |
-| [Sqlsights](#intelligent-insights-dataset): Contém Intelligent Insights no desempenho de um banco de dados. Para saber mais, consulte [Intelligent insights](sql-database-intelligent-insights.md). | Sim | Sim |
+| [Métricas básicas](#basic-metrics): contém percentual de DTU/CPU, limite de DTU/CPU, porcentagem de leitura de dados físicos, porcentagem de gravação de log, êxito/falha/bloqueada por conexões de firewall, porcentagem de sessões, porcentagem de trabalhos, armazenamento, porcentagem de armazenamento e XTP porcentagem de armazenamento. | Sim | Não |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução de consulta, como uso da CPU e estatísticas de duração da consulta. | Sim | Sim |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): contém informações sobre as estatísticas de espera de consulta (as que suas consultas aguardaram) são CPU, log e bloqueio. | Sim | Sim |
+| [Erros](#errors-dataset): contém informações sobre erros do SQL em um banco de dados. | Sim | Sim |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): contém informações sobre quanto tempo um banco de dados gastou aguardando em diferentes tipos de espera. | Sim | Não |
+| [Tempos limite](#time-outs-dataset): contém informações sobre tempos limite em um banco de dados. | Sim | Não |
+| [Blocos](#blockings-dataset): contém informações sobre o bloqueio de eventos em um banco de dados. | Sim | Não |
+| [Deadlocks](#deadlocks-dataset): contém informações sobre eventos de deadlock em um banco de dados. | Sim | Não |
+| [AutomaticTuning](#automatic-tuning-dataset): contém informações sobre as recomendações de ajuste automático para um banco de dados. | Sim | Não |
+| [Sqlsights](#intelligent-insights-dataset): contém Intelligent insights no desempenho de um banco de dados. Para saber mais, consulte [Intelligent insights](sql-database-intelligent-insights.md). | Sim | Sim |
 
 > [!IMPORTANT]
 > Os pools elásticos e as instâncias gerenciadas têm sua própria telemetria de diagnóstico separada dos bancos de dados que eles contêm. É importante observar que a telemetria de diagnóstico é configurada separadamente para cada um desses recursos, conforme documentado abaixo.
@@ -82,7 +82,7 @@ Você pode configurar bancos de dados SQL do Azure e bancos de dados de instânc
 
 ## <a name="azure-portal"></a>Portal do Azure
 
-Você pode usar o menu **configurações de diagnóstico** para cada banco de dados único, em pool ou de instância em portal do Azure para configurar o streaming de telemetria de diagnóstico. Além disso, também é possível configurar a telemetria de diagnóstico separadamente para contêineres de banco de dados: pools elásticos e instâncias gerenciadas. Você pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Armazenamento do Azure, hubs de eventos do Azure e logs de Azure Monitor.
+Você pode usar o menu **configurações de diagnóstico** para cada banco de dados único, em pool ou de instância em portal do Azure para configurar o streaming de telemetria de diagnóstico. Além disso, também é possível configurar a telemetria de diagnóstico separadamente para contêineres de banco de dados: pools elásticos e instâncias gerenciadas. Você pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: armazenamento do Azure, hubs de eventos do Azure e logs de Azure Monitor.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>Configurar streaming de telemetria de diagnóstico para pools elásticos
 
@@ -90,7 +90,7 @@ Você pode usar o menu **configurações de diagnóstico** para cada banco de da
 
 Você pode configurar um recurso de pool elástico para coletar a seguinte telemetria de diagnóstico:
 
-| Resource | Monitorando telemetria |
+| Recurso | Monitorando telemetria |
 | :------------------- | ------------------- |
 | **Pool elástico** | As [métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contêm percentual de EDTU/CPU, limite de EDTU/CPU, porcentagem de leitura de dados físicos, percentual de gravação de log, porcentagem de sessões, percentual de operadores, armazenamento, porcentagem de armazenamento, limite de armazenamento e porcentagem de armazenamento XTP. |
 
@@ -110,10 +110,10 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de pool
    ![Habilitar o diagnóstico para pools elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
 1. Insira um nome de configuração para sua própria referência.
-1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
+1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Para o log Analytics, selecione **Configurar** e crie um novo espaço de trabalho selecionando **+ criar novo espaço de trabalho**ou selecione um espaço de trabalho existente.
-1. Marque a caixa de seleção para telemetria de diagnóstico de pool elástico: Métricas **básicas** .
-   ![Configurar o diagnóstico para pools elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. Marque a caixa de seleção para telemetria de diagnóstico de pool elástico: métricas **básicas** .
+   diagnóstico de ![Configure para pools elásticos ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Selecione **Guardar**.
 1. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados dentro do pool elástico que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
@@ -134,10 +134,10 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados in
 
    ![Habilitar o diagnóstico para bancos de dados únicos, em pool ou de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 1. Insira um nome de configuração para sua própria referência.
-1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
-1. Para obter a experiência de monitoramento padrão baseada em eventos, marque as seguintes caixas de seleção para a telemetria do log de diagnóstico de banco de dados: **Sqlsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **erros**, **DatabaseWaitStatistics**, **tempos limite**, **blocos**e **deadlocks**.
+1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
+1. Para obter a experiência de monitoramento padrão baseada em eventos, marque as seguintes caixas de seleção para a telemetria do log de diagnóstico de banco de dados: **Sqlsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** , **Erros**, **DatabaseWaitStatistics**, **tempos limite**, **blocos**e **deadlocks**.
 1. Para uma experiência de monitoramento avançada, com base em um minuto, marque a caixa de seleção para métricas **básicas** .
-   ![Configurar o diagnóstico para bancos de dados únicos, em pool ou de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Configure diagnósticos para bancos de dados únicos, em pool ou de instância ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selecione **Guardar**.
 1. Repita essas etapas para cada banco de dados que você deseja monitorar.
 
@@ -152,7 +152,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados in
 
 Você pode configurar um recurso de instância gerenciada para coletar a seguinte telemetria de diagnóstico:
 
-| Resource | Monitorando telemetria |
+| Recurso | Monitorando telemetria |
 | :------------------- | ------------------- |
 | **Instância gerenciada** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contém contagem de vCores, percentual médio de CPU, solicitações de e/s, bytes lidos/gravados, espaço de armazenamento reservado e espaço de armazenamento usado. |
 
@@ -172,10 +172,10 @@ Para habilitar o streaming de telemetria de diagnóstico para um recurso de inst
    ![Habilitar o diagnóstico para a instância gerenciada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
 1. Insira um nome de configuração para sua própria referência.
-1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
+1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Para o log Analytics, selecione **Configurar** e crie um novo espaço de trabalho selecionando **+ criar novo espaço de trabalho**ou use um espaço de trabalho existente.
-1. Marque a caixa de seleção para a telemetria de diagnóstico de instância: **ResourceUsageStats**.
-   ![Configurar o diagnóstico para a instância gerenciada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+1. Marque a caixa de seleção para telemetria de diagnóstico de instância: **ResourceUsageStats**.
+   diagnóstico de ![Configure para instância gerenciada ](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Selecione **Guardar**.
 1. Além disso, configure o streaming de telemetria de diagnóstico para cada banco de dados de instância dentro da instância gerenciada que você deseja monitorar seguindo as etapas descritas na próxima seção.
 
@@ -197,9 +197,9 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados de
    ![Habilitar o diagnóstico para bancos de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
 1. Insira um nome de configuração para sua própria referência.
-1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **Arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
+1. Selecione um recurso de destino para os dados de diagnóstico de streaming: **arquivar na conta de armazenamento**, **transmitir para um hub de eventos**ou **Enviar para log Analytics**.
 1. Marque as caixas de seleção para telemetria de diagnóstico de banco de dados: **Sqlsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **erros**.
-   ![Configurar o diagnóstico para bancos de dados de instância](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configure diagnóstico para bancos de dados de instância ](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Selecione **Guardar**.
 1. Repita essas etapas para cada banco de dados de instância que você deseja monitorar.
 
@@ -214,7 +214,7 @@ Para habilitar o streaming de telemetria de diagnóstico para bancos de dados de
 
 Você pode habilitar o log de diagnóstico e métricas usando o PowerShell.
 
-- Para ativar o armazenamento de registos de diagnóstico numa conta de armazenamento, utilize este comando:
+- Para habilitar o armazenamento de logs de diagnóstico em uma conta de armazenamento, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
@@ -222,46 +222,46 @@ Você pode habilitar o log de diagnóstico e métricas usando o PowerShell.
 
    A ID da conta de armazenamento é a ID de recurso para a conta de armazenamento de destino.
 
-- Para ativar a transmissão em fluxo de registos de diagnóstico para um hub de eventos, use este comando:
+- Para habilitar o streaming de logs de diagnóstico para um hub de eventos, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
-   O ID de regra de Azure Service Bus é uma cadeia de caracteres com este formato:
+   A ID da regra do barramento de serviço do Azure é uma cadeia de caracteres com este formato:
 
    ```powershell
    {service bus resource ID}/authorizationrules/{key name}
    ```
 
-- Para ativar o envio de registos de diagnóstico para uma área de trabalho do Log Analytics, use este comando:
+- Para habilitar o envio de logs de diagnóstico para um espaço de trabalho Log Analytics, use este comando:
 
    ```powershell
    Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
-- Pode obter o ID de recurso da sua área de trabalho do Log Analytics, utilizando o seguinte comando:
+- Você pode obter a ID de recurso do seu espaço de trabalho Log Analytics usando o seguinte comando:
 
    ```powershell
    (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
-Pode combinar estes parâmetros para ativar várias opções de saída.
+Você pode combinar esses parâmetros para habilitar várias opções de saída.
 
 ### <a name="to-configure-multiple-azure-resources"></a>Para configurar vários recursos do Azure
 
 Para dar suporte a várias assinaturas, use o script do PowerShell de [habilitar o log de métricas de recursos do Azure usando o PowerShell](https://blogs.technet.microsoft.com/msoms/20../../enable-azure-resource-metrics-logging-using-powershell/).
 
-Forneça a ID \<de recurso do\> espaço de trabalho $WSID como um parâmetro `Enable-AzureRMDiagnostics.ps1` ao executar o script para enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
+Forneça a ID de recurso do espaço de trabalho \< $WSID \> como um parâmetro ao executar o `Enable-AzureRMDiagnostics.ps1` de script para enviar dados de diagnóstico de vários recursos para o espaço de trabalho.
 
-- Para obter a ID \<do espaço de trabalho $WSID\> do destino para seus dados de diagnóstico, use o seguinte script:
+- Para obter a ID do espaço de trabalho \< $WSID \> do destino dos dados de diagnóstico, use o seguinte script:
 
     ```powershell
     PS C:\> $WSID = "/subscriptions/<subID>/resourcegroups/<RG_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>"
     PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
     ```
 
-   Substitua \<subID\> \< \<\> pela ID da assinatura, RG_NAME pelo nome do grupo de recursos e WS_NAME pelo nome do espaço de trabalho.\>
+   Substitua \<subID \> pela ID da assinatura, \<RG_NAME \> com o nome do grupo de recursos e \<WS_NAME \> pelo nome do espaço de trabalho.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -296,7 +296,7 @@ Você pode habilitar o log de diagnóstico e métricas usando o CLI do Azure.
    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
    ```
 
-Pode combinar estes parâmetros para ativar várias opções de saída.
+Você pode combinar esses parâmetros para habilitar várias opções de saída.
 
 ### <a name="rest-api"></a>API REST
 
@@ -310,7 +310,7 @@ Leia sobre como [habilitar as configurações de diagnóstico na criação de re
 
 Análise de SQL do Azure é uma solução de nuvem que monitora o desempenho de bancos de dados SQL do Azure, pools elásticos e instâncias gerenciadas em escala e em várias assinaturas. Ele pode ajudá-lo a coletar e visualizar as métricas de desempenho do banco de dados SQL do Azure e tem inteligência interna para solução de problemas de desempenho.
 
-![Descrição geral da análise SQL do Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
+![Visão geral de Análise de SQL do Azure](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
 As métricas e os logs de diagnóstico do banco de dados SQL podem ser transmitidos em Análise de SQL do Azure usando a opção **Enviar para log Analytics** interna na guia Configurações de diagnóstico no Portal. Você também pode habilitar o log Analytics usando uma configuração de diagnóstico por meio de cmdlets do PowerShell, o CLI do Azure ou a API REST do Azure Monitor.
 
@@ -410,7 +410,7 @@ Se você estiver usando Análise de SQL do Azure, poderá monitorar o consumo de
 
 Monitoramento de telemetria disponível para o banco de dados SQL do Azure, pools elásticos e instância gerenciada está documentado abaixo. A telemetria de monitoramento coletada dentro do SQL Analytics pode ser usada para sua própria análise personalizada e desenvolvimento de aplicativos usando Azure Monitor linguagem de [consultas de log](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) .
 
-## <a name="basic-metrics"></a>Métrica básica
+## <a name="basic-metrics"></a>Métricas básicas
 
 Consulte as tabelas a seguir para obter detalhes sobre as métricas básicas por recurso.
 
@@ -437,14 +437,14 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure|
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante ResourceUsageStats |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante MANAGEDINSTANCES |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: ResourceUsageStats |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome da instância gerenciada |
@@ -462,15 +462,15 @@ Os detalhes da telemetria disponível para todos os logs estão documentados nas
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante QueryStoreRuntimeStatistics |
-|OperationName|Nome da operação. Constante QueryStoreRuntimeStatisticsEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: QueryStoreRuntimeStatistics |
+|OperationName|Nome da operação. Sempre: QueryStoreRuntimeStatisticsEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -513,15 +513,15 @@ Saiba mais sobre [repositório de consultas dados de estatísticas de tempo de e
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante QueryStoreWaitStatistics |
-|OperationName|Nome da operação. Constante QueryStoreWaitStatisticsEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: QueryStoreWaitStatistics |
+|OperationName|Nome da operação. Sempre: QueryStoreWaitStatisticsEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -551,44 +551,44 @@ Saiba mais sobre [repositório de consultas dados de estatísticas de espera](ht
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante Erros |
-|OperationName|Nome da operação. Constante ErrorEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: erros |
+|OperationName|Nome da operação. Sempre: ErrorEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
 |ElasticPoolName_s|Nome do pool elástico para o banco de dados, se houver |
 |DatabaseName_s|Nome do banco de dados |
 |ResourceId|URI de recurso |
-|Message|Mensagem de erro em texto sem formatação |
+|Mensagem|Mensagem de erro em texto sem formatação |
 |user_defined_b|É o bit de erro definido pelo usuário |
 |error_number_d|Código de erro |
-|Severity|Severidade do erro |
+|Gravidade|Severidade do erro |
 |state_d|Estado do erro |
 |query_hash_s|Hash de consulta da consulta com falha, se disponível |
 |query_plan_hash_s|Hash do plano de consulta da consulta com falha, se disponível |
 
-Saiba mais sobre [SQL Server mensagens de erro](https://msdn.microsoft.com/library/cc645603.aspx).
+Saiba mais sobre [SQL Server mensagens de erro](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors?view=sql-server-ver15).
 
 ### <a name="database-wait-statistics-dataset"></a>Conjunto de dados de estatísticas Wait
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante DatabaseWaitStatistics |
-|OperationName|Nome da operação. Constante DatabaseWaitStatisticsEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: DatabaseWaitStatistics |
+|OperationName|Nome da operação. Sempre: DatabaseWaitStatisticsEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -609,15 +609,15 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante Tempos limite |
-|OperationName|Nome da operação. Constante TimeoutEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: tempos limite |
+|OperationName|Nome da operação. Sempre: TimeoutEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -632,15 +632,15 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante Trava |
-|OperationName|Nome da operação. Constante BlockEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: blocos |
+|OperationName|Nome da operação. Sempre: BlockEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -656,15 +656,15 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante Impasses |
-|OperationName|Nome da operação. Constante DeadlockEvent |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: deadlocks |
+|OperationName|Nome da operação. Sempre: DeadlockEvent |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -677,14 +677,14 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 
 |Propriedade|Descrição|
 |---|---|
-|TenantId|Sua ID de locatário |
-|SourceSystem|Constante Azure |
+|tenantId|Sua ID de locatário |
+|SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Carimbo de data/hora quando o log foi gravado |
-|Type|Constante AzureDiagnostics |
-|ResourceProvider|Nome do provedor de recursos. Constante MICROSOFT.SQL |
-|Category|Nome da categoria. Constante AutomaticTuning |
-|Resource|O nome do recurso |
-|ResourceType|Nome do tipo de recurso. Constante SERVIDORES/BANCOS DE DADOS |
+|Tipo|Sempre: AzureDiagnostics |
+|ResourceProvider|Nome do provedor de recursos. Sempre: MICROSOFT. SQL |
+|Categoria|Nome da categoria. Sempre: AutomaticTuning |
+|Recurso|O nome do recurso |
+|ResourceType|Nome do tipo de recurso. Sempre: servidores/bancos de dados |
 |SubscriptionId|GUID de assinatura do banco de dados |
 |ResourceGroup|Nome do grupo de recursos para o banco de dados |
 |LogicalServerName_s|Nome do servidor para o banco de dados |
@@ -701,7 +701,7 @@ Saiba mais sobre [Estatísticas de espera do banco de dados](https://docs.micros
 |IncludedColumns_s|Colunas incluídas |
 |EstimatedImpact_s|Impacto estimado do JSON de recomendação de ajuste automático |
 |Event_s|Tipo de evento de ajuste automático |
-|Timestamp_t|Carimbo de data/hora da última atualização |
+|Timestamp_t|Último carimbo de data/hora atualizado |
 
 ### <a name="intelligent-insights-dataset"></a>Conjunto de Intelligent Insights
 
@@ -716,7 +716,7 @@ Para saber como habilitar o registro em log e entender as métricas e as categor
 
 Para saber mais sobre os hubs de eventos, leia:
 
-- [O que é o Event Hubs do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [O que são hubs de eventos do Azure?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introdução ao Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Para saber como configurar alertas com base na telemetria do log Analytics, consulte:

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fa3e3c6d89657d328182da667c153f14f70bbd7e
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6361814a30cc7d1bc9703dae8ddb14d955c1582d
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514661"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598032"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planear uma implementação dos Ficheiros do Azure
 
@@ -219,13 +219,13 @@ Os compartilhamentos de arquivos padrão estão disponíveis em todas as regiõe
 |Oeste dos EUA *        |LRS     |
 |E.U.A. Oeste 2      |LRS, ZRS|
 
-\* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização.
+\* com suporte para novas contas, nem todas as contas existentes concluíram o processo de atualização. Você pode verificar se suas contas de armazenamento existentes concluíram o processo de atualização ao tentar [habilitar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
 
 Para nos ajudar a priorizar novas regiões e recursos, preencha esta [pesquisa](https://aka.ms/azurefilesatscalesurvey).
 
 ### <a name="enable-and-create-larger-file-shares"></a>Habilitar e criar compartilhamentos de arquivos maiores
 
-Para começar a usar compartilhamentos de arquivos maiores, consulte nosso artigo [habilitar compartilhamentos de arquivos grandes](storage-files-how-to-create-large-file-share.md).
+Para começar a usar compartilhamentos de arquivos maiores, consulte nosso artigo [como habilitar e criar grandes compartilhamentos de arquivos](storage-files-how-to-create-large-file-share.md).
 
 ## <a name="data-growth-pattern"></a>Padrão de crescimento de dados
 
