@@ -10,17 +10,17 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec2018
 ms.openlocfilehash: 0a26cfc578f12044cb5834f202a0fed5d0a30274
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69647375"
 ---
 # <a name="create-a-basic-index-in-azure-search"></a>Criar um índice básico no Azure Search
 
 No Azure Search, um *índice* é um repositório persistente de *documentos* e outras construções usadas para pesquisa de texto completo e filtrada em um serviço de Azure Search. Conceitualmente, um documento é uma única unidade de dados pesquisáveis no índice. Por exemplo, um retalhista de comércio eletrónico pode ter um documento para cada artigo que vende, uma empresa jornalística pode ter um documento para cada artigo, etc. Mapeamento destes conceitos para equivalentes da base de dados mais familiares: um *índice* é, conceptualmente, semelhante a uma *tabela* e os *documentos* são quase equivalentes a *linhas* numa tabela.
 
-Quando você adiciona ou carrega um índice, Azure Search cria estruturas físicas com base no esquema fornecido. Por exemplo, se um campo no índice for marcado como pesquisável, um índice invertido será criado para esse campo. Posteriormente, quando você adicionar ou carregar documentos ou enviar consultas de pesquisa para Azure Search, você está enviando solicitações para um índice específico em seu serviço de pesquisa. O carregamento de campos com valores de documento é chamado de indexação ou ingestão de dados.
+Quando você adiciona ou carrega um índice, Azure Search cria estruturas físicas com base no esquema fornecido. Por exemplo, se um campo no índice for marcado como pesquisável, um índice invertido será criado para esse campo. Posteriormente, quando você adicionar ou carregar documentos ou enviar consultas de pesquisa para Azure Search, você está enviando solicitações para um índice específico em seu serviço de pesquisa. O carregamento de campos com valores de documento é chamado de *indexação* ou ingestão de dados.
 
 Você pode criar um índice no portal, na [API REST](search-create-index-rest-api.md)ou no [SDK do .net](search-create-index-dotnet.md).
 
@@ -46,7 +46,7 @@ Chegar ao design correto do índice é normalmente obtido por meio de várias it
 
 6. Continue usando o código para iterar em seu design.  
 
-Como as estruturas físicas são criadas no serviço, é necessário descartar [e recriar índices](search-howto-reindex.md) sempre que você fizer alterações materiais em uma definição de campo existente. Isso significa que durante o desenvolvimento, você deve planejar as recompilações frequentes. Você pode considerar trabalhar com um subconjunto de seus dados para fazer com que as recompilações se tornem mais rápidas. 
+Como as estruturas físicas são criadas no serviço, é necessário [descartar e recriar índices](search-howto-reindex.md) sempre que você fizer alterações materiais em uma definição de campo existente. Isso significa que durante o desenvolvimento, você deve planejar as recompilações frequentes. Você pode considerar trabalhar com um subconjunto de seus dados para fazer com que as recompilações se tornem mais rápidas. 
 
 O código, em vez de uma abordagem de portal, é recomendado para design iterativo. Se você depender do portal para definição de índice, terá que preencher a definição de índice em cada recompilação. Como alternativa, ferramentas como [o postmaster e a API REST](search-get-started-postman.md) são úteis para testes de prova de conceito quando os projetos de desenvolvimento ainda estão em fases iniciais. Você pode fazer alterações incrementais em uma definição de índice em um corpo de solicitação e, em seguida, enviar a solicitação para o serviço para recriar um índice usando um esquema atualizado.
 
@@ -54,7 +54,7 @@ O código, em vez de uma abordagem de portal, é recomendado para design iterati
 
 Em esquemático, um índice de Azure Search é composto pelos elementos a seguir. 
 
-A [*coleção Fields*](#fields-collection) normalmente é a parte maior de um índice, onde cada campo é nomeado, digitado e atribuído com comportamentos permitidos que determinam como ele é usado. Outros elementos incluem [](#suggesters)sugestores, [perfis de Pontuação](#scoring-profiles), analisadores com partes de componente para dar suporte à personalização, [CORS](#cors) e opções de [chave de criptografia](#encryption-key) . [](#analyzers)
+A [*coleção Fields*](#fields-collection) normalmente é a parte maior de um índice, onde cada campo é nomeado, digitado e atribuído com comportamentos permitidos que determinam como ele é usado. Outros elementos incluem [sugestores](#suggesters), [perfis de Pontuação](#scoring-profiles), [analisadores](#analyzers) com partes de componente para dar suporte à personalização, [CORS](#cors) e opções de [chave de criptografia](#encryption-key) .
 
 ```json
 {
@@ -146,7 +146,7 @@ A [*coleção Fields*](#fields-collection) normalmente é a parte maior de um í
 Na definição do esquema, tem de especificar o nome, o tipo e os atributos de cada campo do índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar o modo de utilização do campo. As tabelas seguintes enumeram os tipos e os atributos que pode especificar.
 
 ### <a name="data-types"></a>Tipos de dados
-| Type | Descrição |
+| Tipo | Descrição |
 | --- | --- |
 | *Edm.String* |Texto que pode, opcionalmente, ser indexado para pesquisa de texto completo (quebra de palavras, lematização e assim por diante). |
 | *Collection(Edm.String)* |Uma lista de cadeias que pode, opcionalmente, ser atomizada para pesquisa em texto completo. Não existe um limite superior teórico do número de itens numa coleção, contudo, o limite superior de 16 MB de tamanho de payload aplica-se às coleções. |
@@ -154,7 +154,7 @@ Na definição do esquema, tem de especificar o nome, o tipo e os atributos de c
 | *Edm.Int32* |Valores inteiros de 32 bits. |
 | *Edm.Int64* |Valores inteiros de 64 bits. |
 | *Edm.Double* |Dados numéricos de dupla precisão. |
-| *Edm.DateTimeOffset* |Valores de data e hora representados no formato OData V4 (por `yyyy-MM-ddTHH:mm:ss.fffZ` exemplo `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`, ou). |
+| *Edm.DateTimeOffset* |Valores de data e hora representados no formato OData V4 (por exemplo, `yyyy-MM-ddTHH:mm:ss.fffZ` ou `yyyy-MM-ddTHH:mm:ss.fff[+/-]HH:mm`). |
 | *Edm.GeographyPoint* |Um ponto que representa uma localização geográfica no mundo. |
 
 Pode encontrar mais informações detalhadas sobre os [tipos de dados suportados aqui](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) do Azure Search.
@@ -163,9 +163,9 @@ Pode encontrar mais informações detalhadas sobre os [tipos de dados suportados
 
 Exatamente um campo no índice deve ser designado como um campo de **chave** que identifica exclusivamente cada documento.
 
-Outros atributos determinam como um campo é usado em um aplicativo. Por exemplo, o atributo pesquisável é atribuído a cada campo que deve ser incluído em uma pesquisa de texto completo. 
+Outros atributos determinam como um campo é usado em um aplicativo. Por exemplo, o atributo **pesquisável** é atribuído a cada campo que deve ser incluído em uma pesquisa de texto completo. 
 
-As APIs usadas para criar um índice têm comportamentos padrão variados. Para as [APIs REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), a maioria dos atributos é habilitada por padrão ( por exemplo, pesquisável e **recuperável** são verdadeiros para campos de cadeia de caracteres) e, muitas vezes, você só precisa defini-los se desejar desativá-los. Para o SDK do .NET, o oposto é true. Em qualquer propriedade que você não definir explicitamente, o padrão é desabilitar o comportamento de pesquisa correspondente, a menos que você o habilite especificamente.
+As APIs usadas para criar um índice têm comportamentos padrão variados. Para as [APIs REST](https://docs.microsoft.com/rest/api/searchservice/Create-Index), a maioria dos atributos é habilitada por padrão (por exemplo, **pesquisável** e **recuperável** são verdadeiros para campos de cadeia de caracteres) e, muitas vezes, você só precisa defini-los se desejar desativá-los. Para o SDK do .NET, o oposto é true. Em qualquer propriedade que você não definir explicitamente, o padrão é desabilitar o comportamento de pesquisa correspondente, a menos que você o habilite especificamente.
 
 | Atributo | Descrição |
 | --- | --- |
@@ -181,11 +181,11 @@ As APIs usadas para criar um índice têm comportamentos padrão variados. Para 
 
 Os atributos selecionados têm um impacto no armazenamento. A captura de tela a seguir ilustra os padrões de armazenamento de índice resultantes de várias combinações de atributos.
 
-O índice é baseado na fonte de dados de [exemplo interna de imóveis](search-get-started-portal.md) , que você pode indexar e consultar no Portal. Embora os esquemas de índice não sejam mostrados, você pode inferir os atributos com base no nome do índice. Por exemplo, *realestate –* índice pesquisável tem o atributo pesquisável selecionado e nada mais, o índice *realestate-recuperável* tem o atributo **recuperável** selecionado e nada mais, e assim por diante.
+O índice é baseado na fonte de dados de [exemplo interna de imóveis](search-get-started-portal.md) , que você pode indexar e consultar no Portal. Embora os esquemas de índice não sejam mostrados, você pode inferir os atributos com base no nome do índice. Por exemplo, *realestate – índice pesquisável* tem o atributo **pesquisável** selecionado e nada mais, o índice *realestate-recuperável* tem o atributo **recuperável** selecionado e nada mais, e assim por diante.
 
 ![Tamanho do índice com base na seleção de atributo](./media/search-what-is-an-index/realestate-index-size.png "Tamanho do índice com base na seleção de atributo")
 
-Embora essas variantes de índice sejam artificiais, podemos nos referir a elas para comparações amplas de como os atributos afetam o armazenamento. A definição da **recuperação** aumenta o tamanho do índice? Não. Adicionar campos a um Sugestor aumenta o tamanho do índice? Sim.
+Embora essas variantes de índice sejam artificiais, podemos nos referir a elas para comparações amplas de como os atributos afetam o armazenamento. A definição da **recuperação** aumenta o tamanho do índice? Não. Adicionar campos a um **Sugestor** aumenta o tamanho do índice? Sim.
 
 Os índices que dão suporte ao filtro e à classificação são proporcionalmente maiores que os índices que dão suporte à pesquisa de texto completo. O motivo é que a consulta de filtro e classificação em correspondências exatas para que os documentos sejam armazenados intactos. Por outro lado, os campos pesquisáveis que dão suporte à pesquisa difusa e de texto completo usam índices invertidos, que são preenchidos com termos com token que consomem menos espaço do que documentos inteiros.
 
@@ -195,7 +195,7 @@ Os índices que dão suporte ao filtro e à classificação são proporcionalmen
 ## <a name="suggesters"></a>Sugestões
 Um Sugestor é uma seção do esquema que define quais campos em um índice são usados para dar suporte a consultas de preenchimento automático ou de tipo antecipado em pesquisas. Normalmente, as cadeias de caracteres de pesquisa parciais são enviadas para as [sugestões (API REST)](https://docs.microsoft.com/rest/api/searchservice/suggestions) enquanto o usuário está digitando uma consulta de pesquisa e a API retorna um conjunto de frases sugeridas. 
 
-Os campos adicionados a um Sugestor são usados para criar termos de pesquisa de tipo antecipado. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para obter mais informações sobre como criar uma estrutura de sugestão, consulte [Adicionar](index-add-suggesters.md)sugestores.
+Os campos adicionados a um Sugestor são usados para criar termos de pesquisa de tipo antecipado. Todos os termos de pesquisa são criados durante a indexação e armazenados separadamente. Para obter mais informações sobre como criar uma estrutura de sugestão, consulte [Adicionar sugestores](index-add-suggesters.md).
 
 ## <a name="scoring-profiles"></a>Perfis de classificação
 
@@ -213,17 +213,17 @@ O JavaScript do lado do cliente não pode chamar APIs por padrão, pois o navega
 
 As seguintes opções podem ser definidas para CORS:
 
-+ **allowedOrigins** (obrigatório): Esta é uma lista de origens que receberão acesso ao índice. Isso significa que qualquer código JavaScript servido por essas origens terá permissão para consultar seu índice (supondo que ele forneça a chave de API correta). Cada origem geralmente é do formulário `protocol://<fully-qualified-domain-name>:<port>` , embora `<port>` geralmente é omitido. Consulte o [compartilhamento de recursos entre origens (Wikipédia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para obter mais detalhes.
++ **allowedOrigins** (obrigatório): esta é uma lista de origens que terão acesso concedido ao índice. Isso significa que qualquer código JavaScript servido por essas origens terá permissão para consultar seu índice (supondo que ele forneça a chave de API correta). Cada origem normalmente é do formulário `protocol://<fully-qualified-domain-name>:<port>` embora `<port>` geralmente é omitido. Consulte o [compartilhamento de recursos entre origens (Wikipédia)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) para obter mais detalhes.
 
-  Se você quiser permitir o acesso a todas as origens, `*` inclua como um único item na matriz **allowedOrigins** . *Essa não é uma prática recomendada para serviços de pesquisa de produção* , mas geralmente é útil para desenvolvimento e depuração.
+  Se você quiser permitir o acesso a todas as origens, inclua `*` como um único item na matriz **allowedOrigins** . *Essa não é uma prática recomendada para serviços de pesquisa de produção* , mas geralmente é útil para desenvolvimento e depuração.
 
-+ **maxAgeInSeconds** (opcional): Os navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Este deve ser um número inteiro não negativo. Quanto maior esse valor, melhor será o desempenho, mas mais tempo levará para que as alterações da política de CORS entrem em vigor. Se não estiver definido, uma duração padrão de 5 minutos será usada.
++ **maxAgeInSeconds** (opcional): os navegadores usam esse valor para determinar a duração (em segundos) para respostas de simulação de CORS de cache. Este deve ser um número inteiro não negativo. Quanto maior esse valor, melhor será o desempenho, mas mais tempo levará para que as alterações da política de CORS entrem em vigor. Se não estiver definido, uma duração padrão de 5 minutos será usada.
 
 ## <a name="encryption-key"></a>Chave de criptografia
 
 Embora todos os índices do Azure Search sejam criptografados por padrão usando chaves gerenciadas pela Microsoft, os índices podem ser configurados para serem criptografados com **chaves gerenciadas pelo cliente** no Key Vault. Para saber mais, consulte [gerenciar chaves de criptografia em Azure Search](search-security-manage-encryption-keys.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Com uma compreensão da composição de índice, você pode continuar no portal para criar seu primeiro índice.
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
 ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69611916"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium
@@ -31,7 +31,7 @@ Este artigo descreve como migrar namespaces de camada Standard existentes para a
 Alguns dos pontos a serem observados: 
 - Essa migração deve ocorrer em vigor, o que significa que os aplicativos de remetente e receptor existentes **não exigem nenhuma alteração no código ou na configuração**. A cadeia de conexão existente apontará automaticamente para o novo namespace Premium.
 - O namespace **Premium** não deve ter **nenhuma entidade** para que a migração tenha sucesso. 
-- Todas as **entidades** no namespace padrão são copiadas para o namespace Premium durante o processo de migração. 
+- Todas as **entidades** no namespace padrão são **copiadas** para o namespace Premium durante o processo de migração. 
 - A migração dá suporte a **1.000 entidades por unidade de mensagens** na camada Premium. Para identificar quantas unidades de mensagens você precisa, comece com o número de entidades que você tem em seu namespace padrão atual. 
 - Não é possível migrar diretamente da **camada básica** para a **camada Premier**, mas você pode fazê-lo indiretamente migrando do Basic para o Standard primeiro e depois do Standard para o Premium na próxima etapa.
 
@@ -93,31 +93,31 @@ Para migrar seu namespace standard do barramento de serviço para Premium usando
 
 A migração usando o portal do Azure tem o mesmo fluxo lógico que a migração usando os comandos. Siga estas etapas para migrar usando o portal do Azure.
 
-1. No menu de **navegação** no painel esquerdo, selecione **migrar para Premium**. Clique no botão introdução para continuar na próxima página.
-    ![Página de aterrissagem de migração][]
+1. No menu de **navegação** no painel esquerdo, selecione **migrar para Premium**. Clique no **botão introdução** para continuar na próxima página.
+    ][] página de aterrissagem de ![Migration
 
 1. Conclua **a instalação**.
-   ![Namespace de instalação][]
+   namespace de ![Setup ][]
    1. Crie e atribua o namespace Premium para migrar o namespace padrão existente para o.
-        ![Configurar namespace-criar namespace Premium][]
+        namespace de ![Setup-criar ][] de namespace Premium
    1. Escolha um **nome de migração após**. Você usará esse nome para acessar o namespace padrão depois que a migração for concluída.
-        ![Namespace da instalação-escolha o nome da migração após o][]
+        ![Setup namespace – escolha o nome da migração após ][]
    1. Selecione **' Avançar '** para continuar.
 1. Sincronizar entidades entre os namespaces padrão e Premium.
-    ![Configurar o namespace-entidades de sincronização-iniciar][]
+    namespace ![Setup-entidades de sincronização-iniciar ][]
 
    1. Selecione **Iniciar sincronização** para começar a sincronizar as entidades.
    1. Selecione **Sim** na caixa de diálogo para confirmar e iniciar a sincronização.
    1. Aguarde até que a sincronização seja concluída. O status está disponível na barra de status.
-        ![Configurar o namespace-entidades de sincronização-progresso][]
+        namespace ![Setup-entidades de sincronização-progresso ][]
         >[!IMPORTANT]
         > Se você precisar anular a migração por qualquer motivo, examine o fluxo de anulação na seção de perguntas frequentes deste documento.
    1. Depois que a sincronização for concluída, selecione **Avançar** na parte inferior da página.
 
 1. Examine as alterações na página Resumo. Selecione **concluir migração** para alternar os namespaces e concluir a migração.
-    ![Alternar namespace – menu alternar][]  
+    namespace ![Switch – ][] menu switch  
     A página confirmação é exibida quando a migração é concluída.
-    ![Alternar namespace-êxito][]
+    namespace de ![Switch-êxito ][]
 
 ## <a name="caveats"></a>ADVERTÊNCIAS
 
@@ -141,7 +141,7 @@ Aqui está uma lista de recursos que não têm suporte do Premium e de sua mitig
    
    Se o modelo do ARM definir ' enablePartitioning ' como ' true ' para uma fila ou tópico específico, ele será ignorado pelo agente.
 
-## <a name="faqs"></a>FAQs
+## <a name="faqs"></a>FAQ
 
 ### <a name="what-happens-when-the-migration-is-committed"></a>O que acontece quando a migração é confirmada?
 
@@ -169,7 +169,7 @@ O tempo de inatividade que é experimentado pelo aplicativo é limitado ao perí
 Não, não há nenhuma alteração de código ou configuração necessária para fazer a migração. A cadeia de conexão que os aplicativos remetente e destinatário usam para acessar o namespace padrão é mapeada automaticamente para atuar como um alias para o namespace Premium.
 
 ### <a name="what-happens-when-i-abort-the-migration"></a>O que acontece quando eu cancelo a migração?
-A migração pode ser anulada usando o `Abort` comando ou usando o portal do Azure. 
+A migração pode ser anulada usando o comando `Abort` ou usando o portal do Azure. 
 
 #### <a name="azure-cli"></a>CLI do Azure
 
@@ -179,8 +179,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-![Anular fluxo-anular sincronização][]
-![de anular fluxo-anular conclusão][]
+fluxo de ![Abort-anular sincronização ][]
+ ![Abort fluxo-anulação concluída ][]
 
 Quando o processo de migração é anulado, ele anula o processo de cópia das entidades (tópicos, assinaturas e filtros) do padrão para o namespace Premium e interrompe o emparelhamento.
 
@@ -191,7 +191,7 @@ No entanto, ele não exclui as entidades no namespace Premium nem exclui o names
 >[!IMPORTANT]
 > Se você decidir anular a migração, exclua o namespace Premium que você provisionou para a migração para que você não seja cobrado pelos recursos.
 
-#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Não quero ter que drenar as mensagens. O que posso fazer?
+#### <a name="i-dont-want-to-have-to-drain-the-messages-what-do-i-do"></a>Não quero ter que drenar as mensagens. O que devo fazer?
 
 Pode haver mensagens enviadas pelos aplicativos do remetente e confirmadas no armazenamento no namespace padrão enquanto a migração está ocorrendo e logo antes da migração ser confirmada.
 
@@ -209,7 +209,7 @@ No entanto, se você puder migrar durante uma janela de manutenção planejada/m
     >
     > Depois que a migração for concluída, os aplicativos receptores serão desconectados do namespace padrão e se conectarão automaticamente ao namespace Premium.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre as [diferenças entre as mensagens Standard e Premium](./service-bus-premium-messaging.md).
 * Saiba mais sobre os [aspectos de alta disponibilidade e recuperação de desastres geográficos para o barramento de serviço Premium](service-bus-outages-disasters.md#protecting-against-outages-and-disasters---service-bus-premium).

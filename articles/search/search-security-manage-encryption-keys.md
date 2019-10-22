@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
 ms.openlocfilehash: ce7a8af1416664a3a94b248c95203c8e775e805c
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70182404"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Azure Search criptografia usando chaves gerenciadas pelo cliente no Azure Key Vault
@@ -114,12 +114,12 @@ As permissões de acesso podem ser revogadas em um determinado momento. Depois d
 
    ![Selecionar entidade de segurança de acesso do cofre de chaves](./media/search-manage-encryption-keys/select-key-vault-access-policy-principal.png "Selecionar entidade de segurança de acesso do cofre de chaves")
 
-1. Clique em **permissões de chave** e selecione *obter*, desencapsular *chave* e *encapsular chave*. Você pode usar o *Azure data Lake Storage ou o modelo de armazenamento do Azure* para selecionar rapidamente as permissões necessárias.
+1. Clique em **permissões de chave** e *selecione obter*, *desencapsular chave* e *encapsular chave*. Você pode usar o *Azure data Lake Storage ou o modelo de armazenamento do Azure* para selecionar rapidamente as permissões necessárias.
 
    O Azure Search deve ser concedido com as seguintes [permissões de acesso](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-operations):
 
    * *Get* – permite que o serviço de pesquisa recupere as partes públicas da sua chave em um Key Vault
-   * *Chave* de encapsulamento – permite que o serviço de pesquisa Use sua chave para proteger a chave de criptografia interna
+   * *Chave de encapsulamento* – permite que o serviço de pesquisa Use sua chave para proteger a chave de criptografia interna
    * *Desencapsular chave* – permite que o serviço de pesquisa Use sua chave para desencapsular a chave de criptografia interna
 
    ![Selecionar permissões de chave de política de acesso do cofre de chaves](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Selecionar permissões de chave de política de acesso do cofre de chaves")
@@ -164,7 +164,7 @@ Se você estiver usando um aplicativo do AAD para Key Vault autenticação em ve
 }
 ```
 
-## <a name="example-index-encryption"></a>Exemplo: Criptografia de índice
+## <a name="example-index-encryption"></a>Exemplo: index Encryption
 Os detalhes da criação de um novo índice por meio da API REST podem ser encontrados em [criar índice (Azure Search API REST do serviço)](https://docs.microsoft.com/rest/api/searchservice/create-index), em que a única diferença aqui é especificar os detalhes da chave de criptografia como parte da definição do índice: 
 
 ```json
@@ -191,7 +191,7 @@ Os detalhes da criação de um novo índice por meio da API REST podem ser encon
 ```
 Agora você pode enviar a solicitação de criação de índice e começar a usar o índice normalmente.
 
-## <a name="example-synonym-map-encryption"></a>Exemplo: Criptografia do mapa de sinônimos
+## <a name="example-synonym-map-encryption"></a>Exemplo: criptografia de mapa de sinônimos
 
 Os detalhes da criação de um novo mapa de sinônimos por meio da API REST podem ser encontrados em [criar mapa de sinônimos (API REST do serviço de Azure Search)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), em que a única diferença aqui é especificar os detalhes da chave de criptografia como parte da definição do mapa de sinônimos: 
 
@@ -214,7 +214,7 @@ Agora você pode enviar a solicitação de criação de mapa de sinônimo e come
 > Embora **encryptionKey** não possa ser adicionado a índices de Azure Search existentes ou mapas de sinônimos, ele pode ser atualizado fornecendo valores diferentes para qualquer um dos três detalhes do Key Vault (por exemplo, atualizando a versão da chave). Ao mudar para uma nova chave de Key Vault ou uma nova versão de chave, qualquer índice Azure Search ou mapa de sinônimos que usa a chave deve primeiro ser atualizado para usar o novo key\version **antes** de excluir o key\version. anterior A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, pois ele não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.   
 > Restaurar as permissões de acesso do cofre de chaves posteriormente irá restaurar o acesso ao conteúdo.
 
-## <a name="aad-app"></a>Avançadas Usar um aplicativo de Azure Active Directory gerenciado externamente
+## <a name="aad-app"></a>Avançado: usar um aplicativo de Azure Active Directory gerenciado externamente
 
 Quando uma identidade gerenciada não é possível, você pode criar um aplicativo Azure Active Directory com uma entidade de segurança para o serviço Azure Search. Especificamente, uma identidade gerenciada não é viável sob estas condições:
 
@@ -234,7 +234,7 @@ Para criar um aplicativo do AAD no Portal:
 > Ao alterar um aplicativo do AAD ou sua chave de autenticação, qualquer Azure Search mapa de índice ou sinônimo que usa esse aplicativo deve primeiro ser atualizado para usar o novo aplicativo ID\key **antes** de excluir o aplicativo anterior ou sua chave de autorização e antes de revogar seu Key Vault acesso a ele.
 > A falha ao fazer isso tornará o mapa de índice ou sinônimo inutilizável, pois ele não poderá descriptografar o conteúdo depois que o acesso à chave for perdido.   
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você não estiver familiarizado com a arquitetura de segurança do Azure, examine a [documentação de segurança do Azure](https://docs.microsoft.com/azure/security/)e, em particular, este artigo:
 

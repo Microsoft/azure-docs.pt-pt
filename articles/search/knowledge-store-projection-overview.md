@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.openlocfilehash: c5fb547b18bc4014f91341070f49c4af84c01005
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265187"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabalhando com projeções em uma loja de conhecimento no Azure Search
@@ -29,9 +29,9 @@ As projeções podem ser tabulares, com dados armazenados em linhas e colunas no
 
 A loja de conhecimento dá suporte a dois tipos de projeções:
 
-+ **Tabelas**: Para os dados que são mais bem representados como linhas e colunas, as projeções de tabela permitem que você defina uma forma ou projeção de esquematizados no armazenamento de tabelas. 
++ **Tabelas**: para os dados que são mais bem representados como linhas e colunas, as projeções de tabela permitem que você defina uma forma ou projeção de esquematizados no armazenamento de tabelas. 
 
-+ **Objetos**: Quando você precisa de uma representação JSON de seus dados e aprimoramentos, as projeções de objeto são salvas como BLOBs.
++ **Objetos**: quando você precisa de uma representação JSON de seus dados e aprimoramentos, as projeções de objeto são salvas como BLOBs.
 
 Para ver as projeções definidas no contexto, percorra como começar a [usar a loja de conhecimento](knowledge-store-howto.md).
 
@@ -64,18 +64,18 @@ Você pode projetar um único documento em seu índice em várias tabelas, prese
 
 ### <a name="defining-a-table-projection"></a>Definindo uma projeção de tabela
 
-Ao definir uma projeção de tabela `knowledgeStore` dentro do elemento de seu qualificable, comece mapeando um nó na árvore de enriquecimento para a origem da tabela. Normalmente, esse nó é a saída de uma habilidade de **forma** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó escolhido para o projeto pode ser dividido em um projeto em várias tabelas. A definição de tabelas é uma lista de tabelas que você deseja projetar. 
+Ao definir uma projeção de tabela dentro do elemento `knowledgeStore` do seu qualificador, comece mapeando um nó na árvore de enriquecimento para a origem da tabela. Normalmente, esse nó é a saída de uma habilidade de **forma** que você adicionou à lista de habilidades para produzir uma forma específica que você precisa projetar em tabelas. O nó escolhido para o projeto pode ser dividido em um projeto em várias tabelas. A definição de tabelas é uma lista de tabelas que você deseja projetar. 
 
 #### <a name="projection-slicing"></a>Fatia de projeção
 Ao definir um grupo de projeção de tabela, um único nó na árvore de enriquecimento pode ser dividido em várias tabelas relacionadas. Adicionar uma tabela com um caminho de origem que é um filho de uma projeção de tabela existente resultará no nó filho que está sendo dividido do nó pai e projetado na nova tabela ainda relacionada. Isso permite que você defina um único nó em uma habilidade de forma que possa ser a origem de todas as suas projeções de tabela.
 
 Cada tabela requer três propriedades:
 
-+ TableName O nome da tabela no armazenamento do Azure.
++ TableName: o nome da tabela no armazenamento do Azure.
 
-+ generatedKeyName: O nome da coluna para a chave que identifica exclusivamente essa linha.
++ generatedKeyName: o nome da coluna para a chave que identifica exclusivamente essa linha.
 
-+ Original O nó da árvore de enriquecimento da qual você está terceirizando seus aprimoramentos. Normalmente, essa é a saída de uma forma, mas pode ser a saída de qualquer uma das habilidades.
++ Fonte: o nó da árvore de enriquecimento da qual você está proenriquecendo seus aprimoramentos. Normalmente, essa é a saída de uma forma, mas pode ser a saída de qualquer uma das habilidades.
 
 Aqui está um exemplo de projeções de tabela.
 
@@ -154,9 +154,9 @@ As projeções de objeto são representações de JSON da árvore de enriquecime
 
 A geração de uma projeção de objeto requer alguns atributos específicos do objeto:
 
-+ storageContainer: O contêiner em que os objetos serão salvos
-+ Original O caminho para o nó da árvore de enriquecimento que é a raiz da projeção
-+ Chaves Um caminho que representa uma chave exclusiva para o objeto a ser armazenado. Ele será usado para criar o nome do blob no contêiner.
++ storageContainer: o contêiner em que os objetos serão salvos
++ Source: o caminho para o nó da árvore de enriquecimento que é a raiz da projeção
++ chave: um caminho que representa uma chave exclusiva para o objeto a ser armazenado. Ele será usado para criar o nome do blob no contêiner.
 
 ## <a name="projection-lifecycle"></a>Ciclo de vida da projeção
 

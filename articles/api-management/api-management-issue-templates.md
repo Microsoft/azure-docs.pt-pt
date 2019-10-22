@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 93681062b325756f720f6fe8280ee6b874fea284
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072270"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Modelos de problemas no gerenciamento de API do Azure
-O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de glifos e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar [](api-management-template-resources.md#glyphs) o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
+O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de [glifos](api-management-template-resources.md#glyphs)e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
   
  Os modelos nesta seção permitem que você personalize o conteúdo das páginas de problemas no portal do desenvolvedor.  
   
@@ -37,7 +37,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
  ![Portal do desenvolvedor da lista de problemas](./media/api-management-issue-templates/APIM-Issue-List-Developer-Portal.png "Portal do desenvolvedor da lista de problemas do APIM")  
   
-### <a name="default-template"></a>Modelo predefinido  
+### <a name="default-template"></a>Modelo padrão  
   
 ```xml
 <div class="row">
@@ -90,19 +90,19 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ```
   
 ### <a name="controls"></a>Controlos  
- O `Issue list` modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
+ O modelo de `Issue list` pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [paging-control](api-management-page-controls.md#paging-control)  
+-   [controle de paginação](api-management-page-controls.md#paging-control)  
   
 ### <a name="data-model"></a>Modelo de dados  
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
 |`Issues`|Coleção de entidades de [problema](api-management-template-data-model-reference.md#Issue) .|Os problemas visíveis para o usuário atual.|  
-|`Paging`|[](api-management-template-data-model-reference.md#Paging) Entidade de paginação.|As informações de paginação da coleção de aplicativos.|  
+|`Paging`|Entidade de [paginação](api-management-template-data-model-reference.md#Paging) .|As informações de paginação da coleção de aplicativos.|  
 |`IsAuthenticated`|boolean|Se o usuário atual está conectado ao portal do desenvolvedor.|  
 |`CanReportIssues`|boolean|Se o usuário atual tem permissões para arquivar um problema.|  
-|`Search`|Cadeia de caracteres|Esta propriedade foi preterida e não deve ser usada.|  
+|`Search`|string|Esta propriedade foi preterida e não deve ser usada.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   
@@ -135,5 +135,5 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações sobre como trabalhar com modelos, consulte [como personalizar o portal do desenvolvedor de gerenciamento de API usando modelos](api-management-developer-portal-templates.md).

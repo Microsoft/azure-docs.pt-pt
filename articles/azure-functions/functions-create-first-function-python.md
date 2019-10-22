@@ -1,6 +1,6 @@
 ---
 title: Criar uma função disparada por HTTP no Azure
-description: Saiba como criar sua primeira função de Python no Azure com as ferramentas de núcleo de funções do Azure e a CLI do Azure.
+description: Saiba como criar sua primeira função Python no Azure usando o Azure Functions Core Tools e o CLI do Azure.
 author: ggailey777
 ms.author: glenga
 ms.date: 09/11/2019
@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 03b8e12d63ba84b4e20d7263f1c2ecb8d912936d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203121"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693354"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Criar uma função disparada por HTTP no Azure
 
@@ -26,7 +26,7 @@ Este artigo é o primeiro dos dois guias de início rápido do Python para Azure
 
 Antes de começar, você deve:
 
-+ Instale o [Python 3.6. x](https://www.python.org/downloads/).
++ Instale o [Python 3.6.8](https://www.python.org/downloads/). Esta versão do Python é verificada com funções. 3,7 e versões posteriores ainda não têm suporte.
 
 + Instale [Azure Functions Core Tools](./functions-run-local.md#v2) versão 2.7.1575 ou uma versão posterior.
 
@@ -38,7 +38,7 @@ Antes de começar, você deve:
 
 ## <a name="create-and-activate-a-virtual-environment-optional"></a>Criar e ativar um ambiente virtual (opcional)
 
-Você deve usar um ambiente Python 3.6. x para desenvolver localmente funções Python. Execute os seguintes comandos para criar e ativar um ambiente virtual com o nome `.venv`.
+Você deve usar um ambiente Python 3.6. x para desenvolver localmente funções Python. Execute os comandos a seguir para criar e ativar um ambiente virtual chamado `.venv`.
 
 > [!NOTE]
 > Se o Python não instalou o venv em sua distribuição do Linux, você pode instalá-lo usando o seguinte comando:
@@ -101,13 +101,13 @@ Adicione uma função ao novo projeto.
 
 Esses comandos criam uma subpasta chamada _HttpTrigger_. Ele contém os seguintes arquivos:
 
-* *Function. JSON*: arquivo de configuração que define a função, o gatilho e outras associações. Observe que, nesse arquivo, o valor de `scriptFile` aponta para o arquivo que contém a função e a `bindings` matriz define o gatilho de invocação e as associações.
+* *Function. JSON*: arquivo de configuração que define a função, o gatilho e outras associações. Observe que, nesse arquivo, o valor de `scriptFile` aponta para o arquivo que contém a função, e a matriz de `bindings` define o gatilho de invocação e as associações.
 
-    Cada associação requer uma direção, um tipo e um nome exclusivo. O gatilho http tem uma associação de entrada do [`httpTrigger`](functions-bindings-http-webhook.md#trigger) tipo e a associação de [`http`](functions-bindings-http-webhook.md#output)saída do tipo.
+    Cada associação requer uma direção, um tipo e um nome exclusivo. O gatilho HTTP tem uma associação de entrada do tipo [`httpTrigger`](functions-bindings-http-webhook.md#trigger) e a associação de saída do tipo [`http`](functions-bindings-http-webhook.md#output).
 
-* *init.py\_: arquivo de script que é sua função disparada por http.\_ \_ \_* Observe que esse script tem um padrão `main()`. Os dados http do gatilho passam para a função usando o `req` nome `binding parameter`. O `req`, que é definido em function. JSON, é uma instância da [classe Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
+* *\_ \_init \_ \_. py*: arquivo de script que é sua função disparada por http. Observe que esse script tem um `main()` padrão. Os dados HTTP do gatilho passam para a função usando o `req` nomeado `binding parameter`. O `req`, que é definido em function. JSON, é uma instância da [classe Azure. Functions. HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
 
-    O objeto de retorno, definido `$return` como em *Function. JSON*, é uma instância da [classe Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [Azure Functions gatilhos e associações http](functions-bindings-http-webhook.md).
+    O objeto de retorno, definido como `$return` em *Function. JSON*, é uma instância da [classe Azure. Functions. HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Para saber mais, consulte [Azure Functions gatilhos e associações http](functions-bindings-http-webhook.md).
 
 ## <a name="run-the-function-locally"></a>Executar localmente a função
 
@@ -167,12 +167,12 @@ Agora que executou a função localmente, pode criar a aplicação de funções 
 
 ## <a name="create-a-function-app-in-azure"></a>Criar um aplicativo de funções no Azure
 
-Um aplicativo de funções fornece um ambiente para executar seu código de função. Permite-lhe agrupar funções como uma unidade lógica para uma gestão mais fácil, implementação e partilha de recursos.
+Um aplicativo de funções fornece um ambiente para executar seu código de função. Ele permite que você agrupe funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos.
 
-Execute o comando a seguir. Substituir `<APP_NAME>` por um nome de aplicativo de funções exclusivo. Substituir `<STORAGE_NAME>` por um nome de conta de armazenamento. O `<APP_NAME>` também é o domínio DNS predefinido para a aplicação de funções. Este nome tem de ser exclusivo em todas as aplicações no Azure.
+Execute o comando a seguir. Substitua `<APP_NAME>` por um nome de aplicativo de funções exclusivo. Substitua `<STORAGE_NAME>` por um nome de conta de armazenamento. O `<APP_NAME>` também é o domínio DNS predefinido para a aplicação de funções. Este nome tem de ser exclusivo em todas as aplicações no Azure.
 
 > [!NOTE]
-> Você não pode hospedar aplicativos Linux e Windows no mesmo grupo de recursos. Se você tiver um grupo de recursos existente `myResourceGroup` chamado com um aplicativo de funções do Windows ou aplicativo Web, deverá usar um grupo de recursos diferente.
+> Você não pode hospedar aplicativos Linux e Windows no mesmo grupo de recursos. Se você tiver um grupo de recursos existente chamado `myResourceGroup` com um aplicativo de funções do Windows ou aplicativo Web, deverá usar um grupo de recursos diferente.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --os-type Linux \
@@ -192,7 +192,7 @@ Depois de criar o aplicativo de funções no Azure, você pode usar o comando Fu
 func azure functionapp publish <APP_NAME> --build remote
 ```
 
-A `--build remote` opção cria seu projeto do Python remotamente no Azure por meio dos arquivos no pacote de implantação. 
+A opção `--build remote` cria seu projeto Python remotamente no Azure por meio dos arquivos no pacote de implantação. 
 
 Você verá uma saída semelhante à mensagem a seguir. Ele está truncado aqui para que você possa ler melhor:
 
@@ -210,7 +210,7 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Você pode copiar o `Invoke url` valor para seu `HttpTrigger` e usá-lo para verificar sua função no Azure. A URL contém um `code` valor de cadeia de caracteres de consulta que é sua chave de função, o que dificulta para outras pessoas chamarem seu ponto de extremidade de gatilho http no Azure.
+Você pode copiar o valor de `Invoke url` para seu `HttpTrigger` e usá-lo para verificar sua função no Azure. A URL contém um `code` valor de cadeia de caracteres de consulta que é sua chave de função, o que dificulta para outras pessoas chamarem seu ponto de extremidade de gatilho HTTP no Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
 

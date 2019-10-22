@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: hrasheed
 ms.openlocfilehash: ac0109ff8c5dd7f6013acefbe5ee08a13494cb77
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71001685"
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar recursos para o cluster Apache Spark no Azure HDInsight 
@@ -64,7 +64,7 @@ Você pode usar a interface do usuário do amYARN para monitorar aplicativos que
 
 ## <a name="optimize-clusters-for-spark-applications"></a>Otimizar clusters para aplicativos Spark
 
-Os três parâmetros principais que podem ser usados para a configuração do Spark dependendo dos requisitos do `spark.executor.instances`aplicativo `spark.executor.cores`são, `spark.executor.memory`e. Um executor é um processo iniciado para um aplicativo Spark. Ele é executado no nó de trabalho e é responsável por realizar as tarefas do aplicativo. O número padrão de executores e os tamanhos de executor para cada cluster é calculado com base no número de nós de trabalho e no tamanho do nó de trabalho. Essas informações são armazenadas no `spark-defaults.conf` nos nós de cabeçalho do cluster.
+Os três parâmetros principais que podem ser usados para a configuração do Spark dependendo dos requisitos do aplicativo são `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Um executor é um processo iniciado para um aplicativo Spark. Ele é executado no nó de trabalho e é responsável por realizar as tarefas do aplicativo. O número padrão de executores e os tamanhos de executor para cada cluster é calculado com base no número de nós de trabalho e no tamanho do nó de trabalho. Essas informações são armazenadas em `spark-defaults.conf` nos nós de cabeçalho do cluster.
 
 Os três parâmetros de configuração podem ser configurados no nível do cluster (para todos os aplicativos que são executados no cluster) ou também podem ser especificados para cada aplicativo individual.
 
@@ -81,7 +81,7 @@ Os três parâmetros de configuração podem ser configurados no nível do clust
     ![Reinicializar serviços](./media/apache-spark-resource-manager/apache-ambari-restart-services.png)
 
 ### <a name="change-the-parameters-for-an-application-running-in-jupyter-notebook"></a>Alterar os parâmetros de um aplicativo em execução no Jupyter Notebook
-Para aplicativos em execução no notebook Jupyter, você pode usar a `%%configure` mágica para fazer as alterações de configuração. Idealmente, você deve fazer essas alterações no início do aplicativo antes de executar sua primeira célula de código. Isso garante que a configuração seja aplicada à sessão Livy quando for criada. Se você quiser alterar a configuração em um estágio posterior no aplicativo, deverá usar o `-f` parâmetro. No entanto, ao fazer isso, todo o progresso no aplicativo é perdido.
+Para aplicativos em execução no notebook Jupyter, você pode usar a `%%configure` mágica para fazer as alterações de configuração. Idealmente, você deve fazer essas alterações no início do aplicativo antes de executar sua primeira célula de código. Isso garante que a configuração seja aplicada à sessão Livy quando for criada. Se você quiser alterar a configuração em um estágio posterior no aplicativo, deverá usar o parâmetro `-f`. No entanto, ao fazer isso, todo o progresso no aplicativo é perdido.
 
 O trecho a seguir mostra como alterar a configuração de um aplicativo em execução no Jupyter.
 
@@ -91,7 +91,7 @@ O trecho a seguir mostra como alterar a configuração de um aplicativo em execu
 Os parâmetros de configuração devem ser passados como uma cadeia de caracteres JSON e devem estar na próxima linha após a mágica, conforme mostrado na coluna de exemplo.
 
 ### <a name="change-the-parameters-for-an-application-submitted-using-spark-submit"></a>Alterar os parâmetros de um aplicativo enviado usando Spark-Submit
-O comando a seguir é um exemplo de como alterar os parâmetros de configuração para um aplicativo do lote que `spark-submit`é enviado usando o.
+O comando a seguir é um exemplo de como alterar os parâmetros de configuração para um aplicativo do lote que é enviado usando `spark-submit`.
 
     spark-submit --class <the application class to execute> --executor-memory 3072M --executor-cores 4 –-num-executors 10 <location of application jar file> <application parameters>
 
@@ -103,14 +103,14 @@ O comando a seguir é um exemplo de como alterar os parâmetros de configuraçã
 ### <a name="change-these-parameters-on-a-spark-thrift-server"></a>Alterar esses parâmetros em um servidor Spark thrift
 O servidor Spark Thrift fornece acesso JDBC/ODBC a um cluster Spark e é usado para atender a consultas SQL do Spark. Ferramentas como Power BI, tableau etc. Use o protocolo ODBC para se comunicar com o servidor Spark Thrift para executar consultas SQL do Spark como um aplicativo Spark. Quando um cluster Spark é criado, duas instâncias do servidor Spark Thrift são iniciadas, uma em cada nó de cabeçalho. Cada servidor Spark Thrift é visível como um aplicativo Spark na interface do usuário do amYARN.
 
-O servidor Spark Thrift usa a alocação de executor dinâmico do `spark.executor.instances` Spark e, portanto, o não é usado. Em vez disso, o servidor `spark.dynamicAllocation.minExecutors` Spark `spark.dynamicAllocation.maxExecutors` Thrift usa e para especificar a contagem de executores. Os parâmetros `spark.executor.cores` de configuração `spark.executor.memory` e são usados para modificar o tamanho do executor. Você pode alterar esses parâmetros, conforme mostrado nas seguintes etapas:
+O servidor Spark Thrift usa a alocação de executor dinâmico do Spark e, portanto, o `spark.executor.instances` não é usado. Em vez disso, o servidor Thrift do Spark usa `spark.dynamicAllocation.minExecutors` e `spark.dynamicAllocation.maxExecutors` para especificar a contagem de executores. Os parâmetros de configuração `spark.executor.cores` e `spark.executor.memory` são usados para modificar o tamanho do executor. Você pode alterar esses parâmetros, conforme mostrado nas seguintes etapas:
 
-* Expanda a categoria **Spark-Thrift-sparkconf avançada** para atualizar os `spark.dynamicAllocation.minExecutors`parâmetros `spark.dynamicAllocation.maxExecutors`, e `spark.executor.memory`.
+* Expanda a categoria **Spark-Thrift-Sparkconf avançada** para atualizar os parâmetros `spark.dynamicAllocation.minExecutors`, `spark.dynamicAllocation.maxExecutors` e `spark.executor.memory`.
 
     ![Configurar o servidor Thrift do Spark](./media/apache-spark-resource-manager/spark-thrift-server-1.png "Configurar o servidor Thrift do Spark")
-* Expanda a categoria **Spark-Thrift-Sparkconf personalizada** para atualizar o `spark.executor.cores`parâmetro.
+* Expanda a categoria **Spark-Thrift-Sparkconf personalizada** para atualizar o parâmetro `spark.executor.cores`.
 
-    ![Configurar o parâmetro de servidor Spark Thrift](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Configurar o parâmetro de servidor Spark Thrift")
+    ![Configurar o parâmetro de servidor Spark thrift](./media/apache-spark-resource-manager/spark-thrift-server-2.png "Configurar o parâmetro de servidor Spark thrift")
 
 ### <a name="change-the-driver-memory-of-the-spark-thrift-server"></a>Alterar a memória do driver do servidor Spark thrift
 A memória do driver do servidor Spark Thrift está configurada para 25% do tamanho da RAM do nó de cabeçalho, desde que o tamanho total da RAM do nó de cabeçalho seja maior que 14 GB. Você pode usar a interface do usuário do amAmbari para alterar a configuração da memória do driver, conforme mostrado na seguinte captura de tela:
@@ -137,7 +137,7 @@ Devido à alocação dinâmica do Spark, os únicos recursos consumidos pelo ser
 ## <a name="restart-the-jupyter-service"></a>Reiniciar o serviço Jupyter
 Inicie a interface do usuário da Web do amAmbari, conforme mostrado no início do artigo. No painel de navegação esquerdo, clique em **Jupyter**, em **ações de serviço**e em **reiniciar tudo**. Isso inicia o serviço Jupyter em todos os cabeçalho.
 
-![Reiniciar Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Reiniciar Jupyter")
+![Reiniciar Jupyter](./media/apache-spark-resource-manager/apache-ambari-restart-jupyter.png "Reinicie o Jupyter")
 
 ## <a name="monitor-resources"></a>Monitorizar recursos
 Inicie a interface do usuário do amYarn conforme mostrado no início do artigo. Na tabela de métricas de cluster na parte superior da tela, verifique os valores das colunas **memória usada** e **total de memória** . Se os dois valores estiverem próximos, talvez não haja recursos suficientes para iniciar o próximo aplicativo. O mesmo se aplica às colunas **VCores usadas** e **VCores total** . Além disso, na exibição principal, se houver um aplicativo permanece em estado **aceito** e não estiver fazendo a transição para o estado **em execução** ou **falha** , isso também pode ser uma indicação de que não está obtendo recursos suficientes para iniciar.
@@ -153,13 +153,13 @@ Inicie a interface do usuário do amYarn conforme mostrado no início do artigo.
 
     ![Eliminar App2](./media/apache-spark-resource-manager/apache-ambari-kill-app2.png "Eliminar App2")
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Controlar e depurar tarefas em execução num cluster do Apache Spark do HDInsight](apache-spark-job-debugging.md)
 
 ### <a name="for-data-analysts"></a>Para analistas de dados
 
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para analisar a temperatura de edifício usando dados de HVAC](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para analisar a temperatura de edifício usando dados HVAC](apache-spark-ipython-notebook-machine-learning.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para prever os resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
 * [Análise de log do site usando Apache Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Análise de dados de telemetria do Application insights usando o Apache Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 * [Usar Caffe em Azure HDInsight Spark para aprendizado profundo distribuído](apache-spark-deep-learning-caffe.md)

@@ -1,5 +1,5 @@
 ---
-title: C#Destina Indexar várias fontes de dados-Azure Search
+title: 'C#Tutorial: indexar várias fontes de dados-Azure Search'
 description: Saiba como importar dados de várias fontes de dados para um único índice de Azure Search.
 author: RobDixon22
 manager: nitinme
@@ -9,13 +9,13 @@ ms.topic: tutorial
 ms.date: 06/21/2019
 ms.author: heidist
 ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/04/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70241842"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Destina Combinar dados de várias fontes de dados em um índice Azure Search
+# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C#Tutorial: combinar dados de várias fontes de dados em um índice Azure Search
 
 Azure Search pode importar, analisar e indexar dados de várias fontes de dados em um único índice de pesquisa combinado. Isso dá suporte a situações em que os dados estruturados são agregados com dados de texto menos estruturados ou até mesmo sem formatação de outras fontes, como documentos de texto, HTML ou JSON.
 
@@ -58,9 +58,9 @@ Para interagir com o serviço de Azure Search, você precisa da URL do serviço 
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade http e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade http e uma chave de acesso")
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações exigem uma chave de API em cada solicitação enviada ao seu serviço. Uma chave válida estabelece confiança, por solicitação, entre o aplicativo que envia a solicitação e o serviço que a manipula.
 
@@ -86,11 +86,11 @@ Este exemplo usa dois conjuntos pequenos de dados que descrevem sete Hotéis fic
 
 ## <a name="prepare-sample-blob-data"></a>Preparar dados de blob de exemplo
 
-1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, cliqueem BLOBs e, em seguida, clique em **+ contêiner**.
+1. [Entre no portal do Azure](https://portal.azure.com), navegue até sua conta de armazenamento do Azure, clique em **BLOBs**e, em seguida, clique em **+ contêiner**.
 
 1. [Crie um contêiner de blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) chamado **Hotel-Rooms** para armazenar os arquivos JSON de exemplo de quarto de Hotel. Você pode definir o nível de acesso público para qualquer um de seus valores válidos.
 
-   ![Criar um contêiner de BLOBs](media/tutorial-multiple-data-sources/blob-add-container.png "Criar um contêiner de BLOBs")
+   ![Criar um contêiner de BLOBs](media/tutorial-multiple-data-sources/blob-add-container.png "Criar um contentor de blobs")
 
 1. Depois que o contêiner for criado, abra-o e selecione **carregar** na barra de comandos.
 
@@ -98,7 +98,7 @@ Este exemplo usa dois conjuntos pequenos de dados que descrevem sete Hotéis fic
 
 1. Navegue até a pasta que contém os arquivos de exemplo. Selecione todos eles e clique em **carregar**.
 
-   ![Carregar arquivos](media/tutorial-multiple-data-sources/blob-upload.png "Carregar arquivos")
+   ![Carregar ficheiros](media/tutorial-multiple-data-sources/blob-upload.png "Carregar ficheiros")
 
 Depois que o carregamento for concluído, os arquivos deverão aparecer na lista para o contêiner de dados.
 
@@ -121,19 +121,19 @@ As informações de conexão para o serviço de pesquisa e as fontes de dados s�
 }
 ```
 
-As duas primeiras entradas usam a URL e as chaves de administração para seu serviço de Azure Search. Dado um ponto de `https://mydemo.search.windows.net`extremidade de, por exemplo, o nome do serviço `mydemo`a ser fornecido é.
+As duas primeiras entradas usam a URL e as chaves de administração para seu serviço de Azure Search. Dado um ponto de extremidade de `https://mydemo.search.windows.net`, por exemplo, o nome do serviço a ser fornecido é `mydemo`.
 
 As próximas entradas especificam nomes de conta e informações de cadeia de conexão para o armazenamento de BLOBs do Azure e Azure Cosmos DB fontes de dados.
 
 ### <a name="identify-the-document-key"></a>Identificar a chave do documento
 
-Em Azure Search, o campo de chave identifica exclusivamente cada documento no índice. Cada índice de pesquisa deve ter exatamente um campo de chave `Edm.String`do tipo. Esse campo de chave deve estar presente para cada documento em uma fonte de dados que é adicionada ao índice. (Na verdade, é o único campo obrigatório.)
+Em Azure Search, o campo de chave identifica exclusivamente cada documento no índice. Cada índice de pesquisa deve ter exatamente um campo de chave do tipo `Edm.String`. Esse campo de chave deve estar presente para cada documento em uma fonte de dados que é adicionada ao índice. (Na verdade, é o único campo obrigatório.)
 
 Ao indexar dados de várias fontes de dados, cada valor de chave da fonte de dados deve mapear para o mesmo campo de chave no índice combinado. Geralmente, é necessário um planejamento antecipado para identificar uma chave de documento significativa para o índice e verificar se ele existe em todas as fontes de dados.
 
 Azure Search indexadores podem usar mapeamentos de campo para renomear e até mesmo reformatar campos de dados durante o processo de indexação, para que os dados de origem possam ser direcionados para o campo de índice correto.
 
-Por exemplo, em nossos dados de Azure Cosmos DB de exemplo, o identificador doHotel é chamado de hotelid. Mas nos arquivos de blob JSON para as salas de Hotel, o identificador de Hotel é chamado **ID**. O programa manipula isso mapeando o campo **ID** dos BLOBs para o campo chave do **hotelid** no índice.
+Por exemplo, em nossos dados de Azure Cosmos DB de exemplo, o identificador do Hotel é chamado de **hotelid**. Mas nos arquivos de blob JSON para as salas de Hotel, o identificador de Hotel é chamado **ID**. O programa manipula isso mapeando o campo **ID** dos BLOBs para o campo chave do **hotelid** no índice.
 
 > [!NOTE]
 > Na maioria dos casos, as chaves de documento geradas automaticamente, como as criadas por padrão por alguns indexadores, não fazem boas chaves de documento para índices combinados. Em geral, você desejará usar um valor de chave exclusivo e significativo que já exista no, ou pode ser facilmente adicionado às suas fontes de dados.
@@ -171,7 +171,7 @@ public Room[] Rooms { get; set; }
 . . .
 ```
 
-No arquivo **Program.cs** , o índice é definido com um nome e uma coleção de campos gerados pelo `FieldBuilder.BuildForType<Hotel>()` método e, em seguida, criado da seguinte maneira:
+No arquivo **Program.cs** , o índice é definido com um nome e uma coleção de campos gerados pelo método `FieldBuilder.BuildForType<Hotel>()` e, em seguida, criado da seguinte maneira:
 
 ```csharp
 private static async Task CreateIndex(string indexName, SearchServiceClient searchService)
@@ -300,9 +300,9 @@ Depois que a fonte de dados é criada, o programa configura um indexador de blob
     await searchService.Indexers.CreateOrUpdateAsync(blobIndexer);
 ```
 
-Os BLOBs JSON contêm um campo de chave chamado **ID** em vez de **hotelid**. O código usa a `FieldMapping` classe para instruir o indexador a direcionar o valor do campo **ID** para a chave do documento **hotelid** no índice.
+Os BLOBs JSON contêm um campo de chave chamado **ID** em vez de **hotelid**. O código usa a classe `FieldMapping` para instruir o indexador a direcionar o valor do campo **ID** para a chave do documento **hotelid** no índice.
 
-Indexadores de armazenamento de BLOBs podem usar parâmetros que identificam o modo de análise a ser usado. O modo de análise é diferente para BLOBs que representam um único documento ou vários documentos dentro do mesmo BLOB. Neste exemplo, cada blob representa um único documento de índice, portanto, o código usa `IndexingParameters.ParseJson()` o parâmetro.
+Indexadores de armazenamento de BLOBs podem usar parâmetros que identificam o modo de análise a ser usado. O modo de análise é diferente para BLOBs que representam um único documento ou vários documentos dentro do mesmo BLOB. Neste exemplo, cada blob representa um único documento de índice, portanto, o código usa o parâmetro `IndexingParameters.ParseJson()`.
 
 Para obter mais informações sobre os parâmetros de análise do indexador para BLOBs JSON, consulte [indexar BLOBs JSON](search-howto-index-json-blobs.md). Para obter mais informações sobre como especificar esses parâmetros usando o SDK do .NET, consulte a classe [IndexerParametersExtension](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexingparametersextensions) .
 
@@ -328,7 +328,7 @@ Depois que a fonte de dados do armazenamento de BLOBs e o indexador tiverem sido
 Como o índice já foi populado com dados do Hotel do banco de Azure Cosmos DB, o indexador de blob atualiza os documentos existentes no índice e adiciona os detalhes da sala.
 
 > [!NOTE]
-> Se você tiver os mesmos campos não-chave em ambas as fontes de dados e os dados dentro desses campos não corresponderem, o índice conterá os valores de qualquer indexador executado mais recentemente. Em nosso exemplo, ambas as fontes de dados contêm um campo hotelname. Se, por algum motivo, os dados nesse campo forem diferentes, para documentos com o mesmo valor de chave, os dados do hotelname da fonte de dados que foi indexado mais recentemente serão o valor armazenado no índice.
+> Se você tiver os mesmos campos não-chave em ambas as fontes de dados e os dados dentro desses campos não corresponderem, o índice conterá os valores de qualquer indexador executado mais recentemente. Em nosso exemplo, ambas as fontes de dados contêm um campo **hotelname** . Se, por algum motivo, os dados nesse campo forem diferentes, para documentos com o mesmo valor de chave, os dados do **hotelname** da fonte de dados que foi indexado mais recentemente serão o valor armazenado no índice.
 
 ## <a name="search-your-json-files"></a>Pesquisar os ficheiros JSON
 
@@ -342,14 +342,14 @@ Clique no índice Hotel-Rooms-Sample na lista. Você verá uma interface do Gere
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-A forma mais rápida de os limpar após o tutorial é eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Visão geral do serviço de Azure Search.
+A forma mais rápida de os limpar no final do tutorial passa por eliminar o grupo de recursos que contém o serviço Azure Search. Pode eliminar o grupo de recursos agora para eliminar definitivamente tudo o que este contém. No portal, o nome do grupo de recursos está na página Visão geral do serviço de Azure Search.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Há várias abordagens e várias opções para indexação de BLOBs JSON. Se os dados de origem incluírem conteúdo JSON, você poderá examinar essas opções para ver o que funciona melhor para seu cenário.
 
 > [!div class="nextstepaction"]
-> [Como indexar BLOBs JSON usando Azure Search indexador de BLOB](search-howto-index-json-blobs.md)
+> [Como indexar blobs JSON com o indexador do Blob do Azure Search](search-howto-index-json-blobs.md)
 
 Talvez você queira aumentar os dados de índice estruturados de uma fonte de dados com dados enriquecedos cognitivamente de BLOBs não estruturados ou conteúdo de texto completo. O tutorial a seguir mostra como usar serviços cognitivas junto com Azure Search, usando o SDK do .NET.
 

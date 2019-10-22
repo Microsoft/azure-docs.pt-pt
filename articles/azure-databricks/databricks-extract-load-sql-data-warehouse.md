@@ -9,10 +9,10 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72329761"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Tutorial: extrair, transformar e carregar dados usando Azure Databricks
@@ -117,13 +117,13 @@ Nesta seção, você cria um serviço de Azure Databricks usando o portal do Azu
 
 3. Na página **Novo cluster**, indique os valores para criar um cluster.
 
-    ![Criar um cluster Databricks Spark no Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Criar um cluster Databricks Spark no Azure")
+    ![Criar um cluster Spark do databricks no Azure](./media/databricks-extract-load-sql-data-warehouse/create-databricks-spark-cluster.png "Criar um cluster Spark do databricks no Azure")
 
 4. Preencha os valores para os campos seguintes e aceite os valores predefinidos para os outros campos:
 
     * Introduza um nome para o cluster.
 
-    * Certifique-se de marcar a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** . Se o cluster não estiver sendo usado, forneça uma duração (em minutos) para encerrar o cluster.
+    * Certifique-se de marcar a caixa de seleção **terminar depois de \_ \_ minutos de inatividade** . Se o cluster não estiver sendo usado, forneça uma duração (em minutos) para encerrar o cluster.
 
     * Selecione **Criar cluster**. Depois que o cluster estiver em execução, você poderá anexar blocos de anotações ao cluster e executar trabalhos do Spark.
 
@@ -135,11 +135,11 @@ Nesta seção, você cria um bloco de anotações no espaço de trabalho Azure D
 
 2. À esquerda, selecione **espaço de trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
-    ![Criar um bloco de anotações no databricks criar um](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "bloco de anotações no databricks")
+    ![Criar um bloco de anotações no databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-create-notebook.png "Criar bloco de anotações no databricks")
 
 3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Scala** como a linguagem e selecione o cluster do Spark que criou anteriormente.
 
-    ![Fornecer detalhes para um bloco de anotações no databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "fornecer detalhes de um bloco de anotações no databricks")
+    ![Fornecer detalhes para um bloco de anotações no databricks](./media/databricks-extract-load-sql-data-warehouse/databricks-notebook-details.png "Fornecer detalhes para um bloco de anotações no databricks")
 
 4. Selecione **Criar**.
 
@@ -365,25 +365,25 @@ Como mencionado anteriormente, o conector de SQL Data Warehouse usa o armazename
    ```
 
    > [!NOTE]
-   > Este exemplo usa o sinalizador `forward_spark_azure_storage_credentials`, que faz SQL Data Warehouse acessar dados do armazenamento de BLOBs usando uma chave de acesso. Esse é o único método de autenticação com suporte.
+   > Este exemplo usa o sinalizador `forward_spark_azure_storage_credentials`, que faz com que SQL Data Warehouse acesse dados do armazenamento de BLOBs usando uma chave de acesso. Esse é o único método de autenticação com suporte.
    >
    > Se o armazenamento de BLOBs do Azure estiver restrito a selecionar redes virtuais, SQL Data Warehouse requer [identidade de serviço gerenciada em vez de chaves de acesso](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Isso causará o erro "esta solicitação não está autorizada a executar esta operação".
 
 6. Conecte-se ao banco de dados SQL e verifique se você vê um banco de dados chamado **SampleTable**.
 
-   ![Verificar a tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verify de exemplo")
+   ![Verificar a tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table.png "Verificar tabela de exemplo")
 
 7. Execute uma consulta select para verificar os conteúdos da tabela. A tabela deve ter os mesmos dados que o dataframe **renamedColumnsDF** .
 
-    ![Verificar o conteúdo da tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "verificar o conteúdo da tabela de exemplo")
+    ![Verificar o conteúdo da tabela de exemplo](./media/databricks-extract-load-sql-data-warehouse/verify-sample-table-content.png "Verificar o conteúdo da tabela de exemplo")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de concluir o tutorial, você pode encerrar o cluster. No espaço de trabalho Azure Databricks, selecione **clusters** à esquerda. Para que o cluster seja encerrado, em **ações**, aponte para as reticências (...) e selecione o ícone **terminar** .
 
-![Parar um cluster do Databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do Databricks")
+![Parar um cluster do databricks](./media/databricks-extract-load-sql-data-warehouse/terminate-databricks-cluster.png "Parar um cluster do databricks")
 
-Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar após \_ @ no__t-2 minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se estiver inativo durante o tempo especificado.
+Se você não encerrar manualmente o cluster, ele será interrompido automaticamente, desde que você tenha selecionado a caixa de seleção **terminar depois de \_ \_ minutos de inatividade** ao criar o cluster. Nesse caso, o cluster será interrompido automaticamente se estiver inativo durante o tempo especificado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

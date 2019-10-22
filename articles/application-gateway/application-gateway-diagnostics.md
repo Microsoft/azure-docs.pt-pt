@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 36f26808b94893990ceec65e114b11113dbafd6f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 72549a2df3490344987567d1e62c65f76f151097
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177490"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693254"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Integridade de back-end e logs de diagnóstico para o gateway de aplicativo
 
@@ -96,7 +96,7 @@ Você pode usar diferentes tipos de logs no Azure para gerenciar e solucionar pr
 
 * **Log de atividades**: você pode usar os [logs de atividades do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como logs operacionais e logs de auditoria) para exibir todas as operações que são enviadas à sua assinatura do Azure e seu status. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
 * **Log de acesso**: você pode usar esse log para exibir padrões de acesso do gateway de aplicativo e analisar informações importantes. Isso inclui o IP do chamador, a URL solicitada, a latência de resposta, o código de retorno e os bytes de entrada e saída. Um log de acesso é coletado a cada 300 segundos. Esse log contém um registro por instância do gateway de aplicativo. A instância do gateway de aplicativo é identificada pela propriedade instanceId.
-* **Log de desempenho**: você pode usar esse log para exibir como as instâncias do gateway de aplicativo estão sendo executadas. Esse log captura informações de desempenho para cada instância, incluindo total de solicitações atendidas, taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras. Um log de desempenho é coletado A cada 60 segundos.
+* **Log de desempenho**: você pode usar esse log para exibir como as instâncias do gateway de aplicativo estão sendo executadas. Esse log captura informações de desempenho para cada instância, incluindo total de solicitações atendidas, taxa de transferência em bytes, total de solicitações atendidas, contagem de solicitações com falha e contagem de instâncias de back-end íntegras e não íntegras. Um log de desempenho é coletado A cada 60 segundos. O log de desempenho está disponível apenas para a SKU v1. Para a SKU v2, use [métricas](application-gateway-metrics.md) para dados de desempenho.
 * **Log de firewall**: você pode usar esse log para exibir as solicitações que são registradas por meio do modo de detecção ou prevenção de um gateway de aplicativo configurado com o Firewall do aplicativo Web.
 
 > [!NOTE]
@@ -112,11 +112,11 @@ Tem três opções para armazenar os registos:
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. Você deve habilitar o log de desempenho e acesso para começar a coletar os dados disponíveis por meio desses logs. Para habilitar o registro em log, use as seguintes etapas:
 
-1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Esse valor está no formato:/subscriptions/\<subscriptionId @ no__t-1/resourceGroups/\<resource nome do grupo @ no__t-3/Providers/Microsoft. Storage/storageAccounts/\<Storage nome da conta @ no__t-5. Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações.
+1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Esse valor está no formato:/subscriptions/\<subscriptionId \>/resourceGroups/\<resource nome do grupo \>/providers/Microsoft.Storage/storageAccounts/\<storage nome da conta \>. Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações.
 
     ![Portal: ID de recurso da conta de armazenamento](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anote a ID de recurso do gateway de aplicativo para a qual o log está habilitado. Esse valor está no formato:/subscriptions/\<subscriptionId @ no__t-1/resourceGroups/\<resource nome do grupo @ no__t-3/Providers/Microsoft. Network/applicationGateways/\<application nome do gateway @ no__t-5. Pode utilizar o portal para encontrar estas informações.
+2. Anote a ID de recurso do gateway de aplicativo para a qual o log está habilitado. Esse valor está no formato:/subscriptions/\<subscriptionId \>/resourceGroups/\<resource nome do grupo \>/providers/Microsoft.Network/applicationGateways/\<application nome do gateway \>. Pode utilizar o portal para encontrar estas informações.
 
     ![Portal: ID de recurso para o gateway de aplicativo](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -252,7 +252,7 @@ Para o gateway de aplicativo e o WAF v2, os logs mostram um pouco mais de inform
 
 ### <a name="performance-log"></a>Log de desempenho
 
-O log de desempenho será gerado somente se você o tiver habilitado em cada instância do gateway de aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento que você especificou quando habilitou o registro em log. Os dados de log de desempenho são gerados em intervalos de 1 minuto. Os seguintes dados são registrados em log:
+O log de desempenho será gerado somente se você o tiver habilitado em cada instância do gateway de aplicativo, conforme detalhado nas etapas anteriores. Os dados são armazenados na conta de armazenamento que você especificou quando habilitou o registro em log. Os dados de log de desempenho são gerados em intervalos de 1 minuto. Ele está disponível apenas para a SKU v1. Para a SKU v2, use [métricas](application-gateway-metrics.md) para dados de desempenho. Os seguintes dados são registrados em log:
 
 
 |Valor  |Descrição  |
