@@ -1,24 +1,18 @@
 ---
 title: Application Insights para serviços de nuvem do Azure | Microsoft Docs
 description: Monitorizar as funções Web e de trabalho eficazmente com o Application Insights
-services: application-insights
-documentationcenter: ''
-keywords: WAD2AI, Diagnóstico do Azure
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.workload: tbd
-ms.date: 09/05/2018
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9325d2dd6c897f4c8dacb3dcf3a382f9f0e856a8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 09/05/2018
+ms.openlocfilehash: d77bbe355b3f6a2666f46246d1d12cfb2e43e559
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933001"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677564"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para serviços de nuvem do Azure
 [Application insights][start] pode monitorar os [aplicativos de serviço de nuvem do Azure](https://azure.microsoft.com/services/cloud-services/) quanto à disponibilidade, ao desempenho, às falhas e ao uso combinando dados de SDKs de Application Insights com dados de [diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de seus serviços de nuvem. Com o feedback que recebe relativamente ao desempenho e à eficácia da sua aplicação no terreno, pode fazer escolhas informadas sobre o rumo do design em cada ciclo de vida do desenvolvimento.
@@ -80,7 +74,7 @@ Para enviar a telemetria para os recursos apropriados, você pode configurar o S
 
 Se você decidiu criar um recurso separado para cada função e, talvez, um conjunto separado para cada configuração de compilação, é mais fácil criá-los no portal de Application Insights. Se você criar muitos recursos, poderá [automatizar o processo](../../azure-monitor/app/powershell.md).
 
-1. Na [portal do Azure][portal], selecione **novo** > **Serviços** > de desenvolvedor**Application insights**.  
+1. Na [portal do Azure][portal], selecione **novo**  > **serviços de desenvolvedor**  > **Application insights**.  
 
     ![Painel de Application Insights](./media/cloudservices/01-new.png)
 
@@ -92,7 +86,7 @@ Cada recurso é identificado por uma chave de instrumentação. Você pode preci
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Configurar os Diagnósticos do Azure para cada função
 Defina esta opção para monitorizar a sua aplicação com o Application Insights. Para funções Web, essa opção fornece monitoramento de desempenho, alertas, diagnósticos e análise de uso. Para outras funções, você pode pesquisar e monitorar Diagnóstico do Azure como reinicialização, contadores de desempenho e chamadas para System. Diagnostics. Trace. 
 
-1. No Visual Studio Gerenciador de soluções, em  **\<** **funções**de > > de seuserviçodenuvem, abra as propriedades de cada função.
+1. No Visual Studio Gerenciador de Soluções, em **\<YourCloudService >**  > **funções**, abra as propriedades de cada função.
 
 1. Em **configuração**, marque a caixa de seleção **enviar dados de diagnóstico para Application insights** e, em seguida, selecione o recurso de Application insights que você criou anteriormente.
 
@@ -100,7 +94,7 @@ Se tiver optado por utilizar um recurso do Application Insights separado para ca
 
 ![Configurar Application Insights](./media/cloudservices/configure-azure-diagnostics.png)
 
-Isso tem o efeito de inserir suas chaves de instrumentação de Application Insights nos arquivos chamados de *configuração.\*. cscfg*. Aqui está o [código de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
+Isso tem o efeito de inserir suas chaves de instrumentação de Application Insights nos arquivos denominados *\*. cscfg*. Aqui está o [código de exemplo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/AzureEmailService/ServiceConfiguration.Cloud.cscfg).
 
 Se você quiser variar o nível de informações de diagnóstico que é enviado para Application Insights, poderá fazer isso [editando os arquivos *. cscfg* diretamente](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
 
@@ -157,7 +151,7 @@ Esta etapa só será necessária se você quiser capturar consultas SQL completa
     </Startup>
     ```
     
-2. Baixe [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), coloque `AppInsightsAgent` -os na pasta em cada projeto de função. Certifique-se de copiá-los para o diretório de saída por meio de propriedades de arquivo do Visual Studio ou scripts de compilação.
+2. Baixe [InstallAgent. bat](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.bat) e [InstallAgent. ps1](https://github.com/microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/AppInsightsAgent/InstallAgent.ps1), coloque-os na pasta `AppInsightsAgent` em cada projeto de função. Certifique-se de copiá-los para o diretório de saída por meio de propriedades de arquivo do Visual Studio ou scripts de compilação.
 
 3. Em todas as funções de trabalho, adicione variáveis de ambiente: 
 
@@ -230,7 +224,7 @@ Para funções de trabalho, você pode rastrear exceções de duas maneiras:
 ## <a name="performance-counters"></a>Contadores de desempenho
 São recolhidos por predefinição os contadores seguintes:
 
-* \Process(??APP_WIN32_PROC??)\% Hora do Processador
+* \Process (?? APP_WIN32_PROC??) \% tempo do processador
 * \Memory\Available Bytes
 * \.NET CLR Exceptions(??APP_CLR_PROC??)\# of Exceps Thrown / sec
 * \Process(??APP_WIN32_PROC??)\Private Bytes
@@ -281,7 +275,7 @@ Compilou para .NET 4.6? O .NET 4,6 não é suportado automaticamente em funçõe
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Configure sending Azure Diagnostics to Application Insights](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) (Configurar o envio de Diagnósticos do Azure para o Application Insights)
 * [Criar automaticamente Application Insights recursos](../../azure-monitor/app/powershell.md)
 * [Automatizar Diagnóstico do Azure](../../azure-monitor/app/powershell-azure-diagnostics.md)

@@ -1,6 +1,6 @@
 ---
-title: Monitorar mensagens B2B com logs de Azure Monitor-aplicativos lógicos do Azure | Microsoft Docs
-description: Monitorar mensagens AS2, X12 e EDIFACT para contas de integração e aplicativos lógicos do Azure e configurar o log de diagnóstico com logs de Azure Monitor
+title: Monitorar mensagens B2B com o Azure Monitor-aplicativos lógicos do Azure
+description: Configurar o log de diagnóstico para mensagens AS2, X12 e EDIFACT nos aplicativos lógicos do Azure usando Azure Monitor
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,14 +9,14 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 10/23/2018
-ms.openlocfilehash: a4a7f951d34455f2e333f2c11e30d24efdfd22c1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e5c8e5f3d42f4e85406fcc7dd5a2f6602045c8ed
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261208"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680191"
 ---
-# <a name="monitor-b2b-messages-with-azure-monitor-logs-in-azure-logic-apps"></a>Monitorar mensagens B2B com logs de Azure Monitor nos aplicativos lógicos do Azure
+# <a name="set-up-diagnostics-logging-for-b2b-messages-in-azure-logic-apps-by-using-azure-monitor"></a>Configurar o log de diagnóstico para mensagens B2B em aplicativos lógicos do Azure usando Azure Monitor
 
 Depois de configurar a comunicação B2B entre parceiros comerciais em sua conta de integração, esses parceiros podem trocar mensagens entre si. Para verificar se essa comunicação funciona da maneira esperada, você pode monitorar as mensagens AS2, X12 e EDIFACT e configurar o log de diagnóstico para sua conta de integração com [logs de Azure monitor](../log-analytics/log-analytics-overview.md). Esse serviço monitora seus ambientes locais e de nuvem, ajuda você a manter a disponibilidade e o desempenho, além de coletar detalhes e eventos de tempo de execução para uma depuração mais avançada. Você também pode usar esses dados com outros serviços, como o armazenamento do Azure e os hubs de eventos do Azure.
 
@@ -39,19 +39,19 @@ Você pode ativar o registro em log diretamente de sua conta de integração ou 
 
 ### <a name="turn-on-logging-from-integration-account"></a>Ativar o registro em log da conta de integração
 
-1. Na [portal do Azure](https://portal.azure.com), localize e selecione sua conta de integração. Sob **monitorização**, selecione **das definições de diagnóstico**.
+1. Na [portal do Azure](https://portal.azure.com), localize e selecione sua conta de integração. Em **monitoramento**, selecione **configurações de diagnóstico**.
 
    ![Localize e selecione sua conta de integração, selecione "configurações de diagnóstico"](media/logic-apps-monitor-b2b-message/find-integration-account.png)
 
 1. Agora, localize e selecione sua conta de integração. Em listas de filtros, selecione os valores que se aplicam à sua conta de integração.
 Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 
-   | Propriedade | Value | Descrição | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | A assinatura do Azure associada à sua conta de integração | 
-   | **Grupo de recursos** | <*Azure-resource-group-name*> | O grupo de recursos do Azure para sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-Resource-Group-name* > | O grupo de recursos do Azure para sua conta de integração | 
    | **Tipo de recurso** | **Contas de integração** | O tipo para o recurso do Azure no qual você deseja ativar o registro em log | 
-   | **Recurso** | <*integration-account-name*> | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
+   | **Recurso** | <*Integration-nome da conta* > | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
    ||||  
 
    Por exemplo:
@@ -88,12 +88,12 @@ Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 1. Agora, localize e selecione sua conta de integração. Em listas de filtros, selecione os valores que se aplicam à sua conta de integração.
 Quando terminar, escolha **Adicionar configuração de diagnóstico**.
 
-   | Propriedade | Value | Descrição | 
+   | Propriedade | Valor | Descrição | 
    |----------|-------|-------------|
    | **Subscrição** | <*Azure-subscription-name*> | A assinatura do Azure associada à sua conta de integração | 
-   | **Grupo de recursos** | <*Azure-resource-group-name*> | O grupo de recursos do Azure para sua conta de integração | 
+   | **Grupo de recursos** | <*Azure-Resource-Group-name* > | O grupo de recursos do Azure para sua conta de integração | 
    | **Tipo de recurso** | **Contas de integração** | O tipo para o recurso do Azure no qual você deseja ativar o registro em log | 
-   | **Recurso** | <*integration-account-name*> | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
+   | **Recurso** | <*Integration-nome da conta* > | O nome do recurso do Azure no qual você deseja ativar o registro em log | 
    ||||  
 
    Por exemplo:

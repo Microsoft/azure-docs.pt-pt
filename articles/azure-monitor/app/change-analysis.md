@@ -1,21 +1,18 @@
 ---
 title: Usar a análise de alterações do aplicativo no Azure Monitor para encontrar problemas do aplicativo Web | Microsoft Docs
 description: Use a análise de alterações do aplicativo no Azure Monitor para solucionar problemas de aplicativos em sites ativos no serviço Azure App.
-services: application-insights
-author: cawams
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/07/2019
+author: cawams
 ms.author: cawa
-ms.openlocfilehash: 84e423ac055c074028df217060a548b932823496
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 05/07/2019
+ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033385"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678258"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Usar a análise de alterações do aplicativo (versão prévia) no Azure Monitor
 
@@ -26,7 +23,7 @@ Aproveitando o poder do [grafo de recursos do Azure](https://docs.microsoft.com/
 > [!IMPORTANT]
 > A análise de alterações está atualmente em visualização. Esta versão de visualização é fornecida sem um contrato de nível de serviço. Esta versão não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 A análise de alterações detecta vários tipos de alterações, da camada de infraestrutura até a implantação do aplicativo. É um provedor de recursos do Azure de nível de assinatura que verifica as alterações de recursos na assinatura. A análise de alterações fornece dados para várias ferramentas de diagnóstico para ajudar os usuários a entender quais alterações podem ter causado problemas.
 
@@ -38,7 +35,7 @@ Atualmente, a análise de alterações é integrada à experiência **diagnostic
 
 ### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager alterações de implantação
 
-Usando o [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), a análise de alterações fornece um registro histórico de como os recursos do Azure que hospedam seu aplicativo foram alterados ao longo do tempo. A análise de alterações pode detectar, por exemplo, alterações nas regras de configuração de IP, identidades gerenciadas e configurações de SSL. Portanto, se uma marca for adicionada a um aplicativo Web, a análise de alterações refletirá a alteração. Essas informações estarão disponíveis contanto que o `Microsoft.ChangeAnalysis` provedor de recursos esteja habilitado na assinatura do Azure.
+Usando o [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview), a análise de alterações fornece um registro histórico de como os recursos do Azure que hospedam seu aplicativo foram alterados ao longo do tempo. A análise de alterações pode detectar, por exemplo, alterações nas regras de configuração de IP, identidades gerenciadas e configurações de SSL. Portanto, se uma marca for adicionada a um aplicativo Web, a análise de alterações refletirá a alteração. Essas informações estarão disponíveis contanto que o provedor de recursos de `Microsoft.ChangeAnalysis` esteja habilitado na assinatura do Azure.
 
 ### <a name="changes-in-web-app-deployment-and-configuration"></a>Alterações na implantação e na configuração do aplicativo Web
 
@@ -51,8 +48,8 @@ A análise de alterações captura o estado de implantação e configuração de
 As alterações nas dependências de recursos também podem causar problemas em um aplicativo Web. Por exemplo, se um aplicativo Web chamar um cache Redis, a SKU do cache Redis poderá afetar o desempenho do aplicativo Web. Para detectar alterações nas dependências, a análise de alterações verifica o registro DNS do aplicativo Web. Dessa forma, ele identifica as alterações em todos os componentes de aplicativo que podem causar problemas.
 Atualmente, há suporte para as seguintes dependências:
 - Aplicações Web
-- Storage do Azure
-- Azure SQL
+- Armazenamento do Azure
+- SQL do Azure
 
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Análise de alteração para o recurso de aplicativos Web
@@ -80,7 +77,7 @@ No Azure Monitor, a análise de alterações está atualmente incorporada à exp
     ![Captura de tela da interface do usuário "Habilitar análise de alteração"](./media/change-analysis/change-analysis-on.png)
 
 
-1. Para acessar a análise de alterações, selecione **diagnosticar e solucionar problemas** > de**falhas de aplicativo** **de desempenho** > e disponibilidade. Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações:
+1. Para acessar a análise de alterações, selecione **diagnosticar e resolver problemas**  > **disponibilidade e desempenho**  > **falhas do aplicativo**. Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações:
 
      ![Captura de tela da exibição alterar comparação](./media/change-analysis/change-view.png)
 
@@ -90,7 +87,7 @@ No Azure Monitor, a análise de alterações está atualmente incorporada à exp
 Se sua assinatura inclui vários aplicativos Web, a habilitação do serviço no nível do aplicativo Web seria ineficiente. Execute o script a seguir para habilitar todos os aplicativos Web em sua assinatura.
 
 Pré-requisitos:
-* Módulo AZ do PowerShell. Siga as instruções em [instalar o módulo Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-2.6.0)
+* Módulo AZ do PowerShell. Siga as instruções em [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.6.0)
 
 Execute o seguintes script:
 

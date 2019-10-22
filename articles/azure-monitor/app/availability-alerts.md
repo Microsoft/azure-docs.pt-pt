@@ -1,24 +1,19 @@
 ---
 title: Configurar alertas de disponibilidade com o Aplicativo Azure insights | Microsoft Docs
 description: Configurar testes Web no Application Insights. Receber alertas se um site ficar indisponível ou responder lentamente.
-services: application-insights
-documentationcenter: ''
-author: lgayhardt
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.author: lagayhar
-ms.openlocfilehash: 1d7527d6f52235c6b95ad2e336ea9f9ba85d6344
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ea2bec541c13ec1615113cef184eb5ad502b158c
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114401"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678289"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidade
 
@@ -31,7 +26,7 @@ Os alertas agora são automaticamente habilitados por padrão, mas para configur
 ![Criar experiência](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Com os [novos alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)unificados, as preferências de severidade e notificação da regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devem ser** configuradas na experiência de alertas. Sem as etapas a seguir, você receberá apenas notificações no Portal.
+>  Com os [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), as preferências de severidade e notificação da regra de alerta com [grupos de ação](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **devem ser** configuradas na experiência de alertas. Sem as etapas a seguir, você receberá apenas notificações no Portal.
 
 1. Depois de salvar o teste de disponibilidade, na guia detalhes, clique nas reticências do teste que você acabou de fazer. Clique em "Editar alerta".
 
@@ -43,7 +38,7 @@ Os alertas agora são automaticamente habilitados por padrão, mas para configur
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertar sobre falhas de relatório em X fora dos locais de Y
 
-A regra de alerta X fora dos locais Y é habilitada por padrão na [nova experiência de alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)unificados, quando você cria um novo teste de disponibilidade. Você pode recusar selecionando a opção "clássico" ou optando por desabilitar a regra de alerta.
+A regra de alerta X fora dos locais Y é habilitada por padrão na [nova experiência de alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), quando você cria um novo teste de disponibilidade. Você pode recusar selecionando a opção "clássico" ou optando por desabilitar a regra de alerta.
 
 > [!NOTE]
 > Configure os grupos de ação para receber notificações quando o alerta disparar seguindo as etapas acima. Sem essa etapa, você só receberá notificações no portal quando a regra for disparada.
@@ -51,7 +46,7 @@ A regra de alerta X fora dos locais Y é habilitada por padrão na [nova experi�
 
 ### <a name="alert-on-availability-metrics"></a>Alerta sobre métricas de disponibilidade
 
-Usando os [novos alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)unificados, você pode alertar sobre disponibilidade de agregação segmentada e métricas de duração de teste também:
+Usando os [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), você pode alertar sobre disponibilidade de agregação segmentada e métricas de duração de teste também:
 
 1. Selecione um recurso de Application Insights na experiência de métricas e selecione uma métrica de disponibilidade:
 
@@ -61,7 +56,7 @@ Usando os [novos alertas](https://docs.microsoft.com/azure/monitoring-and-diagno
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alerta sobre consultas de análise personalizadas
 
-Usando os [novos alertas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)unificados, você pode alertar sobre [consultas de log personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Com consultas personalizadas, você pode alertar sobre qualquer condição arbitrária que ajuda a obter o sinal mais confiável de problemas de disponibilidade. Isso também é aplicável se você estiver enviando resultados de disponibilidade personalizados usando o SDK do API trackavailability.
+Usando os [novos alertas unificados](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), você pode alertar sobre [consultas de log personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Com consultas personalizadas, você pode alertar sobre qualquer condição arbitrária que ajuda a obter o sinal mais confiável de problemas de disponibilidade. Isso também é aplicável se você estiver enviando resultados de disponibilidade personalizados usando o SDK do API trackavailability.
 
 > [!Tip]
 > As métricas sobre os dados de disponibilidade incluem quaisquer resultados de disponibilidade personalizados que você possa estar enviando chamando nosso SDK do API trackavailability. Você pode usar o alerta no suporte a métricas para alertar sobre os resultados de disponibilidade personalizados.
@@ -75,7 +70,7 @@ Para automatizar esse processo com modelos de Azure Resource Manager, consulte a
 
 [Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Testes na Web de várias etapas](availability-multistep.md)
 * [Testes da Web de ping de URL](monitor-web-app-availability.md)

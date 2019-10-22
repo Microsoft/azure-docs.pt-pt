@@ -1,5 +1,5 @@
 ---
-title: Cenário sem servidor – criar painel de informações do cliente com os serviços do Azure | Microsoft Docs
+title: Criar painel do Customer insights-aplicativo lógico do Azure
 description: Gerencie comentários de clientes, dados de mídia social e muito mais criando um painel de clientes com aplicativos lógicos do Azure e Azure Functions
 services: logic-apps
 ms.service: logic-apps
@@ -7,17 +7,16 @@ ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
 ms.reviewer: estfan, LADocs
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: b8ba341252679a07e50f9b276f7f485b08a6acba
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c9c5cf9c56f2e22faa973c983c6fd81733119daa
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164870"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680116"
 ---
-# <a name="create-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar painel de informações do cliente de streaming com aplicativos lógicos do Azure e Azure Functions
+# <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Criar um painel de informações do cliente de streaming com os aplicativos lógicos do Azure e Azure Functions
 
 O Azure oferece ferramentas sem [servidor](https://azure.microsoft.com/solutions/serverless/) que ajudam você a criar e hospedar aplicativos na nuvem rapidamente, sem precisar pensar na infraestrutura. Neste tutorial, você pode criar um painel que é disparado nos comentários do cliente, analisa os comentários com o aprendizado de máquina e publica informações em uma fonte, como Power BI ou Azure Data Lake.
 
@@ -34,7 +33,7 @@ Você pode [criar a solução inteira no Visual Studio](../logic-apps/quickstart
 
    Se você for novo em aplicativos lógicos, leia o guia de [início rápido para o portal do Azure](../logic-apps/quickstart-create-first-logic-app-workflow.md) ou o guia de [início rápido para o Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. No designer de aplicativo lógico, localize e adicione o gatilho do Twitter que tem esta ação: **Quando um novo tweet é Postado**
+2. No designer de aplicativo lógico, localize e adicione o gatilho do Twitter que tem esta ação: **quando um novo tweet é Postado**
 
 3. Configure o gatilho para escutar tweets com base em uma palavra-chave ou hashtag.
 
@@ -60,10 +59,10 @@ Para detectar a percepção por trás de algum texto, você pode usar os [Servi�
 
 Depois de obter os dados e as informações do tweet sobre o tweet, agora você pode usar vários outros conectores relevantes e suas ações:
 
-* **Power bi-adicionar linhas ao conjunto de registros de streaming**: Exibir tweets de entrada em um painel de Power BI.
-* **Azure data Lake-acrescentar arquivo**: Adicione os dados do cliente a um conjunto Azure Data Lake DataSet para incluir em trabalhos de análise.
-* **SQL-adicionar linhas**: Armazene dados em um banco de dado para recuperação posterior.
-* **Margem de atraso-enviar mensagem**: Notifique um canal de margem de atraso sobre comentários negativos que podem exigir ação.
+* **Power bi-adicionar linhas ao conjunto de registros de streaming**: Exibir tweets de entrada em um painel de Power bi.
+* **Azure data Lake-acrescentar arquivo**: adiciona dados do cliente a um conjunto de Azure data Lake para incluir em trabalhos de análise.
+* **SQL-adicionar linhas**: armazene dados em um banco de dado para recuperação posterior.
+* **Margem de atraso – enviar mensagem**: Notifique um canal de margem de atraso sobre comentários negativos que podem exigir ação.
 
 Você também pode criar e uma função do Azure para que possa executar o processamento personalizado em seus dados. 
 
@@ -72,7 +71,7 @@ Você também pode criar e uma função do Azure para que possa executar o proce
 Antes de criar uma função, crie um aplicativo de funções em sua assinatura do Azure. Além disso, para seu aplicativo lógico chamar diretamente uma função, a função deve ter uma associação de gatilho HTTP, por exemplo, usar o modelo **HttpTrigger** . Saiba [como criar seu primeiro aplicativo de funções e função no portal do Azure](../azure-functions/functions-create-first-azure-function-azure-portal.md).
 
 Para este cenário, use o texto do tweet como o corpo da solicitação para sua função do Azure. No seu código de função, defina a lógica que determina se o texto do tweet contém uma palavra-chave ou frase. Mantenha a função tão simples ou complexa quanto necessário para o cenário.
-No final da função, retorne uma resposta para o aplicativo lógico com alguns dados, por exemplo, um valor `containsKeyword` booliano simples, como ou um objeto complexo.
+No final da função, retorne uma resposta para o aplicativo lógico com alguns dados, por exemplo, um valor booliano simples, como `containsKeyword` ou um objeto complexo.
 
 > [!TIP]
 > Para acessar uma resposta complexa de uma função em um aplicativo lógico, use a ação **analisar JSON** .
@@ -106,11 +105,11 @@ Para exibir os históricos de execução anteriores no Visual Studio ou no porta
 
 ## <a name="create-automated-deployment-templates"></a>Criar modelos de implementação automatizada
 
-Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) em qualquer região do Azure no mundo. Você pode usar essa capacidade para modificar parâmetros para criar versões diferentes do seu aplicativo e para integrar sua solução no Azure Pipelines. Você também pode incluir Azure Functions em seu modelo de implantação para que possa gerenciar toda a solução com todas as dependências como um único modelo. Saiba como automatizar a [implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
+Depois de criar uma solução de aplicativo lógico, você pode capturar e implantar seu aplicativo como um [modelo de Azure Resource Manager](../azure-resource-manager/template-deployment-overview.md) em qualquer região do Azure no mundo. Você pode usar essa capacidade para modificar parâmetros para criar versões diferentes do seu aplicativo e para integrar sua solução no Azure Pipelines. Você também pode incluir Azure Functions em seu modelo de implantação para que possa gerenciar toda a solução com todas as dependências como um único modelo. Saiba como [automatizar a implantação do aplicativo lógico](logic-apps-azure-resource-manager-templates-overview.md).
 
 Para obter um exemplo de modelo de implantação com uma função do Azure, verifique o [repositório de modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Encontre outros exemplos e cenários para aplicativos lógicos do Azure](logic-apps-examples-and-scenarios.md)
 

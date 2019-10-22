@@ -1,6 +1,6 @@
 ---
-title: Início rápido – criar e automatizar seu primeiro fluxo de trabalho com os aplicativos lógicos do Azure
-description: Crie seu primeiro aplicativo lógico que automatiza tarefas, processos e fluxos de trabalho usando aplicativos lógicos do Azure. Crie aplicativos lógicos para a integração do sistema e soluções de EAI (integração de aplicativos empresariais) para seus sistemas & serviços de nuvem.
+title: Criar e automatizar seu primeiro fluxo de trabalho-aplicativos lógicos do Azure
+description: Início rápido – criar sua primeira tarefa ou fluxo de trabalho automatizado usando aplicativos lógicos do Azure para integração de sistema e soluções de EAI (integração de aplicativos empresariais)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,14 +11,14 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029514"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679149"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início rápido: Crie seu primeiro fluxo de trabalho automatizado com os aplicativos lógicos do Azure-portal do Azure
+# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Criar o primeiro fluxo de trabalho automatizado com o Azure Logic Apps – portal do Azure
 
 Este início rápido mostra como criar o primeiro fluxo de trabalho automatizado com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Neste artigo, vai criar uma aplicação lógica que verifica regularmente o feed RSS de um site relativamente à existência de novos itens. Se existirem novos itens, a aplicação lógica envia uma mensagem de e-mail para cada item. Quando terminar, a aplicação lógica é semelhante a este fluxo de trabalho a alto nível:
 
@@ -42,16 +42,16 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
    ![Fornecer detalhes para o novo aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
-   | Propriedade | Value | Descrição |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
-   | **Name** | <*logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
+   | **Nome** | <*Logic-app-name*> | O nome do aplicativo lógico, que pode conter apenas letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-app". |
    | **Subscrição** | <*Azure-subscription-name*> | O nome da sua assinatura do Azure |
-   | **Grupo de recursos** | <*Azure-resource-group-name*> | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
-   | **Location** | <*Azure-region*> | A região onde armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
+   | **Grupo de recursos** | <*Azure-Resource-Group-name* > | O nome do [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usado para organizar os recursos relacionados. Este exemplo usa "My-First-LA-RG". |
+   | **Localização** | <*Azure-region*> | A região onde armazenar as informações do aplicativo lógico. Este exemplo usa "oeste dos EUA". |
    | **Log Analytics** | Desativado | Mantenha a definição **Desativado** para o registo de diagnósticos. |
    ||||
 
-1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione **notificações** > **vá para o recurso** para seu aplicativo lógico implantado.
+1. Depois que o Azure implantar seu aplicativo, na barra de ferramentas do Azure, selecione **notificações**  > **ir para o recurso** para seu aplicativo lógico implantado.
 
    ![Ir para o recurso de aplicativo lógico recém-criado](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
@@ -69,7 +69,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 1. No designer de aplicativo lógico, na caixa de pesquisa, selecione **tudo**.
 
-1. Na caixa de pesquisa, digite "RSS". Na lista de gatilhos, selecione este gatilho: **Quando um item de feed é publicado-RSS**
+1. Na caixa de pesquisa, digite "RSS". Na lista de gatilhos, selecione este gatilho: **quando um item de feed é publicado-RSS**
 
    ![Selecione o gatilho "quando um item de feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -77,7 +77,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
    ![Configurar o acionador com o feed RSS, a frequência e o intervalo](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
-   | Propriedade | Value | Descrição |
+   | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **O URL do feed RSS** | `http://feeds.reuters.com/reuters/topNews` | A ligação para o feed RSS que quer monitorizar |
    | **Intervalo** | 1 | O número de intervalos de espera entre verificações |
@@ -158,7 +158,7 @@ Por exemplo, eis um exemplo de uma mensagem de e-mail enviada por esta aplicaç�
 
 ![Email de exemplo enviado quando um novo item de RSS feed é exibido](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-Em termos técnicos, quando o acionador verifica o feed RSS e encontra itens novos, este é acionado e o motor do Logic Apps cria uma instância do fluxo de trabalho da aplicação lógica que executa as ações no fluxo de trabalho. Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
+Em termos técnicos, quando o acionador consulta o feed RSS e encontra itens novos, este é acionado e o motor do Logic Apps cria uma instância do fluxo de trabalho da aplicação lógica que executa as ações no fluxo de trabalho. Se o acionador não encontrar itens novos, este não é acionado e "ignora" a criação de instâncias do fluxo de trabalho.
 
 Parabéns, você agora criou e executou com êxito seu primeiro aplicativo lógico com o portal do Azure.
 

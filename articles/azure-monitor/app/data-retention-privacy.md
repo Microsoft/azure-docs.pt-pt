@@ -1,27 +1,22 @@
 ---
 title: Retenção e armazenamento de dados no Aplicativo Azure insights | Microsoft Docs
 description: Declaração de política de retenção e privacidade
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: df441a55ef4a9a40fe4defcabca5f667eeddbf29
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.date: 08/22/2019
+ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207290"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678102"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha de dados, retenção e armazenamento no Application Insights
 
-Quando você instala o SDK do insights [aplicativo Azure][start] em seu aplicativo, ele envia a telemetria sobre seu aplicativo para a nuvem. Naturalmente, os desenvolvedores responsáveis desejam saber exatamente quais dados são enviados, o que acontece com os dados e como eles podem manter o controle dele. Em particular, os dados confidenciais poderiam ser enviados, onde são armazenados e qual é a segurança? 
+Quando você instala o SDK do [insights aplicativo Azure][start] em seu aplicativo, ele envia a telemetria sobre seu aplicativo para a nuvem. Naturalmente, os desenvolvedores responsáveis desejam saber exatamente quais dados são enviados, o que acontece com os dados e como eles podem manter o controle dele. Em particular, os dados confidenciais poderiam ser enviados, onde são armazenados e qual é a segurança? 
 
 Primeiro, a resposta curta:
 
@@ -32,8 +27,8 @@ Primeiro, a resposta curta:
 
 O restante deste artigo elabora mais detalhes sobre essas respostas. Ele foi projetado para ser independente, para que você possa mostrá-lo para colegas que não fazem parte de sua equipe imediata.
 
-## <a name="what-is-application-insights"></a>O que é o Application Insights?
-O [aplicativo Azure][start] insights é um serviço fornecido pela Microsoft que ajuda a melhorar o desempenho e a usabilidade do seu aplicativo em tempo real. Ele monitora o aplicativo todo o tempo em que está sendo executado, tanto durante o teste quanto quando você o publicou ou implantou. Application Insights cria gráficos e tabelas que mostram, por exemplo, quais horas do dia você obtém a maioria dos usuários, a resposta do aplicativo e o quão bem ele é atendido por quaisquer serviços externos dos quais depende. Se houver falhas, falhas ou problemas de desempenho, você poderá pesquisar os dados de telemetria em detalhes para diagnosticar a causa. E o serviço enviará emails se houver alterações na disponibilidade e no desempenho do seu aplicativo.
+## <a name="what-is-application-insights"></a>O que são Informações da Aplicação?
+O [aplicativo Azure insights][start] é um serviço fornecido pela Microsoft que ajuda a melhorar o desempenho e a usabilidade do seu aplicativo em tempo real. Ele monitora o aplicativo todo o tempo em que está sendo executado, tanto durante o teste quanto quando você o publicou ou implantou. Application Insights cria gráficos e tabelas que mostram, por exemplo, quais horas do dia você obtém a maioria dos usuários, a resposta do aplicativo e o quão bem ele é atendido por quaisquer serviços externos dos quais depende. Se houver falhas, falhas ou problemas de desempenho, você poderá pesquisar os dados de telemetria em detalhes para diagnosticar a causa. E o serviço enviará emails se houver alterações na disponibilidade e no desempenho do seu aplicativo.
 
 Para obter essa funcionalidade, você instala um SDK Application Insights em seu aplicativo, que se torna parte de seu código. Quando seu aplicativo está em execução, o SDK monitora sua operação e envia a telemetria para o serviço de Application Insights. Esse é um serviço de nuvem hospedado pelo [Microsoft Azure](https://azure.com). (Mas Application Insights funciona para qualquer aplicativo, não apenas aqueles que estão hospedados no Azure.)
 
@@ -58,13 +53,13 @@ Há três fontes de dados:
 As principais categorias são:
 
 * [Telemetria do servidor Web](../../azure-monitor/app/asp-net.md) -solicitações HTTP.  URI, tempo levado para processar a solicitação, o código de resposta, o endereço IP do cliente. ID da sessão.
-* [Páginas da Web](../../azure-monitor/app/javascript.md) – contagens de página, usuário e sessão. Tempos de carregamento de página. Exceções. Chamadas AJAX.
+* [Páginas da Web](../../azure-monitor/app/javascript.md) – contagens de página, usuário e sessão. Tempos de carregamento de página. Exceção. Chamadas AJAX.
 * Contadores de desempenho-memória, CPU, e/s, ocupação de rede.
 * Contexto de cliente e servidor-sistema operacional, localidade, tipo de dispositivo, navegador, resolução de tela.
 * [Exceções](../../azure-monitor/app/asp-net-exceptions.md) e falhas- **despejos de pilha**, ID de compilação, tipo de CPU. 
 * [Dependências](../../azure-monitor/app/asp-net-dependencies.md) – chamadas para serviços externos, como REST, SQL, Ajax. URI ou cadeia de conexão, duração, êxito, comando.
 * [Testes de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md) -duração de teste e etapas, respostas.
-* [Logs de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) e telemetria [](../../azure-monitor/app/api-custom-events-metrics.md) - personalizada**qualquer código que você codifique em seus logs ou telemetria**.
+* [Os logs de rastreamento](../../azure-monitor/app/asp-net-trace-logs.md) e a [telemetria personalizada](../../azure-monitor/app/api-custom-events-metrics.md)  - **qualquer coisa que você codifique em seus logs ou telemetria**.
 
 [Mais detalhes](#data-sent-by-application-insights).
 
@@ -80,7 +75,7 @@ Para páginas da Web, abra a janela de depuração do navegador.
 ![Pressione F12 e abra a guia rede.](./media/data-retention-privacy/08-browser.png)
 
 ### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>Posso escrever código para filtrar a telemetria antes que ela seja enviada?
-Isso seria possível escrevendo um [plug-in de processador](../../azure-monitor/app/api-filtering-sampling.md)de telemetria.
+Isso seria possível escrevendo um [plug-in de processador de telemetria](../../azure-monitor/app/api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>Por quanto tempo os dados são mantidos?
 Pontos de dados brutos (ou seja, itens que você pode consultar na análise e inspecionar na pesquisa) são mantidos por até 730 dias. Você pode [selecionar uma duração de retenção](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 ou 730 dias. Se você precisar manter os dados com mais de 730 dias, poderá usar a [exportação contínua](../../azure-monitor/app/export-telemetry.md) para copiá-los para uma conta de armazenamento durante a ingestão de dados. 
@@ -89,7 +84,7 @@ Os dados mantidos por mais de 90 dias incorrerão em encargos adicionais. Saiba 
 
 Os dados agregados (ou seja, contagens, médias e outros dados estatísticos que você vê no Gerenciador de métricas) são mantidos em um detalhamento de 1 minuto por 90 dias.
 
-Os instantâneos de [depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados por quinze dias. Esta política de retenção está definida numa base por aplicação. Se precisar de aumentar este valor, pode pedir um aumento ao abrir um incidente de suporte no portal do Azure.
+Os [instantâneos de depuração](../../azure-monitor/app/snapshot-debugger.md) são armazenados por quinze dias. Essa política de retenção é definida em uma base por aplicativo. Se você precisar aumentar esse valor, poderá solicitar um aumento abrindo um caso de suporte na portal do Azure.
 
 ## <a name="who-can-access-the-data"></a>Quem pode aceder aos dados?
 Os dados ficam visíveis para você e, se você tiver uma conta da organização, seus membros da equipe. 
@@ -137,11 +132,11 @@ Se um cliente precisar configurar esse diretório com requisitos de segurança e
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp`é usado para manter dados. Esse local não pode ser configurado no diretório de configuração e as permissões para acessar essa pasta são restritas ao usuário específico com as credenciais necessárias. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) aqui.)
+`C:\Users\username\AppData\Local\Temp` é usado para manter dados. Esse local não pode ser configurado no diretório de configuração e as permissões para acessar essa pasta são restritas ao usuário específico com as credenciais necessárias. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) aqui.)
 
 ###  <a name="net"></a>.Net
 
-Por padrão `ServerTelemetryChannel` , o usa a pasta `%localAppData%\Microsoft\ApplicationInsights` de dados do aplicativo local do usuário `%TMP%`atual ou a pasta temporária. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.)
+Por padrão `ServerTelemetryChannel` usa a pasta de dados do aplicativo local do usuário atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%`. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.)
 
 
 Por meio do arquivo de configuração:
@@ -164,9 +159,9 @@ Por meio de código:
 
 ### <a name="netcore"></a>NetCore
 
-Por padrão `ServerTelemetryChannel` , o usa a pasta `%localAppData%\Microsoft\ApplicationInsights` de dados do aplicativo local do usuário `%TMP%`atual ou a pasta temporária. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Em um ambiente Linux, o armazenamento local será desabilitado, a menos que uma pasta de armazenamento seja especificada.
+Por padrão `ServerTelemetryChannel` usa a pasta de dados do aplicativo local do usuário atual `%localAppData%\Microsoft\ApplicationInsights` ou a pasta temporária `%TMP%`. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) aqui.) Em um ambiente Linux, o armazenamento local será desabilitado, a menos que uma pasta de armazenamento seja especificada.
 
-O trecho de código a seguir mostra como `ServerTelemetryChannel.StorageFolder` definir `ConfigureServices()` no método da sua `Startup.cs` classe:
+O trecho de código a seguir mostra como definir `ServerTelemetryChannel.StorageFolder` no método `ConfigureServices()` de sua classe `Startup.cs`:
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -176,35 +171,35 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 ### <a name="nodejs"></a>Node.js
 
-Por padrão `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` , é usado para manter dados. As permissões para acessar essa pasta são restritas ao usuário atual e aos administradores. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
+Por padrão `%TEMP%/appInsights-node{INSTRUMENTATION KEY}` é usado para manter dados. As permissões para acessar essa pasta são restritas ao usuário atual e aos administradores. (Consulte a [implementação](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) aqui.)
 
-O prefixo `appInsights-node` da pasta pode ser substituído alterando o valor de tempo de execução `Sender.TEMPDIR_PREFIX` da variável estática encontrada em [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
+O prefixo da pasta `appInsights-node` pode ser substituído alterando o valor de tempo de execução da variável estática `Sender.TEMPDIR_PREFIX` encontrada em [Sender. TS](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384).
 
 
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Como fazer enviar dados para Application Insights usando o TLS 1,2?
 
-Para garantir a segurança dos dados em trânsito para os pontos de extremidade de Application Insights, recomendamos que os clientes configurem seus aplicativos para usarem pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. As versões mais antigas do TLS/Secure Sockets Layer (SSL) foram encontradas vulneráveis e enquanto trabalham ainda atualmente para permitir a compatibilidade com versões anteriores, estão **não recomendada**, e o setor que está a mudar rapidamente para abandonar o suporte para esses protocolos mais antigos. 
+Para garantir a segurança dos dados em trânsito para os pontos de extremidade de Application Insights, recomendamos que os clientes configurem seus aplicativos para usarem pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. Versões mais antigas do TLS/protocolo SSL (SSL) foram considerados vulneráveis e, embora ainda funcionem para permitir a compatibilidade com versões anteriores, elas não são **recomendadas**e o setor está mudando rapidamente para abandonar o suporte para esses protocolos. 
 
-O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) definiu um [dentro do prazo de 30 de Junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desativar as versões mais antigas do TLS/SSL e a atualização para proteger mais os protocolos. Quando o Azure descartar o suporte herdado, se seu aplicativo/clientes não puderem se comunicar por pelo menos o TLS 1,2, você não poderá enviar dados para Application Insights. A abordagem que você tomará para testar e validar o suporte a TLS do aplicativo varia dependendo do sistema operacional/plataforma, bem como da linguagem/estrutura usada pelo aplicativo.
+O [PCI Security Standards Council](https://www.pcisecuritystandards.org/) definiu um [prazo de 30 de junho de 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) para desabilitar versões mais antigas de TLS/SSL e atualizar para protocolos mais seguros. Quando o Azure descartar o suporte herdado, se seu aplicativo/clientes não puderem se comunicar por pelo menos o TLS 1,2, você não poderá enviar dados para Application Insights. A abordagem que você tomará para testar e validar o suporte a TLS do aplicativo varia dependendo do sistema operacional/plataforma, bem como da linguagem/estrutura usada pelo aplicativo.
 
 Não recomendamos definir explicitamente seu aplicativo para usar apenas o TLS 1,2, a menos que seja absolutamente necessário, pois isso pode interromper os recursos de segurança no nível da plataforma que permitem detectar e aproveitar automaticamente os protocolos mais seguros à medida que se tornam disponível como o TLS 1,3. É recomendável executar uma auditoria completa do código do aplicativo para verificar o codificação de versões de TLS/SSL específicas.
 
 ### <a name="platformlanguage-specific-guidance"></a>Diretrizes específicas de plataforma/linguagem
 
-|Plataforma/linguagem | Suporte | Mais Informações |
+|Plataforma/idioma | Suporte | Mais Informações |
 | --- | --- | --- |
-| Serviços Aplicacionais do Azure  | Com suporte, a configuração pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para obter [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
+| Serviços de Aplicações do Azure  | Com suporte, a configuração pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para obter [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
 | Aplicativos de funções do Azure | Com suporte, a configuração pode ser necessária. | O suporte foi anunciado em abril de 2018. Leia o comunicado para obter [detalhes de configuração](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Com suporte, a configuração varia de acordo com a versão. | Para obter informações de configuração detalhadas para o .NET 4,7 e versões anteriores, consulte [estas instruções](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Monitor de Estado | Com suporte, configuração necessária | Status monitor conta com a[configuração do .net](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) de [configuração](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + do so para dar suporte a TLS 1,2.
+|Monitor de Estado | Com suporte, configuração necessária | Status Monitor se baseia na configuração do [so](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  + [configuração do .net](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) para dar suporte a TLS 1,2.
 |Node.js |  Com suporte, em v 10.5.0, a configuração pode ser necessária. | Use a [documentação oficial do TLS/SSL do node. js](https://nodejs.org/api/tls.html) para qualquer configuração específica do aplicativo. |
 |Java | Com suporte, o suporte do JDK para TLS 1,2 foi adicionado no [JDK 6 atualização 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) e [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | O JDK 8 usa o [TLS 1,2 por padrão](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
-|Linux | Distribuições do Linux tendem a depender [OpenSSL](https://www.openssl.org) para suporte de TLS 1.2.  | Verifique os [registo de alterações de OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar a sua versão do OpenSSL que é suportado.|
-| Windows 8.0 10 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar o [predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2016 de 2012 | Suportado e ativado por predefinição. | Para confirmar que ainda está a utilizar o [predefinições](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Suportado, mas não ativado por predefinição. | Consulte a [definições de registo de Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) página para obter detalhes sobre como ativar.  |
-| Windows Server 2008 SP2 | Suporte para TLS 1.2 requer uma atualização. | Ver [atualização para adicionar suporte para TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
+|Linux | As distribuições do Linux tendem a confiar no [OpenSSL](https://www.openssl.org) para suporte a TLS 1,2.  | Verifique o [changelog OpenSSL](https://www.openssl.org/news/changelog.html) para confirmar se há suporte para sua versão do OpenSSL.|
+| Windows 8,0-10 | Com suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Com suporte e habilitado por padrão. | Para confirmar que você ainda está usando as [configurações padrão](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 e Windows Server 2008 R2 SP1 | Com suporte, mas não habilitado por padrão. | Consulte a página [configurações do registro TLS (Transport Layer Security)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) para obter detalhes sobre como habilitar o.  |
+| Windows Server 2008 SP2 | O suporte para TLS 1,2 requer uma atualização. | Consulte [atualizar para adicionar suporte para TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) no Windows Server 2008 SP2. |
 |Windows Vista | Não suportado. | N/A
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Verifique qual versão do OpenSSL sua distribuição do Linux está em execução
@@ -239,9 +234,9 @@ Os SDKs variam entre as plataformas, e há vários componentes que você pode in
 
 | Sua ação | Classes de dados coletadas (consulte a próxima tabela) |
 | --- | --- |
-| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>Utilizadores |
+| [Adicionar Application Insights SDK a um projeto Web .NET][greenbrown] |ServerContext<br/>Inferido<br/>Contadores de desempenho<br/>Pedidos<br/>**Exceções**<br/>Sessão<br/>utilizadores |
 | [Instalar o Status Monitor no IIS][redfield] |Dependências<br/>ServerContext<br/>Inferido<br/>Contadores de desempenho |
-| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>Utilizadores |
+| [Adicionar Application Insights SDK a um aplicativo Web Java][java] |ServerContext<br/>Inferido<br/>Pedir<br/>Sessão<br/>utilizadores |
 | [Adicionar SDK do JavaScript à página da Web][client] |ClientContext <br/>Inferido<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propriedades padrão][apiproperties] |**Propriedades** em todos os eventos padrão e personalizados |
 | [Chamar TrackMetric][api] |Valores numéricos<br/>**Properties** |
@@ -262,7 +257,7 @@ Para [SDKs para outras plataformas][platforms], consulte seus documentos.
 | ServerContext |Nome do computador, localidade, sistema operacional, dispositivo, sessão de usuário, contexto de usuário, operação |
 | Inferido |localização geográfica de endereço IP, carimbo de data/hora, sistema operacional, navegador |
 | Métricas |Nome e valor da métrica |
-| Events |Nome e valor do evento |
+| Eventos |Nome e valor do evento |
 | PageViews |URL e nome da página ou nome da tela |
 | Desempenho do cliente |URL/nome da página, tempo de carregamento do navegador |
 | Ajax |Chamadas HTTP de página da Web para o servidor |
@@ -280,8 +275,8 @@ Você pode [desativar alguns dos dados editando ApplicationInsights. config][con
 > [!NOTE]
 > O IP do cliente é usado para inferir a localização geográfica, mas os dados IP padrão não são mais armazenados e todos os zeros são gravados no campo associado. Para entender mais sobre a manipulação de dados pessoais, recomendamos este [artigo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Se você precisar armazenar dados de endereço IP, nosso [artigo de coleção de endereços IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) o guiará pelas suas opções.
 
-## <a name="credits"></a>Ficha técnica
-Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponíveis [https://www.maxmind.com](https://www.maxmind.com)no.
+## <a name="credits"></a>Créditos
+Este produto inclui dados de GeoLite2 criados pelo MaxMind, disponíveis em [https://www.maxmind.com](https://www.maxmind.com).
 
 
 

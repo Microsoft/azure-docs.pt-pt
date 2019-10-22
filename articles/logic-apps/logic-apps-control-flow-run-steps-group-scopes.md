@@ -1,69 +1,68 @@
 ---
-title: Adicionar âmbitos que executam ações com base no estado do grupo - Azure Logic Apps | Documentos da Microsoft
-description: Como criar âmbitos que executam ações de fluxo de trabalho com base no estado da ação de grupo no Azure Logic Apps
+title: Agrupar e executar ações por escopo – aplicativos lógicos do Azure
+description: Criar ações com escopo executadas com base no status do grupo nos aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60685559"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680010"
 ---
-# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Executar ações com base no estado de grupo com âmbitos no Azure Logic Apps
+# <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Executar ações com base no status do grupo usando escopos em aplicativos lógicos do Azure
 
-Para executar ações apenas depois de outro grupo de ações com êxito ou falha, agrupar essas ações dentro de um *âmbito*. Esta estrutura é útil quando quer organizar ações como um grupo lógico, avaliar o estado desse grupo e executar ações que são baseadas no estado de âmbito. Depois de todas as ações num âmbito termine a execução, o âmbito também obtém seu próprio Estado. Por exemplo, pode utilizar âmbitos quando pretender implementar [exceção e tratamento de erros](../logic-apps/logic-apps-exception-handling.md#scopes). 
+Para executar ações somente depois que outro grupo de ações for bem-sucedida ou falhar, agrupe essas ações dentro de um *escopo*. Essa estrutura é útil quando você deseja organizar ações como um grupo lógico, avaliar o status desse grupo e executar ações baseadas no status do escopo. Depois que todas as ações em um escopo terminarem de ser executadas, o escopo também obterá seu próprio status. Por exemplo, você pode usar escopos quando desejar implementar a [manipulação de exceção e erro](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
-Para verificar o estado de um âmbito, pode utilizar os mesmos critérios que utilizar para determinar uma lógica de estado, como "Com êxito", "Falha", "Cancelada" e assim por diante de execução de aplicações. Por predefinição, quando as ações de âmbito tiver êxito, estado de âmbito está marcada como "Com êxito." Mas quando qualquer ação no âmbito da falha ou é cancelada, estado de âmbito está marcada como "Falhado". Para limites em âmbitos, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
+Para verificar o status de um escopo, você pode usar os mesmos critérios usados para determinar o status de execução de um aplicativo lógico, como "êxito", "falha", "cancelado" e assim por diante. Por padrão, quando todas as ações do escopo forem bem-sucedidas, o status do escopo será marcado como "êxito". Mas quando qualquer ação no escopo falha ou é cancelada, o status do escopo é marcado como "falha". Para limites em escopos, consulte [limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
 
-Por exemplo, aqui está uma aplicação de lógica de alto nível que utiliza um âmbito para executar ações específicas e uma condição para verificar o estado de âmbito. Se todas as ações no âmbito não ou terminam inesperadamente, o âmbito está marcado "Falhado" ou "Aborted", respectivamente, e a aplicação lógica envia uma mensagem "Falha de âmbito". Se tiver êxito a todas as ações de âmbito, a aplicação lógica envia uma mensagem de "Escopo foi concluída com êxito".
+Por exemplo, aqui está um aplicativo lógico de alto nível que usa um escopo para executar ações específicas e uma condição para verificar o status do escopo. Se alguma ação no escopo falhar ou terminar inesperadamente, o escopo será marcado como "falha" ou "anulado" respectivamente, e o aplicativo lógico enviará uma mensagem "falha no escopo". Se todas as ações com escopo forem bem-sucedidas, o aplicativo lógico enviará uma mensagem de "escopo bem-sucedido".
 
-![Configurar o acionador "– a periodicidade da agenda"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
+![Configurar o gatilho "Agenda-recorrência"](./media/logic-apps-control-flow-run-steps-group-scopes/scope-high-level.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para seguir o exemplo neste artigo, precisa destes itens:
+Para seguir o exemplo neste artigo, você precisa destes itens:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição, [inscreva-se numa conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Uma conta de e-mail de qualquer fornecedor de e-mail suportada pelo Logic Apps. Este exemplo utiliza o Outlook.com. Se utilizar outro fornecedor, o fluxo geral permanece o mesmo, mas sua interface do Usuário aparece diferente.
+* Uma conta de email de qualquer provedor de email com suporte dos aplicativos lógicos. Este exemplo usa Outlook.com. Se você usar um provedor diferente, o fluxo geral permanecerá o mesmo, mas sua interface do usuário aparecerá diferente.
 
-* Uma chave do mapas Bing. Para obter esta chave, consulte <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">obter uma chave do mapas Bing</a>.
+* Uma chave do Bing Maps. Para obter essa chave, consulte <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">obter uma chave do Bing Maps</a>.
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-## <a name="create-sample-logic-app"></a>Criar aplicação de lógica de exemplo
+## <a name="create-sample-logic-app"></a>Criar aplicativo lógico de exemplo
 
-Primeiro, crie esta aplicação de lógica de exemplo para que pode adicionar um escopo mais tarde:
+Primeiro, crie este aplicativo lógico de exemplo para que você possa adicionar um escopo posteriormente:
 
-![Criar aplicação de lógica de exemplo](./media/logic-apps-control-flow-run-steps-group-scopes/finished-sample-app.png)
+![Criar aplicativo lógico de exemplo](./media/logic-apps-control-flow-run-steps-group-scopes/finished-sample-app.png)
 
-* R **agenda - periodicidade** acionador que verifica o serviço Bing Maps num intervalo que especificou
-* R **Bing Maps - Get route** ação que verifica o tempo de deslocação entre duas localizações
-* Uma instrução condicional que verifica se o tempo de deslocação excede o tempo de deslocação especificado
-* Uma ação que envia um que e-mail para esse tempo de deslocação atual excede o período de tempo especificado
+* Um gatilho **Schedule-recorrência** que verifica o serviço Bing Maps em um intervalo especificado por você
+* Uma ação do **Bing Maps-obter rota** que verifica o tempo de viagem entre dois locais
+* Uma instrução condicional que verifica se o tempo de viagem excede o tempo de viagem especificado
+* Uma ação que envia um email de que o tempo de viagem atual excede o tempo especificado
 
-Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a guardar o seu trabalho.
+Você pode salvar seu aplicativo lógico a qualquer momento, portanto, salve seu trabalho com frequência.
 
-1. Inicie sessão para o <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, se ainda não o fez. Criar uma aplicação lógica em branco.
+1. Entre no <a href="https://portal.azure.com" target="_blank">portal do Azure</a>, se ainda não tiver feito isso. Criar uma aplicação lógica em branco.
 
-1. Adicionar a **agenda - periodicidade** acionador com estas definições: **Intervalo** = "1" e **frequência** = "Minuto"
+1. Adicione o gatilho **agenda-recorrência** com estas configurações: **intervalo** = "1" e **frequência** = "minuto"
 
-   ![Configurar o acionador "– a periodicidade da agenda"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
+   ![Configurar o gatilho "Agenda-recorrência"](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
    > [!TIP]
-   > Para visualmente simplificar a vista e ocultar os detalhes de cada ação no designer, fechar forma de cada ação conforme avança nestes passos.
+   > Para simplificar visualmente a exibição e ocultar os detalhes de cada ação no designer, recolha a forma de cada ação ao progredir por meio dessas etapas.
 
-1. Adicionar a **Bing Maps - Get route** ação. 
+1. Adicione a ação **Bing Maps-obter rota** . 
 
-   1. Se ainda não tiver uma ligação ao mapas Bing, é-lhe pedido para criar uma ligação.
+   1. Se você ainda não tiver uma conexão do Bing Maps, será solicitado a criar uma conexão.
 
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
@@ -71,174 +70,174 @@ Pode guardar a aplicação lógica em qualquer altura, por isso, muitas vezes a 
       | **Chave de API** | <*your-Bing-Maps-key*> | Introduza a chave do Mapas Bing que recebeu anteriormente. | 
       ||||  
 
-   1. Configurar a sua **Get route** ação, como mostra a tabela a seguir esta imagem:
+   1. Configure sua ação **obter rota** , conforme mostrado na tabela abaixo desta imagem:
 
-      ![Configurar "Bing Maps - Get route" ação](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
+      ![Configurar a ação "Bing Maps-obter rota"](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
       Para obter mais informações sobre estes parâmetros, veja [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular um percurso).
 
       | Definição | Valor | Descrição |
       | ------- | ----- | ----------- |
-      | **Waypoint 1** | <*start*> | Introduza a origem do percurso. | 
-      | **Waypoint 2** | <*end*> | Introduza o destino do percurso. | 
-      | **Avoid** | Nenhuma | Introduza os itens para evitar no percurso, como autoestradas, portagens e assim por diante. Para os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
-      | **Optimize** | timeWithTraffic | Selecione um parâmetro para otimizar o percurso, como a distância, tempo com informações de tráfego atuais e assim por diante. Este exemplo utiliza este valor: "timeWithTraffic" | 
-      | **Distance unit** | <*your-preference*> | Introduza a unidade de distância para calcular a rota. Este exemplo utiliza este valor: "Milha" | 
-      | **Travel mode** | Driving | Introduza o modo de viagem para a sua rota. Este exemplo utiliza este valor "Driving" | 
-      | **Transit Date-Time** | Nenhuma | Aplica-se ao modo de tráfego apenas. | 
-      | **Tipo de Data-Type de trânsito** | Nenhuma | Aplica-se ao modo de tráfego apenas. | 
+      | **Waypoint 1** | <*iniciar* > | Insira a origem da rota. | 
+      | **Waypoint 2** | >*final* de < | Insira o destino de sua rota. | 
+      | **Avoid** | Nenhuma | Insira os itens a serem evitados em sua rota, como rodovias, tarifas e assim por diante. Para obter os valores possíveis, consulte [calcular uma rota](https://msdn.microsoft.com/library/ff701717.aspx). | 
+      | **Optimize** | timeWithTraffic | Selecione um parâmetro para otimizar a rota, como distância, tempo com as informações de tráfego atuais e assim por diante. Este exemplo usa este valor: "timeWithTraffic" | 
+      | **Distance unit** | <*your-preference*> | Insira a unidade de distância para calcular a rota. Este exemplo usa este valor: "milhar" | 
+      | **Travel mode** | Driving | Insira o modo de viagem para sua rota. Este exemplo usa esse valor de "condução" | 
+      | **Transit Date-Time** | Nenhuma | Aplica-se somente ao modo de trânsito. | 
+      | **Tipo de data/tipo de trânsito** | Nenhuma | Aplica-se somente ao modo de trânsito. | 
       ||||  
 
-1. [Adicionar uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifica se o tempo de deslocação atual com tráfego excede um período de tempo especificado. 
-   Neste exemplo, siga estes passos:
+1. [Adicione uma condição](../logic-apps/logic-apps-control-flow-conditional-statement.md) que verifica se o tempo de viagem atual com o tráfego excede um tempo especificado. 
+   Para este exemplo, siga estas etapas:
 
-   1. Mudar o nome da condição com a descrição: **Se o tempo de tráfego é mais do que o período de tempo especificado**
+   1. Renomeie a condição com esta descrição: **se o tempo de tráfego for maior do que o tempo especificado**
 
-   1. Na coluna mais à esquerda, clique no interior da **escolher um valor** caixa para que a lista de conteúdo dinâmico apareça. A partir dessa lista, selecione o **Travel Duration Traffic** campo, o que está em segundos. 
+   1. Na coluna mais à esquerda, clique dentro da caixa **escolher um valor** para que a lista de conteúdo dinâmico seja exibida. Nessa lista, selecione o campo **tráfego de duração da viagem** , que está em segundos. 
 
       ![Criar condição](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   1. Na caixa do meio, selecione o operador: **for superior a**
+   1. Na caixa do meio, selecione este operador: **é maior que**
 
-   1. Na coluna mais à direita, introduza o valor de comparação, que está em segundos e o equivalente a 10 minutos: **600**
+   1. Na coluna mais à direita, insira esse valor de comparação, que é em segundos e equivalente a 10 minutos: **600**
 
       Quando estiver pronto, a condição terá o aspeto deste exemplo:
 
       ![Condição concluída](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
 
-1. Na **se for verdadeiro** ramo, adicionar uma ação "enviar e-mail" para o seu fornecedor de e-mail. 
-   Configure esta ação ao seguir os passos abaixo desta imagem:
+1. Na ramificação **If true** , adicione uma ação "enviar email" para seu provedor de email. 
+   Configure essa ação seguindo as etapas descritas nesta imagem:
 
-   ![Adicionar ação "Enviar e-mail" para "Se verdadeiro" ramo](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
+   ![Adicionar uma ação "enviar um email" para o Branch "se verdadeiro"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
-   1. Na **para** , insira seu endereço de e-mail para fins de teste.
+   1. No campo **para** , insira seu endereço de email para fins de teste.
 
-   1. Na **assunto** campo, introduza este texto:
+   1. No campo **assunto** , digite este texto:
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   1. Na **corpo** campo, introduza este texto com um espaço à direita: 
+   1. No campo **corpo** , insira este texto com um espaço à direita: 
 
       ```Travel time:```
 
-      Enquanto o cursor é apresentado na **corpo** campo, a lista de conteúdo dinâmico permanece aberta para que possa selecionar todos os parâmetros que estão disponíveis neste momento.
+      Enquanto o cursor aparece no campo **corpo** , a lista de conteúdo dinâmico permanece aberta para que você possa selecionar os parâmetros disponíveis neste ponto.
 
    1. Na lista de conteúdo dinâmico, escolha **Expressão**.
 
-   1. Localize e selecione o **div()** função. 
-      Coloque o cursor no dentro de parênteses da função.
+   1. Localize e selecione a função **div ()** . 
+      Coloque o cursor dentro dos parênteses da função.
 
-   1. Embora seja o cursor dentro de parênteses da função, escolha **conteúdo dinâmico** para que a lista de conteúdo dinâmico apareça. 
+   1. Enquanto o cursor estiver dentro dos parênteses da função, escolha **conteúdo dinâmico** para que a lista de conteúdo dinâmico seja exibida. 
    
-   1. Partir do **Get route** secção, selecione a **tráfego Duration Traffic** campo.
+   1. Na seção **obter rota** , selecione o campo **tráfego de duração do tráfego** .
 
-      ![Selecione "Tráfego Duration Traffic"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
+      ![Selecione "tráfego de duração do tráfego"](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   1. Depois do campo é resolvido para o formato JSON, adicione uma **vírgula** (```,```) seguido do número ```60``` , para que converter o valor na **tráfego Duration Traffic** de segundos para minutos. 
+   1. Depois que o campo for resolvido para o formato JSON, adicione uma **vírgula** (```,```) seguida pelo número ```60``` para que você converta o valor no **tráfego de duração de tráfego** de segundos para minutos. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
       ```
 
-      Sua expressão agora este aspeto:
+      Sua expressão agora é semelhante a este exemplo:
 
-      ![Expressão de conclusão](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
+      ![Expressão de término](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   1. Quando tiver terminado, escolha **OK**.
+   1. Quando terminar, escolha **OK**.
 
    <!-- markdownlint-disable MD038 -->
-   1. Depois da expressão é resolvido, adicione este texto com um espaço à esquerda: ``` minutes```
+   1. Depois que a expressão for resolvida, adicione este texto com um espaço à esquerda: ``` minutes```
   
-       Sua **corpo** campo agora este aspeto:
+       O campo **corpo** agora é semelhante a este exemplo:
 
-       ![Campo de "Corpo" concluído](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       ![Finished campo "corpo" ](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. Guarde a aplicação lógica.
 
-Em seguida, adicione um âmbito para que possa agrupar ações específicas e avaliar o respetivo estado.
+Em seguida, adicione um escopo para que você possa agrupar ações específicas e avaliar seu status.
 
-## <a name="add-a-scope"></a>Adicionar âmbito
+## <a name="add-a-scope"></a>Adicionar um escopo
 
-1. Se ainda não o tiver feito, abra a aplicação lógica no Estruturador da aplicação lógica. 
+1. Se você ainda não fez isso, abra seu aplicativo lógico no designer de aplicativo lógico. 
 
-1. Adicione um âmbito na localização de fluxo de trabalho que pretende. Por exemplo, para adicionar um âmbito entre passos existentes no fluxo de trabalho de aplicação lógica, siga estes passos: 
+1. Adicione um escopo no local do fluxo de trabalho desejado. Por exemplo, para adicionar um escopo entre as etapas existentes no fluxo de trabalho do aplicativo lógico, siga estas etapas: 
 
-   1. Mova o ponteiro do mouse sobre a seta para onde pretende adicionar o âmbito. 
-   Escolha o **sinal** ( **+** ) > **adicionar uma ação**.
+   1. Mova o ponteiro sobre a seta onde você deseja adicionar o escopo. 
+   Escolha o **sinal de adição** ( **+** ) > **Adicionar uma ação**.
 
-      ![Adicionar âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Adicionar um escopo](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-   1. Na caixa de pesquisa, introduza "escopo" como o filtro. 
-   Selecione o **âmbito** ação.
+   1. Na caixa de pesquisa, digite "Scope" como filtro. 
+   Selecione a ação de **escopo** .
 
-## <a name="add-steps-to-scope"></a>Adicione passos ao âmbito
+## <a name="add-steps-to-scope"></a>Adicionar etapas ao escopo
 
-1. Agora, adicionar os passos ou arraste passos existentes que pretende executar dentro do escopo. Neste exemplo, arraste estas ações para o âmbito:
+1. Agora, adicione as etapas ou arraste as etapas existentes que você deseja executar dentro do escopo. Para este exemplo, arraste essas ações para o escopo:
       
-   * **Obter a rota**
-   * **Se o tempo de tráfego é mais do que o período de tempo especificado**, que inclui ambos os **verdadeira** e **falso** ramos
+   * **Obter rota**
+   * **Se o tempo de tráfego for maior do que o tempo especificado**, o que inclui as ramificações **verdadeiro** e **falso**
 
-   A aplicação lógica agora este aspeto:
+   Seu aplicativo lógico agora é semelhante a este exemplo:
 
-   ![Âmbito adicionado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
+   ![Escopo adicionado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. Sob o escopo, adicione uma condição que verifica o estado de âmbito. Mudar o nome da condição com a descrição: **Se a falha de âmbito**
+1. No escopo, adicione uma condição que verifica o status do escopo. Renomeie a condição com esta descrição: **se o escopo falhou**
 
-   ![Adicionar condição para verificar o estado de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
+   ![Adicionar condição para verificar o status do escopo](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-1. A condição, adicione essas expressões que se verificar se o estado de âmbito é igual a "Falhado" ou "Aborted". 
+1. Na condição, adicione essas expressões que verificam se o status do escopo é igual a "falha" ou "anulado". 
 
-   1. Para adicionar outra linha, escolha **adicionar**. 
+   1. Para adicionar outra linha, escolha **Adicionar**. 
 
-   1. Em cada linha, clique dentro da caixa esquerda para que a lista de conteúdo dinâmico apareça. 
-   Na lista de conteúdo dinâmico, escolha **expressão**. Na caixa de edição, introduza a expressão e, em seguida, escolha **OK**: 
+   1. Em cada linha, clique dentro da caixa à esquerda para que a lista de conteúdo dinâmico seja exibida. 
+   Na lista conteúdo dinâmico, escolha **expressão**. Na caixa de edição, insira esta expressão e, em seguida, escolha **OK**: 
    
       `result('Scope')[0]['status']`
 
-      ![Adicionar a expressão que verifica o estado de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
+      ![Adicionar expressão que verifica o status do escopo](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-   1. Para as duas linhas, selecione **é igual a** como o operador. 
+   1. Para ambas as linhas, Select **é igual** a como o operador. 
    
-   1. Para os valores de comparação, na primeira linha, introduza `Failed`. 
-   Na segunda linha, introduza `Aborted`. 
+   1. Para os valores de comparação, na primeira linha, digite `Failed`. 
+   Na segunda linha, digite `Aborted`. 
 
       Quando estiver pronto, a condição terá o aspeto deste exemplo:
 
-      ![Adicionar a expressão que verifica o estado de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
+      ![Adicionar expressão que verifica o status do escopo](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-      Agora, defina a condição `runAfter` propriedade para que a condição verifica o estado de escopo e executa a ação correspondente que definir em passos posteriores.
+      Agora, defina a propriedade `runAfter` da condição para que a condição Verifique o status do escopo e execute a ação correspondente que você definir em etapas posteriores.
 
-   1. Na **se a falha de âmbito** condição, escolha a **reticências** (...) botão e, em seguida, escolha **configurar execução posterior**.
+   1. Na condição **se o escopo falhar** , escolha o botão de **reticências** (...) e escolha **configurar execução após**.
 
-      ![Configurar a propriedade "runAfter"](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+      ![Configurar a propriedade ' runAfter '](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
 
-   1. Selecione todos os Estados de âmbito: **for concluída com êxito**, **falhou**, **é ignorada**, e **foi excedido**
+   1. Selecionar todos estes status de escopo: **é bem-sucedido**, **falhou**, **foi ignorado**e atingiu o **tempo limite**
 
-      ![Selecionar Estados de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+      ![Selecionar status do escopo](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
 
    1. Quando tiver terminado, selecione **Concluído**. 
    A condição agora mostra um ícone de "informações".
 
-1. Na **se for true** e **se for FALSO** ramos, adicionar as ações que deseja realizar com base em cada Estado de escopo, por exemplo, enviar um e-mail ou a mensagem.
+1. Nas ramificações **se verdadeiro** e **se falso** , adicione as ações que você deseja executar com base em cada status de escopo, por exemplo, enviar um email ou mensagem.
 
-   ![Adicionar ações a realizar com base no estado de âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+   ![Adicionar ações a serem executadas com base no status do escopo](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
 
 1. Guarde a aplicação lógica.
 
-A aplicação lógica concluída agora este aspeto:
+Seu aplicativo lógico concluído agora se parece com este exemplo:
 
-![Aplicação lógica concluída com âmbito](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
+![Aplicativo lógico concluído com escopo](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
 ## <a name="test-your-work"></a>Teste seu trabalho
 
-Na barra de ferramentas da estruturador, escolha **executar**. Se todas as ações com âmbito tiver êxito, receberá uma mensagem de "Escopo foi concluída com êxito". Se todas as ações com âmbito não tiver êxito, receberá uma mensagem "Falha de âmbito". 
+Na barra de ferramentas do designer, escolha **executar**. Se todas as ações com escopo forem bem-sucedidas, você receberá uma mensagem "escopo bem-sucedido". Se alguma ação com escopo não tiver êxito, você receberá uma mensagem "falha no escopo". 
 
 <a name="scopes-json"></a>
 
 ## <a name="json-definition"></a>Definição de JSON
 
-Se estiver a trabalhar na vista de código, pode definir uma estrutura de âmbito na definição de JSON da sua aplicação lógica em vez disso. Por exemplo, eis a definição de JSON para o acionador e ações na aplicação lógica anterior:
+Se você estiver trabalhando no modo de exibição de código, poderá definir uma estrutura de escopo na definição JSON do aplicativo lógico. Por exemplo, aqui está a definição de JSON para gatilho e ações no aplicativo lógico anterior:
 
 ``` json
 "triggers": {
@@ -393,11 +392,11 @@ Se estiver a trabalhar na vista de código, pode definir uma estrutura de âmbit
 ## <a name="get-support"></a>Obter suporte
 
 * Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Para submeter ou votar em recursos e sugestões, visite o [site de comentários de utilizadores do Azure Logic Apps](https://aka.ms/logicapps-wish).
+* Para enviar ou votar em recursos e sugestões, visite o [site de comentários do usuário dos aplicativos lógicos do Azure](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Execute os passos com base numa condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Execute os passos com base nos valores diferentes (declarações do comutador)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Executar e repita os passos (loops)](../logic-apps/logic-apps-control-flow-loops.md)
-* [Executar ou unir a passos paralelos (ramos)](../logic-apps/logic-apps-control-flow-branches.md)
+* [Executar etapas com base em uma condição (instruções condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Executar etapas com base em valores diferentes (instruções switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Executar e repetir etapas (loops)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Executar ou mesclar etapas paralelas (branches)](../logic-apps/logic-apps-control-flow-branches.md)

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: 50059711df195c13ee44061ee4844f0192e0e10d
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992103"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677245"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Coletar dados de um computador Windows em um ambiente híbrido com Azure Monitor
 
@@ -33,11 +33,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Criar uma área de trabalho
+## <a name="create-a-workspace"></a>Criar áreas de trabalho
 
 1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
 
-    ![Portal do Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Selecione **criar**e, em seguida, selecione as opções para os seguintes itens:
 
@@ -47,7 +47,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
    * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).
    * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição já existente criada antes de 2 de abril ou para uma subscrição que estava associada a uma inscrição EA já existente, selecione o seu escalão de preço preferido.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Criar Log Analytics folha de recursos](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Criar Log Analytics folha de recursos](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. Depois de fornecer as informações necessárias no painel **log Analytics espaço de trabalho** , selecione **OK**.  
 
@@ -64,7 +64,7 @@ Antes de instalar o agente de Log Analytics para Windows (também conhecido como
 
 3. Selecione **Configurações avançadas**:
 
-    ![Log Analytics configurações avançadas](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics configurações avançadas](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
   
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Windows**.
 
@@ -99,7 +99,7 @@ As etapas a seguir instalam e configuram o agente para Log Analytics no Azure e 
 
 10. Na página **configuração concluída com êxito** , selecione **concluir**.
 
-Quando a instalação e a instalação forem concluídas, Microsoft Monitoring Agent aparecerá no painel de controle. Você pode examinar sua configuração e verificar se o agente está conectado ao espaço de trabalho Log Analytics. Quando conectado, na guia **log Analytics do Azure** , o agente exibe esta mensagem: **O Microsoft Monitoring Agent se conectou com êxito ao serviço de Log Analytics da Microsoft.**<br><br> ![Status da conexão do MMA](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png)
+Quando a instalação e a instalação forem concluídas, Microsoft Monitoring Agent aparecerá no painel de controle. Você pode examinar sua configuração e verificar se o agente está conectado ao espaço de trabalho Log Analytics. Quando conectado, na guia **log Analytics do Azure** , o agente exibe esta mensagem: **a Microsoft Monitoring Agent se conectou com êxito ao serviço Microsoft log Analytics.**<br><br> ![MMA ](media/quick-collect-windows-computer/log-analytics-mma-laworkspace-status.png) de status da conexão
 
 ## <a name="collect-event-and-performance-data"></a>Recolher dados de eventos e de desempenho
 
@@ -109,11 +109,11 @@ Azure Monitor pode coletar eventos que você especificar no log de eventos do Wi
 
 2. Selecione **Configurações avançadas**:
 
-    ![Log Analytics configurações avançadas](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png)
+    ![Log Analytics configurações avançadas](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png)
  
 3. Selecione **Dados** e, em seguida, selecione **Registos de Eventos do Windows**.  
 
-4. Você adiciona um log de eventos digitando o nome do log. Insira **sistema**e, em seguida, selecione o sinal **+** de adição ().  
+4. Você adiciona um log de eventos digitando o nome do log. Insira **sistema**e, em seguida, selecione o sinal de adição ( **+** ).  
 
 5. Na tabela, selecione as severidades de **erro** e **aviso** .
 
@@ -129,7 +129,7 @@ Azure Monitor pode coletar eventos que você especificar no log de eventos do Wi
 
 9. Selecione **salvar** na parte superior da página.
 
-## <a name="view-collected-data"></a>Ver dados recolhidos
+## <a name="view-collected-data"></a>Exibir dados coletados
 
 Agora que você habilitou a coleta de dados, vamos executar uma pesquisa de log simples para ver alguns dados do computador de destino.  
 
@@ -157,7 +157,7 @@ Para remover o agente, conclua estas etapas:
 
 Para excluir o espaço de trabalho Log Analytics criado anteriormente, selecione-o e, na página recurso, selecione **excluir**:
 
-![Eliminar área de trabalho de Log Analyticss](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
+![Excluir Log Analytics espaço de trabalho](media/quick-collect-azurevm/log-analytics-portal-delete-resource.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

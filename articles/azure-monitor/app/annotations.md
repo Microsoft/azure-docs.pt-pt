@@ -1,99 +1,94 @@
 ---
-title: Anotações do Application Insights da versão | Documentos da Microsoft
-description: Adicionar implementação ou criar marcadores para seus gráficos do Explorador de métricas no Application Insights.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 23173e33-d4f2-4528-a730-913a8fd5f02e
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Anotações de versão para Application Insights | Microsoft Docs
+description: Adicione os marcadores de implantação ou de Build aos seus gráficos de métricas do Gerenciador em Application Insights.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/01/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: e3ec202ba6126b150fb78c76591682f163018661
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.date: 07/01/2019
+ms.openlocfilehash: 9dbdd683a8545e0f8c573dfba60daa96ef5ff08d
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604547"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677860"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos de métricas no Application Insights
 
-Anotações no [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) gráficos mostram onde implementou uma nova compilação, ou outros eventos significativos. Anotações facilitam ver se as suas alterações tinham qualquer impacto no desempenho da sua aplicação. Eles podem ser criados automaticamente pelos [Pipelines do Azure](https://docs.microsoft.com/azure/devops/pipelines/tasks/) sistema de compilação. Também pode criar anotações para sinalizar a qualquer evento que gosta, criando-los a partir do PowerShell.
+Anotações em gráficos de [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) mostram onde você implantou uma nova compilação ou outros eventos significativos. As anotações facilitam a visualização se as alterações tiveram algum efeito sobre o desempenho do aplicativo. Eles podem ser criados automaticamente pelo sistema [Azure pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/) Build. Você também pode criar anotações para sinalizar qualquer evento que desejar, criando-as no PowerShell.
 
 > [!NOTE]
-> Este artigo reflete o preterido **experiência de métricas clássicas**. Anotações só estão atualmente disponíveis na experiência do clássica e no  **[livros](../../azure-monitor/app/usage-workbooks.md)** . Para saber mais sobre a experiência de métricas atual, veja [recursos avançados do Explorador de métricas do Azure](../../azure-monitor/platform/metrics-charts.md).
+> Este artigo reflete a experiência de **métricas clássicas**preteridas. As anotações estão atualmente disponíveis na experiência clássica e nas pastas de **[trabalho](../../azure-monitor/app/usage-workbooks.md)** . Para saber mais sobre a experiência atual de métricas, consulte [recursos avançados do Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md).
 
 ![Exemplo de anotações](./media/annotations/0-example.png)
 
-## <a name="release-annotations-with-azure-pipelines-build"></a>Anotações com Pipelines do Azure compilação da versão
+## <a name="release-annotations-with-azure-pipelines-build"></a>Anotações de versão com Azure Pipelines Build
 
-Notas de versão são uma funcionalidade do serviço de Pipelines do Azure com base na cloud do Azure DevOps.
+As anotações de versão são um recurso do serviço Azure Pipelines baseado em nuvem do Azure DevOps.
 
 ### <a name="install-the-annotations-extension-one-time"></a>Instalar a extensão de anotações (uma vez)
-Para poder criar notas de versão, terá de instalar uma das muitas extensões de DevOps do Azure disponíveis no Visual Studio Marketplace.
+Para poder criar anotações de versão, você precisará instalar uma das muitas extensões do Azure DevOps disponíveis no Visual Studio Marketplace.
 
-1. Inicie sessão no seu [do Azure DevOps](https://azure.microsoft.com/services/devops/) projeto.
+1. Entre no seu projeto [DevOps do Azure](https://azure.microsoft.com/services/devops/) .
    
-1. No Visual Studio Marketplace [extensão de notas de versão](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) página, selecione a sua organização de DevOps do Azure e, em seguida, selecione **instalar** para adicionar a extensão para a sua organização de DevOps do Azure.
+1. Na página [extensão de anotações](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations) de Visual Studio Marketplace versão, selecione sua organização do Azure DevOps e, em seguida, selecione **instalar** para adicionar a extensão à sua organização do DevOps do Azure.
    
-   ![Selecione uma organização de DevOps do Azure e, em seguida, selecione instalar.](./media/annotations/1-install.png)
+   ![Selecione uma organização do Azure DevOps e, em seguida, selecione instalar.](./media/annotations/1-install.png)
    
-Apenas terá de instalar a extensão de uma vez para a sua organização de DevOps do Azure. Agora, pode configurar notas de versão para qualquer projeto na sua organização.
+Você só precisa instalar a extensão uma vez para sua organização DevOps do Azure. Agora você pode configurar anotações de versão para qualquer projeto em sua organização.
 
-### <a name="configure-release-annotations"></a>Configurar notas de versão
+### <a name="configure-release-annotations"></a>Configurar anotações de versão
 
-Crie uma chave de API separada para cada um dos seus modelos de lançamento de Pipelines do Azure.
+Crie uma chave de API separada para cada um dos modelos de versão de Azure Pipelines.
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com) e abra o recurso do Application Insights monitoriza a aplicação. Ou se não tiver uma, [criar um novo recurso do Application Insights](../../azure-monitor/app/app-insights-overview.md).
+1. Entre no [portal do Azure](https://portal.azure.com) e abra o recurso Application insights que monitora seu aplicativo. Ou, se você não tiver uma, [crie um novo recurso de Application insights](../../azure-monitor/app/app-insights-overview.md).
    
-1. Abra o **acesso à API** separador e copie a **ID de informações da aplicação**.
+1. Abra a guia **acesso à API** e copie a **ID de Application insights**.
    
-   ![Em acesso de API, copie o ID da aplicação.](./media/annotations/2-app-id.png)
+   ![Em acesso à API, copie a ID do aplicativo.](./media/annotations/2-app-id.png)
 
-1. Numa janela do browser separado, abrir ou criar o modelo de liberação que gere as suas implementações de Pipelines do Azure.
+1. Em uma janela separada do navegador, abra ou crie o modelo de versão que gerencia suas implantações de Azure Pipelines.
    
-1. Selecione **adicionar tarefas**e, em seguida, selecione a **anotação de versão do Application Insights** tarefas no menu.
+1. Selecione **Adicionar tarefa**e, em seguida, selecione a Application insights tarefa de **anotação de liberação** no menu.
    
-   ![Selecione a tarefa de adicionar e selecione a anotação de versão do Application Insights.](./media/annotations/3-add-task.png)
+   ![Selecione Adicionar tarefa e selecione Application Insights anotação de versão.](./media/annotations/3-add-task.png)
    
-1. Sob **ID da aplicação**, cole o ID de informações da aplicação que copiou do **acesso à API** separador.
+1. Em **ID do aplicativo**, Cole a id de Application insights que você copiou da guia **acesso à API** .
    
-   ![Cole o ID de informações da aplicação](./media/annotations/4-paste-app-id.png)
+   ![Cole a ID de Application Insights](./media/annotations/4-paste-app-id.png)
    
-1. Novamente no Application Insights **acesso à API** janela, selecione **criar chave de API**. 
+1. De volta à janela de **acesso Application insights API** , selecione **criar chave de API**. 
    
-   ![No separador de acesso à API, selecione Criar chave de API.](./media/annotations/5-create-api-key.png)
+   ![Na guia acesso à API, selecione criar chave de API.](./media/annotations/5-create-api-key.png)
    
-1. Na **criar chave de API** janela, escreva uma descrição, selecione **escrever anotações**e, em seguida, selecione **gerar chave**. Copie a nova chave.
+1. Na janela **criar chave de API** , digite uma descrição, selecione **anotações de gravação**e, em seguida, selecione **gerar chave**. Copie a nova chave.
    
-   ![Na janela de chave de API de criar, escreva uma descrição, selecione as anotações de escrita e, em seguida, selecione a gerar chave.](./media/annotations/6-create-api-key.png)
+   ![Na janela criar chave de API, digite uma descrição, selecione anotações de gravação e, em seguida, selecione gerar chave.](./media/annotations/6-create-api-key.png)
    
-1. Na janela de modelo de versão, sobre o **variáveis** separador, selecione **Add** para criar uma definição de variável para a nova chave de API.
+1. Na janela modelo de versão, na guia **variáveis** , selecione **Adicionar** para criar uma definição de variável para a nova chave de API.
 
-1. Sob **Name**, introduza `ApiKey`e, em **valor**, cole a chave de API que copiou do **acesso à API** separador.
+1. Em **nome**, insira `ApiKey` e, em **valor**, Cole a chave de API que você copiou da guia **acesso à API** .
    
-   ![No separador variáveis de DevOps do Azure, selecione Add, o nome da variável ApiKey e cole a chave de API em valor.](./media/annotations/7-paste-api-key.png)
+   ![Na guia variáveis do Azure DevOps, selecione Adicionar, nomeie a variável ApiKey e cole a chave de API em valor.](./media/annotations/7-paste-api-key.png)
    
-1. Selecione **guardar** na janela de modelo de lançamento principal para guardar o modelo.
+1. Selecione **salvar** na janela principal do modelo de liberação para salvar o modelo.
 
-## <a name="view-annotations"></a>Ver anotações
-Agora, sempre que utilizar o modelo de liberação para implementar uma nova versão, uma anotação é enviada para o Application Insights. As anotações são apresentados nos gráficos no **Explorador de métricas**.
+## <a name="view-annotations"></a>Exibir anotações
+Agora, sempre que você usar o modelo de versão para implantar uma nova versão, uma anotação será enviada para Application Insights. As anotações aparecem em gráficos em **Metrics Explorer**.
 
-Selecione qualquer marcador de anotação (seta a cinzenta claro) para abrir os detalhes sobre a versão, incluindo o requerente, o ramo de controle de origem, o pipeline de lançamento e o ambiente.
+Selecione qualquer marcador de anotação (seta cinza-claro) para abrir detalhes sobre a versão, incluindo o solicitante, o Branch de controle do código-fonte, o pipeline de liberação e o ambiente.
 
 ![Selecione um marcador de anotação de versão.](./media/annotations/8-release.png)
 
 ## <a name="create-custom-annotations-from-powershell"></a>Criar anotações personalizadas do PowerShell
-Pode utilizar o [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) script do PowerShell do GitHub para criar anotações a partir de qualquer processo que quiser, sem utilizar o Azure DevOps. 
+Você pode usar o script do PowerShell do [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1) do GitHub para criar anotações de qualquer processo que desejar, sem usar o DevOps do Azure. 
 
-1. Faça uma cópia local do [CreateReleaseAnnotation.ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
+1. Faça uma cópia local de [CreateReleaseAnnotation. ps1](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).
    
-1. Utilize os passos do procedimento anterior para obter sua ID de informações da aplicação e criar uma chave de API do Application insights **acesso à API** separador.
+1. Use as etapas no procedimento anterior para obter sua ID de Application Insights e criar uma chave de API na guia **acesso à api** Application insights.
    
-1. Chame o script do PowerShell com o código seguinte, substituindo os marcadores de posição entre parênteses ângulo com os seus valores. O `-releaseProperties` são opcionais. 
+1. Chame o script do PowerShell com o código a seguir, substituindo os espaços reservados entre colchetes angulares por seus valores. As `-releaseProperties` são opcionais. 
    
    ```powershell
    
@@ -106,9 +101,9 @@ Pode utilizar o [CreateReleaseAnnotation](https://github.com/Microsoft/Applicati
              "TriggerBy"="<Your name>" }
    ```
 
-Pode modificar o script, por exemplo, para criar anotações para o passado.
+Você pode modificar o script, por exemplo, para criar anotações para o passado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar itens de trabalho](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automação com PowerShell](../../azure-monitor/app/powershell.md)
+* [Automação com o PowerShell](../../azure-monitor/app/powershell.md)

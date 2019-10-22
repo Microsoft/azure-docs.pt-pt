@@ -1,6 +1,6 @@
 ---
-title: Tratamento de exceção & cenário de log de erros-aplicativos lógicos do Azure | Microsoft Docs
-description: Aqui está um caso de uso real sobre o tratamento de exceção avançada e o log de erros nos aplicativos lógicos do Azure
+title: Tratamento de exceção & cenário de log de erros-aplicativos lógicos do Azure
+description: Cenário e caso de uso real para tratamento de exceção avançada e log de erros em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,16 +10,16 @@ ms.reviewer: LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: ec01f738ee4943659de1b49ab8d52218e6a8fb79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 7930d487d367ee19b869becae5017f80ea1df8cb
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385457"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680166"
 ---
-# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros para aplicativos lógicos
+# <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: tratamento de exceção e log de erros para aplicativos lógicos
 
-Este cenário descreve como você pode estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso da vida real para responder à pergunta: "Os aplicativos lógicos do Azure dão suporte ao tratamento de exceções e erros?"
+Este cenário descreve como você pode estender um aplicativo lógico para dar melhor suporte ao tratamento de exceção. Usamos um caso de uso real para responder à pergunta: "os aplicativos lógicos do Azure dão suporte ao tratamento de exceções e erros?"
 
 > [!NOTE]
 > O esquema atual de aplicativos lógicos do Azure fornece um modelo padrão para respostas de ação. Esse modelo inclui validação interna e respostas de erro retornadas de um aplicativo de API.
@@ -36,24 +36,24 @@ O projeto tinha dois requisitos principais:
 * Uma maneira de exibir os erros que ocorreram no fluxo de trabalho
 
 > [!TIP]
-> Para obter um vídeo de alto nível sobre esse projeto, consulte integração [grupo]de usuários(http://www.integrationusergroup.com/logic-apps-support-error-handling/ "integração")grupo de usuários.
+> Para obter um vídeo de alto nível sobre este projeto, consulte [Integration User Group](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Grupo de usuários de integração").
 
 ## <a name="how-we-solved-the-problem"></a>Como resolvemos o problema
 
 Escolhemos [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório para os registros de log e de erro (Cosmos DB se refere a registros como documentos). Como os aplicativos lógicos do Azure têm um modelo padrão para todas as respostas, não precisamos criar um esquema personalizado. Poderíamos criar um aplicativo de API para **Inserir** e **consultar** os registros de erro e log. Também poderíamos definir um esquema para cada um dentro do aplicativo de API.  
 
-Outro requisito era limpar os registros após uma determinada data. Cosmos DB tem uma [propriedade chamada TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "(vida") útil), que nos permitiu definir um valor de **vida** útil para cada registro ou coleção. Esse recurso eliminou a necessidade de excluir manualmente os registros em Cosmos DB.
+Outro requisito era limpar os registros após uma determinada data. Cosmos DB tem uma [propriedade chamada TTL (vida útil](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Vida útil") ), que nos permitiu definir um valor de **vida útil** para cada registro ou coleção. Esse recurso eliminou a necessidade de excluir manualmente os registros em Cosmos DB.
 
 > [!IMPORTANT]
 > Para concluir este tutorial, você precisa criar um banco de dados Cosmos DB e duas coleções (log e erros).
 
-## <a name="create-the-logic-app"></a>Criar o aplicativo lógico
+## <a name="create-the-logic-app"></a>Criar a aplicação lógica
 
 A primeira etapa é criar o aplicativo lógico e abrir o aplicativo no designer de aplicativo lógico. Neste exemplo, estamos usando aplicativos lógicos pai-filho. Vamos supor que já criamos o pai e vamos criar um aplicativo lógico filho.
 
 Como vamos registrar o registro que sai do Dynamics CRM Online, vamos começar na parte superior. Devemos usar um gatilho de **solicitação** porque o aplicativo lógico pai dispara esse filho.
 
-### <a name="logic-app-trigger"></a>Acionador da aplicação lógica
+### <a name="logic-app-trigger"></a>Gatilho de aplicativo lógico
 
 Estamos usando um gatilho de **solicitação** , conforme mostrado no exemplo a seguir:
 
@@ -99,7 +99,7 @@ Devemos registrar a origem (solicitação) do registro de pacientes no portal do
 
 1. É necessário obter um novo registro de compromisso do Dynamics CRM Online.
 
-   O gatilho proveniente do CRM nos fornece a Patenteid de **CRM**, **o tipo de registro**, o **registro novo ou atualizado** (valor booliano novo ou de atualização) e **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado apenas para uma atualização.
+   O gatilho proveniente do CRM nos fornece a **patenteid de CRM**, **o tipo de registro**, o **registro novo ou atualizado** (valor booliano novo ou de atualização) e **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado apenas para uma atualização.
    Obtemos o registro do CRM usando o CRM **pacienteid** e o **tipo de registro**.
 
 2. Em seguida, precisamos adicionar nossa Azure Cosmos DB operação **InsertLogEntry** do aplicativo de API do SQL, como mostrado aqui no designer de aplicativo lógico.
@@ -399,7 +399,7 @@ Nossa solução acrescentou recursos com [Azure Cosmos DB](https://azure.microso
 
 ### <a name="error-management-portal"></a>Portal de gerenciamento de erros
 
-Para exibir os erros, você pode criar um aplicativo Web MVC para exibir os registros de erro de Cosmos DB. As operações listar, **detalhes**, **Editar**e **excluir** estão incluídas na versão atual.
+Para exibir os erros, você pode criar um aplicativo Web MVC para exibir os registros de erro de Cosmos DB. As operações **listar**, **detalhes**, **Editar**e **excluir** estão incluídas na versão atual.
 
 > [!NOTE]
 > Operação de edição: Cosmos DB substitui todo o documento. Os registros mostrados nas exibições de **lista** e de **detalhes** são apenas exemplos. Eles não são registros de compromissos reais do paciente.
@@ -429,7 +429,7 @@ Nosso aplicativo de API de gerenciamento de exceções de aplicativos lógicos d
 * **LogController** Insere um registro de log (documento) em uma coleção de Azure Cosmos DB.
 
 > [!TIP]
-> Ambos os controladores `async Task<dynamic>` usam operações, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema de Azure Cosmos DB no corpo da operação. 
+> Ambos os controladores usam operações de `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema de Azure Cosmos DB no corpo da operação. 
 > 
 
 Cada documento no Azure Cosmos DB deve ter uma ID exclusiva. Estamos usando `PatientId` e adicionando um carimbo de data/hora que é convertido em um valor de carimbo de data/hora UNIX (duplo). Truncamos o valor para remover o valor fracionário.
@@ -477,11 +477,11 @@ A expressão no exemplo de código anterior verifica o status *Create_NewPatient
 * Você pode usar Azure Cosmos DB como o repositório para registros de log e de erro (documentos).
 * Você pode usar o MVC para criar um portal para exibir registros de erro e log.
 
-### <a name="source-code"></a>Código de origem
+### <a name="source-code"></a>Código fonte
 
-O código-fonte para o aplicativo de API de gerenciamento de exceções de aplicativos lógicos está disponível neste [repositório do GITHUB](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gerenciamento de exceções de aplicativo lógico").
+O código-fonte para o aplicativo de API de gerenciamento de exceções de aplicativos lógicos está disponível neste [repositório GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi "API de gerenciamento de exceções do aplicativo lógico").
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Exibir mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Saiba mais sobre como monitorar aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md)

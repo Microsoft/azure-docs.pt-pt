@@ -1,24 +1,19 @@
 ---
 title: Insights do Aplicativo Azure | Microsoft Docs
 description: ''
-services: application-insights
-documentationcenter: ''
-author: eternovsky
-manager: carmonm
-ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: eternovsky
+ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.author: evternov
-ms.openlocfilehash: 3abf50b3467ce9a97f2163a10ad1782f6e1c9c20
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 03f802297c2ecaac0c126ed3de6401b40e1f804b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258433"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678167"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionando dados de Application Insights com fontes de dados personalizadas
 

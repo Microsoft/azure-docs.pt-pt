@@ -1,23 +1,19 @@
 ---
 title: Monitore seu aplicativo Web com testes na Web de várias etapas e informações de Aplicativo Azure | Microsoft Docs
 description: Configurar testes na Web de várias etapas para monitorar seus aplicativos Web com o Aplicativo Azure insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 07/25/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: a836e4cf66bf1e957f7b3779e21ec6a0296f7abe
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881444"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678241"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web de vários passos
 
@@ -31,7 +27,7 @@ Você pode monitorar uma sequência registrada de URLs e interações com um sit
 * Visual Studio 2017 Enterprise ou superior.
 * Ferramentas de teste de carga e desempenho na Web do Visual Studio.
 
-Para localizar o pré-requisito das ferramentas de teste. Inicie o **instalador do Visual Studio** >  > **componentes** > individuais de**depuração e teste**de**desempenho da Web e ferramentas de teste de carga**.
+Para localizar o pré-requisito das ferramentas de teste. Inicie o **Instalador do Visual Studio**  > **componentes individuais**  > **depuração e teste**  > **ferramentas de teste de carga e desempenho da Web**.
 
 ![Captura de tela da interface do usuário do instalador do Visual Studio com componentes individuais selecionados com uma caixa de seleção ao lado do item para ferramentas de teste de carga e desempenho na Web](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -48,11 +44,11 @@ Para criar um teste com vários passos, registe o cenário com o Visual Studio E
 
 Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 
-1. Crie um projeto de teste de carga e desempenho na Web. **Arquivo** **novo teste** **Visual C#** doprojeto >  >  >   > 
+1. Crie um projeto de teste de carga e desempenho na Web. **Arquivo**  > **novo** **projeto** de  >   > **teste** do**Visual C#**   > 
 
     ![IU do novo projeto do Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
 
-2. Abra o `.webtest` arquivo e inicie a gravação.
+2. Abra o arquivo `.webtest` e inicie a gravação.
 
     ![IU de gravação de teste do Visual Studio](./media/availability-multistep/open-web-test.png)
 
@@ -73,7 +69,7 @@ Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 
 ## <a name="upload-the-web-test"></a>Carregar o teste na Web
 
-1. No portal do Application insights no painel disponibilidade, selecione **criar** >  > teste teste**da Web de várias etapas**.
+1. No portal de Application Insights no painel disponibilidade, selecione **criar teste**  > **tipo de teste**  > **teste na Web de várias etapas**.
 
 2. Defina os locais de teste, a frequência e os parâmetros de alerta.
 
@@ -84,7 +80,7 @@ Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 |**Frequência de teste**| Define a frequência com que o teste é executado a partir de cada local de teste. Com uma frequência predefinida de cinco minutos e cinco localizações de teste, o site é testado, em média, a cada minuto.|
 |**Locais de teste**| São os locais de onde nossos servidores enviam solicitações da Web para sua URL. **Nosso número mínimo de locais de teste recomendados é cinco** para garantir que você possa distinguir problemas em seu site por meio de problemas de rede. Pode selecionar até 16 localizações.
 
-### <a name="success-criteria"></a>Critérios de êxito
+### <a name="success-criteria"></a>Critérios de sucesso
 
 |Definição| Explicação
 |----|----|----|
@@ -98,9 +94,9 @@ Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 |----|----|----|
 |**Quase em tempo real (visualização)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o número **limite** = **de local de alerta de locais de teste-2, com um mínimo de cinco locais de teste.**|
+|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta**  = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
 
-## <a name="advanced-configuration"></a>Configurações Avançadas
+## <a name="advanced-configuration"></a>Configuração Avançada
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Tempo de conexão e números aleatórios em seu teste
 
@@ -142,7 +138,7 @@ Em todos os casos, deve criar uma conta na sua aplicação apenas para efeitos d
 |----|-----|
 | URI do público | O URI do público-alvo do token SAML.  Esse é o URI para o serviço de controle de acesso (ACS) – incluindo o nome do host e o namespace do ACS. |
 | Senha do certificado | A senha para o certificado de cliente que concederá acesso à chave privada inserida. |
-| Certificado de Cliente  | O valor do certificado de cliente com a chave privada no formato codificado em base64. |
+| Certificado do cliente  | O valor do certificado de cliente com a chave privada no formato codificado em base64. |
 | Identificador de nome | O identificador de nome para o token |
 | Não após | O TimeSpan para o qual o token será válido.  O padrão é 5 minutos. |
 | Não antes de | O TimeSpan para o qual um token criado no passado será válido (para endereçar distorções de tempo).  O padrão é (negativo) 5 minutos. |
@@ -153,7 +149,7 @@ Em todos os casos, deve criar uma conta na sua aplicação apenas para efeitos d
 
 Eis um exemplo de teste Web de uma aplicação Web do Azure com uma chave de aplicação:
 
-![Captura de ecrã de exemplo](./media/availability-multistep/client-secret.png)
+![Captura de tela de exemplo](./media/availability-multistep/client-secret.png)
 
 Obtenha o token do AAD utilizando o segredo do cliente (AppKey).
 Extraia o token de portador a partir da resposta.
@@ -175,7 +171,7 @@ Parametrizar os tokens definindo o parâmetro quando o token é devolvido do aut
 
 [Artigo de solução de problemas](troubleshoot-availability.md)dedicado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alertas de disponibilidade](availability-alerts.md)
 * [Testes da Web de ping de URL](monitor-web-app-availability.md)

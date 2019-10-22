@@ -1,26 +1,21 @@
 ---
 title: Mapa de aplicativos no Aplicativo Azure insights | Microsoft Docs
 description: Monitorar topologias de aplicativo complexas com o mapa do aplicativo
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3bf37fe9-70d7-4229-98d6-4f624d256c36
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: f895aa9aa4bc66c32f10d290b7ee708345be8c9b
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983771"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678395"
 ---
-# <a name="application-map-triage-distributed-applications"></a>Mapa do aplicativo: Triagem de aplicativos distribuídos
+# <a name="application-map-triage-distributed-applications"></a>Mapa de aplicativos: triagem de aplicativos distribuídos
 
 O mapa do aplicativo ajuda a identificar gargalos de desempenho ou pontos de interativações de falha em todos os componentes do seu aplicativo distribuído. Cada nó no mapa representa um componente de aplicativo ou suas dependências; e tem KPI de integridade e status de alertas. Você pode clicar em qualquer componente para diagnóstico mais detalhado, como Application Insights eventos. Se seu aplicativo usa os serviços do Azure, você também pode clicar no diagnóstico do Azure, como Assistente do Banco de Dados SQL recomendações.
 
@@ -66,7 +61,7 @@ Para solucionar problemas de desempenho, selecione **investigar desempenho**.
 
 ![Captura de tela da experiência de desempenho](media/app-map/performance.png)
 
-### <a name="go-to-details"></a>Ir para os detalhes
+### <a name="go-to-details"></a>Ir para detalhes
 
 Selecione **ir para detalhes** para explorar a experiência de transação de ponta a ponta, que pode oferecer exibições até o nível da pilha de chamadas.
 
@@ -74,7 +69,7 @@ Selecione **ir para detalhes** para explorar a experiência de transação de po
 
 ![Captura de tela de detalhes de transação de ponta a ponta](media/app-map/end-to-end-transaction.png)
 
-### <a name="view-in-analytics"></a>Vista no Analytics
+### <a name="view-in-analytics"></a>Exibir no Analytics
 
 Para consultar e investigar ainda mais os dados de aplicativos, clique em **Exibir na análise**.
 
@@ -119,7 +114,7 @@ namespace CustomInitializer.Telemetry
 }
 ```
 
-**Aplicativos ASP.NET: Carregar inicializador para o TelemetryConfiguration ativo**
+**Aplicativos ASP.NET: inicializador de carga para o TelemetryConfiguration ativo**
 
 Em ApplicationInsights. config:
 
@@ -147,11 +142,11 @@ Um método alternativo para aplicativos Web ASP.NET é instanciar o inicializado
 ```
 
 > [!NOTE]
-> Adicionar inicializador `ApplicationInsights.config` usando ou `TelemetryConfiguration.Active` usando não é válido para aplicativos ASP.NET Core. 
+> Adicionar inicializador usando `ApplicationInsights.config` ou usando `TelemetryConfiguration.Active` não é válido para aplicativos ASP.NET Core. 
 
-**ASP.NET Core aplicativos: Carregar inicializador para o TelemetryConfiguration**
+**Aplicativos ASP.NET Core: inicializador de carga para o TelemetryConfiguration**
 
-Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, conforme mostrado abaixo. Isso é feito no `ConfigureServices` método da sua `Startup.cs` classe.
+Para aplicativos [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) , adicionar um novo `TelemetryInitializer` é feito adicionando-o ao contêiner de injeção de dependência, como mostrado abaixo. Isso é feito em `ConfigureServices` método de sua classe `Startup.cs`.
 
 ```csharp
  using Microsoft.ApplicationInsights.Extensibility;
@@ -210,7 +205,7 @@ No que diz respeito a como pensar sobre o **nome da função de nuvem**, pode se
 
 ![Captura de tela do mapa do aplicativo](media/app-map/cloud-rolename.png)
 
-No mapa do aplicativo acima, cada um dos nomes em caixas verdes são valores de nome de função de nuvem para diferentes aspectos desse aplicativo distribuído específico. Portanto, para esse aplicativo, suas funções consistem `acmefrontend`em `Inventory Management`: `Authentication`, `Payment Processing Worker Role`,, a. 
+No mapa do aplicativo acima, cada um dos nomes em caixas verdes são valores de nome de função de nuvem para diferentes aspectos desse aplicativo distribuído específico. Portanto, para esse aplicativo, suas funções consistem em: `Authentication`, `acmefrontend`, `Inventory Management`, uma `Payment Processing Worker Role`. 
 
 No caso desse aplicativo, cada um desses nomes de função de nuvem também representa um recurso de Application Insights exclusivo diferente com suas próprias chaves de instrumentação. Como o proprietário deste aplicativo tem acesso a cada um desses quatro recursos de Application Insights diferentes, o mapa de aplicativos é capaz de reunir um mapa das relações subjacentes.
 
@@ -230,7 +225,7 @@ Como alternativa, a **instância de função de nuvem** pode ser útil para cen�
 
 Um cenário em que você talvez queira substituir o valor para a instância de função de nuvem poderia ser se seu aplicativo estiver sendo executado em um ambiente em contêineres, onde apenas saber se o servidor individual pode não ser informações suficientes para localizar um determinado problema.
 
-Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores [de telemetria, consulte Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Para obter mais informações sobre como substituir a propriedade de nome da função de nuvem por inicializadores de telemetria, consulte [Adicionar propriedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

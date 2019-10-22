@@ -1,25 +1,21 @@
 ---
 title: Modelo de dados de telemetria do insights Aplicativo Azure-telemetria de métrica | Microsoft Docs
 description: Modelo de dados Application Insights para telemetria de métrica
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: TBD
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.author: mbullwin
-ms.openlocfilehash: 0973c86d055ff4ebbe7e5a3c4a2ca4e3dcabc6a0
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 816fa37ea052b18dab80bcc0d5c1528cd3d9a014
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60900465"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678135"
 ---
-# <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: Modelo de dados do Application Insights
+# <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métrica: modelo de dados de Application Insights
 
 Há dois tipos de telemetria de métricas com suporte pelo [Application insights](../../azure-monitor/app/app-insights-overview.md): medição única e métrica de agregação. A medida única é apenas um nome e valor. A métrica previamente agregada especifica o valor mínimo e máximo da métrica no intervalo de agregação e o desvio padrão dela.
 
@@ -45,11 +41,11 @@ Métrica que representa os contadores do sistema e do processo:
 
 Nome da métrica que você gostaria de ver no Portal Application Insights e na interface do usuário. 
 
-## <a name="value"></a>Value
+## <a name="value"></a>Valor
 
 Valor único para medição. Soma de medidas individuais para a agregação.
 
-## <a name="count"></a>Count
+## <a name="count"></a>Contagem
 
 Peso da métrica da métrica agregada. Não deve ser definido para uma medida.
 
@@ -57,7 +53,7 @@ Peso da métrica da métrica agregada. Não deve ser definido para uma medida.
 
 Valor mínimo da métrica agregada. Não deve ser definido para uma medida.
 
-## <a name="max"></a>Máx.
+## <a name="max"></a>Máx
 
 Valor máximo da métrica agregada. Não deve ser definido para uma medida.
 
@@ -67,7 +63,7 @@ Desvio padrão da métrica agregada. Não deve ser definido para uma medida.
 
 ## <a name="custom-properties"></a>Propriedades personalizadas
 
-Métrica com a propriedade `CustomPerfCounter` personalizada definida para `true` indicar que a métrica representa o contador de desempenho do Windows. Essas métricas são colocadas na tabela performanceCounters. Não está em customMetrics. Além disso, o nome dessa métrica é analisado para extrair os nomes de categoria, contador e instância.
+A métrica com a propriedade personalizada `CustomPerfCounter` definida como `true` indicar que a métrica representa o contador de desempenho do Windows. Essas métricas são colocadas na tabela performanceCounters. Não está em customMetrics. Além disso, o nome dessa métrica é analisado para extrair os nomes de categoria, contador e instância.
 
 [!INCLUDE [application-insights-data-model-properties](../../../includes/application-insights-data-model-properties.md)]
 

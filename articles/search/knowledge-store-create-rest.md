@@ -7,12 +7,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: b67f0cf60d279c7bc52b4114d29c37847f5c57f1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 68808a2ea99c8fccd7e64f15e97f2ee6ec84d1a9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244471"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678462"
 ---
 # <a name="create-an-azure-search-knowledge-store-by-using-rest"></a>Criar um repositório de conhecimento Azure Search usando REST
 
@@ -30,7 +30,7 @@ Crie os seguintes serviços:
 
 - Crie uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para armazenar os dados de exemplo e a loja de conhecimento. Sua conta de armazenamento deve usar o mesmo local (como US-oeste) para seu serviço de Azure Search. O valor para o **tipo de conta** deve ser **StorageV2 (uso geral v2)** (padrão) ou **armazenamento (uso geral v1)** .
 
-- Recomendado: Obtenha o [aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) para enviar solicitações para Azure Search. Você pode usar a API REST com qualquer ferramenta que seja capaz de trabalhar com solicitações e respostas HTTP. O postmaster é uma boa opção para explorar APIs REST. Usamos o postmaster neste artigo. Além disso, o [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) deste artigo inclui uma coleção de solicitações do postmaster. 
+- Recomendado: Obtenha o [aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) para enviar solicitações para Azure Search. Você pode usar a API REST com qualquer ferramenta que seja capaz de trabalhar com solicitações e respostas HTTP. O postmaster é uma boa opção para explorar APIs REST. Usamos o postmaster neste artigo. Além disso, o [código-fonte](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store) deste artigo inclui uma coleção de solicitações do postmaster. 
 
 ## <a name="store-the-data"></a>Armazenar os dados
 
@@ -46,11 +46,11 @@ Carregue o arquivo CSV de revisões de Hotel no armazenamento de BLOBs do Azure 
 1. Selecione **OK** para criar o contêiner de BLOB.
 1. Abra o novo contêiner **Hotéis – examinar** , selecione **carregar**e, em seguida, selecione o arquivo HotelReviews-Free. csv que você baixou na primeira etapa.
 
-    ![Carregar os dados](media/knowledge-store-create-portal/upload-command-bar.png "carregar as revisões do Hotel")
+    ![Carregar os dados](media/knowledge-store-create-portal/upload-command-bar.png "Carregar as revisões do Hotel")
 
 1. Selecione **carregar** para importar o arquivo CSV para o armazenamento de BLOBs do Azure. O novo contêiner é mostrado:
 
-    ![Criar o contêiner de blob](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "criar o contêiner de BLOBs")
+    ![Criar o contêiner de BLOBs](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Criar o contêiner de BLOBs")
 
 ## <a name="configure-postman"></a>Configurar o Postman
 
@@ -63,14 +63,14 @@ Instalar e configurar o postmaster.
 1. Selecione a guia **coleções** e, em seguida, selecione o botão **...** (reticências).
 1. Selecione **Editar**. 
    
-   ![Aplicativo de postagem mostrando navegação](media/knowledge-store-create-rest/postman-edit-menu.png "ir para o menu Editar no postmaster")
+   ![Aplicativo de postmaster mostrando navegação](media/knowledge-store-create-rest/postman-edit-menu.png "Ir para o menu Editar no postmaster")
 1. Na caixa de diálogo **Editar** , selecione a guia **variáveis** . 
 
 Na guia **variáveis** , você pode adicionar valores que o postmaster troca sempre que encontrar uma variável específica dentro de chaves duplas. Por exemplo, o postmaster substitui o símbolo `{{admin-key}}` pelo valor atual que você definiu para `admin-key`. O postmaster faz a substituição nas URLs, nos cabeçalhos, no corpo da solicitação e assim por diante. 
 
 Para obter o valor de `admin-key`, vá para o serviço de Azure Search e selecione a guia **chaves** . Altere `search-service-name` e `storage-account-name` para os valores que você escolheu em [criar serviços](#create-services). Defina `storage-connection-string` usando o valor na guia **chaves de acesso** da conta de armazenamento. Você pode deixar os padrões para os outros valores.
 
-![Guia variáveis do aplicativo do postmaster](media/knowledge-store-create-rest/postman-variables-window.png "janela variáveis do postmaster")
+![Guia variáveis de aplicativo do postmaster](media/knowledge-store-create-rest/postman-variables-window.png "Janela variáveis do postmaster")
 
 
 | Variável    | Onde obtê-lo |

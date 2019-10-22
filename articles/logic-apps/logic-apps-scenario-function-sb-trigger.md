@@ -1,6 +1,6 @@
 ---
-title: Chamar ou acionar aplicações lógicas com funções do Azure e o Azure Service Bus
-description: Criar funções do Azure que chamam ou acionam aplicações lógicas com o Azure Service Bus
+title: Chamar aplicativos lógicos com Azure Functions-aplicativos lógicos do Azure
+description: Criar funções do Azure que chamam ou disparam aplicativos lógicos ouvindo o barramento de serviço do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,56 +8,55 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: jehollan, klam, LADocs
 ms.topic: article
-ms.assetid: 19cbd921-7071-4221-ab86-b44d0fc0ecef
 ms.date: 06/04/2019
-ms.openlocfilehash: 3d4f642ae25a179ea2c3241240996da774cd8c23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2ab6ace7c30c3dd385928b6b0ae8000485d5f495
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494987"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680148"
 ---
-# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chamar ou acionar aplicações lógicas com funções do Azure e Azure Service Bus
+# <a name="call-or-trigger-logic-apps-by-using-azure-functions-and-azure-service-bus"></a>Chamar ou disparar aplicativos lógicos usando o Azure Functions e o barramento de serviço do Azure
 
-Pode usar [as funções do Azure](../azure-functions/functions-overview.md) para acionar uma aplicação lógica quando precisa implantar uma longa serviço de escuta ou a tarefa. Por exemplo, pode criar uma função do Azure que escuta numa [do Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) da fila e aciona imediatamente uma aplicação lógica como um acionador de push.
+Você pode usar [Azure Functions](../azure-functions/functions-overview.md) para disparar um aplicativo lógico quando precisar implantar um ouvinte ou uma tarefa de execução longa. Por exemplo, você pode criar uma função do Azure que escuta em uma fila [do barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) e imediatamente aciona um aplicativo lógico como um gatilho de envio por push.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Um espaço de nomes do Service bus do Azure. Se não tiver um espaço de nomes [primeiro a criar o seu espaço de nomes](../service-bus-messaging/service-bus-create-namespace-portal.md).
+* Um namespace do barramento de serviço do Azure. Se você não tiver um namespace, [primeiro crie seu namespace](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
-* Uma aplicação de função do Azure, que é um contentor para as funções do Azure. Se não tiver uma aplicação de funções [primeiro a criar a sua aplicação function app](../azure-functions/functions-create-first-azure-function.md)e certifique-se de que seleciona .NET como a pilha de runtime.
+* Um aplicativo de funções do Azure, que é um contêiner do Azure functions. Se você não tiver um aplicativo de funções, [crie seu aplicativo de funções primeiro](../azure-functions/functions-create-first-azure-function.md)e certifique-se de selecionar .net como a pilha de tempo de execução.
 
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-logic-app"></a>Criar uma aplicação lógica
 
-Para este cenário, tem uma função sendo executada a cada aplicação de lógica que pretende acionar. Primeiro, crie uma aplicação lógica que começa com um acionador de pedido HTTP. A função chama o ponto de extremidade, sempre que for recebida uma mensagem de fila.  
+Para esse cenário, você tem uma função executando cada aplicativo lógico que deseja disparar. Primeiro, crie um aplicativo lógico que comece com um gatilho de solicitação HTTP. A função chama esse ponto de extremidade sempre que uma mensagem da fila é recebida.  
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com)e criar a aplicação lógica em branco.
+1. Entre no [portal do Azure](https://portal.azure.com)e crie um aplicativo lógico em branco.
 
-   Se estiver familiarizado com aplicações lógicas, reveja [início rápido: Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+   Se você for novo em aplicativos lógicos, examine [início rápido: criar seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-1. Na caixa de pesquisa, introduza "pedido de http". Na lista de disparadores, selecione este acionador: **Quando é recebido um pedido HTTP**
+1. Na caixa de pesquisa, digite "solicitação HTTP". Na lista de gatilhos, selecione este gatilho: **quando uma solicitação HTTP é recebida**
 
-   ![Selecionar acionador](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
+   ![Selecionar gatilho](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger.png)
 
-   Com o acionador de pedido, pode introduzir opcionalmente um esquema JSON para utilizar com a mensagem de fila. Esquemas JSON ajudam o Estruturador da aplicação lógica compreender a estrutura para os dados de entrada e facilitar as saídas que pode utilizar no seu fluxo de trabalho.
+   Com o gatilho de solicitação, você pode opcionalmente inserir um esquema JSON a ser usado com a mensagem da fila. Os esquemas JSON ajudam o designer de aplicativo lógico a entender a estrutura dos dados de entrada e tornar as saídas mais fáceis de usar em seu fluxo de trabalho.
 
-1. Para especificar um esquema, introduza o esquema na **pedir esquema JSON do corpo** caixa, por exemplo:
+1. Para especificar um esquema, insira o esquema na caixa **esquema JSON do corpo da solicitação** , por exemplo:
 
-   ![Especificar o esquema JSON](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
+   ![Especificar esquema JSON](./media/logic-apps-scenario-function-sb-trigger/when-http-request-received-trigger-schema.png)
 
-   Se não tem um esquema, mas tem um payload de exemplo no formato JSON, pode gerar um esquema a partir desse payload.
+   Se você não tiver um esquema, mas tiver um conteúdo de exemplo no formato JSON, poderá gerar um esquema a partir dessa carga.
 
-   1. No acionador do pedido, escolha **utilizar payload de amostra para gerar esquema**.
+   1. No gatilho de solicitação, escolha **usar conteúdo de exemplo para gerar o esquema**.
 
-   1. Sob **introduza ou cole um payload JSON de exemplo**, introduza o payload de exemplo e, em seguida, escolha **feito**.
+   1. Em **Inserir ou colar um exemplo de carga JSON**, insira seu conteúdo de exemplo e, em seguida, escolha **concluído**.
 
-      ![Introduza o payload de exemplo](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
+      ![Inserir conteúdo de exemplo](./media/logic-apps-scenario-function-sb-trigger/enter-sample-payload.png)
 
-   Este payload de exemplo gera este esquema que é apresentado no acionador:
+   Esse conteúdo de exemplo gera esse esquema que aparece no gatilho:
 
    ```json
    {
@@ -87,39 +86,39 @@ Para este cenário, tem uma função sendo executada a cada aplicação de lógi
    }
    ```
 
-1. Adicione outras ações que pretende executar depois de receber a mensagem de fila.
+1. Adicione outras ações que você deseja executar depois de receber a mensagem da fila.
 
-   Por exemplo, pode enviar um e-mail com o conector do Outlook do Office 365.
+   Por exemplo, você pode enviar um email com o conector do Outlook para Office 365.
 
-1. Guarde a aplicação lógica, que gera o URL de retorno de chamada para o acionador nesta aplicação lógica. Posteriormente, utilizar este URL de retorno de chamada no código para o acionador de fila do Azure Service Bus.
+1. Salve seu aplicativo lógico, que gera a URL de retorno de chamada para o gatilho neste aplicativo lógico. Posteriormente, você usará essa URL de retorno de chamada no código para o gatilho de fila do barramento de serviço do Azure.
 
-   O URL aparece no retorno de chamada a **URL do HTTP POST** propriedade.
+   A URL de retorno de chamada aparece na propriedade **URL http post** .
 
-   ![URL de chamada de retorno gerado para o acionador](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
+   ![URL de retorno de chamada gerada para o gatilho](./media/logic-apps-scenario-function-sb-trigger/callback-URL-for-trigger.png)
 
-## <a name="create-azure-function"></a>Criar função do Azure
+## <a name="create-azure-function"></a>Criar Azure function
 
-Em seguida, crie a função que age como o acionador e escuta para a fila.
+Em seguida, crie a função que atua como o gatilho e escuta a fila.
 
-1. No portal do Azure, abra e expanda a sua aplicação function app, se não estiver aberto. 
+1. No portal do Azure, abra e expanda seu aplicativo de funções, se ainda não estiver aberto. 
 
-1. No nome da aplicação de função, expanda **funções**. Sobre o **funções** painel, escolha **nova função**.
+1. Em nome do aplicativo de funções, expanda **funções**. No painel **funções** , escolha **nova função**.
 
-   ![Expanda "Funções" e selecione "Nova função"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
+   ![Expanda "funções" e escolha "nova função"](./media/logic-apps-scenario-function-sb-trigger/create-new-function.png)
 
-1. Selecione este modelo com base em se criou uma nova aplicação de função onde selecionou .NET como a pilha de runtime ou estiver a utilizar uma aplicação de função existente.
+1. Selecione este modelo com base em se você criou um novo aplicativo de funções no qual selecionou o .NET como a pilha de tempo de execução ou está usando um aplicativo de funções existente.
 
-   * Para novas aplicações de função, selecione este modelo: **Acionador de fila do Service Bus**
+   * Para novos aplicativos de funções, selecione este modelo: **gatilho de fila do barramento de serviço**
 
-     ![Selecione o modelo para a nova aplicação de funções](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
+     ![Selecionar modelo para o novo aplicativo de funções](./media/logic-apps-scenario-function-sb-trigger/current-add-queue-trigger-template.png)
 
-   * Para uma aplicação de função existente, selecione este modelo: **Acionador de fila do Service Bus-C#**
+   * Para um aplicativo de funções existente, selecione este modelo: **gatilho de fila do C# barramento de serviço-**
 
-     ![Selecione o modelo para a aplicação de função](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
+     ![Selecionar modelo para o aplicativo de funções existente](./media/logic-apps-scenario-function-sb-trigger/legacy-add-queue-trigger-template.png)
 
-1. Na **acionador de fila do Azure Service Bus** painel, forneça um nome para o acionador e configurar o **ligação de Service Bus** para a fila, que utiliza o SDK do Service Bus `OnMessageReceive()` serviço de escuta e escolha **Criar**.
+1. No painel **gatilho de fila do barramento de serviço do Azure** , forneça um nome para o gatilho e configure a **conexão do barramento de serviço** para a fila, que usa o SDK do barramento de serviço do Azure `OnMessageReceive()` ouvinte e escolha **criar**.
 
-1. Escreva uma função básica para chamar o ponto de final de aplicação lógica criada anteriormente ao utilizar a mensagem de fila como acionador. Este exemplo utiliza o `application/json` tipo de conteúdo da mensagem, mas pode alterar este tipo conforme necessário. Se possível, reutilize a instância de clientes HTTP. Para obter mais informações, consulte [gerir ligações nas funções do Azure](../azure-functions/manage-connections.md).
+1. Escreva uma função básica para chamar o ponto de extremidade do aplicativo lógico criado anteriormente usando a mensagem da fila como um gatilho. Este exemplo usa o tipo de conteúdo da mensagem `application/json`, mas você pode alterar esse tipo conforme necessário. Se possível, reutilize a instância de clientes HTTP. Para obter mais informações, consulte [Manage Connections in Azure Functions](../azure-functions/manage-connections.md).
 
    ```CSharp
    using System;
@@ -141,10 +140,10 @@ Em seguida, crie a função que age como o acionador e escuta para a fila.
    }
    ```
 
-1. Para testar a função, adicione uma mensagem de fila usando uma ferramenta como o [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer).
+1. Para testar a função, adicione uma mensagem da fila usando uma ferramenta como o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-   Os acionadores da aplicação lógica imediatamente após a função recebe a mensagem.
+   O aplicativo lógico é disparado imediatamente após a função receber a mensagem.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-[Chamar, acionar ou aninhar fluxos de trabalho ao utilizar pontos finais HTTP](../logic-apps/logic-apps-http-endpoint.md)
+[Chamar, disparar ou aninhar fluxos de trabalho usando pontos de extremidade HTTP](../logic-apps/logic-apps-http-endpoint.md)

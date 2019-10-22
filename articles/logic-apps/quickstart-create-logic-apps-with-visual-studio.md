@@ -1,6 +1,6 @@
 ---
-title: Criar fluxos de trabalho automatizados com o Visual Studio – aplicativos lógicos do Azure
-description: Automatizar tarefas, processos de negócios e fluxos de trabalho para a integração corporativa usando o aplicativo lógico do Azure e o Visual Studio
+title: Automatizar fluxos de trabalho com o Visual Studio – aplicativos lógicos do Azure
+description: Criar, agendar e executar fluxos de trabalho recorrentes para integração corporativa usando o aplicativo lógico do Azure e o Visual Studio
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,18 +8,17 @@ ms.workload: azure-vs
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/25/2019
-ms.openlocfilehash: 47b7609fe111ecbe41a161bfbff1f7225ad66357
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d02f0bf8cc880dd39f7bdf0c953fcb130df2e23a
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72165921"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680575"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Início rápido: criar tarefas, processos e fluxos de trabalho automatizados com os aplicativos lógicos do Azure-Visual Studio
+# <a name="quickstart-automate-tasks-processes-and-workflows-by-using-azure-logic-apps-and-visual-studio"></a>Início rápido: automatizar tarefas, processos e fluxos de trabalho usando o aplicativo lógico do Azure e o Visual Studio
 
 Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio, pode criar fluxos de trabalho para automatizarem tarefas e processos que integram aplicações, dados, sistemas e serviços nas empresas e organizações. Este guia de início rápido mostra como você pode projetar e criar esses fluxos de trabalho criando aplicativos lógicos no Visual Studio e implantando esses aplicativos no Azure. Embora você possa executar essas tarefas no portal do Azure, o Visual Studio permite que você adicione seus aplicativos lógicos ao controle do código-fonte, publique diferentes versões e crie Azure Resource Manager modelos para diferentes ambientes de implantação.
 

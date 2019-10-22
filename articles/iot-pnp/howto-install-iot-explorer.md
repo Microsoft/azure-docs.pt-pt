@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3b5e9a70f9eecbf187a6748073de009653061dc0
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960576"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679856"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instalar e usar o Azure IoT Explorer
 
@@ -29,7 +29,7 @@ Este artigo mostra como:
 Para usar a ferramenta do Azure IoT Explorer, você precisa de:
 
 - Um hub IoT do Azure. Há várias maneiras de adicionar um hub IoT à sua assinatura do Azure, como [a criação de um hub IOT usando o CLI do Azure](../iot-hub/iot-hub-create-using-cli.md). Você precisa da cadeia de conexão do Hub IoT para executar a ferramenta do Azure IoT Explorer. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo. Certifique-se de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos valores:
+- Um dispositivo registrado em seu hub IoT. Você pode usar o comando CLI do Azure a seguir para registrar um dispositivo. Certifique-se de substituir os espaços reservados `{YourIoTHubName}` e `{YourDeviceID}` pelos seus valores:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -51,13 +51,13 @@ A definição de modelo para um dispositivo de Plug and Play IoT é armazenada n
 
 Para adicionar uma fonte:
 
-1. Aceda a **definições**.
+1. Vá para **configurações**.
 1. Selecione **novo** e escolha sua fonte.
 1. Se você estiver adicionando o repositório de modelos da empresa, forneça a cadeia de conexão.
 
 Para remover uma fonte:
 
-1. Aceda a **definições**.
+1. Vá para **configurações**.
 1. Localize a origem que você deseja remover.
 1. Selecione **X** para removê-lo. Não é possível remover o repositório de modelos públicos porque as definições de interface comuns são provenientes desse repositório.
 
@@ -77,23 +77,29 @@ Na página lista de **dispositivos** , você pode:
 
 ## <a name="interact-with-a-device"></a>Interagir com um dispositivo
 
-Na página lista de **dispositivos** , selecione um valor na coluna **ID do dispositivo** para exibir a página de detalhes do dispositivo registrado. Para o dispositivo, há duas seções: **Dispositivo** e e/ou **digital**.
+Na página lista de **dispositivos** , selecione um valor na coluna **ID do dispositivo** para exibir a página de detalhes do dispositivo registrado. Para cada dispositivo, há duas seções: **dispositivo** e e/ou **digital**.
 
 ### <a name="device"></a>Dispositivo
 
-Esta seção inclui as guias **identidade do dispositivo**, **dispositivo**e **telemetria** .
+Esta seção inclui as guias **identidade do dispositivo**, **dispositivo**/ **telemetria**, **método direto** e **mensagem da nuvem para o dispositivo** .
 
 - Você pode exibir e atualizar as informações de [identidade do dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) na guia **identidade do dispositivo** .
 - Você pode acessar as informações de FileUp do [dispositivo](../iot-hub/iot-hub-devguide-device-twins.md) na guia de **dispositivo de entrelaçamento** .
 - Se um dispositivo estiver conectado e enviando dados ativamente, você poderá exibir a [telemetria](../iot-hub/iot-hub-devguide-messages-read-builtin.md) na guia **telemetria** .
+- Você pode chamar um [método direto](../iot-hub/iot-hub-devguide-direct-methods.md) no dispositivo na guia **método direto** .
+- Você pode enviar uma [mensagem da nuvem para o dispositivo](../iot-hub/iot-hub-devguide-messages-c2d.md) na guia **mensagens da nuvem para o dispositivo** .
 
 ### <a name="digital-twin"></a>Entrelaçar digital
 
-Você pode usar a ferramenta para exibir a instância de cópia digital do dispositivo. Para um dispositivo de Plug and Play IoT, todas as interfaces associadas ao modelo de capacidade de dispositivo são exibidas neste artigo. Selecione uma interface para expandir seus [primitivos de plug and Play IOT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)correspondentes.
+Você pode usar a ferramenta para exibir a instância de cópia digital do dispositivo. Para um dispositivo de Plug and Play IoT, todas as interfaces associadas ao modelo de capacidade de dispositivo são exibidas nesta seção da ferramenta. Selecione uma interface para expandir seus [primitivos de plug and Play IOT](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)correspondentes.
 
-#### <a name="properties"></a>properties
+### <a name="interface"></a>Interface
 
-Você pode exibir as propriedades somente leitura definidas em uma interface na página **Propriedades** . Você pode atualizar as propriedades graváveis definidas em uma interface na página de **Propriedades graváveis** .
+Na página **interface** , você pode exibir a definição de JSON da interface.
+
+#### <a name="properties"></a>Propriedades
+
+Você pode exibir as propriedades somente leitura definidas em uma interface na página de **Propriedades não gravável** . Você pode atualizar as propriedades graváveis definidas em uma interface na página de **Propriedades graváveis** :
 
 1. Vá para a página de **Propriedades graváveis** .
 1. Clique na propriedade que você deseja atualizar.

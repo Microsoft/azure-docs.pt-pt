@@ -1,26 +1,22 @@
 ---
 title: As informações de Azure Monitor Aplicativo Azure substituem os pontos de extremidade do SDK padrão | Microsoft Docs
 description: Modifique os pontos de extremidade do SDK do Aplicativo Azure insights padrão para regiões como o Azure governamental.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 3b722e47-38bd-4667-9ba4-65b7006c074c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 25087c5b3a078b740764f51a7780a24277d5c642
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 07/26/2019
+ms.openlocfilehash: e1db9782fe923f7a5759f4e001cd0db970606fed
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639565"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677484"
 ---
- # <a name="application-insights-overriding-default-endpoints"></a>Application Insights substituindo pontos de extremidade padrão
+# <a name="application-insights-overriding-default-endpoints"></a>Application Insights substituindo pontos de extremidade padrão
 
-Para enviar dados de Application Insights para determinadas regiões, você precisará substituir os endereços de ponto de extremidade padrão. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Essas alterações exigem o ajuste do código de exemplo e a substituição dos `QuickPulse_Endpoint_Address`valores `TelemetryChannel_Endpoint_Address`de espaço `Profile_Query_Endpoint_address` reservado para, e pelos endereços de ponto de extremidade reais para sua região específica. O fim deste artigo contém links para os endereços de ponto de extremidade para regiões em que essa configuração é necessária.
+Para enviar dados de Application Insights para determinadas regiões, você precisará substituir os endereços de ponto de extremidade padrão. Cada SDK requer modificações ligeiramente diferentes, todas descritas neste artigo. Essas alterações exigem o ajuste do código de exemplo e a substituição dos valores de espaço reservado para `QuickPulse_Endpoint_Address`, `TelemetryChannel_Endpoint_Address` e `Profile_Query_Endpoint_address` com os endereços de ponto de extremidade reais para sua região específica. O fim deste artigo contém links para os endereços de ponto de extremidade para regiões em que essa configuração é necessária.
 
 ## <a name="sdk-code-changes"></a>Alterações de código do SDK
 
@@ -49,7 +45,7 @@ Para enviar dados de Application Insights para determinadas regiões, você prec
 </ApplicationInsights>
 ```
 
-### <a name="aspnet-core"></a>Núcleo de ASP.NET
+### <a name="aspnet-core"></a>ASP.NET Core
 
 Modifique o arquivo appSettings. JSON em seu projeto da seguinte maneira para ajustar o ponto de extremidade principal:
 
@@ -62,7 +58,7 @@ Modifique o arquivo appSettings. JSON em seu projeto da seguinte maneira para aj
   }
 ```
 
-Os valores para métricas ao vivo e o ponto de extremidade de consulta de perfil só podem ser definidos por meio de código. Para substituir os valores padrão para todos os valores de ponto de extremidade por meio de código, `ConfigureServices` faça as seguintes `Startup.cs` alterações no método do arquivo:
+Os valores para métricas ao vivo e o ponto de extremidade de consulta de perfil só podem ser definidos por meio de código. Para substituir os valores padrão para todos os valores de ponto de extremidade por meio de código, faça as seguintes alterações no método `ConfigureServices` do arquivo `Startup.cs`:
 
 ```csharp
 using Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId;
@@ -157,7 +153,7 @@ Modifique o arquivo applicationinsights. xml para alterar o endereço do ponto d
 
 ### <a name="spring-boot"></a>Spring Boot
 
-Modifique o `application.properties` arquivo e adicione:
+Modifique o arquivo de `application.properties` e adicione:
 
 ```yaml
 azure.application-insights.channel.in-process.endpoint-address= TelemetryChannel_Endpoint_Address
@@ -199,7 +195,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Região |  Nome do ponto final | Value |
+|Região |  Nome do ponto de extremidade | Valor |
 |-----------------|:------------|:-------------|
 | Azure China | Canal de telemetria | `https://dc.applicationinsights.azure.cn/v2/track` |
 | Azure China | QuickPulse (métricas ao vivo) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
@@ -208,10 +204,10 @@ Atualmente, as únicas regiões que exigem modificações de ponto de extremidad
 | Azure Government | QuickPulse (métricas ao vivo) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Consulta de perfil |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
 
-Se você usar atualmente a [API](https://dev.applicationinsights.io/
-) REST Application insights que normalmente é acessada por meio de ' API.applicationinsights.Io ', será necessário usar um ponto de extremidade que seja local para sua região:
+Se você usar atualmente a [API REST Application insights](https://dev.applicationinsights.io/
+) que normalmente é acessada por meio de ' API.applicationinsights.Io ', será necessário usar um ponto de extremidade que seja local para sua região:
 
-|Região |  Nome do ponto final | Value |
+|Região |  Nome do ponto de extremidade | Valor |
 |-----------------|:------------|:-------------|
 | Azure China | API REST | `api.applicationinsights.azure.cn` |
 | Azure Government | API REST | `api.applicationinsights.us`|
@@ -219,7 +215,7 @@ Se você usar atualmente a [API](https://dev.applicationinsights.io/
 > [!NOTE]
 > **Não há suporte** para o monitoramento baseado em agente/extensão sem código para serviços Azure apps nessas regiões. Assim que essa funcionalidade for disponibilizada, este artigo será atualizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre as modificações personalizadas do Azure governamental, consulte as diretrizes detalhadas para [monitoramento e gerenciamento do Azure](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights).
 - Para saber mais sobre o Azure China, consulte o [manual do Azure na China](https://docs.microsoft.com/azure/china/).

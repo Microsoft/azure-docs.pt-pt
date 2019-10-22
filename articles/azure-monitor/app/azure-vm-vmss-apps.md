@@ -1,20 +1,18 @@
 ---
 title: Monitorar o desempenho do aplicativo hospedado na VM do Azure e nos conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs
 description: Monitoramento do desempenho de aplicativos para a VM do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure. Tempo de resposta e carregamento do gráfico, informações de dependência e definir alertas sobre o desempenho.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/26/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3b100fb4d7dfa03cfcc828180f2ca63f7219f610
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 08/26/2019
+ms.openlocfilehash: 4eb515d63d746e2f1f0b96431848a8b450d09358
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389918"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678222"
 ---
 # <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente de Application Insights de Azure Monitor em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure
 

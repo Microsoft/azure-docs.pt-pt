@@ -1,5 +1,5 @@
 ---
-title: Usar o ia para entender os dados do blob
+title: Usar o ia para entender os dados do armazenamento de BLOBs
 titleSuffix: Azure Search
 description: Adicione processamento semântico, de linguagem natural e de imagem a BLOBs do Azure usando um pipeline de enriquecimento de ia no Azure Search.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: f7e264be9a02514972f9c9702adec8fa55a157bd
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529374"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678426"
 ---
-# <a name="use-ai-to-understand-blob-data"></a>Usar o ia para entender os dados do blob
+# <a name="use-ai-to-understand-blob-storage-data"></a>Usar o ia para entender os dados do armazenamento de BLOBs
 
 Os dados no armazenamento de BLOBs do Azure geralmente são uma variedade de conteúdo não estruturado, como imagens, texto longo, PDFs e documentos do Office. Usando os recursos de ia no Azure Search, você pode entender e extrair informações valiosas de blobs de várias maneiras. Os exemplos de aplicação de AI ao conteúdo de blob incluem:
 
@@ -112,7 +112,8 @@ Um documento aprimorado no final do pipeline difere de sua versão de entrada or
 
 Há muito mais que você pode fazer com a enriquecimento de ia para tirar o máximo proveito de seus dados no armazenamento do Azure, incluindo a combinação de serviços cognitivas de maneiras diferentes e a criação de habilidades personalizadas para casos em que não há nenhum serviço de cognitiva existente para o cenário. Você pode aprender mais seguindo os links abaixo.
 
-> [!div class="nextstepaction"]
-> [Visão geral de enriquecimento de ia](cognitive-search-concept-intro.md) 
->  criar um dos nós de mapa de[qualificações](cognitive-search-defining-skillset.md)
-> [em uma árvore de anotação](cognitive-search-output-field-mapping.md)
++ [Carregar, baixar e listar BLOBs com o portal do Azure (armazenamento de BLOBs do Azure)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
++ [Configurar um indexador de BLOB (Azure Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Visão geral de enriquecimento de ia (Azure Search)](cognitive-search-concept-intro.md) 
++ [Criar um habilidades (Azure Search)](cognitive-search-defining-skillset.md)
++ [Mapear nós em uma árvore de anotação (Azure Search)](cognitive-search-output-field-mapping.md)

@@ -4,23 +4,22 @@ description: Saiba como migrar um nome de domínio DNS personalizado que já est
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/28/2017
+ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 703a151f801f65b968ecf93eaa97640c22a71bd2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073097"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679798"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para Azure App serviço
 
@@ -49,23 +48,23 @@ Quando você finalmente migrar o nome DNS personalizado do site antigo para o ap
 
 ### <a name="create-domain-verification-record"></a>Criar registro de verificação de domínio
 
-Para verificar a propriedade do domínio, adicione um registro TXT. O registro TXT é mapeado de _awverify&lt; . >_ de subdomínio para  _&lt;AppName >. azurewebsites. net_. 
+Para verificar a propriedade do domínio, adicione um registro TXT. O registro TXT mapeia de _awverify. &lt;subdomain >_ para _&lt;appname >. azurewebsites. net_. 
 
-O registro TXT necessário depende do registro DNS que você deseja migrar. Para obter exemplos, consulte a tabela a`@` seguir (normalmente representa o domínio raiz):
+O registro TXT necessário depende do registro DNS que você deseja migrar. Para obter exemplos, consulte a tabela a seguir (`@` normalmente representa o domínio raiz):
 
 | Exemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |
-| \@básica | _awverify_ | _&lt;appname>.azurewebsites.net_ |
-| www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
-| \*amplia | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (raiz) | _awverify_ | _&lt;appname >. azurewebsites. net_ |
+| www (sub) | _awverify. www_ | _&lt;appname >. azurewebsites. net_ |
+| \* (curinga) | _awverify. \*_ | _&lt;appname >. azurewebsites. net_ |
 
 Na página de registros DNS, observe o tipo de registro do nome DNS que você deseja migrar. O serviço de aplicativo dá suporte A mapeamentos de CNAME e registros A.
 
 > [!NOTE]
-> Para determinados provedores, como Cloudflare, `awverify.*` não é um registro válido. Use `*` apenas em vez disso.
+> Para determinados provedores, como CloudFlare, `awverify.*` não é um registro válido. Use `*` apenas em vez disso.
 
 > [!NOTE]
-> Os `*` registros curinga não validarão subdomínios com um registro de CNAME existente. Talvez seja necessário criar explicitamente um registro TXT para cada subdomínio.
+> Os registros de `*` curinga não validarão subdomínios com um registro de CNAME existente. Talvez seja necessário criar explicitamente um registro TXT para cada subdomínio.
 
 
 ### <a name="enable-the-domain-for-your-app"></a>Habilitar o domínio para seu aplicativo
@@ -74,11 +73,11 @@ No [portal do Azure](https://portal.azure.com), no painel de navegação à esqu
 
 ![Menu de domínio personalizado](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-Na página **domínios personalizados** , selecione o **+** ícone ao lado de **adicionar nome do host**.
+Na página **domínios personalizados** , selecione o ícone de **+** ao lado de **adicionar nome de host**.
 
 ![Adicionar nome de anfitrião](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-Digite o nome de domínio totalmente qualificado ao qual você adicionou o registro TXT, como `www.contoso.com`. Para um domínio curinga (como \*. contoso.com), você pode usar qualquer nome DNS que corresponda ao domínio curinga. 
+Digite o nome de domínio totalmente qualificado para o qual você adicionou o registro TXT, como `www.contoso.com`. Para um domínio curinga (como \*. contoso.com), você pode usar qualquer nome DNS que corresponda ao domínio curinga. 
 
 Selecione **Validar**.
 
@@ -120,17 +119,23 @@ De volta à página de registros DNS do seu provedor de domínio, selecione o re
 
 Para o `contoso.com` exemplo de domínio raiz, remapeie o registro a ou CNAME como os exemplos na tabela a seguir: 
 
-| Exemplo de FQDN | Tipo de registo | Host | Value |
+| Exemplo de FQDN | Tipo de registo | Host | Valor |
 | - | - | - | - |
 | contoso.com (raiz) | A | `@` | Endereço IP de [Copiar o endereço IP da aplicação](#info) |
-| contoso.com\.www (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
-| \*. contoso.com (curinga) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
+| www \.contoso. com (sub) | CNAME | `www` | _&lt;appname >. azurewebsites. net_ |
+| \*. contoso.com (curinga) | CNAME | _\*_ | _&lt;appname >. azurewebsites. net_ |
 
 Salve suas configurações.
 
 As consultas DNS devem começar a resolver o aplicativo do serviço de aplicativo imediatamente após a propagação do DNS.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="active-domain-in-azure"></a>Domínio ativo no Azure
+
+Você pode migrar um domínio personalizado ativo no Azure, entre assinaturas ou dentro da mesma assinatura. No entanto, essa migração sem tempo de inatividade requer que o aplicativo de origem e o aplicativo de destino recebam o mesmo domínio personalizado em um determinado momento. Portanto, você precisa certificar-se de que os dois aplicativos não sejam implantados na mesma unidade de implantação (internamente conhecida como espaço Web). Um nome de domínio pode ser atribuído a apenas um aplicativo em cada unidade de implantação.
+
+Você pode encontrar a unidade de implantação para seu aplicativo examinando o nome de domínio da URL do FTP/S `<deployment-unit>.ftp.azurewebsites.windows.net`. Verifique e certifique-se de que a unidade de implantação seja diferente entre o aplicativo de origem e o aplicativo de destino. A unidade de implantação de um aplicativo é determinada pelo [plano do serviço de aplicativo](overview-hosting-plans.md) em que ele está. Ele é selecionado aleatoriamente pelo Azure quando você cria o plano e não pode ser alterado. O Azure só garante que dois planos estejam na mesma unidade de implantação quando você [os cria no mesmo grupo de recursos *e* na mesma região](app-service-plan-manage.md#create-an-app-service-plan), mas não tem nenhuma lógica para garantir que os planos estejam em unidades de implantação diferentes. A única maneira de criar um plano em uma unidade de implantação diferente é continuar criando um plano em um novo grupo de recursos ou região até obter uma unidade de implantação diferente.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como associar um certificado SSL personalizado ao serviço de aplicativo.
 

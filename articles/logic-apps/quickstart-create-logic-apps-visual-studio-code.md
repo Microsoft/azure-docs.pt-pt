@@ -1,6 +1,6 @@
 ---
-title: Criar e gerenciar fluxos de trabalho no Visual Studio Code-aplicativos lógicos do Azure
-description: Início rápido – criar e gerenciar definições de JSON de aplicativo lógico em Visual Studio Code (VS Code)
+title: Automatizar fluxos de trabalho com o Visual Studio Code-aplicativos lógicos do Azure
+description: Criar ou Editar definições JSON subjacentes de aplicativo lógico com Visual Studio Code (VS Code)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,16 +12,16 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 34de50517580c84c78ee1f192daa908b3f262670
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1387ca4d94410bafb1b1024345b5e307e215e6f
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035426"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679158"
 ---
-# <a name="quickstart-create-and-manage-logic-app-definitions-by-using-visual-studio-code"></a>Início rápido: Criar e gerenciar definições de aplicativo lógico usando Visual Studio Code
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-visual-studio-code"></a>Início rápido: criar e gerenciar definições de fluxo de trabalho de aplicativo lógico com Visual Studio Code
 
-Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e Visual Studio Code, você pode criar e gerenciar aplicativos lógicos que ajudam a automatizar tarefas, fluxos de trabalho e processos para integrar aplicativos, dados, sistemas e serviços entre organizações e empresas. Este guia de início rápido mostra como você pode criar e Editar definições de fluxo de trabalho de aplicativo lógico trabalhando com o esquema de definição de fluxo de trabalho no JavaScript Object Notation (JSON) por meio de uma experiência baseada em código. Você também pode trabalhar em aplicativos lógicos existentes que já estão implantados no Azure.
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e Visual Studio Code, você pode criar e gerenciar aplicativos lógicos que ajudam a automatizar tarefas, fluxos de trabalho e processos para integrar aplicativos, dados, sistemas e serviços entre organizações e empresas. Este guia de início rápido mostra como você pode criar e editar as definições de fluxo de trabalho subjacentes, que usam JavaScript Object Notation (JSON), para aplicativos lógicos por meio de uma experiência baseada em código. Você também pode trabalhar em aplicativos lógicos existentes que já estão implantados no Azure.
 
 Embora seja possível executar essas mesmas tarefas no [portal do Azure](https://portal.azure.com) e no Visual Studio, você pode começar mais rapidamente em Visual Studio Code quando já estiver familiarizado com as definições de aplicativos lógicos e quiser trabalhar diretamente no código. Por exemplo, você pode desabilitar, habilitar, excluir e atualizar aplicativos lógicos já criados. Além disso, você pode trabalhar em aplicativos lógicos e contas de integração de qualquer plataforma de desenvolvimento onde o Visual Studio Code for executado, como Linux, Windows e Mac.
 
@@ -33,7 +33,7 @@ Antes de começar, verifique se você tem estes itens:
 
 * Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
-* Conhecimento básico sobre as [definições de fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-workflow-definition-language.md) e sua estrutura, que usa JavaScript Object Notation (JSON)
+* Conhecimento básico sobre [definições de fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-workflow-definition-language.md) e sua estrutura, conforme descrito com JSON
 
   Se você for novo em aplicativos lógicos, experimente este guia de [início rápido](../logic-apps/quickstart-create-first-logic-app-workflow.md), que cria seus primeiros aplicativos lógicos na portal do Azure e concentra-se mais nos conceitos básicos.
 

@@ -1,6 +1,6 @@
 ---
-title: Enviar e receber mensagens com o barramento de serviço do Azure-aplicativos lógicos do Azure
-description: Configurar o Enterprise Cloud Messaging usando o barramento de serviço do Azure e os aplicativos lógicos do Azure
+title: Trocar mensagens com o barramento de serviço do Azure-aplicativos lógicos do Azure
+description: Enviar e receber mensagens usando o barramento de serviço do Azure nos aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,16 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.assetid: d6d14f5f-2126-4e33-808e-41de08e6721f
 tags: connectors
-ms.openlocfilehash: f2034686e4a8de5e1ccc246f49337a6600bf441f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0cf5486e77e69f83973f7e62669e5ab45d1c94a2
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120974"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679188"
 ---
-# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-with-azure-service-bus"></a>Trocar mensagens na nuvem usando o aplicativo lógico do Azure com o barramento de serviço do Azure
+# <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Trocar mensagens na nuvem usando os aplicativos lógicos do Azure e o barramento de serviço do Azure
 
 Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector do [barramento de serviço do Azure](../service-bus-messaging/service-bus-messaging-overview.md) , você pode criar tarefas automatizadas e fluxos de trabalho que transferem dados, como ordens de venda e compra, diários e movimentações de estoque entre aplicativos para sua organização. O conector não apenas monitora, envia e gerencia mensagens, mas também executa ações com filas, sessões, tópicos, assinaturas e assim por diante, por exemplo:
 
@@ -64,7 +63,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do b
       ![Copiar cadeia de conexão do namespace do barramento de serviço](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!TIP]
-   > Para confirmar se a cadeia de conexão está associada ao namespace do barramento de serviço ou a uma entidade de mensagens, como uma fila, pesquise o `EntityPath`  parâmetro na cadeia de conexão. Se você encontrar esse parâmetro, a cadeia de conexão será para uma entidade específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
+   > Para confirmar se a cadeia de conexão está associada ao namespace do barramento de serviço ou a uma entidade de mensagens, como uma fila, pesquise a cadeia de conexão para o `EntityPath`  parameter. Se você encontrar esse parâmetro, a cadeia de conexão será para uma entidade específica e não será a cadeia de caracteres correta a ser usada com seu aplicativo lógico.
 
 ## <a name="add-service-bus-trigger"></a>Adicionar gatilho do barramento de serviço
 
@@ -118,7 +117,7 @@ Confirme se seu aplicativo lógico tem permissões para acessar o namespace do b
 
 1. Na etapa em que você deseja adicionar uma ação, selecione **nova etapa**.
 
-   Ou, para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição **+** () que aparece e selecione **Adicionar uma ação**.
+   Ou, para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre essas etapas. Selecione o sinal de adição ( **+** ) que aparece e selecione **Adicionar uma ação**.
 
 1. Em **escolher uma ação**, na caixa de pesquisa, insira "barramento de serviço do Azure" como filtro. Na lista ações, selecione a ação desejada. 
 
@@ -162,4 +161,4 @@ O conector do barramento de serviço pode economizar até 1.500 sessões exclusi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

@@ -1,23 +1,19 @@
 ---
 title: Automatizar relatórios personalizados com dados do Aplicativo Azure insights
 description: Automatizar relatórios diários/semanais/mensais personalizados com dados do Aplicativo Azure insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3becf5ef579acdc52a51f9ad618e37460491c2ec
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 2b23374972a071421b59bedf0eb5b9358b37d7a9
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146752"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677615"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Aplicativo Azure insights
 
@@ -78,7 +74,7 @@ availabilityResults
 
 ## <a name="application-insights-scheduled-digest-report"></a>Application Insights relatório de resumo agendado
 
-1. No portal do Azure, selecione **criar um recurso** > **computação** > **aplicativo de funções**.
+1. No portal do Azure, selecione **criar um recurso**  > **computação**  > **aplicativo de funções**.
 
    ![Criar um recurso do Azure Aplicativo de funções captura de tela](./media/automate-custom-reports/function-app-01.png)
 
@@ -95,7 +91,7 @@ availabilityResults
 5. Selecione o **_modelo de resumo Application insights agendado_** .
 
      > [!NOTE]
-     > Por padrão, os aplicativos de funções são criados com a versão de tempo de execução 2. x. Você deve [direcionar Azure Functions tempo de execução versão](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** para usar o modelo de resumo Application insights agendado.  ![captura de tela de Runtime](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png)
+     > Por padrão, os aplicativos de funções são criados com a versão de tempo de execução 2. x. Você deve [direcionar Azure Functions tempo de execução versão](https://docs.microsoft.com/azure/azure-functions/set-runtime-version) **1. x** para usar o modelo de resumo Application insights agendado.  ](./../../../includes/media/functions-view-update-version-portal/function-app-view-version.png) de captura de ![runtime
 
 
 
@@ -105,11 +101,11 @@ availabilityResults
 
    ![Captura de tela de configurações de função](./media/automate-custom-reports/function-app-05.png)
 
-7. Selecione os > recursosda > plataforma aplicativo de funções**configurações do aplicativo**.
+7. Selecione o **Aplicativo de funções**  > **recursos da plataforma**  > **configurações do aplicativo**.
 
     ![Captura de tela de configurações do aplicativo Azure function](./media/automate-custom-reports/function-app-07.png)
 
-8. Crie três novas configurações de aplicativo com os valores ``AI_APP_ID``correspondentes ``AI_APP_KEY``apropriados, ``SendGridAPI``e. Selecione **Guardar**.
+8. Crie três novas configurações de aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY`` e ``SendGridAPI``. Selecione **Guardar**.
 
      ![Captura de tela da interface de integração de funções](./media/automate-custom-reports/function-app-08.png)
     
@@ -150,7 +146,7 @@ Essas etapas se aplicam somente se você ainda não tiver uma conta do SendGrid 
 
      ![Captura de tela da chave de API de configurações](./media/automate-custom-reports/function-app-14.png)
 
-3. Isso iniciará o site do SendGrid. Selecione **configurações** > **chaves de API**.
+3. Isso iniciará o site do SendGrid. Selecione **configurações**  > **chaves de API**.
 
      ![Criar e exibir captura de tela do aplicativo de chave de API](./media/automate-custom-reports/function-app-15.png)
 

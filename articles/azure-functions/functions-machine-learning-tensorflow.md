@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Usar Python e TensorFlow em Azure Functions para fazer inferências de aprendizado de máquina | Microsoft Docs'
+title: 'Tutorial: usar Python e TensorFlow em Azure Functions para fazer inferências de aprendizado de máquina | Microsoft Docs'
 description: Este tutorial demonstra como aplicar modelos de aprendizado de máquina TensorFlow no Azure Functions
 services: functions
 author: anthonychu
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729177"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677886"
 ---
-# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de aprendizado de máquina em Azure Functions com Python e TensorFlow
+# <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: aplicar modelos de aprendizado de máquina em Azure Functions com Python e TensorFlow
 
 Este artigo demonstra como Azure Functions permite que você use python e TensorFlow com um modelo de aprendizado de máquina para classificar uma imagem com base em seu conteúdo.
 
@@ -52,10 +52,10 @@ cd functions-python-tensorflow-tutorial
 
 O repositório contém algumas pastas.
 
-- *início*:  Esta é sua pasta de trabalho para o tutorial
-- *fim*: Este é o resultado final e a implementação completa para sua referência
-- *recursos*: Contém o modelo do Machine Learning e as bibliotecas auxiliares
-- *front-end*: Um site que chama o aplicativo de funções
+- *Iniciar*: esta é sua pasta de trabalho para o tutorial
+- *end*: Este é o resultado final e a implementação completa para sua referência
+- *recursos*: contém o modelo do Machine Learning e as bibliotecas auxiliares
+- *frontend*: um site que chama o aplicativo de funções
 
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Criar e ativar um ambiente virtual Python
 
@@ -79,7 +79,7 @@ py -3.6 -m venv .venv
 .venv\scripts\activate
 ```
 
-O prompt de terminal agora é prefixado com `(.venv)` o que indica que você ativou com êxito o ambiente virtual. Confirme que `python` , no ambiente virtual, é, de fato, Python 3.6. x.
+O prompt de terminal agora é prefixado com `(.venv)`, o que indica que você ativou com êxito o ambiente virtual. Confirme se `python` no ambiente virtual é, de fato, Python 3.6. x.
 
 ```console
 python --version
@@ -98,9 +98,9 @@ func init --worker-runtime python
 
 Um aplicativo de funções pode conter um ou mais Azure Functions. Abra a pasta *Iniciar* em um editor e examine o conteúdo.
 
-- [*local. Settings. JSON*](functions-run-local.md#local-settings-file): Contém as configurações de aplicativo usadas para o desenvolvimento local
-- [*host. JSON*](functions-host-json.md): Contém configurações para o host Azure Functions e as extensões
-- [*requirements. txt*](functions-reference-python.md#python-version-and-package-management): Contém os pacotes do Python exigidos por este aplicativo
+- [*local. Settings. JSON*](functions-run-local.md#local-settings-file): contém as configurações de aplicativo usadas para o desenvolvimento local
+- [*host. JSON*](functions-host-json.md): contém configurações para o host e as extensões de Azure Functions
+- [*requirements. txt*](functions-reference-python.md#python-version-and-package-management): contém pacotes python exigidos por este aplicativo
 
 ## <a name="create-an-http-function"></a>Criar uma função HTTP
 
@@ -114,8 +114,8 @@ func new --language python --template HttpTrigger --name classify
 
 Uma nova pasta chamada *classificar* é criada, contendo dois arquivos.
 
-- *init.py\_: \_ \_\_* Um arquivo para a função principal
-- *Function. JSON*:  Um arquivo que descreve o gatilho da função e suas associações de entrada e saída
+- *\_ \_init \_ \_. py*: um arquivo para a função principal
+- *Function. JSON*: um arquivo que descreve o gatilho da função e suas associações de entrada e saída
 
 ### <a name="run-the-function"></a>Executar a função
 
@@ -140,7 +140,7 @@ Você usará um modelo TensorFlow predefinido que foi treinado e exportado do Az
 > [!NOTE]
 > Se você quiser criar seu próprio usando a camada gratuita do Serviço de Visão Personalizada, poderá seguir as [instruções no repositório do projeto de exemplo](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
 
-O modelo consiste em dois arquivos na pasta *< REPOSITORY_ROOT >/Resources/Model* : *Model. db* e *Labels. txt*. Copie-os para a pasta *classificar* da função.
+O modelo consiste em dois arquivos na pasta *< REPOSITORY_ROOT >/Resources/Model* : *Model. PB* e *Labels. txt*. Copie-os para a pasta *classificar* da função.
 
 #### <a name="linux-and-macos"></a>Linux e macOS:
 
@@ -154,7 +154,7 @@ cp ../resources/model/* classify
 copy ..\resources\model\* classify
 ```
 
-Certifique-se de incluir \* o no comando acima. Confirme se a *classificação* agora contém arquivos denominados *Model. PB* e *Labels. txt*.
+Certifique-se de incluir o \* no comando acima. Confirme se a *classificação* agora contém arquivos denominados *Model. PB* e *Labels. txt*.
 
 ## <a name="add-the-helper-functions-and-dependencies"></a>Adicionar as funções e dependências do auxiliar
 
@@ -179,7 +179,7 @@ Confirme se a *classificação* agora contém um arquivo chamado *Predict.py*.
 A biblioteca auxiliar tem algumas dependências que precisam ser instaladas. Abra *Start/requirements. txt* em seu editor e adicione as seguintes dependências ao arquivo.
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```
@@ -194,13 +194,13 @@ pip install --no-cache-dir -r requirements.txt
 
 ### <a name="caching-the-model-in-global-variables"></a>Armazenando em cache o modelo em variáveis globais
 
-No editor, abra *Predict.py* e examine a `_initialize` função próxima à parte superior do arquivo. Observe que o modelo TensorFlow é carregado do disco na primeira vez em que a função é executada e salva em variáveis globais. O carregamento do disco é ignorado nas execuções subsequentes da `_initialize` função. Armazenar em cache o modelo na memória com essa técnica acelera as previsões posteriores.
+No editor, abra *Predict.py* e examine a função `_initialize` próxima à parte superior do arquivo. Observe que o modelo TensorFlow é carregado do disco na primeira vez em que a função é executada e salva em variáveis globais. O carregamento do disco é ignorado nas execuções subsequentes da função `_initialize`. Armazenar em cache o modelo na memória com essa técnica acelera as previsões posteriores.
 
 Para obter mais informações sobre variáveis globais, consulte o [Guia do desenvolvedor do Azure Functions Python](functions-reference-python.md#global-variables).
 
 ## <a name="update-function-to-run-predictions"></a>Atualizar função para executar previsões
 
-Abra *classificar/\_\_Init\_. py emseueditor.\_* Importe a biblioteca de *previsão* que você adicionou à mesma pasta anteriormente. Adicione as seguintes `import` instruções abaixo das outras importações que já estão no arquivo.
+Abra *classificar/\_ \_init \_ \_. py* em seu editor. Importe a biblioteca de *previsão* que você adicionou à mesma pasta anteriormente. Adicione as seguintes instruções `import` abaixo das outras importações que já estão no arquivo.
 
 ```python
 import json
@@ -221,14 +221,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(json.dumps(results), headers = headers)
 ```
 
-Certifique-se guardar as alterações.
+Certifique-se de salvar suas alterações.
 
-Essa função recebe uma URL de imagem em um parâmetro de cadeia `img`de caracteres de consulta chamado. Ele chama `predict_image_from_url` da biblioteca auxiliar que baixa a imagem e retorna uma previsão usando o modelo TensorFlow. Em seguida, a função retorna uma resposta HTTP com os resultados.
+Essa função recebe uma URL de imagem em um parâmetro de cadeia de caracteres de consulta chamado `img`. Ele chama `predict_image_from_url` da biblioteca auxiliar que baixa a imagem e retorna uma previsão usando o modelo TensorFlow. Em seguida, a função retorna uma resposta HTTP com os resultados.
 
-Como o ponto de extremidade http é chamado por uma página da web hospedada em outro domínio, a `Access-Control-Allow-Origin` resposta http inclui um cabeçalho para atender aos requisitos de CORS (compartilhamento de recursos entre origens) do navegador.
+Como o ponto de extremidade HTTP é chamado por uma página da web hospedada em outro domínio, a resposta HTTP inclui um cabeçalho `Access-Control-Allow-Origin` para atender aos requisitos de CORS (compartilhamento de recursos entre origens) do navegador.
 
 > [!NOTE]
-> Em um aplicativo de produção, `*` altere para a origem específica da página da Web para obter segurança adicional.
+> Em um aplicativo de produção, altere `*` para a origem específica da página da Web para aumentar a segurança.
 
 ### <a name="run-the-function-app"></a>Executar o aplicativo de funções
 

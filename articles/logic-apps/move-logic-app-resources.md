@@ -1,5 +1,5 @@
 ---
-title: Mover os recursos do aplicativo lógico entre assinaturas, grupos de recursos ou regiões-aplicativos lógicos do Azure
+title: Mover aplicativos lógicos entre assinaturas, grupos de recursos ou regiões-aplicativos lógicos do Azure
 description: Migrar aplicativos lógicos ou contas de integração para outras assinaturas do Azure, grupos de recursos ou locais (regiões)
 services: logic-apps
 ms.service: logic-apps
@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: e7c201004be6c4d39f482cc288824cba74e302cb
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 8c3bad32943b83cbfe4c96087f3fef1c51f64bb1
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737501"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679117"
 ---
-# <a name="migrate-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Migrar recursos do aplicativo lógico para outras assinaturas, grupos de recursos ou regiões do Azure
+# <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Mover recursos do aplicativo lógico para outras assinaturas, grupos de recursos ou regiões do Azure
 
 Para mover seu aplicativo lógico ou recursos relacionados para outra assinatura, grupo de recursos ou região do Azure, você tem várias maneiras de concluir essas tarefas, como o portal do Azure, Azure PowerShell, CLI do Azure e a API REST. Antes de mover os recursos, examine estas considerações: 
 
@@ -82,7 +82,7 @@ Quando você deseja mover um aplicativo lógico para uma região diferente, suas
 
 Para obter mais informações sobre modelos de implantação para aplicativos lógicos, consulte estes tópicos:
 
-* [Sobre Automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Localizar, abrir e baixar seu aplicativo lógico do portal do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
 * [Criar modelos de Azure Resource Manager para aplicativos lógicos do Azure](../logic-apps/logic-apps-create-azure-resource-manager-templates.md)
 * [Implantar modelos de Azure Resource Manager para aplicativos lógicos do Azure](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md)
@@ -107,6 +107,6 @@ O modelo obtido do Visual Studio inclui apenas as definições de recurso para s
 
 1. Abra e edite o modelo para parametrizar os valores necessários para a implantação.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Mover recursos do Azure para novos grupos de recursos ou assinaturas](../azure-resource-manager/resource-group-move-resources.md)

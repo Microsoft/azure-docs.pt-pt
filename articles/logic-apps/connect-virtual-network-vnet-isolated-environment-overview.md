@@ -1,6 +1,6 @@
 ---
-title: Acesso a redes virtuais do Azure de aplicativos lógicos do Azure com ambientes de serviço de integração (ISEs)
-description: Esta visão geral descreve como os ambientes de serviço de integração (ISEs) ajudam os aplicativos lógicos a acessar redes virtuais do Azure (VNETs)
+title: Acesso a redes virtuais do Azure – aplicativos lógicos do Azure
+description: Visão geral sobre como os ambientes de serviço de integração (ISEs) ajudam os aplicativos lógicos a acessar redes virtuais do Azure (VNETs)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 831a1457d865429fd53af1887a14c363b806300c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516611"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680504"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos de rede virtual do Azure de aplicativos lógicos do Azure usando ambientes de serviço de integração (ISEs)
 
@@ -30,7 +30,7 @@ Seu aplicativo lógico agora pode acessar diretamente os sistemas que estão den
 
 * Um conector com rótulo de **ISE**para esse sistema, como SQL Server
 * Um gatilho ou ação interna de rótulo de **núcleo**, como o gatilho ou a ação de http
-* Um conector personalizado
+* um conector personalizado
 
 Esta visão geral descreve mais detalhes sobre como um ISE fornece aos seus aplicativos lógicos e contas de integração acesso direto à sua rede virtual do Azure e compara as diferenças entre um ISE e o serviço de aplicativos lógicos globais.
 
@@ -91,8 +91,8 @@ Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https:/
 
 Ao criar o ISE, você pode optar por usar pontos de extremidade de acesso internos ou externos. Esses pontos de extremidade determinam se os gatilhos de solicitação ou webhook em aplicativos lógicos no ISE podem receber chamadas de fora de sua rede virtual. Esses pontos de extremidade também afetam o acesso a entradas e saídas no histórico de execução do aplicativo lógico.
 
-* **Interno**: Pontos de extremidade privados que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico de execução somente *de dentro de sua rede virtual*
-* **Externo**: Pontos de extremidade públicos que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico *de execução de fora da sua rede virtual*
+* **Interno**: pontos de extremidade privados que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico de execução somente *de dentro de sua rede virtual*
+* **Externo**: pontos de extremidade públicos que permitem chamadas para aplicativos lógicos em seu ISE, além de acesso a entradas e saídas no histórico *de execução de fora de sua rede virtual*
 
 > [!IMPORTANT]
 > A opção de ponto de extremidade de acesso só está disponível na criação do ISE e não pode ser alterada posteriormente.
@@ -119,7 +119,7 @@ Para sistemas locais que não estão conectados a uma rede virtual ou não têm 
 
 Você pode usar contas de integração com aplicativos lógicos dentro de um ambiente do serviço de integração (ISE). No entanto, essas contas de integração devem usar o *mesmo ISE* que os aplicativos lógicos vinculados. Os aplicativos lógicos em um ISE podem referenciar somente as contas de integração que estão no mesmo ISE. Ao criar uma conta de integração, você pode selecionar o ISE como o local para sua conta de integração. Para saber como o preço e a cobrança funcionam para contas de integração com um ISE, consulte o [modelo de preços dos aplicativos lógicos](../logic-apps/logic-apps-pricing.md#fixed-pricing). Para obter taxas de preços, consulte [preços dos aplicativos lógicos](https://azure.microsoft.com/pricing/details/logic-apps/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Conectar-se a redes virtuais do Azure de aplicativos lógicos isolados](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 * [Adicionar artefatos a ambientes de serviço de integração](../logic-apps/add-artifacts-integration-service-environment-ise.md)

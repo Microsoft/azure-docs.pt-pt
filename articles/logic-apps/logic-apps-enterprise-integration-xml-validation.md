@@ -1,6 +1,6 @@
 ---
-title: Validar XML para a integração empresarial de B2B - Azure Logic Apps | Documentos da Microsoft
-description: Validar XML com esquemas para soluções de B2B no Azure Logic Apps com o Enterprise Integration Pack
+title: Validar XML para integração de empresas B2B – aplicativos lógicos do Azure
+description: Validar XML usando esquemas em aplicativos lógicos do Azure com Enterprise Integration Pack
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,53 +8,62 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: d700588f-2d8a-4c92-93eb-e1e6e250e760
-ms.date: 07/08/2016
-ms.openlocfilehash: 8db0dbadd944007ff953f9ea69695bf988ffebb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 10/21/2019
+ms.openlocfilehash: 7813dcb375ff4a123b1314f8f9db453b1f0b187e
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60996339"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680257"
 ---
-# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML para enterprise integração B2B no Azure Logic Apps Enterprise Integration Pack
+# <a name="validate-xml-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Validar XML para integração de empresas B2B em aplicativos lógicos do Azure com Enterprise Integration Pack
 
-Muitas vezes, em cenários de B2B, os parceiros num contrato devem certificar-se de que as mensagens que do exchange que são válidas antes de iniciar o processamento de dados. Pode validar os documentos em relação a um esquema predefinido com o uso do conector de validação de XML no Enterprise Integration Pack.
+Geralmente em cenários B2B, os parceiros comerciais em um contrato precisam garantir que as mensagens trocadas sejam válidas antes que qualquer processamento de dados possa ser iniciado. Você pode validar documentos em um esquema predefinido usando a ação validação de XML, que está disponível com o Enterprise Integration Pack.
 
-## <a name="validate-a-document-with-the-xml-validation-connector"></a>Validar um documento com o conector de validação de XML
+## <a name="prerequisites"></a>Pré-requisitos
 
-1. Criar uma aplicação lógica, e [associar a aplicação para a conta de integração](../logic-apps/logic-apps-enterprise-integration-accounts.md "aprender a ligar uma conta de integração para uma aplicação lógica") que tenha o esquema que pretende utilizar para validar os dados XML.
+* Uma subscrição do Azure. Se você ainda não tiver uma assinatura, [Inscreva-se para obter uma conta gratuita do Azure](https://azure.microsoft.com/free/).
 
-2. Adicionar uma **pedido - pedido de HTTP de uma quando é recebido** acionador à sua aplicação lógica.
+* Um aplicativo lógico em branco ou existente no qual você deseja usar a ação de validação de XML. Se você for novo em aplicativos lógicos, examine [o que é o início rápido e aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) [: Crie seu primeiro aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1.png)
+* Uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) associada à sua assinatura do Azure é vinculada ao aplicativo lógico no qual você planeja usar a ação de validação de XML e contém o esquema que você deseja usar para validar o conteúdo XML. O aplicativo lógico e a conta de integração devem existir no mesmo local ou na região do Azure.
 
-3. Para adicionar o **validação de XML** ação, escolha **adicionar uma ação**.
+## <a name="add-xml-validation-action"></a>Adicionar ação de validação de XML
 
-4. Para filtrar todas as ações para aquele que pretende, introduza *xml* na caixa de pesquisa. Escolher **validação de XML**.
+1. No [portal do Azure](https://portal.azure.com), abra seu aplicativo lógico no designer do aplicativo lógico.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-2.png)
+1. Se você tiver um aplicativo lógico em branco, no designer do aplicativo lógico, na caixa de pesquisa, insira `HTTP request` como filtro e selecione o gatilho **quando uma solicitação HTTP é recebida** . Caso contrário, prossiga para a próxima etapa.
 
-5. Para especificar o conteúdo XML que pretende validar, selecione **conteúdo**.
+1. Na última etapa do fluxo de trabalho, selecione **nova etapa**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-1-5.png)
+   Para adicionar uma ação entre as etapas existentes, mova o ponteiro sobre a seta que conecta essas etapas para que o sinal de adição ( **+** ) seja exibido. Selecione esse sinal de adição e, em seguida, selecione **Adicionar uma ação**.
 
-6. Selecione a marca do corpo como o conteúdo que pretende validar.
+1. Em **escolher uma ação**, selecione **interno**. Na caixa de pesquisa, insira `xml validation` como seu filtro. Na lista ações, selecione **validação de XML**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-3.png)
+   ![Localizar e selecionar a ação "validação de XML"](./media/logic-apps-enterprise-integration-xml-validation/select-xml-validation-action.png)
 
-7. Para especificar o esquema que pretende utilizar para validar o anterior *conteúdo* de entrada, escolha **nome do esquema**.
+1. Para especificar o conteúdo XML que você deseja validar, clique dentro da caixa de **conteúdo** para que a lista de conteúdo dinâmico seja exibida.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-4.png)
+   ![Abrir lista de conteúdo dinâmico](./media/logic-apps-enterprise-integration-xml-validation/open-dynamic-content-list.png)
 
-8. Guarde o seu trabalho  
+   A lista de conteúdo dinâmico mostra os tokens de propriedade que representam as saídas das etapas anteriores no fluxo de trabalho. Se a lista não mostrar uma propriedade esperada, verifique o gatilho ou o cabeçalho da ação se você puder selecionar **Ver mais**.
 
-    ![](./media/logic-apps-enterprise-integration-xml-validation/xml-5.png)
+1. Na lista conteúdo dinâmico, selecione a propriedade que tem o conteúdo que você deseja validar.
 
-Agora já precisar configurar o conector de validação. Num aplicativo do mundo real, pode querer armazenar os dados validados num aplicativo de linha de negócio (LOB) como o SalesForce. Para enviar a saída validada para Salesforce, adicione uma ação.
+   Este exemplo seleciona a saída do **corpo** do gatilho.
 
-Para testar a ação de validação, fazer um pedido para o ponto final HTTP.
+   ![Selecione o conteúdo a ser validado](./media/logic-apps-enterprise-integration-xml-validation/select-content-to-validate.png)
 
-## <a name="next-steps"></a>Passos Seguintes
-[Saiba mais sobre o Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")   
+1. Para especificar o esquema que você deseja usar para validação, abra a lista **nome do esquema** e selecione o esquema de validação que você adicionou à sua conta de integração vinculada.
 
+   ![Selecione o esquema a ser usado para validação](./media/logic-apps-enterprise-integration-xml-validation/select-validation-schema.png)
+
+1. Guarde a aplicação lógica.
+
+   Agora você concluiu a configuração de sua validação. Em um aplicativo do mundo real, talvez você queira armazenar os dados validados em um aplicativo de linha de negócios (LOB), como o SalesForce. Para enviar a saída validada para o Salesforce, adicione uma ação.
+
+1. Para testar sua ação de validação, você pode enviar uma solicitação para disparar o fluxo de trabalho do aplicativo lógico.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Saiba mais sobre o [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)

@@ -1,6 +1,6 @@
 ---
-title: Integrar as operações de segurança com o Microsoft Graph Security - Azure Logic Apps
-description: Melhorar as capacidades de proteção, deteção e resposta de ameaças da sua aplicação ao gerir as operações de segurança com o Microsoft Graph Security e Azure Logic Apps
+title: Integrar e gerenciar operações de segurança-aplicativos lógicos do Azure & segurança de Microsoft Graph
+description: Melhorar a proteção contra ameaças do seu aplicativo, a detecção e a resposta com o Microsoft Graph Security & aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,114 +10,114 @@ ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/30/2019
 tags: connectors
-ms.openlocfilehash: 24963a35bc3e54b2d140bf4ed1d169b213bd9b2a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 845f57d84f49bdd964cc6f61790faff093f59466
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60448056"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679085"
 ---
-# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhorar a proteção contra ameaças, integrando operações de segurança com o Microsoft Graph Security e Azure Logic Apps
+# <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Melhore a proteção contra ameaças integrando operações de segurança com o Microsoft Graph Security & aplicativos lógicos do Azure
 
-Com o [Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o [gráfico de segurança da Microsoft](https://docs.microsoft.com/graph/security-concept-overview) conector, pode melhorar como Deteta a sua aplicação, protege e responde às ameaças com a criação de fluxos de trabalho automatizados para a integração Microsoft produtos de segurança, serviços e parceiros. Por exemplo, pode criar [playbooks de centro de segurança do Azure](../security-center/security-center-playbooks.md) que monitorizar e gerir as entidades de segurança do Microsoft Graph, tais como alertas. Seguem-se alguns cenários suportados pelo conector do Microsoft Graph Security:
+Com os [aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md) e o conector de [segurança Microsoft Graph](https://docs.microsoft.com/graph/security-concept-overview) , você pode melhorar a forma como seu aplicativo detecta, protege e responde a ameaças criando fluxos de trabalho automatizados para integrar produtos, serviços e parceiros de segurança da Microsoft. Por exemplo, você pode criar [Guias estratégicos da central de segurança do Azure](../security-center/security-center-playbooks.md) que monitoram e gerenciam Microsoft Graph entidades de segurança, como alertas. Aqui estão alguns cenários com suporte do conector de segurança Microsoft Graph:
 
-* Obter alertas com base nas consultas ou por ID de alerta. Por exemplo, pode obter uma lista que inclui alertas de gravidade elevada.
-* Atualize alertas. Por exemplo, pode atualizar alerta atribuições, adicionar comentários a alertas ou marcar alertas.
-* Monitor quando os alertas são criados ou alterados criando [alertar subscrições (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
-* Gerir as subscrições de alertas. Por exemplo, pode obter subscrições ativas, expandir o tempo de expiração para uma subscrição ou eliminar subscrições.
+* Obter alertas com base em consultas ou por ID de alerta. Por exemplo, você pode obter uma lista que inclui alertas de severidade alta.
+* Atualizar alertas. Por exemplo, você pode atualizar atribuições de alerta, adicionar comentários a alertas ou marcar alertas.
+* Monitore quando os alertas são criados ou alterados por meio da criação de [assinaturas de alerta (WebHooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
+* Gerencie suas assinaturas de alerta. Por exemplo, você pode obter assinaturas ativas, estender o tempo de expiração de uma assinatura ou excluir assinaturas.
 
-Fluxo de trabalho da sua aplicação lógica pode utilizar as ações que obtém respostas a partir do conector do Microsoft Graph Security e disponibilizar essa saída para outras ações no seu fluxo de trabalho. Também pode ter outras ações no seu uso de fluxo de trabalho a saída das ações de conector de segurança do Microsoft Graph. Por exemplo, se receber alertas de gravidade elevada através do conector de segurança do Microsoft Graph, pode enviar alertas numa mensagem de e-mail ao utilizar o conector do Outlook. 
+O fluxo de trabalho do seu aplicativo lógico pode usar ações que obtêm respostas do conector de segurança Microsoft Graph e disponibilizar essa saída para outras ações no fluxo de trabalho. Você também pode ter outras ações em seu fluxo de trabalho usar a saída das ações do conector de segurança Microsoft Graph. Por exemplo, se você obtiver alertas de severidade alta por meio do conector de segurança Microsoft Graph, poderá enviar esses alertas em uma mensagem de email usando o conector do Outlook. 
 
-Para saber mais sobre a segurança do Microsoft Graph, veja a [descrição geral da API de segurança do Microsoft Graph](https://aka.ms/graphsecuritydocs). Se estiver familiarizado com aplicações lógicas, reveja [o que é o Azure Logic Apps?](../logic-apps/logic-apps-overview.md). Se estiver à procura para o Microsoft Flow ou PowerApps, veja [o que é o fluxo?](https://flow.microsoft.com/) ou [o que é o PowerApps?](https://powerapps.microsoft.com/)
+Para saber mais sobre Microsoft Graph segurança, consulte a [visão geral da API de segurança do Microsoft Graph](https://aka.ms/graphsecuritydocs). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md). Se você estiver procurando Microsoft Flow ou PowerApps, consulte [o que é o Flow?](https://flow.microsoft.com/) ou [o que é o PowerApps?](https://powerapps.microsoft.com/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/). 
 
-* Para utilizar o conector de segurança do Microsoft Graph, tem de ter *explicitamente determinado* consentimento de administrador inquilino de Azure Active Directory (AD), que faz parte do [os requisitos de autenticação de segurança do Microsoft Graph ](https://aka.ms/graphsecurityauth). Este consentimento requer o ID da aplicação e o nome, o que também pode ser encontrado no conector de segurança do Microsoft Graph a [portal do Azure](https://portal.azure.com):
+* Para usar o conector de segurança do Microsoft Graph, você deve ter *explicitamente* o consentimento do administrador de locatários do Azure Active Directory (AD), que faz parte dos [requisitos de autenticação de segurança do Microsoft Graph](https://aka.ms/graphsecurityauth). Esse consentimento exige a ID e o nome do aplicativo do conector de segurança Microsoft Graph, que você também pode encontrar na [portal do Azure](https://portal.azure.com):
 
-   | Propriedade | Value |
+   | Propriedade | Valor |
    |----------|-------|
-   | **Nome da aplicação** | `MicrosoftGraphSecurityConnector` |
-   | **ID da aplicação** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
+   | **Nome do aplicativo** | `MicrosoftGraphSecurityConnector` |
+   | **ID do aplicativo** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
    |||
 
-   Para conceder autorização para o conector, o administrador de inquilino do Azure AD pode seguir qualquer um destes passos:
+   Para conceder consentimento para o conector, o administrador de locatário do Azure AD pode seguir estas etapas:
 
-   * [Conceder autorização de administrador de inquilino para aplicações do Azure AD](../active-directory/develop/v2-permissions-and-consent.md).
+   * [Conceda consentimento de administrador de locatários para aplicativos do Azure ad](../active-directory/develop/v2-permissions-and-consent.md).
 
-   * Durante a primeira execução da sua aplicação lógica, a aplicação pode pedir consentimento de administrador de inquilino do Azure AD através da [experiência de consentimento da aplicação](../active-directory/develop/application-consent-experience.md).
+   * Durante a primeira execução do aplicativo lógico, seu aplicativo pode solicitar o consentimento do administrador de locatário do Azure AD por meio da [experiência de consentimento do aplicativo](../active-directory/develop/application-consent-experience.md).
    
-* Conhecimento básico sobre [como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* A aplicação lógica em que deseja acessar suas entidades de segurança do Microsoft Graph, tais como alertas. Atualmente, este conector não tem acionadores. Então, para utilizar uma ação de segurança do Microsoft Graph, inicie a aplicação lógica com um acionador, por exemplo, o **periodicidade** acionador.
+* O aplicativo lógico no qual você deseja acessar suas entidades de segurança do Microsoft Graph, como alertas. Atualmente, esse conector não tem gatilhos. Portanto, para usar uma ação de segurança Microsoft Graph, inicie seu aplicativo lógico com um gatilho, por exemplo, o gatilho de **recorrência** .
 
-## <a name="connect-to-microsoft-graph-security"></a>Ligar a segurança do Microsoft Graph 
+## <a name="connect-to-microsoft-graph-security"></a>Conectar-se à segurança do Microsoft Graph 
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Inicie sessão para o [portal do Azure](https://portal.azure.com/)e abra a aplicação lógica no Estruturador da aplicação lógica, se não estiver já abrir.
+1. Entre no [portal do Azure](https://portal.azure.com/)e abra seu aplicativo lógico no designer de aplicativo lógico, se ainda não estiver aberto.
 
-1. Para aplicações de lógica em branco, adicione o acionador e outras ações que pretende antes de adicionar uma ação de segurança do Microsoft Graph.
-
-   -ou-
-
-   Para logic apps existentes, sob a última etapa em que pretende adicionar uma ação de segurança do Microsoft Graph, escolha **novo passo**.
+1. Para aplicativos lógicos em branco, adicione o gatilho e todas as outras ações desejadas antes de adicionar uma ação de Microsoft Graph segurança.
 
    -ou-
 
-   Para adicionar uma ação entre passos, mova o ponteiro do mouse sobre a seta entre passos. 
-   Selecione o sinal de adição (+) que aparece e selecione **adicionar uma ação**.
+   Para os aplicativos lógicos existentes, na última etapa em que você deseja adicionar uma Microsoft Graph ação de segurança, escolha **nova etapa**.
 
-1. Na caixa de pesquisa, introduza "segurança da microsoft graph" como o filtro. Na lista de ações, selecione a ação que pretende.
+   -ou-
 
-1. Inicie sessão com as suas credenciais de segurança do Microsoft Graph.
+   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. 
+   Escolha o sinal de adição (+) que aparece e selecione **Adicionar uma ação**.
 
-1. Forneça os detalhes necessários para a ação selecionada e continuar a criar o fluxo de trabalho da sua aplicação lógica.
+1. Na caixa de pesquisa, digite "Microsoft Graph Security" como seu filtro. Na lista ações, selecione a ação desejada.
+
+1. Entre com suas credenciais de segurança do Microsoft Graph.
+
+1. Forneça os detalhes necessários para a ação selecionada e continue criando o fluxo de trabalho do aplicativo lógico.
 
 ## <a name="add-actions"></a>Adicionar ações
 
-Seguem-se detalhes mais específicos sobre como utilizar as diversas ações disponíveis com o conector de segurança do Microsoft Graph.
+Aqui estão detalhes mais específicos sobre como usar as várias ações disponíveis com o conector de segurança Microsoft Graph.
 
 ### <a name="manage-alerts"></a>Gerir alertas
 
-Para filtrar, ordenar, ou obtenha os resultados mais recentes, fornecer *apenas* a [parâmetros de consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especificar* o URL de base completo ou a ação de HTTP, por exemplo, `https://graph.microsoft.com/v1.0/security/alerts`, ou o `GET` ou `PATCH` operação. Eis um exemplo específico, que mostra os parâmetros para um **obter alertas** ação quando pretender que uma lista com alertas de gravidade elevada:
+Para filtrar, classificar ou obter os resultados mais recentes, forneça *somente* os [parâmetros de consulta ODATA com suporte pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *Não especifique* a URL base completa ou a ação http, por exemplo, `https://graph.microsoft.com/v1.0/security/alerts`, ou a `GET` ou `PATCH` operação. Aqui está um exemplo específico que mostra os parâmetros para uma ação **obter alertas** quando você deseja uma lista com alertas de severidade alta:
 
 `Filter alerts value as Severity eq 'high'`
 
-Para obter mais informações sobre as consultas que pode utilizar com este conector, consulte a [documentação de referência de alertas de segurança do Microsoft Graph](https://docs.microsoft.com/graph/api/alert-list). Para criar experiências aprimoradas com este conector, saiba mais sobre o [alertas de propriedades de esquema](https://docs.microsoft.com/graph/api/resources/alert) que suporta o conector.
+Para obter mais informações sobre as consultas que você pode usar com esse conector, consulte a [documentação de referência de alertas de segurança Microsoft Graph](https://docs.microsoft.com/graph/api/alert-list). Para criar experiências aprimoradas com esse conector, saiba mais sobre os [alertas de propriedades de esquema](https://docs.microsoft.com/graph/api/resources/alert) aos quais o conector dá suporte.
 
 | Ação | Descrição |
 |--------|-------------|
-| **Obter alertas** | Obter alertas filtrado um com base num ou mais [propriedades do alerta](https://docs.microsoft.com/graph/api/resources/alert), por exemplo: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
-| **Obter alerta por ID** | Obter um alerta específico com base no ID do alerta. | 
-| **Alerta de atualização** | Atualizar um alerta específico com base no ID do alerta. <p>Para certificar-se de que passar as propriedades necessárias e editáveis no seu pedido, consulte a [editáveis propriedades de alertas](https://docs.microsoft.com/graph/api/alert-update). Por exemplo, para atribuir um alerta para um analista de segurança, para que podem investigar, pode atualizar o alerta **atribuídas a** propriedade. |
+| **Obter alertas** | Obtenha alertas filtrados com base em uma ou mais [Propriedades de alerta](https://docs.microsoft.com/graph/api/resources/alert), por exemplo: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
+| **Obter alerta por ID** | Obtenha um alerta específico com base na ID do alerta. | 
+| **Atualizar alerta** | Atualize um alerta específico com base na ID do alerta. <p>Para garantir que você passe as propriedades requeridas e editáveis em sua solicitação, consulte as [Propriedades editáveis para alertas](https://docs.microsoft.com/graph/api/alert-update). Por exemplo, para atribuir um alerta a um analista de segurança para que ele possa investigar, você pode atualizar a propriedade **atribuída ao** alerta. |
 |||
 
-### <a name="manage-alert-subscriptions"></a>Gerir subscrições de alertas
+### <a name="manage-alert-subscriptions"></a>Gerenciar assinaturas de alerta
 
-Suporta o Microsoft Graph [ *subscrições*](https://docs.microsoft.com/graph/api/resources/subscription), ou [ *webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Para obter, atualizar, ou eliminar subscrições, forneça o [parâmetros de consulta ODATA suportados pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) para a entidade Microsoft Graph construir e incluir `security/alerts` seguido a consulta ODATA. 
-*Não inclua* o URL de base, por exemplo, `https://graph.microsoft.com/v1.0`. Em vez disso, utilize o formato neste exemplo:
+O Microsoft Graph dá suporte a [*assinaturas*](https://docs.microsoft.com/graph/api/resources/subscription)ou [*WebHooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Para obter, atualizar ou excluir assinaturas, forneça os [parâmetros de consulta ODATA com suporte pelo Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) para a construção de entidade Microsoft Graph e inclua `security/alerts` seguido pela consulta ODATA. 
+*Não inclua* a URL base, por exemplo, `https://graph.microsoft.com/v1.0`. Em vez disso, use o formato neste exemplo:
 
 `security/alerts?$filter=status eq 'New'`
 
 | Ação | Descrição |
 |--------|-------------|
-| **Criar subscrições** | [Criar uma subscrição](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) que notifica-o sobre quaisquer alterações. Pode filtrar esta subscrição para os tipos de alerta específicos que pretende. Por exemplo, pode criar uma subscrição que notifica-o sobre alertas de gravidade elevada. |
-| **Obter subscrições ativas** | [Obter subscrições existe](https://docs.microsoft.com/graph/api/subscription-list). | 
-| **Atualizar a subscrição** | [Atualizar uma assinatura](https://docs.microsoft.com/graph/api/subscription-update) , fornecendo o ID de subscrição. Por exemplo, para expandir a sua subscrição, pode atualizar a subscrição `expirationDateTime` propriedade. | 
-| **Eliminar subscrição** | [Eliminar uma subscrição](https://docs.microsoft.com/graph/api/subscription-delete) , fornecendo o ID de subscrição. | 
+| **Criar assinaturas** | [Crie uma assinatura](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) que notifique você sobre quaisquer alterações. Você pode filtrar essa assinatura para os tipos de alertas específicos que desejar. Por exemplo, você pode criar uma assinatura que notifique sobre alertas de severidade alta. |
+| **Obter assinaturas ativas** | [Obter assinaturas não expiradas](https://docs.microsoft.com/graph/api/subscription-list). | 
+| **Atualizar assinatura** | [Atualize uma assinatura](https://docs.microsoft.com/graph/api/subscription-update) fornecendo a ID da assinatura. Por exemplo, para estender sua assinatura, você pode atualizar a propriedade de `expirationDateTime` da assinatura. | 
+| **Excluir assinatura** | [Exclua uma assinatura](https://docs.microsoft.com/graph/api/subscription-delete) fornecendo a ID da assinatura. | 
 ||| 
 
 ## <a name="connector-reference"></a>Referência do conector
 
-Para obter detalhes técnicos sobre os limites, ações e acionadores, que é descrito através OpenAPI do conector (anteriormente Swagger) descrição, reveja o conector [página de referência](https://aka.ms/graphsecurityconnectorreference).
+Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descritos pela descrição de OpenAPI (anteriormente, Swagger) do conector, examine a [página de referência](https://aka.ms/graphsecurityconnectorreference)do conector.
 
 ## <a name="get-support"></a>Obter suporte
 
 Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 Para submeter ou votar em ideias para funcionalidades, visite o [site de comentários dos utilizadores do Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre outras [conectores do Logic Apps](../connectors/apis-list.md)
+Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

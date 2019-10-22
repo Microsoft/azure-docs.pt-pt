@@ -1,6 +1,6 @@
 ---
-title: Recuperação após desastre para contas de integração B2B - Azure Logic Apps | Documentos da Microsoft
-description: Preparar-se para a recuperação de desastre entre regiões no Azure Logic Apps
+title: Recuperação de desastre para contas de integração – aplicativos lógicos do Azure
+description: Configurar a recuperação de desastre entre regiões para contas de integração em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,239 +8,238 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 04/10/2017
-ms.openlocfilehash: ac29ef7f0599cc41924ba1a5a00e46b0292e7e9b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 321bfb673bab748176d75db7bcf21d76ddf0c819
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967757"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680400"
 ---
-# <a name="cross-region-disaster-recovery-for-b2b-integration-accounts-in-azure-logic-apps"></a>Recuperação de desastres em várias regiões para contas de integração B2B no Azure Logic Apps
+# <a name="set-up-cross-region-disaster-recovery-for-integration-accounts-in-azure-logic-apps"></a>Configurar a recuperação de desastre entre regiões para contas de integração em aplicativos lógicos do Azure
 
-B2B cargas de trabalho envolvem transações de dinheiro, como ordens e notas fiscais. Durante um evento de desastre, é fundamental para uma empresa para rapidamente, recupere para cumprir os SLAs de nível de negócios acordados com seus parceiros. Este artigo demonstra como criar um plano de continuidade de negócio para cargas de trabalho de B2B. 
+As cargas de trabalho B2B envolvem transações de dinheiro como pedidos e faturas. Durante um evento de desastre, é essencial que uma empresa se recupere rapidamente para atender aos SLAs de nível de negócios acordados com seus parceiros. Este artigo demonstra como criar um plano de continuidade de negócios para cargas de trabalho B2B. 
 
-* Preparação de recuperação após desastre 
-* Efetuar a ativação pós-falha para a região secundária durante um evento de desastre 
-* Reverter para a região primária após um evento de desastre
+* Preparação para recuperação de desastre 
+* Failover para a região secundária durante um evento de desastre 
+* Fazer fallback para a região primária após um evento de desastre
 
-## <a name="disaster-recovery-readiness"></a>Preparação de recuperação após desastre  
+## <a name="disaster-recovery-readiness"></a>Preparação para recuperação de desastre  
 
-1. Identificar uma região secundária e criar uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) na região secundária.
+1. Identifique uma região secundária e crie uma [conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) na região secundária.
 
-2. Adicione parceiros, os esquemas e contratos para os fluxos de mensagem necessário onde o estado de execução tem de ser replicadas para a conta de integração da região secundária.
+2. Adicione parceiros, esquemas e contratos para os fluxos de mensagens necessários em que o status de execução precisa ser replicado para a conta de integração de região secundária.
 
    > [!TIP]
-   > Certifique-se de que existe consistência na Convenção de nomenclatura o artefacto de conta de integração em várias regiões. 
+   > Verifique se há consistência na Convenção de nomenclatura do artefato da conta de integração entre regiões. 
 
-3. Para obter o estado de execução da região primária, crie uma aplicação lógica na região secundária. 
+3. Para efetuar pull do status de execução da região primária, crie um aplicativo lógico na região secundária. 
 
-   Esta aplicação lógica deve ter uma *acionador* e uma *ação*. 
-   O acionador deve ligar à conta de integração da região primária e a ação deve ligar à conta de integração da região secundária. 
-   Com base num intervalo de tempo, o acionador consulta a região primária, a tabela de estado de execução e obtém os registos novos, se houver. A ação atualiza-as para a conta de integração da região secundária. 
-   Isto ajuda a obter o estado de incremental runtime da região primária para a região secundária.
+   Esse aplicativo lógico deve ter um *gatilho* e uma *ação*. 
+   O gatilho deve se conectar à conta de integração da região primária e a ação deve se conectar à conta de integração da região secundária. 
+   Com base no intervalo de tempo, o gatilho sonda a tabela de status de execução da região primária e efetua pull dos novos registros, se houver. A ação atualiza-os para a conta de integração da região secundária. 
+   Isso ajuda a obter o status de tempo de execução incremental da região primária para a região secundária.
 
-4. Continuidade do negócio na conta de integração de aplicações lógicas foi concebida para suportar com base em protocolos B2B - X12, AS2 e EDIFACT. Para obter passos detalhados, selecione as respetivas ligações.
+4. A continuidade dos negócios na conta de integração de aplicativos lógicos foi projetada para oferecer suporte com base nos protocolos B2B – X12, AS2 e EDIFACT. Para encontrar etapas detalhadas, selecione os respectivos links.
 
-5. Recomenda-se implementar todos os recursos de região primária numa região secundária demasiado. 
+5. A recomendação é implantar todos os recursos de região primária em uma região secundária também. 
 
-   Recursos de região primária incluem a base de dados do Azure SQL ou do Azure Cosmos DB, do Azure Service Bus e dos Hubs de eventos do Azure utilizada para mensagens, gestão de API do Azure e a funcionalidade do Azure Logic Apps no App Service do Azure.   
+   Os recursos de região primária incluem banco de dados SQL do Azure ou Azure Cosmos DB, barramento de serviço do Azure e hubs de eventos do Azure usados para mensagens, gerenciamento de API do Azure e recurso de aplicativos lógicos do Azure no serviço Azure App.   
 
-6. Estabelece uma ligação a partir de uma região primária para uma região secundária. Para extrair o estado de execução de uma região primária, crie uma aplicação lógica numa região secundária. 
+6. Estabeleça uma conexão de uma região primária para uma região secundária. Para efetuar pull do status de execução de uma região primária, crie um aplicativo lógico em uma região secundária. 
 
-   A aplicação lógica deve ter um acionador e uma ação. 
-   O acionador deve ligar a uma conta de integração de região primária. 
-   A ação deve ligar a uma conta de integração de região secundária. 
-   Com base num intervalo de tempo, o acionador consulta a região primária, a tabela de estado de execução e obtém os registos novos, se houver. 
-   A ação atualiza-las para uma conta de integração da região secundária. 
-   Este processo ajuda a obter o estado de incremental runtime da região primária para a região secundária.
+   O aplicativo lógico deve ter um gatilho e uma ação. 
+   O gatilho deve se conectar a uma conta de integração da região primária. 
+   A ação deve se conectar a uma conta de integração da região secundária. 
+   Com base no intervalo de tempo, o gatilho sonda a tabela de status de execução da região primária e efetua pull dos novos registros, se houver. 
+   A ação atualiza-os para uma conta de integração de região secundária. 
+   Esse processo ajuda a obter o status de tempo de execução incremental da região primária para a região secundária.
 
-Continuidade do negócio numa conta de integração do Logic Apps fornece suporte com base nos protocolos de B2B X12, AS2 e EDIFACT. Para obter passos detalhados sobre como utilizar X12 e AS2, consulte [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12) e [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2) neste artigo.
+A continuidade dos negócios em uma conta de integração de aplicativos lógicos fornece suporte com base nos protocolos B2B X12, AS2 e EDIFACT. Para obter etapas detalhadas sobre como usar X12 e AS2, consulte [X12](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#x12) e [AS2](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md#as2) neste artigo.
 
-## <a name="fail-over-to-a-secondary-region-during-a-disaster-event"></a>Efetuar a ativação pós-falha para uma região secundária durante um evento de desastre
+## <a name="fail-over-to-a-secondary-region-during-a-disaster-event"></a>Fazer failover para uma região secundária durante um evento de desastre
 
-Durante um evento de desastre, quando a região primária não está disponível para continuidade do negócio, direcionar o tráfego para a região secundária. Uma ajuda de região secundária a uma empresa para recuperar as funções rapidamente para satisfazer o RPO/RTO acordados pelos respetivos parceiros. Também minimiza os esforços para efetuar a ativação pós-falha de uma região para outra região. 
+Durante um evento de desastre, quando a região primária não está disponível para continuidade de negócios, direcione o tráfego para a região secundária. Uma região secundária ajuda uma empresa a recuperar funções rapidamente para atender ao RPO/RTO acordado por seus parceiros. Ele também minimiza os esforços de failover de uma região para outra região. 
 
-Existe uma latência esperada ao copiar os números de controlo da região primária para uma região secundária. Para evitar o envio de números de controlo gerado duplicado para parceiros durante um evento de desastre, a recomendação é de incrementar os números de controle os contratos de região secundária, utilizando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
+Há uma latência esperada ao copiar números de controle de uma região primária para uma região secundária. Para evitar o envio de números de controle gerados duplicados para parceiros durante um evento de desastre, a recomendação é incrementar os números de controle nos contratos de região secundária usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).
 
-## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Reverter para um evento de pós-desastre da região primária
+## <a name="fall-back-to-a-primary-region-post-disaster-event"></a>Fazer fallback para um evento de pós-desastre na região primária
 
-Para reverter para a região primária quando estiver disponível, siga estes passos:
+Para fazer fallback para uma região primária quando ela estiver disponível, siga estas etapas:
 
-1. Pare a aceitação das mensagens de parceiros na região secundária.  
+1. Pare de aceitar mensagens de parceiros na região secundária.  
 
-2. Incrementar os números de controlo gerado para todos os contratos a região primária, utilizando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
+2. Incrementar os números de controle gerados para todos os contratos de região primária usando [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp/set-azurermintegrationaccountgeneratedicn?view=azurermps-6.13.0).  
 
-3. Direcionar o tráfego da região secundária para a região primária.
+3. Direcione o tráfego da região secundária para a região primária.
 
-4. Verifique que a aplicação lógica criada na região secundária para extrair o estado de execução da região primária está ativada.
+4. Verifique se o aplicativo lógico criado na região secundária para obter o status de execução da região primária está habilitado.
 
 ## <a name="x12"></a>X12 
 
-Continuidade do negócio para EDI X 12 documentos se baseia em números de controlo:
+A continuidade dos negócios para documentos EDI X12 é baseada em números de controle:
 
 > [!TIP]
-> Também pode utilizar o [X12 rápido iniciar modelo](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) para criar aplicações lógicas. Criação de contas de integração principais e secundários é pré-requisitos para utilizar o modelo. O modelo ajuda a criar aplicações lógicas dois, uma para números de controlo recebido e outro para números de controlo gerado. Cada acionador e ações são criadas no logic apps, o acionador a ligar a conta de integração de principal e a ação para a conta de integração secundário.
+> Você também pode usar o [modelo de início rápido do X12](https://azure.microsoft.com/resources/templates/201-logic-app-b2b-disaster-recovery-replication/) para criar aplicativos lógicos. A criação de contas de integração primária e secundária são pré-requisitos para usar o modelo. O modelo ajuda a criar dois aplicativos lógicos, um para números de controle recebidos e outro para números de controle gerados. Os respectivos gatilhos e ações são criados nos aplicativos lógicos, conectando o gatilho à conta de integração primária e a ação à conta de integração secundária.
 
 **Pré-requisitos**
 
-Para ativar a recuperação após desastre para as mensagens de entrada, selecione as definições de verificação duplicada no X12 definições de receção do contrato.
+Para habilitar a recuperação de desastre para mensagens de entrada, selecione as configurações de verificação duplicadas nas configurações de recebimento do contrato X12.
 
-![Selecione as definições de verificação duplicado](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
+![Selecionar configurações de verificação duplicadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/dupcheck.png)  
 
-1. Criar uma [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) numa região secundária.    
+1. Crie um [aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) em uma região secundária.    
 
-2. Pesquisar nos **X12**e selecione **X12-quando um número de controlo é modificado**.   
+2. Pesquise em **X12**e selecione **X12 – quando um número de controle é modificado**.   
 
-   ![Pesquisa de X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
+   ![Pesquisar por X12](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn1.png)
 
-   O acionador pede-lhe estabelecer uma ligação para uma conta de integração. 
-   O acionador deve estar ligado a uma conta de integração da região primária.
+   O gatilho solicita que você estabeleça uma conexão com uma conta de integração. 
+   O gatilho deve ser conectado a uma conta de integração da região primária.
 
-3. Introduza um nome de ligação, selecione seu *conta de integração da região primária* na lista e escolha **criar**.   
+3. Insira um nome de conexão, selecione sua *conta de integração de região primária* na lista e escolha **criar**.   
 
-   ![Nome de conta de integração de região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
+   ![Nome da conta de integração da região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn2.png)
 
-4. O **DateTime para iniciar a sincronização do número de controlo** definição é opcional. O **frequência** pode ser definido como **dia**, **hora**, **minuto**, ou **segundo** com um intervalo.   
+4. A configuração **DateTime para iniciar a sincronização do número de controle** é opcional. A **frequência** pode ser definida como **dia**, **hora**, **minuto**ou **segundo** com um intervalo.   
 
-   ![DateTime e a frequência](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![DateTime e Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-5. Selecione **novo passo** > **adicionar uma ação**.
+5. Selecione **Novo passo** > **Adicionar uma ação**.
 
-   ![Novo passo, adicionar uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Nova etapa, adicionar uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-6. Pesquisar nos **X12**e selecione **X12-adicionar ou atualizar números de controlo**.   
+6. Pesquise em **X12**e selecione **X12-adicionar ou atualizar números de controle**.   
 
-   ![Adicionar ou atualizar números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
+   ![Adicionar ou atualizar números de controle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn5.png)
 
-7. Para ligar uma ação para uma conta de integração da região secundária, selecione **Alterar ligação** > **Adicionar nova ligação** para obter uma lista das contas de integração disponível. Introduza um nome de ligação, selecione seu *conta de integração da região secundária* na lista e escolha **criar**. 
+7. Para conectar uma ação a uma conta de integração da região secundária, selecione **alterar conexão**  > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**. 
 
-   ![Nome de conta de integração de região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-8. Mudar para entradas não processadas ao clicar no ícone no canto superior direito.
+8. Alterne para entradas brutas clicando no ícone no canto superior direito.
 
-   ![Mudar para entradas não processadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
+   ![Alternar para entradas brutas](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12rawinputs.png)
 
-9. Selecionar o corpo do Seletor de conteúdo dinâmico e guarde a aplicação lógica.
+9. Selecione corpo no seletor de conteúdo dinâmico e salve o aplicativo lógico.
 
-   ![Campos de conteúdo dinâmicos](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
+   ![Campos de conteúdo dinâmico](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn7.png)
 
-   Com base num intervalo de tempo, o acionador consulta a tabela de número de controlo de região primária, recebido e obtém os registos de novo. 
-   A ação atualiza os registos na conta de integração de região secundária. 
-   Se não existirem não existem atualizações, o estado de Acionador aparece como **ignorados**.   
+   Com base no intervalo de tempo, o gatilho sonda a tabela de número de controle recebida da região primária e efetua pull dos novos registros. 
+   A ação atualiza os registros na conta de integração da região secundária. 
+   Se não houver nenhuma atualização, o status do gatilho será exibido como **ignorado**.   
 
-   ![Tabela de número de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+   ![Tabela de números de controle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
-Com base num intervalo de tempo, o estado de incremental runtime replica a partir de uma região primária para uma região secundária. Durante um evento de desastre, quando a região primária não está disponível, suporte direto tráfego para a região secundária para a continuidade do negócio. 
+Com base no intervalo de tempo, o status de tempo de execução incremental é replicado de uma região primária para uma região secundária. Durante um evento de desastre, quando a região primária não está disponível, direcione o tráfego para a região secundária para continuidade dos negócios. 
 
 ## <a name="edifact"></a>EDIFACT 
 
-Continuidade do negócio para documentos EDIFACT de EDI baseia-se em números de controlo.
+A continuidade dos negócios para documentos EDI EDIFACT é baseada em números de controle.
 
 **Pré-requisitos**
 
-Para ativar a recuperação após desastre para as mensagens de entrada, selecione as definições de verificação duplicado nas definições de receção do seu contrato de EDIFACT.
+Para habilitar a recuperação de desastre para mensagens de entrada, selecione as configurações de verificação duplicadas nas configurações de recebimento do contrato EDIFACT.
 
-![Selecione as definições de verificação duplicado](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
+![Selecionar configurações de verificação duplicadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactdupcheck.png)  
 
-1. Criar uma [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) numa região secundária.    
+1. Crie um [aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) em uma região secundária.    
 
-2. Pesquisar nos **EDIFACT**e selecione **EDIFACT - quando um número de controlo é modificado**.
+2. Pesquise em **EDIFACT**e selecione **EDIFACT – quando um número de controle é modificado**.
 
-   ![Pesquisa de EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
+   ![Pesquisar por EDIFACT](./media/logic-apps-enterprise-integration-b2b-business-continuity/edifactcn1.png)
 
-   O acionador pede-lhe estabelecer uma ligação para uma conta de integração. 
-   O acionador deve estar ligado a uma conta de integração da região primária. 
+   O gatilho solicita que você estabeleça uma conexão com uma conta de integração. 
+   O gatilho deve ser conectado a uma conta de integração da região primária. 
 
-3. Introduza um nome de ligação, selecione seu *conta de integração da região primária* na lista e escolha **criar**.    
+3. Insira um nome de conexão, selecione sua *conta de integração de região primária* na lista e escolha **criar**.    
 
-   ![Nome de conta de integração de região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
+   ![Nome da conta de integração da região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN2.png)
 
-4. O **DateTime para iniciar a sincronização do número de controlo** definição é opcional. O **frequência** pode ser definido como **dia**, **hora**, **minuto**, ou **segundo** com um intervalo.    
+4. A configuração **DateTime para iniciar a sincronização do número de controle** é opcional. A **frequência** pode ser definida como **dia**, **hora**, **minuto**ou **segundo** com um intervalo.    
 
-   ![DateTime e a frequência](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
+   ![DateTime e Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn3.png)
 
-6. Selecione **novo passo** > **adicionar uma ação**.    
+6. Selecione **Novo passo** > **Adicionar uma ação**.    
 
-   ![Novo passo, adicionar uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
+   ![Nova etapa, adicionar uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn4.png)
 
-7. Pesquisar nos **EDIFACT**e selecione **EDIFACT - adicionar ou atualizar números de controlo**.   
+7. Pesquise em **EDIFACT**e selecione **EDIFACT-adicionar ou atualizar números de controle**.   
 
-   ![Adicionar ou atualizar números de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
+   ![Adicionar ou atualizar números de controle](./media/logic-apps-enterprise-integration-b2b-business-continuity/EdifactChooseAction.png)
 
-8. Para ligar uma ação para uma conta de integração da região secundária, selecione **Alterar ligação** > **Adicionar nova ligação** para obter uma lista das contas de integração disponível. Introduza um nome de ligação, selecione seu *conta de integração da região secundária* na lista e escolha **criar**.
+8. Para conectar uma ação a uma conta de integração da região secundária, selecione **alterar conexão**  > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**.
 
-   ![Nome de conta de integração de região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
+   ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12cn6.png)
 
-9. Mudar para entradas não processadas ao clicar no ícone no canto superior direito.
+9. Alterne para entradas brutas clicando no ícone no canto superior direito.
 
-   ![Mudar para entradas não processadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
+   ![Alternar para entradas brutas](./media/logic-apps-enterprise-integration-b2b-business-continuity/Edifactrawinputs.png)
 
-10. Selecionar o corpo do Seletor de conteúdo dinâmico e guarde a aplicação lógica.   
+10. Selecione corpo no seletor de conteúdo dinâmico e salve o aplicativo lógico.   
 
-   ![Campos de conteúdo dinâmicos](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
+   ![Campos de conteúdo dinâmico](./media/logic-apps-enterprise-integration-b2b-business-continuity/X12CN7.png)
 
-   Com base num intervalo de tempo, o acionador consulta a tabela de número de controlo de região primária, recebido e obtém os registos de novo.
-   A ação atualiza os registos para a conta de integração da região secundária. 
-   Se não existirem não existem atualizações, o estado de Acionador aparece como **ignorados**.
+   Com base no intervalo de tempo, o gatilho sonda a tabela de número de controle recebida da região primária e efetua pull dos novos registros.
+   A ação atualiza os registros para a conta de integração da região secundária. 
+   Se não houver nenhuma atualização, o status do gatilho será exibido como **ignorado**.
 
-   ![Tabela de número de controlo](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
+   ![Tabela de números de controle](./media/logic-apps-enterprise-integration-b2b-business-continuity/x12recevicedcn8.png)
 
-Com base num intervalo de tempo, o estado de incremental runtime replica a partir de uma região primária para uma região secundária. Durante um evento de desastre, quando a região primária não está disponível, suporte direto tráfego para a região secundária para a continuidade do negócio. 
+Com base no intervalo de tempo, o status de tempo de execução incremental é replicado de uma região primária para uma região secundária. Durante um evento de desastre, quando a região primária não está disponível, direcione o tráfego para a região secundária para continuidade dos negócios. 
 
 ## <a name="as2"></a>AS2 
 
-Continuidade do negócio para documentos que utilizam o protocolo AS2 baseia-se o ID da mensagem e o valor MIC.
+A continuidade dos negócios para documentos que usam o protocolo AS2 é baseada na ID da mensagem e no valor do MIC.
 
 > [!TIP]
-> Também pode utilizar o [modelo de início rápido de AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) para criar aplicações lógicas. Criação de contas de integração principais e secundários é pré-requisitos para utilizar o modelo. O modelo ajuda a criar uma aplicação lógica que tem um acionador e uma ação. A aplicação lógica cria uma ligação a partir de um acionador para uma conta de integração de principal e uma ação para uma conta de integração secundário.
+> Você também pode usar o [modelo de início rápido do AS2](https://github.com/Azure/azure-quickstart-templates/pull/3302) para criar aplicativos lógicos. A criação de contas de integração primária e secundária são pré-requisitos para usar o modelo. O modelo ajuda a criar um aplicativo lógico que tem um gatilho e uma ação. O aplicativo lógico cria uma conexão de um gatilho para uma conta de integração primária e uma ação para uma conta de integração secundária.
 
-1. Criar uma [aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md) na região secundária.  
+1. Crie um [aplicativo lógico](../logic-apps/quickstart-create-first-logic-app-workflow.md) na região secundária.  
 
-2. Pesquisar nos **AS2**e selecione **AS2 - valor de MIC um quando é criado**.   
+2. Pesquise **AS2**e selecione **AS2 – quando um valor de Mic é criado**.   
 
-   ![Pesquisa de AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
+   ![Pesquisar AS2](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid1.png)
 
-   Um acionador pede-lhe estabelecer uma ligação para uma conta de integração. 
-   O acionador deve estar ligado a uma conta de integração da região primária. 
+   Um gatilho solicita que você estabeleça uma conexão com uma conta de integração. 
+   O gatilho deve ser conectado a uma conta de integração da região primária. 
    
-3. Introduza um nome de ligação, selecione seu *conta de integração da região primária* na lista e escolha **criar**.
+3. Insira um nome de conexão, selecione sua *conta de integração de região primária* na lista e escolha **criar**.
 
-   ![Nome de conta de integração de região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
+   ![Nome da conta de integração da região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid2.png)
 
-4. O **DateTime para iniciar a sincronização de valor MIC** definição é opcional. O **frequência** pode ser definido como **dia**, **hora**, **minuto**, ou **segundo** com um intervalo.   
+4. A configuração **DateTime para iniciar a sincronização de valor de Mic** é opcional. A **frequência** pode ser definida como **dia**, **hora**, **minuto**ou **segundo** com um intervalo.   
 
-   ![DateTime e a frequência](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
+   ![DateTime e Frequency](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid3.png)
 
-5. Selecione **novo passo** > **adicionar uma ação**.  
+5. Selecione **Novo passo** > **Adicionar uma ação**.  
 
-   ![Novo passo, adicionar uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
+   ![Nova etapa, adicionar uma ação](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid4.png)
 
-6. Pesquisar nos **AS2**e selecione **AS2 - adicionar ou atualizar conteúdos MIC**.  
+6. Pesquise no **AS2**e selecione **AS2 – adicionar ou atualizar o conteúdo do MIC**.  
 
-   ![Adição de MIC ou de atualização](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
+   ![Adição ou atualização de MIC](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid5.png)
 
-7. Para ligar uma ação para uma conta de integração secundário, selecione **Alterar ligação** > **Adicionar nova ligação** para obter uma lista das contas de integração disponível. Introduza um nome de ligação, selecione seu *conta de integração da região secundária* na lista e escolha **criar**.
+7. Para conectar uma ação a uma conta de integração secundária, selecione **alterar conexão**  > **Adicionar nova conexão** para obter uma lista das contas de integração disponíveis. Insira um nome de conexão, selecione sua *conta de integração de região secundária* na lista e escolha **criar**.
 
-   ![Nome de conta de integração de região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
+   ![Nome da conta de integração da região secundária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid6.png)
 
-8. Mudar para entradas não processadas ao clicar no ícone no canto superior direito.
+8. Alterne para entradas brutas clicando no ícone no canto superior direito.
 
-   ![Mudar para entradas não processadas](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
+   ![Alternar para entradas brutas](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2rawinputs.png)
 
-9. Selecionar o corpo do Seletor de conteúdo dinâmico e guarde a aplicação lógica.   
+9. Selecione corpo no seletor de conteúdo dinâmico e salve o aplicativo lógico.   
 
    ![Conteúdo dinâmico](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid7.png)
 
-   Com base num intervalo de tempo, o acionador consulta a tabela da região primária e obtém os registos de novo. A ação atualiza-as para a conta de integração da região secundária. 
-   Se não existirem não existem atualizações, o estado de Acionador aparece como **ignorados**.  
+   Com base no intervalo de tempo, o gatilho sonda a tabela de região primária e efetua pull dos novos registros. A ação atualiza-os para a conta de integração da região secundária. 
+   Se não houver nenhuma atualização, o status do gatilho será exibido como **ignorado**.  
 
-   ![Tabela da região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
+   ![Tabela de região primária](./media/logic-apps-enterprise-integration-b2b-business-continuity/as2messageid8.png)
 
-Com base num intervalo de tempo, o estado de incremental runtime replica da região primária para a região secundária. Durante um evento de desastre, quando a região primária não está disponível, suporte direto tráfego para a região secundária para a continuidade do negócio. 
+Com base no intervalo de tempo, o status de tempo de execução incremental é replicado da região primária para a região secundária. Durante um evento de desastre, quando a região primária não está disponível, direcione o tráfego para a região secundária para continuidade dos negócios. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Monitorizar mensagens B2B](logic-apps-monitor-b2b-message.md)
 

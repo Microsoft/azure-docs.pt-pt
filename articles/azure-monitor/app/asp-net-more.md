@@ -1,35 +1,30 @@
 ---
-title: Aproveitar ao máximo o Azure Application Insights | Documentos da Microsoft
-description: Após a introdução ao Application Insights, aqui está um resumo das funcionalidades, pode explorar.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 7ec10a2d-c669-448d-8d45-b486ee32c8db
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Aproveite mais o Aplicativo Azure insights | Microsoft Docs
+description: Depois de começar a usar o Application Insights, aqui está um resumo dos recursos que você pode explorar.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 02/03/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 7e62efb0b64b0b882b36126af4a1f9d520d92475
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 02/03/2017
+ms.openlocfilehash: 8c51745c43ced8ad3031a6a01096261ef72b33fc
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230631"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72678359"
 ---
-# <a name="more-telemetry-from-application-insights"></a>Mais telemetria do Application Insights
-Depois de ter [adicionado o Application Insights ao seu código ASP.NET](../../azure-monitor/app/asp-net.md), existem algumas coisas que pode fazer para obter ainda mais telemetria. 
+# <a name="more-telemetry-from-application-insights"></a>Mais telemetria de Application Insights
+Depois de [adicionar Application insights ao seu código ASP.net](../../azure-monitor/app/asp-net.md), há algumas coisas que você pode fazer para obter ainda mais telemetria. 
 
-| Ação | O que obtém|
+| Ação | O que recebe|
 |---|---|
-|(Servidores IIS) [Instalar o Monitor de estado](https://go.microsoft.com/fwlink/?LinkId=506648) em cada máquina do servidor.<br/>(As aplicações web do azure) No painel de controlo do Azure para a aplicação web, abra o painel do Application Insights.| [**Contadores de desempenho**](../../azure-monitor/app/performance-counters.md)<br/>[**Exceções** ](asp-net-exceptions.md) - detalhadas rastreios de pilha<br/>[**Dependências**](../../azure-monitor/app/asp-net-dependencies.md)|
-|[Adicione o fragmento do JavaScript às suas páginas web](../../azure-monitor/app/javascript.md)|[Página desempenho](../../azure-monitor/app/usage-overview.md), exceções do browser, desempenho de AJAX. Telemetria personalizada do lado do cliente.|
-|[Criar testes web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)|Obtenha alertas se o seu site ficar indisponível|
-|[Certifique-se de buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) é gerado pelo MSBuild|[Criar anotações em gráficos de métricas](https://docs.microsoft.com/azure/azure-monitor/app/annotations)
-|[Escrever métricas e eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md)|Contagem de métricas e eventos de negócios, controlar a utilização detalhada e muito mais.|
-|[Perfil de seu site em direto](https://aka.ms/AIProfilerPreview)|Tempos de função detalhadas da sua aplicação web em direto|
+|(Servidores IIS) [Instale o status monitor](https://go.microsoft.com/fwlink/?LinkId=506648) em cada computador do servidor.<br/>(Aplicativos Web do Azure) No painel de controle do Azure para o aplicativo Web, abra a folha Application Insights.| [**Contadores de desempenho**](../../azure-monitor/app/performance-counters.md)<br/>[**Exceções**](asp-net-exceptions.md) -rastreamentos de pilha detalhados<br/>[**Depend**](../../azure-monitor/app/asp-net-dependencies.md)|
+|[Adicionar o trecho de JavaScript às suas páginas da Web](../../azure-monitor/app/javascript.md)|[Desempenho da página](../../azure-monitor/app/usage-overview.md), exceções do navegador, desempenho do Ajax. Telemetria personalizada do lado do cliente.|
+|[Criar testes da Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)|Obter alertas se seu site ficar indisponível|
+|[Certifique-se de que buildinfo. config](https://msdn.microsoft.com/library/dn449058.aspx) seja gerado pelo MSBuild|[Criar anotações em gráficos de métricas](https://docs.microsoft.com/azure/azure-monitor/app/annotations)
+|[Gravar eventos e métricas personalizados](../../azure-monitor/app/api-custom-events-metrics.md)|Conte eventos de negócios e métricas, acompanhe o uso detalhado e muito mais.|
+|[Perfil do seu site ativo](https://aka.ms/AIProfilerPreview)|Tempos de função detalhados de seu aplicativo Web em tempo real|
 
 
 

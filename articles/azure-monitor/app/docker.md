@@ -1,111 +1,106 @@
 ---
-title: Monitorizar aplicações do Docker no Azure Application Insights | Documentos da Microsoft
-description: Contadores de desempenho do docker, eventos e exceções podem ser exibidas no Application Insights, juntamente com a telemetria a partir das aplicações em contentores.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 27a3083d-d67f-4a07-8f3c-4edb65a0a685
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Monitorar os aplicativos do Docker no Aplicativo Azure insights | Microsoft Docs
+description: Os contadores de desempenho, eventos e exceções do Docker podem ser exibidos em Application Insights, juntamente com a telemetria dos aplicativos em contêineres.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 66a2481d25c863bbdbf4d72c4683a309918776db
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62098036"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677927"
 ---
-# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorizar aplicações do Docker no Application Insights (preterido)
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorar os aplicativos do Docker no Application Insights (preterido)
 
 > [!NOTE]
-> Esta solução foi preterida. Para saber mais sobre os investimentos atuais na monitorização de contentores, recomendamos dar uma olhada [Monitor do Azure para contentores](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+> Esta solução foi preterida. Para saber mais sobre nossos investimentos atuais no monitoramento de contêiner, é recomendável fazer check-out [Azure monitor para contêineres](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
-Os contadores de desempenho e eventos de ciclo de vida da [Docker](https://www.docker.com/) contentores podem ser colocada em gráficos no Application Insights. Instalar o [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) imagem num contentor no seu anfitrião e ele irá apresentar os contadores de desempenho para o anfitrião, bem como para as outras imagens.
+Os eventos de ciclo de vida e os contadores de desempenho dos contêineres do [Docker](https://www.docker.com/) podem ser colocados no Application insights. Instale a imagem de [Application insights](https://hub.docker.com/r/microsoft/applicationinsights/) em um contêiner em seu host e ele exibirá os contadores de desempenho para o host, bem como para as outras imagens.
 
-Com o Docker, distribuir as suas aplicações em contentores leves, completos com todas as dependências. Que serão executados em qualquer máquina de anfitrião que executa um motor do Docker.
+Com o Docker, você distribui seus aplicativos em contêineres leves completos com todas as dependências. Eles serão executados em qualquer computador host que executa um mecanismo do Docker.
 
-Quando executa o [imagem do Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) no anfitrião do Docker, obtém esses benefícios:
+Ao executar a [imagem de Application insights](https://hub.docker.com/r/microsoft/applicationinsights/) no host do Docker, você obtém estes benefícios:
 
-* Telemetria de ciclo de vida sobre todos os contentores em execução no anfitrião - iniciar, parar e assim por diante.
-* Contadores de desempenho para todos os contentores. CPU, memória, utilização de rede e muito mais.
-* Se [instalado o SDK do Application Insights para Java](../../azure-monitor/app/java-get-started.md) nas aplicações em execução nos contentores, toda a telemetria desses aplicativos terão propriedades adicionais, identificar a máquina de contentor e o anfitrião. Por exemplo, se tiver instâncias de uma aplicação em execução no anfitrião mais do que uma, pode filtrar facilmente a telemetria da sua aplicação por anfitrião.
+* Telemetria do ciclo de vida sobre todos os contêineres em execução no host-iniciar, parar e assim por diante.
+* Contadores de desempenho para todos os contêineres. CPU, memória, uso de rede e muito mais.
+* Se você [instalou Application insights SDK para Java](../../azure-monitor/app/java-get-started.md) nos aplicativos em execução nos contêineres, toda a telemetria desses aplicativos terá propriedades adicionais que identificam o contêiner e o computador host. Por exemplo, se você tiver instâncias de um aplicativo em execução em mais de um host, poderá filtrar facilmente a telemetria do aplicativo por host.
 
-## <a name="set-up-your-application-insights-resource"></a>Configurar o recurso do Application Insights
+## <a name="set-up-your-application-insights-resource"></a>Configurar o recurso de Application Insights
 
-1. Inicie sessão no [portal do Microsoft Azure](https://azure.com) e abra o recurso do Application Insights para a sua aplicação; ou [criar um novo](../../azure-monitor/app/create-new-resource.md ). 
+1. Entre [portal do Microsoft Azure](https://azure.com) e abra o recurso de Application insights para seu aplicativo; ou [crie um novo](../../azure-monitor/app/create-new-resource.md ). 
    
-    *Qual o recurso que devo utilizar?* Se as aplicações que está a executar no seu anfitrião foram desenvolvidas por outra pessoa, em seguida, precisa [criar um novo recurso do Application Insights](../../azure-monitor/app/create-new-resource.md ). É onde ver e analisar a telemetria. (Selecione "Geral" para o tipo de aplicação).
+    *Qual recurso devo usar?* Se os aplicativos que você está executando em seu host foram desenvolvidos por outra pessoa, você precisa [criar um novo recurso de Application insights](../../azure-monitor/app/create-new-resource.md ). É aqui que você exibe e analisa a telemetria. (Selecione ' geral ' para o tipo de aplicativo.)
    
-    Mas se é desenvolvedor das aplicações, então Esperamos que [adicionado o SDK do Application Insights](../../azure-monitor/app/java-get-started.md) a cada um deles. Se eles são todos realmente componentes de um aplicativo de negócios único, em seguida, pode configurar todos eles para enviar telemetria para um recurso e que usará esse mesmo recurso para exibir os dados de desempenho e de ciclo de vida do Docker. 
+    Mas se você for o desenvolvedor dos aplicativos, esperamos que tenha [adicionado Application insights SDK](../../azure-monitor/app/java-get-started.md) a cada um deles. Se eles forem realmente componentes de um único aplicativo de negócios, você poderá configurar todos eles para enviar telemetria para um recurso e usará esse mesmo recurso para exibir o ciclo de vida do Docker e os dados de desempenho. 
    
-    Um terceiro cenário é que desenvolveu a maioria dos aplicativos, mas estiver a utilizar recursos separados para apresentar a sua telemetria. Nesse caso, provavelmente também possível pretender criar um recurso separado para os dados de Docker.
+    Um terceiro cenário é que você desenvolveu a maioria dos aplicativos, mas está usando recursos separados para exibir sua telemetria. Nesse caso, você provavelmente também desejará criar um recurso separado para os dados do Docker.
 
-2. Clique nas **Essentials** pendente e copie a chave de instrumentação. Utilize isto para indicar ao SDK para onde enviar a telemetria.
+2. Clique na lista suspensa **Essentials** e copie a chave de instrumentação. Use isso para informar ao SDK onde enviar sua telemetria.
 
-Mantenha essa janela do browser útil, uma vez que volte a ele em breve para ver a telemetria.
+Mantenha essa janela do navegador à mão, pois você voltará a ela em breve para examinar sua telemetria.
 
-## <a name="run-the-application-insights-monitor-on-your-host"></a>Executar o monitor de Application Insights no seu anfitrião
+## <a name="run-the-application-insights-monitor-on-your-host"></a>Executar o monitor de Application Insights em seu host
 
-Agora que tem em algum lugar para apresentar a telemetria, pode configurar a aplicação em contentores que irá recolher e enviá-lo.
+Agora que você tem algum lugar para exibir a telemetria, você pode configurar o aplicativo em contêineres que o coletará e o enviará.
 
-1. Ligar ao anfitrião do Docker.
-2. Editar a sua chave de instrumentação para este comando e, em seguida, executá-lo:
+1. Conecte-se ao host do Docker.
+2. Edite sua chave de instrumentação nesse comando e, em seguida, execute-a:
    
    ```
    
    docker run -v /var/run/docker.sock:/docker.sock -d microsoft/applicationinsights ikey=000000-1111-2222-3333-444444444
    ```
 
-Apenas uma imagem do Application Insights é necessária para cada anfitrião do Docker. Se a aplicação é implementada em vários anfitriões do Docker, em seguida, repita o comando em cada anfitrião.
+Apenas uma imagem de Application Insights é necessária por host do Docker. Se seu aplicativo for implantado em vários hosts do Docker, repita o comando em cada host.
 
-## <a name="update-your-app"></a>Atualizar a sua aplicação
-Se seu aplicativo está equipado com o [Application Insights SDK para Java](../../azure-monitor/app/java-get-started.md), adicione a seguinte linha no ficheiro applicationinsights. XML em seu projeto, no `<TelemetryInitializers>` elemento:
+## <a name="update-your-app"></a>Atualizar seu aplicativo
+Se seu aplicativo for instrumentado com o [SDK do Application insights para Java](../../azure-monitor/app/java-get-started.md), adicione a seguinte linha ao arquivo ApplicationInsights. xml em seu projeto, sob o elemento `<TelemetryInitializers>`:
 
 ```xml
 
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-Esta ação adiciona informações de Docker, como o contentor e o id de anfitrião a todos os itens de telemetria enviado pela sua aplicação.
+Isso adiciona informações do Docker como o contêiner e a ID do host a cada item de telemetria enviado do seu aplicativo.
 
 ## <a name="view-your-telemetry"></a>Ver a telemetria
-Volte ao recurso do Application Insights no portal do Azure.
+Volte para o recurso de Application Insights no portal do Azure.
 
-Clicar no mosaico do Docker.
+Clique no bloco do Docker.
 
-Verá em breve dados que chegam a partir da aplicação do Docker, especialmente se tiver outros contentores em execução no seu motor do Docker.
+Em breve, você verá os dados que chegam do aplicativo Docker, especialmente se tiver outros contêineres em execução no mecanismo do Docker.
 
-### <a name="docker-container-events"></a>Eventos de contentor do docker
+### <a name="docker-container-events"></a>Eventos de contêiner do Docker
 ![Exemplo](./media/docker/13.png)
 
-Para investigar eventos individuais, clique em [pesquisa](../../azure-monitor/app/diagnostic-search.md). Procurar e filtrar para localizar os eventos que quiser. Clique em qualquer evento para obter mais detalhes.
+Para investigar eventos individuais, clique em [Pesquisar](../../azure-monitor/app/diagnostic-search.md). Pesquise e filtre para localizar os eventos desejados. Clique em qualquer evento para obter mais detalhes.
 
-### <a name="exceptions-by-container-name"></a>Exceções por nome do contentor
+### <a name="exceptions-by-container-name"></a>Exceções por nome de contêiner
 ![Exemplo](./media/docker/14.png)
 
-### <a name="docker-context-added-to-app-telemetry"></a>Contexto de docker adicionado para telemetria da aplicação
-Telemetria de pedido enviada a partir da aplicação instrumentada com IA SDK, é enriquecida com informações de contexto do Docker.
+### <a name="docker-context-added-to-app-telemetry"></a>Contexto do Docker adicionado à telemetria do aplicativo
+A telemetria de solicitação enviada do aplicativo instrumentado com o SDK do ia é aprimorada com informações de contexto do Docker.
 
 ## <a name="q--a"></a>P&R
-*O que o Application Insights dá-me que eu não é possível a partir do Docker?*
+*O que Application Insights me dê que eu não possa obter do Docker?*
 
-* Divisão detalhada de contadores de desempenho ao contentor e imagem.
-* Integre dados de contentor e a aplicação num dashboard.
-* [Exportar telemetria](export-telemetry.md) para análise adicional para uma base de dados, Power BI ou outro dashboard.
+* Análise detalhada dos contadores de desempenho por contêiner e imagem.
+* Integre dados de contêiner e de aplicativo em um painel.
+* [Exportar telemetria](export-telemetry.md) para análise adicional para um banco de dados, Power bi ou outro painel.
 
-*Como obter telemetria a partir da aplicação em si?*
+*Como fazer obter telemetria do próprio aplicativo?*
 
-* Instale o SDK do Application Insights na aplicação. Saiba como para: [Aplicações web Java](../../azure-monitor/app/java-get-started.md), [aplicações web do Windows](../../azure-monitor/app/asp-net.md).
+* Instale o SDK do Application Insights no aplicativo. Saiba como: [aplicativos Web Java](../../azure-monitor/app/java-get-started.md), [aplicativos Web do Windows](../../azure-monitor/app/asp-net.md).
 
 ## <a name="video"></a>Vídeo
 
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Application Insights para Java](../../azure-monitor/app/java-get-started.md)
 * [Application Insights para node. js](../../azure-monitor/app/nodejs.md)

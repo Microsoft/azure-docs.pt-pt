@@ -1,23 +1,18 @@
 ---
 title: Criar um novo recurso do insights Aplicativo Azure | Microsoft Docs
 description: Configurar manualmente o monitoramento de Application Insights para um novo aplicativo ao vivo.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 878b007e-161c-4e36-8ab2-3d7047d8a92d
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 08/16/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: ae9c885b342664baf90f9c2b5702a092c9d838df
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.date: 08/16/2019
+ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562834"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677511"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -33,13 +28,13 @@ Entre no [portal do Azure](https://portal.azure.com)e crie um recurso de Applica
 
 ![Clique no sinal ' + ' no canto superior esquerdo. Selecionar Ferramentas para Desenvolvedores seguido por Application Insights](./media/create-new-resource/new-app-insights.png)
 
-   | Definições        |  Value           | Descrição  |
+   | Definições        |  Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valor Exclusivo Global | Nome que identifica o aplicativo que você está monitorando. |
+   | **Nome**      | Valor Exclusivo Global | Nome que identifica o aplicativo que você está monitorando. |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do grupo de recursos novo ou existente para hospedar dados do App insights. |
-   | **Location** | East US | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
+   | **Localização** | Este dos E.U.A. | Escolha um local perto de você ou próximo do local em que seu aplicativo está hospedado. |
 
-Insira os valores apropriados nos campos obrigatórios e, em seguida, selecione revisar **+ criar**.
+Insira os valores apropriados nos campos obrigatórios e, em seguida, selecione **revisar + criar**.
 
 ![Insira valores em campos obrigatórios e, em seguida, selecione "revisar + criar".](./media/create-new-resource/review-create.png)
 
@@ -108,7 +103,7 @@ Para acessar a visualização Application Insights CLI do Azure comandos que voc
  az extension add -n application-insights
 ```
 
-Se você não executar o `az extension add` comando, verá uma mensagem de erro que diz:`az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+Se você não executar o comando `az extension add`, verá uma mensagem de erro que diz: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 Agora você pode executar o seguinte para criar o recurso de Application Insights:
 
@@ -157,7 +152,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
 
 Para obter a documentação completa de CLI do Azure para esse comando e saber como recuperar a chave de instrumentação, consulte a [documentação do CLI do Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Pesquisa de Diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Explorar métricas](../../azure-monitor/app/metrics-explorer.md)
 * [Escrever consultas da Análise](../../azure-monitor/app/analytics.md)

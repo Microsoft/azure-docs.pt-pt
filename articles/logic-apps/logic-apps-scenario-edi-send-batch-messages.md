@@ -1,6 +1,6 @@
 ---
-title: Mensagens EDI do processo em lote como um grupo ou uma coleção-aplicativos lógicos do Azure | Microsoft Docs
-description: Enviar mensagens EDI para processamento em lotes em aplicativos lógicos
+title: Mensagens EDI do processo em lote como um grupo-aplicativos lógicos do Azure
+description: Enviar e receber mensagens EDI como lotes, grupos ou coleções em aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: c2b0e2ed801724b682e0c4a60d6d7dff9645aab3
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 28e51363ca99182c9b6520ab1dea5aa13b16ea12
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827428"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680173"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Enviar mensagens EDI em lotes para parceiros comerciais com aplicativos lógicos do Azure
 
@@ -59,20 +59,20 @@ Para esse receptor do lote, você especifica o modo de lote, o nome, os critéri
 
 2. [Vincule seu aplicativo lógico à sua conta de integração](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. No designer de aplicativos lógicos, adicione o gatilho de **lote** , que inicia o fluxo de trabalho do aplicativo lógico. Na caixa de pesquisa, digite "Batch" como filtro. Selecione este gatilho: **Mensagens em lotes**
+3. No designer de aplicativos lógicos, adicione o gatilho de **lote** , que inicia o fluxo de trabalho do aplicativo lógico. Na caixa de pesquisa, digite "Batch" como filtro. Selecione este gatilho: **mensagens em lotes**
 
    ![Adicionar gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. Defina as propriedades do destinatário do lote: 
 
-   | Propriedade | Value | Notas | 
+   | Propriedade | Valor | Notas | 
    |----------|-------|-------|
-   | **Modo de lote** | Inline |  |  
-   | **Nome do lote** | TestBatch | Disponível somente com o modo de lote embutido | 
-   | **Critérios de liberação** | Contagem de mensagens com base em agendamento | Disponível somente com o modo de lote embutido | 
+   | **Modo de lote** | Linha |  |  
+   | **Nome do lote** | Loteteste | Disponível somente com o modo de lote **embutido** | 
+   | **Critérios de liberação** | Contagem de mensagens com base em agendamento | Disponível somente com o modo de lote **embutido** | 
    | **Contagem de mensagens** | 10 | Disponível somente com os critérios de liberação **baseados na contagem de mensagens** | 
    | **Intervalo** | 10 | Disponível somente com os critérios de liberação **com base na agenda** | 
-   | **Frequência** | minuto | Disponível somente com os critérios de liberação **com base na agenda** | 
+   | **Frequência** | Demorar | Disponível somente com os critérios de liberação **com base na agenda** | 
    ||| 
 
    ![Fornecer detalhes do gatilho de lote](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-release-criteria.png)
@@ -84,7 +84,7 @@ Para esse receptor do lote, você especifica o modo de lote, o nome, os critéri
 
    1. No gatilho lote, escolha **nova etapa**.
 
-   2. Na caixa de pesquisa, digite "X12 batch" como filtro e selecione esta ação (qualquer versão): **< De codificação de lote*versão*>-X12** 
+   2. Na caixa de pesquisa, digite "X12 batch" como filtro e selecione esta ação (qualquer versão): **codificação em lotes <*versão*>-X12** 
 
       ![Selecionar ação de codificação em lote X12](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -118,7 +118,7 @@ Para garantir que o receptor do lote funcione conforme o esperado, você pode ad
 
 1. Na ação de codificação X12, escolha **nova etapa**. 
 
-2. Na caixa de pesquisa, digite "http" como seu filtro. Selecione esta ação: **HTTP-HTTP**
+2. Na caixa de pesquisa, digite "http" como seu filtro. Selecione esta ação: **http-http**
     
    ![Selecionar ação HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -151,7 +151,7 @@ Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicati
 
 1. Crie outro aplicativo lógico com este nome: "SendX12MessagesToBatch" 
 
-2. Na caixa de pesquisa, digite "quando uma solicitação HTTP" como seu filtro. Selecione este gatilho: **Quando uma solicitação HTTP é recebida** 
+2. Na caixa de pesquisa, digite "quando uma solicitação HTTP" como seu filtro. Selecione este gatilho: **quando uma solicitação HTTP é recebida** 
    
    ![Adicionar o gatilho de solicitação](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicati
    1. Na ação solicitação HTTP, escolha **nova etapa**.
 
    2. Na caixa de pesquisa, digite "Batch" como filtro. 
-   Selecione a lista **ações** e, em seguida, selecione esta ação: **Escolha um fluxo de trabalho de aplicativos lógicos com gatilho de lote – enviar mensagens para o lote**
+   Selecione a lista **ações** e, em seguida, selecione esta ação: **escolher um fluxo de trabalho de aplicativos lógicos com gatilho em lote – enviar mensagens para o lote**
 
       ![Selecione "escolher um fluxo de trabalho de aplicativos lógicos com gatilho de lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -168,7 +168,7 @@ Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicati
 
       ![Selecione o aplicativo lógico "destinatário do lote"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Selecione esta ação: **Batch_messages-<*seu-receptor-batch*>**
+   4. Selecione esta ação: **Batch_messages-<*seu receptor-Batch-* >**
 
       ![Selecione a ação "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 
@@ -176,7 +176,7 @@ Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicati
 
    | Propriedade | Descrição | 
    |----------|-------------| 
-   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "Loteteste" neste exemplo <p>**Importante**: O nome do lote é validado em tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico receptor. Alterar o nome do lote faz com que o remetente do lote falhe. | 
+   | **Nome do lote** | O nome do lote definido pelo aplicativo lógico do receptor, que é "Loteteste" neste exemplo <p>**Importante**: o nome do lote é validado em tempo de execução e deve corresponder ao nome especificado pelo aplicativo lógico do destinatário. Alterar o nome do lote faz com que o remetente do lote falhe. | 
    | **Conteúdo da mensagem** | O conteúdo da mensagem que você deseja enviar, que é o token de **corpo** neste exemplo | 
    ||| 
    
@@ -192,6 +192,6 @@ Agora, crie um ou mais aplicativos lógicos que enviam mensagens para o aplicati
 
 Para testar sua solução de envio em lote, poste mensagens X12 para o aplicativo lógico do remetente do lote do [postmaster](https://www.getpostman.com/postman) ou de uma ferramenta semelhante. Em breve, você começa a obter mensagens X12 em seu compartimento de solicitação, seja a cada 10 minutos ou em lotes de 10, tudo com a mesma chave de partição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Processar mensagens como lotes](../logic-apps/logic-apps-batch-process-send-receive-messages.md) 

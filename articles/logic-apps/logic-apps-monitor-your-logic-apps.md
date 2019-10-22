@@ -1,5 +1,5 @@
 ---
-title: Verificar o status, configurar o registro em log e obter alertas-aplicativos lógicos do Azure | Microsoft Docs
+title: Verificar o status, configurar o registro em log e obter alertas-aplicativos lógicos do Azure
 description: Monitorar status, registrar dados de diagnóstico e configurar alertas para aplicativos lógicos do Azure
 services: logic-apps
 ms.service: logic-apps
@@ -8,14 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: f6ece10c43c2c4a6bea92d14a8bf6fbdb49fd318
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 336e2ac93a954c35b7afc8dbb98dd1fca1838985
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261356"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680306"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Monitorar o status, configurar o log de diagnóstico e ativar alertas para aplicativos lógicos do Azure
 
@@ -39,7 +38,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
 
    ![Histórico de execuções de aplicativo lógico e histórico de gatilho](media/logic-apps-monitor-your-logic-apps/overview.png)
 
-   * O **histórico** de execuções mostra todas as execuções para seu aplicativo lógico. 
+   * O **histórico de execuções** mostra todas as execuções para seu aplicativo lógico. 
    * O **histórico de gatilho** mostra toda a atividade de gatilho para seu aplicativo lógico.
 
    Para obter descrições de status, consulte [solucionar problemas do seu aplicativo lógico](../logic-apps/logic-apps-diagnosing-failures.md).
@@ -47,7 +46,7 @@ Para obter notificações sobre falhas ou outros possíveis problemas, configure
    > [!TIP]
    > Se você não encontrar os dados esperados, na barra de ferramentas, escolha **Atualizar**.
 
-3. Para exibir as etapas de uma execução específica, em **histórico**de execuções, selecione essa execução. 
+3. Para exibir as etapas de uma execução específica, em **histórico de execuções**, selecione essa execução. 
 
    A exibição monitor mostra cada etapa nessa execução. Por exemplo:
 
@@ -80,13 +79,13 @@ Antes de começar, você precisa ter um espaço de trabalho Log Analytics. Saiba
 
 1. Na [portal do Azure](https://portal.azure.com), localize e selecione seu aplicativo lógico. 
 
-2. No menu folha do aplicativo lógico, em **monitoramento**, escolha **configurações de diagnóstico**de **diagnóstico** > .
+2. No menu folha do aplicativo lógico, em **monitoramento**, escolha **diagnóstico** > **configurações de diagnóstico**.
 
    ![Vá para monitoramento, diagnóstico, configurações de diagnóstico](media/logic-apps-monitor-your-logic-apps/logic-app-diagnostics.png)
 
 3. Em **configurações de diagnóstico**, escolha **ativado**.
 
-   ![Ativar registos de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
+   ![ativar logs de diagnóstico](media/logic-apps-monitor-your-logic-apps/turn-on-diagnostics-logic-app.png)
 
 4. Agora, selecione o espaço de trabalho Log Analytics e a categoria de evento para registro em log, conforme mostrado:
 
@@ -139,7 +138,7 @@ Para refinar sua consulta adicionando um filtro, escolha **+ Adicionar**.
    Este exemplo usa a palavra "status" para encontrar eventos com falha em **AzureDiagnostics**.
    Aqui, o filtro para **status_s** já está selecionado.
 
-   ![Selecione um filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
+   ![Selecionar filtro](media/logic-apps-monitor-your-logic-apps/log-search-add-filter.png)
 
 7. Na barra à esquerda, selecione o valor de filtro que você deseja usar e escolha **aplicar**.
 
@@ -180,7 +179,7 @@ Para monitorar métricas específicas ou limites excedidos para seu aplicativo l
 
 Para configurar alertas sem [logs de Azure monitor](../log-analytics/log-analytics-overview.md), siga estas etapas. Para critérios e ações de alertas mais avançados, [configure Azure monitor logs](#azure-diagnostics) também.
 
-1. No menu folha do aplicativo lógico, em **monitoramento**, escolha **diagnóstico** > **regras** > de alerta**adicionar alerta** , conforme mostrado aqui:
+1. No menu folha do aplicativo lógico, em **monitoramento**, escolha **diagnóstico**  > **regras de alerta**  > **adicionar alerta** , conforme mostrado aqui:
 
    ![Adicionar um alerta para seu aplicativo lógico](media/logic-apps-monitor-your-logic-apps/set-up-alerts.png)
 
@@ -211,7 +210,7 @@ Para configurar alertas sem [logs de Azure monitor](../log-analytics/log-analyti
 
 Cada evento de diagnóstico tem detalhes sobre seu aplicativo lógico e esse evento, por exemplo, o status, a hora de início, a hora de término e assim por diante. Para configurar o monitoramento, o rastreamento e o log de forma programática, você pode usar esses detalhes com a [API REST para aplicativos lógicos do Azure](https://docs.microsoft.com/rest/api/logic) e a [api REST para diagnóstico do Azure](../azure-monitor/platform/metrics-supported.md#microsoftlogicworkflows).
 
-Por exemplo, o `ActionCompleted` evento tem as `clientTrackingId` propriedades `trackedProperties` e que você pode usar para rastreamento e monitoramento:
+Por exemplo, o evento `ActionCompleted` tem as propriedades `clientTrackingId` e `trackedProperties` que você pode usar para rastreamento e monitoramento:
 
 ``` json
 {
@@ -247,11 +246,11 @@ Por exemplo, o `ActionCompleted` evento tem as `clientTrackingId` propriedades `
 }
 ```
 
-* `clientTrackingId`: Se não for fornecido, o Azure gera automaticamente essa ID e correlaciona eventos em uma execução de aplicativo lógico, incluindo quaisquer fluxos de trabalho aninhados que são chamados do aplicativo lógico. Você pode especificar manualmente essa ID de um gatilho passando um `x-ms-client-tracking-id` cabeçalho com seu valor de ID personalizado na solicitação do gatilho. Você pode usar um gatilho de solicitação, um gatilho HTTP ou um gatilho de webhook.
+* `clientTrackingId`: se não for fornecido, o Azure gera automaticamente essa ID e correlaciona eventos em uma execução de aplicativo lógico, incluindo quaisquer fluxos de trabalho aninhados que são chamados do aplicativo lógico. Você pode especificar manualmente essa ID de um gatilho passando um cabeçalho de `x-ms-client-tracking-id` com seu valor de ID personalizado na solicitação de gatilho. Você pode usar um gatilho de solicitação, um gatilho HTTP ou um gatilho de webhook.
 
-* `trackedProperties`: Para controlar entradas ou saídas em dados de diagnóstico, você pode adicionar propriedades rastreadas a ações na definição de JSON do aplicativo lógico. As propriedades rastreadas podem rastrear apenas entradas e saídas de uma única ação, mas você pode `correlation` usar as propriedades de eventos para correlacionar entre ações em uma execução.
+* `trackedProperties`: para controlar entradas ou saídas em dados de diagnóstico, você pode adicionar propriedades rastreadas a ações na definição de JSON do aplicativo lógico. As propriedades rastreadas podem rastrear apenas entradas e saídas de uma única ação, mas você pode usar as propriedades `correlation` de eventos para correlacionar entre ações em uma execução.
 
-  Para rastrear uma ou mais propriedades, adicione a `trackedProperties` seção e as propriedades que você deseja para a definição de ação. Por exemplo, suponha que você deseja controlar dados como uma "ID do pedido" em sua telemetria:
+  Para rastrear uma ou mais propriedades, adicione a seção `trackedProperties` e as propriedades que você deseja para a definição de ação. Por exemplo, suponha que você deseja controlar dados como uma "ID do pedido" em sua telemetria:
 
   ``` json
   "myAction": {

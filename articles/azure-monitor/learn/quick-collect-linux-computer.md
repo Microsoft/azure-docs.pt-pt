@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Coletar dados de um computador Linux híbrido com Azure Monitor'
+title: 'Início rápido: coletar dados de um computador Linux híbrido com Azure Monitor'
 description: Neste guia de início rápido, você aprenderá a implantar o agente de Log Analytics para computadores Linux em execução fora do Azure e habilitar a coleta de dados com logs de Azure Monitor.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703061"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677956"
 ---
-# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início rápido: Coletar dados de um computador Linux em um ambiente híbrido com Azure Monitor
+# <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Início rápido: coletar dados de um computador Linux em um ambiente híbrido com Azure Monitor
 
 [Azure monitor](../overview.md) pode coletar dados diretamente de seus computadores Linux físicos ou virtuais em seu ambiente em um espaço de trabalho log Analytics para análise e correlação detalhadas. A instalação do [agente de log Analytics](../platform/log-analytics-agent.md) permite Azure monitor coletar dados de um datacenter ou de outro ambiente de nuvem. Este guia de início rápido mostra como configurar e coletar dados do seu servidor Linux com algumas etapas fáceis. Para obter informações sobre VMs Linux do Azure, consulte [coletar dados sobre máquinas virtuais do Azure](../../azure-monitor/learn/quick-collect-azurevm.md).  
 
@@ -33,11 +33,11 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
 
-## <a name="create-a-workspace"></a>Criar uma área de trabalho
+## <a name="create-a-workspace"></a>Criar áreas de trabalho
 
 1. No portal do Azure, selecione **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **log Analytics espaços de trabalho**.
 
-    ![Portal do Azure](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Localizando Log Analytics espaço de trabalho no portal do Azure](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. Selecione **criar**e, em seguida, selecione as opções para os seguintes itens:
 
@@ -47,7 +47,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
    * Selecione a **Localização** para onde as VMs devem ser implementadas.  Para obter mais informações, veja em que [regiões está disponível o Log Analytics](https://azure.microsoft.com/regions/services/).
    * Se estiver a criar uma área de trabalho numa subscrição nova criada depois de 2 de abril de 2018, a mesma utilizará automaticamente o plano de preços *Por GB* e a opção para selecionar um escalão de preços não estará disponível.  Se estiver a criar uma área de trabalho para uma subscrição já existente criada antes de 2 de abril ou para uma subscrição que estava associada a uma inscrição EA já existente, selecione o seu escalão de preço preferido.  Para obter informações adicionais sobre os escalões específicos, veja [Detalhes de Preços do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
   
-        ![Criar Log Analytics folha de recursos](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Criando um espaço de trabalho Log Analytics no portal do Azure](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. Depois de fornecer as informações necessárias no painel **log Analytics espaço de trabalho** , selecione **OK**.  
 
@@ -65,7 +65,7 @@ Antes de instalar o agente do Log Analytics para Linux, precisa do ID e da chave
 
 3. Selecione **Configurações avançadas**:
 
-    ![Definições Avançadas do Log Analytics](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png) 
+    ![Menu de configurações avançadas para Log Analytics no portal do Azure](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. Selecione **Origens Ligadas** e, em seguida, selecione **Servidores Linux**.
 
@@ -119,7 +119,7 @@ Azure Monitor pode coletar eventos dos contadores de desempenho e syslog do Linu
 
 2. Selecione **dados**e, em seguida, selecione **syslog**.  
 
-3. Você adiciona o syslog digitando o nome do log. Insira **syslog** e, em seguida, selecione **+** o sinal de adição.  
+3. Você adiciona o syslog digitando o nome do log. Insira o **syslog** e, em seguida, selecione o sinal de adição **+** .  
 
 4. Na tabela, desmarque as gravidades **Informações**, **Aviso** e **Depurar**. 
 
@@ -129,7 +129,7 @@ Azure Monitor pode coletar eventos dos contadores de desempenho e syslog do Linu
 
 7. Quando configurar os contadores de desempenho do Linux pela primeira vez para uma nova área de trabalho do Log Analytics, é-lhe dada a opção de criar rapidamente vários contadores comuns. São listados com uma caixa de verificação junto a cada um.
 
-    ![Contadores de desempenho do Windows predefinidos](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Contadores de desempenho padrão do Linux selecionados em Azure Monitor](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     Selecione **aplicar configuração abaixo ao em meus computadores** e, em seguida, selecione **adicionar os contadores de desempenho selecionados**. Estes são adicionados e predefinidos com um intervalo de amostra de recolha de dez segundo.  
 
