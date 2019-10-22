@@ -1,5 +1,5 @@
 ---
-title: 'Limpar dados ausentes: Referência de módulo'
+title: 'Limpar dados ausentes: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo limpar dados ausentes no serviço de Azure Machine Learning para remover, substituir ou inferir valores ausentes.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: a65e8224b00bb592d6e0e42abdd304cf325d4412
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128941"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693204"
 ---
 # <a name="clean-missing-data-module"></a>Limpar módulo de dados ausentes
 
@@ -50,7 +50,7 @@ Esse módulo permite que você defina uma operação de limpeza. Você também p
 
 Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-data.md) a um conjunto de dados, a mesma operação de limpeza será aplicada a todas as colunas que você selecionar. Portanto, se você precisar limpar colunas diferentes usando métodos diferentes, use instâncias separadas do módulo.
 
-1.  Adicione o módulo [limpar dados ausentes](./clean-missing-data.md) ao seu experimento e conecte-o com valores ausentes.  
+1.  Adicione o módulo [limpar dados ausentes](./clean-missing-data.md) ao seu pipeline e conecte-o com valores ausentes.  
   
 2.  Para as **colunas a serem limpas**, escolha as colunas que contêm os valores ausentes que você deseja alterar. Você pode escolher várias colunas, mas deve usar o mesmo método de substituição em todas as colunas selecionadas. Portanto, normalmente, você precisa limpar colunas de cadeia de caracteres e colunas numéricas separadamente.
 
@@ -63,7 +63,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
 
     3. Para **incluir**, selecione **tipo de coluna** na lista suspensa e, em seguida, selecione **numérico**ou um tipo numérico mais específico. 
   
-    Qualquer método de limpeza ou substituição que você escolher deve ser aplicável a **todas as** colunas na seleção. Se os dados em qualquer coluna forem incompatíveis com a operação especificada, o módulo retornará um erro e interromperá o experimento.
+    Qualquer método de limpeza ou substituição que você escolher deve ser aplicável a **todas as** colunas na seleção. Se os dados em qualquer coluna forem incompatíveis com a operação especificada, o módulo retornará um erro e interromperá o pipeline.
   
 3.  Para a **proporção mínima de valor ausente**, especifique o número mínimo de valores ausentes necessários para a operação a ser executada.  
   
@@ -76,7 +76,7 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
     > 
     > Se você tiver alguma dúvida sobre se os valores ausentes foram alterados, selecione a opção **gerar coluna de indicador de valor ausente**. Uma coluna é anexada ao DataSet para indicar se cada coluna atende aos critérios especificados para os intervalos mínimo e máximo.  
   
-4. Para obter a **taxa máxima**de valores ausentes, especifique o número máximo de valores ausentes que podem estar presentes para a operação ser executada.   
+4. Para obter a **taxa máxima de valores ausentes**, especifique o número máximo de valores ausentes que podem estar presentes para a operação ser executada.   
   
     Por exemplo, talvez você queira executar a substituição de valor ausente somente se 30% ou menos das linhas contiverem valores ausentes, mas deixar os valores como estão se mais de 30% das linhas tiverem valores ausentes.  
   
@@ -87,23 +87,23 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
 5. Para o **modo de limpeza**, selecione uma das seguintes opções para substituir ou remover valores ausentes:  
   
   
-    + **Valor personalizado de substituição**: Use esta opção para especificar um valor de espaço reservado (como 0 ou NA) que se aplica a todos os valores ausentes. O valor que você especifica como uma substituição deve ser compatível com o tipo de dados da coluna.
+    + **Valor de substituição personalizado**: Use essa opção para especificar um valor de espaço reservado (como 0 ou na) que se aplica a todos os valores ausentes. O valor que você especifica como uma substituição deve ser compatível com o tipo de dados da coluna.
   
-    + **Substituir por média**: Calcula a média da coluna e usa a média como o valor de substituição para cada valor ausente na coluna.  
+    + **Substituir por média**: calcula a média da coluna e usa a média como o valor de substituição para cada valor ausente na coluna.  
   
         Aplica-se somente a colunas que têm tipos de dados inteiros, duplos ou boolianos.  
   
-    + **Substituir por mediana**: Calcula o valor mediano da coluna e usa o valor mediano como a substituição para qualquer valor ausente na coluna.  
+    + **Substituir por mediana**: calcula o valor mediano da coluna e usa o valor mediano como a substituição para qualquer valor ausente na coluna.  
   
         Aplica-se somente a colunas que têm tipos de dados inteiros ou duplos. 
   
-    + **Substituir pelo modo**: Calcula o modo da coluna e usa o modo como o valor de substituição para cada valor ausente na coluna.  
+    + **Substituir por modo**: calcula o modo da coluna e usa o modo como o valor de substituição para cada valor ausente na coluna.  
   
         Aplica-se a colunas que têm tipos de dados inteiros, duplos, boolianos ou categóricos. 
   
-    + **Remover linha inteira**: Remove completamente qualquer linha no conjunto de informações que tenha um ou mais valores ausentes. Isso será útil se o valor ausente puder ser considerado aleatoriamente ausente.  
+    + **Remover linha inteira**: remove completamente qualquer linha no conjunto de informações que tenha um ou mais valores ausentes. Isso será útil se o valor ausente puder ser considerado aleatoriamente ausente.  
   
-    + **Remover coluna inteira**: Remove completamente qualquer coluna no conjunto de informações que tenha um ou mais valores ausentes.  
+    + **Remover coluna inteira**: remove completamente qualquer coluna no conjunto de informações que tenha um ou mais valores ausentes.  
   
     
   
@@ -111,29 +111,29 @@ Cada vez que você aplicar o módulo [limpar dados ausentes](./clean-missing-dat
   
     Observe que você pode usar essa opção somente em colunas que têm os tipos de dados inteiro, duplo, booliano ou data. Para colunas de data, o valor de substituição também pode ser inserido como o número de tiques de 100 nanossegundos desde 1/1/0001 12:00 A.M.  
   
-7. **Gerar coluna de indicador de valor ausente**: Selecione esta opção se desejar gerar uma indicação de se os valores na coluna atendem aos critérios de limpeza de valor ausente. Essa opção é particularmente útil quando você está configurando uma nova operação de limpeza e deseja certificar-se de que ela funciona como projetado.
+7. **Gerar coluna de indicador de valor ausente**: Selecione esta opção se desejar gerar uma indicação de que os valores na coluna atendem aos critérios de limpeza de valor ausente. Essa opção é particularmente útil quando você está configurando uma nova operação de limpeza e deseja certificar-se de que ela funciona como projetado.
   
-8. Execute a experimentação.
+8. Executar o pipeline.
 
 ### <a name="results"></a>Resultados
 
 O módulo retorna duas saídas:  
 
--   **Conjunto**de uma limpeza: Um DataSet composto pelas colunas selecionadas, com valores ausentes tratados como especificado, juntamente com uma coluna de indicador, se você tiver selecionado essa opção.  
+-   **Conjunto**de uma limpeza: um conjunto de linhas composto pelas colunas selecionadas, com valores ausentes manipulados conforme especificado, juntamente com uma coluna de indicador, se você tiver selecionado essa opção.  
 
     As colunas não selecionadas para limpeza também são "passadas".  
   
--  **Limpando a transformação**: Uma transformação de dados usada para limpeza, que pode ser salva em seu espaço de trabalho e aplicada a novos dados posteriormente.
+-  **Transformação de limpeza**: uma transformação de dados usada para limpeza, que pode ser salva em seu espaço de trabalho e aplicada a novos dados posteriormente.
 
 ### <a name="apply-a-saved-cleaning-operation-to-new-data"></a>Aplicar uma operação de limpeza salva a novos dados  
 
 Se você precisar repetir as operações de limpeza com frequência, recomendamos que você salve sua receita para a limpeza de dados como uma *transformação*, para reutilizar com o mesmo DataSet. Salvar uma transformação de limpeza é particularmente útil se você deve reimportar com frequência e limpar dados que têm o mesmo esquema.  
       
-1.  Adicione o módulo [aplicar transformação](./apply-transformation.md) ao seu experimento.  
+1.  Adicione o módulo [aplicar transformação](./apply-transformation.md) ao seu pipeline.  
   
 2.  Adicione o DataSet que você deseja limpar e conecte o conjunto de dados à porta de entrada à direita.  
   
-3.  Expanda o grupo transformações no painel esquerdo da interface. Localize a transformação salva e arraste-a para o experimento.  
+3.  Expanda o grupo **transformações** no painel esquerdo da interface. Localize a transformação salva e arraste-a para o pipeline.  
   
 4.  Conecte a transformação salva à porta de entrada à esquerda de [aplicar transformação](./apply-transformation.md). 
 
@@ -141,7 +141,7 @@ Se você precisar repetir as operações de limpeza com frequência, recomendamo
 
     No entanto, suponha que você criou uma transformação em um subconjunto de colunas numéricas. Você pode aplicar essa transformação a um conjunto de uma série de tipos de coluna misto sem gerar um erro, pois os valores ausentes são alterados somente nas colunas numéricas correspondentes.
 
-6.  Execute a experimentação.  
+6.  Executar o pipeline.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

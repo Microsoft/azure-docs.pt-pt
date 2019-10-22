@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
 ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331198"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Escolha um tipo de preço para Azure Search
@@ -41,7 +41,7 @@ A camada selecionada determina a taxa faturável. A captura de tela a seguir de 
 
 **Gratuito** cria um serviço de pesquisa limitado em um cluster, compartilhado com outros assinantes. Você pode concluir projetos pequenos, incluindo guias de início rápido e tutoriais, mas não pode dimensionar o serviço ou executar cargas de trabalho significativas. **Básico** e **Standard** são as camadas faturáveis usadas com mais frequência, com **padrão** sendo o padrão.
 
-![Tipos de preço de Azure Search](media/search-sku-tier/tiers.png "tipos de preço de Azure Search")
+![Tipos de preço do Azure Search](media/search-sku-tier/tiers.png "Tipos de preço do Azure Search")
 
 Algumas camadas são otimizadas para determinados tipos de trabalho. Por exemplo, a **alta densidade padrão (S3 HD)** é um *modo de hospedagem* para S3, em que o hardware subjacente é otimizado para um grande número de índices menores e destina-se a cenários de multilocação. S3 HD tem o mesmo encargo por unidade que S3, mas o hardware é otimizado para leituras rápidas de arquivos em um grande número de índices menores.
 

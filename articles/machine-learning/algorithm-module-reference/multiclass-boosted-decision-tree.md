@@ -1,5 +1,5 @@
 ---
-title: 'Árvore de decisão aumentada multiclasse: Referência de módulo'
+title: 'Árvore de decisão aumentada multiclasse: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo árvore de decisão aumentada multiclasse no serviço Azure Machine Learning para criar um classificador usando dados rotulados.
 services: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 08/22/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4a9cf134a3db5b9bc62cd0f9054aefa6092954d9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 09d2a637099bae414400f49bb89efc5b6652f150
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129916"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692826"
 ---
-# <a name="multiclass-boosted-decision-tree"></a>Árvore de decisão aumentada multiclasse
+# <a name="multiclass-boosted-decision-tree"></a>Árvore de Decisões Elevada Multiclasse
 
 Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
@@ -27,15 +27,15 @@ Uma árvore de decisão aumentada é um método de aprendizado Ensemble no qual 
 
 ## <a name="how-to-configure"></a>Como configurar 
 
-Este módulo cria um modelo de classificação não treinado. Como a classificação é um método de aprendizado supervisionado, você precisa de um *conjunto* de informações rotulado que inclua uma coluna de rótulo com um valor para todas as linhas.
+Este módulo cria um modelo de classificação não treinado. Como a classificação é um método de aprendizado supervisionado, você precisa de um conjunto de informações *rotulado* que inclua uma coluna de rótulo com um valor para todas as linhas.
 
 Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././train-model.md). 
 
-1.  Adicione o módulo **árvore de decisão aumentada multiclasse** ao seu experimento.
+1.  Adicione o módulo **árvore de decisão aumentada multiclasse** ao seu pipeline.
 
 1.  Especifique como você deseja que o modelo seja treinado definindo a opção **criar modo de instrutor** .
 
-    + **Parâmetro único**: Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
 
 
     *  O **número máximo de folhas por árvore** limita o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.
@@ -59,6 +59,6 @@ Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././trai
 > [!Note]
 > Se você definir **criar modo de instrutor** como um **único parâmetro**, conecte um conjunto de um DataSet marcado e o módulo [treinar modelo](./train-model.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

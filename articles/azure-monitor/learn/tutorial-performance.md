@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
 ms.openlocfilehash: 9768191d98bf1987ac24564869107cdd6bf19e8d
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69031996"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
@@ -79,7 +79,7 @@ O Application Insights recolhe detalhes de desempenho das várias operações da
 ## <a name="use-logs-data-for-server"></a>Usar dados de logs para o servidor
  Os logs fornecem uma linguagem de consulta avançada que permite analisar todos os dados coletados por Application Insights. Pode utilizá-lo para efetuar uma análise detalhada dos dados de pedido e desempenho.
 
-1. Retorne ao painel de detalhes da operação ![e clique em](media/tutorial-performance/app-viewinlogs-icon.png)**Exibir ícone de logs em logs (análise)**
+1. Volte para o painel detalhes da operação e clique ![Logs](media/tutorial-performance/app-viewinlogs-icon.png)**exibição de ícone nos logs (análise)**
 
 2. Os logs são abertos com uma consulta para cada uma das exibições no painel.  Pode executar estas consultas como estão ou modificá-las de acordo com os seus requisitos.  A primeira consulta mostra a duração desta operação ao longo do tempo.
 
@@ -100,7 +100,7 @@ Além de identificar os processos de servidor a otimizar, o Application Insights
 ## <a name="use-logs-data-for-client"></a>Usar dados de logs para o cliente
 Assim como os dados coletados para o desempenho do servidor, o Application Insights disponibiliza todos os dados do cliente para análise profunda usando logs.
 
-1. Retorne ao resumo do navegador e ![clique no](media/tutorial-performance/app-viewinlogs-icon.png) ícone **de logs exibir nos logs (análise)**
+1. Retorne ao resumo do navegador e clique no ícone **de ![Logs ](media/tutorial-performance/app-viewinlogs-icon.png) exibir nos logs (análise)**
 
 2. Os logs são abertos com uma consulta para cada uma das exibições no painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
@@ -111,7 +111,7 @@ Assim como os dados coletados para o desempenho do servidor, o Application Insig
     ![Logs com o diagnóstico inteligente](media/tutorial-performance/11-page-view-logs-dsmart.png)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a identificar as exceções do tempo de execução, avance para o próximo tutorial para saber como criar alertas em resposta a falhas.
 
 > [!div class="nextstepaction"]

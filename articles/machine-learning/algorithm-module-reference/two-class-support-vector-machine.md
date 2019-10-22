@@ -1,5 +1,5 @@
 ---
-title: 'Computador de vetor de suporte de duas classes: Referência de módulo'
+title: 'Computador de vetor de suporte de duas classes: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo de **máquina de vetor de suporte de duas classes** no serviço Azure Machine Learning para criar um modelo baseado no algoritmo máquina de vetor de suporte.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 23f5c638146472b72078e76745e557b6babe7a49
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: c58e66070f137f9c5d713a45682afac5f30bbd1e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128314"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692610"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Módulo de máquina de vetor de suporte de duas classes
 
@@ -30,7 +30,7 @@ Depois de definir os parâmetros do modelo, treine o modelo usando os módulos d
 
 Os computadores de vetor de suporte estão entre os mais antigos dos algoritmos de aprendizado de máquina, e os modelos SVM foram usados em muitos aplicativos, da recuperação de informações à classificação de texto e imagem. SVMs pode ser usado para tarefas de classificação e regressão.
 
-Esse modelo de SVM é um modelo de aprendizado supervisionado que requer dados rotulados. No processo de treinamento, o algoritmo analisa dados de entrada e reconhece padrões em um espaço de recurso multidimensional chamadode hiperplano.  Todos os exemplos de entrada são representados como pontos neste espaço e são mapeados para categorias de saída de tal forma que as categorias são divididas por uma grande e limpam uma lacuna possível.
+Esse modelo de SVM é um modelo de aprendizado supervisionado que requer dados rotulados. No processo de treinamento, o algoritmo analisa dados de entrada e reconhece padrões em um espaço de recurso multidimensional chamado de *hiperplano*.  Todos os exemplos de entrada são representados como pontos neste espaço e são mapeados para categorias de saída de tal forma que as categorias são divididas por uma grande e limpam uma lacuna possível.
 
 Para previsão, o algoritmo SVM atribui novos exemplos em uma categoria ou na outra, mapeando-os para esse mesmo espaço. 
 
@@ -38,11 +38,11 @@ Para previsão, o algoritmo SVM atribui novos exemplos em uma categoria ou na ou
 
 Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os antes de usá-lo para treinar o classificador.
   
-1.  Adicione o módulo **máquina de vetor de suporte de duas classes** ao seu experimento.  
+1.  Adicione o módulo **máquina de vetor de suporte de duas classes** ao seu pipeline.  
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.  
 
 3.  Para **número de iterações**, digite um número que denota o número de iterações usadas durante a criação do modelo.  
   
@@ -67,7 +67,7 @@ Para esse tipo de modelo, é recomendável que você Normalize o conjunto de os 
     -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](train-model.md) .
   
 
-10. Execute a experimentação.
+10. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 

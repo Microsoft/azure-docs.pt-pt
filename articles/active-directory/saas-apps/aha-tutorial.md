@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o aha! | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o aha! | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o aha!.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a63872680d28664c6d5a7ff109f6de72817173d5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989653"
 ---
-# <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: Integre o aha! com Azure Active Directory
+# <a name="tutorial-integrate-aha-with-azure-active-directory"></a>Tutorial: integrar o aha! com Azure Active Directory
 
 Neste tutorial, você aprenderá a integrar o aha! com Azure Active Directory (AD do Azure). Quando você integra o aha! com o Azure AD, você pode:
 
@@ -67,7 +67,7 @@ Para configurar e testar o SSO do Azure AD com o aha!, conclua os seguintes bloc
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
     1. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
     1. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-2. **[Configurar o aha! ](#configure-aha-sso) SSO** – para configurar as configurações de logon único no lado do aplicativo.
+2. **[Configurar o aha! SSO](#configure-aha-sso)** – para configurar as configurações de logon único no lado do aplicativo.
     1. **[Criar aha! usuário de teste](#create-aha-test-user)** – para ter um equivalente de B. Simon em aha! que está vinculado à representação de usuário do Azure AD.
 3. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
@@ -83,34 +83,34 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<companyname>.aha.io/session/new`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<companyname>.aha.io/session/new`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:`https://<companyname>.aha.io`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<companyname>.aha.io`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Entre [em contato com AHA! Equipe](https://www.aha.io/company/contact) de suporte ao cliente para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Entre em contato com [aha! Equipe de suporte ao cliente](https://www.aha.io/company/contact) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
 
 4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **XML de metadados de Federação** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download de certificado](common/metadataxml.png)
+    ![O link de download do certificado](common/metadataxml.png)
 
 6. Na **configuração de aha!** , copie as URLs apropriadas com base em seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
     1. No campo **Nome**, introduza `B.Simon`.  
     1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
     1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
     1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao aha!.
 
@@ -118,7 +118,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **aha!** .
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -128,7 +128,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Se você estiver esperando qualquer valor de função na declaração SAML, na caixa de diálogo **selecionar função** , selecione a função apropriada para o usuário na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição** , clique no botão **atribuir** .
 
-## <a name="configure-aha-sso"></a>Configurar o aha! SSO
+## <a name="configure-aha-sso"></a>Configurar o aha! EXTERNO
 
 1. Para automatizar a configuração no aha!, você precisa instalar a **extensão do navegador de entrada seguro de meus aplicativos** clicando em **instalar a extensão**.
 
@@ -142,11 +142,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 4. No menu na parte superior, clique em **configurações**.
 
-    ![Configurações] do (./media/aha-tutorial/IC798950.png "Configurações") do
+    ![Definições](./media/aha-tutorial/IC798950.png "Definições")
 
 5. Clique em **conta**.
   
-    ![Perfil] do (./media/aha-tutorial/IC798951.png "Perfil") do
+    ![Perfil](./media/aha-tutorial/IC798951.png "Perfil")
 
 6. Clique em **segurança e logon único**.
 
@@ -174,7 +174,7 @@ Nesta seção, um usuário chamado B. Simon é criado em aha!. Aha! dá suporte 
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Quando você clicar no aha! bloco no painel de acesso, você deve ser conectado automaticamente ao aha! para o qual você configura o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

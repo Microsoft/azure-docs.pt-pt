@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
 ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72028271"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
@@ -44,7 +44,7 @@ Cenário | Etapas para remover dependências para excluir o cofre |
 Tenho arquivos e pastas locais protegidos usando o agente de backup do Azure, fazendo backup no Azure | Execute as etapas em [excluir itens de backup do console de gerenciamento do Mars](#delete-backup-items-from-the-mars-management-console)
 Tenho computadores locais protegidos usando o MABS (Backup do Microsoft Azure Server) ou o DPM (System Center Data Protection Manager) para o Azure | Execute as etapas em [excluir itens de backup do console de gerenciamento do mAbs](#delete-backup-items-from-the-mabs-management-console)
 Eu protegi itens na nuvem (por exemplo, uma máquina virtual laaS ou um compartilhamento de arquivos do Azure)  | Execute as etapas em [excluir itens protegidos na nuvem](#delete-protected-items-in-the-cloud)
-Eu protegi itens no local e na nuvem | Execute as etapas em todas as seções a seguir, na seguinte ordem: <br> 1. [Excluir itens protegidos na nuvem](#delete-protected-items-in-the-cloud)<br> 2. [Excluir itens de backup do console de gerenciamento do MARS](#delete-backup-items-from-the-mars-management-console) <br> 3. [Excluir itens de backup do console de gerenciamento do MABS](#delete-backup-items-from-the-mabs-management-console)
+Eu protegi itens no local e na nuvem | Execute as etapas em todas as seções a seguir, na seguinte ordem: <br> 1. [excluir itens protegidos na nuvem](#delete-protected-items-in-the-cloud)<br> 2. [excluir itens de backup do console de gerenciamento do Mars](#delete-backup-items-from-the-mars-management-console) <br> 3. [excluir itens de backup do console de gerenciamento do mAbs](#delete-backup-items-from-the-mabs-management-console)
 Não tenho itens protegidos no local ou na nuvem; no entanto, ainda estou recebendo o erro de exclusão do cofre | Execute as etapas em [excluir o cofre dos serviços de recuperação usando Azure Resource Manager](#delete-the-recovery-services-vault-by-using-azure-resource-manager)
 
 
@@ -68,7 +68,7 @@ Para interromper a proteção e excluir os dados de backup, execute as seguintes
 
          ![O painel excluir dados de backup.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Verifique o ícone de **notificação** : ícone de notificação de @no__t 0The. ](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: Parando *backup e excluindo dados de backup para "* Item de backup *"* . *Operação concluída com êxito*.
+5. Verifique o ícone de **notificação** : ![The ícone de notificação. ](./media/backup-azure-delete-vault/messages.png) Depois que o processo for concluído, o serviço exibirá a seguinte mensagem: *parando backup e excluindo dados de backup para "* item de backup *"* . *Operação concluída com êxito*.
 6. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 
       ![A página excluir itens de backup.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -102,7 +102,7 @@ Primeiro, leia a seção **[antes de começar](#before-you-start)** para entende
 4. Marque a caixa de seleção consentimento e, em seguida, selecione **excluir**.
 
 
-5. Verifique o ícone de **notificação** ![Exclua data de backup @ no__t-2. Depois que a operação for concluída, o serviço exibirá a mensagem: *Parando backup e excluindo dados de backup para "item de backup".* *Operação concluída com êxito*.
+5. Verifique o ícone de **notificação** ![delete ](./media/backup-azure-delete-vault/messages.png) de dados de backup. Depois que a operação for concluída, o serviço exibirá a mensagem: *parando o backup e excluindo os dados de backup de "item de backup".* *Operação concluída com êxito*.
 6. Selecione **Atualizar** no menu **itens de backup** para verificar se o item de backup foi excluído.
 
 Após a conclusão desse processo, você pode excluir os itens de backup do console de gerenciamento:
@@ -122,13 +122,13 @@ Após a conclusão desse processo, você pode excluir os itens de backup do cons
 
     ![Interromper um backup agendado.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Você será solicitado a inserir um PIN de segurança (número de identificação pessoal), que deve ser gerado manualmente. Para fazer isso, primeiro entre no portal do Azure.
-5. Vá para o **cofre dos serviços de recuperação** > **configurações** > **Propriedades**.
+5. Vá para **cofre dos serviços de recuperação**  > **configurações**  > **Propriedades**.
 6. Em **PIN de segurança**, selecione **gerar**. Copie este PIN. O PIN é válido por apenas cinco minutos.
 7. No console de gerenciamento, Cole o PIN e selecione **OK**.
 
     ![Gerar um PIN de segurança.](./media/backup-azure-delete-vault/security-pin.png)
 
-8. Na página **Modificar progresso do backup** , a seguinte mensagem é exibida: os dados de backup de @no__t 0Deleted serão retidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. *  
+8. Na página **progresso do backup de modificação** , a seguinte mensagem é exibida: os *dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.*  
 
     ![Exclua a infraestrutura de backup.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -212,7 +212,7 @@ Para interromper a proteção e excluir os dados de backup:
        [-Confirm] 
        [<CommonParameters>] 
     ```
-    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about desabilita a proteção para um item protegido por backup. 
+    [Saiba mais](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)  about desabilita a proteção para um item protegido por backup. 
 
 - Para arquivos e pastas locais protegidos usando o agente de backup do Azure (MARS) fazendo backup no Azure, use o seguinte comando do PowerShell para excluir os dados de backup de cada módulo MARS PowerShell:
 
@@ -222,7 +222,7 @@ Para interromper a proteção e excluir os dados de backup:
 
     Poste o seguinte prompt apareceria:
      
-    *Microsoft backup do Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+    *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.  <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
 
 
 - Para computadores locais protegidos usando o MABS (Backup do Microsoft Azure Server) ou o DPM no Azure (System Center Data Protection Manager), use o comando a seguir para excluir os dados de backup no Azure.
@@ -233,7 +233,7 @@ Para interromper a proteção e excluir os dados de backup:
 
     Poste o seguinte prompt apareceria: 
          
-   *Microsoft backup do Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente. <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
+   *Backup do Microsoft Azure tem certeza de que deseja remover esta política de backup? Os dados de backup excluídos serão mantidos por 14 dias. Após esse período, os dados de backup serão excluídos permanentemente.  <br/> [Y] Sim [A] Sim para todos [N] não [L] não para todos [S] suspender [?] Ajuda (o padrão é "Y"):*
 
 Depois de excluir os dados de backup, cancele o registro de todos os contêineres locais e servidores de gerenciamento. 
 
@@ -344,7 +344,7 @@ Para obter mais informações sobre o comando ARMClient, consulte [ARMCLIENT REA
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-2. Se o cofre não estiver vazio, você receberá a seguinte mensagem de erro: *O cofre não pode ser excluído, pois há recursos existentes neste cofre.* Para remover um contêiner ou item protegido em um cofre, execute o seguinte comando:
+2. Se o cofre não estiver vazio, você receberá a seguinte mensagem de erro: o *cofre não pode ser excluído, pois há recursos existentes nesse cofre.* Para remover um contêiner ou item protegido em um cofre, execute o seguinte comando:
 
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01

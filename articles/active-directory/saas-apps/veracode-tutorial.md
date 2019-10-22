@@ -17,10 +17,10 @@ ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 50056e6b201313805e7b9253e7a962e096b9df65
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72372982"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-veracode"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Veracode
@@ -109,13 +109,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. No menu na parte superior, clique em **configurações**e, em seguida, clique em **administrador**.
    
-    ![](./media/veracode-tutorial/ic802911.png "Administração") de administração
+    ![Administrar](./media/veracode-tutorial/ic802911.png "Administração")
 
 1. Clique na guia **SAML** .
 
 1. Na seção **configurações de SAML da organização** , execute as seguintes etapas:
 
-    ![](./media/veracode-tutorial/ic802912.png "Administração") de administração
+    ![Administrar](./media/veracode-tutorial/ic802912.png "Administração")
 
     a.  Na caixa de texto **emissor** , Cole o valor do **identificador do Azure ad** que você copiou do portal do Azure.
 
@@ -125,7 +125,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configurações de Autoregistro** , execute as seguintes etapas e, em seguida, clique em **salvar**:
 
-    ![](./media/veracode-tutorial/ic802913.png "Administração") de administração
+    ![Administrar](./media/veracode-tutorial/ic802913.png "Administração")
 
     a. Como **nova ativação do usuário**, selecione **nenhuma ativação necessária**.
 

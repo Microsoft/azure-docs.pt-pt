@@ -1,5 +1,5 @@
 ---
-title: 'Verificar conectividade – guia de solução de problemas do ExpressRoute: Azure| Microsoft Docs'
+title: 'Verificar conectividade – guia de solução de problemas do ExpressRoute: Azure | Microsoft Docs'
 description: Esta página fornece instruções sobre como solucionar problemas e validar a conectividade de ponta a ponta de um circuito do ExpressRoute.
 services: expressroute
 author: rambk
@@ -9,16 +9,16 @@ ms.date: 09/26/2017
 ms.author: rambala
 ms.custom: seodec18
 ms.openlocfilehash: 026900e3dcbf7c20750bb8e17e44ba64897c9a30
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71123447"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
 Este artigo ajuda você a verificar e solucionar problemas de conectividade do ExpressRoute. O ExpressRoute, que estende uma rede local para o Microsoft Cloud por uma conexão privada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas de rede distintas:
 
--   Rede de Cliente
+-   Rede do cliente
 -   Rede do provedor
 -   Datacenter da Microsoft
 
@@ -31,7 +31,7 @@ A finalidade deste documento é ajudar o usuário a identificar onde (ou mesmo s
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O diagrama a seguir mostra a conectividade lógica de uma rede de cliente para a rede da Microsoft usando o ExpressRoute.
 [![1]][1]
 
@@ -40,10 +40,10 @@ No diagrama anterior, os números indicam os principais pontos de rede. Os ponto
 Dependendo do modelo de conectividade do ExpressRoute (colocalização de Cloud Exchange, conexão Ethernet ponto a ponto ou qualquer para qualquer (IPVPN)) os pontos de rede 3 e 4 podem ser comutadores (dispositivos de camada 2). Os principais pontos de rede ilustrados são os seguintes:
 
 1.  Dispositivo de computação do cliente (por exemplo, um servidor ou PC)
-2.  CES Roteadores de borda do cliente 
-3.  PEs (voltada para CE): Roteadores/comutadores de borda do provedor que estão enfrentando roteadores de borda do cliente. Referido como PE-CEs neste documento.
-4.  PEs (MSEE voltada para o): Roteadores/comutadores de borda do provedor voltados para MSEEs. Referido como PE-MSEEs neste documento.
-5.  MSEEs Roteadores do Microsoft Enterprise Edge (MSEE) ExpressRoute
+2.  CEs: roteadores de borda do cliente 
+3.  PEs (voltada para CE): provedores de borda do provedor/comutadores que estão enfrentando roteadores de borda do cliente. Referido como PE-CEs neste documento.
+4.  PEs (MSEE face): roteadores/comutadores de borda do provedor voltados para o MSEEs. Referido como PE-MSEEs neste documento.
+5.  MSEEs: roteadores do Microsoft Enterprise Edge (MSEE) ExpressRoute
 6.  Gateway de rede virtual (VNet)
 7.  Dispositivo de computação na VNet do Azure
 
@@ -157,7 +157,7 @@ Uma resposta de exemplo é:
     Sku                              : Standard
     Status                           : Enabled
 
-Para confirmar se um circuito do ExpressRoute está operacional, preste atenção especial aos seguintes campos: ServiceProviderProvisioningState Status provisionado: Enabled
+Para confirmar se um circuito do ExpressRoute está operacional, preste atenção especial aos seguintes campos: ServiceProviderProvisioningState: status provisionado: habilitado
 
 > [!NOTE]
 > Se o *status* não estiver habilitado, entre em contato com [suporte da Microsoft][Support]. Se o *ServiceProviderProvisioningState* não for provisionado, entre em contato com seu provedor de serviços.
@@ -165,7 +165,7 @@ Para confirmar se um circuito do ExpressRoute está operacional, preste atençã
 >
 
 ## <a name="validate-peering-configuration"></a>Validar a configuração de emparelhamento
-Depois que o provedor de serviços tiver concluído o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamento habilitados: Emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para o Office 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [criar e modificar o roteamento de um circuito do ExpressRoute][CreatePeering].
+Depois que o provedor de serviços tiver concluído o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamento habilitados: emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para o Office 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [criar e modificar o roteamento de um circuito do ExpressRoute][CreatePeering].
 
 ### <a name="verification-via-the-azure-portal"></a>Verificação por meio do portal do Azure
 
@@ -295,7 +295,7 @@ Um exemplo de resposta para o comando, no cenário bem-sucedido:
                  113             On-Prem       10.0.0.1           e8ed.f335.4ca9
                    0           Microsoft       10.0.0.2           7c0e.ce85.4fc9
 
-Da mesma forma, você pode verificar a tabela ARP do MSEE no caminho*secundário* *primário*/, para emparelhamentos da*Microsoft* *públicos*/ *privados*/.
+Da mesma forma, você pode verificar a tabela ARP do MSEE no caminho*secundário* / *primário* ,*para /* *privadas* / emparelhamentos da*Microsoft* .
 
 O exemplo a seguir mostra a resposta do comando para um emparelhamento que não existe.
 
@@ -352,7 +352,7 @@ Um resultado de exemplo bem-sucedido para o comando é:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
     ...
 
-Da mesma forma, você pode verificar a tabela de roteamento do MSEE no caminho*secundário* *primário*/, para contexto *privado*/da*Microsoft* um de emparelhamento*público*/.
+Da mesma forma, você pode verificar a tabela de roteamento do MSEE no caminho*secundário* de / *primário* , para *privado* /*público* / contexto de emparelhamento da*Microsoft* .
 
 O exemplo a seguir mostra a resposta do comando para um emparelhamento que não existe:
 
@@ -379,14 +379,14 @@ Um exemplo de saída do comando para um emparelhamento não existente é:
         + FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
 
 ## <a name="next-steps"></a>Próximos Passos
-Para obter mais informações ou ajuda, veja as ligações seguintes:
+Para obter mais informações ou ajuda, confira os links a seguir:
 
 - [Suporte da Microsoft][Support]
 - [Criar e modificar um circuito ExpressRoute][CreateCircuit]
 - [Criar e modificar o roteamento de um circuito do ExpressRoute][CreatePeering]
 
 <!--Image References-->
-[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png  "Conectividade lógica de rota expressa"
+[1]: ./media/expressroute-troubleshooting-expressroute-overview/expressroute-logical-diagram.png "conectividade lógica de rota expressa"
 [2]: ./media/expressroute-troubleshooting-expressroute-overview/portal-all-resources.png "Ícone todos os recursos"
 [3]: ./media/expressroute-troubleshooting-expressroute-overview/portal-overview.png "Ícone de visão geral"
 [4]: ./media/expressroute-troubleshooting-expressroute-overview/portal-circuit-status.png "Captura de tela de exemplo do ExpressRoute Essentials"

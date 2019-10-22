@@ -1,5 +1,5 @@
 ---
-title: 'Rede neural multiclasse: Referência de módulo'
+title: 'Rede neural multiclasse: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo rede neural multiclasse no serviço de Azure Machine Learning para criar um modelo de rede neural que pode ser usado para prever um destino com vários valores.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 44d1e7606efd5bc6d2286254dc4863728e3edbfd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3322f2be3c5c6f819adbc9d83ee9eb6b6577f707
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128604"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692715"
 ---
 # <a name="multiclass-neural-network-module"></a>Módulo de rede neural multiclasse
 
@@ -40,15 +40,15 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
 
 ## <a name="configure-multiclass-neural-network"></a>Configurar rede neural multiclasse
 
-1. Adicione o módulo **rede neural multiclasse** ao seu experimento na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .
+1. Adicione o módulo **rede neural multiclasse** ao seu pipeline na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .
 
-2. **Criar modo de instrutor**: Use esta opção para especificar como você deseja que o modelo seja treinado:
+2. **Criar modo de instrutor**: Use esta opção para especificar como deseja que o modelo seja treinado:
 
-    - **Parâmetro único**: Escolha esta opção se você já souber como deseja configurar o modelo.
+    - **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.
 
     
 
-3. **Especificação de camada oculta**: Selecione o tipo de arquitetura de rede a ser criado.
+3. **Especificação de camada oculta**: selecione o tipo de arquitetura de rede a ser criado.
 
     - **Caso totalmente conectado**: Selecione esta opção para criar um modelo usando a arquitetura de rede neural padrão. Para modelos de rede neural multiclasse, os padrões são os seguintes:
 
@@ -61,21 +61,21 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
   
    
 
-5. **Número de nós ocultos**: Essa opção permite que você personalize o número de nós ocultos na arquitetura padrão. Digite o número de nós ocultos. O padrão é uma camada oculta com nós 100.
+5. **Número de nós ocultos**: essa opção permite que você personalize o número de nós ocultos na arquitetura padrão. Digite o número de nós ocultos. O padrão é uma camada oculta com nós 100.
 
-6. **A taxa de aprendizagem**: Defina o tamanho da etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo seja convergido mais rapidamente, mas pode Sobreusar mínimo locais.
+6. **A taxa de aprendizagem**: defina o tamanho da etapa realizada em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo seja convergido mais rapidamente, mas pode Sobreusar mínimo locais.
 
-7. **Número de iterações de aprendizado**: Especifique o número máximo de vezes que o algoritmo deve processar os casos de treinamento.
+7. **Número de iterações de aprendizado**: especifique o número máximo de vezes que o algoritmo deve processar os casos de treinamento.
 
 8. **O diâmetro inicial dos pesos de aprendizado**: Especifique os pesos do nó no início do processo de aprendizado.
 
-9. **O impulso**: Especifique um peso a ser aplicado durante o aprendizado a nós de iterações anteriores.
+9. **O impulso**: especifique um peso a ser aplicado durante o aprendizado a nós de iterações anteriores.
   
-11. **Exemplos de ordem aleatória**: Selecione essa opção para embaralhar os casos entre as iterações.
+11. **Exemplos de ordem aleatória**: Selecione esta opção para embaralhar casos entre iterações.
 
-    Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o experimento.
+    Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o pipeline.
 
-12. **Semente de número aleatório**: Digite um valor a ser usado como a semente, se você quiser garantir a capacidade de repetição entre as execuções do mesmo experimento.
+12. **Semente de número aleatório**: digite um valor a ser usado como a semente, se você quiser garantir a capacidade de repetição entre as execuções do mesmo pipeline.
 
 14. Conecte um conjunto de uma de treinamento e um dos [módulos de treinamento](module-reference.md): 
 
@@ -88,7 +88,7 @@ Após a conclusão do treinamento:
 
 - Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento e outros parâmetros da rede neural, clique com o botão direito do mouse na saída do [modelo de trem](./train-model.md) e selecione **Visualizar**.  
 
-- Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo experimento.
+- Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo pipeline.
 
 
 ## <a name="next-steps"></a>Passos seguintes

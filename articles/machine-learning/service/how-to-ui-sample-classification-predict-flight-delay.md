@@ -1,5 +1,5 @@
 ---
-title: 'Exemplo de interface visual #6: Classificação para prever atrasos de voo'
+title: 'Exemplo de interface visual #6: classificação para prever atrasos de voo'
 titleSuffix: Azure Machine Learning
 description: Este artigo mostra como criar um modelo de aprendizado de máquina para prever atrasos de voo usando a interface visual do tipo "arrastar e soltar" e o código R personalizado.
 services: machine-learning
@@ -9,46 +9,44 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
-ms.date: 07/02/2019
-ms.openlocfilehash: 257f6034df7d1974f3964c4d07ca96d17c7fe509
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.date: 09/23/2019
+ms.openlocfilehash: 6e65075b309ed12505ce6fffadac12af3f16344b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131652"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692579"
 ---
-# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemplo 6-classificação: Prever atrasos de voo usando o R
+# <a name="sample-6---classification-predict-flight-delays-using-r"></a>Exemplo 6-classificação: prever atrasos de voo usando o R
 
-Esse experimento usa dados históricos de vôo e clima para prever se um vôo de passageiro agendado será atrasado em mais de 15 minutos.
+Esse pipeline usa dados históricos de vôo e clima para prever se um vôo de passageiro agendado será atrasado em mais de 15 minutos. Esse problema pode ser abordado como um problema de classificação, prevendo duas classes: atrasadas ou no prazo.
 
-Esse problema pode ser abordado como um problema de classificação, prevendo duas classes – atrasadas ou em tempo. Para criar um classificador, esse modelo usa um grande número de exemplos de dados de vôo históricos.
+Este é o grafo de pipeline final para este exemplo:
 
-Este é o grafo de experimento final para este exemplo:
-
-[![Grafo do experimento](media/how-to-ui-sample-classification-predict-flight-delay/experiment-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph do pipeline](media/how-to-ui-sample-classification-predict-flight-delay/pipeline-graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecione o botão **abrir** para o experimento de exemplo 6:
+4. Selecione o botão **abrir** para o pipeline de exemplo 6:
 
-    ![Abrir o experimento](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
+    ![Abrir o pipeline](media/how-to-ui-sample-classification-predict-flight-delay/open-sample6.png)
 
 ## <a name="get-the-data"></a>Obter os dados
 
-Esse experimento usa o conjunto de **dados de atrasos de voo** . Faz parte da coleta de dados TranStats dos EUA Departamento de transporte. O conjunto de dados contém informações de atraso de voo de abril a 2013 de outubro. Antes de carregar os dados na interface visual, ele foi processado previamente da seguinte maneira:
+Este exemplo usa o conjunto de **dados de atrasos de voo** . Faz parte da coleta de dados TranStats do departamento de transporte dos EUA. O conjunto de dados contém informações de atraso de voo de abril a 2013 de outubro. O conjunto de um foi processado previamente da seguinte maneira:
 
 * Filtrado para incluir os aeroportos 70 mais ocupados no Estados Unidos continental.
-* Para vôos cancelados, rerotulados como atrasados em mais de 15 minutos.
+* Rerotulado vôos cancelados como atrasados em mais de 15 minutos.
 * Filtro de vôos de diversões filtrados.
 * 14 colunas selecionadas.
 
-Para complementar os dados de vôo, o conjunto de dado **meteorológico** é usado. Os dados meteorológicos contêm observações de clima com base em hora de NOAA e representam observações das estações de clima do aeroporto, cobrindo o mesmo período de abril a 2013. Antes de carregar para a interface visual do Azure ML, ela foi previamente processada da seguinte maneira:
+Para complementar os dados de vôo, o conjunto de dado **meteorológico** é usado. Os dados meteorológicos contêm observações de clima com base em hora, de NOAA e representam observações das estações de clima do aeroporto, cobrindo o mesmo período de tempo que o conjunto de dados de vôos. Ele foi processado previamente da seguinte maneira:
 
 * As IDs da estação do tempo foram mapeadas para as IDs correspondentes do aeroporto.
 * As estações de clima não associadas a 70 aeroportos mais ocupados foram removidas.
-* A coluna de data foi dividida em colunas separadas: Ano, mês e dia.
+* A coluna de data foi dividida em colunas separadas: ano, mês e dia.
 * As 26 colunas selecionadas.
 
 ## <a name="pre-process-the-data"></a>Pré-processar os dados
@@ -63,13 +61,13 @@ As colunas **Carrier**, **OriginAirportID**e **DestAirportID** são salvas como 
 
 ![editar metadados](media/how-to-ui-sample-classification-predict-flight-delay/edit-metadata.png)
 
-Em seguida, use o módulo **selecionar colunas** no conjunto de DataSet para excluir das colunas do conjunto de linhas que são possíveis vazamentores de destino: **DepDelay**, **DepDel15**, **ArrDelay**, **cancelado**, **ano**. 
+Em seguida, use o módulo **selecionar colunas** no conjunto de DataSet para excluir das colunas do conjunto de linhas que são possíveis vazamentores de destino: **DepDelay**, **DepDel15**, **ArrDelay**, **cancelado**, **year**. 
 
 Para unir os registros de vôo com os registros meteorológicos por hora, use a hora de partida agendada como uma das chaves de junção. Para fazer a junção, a coluna CSRDepTime deve ser arredondada para a hora mais próxima, que é feita pelo no módulo **Executar script R** . 
 
 ### <a name="weather-data"></a>Dados meteorológicos
 
-Colunas que têm uma grande proporção de valores ausentes são excluídas usando o módulo **colunas do projeto** . Essas colunas incluem todas as colunas com valor de cadeia de caracteres: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**e **StationPressure**.
+Colunas que têm uma grande proporção de valores ausentes são excluídas usando o módulo **colunas do projeto** . Essas colunas incluem todas as colunas com valor de cadeia de caracteres: **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**e **StationPressure** .
 
 O módulo **limpar dados ausentes** é aplicado às colunas restantes para remover linhas com dados ausentes.
 
@@ -107,10 +105,9 @@ Para criar um modelo, você pode usar todos os recursos disponíveis ou selecion
 Crie um modelo usando o módulo **regressão logística de duas classes** e treine-o no conjunto de módulos de treinamento. 
 
 O resultado do módulo **modelo de treinamento** é um modelo de classificação treinado que pode ser usado para pontuar novas amostras para fazer previsões. Use o conjunto de teste para gerar pontuações dos modelos treinados. Em seguida, use o módulo **avaliar modelo** para analisar e comparar a qualidade dos modelos.
+pipeline depois de executar o pipeline, você pode exibir a saída do módulo **modelo de Pontuação** clicando na porta de saída e selecionando **Visualizar**. A saída inclui os rótulos pontuados e as probabilidades para os rótulos.
 
-Depois de executar o experimento, você pode exibir a saída do módulo **modelo de Pontuação** clicando na porta de saída e selecionando **Visualizar**. A saída inclui os rótulos pontuados e as probabilidades para os rótulos.
-
-Por fim, para testar a qualidade dos resultados, adicione o módulo **avaliar modelo** à tela do experimento e conecte a porta de entrada à esquerda à saída do módulo modelo de pontuação. Execute o experimento e exiba a saída do módulo **modelo de avaliação** , clicando na porta de saída e selecionando **Visualizar**.
+Por fim, para testar a qualidade dos resultados, adicione o módulo **avaliar modelo** à tela do pipeline e conecte a porta de entrada à esquerda à saída do módulo modelo de pontuação. Execute o pipeline e exiba a saída do módulo **modelo de avaliação** , clicando na porta de saída e selecionando **Visualizar**.
 
 ## <a name="evaluate"></a>Avaliar
 O modelo de regressão logística tem AUC de 0,631 no conjunto de teste.
@@ -121,8 +118,9 @@ O modelo de regressão logística tem AUC de 0,631 no conjunto de teste.
 
 Explore os outros exemplos disponíveis para a interface visual:
 
-- [Amostra 1-regressão: Prever o preço de um automóvel](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemplo 2-regressão: Comparar algoritmos para previsão de preço de automóvel](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
-- [Exemplo 3-classificação: Prever risco de crédito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Amostra 4-classificação: Prever o risco de crédito (sensível ao custo)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Exemplo 2-regressão: comparar algoritmos para previsão de preço de automóvel](how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md)
+- [Exemplo 3-classificação: prever risco de crédito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemplo 5-classificação: Previsão de rotatividade](how-to-ui-sample-classification-predict-churn.md)
+- [Exemplo 7-classificação de texto: revisões de livros](how-to-ui-sample-text-classification.md)

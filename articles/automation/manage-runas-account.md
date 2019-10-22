@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 318a9c2df7902ae89a731ca45b24b8bb6241faa1
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498382"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690884"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gerenciar contas Executar como da automação do Azure
 
@@ -43,31 +43,31 @@ Há dois tipos de contas Executar como:
 
 ## <a name="permissions"></a>Permissões para configurar contas Executar como
 
-Para criar ou atualizar uma conta Executar como, você deve ter privilégios e permissões específicas. Um administrador global no Azure Active Directory e um proprietário em uma assinatura podem concluir todas as tarefas. Em uma situação em que você tem separação de tarefas, a tabela a seguir mostra uma listagem das tarefas, o cmdlet equivalente e as permissões necessárias:
+Para criar ou atualizar uma conta Executar como, você deve ter privilégios e permissões específicas. Um administrador de aplicativos no Azure Active Directory e um proprietário em uma assinatura podem concluir todas as tarefas. Em uma situação em que você tem separação de tarefas, a tabela a seguir mostra uma listagem das tarefas, o cmdlet equivalente e as permissões necessárias:
 
 |Tarefa|Cmdlet  |Permissões mínimas  |Onde você define as permissões|
 |---|---------|---------|---|
 |Criar aplicativo do Azure AD|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Função de desenvolvedor de aplicativo<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> Página inicial Azure Active Directory > registros de aplicativo |
 |Adicione uma credencial ao aplicativo.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Administrador de aplicativos ou administrador GLOBAL<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> Página inicial Azure Active Directory > registros de aplicativo|
 |Criar e obter uma entidade de serviço do Azure AD|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Administrador de aplicativos ou administrador GLOBAL<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>> Página inicial Azure Active Directory > registros de aplicativo|
-|Atribuir ou obter a função de RBAC para a entidade de segurança especificada|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Você deve ter as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Ou ser um:</br></br>Administrador ou proprietário de acesso do usuário        | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Home > assinaturas > \<nome\> da assinatura – controle de acesso (iam)|
+|Atribuir ou obter a função de RBAC para a entidade de segurança especificada|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Você deve ter as seguintes permissões:</br></br><code>Microsoft.Authorization/Operations/read</br>Microsoft.Authorization/permissions/read</br>Microsoft.Authorization/roleDefinitions/read</br>Microsoft.Authorization/roleAssignments/write</br>Microsoft.Authorization/roleAssignments/read</br>Microsoft.Authorization/roleAssignments/delete</code></br></br>Ou ser um:</br></br>Administrador ou proprietário de acesso do usuário        | [Subscrição](../role-based-access-control/role-assignments-portal.md)</br>Home > assinaturas > nome do \<subscription \>-controle de acesso (IAM)|
 |Criar ou remover um certificado de automação|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Colaborador no grupo de recursos         |Grupo de recursos da conta de automação|
 |Criar ou remover uma conexão de automação|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Colaborador no grupo de recursos |Grupo de recursos da conta de automação|
 
 <sup>1</sup> os usuários não administradores em seu locatário do Azure ad podem [registrar aplicativos do AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) se a opção os usuários do locatário do Azure ad **podem registrar aplicativos** na página **configurações do usuário** estiver definida como **Sim**. Se a configuração registros do aplicativo estiver definida como **não**, o usuário que executa essa ação deverá ser o que está definido na tabela anterior.
 
-Se você não for um membro da instância de Active Directory da assinatura antes de ser adicionado à função de **administrador global** da assinatura, você será adicionado como convidado. Nessa situação, você receberá um `You do not have permissions to create…` aviso na página **adicionar conta de automação** . Os usuários que foram adicionados à função de **administrador global** primeiro podem ser removidos da instância de Active Directory da assinatura e adicionados novamente para torná-los um usuário completo no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
+Se você não for um membro da instância de Active Directory da assinatura antes de ser adicionado à função de **administrador global** da assinatura, você será adicionado como convidado. Nessa situação, você receberá uma `You do not have permissions to create…` aviso na página **adicionar conta de automação** . Os usuários que foram adicionados à função de **administrador global** primeiro podem ser removidos da instância de Active Directory da assinatura e adicionados novamente para torná-los um usuário completo no Active Directory. Para verificar esta situação, no painel **Azure Active Directory**, no portal do Azure, selecione **Utilizadores e grupos**, **Todos os utilizadores** e, depois de selecionar o utilizador específico, selecione **Perfil**. O valor do atributo **Tipo de utilizador** sob o perfil de utilizadores não deve ser igual a **Convidado**.
 
 ## <a name="permissions-classic"></a>Permissões para configurar contas Executar como clássicas
 
-Para configurar ou renovar contas Executar como clássicas, você  deve ter a função de coadministrador no nível de assinatura. Para saber mais sobre permissões clássicas, confira [Administradores de assinatura clássica do Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+Para configurar ou renovar contas Executar como clássicas, você deve ter a função de **coadministrador** no nível de assinatura. Para saber mais sobre permissões clássicas, confira [Administradores de assinatura clássica do Azure](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Criar uma conta Executar como no portal
 
 Nesta secção, execute os seguintes passos para atualizar a sua conta de Automatização do Azure no portal do Azure. Crie as contas Run As e Classic Run As individualmente. Se não precisar de gerir os recursos clássicos, pode simplesmente criar a conta Run As do Azure.
 
 1. Inicie sessão no portal do Azure com uma conta que seja membro da função Administradores da Subscrição e coadministrador da subscrição.
-2. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+2. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 3. Na página **Contas de Automatização**, selecione a sua conta de Automatização a partir da lista de contas de Automatização.
 4. No painel da esquerda, selecione **Contas Run As** na secção **Definições da Conta**.
 5. Consoante a conta que precisar, selecione **Conta Run As do Azure** ou **Conta Run As Clássica do Azure**. Depois de selecionar **Adicionar Conta Run As do Azure** ou **Adicionar Conta Run As Clássica do Azure**, é apresentado o painel e, depois de rever as informações de descrição geral, clique em **Criar** para prosseguir com a criação da conta Run As.
@@ -86,7 +86,7 @@ A lista a seguir fornece os requisitos para criar uma conta Executar como no Pow
 
 Para obter os valores de *SubscriptionId*, *resourcegroup*e *AutomationAccountName*, que são parâmetros necessários para o script, conclua as seguintes etapas:
 
-1. No portal do Azure, clique em **All services** (Todos os serviços). Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
+1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Automatização**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione **Contas de Automatização**.
 1. Na página da conta de Automatização, selecione a sua conta de Automatização e, em **Definições da Conta** selecione **Propriedades**.
 1. Observe os valores de **ID da assinatura**, **nome**e **grupo de recursos** na página **Propriedades** .
 
@@ -372,14 +372,14 @@ Para renovar o certificado, faça o seguinte:
 
 Para renovar certificados automaticamente, você pode usar um runbook de automação. O script a seguir no [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) habilita essa funcionalidade em sua conta de automação.
 
-- O `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` script cria uma agenda semanal para renovar os certificados da conta Executar como.
+- O script de `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` cria uma agenda semanal para renovar os certificados da conta Executar como.
 - O script adiciona um runbook **Update-AutomationRunAsCredential** à sua conta de automação.
   - Você também pode exibir o código do runbook no GitHub, no script: [Update-AutomationRunAsCredential. ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1).
   - Você também pode usar o código do PowerShell no arquivo para renovar certificados manualmente, conforme necessário.
 
 Para testar o processo de renovação imediatamente, use as seguintes etapas:
 
-1. Edite o runbook **Update-AutomationRunAsCredential** e coloque um caractere de`#`comentário () na linha 122, `Exit(1)` na frente do comando, conforme mostrado abaixo.
+1. Edite o runbook **Update-AutomationRunAsCredential** e coloque um caractere de comentário (`#`) na linha 122, na frente do comando `Exit(1)`, conforme mostrado abaixo.
 
    ```powershell
    #Exit(1)
@@ -410,11 +410,11 @@ Para testar o processo de renovação imediatamente, use as seguintes etapas:
 Para controlar o direcionamento de automação contra recursos no Azure, você pode executar o script [Update-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug8) na galeria do PowerShell para alterar a entidade de serviço da conta Executar como existente para criar e usar uma função personalizada defini. Essa função terá permissões para todos os recursos, exceto [Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 > [!IMPORTANT]
-> Depois de executar `Update-AutomationRunAsAccountRoleAssignments.ps1` o script, os runbooks que acessam o keyvault por meio do uso de contas Executar como não funcionarão mais. Você deve examinar os runbooks em sua conta para chamadas para o Azure keyvault.
+> Depois de executar o script de `Update-AutomationRunAsAccountRoleAssignments.ps1`, os runbooks que acessam o keyvault por meio do uso de contas Executar como não funcionarão mais. Você deve examinar os runbooks em sua conta para chamadas para o Azure keyvault.
 >
 > Para habilitar o acesso ao keyvault por meio de runbooks de automação do Azure, você precisaria [Adicionar a conta Executar como às permissões do keyvault](#add-permissions-to-key-vault).
 
-Se você precisar restringir o que a entidade de serviço runas pode fazer mais, você pode adicionar outros tipos `NotActions` de recursos à da definição de função personalizada. O exemplo a seguir restringe o `Microsoft.Compute`acesso ao. Se você adicionar isso às minhas **ações** da definição de função, essa função não poderá acessar nenhum recurso de computação. Para saber mais sobre definições de função, confira [noções básicas sobre definições de função para recursos do Azure](../role-based-access-control/role-definitions.md).
+Se você precisar restringir o que a entidade de serviço RunAs pode fazer mais, você pode adicionar outros tipos de recursos ao `NotActions` da definição de função personalizada. O exemplo a seguir restringe o acesso a `Microsoft.Compute`. Se você adicionar isso às minhas **ações** da definição de função, essa função não poderá acessar nenhum recurso de computação. Para saber mais sobre definições de função, confira [noções básicas sobre definições de função para recursos do Azure](../role-based-access-control/role-definitions.md).
 
 ```powershell
 $roleDefinition = Get-AzureRmRoleDefinition -Name 'Automation RunAs Contributor'
@@ -422,9 +422,9 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-Para determinar se a entidade de serviço usada pela sua conta Executar como está no **colaborador** ou em uma definição de função personalizada, vá para sua conta de automação e, em **configurações de conta**, selecione **contas** > executar como**conta Executar como do Azure** . Em **função** , você encontrará a definição de função que está sendo usada.
+Para determinar se a entidade de serviço usada pela sua conta Executar como está no **colaborador** ou em uma definição de função personalizada, vá para sua conta de automação e, em **configurações de conta**, selecione **contas Executar como**  > **conta Executar como do Azure**. Em **função** , você encontrará a definição de função que está sendo usada.
 
-[![](media/manage-runas-account/verify-role.png "Verificar a função da conta Executar como")](media/manage-runas-account/verify-role-expanded.png#lightbox)
+[![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
 Para determinar a definição de função usada pelas contas Executar como de automação para várias assinaturas ou contas de automação, você pode usar o script [check-AutomationRunAsAccountRoleAssignments. ps1](https://aka.ms/AA5hug5) no Galeria do PowerShell.
 

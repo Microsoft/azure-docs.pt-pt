@@ -9,13 +9,13 @@ ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
 ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164022"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: Criar um banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) no portal do Azure
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>Início rápido: criar um banco de dados do Azure para PostgreSQL-hiperescala (Citus) (visualização) no portal do Azure
 
 A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode executar, gerir e dimensionar as bases de dados de elevada disponibilidade do PostgreSQL na cloud. Este guia de início rápido mostra como criar um grupo de servidores de banco de dados do Azure para PostgreSQL (Citus) (visualização) usando o portal do Azure. Você explorará dados distribuídos: fragmentando tabelas entre nós, ingerindo dados de exemplo e executando consultas que são executadas em vários nós.
 
@@ -62,16 +62,16 @@ CREATE TABLE github_users
 );
 ```
 
-O `payload` campo de `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON em formato binário em Postgres. O tipo de dados torna mais fácil armazenar um esquema flexível em uma única coluna.
+O campo `payload` de `github_events` tem um tipo de dados JSONB. JSONB é o tipo de dados JSON em formato binário em Postgres. O tipo de dados torna mais fácil armazenar um esquema flexível em uma única coluna.
 
-Postgres pode criar um `GIN` índice nesse tipo, que indexará cada chave e valor dentro dele. Com um índice, torna-se rápido e fácil consultar a carga com várias condições. Vamos continuar e criar alguns índices antes de carregarmos nossos dados. Em psql:
+Postgres pode criar um índice de `GIN` nesse tipo, que indexará cada chave e valor dentro dele. Com um índice, torna-se rápido e fácil consultar a carga com várias condições. Vamos continuar e criar alguns índices antes de carregarmos nossos dados. Em psql:
 
 ```sql
 CREATE INDEX event_type_index ON github_events (event_type);
 CREATE INDEX payload_index ON github_events USING GIN (payload jsonb_path_ops);
 ```
 
-Em seguida, pegaremos essas tabelas postgres no nó de coordenador e dizem para a subescala para fragmentá-las entre os trabalhadores. Para fazer isso, executaremos uma consulta para cada tabela especificando a chave para fragmentá-la. No exemplo atual, vamos fragmentar a tabela de eventos e de usuários `user_id`em:
+Em seguida, pegaremos essas tabelas postgres no nó de coordenador e dizem para a subescala para fragmentá-las entre os trabalhadores. Para fazer isso, executaremos uma consulta para cada tabela especificando a chave para fragmentá-la. No exemplo atual, nós fragmentaremos a tabela de eventos e de usuários em `user_id`:
 
 ```sql
 SELECT create_distributed_table('github_events', 'user_id');
@@ -96,13 +96,13 @@ SET CLIENT_ENCODING TO 'utf8';
 
 ## <a name="run-queries"></a>Executar consultas
 
-Agora é hora da parte divertida, realmente executando algumas consultas. Vamos começar com um simples `count (*)` para ver a quantidade de dados que carregamos:
+Agora é hora da parte divertida, realmente executando algumas consultas. Vamos começar com um `count (*)` simples para ver a quantidade de dados que carregamos:
 
 ```sql
 SELECT count(*) from github_events;
 ```
 
-Isso funcionou bem. Voltaremos a esse tipo de agregação em um pouco, mas, por enquanto, vamos dar uma olhada em algumas outras consultas. Na coluna JSONB `payload` , há um bom bit de dados, mas varia de acordo com o tipo de evento. `PushEvent`os eventos contêm um tamanho que inclui o número de confirmações distintas para o envio por push. Podemos usá-lo para encontrar o número total de confirmações por hora:
+Isso funcionou bem. Voltaremos a esse tipo de agregação em um pouco, mas, por enquanto, vamos dar uma olhada em algumas outras consultas. Na coluna JSONB `payload`, há uma boa quantidade de dados, mas varia de acordo com o tipo de evento. `PushEvent` eventos contêm um tamanho que inclui o número de confirmações distintas para o envio por push. Podemos usá-lo para encontrar o número total de confirmações por hora:
 
 ```sql
 SELECT date_trunc('hour', created_at) AS hour,
@@ -113,9 +113,9 @@ GROUP BY hour
 ORDER BY hour;
 ```
 
-Até agora, as consultas envolveram os\_eventos do GitHub exclusivamente, mas podemos combinar essas informações com\_os usuários do github. Como nós Fragmentamos os usuários e os eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão colocalizadas nos mesmos nós de banco de dados e poderão ser facilmente Unidas. [](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation)
+Até agora, as consultas envolveram o GitHub \_events exclusivamente, mas podemos combinar essas informações com o GitHub \_users. Como nós Fragmentamos os usuários e os eventos no mesmo identificador (`user_id`), as linhas de ambas as tabelas com IDs de usuário correspondentes serão [colocalizadas](https://docs.citusdata.com/en/stable/sharding/data_modeling.html#colocation) nos mesmos nós de banco de dados e poderão ser facilmente Unidas.
 
-Se unirmos `user_id`, a hiperescala poderá enviar por push a execução de junção para dentro de fragmentos para execução em paralelo em nós de trabalho. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
+Se entrarmos em `user_id`, a hiperescala poderá enviar por push a execução de junção para dentro de fragmentos para execução em paralelo em nós de trabalho. Por exemplo, vamos encontrar os usuários que criaram o maior número de repositórios:
 
 ```sql
 SELECT gu.login, count(*)
@@ -132,7 +132,7 @@ SELECT gu.login, count(*)
 
 Nas etapas anteriores, você criou recursos do Azure em um grupo de servidores. Se você não espera precisar desses recursos no futuro, exclua o grupo de servidores. Pressione o botão **excluir** na página **visão geral** do seu grupo de servidores. Quando solicitado em uma página pop-up, confirme o nome do grupo de servidores e clique no botão **excluir** final.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a provisionar um grupo de servidores de hiperescala (Citus). Você se conectou a ele com psql, criou um esquema e distribuiu dados.
 

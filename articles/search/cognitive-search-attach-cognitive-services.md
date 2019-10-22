@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: luisca
 ms.openlocfilehash: 113286f829b628d4740fbba34e7279741a934aef
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71265934"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Anexar um recurso de serviços cognitivas com um conconhecimento em Azure Search 
@@ -28,7 +28,7 @@ Você pode enriquecer um número limitado de documentos gratuitamente. Ou então
 
 ## <a name="same-region-requirement"></a>Requisito de mesma região
 
-Exigimos que Azure Search e os serviços cognitivas do Azure existam na mesma região. Caso contrário, você receberá essa mensagem em tempo de execução:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+Exigimos que Azure Search e os serviços cognitivas do Azure existam na mesma região. Caso contrário, você receberá essa mensagem em tempo de execução: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Não é possível mover um serviço entre regiões. Se você receber esse erro, deverá criar um novo recurso de serviços cognitivas na mesma região que Azure Search.
 
@@ -51,7 +51,7 @@ Recursos gratuitos (aprimoramentos limitados) são restritos a 20 documentos por
 
    ![Seção de serviços cognitivas de anexo expandida](./media/cognitive-search-attach-cognitive-services/attach1.png "Seção de serviços cognitivas de anexo expandida")
 
-1. Prossiga para a próxima etapa, **Adicionar aprimoramentos**. Para obter uma descrição das habilidades disponíveis no portal, consulte [etapa 2: Adicione habilidades](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) cognitivas no início rápido da pesquisa cognitiva.
+1. Prossiga para a próxima etapa, **Adicionar aprimoramentos**. Para obter uma descrição das habilidades disponíveis no portal, consulte [etapa 2: Adicionar habilidades cognitivas](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) no início rápido da pesquisa cognitiva.
 
 ## <a name="use-billable-resources"></a>Usar recursos faturáveis
 
@@ -63,7 +63,7 @@ Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos
 
 1. Expanda **anexar serviços cognitivas** e, em seguida, selecione **criar novo recurso de serviços cognitivas**. Uma nova guia é aberta para que você possa criar o recurso:
 
-   ![Criar um recurso de serviços cognitivas](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Criar um recurso de serviços cognitivas")
+   ![Criar um recurso de serviços cognitivas](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Criar um recurso dos Serviços Cognitivos")
 
 1. Na lista **local** , selecione a região onde o serviço de Azure Search está localizado. Certifique-se de usar essa região por motivos de desempenho. O uso dessa região também anula os encargos de largura de banda de saída entre regiões.
 
@@ -81,7 +81,7 @@ Você é cobrado apenas por habilidades que chamam o API de Serviços Cognitivos
 
    ![Selecione o recurso serviços cognitivas](./media/cognitive-search-attach-cognitive-services/attach2.png "Selecione o recurso serviços cognitivas")
 
-1. Expanda a seção **Adicionar aprimoramentos** para selecionar as habilidades cognitivas específicas que você deseja executar em seus dados. Conclua o restante do assistente. Para obter uma descrição das habilidades disponíveis no portal, consulte [etapa 2: Adicione habilidades](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) cognitivas no início rápido da pesquisa cognitiva.
+1. Expanda a seção **Adicionar aprimoramentos** para selecionar as habilidades cognitivas específicas que você deseja executar em seus dados. Conclua o restante do assistente. Para obter uma descrição das habilidades disponíveis no portal, consulte [etapa 2: Adicionar habilidades cognitivas](cognitive-search-quickstart-blob.md#create-the-enrichment-pipeline) no início rápido da pesquisa cognitiva.
 
 ## <a name="attach-an-existing-skillset-to-a-cognitive-services-resource"></a>Anexar um conconhecimento existente a um recurso de serviços cognitivas
 
@@ -99,9 +99,9 @@ Se você tiver um contratador de qualificações existente, poderá anexá-lo a 
 
 ## <a name="attach-cognitive-services-programmatically"></a>Anexe serviços cognitivas programaticamente
 
-Ao definir o conconhecedor de habilidades programaticamente `cognitiveServices` , adicione uma seção ao conconhecedor. Nessa seção, inclua a chave do recurso de serviços cognitivas que você deseja associar ao skillset. Lembre-se de que o recurso deve estar na mesma região que o recurso de Azure Search. Inclua `@odata.type`também e defina-o como `#Microsoft.Azure.Search.CognitiveServicesByKey`.
+Ao definir o conconhecedor de habilidades programaticamente, adicione uma seção `cognitiveServices` ao skillset. Nessa seção, inclua a chave do recurso de serviços cognitivas que você deseja associar ao skillset. Lembre-se de que o recurso deve estar na mesma região que o recurso de Azure Search. Também inclua `@odata.type` e defina-o como `#Microsoft.Azure.Search.CognitiveServicesByKey`.
 
-O exemplo a seguir mostra esse padrão. Observe a `cognitiveServices` seção no final da definição.
+O exemplo a seguir mostra esse padrão. Observe a seção `cognitiveServices` no final da definição.
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2019-05-06
@@ -137,7 +137,7 @@ Content-Type: application/json
 }
 ```
 
-## <a name="example-estimate-costs"></a>Exemplo: Estimar custos
+## <a name="example-estimate-costs"></a>Exemplo: estimar custos
 
 Para estimar os custos associados à indexação de pesquisa cognitiva, comece com uma ideia da aparência de um documento médio para que você possa executar alguns números. Por exemplo, você pode aproximar:
 

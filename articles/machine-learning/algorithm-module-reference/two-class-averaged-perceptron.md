@@ -1,5 +1,5 @@
 ---
-title: 'Regressão de floresta de decisão: Referência de módulo'
+title: 'Regressão de floresta de decisão: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo perceptron médio de duas classes no serviço Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo de média de perceptron.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: f560923b0a5457ac5fd03c7f76fc4315c6ca08e8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 369974e52cb3585e4333b6033573b433e0a1a41a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128429"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693635"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Módulo perceptron médio de duas classes
 
@@ -32,11 +32,11 @@ Os modelos perceptron mais simples são adequados para aprender padrões separá
 
 ## <a name="how-to-configure-two-class-averaged-perceptron"></a>Como configurar o perceptron médio de duas classes
 
-1.  Adicione o módulo **perceptron médio de duas classes** ao seu experimento.  
+1.  Adicione o módulo **perceptron médio de duas classes** ao seu pipeline.  
 
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, forneça um conjunto específico de valores como argumentos.
   
 3.  Para **taxa de aprendizagem**, especifique um valor para a *taxa de aprendizado*. Os valores de taxa de aprendizagem controlam o tamanho da etapa usada em estocástico Grad descendente cada vez que o modelo é testado e corrigido.
   
@@ -46,7 +46,7 @@ Os modelos perceptron mais simples são adequados para aprender padrões separá
   
      A interrupção inicial geralmente fornece melhor generalização. Aumentar o número de iterações melhora o ajuste, com o risco de superajuste.
   
-5.  Para **semente de número aleatório**, opcionalmente, digite um valor inteiro para usar como a semente. Usar uma semente é recomendado se você quiser garantir reprodução do experimento entre execuções.  
+5.  Para **semente de número aleatório**, opcionalmente, digite um valor inteiro para usar como a semente. Usar uma semente é recomendado se você quiser garantir reprodução do pipeline entre execuções.  
   
 1.  Conecte um conjunto de e um dos módulos de treinamento:
   
@@ -59,6 +59,6 @@ Após a conclusão do treinamento:
 + Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treinamento.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

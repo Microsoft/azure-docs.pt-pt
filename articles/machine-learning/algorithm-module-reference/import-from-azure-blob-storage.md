@@ -1,7 +1,7 @@
 ---
-title: 'Importar do armazenamento de BLOBs do Azure: Referência de módulo'
+title: 'Importar do armazenamento de BLOBs do Azure: referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Aprenda este tópico descreve como usar o módulo importar do armazenamento de BLOBs do Azure no serviço Azure Machine Learning para ler dados do armazenamento de BLOBs do Azure, para que você possa usar os dados em um experimento de aprendizado de máquina.
+description: Aprenda este tópico descreve como usar o módulo importar do armazenamento de BLOBs do Azure no serviço Azure Machine Learning para ler dados do armazenamento de BLOBs do Azure, para que você possa usar os dados em um pipeline do Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: fea64070c496379351bb75f2a38aba9b4db70dcd
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f8d23bfbee6d3665d770d8cbbcb9440827a88e8e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128725"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693744"
 ---
 # <a name="import-from-azure-blob-storage-module"></a>Importar do módulo de armazenamento de BLOBs do Azure
 
 Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Use este módulo para ler dados do armazenamento de BLOBs do Azure, para que você possa usar os dados em um experimento de aprendizado de máquina.  
+Use este módulo para ler dados do armazenamento de BLOBs do Azure, para que você possa usar os dados em um pipeline de Machine Learning.  
 
 O serviço blob do Azure é para armazenar grandes quantidades de dados, incluindo dados binários. Os BLOBs do Azure podem ser acessados de qualquer lugar, usando HTTP ou HTTPS. A autenticação pode ser necessária dependendo do tipo de armazenamento de BLOBs. 
 
@@ -38,7 +38,7 @@ A importação do armazenamento de BLOBs exige que os dados sejam armazenados em
 
 As etapas a seguir descrevem como configurar manualmente a origem da importação.
 
-1. Adicione o módulo **importar dados** ao seu experimento. Você pode encontrar esse módulo na interface, na **entrada e saída de dados**
+1. Adicione o módulo **importar dados** ao seu pipeline. Você pode encontrar esse módulo na interface, na **entrada e saída de dados**
 
 2. Para **fonte de dados**, selecione **armazenamento de BLOBs do Azure**.
 
@@ -56,46 +56,46 @@ As etapas a seguir descrevem como configurar manualmente a origem da importaçã
 
     - Para **nome da conta**, digite ou cole o nome da conta que contém o blob que você deseja acessar.
 
-        Por exemplo, se a URL completa da conta de armazenamento for `http://myshared.blob.core.windows.net`, você digitaria `myshared`.
+        Por exemplo, se a URL completa da conta de armazenamento for `http://myshared.blob.core.windows.net`, você digitará `myshared`.
 
     - Para **chave de conta**, Cole a chave de acesso de armazenamento associada à conta.
 
-        Se você não souber a chave de acesso, consulte a seção "gerenciar suas contas de armazenamento do Azure" neste artigo: [Sobre contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
+        Se você não souber a chave de acesso, consulte a seção "gerenciar suas contas de armazenamento do Azure" neste artigo: [sobre contas de armazenamento do Azure](https://docs.microsoft.com/azure/storage/storage-create-storage-account).
 
 6. Para **caminho para contêiner, diretório ou BLOB**, digite o nome do blob específico que você deseja recuperar.
 
     Por exemplo, se você carregou um arquivo chamado **data01. csv** para o contêiner **trainingdata** em uma conta chamada **mymldata**, a URL completa para o arquivo seria: `http://mymldata.blob.core.windows.net/trainingdata/data01.txt`.
 
-    Portanto, no caminho do campo **para o contêiner, diretório ou BLOB**, você deve digitar:`trainingdata/data01.csv`
+    Portanto, no caminho do campo **para o contêiner, diretório ou BLOB**, você deve digitar: `trainingdata/data01.csv`
 
-    Para importar vários arquivos, você pode usar os caracteres `*` curinga (asterisco) ou `?` (ponto de interrogação).
+    Para importar vários arquivos, você pode usar os caracteres curinga `*` (asterisco) ou `?` (ponto de interrogação).
 
-    Por exemplo, supondo que `trainingdata` o contêiner contenha vários arquivos de um formato compatível, você pode usar a seguinte especificação para ler todos os `data`arquivos começando com e concatena-los em um único conjunto de um.
+    Por exemplo, supondo que o contêiner `trainingdata` contenha vários arquivos de um formato compatível, você pode usar a seguinte especificação para ler todos os arquivos começando com `data` e concatena-los em um único conjunto de um.
 
     `trainingdata/data*.csv`
 
     Você não pode usar caracteres curinga em nomes de contêiner. Se você precisar importar arquivos de vários contêineres, use uma instância separada do módulo **importar dados** para cada contêiner e, em seguida, mescle os DataSets usando o módulo [adicionar linhas](./add-rows.md) .
 
     > [!NOTE]
-    > Se você tiver selecionado a opção, **use resultados armazenados em cache**, quaisquer alterações feitas nos arquivos no contêiner não disparam uma atualização dos dados no experimento.
+    > Se você tiver selecionado a opção, **use resultados armazenados em cache**, quaisquer alterações feitas nos arquivos no contêiner não disparam uma atualização dos dados no pipeline.
 
 7. Em **formato de arquivo de blob**, selecione uma opção que indica o formato dos dados armazenados no BLOB, para que Azure Machine Learning possa processar os dados adequadamente. Há suporte para os seguintes formatos:
 
-    - **CSV**: Os valores separados por vírgulas (CSV) são o formato de armazenamento padrão para exportar e importar arquivos no Azure Machine Learning. Se os dados já contiverem uma linha de cabeçalho, certifique-se de selecionar a opção, **arquivo tem uma linha de cabeçalho**ou o cabeçalho será tratado como uma linha de dados.
+    - **CSV**: valores separados por vírgulas (CSV) são o formato de armazenamento padrão para exportar e importar arquivos no Azure Machine Learning. Se os dados já contiverem uma linha de cabeçalho, certifique-se de selecionar a opção, **arquivo tem uma linha de cabeçalho**ou o cabeçalho será tratado como uma linha de dados.
 
        
 
-    - **TSV**: Os valores separados por tabulações (TSV) são um formato usado por muitas ferramentas de aprendizado de máquina. Se os dados já contiverem uma linha de cabeçalho, certifique-se de selecionar a opção, **arquivo tem uma linha de cabeçalho**ou o cabeçalho será tratado como uma linha de dados.
+    - **TSV**: valores separados por tabulação (TSV) são um formato usado por muitas ferramentas de aprendizado de máquina. Se os dados já contiverem uma linha de cabeçalho, certifique-se de selecionar a opção, **arquivo tem uma linha de cabeçalho**ou o cabeçalho será tratado como uma linha de dados.
 
        
 
-    - **ARFF**: Esse formato dá suporte à importação de arquivos no formato usado pelo conjunto de ferramentas weka. 
+    - **ARFF**: esse formato dá suporte à importação de arquivos no formato usado pelo conjunto de ferramentas do weka. 
 
    
 
-8. Execute a experimentação.
+8. Executar o pipeline.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

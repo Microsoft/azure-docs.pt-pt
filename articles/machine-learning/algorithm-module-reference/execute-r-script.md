@@ -1,5 +1,5 @@
 ---
-title: 'Executar script R: Referência de módulo'
+title: 'Executar script R: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo executar script R no serviço de Azure Machine Learning para executar o código R.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01fb3325bed889911c79a4f828afa27b86d746db
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128808"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693774"
 ---
 # <a name="execute-r-script"></a>Executar Script R
 
-Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu experimento de interface visual.
+Este artigo descreve como usar o módulo **Executar script r** para executar o código r em seu pipeline de interface visual.
 
 Com o R, você pode executar tarefas que atualmente não são suportadas por módulos existentes, como: 
 - Criar transformações de dados personalizadas
@@ -43,8 +43,8 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
-## <a name="installing-r-packages"></a>Instalar pacotes de R
-Para instalar pacotes de R adicionais, use `install.packages()` o método. Certifique-se de especificar o repositório CRAN. Os pacotes são instalados para cada módulo **Executar script r** e não são compartilhados entre outros módulos **Executar script r** .
+## <a name="installing-r-packages"></a>Instalando pacotes do R
+Para instalar pacotes de R adicionais, use o método `install.packages()`. Certifique-se de especificar o repositório CRAN. Os pacotes são instalados para cada módulo **Executar script r** e não são compartilhados entre outros módulos **Executar script r** .
 
 Este exemplo mostra como instalar o Zoo:
 ```R
@@ -75,17 +75,17 @@ O módulo **Executar script R** contém um código de exemplo que você pode usa
 
 Os conjuntos de dados armazenados na interface visual são automaticamente convertidos em um quadro de data do R quando carregados com esse módulo.
 
-1.  Adicione o módulo **Executar script R** ao seu experimento.
+1.  Adicione o módulo **Executar script R** ao seu pipeline.
 
   
 
 1. Conecte as entradas necessárias ao script. As entradas são opcionais e podem incluir dados e código de R adicional.
 
-    * **DataSet1**: Referencie a primeira entrada como `dataframe1`. O conjunto de dados de entrada deve ser formatado como CSV, TSV, ARFF ou você pode conectar um conjunto de dados Azure Machine Learning.
+    * **DataSet1**: referencia a primeira entrada como `dataframe1`. O conjunto de dados de entrada deve ser formatado como CSV, TSV, ARFF ou você pode conectar um conjunto de dados Azure Machine Learning.
 
-    * **Dataset2**: Referencie a segunda entrada como `dataframe2`. Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV, ARFF ou como um conjunto de Azure Machine Learning.
+    * **Dataset2**: referencia a segunda entrada como `dataframe2`. Esse conjunto de e também deve ser formatado como um arquivo CSV, TSV, ARFF ou como um conjunto de Azure Machine Learning.
 
-    * **Pacote de script**: A terceira entrada aceita arquivos ZIP. O arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
+    * **Pacote de script**: a terceira entrada aceita arquivos zip. O arquivo compactado pode conter vários arquivos e vários tipos de arquivo.
 
 1. Na caixa de texto **script r** , digite ou cole um script R válido.
 
@@ -113,17 +113,17 @@ azureml_main <- function(dataframe1, dataframe2){
 
  * O script deve conter uma função chamada `azureml_main`, que é o ponto de entrada para esse módulo.
 
- * A função de ponto de entrada pode conter até dois argumentos de `Param<dataframe1>` entrada: e`Param<dataframe2>`
+ * A função de ponto de entrada pode conter até dois argumentos de entrada: `Param<dataframe1>` e `Param<dataframe2>`
  
    > [!NOTE]
-    > Os dados passados para o módulo **Executar script R** são referenciados `dataframe1` como `dataframe2`e, que é diferente do Azure Machine Learning Studio (referência do `dataset1`Studio `dataset2`como,). Verifique se os dados de entrada estão referneced corretamente em seu script.  
+    > Os dados passados para o módulo **Executar script R** são referenciados como `dataframe1` e `dataframe2`, que é diferente do Azure Machine Learning Studio (referência do estúdio como `dataset1`, `dataset2`). Verifique se os dados de entrada estão referneced corretamente em seu script.  
  
     > [!NOTE]
-    >  O código R existente pode precisar de alterações secundárias para ser executado em um experimento de interface visual. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados na interface visual.
+    >  O código R existente pode precisar de alterações secundárias para ser executado em um pipeline de interface visual. Por exemplo, os dados de entrada que você fornecer no formato CSV devem ser explicitamente convertidos em um DataSet antes que você possa usá-lo em seu código. Os tipos de dados e colunas usados na linguagem R também são diferentes de algumas maneiras dos tipos de dados e colunas usados na interface visual.
 
-1.  **Semente aleatória**: Digite um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Esse parâmetro é equivalente a chamar `set.seed(value)` no código R.  
+1.  **Semente aleatória**: digite um valor a ser usado dentro do ambiente de R como o valor de semente aleatória. Esse parâmetro é equivalente a chamar `set.seed(value)` no código R.  
 
-1. Execute a experimentação.  
+1. Executar o pipeline.  
 
 ## <a name="results"></a>Resultados
 
@@ -133,7 +133,7 @@ Mensagens e erros padrão do R são retornados para o log do módulo.
 
 ## <a name="sample-scripts"></a>Scripts de exemplo
 
-Há várias maneiras de estender seu experimento usando o script R personalizado.  Esta seção fornece código de exemplo para tarefas comuns.
+Há várias maneiras pelas quais você pode estender seu pipeline usando o script R personalizado.  Esta seção fornece código de exemplo para tarefas comuns.
 
 
 ### <a name="add-r-script-as-an-input"></a>Adicionar script R como uma entrada
@@ -146,7 +146,7 @@ O módulo **Executar script r** dá suporte a arquivos de script r arbitrários 
 
 1.  Conecte o conjunto de dados à porta de entrada do **pacote de script** .
 
-1. Todos os arquivos contidos no arquivo ZIP estão disponíveis durante o tempo de execução do experimento. 
+1. Todos os arquivos contidos no arquivo ZIP estão disponíveis durante o tempo de execução do pipeline. 
 
     Se o arquivo de pacote de script contiver uma estrutura de diretório, a estrutura será preservada. No entanto, você deve alterar seu código para preceder o **pacote Directory./script** para o caminho.
 
@@ -221,7 +221,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 Você pode passar objetos R entre instâncias do módulo **Executar script r** usando o mecanismo de serialização interna. Este exemplo pressupõe que você deseja mover o objeto do R chamado `A` entre dois módulos **Executar script r** .
 
-1. Adicione o primeiro módulo **Executar script r** ao seu experimento e digite o seguinte código na caixa de texto **script r** para criar um objeto `A` serializado como uma coluna na tabela de dados de saída do módulo:  
+1. Adicione o primeiro módulo **Executar script r** ao seu pipeline e digite o seguinte código na caixa de texto **script r** para criar um objeto serializado `A` como uma coluna na tabela de dados de saída do módulo:  
   
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -235,11 +235,11 @@ Você pode passar objetos R entre instâncias do módulo **Executar script r** u
     }
     ```
 
-    A conversão explícita para o tipo de inteiro é feita porque a função de serialização gera dados `Raw` no formato R, que não tem suporte na interface visual.
+    A conversão explícita para o tipo de inteiro é feita porque a função de serialização gera dados no formato R `Raw`, que não tem suporte da interface visual.
 
 1. Adicione uma segunda instância do módulo **Executar script R** e conecte-a à porta de saída do módulo anterior.
 
-1. Digite o código a seguir na caixa de texto **script R** para extrair `A` o objeto da tabela de dados de entrada. 
+1. Digite o código a seguir na caixa de texto **script R** para extrair `A` de objeto da tabela de dados de entrada. 
 
     ```R
     azureml_main <- function(dataframe1, dataframe2){
@@ -256,40 +256,40 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 
 |              |            | 
 |--------------|------------| 
-| Pacote      | Version    | 
+| Pacote      | Versão    | 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 
-| polybase         | 3.5.1      | 
+| polybase         | 3.0      | 
 | base64enc    | 0,1-3      | 
 | BH           | 1.69.0-1   | 
 | associador        | 0.1.1      | 
 | bindrcpp     | 0.2.2      | 
 | bitops       | 1,0-6      | 
-| arranque         | 1.3-22     | 
+| niciar         | 1.3-22     | 
 | broom        | 0.5.2      | 
 | chamador        | 3.2.0      | 
 | acento        | 6.0-84     | 
 | caTools      | 1.17.1.2   | 
 | cellranger   | 1.1.0      | 
-| Classe        | 7.3-15     | 
+| Classes        | 7.3-15     | 
 | CLI          | 1.1.0      | 
 | clipe        | 0.6.0      | 
-| cluster      | 2.0.7-1    | 
+| em      | 2.0.7-1    | 
 | codetools    | 0.2-16     | 
 | colorspace   | 1.4-1      | 
-| Compiler     | 3.5.1      | 
+| Compiler     | 3.0      | 
 | lápis       | 1.3.4      | 
-| curl         | 3.3        | 
+| Curl         | 3,3        | 
 | Data. tabela   | 1.12.2     | 
-| datasets     | 3.5.1      | 
+| Conjuntos     | 3.0      | 
 | DBI          | 1.0.0      | 
 | dbplyr       | 1.4.1      | 
-| digest       | 0.6.19     | 
+| Digest       | 0.6.19     | 
 | dplyr        | 0.7.6      | 
 | e1071        | 1.7-2      | 
 | avaliar     | 0,14       | 
-| fansi        | 0.4.0      | 
+| ventiladores        | 0.4.0      | 
 | forcats      | 0.3.0      | 
 | foreach      | 1.4.4      | 
 | intercâmbio      | 0,8-71     | 
@@ -301,9 +301,9 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | cola         | 1.3.1      | 
 | gower        | 0.2.1      | 
 | gplots       | 3.0.1.1    | 
-| gráficos     | 3.5.1      | 
-| grDevices    | 3.5.1      | 
-| grelha         | 3.5.1      | 
+| gráficos     | 3.0      | 
+| grDevices    | 3.0      | 
+| grade         | 3.0      | 
 | gtable       | 0.3.0      | 
 | gtools       | 3.8.1      | 
 | foram        | 2.1.0      | 
@@ -313,19 +313,19 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | httr         | 1.4.0      | 
 | ipred        | 0,9-9      | 
 | iteradores    | 1.0.10     | 
-| jsonlite     | 1.6        | 
+| jsonlite     | 1,6        | 
 | KernSmooth   | -2, 23E-15    | 
 | knitr        | 1,23       | 
 | rotulagem     | 0,3        | 
 | malha      | 0,20-38    | 
 | lava         | 1.6.5      | 
 | lazyeval     | 0.2.2      | 
-| lubridate    | 1.7.4      | 
+| lubridate    | -hadoop2      | 
 | magrittr     | 1.5        | 
 | Markdown     | 1          | 
-| EM MASSA         | 7.3-51.4   | 
+| EM massa         | 7.3-51.4   | 
 | Tabela       | 1.2-17     | 
-| maneiras      | 3.5.1      | 
+| Maneiras      | 3.0      | 
 | mgcv         | 1.8-28     | 
 | MIME         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
@@ -334,8 +334,8 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | nlme         | 3.1-140    | 
 | nnet         | 7.3-12     | 
 | numDeriv     | 2016.8-1.1 | 
-| OpenSSL      | 1.4        | 
-| paralelo     | 3.5.1      | 
+| OpenSSL      | 1,4        | 
+| paralelo     | 3.0      | 
 | pilares       | 1.4.1      | 
 | pkgconfig    | 2.0.2      | 
 | plogr        | 0.2.0      | 
@@ -344,7 +344,7 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | processx     | 3.3.1      | 
 | prodlim      | 2018.04.18 | 
 | andamento     | 1.2.2      | 
-| ps           | 1.3.0      | 
+| profissionais           | 1.3.0      | 
 | purrr        | 0.3.2      | 
 | quadprog     | 1,5-7      | 
 | quantmod     | 0.4-15     | 
@@ -369,26 +369,26 @@ A lista atual de pacotes de R pré-instalados disponíveis para uso:
 | reduz       | 1.0.0      | 
 | Selecione      | 0.4-1      | 
 | espacial      | 7.3-11     | 
-| linhas      | 3.5.1      | 
+| linhas      | 3.0      | 
 | QUADRADO      | 2017.10-1  | 
-| Estatísticas        | 3.5.1      | 
-| stats4       | 3.5.1      | 
+| Estatísticas        | 3.0      | 
+| stats4       | 3.0      | 
 | Cadeia de caracteres      | 1.4.3      | 
 | Cadeia de caracteres      | 1.3.1      | 
 | sobrevivência     | 2,44-1.1   | 
-| sistema          | 3.2        | 
-| tcltk        | 3.5.1      | 
+| sistema          | 3,2        | 
+| tcltk        | 3.0      | 
 | tibble       | 2.1.3      | 
 | limpar        | 0.8.3      | 
 | tidyselect   | 0.2.5      | 
-| tidyverse    | 1.2.1      | 
-| Data de início     | 3043.102   | 
+| tidyverse    | 1.2      | 
+| Data de início     | 3043,102   | 
 | tinytex      | 0,13       | 
-| ferramentas        | 3.5.1      | 
+| ferramentas        | 3.0      | 
 | tseries      | 0,10 a 47    | 
 | TTR          | 0.23-4     | 
-| utf8         | 1.1.4      | 
-| utils        | 3.5.1      | 
+| UTF8         | 1.1.4      | 
+| utils        | 3.0      | 
 | vctrs        | 0.1.0      | 
 | viridisLite  | 0.3.0      | 
 | caixa estreita      | 0.3-2      | 

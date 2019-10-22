@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com Envoy | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o Envoy | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Envoy.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163535"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com Envoy
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Envoy
 
 Neste tutorial, você aprenderá a integrar o Envoy com o Azure Active Directory (Azure AD). Ao integrar o Envoy ao Azure AD, você pode:
 
@@ -87,7 +87,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
+    Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://app.envoy.com/a/saml/auth/<company-ID-from-Envoy>`
 
     > [!NOTE]
     > O valor não é real. Atualize o valor com a URL de logon real. Contate a [equipe de suporte ao cliente do Envoy](https://envoy.com/contact/) para obter o valor. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -104,19 +104,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao envoy.
 
@@ -124,7 +124,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **Envoy**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -152,11 +152,11 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 5. Clique em **empresa**.
 
-    ![Empresa](./media/envoy-tutorial/ic776783.png "Empresa")
+    ![Corporativa](./media/envoy-tutorial/ic776783.png "Empresa")
 
 6. Clique em **SAML**.
 
-    ![SAML](./media/envoy-tutorial/ic776784.png "SAML")
+    ![Authority](./media/envoy-tutorial/ic776784.png "SAML")
 
 7. Na seção configuração de **autenticação do SAML** , execute as seguintes etapas:
 
@@ -169,7 +169,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
     
     b. Cole o valor da **URL de logon** , que você copiou o formulário portal do Azure na caixa de texto **URL SAML http do provedor de identidade** .
     
-    c. Clique em **guardar alterações**.
+    c. Clique em **salvar alterações**.
 
 ### <a name="create-envoy-test-user"></a>Criar usuário de teste do Envoy
 
@@ -177,7 +177,7 @@ Nesta seção, um usuário chamado Brenda Simon é criado em envoy. O Envoy dá 
 
 ## <a name="test-sso"></a>Testar SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do envoy no painel de acesso, você deverá ser conectado automaticamente ao Envoy para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

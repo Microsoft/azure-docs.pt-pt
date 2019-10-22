@@ -1,5 +1,5 @@
 ---
-title: 'Treinar modelo de clustering: Referência de módulo'
+title: 'Treinar modelo de clustering: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo treinar modelo de clustering no serviço de Azure Machine Learning para treinar modelos de clustering.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 4883b1420913eb4e5f3bd5f13a95e410370d9184
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128484"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693653"
 ---
 # <a name="train-clustering-model"></a>Preparar Modelo de Clustering
 
@@ -29,7 +29,7 @@ O módulo usa um modelo de clustering não treinado que você já configurou usa
   
 ## <a name="how-to-use-train-clustering-model"></a>Como usar o modelo treinar clustering  
   
-1.  Adicione o módulo **treinar modelo** de clustering ao seu experimento no estúdio. Você pode encontrar o módulo em **módulos Machine Learning**, na categoria **treinar** .  
+1.  Adicione o módulo **treinar modelo de clustering** ao seu pipeline no estúdio. Você pode encontrar o módulo em **módulos Machine Learning**, na categoria **treinar** .  
   
 2. Adicione o módulo de [clustering K-](k-means-clustering.md) means ou outro módulo personalizado que cria um modelo de clustering compatível e defina os parâmetros do modelo de clustering.  
     
@@ -43,7 +43,7 @@ O módulo usa um modelo de clustering não treinado que você já configurou usa
 
     Se você desmarcar essa opção, somente as atribuições de cluster serão geradas. 
 
-7. Execute o experimento ou clique no módulo **treinar modelo** de clustering e selecione **executar selecionado**.  
+7. Execute o pipeline ou clique no módulo **treinar modelo de clustering** e selecione **executar selecionado**.  
   
 ### <a name="results"></a>Resultados
 
@@ -58,6 +58,6 @@ Após a conclusão do treinamento:
 
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

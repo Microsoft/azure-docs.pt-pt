@@ -1,5 +1,5 @@
 ---
-title: 'Regressão da árvore de decisão aumentada: Referência de módulo'
+title: 'Regressão de árvore de decisão aumentada: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo regressão da árvore de decisão aumentada no serviço Azure Machine Learning para criar um Ensemble de árvores de regressão usando o aumento.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 5f26dfbdd8d3ef094ed380b7bd00ab0169152502
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208160"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693845"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore de decisão aumentada
 
@@ -22,7 +22,7 @@ Este artigo descreve um módulo da interface visual (visualização) para Azure 
 
 Use este módulo para criar um Ensemble de árvores de regressão usando o aumento. O *aumento* significa que cada árvore depende de árvores anteriores. O algoritmo aprende ajustando o resíduo das árvores que o precedem. Portanto, o aumento em uma árvore de decisão Ensemble tende a melhorar a precisão com um pequeno risco de menos cobertura.  
   
-Esse método de regressão é um método de aprendizado supervisionado e, portanto, requer um *conjunto*de informações rotulado. A coluna de rótulo deve conter valores numéricos.  
+Esse método de regressão é um método de aprendizado supervisionado e, portanto, requer um conjunto de informações *rotulado*. A coluna de rótulo deve conter valores numéricos.  
 
 > [!NOTE]
 > Use este módulo somente com conjuntos de valores que usam variáveis numéricas.  
@@ -46,38 +46,38 @@ Para obter informações adicionais, consulte estes artigos:
   
 -  [https://research.microsoft.com/apps/pubs/default.aspx?id=132652](https://research.microsoft.com/apps/pubs/default.aspx?id=132652)  
 
-    Microsoft Research: De RankNet para LambdaRank para LambdaMART: Uma visão geral. Por J.C. Burges.
+    Microsoft Research: de RankNet para LambdaRank para LambdaMART: uma visão geral. Por J.C. Burges.
 
 O método de aumento de gradiente também pode ser usado para problemas de classificação, reduzindo-os para regressão com uma função de perda adequada. Para obter mais informações sobre a implementação de árvores aumentadas para tarefas de classificação, consulte [árvore de decisão aumentada de duas classes](./two-class-boosted-decision-tree.md).  
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Como configurar a regressão da árvore de decisão aumentada
 
-1.  Adicione o módulo **árvore de decisão aumentada** ao seu experimento. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
+1.  Adicione o módulo **árvore de decisão aumentada** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
     -   **Parâmetro único**: Selecione esta opção se você souber como deseja configurar o modelo e fornecer um conjunto específico de valores como argumentos.  
    
   
-3. **Número máximo de folhas por árvore**: Indique o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.  
+3. **Número máximo de folhas por árvore**: indica o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.  
 
     Ao aumentar esse valor, você pode aumentar o tamanho da árvore e obter uma precisão melhor, com o risco de superajuste e tempo de treinamento mais longo.  
 
-4. **Número mínimo de amostras por nó folha**: Indica o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
+4. **Número mínimo de amostras por nó folha**: indique o número mínimo de casos necessários para criar qualquer nó de terminal (folha) em uma árvore.
 
     Ao aumentar esse valor, você aumenta o limite para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se você aumentar o valor para 5, os dados de treinamento precisarão conter pelo menos 5 casos que atendam às mesmas condições.
 
-5. **Taxa de aprendizagem**: Digite um número entre 0 e 1 que defina o tamanho da etapa durante o aprendizado. A taxa de aprendizagem determina o quão rápido ou lento o aprendiz convergi na solução ideal. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para convergir na melhor solução.
+5. **Taxa de aprendizagem**: digite um número entre 0 e 1 que defina o tamanho da etapa durante o aprendizado. A taxa de aprendizagem determina o quão rápido ou lento o aprendiz convergi na solução ideal. Se o tamanho da etapa for muito grande, você poderá exceder a solução ideal. Se o tamanho da etapa for muito pequeno, o treinamento levará mais tempo para convergir na melhor solução.
 
-6. **Número de árvores construídas**: Indique o número total de árvores de decisão a serem criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.
+6. **Número de árvores construídas**: indica o número total de árvores de decisão a serem criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.
 
-    Esse valor também controla o número de árvores exibidas ao visualizar o modelo treinado. Se você quiser ver ou imprimir uma árvore ingle, poderá definir o valor como 1; no entanto, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
+    Esse valor também controla o número de árvores exibidas ao visualizar o modelo treinado. Se você quiser ver ou imprimir uma única árvore, poderá definir o valor como 1; no entanto, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e nenhuma iteração adicional é executada.
 
-7. **Semente de número aleatório**: Digite um inteiro não negativo opcional para usar como o valor de semente aleatória. A especificação de uma semente garante reprodução entre as execuções que têm os mesmos dados e parâmetros.
+7. **Semente de número aleatório**: digite um inteiro não negativo opcional para usar como o valor de semente aleatória. A especificação de uma semente garante reprodução entre as execuções que têm os mesmos dados e parâmetros.
 
     Por padrão, a semente aleatória é definida como 0, o que significa que o valor de semente inicial é obtido do relógio do sistema.
   
-8. **Permitir níveis categóricos**desconhecidos: Selecione esta opção para criar um grupo de valores desconhecidos nos conjuntos de treinamento e validação. Se você desmarcar essa opção, o modelo poderá aceitar somente os valores contidos nos dados de treinamento. O modelo pode ser menos preciso para valores conhecidos, mas pode fornecer previsões melhores para valores novos (desconhecidos).
+8. **Permitir níveis categóricos desconhecidos**: Selecione esta opção para criar um grupo de valores desconhecidos nos conjuntos de treinamento e validação. Se você desmarcar essa opção, o modelo poderá aceitar somente os valores contidos nos dados de treinamento. O modelo pode ser menos preciso para valores conhecidos, mas pode fornecer previsões melhores para valores novos (desconhecidos).
 
 9. Adicione um conjunto de uma de treinamento e um dos módulos de treinamento:
 
@@ -85,7 +85,7 @@ O método de aumento de gradiente também pode ser usado para problemas de class
   
     
 
-10. Execute a experimentação.  
+10. Executar o pipeline.  
   
 ## <a name="results"></a>Resultados
 
@@ -97,8 +97,6 @@ Após a conclusão do treinamento:
 
 + Para usar o modelo de pontuação, conecte-o ao [modelo de Pontuação](./score-model.md)para prever valores para novos exemplos de entrada.
 
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** do módulo de treinamento e selecione **salvar como**. A cópia do modelo treinado que você salva não é atualizada em execuções sucessivas do experimento.
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração de Azure Active Directory com informações adaptáveis | Microsoft Docs'
+title: 'Tutorial: integração de Azure Active Directory com informações adaptáveis | Microsoft Docs'
 description: Saiba como configurar o logon único entre Azure Active Directory e informações adaptáveis.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70213628"
 ---
-# <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: Integre informações adaptáveis com o Azure Active Directory
+# <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>Tutorial: integrar ideias adaptáveis com o Azure Active Directory
 
 Neste tutorial, você aprenderá a integrar as informações adaptáveis com o Azure Active Directory (Azure AD). Ao integrar informações adaptáveis ao Azure AD, você pode:
 
@@ -58,24 +58,24 @@ Para configurar a integração de ideias adaptáveis ao Azure AD, você precisa 
 1. Selecione **informações adaptáveis** no painel de resultados e, em seguida, adicione o aplicativo. Aguarde alguns segundos enquanto o aplicativo é adicionado ao seu locatário.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Configure e teste o SSO do Azure AD com informações adaptáveis usando um usuário de teste chamado **B. Simon**. Para que o SSO funcione, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado em informações adaptáveis.
 
 Para configurar e testar o SSO do Azure AD com informações adaptáveis, conclua os seguintes blocos de construção:
 
 1. **[Configurar o SSO do Azure ad](#configure-azure-ad-sso)** – para permitir que os usuários usem esse recurso.
-2. **[Configurar o SSO](#configure-adaptive-insights-sso)** de insights adaptativos – para configurar as configurações de logon único no lado do aplicativo.
+2. **[Configurar o SSO de insights adaptativos](#configure-adaptive-insights-sso)** – para configurar as configurações de logon único no lado do aplicativo.
 3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com B. Simon.
 4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para habilitar B. Simon para usar o logon único do Azure AD.
-5. **[Criar usuário de teste do Adaptive](#create-adaptive-insights-test-user)** insights – para ter um equivalente de B. Simon em percepções adaptáveis vinculadas à representação do usuário no Azure AD.
+5. **[Criar usuário de teste do Adaptive insights](#create-adaptive-insights-test-user)** – para ter um equivalente de B. Simon em percepções adaptáveis vinculadas à representação do usuário no Azure AD.
 6. **[Testar SSO](#test-sso)** – para verificar se a configuração funciona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurar SSO do Azure AD
 
 Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
-1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Adaptive** insights, localize a seção **gerenciar** e selecione **logon único**.
+1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Adaptive insights** , localize a seção **gerenciar** e selecione **logon único**.
 1. Na página **selecionar um método de logon único** , selecione **SAML**.
 1. Na página **Configurar logon único com SAML** , clique no ícone Editar/caneta para a **configuração básica do SAML** para editar as configurações.
 
@@ -83,16 +83,16 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , execute as seguintes etapas:
 
-    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    a. Na caixa de texto **identificador** , digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
-    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão:`https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
+    b. Na caixa de texto **URL de resposta** , digite uma URL usando o seguinte padrão: `https://login.adaptiveinsights.com:443/samlsso/<unique-id>`
 
     > [!NOTE]
     > Você pode obter o identificador (ID da entidade) e os valores da URL de resposta da página de **configurações de SSO do SAML das** ideias adaptáveis.
 
 4. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , localize o **certificado (Base64)** e selecione **baixar** para baixar o certificado e salvá-lo no computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de download do certificado](common/certificatebase64.png)
 
 6. Na seção **configurar informações adaptáveis** , copie as URLs apropriadas com base em seu requisito.
 
@@ -104,7 +104,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 2. Vá para **Administração**.
 
-    ![Administrador] do (./media/adaptivesuite-tutorial/ic805644.png "Administrador") do
+    ![ADM](./media/adaptivesuite-tutorial/ic805644.png "ADM")
 
 3. Na seção **usuários e funções** , clique em **configurações de SSO do SAML**.
 
@@ -132,25 +132,25 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
      * **Formato NameID do SAML**, selecione **endereço de email**.
 
-     * **Habilite o SAML**, selecione **permitir SSO do SAML e logon direto**do insights.
+     * **Habilite o SAML**, selecione **permitir SSO do SAML e logon direto do insights**.
 
     g. Copie a **URL de SSO de informações adaptáveis** e Cole nas caixas de entrada **identificador (ID da entidade)** e **URL de resposta** na seção **configuração básica do SAML** no portal do Azure.
 
     h. Clique em **Guardar**.
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo acesso a ideias adaptáveis.
 
@@ -158,7 +158,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **informações adaptáveis**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -174,32 +174,32 @@ Para permitir que os usuários do Azure AD se conectem a ideias adaptáveis, ele
 
 **Para configurar o provisionamento de usuário, execute as seguintes etapas:**
 
-1. Entre em seu site de empresa do insights **Adaptive** como administrador.
+1. Entre em seu site de empresa do **insights Adaptive** como administrador.
 
 2. Vá para **Administração**.
 
-   ![Administrador] do (./media/adaptivesuite-tutorial/IC805644.png "Administrador") do
+   ![ADM](./media/adaptivesuite-tutorial/IC805644.png "ADM")
 
 3. Na seção **usuários e funções** , clique em **usuários**.
 
-   ![Adicionar usuário](./media/adaptivesuite-tutorial/IC805648.png "Adicionar usuário")
+   ![Adicionar usuário](./media/adaptivesuite-tutorial/IC805648.png "Adicionar Utilizador")
 
 4. Na seção **novo usuário** , execute as seguintes etapas:
 
-   ![Enviar](./media/adaptivesuite-tutorial/IC805649.png "Enviar")
+   ![Submeter](./media/adaptivesuite-tutorial/IC805649.png "Submeter")
 
    a. Digite o **nome**, o **nome**de usuário, o **email**e a **senha** de um usuário de Azure Active Directory válido que você deseja provisionar nas caixas de texto relacionadas.
 
    b. Selecione uma **função**.
 
-   c. Clique em **Submit** (Submeter).
+   c. Clique em **Enviar**.
 
 > [!NOTE]
 > Você pode usar qualquer outra ferramenta de criação de conta de usuário de informações adaptáveis ou APIs fornecidas por ideias adaptáveis para provisionar contas de usuário do AAD.
 
 ### <a name="test-sso"></a>Testar SSO 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco insights adaptativos no painel de acesso, você deverá ser conectado automaticamente às informações adaptáveis para as quais você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
 ms.openlocfilehash: ffa20599ae57908f9b0ea848ab68f41a3d0e2a14
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72176038"
 ---
 # <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: criar um índice de Azure Search no postmaster usando APIs REST
@@ -45,9 +45,9 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações**@no__t **-1,** obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade http e uma tecla de acesso](media/search-get-started-postman/get-url-key.png "obter um ponto de extremidade http e uma chave de acesso")
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações exigem uma chave de API em cada solicitação enviada ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
@@ -68,7 +68,7 @@ A composição de cabeçalho de solicitação inclui dois elementos, tipo de con
 
 No postmaster, formule uma solicitação semelhante à captura de tela a seguir. Escolha **obter** como o verbo, forneça a URL e clique em **Enviar**. Esse comando conecta-se a Azure Search, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
 
-URL de ![solicitação do postmaster e](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do post") do cabeçalho
+![URL e cabeçalho da solicitação do postmaster](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do postmaster")
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
@@ -86,7 +86,7 @@ Para fazer isso no postmaster:
 
 4. Clique em **Enviar**.
 
-![Indexar documento JSON no índice do corpo da solicitação](media/search-get-started-postman/postman-request.png "documento JSON no corpo da solicitação")
+![Indexar documento JSON no corpo da solicitação](media/search-get-started-postman/postman-request.png "Indexar documento JSON no corpo da solicitação")
 
 ### <a name="index-definition"></a>Definição do índice
 
@@ -140,7 +140,7 @@ Para fazer isso no postmaster:
 
 4. Clique em **Enviar**.
 
-![Documentos JSON em](media/search-get-started-postman/postman-docs.png "documentos JSON do corpo da solicitação no corpo da solicitação")
+![Documentos JSON no corpo da solicitação](media/search-get-started-postman/postman-docs.png "Documentos JSON no corpo da solicitação")
 
 ### <a name="json-documents-to-load-into-the-index"></a>Documentos JSON a serem carregados no índice
 
@@ -253,7 +253,7 @@ Para fazer isso no postmaster:
 
 Essa consulta é um vazio e retorna uma contagem dos documentos nos resultados da pesquisa. A solicitação e a resposta devem ser semelhantes à captura de tela a seguir para o postmaster depois que você clicar em **Enviar**. O código de estado deve ser 200.
 
- ![Obter com a cadeia de caracteres de pesquisa na URL](media/search-get-started-postman/postman-query.png "Get com a cadeia de caracteres de pesquisa na URL")
+ ![OBTER com a cadeia de caracteres de pesquisa na URL](media/search-get-started-postman/postman-query.png "OBTER com a cadeia de caracteres de pesquisa na URL")
 
 Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. Você pode fazer uma pesquisa de cadeia de caracteres, textualmente $filter consultas, limitar o conjunto de resultados, definir o escopo da pesquisa para campos específicos e muito mais.
 
@@ -284,7 +284,7 @@ https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/
 
 Adicionar `/stats` à sua URL retorna informações de índice. No Postman, o pedido deve ter um aspeto semelhante ao seguinte e a resposta inclui uma contagem de documentos e o espaço utilizado em bytes.
 
- ![Obter]informações de índice informações de(media/search-get-started-postman/postman-system-query.png "obtenção") de índice
+ ![Obter informações de índice](media/search-get-started-postman/postman-system-query.png "Obter informações de índice")
 
 Repare que a sintaxe da versão de api é diferente. Para este pedido, utilize `?` para acrescentar a versão de api. O `?` separa o caminho da URL da cadeia de caracteres de consulta, enquanto & separa cada par de ' nome = valor ' na cadeia de caracteres de consulta. Nesta consulta, a versão de api é o primeiro e único item na cadeia de consulta.
 

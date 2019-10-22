@@ -1,5 +1,5 @@
 ---
-title: 'Dividir dados: Referência de módulo'
+title: 'Dividir dados: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo dividir dados no serviço de Azure Machine Learning para dividir um conjunto em dois conjuntos distintos.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 31612e10e7978e94f1ed467b5ffbecde40910ef9
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 3fa6b61b1b1761756339d6a7f05c74eb4a968777
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128471"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692657"
 ---
 # <a name="split-data-module"></a>Módulo dividir dados
 
@@ -30,9 +30,9 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 > Antes de escolher o modo de divisão, Leia todas as opções para determinar o tipo de divisão de que você precisa.
 > Se você alterar o modo de divisão, todas as outras opções poderão ser redefinidas.
 
-1. Adicione o módulo **dividir dados** ao seu experimento na interface. Você pode encontrar esse módulo em **transformação de dados**, na categoria **exemplo e dividir** .
+1. Adicione o módulo **dividir dados** ao seu pipeline na interface. Você pode encontrar esse módulo em **transformação de dados**, na categoria **exemplo e dividir** .
 
-2. **Modo de divisão**: Escolha um dos seguintes modos, dependendo do tipo de dados que você tem e de como deseja dividi-lo. Cada modo de divisão tem opções diferentes. Clique nos tópicos a seguir para obter instruções e exemplos detalhados. 
+2. **Modo de divisão**: escolha um dos seguintes modos, dependendo do tipo de dados que você tem e como deseja dividi-lo. Cada modo de divisão tem opções diferentes. Clique nos tópicos a seguir para obter instruções e exemplos detalhados. 
 
     - **Dividir linhas**: Use essa opção se desejar apenas dividir os dados em duas partes. Você pode especificar a porcentagem de dados a serem colocados em cada divisão, mas por padrão, os dados são divididos 50-50.
 
@@ -42,10 +42,10 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
         Por exemplo, se você estiver analisando sentimentos, poderá verificar a presença de um nome de produto específico em um campo de texto e, em seguida, dividir o conjunto de dado em linhas com o nome do produto de destino e aqueles sem.
 
-    - **Divisão de expressão relativa**:  Use essa opção sempre que desejar aplicar uma condição a uma coluna de número. O número pode ser um campo de data/hora, uma coluna que contém valores de idade ou moeda, ou até mesmo uma porcentagem. Por exemplo, talvez você queira dividir seu conjunto de dados dependendo do custo dos itens, agrupar pessoas por intervalos de idade ou separar dados por uma data de calendário.
+    - **Divisão de expressão relativa**: Use essa opção sempre que desejar aplicar uma condição a uma coluna de número. O número pode ser um campo de data/hora, uma coluna que contém valores de idade ou moeda, ou até mesmo uma porcentagem. Por exemplo, talvez você queira dividir seu conjunto de dados dependendo do custo dos itens, agrupar pessoas por intervalos de idade ou separar dados por uma data de calendário.
 
 ### <a name="split-rows"></a>Dividir linhas
-1.  Adicione o módulo [dividir dados](./split-data.md) ao seu experimento na interface do e conecte o DataSet que você deseja dividir.
+1.  Adicione o módulo [dividir dados](./split-data.md) ao seu pipeline na interface do e conecte o DataSet que você deseja dividir.
   
 2.  Para o **modo de divisão**, escolha **dividir linhas**. 
 
@@ -57,20 +57,20 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
   
 4. Selecione a opção **divisão aleatória** se desejar tornar aleatória a seleção de dados nos dois grupos. Essa é a opção preferida ao criar conjuntos de testes de treinamento e de teste.
 
-5.  **Semente aleatória**: Digite um valor inteiro não negativo para inicializar a sequência pseudoaleatória de instâncias a serem usadas. Essa semente padrão é usada em todos os módulos que geram números aleatórios. 
+5.  **Semente aleatória**: digite um valor inteiro não negativo para inicializar a sequência pseudoaleatória de instâncias a serem usadas. Essa semente padrão é usada em todos os módulos que geram números aleatórios. 
 
      A especificação de uma semente torna os resultados geralmente reproduzíveis. Se você precisar repetir os resultados de uma operação de divisão, deverá especificar uma semente para o gerador de número aleatório. Caso contrário, a semente aleatória é definida por padrão como 0, o que significa que o valor de semente inicial é obtido do relógio do sistema. Como resultado, a distribuição de dados pode ser um pouco diferente cada vez que você executar uma divisão. 
 
-6. **Divisão**de desratificação: Defina essa opção como **true** para garantir que os dois conjuntos de resultados de saída contenham uma amostra representativa dos valores na coluna *Strata* ou na *coluna de chave estratificação*. 
+6. **Divisão de desratificação**: defina essa opção como **true** para garantir que os dois conjuntos de resultados de saída contenham uma amostra representativa dos valores na coluna *Strata* ou na *coluna de chave estratificação*. 
 
     Com a amostragem de sobreratificação, os dados são divididos de forma que cada conjunto de dado de saída Obtém aproximadamente a mesma porcentagem de cada valor de destino. Por exemplo, talvez você queira garantir que seus conjuntos de treinamento e teste sejam aproximadamente equilibrados em relação ao resultado, ou em relação a alguma outra coluna, como sexo.
 
-7. Execute a experimentação.
+7. Executar o pipeline.
 
 
 ## <a name="regular-expression-split"></a>Divisão de expressão regular
 
-1.  Adicione o módulo [dividir dados](./split-data.md) ao seu experimento e conecte-o como entrada para o conjunto que você deseja dividir.  
+1.  Adicione o módulo [dividir dados](./split-data.md) ao seu pipeline e conecte-o como entrada para o DataSet que você deseja dividir.  
   
 2.  Para o **modo de divisão**, selecione divisão de **expressão regular**.
 
@@ -79,13 +79,13 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
    A expressão regular deve seguir a sintaxe de expressão regular do Python.
 
 
-4. Execute a experimentação.
+4. Executar o pipeline.
 
     Com base na expressão regular que você fornece, o conjunto de registros é dividido em dois conjuntos de linhas: linhas com valores que correspondem à expressão e todas as linhas restantes. 
 
 ## <a name="relative-expression-split"></a>Divisão de expressão relativa.
 
-1. Adicione o módulo [dividir dados](./split-data.md) ao seu experimento e conecte-o como entrada para o conjunto que você deseja dividir.
+1. Adicione o módulo [dividir dados](./split-data.md) ao seu pipeline e conecte-o como entrada para o DataSet que você deseja dividir.
   
 2. Para o **modo de divisão**, selecione a divisão de **expressão relativa**.
   
@@ -99,19 +99,19 @@ Esse módulo é particularmente útil quando você precisa separar dados em conj
 
     - Use o caractere de e comercial (&) para a operação e e use o caractere de barra vertical (|) para a operação ou.
 
-    - Há suporte para os seguintes operadores `<`: `>` `<=` `>=` ,`==`,,,,`!=`
+    - Há suporte para os seguintes operadores: `<`, `>`, `<=`, `>=`, `==`, `!=`
 
-    - Não é possível agrupar operações usando `(` o `)`e o.
+    - Não é possível agrupar operações usando `(` e `)`.
 
  - Coluna de cadeia de caracteres: 
-    - Há suporte para os seguintes operadores `==`:,`!=`
+    - Há suporte para os seguintes operadores: `==`, `!=`
 
 
 
-4. Execute a experimentação.
+4. Executar o pipeline.
 
     A expressão divide o conjunto de um em dois conjuntos de linhas: linhas com valores que atendem à condição e todas as linhas restantes.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

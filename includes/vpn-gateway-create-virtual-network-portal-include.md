@@ -9,10 +9,10 @@ ms.date: 08/02/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 8b585a47d3950d232eb3e8047c12ee8949030c95
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/05/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68780270"
 ---
 Para criar uma VNet no modelo de implementação do Gestor de Recursos com o Portal do Azure, siga os passos abaixo. Use os **valores de exemplo** se você estiver usando estas etapas como um tutorial. Se não estiver a seguir estes passos como um tutorial, certifique-se de substitui os valores pelos seus próprios. Para obter mais informações sobre como trabalhar com redes virtuais, veja [Descrição Geral da Virtual Network](../articles/virtual-network/virtual-networks-overview.md).
@@ -30,8 +30,8 @@ Para criar uma VNet no modelo de implementação do Gestor de Recursos com o Por
    - **Espaço de endereço**: 10.1.0.0/16
    - **Assinatura**: Verifique se a assinatura listada é aquela que você deseja usar. Pode utilizar o menu pendente para mudar de subscrição.
    - **Grupo de recursos**: TestRG1 (clique em **criar novo** para criar um novo grupo)
-   - **Local**: East US
-   - **Sub-rede**: Front-end
+   - **Local**: leste dos EUA
+   - **Sub-rede**: frontend
    - **Intervalo de endereços**: 10.1.0.0/24
 
    ![Página Criar rede virtual](./media/vpn-gateway-create-virtual-network-portal-include/create-virtual-network1.png)

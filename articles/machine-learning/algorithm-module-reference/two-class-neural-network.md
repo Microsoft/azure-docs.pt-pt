@@ -1,5 +1,5 @@
 ---
-title: 'Rede neural de duas classes: Referência de módulo'
+title: 'Rede neural de duas classes: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo rede neural de duas classes no serviço de Azure Machine Learning para criar um modelo de rede neural que pode ser usado para prever um destino que tem apenas dois valores.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 6f0ad3cc6f506efdc0579f7b8949c41b539ade6a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8f38a7b7086e5023eb63e94363301ac5277f7e7c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128354"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693602"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo de rede neural de duas classes
 
@@ -38,15 +38,15 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
   
 ## <a name="how-to-configure"></a>Como configurar
 
-1.  Adicione o módulo **rede neural de duas classes** ao seu experimento. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .  
+1.  Adicione o módulo **rede neural de duas classes** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **classificação** .  
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Escolha esta opção se você já souber como deseja configurar o modelo.  
+    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.  
 
 3.  Para **especificação de camada oculta**, selecione o tipo de arquitetura de rede a ser criado.  
   
-    -   **Caso totalmente conectado**: Usa a arquitetura de rede neural padrão, definida para redes neurais de duas classes da seguinte maneira:
+    -   **Caso totalmente conectado**: usa a arquitetura de rede neural padrão, definida para redes neurais de duas classes, da seguinte maneira:
   
         -   Tem uma camada oculta.
   
@@ -66,17 +66,17 @@ Para computar a saída da rede para uma entrada específica, um valor é calcula
 
 8.  Para **a dinâmica**, especifique um peso a ser aplicado durante o aprendizado a nós de iterações anteriores  
 
-10. Selecione a opção **exemplos de ordem aleatória** para embaralhar casos entre iterações. Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o experimento.
+10. Selecione a opção **exemplos de ordem aleatória** para embaralhar casos entre iterações. Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o pipeline.
   
 11. Para **semente de número aleatório**, digite um valor a ser usado como a semente.
   
-     A especificação de um valor de semente é útil quando você deseja garantir a capacidade de repetição entre as execuções do mesmo experimento.  Caso contrário, um valor de relógio do sistema será usado como a semente, o que pode causar resultados ligeiramente diferentes sempre que você executar o experimento.
+     A especificação de um valor de semente é útil quando você deseja garantir a capacidade de repetição entre execuções do mesmo pipeline.  Caso contrário, um valor de relógio do sistema será usado como a semente, o que pode causar resultados ligeiramente diferentes cada vez que você executar o pipeline.
   
-13. Adicione um conjunto de um DataSet marcado ao experimento e conecte um dos [módulos de treinamento](module-reference.md).  
+13. Adicione um conjunto de um DataSet marcado ao pipeline e conecte um dos [módulos de treinamento](module-reference.md).  
   
     -   Se você definir **criar modo de instrutor** como **um único parâmetro**, use o módulo [treinar modelo](train-model.md) .  
   
-14. Execute a experimentação.
+14. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 
@@ -84,9 +84,9 @@ Após a conclusão do treinamento:
 
 + Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento e outros parâmetros da rede neural, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treino e selecione **Visualizar**.  
 
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo experimento.
++ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo pipeline.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

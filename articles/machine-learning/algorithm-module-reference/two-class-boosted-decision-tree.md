@@ -1,5 +1,5 @@
 ---
-title: 'Árvore de decisão aumentada de duas classes: Referência de módulo'
+title: 'Árvore de decisão aumentada de duas classes: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo árvore de decisão aumentada de duas classes no serviço de Azure Machine Learning para criar um modelo de aprendizado de máquina baseado no algoritmo árvores de decisão aumentada.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 812fb8d312b165bd43f600da520f390f9c6399fe
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 5795dc994872ac5da37a1226524dddd35aa35126
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128404"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692640"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Módulo de árvore de decisão aumentada de duas classes
 
@@ -32,11 +32,11 @@ Este módulo cria um modelo de classificação não treinado. Como a classifica�
 
 Você pode treinar esse tipo de modelo usando o [modelo de treinamento](././train-model.md). 
 
-1.  Em Azure Machine Learning, adicione o módulo **árvore de decisão aumentada** ao seu experimento.
+1.  Em Azure Machine Learning, adicione o módulo **árvore de decisão aumentada** ao seu pipeline.
   
 2.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .
   
-    + **Parâmetro único**: Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
   
   
 3.  Para o **número máximo de folhas por árvore**, indique o número máximo de nós de terminal (folhas) que podem ser criados em qualquer árvore.

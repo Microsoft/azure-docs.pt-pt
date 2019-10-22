@@ -1,5 +1,5 @@
 ---
-title: 'Modelo de Pontuação: Referência de módulo'
+title: 'Modelo de Pontuação: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo modelo de pontuação no serviço Azure Machine Learning para gerar previsões usando um modelo de classificação ou regressão treinado.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 43a398b091b282da6ede06796250cda17117dc18
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f046b41d02ac392d003a9ecd15f25b43e5449cd0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128507"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692679"
 ---
 # <a name="score-model-module"></a>Módulo do modelo de pontuação
 
@@ -24,13 +24,13 @@ Use este módulo para gerar previsões usando um modelo de classificação ou re
 
 ## <a name="how-to-use"></a>Como utilizar
 
-1. Adicione o módulo **modelo de Pontuação** ao seu experimento.
+1. Adicione o módulo **modelo de Pontuação** ao seu pipeline.
 
 2. Anexe um modelo treinado e um conjunto de dados que contenha novos dado de entrada. 
 
     Os dados devem estar em um formato compatível com o tipo de modelo treinado que você está usando. O esquema do conjunto de dados de entrada também deve corresponder ao esquema dos dados usados para treinar o modelo.
 
-3. Execute a experimentação.
+3. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 
@@ -48,7 +48,7 @@ A pontuação, ou o valor previsto, pode estar em vários formatos diferentes, d
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar pontuações como um serviço Web
 
-Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte este tutorial sobre como criar um serviço Web com base em um experimento no Azure Machine Learning:
+Um uso comum de pontuação é retornar a saída como parte de um serviço Web de previsão. Para obter mais informações, consulte este tutorial sobre como criar um serviço Web baseado em um pipeline no Azure Machine Learning:
 
 
 ## <a name="next-steps"></a>Passos seguintes

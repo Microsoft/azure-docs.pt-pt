@@ -9,43 +9,43 @@ ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 9ce9fa29a29559a1eaaff6173737159f11aa83d8
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71268894"
 ---
 1. No portal, do lado esquerdo, clique em **+ Criar um recurso** e escreva "Gateway de Rede Virtual" na pesquisa. Localize **Gateway de rede virtual** no resultado da pesquisa e clique na entrada. Na página **Gateway de rede virtual** , clique em **criar**. É aberta a página **Criar gateway de rede virtual**.
 
-   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Create virtual network gateway page fields")
+   ![Criar campos de página de gateway de rede virtual](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw.png "Criar campos de página de gateway de rede virtual")
 
-   ![Create virtual network gateway page fields](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "Create virtual network gateway page fields")
+   ![Criar campos de página de gateway de rede virtual](./media/vpn-gateway-add-gw-p2s-rm-portal-include/p2sgw2.png "Criar campos de página de gateway de rede virtual")
 2. Na página **Criar gateway de rede virtual**, preencha os valores para o gateway de rede virtual.
 
    **Detalhes do projeto**
 
-   - **Subscrição**: Selecione a assinatura que você deseja usar na lista suspensa.
-   - **Grupo de recursos**: Essa configuração é preenchida automática quando você seleciona sua rede virtual nesta página.
+   - **Assinatura**: selecione a assinatura que você deseja usar na lista suspensa.
+   - **Grupo de recursos**: essa configuração é preenchida automática quando você seleciona sua rede virtual nesta página.
 
    **Detalhes da instância**
 
-   - **Nome**: Nomeie seu gateway. Nomear seu gateway não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de gateway que está a criar.
-   - **Região**: Selecione a região na qual você deseja criar esse recurso. A região do gateway deve ser a mesma que a rede virtual.
-   - **Tipo de gateway**: Selecione **VPN**. Os gateways de VPN utilizam o tipo de gateway de rede virtual **VPN**. 
-   - **Tipo de VPN**: Selecione o tipo de VPN que é especificado para sua configuração. A maioria das configurações requerem um tipo de VPN baseado em rotas.
-   - **SKU**: Selecione o SKU de gateway no menu suspenso. Os SKUs listados na lista pendente dependem do tipo de VPN que selecionar. Para obter mais informações sobre os SKUs de gateway, veja [SKUs de Gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   - **Nome**: dê um nome ao gateway. Nomear seu gateway não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de gateway que está a criar.
+   - **Região**: selecione a região na qual você deseja criar esse recurso. A região do gateway deve ser a mesma que a rede virtual.
+   - **Tipo de gateway**: selecione **VPN**. Os gateways de VPN utilizam o tipo de gateway de rede virtual **VPN**. 
+   - **Tipo de VPN**: selecione o tipo de VPN especificado para a sua configuração. A maioria das configurações requerem um tipo de VPN baseado em rotas.
+   - **SKU**: selecione o SKU de gateway na lista pendente. Os SKUs listados na lista pendente dependem do tipo de VPN que selecionar. Para obter mais informações sobre os SKUs de gateway, veja [SKUs de Gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
-      **Rede virtual**: Escolha a rede virtual à qual pretende adicionar este gateway.
+      **Rede virtual**: escolha a rede virtual à qual pretende adicionar este gateway.
 
-      **Intervalo de endereços da sub-rede do gateway**: Esse campo só aparecerá se a rede virtual selecionada não tiver uma sub-rede de gateway. Preencha o intervalo se você ainda não tiver uma sub-rede de gateway. Se possível, torne o intervalo/27 ou maior (/26,/25 etc.)
+      **Intervalo de endereços de sub-rede de gateway**: esse campo será exibido somente se a rede virtual selecionada não tiver uma sub-rede de gateway. Preencha o intervalo se você ainda não tiver uma sub-rede de gateway. Se possível, torne o intervalo/27 ou maior (/26,/25 etc.)
 
-   **Endereço IP público**: Essa configuração especifica o objeto de endereço IP público que é associado ao gateway de VPN. O endereço IP público é dinamicamente atribuído a este objeto quando o gateway de VPN é criado. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
+   **Endereço IP público**: esta definição especifica o objeto de endereço IP público que é associado ao gateway de VPN. O endereço IP público é dinamicamente atribuído a este objeto quando o gateway de VPN é criado. O endereço IP Público só é alterado quando o gateway é eliminado e recriado. Não é alterado ao redimensionar, repor ou ao realizar qualquer outra manutenção/atualização interna do gateway de VPN.
 
-     - **Endereço IP público**: Deixe **Criar novo** selecionado.
-     - **Nome do endereço IP público**: Na caixa de texto, digite um nome para sua instância de endereço IP público.
-     - **Atribuição**: O gateway de VPN dá suporte apenas ao dinâmico.
+     - **Endereço IP público**: deixe **criar novo** selecionado.
+     - **Nome do endereço IP público**: na caixa de texto, digite um nome para sua instância de endereço IP público.
+     - **Atribuição**: o gateway de VPN dá suporte apenas ao dinâmico.
 
-   **Modo ativo-ativo**: Selecione apenas **Ativar modo ativo-ativo** se estiver a criar uma configuração de gateway ativa-ativa. Caso contrário, deixe esta configuração não selecionada.
+   **Modo ativo-ativo**: selecione somente **habilitar modo ativo-ativo** se você estiver criando uma configuração de gateway ativo-ativo. Caso contrário, deixe esta configuração não selecionada.
 
    Deixe **Configurar o BGP ASN** não selecionado, a não ser que a sua configuração solicite especificamente esta definição. Se precisar desta definição, o ASN predefinido é 65515, apesar de isto poder ser alterado.
 

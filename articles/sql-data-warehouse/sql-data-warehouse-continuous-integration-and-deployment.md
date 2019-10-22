@@ -11,10 +11,10 @@ ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 7afb616fffaf01b1efa4f5d5a4af9dddd9683781
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70143150"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Integração e implantação contínuas para o Azure SQL Data Warehouse
@@ -36,7 +36,7 @@ Este tutorial simples descreve como integrar seu projeto de banco de dados SSDT 
 
 1. Navegue até Azure Pipelines e crie um novo pipeline de compilação
 
-      ![Novo pipeline](media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Novo pipeline")
+      ![Novo pipeline](media/sql-data-warehouse-continuous-integration-and-deployment/1-new-build-pipeline.png "Novo Pipeline")
 
 2. Selecione o repositório de código-fonte (Azure Repos git) e selecione o modelo de aplicativo da área de trabalho .NET
 
@@ -63,7 +63,7 @@ Neste ponto, você tem um ambiente simples em que qualquer check-in em sua Branc
 
    Execute e valide seu pipeline. Você pode fazer alterações localmente e fazer alterações no controle do código-fonte que devem gerar uma compilação e implantação automática.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Explorar a [arquitetura de SQL data warehouse do Azure](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
 - [Criar rapidamente um SQL data warehouse][create a SQL Data Warehouse]

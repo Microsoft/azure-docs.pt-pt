@@ -1,5 +1,5 @@
 ---
-title: 'Floresta de decisão de duas classes: Referência de módulo'
+title: 'Floresta de decisão de duas classes: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo floresta de decisão de duas classes no serviço Azure Machine Learning para criar um modelo de aprendizado de máquina com base no algoritmo florestas de decisão.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 37a2ce77e438145219df9cb553d1881626e8a2c6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 243f1774069f048d0e8a1ce11e3ac42e4e73f58b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128402"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693622"
 ---
 # <a name="two-class-decision-forest-module"></a>Módulo de floresta de decisão de duas classes
 
@@ -28,7 +28,7 @@ As florestas de decisão são modelos de Ensemble rápidos e supervisionados. Es
 
 Esse algoritmo de floresta de decisão é um método de aprendizado Ensemble destinado a tarefas de classificação. Os métodos Ensemble são baseados no princípio geral que, em vez de depender de um único modelo, você pode obter resultados melhores e um modelo mais generalizado criando vários modelos relacionados e combinando-os de alguma forma. Em geral, os modelos de Ensemble fornecem melhor cobertura e precisão do que árvores de decisão única. 
 
-Há várias maneiras de criar modelos individuais e combiná-los em um Ensemble. Essa implementação específica de uma floresta de decisão funciona criando várias árvores de decisão e , em seguida, votando a classe de saída mais popular. A votação é um dos métodos mais conhecidos para gerar resultados em um modelo Ensemble. 
+Há várias maneiras de criar modelos individuais e combiná-los em um Ensemble. Essa implementação específica de uma floresta de decisão funciona criando várias árvores de decisão e, em seguida, **votando** a classe de saída mais popular. A votação é um dos métodos mais conhecidos para gerar resultados em um modelo Ensemble. 
 
 + Muitas árvores de classificação individuais são criadas, usando o conjunto de um inteiro, mas pontos de partida diferentes (geralmente aleatórios). Isso difere da abordagem de floresta aleatória, na qual as árvores de decisão individuais podem usar apenas uma parte aleatória dos dados ou recursos.
 + Cada árvore na árvore da floresta de decisão gera um histograma de frequência não normalizado dos rótulos. 
@@ -49,23 +49,23 @@ Para obter mais informações, consulte [florestas de decisão](https://go.micro
 
 ## <a name="how-to-configure"></a>Como configurar
   
-1.  Adicione o módulo **floresta de decisão de duas classes** ao experimento em Azure Machine Learning e abra o painel **Propriedades** do módulo. 
+1.  Adicione o módulo **floresta de decisão de duas classes** ao seu pipeline no Azure Machine Learning e abra o painel **Propriedades** do módulo. 
 
     Você pode encontrar o módulo em **Machine Learning**. Expanda **inicializar**e, em seguida, **classificação**.  
   
-2.  Para o **método**de reamostragem, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.  
+2.  Para o **método de reamostragem**, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.  
   
-    -   **Bagging**: Bagging também é chamado de agregação de *Bootstrap*. Nesse método, cada árvore é expandida em um novo exemplo, criada pela amostragem aleatória do conjunto de datas original com substituição, até que você tenha um conjunto de um DataSet com o tamanho original.  
+    -   **Bagging**: bagging também é chamado de *agregação de Bootstrap*. Nesse método, cada árvore é expandida em um novo exemplo, criada pela amostragem aleatória do conjunto de datas original com substituição, até que você tenha um conjunto de um DataSet com o tamanho original.  
   
          As saídas dos modelos são combinadas por *votação*, que é uma forma de agregação. Cada árvore em uma floresta de decisão de classificação gera um histograma de frequência não normalizado de rótulos. A agregação é somar esses histogramas e normalizar para obter as "probabilidades" para cada rótulo. Dessa forma, as árvores que têm alta confiança de previsão terão um peso maior na decisão final do Ensemble.  
   
          Para obter mais informações, consulte a entrada da Wikipédia para agregação de bootstrap.  
   
-    -   **Replicar**: Na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.   
+    -   **Replicate**: na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.   
   
 3.  Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
+    -   **Parâmetro único**: se você souber como deseja configurar o modelo, poderá fornecer um conjunto específico de valores como argumentos.
   
 4.  Para **número de árvores de decisão**, digite o número máximo de árvores de decisão que podem ser criadas no Ensemble. Ao criar mais árvores de decisão, você pode potencialmente obter uma cobertura melhor, mas o tempo de treinamento aumenta.  
   
@@ -97,9 +97,9 @@ Após a conclusão do treinamento:
   
     Clique em cada árvore para fazer uma busca detalhada nas divisões e ver as regras para cada nó.
 
-+ Para salvar um instantâneo do modelo, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar modelo**. O modelo salvo não é atualizado em execuções sucessivas do experimento.
++ Para salvar um instantâneo do modelo, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar modelo**. O modelo salvo não é atualizado em execuções sucessivas do pipeline.
 
-+ Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um experimento.
++ Para usar o modelo de pontuação, adicione o módulo **modelo de Pontuação** a um pipeline.
 
 
 ## <a name="next-steps"></a>Passos seguintes

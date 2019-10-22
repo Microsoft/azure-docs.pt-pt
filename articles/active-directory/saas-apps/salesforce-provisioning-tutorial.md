@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: configurar o Salesforce para o provisionamento automático de usuário com o Azure Active Directory | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce.
 services: active-directory
 documentationCenter: na
@@ -16,13 +16,13 @@ ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 64de004a1d9b3aa011c447fdded51658582586b0
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825773"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configurar o Salesforce para provisionamento automático de usuário
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: configurar o Salesforce para provisionamento automático de usuário
 
 O objetivo deste tutorial é mostrar as etapas necessárias para executar no Salesforce e no Azure AD para provisionar e desprovisionar automaticamente as contas de usuário do Azure AD para o Salesforce.
 
@@ -72,7 +72,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de usuár
 
 4. Defina o **modo de provisionamento** como **automático**.
 
-    ![a aprovisionar](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![provisionamento](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Na seção **credenciais de administrador** , forneça as seguintes definições de configuração:
 
@@ -96,7 +96,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de usuár
 
 10. Copie o token, vá para a janela do Azure AD e cole-o no campo **token secreto** .
 
-11. A **URL do locatário** deverá ser inserida se a instância do Salesforce estiver na nuvem do governo do Salesforce. Caso contrário, é opcional. Insira a URL do locatário usando o formato "https://\<Your-Instance\>. My.Salesforce.com", substituindo \<sua instância\> pelo nome da sua instância do Salesforce.
+11. A **URL do locatário** deverá ser inserida se a instância do Salesforce estiver na nuvem do governo do Salesforce. Caso contrário, é opcional. Insira a URL do locatário usando o formato "https://\<your-Instance \>. my.salesforce.com", substituindo \> da instância de \<your pelo nome da sua instância do Salesforce.
 
 12. No portal do Azure, clique em **testar conexão** para garantir que o Azure ad possa se conectar ao seu aplicativo Salesforce.
 
@@ -106,7 +106,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de usuár
 
 15. Na seção mapeamentos, selecione **sincronizar Azure Active Directory usuários para o Salesforce.**
 
-16. Na seção **mapeamentos de atributo** , examine os atributos de usuário que são sincronizados do Azure ad para o Salesforce. Observe que os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Salesforce para operações de atualização. Selecione o botão Guardar para consolidar as alterações.
+16. Na seção **mapeamentos de atributo** , examine os atributos de usuário que são sincronizados do Azure ad para o Salesforce. Observe que os atributos selecionados como propriedades **correspondentes** são usados para corresponder as contas de usuário no Salesforce para operações de atualização. Selecione o botão Salvar para confirmar as alterações.
 
 17. Para habilitar o serviço de provisionamento do Azure AD para o Salesforce, altere o **status de provisionamento** para **ativado** na seção Configurações
 
@@ -117,7 +117,7 @@ O objetivo desta seção é descrever como habilitar o provisionamento de usuár
 
 Isso inicia a sincronização inicial de todos os usuários e/ou grupos atribuídos ao Salesforce na seção usuários e grupos. Observe que a sincronização inicial demora mais para ser executada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em execução. Você pode usar a seção **detalhes de sincronização** para monitorar o progresso e seguir os links para os logs de atividade de provisionamento, que descrevem todas as ações executadas pelo serviço de provisionamento em seu aplicativo Salesforce.
 
-Para obter mais informações sobre como ler o registos de aprovisionamento do AD do Azure, consulte [relatórios sobre o aprovisionamento de contas de utilizadores automático](../manage-apps/check-status-user-account-provisioning.md).
+Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [relatórios sobre o provisionamento automático de contas de usuário](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

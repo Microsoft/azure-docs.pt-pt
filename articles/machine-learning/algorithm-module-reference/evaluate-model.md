@@ -1,5 +1,5 @@
 ---
-title: 'Avaliar modelo: Referência de módulo'
+title: 'Avaliar modelo: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo modelo de avaliação no serviço de Azure Machine Learning para medir a precisão de um modelo treinado.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 17263c8e7300f427b7d82aea65e1f83edf6d6fc4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128858"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693809"
 ---
 # <a name="evaluate-model-module"></a>Módulo avaliar modelo
 
@@ -30,7 +30,7 @@ Use este módulo para medir a precisão de um modelo treinado. Você fornece um 
 
 
 > [!TIP]
-> Se você for novo na avaliação do modelo, recomendamos a série de vídeos por Dr. Stephen Elston, como parte do [curso de Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) da EdX. 
+> Se você for novo na avaliação do modelo, recomendamos a série de vídeos de Dr. Stephen Elston, como parte do [curso do Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) do EdX. 
 
 
 Há três maneiras de usar o módulo **avaliar modelo** :
@@ -43,14 +43,14 @@ Há três maneiras de usar o módulo **avaliar modelo** :
 
 Para avaliar um modelo, você deve conectar um conjunto de dados que contém um conjunto de colunas de entrada e pontuações.  Se nenhum outro dado estiver disponível, você poderá usar seu conjunto de dados original.
 
-1. Conecte a saída do **conjunto** de dados pontuado do [modelo de Pontuação](./score-model.md) à entrada do modelo de **avaliação**. 
-2. Clique em **avaliar módulo modelo** e execute o experimento para gerar as pontuações de avaliação.
+1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](./score-model.md) à entrada do **modelo de avaliação**. 
+2. Clique em **avaliar módulo modelo** e execute o pipeline para gerar as pontuações de avaliação.
 
 ## <a name="use-testing-data"></a>Usar dados de teste
 
 Um cenário comum no aprendizado de máquina é separar o conjunto de dados original em conjuntos de dados de treinamento e teste, usando o módulo [dividir](./split-data.md) ou o módulo [partição e exemplo](./partition-and-sample.md) . 
 
-1. Conecte a saída do **conjunto** de dados pontuado do [modelo de Pontuação](score-model.md) à entrada do modelo de **avaliação**. 
+1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](score-model.md) à entrada do **modelo de avaliação**. 
 2. Conecte a saída do módulo dividir dados que contém os dados de teste à entrada do lado direito do **modelo de avaliação**.
 2. Clique em **avaliar módulo modelo** e selecione **executar selecionado** para gerar as pontuações de avaliação.
 
@@ -60,7 +60,7 @@ Você também pode conectar um segundo conjunto de pontuações para **avaliar o
 
 Esse recurso é útil porque você pode comparar facilmente os resultados de dois modelos diferentes nos mesmos dados. Ou, você pode comparar pontuações de duas execuções diferentes nos mesmos dados com parâmetros diferentes.
 
-1. Conecte a saída do **conjunto** de dados pontuado do [modelo de Pontuação](score-model.md) à entrada do modelo de **avaliação**. 
+1. Conecte a saída do conjunto de dados **pontuado** do [modelo de Pontuação](score-model.md) à entrada do **modelo de avaliação**. 
 2. Conecte a saída do módulo modelo de Pontuação para o segundo modelo à entrada do lado direito do **modelo de avaliação**.
 3. Clique com o botão direito do mouse em **avaliar modelo**e selecione **executar selecionado** para gerar as pontuações de avaliação.
 
@@ -119,11 +119,11 @@ As métricas retornadas para modelos de regressão geralmente são projetadas pa
   
 - O **erro quadrado relativo (RSE)** normaliza, de forma semelhante, o erro quadrado total dos valores previstos dividindo pelo erro quadrado total dos valores reais.  
   
-- **Significa zero um erro (MZOE)** indica se a previsão foi correta ou não.  Em outras palavras: `ZeroOneLoss(x,y) = 1` quando `x!=y`; caso `0`contrário,.
+- **Significa zero um erro (MZOE)** indica se a previsão foi correta ou não.  Em outras palavras: `ZeroOneLoss(x,y) = 1` quando `x!=y`; caso contrário `0`.
   
 - O **coeficiente de determinação**, geralmente referido como R<sup>2</sup>, representa a potência preditiva do modelo como um valor entre 0 e 1. Zero significa que o modelo é aleatório (explica nada); 1 significa que há um ajuste perfeito. No entanto, cuidado deve ser usado na interpretação de valores de R<sup>2</sup> , já que valores baixos podem ser totalmente normais e valores altos podem ser suspeitos.
   
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

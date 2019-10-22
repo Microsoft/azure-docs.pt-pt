@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Implementar o padrão de captura do data Lake para atualizar uma tabela Delta de Azure Databricks | Microsoft Docs'
+title: 'Tutorial: implementar o padrão de captura do data Lake para atualizar uma tabela Delta de Azure Databricks | Microsoft Docs'
 description: Este tutorial mostra como usar uma assinatura de grade de eventos, uma função do Azure e um trabalho de Azure Databricks para inserir linhas de dados em uma tabela que é armazenada no Azure datalake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -9,13 +9,13 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326996"
 ---
-# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: Implementar o padrão de captura do data Lake para atualizar uma tabela Delta do databricks
+# <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Tutorial: implementar o padrão de captura do data Lake para atualizar uma tabela Delta do databricks
 
 Este tutorial mostra como manipular eventos em uma conta de armazenamento que tem um namespace hierárquico.
 
@@ -34,20 +34,20 @@ Criaremos essa solução em ordem inversa, começando com o espaço de trabalho 
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Crie uma conta de armazenamento que tenha um namespace hierárquico (Azure Data Lake Storage Gen2). Este tutorial usa uma conta de armazenamento denominada `contosoorders`. Certifique-se de que sua conta de usuário tenha a [função de colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atribuída a ela.
+* Crie uma conta de armazenamento que tenha um namespace hierárquico (Azure Data Lake Storage Gen2). Este tutorial usa uma conta de armazenamento chamada `contosoorders`. Certifique-se de que sua conta de usuário tenha a [função de colaborador de dados de blob de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) atribuída a ela.
 
   Consulte [criar uma conta de Azure data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 
-* Crie uma entidade de serviço. Consulte [como: Use o portal para criar um aplicativo do Azure AD e uma entidade de serviço que](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)possa acessar recursos.
+* Crie uma entidade de serviço. Consulte [como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
   Há algumas coisas específicas que você precisará fazer ao executar as etapas nesse artigo.
 
-  :heavy_check_mark: Ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
+  : heavy_check_mark: ao executar as etapas na seção [atribuir o aplicativo a uma função](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) do artigo, certifique-se de atribuir a função de **colaborador de dados de blob de armazenamento** à entidade de serviço.
 
   > [!IMPORTANT]
   > Certifique-se de atribuir a função no escopo da conta de armazenamento Data Lake Storage Gen2. Você pode atribuir uma função ao grupo de recursos ou à assinatura pai, mas receberá erros relacionados a permissões até que essas atribuições de função se propaguem para a conta de armazenamento.
 
-  :heavy_check_mark: Ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará desses valores mais tarde.
+  : heavy_check_mark: ao executar as etapas na seção [obter valores para entrar no](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artigo, Cole a ID do locatário, a ID do aplicativo e os valores de senha em um arquivo de texto. Você precisará desses valores mais tarde.
 
 ## <a name="create-a-sales-order"></a>Criar uma ordem de venda
 
@@ -55,7 +55,7 @@ Primeiro, crie um arquivo CSV que descreva um pedido de vendas e, em seguida, ca
 
 1. Abra Gerenciador de Armazenamento do Azure. Em seguida, navegue até sua conta de armazenamento e, na seção **contêineres de blob** , crie um novo contêiner denominado **dados**.
 
-   ![](./media/data-lake-storage-events/data-container.png "pasta de dados") da pasta de dados
+   ![pasta de dados](./media/data-lake-storage-events/data-container.png "pasta de dados")
 
    Para obter mais informações sobre como usar Gerenciador de Armazenamento, consulte [usar Gerenciador de armazenamento do Azure para gerenciar dados em uma conta de Azure data Lake Storage Gen2](data-lake-storage-explorer.md).
 
@@ -92,7 +92,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 2. Em **Serviço Azure Databricks**, forneça os valores para criar uma área de trabalho do Databricks.
 
-    ![Criar uma área de trabalho do Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar uma área de trabalho do Azure Databricks")
+    ![Criar um espaço de trabalho Azure Databricks](./media/data-lake-storage-events/new-databricks-service.png "Criar uma área de trabalho do Azure Databricks")
 
     A criação da área de trabalho demora alguns minutos. Para monitorar o status da operação, exiba a barra de progresso na parte superior.
 
@@ -106,7 +106,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 3. Na página **Novo cluster**, indique os valores para criar um cluster.
 
-    ![Criar um cluster Databricks Spark no Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Criar um cluster Databricks Spark no Azure")
+    ![Criar um cluster Spark do databricks no Azure](./media/data-lake-storage-events/create-databricks-spark-cluster.png "Criar um cluster Spark do databricks no Azure")
 
     Aceite todos os outros valores predefinidos que não sejam os seguintes:
 
@@ -121,11 +121,11 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 1. No painel esquerdo, selecione **Área de Trabalho**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
 
-    ![Criar um bloco de notas no Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar um bloco de notas no Databricks")
+    ![Criar bloco de anotações no databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Criar bloco de anotações no databricks")
 
 2. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que você criou anteriormente.
 
-    ![Criar um bloco de notas no Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Criar um bloco de notas no Databricks")
+    ![Criar bloco de anotações no databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Criar bloco de anotações no databricks")
 
     Selecione **Criar**.
 
@@ -133,7 +133,7 @@ Para obter mais informações sobre a criação de clusters, veja [Criar um clus
 
 1. No bloco de anotações que você criou, copie e cole o bloco de código a seguir na primeira célula, mas não execute esse código ainda.  
 
-   Substitua os valores de espaço reservado `appId`, `password`, `tenant` nesse bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial.
+   Substitua os valores de espaço reservado `appId`, `password`, `tenant` neste bloco de código pelos valores que você coletou ao concluir os pré-requisitos deste tutorial.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -243,7 +243,7 @@ Crie um trabalho que execute o bloco de anotações que você criou anteriorment
 
 3. Dê um nome ao trabalho e escolha a pasta de trabalho `upsert-order-data`.
 
-   ![Criar um trabalho](./media/data-lake-storage-events/create-spark-job.png "criar um trabalho")
+   ![Criar um trabalho](./media/data-lake-storage-events/create-spark-job.png "Criar uma tarefa")
 
 ## <a name="create-an-azure-function"></a>Criar uma Função do Azure
 
@@ -251,7 +251,7 @@ Crie uma função do Azure que executa o trabalho.
 
 1. No canto superior do espaço de trabalho do databricks, escolha o ícone pessoas e, em seguida, escolha **configurações do usuário**.
 
-   ![Gerenciar](./media/data-lake-storage-events/generate-token.png "configurações de usuário") da conta
+   ![Gerir conta](./media/data-lake-storage-events/generate-token.png "Configurações do usuário")
 
 2. Clique no botão **gerar novo token** e, em seguida, clique no botão **gerar** .
 
@@ -259,30 +259,30 @@ Crie uma função do Azure que executa o trabalho.
   
 3. Selecione o botão **criar um recurso** encontrado no canto superior esquerdo da portal do Azure e, em seguida, selecione **> de computação aplicativo de funções**.
 
-   ![Criar uma função do Azure](./media/data-lake-storage-events/function-app-create-flow.png "criar Azure function")
+   ![Criar uma função do Azure](./media/data-lake-storage-events/function-app-create-flow.png "Criar Azure function")
 
 4. Na página **criar** do aplicativo de funções, certifique-se de selecionar **.NET Core** para a pilha de tempo de execução e certifique-se de configurar uma instância de Application insights.
 
-   ![Configurar o aplicativo de funções](./media/data-lake-storage-events/new-function-app.png "Configurar o aplicativo de funções")
+   ![Configurar o aplicativo de funções](./media/data-lake-storage-events/new-function-app.png "Configurar a aplicação de funções")
 
 5. Na página **visão geral** do aplicativo de funções, clique em **configuração**.
 
-   ![Configurar o aplicativo de funções](./media/data-lake-storage-events/configure-function-app.png "Configurar o aplicativo de funções")
+   ![Configurar o aplicativo de funções](./media/data-lake-storage-events/configure-function-app.png "Configurar a aplicação de funções")
 
 6. Na página **configurações do aplicativo** , escolha o botão **nova configuração de aplicativo** para adicionar cada configuração.
 
-   ![Adicionar]definição de configuração(./media/data-lake-storage-events/add-application-setting.png "Adicionar definição") de configuração
+   ![Adicionar definição de configuração](./media/data-lake-storage-events/add-application-setting.png "Adicionar definição de configuração")
 
    Adicione as seguintes configurações:
 
-   |Nome da definição | Value |
+   |Nome da definição | Valor |
    |----|----|
    |**DBX_INSTANCE**| A região do seu espaço de trabalho do databricks. Por exemplo: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| O token de acesso pessoal que você gerou anteriormente. |
    |**DBX_JOB_ID**|O identificador do trabalho em execução. Em nosso caso, esse valor é `1`.|
 7. Na página Visão geral do aplicativo de funções, clique no botão **nova função** .
 
-   ![Nova]função(./media/data-lake-storage-events/new-function.png "nova") função
+   ![Nova função](./media/data-lake-storage-events/new-function.png "Nova função")
 
 8. Escolha o **gatilho de grade de eventos do Azure**.
 
@@ -344,11 +344,11 @@ Nesta seção, você criará uma assinatura de grade de eventos que chama a fun�
 
 1. Na página de código da função, clique no botão **Adicionar assinatura da grade de eventos** .
 
-   ![Nova assinatura de evento](./media/data-lake-storage-events/new-event-subscription.png "nova assinatura de evento")
+   ![Nova assinatura de evento](./media/data-lake-storage-events/new-event-subscription.png "Nova assinatura de evento")
 
 2. Na página **criar assinatura de evento** , nomeie a assinatura e, em seguida, use os campos na página para selecionar sua conta de armazenamento.
 
-   ![Nova assinatura de evento](./media/data-lake-storage-events/new-event-subscription-2.png "nova assinatura de evento")
+   ![Nova assinatura de evento](./media/data-lake-storage-events/new-event-subscription-2.png "Nova assinatura de evento")
 
 3. Na lista suspensa **filtrar tipos de eventos** , selecione o **blob criado**e os eventos excluídos do **blob** e clique no botão **criar** .
 
@@ -369,11 +369,11 @@ Nesta seção, você criará uma assinatura de grade de eventos que chama a fun�
 
 4. Selecione o trabalho para abrir a página do trabalho.
 
-   ![](./media/data-lake-storage-events/spark-job.png "Trabalho Spark") do trabalho do Spark
+   ![Trabalho do Spark](./media/data-lake-storage-events/spark-job.png "Trabalho do Spark")
 
    Quando o trabalho for concluído, você verá um status de conclusão.
 
-   Trabalho ![concluído com êxito](./media/data-lake-storage-events/spark-job-completed.png "finalizado") com êxito
+   ![Trabalho concluído com êxito](./media/data-lake-storage-events/spark-job-completed.png "Trabalho concluído com êxito")
 
 5. Em uma nova célula da pasta de trabalho, execute esta consulta em uma célula para ver a tabela Delta atualizada.
 
@@ -383,7 +383,7 @@ Nesta seção, você criará uma assinatura de grade de eventos que chama a fun�
 
    A tabela retornada mostra o registro mais recente.
 
-   O ![registro mais recente aparece na tabela]o(./media/data-lake-storage-events/final_query.png "registro mais recente aparece na tabela")
+   ![O registro mais recente aparece na tabela](./media/data-lake-storage-events/final_query.png "O registro mais recente aparece na tabela")
 
 6. Para atualizar esse registro, crie um arquivo chamado `customer-order-update.csv`, Cole as informações a seguir nesse arquivo e salve-o em seu computador local.
 
@@ -404,7 +404,7 @@ Nesta seção, você criará uma assinatura de grade de eventos que chama a fun�
 
    A tabela retornada mostra o registro atualizado.
 
-   O ![registro atualizado aparece na tabela]o(./media/data-lake-storage-events/final_query-2.png "registro atualizado aparece na tabela")
+   ![O registro atualizado aparece na tabela](./media/data-lake-storage-events/final_query-2.png "O registro atualizado aparece na tabela")
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

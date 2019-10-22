@@ -10,10 +10,10 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163989"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>Tutorial: criar um banco de dados multilocatário usando o banco de dados do Azure para PostgreSQL – Citus (visualização)
@@ -130,7 +130,7 @@ Os aplicativos multilocatários podem impor exclusividade apenas por locatário,
 
 Uma implantação de hiperescala armazena linhas de tabela em nós diferentes com base no valor de uma coluna designada pelo usuário. Essa "coluna de distribuição" marca qual locatário possui quais linhas.
 
-Vamos definir a coluna de distribuição como ID da\_empresa, o identificador do locatário. No psql, execute estas funções:
+Vamos definir a coluna de distribuição como \_id da empresa, o identificador do locatário. No psql, execute estas funções:
 
 ```sql
 SELECT create_distributed_table('companies',   'id');
@@ -166,7 +166,7 @@ Esses dados agora serão distribuídos entre os nós de trabalho.
 
 ## <a name="query-tenant-data"></a>Consultar dados de locatário
 
-Quando o aplicativo solicita dados para um único locatário, ele pode executar a consulta em um único nó de trabalho. Consultas de locatário único filtram por uma única ID de locatário. Por exemplo, os filtros `company_id = 5` de consulta a seguir para anúncios e impressões. Tente executá-lo em psql para ver os resultados.
+Quando o aplicativo solicita dados para um único locatário, ele pode executar a consulta em um único nó de trabalho. Consultas de locatário único filtram por uma única ID de locatário. Por exemplo, a consulta a seguir filtra `company_id = 5` para anúncios e impressões. Tente executá-lo em psql para ver os resultados.
 
 ```sql
 SELECT a.campaign_id,
@@ -185,7 +185,7 @@ ORDER BY a.campaign_id, n_impressions desc;
 
 ## <a name="share-data-between-tenants"></a>Compartilhar dados entre locatários
 
-Até agora, todas as tabelas foram distribuídas pelo `company_id`, mas alguns dados não são naturalmente "pertencentes" a qualquer locatário em particular e podem ser compartilhados. Por exemplo, todas as empresas na plataforma de anúncios de exemplo podem querer obter informações geográficas para seu público-alvo com base em endereços IP.
+Até agora, todas as tabelas foram distribuídas por `company_id`, mas alguns dados não se "pertencem naturalmente" a nenhum locatário em particular e podem ser compartilhados. Por exemplo, todas as empresas na plataforma de anúncios de exemplo podem querer obter informações geográficas para seu público-alvo com base em endereços IP.
 
 Crie uma tabela para armazenar informações geográficas compartilhadas. Execute os seguintes comandos no psql:
 
@@ -199,7 +199,7 @@ CREATE TABLE geo_ips (
 CREATE INDEX ON geo_ips USING gist (addrs inet_ops);
 ```
 
-Em seguida `geo_ips` , crie uma "tabela de referência" para armazenar uma cópia da tabela em cada nó de trabalho.
+Em seguida, faça `geo_ips` uma "tabela de referência" para armazenar uma cópia da tabela em cada nó de trabalho.
 
 ```sql
 SELECT create_reference_table('geo_ips');
@@ -211,7 +211,7 @@ Carregue-o com dados de exemplo. Lembre-se de executar esse comando em psql de d
 \copy geo_ips from 'geo_ips.csv' with csv
 ```
 
-Ingressar na tabela de cliques\_com IPs geográficos é eficiente em todos os nós.
+Ingressar na tabela de cliques com \_ips geográfica é eficiente em todos os nós.
 Aqui está uma junção para encontrar os locais de todas as pessoas que clicaram no AD
 290. Tente executar a consulta no psql.
 

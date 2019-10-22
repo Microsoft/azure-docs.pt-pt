@@ -15,10 +15,10 @@ ms.date: 04/26/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 9c9d6d13efaa07bff2a1eaabe05725a3257cf895
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70095681"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implantar aplicativos em nós de computação com pacotes de aplicativos do lote
@@ -109,11 +109,11 @@ A seleção dessa opção de menu abre a janela **aplicativos** :
 
 Esta janela exibe a ID de cada aplicativo em sua conta e as seguintes propriedades:
 
-* **Pacotes**: O número de versões associadas a este aplicativo.
-* **Versão padrão**: A versão do aplicativo instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
-* **Permitir atualizações**: O valor que especifica se atualizações de pacote, exclusões e adições são permitidas. Se isso for definido como **não**, as atualizações e exclusões do pacote serão desabilitadas para o aplicativo. Somente novas versões de pacote de aplicativos podem ser adicionadas. A predefinição é **Sim**.
+* **Pacotes**: o número de versões associadas a este aplicativo.
+* **Versão padrão**: a versão do aplicativo instalada se você não indicar uma versão ao especificar o aplicativo para um pool. Essa configuração é opcional.
+* **Permitir atualizações**: o valor que especifica se atualizações de pacote, exclusões e adições são permitidas. Se isso for definido como **não**, as atualizações e exclusões do pacote serão desabilitadas para o aplicativo. Somente novas versões de pacote de aplicativos podem ser adicionadas. A predefinição é **Sim**.
 
-Se você quiser ver a estrutura de arquivos do pacote de aplicativos no nó de computação, navegue até sua conta do lote no Portal. Na sua conta do lote, navegueaté pools. Selecione o pool que contém os nós de computação nos quais você está interessado.
+Se você quiser ver a estrutura de arquivos do pacote de aplicativos no nó de computação, navegue até sua conta do lote no Portal. Na sua conta do lote, navegue até **pools**. Selecione o pool que contém os nós de computação nos quais você está interessado.
 
 ![Nós no pool][13]
 
@@ -128,9 +128,9 @@ Para ver os detalhes de um aplicativo, selecione o aplicativo na janela **aplica
 
 Nos detalhes do aplicativo, você pode definir as seguintes configurações para seu aplicativo.
 
-* **Permitir atualizações**: Especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "atualizar ou excluir um pacote de aplicativos" posteriormente neste artigo.
-* **Versão padrão**: Especifique um pacote de aplicativos padrão para implantar em nós de computação.
-* **Nome para exibição**: Especifique um nome amigável que sua solução de lote pode usar ao exibir informações sobre o aplicativo, por exemplo, na interface do usuário de um serviço que você fornece aos clientes por meio do lote.
+* **Permitir atualizações**: especifique se seus pacotes de aplicativos podem ser atualizados ou excluídos. Consulte "atualizar ou excluir um pacote de aplicativos" posteriormente neste artigo.
+* **Versão padrão**: especifique um pacote de aplicativos padrão para implantar em nós de computação.
+* **Nome de exibição**: especifique um nome amigável que sua solução de lote pode usar ao exibir informações sobre o aplicativo, por exemplo, na interface do usuário de um serviço que você fornece aos clientes por meio do lote.
 
 ### <a name="add-a-new-application"></a>Adicionar um novo aplicativo
 Para criar um novo aplicativo, adicione um pacote de aplicativos e especifique uma ID de aplicativo nova e exclusiva. O primeiro pacote de aplicativos que você adiciona com a nova ID do aplicativo também cria o novo aplicativo.
@@ -171,7 +171,7 @@ Depois de selecionar um arquivo, clique em **OK** para iniciar o carregamento no
 > 
 
 ### <a name="add-a-new-application-package"></a>Adicionar um novo pacote de aplicativos
-Para adicionar uma versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo nas janelas de **aplicativos** e clique em **pacotes** > **Adicionar**.
+Para adicionar uma versão do pacote de aplicativos a um aplicativo existente, selecione um aplicativo nas janelas de **aplicativos** e clique em **pacotes**  > **Adicionar**.
 
 ![Folha adicionar pacote de aplicativos no portal do Azure][8]
 
@@ -225,7 +225,7 @@ await myCloudPool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Se uma implantação de pacote de aplicativos falhar por algum motivo, o serviço de lote [][net_nodestate]marcará o nó como inutilizável e nenhuma tarefa será agendada para execução nesse nó. Nesse caso, você deve **reiniciar** o nó para reinicializar a implantação do pacote. Reiniciar o nó também habilita o agendamento de tarefas novamente no nó.
+> Se uma implantação de pacote de aplicativos falhar por algum motivo, o serviço de lote marcará o nó como [inutilizável][net_nodestate]e nenhuma tarefa será agendada para execução nesse nó. Nesse caso, você deve reiniciar o nó para **reinicializar** a implantação do pacote. Reiniciar o nó também habilita o agendamento de tarefas novamente no nó.
 > 
 > 
 
@@ -251,7 +251,7 @@ task.ApplicationPackageReferences = new List<ApplicationPackageReference>
 ```
 
 ## <a name="execute-the-installed-applications"></a>Executar os aplicativos instalados
-Os pacotes que você especificou para um pool ou tarefa são baixados e extraídos para um diretório nomeado `AZ_BATCH_ROOT_DIR` dentro do do nó. O lote também cria uma variável de ambiente que contém o caminho para o diretório nomeado. As linhas de comando de tarefa usam essa variável de ambiente ao referenciar o aplicativo no nó. 
+Os pacotes que você especificou para um pool ou tarefa são baixados e extraídos para um diretório nomeado dentro do `AZ_BATCH_ROOT_DIR` do nó. O lote também cria uma variável de ambiente que contém o caminho para o diretório nomeado. As linhas de comando de tarefa usam essa variável de ambiente ao referenciar o aplicativo no nó. 
 
 Em nós do Windows, a variável está no seguinte formato:
 
@@ -267,7 +267,7 @@ Linux:
 AZ_BATCH_APP_PACKAGE_applicationid_version
 ```
 
-`APPLICATIONID`e `version` são os valores que correspondem à versão do aplicativo e do pacote que você especificou para a implantação. Por exemplo, se você especificou que a versão 2,7 do Application Blender deve ser instalada em nós do Windows, as linhas de comando da tarefa usarão essa variável de ambiente para acessar seus arquivos:
+`APPLICATIONID` e `version` são valores que correspondem ao aplicativo e à versão do pacote que você especificou para a implantação. Por exemplo, se você especificou que a versão 2,7 do Application *Blender* deve ser instalada em nós do Windows, as linhas de comando da tarefa usarão essa variável de ambiente para acessar seus arquivos:
 
 ```
 Windows:
@@ -283,11 +283,11 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 Ao carregar um pacote de aplicativos, você pode especificar uma versão padrão a ser implantada em seus nós de computação. Se você tiver especificado uma versão padrão para um aplicativo, poderá omitir o sufixo de versão ao fazer referência ao aplicativo. Você pode especificar a versão padrão do aplicativo no portal do Azure, na janela **aplicativos** , conforme mostrado em [carregar e gerenciar aplicativos](#upload-and-manage-applications).
 
-Por exemplo, se você definir "2,7" como a versão padrão para oaplicativo Blender e suas tarefas fizerem referência à variável de ambiente a seguir, os nós do Windows executarão a versão 2,7:
+Por exemplo, se você definir "2,7" como a versão padrão para o aplicativo *Blender*e suas tarefas fizerem referência à variável de ambiente a seguir, os nós do Windows executarão a versão 2,7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 
-O trecho de código a seguir mostra uma linha de comando de tarefa de exemplo que inicia a versão padrão do aplicativo do Blender:
+O trecho de código a seguir mostra uma linha de comando de tarefa de exemplo que inicia a versão padrão do aplicativo do *Blender* :
 
 ```csharp
 string taskId = "blendertask01";
@@ -344,7 +344,7 @@ foreach (ApplicationSummary app in applications)
 ## <a name="wrap-up"></a>Conclusão
 Com os pacotes de aplicativos, você pode ajudar seus clientes a selecionar os aplicativos para seus trabalhos e especificar a versão exata a ser usada ao processar trabalhos com seu serviço habilitado para lote. Você também pode fornecer a capacidade para que seus clientes carreguem e acompanhem seus próprios aplicativos em seu serviço.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * A [API REST do lote][api_rest] também fornece suporte para trabalhar com pacotes de aplicativos. Por exemplo, consulte o elemento [applicationPackageReferences][rest_add_pool_with_packages] em [Adicionar um pool a uma conta][rest_add_pool] para obter informações sobre como especificar os pacotes a serem instalados usando a API REST. Consulte [aplicativos][rest_applications] para obter detalhes sobre como obter informações do aplicativo usando a API REST do lote.
 * Saiba como gerenciar programaticamente [contas e cotas do lote do Azure com o .net de gerenciamento do lote](batch-management-dotnet.md). A biblioteca [.net de gerenciamento do lote][api_net_mgmt] pode habilitar recursos de criação e exclusão de conta para seu aplicativo ou serviço do lote.
 

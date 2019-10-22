@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
 ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72331214"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorar o consumo de recursos e a atividade de consulta no Azure Search
@@ -30,8 +30,8 @@ As seções de **uso** e **monitoramento** criadas na página Visão geral relat
 
 A guia **uso** mostra a disponibilidade de recursos em relação aos [limites](search-limits-quotas-capacity.md)atuais. A ilustração a seguir é para o serviço gratuito, que está limitado a três objetos de cada tipo e 50 MB de armazenamento. Um serviço básico ou Standard tem limites mais altos e, se você aumentar as contagens de partição, o armazenamento máximo será proporcionalmente.
 
-O ![status de uso relativo à eficiência limita]o(./media/search-monitor-usage/usage-tab.png
- "status de uso em relação aos limites efetivos")
+![Status de uso relativo aos limites efetivos](./media/search-monitor-usage/usage-tab.png
+ "Status de uso relativo aos limites efetivos")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Consultas por segundo (QPS) e outras métricas
 
@@ -40,7 +40,7 @@ A *latência de pesquisa* é a quantidade de tempo que o serviço de pesquisa pr
 
 Esses números são aproximados e visam fornecer uma ideia geral de como o sistema está atendendo às solicitações. O QPS real pode ser maior ou menor do que o número relatado no Portal.
 
-Atividade de consultas ![por segundo de atividades](./media/search-monitor-usage/monitoring-tab.png "por segundo")
+![Atividade de consultas por segundo](./media/search-monitor-usage/monitoring-tab.png "Atividade de consultas por segundo")
 
 ## <a name="activity-logs"></a>Registos de atividade
 
@@ -78,13 +78,13 @@ Nesta seção, você aprenderá a usar o armazenamento de BLOBs para armazenar e
 
 2. Abra a página Visão geral do serviço de pesquisa. No painel de navegação esquerdo, role para baixo até **monitoramento** e clique em **habilitar monitoramento**.
 
-   ![Habilitar monitoramento](./media/search-monitor-usage/enable-monitoring.png "habilitar monitoramento")
+   ![Habilitar monitoramento](./media/search-monitor-usage/enable-monitoring.png "Ativar monitorização")
 
 3. Escolha os dados que você deseja exportar: logs, métricas ou ambos. Você pode copiá-lo para uma conta de armazenamento, enviá-lo para um hub de eventos ou exportá-lo para Azure Monitor logs.
 
    Para o armazenamento de arquivamento no BLOB, somente a conta de armazenamento deve existir. Contêineres e blobs serão criados conforme necessário quando os dados do log forem exportados.
 
-   ![Configurar arquivo morto de armazenamento de blob](./media/search-monitor-usage/configure-blob-storage-archive.png "configurar arquivo morto de armazenamento de BLOBs")
+   ![Configurar arquivo morto de armazenamento de BLOBs](./media/search-monitor-usage/configure-blob-storage-archive.png "Configurar arquivo morto de armazenamento de BLOBs")
 
 4. Salve o perfil.
 

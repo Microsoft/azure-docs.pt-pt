@@ -1,5 +1,5 @@
 ---
-title: 'Dados de junção: Referência de módulo'
+title: 'Dados de junção: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo ingressar dados de ingresso no serviço de Azure Machine Learning para mesclar DataSets.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 5fdb822a445e8a62cd36e6dd05aa218b9b41ce9e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128741"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693099"
 ---
 # <a name="join-data"></a>Associar dados
 
@@ -24,7 +24,7 @@ Este artigo descreve como usar o módulo de **dados de junção** na interface v
 
 Para executar uma junção em dois conjuntos de valores, eles devem estar relacionados por uma coluna de chave. Também há suporte para chaves compostas usando várias colunas. 
 
-1. Adicione os conjuntos de dados que você deseja combinar e, em seguida, arraste o módulo de **dado de junção** para seu experimento. 
+1. Adicione os conjuntos de dados que você deseja combinar e, em seguida, arraste o módulo de **dado de junção** para seu pipeline. 
 
     Você pode encontrar o módulo na categoria **transformação de dados** , em **manipulação**.
 
@@ -47,24 +47,24 @@ Para executar uma junção em dois conjuntos de valores, eles devem estar relaci
    
 1. Use a lista suspensa **tipo de junção** para especificar como os conjuntos de valores devem ser combinados.  
   
-    * **Junção interna**: Uma *junção interna* é a operação de junção mais comum. Ele retorna as linhas combinadas somente quando os valores das colunas de chave correspondem.  
+    * **Junção interna**: uma *junção interna* é a operação de junção mais comum. Ele retorna as linhas combinadas somente quando os valores das colunas de chave correspondem.  
   
-    * **Junção externa esquerda**: Uma *junção externa esquerda* retorna linhas Unidas para todas as linhas da tabela esquerda. Quando uma linha na tabela esquerda não tem linhas correspondentes na tabela direita, a linha retornada contém valores ausentes para todas as colunas que vêm da tabela direita. Você também pode especificar um valor de substituição para valores ausentes.  
+    * **Junção externa esquerda**: uma *junção externa esquerda* retorna linhas Unidas para todas as linhas da tabela esquerda. Quando uma linha na tabela esquerda não tem linhas correspondentes na tabela direita, a linha retornada contém valores ausentes para todas as colunas que vêm da tabela direita. Você também pode especificar um valor de substituição para valores ausentes.  
   
-    * **Junção externa completa**: Uma *junção externa completa* retorna todas as linhas da tabela esquerda (**Table1**) e da tabela direita (**Table2**).  
+    * **Junção externa completa**: uma *junção externa completa* retorna todas as linhas da tabela esquerda (**Table1**) e da tabela direita (**Table2**).  
   
          Para cada uma das linhas em uma das tabelas que não têm linhas correspondentes no outro, o resultado inclui uma linha que contém valores ausentes.  
   
-    * **Semijunção à esquerda**: Uma *semijunção à esquerda* retorna somente os valores da tabela esquerda quando os valores das colunas de chave correspondem.  
+    * **Semijunção à esquerda**: uma *semijunção à esquerda* retorna somente os valores da tabela esquerda quando os valores das colunas de chave correspondem.  
 
 1. Para a opção, **Mantenha as colunas de chave direita na tabela unida**:
 
     * Selecione esta opção para exibir as chaves de ambas as tabelas de entrada.
     * Anular seleção para retornar apenas as colunas de chave da entrada à esquerda.
 
-1. Execute o experimento ou selecione o módulo ingressar dados e selecionou a **execução selecionada** para executar a junção.
+1. Execute o pipeline ou selecione o módulo ingressar dados e selecionou a **execução selecionada** para executar a junção.
 
-1. Para exibir os resultados, clique com o botão direito do mouse no conjunto > de **dados** > de**resultados da**junção.
+1. Para exibir os resultados, clique com o botão direito do mouse no conjunto de dados  > **resultados da** **junção**  > **Visualizar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 190d697dca56fa51d92987f32db0146aa79881aa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70162405"
 ---
 # <a name="manage-user-settings-with-azure-multi-factor-authentication-in-the-cloud"></a>Gerenciar configurações de usuário com a autenticação multifator do Azure na nuvem
@@ -33,7 +33,7 @@ Como um administrador atribuiu a função de administrador de autenticação, vo
 ![Gerenciar métodos de autenticação do portal do Azure](./media/howto-mfa-userdevicesettings/manage-authentication-methods.png)
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
+1. À esquerda, selecione **Azure Active Directory**  > **usuários**  > **todos os usuários**.
 1. Escolha o usuário no qual você deseja executar uma ação e selecione **métodos de autenticação**.
    - **Redefinir senha** redefinirá a senha do usuário e atribuirá uma senha temporária que deve ser alterada na próxima entrada.
    - **Exigir o novo registro da MFA** fará com que, quando o usuário entrar na próxima vez, será solicitado a configurar um novo método de autenticação de MFA.
@@ -46,16 +46,16 @@ Essa configuração força o usuário a concluir o processo de registro novament
 ### <a name="how-to-require-users-to-provide-contact-methods-again"></a>Como exigir que os usuários forneçam métodos de contato novamente
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
-3. À direita, selecione **autenticação** multifator na barra de ferramentas. A página autenticação multifator é aberta.
+2. À esquerda, selecione **Azure Active Directory**  > **usuários**  > **todos os usuários**.
+3. À direita, selecione **autenticação multifator** na barra de ferramentas. A página autenticação multifator é aberta.
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **gerenciar configurações do usuário**.
 6. Marque a caixa **exigir que os usuários selecionados forneçam métodos de contato novamente**.
-   ![Exigir que os usuários forneçam métodos de contato novamente](./media/howto-mfa-userdevicesettings/reproofup.png)
+   ![Require que os usuários forneçam métodos de contato novamente ](./media/howto-mfa-userdevicesettings/reproofup.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
-As organizações podem concluir essas etapas com o PowerShell usando o seguinte como um guia para `StrongAuthenticationMethods` limpar o atributo:
+As organizações podem concluir essas etapas com o PowerShell usando o seguinte como um guia para limpar o atributo `StrongAuthenticationMethods`:
 
 ```PowerShell
 $Upn = "theuser@domain.com"
@@ -70,12 +70,12 @@ Essa configuração exclui todas as senhas de aplicativo que um usuário criou. 
 ### <a name="how-to-delete-users-existing-app-passwords"></a>Como excluir senhas de aplicativo de usuários existentes
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
-3. À direita, selecione **autenticação** multifator na barra de ferramentas. A página autenticação multifator é aberta.
+2. À esquerda, selecione **Azure Active Directory**  > **usuários**  > **todos os usuários**.
+3. À direita, selecione **autenticação multifator** na barra de ferramentas. A página autenticação multifator é aberta.
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **gerenciar configurações do usuário**.
 6. Marque a caixa **excluir todas as senhas de aplicativo existentes geradas pelos usuários selecionados**.
-   ![Excluir todas as senhas de aplicativo existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+   ![Delete todas as senhas de aplicativo existentes ](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
@@ -90,16 +90,16 @@ Quando marcada, **restaure a autenticação multifator em todos os dispositivos 
 ### <a name="how-to-restore-mfa-on-all-suspended-devices-for-a-user"></a>Como restaurar o MFA em todos os dispositivos suspensos para um usuário
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. À esquerda, selecione **Azure Active Directory** > **usuários** > **todos os usuários**.
-3. À direita, selecione **autenticação** multifator na barra de ferramentas. A página autenticação multifator é aberta.
+2. À esquerda, selecione **Azure Active Directory**  > **usuários**  > **todos os usuários**.
+3. À direita, selecione **autenticação multifator** na barra de ferramentas. A página autenticação multifator é aberta.
 4. Marque a caixa ao lado do usuário ou usuários que você deseja gerenciar. Uma lista de opções de etapa rápida é exibida à direita.
 5. Selecione **gerenciar configurações do usuário**.
-6. Marque a caixa para **restaurar a autenticação multifator em todos os dispositivos**
-   ![lembrados restaurar a autenticação multifator em todos os dispositivos lembrados](./media/howto-mfa-userdevicesettings/rememberdevices.png)
+6. Marque a caixa para **restaurar a autenticação multifator em todos os dispositivos lembrados** 
+    ![Restore autenticação multifator em todos os dispositivos lembrados ](./media/howto-mfa-userdevicesettings/rememberdevices.png)
 7. Clique em **Guardar**.
 8. Clique em **fechar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Obter mais informações sobre como [definir as configurações de autenticação multifator do Azure](howto-mfa-mfasettings.md)
 - Se os usuários precisarem de ajuda, aponte [para o guia do usuário para verificação em duas etapas](../user-help/multi-factor-authentication-end-user.md)

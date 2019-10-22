@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integração de SSO (logon único) com onit | Microsoft Docs'
+title: 'Tutorial: integração de SSO (logon único) do Azure Active Directory com o onit | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o onit.
 services: active-directory
 documentationCenter: na
@@ -17,13 +17,13 @@ ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e908cb76a57f027494230edc648b69da0730ac27
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70164231"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutorial: Azure Active Directory integração de SSO (logon único) com onit
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-onit"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o onit
 
 Neste tutorial, você aprenderá a integrar o onit com o Azure Active Directory (Azure AD). Ao integrar o onit ao Azure AD, você pode:
 
@@ -82,9 +82,9 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **configuração básica do SAML** , insira os valores para os seguintes campos:
 
-    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão:`https://<sub-domain>.onit.com`
+    a. Na caixa de texto **URL de logon** , digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
 
-    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão:`https://<sub-domain>.onit.com`
+    b. Na caixa de texto **identificador (ID da entidade)** , digite uma URL usando o seguinte padrão: `https://<sub-domain>.onit.com`
 
     > [!NOTE]
     > Esses valores não são reais. Atualize esses valores com a URL de entrada e o identificador reais. Contate a [equipe de suporte ao cliente do onit](https://www.onit.com/support) para obter esses valores. Você também pode consultar os padrões mostrados na seção **configuração básica do SAML** no portal do Azure.
@@ -101,19 +101,19 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B. Simon.
 
 1. No painel esquerdo na portal do Azure, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
-1. Selecione **novo utilizador** na parte superior do ecrã.
+1. Selecione **novo usuário** na parte superior da tela.
 1. Nas propriedades do **usuário** , siga estas etapas:
    1. No campo **Nome**, introduza `B.Simon`.  
    1. No campo **nome de usuário** , insira o username@companydomain.extension. Por exemplo, `B.Simon@contoso.com`.
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **senha** .
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você habilitará B. Simon para usar o logon único do Azure concedendo-lhe acesso ao onit.
 
@@ -121,7 +121,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 1. Na lista de aplicativos, selecione **onit**.
 1. Na página Visão geral do aplicativo, localize a seção **gerenciar** e selecione **usuários e grupos**.
 
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+   ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 1. Selecione **Adicionar usuário**e, em seguida, selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -137,7 +137,7 @@ Nesta seção, você habilitará B. Simon para usar o logon único do Azure conc
 
 2. No menu na parte superior, clique em **Administração**.
    
-    ![Administração] do (./media/onit-tutorial/IC791174.png "Administração") do
+    ![Administrar](./media/onit-tutorial/IC791174.png "Administração")
 
 3. Clique em **Editar empresa**.
    
@@ -167,13 +167,13 @@ Para permitir que os usuários do AD do Azure façam logon no onit, eles devem s
 
 1. Faça logon em seu site de empresa do **onit** como administrador.
 
-2. Clique em **adicionar utilizador**.
+2. Clique em **Adicionar usuário**.
 
-    ![Administração] do (./media/onit-tutorial/IC791180.png "Administração") do
+    ![Administrar](./media/onit-tutorial/IC791180.png "Administração")
 
 3. Na página da caixa de diálogo **Adicionar usuário** , execute as seguintes etapas:
 
-    ![Adicionar usuário](./media/onit-tutorial/IC791181.png "Adicionar usuário")
+    ![Adicionar usuário](./media/onit-tutorial/IC791181.png "Adicionar Utilizador")
 
     a. Digite o **nome** e o **endereço de email** de uma conta válida do Azure AD que você deseja provisionar nas caixas de texto relacionadas.
 
@@ -184,7 +184,7 @@ Para permitir que os usuários do AD do Azure façam logon no onit, eles devem s
 
 ## <a name="test-sso"></a>Testar SSO
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco do onit no painel de acesso, você deverá ser conectado automaticamente ao onit para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

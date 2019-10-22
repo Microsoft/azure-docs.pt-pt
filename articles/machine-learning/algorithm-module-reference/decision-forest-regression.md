@@ -1,5 +1,5 @@
 ---
-title: 'Regressão de floresta de decisão: Referência de módulo'
+title: 'Regressão de floresta de decisão: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo regressão de floresta de decisão no serviço Azure Machine Learning para criar um modelo de regressão com base em uma Ensemble de árvores de decisão.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b8bb3285aecb6aff399606e6263f014027a86581
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128892"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693177"
 ---
 # <a name="decision-forest-regression-module"></a>Módulo de regressão de floresta de decisão
 
@@ -38,21 +38,21 @@ As árvores de decisão têm essas vantagens:
 
 Esse modelo de regressão consiste em um Ensemble de árvores de decisão. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana como uma previsão. Uma agregação é executada sobre o Ensemble de árvores para encontrar uma distribuição gaussiana mais próxima da distribuição combinada para todas as árvores no modelo.
 
-Para obter mais informações sobre a estrutura teórica para esse algoritmo e sua implementação, consulte este artigo: [Florestas de decisão: Uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado diversa e aprendizado semisupervisionado](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Para obter mais informações sobre a estrutura teórica para este algoritmo e sua implementação, consulte este artigo: [florestas de decisão: uma estrutura unificada para classificação, regressão, estimativa de densidade, aprendizado de diversa e aprendizado Semisupervisionado ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Como configurar o modelo de regressão de floresta de decisão
 
-1. Adicione o módulo regressão de **floresta de decisão** ao experimento. Você pode encontrar o módulo na interface em **Machine Learning**, **inicializar modelo**e regressão.
+1. Adicione o módulo **regressão de floresta de decisão** ao pipeline. Você pode encontrar o módulo na interface em **Machine Learning**, **inicializar modelo**e **regressão**.
 
-2. Abra as propriedades do módulo e, para o **método**de reamostragem, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.
+2. Abra as propriedades do módulo e, para o **método de reamostragem**, escolha o método usado para criar as árvores individuais.  Você pode escolher entre **bagging** ou **replicar**.
 
-    - **Bagging**: Bagging também é chamado de agregação de *Bootstrap*. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana por meio de previsão. A agregação é para localizar um gaussiano cujo primeiro dois momentos corresponda ao tempo da mistura de gaussianos, dado pela combinação de todos os gaussianos retornados por árvores individuais.
+    - **Bagging**: bagging também é chamado de *agregação de Bootstrap*. Cada árvore em uma floresta de decisão de regressão gera uma distribuição gaussiana por meio de previsão. A agregação é para localizar um gaussiano cujo primeiro dois momentos corresponda ao tempo da mistura de gaussianos, dado pela combinação de todos os gaussianos retornados por árvores individuais.
 
-         Para obter mais informações, consulte a entrada da Wikipédia para agregação de [Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
+         Para obter mais informações, consulte a entrada da Wikipédia para [agregação de Bootstrap](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Replicar**: Na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.
+    - **Replicate**: na replicação, cada árvore é treinada exatamente com os mesmos dados de entrada. A determinação de qual predicado de divisão é usado para cada nó de árvore permanece aleatório e as árvores serão diversificadas.
 
-         Para obter mais informações sobre o processo de treinamento com a opção replicar [, consulte florestas de decisão para pesquisa Visual computacional e análise de imagem médica. Criminisi e J. Shotton. Springer 2013. ](https://research.microsoft.com/projects/decisionforests/).
+         Para obter mais informações sobre o processo de treinamento com a opção **replicar** , consulte [florestas de decisão para pesquisa Visual computacional e análise de imagem médica. Criminisi e J. Shotton. Springer 2013.](https://research.microsoft.com/projects/decisionforests/).
 
 3. Especifique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .
 
@@ -82,7 +82,7 @@ Para obter mais informações sobre a estrutura teórica para esse algoritmo e s
 
    
 
-10. Execute a experimentação.
+10. Executar o pipeline.
 
 ### <a name="results"></a>Resultados
 
@@ -92,8 +92,8 @@ Após a conclusão do treinamento:
 
 + Para ver as regras para cada nó, clique em cada árvore e faça uma busca detalhada nas divisões.
 
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do módulo de treinamento e selecione **salvar como modelo treinado**. Essa cópia do modelo não é atualizada em execuções sucessivas do experimento. 
++ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do módulo de treinamento e selecione **salvar como modelo treinado**. Essa cópia do modelo não é atualizada em execuções sucessivas do pipeline. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

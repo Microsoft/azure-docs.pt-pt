@@ -1,7 +1,7 @@
 ---
-title: 'Importar da URL da Web via HTTP: Referência de módulo'
+title: 'Importar da URL da Web via HTTP: referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo importar da URL da Web via HTTP no serviço Azure Machine Learning para ler dados de uma página da Web pública para uso em um experimento do Machine Learning.
+description: Saiba como usar o módulo importar da URL da Web via HTTP no serviço Azure Machine Learning para ler dados de uma página da Web pública para uso em um pipeline do Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 59b8e2e73b9904a503c16d8891e5a5bd771fc87f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e2521dabdab8e9365019f35514f2d8d235c9c014
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128744"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693127"
 ---
 # <a name="import-from-web-url-via-http-module"></a>Importar da URL da Web via módulo HTTP
 
 Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Use este módulo para ler dados de uma página da Web pública para uso em um experimento do Machine Learning.
+Use este módulo para ler dados de uma página da Web pública para uso em um pipeline do Machine Learning.
 
 As seguintes restrições se aplicam aos dados publicados em uma página da Web:
 
@@ -31,7 +31,7 @@ Há duas maneiras de obter dados: Use o assistente para configurar a fonte de da
 
 ## <a name="use-the-data-import-wizard"></a>Usar o assistente de importação de dados
 
-1. Adicione o módulo **importar dados** ao seu experimento. Você pode encontrar o módulo na interface, na categoria **entrada e saída de dados** .
+1. Adicione o módulo **importar dados** ao seu pipeline. Você pode encontrar o módulo na interface, na categoria **entrada e saída de dados** .
 
 2. Clique em **Iniciar assistente de importação de dados** e selecione URL da Web via http.
 
@@ -45,7 +45,7 @@ Para editar uma conexão de dados existente, inicie o assistente novamente. O as
 
 As etapas a seguir descrevem como configurar manualmente a origem da importação.
 
-1. Adicione o módulo [importar dados](import-data.md) ao seu experimento. Você pode encontrar o módulo na interface, na categoria **entrada e saída de dados** .
+1. Adicione o módulo [importar dados](import-data.md) ao seu pipeline. Você pode encontrar o módulo na interface, na categoria **entrada e saída de dados** .
 
 2. Para **fonte de dados**, selecione **URL da Web via http**.
 
@@ -63,19 +63,19 @@ As etapas a seguir descrevem como configurar manualmente a origem da importaçã
 
 5. Se os dados estiverem no formato CSV ou TSV, use a opção **arquivo com linha de cabeçalho** para indicar se os dados de origem incluem ou não uma linha de cabeçalho. A linha de cabeçalho é usada para atribuir nomes de coluna.
 
-6. Selecione as opções **usar resultados em cache** se você não esperar que os dados mudem muito, ou se quiser evitar recarregar os dados sempre que executar o experimento.
+6. Selecione as opções **usar resultados em cache** se você não esperar que os dados mudem muito, ou se quiser evitar o recarregamento dos dados cada vez que executar o pipeline.
 
-    Quando essa opção é selecionada, o experimento carrega os dados na primeira vez em que o módulo é executado e depois usa uma versão armazenada em cache do conjunto.
+    Quando essa opção é selecionada, o pipeline carrega os dados na primeira vez em que o módulo é executado e depois usa uma versão armazenada em cache do DataSet.
 
-    Se você quiser recarregar o conjunto de resultados em cada iteração do conjunto de testes de experimento, desmarque a opção **usar resultados em cache** . Os resultados também serão recarregados se houver qualquer alteração nos parâmetros dos [dados de importação](import-data.md).
+    Se você quiser recarregar o conjunto de resultados em cada iteração do conjunto de pesquisa de pipeline, desmarque a opção **usar resultados em cache** . Os resultados também serão recarregados se houver qualquer alteração nos parâmetros dos [dados de importação](import-data.md).
 
-7. Execute a experimentação.
+7. Executar o pipeline.
 
 ## <a name="results"></a>Resultados
 
 Ao concluir, clique no conjunto de dados de saída e selecione **Visualizar** para ver se os dados foram importados com êxito.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

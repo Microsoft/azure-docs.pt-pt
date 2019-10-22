@@ -1,5 +1,5 @@
 ---
-title: 'Clustering de K-means: Referência de módulo'
+title: 'Clustering K-means: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo de clustering K-means no serviço de Azure Machine Learning para treinar modelos de clustering.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 7de2978fee80cf3acd078ef8ee5f235fab21713e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128706"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693102"
 ---
-# <a name="module-k-means-clustering"></a>Modulo Clustering K-Means
+# <a name="module-k-means-clustering"></a>Módulo: clustering K-means
 
 Este artigo descreve como usar o módulo de *clustering k-* means no Azure Machine Learning Studio para criar um modelo de clustering k-means não treinado. 
  
@@ -28,7 +28,7 @@ K-means é um dos mais simples e mais conhecidos algoritmos de aprendizado não 
 
 Para criar um modelo de clustering, você:
 
-* Adicione este módulo ao seu experimento.
+* Adicione este módulo ao seu pipeline.
 * Conectar um conjunto de uma.
 * Defina parâmetros, como o número de clusters que você espera, a métrica de distância a ser usada na criação de clusters e assim por diante. 
   
@@ -54,11 +54,11 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
 
 ## <a name="configure-the-k-means-clustering-module"></a>Configurar o módulo de clustering K-means
   
-1.  Adicione o módulo de **clustering K-** means ao seu experimento.  
+1.  Adicione o módulo de **clustering K-** means ao seu pipeline.  
   
 2.  Para especificar como você deseja que o modelo seja treinado, selecione a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Se você souber os parâmetros exatos que deseja usar no modelo de clustering, poderá fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único**: se você souber os parâmetros exatos que deseja usar no modelo de clustering, poderá fornecer um conjunto específico de valores como argumentos.  
   
 3.  Para **número de centróides**, digite o número de clusters para o qual você deseja que o algoritmo comece.  
   
@@ -66,15 +66,15 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
   
 4.  A **inicialização** de propriedades é usada para especificar o algoritmo que é usado para definir a configuração de cluster inicial.  
   
-    -   **Primeiro N**: Um número inicial de pontos de dados é escolhido do DataSet e usado como o meio inicial. 
+    -   **Primeiro N**: alguns números iniciais de pontos de dados são escolhidos a partir do DataSet e usados como o meio inicial. 
     
          Esse método também é chamado de *método forjado*.  
   
-    -   **Aleatório**: O algoritmo coloca aleatoriamente um ponto de dados em um cluster e, em seguida, computa a média inicial para ser o centróide dos pontos atribuídos aleatoriamente do cluster. 
+    -   **Random**: o algoritmo coloca aleatoriamente um ponto de dados em um cluster e, em seguida, computa a média inicial para ser o centróide dos pontos atribuídos aleatoriamente do cluster. 
 
          Esse método também é chamado de método de *partição aleatória* .  
   
-    -   **K-Means++** : Esse é o método padrão para inicializar clusters.  
+    -   **K-means + +** : esse é o método padrão para inicializar clusters.  
   
          O algoritmo **k-means + +** foi proposto em 2007 por David Arthur e Sergei Vassilvitskii para evitar clustering ruim pelo algoritmo K-means padrão. O **k-means + +** melhora na k-means padrão usando um método diferente para escolher os centros de cluster iniciais.  
   
@@ -83,7 +83,7 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
   
 6.  Para **métrica**, escolha a função a ser usada para medir a distância entre os vetores de cluster ou entre os novos pontos de dados e os centróides escolhidos aleatoriamente. O Azure Machine Learning dá suporte às seguintes métricas de distância do cluster:  
   
-    -   **Euclidiana**: A distância euclidiana é normalmente usada como uma medida de dispersão de cluster para o clustering de K-means. Essa métrica é preferida porque minimiza a distância média entre pontos e as centróides.
+    -   **Euclidiana**: a distância de euclidiana é comumente usada como uma medida de dispersão de cluster para o clustering de K-means. Essa métrica é preferida porque minimiza a distância média entre pontos e as centróides.
   
 7.  Para **iterações**, digite o número de vezes que o algoritmo deve iterar sobre os dados de treinamento antes de finalizar a seleção de centróides.  
   
@@ -93,19 +93,19 @@ Quando ele processa os dados de treinamento, o algoritmo K-means começa com um 
   
      Como o clustering K-means é um método de aprendizado de máquina não supervisionado, os rótulos são opcionais. No entanto, se o conjunto de seus conjuntos de seus já tiver uma coluna de rótulo, você poderá usar esses valores para orientar a seleção dos clusters ou pode especificar que os valores sejam ignorados.  
   
-    -   **Ignorar coluna de rótulo**: Os valores na coluna rótulo são ignorados e não são usados na criação do modelo.
+    -   **Ignorar coluna de rótulo**: os valores na coluna de rótulo são ignorados e não são usados na criação do modelo.
   
-    -   **Preencha os valores ausentes**: Os valores de coluna de rótulo são usados como recursos para ajudar a criar os clusters. Se alguma linha estiver sem um rótulo, o valor será imputados usando outros recursos.  
+    -   **Preencher valores ausentes**: os valores de coluna de rótulo são usados como recursos para ajudar a criar os clusters. Se alguma linha estiver sem um rótulo, o valor será imputados usando outros recursos.  
   
-    -   **Substituir do mais próximo ao centro**: Os valores de coluna de rótulo são substituídos por valores de rótulo previstos, usando o rótulo do ponto mais próximo do centróide atual.  
+    -   **Substituir do mais próximo ao centro**: os valores de coluna de rótulo são substituídos por valores de rótulo previstos, usando o rótulo do ponto mais próximo do centróide atual.  
 
 8.  Selecione a opção **normalizar recursos** se desejar normalizar os recursos antes do treinamento.
   
-     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão `[0,1]` normalizados para por MinMaxNormalizer.
+     Se você aplicar a normalização, antes do treinamento, os pontos de dados serão normalizados para `[0,1]` pelo MinMaxNormalizer.
 
 10. Treine o modelo.  
   
-    -   Se você definir **criar modo de instrutor** como um **único parâmetro**, adicione um conjunto de um DataSet marcado e treine o modelo usando o módulo [treinar modelo](train-clustering-model.md) de clustering.  
+    -   Se você definir **criar modo de instrutor** como um **único parâmetro**, adicione um conjunto de um DataSet marcado e treine o modelo usando o módulo [treinar modelo de clustering](train-clustering-model.md) .  
   
 ### <a name="results"></a>Resultados
 
@@ -113,19 +113,19 @@ Depois de concluir a configuração e o treinamento do modelo, você tem um mode
 
 #### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capturar um instantâneo do modelo em seu espaço de trabalho
 
-Se você usou o módulo [treinar modelo](train-clustering-model.md) de clustering:
+Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
 
-1. Clique com o botão direito do mouse no módulo **treinar modelo** de clustering.
+1. Clique com o botão direito do mouse no módulo **treinar modelo de clustering** .
 
 2. Selecione **modelo treinado**e, em seguida, selecione **salvar como modelo treinado**.
 
-O modelo salvo representa os dados de treinamento no momento em que você salvou o modelo. Se você atualizar mais tarde os dados de treinamento usados no experimento, ele não atualizará o modelo salvo. 
+O modelo salvo representa os dados de treinamento no momento em que você salvou o modelo. Se você atualizar mais tarde os dados de treinamento usados no pipeline, ele não atualizará o modelo salvo. 
 
 #### <a name="see-the-clustering-result-dataset"></a>Consulte o conjunto de conjuntos de resultados de clustering 
 
-Se você usou o módulo [treinar modelo](train-clustering-model.md) de clustering:
+Se você usou o módulo [treinar modelo de clustering](train-clustering-model.md) :
 
-1. Clique com o botão direito do mouse no módulo **treinar modelo** de clustering.
+1. Clique com o botão direito do mouse no módulo **treinar modelo de clustering** .
 
 2. Selecione **os resultados DataSet**e, em seguida, selecione **Visualizar**.
 

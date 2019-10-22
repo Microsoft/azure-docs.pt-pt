@@ -1,5 +1,5 @@
 ---
-title: 'Editar metadados: Referência do módulo'
+title: 'Editar metadados: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo editar metadados no serviço de Azure Machine Learning para alterar os metadados associados às colunas em um conjunto de informações.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 642b2a038ec434584c8af6dd72d58810e136ed57
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128871"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693817"
 ---
 # <a name="edit-metadata-module"></a>Editar módulo de metadados
 
@@ -34,13 +34,13 @@ As alterações de metadados típicas podem incluir:
   
 + Renomeando colunas.
   
- Use editar metadados sempre que você precisar modificar a definição de uma coluna, normalmente para atender aos requisitos de um módulo downstream. Por exemplo, alguns módulos funcionam apenas com tipos de dados específicos ou exigem sinalizadores nas colunas, `IsFeature` como ou. `IsCategorical`  
+ Use editar metadados sempre que você precisar modificar a definição de uma coluna, normalmente para atender aos requisitos de um módulo downstream. Por exemplo, alguns módulos funcionam apenas com tipos de dados específicos ou exigem sinalizadores nas colunas, como `IsFeature` ou `IsCategorical`.  
   
  Depois de executar a operação necessária, você pode redefinir os metadados para seu estado original.
   
 ## <a name="configure-edit-metadata"></a>Configurar editar metadados
   
-1. No Azure Machine Learning, adicione o módulo editar metadados ao seu experimento e conecte o conjunto de um que você deseja atualizar. Você pode encontrar o conjunto de **dados em data** Transformation na categoria **manipular** .
+1. Em Azure Machine Learning, adicione o módulo editar metadados ao seu pipeline e conecte o conjunto de um que você deseja atualizar. Você pode encontrar o conjunto de **dados em Data Transformation** na categoria **manipular** .
   
 1. Selecione **iniciar o seletor de coluna** e escolha a coluna ou conjunto de colunas com a qual trabalhar. Você pode escolher colunas individualmente por nome ou índice, ou pode escolher um grupo de colunas por tipo.  
   
@@ -65,7 +65,7 @@ As alterações de metadados típicas podem incluir:
 
     + **Recurso**: Use esta opção para sinalizar uma coluna como um recurso em módulos que operam somente em colunas de recursos. Por padrão, todas as colunas são tratadas inicialmente como recursos.  
   
-    + **Rótulo**: Use esta opção para marcar o rótulo, que também é conhecido como atributo previsível ou variável de destino. Muitos módulos exigem que exatamente uma coluna de rótulo esteja presente no DataSet.
+    + **Rótulo**: Use essa opção para marcar o rótulo, que também é conhecido como atributo previsível ou variável de destino. Muitos módulos exigem que exatamente uma coluna de rótulo esteja presente no DataSet.
 
         Em muitos casos, Azure Machine Learning pode inferir que uma coluna contém um rótulo de classe. Ao definir esses metadados, você pode garantir que a coluna seja identificada corretamente. Definir essa opção não altera os valores de dados. Ele altera apenas a maneira como alguns algoritmos de aprendizado de máquina manipulam os dados.
   
@@ -94,8 +94,8 @@ As alterações de metadados típicas podem incluir:
   
     + Todas as colunas selecionadas devem ser renomeadas. Você não pode omitir ou ignorar colunas.  
   
-1. Execute a experimentação.  
+1. Executar o pipeline.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para o serviço de Azure Machine Learning.

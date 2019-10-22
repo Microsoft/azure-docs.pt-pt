@@ -1,5 +1,5 @@
 ---
-title: 'Remover linhas duplicadas: Referência de módulo'
+title: 'Remover linhas duplicadas: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo remover linhas duplicadas no serviço Azure Machine Learning para remover duplicatas potenciais de um conjunto de informações.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: b16e745de277d5aa262f1e1624df22f97d0cf29c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128529"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693671"
 ---
 # <a name="remove-duplicate-rows-module"></a>Remover o módulo de linhas duplicadas
 
@@ -26,11 +26,11 @@ Por exemplo, suponha que seus dados sejam semelhantes ao seguinte e representem 
 
 | PatientID | Iniciais| Género|Idade|Verdade|
 |----|----|----|----|----|
-|1|F.M.| M| 53| Jan.|
-|2| F.A.M.| M| 53| Jan.|
-|3| F.A.M.| M| 24| Jan.|
-|3| F.M.| M| 24| Fev.|
-|4| F.M.| M| 23| Fev.|
+|1|F.M.| M| 53| Janeiro|
+|2| F.A.M.| M| 53| Janeiro|
+|3| F.A.M.| M| 24| Janeiro|
+|3| F.M.| M| 24| Fevereiro|
+|4| F.M.| M| 23| Fevereiro|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
 |6| F.A.M.| M| NaN| |
@@ -51,7 +51,7 @@ Quando você executa o módulo, ele cria um conjunto de registros candidato e re
 
 ## <a name="how-to-use-remove-duplicate-rows"></a>Como usar remover linhas duplicadas
 
-1. Adicione o módulo ao seu experimento. Você pode encontrar o módulo **remover linhas duplicadas** em **transformação de dados**, **manipulação**.  
+1. Adicione o módulo ao seu pipeline. Você pode encontrar o módulo **remover linhas duplicadas** em **transformação de dados**, **manipulação**.  
 
 2. Conecte o conjunto de registros que você deseja verificar em busca de linhas duplicadas.
 
@@ -61,15 +61,15 @@ Quando você executa o módulo, ele cria um conjunto de registros candidato e re
 
     Exemplos:
 
-    + "Desejo garantir que as IDs sejam exclusivas": Escolha apenas a coluna ID.
-    + "Desejo garantir que a combinação de nome, sobrenome e ID seja exclusiva": Selecione todas as três colunas.
+    + "Quero garantir que as IDs sejam exclusivas": escolha apenas a coluna ID.
+    + "Desejo garantir que a combinação de nome, sobrenome e ID seja exclusiva": selecione todas as três colunas.
 
 4. Use a caixa de seleção **reter primeira linha duplicada** para indicar qual linha retornar quando duplicatas forem encontradas:
 
     + Se selecionado, a primeira linha será retornada e outras descartadas. 
     + Se você desmarcar essa opção, a última linha duplicada será mantida nos resultados e outras serão descartadas. 
 
-5. Execute a experimentação.
+5. Executar o pipeline.
 
 6. Para examinar os resultados, clique com o botão direito do mouse no módulo, selecione **conjunto de resultados**e clique em **Visualizar**. 
 

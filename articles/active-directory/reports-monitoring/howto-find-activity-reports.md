@@ -15,10 +15,10 @@ ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 13f1746b710acd24316de3d294c1822ba108a378
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70127399"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no portal do Azure
@@ -48,16 +48,16 @@ O relatório de logs de auditoria consolida os seguintes relatórios:
 
 ### <a name="filtering-on-audit-logs"></a>Filtrando logs de auditoria
 
-Você pode usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro de **categoria** . Por exemplo, para exibir todas as atividades relacionadas a usuários, selecione a categoria usermanagement. 
+Você pode usar a filtragem avançada no relatório de auditoria para acessar uma categoria específica de dados de auditoria, especificando-a no filtro de **categoria** . Por exemplo, para exibir todas as atividades relacionadas a usuários, selecione a categoria **usermanagement** . 
 
 As categorias incluem:
 
-- Todos
+- Tudo
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Autenticação
 - Autorização
-- Contacto
+- Contacte-nos
 - Dispositivo
 - DeviceConfiguration
 - DirectoryManagement
@@ -69,11 +69,11 @@ As categorias incluem:
 - RoleManagement
 - UserManagement
 
-Você também pode filtrar em um serviço específico usando o filtro suspenso de **serviço** . Por exemplo, para obter todos os eventos de auditoria relacionados ao gerenciamento de senhas de autoatendimento, selecione o filtro de **Gerenciamento de senhas** de autoatendimento.
+Você também pode filtrar em um serviço específico usando o filtro suspenso de **serviço** . Por exemplo, para obter todos os eventos de auditoria relacionados ao gerenciamento de senhas de autoatendimento, selecione o filtro de **Gerenciamento de senhas de autoatendimento** .
 
 Os serviços incluem:
 
-- Todos
+- Tudo
 - Revisões de Acesso
 - Aprovisionamento de Contas 
 - SSO de aplicativo
@@ -82,9 +82,9 @@ Os serviços incluem:
 - Acesso Condicional
 - Diretório do Núcleo
 - Gestão de Direitos
-- Identity Protection
+- Proteção de Identidade
 - Utilizadores Convidados
-- PIM
+- FABRICANTE
 - Gestão de Grupos Personalizada
 - Gestão de Palavra-passe Personalizada
 - Termos de Utilização
@@ -119,7 +119,7 @@ A tabela a seguir lista os relatórios de segurança da atividade anômala do Az
 
 | Relatório de atividade anômala do Azure AD |  Tipo de detecção de risco de proteção de identidade|
 | :--- | :--- |
-| Utilizadores com fuga de credenciais | Fuga de credenciais |
+| Utilizadores com fuga de credenciais | Credenciais vazadas |
 | Atividades irregulares de início de sessão | Deslocação impossível para localizações atípicas |
 | Inícios de sessão de dispositivos possivelmente infetados | Inícios de sessão de dispositivos infetados|
 | Inícios de sessão de fontes desconhecidas | Inícios de sessão de endereços IP anónimos |

@@ -1,7 +1,7 @@
 ---
 title: 'Exemplo de interface visual #3: regressão para algoritmos de preço e comparação'
 titleSuffix: Azure Machine Learning
-description: Este artigo mostra como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
+description: Este artigo mostra como criar um pipeline de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Saiba como treinar e comparar vários modelos de regressão para prever o preço de um carro com base nos recursos técnicos
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,34 +10,34 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 05/10/2019
-ms.openlocfilehash: c40d76b87ca7437e25c567176b0309f08f3ca9f2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 651644eaae910792aac2144531d09afc4cde7153
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131574"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692794"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: Prever o preço e comparar algoritmos
+# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>Exemplo 2-regressão: prever o preço e comparar algoritmos
 
-Saiba como criar um experimento de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse experimento para que você possa lidar com seus próprios problemas de aprendizado de máquina.
+Saiba como criar um pipeline de aprendizado de máquina complexo sem escrever uma única linha de código usando a interface visual. Este exemplo treina e compara vários modelos de regressão para prever o preço de um carro com base em seus recursos técnicos. Forneceremos a lógica para as escolhas feitas nesse pipeline para que você possa lidar com seus próprios problemas de aprendizado de máquina.
 
-Se você estiver apenas começando a usar o Machine Learning, dê uma olhada na [versão básica](how-to-ui-sample-regression-predict-automobile-price-basic.md) desse experimento.
+Se você estiver apenas começando a usar o Machine Learning, dê uma olhada na [versão básica](how-to-ui-sample-regression-predict-automobile-price-basic.md) desse pipeline.
 
-Este é o grafo concluído para este experimento:
+Este é o grafo concluído para este pipeline:
 
-[![Grafo do experimento](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph do pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Selecione o botão **abrir** para o experimento de exemplo 2:
+4. Selecione o botão **abrir** para o pipeline de exemplo 2:
 
-    ![Abrir o experimento](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
+    ![Abrir o pipeline](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/open-sample2.png)
 
-## <a name="experiment-summary"></a>Resumo do experimento
+## <a name="pipeline-summary"></a>Resumo do pipeline
 
-Use as etapas a seguir para criar o experimento do Machine Learning:
+Use as etapas a seguir para criar o pipeline do Machine Learning:
 
 1. Obter os dados.
 1. Pré-processar os dados.
@@ -56,15 +56,13 @@ Use o módulo **selecionar colunas no conjunto de DataSet** para excluir as perd
 
 ![Pré-processamento de dados](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
-## <a name="train-the-model"></a>Dar formação sobre o modelo
+## <a name="train-the-model"></a>Formar o modelo
 
 Os problemas de Machine Learning variam. As tarefas comuns de aprendizado de máquina incluem classificação, clustering, regressão e sistemas de recomendação, e cada uma delas pode exigir um algoritmo diferente. A escolha do algoritmo geralmente depende dos requisitos do caso de uso. Depois de escolher um algoritmo, você precisa ajustar seus parâmetros para treinar um modelo mais preciso. Em seguida, você precisa avaliar todos os modelos com base em métricas, como precisão, inteligibilidade e eficiência.
 
-Como o objetivo desse experimento é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
+Como o objetivo desse pipeline é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
 
-Como o objetivo desse experimento é prever os preços do automóvel e, como a coluna de rótulo (preço) contém números reais, um modelo de regressão é uma boa opção. Considerando que o número de recursos é relativamente pequeno (menos de 100) e esses recursos não são esparsos, o limite de decisão provavelmente será não linear.
-
-Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, **regressão de árvore de decisão aumentada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas este exemplo usa os valores padrão para esse experimento.
+Para comparar o desempenho de algoritmos diferentes, usamos dois algoritmos não lineares, **regressão de árvore de decisão aumentada** e **regressão de floresta de decisão**, para criar modelos. Ambos os algoritmos têm parâmetros que podem ser alterados, mas este exemplo usa os valores padrão para esse pipeline.
 
 Use o módulo **dividir dados** para dividir aleatoriamente os dados de entrada, de forma que o conjunto de informações de treinamento contenha 70% dos dados originais e o conjunto de dados de teste contenha 30% do dado original.
 
@@ -74,7 +72,7 @@ Você usa dois conjuntos diferentes de dados escolhidos aleatoriamente para trei
 
 Depois que o modelo for treinado, use o **modelo de Pontuação** e avalie os módulos de **modelo** para gerar resultados previstos e avaliar os modelos. O **modelo de Pontuação** gera previsões para o conjunto de teste usando o modelo treinado. Em seguida, passe as pontuações para **avaliar o modelo** para gerar métricas de avaliação.
 
-Nesse experimento, você usa duas instâncias do **modelo de avaliação** para comparar dois pares de modelos.
+Nesse pipeline, você usa duas instâncias do **modelo de avaliação** para comparar dois pares de modelos.
 
 Primeiro, Compare dois algoritmos no conjunto de os de treinamento.
 Em segundo lugar, Compare dois algoritmos no conjunto de testes.
@@ -95,8 +93,9 @@ Ambos os algoritmos têm um erro inferior no conjunto de testes de treinamento d
 
 Explore os outros exemplos disponíveis para a interface visual:
 
-- [Amostra 1-regressão: Prever o preço de um automóvel](how-to-ui-sample-regression-predict-automobile-price-basic.md)
-- [Exemplo 3-classificação: Prever risco de crédito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
-- [Amostra 4-classificação: Prever o risco de crédito (sensível ao custo)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
+- [Exemplo 1-regressão: prever o preço de um automóvel](how-to-ui-sample-regression-predict-automobile-price-basic.md)
+- [Exemplo 3-classificação: prever risco de crédito](how-to-ui-sample-classification-predict-credit-risk-basic.md)
+- [Exemplo 4-classificação: prever o risco de crédito (sensível ao custo)](how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md)
 - [Exemplo 5-classificação: Previsão de rotatividade](how-to-ui-sample-classification-predict-churn.md)
-- [Exemplo 6-classificação: Prever atrasos de voo](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exemplo 6-classificação: prever atrasos de voo](how-to-ui-sample-classification-predict-flight-delay.md)
+- [Exemplo 7-classificação de texto: revisões de livros](how-to-ui-sample-text-classification.md)

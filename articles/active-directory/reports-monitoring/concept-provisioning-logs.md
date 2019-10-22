@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3d48aa3ead28ab0b0a22478a0c4183995483058a
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70983506"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisionando relatórios no portal de Azure Active Directory (versão prévia)
@@ -30,7 +30,7 @@ A arquitetura de relatórios no Azure Active Directory (Azure AD) consiste nos s
 
 - **Atividade** 
     - **Entradas** – informações sobre o uso de aplicativos gerenciados e atividades de entrada do usuário.
-    - Os logs de auditoria dos logs de auditoria fornecem informações de atividade do sistema sobre gerenciamento de usuários e grupos, aplicativos gerenciados e atividades de diretório.[](concept-audit-logs.md)  - 
+    - Os **logs de auditoria**  -  logs de[auditoria](concept-audit-logs.md) fornecem informações de atividade do sistema sobre gerenciamento de usuários e de grupos, aplicativos gerenciados e atividades de diretório.
     - **Logs de provisionamento** – forneça a atividade do sistema sobre usuário, grupos e funções que são provisionadas pelo serviço de provisionamento do Azure AD. 
 
 - **Segurança** 
@@ -60,7 +60,7 @@ Os logs de provisionamento fornecem respostas para as seguintes perguntas:
 
 Você pode acessar os logs de provisionamento selecionando **logs de provisionamento** na seção **monitoramento** da folha **Azure Active Directory** na [portal do Azure](https://portal.azure.com). Pode levar até duas horas para que alguns registros de provisionamento sejam exibidos no Portal.
 
-![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Logs de provisionamento")
+![Logs de provisionamento](./media/concept-provisioning-logs/access-provisioning-logs.png "Registos de aprovisionamento")
 
 
 Um log de provisionamento tem uma exibição de lista padrão que mostra:
@@ -92,15 +92,15 @@ Selecione um item na exibição de lista para obter informações mais detalhada
 
 Para restringir os dados relatados a um nível que funciona para você, você pode filtrar os dados de provisionamento usando os campos padrão a seguir. Observe que os valores nos filtros são preenchidos dinamicamente com base em seu locatário. Se, por exemplo, você não tiver nenhum evento de criação em seu locatário, não haverá uma opção de filtro para Create.
 
-- identidade
-- Action
+- Identidade
+- Ação
 - Sistema de origem
 - Sistema de destino
-- State
+- Estado
 - Date
 
 
-![Filtrar](./media/concept-provisioning-logs/filter.png "Filtrar")
+![Sem](./media/concept-provisioning-logs/filter.png "Filtrar")
 
 O filtro de **identidade** permite que você especifique o nome ou a identidade sobre a qual você se preocupa. Essa identidade pode ser um usuário, grupo, função ou outro objeto. Você pode Pesquisar pelo nome ou ID do objeto. A ID varia de acordo com o cenário. Por exemplo, ao provisionar um objeto do Azure AD para o SalesForce, a ID de origem é a ID de objeto do usuário no Azure AD, enquanto a TargetId é a ID do usuário no Salesforce. Ao provisionar do WORKDAY para Active Directory, a ID de origem é a ID de funcionário do workday Worker. Observe que o nome do usuário talvez nem sempre esteja presente na coluna de identidade. Sempre haverá uma ID. 
 
@@ -110,14 +110,14 @@ O filtro do **sistema de destino** permite especificar para onde a identidade es
 
 O filtro de **status** permite que você selecione:
 
-- Todos
+- Tudo
 - Êxito
 - Falha
 - Ignorada
 
 O filtro de **ação** permite filtrar o:
 
-- Criar 
+- Create 
 - Atualizar
 - Eliminar
 - Desativar
@@ -130,7 +130,7 @@ Os valores possíveis são:
 - 7 dias
 - 30 dias
 - 24 horas
-- Intervalo de Tempo Personalizado
+- Intervalo de tempo personalizado
 
 Ao selecionar um período de tempo personalizado, você pode configurar uma data de início e uma data de término.
 
@@ -161,7 +161,7 @@ Os detalhes são agrupados com base nas seguintes categorias:
 - Resumo
 
 
-![Filtrar](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
+![Sem](./media/concept-provisioning-logs/provisioning-tabs.png "Temas")
 
 
 
@@ -176,7 +176,7 @@ A guia **etapas** descreve as etapas executadas para provisionar um objeto. O pr
 
 
 
-![Filtrar](./media/concept-provisioning-logs/steps.png "Filtrar")
+![Sem](./media/concept-provisioning-logs/steps.png "Filtrar")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Solução de problemas e recomendações
@@ -206,7 +206,7 @@ A guia **Resumo** fornece uma visão geral do que aconteceu e identificadores pa
 
 - Quando você acessa os logs de provisionamento do contexto de um aplicativo, ele não filtra automaticamente os eventos para o aplicativo específico, como faz os logs de auditoria.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Verificar o status do provisionamento do usuário](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)
 * [Problema ao configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
