@@ -14,18 +14,18 @@ ms.topic: article
 ms.date: 01/09/2018
 ms.author: apimpm
 ms.openlocfilehash: 1189689566da84df6d6b8845bf7c81bd8aa5f1ab
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70072232"
 ---
 # <a name="page-templates-in-azure-api-management"></a>Modelos de página no gerenciamento de API do Azure
-O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de glifos e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar [](api-management-template-resources.md#glyphs) o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
+O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo das páginas do portal do desenvolvedor usando um conjunto de modelos que configuram seu conteúdo. Usando a sintaxe [DotLiquid](http://dotliquidmarkup.org/) e o editor de sua escolha, como [DotLiquid para designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), e um conjunto fornecido de [recursos de cadeia de caracteres](api-management-template-resources.md#strings)localizados, recursos de [glifos](api-management-template-resources.md#glyphs)e [controles de página](api-management-page-controls.md), você tem grande flexibilidade para configurar o conteúdo das páginas como você vê para se ajustar usando esses modelos.  
   
  Os modelos nesta seção permitem que você personalize o conteúdo das páginas entrar, inscrever-se e página não encontrada no portal do desenvolvedor.  
   
--   [Iniciar sessão](#SignIn)  
+-   [Entrar](#SignIn)  
   
 -   [Inscreva-se](#SignUp)  
   
@@ -41,7 +41,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
  ![Página de entrada](./media/api-management-page-templates/APIM-Sign-In-Page-Developer-Portal-Templates.png "Modelos do portal do desenvolvedor da página de entrada do APIM")  
   
-### <a name="default-template"></a>Modelo predefinido  
+### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
 <h2 class="text-center">{% localized "SigninStrings|WebAuthenticationSigninTitle" %}</h2>  
@@ -100,9 +100,9 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ### <a name="controls"></a>Controlos  
  Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [basic-signin](api-management-page-controls.md#basic-signin)  
+-   [entrada básica](api-management-page-controls.md#basic-signin)  
   
--   [Fornecedores](api-management-page-controls.md#providers)  
+-   [fornecedor](api-management-page-controls.md#providers)  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade [de entrada do usuário](api-management-template-data-model-reference.md#UseSignIn) .  
@@ -140,7 +140,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
  ![Página de inscrição](./media/api-management-page-templates/APIM-Sign-Up-Page-Developer-Portal-Templates.png "Página de inscrição do APIM modelos do portal do desenvolvedor")  
   
-### <a name="default-template"></a>Modelo predefinido  
+### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
 <h2 class="text-center">{% localized "SignupStrings|PageTitleSignup" %}</h2>  
@@ -159,7 +159,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
 ### <a name="controls"></a>Controlos  
  Este modelo pode usar os seguintes [controles de página](api-management-page-controls.md).  
   
--   [sign-up](api-management-page-controls.md#sign-up)  
+-   [inscrever-se](api-management-page-controls.md#sign-up)  
   
 ### <a name="data-model"></a>Modelo de dados  
  Entidade [de inscrição do usuário](api-management-template-data-model-reference.md#UserSignUp) .  
@@ -188,7 +188,7 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
  ![Página não encontrada](./media/api-management-page-templates/APIM-Not-Found-Page-Developer-Portal-Templates.png "APIM de página não encontrado modelos do portal do desenvolvedor")  
   
-### <a name="default-template"></a>Modelo predefinido  
+### <a name="default-template"></a>Modelo padrão  
   
 ```xml  
 <h2>{% localized "NotFoundStrings|PageTitleNotFound" %}</h2>  
@@ -227,11 +227,11 @@ O gerenciamento de API do Azure fornece a capacidade de personalizar o conteúdo
   
 |Propriedade|Tipo|Descrição|  
 |--------------|----------|-----------------|  
-|referenceCode|Cadeia de caracteres|Código gerado se essa página foi exibida como resultado de um erro interno.|  
-|errorCode|Cadeia de caracteres|Código gerado se essa página foi exibida como resultado de um erro interno.|  
-|emailBody|Cadeia de caracteres|O corpo do email gerado se essa página foi exibida como resultado de um erro interno.|  
-|requestedUrl|Cadeia de caracteres|A URL solicitada quando a página não foi encontrada.|  
-|referrerUrl|Cadeia de caracteres|A URL de referenciador para a URL solicitada.|  
+|referenceCode|string|Código gerado se essa página foi exibida como resultado de um erro interno.|  
+|ErrorCode|string|Código gerado se essa página foi exibida como resultado de um erro interno.|  
+|emailBody|string|O corpo do email gerado se essa página foi exibida como resultado de um erro interno.|  
+|requestedUrl|string|A URL solicitada quando a página não foi encontrada.|  
+|referrerUrl|string|A URL de referenciador para a URL solicitada.|  
   
 ### <a name="sample-template-data"></a>Dados de modelo de exemplo  
   

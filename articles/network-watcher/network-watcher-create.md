@@ -1,6 +1,6 @@
 ---
-title: Criar uma instância do observador de rede do Azure | Documentos da Microsoft
-description: Saiba como ativar o observador de rede numa região do Azure.
+title: Criar uma instância do observador de rede do Azure | Microsoft Docs
+description: Saiba como habilitar o observador de rede em uma região do Azure.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -14,28 +14,28 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: c97f6dff17896b8a58c17aed9063e0b2b5733503
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd293c2815721295715c5e02846c55d4cdb74a32
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64681565"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693475"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do observador de rede do Azure
 
-Observador de rede é um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário rede, para e do Azure. A monitorização ao nível do cenário permite-lhe diagnosticar problemas numa vista de nível de rede ponto a ponto. Diagnóstico de rede e ferramentas de visualização disponíveis com o observador de rede ajudam a compreender, diagnosticar e obter informações da sua rede no Azure. Observador de rede está ativado por meio da criação de um recurso de observador de rede. Este recurso permite-lhe utilizar as capacidades do observador de rede.
+O observador de rede é um serviço regional que permite monitorar e diagnosticar condições em um nível de cenário de rede em, para e do Azure. O monitoramento de nível de cenário permite que você diagnostique problemas em uma exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização de rede disponíveis com o observador de rede ajudam você a entender, diagnosticar e obter informações sobre sua rede no Azure. O observador de rede está habilitado por meio da criação de um recurso do observador de rede. Esse recurso permite que você utilize os recursos do observador de rede.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="network-watcher-is-automatically-enabled"></a>Observador de rede é ativado automaticamente
-Quando cria ou atualiza uma rede virtual na sua subscrição, o observador de rede será ativado automaticamente na região da sua rede Virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede.
+## <a name="network-watcher-is-automatically-enabled"></a>O observador de rede é habilitado automaticamente
+Quando você cria ou atualiza uma rede virtual em sua assinatura, o observador de rede será habilitado automaticamente na região da sua rede virtual. Não há impacto nos seus recursos ou cobrança associada para ativar automaticamente o Observador da Rede.
 
-#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Sair da ativação automática de observador de rede
-Se gostaria de opção de desativar ativação automática de observador de rede, pode fazê-lo ao executar os comandos seguintes:
+#### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Recusa da habilitação automática do observador de rede
+Se você quiser recusar a habilitação automática do observador de rede, poderá fazer isso executando os seguintes comandos:
 
 > [!WARNING]
-> Optando por-out de ativação automática de observador de rede é uma alteração permanente. Assim que sair não pode participar sem [contactar o suporte](https://azure.microsoft.com/support/options/)
+> A recusa da habilitação automática do observador de rede é uma alteração permanente. Depois de recusar, você não pode aceitar sem [entrar em contato com o suporte](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
 Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
@@ -51,27 +51,27 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Criar um observador de rede no portal
 
-Navegue para **todos os serviços** > **rede** > **observador de rede**. Pode selecionar todas as subscrições que pretende ativar o observador de rede para. Esta ação cria um observador de rede em cada região que está disponível.
+Navegue até **todos os serviços**  > **rede**  > **observador de rede**. Você pode selecionar todas as assinaturas para as quais deseja habilitar o observador de rede. Essa ação cria um observador de rede em todas as regiões disponíveis.
 
-![Criar um observador de rede](./media/network-watcher-create/figure1.png)
+![criar um observador de rede](./media/network-watcher-create/figure1.png)
 
-Quando ativar o observador de rede com o portal, o nome da instância do observador de rede é automaticamente definido como *NetworkWatcher_region_name* onde *region_name* corresponde à região do Azure em que a instância está ativada. Por exemplo, é denominado um observador de rede ativado na região e.u.a. Centro-Oeste *NetworkWatcher_westcentralus*.
+Quando você habilita o observador de rede usando o portal, o nome da instância do observador de rede é definido automaticamente como *NetworkWatcher_region_name* , em que *REGION_NAME* corresponde à região do Azure onde a instância está habilitada. Por exemplo, um observador de rede habilitado na região Oeste EUA Central é denominado *NetworkWatcher_westcentralus*.
 
-A instância do observador de rede é criada automaticamente no grupo de recursos chamado *NetworkWatcherRG*. O grupo de recursos é criado caso ainda não exista.
+A instância do observador de rede é criada automaticamente em um grupo de recursos chamado *NetworkWatcherRG*. O grupo de recursos será criado se ele ainda não existir.
 
-Se desejar personalizar o nome de uma instância de observador de rede e o grupo de recursos é colocada no, pode utilizar o Powershell, a CLI do Azure, a REST API ou métodos de ARMClient descritos nas secções que se seguem. Cada opção, o grupo de recursos tem de existir antes de criar um observador de rede no mesmo.  
+Se desejar personalizar o nome de uma instância do observador de rede e o grupo de recursos no qual ele é colocado, você poderá usar o PowerShell, o CLI do Azure, a API REST ou os métodos ARMClient descritos nas seções a seguir. Em cada opção, o grupo de recursos deve existir antes de você criar um observador de rede nele.  
 
 ## <a name="create-a-network-watcher-with-powershell"></a>Criar um observador de rede com o PowerShell
 
-Para criar uma instância do observador de rede, execute o exemplo seguinte:
+Para criar uma instância do observador de rede, execute o seguinte exemplo:
 
 ```powershell
 New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
-## <a name="create-a-network-watcher-with-the-azure-cli"></a>Criar um observador de rede com a CLI do Azure
+## <a name="create-a-network-watcher-with-the-azure-cli"></a>Criar um observador de rede com o CLI do Azure
 
-Para criar uma instância do observador de rede, execute o exemplo seguinte:
+Para criar uma instância do observador de rede, execute o seguinte exemplo:
 
 ```azurecli
 az network watcher configure --resource-group NetworkWatcherRG --locations westcentralus --enabled
@@ -79,9 +79,9 @@ az network watcher configure --resource-group NetworkWatcherRG --locations westc
 
 ## <a name="create-a-network-watcher-with-the-rest-api"></a>Criar um observador de rede com a API REST
 
-O ARMclient é utilizada para chamar a API de REST com o PowerShell. O ARMClient encontra-se no chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
+O ARMclient é usado para chamar a API REST usando o PowerShell. O ARMClient é encontrado no Chocolatey em [ARMClient no Chocolatey](https://chocolatey.org/packages/ARMClient)
 
-### <a name="log-in-with-armclient"></a>Inicie sessão com ARMClient
+### <a name="log-in-with-armclient"></a>Fazer logon com ARMClient
 
 ```powerShell
 armclient login
@@ -103,16 +103,36 @@ $requestBody = @"
 armclient put "https://management.azure.com/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}?api-version=${api-version}" $requestBody
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="delete-a-network-watcher-in-the-portal"></a>Excluir um observador de rede no portal
 
-Agora que tem uma instância do observador de rede, saiba mais sobre as funcionalidades disponíveis:
+Navegue até **todos os serviços**  > **rede**  > **observador de rede**.
+
+Selecione a guia Visão geral, se você ainda não estiver lá. Use a lista suspensa para selecionar a assinatura na qual você deseja desabilitar o observador de rede.
+Expanda a lista de regiões para sua assinatura escolhida clicando na seta. Para qualquer dado, use os 3 pontos à direita para acessar o menu de contexto.
+Clique em "desabilitar observador de rede" para iniciar a desabilitação. Você será solicitado a confirmar esta etapa. Clique em Sim para continuar.
+No portal, você precisará fazer isso individualmente para cada região em cada assinatura.
+
+
+## <a name="delete-a-network-watcher-with-powershell"></a>Excluir um observador de rede com o PowerShell
+
+Para excluir uma instância do observador de rede, execute o seguinte exemplo:
+
+```powershell
+New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
+```
+
+## <a name="next-steps"></a>Passos seguintes
+
+Agora que você tem uma instância do observador de rede, saiba mais sobre os recursos disponíveis:
 
 * [Topologia](network-watcher-topology-overview.md)
-* [Captura de pacotes](network-watcher-packet-capture-overview.md)
+* [Captura de pacote](network-watcher-packet-capture-overview.md)
 * [Verificação do fluxo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Salto seguinte](network-watcher-next-hop-overview.md)
 * [Vista do grupo de segurança](network-watcher-security-group-view-overview.md)
-* [Registo do fluxo do NSG](network-watcher-nsg-flow-logging-overview.md)
-* [Resolução de problemas do Gateway de rede virtual](network-watcher-troubleshoot-overview.md)
+* [Log de fluxo do NSG](network-watcher-nsg-flow-logging-overview.md)
+* [Solução de problemas do gateway de rede virtual](network-watcher-troubleshoot-overview.md)
 
-Assim que uma instância do observador de rede, pode ativar a captura de pacotes nas máquinas virtuais. Para saber como, veja [criar uma captura de pacotes acionadas alerta](network-watcher-alert-triggered-packet-capture.md)
+Depois de uma instância do observador de rede, você pode habilitar a captura de pacotes em máquinas virtuais. Para saber como, consulte [criar uma captura de pacote disparada por alerta](network-watcher-alert-triggered-packet-capture.md)

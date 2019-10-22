@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Active Directory com o Zscaler dois | Microsoft Docs'
+title: 'Tutorial: integração do Azure Active Directory com o Zscaler dois | Microsoft Docs'
 description: Saiba como configurar o logon único entre o Azure Active Directory e o Zscaler dois.
 services: active-directory
 documentationCenter: na
@@ -16,20 +16,20 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: 7ea4eecd5c27b6a9f14bc358c7db61da544e7530
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825089"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: Integração do Azure Active Directory com o Zscaler dois
+# <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Tutorial: integração de Azure Active Directory com o Zscaler dois
 
 Neste tutorial, você aprenderá a integrar o Zscaler Two ao Azure Active Directory (Azure AD).
 A integração do Zscaler Two ao Azure AD oferece os seguintes benefícios:
 
 * No Azure AD, é possível controlar quem tem acesso ao Zscaler dois.
 * Você pode permitir que seus usuários façam logon automaticamente no Zscaler dois (logon único) com suas contas do Azure AD.
-* Pode gerir as suas contas num local central – portal do Azure.
+* Você pode gerenciar suas contas em um local central-a portal do Azure.
 
 Se você quiser saber mais detalhes sobre a integração de aplicativos SaaS com o Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
@@ -55,37 +55,37 @@ Para configurar a integração do Zscaler dois ao Azure AD, você precisará adi
 
 **Para adicionar o Zscaler dois da galeria, execute as seguintes etapas:**
 
-1. Na **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique em **Azure Active Directory** ícone.
+1. No **[portal do Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone de **Azure Active Directory** .
 
-    ![O botão do Azure Active Directory](common/select-azuread.png)
+    ![O botão Azure Active Directory](common/select-azuread.png)
 
 2. Navegue até **aplicativos empresariais** e, em seguida, selecione a opção **todos os aplicativos** .
 
-    ![O painel de aplicações empresariais](common/enterprise-applications.png)
+    ![A folha aplicativos empresariais](common/enterprise-applications.png)
 
-3. Para adicionar nova aplicação, clique em **nova aplicação** botão na parte superior de caixa de diálogo.
+3. Para adicionar um novo aplicativo, clique no botão **novo aplicativo** na parte superior da caixa de diálogo.
 
-    ![O novo botão de aplicativo](common/add-new-app.png)
+    ![O botão novo aplicativo](common/add-new-app.png)
 
 4. Na caixa de pesquisa, digite **Zscaler dois**, selecione **Zscaler dois** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar o aplicativo.
 
      ![Zscaler dois na lista de resultados](common/search-new-app.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o Azure AD início de sessão único
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar o logon único do Azure AD
 
 Nesta seção, você configurará e testará o logon único do Azure AD com o Zscaler dois, com base em um usuário de teste chamado **Brenda Simon**.
 Para que o logon único funcione, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Zscaler dois.
 
 Para configurar e testar o logon único do Azure AD com o Zscaler dois, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configurar o Azure AD início de sessão único](#configure-azure-ad-single-sign-on)**  - para permitir que os utilizadores utilizar esta funcionalidade.
+1. **[Configurar o logon único do Azure ad](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
 2. **[Configurar o Zscaler dois logon único](#configure-zscaler-two-single-sign-on)** – para configurar as configurações de logon único no lado do aplicativo.
-3. **[Criar um utilizador de teste do Azure AD](#create-an-azure-ad-test-user)**  - para testar o Azure AD início de sessão único com Eduarda Almeida.
-4. **[Atribua o utilizador de teste do Azure AD](#assign-the-azure-ad-test-user)**  - para ativar a Eduarda Almeida utilizar o Azure AD início de sessão único.
+3. **[Criar um usuário de teste do Azure ad](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com o Brenda Simon.
+4. **[Atribuir o usuário de teste do Azure ad](#assign-the-azure-ad-test-user)** – para permitir que Brenda Simon use o logon único do Azure AD.
 5. **[Criar Zscaler dois usuários de teste](#create-zscaler-two-test-user)** – para ter um equivalente de Brenda Simon no Zscaler dois que esteja vinculado à representação de usuário do Azure AD.
-6. **[Testar início de sessão único](#test-single-sign-on)**  - para verificar se a configuração funciona.
+6. **[Testar logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar o Azure AD início de sessão único
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilita o logon único do Azure AD no portal do Azure.
 
@@ -93,13 +93,13 @@ Para configurar o logon único do Azure AD com o Zscaler dois, execute as seguin
 
 1. Na [portal do Azure](https://portal.azure.com/), na página de integração de aplicativos do **Zscaler Two** , selecione **logon único**.
 
-    ![Configurar a ligação de início de sessão única](common/select-sso.png)
+    ![Link configurar logon único](common/select-sso.png)
 
-2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-** enalimentado para habilitar o logon único.
+2. Na caixa de diálogo **selecionar um método de logon único** , selecione o modo de **SAML/WS-enalimentado** para habilitar o logon único.
 
     ![Modo de seleção de logon único](common/select-saml-option.png)
 
-3. Sobre o **definir a segurança de início de sessão único com o SAML** página, clique em **editar** ícone para abrir **configuração básica de SAML** caixa de diálogo.
+3. Na página **Configurar logon único com SAML** , clique no ícone **Editar** para abrir a caixa de diálogo **configuração básica de SAML** .
 
     ![Editar configuração básica de SAML](common/edit-urls.png)
 
@@ -114,19 +114,19 @@ Para configurar o logon único do Azure AD com o Zscaler dois, execute as seguin
 
 5. Seu aplicativo Zscaler dois espera as asserções SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão. Clique em **Editar** ícone para abrir a caixa de diálogo **atributos de usuário** .
 
-    ![image](common/edit-attribute.png)
+    ![imagem](common/edit-attribute.png)
 
 6. Além de acima, Zscaler dois aplicativos esperam que mais alguns atributos sejam passados de volta na resposta SAML. Na seção **declarações do usuário** , na caixa de diálogo **atributos de usuário** , execute as seguintes etapas para adicionar o atributo de token SAML, conforme mostrado na tabela abaixo:
     
     | Nome | Atributo de origem |
     | ---------| ------------ |
-    | memberOf     | user.assignedroles |
+    | memberOf     | User. assignedroles |
 
     a. Clique em **Adicionar nova declaração** para abrir a caixa de diálogo **gerenciar declarações do usuário** .
 
-    ![image](common/new-save-attribute.png)
+    ![imagem](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![imagem](common/new-attribute-details.png)
 
     b. Na caixa de texto **nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -143,17 +143,17 @@ Para configurar o logon único do Azure AD com o Zscaler dois, execute as seguin
 
 7. Na página **Configurar logon único com SAML** , na seção **certificado de autenticação SAML** , clique em **baixar** para baixar o **certificado (Base64)** das opções especificadas de acordo com seu requisito e salve-o no computador.
 
-    ![O link de download de certificado](common/certificatebase64.png)
+    ![O link de download do certificado](common/certificatebase64.png)
 
 8. Na seção **Configurar Zscaler dois** , copie as URLs apropriadas de acordo com seu requisito.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-    a. URL de início de sessão
+    a. URL de logon
 
     b. Identificador do Azure AD
 
-    c. URL de fim de sessão
+    c. URL de logout
 
 ### <a name="configure-zscaler-two-single-sign-on"></a>Configurar o logon único do Zscaler dois
 
@@ -169,7 +169,7 @@ Para configurar o logon único do Azure AD com o Zscaler dois, execute as seguin
 
 4. Acesse **administração > autenticação > configurações de autenticação** e execute as seguintes etapas:
    
-    ![Administração] do (./media/zscaler-two-tutorial/ic800206.png "Administração") do
+    ![Administrar](./media/zscaler-two-tutorial/ic800206.png "Administração")
 
     a. Em tipo de autenticação, escolha **SAML**.
 
@@ -214,7 +214,7 @@ Para configurar o logon único do Azure AD com o Zscaler dois, execute as seguin
 
 3. Clique na guia **conexões** .   
   
-     ![Conexões] do (./media/zscaler-two-tutorial/ic769493.png "Conexões") do
+     ![Ligações](./media/zscaler-two-tutorial/ic769493.png "Ligações")
 
 4. Clique em **configurações de LAN** para abrir a caixa de diálogo Configurações de **LAN** .
 
@@ -234,31 +234,31 @@ Para configurar o logon único do Azure AD com o Zscaler dois, execute as seguin
 
 6. Clique em **OK** para fechar a caixa de diálogo **Opções da Internet** .
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste do Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD 
 
-O objetivo desta secção é criar um utilizador de teste no portal do Azure chamado Eduarda Almeida.
+O objetivo desta seção é criar um usuário de teste no portal do Azure chamado Brenda Simon.
 
-1. No portal do Azure, no painel esquerdo, selecione **do Azure Active Directory**, selecione **utilizadores**e, em seguida, selecione **todos os utilizadores**.
+1. No portal do Azure, no painel esquerdo, selecione **Azure Active Directory**, selecione **usuários**e, em seguida, selecione **todos os usuários**.
 
-    !["Os utilizadores e grupos" e os links de "Todos os utilizadores"](common/users.png)
+    ![Os links "usuários e grupos" e "todos os usuários"](common/users.png)
 
-2. Selecione **novo utilizador** na parte superior do ecrã.
+2. Selecione **novo usuário** na parte superior da tela.
 
     ![Botão novo usuário](common/new-user.png)
 
-3. Nas propriedades do utilizador, execute os seguintes passos.
+3. Nas propriedades do usuário, execute as etapas a seguir.
 
-    ![A caixa de diálogo de utilizador](common/user-properties.png)
+    ![A caixa de diálogo usuário](common/user-properties.png)
 
     a. No campo **nome** , insira **brendafernandes**.
   
-    b. No campo **nome de usuário** , `brittasimon@yourcompanydomain.extension`digite. Por exemplo, BrittaSimon@contoso.com
+    b. No campo **nome de usuário** , digite `brittasimon@yourcompanydomain.extension`. Por exemplo, BrittaSimon@contoso.com
 
     c. Marque a caixa de seleção **Mostrar senha** e anote o valor exibido na caixa senha.
 
     d. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribua o utilizador de teste do Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que Brenda Simon use o logon único do Azure concedendo-lhe acesso ao Zscaler dois.
 
@@ -272,7 +272,7 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
 3. No menu à esquerda, selecione **usuários e grupos**.
 
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
+    ![O link "usuários e grupos"](common/users-groups-blade.png)
 
 4. Clique no botão **Adicionar usuário** e selecione **usuários e grupos** na caixa de diálogo **Adicionar atribuição** .
 
@@ -280,15 +280,15 @@ Nesta seção, você permitirá que Brenda Simon use o logon único do Azure con
 
 5. Na caixa de diálogo **usuários e grupos** , selecione o usuário como **Brenda Simon** na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-    ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
+    ![imagem](./media/zscaler-two-tutorial/tutorial_zscalertwo_users.png)
 
 6. Na caixa de diálogo **selecionar função** , escolha a função de usuário apropriada na lista e, em seguida, clique no botão **selecionar** na parte inferior da tela.
 
-    ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
+    ![imagem](./media/zscaler-two-tutorial/tutorial_zscalertwo_roles.png)
 
-7. Na **adicionar atribuição** caixa de diálogo select a **atribuir** botão.
+7. Na caixa de diálogo **Adicionar atribuição** , selecione o botão **atribuir** .
 
-    ![image](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
+    ![imagem](./media/zscaler-two-tutorial/tutorial_zscalertwo_assign.png)
 
 ### <a name="create-zscaler-two-test-user"></a>Criar Zscaler dois usuários de teste
 
@@ -299,13 +299,13 @@ Nesta seção, um usuário chamado Brenda Simon é criado no Zscaler dois. O Zsc
 
 ### <a name="test-single-sign-on"></a>Testar o início de sessão único 
 
-Nesta secção, vai testar a configuração do Azure AD única início de sessão com o painel de acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o painel de acesso.
 
 Ao clicar no bloco Zscaler Two no painel de acesso, você deverá entrar automaticamente no Zscaler dois para o qual você configurou o SSO. Para obter mais informações sobre o painel de acesso, consulte [introdução ao painel de acesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos Adicionais
 
-- [Lista de tutoriais sobre como integrar aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 

@@ -10,10 +10,10 @@ ms.custom: include file
 ms.topic: include
 ms.date: 08/14/2019
 ms.openlocfilehash: 1da2afc6c0dfa0571d6e7ccbf358bb574aa736c5
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71830151"
 ---
 1. Entre no [portal do Azure](https://portal.azure.com/) usando as credenciais para a assinatura do Azure que você usa. 
@@ -32,10 +32,10 @@ ms.locfileid: "71830151"
 
    Campo|Descrição 
    ---|---
-   Nome da área de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
-   Subscription |Selecione a subscrição do Azure que pretende utilizar.
-   Resource group | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
-   Location | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
+   Nome do espaço de trabalho |Insira um nome exclusivo que identifique seu espaço de trabalho. Neste exemplo, usamos **docs-WS**. Os nomes devem ser exclusivos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferencie os espaços de trabalho criados por outras pessoas.  
+   Subscrição |Selecione a subscrição do Azure que pretende utilizar.
+   Grupo de recursos | Use um grupo de recursos existente em sua assinatura ou insira um nome para criar um novo grupo de recursos. Um grupo de recursos contém recursos relacionados para uma solução do Azure. Neste exemplo, usamos **docs-AML**. 
+   Localização | Selecione o local mais próximo de seus usuários e os recursos de dados para criar seu espaço de trabalho.
 
 1. Depois de concluir a configuração do espaço de trabalho, selecione **criar**. 
 

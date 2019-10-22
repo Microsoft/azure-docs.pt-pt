@@ -9,12 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 89539d42e9ac9456c7ee971f6ea607b6b2c6befa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266313"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693297"
 ---
 # <a name="custom-web-api-skill"></a>Habilidades da API Web personalizada
 
@@ -29,7 +29,7 @@ A estrutura dos conteúdos JSON é descrita mais adiante neste documento.
 > * `429 Too Many Requests`
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Custom.WebApiSkill
+Microsoft. Skills. Custom. WebApiSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -37,10 +37,10 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| uri | O URI da API Web para a qual o conteúdo _JSON_ será enviado. Somente o esquema de URI **https** é permitido |
-| httpMethod | O método a ser usado ao enviar a carga. Os métodos permitidos `PUT` são ou`POST` |
-| httpHeaders | Uma coleção de pares chave-valor em que as chaves representam nomes de cabeçalho e valores representam valores de cabeçalho que serão enviados à sua API Web junto com a carga. Os cabeçalhos a seguir são proibidos de estarem nesta coleção `Accept`: `Accept-Charset` `Accept-Encoding`, `Host` `Content-Length` `Cookie` `Content-Type`,,,,, `TE` `Upgrade`,,,`Via` |
-| timeout | Adicional Quando especificado, indica o tempo limite para o cliente http fazer a chamada à API. Ele deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não estiver definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido como um máximo de 230 segundos e um mínimo de 1 segundo. |
+| URI | O URI da API Web para a qual o conteúdo _JSON_ será enviado. Somente o esquema de URI **https** é permitido |
+| httpMethod | O método a ser usado ao enviar a carga. Os métodos permitidos são `PUT` ou `POST` |
+| httpHeaders | Uma coleção de pares chave-valor em que as chaves representam nomes de cabeçalho e valores representam valores de cabeçalho que serão enviados à sua API Web junto com a carga. Os cabeçalhos a seguir estão proibidos de estarem nesta coleção: `Accept`, `Accept-Charset`, `Accept-Encoding`, `Content-Length`, `Content-Type`, `Cookie`, `Host`, `TE`, `Upgrade`, `Via` |
+| tempo limite | Adicional Quando especificado, indica o tempo limite para o cliente http fazer a chamada à API. Ele deve ser formatado como um valor XSD "dayTimeDuration" (um subconjunto restrito de um valor de [duração ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Por exemplo, `PT60S` por 60 segundos. Se não estiver definido, um valor padrão de 30 segundos será escolhido. O tempo limite pode ser definido como um máximo de 230 segundos e um mínimo de 1 segundo. |
 | batchSize | Adicional Indica quantos "registros de dados" (consulte a estrutura de carga _JSON_ abaixo) será enviado por chamada à API. Se não estiver definido, um padrão de 1000 será escolhido. Recomendamos que você use esse parâmetro para obter uma compensação adequada entre a indexação da taxa de transferência e a carga em sua API |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
@@ -88,10 +88,10 @@ Não há nenhuma saída "predefinida" para essa habilidade. Dependendo da respos
 Essa estrutura _JSON_ representa o conteúdo que será enviado à sua API Web.
 Ele sempre seguirá estas restrições:
 
-* A entidade de nível superior é chamada `values` e será uma matriz de objetos. O número desses objetos será, no máximo, o`batchSize`
-* Cada objeto na `values` matriz terá
-    * Uma `recordId` propriedade que é uma cadeia de caracteres **exclusiva** , usada para identificar esse registro.
-    * Uma `data` propriedade que é um objeto _JSON_ . Os campos da `data` Propriedade corresponderão aos "nomes" especificados `inputs` na seção da definição de habilidade. O valor desses campos será proveniente `source` dos campos (que podem ser de um campo no documento ou potencialmente de outra habilidade)
+* A entidade de nível superior é chamada de `values` e será uma matriz de objetos. O número desses objetos será no máximo o `batchSize`
+* Cada objeto na matriz de `values` terá
+    * Uma propriedade `recordId` que é uma cadeia de caracteres **exclusiva** , usada para identificar esse registro.
+    * Uma propriedade `data` que é um objeto _JSON_ . Os campos da propriedade `data` corresponderão aos "nomes" especificados na seção `inputs` da definição de habilidade. O valor desses campos será da `source` desses campos (que pode ser de um campo no documento ou potencialmente de outra habilidade)
 
 ```json
 {
@@ -138,16 +138,16 @@ Ele sempre seguirá estas restrições:
 
 ## <a name="sample-output-json-structure"></a>Estrutura JSON de saída de exemplo
 
-A "saída" corresponde à resposta retornada de sua API da Web. A API Web deve retornar apenas uma carga _JSON_ (verificada observando o cabeçalho `Content-Type` de resposta) e deve atender às seguintes restrições:
+A "saída" corresponde à resposta retornada de sua API da Web. A API Web deve retornar apenas uma carga _JSON_ (verificada examinando o cabeçalho de resposta `Content-Type`) e deve atender às seguintes restrições:
 
 * Deve haver uma entidade de nível superior chamada `values` que deve ser uma matriz de objetos.
 * O número de objetos na matriz deve ser igual ao número de objetos enviados para a API da Web.
 * Cada objeto deve ter:
-   * Uma `recordId` Propriedade
-   * Uma `data` Propriedade, que é um objeto em que os campos são aprimoramentos que correspondem aos "nomes" `output` no e cujo valor é considerado o enriquecimento.
-   * Uma `errors` Propriedade, uma matriz que lista os erros encontrados que serão adicionados ao histórico de execução do indexador. Essa propriedade é necessária, mas pode ter um `null` valor.
-   * Uma `warnings` Propriedade, uma matriz que lista todos os avisos encontrados que serão adicionados ao histórico de execução do indexador. Essa propriedade é necessária, mas pode ter um `null` valor.
-* Os objetos na `values` matriz não precisam estar na mesma ordem que os objetos `values` da matriz enviados como uma solicitação para a API da Web. No entanto `recordId` , o é usado para correlação, de modo que qualquer registro `recordId` na resposta que contenha um que não seja parte da solicitação original para a API da Web será Descartado.
+   * Uma propriedade `recordId`
+   * Uma propriedade `data`, que é um objeto em que os campos são aprimoramentos que correspondem aos "nomes" na `output` e cujo valor é considerado o enriquecimento.
+   * Uma propriedade `errors`, uma matriz listando os erros encontrados que serão adicionados ao histórico de execução do indexador. Essa propriedade é necessária, mas pode ter um valor `null`.
+   * Uma propriedade `warnings`, uma matriz listando quaisquer avisos encontrados que serão adicionados ao histórico de execução do indexador. Essa propriedade é necessária, mas pode ter um valor `null`.
+* Os objetos na matriz de `values` não precisam estar na mesma ordem que os objetos na matriz de `values` enviados como uma solicitação para a API da Web. No entanto, o `recordId` é usado para correlação, de modo que qualquer registro na resposta que contenha um `recordId` que não faça parte da solicitação original para a API da Web será Descartado.
 
 ```json
 {
@@ -195,13 +195,14 @@ A "saída" corresponde à resposta retornada de sua API da Web. A API Web deve r
 ## <a name="error-cases"></a>Casos de erro
 Além de sua API Web estar indisponível ou enviar códigos de status não bem-sucedidos, os seguintes são considerados casos errados:
 
-* Se a API da Web retornar um código de status de êxito, mas a resposta indicar `application/json` que ela não é, a resposta será considerada inválida e nenhum aperfeiçoamento será executado.
-* Se houver registros **inválidos** (com `recordId` não na solicitação original ou com valores duplicados) na matriz de `values` resposta, nenhum enriquecimento será executado para **esses** registros.
+* Se a API da Web retornar um código de status de êxito, mas a resposta indicar que não é `application/json`, a resposta será considerada inválida e nenhum aprimoramento será executado.
+* Se houver um valor **inválido** (com `recordId` não nos registros solicitação original ou com valores duplicados) na `values` matriz de resposta, nenhum enriquecimento será executado para **esses** registros.
 
 Para casos em que a API Web não está disponível ou retorna um erro de HTTP, um erro amigável com todos os detalhes disponíveis sobre o erro HTTP será adicionado ao histórico de execução do indexador.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
++ [Habilidades de energia: um repositório de habilidades personalizadas](https://aka.ms/powerskills)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Adicionar habilidades personalizadas à pesquisa cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Exemplo: Criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
++ [Exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)

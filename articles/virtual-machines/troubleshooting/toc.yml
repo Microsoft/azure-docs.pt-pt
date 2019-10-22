@@ -127,12 +127,18 @@
   href: storage-resource-deletion-errors.md
 - name: Erros ao eliminar os recursos de armazenamento clássicos
   href: storage-classic-cannot-delete-storage-account-container-vhd.md
-- name: Reinícios inesperados de VMs com VHDs ligadas
-  href: unexpected-reboots-attached-vhds.md
-- name: Problemas de ativação do Windows
-  href: troubleshoot-activation-problems.md
-- name: Problema de ativação com túnel forçado
-  href: custom-routes-enable-kms-activation.md
+- name: Resolução de problemas de reinício de VMs
+  items:
+    - name: Reinícios inesperados de VMs com VHDs ligadas
+      href: unexpected-reboots-attached-vhds.md
+    - name: Entender o reinício do sistema
+      href: understand-vm-reboot.md
+- name: Ativação do Windows
+  items:
+    - name: Problemas de ativação do Windows
+      href: troubleshoot-activation-problems.md
+    - name: Problema de ativação com túnel forçado
+      href: custom-routes-enable-kms-activation.md
 - name: Problemas no acesso à aplicação
   href: troubleshoot-app-connection.md
 - name: Novas implementações de VM
@@ -188,8 +194,6 @@
   href: troubleshooting-throttling-errors.md
 - name: Utilizar a virtualização aninhada
   href: troubleshoot-vm-by-use-nested-virtualization.md
-- name: Entender o reinício do sistema
-  href: understand-vm-reboot.md
 - name: Ferramentas remotas de resolução de problemas
   href: remote-tools-troubleshoot-azure-vm-issues.md
 - name: Reparação da Máquina Virtual

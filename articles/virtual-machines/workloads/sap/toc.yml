@@ -102,6 +102,8 @@
           href: sap-hana-high-availability-rhel.md
         - name: Resolver problemas de dimensionamento do SAP HANA e do Pacemaker no SLES
           href: hana-vm-troubleshoot-scale-out-ha-on-sles.md
+        - name: Escalamento horizontal do SAP HANA com o nó em modo de espera com o Azure NetApp Files no SLES
+          href: sap-hana-scale-out-standby-netapp-files-suse.md
     - name: Descrição geral da cópia de segurança do SAP HANA
       href: sap-hana-backup-guide.md
     - name: Cópia de segurança ao nível do ficheiro do SAP HANA

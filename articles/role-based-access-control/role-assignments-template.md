@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 5f57ea658df0569c4e69e476513863abe6940471
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950067"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692913"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Gerenciar o acesso aos recursos do Azure usando os modelos RBAC e Azure Resource Manager
 
@@ -160,7 +160,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 ```
 
 > [!NOTE]
-> Esse modelo não é idempotente, a menos que o mesmo valor `roleNameGuid` seja fornecido como um parâmetro para cada implantação do modelo. Se nenhum `roleNameGuid` for fornecido, por padrão, um novo GUID será gerado em cada implantação e implantações subsequentes falharão com um erro de `Conflict: RoleAssignmentExists`.
+> Esse modelo não é idempotente, a menos que o mesmo valor de `roleNameGuid` seja fornecido como um parâmetro para cada implantação do modelo. Se nenhum `roleNameGuid` for fornecido, por padrão, um novo GUID será gerado em cada implantação e implantações subsequentes falharão com um erro de `Conflict: RoleAssignmentExists`.
 
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Criar uma atribuição de função em um escopo de recurso
 
@@ -232,7 +232,7 @@ Para usar o modelo, você deve especificar as seguintes entradas:
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -329,7 +329,7 @@ Veja a seguir um exemplo da atribuição de função de colaborador para uma nov
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Quickstart: Criar e implantar modelos de Azure Resource Manager usando o portal do Azure @ no__t-0
+- [Início Rápido: Criar e implementar um modelo do Azure Resource Manager com o portal do Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Understand the structure and syntax of Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md) (Compreender a estrutura e a sintaxe dos Modelos do Azure Resource Manager)
 - [Criar grupos de recursos e recursos no nível da assinatura](../azure-resource-manager/deploy-to-subscription.md)
 - [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/?term=rbac)

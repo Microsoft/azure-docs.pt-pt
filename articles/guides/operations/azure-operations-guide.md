@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: b225052daa61932f3b8b868789cfb3c204eca88f
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543420"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693456"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introdução aos operadores de ti do Azure
 
@@ -48,7 +48,7 @@ Para obter mais informações sobre as regiões do Azure disponíveis, consulte 
 ### <a name="cloud-computing-model"></a>Modelo de computação em nuvem
 
 O Azure usa um modelo de computação em nuvem baseado em categorias de serviço fornecidas aos clientes. As três categorias de serviço incluem IaaS (infraestrutura como serviço), PaaS (plataforma como serviço) e SaaS (software como serviço). Os fornecedores compartilham algumas ou todas as responsabilidades dos componentes na pilha de computação em cada uma dessas categorias. Vamos dar uma olhada em cada uma das categorias para computação em nuvem.
-![Comparação de pilha de computação em nuvem](./media/cloud-computing-comparison.png)
+![Cloud de comparação de pilha de computação ](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: Infraestrutura como serviço
 
@@ -58,13 +58,13 @@ O Azure inclui várias soluções de IaaS, incluindo máquinas virtuais, conjunt
 
 Os conjuntos de dimensionamento de máquinas virtuais são criados sobre as máquinas virtuais do Azure e fornecem uma maneira fácil de implantar clusters de VMs idênticas. Os conjuntos de dimensionamento de máquinas virtuais também dão suporte ao dimensionamento automático para que novas VMs possam ser implantadas automaticamente quando necessário. Isso faz com que o dimensionamento de máquinas virtuais defina uma plataforma ideal para hospedar clusters de computação de microserviço de nível mais alto, como o Azure Service Fabric e o serviço de contêiner do Azure.
 
-#### <a name="paas-platform-as-a-service"></a>PaaS Plataforma como serviço
+#### <a name="paas-platform-as-a-service"></a>PaaS: plataforma como serviço
 
 Com o PaaS, você implanta seu aplicativo em um ambiente que o fornecedor do serviço de nuvem fornece. O fornecedor faz todo o gerenciamento de infraestrutura para que você possa se concentrar no desenvolvimento de aplicativos e no gerenciamento de dados.
 
 O Azure fornece várias ofertas de computação PaaS, incluindo o recurso de aplicativos Web do serviço Azure App e serviços de nuvem do Azure (funções Web e de trabalho). Em ambos os casos, os desenvolvedores têm várias maneiras de implantar seu aplicativo sem saber nada sobre os detalhes e os parafusos que dão suporte a ele. Os desenvolvedores não precisam criar máquinas virtuais (VMs), usar protocolo RDP (RDP) para entrar em cada uma delas ou instalar o aplicativo. Eles simplesmente visitam um botão (ou perto dele), e as ferramentas fornecidas pela Microsoft provisionam as VMs e, em seguida, implantam e instalam o aplicativo nelas.
 
-#### <a name="saas-software-as-a-service"></a>SaaS: Software como serviço
+#### <a name="saas-software-as-a-service"></a>SaaS: software como serviço
 
 O SaaS é um software que é hospedado e gerenciado centralmente. Geralmente, ele é baseado em uma arquitetura multilocatário — uma única versão do aplicativo é usada para todos os clientes. Ele pode ser escalado horizontalmente para várias instâncias para garantir o melhor desempenho em todos os locais. O software SaaS normalmente é licenciado por meio de uma assinatura mensal ou anual. Os fornecedores de software SaaS são responsáveis por todos os componentes da pilha de software, de modo que tudo o que você gerencia seja os serviços fornecidos.
 
@@ -86,7 +86,7 @@ Serviços para hospedagem e execução da carga de trabalho do aplicativo:
 
 - Azure Service Fabric
 
-- Azure Container Service
+- Serviço de Contentor do Azure
 
 ### <a name="data-services"></a>Serviços de dados
 
@@ -114,7 +114,7 @@ Serviços para criação e operação de aplicativos:
 
 - Agendador do Azure
 
-- Serviços de mídia do Azure
+- Serviços de Multimédia do Azure
 
 ### <a name="network-services"></a>Serviços de rede
 
@@ -126,9 +126,9 @@ Serviços para rede no Azure e entre datacenters locais e do Azure:
 
 - DNS fornecido pelo Azure
 
-- Gestor de Tráfego do Azure
+- Traffic Manager do Azure
 
-- Rede de Entrega de Conteúdos do Azure
+- Rede de distribuição de conteúdo do Azure
 
 Para obter a documentação detalhada sobre os serviços do Azure, consulte a [documentação do serviço do Azure](https://docs.microsoft.com/azure).
 
@@ -152,7 +152,7 @@ Os recursos do Azure são serviços individuais de computação, rede, dados ou 
 
 Um grupo de recursos do Azure é um contêiner que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos da solução ou apenas os recursos que você deseja gerenciar como um grupo. Os grupos de recursos do Azure são abordados em mais detalhes posteriormente neste guia.
 
-### <a name="resource-manager-templates"></a>Modelos do Resource Manager
+### <a name="resource-manager-templates"></a>Modelos do Gestor de Recursos
 
 Um modelo de Azure Resource Manager é um arquivo de JavaScript Object Notation (JSON) que define um ou mais recursos a serem implantados em um grupo de recursos. Ele também define as dependências entre os recursos implantados. Os modelos do Resource Manager são abordados em mais detalhes posteriormente neste guia.
 
@@ -172,7 +172,7 @@ A interface de linha de comando do Azure é uma ferramenta que você pode usar p
 
 O Azure é criado em um conjunto de APIs REST que dão suporte à interface do usuário do portal do Azure. A maioria dessas APIs REST também tem suporte para permitir que você provisione e gerencie programaticamente seus recursos e aplicativos do Azure de qualquer dispositivo habilitado para Internet. Para obter mais informações, consulte a [referência do SDK REST do Azure](https://docs.microsoft.com/rest/api/index).
 
-### <a name="azure-cloud-shell"></a>Bem-vindo ao Azure Cloud Shell
+### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
 Os administradores podem acessar Azure PowerShell e CLI do Azure por meio de uma experiência acessível por navegador chamada Azure Cloud Shell. Essa interface interativa fornece uma ferramenta flexível para que os administradores do Linux e do Windows usem a interface de linha de comando escolhida, seja bash ou PowerShell. Azure Cloud Shell pode ser acessado por meio do portal, como uma interface da Web autônoma em [shell.Azure.com](https://shell.azure.com)ou de vários outros pontos de acesso. Para obter mais informações, consulte [visão geral do Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
@@ -184,23 +184,23 @@ Uma assinatura é um agrupamento lógico de serviços do Azure que está vincula
 
 Antes de poder trabalhar com os serviços do Azure, você precisa de uma assinatura. Vários tipos de assinatura estão disponíveis.
 
-**Contas gratuitas**: O link para se inscrever em uma conta gratuita está no [site do Azure](https://azure.microsoft.com/). Isso lhe dá um crédito ao longo de 30 dias para experimentar qualquer combinação de recursos no Azure. Se você exceder seu valor de crédito, sua conta será suspensa. No final da avaliação, seus serviços serão descomissionados e não funcionarão mais. Você pode atualizar para uma assinatura paga conforme o uso a qualquer momento.
+**Contas gratuitas**: o link para se inscrever em uma conta gratuita está no [site do Azure](https://azure.microsoft.com/). Isso lhe dá um crédito ao longo de 30 dias para experimentar qualquer combinação de recursos no Azure. Se você exceder seu valor de crédito, sua conta será suspensa. No final da avaliação, seus serviços serão descomissionados e não funcionarão mais. Você pode atualizar para uma assinatura paga conforme o uso a qualquer momento.
 
-**Assinaturas do MSDN**: Se você tiver uma assinatura do MSDN, obterá um valor específico no crédito do Azure a cada mês. Por exemplo, se você tiver um Microsoft Visual Studio Enterprise com assinatura do MSDN, você \$obterá 150 por mês no crédito do Azure.
+**Assinaturas do MSDN**: se você tiver uma assinatura do MSDN, obterá um valor específico no crédito do Azure a cada mês. Por exemplo, se você tiver um Microsoft Visual Studio Enterprise com assinatura do MSDN, você obterá \$150 por mês no crédito do Azure.
 
 Se você exceder o valor de crédito, seu serviço será desabilitado até que o próximo mês seja iniciado. Você pode desativar o limite de gastos e adicionar um cartão de crédito a ser usado para os custos adicionais. Alguns desses custos são descontados para contas do MSDN. Por exemplo, você paga o preço do Linux para VMs que executam o Windows Server e não há nenhum custo adicional para servidores da Microsoft, como Microsoft SQL Server. Isso torna as contas do MSDN ideais para cenários de desenvolvimento e teste.
 
-**Contas do BizSpark**: O programa Microsoft BizSpark fornece muitos benefícios para as inicializações. Um desses benefícios é o acesso a todos os softwares da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Você obtém $150 no crédito do Azure para cada uma dessas cinco contas do MSDN e paga taxas reduzidas para vários dos serviços do Azure, como máquinas virtuais.
+**Contas do BizSpark**: o programa Microsoft BizSpark fornece muitos benefícios para as inicializações. Um desses benefícios é o acesso a todos os softwares da Microsoft para ambientes de desenvolvimento e teste para até cinco contas do MSDN. Você obtém $150 no crédito do Azure para cada uma dessas cinco contas do MSDN e paga taxas reduzidas para vários dos serviços do Azure, como máquinas virtuais.
 
-Pré- **pago**: Com essa assinatura, você paga pelo que usa anexando um cartão de crédito ou débito à conta. Se você for uma organização, também poderá ser aprovado para faturamento.
+Pré- **pago**: com essa assinatura, você paga pelo que usa anexando um cartão de crédito ou débito à conta. Se você for uma organização, também poderá ser aprovado para faturamento.
 
-**Enterprise Agreements**: Com um Enterprise Agreement, você se compromete a usar um determinado número de serviços no Azure no próximo ano e paga esse valor antecipadamente. O compromisso que você faz é consumido ao longo do ano. Se você exceder o valor de compromisso, poderá pagar o excedente em pelos débitos anteriores. Dependendo do valor do compromisso, você receberá um desconto sobre os serviços no Azure.
+**Enterprise Agreements**: com um Enterprise Agreement, você se compromete a usar um determinado número de serviços no Azure no próximo ano e paga esse valor antecipadamente. O compromisso que você faz é consumido ao longo do ano. Se você exceder o valor de compromisso, poderá pagar o excedente em pelos débitos anteriores. Dependendo do valor do compromisso, você receberá um desconto sobre os serviços no Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Conceder acesso administrativo a uma assinatura do Azure
 
-O RBAC tem várias funções internas que você pode usar para atribuir permissões. Para tornar um usuário um administrador de uma assinatura do Azure, atribua a ele a função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) no escopo da assinatura. A função proprietário dá ao usuário acesso completo a todos os recursos na assinatura, incluindo o direito de delegar acesso a outras pessoas.
+O RBAC tem várias funções internas que você pode usar para atribuir permissões. Para tornar um usuário um administrador de uma assinatura do Azure, atribua a ele a função de [proprietário](../../role-based-access-control/built-in-roles.md#owner) no escopo da assinatura. A função Proprietário dá ao utilizador acesso total a todos os recursos na subscrição, incluindo o direito de delegar o acesso a outras pessoas.
 
-Para obter mais informações, consulte [gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Exibir informações de cobrança no portal do Azure
 
@@ -216,13 +216,13 @@ Além de exibir a cobrança no portal, você pode acessar as informações de co
 
 - Você pode usar a API do cartão de taxas do Azure para listar todos os recursos disponíveis, juntamente com os metadados e as informações de preços sobre cada um desses recursos.
 
-Para obter mais informações, consulte [obter percepções sobre o consumo de recursos do Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
+Para obter mais informações, veja [Gain insights into your Microsoft Azure resource consumption](../../billing/billing-usage-rate-card-overview.md) (Obter informações sobre o consumo de recursos do Microsoft Azure).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Custo de previsão com a calculadora de preços
 
 O preço de cada serviço no Azure é diferente. Muitos serviços do Azure fornecem camadas básica, Standard e Premium. Normalmente, cada camada tem vários níveis de preço e desempenho. Usando a [calculadora de preços online](https://azure.microsoft.com/pricing/calculator), você pode criar estimativas de preços. A calculadora inclui flexibilidade para estimar o custo em um único recurso ou em um grupo de recursos.
 
-## <a name="azure-resource-manager"></a>Azure Resource Manager
+## <a name="azure-resource-manager"></a>Gestor de Recursos do Azure
 
 Azure Resource Manager é um mecanismo de implantação, gerenciamento e organização para recursos do Azure. Usando o Resource Manager, você pode colocar vários recursos individuais juntos em um grupo de recursos.
 
@@ -266,21 +266,21 @@ Os modelos do Resource Manager definem declarativamente os recursos e as configu
 
 Um modelo do Resource Manager consiste em quatro seções:
 
-- **Parâmetros**: Essas são entradas para a implantação. Os valores de parâmetro podem ser fornecidos por um processo humano ou automatizado. Um parâmetro de exemplo pode ser um nome de usuário e uma senha de administrador para uma VM do Windows. Os valores de parâmetro são usados em toda a implantação quando eles são especificados.
+- **Parâmetros**: são entradas para a implantação. Os valores de parâmetro podem ser fornecidos por um processo humano ou automatizado. Um parâmetro de exemplo pode ser um nome de usuário e uma senha de administrador para uma VM do Windows. Os valores de parâmetro são usados em toda a implantação quando eles são especificados.
 
-- **Variáveis**: Eles são usados para manter os valores que são usados em toda a implantação. Ao contrário dos parâmetros, um valor de variável não é fornecido no momento da implantação. Em vez disso, ele é embutido em código ou gerado dinamicamente.
+- **Variáveis**: elas são usadas para armazenar valores que são usados em toda a implantação. Ao contrário dos parâmetros, um valor de variável não é fornecido no momento da implantação. Em vez disso, ele é embutido em código ou gerado dinamicamente.
 
 - **Recursos**: Esta seção do modelo define os recursos a serem implantados, como máquinas virtuais, contas de armazenamento e redes virtuais.
 
-- **Saída**: Após a conclusão de uma implantação, o Resource Manager pode retornar dados como cadeias de conexão geradas dinamicamente.
+- **Saída**: após a conclusão de uma implantação, o Resource Manager pode retornar dados como cadeias de conexão geradas dinamicamente.
 
 Os seguintes mecanismos estão disponíveis para automação de implantação:
 
-- **Funções**: Você pode usar várias funções em modelos do Resource Manager. Isso inclui operações como converter uma cadeia de caracteres em minúsculas, implantar várias instâncias de um recurso definido e retornar dinamicamente o grupo de recursos de destino. As funções do Resource Manager ajudam a criar implantações dinâmicas.
+- **Funções**: você pode usar várias funções em modelos do Resource Manager. Isso inclui operações como converter uma cadeia de caracteres em minúsculas, implantar várias instâncias de um recurso definido e retornar dinamicamente o grupo de recursos de destino. As funções do Resource Manager ajudam a criar implantações dinâmicas.
 
-- **Dependências de recurso**: Quando você estiver implantando vários recursos, alguns recursos terão uma dependência de outras pessoas. Para facilitar a implantação, você pode usar uma declaração de dependência para que os recursos dependentes sejam implantados antes dos outros.
+- **Dependências de recursos**: quando você estiver implantando vários recursos, alguns recursos terão uma dependência de outras pessoas. Para facilitar a implantação, você pode usar uma declaração de dependência para que os recursos dependentes sejam implantados antes dos outros.
 
-- **Vinculação de modelo**: De dentro de um modelo do Resource Manager, você pode vincular a outro modelo. Isso permite a decomposição da implantação em um conjunto de modelos direcionados a propósitos específicos.
+- **Vinculação de modelo**: de dentro de um modelo do Resource Manager, você pode vincular a outro modelo. Isso permite a decomposição da implantação em um conjunto de modelos direcionados a propósitos específicos.
 
 Você pode criar modelos do Resource Manager em qualquer editor de texto. No entanto, o SDK do Azure para Visual Studio inclui ferramentas para ajudá-lo. Usando o Visual Studio, você pode adicionar recursos ao modelo por meio de um assistente e, em seguida, implantar e depurar o modelo diretamente no Visual Studio. Para obter mais informações, consulte [criando modelos de Azure Resource Manager](../../resource-group-authoring-templates.md).
 
@@ -294,19 +294,19 @@ Para conceder acesso, atribua uma função ao usuário ou ao grupo de usuários.
 
 Aqui estão algumas [funções internas de exemplo no Azure](../../role-based-access-control/built-in-roles.md):
 
-- **Proprietário**: Um usuário com essa função pode gerenciar tudo, incluindo o acesso.
+- **Proprietário**: um usuário com essa função pode gerenciar tudo, incluindo o acesso.
 
-- **Leitor**: Um usuário com essa função pode ler recursos de todos os tipos (exceto segredos), mas não pode fazer alterações.
+- **Leitor**: um usuário com essa função pode ler recursos de todos os tipos (exceto segredos), mas não pode fazer alterações.
 
-- **Colaborador da máquina virtual**: Um usuário com essa função pode gerenciar máquinas virtuais, mas não pode gerenciar a rede virtual à qual elas estão conectadas ou a conta de armazenamento onde o arquivo VHD reside.
+- **Colaborador da máquina virtual**: um usuário com essa função pode gerenciar máquinas virtuais, mas não pode gerenciar a rede virtual à qual elas estão conectadas ou a conta de armazenamento onde o arquivo VHD reside.
 
-- **Colaborador do BD SQL**: Um usuário com essa função pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à segurança.
+- **Colaborador do banco**de dados SQL: um usuário com essa função pode gerenciar bancos de dados SQL, mas não suas políticas relacionadas à segurança.
 
-- **Gerenciador de segurança do SQL**: Um usuário com essa função pode gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL.
+- **Gerenciador de segurança do SQL**: um usuário com essa função pode gerenciar as políticas relacionadas à segurança de servidores e bancos de dados SQL.
 
-- **Colaborador da conta de armazenamento**: Um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
+- **Colaborador da conta de armazenamento**: um usuário com essa função pode gerenciar contas de armazenamento, mas não pode gerenciar o acesso às contas de armazenamento.
 
-Para obter mais informações, consulte [gerenciar o acesso usando RBAC e o portal do Azure](../../role-based-access-control/role-assignments-portal.md).
+Para obter mais informações, veja [Gerir o acesso através do RBAC e do portal do Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Máquinas Virtuais do Azure
 
@@ -350,9 +350,9 @@ Você gerencia o acesso à máquina virtual por meio do endereço IP público us
 
 Por fim, como no gerenciamento de qualquer sistema de computador, você deve fornecer segurança para uma máquina virtual do Azure no sistema operacional usando credenciais de segurança e firewalls de software.
 
-## <a name="azure-storage"></a>Storage do Azure
+## <a name="azure-storage"></a>Armazenamento do Azure
 
-O armazenamento do Azure é um serviço gerenciado pela Microsoft que fornece armazenamento durável, escalonável e redundante. Você pode adicionar uma conta de armazenamento do Azure como um recurso a qualquer grupo de recursos usando qualquer método de implantação de recurso. O Azure inclui quatro tipos de armazenamento: Armazenamento de BLOBs, armazenamento de arquivos, armazenamento de tabelas e armazenamento de filas. Ao implantar uma conta de armazenamento, dois tipos de conta estão disponíveis, uso geral e armazenamento de BLOBs. Uma conta de armazenamento de uso geral fornece acesso a todos os quatro tipos de armazenamento. As contas de armazenamento de BLOBs são semelhantes às contas de uso geral, mas contêm BLOBs especializados que incluem camadas de acesso quente e frio. Para obter mais informações sobre o armazenamento de BLOBs, consulte [armazenamento de BLOBs do Azure](../../storage/blobs/storage-blob-storage-tiers.md).
+O armazenamento do Azure é um serviço gerenciado pela Microsoft que fornece armazenamento durável, escalonável e redundante. Você pode adicionar uma conta de armazenamento do Azure como um recurso a qualquer grupo de recursos usando qualquer método de implantação de recurso. O Azure inclui quatro tipos de armazenamento: armazenamento de BLOBs, armazenamento de arquivos, armazenamento de tabelas e armazenamento de filas. Ao implantar uma conta de armazenamento, dois tipos de conta estão disponíveis, uso geral e armazenamento de BLOBs. Uma conta de armazenamento de uso geral fornece acesso a todos os quatro tipos de armazenamento. As contas de armazenamento de BLOBs são semelhantes às contas de uso geral, mas contêm BLOBs especializados que incluem camadas de acesso quente e frio. Para obter mais informações sobre o armazenamento de BLOBs, consulte [armazenamento de BLOBs do Azure](../../storage/blobs/storage-blob-storage-tiers.md).
 
 As contas de armazenamento do Azure podem ser configuradas com diferentes níveis de redundância:
 
@@ -374,9 +374,9 @@ O armazenamento do Azure dá suporte a três tipos de BLOBs:
 
 - **Blobs de blocos** são usados para manter arquivos comuns de até 195 GB de tamanho (blocos de 4 MB × 50.000). O caso de uso primário para BLOBs de blocos é o armazenamento de arquivos que são lidos do início ao fim, como arquivos de mídia ou arquivos de imagem para sites. Elas são nomeadas blobs de blocos porque os arquivos com mais de 64 MB devem ser carregados como pequenos blocos. Esses blocos são então consolidados (ou confirmados) no blob final.
 
-- Os blobs de **páginas** são usados para manter arquivos de acesso aleatório de até 1 TB de tamanho. Os blobs de páginas são usados principalmente como o armazenamento de backup para os VHDs que fornecem discos duráveis para máquinas virtuais do Azure, o serviço de computação IaaS no Azure. Eles são chamados de blobs de páginas porque fornecem acesso aleatório de leitura/gravação a páginas de 512 bytes.
+- Os **blobs de páginas** são usados para manter arquivos de acesso aleatório de até 1 TB de tamanho. Os blobs de páginas são usados principalmente como o armazenamento de backup para os VHDs que fornecem discos duráveis para máquinas virtuais do Azure, o serviço de computação IaaS no Azure. Eles são chamados de blobs de páginas porque fornecem acesso aleatório de leitura/gravação a páginas de 512 bytes.
 
-- Os blobs de **acréscimo** consistem em blocos como BLOBs de blocos, mas são otimizados para operações de acréscimo. Eles são usados frequentemente para registrar informações de uma ou mais fontes no mesmo BLOB. Por exemplo, você pode gravar todo o log de rastreamento no mesmo blob de acréscimo para um aplicativo em execução em várias VMs. Um único blob de acréscimo pode ter até 195 GB.
+- Os **blobs de acréscimo** consistem em blocos como BLOBs de blocos, mas são otimizados para operações de acréscimo. Eles são usados frequentemente para registrar informações de uma ou mais fontes no mesmo BLOB. Por exemplo, você pode gravar todo o log de rastreamento no mesmo blob de acréscimo para um aplicativo em execução em várias VMs. Um único blob de acréscimo pode ter até 195 GB.
 
 Para obter mais informações, consulte Introdução [ao armazenamento de BLOBs do Azure usando o .net](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
@@ -388,7 +388,7 @@ Como um compartilhamento de armazenamento de arquivos é um compartilhamento de 
 
 Para obter mais informações, consulte Introdução [ao armazenamento de arquivos do Azure no Windows](../../storage/files/storage-how-to-use-files-windows.md) ou [como usar o armazenamento de arquivos do Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
-#### <a name="table-storage"></a>Armazenamento de tabelas
+#### <a name="table-storage"></a>Armazenamento de tabela
 
 O Table Storage do Azure é um serviço que armazena dados NoSQL estruturados na nuvem. O armazenamento de tabela é um repositório de chave/atributo com um design sem esquema. Como o armazenamento de tabela é sem esquema, é fácil adaptar seus dados à medida que as necessidades do seu aplicativo evoluem. O acesso aos dados é rápido e rentável para todos os tipos de aplicações. Geralmente, o custo do Table Storage é significativamente inferior ao SQL tradicional para volumes de dados semelhantes.
 
@@ -461,7 +461,6 @@ Uma rede virtual do Azure, por padrão, é acessível somente para os recursos a
 ### <a name="hybrid-virtual-networks"></a>Redes virtuais híbridas
 
 Você pode conectar uma rede local a uma rede virtual do Azure usando o ExpressRoute ou uma conexão VPN site a site. Nessa configuração, a rede virtual do Azure é essencialmente uma extensão baseada em nuvem de sua rede local.
-![Rede virtual híbrida usando VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Como a rede virtual do Azure está conectada à sua rede local, as redes virtuais entre instalações devem usar uma parte exclusiva do espaço de endereço que sua organização usa. Da mesma forma que diferentes locais corporativos são atribuídos a uma sub-rede IP específica, o Azure torna-se outro local à medida que você estende sua rede.
 Há várias opções para implantar uma rede virtual.
@@ -474,15 +473,15 @@ Há várias opções para implantar uma rede virtual.
 
 - Modelos de Azure Resource Manager
 
-> **Quando usar**: Sempre que estiver trabalhando com VMs no Azure, você trabalhará com redes virtuais. Isso permite segmentar suas VMs em sub-redes públicas e privadas, de forma semelhante, de data centers locais semelhantes.
+> **Quando usar**: a qualquer momento que você estiver trabalhando com VMs no Azure, você trabalhará com redes virtuais. Isso permite segmentar suas VMs em sub-redes públicas e privadas, de forma semelhante, de data centers locais semelhantes.
 > 
-> **Introdução**: A implantação de uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual no portal, poderá selecionar uma rede virtual existente ou criar uma nova. Comece e [crie uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md).
+> **Introdução**: implantar uma rede virtual do Azure usando o portal do Azure requer apenas uma assinatura ativa do Azure e o acesso a um navegador da Web. Você pode implantar uma nova rede virtual em um grupo de recursos novo ou existente. Quando você estiver criando uma nova máquina virtual no portal, poderá selecionar uma rede virtual existente ou criar uma nova. Comece e [crie uma rede virtual usando o portal do Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Acesso e segurança para redes virtuais
 
 Você pode ajudar a proteger redes virtuais do Azure usando um grupo de segurança de rede. NSGs contém uma lista de regras de ACL (lista de controle de acesso) que permitem ou negam o tráfego de rede para suas instâncias de VM em uma rede virtual. Você pode associar NSGs a sub-redes ou a instâncias de VM individuais dentro dessa sub-rede. Quando você associa um NSG a uma sub-rede, as regras de ACL se aplicam a todas as instâncias de VM nessa sub-rede. Além disso, você pode restringir ainda mais o tráfego para uma VM individual associando um NSG diretamente a essa VM. Para obter mais informações, veja [Filtrar o tráfego de rede com grupos de segurança de rede](../../virtual-network/security-overview.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma VM do Windows](../../virtual-machines/windows/quick-create-portal.md)
 - [Criar uma VM de Linux](../../virtual-machines/linux/quick-create-portal.md)

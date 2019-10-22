@@ -11,13 +11,13 @@ author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
 ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "72035674"
 ---
-# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: Crie seu primeiro modelo de classificação com o Machine Learning automatizado
+# <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutorial: criar seu primeiro modelo de classificação com o Machine Learning automatizado
 
 Neste tutorial, você aprenderá a criar seu primeiro experimento de aprendizado de máquina automatizado por meio da página de aterrissagem do espaço de trabalho (versão prévia) sem escrever uma única linha de código. Este exemplo cria um modelo de classificação para prever se um cliente assinará um depósito de termo fixo com uma instituição financeira.
 
@@ -26,10 +26,10 @@ Com o Machine Learning automatizado, você pode automatizar tarefas demoradas. O
 Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Crie uma área de trabalho do Azure Machine Learning.
+> * Crie um espaço de trabalho Azure Machine Learning.
 > * Execute um experimento de aprendizado de máquina automatizado.
 > * Exibir detalhes do experimento.
-> * Implemente o modelo.
+> * Implante o modelo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá a executar as seguintes tarefas:
 
 * Baixe o arquivo de dados [**bankmarketing_train. csv**](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) . A coluna **y** indica se um cliente assinou um depósito de termo fixo, que é posteriormente identificado como a coluna de destino para previsões neste tutorial. 
 
-## <a name="create-a-workspace"></a>Criar uma área de trabalho
+## <a name="create-a-workspace"></a>Criar áreas de trabalho
 
 Um espaço de trabalho Azure Machine Learning é um recurso fundamental na nuvem que você usa para experimentar, treinar e implantar modelos de aprendizado de máquina. Ele vincula sua assinatura do Azure e o grupo de recursos a um objeto facilmente consumido no serviço. 
 
@@ -73,7 +73,7 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
    Campo | Descrição | Valor do tutorial
    ----|---|---
    Nome da computação |Um nome exclusivo que identifica o contexto de computação.|automl-computação
-   Virtual @ no__t-0machine @ no__t-1size| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
+   @No__t_1size &nbsp;machine virtual| Selecione o tamanho da máquina virtual para sua computação.|Standard_DS12_V2
    Nós mín./máx. (em configurações avançadas)| Para criar o perfil de dados, você deve especificar um ou mais nós.|Nós mínimos: 1<br>Máximo de nós: 6
 
    >[!NOTE]
@@ -102,10 +102,10 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
         Campo|Descrição| Valor do tutorial
         ---|---|---
         Formato de arquivo|Define o layout e o tipo de dados armazenados em um arquivo.| Delimitados
-        Delimitador|Um ou mais caracteres para especificar o limite entre @ no__t-0 regiões separadas e independentes em texto sem formatação ou outros fluxos de dados. |Pontos
-        Codificação|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
-        Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os ficheiros têm os mesmos cabeçalhos
-        Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhum
+        Delimitador|Um ou mais caracteres para especificar o limite entre &nbsp; regiões separadas e independentes em texto sem formatação ou outros fluxos de dados. |Pontos
+        Encoding|Identifica o bit para a tabela de esquema de caractere a ser usada para ler seu conjunto de seus.| UTF-8
+        Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de uma, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
+        Ignorar linhas | Indica quantas linhas, se houver, são ignoradas no conjunto de registros.| Nenhuma
     
         ![Configuração da guia de visualização](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
@@ -118,10 +118,10 @@ Você conclui as seguintes etapas de configuração e execução de experimento 
    >[!NOTE]
    > Neste tutorial, você não definirá uma pontuação de métrica ou um limite máximo de núcleos por iterações. Nem você bloqueará o teste de algoritmos.
    
-   Avançado @ no__t-0settings|Descrição|Valor @ no__t-0for @ no__t-1tutorial
+   @No__t_0settings avançado|Descrição|Valor &nbsp;for &nbsp;tutorial
    ------|---------|---
    Métrica primária| Métrica de avaliação para a qual o algoritmo de aprendizado de máquina será medido.|AUC_weighted
-   Critérios de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |Treinamento @ no__t-0job @ no__t-1time: 5 <br> <br> Max @ no__t-0 @ no__t-1 @ no__t-2of @ no__t-3iterations&#58;10
+   Critérios de saída| Se um critério for atendido, o trabalho de treinamento será interrompido. |@No__t_0job de treinamento &nbsp;time: 5 <br> <br> Máximo de &nbsp; # &nbsp;of&#58;&nbsp;iterations 10
    Pré-processamento| Habilita o pré-processamento feito pelo aprendizado de máquina automatizado. Isso inclui a limpeza automática de dados, a preparação e a transformação para gerar recursos sintéticos.| Ativar
    Tipo de validação | Escolha um tipo de validação cruzada.|Validação cruzada de K-fold
    Número de validações | Número de testes. | 2 validações cruzadas 
@@ -156,7 +156,7 @@ Nesse contexto de experimento, **VotingEnsemble** é considerado o melhor modelo
 
 1. Preencha o painel **implantar melhor modelo** da seguinte maneira:
 
-    Campo| Value
+    Campo| Valor
     ----|----
     Nome da implantação| meu-automl-implantar
     Descrição da implantação| Minha primeira implantação de experimento automatizada do Machine Learning
@@ -200,5 +200,5 @@ Neste tutorial de aprendizado de máquina automatizado, você usou a página de 
 + Para obter mais informações sobre métricas de classificação e gráficos, consulte o artigo [entender os resultados automatizados do Machine Learning](how-to-understand-automated-ml.md#classification) .
 
 >[!NOTE]
-> Esse conjunto @no__t de 0Creative de marketing bancário é disponibilizado sob o (CCO: Domínio público) licença @ no__t-0. Todos os direitos no conteúdo individual do banco de dados são licenciados sob a [licença de conteúdo do banco de dados](https://creativecommons.org/publicdomain/zero/1.0/) e estão disponíveis em [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Esse conjunto de dados estava originalmente disponível no [banco de dados de Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
+> Esse conjunto de Cco de marketing bancário é disponibilizado na [licença Creative Commons (: Public Domain)](https://creativecommons.org/publicdomain/zero/1.0/). Todos os direitos no conteúdo individual do banco de dados são licenciados sob a [licença de conteúdo do banco de dados](https://creativecommons.org/publicdomain/zero/1.0/) e estão disponíveis em [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Esse conjunto de dados estava originalmente disponível no [banco de dados de Machine Learning UCI](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
 > [Moro et al., 2014] S. moro, P. Cortez e P. Rita. Uma abordagem controlada por dados para prever o sucesso do telemarketing bancário. Sistemas de suporte a decisões, Elsevier, 62:22-31, junho 2014.
