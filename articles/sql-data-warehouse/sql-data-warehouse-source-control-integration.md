@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098748"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Integração de controle do código-fonte para o Azure SQL Data Warehouse
@@ -37,7 +37,7 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
    ![Gerenciar conexões](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerenciar conexões")
 
-   ![Conectar](media/sql-data-warehouse-source-control-integration/3-connect.png "Conectar")
+   ![Ligar](media/sql-data-warehouse-source-control-integration/3-connect.png "Ligar")
 
 3. Clone seu repositório do Azure repositório do seu projeto para seu computador local
 
@@ -55,7 +55,7 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 3. No Team Explorer no Visual Studio, confirme suas alterações em seu repositório git local 
 
-   ![Confirmar](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Confirmar")  
+   ![Compromisso](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Consolidação")  
 
 4. Agora que você tem as alterações confirmadas localmente no repositório clonado, sincronize e envie por push suas alterações para o repositório do Azure repositório no seu projeto DevOps do Azure.
 
@@ -71,15 +71,15 @@ Este tutorial descreve como integrar seu projeto de banco de dados SSDT (SQL Ser
 
 2. Confirme e envie por push a alteração do repositório local para o repositório do Azure
 
-   ![Enviar alterações por push](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Enviar alterações por push")
+   ![Enviar alterações por push](media/sql-data-warehouse-source-control-integration/9-push-column-change.png "Emitir alterações")
 
 3. Verifique se a alteração foi enviada por push em seu repositório do Azure Repository
 
-   ![Verificar](media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificar alterações")
+   ![Confirme](media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificar alterações")
 
 4. (**Opcional**) Use a comparação de esquemas e atualize as alterações para seu destino data warehouse usando o SSDT para garantir que as definições de objeto no repositório do Azure Repository e no repositório local reflitam suas data warehouse
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Desenvolvendo para o Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
 

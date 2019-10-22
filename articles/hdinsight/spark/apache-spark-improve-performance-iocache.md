@@ -8,10 +8,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266188"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Melhorar o desempenho de cargas de trabalho de Apache Spark usando o cache de e/s do Azure HDInsight
@@ -27,7 +27,7 @@ A maioria dos SSDs fornece mais de 1 GB por segundo de largura de banda. Essa la
 
 Usar o cache de e/s fornece um aumento de desempenho para trabalhos que lêem dados do armazenamento de BLOBs do Azure.
 
-Você não precisa fazer nenhuma alteração em seus trabalhos do Spark para ver o aumento de desempenho ao usar o cache de e/s. Quando o cache de e/s está desabilitado, este código Spark lê os dados remotamente `spark.read.load('wasbs:///myfolder/data.parquet').count()`do armazenamento de BLOBs do Azure:. Quando o cache de e/s é ativado, a mesma linha de código causa uma leitura em cache do cache de e/s. Nas leituras a seguir, os dados são lidos localmente do SSD. Os nós de trabalho no cluster HDInsight são equipados com unidades SSD dedicadas localmente anexadas. O cache de e/s do HDInsight usa esses SSDs locais para caching, que fornece o nível mais baixo de latência e maximiza a largura de banda.
+Você não precisa fazer nenhuma alteração em seus trabalhos do Spark para ver o aumento de desempenho ao usar o cache de e/s. Quando o cache de e/s está desabilitado, este código Spark lê dados remotamente do armazenamento de BLOBs do Azure: `spark.read.load('wasbs:///myfolder/data.parquet').count()`. Quando o cache de e/s é ativado, a mesma linha de código causa uma leitura em cache do cache de e/s. Nas leituras a seguir, os dados são lidos localmente do SSD. Os nós de trabalho no cluster HDInsight são equipados com unidades SSD dedicadas localmente anexadas. O cache de e/s do HDInsight usa esses SSDs locais para caching, que fornece o nível mais baixo de latência e maximiza a largura de banda.
 
 ## <a name="getting-started"></a>Introdução
 
@@ -68,9 +68,9 @@ Você pode obter erros de espaço em disco executando trabalhos do Spark depois 
 
 1. Selecione **salvar** no canto superior direito.
 
-1. Selecione **reiniciar** > **reiniciar todos os afetados**.
+1. Selecione **reiniciar**  > **reiniciar todos os afetados**.
 
-    O ![Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
+    ![O Apache Ambari reinicia todos os afetados](./media/apache-spark-improve-performance-iocache/ambariui-restart-all-affected.png "Reiniciar todos os afetados")
 
 1. Selecione **confirmar reiniciar tudo**.
 

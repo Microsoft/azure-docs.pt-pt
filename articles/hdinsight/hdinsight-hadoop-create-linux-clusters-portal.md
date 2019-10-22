@@ -9,10 +9,10 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71677091"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Criar clusters baseados em Linux no HDInsight usando o portal do Azure
@@ -36,7 +36,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No menu à esquerda, navegue até **+ criar uma** >  **análise** > de recursos**HDInsight**.
+1. No menu à esquerda, navegue até **+ criar um recurso**  >  **Analytics**  > **HDInsight**.
 
     ![Criar um novo cluster no portal do Azure](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster.png "Criando um novo cluster no portal do Azure")
 
@@ -73,7 +73,7 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
 1. De **2 segurança + rede**, você pode conectar o cluster a uma rede virtual usando o menu suspenso fornecido. Selecione uma rede virtual do Azure e a sub-rede se você quiser posicionar o cluster em uma rede virtual. Para obter informações sobre como usar o HDInsight com uma rede virtual, consulte [planejar uma implantação de rede virtual para clusters do Azure HDInsight](hdinsight-plan-virtual-network-deployment.md). O artigo inclui requisitos de configuração específicos para a rede virtual.
 
-    Se você quiser usar o **Enterprise Security Package**, siga estas instruções: [Configure um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
+    Se você quiser usar o **Enterprise Security Package**, siga estas instruções: [configurar um cluster HDInsight com Enterprise Security Package usando Azure Active Directory Domain Services](https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds).
 
     Selecione **Avançar** para ir para a próxima página.
 
@@ -83,8 +83,8 @@ O portal do Azure expõe a maioria das propriedades do cluster. Usando modelos d
 
      | Armazenamento                                      | Descrição |
      |----------------------------------------------|-------------|
-     | **Blobs de armazenamento do Azure como o armazenamento padrão**   | <ul><li>Para **tipo de armazenamento primário**, selecione **armazenamento do Azure**. Para o **método de seleção**, escolha **minhas assinaturas** se desejar especificar uma conta de armazenamento que faça parte de sua assinatura do Azure. Em seguida, selecione a conta de armazenamento. Caso contrário, selecione **chave de acesso**. Em seguida, forneça as informações para a conta de armazenamento que você deseja escolher fora de sua assinatura do Azure.</li><li>Para o **contêiner padrão**, escolha o nome de contêiner padrão sugerido pelo portal ou especifique seu próprio.</li><li>Se o armazenamento de BLOBs do Azure for seu armazenamento padrão, você também poderá selecionar **contas de armazenamento adicionais** para especificar contas de armazenamento adicionais a serem associadas ao cluster. Para **chaves de armazenamento do Azure**, selecione **Adicionar uma chave de armazenamento**. Em seguida, você pode fornecer uma conta de armazenamento de suas assinaturas do Azure ou de outras assinaturas. Forneça a chave de acesso da conta de armazenamento.</li><li>Se o armazenamento de BLOBs for seu armazenamento padrão, você também poderá selecionar **Data Lake Storage acesso** para especificar Azure data Lake Storage como armazenamento adicional. Para obter mais informações, [consulte início rápido: Configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
-     | **Azure Data Lake Storage como o armazenamento padrão** | Para **tipo de armazenamento primário**, selecione **Azure data Lake Storage Gen1** ou **Azure data Lake Storage Gen2**. Em seguida, consulte o [artigo início rápido: Configure clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para obter instruções. |
+     | **Blobs de armazenamento do Azure como o armazenamento padrão**   | <ul><li>Para **tipo de armazenamento primário**, selecione **armazenamento do Azure**. Para o **método de seleção**, escolha **minhas assinaturas** se desejar especificar uma conta de armazenamento que faça parte de sua assinatura do Azure. Em seguida, selecione a conta de armazenamento. Caso contrário, selecione **chave de acesso**. Em seguida, forneça as informações para a conta de armazenamento que você deseja escolher fora de sua assinatura do Azure.</li><li>Para o **contêiner padrão**, escolha o nome de contêiner padrão sugerido pelo portal ou especifique seu próprio.</li><li>Se o armazenamento de BLOBs do Azure for seu armazenamento padrão, você também poderá selecionar **contas de armazenamento adicionais** para especificar contas de armazenamento adicionais a serem associadas ao cluster. Para **chaves de armazenamento do Azure**, selecione **Adicionar uma chave de armazenamento**. Em seguida, você pode fornecer uma conta de armazenamento de suas assinaturas do Azure ou de outras assinaturas. Forneça a chave de acesso da conta de armazenamento.</li><li>Se o armazenamento de BLOBs for seu armazenamento padrão, você também poderá selecionar **Data Lake Storage acesso** para especificar Azure data Lake Storage como armazenamento adicional. Para obter mais informações, consulte [início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).</li></ul> |
+     | **Azure Data Lake Storage como o armazenamento padrão** | Para **tipo de armazenamento primário**, selecione **Azure data Lake Storage Gen1** ou **Azure data Lake Storage Gen2**. Em seguida, consulte o artigo [início rápido: configurar clusters no HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) para obter instruções. |
      | **Metastores externos**                      | Como opção, especifique um banco de dados SQL para salvar Apache Hive e os metadados do Apache Oozie associados ao cluster. Para **selecionar um banco de dados SQL para Hive**, selecione um banco de dados SQL. Em seguida, forneça o nome de usuário e a senha para o banco de dados. Repita essas etapas para os metadados do Oozie.<br><br>Algumas considerações sobre como usar o banco de dados SQL do Azure para metastores são as seguintes: <ul><li>O banco de dados SQL do Azure que é usado para o metastore deve permitir a conectividade com outros serviços do Azure, incluindo o Azure HDInsight. No lado direito do painel do banco de dados SQL do Azure, selecione o nome do servidor. Esse servidor é aquele em que a instância do banco de dados SQL é executada. Depois de estar na exibição do servidor, selecione **Configurar**. Em seguida, para os **Serviços do Azure**, selecione **Sim**. Em seguida, selecione **Guardar**.</li><li>Quando você cria um metastore, não nomeie um banco de dados com traços ou hifens. Esses caracteres podem causar falha no processo de criação do cluster.</li></ul> |
 
      > [!WARNING]  
@@ -167,5 +167,5 @@ Você criou um cluster HDInsight com êxito. Agora, saiba como trabalhar com o c
 
 * [Criar um aplicativo autônomo usando escalabilidade](spark/apache-spark-create-standalone-application.md)
 * [Executar trabalhos remotamente em um cluster Apache Spark usando o Apache Livy](spark/apache-spark-livy-rest-interface.md)
-* [Apache Spark com BI: Executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
-* [Apache Spark com Machine Learning: Usar o Spark no HDInsight para prever os resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Apache Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](spark/apache-spark-use-bi-tools.md)
+* [Apache Spark com Machine Learning: Use o Spark no HDInsight para prever os resultados da inspeção de alimentos](spark/apache-spark-machine-learning-mllib-ipython.md)

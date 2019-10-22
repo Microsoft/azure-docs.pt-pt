@@ -10,14 +10,14 @@ ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c048dcf31d8f434f742d2da9351ef9b46f0a71d4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69650066"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Dimensionar partições e réplicas para cargas de trabalho de consulta e indexação no Azure Search
-Depois de [escolher um tipo de preço](search-sku-tier.md) e provisionar [um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, opcionalmente, aumentar o número de réplicas ou partições usadas pelo seu serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra seus requisitos de execução de consulta, indexação e armazenamento.
+Depois de [escolher um tipo de preço](search-sku-tier.md) e [provisionar um serviço de pesquisa](search-create-service-portal.md), a próxima etapa é, opcionalmente, aumentar o número de réplicas ou partições usadas pelo seu serviço. Cada camada oferece um número fixo de unidades de cobrança. Este artigo explica como alocar essas unidades para obter uma configuração ideal que equilibra seus requisitos de execução de consulta, indexação e armazenamento.
 
 A configuração de recursos está disponível quando você configura um serviço na [camada básica](https://aka.ms/azuresearchbasic) ou em uma das [camadas padrão ou de armazenamento otimizado](search-limits-quotas-capacity.md). Para serviços nessas camadas, a capacidade é comprada em incrementos de *unidades de pesquisa* (SUS), em que cada partição e réplica contam como uma su. 
 
@@ -29,7 +29,7 @@ Usar menos SUs resulta em uma fatura proporcionalmente menor. A cobrança estar�
 ## <a name="terminology-replicas-and-partitions"></a>Terminologia: réplicas e partições
 Réplicas e partições são os recursos principais que retornam um serviço de pesquisa.
 
-| Resource | Definição |
+| Recurso | Definição |
 |----------|------------|
 |*Partições* | Fornece armazenamento de índice e e/s para operações de leitura/gravação (por exemplo, ao recompilar ou atualizar um índice).|
 |*Réplicas* | Instâncias do serviço de pesquisa, usadas principalmente para balancear a carga de operações de consulta. Cada réplica sempre hospeda uma cópia de um índice. Se você tiver 12 réplicas, terá 12 cópias de cada índice carregado no serviço.|
@@ -92,7 +92,7 @@ Todos os serviços de pesquisa padrão e de armazenamento otimizados podem assum
 | **4 réplicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
 | **5 réplicas** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
 | **6 réplicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
-| **12 réplicas** |12 SU |24 SU |36 SU |N/A |N/D |N/A |
+| **12 réplicas** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
 
 O SUs, os preços e a capacidade são explicados em detalhes no site do Azure. Para obter mais informações, consulte [detalhes de preços](https://azure.microsoft.com/pricing/details/search/).
 

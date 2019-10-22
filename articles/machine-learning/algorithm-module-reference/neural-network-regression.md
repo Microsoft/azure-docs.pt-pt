@@ -1,5 +1,5 @@
 ---
-title: 'Regressão de rede neural: Referência de módulo'
+title: 'Regressão de rede neural: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo de regressão de rede neural no serviço Azure Machine Learning para criar um modelo de regressão usando um algoritmo de rede neural personalizável.
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 93f27458a2571b2e26a090c06b01d8abe3e79c2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128576"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692742"
 ---
 # <a name="neural-network-regression-module"></a>Módulo de regressão de rede neural
 
 *Cria um modelo de regressão usando um algoritmo de rede neural*  
   
- Categorias Machine Learning/inicializar modelo/regressão
+ Categoria: Machine Learning/inicializar modelo/regressão
   
 ## <a name="module-overview"></a>Visão geral do módulo  
 
@@ -52,11 +52,11 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
 
 ##  <a name="bkmk_DefaultArchitecture"></a>Criar um modelo de rede neural usando a arquitetura padrão
   
-1.  Adicione o módulo de regressão de **rede neural** ao seu experimento na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
+1.  Adicione o módulo de **regressão de rede neural** ao seu pipeline na interface. Você pode encontrar esse módulo em **Machine Learning**, **inicializar**, na categoria **regressão** . 
   
 2. Indique como você deseja que o modelo seja treinado, definindo a opção **criar modo de instrutor** .  
   
-    -   **Parâmetro único**: Escolha esta opção se você já souber como deseja configurar o modelo.  
+    -   **Parâmetro único**: escolha esta opção se você já souber como deseja configurar o modelo.  
 
 3.  Em **especificação de camada oculta**, selecione **caso totalmente conectado**. Essa opção cria um modelo usando a arquitetura de rede neural padrão, que, para um modelo de regressão de rede neural, tem estes atributos:  
   
@@ -76,16 +76,16 @@ As redes neurais podem ser amplamente personalizadas. Esta seção descreve como
 
 8.  Para **a dinâmica**, digite um valor a ser aplicado durante o aprendizado como um peso em nós de iterações anteriores.
 
-10. Selecione a opção, **embaralhar exemplos**, para alterar a ordem dos casos entre as iterações. Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o experimento.
+10. Selecione a opção, **embaralhar exemplos**, para alterar a ordem dos casos entre as iterações. Se você desmarcar essa opção, os casos serão processados exatamente na mesma ordem toda vez que você executar o pipeline.
   
-11. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor a ser usado como a semente. A especificação de um valor de semente é útil quando você deseja garantir a capacidade de repetição entre as execuções do mesmo experimento.
+11. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor a ser usado como a semente. A especificação de um valor de semente é útil quando você deseja garantir a capacidade de repetição entre execuções do mesmo pipeline.
   
 13. Conecte um conjunto de uma de treinamento e um dos [módulos de treinamento](module-reference.md): 
   
     -   Se você definir **criar modo de instrutor** como **parâmetro único**, use [treinar modelo](./train-model.md).  
   
    
-14. Execute a experimentação.  
+14. Executar o pipeline.  
 
 ## <a name="results"></a>Resultados
 
@@ -93,9 +93,9 @@ Após a conclusão do treinamento:
 
 + Para ver um resumo dos parâmetros do modelo, junto com os pesos do recurso aprendidos do treinamento e outros parâmetros da rede neural, clique com o botão direito do mouse na saída do [modelo](./train-model.md)de treino e selecione **Visualizar**.  
 
-+ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo experimento.
++ Para salvar um instantâneo do modelo treinado, clique com o botão direito do mouse na saída do **modelo treinado** e selecione **salvar como modelo treinado**. Esse modelo não é atualizado em execuções sucessivas do mesmo pipeline.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 967988d802a1b3d33ff50f578650e44794015583
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550857"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72690834"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
@@ -36,7 +36,7 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 |[Restrições de IP de entrada & acesso ao site privado](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Integração da rede virtual](#virtual-network-integration)|❌No|✅Yes (regional)|✅Yes (regional e gateway)|✅Yes|
 |[Gatilhos de rede virtual (não HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
-|[Ligações Híbridas](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[Ligações Híbridas](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[Restrições de IP de saída](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
 
@@ -127,11 +127,11 @@ Verifique [esta lista para todos os gatilhos não-http](./functions-triggers-bin
 
 ## <a name="hybrid-connections"></a>Ligações Híbridas
 
-[Conexões híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é um recurso da retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Você não pode usá-lo para acessar seu aplicativo. Conexões Híbridas está disponível para funções em execução em um [plano do serviço de aplicativo](functions-scale.md#app-service-plan) e um [ambiente do serviço de aplicativo](../app-service/environment/intro.md).
+[Conexões híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) é um recurso da retransmissão do Azure que você pode usar para acessar recursos do aplicativo em outras redes. Ele fornece acesso de seu aplicativo para um ponto de extremidade do aplicativo. Você não pode usá-lo para acessar seu aplicativo. Conexões Híbridas está disponível para funções em execução em todos, exceto no plano de consumo.
 
 Conforme usado em Azure Functions, cada conexão híbrida se correlaciona com uma única combinação de host e porta de TCP. Isso significa que o ponto de extremidade da conexão híbrida pode estar em qualquer sistema operacional e qualquer aplicativo, desde que você esteja acessando uma porta de escuta TCP. O recurso Conexões Híbridas não conhece ou se preocupa com o que é o protocolo de aplicativo ou o que você está acessando. Ele simplesmente fornece acesso à rede.
 
-Para saber mais, consulte a [documentação do serviço de aplicativo para conexões híbridas](../app-service/app-service-hybrid-connections.md), que oferece suporte a funções em um plano do serviço de aplicativo.
+Para saber mais, consulte a [documentação do serviço de aplicativo para conexões híbridas](../app-service/app-service-hybrid-connections.md), que oferece suporte a funções por meio das mesmas etapas de configuração.
 
 ## <a name="outbound-ip-restrictions"></a>Restrições de IP de saída
 

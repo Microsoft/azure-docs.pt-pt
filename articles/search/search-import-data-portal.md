@@ -10,10 +10,10 @@ ms.date: 10/03/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: 89f43227cfca3519a4985c5c961cf0b3c5774177
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71936914"
 ---
 # <a name="import-data-wizard-for-azure-search"></a>Assistente de importação de dados para Azure Search
@@ -76,7 +76,7 @@ Você deve criar essa tabela ou exibição única antes de executar o assistente
 
 Nos bastidores, o assistente cria, configura e invoca os objetos a seguir. Depois que o assistente for executado, você poderá encontrar sua saída nas páginas do Portal. A página Visão geral do seu serviço tem listas de índices, indexadores, fontes de dados e habilidades. As definições de índice podem ser exibidas em JSON completo no Portal. Para outras definições, você pode usar a [API REST](https://docs.microsoft.com/rest/api/searchservice/) para obter objetos específicos.
 
-| Objeto | Descrição | 
+| Object | Descrição | 
 |--------|-------------|
 | [Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Persiste informações de conexão para dados de origem, incluindo credenciais. Um objeto de fonte de dados é usado exclusivamente com indexadores. | 
 | [Índice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Estrutura de dados física usada para pesquisa de texto completo e outras consultas. | 
@@ -92,7 +92,7 @@ O assistente de importação de dados é iniciado na barra de comandos na págin
 
 2. Na página Visão geral do serviço na parte superior, clique em **importar dados**.
 
-   ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "iniciar o assistente de importação de dados")
+   ![Comando importar dados no portal](./media/search-import-data-portal/import-data-cmd2.png "Iniciar o assistente de importação de dados")
 
 Você também pode iniciar a **importação de dados** de outros serviços do Azure, incluindo Azure Cosmos DB, banco de dados SQL do Azure e armazenamento de BLOBs do Azure. Procure **adicionar Azure Search** no painel de navegação esquerdo na página Visão geral do serviço.
 
@@ -106,7 +106,7 @@ O assistente gera um índice incompleto, que será preenchido com documentos obt
 
 1. O tipo de dados é apropriado para os dados de entrada? O Azure Search dá suporte aos [tipos de dados do EDM (modelo de dados de entidade)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Para dados SQL do Azure, há um [gráfico de mapeamento](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#mapping-between-sql-and-azure-search-data-types) que apresenta valores equivalentes. Para obter mais informações, consulte [mapeamentos de campo e transformações](search-indexer-field-mappings.md).
 
-1. Você tem um campo que pode servir como *chave*? Esse campo deve ser EDM. String e deve identificar um documento exclusivamente. Para dados relacionais, ele pode ser mapeado para uma chave primária. Para BLOBs, pode ser o `metadata-storage-path`. Se os valores de campo incluírem espaços ou traços, você deverá definir a opção de **chave de codificação base-64** na etapa **criar um indexador** , em **Opções avançadas**, para suprimir a verificação de validação para esses caracteres.
+1. Você tem um campo que pode servir como *chave*? Esse campo deve ser EDM. String e deve identificar um documento exclusivamente. Para dados relacionais, ele pode ser mapeado para uma chave primária. Para BLOBs, pode ser a `metadata-storage-path`. Se os valores de campo incluírem espaços ou traços, você deverá definir a opção de **chave de codificação base-64** na etapa **criar um indexador** , em **Opções avançadas**, para suprimir a verificação de validação para esses caracteres.
 
 1. Defina atributos para determinar como esse campo é usado em um índice. 
 

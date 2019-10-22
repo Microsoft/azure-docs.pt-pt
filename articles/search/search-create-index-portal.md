@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: heidist
 ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71937270"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Criar um índice de Azure Search no portal
@@ -27,7 +27,7 @@ O designer de índice é apenas uma abordagem para a criação de um índice. Co
 
 2. Clique no link **Adicionar índice** na barra de comandos na parte superior da página.
 
-   ![Link Adicionar índice na barra de comandos](media/search-create-index-portal/add-index.png "Adicionar link de índice na barra de comandos")
+   ![Adicionar link de índice na barra de comandos](media/search-create-index-portal/add-index.png "Adicionar link de índice na barra de comandos")
 
 3. Atribua um nome ao índice do Azure Search. Os nomes de índice são referenciados em operações de indexação e consulta. O nome do índice passa a fazer parte do URL do ponto final utilizado nas ligações ao índice e para enviar pedidos HTTP na API REST do Azure Search.
 
@@ -49,7 +49,7 @@ A composição do índice inclui uma *coleção de Campos* que define os dados p
 
     A documentação da API do Azure Search inclui exemplos de código com um índice de *hotéis* simples. Na captura de tela abaixo, você pode ver a definição do índice, incluindo o analisador de idioma francês especificado durante a definição do índice, que você pode recriar como um exercício de prática no Portal.
 
-    ![](media/search-create-index-portal/field-definitions.png "Índice") de demonstração de hotéis do índice de demonstração de hotéis
+    ![Índice de demonstração de hotéis](media/search-create-index-portal/field-definitions.png "Índice de demonstração de hotéis")
 
 1. Quando terminar, clique em **criar** para salvar e criar o índice.
 
@@ -78,9 +78,9 @@ Os atributos de campo determinam como um campo é utilizado, por exemplo, se é 
 
 Depois de criar um índice do Azure Search, pode avançar para o próximo passo: [carregar dados pesquisáveis para o índice](search-what-is-data-import.md).
 
-Como alternativa, você também pode obter uma [análise mais profunda dos índices](search-what-is-an-index.md). Além da coleção de Campos, um índice também especifica analisadores, sugestores, perfis de classificação e definições CORS. O portal fornece páginas com guias para definir os elementos mais comuns: Campos, analisadores e sugestores. Para criar ou modificar outros elementos, pode utilizar a API REST ou o SDK .NET.
+Como alternativa, você também pode obter uma [análise mais profunda dos índices](search-what-is-an-index.md). Além da coleção de Campos, um índice também especifica analisadores, sugestores, perfis de classificação e definições CORS. O portal fornece páginas com separadores para definir os elementos mais comuns: campos, analisadores e sugestores. Para criar ou modificar outros elementos, pode utilizar a API REST ou o SDK .NET.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
  [Como funciona a pesquisa em texto completo](search-lucene-query-architecture.md)  
  [API REST do serviço de pesquisa](https://docs.microsoft.com/rest/api/searchservice/) [SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)

@@ -9,10 +9,10 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.openlocfilehash: 4646cb30ef7602da990e24f923c8eceada4debd0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71178038"
 ---
 # <a name="query-types-and-composition-in-azure-search"></a>Tipos de consulta e composição no Azure Search
@@ -33,13 +33,13 @@ O exemplo a seguir é uma consulta representativa construída na [API REST](http
 }
 ```
 
-+ **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para nomear um pouco.
++ **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para construções de consulta avançada, como expressões regulares, pesquisa de proximidade, difusa e pesquisa de curingas, para citar alguns.
 
-+ **`search`** fornece os critérios de correspondência, geralmente texto, mas geralmente acompanhados por operadores boolianos. Termos autônomos únicos são consultas de *termo* . As consultas de várias partes entre aspas são consultas de *frase-chave* . A pesquisa pode ser indefinida, como **`search=*`** em, mas é mais provável que ela seja composta por termos, frases e operadores semelhantes ao que aparece no exemplo.
++ **`search`** fornece os critérios de correspondência, geralmente texto, mas geralmente acompanhados por operadores boolianos. Termos autônomos únicos são consultas de *termo* . As consultas de várias partes entre aspas são consultas de *frase-chave* . A pesquisa pode ser indefinida, como em **`search=*`** , mas é mais provável que ela seja composta por termos, frases e operadores semelhantes ao que aparece no exemplo.
 
 + **`searchFields`** restringe a execução da consulta a campos específicos. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro.
 
-As respostas também são moldadas pelos parâmetros que você inclui na consulta. No exemplo, o conjunto de resultados consiste em campos listados na **`select`** instrução. Somente os campos marcados como *recuperáveis* podem ser usados em uma instrução $SELECT. Além disso, somente **`top`** os 10 acertos são retornados nessa consulta, **`count`** enquanto informa quantos documentos correspondem geral, o que pode ser maior que o retornado. Nessa consulta, as linhas são classificadas por classificação em ordem decrescente.
+As respostas também são moldadas pelos parâmetros que você inclui na consulta. No exemplo, o conjunto de resultados consiste em campos listados na instrução **`select`** . Somente os campos marcados como *recuperáveis* podem ser usados em uma instrução $SELECT. Além disso, somente os **`top`** 10 ocorrências são retornados nessa consulta, enquanto **`count`** informa quantos documentos correspondem ao geral, o que pode ser maior que o retornado. Nessa consulta, as linhas são classificadas por classificação em ordem decrescente.
 
 No Azure Search, a execução da consulta é sempre em relação a um índice, autenticado usando uma chave de API fornecida na solicitação. Em repouso, ambos são fornecidos nos cabeçalhos de solicitação.
 
@@ -47,13 +47,13 @@ No Azure Search, a execução da consulta é sempre em relação a um índice, a
 
 Para executar essa consulta, use [o Search Explorer e o índice de demonstração de hotéis](search-get-started-portal.md). 
 
-Você pode colar essa cadeia de caracteres de consulta na barra de pesquisa do Gerenciador:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Você pode colar essa cadeia de caracteres de consulta na barra de pesquisa do Gerenciador: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Como as operações de consulta são habilitadas pelo índice
 
 Design de índice e design de consulta são rigidamente acoplados em Azure Search. Um fato essencial para saber antecipadamente é que o *esquema de índice*, com atributos em cada campo, determina o tipo de consulta que você pode criar. 
 
-Atributos de índice em um campo definem as operações permitidas-se um campo é *pesquisável* no índice, *recuperável* em Results, *classificável*, *filtrável*e assim por diante. Na cadeia de caracteres de consulta `"$orderby": "Rating"` de exemplo, só funciona porque o campo de classificação está marcado como *classificável* no esquema de índice. 
+Atributos de índice em um campo definem as operações permitidas-se um campo é *pesquisável* no índice, *recuperável* em Results, *classificável*, *filtrável*e assim por diante. Na cadeia de caracteres de consulta de exemplo, `"$orderby": "Rating"` só funciona porque o campo de classificação está marcado como *classificável* no esquema de índice. 
 
 ![Definição de índice para o exemplo de Hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definição de índice para o exemplo de Hotel")
 
@@ -69,7 +69,7 @@ As consultas são sempre direcionadas a um único índice. Você não pode unir 
 Os elementos necessários em uma solicitação de consulta incluem os seguintes componentes:
 
 + Coleção de pontos de extremidade de serviço e de índice, expressa como uma URL que contém componentes fixos e definidos pelo usuário: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`** (Somente REST) é necessário porque mais de uma versão da API está disponível o tempo todo. 
++ **`api-version`** (somente REST) é necessário porque mais de uma versão da API está disponível o tempo todo. 
 + **`api-key`** , uma consulta ou uma chave de API de administração, autentica a solicitação para seu serviço.
 + **`queryType`** , simples ou completo, que pode ser omitido se você estiver usando a sintaxe simples padrão interna.
 + **`search`** ou **`filter`** fornece os critérios de correspondência, que podem ser não especificados se você quiser executar uma pesquisa vazia. Ambos os tipos de consulta são discutidos em termos do analisador simples, mas até mesmo consultas avançadas exigem o parâmetro de pesquisa para passar expressões de consulta complexas.
@@ -91,15 +91,15 @@ A tabela a seguir lista as APIs e abordagens baseadas em ferramentas para enviar
 
 Azure Search se encontra na parte superior do Apache Lucene e oferece a você uma opção entre dois analisadores de consulta para lidar com consultas típicas e especializadas. As solicitações que usam o analisador simples são formuladas usando a [sintaxe de consulta simples](query-simple-syntax.md), selecionada como o padrão para sua velocidade e eficácia em consultas de texto de forma livre. Essa sintaxe oferece suporte a vários operadores de pesquisa comuns, incluindo os operadores e, ou, não, frase, sufixo e precedência.
 
-A [sintaxe de consulta Lucene completa](query-Lucene-syntax.md#bkmk_syntax), habilitada quando `queryType=full` você adiciona à solicitação, expõe a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). A sintaxe completa estende a sintaxe simples. Qualquer consulta que você escreve para a sintaxe simples é executada no analisador Lucene completo. 
+A [sintaxe de consulta Lucene completa](query-Lucene-syntax.md#bkmk_syntax), habilitada quando você adiciona `queryType=full` à solicitação, expõe a linguagem de consulta amplamente adotada e expressiva desenvolvida como parte do [Apache Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). A sintaxe completa estende a sintaxe simples. Qualquer consulta que você escreve para a sintaxe simples é executada no analisador Lucene completo. 
 
-Os exemplos a seguir ilustram o ponto: a mesma consulta, mas com configurações de QueryType diferentes, produzem resultados diferentes. Na primeira consulta, o `^3` After `historic` é tratado como parte do termo de pesquisa. O resultado mais classificado para essa consulta é "Marquis pedágio & Suites", que tem o *oceano* em sua descrição
+Os exemplos a seguir ilustram o ponto: a mesma consulta, mas com configurações de QueryType diferentes, produzem resultados diferentes. Na primeira consulta, o `^3` depois que `historic` é tratado como parte do termo de pesquisa. O resultado mais classificado para essa consulta é "Marquis pedágio & Suites", que tem o *oceano* em sua descrição
 
 ```
 queryType=simple&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
 ```
 
-A mesma consulta `^3` que usa o analisador Lucene completo interpreta como um preforçador de termo em campo. A alternância de analisadores altera a classificação, com os resultados que contêm o termo *histórico* movendo para a parte superior.
+A mesma consulta que usa o analisador Lucene completo interpreta `^3` como um reforçador de termo em campo. A alternância de analisadores altera a classificação, com os resultados que contêm o termo *histórico* movendo para a parte superior.
 
 ```
 queryType=full&search=ocean historic^3&searchFields=Description, Tags&$select=HotelId, HotelName, Tags, Description&$count=true
@@ -122,7 +122,7 @@ O Azure Search dá suporte a uma ampla variedade de tipos de consulta.
 | [pesquisa de proximidade](query-lucene-syntax.md#bkmk_proximity) | Parâmetro de pesquisa e analisador completo | Localiza os termos que estão próximos um do outro em um documento. <br/>[Exemplo de pesquisa de proximidade](search-query-lucene-examples.md#example-4-proximity-search) |
 | [aumento de termo](query-lucene-syntax.md#bkmk_termboost) | Parâmetro de pesquisa e analisador completo | Classifica um documento mais alto se ele contiver o termo aumentado, em relação a outros que não. <br/>[Exemplo de aumento de termo](search-query-lucene-examples.md#example-5-term-boosting) |
 | [pesquisa de expressão regular](query-lucene-syntax.md#bkmk_regex) | Parâmetro de pesquisa e analisador completo | Corresponde com base no conteúdo de uma expressão regular. <br/>[Exemplo de expressão regular](search-query-lucene-examples.md#example-6-regex) |
-|  [pesquisa de prefixo ou curinga](query-lucene-syntax.md#bkmk_wildcard) | Parâmetro de pesquisa e analisador completo | Corresponde com base em um prefixo e til`~`() ou caractere único`?`(). <br/>[Exemplo de pesquisa curinga](search-query-lucene-examples.md#example-7-wildcard-search) |
+|  [pesquisa de prefixo ou curinga](query-lucene-syntax.md#bkmk_wildcard) | Parâmetro de pesquisa e analisador completo | Corresponde com base em um prefixo e til (`~`) ou caractere único (`?`). <br/>[Exemplo de pesquisa curinga](search-query-lucene-examples.md#example-7-wildcard-search) |
 
 ## <a name="manage-search-results"></a>Gerenciar resultados da pesquisa 
 
@@ -144,20 +144,20 @@ Ocasionalmente, a substância e não a estrutura dos resultados são inesperados
 + Altere a técnica de consulta se a análise de texto ou lexical for necessária, mas o tipo de consulta impede o processamento linguístico. Na pesquisa de texto completo, a análise de texto ou lexical corrige os erros de ortografia, as formas de palavra singular e até mesmo verbos ou substantivos irregulares. Para algumas consultas como pesquisa difusa ou curinga, a análise de texto não faz parte do pipeline de análise de consulta. Para alguns cenários, as expressões regulares foram usadas como uma solução alternativa. 
 
 ### <a name="paging-results"></a>Resultados de paginação
-A Azure Search facilita a implementação da paginação dos resultados da pesquisa. Usando os **`top`** parâmetros e **`skip`** , você pode emitir rapidamente solicitações de pesquisa que permitem receber o conjunto total de resultados da pesquisa em subconjuntos gerenciáveis e ordenados que habilitam facilmente boas práticas de interface do usuário de pesquisa. Ao receber esses subconjuntos de resultados mais pequenos, pode também receber a contagem de documentos no conjunto total de resultados da pesquisa.
+A Azure Search facilita a implementação da paginação dos resultados da pesquisa. Usando os parâmetros **`top`** e **`skip`** , você pode emitir com facilidade solicitações de pesquisa que permitem receber o conjunto total de resultados da pesquisa em subconjuntos gerenciáveis e ordenados que habilitam facilmente boas práticas de interface do usuário de pesquisa. Ao receber esses subconjuntos de resultados mais pequenos, pode também receber a contagem de documentos no conjunto total de resultados da pesquisa.
 
 Pode saber mais sobre a paginação dos resultados da pesquisa no artigo [Como paginar os resultados da pesquisa na Azure Search](search-pagination-page-layout.md).
 
 ### <a name="ordering-results"></a>Ordenar resultados
 Ao receber resultados de uma consulta de pesquisa, pode pedir à Azure Search para apresentar os resultados ordenados pelos valores num campo específico. Por predefinição, a Azure Search ordena os resultados da pesquisa com base na classificação de pontuação de pesquisa de cada documento, a qual deriva de [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf).
 
-Se desejar que Azure Search retorne os resultados ordenados por um valor diferente da Pontuação de pesquisa, você poderá usar **`orderby`** o parâmetro de pesquisa. Você pode especificar o valor do **`orderby`** parâmetro para incluir nomes de campo e chamadas para a [ **`geo.distance()` função**](query-odata-filter-orderby-syntax.md) para valores geoespaciais. Cada expressão pode ser seguida por `asc` para indicar que os resultados são solicitados em ordem crescente e **`desc`** para indicar que os resultados são solicitados em ordem decrescente. A ordem ascendente de classificação predefinida.
+Se desejar que Azure Search retorne os resultados ordenados por um valor diferente da Pontuação de pesquisa, você poderá usar o parâmetro de pesquisa **`orderby`** . Você pode especificar o valor do parâmetro **`orderby`** para incluir nomes de campo e chamadas para a [**função `geo.distance()`** ](query-odata-filter-orderby-syntax.md) para valores geoespaciais. Cada expressão pode ser seguida por `asc` para indicar que os resultados são solicitados em ordem crescente e **`desc`** para indicar que os resultados são solicitados em ordem decrescente. A ordem ascendente de classificação predefinida.
 
 
 ### <a name="hit-highlighting"></a>Detetor de ocorrências
-No Azure Search, enfatizando a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitada usando **`highlight`** os **`highlightPreTag`** parâmetros, **`highlightPostTag`** e. Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
+No Azure Search, enfatizando a parte exata dos resultados da pesquisa que correspondem à consulta de pesquisa é facilitada usando os parâmetros **`highlight`** , **`highlightPreTag`** e **`highlightPostTag`** . Pode especificar os campos *pesquisáveis* que devem ter o respetivo texto com correspondência realçado, bem como especificar as etiquetas de cadeias exatas a adicionar no início e no fim do texto com correspondência devolvido pela Azure Search.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Como a pesquisa de texto completo funciona no Azure Search (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

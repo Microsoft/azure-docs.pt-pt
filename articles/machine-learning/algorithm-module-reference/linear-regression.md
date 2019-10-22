@@ -1,7 +1,7 @@
 ---
-title: 'Regressão linear: Referência de módulo'
+title: 'Regressão linear: referência de módulo'
 titleSuffix: Azure Machine Learning service
-description: Saiba como usar o módulo regressão linear no serviço Azure Machine Learning para criar um modelo de regressão linear para uso em um experimento.
+description: Saiba como usar o módulo regressão linear no serviço Azure Machine Learning para criar um modelo de regressão linear para uso em um pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,17 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 506f37a2e01f428ccadc0368bd2efb6b58c9106c
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128681"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693699"
 ---
 # <a name="linear-regression-module"></a>Módulo de regressão linear
 Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
-Use este módulo para criar um modelo de regressão linear para uso em um experimento.  A regressão linear tenta estabelecer uma relação linear entre uma ou mais variáveis independentes e um resultado numérico, ou variável dependente. 
+Use este módulo para criar um modelo de regressão linear para uso em um pipeline.  A regressão linear tenta estabelecer uma relação linear entre uma ou mais variáveis independentes e um resultado numérico, ou variável dependente. 
 
 Você usa esse módulo para definir um método de regressão linear e, em seguida, treinar um modelo usando um DataSet rotulado. O modelo treinado pode então ser usado para fazer previsões.
 
@@ -31,11 +31,11 @@ O Azure Machine Learning dá suporte a uma variedade de modelos de regressão, a
 
 + O problema de regressão clássica envolve uma única variável independente e uma variável dependente. Isso é chamado de *regressão simples*.  Este módulo dá suporte à regressão simples.
 
-+ A *regressão linear múltipla* envolve duas ou mais variáveis independentes que contribuem para uma única variável dependente. Problemas nos quais várias entradas são usadas para prever um único resultado numérico também são chamados de *regressão linear*multivariada.
++ A *regressão linear múltipla* envolve duas ou mais variáveis independentes que contribuem para uma única variável dependente. Problemas nos quais várias entradas são usadas para prever um único resultado numérico também são chamados de *regressão linear multivariada*.
 
     O módulo **regressão linear** pode resolver esses problemas, como a maioria dos outros módulos de regressão.
 
-+ A regressão de *vários rótulos* é a tarefa de prever várias variáveis dependentes em um único modelo. Por exemplo, na regressão logística de vários rótulos, um exemplo pode ser atribuído a vários rótulos diferentes. (Isso é diferente da tarefa de prever vários níveis dentro de uma única variável de classe.)
++ A *regressão de vários rótulos* é a tarefa de prever várias variáveis dependentes em um único modelo. Por exemplo, na regressão logística de vários rótulos, um exemplo pode ser atribuído a vários rótulos diferentes. (Isso é diferente da tarefa de prever vários níveis dentro de uma única variável de classe.)
 
     Não há suporte para esse tipo de regressão no Azure Machine Learning. Para prever várias variáveis, crie um aprendiz separado para cada saída que você deseja prever.
 
@@ -63,28 +63,28 @@ Esse módulo dá suporte a dois métodos para ajustar um modelo de regressão, c
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a>Criar um modelo de regressão usando quadrados mínimos comuns
 
-1. Adicione o módulo **modelo de regressão linear** ao seu experimento na interface.
+1. Adicione o módulo **modelo de regressão linear** ao seu pipeline na interface.
 
-    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **inicializar modelo**,expanda regressão e arraste o módulo modelo de **regressão linear** para seu experimento.
+    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **inicializar modelo**, expanda **regressão**e arraste o módulo **modelo de regressão linear** para seu pipeline.
 
 2. No painel **Propriedades** , na lista suspensa **método de solução** , selecione **quadrados mínimos comuns**. Esta opção especifica o método de computação usado para localizar a linha de regressão.
 
 3. Em **peso de regularização L2**, digite o valor a ser usado como o peso para regularização L2. Recomendamos que você use um valor diferente de zero para evitar o superajuste.
 
-     Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [Regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
-4. Selecione a opção **incluir termo**de intercepção, se você quiser exibir o termo para a interceptação.
+4. Selecione a opção **incluir termo de intercepção**, se você quiser exibir o termo para a interceptação.
 
     Desmarque esta opção se você não precisar revisar a fórmula de regressão.
 
 5. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo.
 
-    Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo experimento. Caso contrário, o padrão é usar um valor do relógio do sistema.
+    Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo pipeline. Caso contrário, o padrão é usar um valor do relógio do sistema.
 
 
-7. Adicione o módulo [modelo de treinamento](./train-model.md) ao seu experimento e conecte um conjunto de uma rotulado.
+7. Adicione o módulo [modelo de treinamento](./train-model.md) ao seu pipeline e conecte um DataSet rotulado.
 
-8. Execute a experimentação.
+8. Executar o pipeline.
 
 ## <a name="results-for-ordinary-least-squares-model"></a>Resultados para o modelo de quadrados mínimos comum
 
@@ -97,22 +97,22 @@ Após a conclusão do treinamento:
 
 ## <a name="bkmk_GradientDescent"></a>Criar um modelo de regressão usando o gradiente online descendente
 
-1. Adicione o módulo **modelo de regressão linear** ao seu experimento na interface.
+1. Adicione o módulo **modelo de regressão linear** ao seu pipeline na interface.
 
-    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda **inicializar modelo**,expanda regressão e arraste o módulo modelo de **regressão linear** para seu experimento
+    Você pode encontrar esse módulo na categoria **Machine Learning** . Expanda o **modelo de inicialização**, expanda **regressão**e arraste o módulo **modelo de regressão linear** para seu pipeline
 
 2. No painel **Propriedades** , na lista suspensa **método de solução** , escolha **descendente de gradiente online** como o método de computação usado para localizar a linha de regressão.
 
 3. Para **criar modo de instrutor**, indique se você deseja treinar o modelo com um conjunto predefinido de parâmetros ou se deseja otimizar o modelo usando uma varredura de parâmetro.
 
-    + **Parâmetro único**: Se você souber como deseja configurar a rede de regressão linear, poderá fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único**: se você souber como deseja configurar a rede de regressão linear, poderá fornecer um conjunto específico de valores como argumentos.
 
    
 4. Para **taxa de aprendizagem**, especifique a taxa de aprendizado inicial para o otimizador de descendente de gradiente estocástico.
 
 5. Para **número de épocas de treinamento**, digite um valor que indique quantas vezes o algoritmo deve iterar por meio de exemplos. Para conjuntos de valores com um pequeno número de exemplos, esse número deve ser grande para alcançar a convergência.
 
-6. **Normalizar recursos**: Se você já tiver normalizado os dados numéricos usados para treinar o modelo, poderá desmarcar essa opção. Por padrão, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
+6. **Normalizar recursos**: se você já tiver normalizado os dados numéricos usados para treinar o modelo, você poderá desmarcar essa opção. Por padrão, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
 
     > [!NOTE]
     > 
@@ -120,19 +120,19 @@ Após a conclusão do treinamento:
 
 7. Em **peso de regularização L2**, digite o valor a ser usado como o peso para regularização L2. Recomendamos que você use um valor diferente de zero para evitar o superajuste.
 
-    Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [Regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    Para saber mais sobre como a regularização afeta o ajuste de modelo, consulte este artigo: [regularização de L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
 
 
 9. Selecione a opção **diminuir taxa de aprendizado**se quiser que a taxa de aprendizagem diminua conforme as iterações progredirem.  
 
-10. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo. Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo experimento.
+10. Para a **semente de número aleatório**, você pode, opcionalmente, digitar um valor para propagar o gerador de número aleatório usado pelo modelo. Usar um valor de semente será útil se você quiser manter os mesmos resultados entre diferentes execuções do mesmo pipeline.
 
 
 12. Adicione um DataSet rotulado e um dos módulos de treinamento.
 
     Se você não estiver usando uma varredura de parâmetro, use o módulo [treinar modelo](train-model.md) .
 
-13. Execute a experimentação.
+13. Executar o pipeline.
 
 ## <a name="results-for-online-gradient-descent"></a>Resultados para descendente de gradiente online
 
@@ -141,6 +141,6 @@ Após a conclusão do treinamento:
 + Para fazer previsões, conecte o modelo treinado ao módulo [modelo de Pontuação](./score-model.md) , junto com os novos dados de entrada.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

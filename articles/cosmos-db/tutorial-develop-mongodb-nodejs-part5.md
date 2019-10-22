@@ -13,10 +13,10 @@ ms.custom: seodec18
 ms.reviewer: sngun
 Customer intent: As a developer, I want to build a Node.js application, so that I can manage the data stored in Cosmos DB.
 ms.openlocfilehash: 626015e2aac5eb09dfd271a139dbc5eb49a088fc
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69616425"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Criar um aplicativo angular com a API do Azure Cosmos DB para MongoDB-use Mongoose para se conectar ao Cosmos DB
@@ -88,7 +88,7 @@ Mongoose é uma biblioteca de ODM (modelagem de dados de objeto) para MongoDB e 
     
 1. No painel do Explorer, em **servidor**, crie uma pasta chamada **ambiente**. Na pasta **ambiente** , crie um arquivo chamado **Environment. js**.
 
-1. No arquivo Mongo. js, precisamos incluir valores para os `dbName` `cosmosPort` parâmetros `key`, e. Copie o código a seguir no arquivo **Environment. js** :
+1. No arquivo Mongo. js, precisamos incluir valores para o `dbName`, o `key` e os parâmetros de `cosmosPort`. Copie o código a seguir no arquivo **Environment. js** :
 
     ```javascript
     // TODO: replace if yours are different
@@ -122,7 +122,7 @@ Para conectar seu aplicativo ao Azure Cosmos DB, você precisa atualizar as defi
     
     \<cosmosdb-Name > é o nome da conta de Azure Cosmos DB que você criou na [parte 4](tutorial-develop-mongodb-nodejs-part4.md) do tutorial.
 
-1. Copie a chave primária no arquivo **Environment. js** como o `key` valor.
+1. Copie a chave primária no arquivo **Environment. js** como o valor `key`.
 
 Agora seu aplicativo tem todas as informações necessárias para se conectar ao Azure Cosmos DB. 
 
@@ -138,7 +138,7 @@ Em seguida, você precisa definir o esquema dos dados a serem armazenados no Azu
    * Cria um esquema novo com ID, nome e mensagem.
    * Cria um modelo usando o esquema.
    * Exporta o modelo. 
-   * Nomeia o **herói** da coleção (emvez de heróis, que é o nome padrão da coleção com base nas regras de nomenclatura do Mongoose plural).
+   * Nomeia o **herói** da coleção (em vez de **heróis**, que é o nome padrão da coleção com base nas regras de nomenclatura do Mongoose plural).
 
    ```javascript
    const mongoose = require('mongoose');
@@ -171,8 +171,8 @@ Depois de criar o modelo Hero, você precisa definir um serviço para ler os dad
 
    * Obtém o modelo que você criou.
    * Conecta-se ao banco de dados.
-   * Cria uma `docquery` variável que usa o `hero.find` método para definir uma consulta que retorna todos os Heroes.
-   * Executa uma consulta com a `docquery.exec` função com uma promessa para obter uma lista de todos os Heroes, em que o status da resposta é 200. 
+   * Cria uma variável `docquery` que usa o método `hero.find` para definir uma consulta que retorna todos os Heroes.
+   * Executa uma consulta com a função `docquery.exec` com uma promessa para obter uma lista de todos os Heroes, onde o status da resposta é 200. 
    * Retornará a mensagem de erro se o status for 500.
    * Obtém o Hero porque estamos usando módulos. 
 
@@ -199,11 +199,11 @@ Depois de criar o modelo Hero, você precisa definir um serviço para ler os dad
    };
    ```
 
-## <a name="configure-routes"></a>Configurar as rotas
+## <a name="configure-routes"></a>Configurar rotas
 
 Em seguida, você precisa configurar rotas para lidar com as URLs para solicitações GET, Create, Read e Delete. Os métodos de roteamento especificam funções de retorno de chamada (também chamadas de _funções de manipulador_). Essas funções são chamadas quando o aplicativo recebe uma solicitação para o ponto de extremidade e o método HTTP especificados. Use as etapas a seguir para adicionar o serviço Hero e definir suas rotas:
 
-1. No Visual Studio Code, no arquivo **routes. js** , comente a `res.send` função que envia os dados do herói de exemplo. Adicione uma linha para chamar a `heroService.getHeroes` função.
+1. No Visual Studio Code, no arquivo **routes. js** , comente a função `res.send` que envia os dados do herói de exemplo. Adicione uma linha para chamar a função `heroService.getHeroes` em vez disso.
 
     ```javascript
     router.get('/heroes', (req, res) => {
@@ -220,19 +220,19 @@ Em seguida, você precisa configurar rotas para lidar com as URLs para solicita�
     const heroService = require('./hero.service'); 
     ```
 
-1. No arquivo **Hero. Service. js** , atualize a `getHeroes` função para obter os parâmetros `req` e `res` da seguinte maneira:
+1. No arquivo **Hero. Service. js** , atualize a função `getHeroes` para obter os parâmetros `req` e `res` da seguinte maneira:
 
     ```javascript
     function getHeroes(req, res) {
     ```
 
-Vamos revisar um minuto para examinar e percorrer o código anterior. Primeiro, entramos no arquivo index. js, que configura o servidor do nó. Observe que ele configura e define suas rotas. Em seguida, seu arquivo routes. js conversa com o serviço Hero e o informa para obter suas funções, como getheros, e passar a solicitação e a resposta. O arquivo Hero. Service. js Obtém o modelo e se conecta ao Mongo. Em seguida, ele executa getheros quando o chamamos e retorna uma resposta de 200. 
+Vamos revisar um minuto para examinar e percorrer o código anterior. Primeiro, entramos no arquivo index. js, que configura o servidor do nó. Observe que ele configura e define suas rotas. Em seguida, seu arquivo routes. js conversa com o serviço Hero e o informa para obter suas funções, como **Getheros**, e passar a solicitação e a resposta. O arquivo Hero. Service. js Obtém o modelo e se conecta ao Mongo. Em seguida, ele executa **Getheros** quando o chamamos e retorna uma resposta de 200. 
 
 ## <a name="run-the-app"></a>Executar a aplicação
 
 Em seguida, execute o aplicativo usando as seguintes etapas:
 
-1. Em Visual Studio Code, salve todas as suas alterações. À esquerda, selecione o botão ![depurar ícone de depuração em Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png)e, em seguida, selecione o ícone ![ **Iniciar Depuração** botão de](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png)depuração em Visual Studio Code.
+1. Em Visual Studio Code, salve todas as suas alterações. À esquerda, selecione o botão de **depuração** ![Debug ícone em Visual Studio Code ](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) e, em seguida, selecione o botão **Iniciar Depuração** ![Debug ícone em Visual Studio Code ](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
 
 1. Agora, alterne para o navegador. Abra as **ferramentas de desenvolvedor** e a **guia rede**. Vá para `http://localhost:3000`, e você verá nosso aplicativo.
 
@@ -248,9 +248,9 @@ Quando você não precisar mais dos recursos, poderá excluir o grupo de recurso
  1. Selecione **Eliminar grupo de recursos**.
  1. Confirme o nome do grupo de recursos a ser excluído e selecione **excluir**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Continue na parte 6 do tutorial para adicionar funções post, PUT e Delete ao aplicativo:
 
 > [!div class="nextstepaction"]
-> [Parte 6: Adicionar funções post, PUT e Delete ao aplicativo](tutorial-develop-mongodb-nodejs-part6.md)
+> [Parte 6: adicionar funções post, PUT e Delete ao aplicativo](tutorial-develop-mongodb-nodejs-part6.md)

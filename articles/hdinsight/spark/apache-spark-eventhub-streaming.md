@@ -9,10 +9,10 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/24/2019
 ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71266202"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>Tutorial: processar tweets usando hubs de eventos do Azure e Apache Spark no HDInsight
@@ -74,7 +74,7 @@ Você usa esse Hub de eventos para armazenar tweets.
 
 3. Em **Internet das coisas**, selecione **hubs de eventos**. 
 
-    ![Criar Hub de eventos para exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "criar Hub de eventos para exemplo de streaming do Spark")
+    ![Criar Hub de eventos para exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Criar Hub de eventos para exemplo de streaming do Spark")
 
 4. Selecione **+ Adicionar**.
 
@@ -90,7 +90,7 @@ Você usa esse Hub de eventos para armazenar tweets.
     |Habilitar o inflar automaticamente (opcional) |O inflar automaticamente dimensiona o número de unidades de produtividade atribuídas ao seu namespace de hubs de eventos quando o tráfego excede a capacidade das unidades de produtividade atribuídas a ela.  |
     |Unidades de taxa de transferência máximas de inflação automática (opcional)|Esse controle deslizante será exibido somente se você marcar **habilitar inflar automaticamente**.  |
 
-    ![Fornecer um nome do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "fornecer um nome do hub de eventos para o exemplo de streaming do Spark")
+    ![Fornecer um nome do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fornecer um nome do hub de eventos para o exemplo de streaming do Spark")
 
 6. Selecione **criar** para criar o namespace.  A implantação será concluída em alguns minutos.
 
@@ -112,7 +112,7 @@ Crie um hub de eventos depois que o namespace dos hubs de eventos tiver sido imp
 
     - **Retenção de mensagem**: 1.   
    
-      ![Fornecer detalhes do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "fornecer detalhes do hub de eventos para o exemplo de streaming do Spark")
+      ![Fornecer detalhes do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Fornecer detalhes do hub de eventos para o exemplo de streaming do Spark")
 
 1. Selecione **Criar**.  A implantação deve ser concluída em alguns segundos e você será retornado para a página de namespace de hubs de eventos.
 
@@ -120,7 +120,7 @@ Crie um hub de eventos depois que o namespace dos hubs de eventos tiver sido imp
 
 1. Selecione **RootManageSharedAccessKey**.
     
-     ![Definir políticas do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "definir políticas do hub de eventos para o exemplo de streaming do Spark")
+     ![Definir políticas do hub de eventos para o exemplo de streaming do Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Definir políticas do hub de eventos para o exemplo de streaming do Spark")
 
 1. Salve os valores da **chave primária** e da **chave primária da cadeia de conexão** para usar posteriormente no tutorial.
 
@@ -252,7 +252,7 @@ Com o HDInsight, seus dados são armazenados no armazenamento do Azure ou Azure 
 
 Abra o cluster no portal do Azure e, em seguida, selecione **Eliminar**.
 
-![Portal do Azure do hdinsight excluir cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "excluir cluster hdinsight")
+![Portal do Azure do HDInsight excluir cluster](./media/apache-spark-load-data-run-query/hdinsight-azure-portal-delete-cluster.png "Excluir cluster HDInsight")
 
 Também pode selecionar o nome do grupo de recursos para abrir a página do grupo de recursos e, em seguida, selecionar **Eliminar grupo de recursos**. Ao eliminar o grupo de recursos, está a eliminar o cluster do Spark no HDInsight e a conta de armazenamento predefinida.
 

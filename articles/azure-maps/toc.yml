@@ -53,8 +53,6 @@
       href: supported-languages.md
     - name: Estilos de mapas suportados
       href: supported-map-styles.md
-    - name: Browsers suportados por SDK web
-      href: supported-browsers.md
     - name: Níveis de zoom e grelha de mosaico
       href: zoom-levels-and-tile-grid.md
     - name: Estrutura de dados do Mobility Service
@@ -147,6 +145,8 @@
               href: map-get-information-from-coordinate.md
             - name: Mostrar as direções de A para B
               href: map-route.md
+        - name: Browsers suportados por SDK web
+          href: supported-browsers.md
     - name: Desenvolver com o SDK do Android
       items:
         - name: Introdução ao controlo de mapa Android

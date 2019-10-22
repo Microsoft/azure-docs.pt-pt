@@ -1,5 +1,5 @@
 ---
-title: 'Aplicar transformação: Referência de módulo'
+title: 'Aplicar transformação: referência de módulo'
 titleSuffix: Azure Machine Learning service
 description: Saiba como usar o módulo aplicar transformação no serviço de Azure Machine Learning para modificar um conjunto de dados de entrada com base em uma transformação computada anteriormente.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/02/2019
-ms.openlocfilehash: 8b4ec9e71d9ce932a7b206467db91760f4a4fc47
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: adb2477fe2b7eea0dd0a98c7240843d90411d832
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128972"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693867"
 ---
-# <a name="apply-transformation-module"></a>Aplicar o módulo de transformação
+# <a name="apply-transformation-module"></a>Aplicar módulo de transformação
 
 Este artigo descreve um módulo da interface visual (visualização) para Azure Machine Learning serviço.
 
@@ -32,9 +32,9 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
 
 ## <a name="how-to-use-apply-transformation"></a>Como usar aplicar transformação  
   
-1. Adicione o módulo **aplicar transformação** ao seu experimento. Você pode encontrar esse módulo em **Machine Learning**, na categoria **Pontuação** . 
+1. Adicione o módulo **aplicar transformação** ao seu pipeline. Você pode encontrar esse módulo em **Machine Learning**, na categoria **Pontuação** . 
   
-2. Localize uma transformação existente para usar como uma entrada.  As transformações salvas anteriormente podem ser encontradas no grupo transformações no painel de navegação esquerdo.  
+2. Localize uma transformação existente para usar como uma entrada.  As transformações salvas anteriormente podem ser encontradas no grupo **transformações** no painel de navegação esquerdo.  
   
    
   
@@ -42,8 +42,8 @@ Azure Machine Learning fornece suporte para criar e, em seguida, aplicar vários
   
 4. Nenhum outro parâmetro precisa ser definido, pois toda a personalização é feita ao definir a transformação.  
   
-5. Para aplicar uma transformação ao novo conjunto de um, execute o experimento.  
+5. Para aplicar uma transformação ao novo conjunto de um, execute o pipeline.  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning serviço. 

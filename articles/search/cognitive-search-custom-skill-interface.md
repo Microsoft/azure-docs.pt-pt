@@ -8,18 +8,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: b5529babfae37fa0d9f4de46018bb3b107ce4eae
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 2c4af40886a81cbf8f8e11318737db05f570a1f0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265832"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692179"
 ---
 # <a name="how-to-add-a-custom-skill-to-a-cognitive-search-pipeline"></a>Como adicionar uma habilidade personalizada a um pipeline de pesquisa cognitiva
 
 Um [pipeline de indexação de pesquisa cognitiva](cognitive-search-concept-intro.md) no Azure Search pode ser montado de [habilidades predefinidas](cognitive-search-predefined-skills.md) , bem como [habilidades personalizadas](cognitive-search-custom-skill-web-api.md) que você cria pessoalmente e adiciona ao pipeline. Neste artigo, saiba como criar uma habilidade personalizada que expõe uma interface que permite que ela seja incluída em um pipeline de pesquisa cognitiva. 
 
-A criação de uma habilidade personalizada oferece uma maneira de inserir transformações exclusivas para seu conteúdo. Uma habilidade personalizada é executada de forma independente, aplicando qualquer etapa de enriquecimento necessária. Por exemplo, você pode definir entidades personalizadas específicas de campo, criar modelos de classificação personalizados para diferenciar contratos comerciais e financeiros e documentos ou adicionar uma habilidade de reconhecimento de fala para alcançar mais detalhes em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: Criar uma habilidade personalizada para pesquisa](cognitive-search-create-custom-skill-example.md)cognitiva.
+A criação de uma habilidade personalizada oferece uma maneira de inserir transformações exclusivas para seu conteúdo. Uma habilidade personalizada é executada de forma independente, aplicando qualquer etapa de enriquecimento necessária. Por exemplo, você pode definir entidades personalizadas específicas de campo, criar modelos de classificação personalizados para diferenciar contratos comerciais e financeiros e documentos ou adicionar uma habilidade de reconhecimento de fala para alcançar mais detalhes em arquivos de áudio para conteúdo relevante. Para obter um exemplo passo a passo, consulte [exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md).
 
  Seja qual for a funcionalidade personalizada que você precisa, há uma interface simples e clara para conectar uma habilidade personalizada ao restante do pipeline de enriquecimento. O único requisito para inclusão em um configurador de [habilidades](cognitive-search-defining-skillset.md) é a capacidade de aceitar entradas e emitir saídas de maneiras consumíveis dentro do consumível como um todo. O foco deste artigo é nos formatos de entrada e saída que o pipeline de enriquecimento exige.
 
@@ -36,7 +36,7 @@ Pontos de extremidade de habilidade de WebAPI personalizados por tempo limite pa
 
 Atualmente, o único mecanismo para interagir com uma habilidade personalizada é por meio de uma interface de API da Web. As necessidades da API Web devem atender aos requisitos descritos nesta seção.
 
-### <a name="1--web-api-input-format"></a>1.  Formato de entrada da API Web
+### <a name="1--web-api-input-format"></a>1. formato de entrada da API Web
 
 A API da Web deve aceitar uma matriz de registros a serem processados. Cada registro deve conter um "recipiente de propriedades" que é a entrada fornecida para sua API da Web. 
 
@@ -81,7 +81,7 @@ Para ser mais concreto, de acordo com o exemplo acima, sua API Web deve esperar 
 ```
 Na realidade, seu serviço pode ser chamado com centenas ou milhares de registros, em vez de apenas os três mostrados aqui.
 
-### <a name="2-web-api-output-format"></a>2. Formato de saída da API Web
+### <a name="2-web-api-output-format"></a>2. formato de saída da API Web
 
 O formato da saída é um conjunto de registros contendo um *recordId*e um recipiente de propriedades 
 
@@ -154,7 +154,8 @@ Quando você cria um aprimorador de API Web, pode descrever os cabeçalhos e os 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-+ [Exemplo: Criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
++ [Habilidades de energia: um repositório de habilidades personalizadas](https://aka.ms/powerskills)
++ [Exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Criar conconhecimento (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [Como mapear campos aprimorados](cognitive-search-output-field-mapping.md)
