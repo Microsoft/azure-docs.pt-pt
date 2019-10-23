@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: spelluru
   ms.author: spelluru
-  ms.date: 09/12/2019
-  ms.openlocfilehash: e1104c8caf1080aab3b6c5300dcbe4cd04d6b61a
-  ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+  ms.date: 10/22/2019
+  ms.openlocfilehash: 9ec9d8a5c5bd063dc8e15afbc156fbb42f85b7b8
+  ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70962501"
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72783874"
 landingContent:
 - title: Sobre as Mensagens do Service Bus
   linkLists:

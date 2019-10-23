@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: d6dac668a3827aac83fbab8475a0e7cc9914ffb4
-  ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+  ms.openlocfilehash: 916aa4a7d475fadc0822513c2b47e8fb91b3cf4c
+  ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/18/2019
-  ms.locfileid: "72592318"
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72792610"
 highlightedContent:
   items:
   - title: Introdução à segurança do Azure
@@ -95,7 +95,7 @@ conceptualContent:
       itemType: concept
       text: Segurança de armazenamento
     footerLink:
-      url: /fundamentals/encryption-overview.md
+      url: ./fundamentals/encryption-overview.md
       text: Ver mais
   - title: Gestão de identidades
     links:
