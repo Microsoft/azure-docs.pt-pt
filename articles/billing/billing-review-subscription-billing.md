@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 33fc6e59a0a85275b055524d8ccf5d78935725a8
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 05ce5fd560168c1f60b7c559539f4a368ba83ca8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718750"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754282"
 ---
 # <a name="review-subscription-billing-using-rest-apis"></a>Analisar a faturação da subscrição com as APIs REST
 
@@ -92,7 +92,7 @@ Cada item no **valor** representa os detalhes sobre a utilização de um serviç
 |**meterDetails** | Informações detalhadas sobre a utilização. |
 |**nextLink**| Quando definido, especifica um URL para a próxima “página” de detalhes. Em branco, quando for a última página. |
 
-Este exemplo é abreviado; veja [Listar detalhes de utilização](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod) para obter uma descrição completa de cada campo de resposta.
+Este exemplo é abreviado; veja [Listar detalhes de utilização](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#usagedetailslistforbillingperiod-legacy) para obter uma descrição completa de cada campo de resposta.
 
 Outros códigos de estado indicam condições de erro. Nesses casos, o objeto de resposta explica o motivo pelo qual o pedido falhou.
 
