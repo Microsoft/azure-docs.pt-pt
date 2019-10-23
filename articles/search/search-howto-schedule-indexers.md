@@ -11,7 +11,7 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.openlocfilehash: d30c4532c43c5df568cf32a1025b796b3be9ee8e
 ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/21/2019
 ms.locfileid: "72533617"
