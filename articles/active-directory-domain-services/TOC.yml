@@ -9,8 +9,10 @@
 - name: Tutoriais
   expanded: true
   items:
-    - name: Criar um domínio gerido
+    - name: Criar um domínio gerido básico
       href: tutorial-create-instance.md
+    - name: Configurar a rede virtual para as aplicações
+      href: tutorial-configure-networking.md
     - name: Associar uma VM do Windows Server a um domínio
       href: join-windows-vm.md
     - name: Instalar ferramentas de gestão
@@ -19,6 +21,8 @@
       href: tutorial-configure-ldaps.md
     - name: Configurar a sincronização hash de palavras-passe
       href: tutorial-configure-password-hash-sync.md
+    - name: Criar um domínio gerido avançado
+      href: tutorial-create-instance-advanced.md
 - name: Amostras
   items:
     - name: Criar um domínio gerido com o Azure PowerShell

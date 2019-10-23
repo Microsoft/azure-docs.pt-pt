@@ -599,8 +599,10 @@
       items:
         - name: Introdução
           href: mongodb-introduction.md
-        - name: Suporte a protocolo por fio
+        - name: Suporte a protocolo de transmissão (3.2)
           href: mongodb-feature-support.md
+        - name: Suporte a protocolo de transmissão (3.6)
+          href: mongodb-feature-support-36.md
         - name: Inícios rápidos
           items:
             - name: .NET
