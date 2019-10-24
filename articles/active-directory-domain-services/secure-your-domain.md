@@ -1,5 +1,5 @@
 ---
-title: Proteger Azure AD Domain Services | Microsoft Docs '
+title: Proteger Azure AD Domain Services | Microsoft Docs
 description: Saiba como desabilitar codificações fracas, protocolos antigos e sincronização de hash de senha NTLM para um domínio gerenciado Azure Active Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/09/2019
 ms.author: iainfou
-ms.openlocfilehash: db086c56c9f16f4691efaade03571bf8a36c6444
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6d60663e345f297246a423e1b4e7a4fb45f352a5
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842621"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754342"
 ---
 # <a name="disable-weak-ciphers-and-password-hash-synchronization-to-secure-an-azure-ad-domain-services-managed-domain"></a>Desabilitar codificações fracas e a sincronização de hash de senha para proteger um Azure AD Domain Services domínio gerenciado
 
@@ -75,7 +75,7 @@ Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySetti
 
 Leva alguns minutos para que as configurações de segurança sejam aplicadas ao domínio gerenciado AD DS do Azure.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o processo de sincronização, confira [como os objetos e as credenciais são sincronizados em um domínio gerenciado do Azure AD DS][synchronization].
 

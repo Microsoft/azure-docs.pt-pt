@@ -3,28 +3,28 @@ title: Imagens moderadas com o console de API-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use a API de moderação de imagem no Azure Content Moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 20353d488cba255925d21017b77d1def2d06b30b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: aa3b6ce886b06c32e9e4515469099a5b31ff49e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561257"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757212"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Imagens moderadas do console de API
 
-Use a [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) de moderação de imagem no Azure Content moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem. O trabalho de moderação examina seu conteúdo em caso de profanação e o compara em listas negras personalizadas e compartilhadas.
+Use a [API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c) no Azure Content moderator para iniciar fluxos de trabalho de moderação de verificação e revisão para conteúdo de imagem. O trabalho de moderação examina seu conteúdo em caso de profanação e o compara em listas negras personalizadas e compartilhadas.
 
 ## <a name="use-the-api-console"></a>Usar o console de API
 Antes de poder testar a API no console online, você precisa da sua chave de assinatura. Isso está localizado na guia **configurações** , na caixa **OCP-APIM-Subscription-Key** . Para obter mais informações, veja [Descrição geral](overview.md).
 
-1. Vá para [referência de API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)de moderação de imagem.
+1. Vá para [referência de API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c).
 
    A página **Image-Evaluate** Image Moderation é aberta.
 
@@ -58,7 +58,7 @@ Antes de poder testar a API no console online, você precisa da sua chave de ass
 
 Você pode usar a API de moderação de imagem para localizar rostos em uma imagem. Essa opção pode ser útil quando você tem preocupações com privacidade e deseja impedir que uma face específica seja postada em sua plataforma. 
 
-1. Na [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)de moderação de imagem, no menu à esquerda, em **imagem**, selecione **Localizar faces**. 
+1. Na [referência da API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, em **imagem**, selecione **Localizar faces**. 
 
    A página **imagem-localizar rostos** é aberta.
 
@@ -82,7 +82,7 @@ Você pode usar a API de moderação de imagem para localizar rostos em uma imag
 
 Você pode usar a Content Moderator capacidade de OCR para detectar texto em imagens.
 
-1. Na [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c)de moderação de imagem, no menu à esquerda, em **imagem**, selecione **OCR**. 
+1. Na [referência da API de moderação de imagem](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), no menu à esquerda, em **imagem**, selecione **OCR**. 
 
    A página **imagem-OCR** é aberta.
 
@@ -100,6 +100,6 @@ Você pode usar a Content Moderator capacidade de OCR para detectar texto em ima
 
    ![Imagem-caixa de conteúdo de resposta de exemplo de OCR](images/try-image-api-ocr.PNG)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Use a API REST em seu código ou comece com o guia de [início rápido .net](image-moderation-quickstart-dotnet.md) de moderação de imagem para se integrar ao seu aplicativo.
+Use a API REST em seu código ou comece com o guia de [início rápido .net de moderação de imagem](image-moderation-quickstart-dotnet.md) para se integrar ao seu aplicativo.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 600577ebf05a8bc89dbec35d3b3ee5162aa246e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7565ce24199dd8f86f756f01f66aa79e764a1a12
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64872732"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752195"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Escalões de mensagens Standard e Premium do Service Bus
 
@@ -29,15 +29,15 @@ O escalão *Premium* das Mensagens do Service Bus atende pedidos de cliente comu
 
 Na tabela seguinte, destacam-se algumas das principais diferenças.
 
-| Premium | Standard |
+| Premium | Padrão |
 | --- | --- |
-| Débito elevado |Débito variável |
+| Alto débito |Débito variável |
 | Desempenho previsível |Latência variável |
 | Preços fixos |Preços variáveis de utilização |
-| Possibilidade de aumentar e reduzir verticalmente a carga de trabalho |N/D |
+| Possibilidade de aumentar e reduzir verticalmente a carga de trabalho |N/A |
 | Tamanho da mensagem até 1 MB |Tamanho da mensagem até 256 KB |
 
-As **Mensagens Premium do Service Bus** fornecem isolamento de recursos no nível de CPU e memória para que cada carga de trabalho do cliente seja executada de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Pode comprar 1, 2, 4 ou 8 unidades para cada espaço de nomes Premium do Service Bus de mensagens. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado à vontade. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus.
+As **Mensagens Premium do Service Bus** fornecem isolamento de recursos no nível de CPU e memória para que cada carga de trabalho do cliente seja executada de forma isolada. Este contentor de recursos é designado por *unidade de mensagens*. A cada espaço de nomes premium é atribuído, pelo menos, uma unidade de mensagens. Você pode comprar 1, 2, 4 ou 8 unidades de mensagens para cada namespace Premium do barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado às. O resultado é um desempenho previsível e repetível da sua solução com base no Service Bus.
 
 Este desempenho não só é mais previsível e repetível, como também mais rápido. As Mensagens do Service Bus Premium baseiam-se no motor de armazenamento introduzido nos [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/). Com as Mensagens Premium, obter o máximo rendimento é muito mais rápido do que com o escalão Standard.
 
@@ -55,20 +55,45 @@ Uma vez que as mensagens Premium se executam num ambiente de tempo de execução
 
 Se tiver código em execução nas mensagens Standard e quiser transportar para o escalão Premium, certifique-se de que a propriedade [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) está definida como **falso** (o valor predefinido).
 
-## <a name="premium-messaging-resource-usage"></a>Utilização de recursos de mensagens Premium
-Em geral, qualquer operação numa entidade pode causar a utilização da CPU e memória. Aqui estão algumas dessas operações: 
+## <a name="premium-messaging-resource-usage"></a>Uso de recursos do sistema de mensagens Premium
+Em geral, qualquer operação em uma entidade pode causar o uso de CPU e memória. Aqui estão algumas dessas operações: 
 
-- Operações de gestão, tais como CRUD (Create, Retrieve, Update e Delete) operações em filas, tópicos e subscrições.
+- Operações de gerenciamento, como CRUD (criar, recuperar, atualizar e excluir) em filas, tópicos e assinaturas.
 - Operações de tempo de execução (enviar e receber mensagens)
-- Operações de monitorização e alertas
+- Monitoramento de operações e alertas
 
-A utilização de memória adicional da CPU e não o preço é adicionalmente entanto. Para o escalão de mensagens Premium, existe um preço individual para a unidade de mensagens.
+No entanto, o uso adicional de CPU e memória não tem preços. Para a camada de mensagens Premium, há um único preço para a unidade de mensagem.
 
-A utilização de CPU e memória sejam rastreadas e apresentadas para si, pelos seguintes motivos: 
+O uso de CPU e memória é acompanhado e exibido para você pelos seguintes motivos: 
 
-- Forneça transparência para os aspectos internos do sistema
-- Compreenda a capacidade de recursos comprados.
-- Planeamento de capacidade ajuda-o a optar por aumentar/reduzir verticalmente.
+- Fornecer transparência para os elementos internos do sistema
+- Entenda a capacidade dos recursos comprados.
+- Planejamento de capacidade que ajuda você a decidir Expandir/reduzir.
+
+## <a name="messaging-unit---how-many-are-needed"></a>Unidade de mensagens – quantas são necessárias?
+
+Ao provisionar um namespace Premium do barramento de serviço do Azure, o número de unidades de mensagens alocadas deve ser especificado. Essas unidades de mensagens são recursos dedicados alocados para o namespace.
+
+O número de unidades de mensagens alocadas para o namespace Premium do barramento de serviço pode ser **ajustado dinamicamente** para fator na alteração (aumentar ou diminuir) em cargas de trabalho.
+
+Há vários fatores a serem levados em consideração ao decidir o número de unidades de mensagens para sua arquitetura:
+
+- Comece com ***1 ou 2 unidades de mensagens*** alocadas para seu namespace.
+- Estudar as métricas de uso da CPU dentro das [métricas de uso de recursos](service-bus-metrics-azure-monitor.md#resource-usage-metrics) para seu namespace.
+    - Se o uso da CPU estiver ***abaixo de 20%***, você poderá ***reduzir verticalmente*** o número de unidades de mensagens alocadas para o namespace.
+    - Se o uso da CPU estiver ***acima de 70%***, seu aplicativo se beneficiará do ***aumento*** do número de unidades de mensagens alocadas para o namespace.
+
+O processo de dimensionamento dos recursos alocados para um namespace do barramento de serviço pode ser automatizado usando [Runbooks de automação do Azure](../automation/automation-quickstart-create-runbook.md).
+
+> [!NOTE]
+> O **dimensionamento** dos recursos alocados para o namespace pode ser preemptivo ou reativo.
+>
+>  * **Preemptive**: se uma carga de trabalho adicional for esperada (devido a sazonalidade ou tendências), você poderá continuar alocando mais unidades de mensagens ao namespace antes de atingir as cargas de trabalho.
+>
+>  * **Reativo**: se cargas de trabalho adicionais forem identificadas ao estudar as métricas de uso de recursos, os recursos adicionais poderão ser alocados para o namespace para incorporar a demanda crescente.
+>
+> Os medidores de cobrança para o barramento de serviço são por hora. No caso de expansão, você paga apenas pelos recursos adicionais para as horas em que eles foram usados.
+>
 
 ## <a name="get-started-with-premium-messaging"></a>Introdução às Mensagens Premium
 

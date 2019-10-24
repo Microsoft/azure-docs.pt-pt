@@ -3,19 +3,19 @@ title: Analise o conteúdo de vídeo para materiais C# censuráveis Content mode
 titleSuffix: Azure Cognitive Services
 description: Como analisar o conteúdo de vídeo para vários materiais censuráveis usando o SDK do Content Moderator para .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 1742db702a899d47110177532f5e85e74a59d91c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 71858755fe31823d4d7ef8623b915db851530116
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564314"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755243"
 ---
 # <a name="analyze-video-content-for-objectionable-material-in-c"></a>Analise o conteúdo de vídeo para materiais censuráveis noC#
 
@@ -40,7 +40,7 @@ Navegue até sua nova assinatura do AMS no portal do Azure e selecione **acesso 
 
 Na seção **aplicativo do Azure ad** , selecione **criar novo** e nomeie seu novo registro de aplicativo do Azure AD (por exemplo, "VideoModADApp"). Clique em **salvar** e aguarde alguns minutos enquanto o aplicativo está configurado. Em seguida, você deverá ver o novo registro do aplicativo na seção **aplicativo do Azure ad** da página.
 
-Selecione o registro do aplicativo e clique no botão **gerenciar aplicativo** abaixo dele. Observe o valor no campo **ID do aplicativo** ; Você precisará disso mais tarde. Selecione **configurações** > **chaves**e insira uma descrição para uma nova chave (como "VideoModKey"). Clique em **salvar**e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salve-a em algum lugar seguro.
+Selecione o registro do aplicativo e clique no botão **gerenciar aplicativo** abaixo dele. Observe o valor no campo **ID do aplicativo** ; Você precisará disso mais tarde. Selecione **configurações**  > **chaves**e insira uma descrição para uma nova chave (como "VideoModKey"). Clique em **salvar**e, em seguida, observe o novo valor de chave. Copie essa cadeia de caracteres e salve-a em algum lugar seguro.
 
 Para obter uma explicação mais completa do processo acima, consulte Introdução [à autenticação do Azure ad](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad).
 
@@ -57,8 +57,8 @@ O Gerenciador de serviços de mídia do Azure é um front-end amigável para o A
 1. No Visual Studio, crie um novo projeto de **aplicativo de console (.NET Framework)** e nomeie-o **VideoModeration**. 
 1. Se houver outros projetos na sua solução, selecione esta como o único projeto de arranque.
 1. Obtenha os pacotes NuGet necessários. Clique com o botão direito do rato no seu projeto no Explorador de Soluções e selecione **Manage NuGet Packages** (Gerir Pacotes NuGet); em seguida, localize e instale os pacotes seguintes:
-    - windowsazure.mediaservices
-    - windowsazure.mediaservices.extensions
+    - WindowsAzure. mediaservices
+    - extensões de WindowsAzure. mediaservices.
 
 ## <a name="add-video-moderation-code"></a>Adicionar código de moderação de vídeo
 
@@ -83,7 +83,7 @@ using System.Collections.Generic;
 
 ### <a name="set-up-resource-references"></a>Configurar referências de recurso
 
-Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Esses campos mantêm as informações necessárias para se conectar à sua assinatura do AMS. Preencha-os com os valores que você obteve nas etapas acima. Observe que `CLIENT_ID` é o valor da **ID do aplicativo** do seu aplicativo do Azure `CLIENT_SECRET` AD e é o valor do "VideoModKey" que você criou para esse aplicativo.
+Adicione os seguintes campos estáticos à classe **Programa** em _Program.cs_. Esses campos mantêm as informações necessárias para se conectar à sua assinatura do AMS. Preencha-os com os valores que você obteve nas etapas acima. Observe que `CLIENT_ID` é o valor da **ID do aplicativo** do seu aplicativo do Azure AD e `CLIENT_SECRET` é o valor do "VideoModKey" que você criou para esse aplicativo.
 
 ```csharp
 // declare constants and globals
@@ -118,7 +118,7 @@ private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 ```
 
-Se você quiser usar um arquivo de vídeo local (caso mais simples), adicione-o ao projeto e insira seu caminho como o `INPUT_FILE` valor (caminhos relativos são relativos ao diretório de execução).
+Se você quiser usar um arquivo de vídeo local (caso mais simples), adicione-o ao projeto e insira seu caminho como o valor de `INPUT_FILE` (caminhos relativos são relativos ao diretório de execução).
 
 Você também precisará criar o arquivo _predefinido. JSON_ no diretório atual e usá-lo para especificar um número de versão. Por exemplo:
 
@@ -369,10 +369,10 @@ Depois que o trabalho de moderação de conteúdo for concluído, analise a resp
 - **início**, **duração**, **totalDuration**e **carimbo de data/hora** estão em "tiques". Divida por **escala** de tempo para obter o número em segundos.
  
 > [!NOTE]
-> - `adultScore`representa a possível presença e a pontuação de previsão de conteúdo que pode ser considerada sexualmente explícita ou adulto em determinadas situações.
-> - `racyScore`representa a possível presença e a pontuação de previsão de conteúdo que pode ser considerada sexualmente sugerida ou amadurece em determinadas situações.
-> - `adultScore`e `racyScore` estão entre 0 e 1. Quanto maior a pontuação, mais alto o modelo está prevendo que a categoria pode ser aplicável. Essa visualização depende de um modelo estatístico em vez de resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
-> - `reviewRecommended`é true ou false, dependendo dos limites de Pontuação interna. Os clientes devem avaliar se esse valor deve ser usado ou decidir sobre limites personalizados com base em suas políticas de conteúdo.
+> - `adultScore` representa a possível presença e a pontuação de previsão de conteúdo que pode ser considerada sexualmente explícita ou adulto em determinadas situações.
+> - `racyScore` representa a possível presença e a pontuação de previsão de conteúdo que pode ser considerada sexualmente sugerida ou amadurece em determinadas situações.
+> - `adultScore` e `racyScore` estão entre 0 e 1. Quanto maior a pontuação, mais alto o modelo está prevendo que a categoria pode ser aplicável. Essa visualização depende de um modelo estatístico em vez de resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
+> - `reviewRecommended` é true ou false, dependendo dos limites de Pontuação internos. Os clientes devem avaliar se esse valor deve ser usado ou decidir sobre limites personalizados com base em suas políticas de conteúdo.
 
 ```json
 {
@@ -426,12 +426,12 @@ Depois que o trabalho de moderação de conteúdo for concluído, analise a resp
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) de sua saída de moderação.
 
 Adicione [moderação de transcrição](video-transcript-moderation-review-tutorial-dotnet.md) às suas revisões de vídeo.
 
-Confira o tutorial detalhado sobre como criar uma solução de moderação de [vídeo e transcrição completa](video-transcript-moderation-review-tutorial-dotnet.md).
+Confira o tutorial detalhado sobre como criar uma [solução de moderação de vídeo e transcrição completa](video-transcript-moderation-review-tutorial-dotnet.md).
 
 [Baixe a solução do Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) para este e outros guias de início rápido Content moderator para .net.

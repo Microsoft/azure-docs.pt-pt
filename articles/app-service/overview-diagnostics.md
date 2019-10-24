@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: jennile
 ms.custom: seodec18
-ms.openlocfilehash: 5631b34fee64c6ad0917b95ec68fcd586717a1b0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 2919c7a2fa3a8912de0272af5131583988184704
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675177"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755518"
 ---
 # <a name="azure-app-service-diagnostics-overview"></a>Visão geral do diagnóstico do serviço Azure App
 
@@ -92,7 +92,7 @@ As ferramentas de diagnóstico incluem ferramentas de diagnóstico mais avançad
 
 ### <a name="proactive-cpu-monitoring"></a>Monitoramento proativo de CPU
 
-O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada. Para obter mais informações, consulte [atenuar os problemas de CPU antes que eles ocorram](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html). O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada.
+O monitoramento proativo de CPU fornece uma maneira fácil e proativa de tomar uma ação quando seu aplicativo ou processo filho para seu aplicativo está consumindo altos recursos de CPU. Você pode definir suas próprias regras de limite de CPU para atenuar temporariamente um problema de alta utilização da CPU até que a causa real do problema inesperado seja encontrada. Para obter mais informações, consulte [atenuar os problemas de CPU antes que eles ocorram](https://azure.github.io/AppService/2019/10/07/Mitigate-your-CPU-problems-before-they-even-happen.html).
 
 ![Monitoramento proativo de CPU](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 

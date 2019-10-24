@@ -1,18 +1,18 @@
 ---
 title: Soluções que usam análises distribuídas globalmente no Azure Cosmos DB.
 description: Saiba mais sobre as soluções que podem ser criadas usando a análise distribuída globalmente no Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: d5c6b8727a24a7ea8ddf05f7983618b55884d3bf
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338987"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755206"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Soluções que usam análises distribuídas globalmente no Azure Cosmos DB
 
@@ -51,7 +51,7 @@ A imagem a seguir mostra como o suporte ao Spark do Azure Cosmos DB é usado par
 
 ![Suporte do Spark do Azure Cosmos DB para ler métricas de dispositivos IoT](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
 
-## <a name="predictive-maintenance"></a>Manutenção preventiva
+## <a name="predictive-maintenance"></a>Manutenção preditiva
 
 * A manutenção de ativos, como compactadores, que são usados em pequenas Rigs de análise para plataformas de água profunda, é um empreendimento complexo. Esses ativos estão localizados em todo o mundo e geram petabytes de dados. Usando Azure Cosmos DB, você pode criar um pipeline de dados de previsão de ponta a ponta que usa o streaming do Spark para processar grandes quantidades de telemetria de sensor, armazenar partes de ativos e dados de mapeamentos de sensor.
 

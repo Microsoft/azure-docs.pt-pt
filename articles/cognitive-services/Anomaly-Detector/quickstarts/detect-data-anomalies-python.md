@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 10/14/2019
 ms.author: aahi
-ms.openlocfilehash: 53311567bbfa93cb66999518e5172b6c4ac36b3f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 571626da0f3f43c8c2a2e33e1147418158c5473b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555143"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754223"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-python"></a>Início rápido: detectar anomalias nos dados de série temporal usando a API REST do detector de anomalias e o Python
 
@@ -32,7 +32,7 @@ Use este guia de início rápido para começar a usar os dois modos de detecçã
 
 - [Python 2. x ou 3. x](https://www.python.org/downloads/)
 
-- A [biblioteca de solicitações](http://docs.python-requests.org) para Python
+- A [biblioteca de solicitações](https://pypi.org/project/requests/) para Python
 
 - Um arquivo JSON que contém pontos de dados de série temporal. Os dados de exemplo deste guia de início rápido podem ser encontrados no [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json).
 

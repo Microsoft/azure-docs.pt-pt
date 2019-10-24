@@ -1,21 +1,21 @@
 ---
-title: 'Início rápido: Tente Content Moderator na Web-Content Moderator'
+title: 'Início rápido: Experimente Content Moderator na Web-Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Neste guia de início rápido, você usará a ferramenta de revisão de Content Moderator online para testar a funcionalidade básica do Content Moderator sem precisar escrever nenhum código.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: e5b20bb45c08330c59fc72712b9e65b488c8c68b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 1053541e192668a7b572d97c141c2fe8fc16ac5c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564439"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757366"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Início rápido: Experimente o Content Moderator na Web
 
@@ -50,7 +50,7 @@ Envie seu conteúdo para moderação. Internamente, a ferramenta de revisão cha
 
 Examine as marcas de moderação aplicadas. Você pode ver quais marcas foram aplicadas ao seu conteúdo e qual foi a pontuação em cada categoria. Consulte os tópicos de moderação de [imagem](image-moderation-api.md), [texto](text-moderation-api.md)e [vídeo](video-moderation-api.md) para saber mais sobre o que as marcas de conteúdo diferentes indicam.
 
-![Rever resultados](images/reviewresults_text.png)
+![Resultados da revisão](images/reviewresults_text.png)
 
 Em um projeto, você ou sua equipe de análise podem alterar essas marcas ou adicionar mais marcas conforme necessário. Você enviará essas alterações com o botão **Avançar** . À medida que seu aplicativo de negócios chama as APIs do moderador, o conteúdo marcado entrará em fila aqui, pronto para ser revisado pelas equipes de análise humana. Você pode examinar rapidamente grandes volumes de conteúdo usando essa abordagem.
 

@@ -3,19 +3,19 @@ title: Imagens moderadas com listas personalizadas e o console de API-Content Mo
 titleSuffix: Azure Content Moderator
 description: Você usa a API de gerenciamento de lista no Azure Content Moderator para criar listas personalizadas de imagens.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: 2b2ab138945d32ca874dc20576d412c862965dc9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: 27d9b12d9e1a0237050243c2b5f07edaa8d8857a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564368"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757198"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderado com listas de imagens personalizadas no console de API
 
@@ -135,7 +135,7 @@ Este exemplo exclui uma única imagem:
  
    O console de API de **exclusão de imagem** é aberto.
  
-3. Na caixa **listar** , insira a ID da lista da qual excluir uma imagem.  Este é o número retornado no console **Image-obter todas as IDs de imagem** para myList. Em seguida, insira  a imageid da imagem a ser excluída. 
+3. Na caixa **listar** , insira a ID da lista da qual excluir uma imagem.  Este é o número retornado no console **Image-obter todas as IDs de imagem** para myList. Em seguida, insira a **imageid** da imagem a ser excluída. 
 
 Em nosso exemplo, a ID da lista é **58953**, o valor de **ContentSource**. A ID da imagem é **59021**, o valor de **ContentIds**.
 
@@ -164,6 +164,6 @@ Você pode editar o nome e a descrição de uma lista e adicionar itens de metad
    ![Listas de imagens-edições de corpo de solicitação do console de detalhes de atualização](images/try-terms-list-change-1.png)
  
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Use a API REST em seu código ou comece com a [imagem lista o início rápido do .net](image-lists-quickstart-dotnet.md) para integrar com seu aplicativo.

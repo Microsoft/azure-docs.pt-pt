@@ -1,17 +1,17 @@
 ---
 title: Otimizando o custo da taxa de transferência no Azure Cosmos DB
 description: Este artigo explica como otimizar os custos de taxa de transferência para os dados armazenados no Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: rimman
-ms.openlocfilehash: d874f1ba8823ceddbef378decde127cef4ff8885
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: 24812b8d97080d59fd50f4dc528117b3020fd8dc
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020112"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753271"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o custo de taxa de transferência provisionada no Azure Cosmos DB
 
@@ -56,16 +56,16 @@ Conforme mostrado na tabela a seguir, dependendo da escolha da API, você pode p
 |API|Para a taxa de transferência **compartilhada** , configure |Para taxa de transferência **dedicada** , configure |
 |----|----|----|
 |SQL API|Base de Dados|Contentor|
-|API do Azure Cosmos DB para MongoDB|Base de Dados|Collection|
-|API de Cassandra|Espaço de chaves|Tabela|
-|API do Gremlin|Conta de base de dados|Graph|
-|API de Tabela|Conta de base de dados|Tabela|
+|API do Azure Cosmos DB para MongoDB|Base de Dados|Coleção|
+|API para Cassandra|keyspace|Tabelas|
+|API do Gremlin|Conta do banco de dados|Graph|
+|API de Tabela|Conta do banco de dados|Tabelas|
 
 Ao provisionar a taxa de transferência em diferentes níveis, você pode otimizar seus custos com base nas características da sua carga de trabalho. Conforme mencionado anteriormente, você pode programaticamente e a qualquer momento aumentar ou diminuir sua taxa de transferência provisionada para contêineres individuais ou coletivamente em um conjunto de contêineres. Ao dimensionar de forma elástica a taxa de transferência conforme a carga de trabalho é alterada, você paga apenas pela taxa de transferência que configurou. Se o contêiner ou um conjunto de contêineres for distribuído entre várias regiões, a taxa de transferência configurada no contêiner ou em um conjunto de contêineres será garantida para ser disponibilizada em todas as regiões.
 
 ## <a name="optimize-with-rate-limiting-your-requests"></a>Otimizar com limitação de taxa de suas solicitações
 
-Para cargas de trabalho que não são sensíveis à latência, você pode provisionar menos produtividade e permitir que o aplicativo manipule a limitação de taxa quando a taxa de transferência real excede a taxa de transferência provisionada. O servidor encerrará de forma preventiva a solicitação `RequestRateTooLarge` com (código de status http 429) e `x-ms-retry-after-ms` retornará o cabeçalho indicando o tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação. 
+Para cargas de trabalho que não são sensíveis à latência, você pode provisionar menos produtividade e permitir que o aplicativo manipule a limitação de taxa quando a taxa de transferência real excede a taxa de transferência provisionada. O servidor finalizará preventivamente a solicitação com `RequestRateTooLarge` (código de status HTTP 429) e retornará o cabeçalho `x-ms-retry-after-ms` indicando o período de tempo, em milissegundos, que o usuário deve aguardar antes de repetir a solicitação. 
 
 ```html
 HTTP Status 429, 
@@ -77,7 +77,7 @@ HTTP Status 429,
 
 Os SDKs nativos (.NET/.NET Core, Java, Node. js e Python) capturam implicitamente essa resposta, respeitam o cabeçalho Retry-After especificado pelo servidor e tentam a solicitação novamente. A menos que sua conta seja acessada simultaneamente por vários clientes, a próxima tentativa terá sucesso.
 
-Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida como 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo o `RetryOptions` na instância ConnectionPolicy. Por padrão, o `DocumentClientException` com código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetições atual é menor que a contagem máxima de tentativas, seja o padrão de 9 ou um valor definido pelo usuário. 
+Se você tiver mais de um cliente operando de forma cumulativa consistentemente acima da taxa de solicitação, a contagem de repetição padrão atualmente definida como 9 pode não ser suficiente. Nesse caso, o cliente gera um `DocumentClientException` com o código de status 429 para o aplicativo. A contagem de repetição padrão pode ser alterada definindo o `RetryOptions` na instância ConnectionPolicy. Por padrão, o `DocumentClientException` com o código de status 429 é retornado após um tempo de espera cumulativo de 30 segundos se a solicitação continuar a operar acima da taxa de solicitação. Isso ocorre mesmo quando a contagem de repetições atual é menor que a contagem máxima de tentativas, seja o padrão de 9 ou um valor definido pelo usuário. 
 
 [MaxRetryAttemptsOnThrottledRequests](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretryattemptsonthrottledrequests?view=azure-dotnet) é definido como 3, portanto, nesse caso, se uma operação de solicitação tiver uma taxa limitada excedendo a taxa de transferência reservada para o contêiner, a operação de solicitação tentará novamente três vezes antes de lançar a exceção para o aplicativo. [MaxRetryWaitTimeInSeconds](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.retryoptions.maxretrywaittimeinseconds?view=azure-dotnet#Microsoft_Azure_Documents_Client_RetryOptions_MaxRetryWaitTimeInSeconds) é definido como 60, portanto, nesse caso, se o tempo de espera de repetição cumulativo em segundos desde a primeira solicitação exceder 60 segundos, a exceção será lançada.
 
@@ -139,7 +139,7 @@ Para determinar a taxa de transferência provisionada para uma nova carga de tra
 
 2. É recomendável criar os contêineres com maior taxa de transferência do que o esperado e, em seguida, reduzir verticalmente conforme necessário. 
 
-3. É recomendável usar um dos SDKs de Azure Cosmos DB nativos para se beneficiar de repetições automáticas quando as solicitações obtiverem a taxa limitada. Se você estiver trabalhando em uma plataforma sem suporte e usar a API REST de Cosmos DB, implemente sua própria política de repetição usando `x-ms-retry-after-ms` o cabeçalho. 
+3. É recomendável usar um dos SDKs de Azure Cosmos DB nativos para se beneficiar de repetições automáticas quando as solicitações obtiverem a taxa limitada. Se você estiver trabalhando em uma plataforma sem suporte e usar a API REST de Cosmos DB, implemente sua própria política de repetição usando o cabeçalho `x-ms-retry-after-ms`. 
 
 4. Certifique-se de que o código do aplicativo é normalmente compatível com o caso em que todas as tentativas falham. 
 

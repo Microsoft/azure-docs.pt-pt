@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676713"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757509"
 ---
-# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: Criar um conjunto de anfitriões com o Azure Marketplace
+# <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Tutorial: criar um pool de hosts usando o Azure Marketplace
 
 Pools de hosts são uma coleção de uma ou mais máquinas virtuais idênticas em ambientes de locatário da área de trabalho virtual do Windows. Cada pool de hosts pode conter um grupo de aplicativos com os quais os usuários podem interagir como fariam em uma área de trabalho física.
 
@@ -46,13 +46,13 @@ Para executar a oferta do Azure Marketplace para provisionar um novo pool de hos
 
 Depois disso, siga as instruções na próxima seção para inserir as informações para as folhas apropriadas.
 
-### <a name="basics"></a>Noções Básicas
+### <a name="basics"></a>Noções básicas
 
 Veja o que você faz para a folha **noções básicas** :
 
 1. Insira um nome para o pool de hosts que é exclusivo no locatário da área de trabalho virtual do Windows.
 2. Selecione a opção apropriada para uma área de trabalho pessoal. Se você selecionar **Sim**, cada usuário que se conecta a esse pool de hosts será permanentemente atribuído a uma máquina virtual.
-3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da área de trabalho virtual do Windows e acessar uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir acesso user1@contoso.com e user2@contoso.com, insira "user1@contoso.com, user2@contoso.com."
+3. Insira uma lista separada por vírgulas de usuários que podem entrar nos clientes da área de trabalho virtual do Windows e acessar uma área de trabalho após a conclusão da oferta do Azure Marketplace. Por exemplo, se você quiser atribuir user1@contoso.com e user2@contoso.com acesso, insira "user1@contoso.com user2@contoso.com".
 4. Selecione **criar novo** e forneça um nome para o novo grupo de recursos.
 5. Para **local**, selecione o mesmo local que a rede virtual que tem conectividade com o servidor de Active Directory.
 6. Selecione **OK**.
@@ -73,7 +73,7 @@ Para a folha **configurar máquinas virtuais** :
 Para a folha **configurações de máquina virtual** :
 
 >[!NOTE]
-> Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+> Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 1. Para **origem da imagem**, selecione a origem e insira as informações apropriadas sobre como encontrá-la e como armazená-la. Se você optar por não usar discos gerenciados, selecione a conta de armazenamento que contém o arquivo. vhd.
 2. Insira o nome principal do usuário e a senha para a conta de domínio que ingressará as VMs no domínio Active Directory. Esse mesmo nome de usuário e senha serão criados nas máquinas virtuais como uma conta local. Você pode redefinir essas contas locais mais tarde.

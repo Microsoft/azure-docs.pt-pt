@@ -1,5 +1,5 @@
 ---
-title: Ingresse em uma VM CentOS para Azure AD Domain Services | Microsoft Docs '
+title: Ingresse em uma VM CentOS para Azure AD Domain Services | Microsoft Docs
 description: Saiba como configurar e unir uma máquina virtual CentOS Linux a um Azure AD Domain Services domínio gerenciado.
 services: active-directory-ds
 author: iainfoulds
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/15/2019
 ms.author: iainfou
-ms.openlocfilehash: 2b10866adb1615b31446388fa0e9d0dabffd13da
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 24d9bb72e52fba9bb4e4dc3256e650cf68e3963f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268683"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755737"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Unir uma máquina virtual CentOS Linux a um Azure AD Domain Services domínio gerenciado
 
@@ -42,9 +42,9 @@ Se você tiver uma VM CentOS Linux existente no Azure, conecte-se a ela usando o
 
 Se você precisar criar uma VM CentOS Linux ou desejar criar uma VM de teste para uso com este artigo, você pode usar um dos seguintes métodos:
 
-* [Azure portal](../virtual-machines/linux/quick-create-portal.md)
+* [Portal do Azure](../virtual-machines/linux/quick-create-portal.md)
 * [CLI do Azure](../virtual-machines/linux/quick-create-cli.md)
-* [Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
+* [O Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md)
 
 Ao criar a VM, preste atenção às configurações de rede virtual para garantir que a VM possa se comunicar com o domínio gerenciado AD DS do Azure:
 
@@ -72,11 +72,11 @@ Atualize esses nomes com seus próprios valores:
 127.0.0.1 centos.contoso.com centos
 ```
 
-Quando terminar, salve e saia do arquivo de *hosts* usando o `:wq` comando do editor.
+Quando terminar, salve e saia do arquivo de *hosts* usando o comando `:wq` do editor.
 
 ## <a name="install-required-packages"></a>Instalar pacotes necessários
 
-A VM precisa de alguns pacotes adicionais para ingressar a VM no domínio gerenciado AD DS do Azure. Para instalar e configurar esses pacotes, atualize e instale as ferramentas de ingresso no domínio `yum`usando:
+A VM precisa de alguns pacotes adicionais para ingressar a VM no domínio gerenciado AD DS do Azure. Para instalar e configurar esses pacotes, atualize e instale as ferramentas de ingresso no domínio usando `yum`:
 
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
@@ -86,27 +86,27 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
 Agora que os pacotes necessários estão instalados na VM, ingresse a VM no domínio gerenciado AD DS do Azure.
 
-1. Use o `realm discover` comando para descobrir o domínio gerenciado AD DS do Azure. O exemplo a seguir descobre o realm *contoso.com*. Especifique seu próprio nome de domínio gerenciado AD DS do Azure em letras MAIÚSCULAs:
+1. Use o comando `realm discover` para descobrir o domínio gerenciado do AD DS do Azure. O exemplo a seguir descobre o realm *contoso.com*. Especifique seu próprio nome de domínio gerenciado AD DS do Azure em letras MAIÚSCULAs:
 
     ```console
     sudo realm discover CONTOSO.COM
     ```
 
-   Se o `realm discover` comando não conseguir localizar seu domínio gerenciado AD DS do Azure, examine as seguintes etapas de solução de problemas:
+   Se o comando `realm discover` não conseguir localizar seu domínio gerenciado do Azure AD DS, examine as seguintes etapas de solução de problemas:
 
-    * Verifique se o domínio está acessível da VM. Tente `ping contoso.com` ver se uma resposta positiva é retornada.
+    * Verifique se o domínio está acessível da VM. Tente `ping contoso.com` para ver se uma resposta positiva é retornada.
     * Verifique se a VM está implantada no mesmo ou em uma rede virtual emparelhada na qual o domínio gerenciado do Azure AD DS está disponível.
     * Confirme se as configurações do servidor DNS para a rede virtual foram atualizadas para apontar para os controladores de domínio do domínio gerenciado AD DS do Azure.
 
-1. Agora, inicialize o Kerberos `kinit` usando o comando. Especifique um usuário que pertença ao grupo de *Administradores de DC do AAD* . Se necessário, [adicione uma conta de usuário a um grupo no Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
+1. Agora, inicialize o Kerberos usando o comando `kinit`. Especifique um usuário que pertença ao grupo de *Administradores de DC do AAD* . Se necessário, [adicione uma conta de usuário a um grupo no Azure ad](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Novamente, o nome de domínio gerenciado do AD DS do Azure deve ser inserido em letras MAIÚSCULAs. No exemplo a seguir, a conta denominada `contosoadmin@contoso.com` é usada para inicializar o Kerberos. Insira sua própria conta de usuário que seja membro do grupo de *Administradores de DC do AAD* :
+    Novamente, o nome de domínio gerenciado do AD DS do Azure deve ser inserido em letras MAIÚSCULAs. No exemplo a seguir, a conta chamada `contosoadmin@contoso.com` é usada para inicializar o Kerberos. Insira sua própria conta de usuário que seja membro do grupo de *Administradores de DC do AAD* :
 
     ```console
     kinit contosoadmin@CONTOSO.COM
     ```
 
-1. Por fim, ingresse o computador no domínio gerenciado AD DS do Azure usando `realm join` o comando. Use a mesma conta de usuário que é membro do grupo de *Administradores de DC do AAD* que você especificou `kinit` no `contosoadmin@CONTOSO.COM`comando anterior, como:
+1. Por fim, ingresse o computador no domínio gerenciado AD DS do Azure usando o comando `realm join`. Use a mesma conta de usuário que é membro do grupo de *Administradores de DC do AAD* que você especificou no comando `kinit` anterior, como `contosoadmin@CONTOSO.COM`:
 
     ```console
     sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
@@ -136,7 +136,7 @@ Por padrão, os usuários só podem entrar em uma VM usando a autenticação bas
     PasswordAuthentication yes
     ```
 
-    Quando terminar, salve e saia do arquivo *sshd_conf* usando o `:wq` comando do editor.
+    Quando terminar, salve e saia do arquivo *sshd_conf* usando o comando `:wq` do editor.
 
 1. Para aplicar as alterações e permitir que os usuários entrem usando uma senha, reinicie o serviço SSH:
 
@@ -146,7 +146,7 @@ Por padrão, os usuários só podem entrar em uma VM usando a autenticação bas
 
 ## <a name="grant-the-aad-dc-administrators-group-sudo-privileges"></a>Conceder ao grupo ' Administradores do AAD DC ' privilégios do sudo
 
-Para conceder aos membros do grupo de *Administradores do AAD DC* privilégios administrativos na VM CentOS, você adiciona uma entrada ao */etc/sudoers*. Depois de adicionados, os membros do grupo de *Administradores do AAD DC* podem usar o `sudo` comando na VM CentOS.
+Para conceder aos membros do grupo de *Administradores do AAD DC* privilégios administrativos na VM CentOS, você adiciona uma entrada ao */etc/sudoers*. Depois de adicionados, os membros do grupo de *Administradores do AAD DC* podem usar o comando `sudo` na VM CentOS.
 
 1. Abra o arquivo do *sudoers* para edição:
 
@@ -161,13 +161,13 @@ Para conceder aos membros do grupo de *Administradores do AAD DC* privilégios a
     %AAD\ DC\ Administrators@contoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
-    Quando terminar, salve e saia do editor usando o `:wq` comando do editor.
+    Quando terminar, salve e saia do editor usando o comando `:wq` do editor.
 
 ## <a name="sign-in-to-the-vm-using-a-domain-account"></a>Entrar na VM usando uma conta de domínio
 
 Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azure, inicie uma nova conexão SSH usando uma conta de usuário de domínio. Confirme se um diretório base foi criado e se a associação de grupo do domínio foi aplicada.
 
-1. Crie uma nova conexão SSH no console do. Use uma conta de domínio que pertença ao domínio gerenciado usando `ssh -l` o comando, `contosoadmin@contoso.com` como e, em seguida, insira o endereço da VM, como *CentOS.contoso.com*. Se você usar o Azure Cloud Shell, use o endereço IP público da VM em vez do nome DNS interno.
+1. Crie uma nova conexão SSH no console do. Use uma conta de domínio que pertença ao domínio gerenciado usando o comando `ssh -l`, como `contosoadmin@contoso.com` e, em seguida, insira o endereço da VM, como *CentOS.contoso.com*. Se você usar o Azure Cloud Shell, use o endereço IP público da VM em vez do nome DNS interno.
 
     ```console
     ssh -l contosoadmin@CONTOSO.com centos.contoso.com
@@ -189,7 +189,7 @@ Para verificar se a VM foi unida com êxito ao domínio gerenciado AD DS do Azur
 
     Você deve ver suas associações de grupo no domínio gerenciado AD DS do Azure.
 
-1. Se você entrou na VM como um membro do grupo de *Administradores do controlador de domínio do AAD* , verifique se você pode usar `sudo` corretamente o comando:
+1. Se você entrou na VM como um membro do grupo de *Administradores do controlador de domínio do AAD* , verifique se você pode usar corretamente o comando `sudo`:
 
     ```console
     sudo yum update

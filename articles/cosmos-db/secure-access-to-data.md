@@ -1,17 +1,17 @@
 ---
 title: Saiba como proteger o acesso aos dados no Azure Cosmos DB
 description: Saiba mais sobre os conceitos de controle de acesso no Azure Cosmos DB, incluindo chaves mestras, chaves somente leitura, usuários e permissões.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: f2e01e42a53f6f099191c03f45d6521668ea73a1
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7e732f1d35097730d4468b43a2d9804fe7a18514
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616675"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753178"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteger o acesso aos dados no Azure Cosmos DB
 
@@ -128,8 +128,8 @@ docUser = await client.CreateUserAsync(UriFactory.CreateDatabaseUri("db"), docUs
 Um Cosmos DB recurso de permissão está associado a um usuário Cosmos DB.  Cada usuário pode conter zero ou mais permissões de Cosmos DB.  Um recurso de permissão fornece acesso a um token de segurança que o usuário precisa ao tentar acessar um recurso de aplicativo específico.
 Há dois níveis de acesso disponíveis que podem ser fornecidos por um recurso de permissão:
 
-* Os O usuário tem permissão total no recurso.
-* Leitura O usuário só pode ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
+* Todos: o usuário tem permissão total no recurso.
+* Leitura: o usuário só pode ler o conteúdo do recurso, mas não pode executar operações de gravação, atualização ou exclusão no recurso.
 
 > [!NOTE]
 > Para executar Cosmos DB procedimentos armazenados, o usuário deve ter a permissão All no contêiner no qual o procedimento armazenado será executado.
@@ -192,6 +192,6 @@ Azure Cosmos DB permite pesquisar, selecionar, modificar e excluir qualquer dado
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre a segurança do banco de [dados Cosmos, consulte Cosmos DB: Segurança](database-security.md)do banco de dados.
+## <a name="next-steps"></a>Passos seguintes
+* Para saber mais sobre a segurança do banco de dados Cosmos, consulte [Cosmos DB: segurança do banco de dados](database-security.md).
 * Para saber como construir Azure Cosmos DB tokens de autorização, consulte [controle de acesso em Azure Cosmos DB recursos](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources).

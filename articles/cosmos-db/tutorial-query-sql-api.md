@@ -1,21 +1,21 @@
 ---
 title: Como fazer consultas com SQL na Azure Cosmos DB?
 description: Saiba como fazer consultas com SQL na Azure Cosmos DB
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.custom: tutorial-develop, mvc
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7e57abcc3df17dadd2e607895a8de011761ed68c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ffebdb0a46fdae981ca73a4569344365459dd7b8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932802"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756826"
 ---
-# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: Azure Cosmos DB de consulta usando a API do SQL
+# <a name="tutorial-query-azure-cosmos-db-by-using-the-sql-api"></a>Tutorial: consultar a Azure Cosmos DB utilizando a API do SQL
 
 A [API do SQL](documentdb-introduction.md) da Azure Cosmos DB suporta a consulta de documentos utilizando o SQL. Este artigo fornece um documento de exemplo e dois exemplos de consultas SQL e os resultados.
 
@@ -65,7 +65,7 @@ Para obter mais informações sobre as consultas SQL, consulte:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destes? Conclua o [guia de início rápido de 5 minutos](create-mongodb-nodejs.md).
+Este tutorial parte do princípio de que tem uma conta e coleção da Azure Cosmos DB. Não tem qualquer um destes? Conclua o [guia de início rápido de 5 minutos](create-cosmosdb-resources-portal.md).
 
 ## <a name="example-query-1"></a>Consulta de exemplo 1
 
@@ -121,7 +121,7 @@ A seguinte consulta devolve todos os nomes de elementos subordinados na família
 
 **Resultados**
 
-[ { "givenName": "Jesse" }, { "givenName": "Lisa"}]
+[ { "givenName": "Jesse" }, { "givenName": "Lisa" } ]
 
 
 ## <a name="next-steps"></a>Passos seguintes

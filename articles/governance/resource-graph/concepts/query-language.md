@@ -3,15 +3,15 @@ title: Entender a linguagem de consulta
 description: Descreve as tabelas de gráfico de recursos e os tipos de dados, operadores e funções do Kusto disponíveis utilizáveis com o grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 6189920cb03a6cf388f0b5d232c6ce97ae4f3f82
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 80b33212afa7fed3f87b241d5cf69b43be66574d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389765"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755921"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Noções básicas sobre a linguagem de consulta do grafo de recursos do Azure
 
@@ -30,7 +30,7 @@ O grafo de recursos fornece várias tabelas para os dados que ele armazena sobre
 |Tabelas do grafo de recursos |Descrição |
 |---|---|
 |Recursos |A tabela padrão se nenhuma for definida na consulta. A maioria dos tipos de recursos e propriedades do Resource Manager estão aqui. |
-|ResourceContainers |Inclui os dados e tipos de recurso de assinatura (`Microsoft.Resources/subscriptions`) e grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
+|ResourceContainers |Inclui a assinatura (em visualização `Microsoft.Resources/subscriptions`) e os tipos de recurso e os dados do grupo de recursos (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AlertsManagementResources |Inclui recursos _relacionados_ a `Microsoft.AlertsManagement`. |
 |SecurityResources |Inclui recursos _relacionados_ a `Microsoft.Security`. |
 
@@ -51,8 +51,8 @@ A consulta a seguir mostra um uso mais complexo de `join`. A consulta limita a t
 
 ```kusto
 Resources
-| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | where type == 'microsoft.keyvault/vaults'
+| join (ResourceContainers | where type=='microsoft.resources/subscriptions' | project SubName=name, subscriptionId) on subscriptionId
 | project type, name, SubName
 | limit 1
 ```
@@ -83,14 +83,14 @@ Aqui está a lista de operadores de tabela KQL com suporte do grafo de recursos 
 |[resumir](/azure/kusto/query/summarizeoperator) |[Contar recursos do Azure](../samples/starter.md#count-resources) |Somente primeira página simplificada |
 |[ter](/azure/kusto/query/takeoperator) |[Listar todos os endereços IP públicos](../samples/starter.md#list-publicip) |Sinônimo de `limit` |
 |[Início](/azure/kusto/query/topoperator) |[Mostrar as primeiras cinco máquinas virtuais por nome e por tipo de SO](../samples/starter.md#show-sorted) | |
-|[unida](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Uma única tabela permitida: _T_ `| union` \[ @ no__t-3 `inner` @ no__t-5 @ no__t-6 @ no__t-7 \[ @ no__t- _@no__t 9-_ 11 _._ Limite de 3 `union` pernas em uma única consulta. A resolução difusa de tabelas de trechos `union` não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
+|[unida](/azure/kusto/query/unionoperator) |[Combinar resultados de duas consultas em um único resultado](../samples/advanced.md#unionresults) |Única tabela permitida: _T_ `| union` \[ `kind=` `inner` \| `outer` \] \[ `withsource=`_ColumnName_ 1 _tabela_. Limite de 3 `union` pernas em uma única consulta. A resolução difusa de tabelas de trechos `union` não é permitida. Pode ser usado em uma única tabela ou entre as tabelas de _recursos_ e _ResourceContainers_ . |
 |[posição](/azure/kusto/query/whereoperator) |[Mostrar recursos que contêm armazenamento](../samples/starter.md#show-storage) | |
 
 ## <a name="escape-characters"></a>Caracteres de escape
 
 Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser encapsulados ou ter escape na consulta ou o nome da propriedade é interpretado incorretamente e não fornece os resultados esperados.
 
-- `.`-encapsular o nome da propriedade como tal: `['propertyname.withaperiod']`
+- `.` encapsular o nome da propriedade como tal: `['propertyname.withaperiod']`
   
   Exemplo de consulta que encapsula a propriedade _OData. Type_:
 
@@ -100,7 +100,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
 - `$`-escapar do caractere no nome da propriedade. O caractere de escape usado depende do grafo de recursos do Shell em execução.
 
-  - **bash** -  @ no__t-2
+  - `\` **bash**  - 
 
     Exemplo de consulta que escapa a propriedade _\$type_ no bash:
 
@@ -110,7 +110,7 @@ Alguns nomes de propriedade, como aqueles que incluem um `.` ou `$`, devem ser e
 
   - **cmd** -não escapar do caractere `$`.
 
-  - @No__t do **PowerShell**-1 @ no__t-2
+  - @No__t_1 do **PowerShell** ``` ` ```
 
     Exemplo de consulta que escapa a propriedade _\$type_ no PowerShell:
 

@@ -3,23 +3,23 @@ title: Texto moderado usando a API de moderação de texto-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Teste a moderação de texto usando a API de moderação de texto no console online.
 services: cognitive-services
-author: sanjeev3
-ms.author: sajagtap
+author: PatrickFarley
+ms.author: pafarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 49047c21f86530aac6ed3e0138a643fd08c35af8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561175"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754192"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Texto moderado do console de API
 
-Use a [API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) de moderação de texto no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
+Use a [API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f) no Content moderator do Azure para verificar seu conteúdo de texto em busca de profanação e compará-lo em listas personalizadas e compartilhadas.
 
 ## <a name="get-your-api-key"></a>Obter sua chave de API
 
@@ -27,7 +27,7 @@ Antes de poder testar a API no console online, você precisa da sua chave de ass
 
 ## <a name="navigate-to-the-api-reference"></a>Navegue até a referência de API
 
-Vá para a [referência da API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f)de moderação de texto. 
+Vá para a [referência da API de moderação de texto](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
   A página da **tela de texto** é aberta.
 
@@ -46,11 +46,11 @@ Para **abrir o console de teste de API**, selecione a região que melhor descrev
 Selecione os parâmetros de consulta que você deseja usar na tela de texto. Para este exemplo, use o valor padrão para **Language**. Você também pode deixá-lo em branco porque a operação detectará automaticamente o idioma provável como parte de sua execução.
 
 > [!NOTE]
-> Para o parâmetro de **idioma** , `eng` atribua ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte apenas ao inglês**.
+> Para o parâmetro de **idioma** , atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte apenas ao inglês**.
 >
-> Para a detecção de **termos** de profanação, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe-o vazio.
+> Para a detecção de **termos de profanação** , use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe-o vazio.
 
-Para **AutoCorreção**, **PII**e **classificar (visualização)** , selecione **verdadeiro**. Deixe o  campo ListId vazio.
+Para **AutoCorreção**, **PII**e **classificar (visualização)** , selecione **verdadeiro**. Deixe o campo **ListId** vazio.
 
   ![Parâmetros de consulta do console de tela de texto](images/text-api-console-inputs.PNG)
 
@@ -172,8 +172,8 @@ A resposta a seguir mostra as várias informações da API. Ele contém possíve
 }
 ```
 
-Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de moderação de [texto](text-moderation-api.md) .
+Para obter uma explicação detalhada de todas as seções na resposta JSON, consulte o guia conceitual de [moderação de texto](text-moderation-api.md) .
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Use a API REST em seu código ou comece com o guia de [início rápido do .net](text-moderation-quickstart-dotnet.md) de moderação de texto para integrar com seu aplicativo.
+Use a API REST em seu código ou comece com o guia de [início rápido do .net de moderação de texto](text-moderation-quickstart-dotnet.md) para integrar com seu aplicativo.

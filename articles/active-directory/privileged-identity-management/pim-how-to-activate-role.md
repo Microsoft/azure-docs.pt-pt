@@ -14,12 +14,12 @@ ms.date: 06/28/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9d9b2aff1d196d8b2987d77046831e7200ee2fe
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 6007762c897337170dec69c3486302aa62723480
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804482"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756294"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Ativar minhas funções do Azure AD no PIM
 
@@ -27,15 +27,15 @@ O Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplif
 
 Se você se tornou qualificado para uma função administrativa, isso significa que você pode ativar essa função quando precisar executar ações privilegiadas. Por exemplo, se você ocasionalmente gerencia recursos do Office 365, os administradores de função com privilégios de sua organização podem não torná-lo um administrador global permanente, pois essa função também afeta outros serviços. Em vez disso, eles o tornam qualificado para funções do Azure AD, como administrador do Exchange Online. Você pode solicitar para ativar essa função quando precisar de seus privilégios e, em seguida, terá controle de administrador para um período de tempo predeterminado.
 
-Este artigo é para os administradores que precisam ativar sua função do Azure AD no PIM.
+Este artigo é para os administradores que precisam ativar sua função do Azure AD no Privileged Identity Management.
 
 ## <a name="activate-a-role"></a>Ativar uma função
 
-Quando você precisa tomar uma função do Azure AD, você pode solicitar a ativação usando a opção de navegação **minhas funções** no PIM.
+Quando precisar tomar uma função do Azure AD, você poderá solicitar a ativação usando a opção de navegação **minhas funções** no Privileged Identity Management.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Abra **Azure ad Privileged Identity Management**. Para obter informações sobre como adicionar o bloco do PIM ao seu painel, consulte [começar a usar o PIM](pim-getting-started.md).
+1. Abra **Azure ad Privileged Identity Management**. Para obter informações sobre como adicionar o bloco Privileged Identity Management ao seu painel, consulte [começar a usar o Privileged Identity Management](pim-getting-started.md).
 
 1. Clique em **funções do Azure ad**.
 
@@ -129,14 +129,14 @@ Se você não precisar de ativação de uma função que exija aprovação, pode
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Permissões não concedidas após a ativação de uma função
 
-Quando você ativa uma função no PIM, a ativação pode não ser propagada instantaneamente para todos os portais que exigem a função privilegiada. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a ativação estiver atrasada, aqui está o que você deve fazer.
+Quando você ativa uma função no Privileged Identity Management, a ativação pode não ser propagada instantaneamente para todos os portais que exigem a função privilegiada. Às vezes, mesmo que a alteração seja propagada, a colocação na cache Web num portal pode fazer com que a alteração não entre imediatamente em vigor. Se a ativação estiver atrasada, aqui está o que você deve fazer.
 
 1. Termine sessão no portal do Azure e, em seguida, inicie sessão novamente.
 
-    Quando você ativar uma função do Azure AD, verá os estágios da ativação. Quando todas as fases estiverem concluídas, verá a ligação **Terminar sessão**. Pode utilizar esta ligação para terminar sessão. Deste modo, vai resolver a maioria dos atrasos da ativação.
+    Quando você ativar uma função do Azure AD, verá os estágios da ativação. Quando todas as fases estiverem concluídas, verá a ligação **Terminar sessão**. Você pode usar este link para sair. Isso irá resolver a maioria dos casos de atraso de ativação.
 
-1. No PIM, verifique se você está listado como o membro da função.
+1. Em Privileged Identity Management, verifique se você está listado como o membro da função.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar as minhas funções de recursos do Azure no PIM](pim-resource-roles-activate-your-roles.md)
+- [Ativar minhas funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-activate-your-roles.md)

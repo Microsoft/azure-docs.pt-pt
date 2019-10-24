@@ -3,19 +3,19 @@ title: Verificar imagens em listas personalizadas no C# Content moderator
 titleSuffix: Azure Cognitive Services
 description: Como moderar imagens com uma lista personalizada de imagens através do SDK do Content Moderator para C#.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: 63eb2285563bf83ac56beb03ff008a2bfa5daab6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.author: pafarley
+ms.openlocfilehash: 63dd3b782d868994c46e71b55201e65f91678d86
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242910"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755332"
 ---
 # <a name="moderate-with-custom-image-lists-in-c"></a>Moderado com listas de imagens personalizadas emC#
 

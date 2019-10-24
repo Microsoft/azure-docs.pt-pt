@@ -1,6 +1,6 @@
 ---
-title: 'Azure Active Directory Domain Services: Software de terceiros compatíveis | Documentos da Microsoft'
-description: Software de terceiros que funciona com o Azure Active Directory Domain Services
+title: Software de terceiros compatível para o Azure AD Domain Services | Microsoft Docs
+description: Software de terceiros que funciona com Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: iainfoulds
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2017
 ms.author: iainfou
-ms.openlocfilehash: 7d0130c3489d29f4e6b0fbe42f184dd06f17bbd7
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f5a633a49a0f7b99da4eac08a527d17299aa34b9
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67473788"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754460"
 ---
 # <a name="third-party-software-compatible-with-azure-ad-domain-services"></a>Software de terceiros compatível com o Azure AD Domain Services
 
@@ -28,17 +28,17 @@ ms.locfileid: "67473788"
 
 ![Uma identidade](./media/compatible-software-icons/OneIdentity.png)
 
-Os serviços de autenticação de uma identidade permite que os sistemas Unix e Linux e Mac OS X utilizar o acesso, autenticação e autorização da infraestrutura de Active Directory (AD) existente de uma organização. Serviços de autenticação suporta agora o Azure Active Directory Domain Services habilitando recursos não Windows para utilizar a mesma plataforma de próxima geração, que já utilizam suas soluções de SaaS existentes.
+Os serviços de autenticação de identidade permitem que os sistemas UNIX, Linux e Mac OS X usem o acesso, a autenticação e a autorização da infraestrutura existente do Active Directory (AD) de uma organização. Os serviços de autenticação agora dão suporte a Azure Active Directory Domain Services habilitando recursos que não são do Windows para utilizar a mesma plataforma de última geração que suas soluções SaaS existentes já usam.
 
 [Serviços de autenticação de uma identidade](https://www.quest.com/products/authentication-services/)
 
-[Artigo da KB - serviços de autenticação de identidade de uso um com o Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
+[Artigo da base de conhecimento – usar um serviço de autenticação de identidade com Azure AD Domain Services](https://support.quest.com/authentication-services/kb/208427)
 
 
 ## <a name="red-hat-enterprise-linux"></a>Red Hat Enterprise Linux
 
 ![Red Hat](./media/compatible-software-icons/RedHat.png)
 
-Red Hat Enterprise Linux é a enterprise Linux plataforma líder criada para satisfazer as necessidades das empresas modernas atuais. do mundo Red Hat Enterprise Linux é a opção preferencial para cargas de trabalho do enterprise Linux a máquina virtual (VM) no Microsoft Azure. Red Hat Enterprise Linux é uma plataforma aberta, confiável e segura, concebida para clientes que querem a flexibilidade de implementação para as cargas de trabalho críticas para a empresa - a partir de centro de dados na cloud do Azure - alicerçado rigidamente integrado, o suporte de nível empresarial de Red Hat e Microsoft.
+Red Hat Enterprise Linux é a plataforma Linux empresarial líder mundial, criada para atender às necessidades da empresa moderna atual. Red Hat Enterprise Linux é a escolha preferida para cargas de trabalho de VM (máquina virtual) Enterprise Linux em Microsoft Azure. Red Hat Enterprise Linux é uma plataforma aberta, confiável e segura projetada para clientes que desejam flexibilidade de implantação para suas cargas de trabalho críticas para os negócios – da data center para a nuvem do Azure, com suporte de nível empresarial totalmente integrado da Red Hat e Microsoft.
 
-[Junte-se a Red Hat Enterprise Linux 7.2 VM nos serviços de domínio do Azure AD](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+[Ingressar Red Hat Enterprise Linux VM 7,2 para Azure AD Domain Services](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

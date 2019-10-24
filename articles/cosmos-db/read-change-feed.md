@@ -1,17 +1,17 @@
 ---
 title: Acessando o feed de alterações no Azure Cosmos DB Azure Cosmos DB
 description: Este artigo descreve as diferentes opções disponíveis para ler e acessar o feed de alterações no Azure Cosmos DB Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
-ms.openlocfilehash: 3d52ba1abc22aae6121ea6a36f943851dfcca7a0
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467674"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754871"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Lendo Azure Cosmos DB feed de alterações
 
@@ -31,12 +31,12 @@ A biblioteca do processador do feed de alterações oculta a complexidade e aind
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Usando o SDK da API do SQL Azure Cosmos DB
 
-Com o SDK, você obtém um controle de baixo nível do feed de alterações. Você pode gerenciar o ponto de verificação, acessar uma chave de partição lógica específica, etc. Se você tiver vários leitores, poderá usar `ChangeFeedOptions` o para distribuir a carga de leitura para diferentes threads ou clientes diferentes. 
+Com o SDK, você obtém um controle de baixo nível do feed de alterações. Você pode gerenciar o ponto de verificação, acessar uma chave de partição lógica específica, etc. Se você tiver vários leitores, poderá usar `ChangeFeedOptions` para distribuir a carga de leitura para diferentes threads ou clientes diferentes. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Agora, pode avançar para saber mais sobre a alteração do feed nos seguintes artigos:
+Agora você pode continuar para saber mais sobre o feed de alterações nos seguintes artigos:
 
 * [Visão geral do feed de alterações](change-feed.md)
-* [Usando a alteração do feed com as funções do Azure](change-feed-functions.md)
-* [Usando a alteração de biblioteca processador do feed](change-feed-processor.md)
+* [Usando o feed de alterações com Azure Functions](change-feed-functions.md)
+* [Usando a biblioteca do processador do feed de alterações](change-feed-processor.md)

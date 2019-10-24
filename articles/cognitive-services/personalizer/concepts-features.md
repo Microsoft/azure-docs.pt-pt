@@ -1,5 +1,5 @@
 ---
-title: 'Funcionalidades: Ação e contexto-personalizador'
+title: 'Recursos: ação e contexto-personalizador'
 titleSuffix: Azure Cognitive Services
 description: O personalizador usa recursos, informações sobre ações e contexto, para fazer sugestões de classificação melhores. Os recursos podem ser muito genéricos ou específicos de um item.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: diberry
-ms.openlocfilehash: db54a71a6bd252c1ca60ae356cbf340bc660d142
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2147ca2565d5977e3e47d5182627483aa3d8d1b2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989091"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756111"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Recursos são informações sobre ações e contexto
 
@@ -26,7 +26,7 @@ O personalizador usa **recursos**, que são informações sobre o **contexto atu
 Por exemplo, você pode ter um **recurso** sobre:
 
 * O _usuário persona_ , como um `Sports_Shopper`. Isso não deve ser uma ID de usuário individual. 
-* O _conteúdo_ como, por exemplo, se um `Documentary`vídeo for `Movie`um, um `TV Series`ou um, ou se um item de varejo estiver disponível no repositório.
+* O _conteúdo_ , como se um vídeo é um `Documentary`, um `Movie` ou um `TV Series`, ou se um item de varejo está disponível no repositório.
 * O período de tempo _atual_ , como em qual dia da semana é.
 
 O personalizador não prescreve, limita ou corrige quais recursos você pode enviar para ações e contexto:
@@ -43,9 +43,9 @@ O personalizador dá suporte a recursos de tipos de cadeia de caracteres, numér
 
 ### <a name="how-choice-of-feature-type-affects-machine-learning-in-personalizer"></a>Como a escolha do tipo de recurso afeta Machine Learning no Personalizador
 
-* **Cadeias de caracteres**: Para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
-* **Numérico**: Você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
-* Valores Boolianos enviados com o valor "false" funcionam como se não tivessem sido enviados.
+* **Strings**: para tipos de cadeia de caracteres, cada combinação de chave e valor cria novos pesos no modelo personalizado de aprendizado de máquina. 
+* **Numeric**: você deve usar valores numéricos quando o número deve afetar proporcionalmente o resultado da personalização. Isso depende muito do cenário. Em um exemplo simplificado, por exemplo, ao personalizar uma experiência de varejo, o NumberOfPetsOwned pode ser um recurso que é numérico, pois você pode querer que as pessoas com 2 ou 3 animais de estimação influenciem o resultado da personalização duas vezes ou três vezes por até um animal de estimação. Recursos que são baseados em unidades numéricas, mas em que o significado não é linear, como idade, temperatura ou altura da pessoa, são mais bem codificados como cadeias de caracteres, e a qualidade do recurso pode ser normalmente melhorada usando intervalos. Por exemplo, age pode ser codificada como "Age": "0-5", "Age": "6-10", etc.
+* Valores **boolianos** enviados com o valor "false" funcionam como se não tivessem sido enviados.
 
 Os recursos que não estão presentes devem ser omitidos da solicitação. Evite enviar recursos com um valor nulo, pois ele será processado como existente e com um valor de "NULL" ao treinar o modelo.
 
@@ -56,12 +56,12 @@ O personalizador leva em conta os recursos organizados em namespaces. Você dete
 Veja a seguir exemplos de namespaces de recurso usados por aplicativos:
 
 * User_Profile_from_CRM
-* Time
+* Tempo
 * Mobile_Device_Info
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Meteorologia
+* MSNBC
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -69,7 +69,7 @@ Veja a seguir exemplos de namespaces de recurso usados por aplicativos:
 Você pode nomear namespaces de recursos seguindo suas próprias convenções, desde que elas sejam chaves JSON válidas. Os namespaces são usados para organizar recursos em conjuntos distintos e para desambiguar recursos com nomes semelhantes. Você pode considerar os namespaces como um ' prefix ' que é adicionado aos nomes de recursos. Namespaces não podem ser aninhados.
 
 
-Nos namespaces de recurso `user`JSON `state`a seguir `device` ,, e são. Observação de visualização pública: No momento, é altamente recomendável usar nomes para namespaces de recursos que são baseados em UTF-8 e começar com letras diferentes. Por `user`exemplo `device` `u`,, e comece com ,`s`e .`d` `state` Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
+No JSON, `user`, `state` e `device` a seguir são namespaces de recurso. Observação de visualização pública: no momento, é altamente recomendável usar nomes para namespaces de recurso que são baseados em UTF-8 e começam com letras diferentes. Por exemplo, `user`, `state` e `device` começar com `u`, `s` e `d`. Atualmente, ter namespaces com os mesmos primeiros caracteres pode resultar em colisões em índices usados para aprendizado de máquina.
 
 Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simples. Uma matriz só poderá ser incluída se os itens de matriz forem números. 
 
@@ -97,6 +97,13 @@ Os objetos JSON podem incluir objetos JSON aninhados e propriedades/valores simp
     ]
 }
 ```
+
+### <a name="restrictions-in-character-sets-for-namespaces"></a>Restrições em conjuntos de caracteres para namespaces
+
+A cadeia de caracteres usada para nomear o namespace deve seguir algumas restrições: 
+* Não pode ser Unicode.
+* Você pode usar alguns dos símbolos imprimíveis com códigos < 256 para os nomes de namespace. 
+* Você não pode usar símbolos com códigos < 32 (não imprimível), 32 (espaço), 58 (dois-pontos), 124 (pipe) e 126 – 140.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Como tornar os conjuntos de recursos mais eficazes para o personalizador
 
@@ -168,7 +175,7 @@ As ações que você envia para a API de classificação dependerão do que voc�
 
 Eis alguns exemplos:
 
-|Objetivo|Action|
+|Finalidade|Ação|
 |--|--|
 |Personalize o artigo que está realçado em um site de notícias.|Cada ação é um artigo de notícias em potencial.|
 |Otimizar o posicionamento do AD em um site.|Cada ação será um layout ou regras para criar um layout para os anúncios (por exemplo, na parte superior, à direita, imagens pequenas, imagens grandes).|
@@ -194,7 +201,7 @@ Os recursos das ações normalmente podem vir de sistemas de gerenciamento de co
 
 Em alguns casos, há ações que você não deseja exibir para os usuários. A melhor maneira de impedir que uma ação seja classificada como superior não é incluí-la na lista de ações para a API de classificação em primeiro lugar.
 
-Em alguns casos, ele só poderá ser determinado posteriormente em sua lógica de negócios se uma _ação_ resultante de uma chamada à API de classificação for ser mostrada para um usuário. Nesses casos, você deve usar _eventos_inativos.
+Em alguns casos, ele só poderá ser determinado posteriormente em sua lógica de negócios se uma _ação_ resultante de uma chamada à API de classificação for ser mostrada para um usuário. Nesses casos, você deve usar _eventos inativos_.
 
 ## <a name="json-format-for-actions"></a>Formato JSON para ações
 

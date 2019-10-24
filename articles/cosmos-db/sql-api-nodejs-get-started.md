@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 5de0fe47d8ca6372c35cc4f148f97b366a1a742c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971402"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754828"
 ---
-# <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar um aplicativo de console do node. js com o SDK do JavaScript para gerenciar Azure Cosmos DB dados da API do SQL
+# <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: criar um aplicativo de console do node. js com o SDK do JavaScript para gerenciar Azure Cosmos DB dados da API do SQL
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -69,7 +69,7 @@ Antes de começar a escrever o código para criar o aplicativo, você pode criar
      * ```touch app.js```
      * ```touch config.js```
 
-4. Criar e inicializar um `package.json` arquivo. Utilize o seguinte comando:
+4. Criar e inicializar um arquivo de `package.json`. Utilize o seguinte comando:
    * ```npm init -y```
 
 5. Instale o módulo @azure/cosmos através do npm. Utilize o seguinte comando:
@@ -99,7 +99,7 @@ Agora que seu aplicativo existe, você precisa ter certeza de que ele pode se co
 
    O SDK do JavaScript usa o *contêiner* e o *Item*de termos genéricos. Os contentores podem ser uma coleção, um grafo ou uma tabela. Os itens podem ser um documento, um vértice/aresta ou uma linha e são o conteúdo dentro dos contentores. 
    
-   `module.exports = config;`o código é usado para exportar ```config``` o objeto, para que você possa referenciá-lo ```app.js``` dentro do arquivo.
+   `module.exports = config;` código é usado para exportar o objeto ```config```, para que você possa referenciá-lo dentro do arquivo ```app.js```.
 
 ## <a id="Connect"></a>Conectar-se a uma conta de Azure Cosmos DB
 
@@ -125,7 +125,7 @@ Agora que seu aplicativo existe, você precisa ter certeza de que ele pode se co
    ```
    
 > [!Note]
-> Se estiver se conectando ao emulador de **Cosmos DB**, desabilite a verificação SSL para seu processo de nó:
+> Se estiver se conectando ao **emulador de Cosmos DB**, desabilite a verificação SSL para seu processo de nó:
 >   ```
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -148,9 +148,9 @@ Agora que tem o código para inicializar o cliente do Azure Cosmos DB, vamos ver
    const partitionKey = { kind: "Hash", paths: ["/Country"] };
    ```
 
-   Um banco de dados pode ser criado usando a `createIfNotExists` função ou criar da classe databases. As bases de dados são os contentores lógicos dos itens particionados em contentores. 
+   Um banco de dados pode ser criado usando a função `createIfNotExists` ou criar da classe **databases** . As bases de dados são os contentores lógicos dos itens particionados em contentores. 
 
-2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. A função CreateDatabase criará um novo banco de dados ```FamilyDatabase```com ID, especificado ```config``` a partir do objeto, se ele ainda não existir. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
+2. Copie e cole os métodos **createDatabase** e **readDatabase** no ficheiro app.js, abaixo da definição de ```databaseId``` e de ```containerId```. A função **CreateDatabase** criará um novo banco de dados com a ID ```FamilyDatabase```, especificado a partir do objeto ```config``` se ele ainda não existir. A função **readDatabase** lê a definição da base de dados para garantir que a mesma existe.
 
    ```javascript
    /**
@@ -257,7 +257,7 @@ Em seguida, crie um contêiner dentro da conta de Azure Cosmos DB, para que voc�
 > [!WARNING]
 > A criação de um contêiner tem implicações de preços. Visite nossa [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para saber o que esperar.
 
-Um contêiner pode ser criado usando a `createIfNotExists` função ou criar da classe **contêineres** .  Os contentores consistem em itens (que, no caso da API SQL, são documentos JSON) e na lógica da aplicação JavaScript associada.
+Um contêiner pode ser criado usando a função `createIfNotExists` ou CREATE da classe **containers** .  Os contentores consistem em itens (que, no caso da API SQL, são documentos JSON) e na lógica da aplicação JavaScript associada.
 
 1. Copie e cole as funções **createContainer** e **readContainer** abaixo da função **readDatabase**, no ficheiro app.js. A função **createContainer** cria um contentor novo com ```containerId```, especificado a partir do objeto ```config```, se ainda não existir. A função **readContainer** lê a definição do contentor para verificar se o mesmo existe.
 
@@ -414,7 +414,7 @@ Um item pode ser criado usando a função CREATE da classe **Items** . Quando vo
    ```
 
 
-## <a id="Query"></a>Consultar recursos do Azure Cosmos DB
+## <a id="Query"></a>Recursos de Azure Cosmos DB de consulta
 
 O Azure Cosmos DB dá suporte a consultas avançadas em documentos JSON armazenados em cada contêiner. O seguinte código de exemplo mostra uma consulta que pode executar nos documentos do seu contentor.
 
@@ -662,7 +662,7 @@ Instale as dependências do projeto via NPM. Utilize o seguinte comando:
 
 * ```npm install``` 
 
-Em seguida, no ```config.js``` arquivo, atualize os valores config. EndPoint e config. PrimaryKey, conforme descrito [na etapa 3: Defina as configurações](#Config)do aplicativo.  
+Em seguida, no arquivo ```config.js```, atualize os valores config. EndPoint e config. Key, conforme descrito na [etapa 3: definir as configurações do aplicativo](#Config).  
 
 Em seguida, no seu terminal, localize o ficheiro ```app.js``` e execute o comando:  
 
