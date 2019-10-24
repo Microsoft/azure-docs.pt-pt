@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar, publicar, responder QnA Maker'
+title: 'Tutorial: criar, publicar, responder-QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Este tutorial baseado em REST orienta programaticamente a criação e publicação de uma base de dados de conhecimento e a resposta a uma pergunta a partir da mesma.
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 10/01/2019
+ms.date: 10/12/2019
 ms.author: diberry
-ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: d13bce3c1cafd20b311aa882d3a32101c1833ba5
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802813"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72555501"
 ---
-# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Usando C#, crie a base de dados de conhecimento e responda a pergunta
+# <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Utilizar C#, criar a base de dados de conhecimento e responder à pergunta
 
 Este tutorial orienta programaticamente a criação e publicação de uma base de dados de conhecimento (BDC) e a resposta a uma pergunta do cliente a partir da mesma. 
 
@@ -114,7 +114,7 @@ Esta chamada à API devolve uma resposta JSON que inclui o estado da operação:
 }
 ```
 
-Repita a chamada até ter êxito ou falhar: 
+Repita a chamada até obter êxito ou falhar: 
 
 ```JSON
 {
@@ -129,7 +129,7 @@ Repita a chamada até ter êxito ou falhar:
 
 ## <a name="add-createkb-method"></a>Adicionar método CreateKB
 
-O método seguinte encapsula as chamadas para criar a BDC e verificar o estado.  É devolvido _create_ **ID da Operação** no campo do cabeçalho de resposta POST **Localização** e, em seguida, é utilizado como parte da rota no pedido GET. Uma vez que a criação da KB pode demorar algum tempo, terá de repetir as chamadas para verificar o estado até que o estado seja com êxito ou falhe. Quando a operação for concluída com êxito, o ID da BDC é devolvido em **resourceLocation**. 
+O método seguinte encapsula as chamadas para criar a BDC e verificar o estado.  É devolvido _create_ **ID da Operação** no campo do cabeçalho de resposta POST **Localização** e, em seguida, é utilizado como parte da rota no pedido GET. Uma vez que a criação da BDC pode demorar algum tempo, tem de repetir as chamadas para verificar o estado até que este seja com êxito ou falhe. Quando a operação for concluída com êxito, o ID da BDC é devolvido em **resourceLocation**. 
 
 [!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=152-227 "Add GET request to determine creation status")]
 
@@ -215,6 +215,13 @@ Adicione o método seguinte para obter uma resposta à pergunta do utilizador.
 
 [!code-csharp[Get Answer](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=290-315 "Get Answer")]
 
+Se você quiser limitar a resposta a apenas perguntas, adicione a propriedade `[rankerType](Learn more about [rankerType](../concepts/best-practices.md#choosing-ranker-type).
+)` ao corpo, por exemplo: 
+
+```csharp
+request.Content = new StringContent("{question:'" + question + "', rankerType:'QuestionOnly'}", Encoding.UTF8, "application/json"); 
+```
+
 Esta chamada à API devolve uma resposta JSON: 
 
 ```JSON
@@ -245,7 +252,7 @@ Compile e execute o programa.
 
 Assim que a sua base de dados de conhecimento é criada, pode visualizá-la no seu Portal do Criador de FAQ, na página [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) (As minhas bases de dados de conhecimento). Quando souber como utilizar a API para gerar respostas, pode utilizá-la com qualquer linguagem ou arquitetura de pedidos HTTP. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Referência à API REST do Criador de FAQ](https://go.microsoft.com/fwlink/?linkid=2092179)
+> [Referência da API REST para o Criador de FAQ (V4)](https://go.microsoft.com/fwlink/?linkid=2092179)

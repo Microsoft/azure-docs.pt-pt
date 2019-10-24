@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: a5e228417610a19c38acf9ce2db6e743ec122580
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8ed0e1b1406eca6dd55e9e9faf184152a190da94
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679584"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757506"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Criar um conjunto de anfitriões com o PowerShell
 
@@ -85,7 +85,7 @@ Para ingressar no domínio com êxito, execute as ações a seguir em cada máqu
 5. Autentique com uma conta de domínio que tenha privilégios para computadores de ingresso no domínio.
 
     >[!NOTE]
-    > Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
+    > Se você estiver ingressando suas VMs em um ambiente Azure Active Directory Domain Services (AD DS do Azure), verifique se o usuário ingressar no domínio também é membro do [grupo de administradores de DC do AAD](../active-directory-domain-services/tutorial-create-instance-advanced.md#configure-an-administrative-group).
 
 ## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrar as máquinas virtuais no pool de hosts da área de trabalho virtual do Windows
 

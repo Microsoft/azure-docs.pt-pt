@@ -123,6 +123,8 @@
               href: deploy-continuous-deployment.md
             - name: Implementar a partir do Git local
               href: deploy-local-git.md
+            - name: Implementar com o GitHub Actions
+              href: deploy-github-actions.md
             - name: Implementar com modelo
               href: deploy-complex-application-predictably.md
         - name: Definir credenciais de implementação

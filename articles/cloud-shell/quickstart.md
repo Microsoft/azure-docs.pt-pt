@@ -1,25 +1,21 @@
 ---
-title: Guia de início rápido do Azure Cloud Shell | Microsoft Docs
-description: Início rápido para Azure Cloud Shell
-services: ''
-documentationcenter: ''
+title: Guia de início rápido Azure Cloud Shell-bash
+description: Saiba como usar a linha de comando do bash em seu navegador com Azure Cloud Shell.
 author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 8151013f263c6cf2f90e89fa1c3b0b3025f2ea38
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: 574841b3a89385a3b8bf048d5ed36f40fac99a83
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741994"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757402"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Início rápido para Bash no Azure Cloud Shell
 
@@ -70,9 +66,9 @@ az vm create -n myVM -g MyRG --image UbuntuLTS --generate-ssh-keys
 ```
 
 > [!NOTE]
-> O `--generate-ssh-keys` uso instrui CLI do Azure a criar e configurar chaves públicas e privadas em sua VM e `$Home` diretório. Por padrão, as chaves são colocadas em `/home/<user>/.ssh/id_rsa` Cloud Shell `/home/<user>/.ssh/id_rsa.pub`em e. Sua `.ssh` pasta é mantida na imagem de 5 GB do compartilhamento de arquivos anexado usada para persistir `$Home`.
+> O uso de `--generate-ssh-keys` instrui CLI do Azure para criar e configurar chaves públicas e privadas na sua VM e no diretório `$Home`. Por padrão, as chaves são colocadas em Cloud Shell em `/home/<user>/.ssh/id_rsa` e `/home/<user>/.ssh/id_rsa.pub`. Sua pasta de `.ssh` é persistida na imagem de 5 GB do compartilhamento de arquivos anexado usada para persistir `$Home`.
 
-Seu nome de usuário nessa VM será seu nome de usuário usado em Cloud ShellUser@Azure:($).
+Seu nome de usuário nessa VM será seu nome de usuário usado no Cloud Shell ($ User@Azure:).
 
 ### <a name="ssh-into-your-linux-vm"></a>SSH em sua VM Linux
 1. Pesquise o nome da VM na barra de pesquisa portal do Azure.
@@ -98,7 +94,7 @@ Após estabelecer a conexão SSH, você deverá ver o prompt de boas-vindas do U
    az group delete -n MyRG
    ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 [Saiba mais sobre a persistência de arquivos para Bash no Cloud Shell](persisting-shell-storage.md) <br>
 [Saiba mais sobre o CLI do Azure](https://docs.microsoft.com/cli/azure/) <br>
 [Saiba mais sobre o armazenamento de arquivos do Azure](../storage/files/storage-files-introduction.md) <br>

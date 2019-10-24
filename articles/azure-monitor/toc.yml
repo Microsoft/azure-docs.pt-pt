@@ -639,6 +639,8 @@
                   href: insights/vminsights-workbooks.md
                 - name: Analisar dados com consultas de registo
                   href: insights/vminsights-log-search.md
+                - name: Atualizar o agente de dependência
+                  href: insights/vminsights-dependency-agent-maintenance.md
                 - name: Desativar a monitorização
                   href: insights/vminsights-optout.md
             - name: Solução de capacidade e desempenho

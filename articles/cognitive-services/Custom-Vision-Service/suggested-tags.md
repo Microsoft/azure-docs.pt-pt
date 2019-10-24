@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: pafarley
-ms.openlocfilehash: 31b8dfc234ac99d6f04061d6596e3dc8113e8d0f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 06735240729fb2bfd21b87f592e143e9ceabb390
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213842"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753494"
 ---
 # <a name="label-images-faster-with-suggested-tags"></a>Rotular imagens mais rapidamente com marcas sugeridas
 
@@ -27,8 +27,7 @@ Quando você marca imagens para um modelo de Visão Personalizada, o serviço us
 
 Tenha em mente as seguintes limitações:
 
-* Solicite apenas marcas sugeridas para imagens cujo conteúdo já tenha sido treinado uma vez. Não obtenha sugestões para uma nova marca que você está apenas começando a treinar.
-* Você só pode usar marcas sugeridas em imagens que não são marcadas; Você não pode obter sugestões para marcas adicionais em uma imagem já marcada.
+* Você deve solicitar apenas marcas sugeridas para imagens cujo conteúdo já tenha sido treinado uma vez. Não obtenha sugestões para uma nova marca que você está apenas começando a treinar.
 
 > [!IMPORTANT]
 > O recurso de marcas sugeridas usa o mesmo [modelo de preços](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) que previsões regulares. Na primeira vez que você disparar marcas sugeridas para um conjunto de imagens, será cobrado o mesmo para chamadas de previsão. Depois disso, o serviço armazena os resultados para as imagens selecionadas em um banco de dados por 30 dias e você pode acessá-las a qualquer momento gratuitamente dentro desse período. Após 30 dias, você será cobrado se solicitar suas marcas sugeridas novamente.
@@ -44,21 +43,21 @@ As etapas a seguir mostram como usar o recurso de marcas sugeridas:
 1. Inicie o processo de treinamento.
 1. Quando o treinamento estiver concluído, navegue até a exibição não **marcada** e selecione o botão **obter marcas sugeridas** no painel esquerdo.
     > [!div class="mx-imgBorder"]
-    > ![O botão marcas sugeridas é mostrado na guia imagens não marcadas.](./media/suggested-tags/suggested-tags-button.png)
+    > ![The botão de marcas sugeridas é mostrado na guia imagens não marcadas. ](./media/suggested-tags/suggested-tags-button.png)
 1. Selecione o conjunto de imagens para as quais você deseja sugestões. Você só deve obter sugestões de marcas iniciais para uma parte das imagens não marcadas. Você obterá sugestões de marca melhores à medida que iterar o processo.
 1. Confirme as marcas sugeridas, corrigindo as que não estão corretas.
     > [!TIP]
     > Imagens com marcas sugeridas são classificadas por sua incerteza de previsão (valores mais baixos indicam maior confiança). Você pode alterar a ordem de classificação com a opção **classificar por incerteza** . Se você definir o pedido como **alto para baixo**, poderá corrigir as previsões de alta incerteza primeiro e, em seguida, confirmar rapidamente as baixas incertezas.
     * Em projetos de classificação de imagens, você pode selecionar e confirmar as marcas em lotes. Filtre a exibição por uma determinada marca sugerida, desmarque as imagens que estão marcadas incorretamente e confirme o restante em um lote.
         > [!div class="mx-imgBorder"]
-        > ![As marcas sugeridas são exibidas no modo de lote para IC com filtros.](./media/suggested-tags/ic-batch-mode.png)
+        > ![Suggested marcas são exibidas no modo de lote para IC com filtros. ](./media/suggested-tags/ic-batch-mode.png)
 
         Você também pode usar marcas sugeridas no modo de imagem individual selecionando uma imagem da galeria.
 
         ![As marcas sugeridas são exibidas no modo de imagem individual para IC.](./media/suggested-tags/ic-individual-image-mode.png)
     * Em projetos de detecção de objetos, não há suporte para confirmações de lote, mas você ainda pode filtrar e classificar por marcas sugeridas para uma experiência de rotulação mais organizada. As miniaturas de suas imagens não marcadas mostrarão uma sobreposição de caixas delimitadas que indicam os locais das marcas sugeridas. Se você não selecionar um filtro de marca sugerido, todas as imagens não marcadas serão exibidas sem sobreposição de caixas delimitadoras.
         > [!div class="mx-imgBorder"]
-        > ![As marcas sugeridas são exibidas no modo de lote para OD com filtros.](./media/suggested-tags/od-batch-mode.png)
+        > ![Suggested marcas são exibidas no modo de lote para OD com filtros. ](./media/suggested-tags/od-batch-mode.png)
 
         Para confirmar as marcas de detecção de objeto, você precisa aplicá-las a cada imagem individual na galeria.
 

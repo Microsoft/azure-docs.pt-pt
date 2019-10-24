@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962709"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752374"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Seus benefícios do Marketplace comercial
 
@@ -41,10 +41,10 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
 As etapas para começar são fáceis:
 
 1. Publicar uma oferta em um Microsoft AppSource ou no Azure Marketplace.
-2. A equipe chega ao "proprietário" ou ao "contato principal" por oferta do Marketplace. É uma prática recomendada inserir uma pessoa ou um alias que você verifica regularmente: as mensagens enviadas para aliases como, por exemplo info@company.com , são perdidas.
+2. A equipe chega ao "proprietário" ou ao "contato principal" por oferta do Marketplace. É uma prática recomendada inserir uma pessoa ou um alias que você verifica regularmente: as mensagens enviadas para aliases como info@company.com frequentemente são perdidas.
 
 >[!Note]
->Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, entre em contato com sua organização que seja o proprietário da oferta em questão, procurando Portal do Cloud Partner ou no Partner Center. Eles devem ter a comunicação e as próximas etapas. <br> <br> Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte https://aka.ms/marketplacepublishersupport em.
+>Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, entre em contato com sua organização que seja o proprietário da oferta em questão, procurando Portal do Cloud Partner ou no Partner Center. Eles devem ter a comunicação e as próximas etapas. <br> <br> Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte em https://aka.ms/marketplacepublishersupport.
 
 O escopo das atividades disponíveis se expande conforme você aumenta suas ofertas no Marketplace. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e práticas recomendadas.
 
@@ -60,7 +60,10 @@ Descrições detalhadas para todos esses benefícios podem ser encontradas no [b
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Marketplace para parceiros do Transact
 
-Quando você entra em funcionamento com sua oferta do Azure Marketplace ou Microsoft AppSource, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas por meio do Marketplace comercial. 
+Quando você entra em funcionamento com sua oferta do Azure Marketplace ou Microsoft AppSource, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial. 
+
+>[!Note]
+>O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2020.
 
 Esses benefícios foram projetados para dar suporte a você em marketing, vendas e atividades técnicas e, assim, ajudar você a obter mais visitantes, receber mais clientes potenciais e converter mais negócios.
 
@@ -71,6 +74,8 @@ Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de
 ![Benefícios de vendas](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
+
+o limite de \* estações vendidas se aplica a aplicativos Microsoft 365 apenas (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2020.
 
 Descrições detalhadas para todos esses benefícios podem ser encontradas no [baralho do programa de recompensas do Marketplace](https://aka.ms/marketplacerewards).
 
@@ -99,7 +104,7 @@ Essa oferta é conduzida em inglês para todos os parceiros com uma oferta ao vi
 
 As transações comprovadas como fraudulentas não serão contadas na [camada do programa de vendas cobradas](https://aka.ms/marketplacepublisherrewards)do Publicador, conforme observado na [lista, avaliação,](#list-trial-and-consulting-benefits) seção de consultoria, seção de [benefícios do parceiro do Transact](#marketplace-rewards-for-transact-partners) e o [baralho detalhado do programa ](https://aka.ms/marketplacepublisherrewards). A Microsoft alocará parceiros a camadas de qualificação com base em suas vendas cobradas reais, depois que a fraude tiver sido removida. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Se você criou sua oferta no [portal do Cloud Partner](https://cloudpartner.azure.com), entre para criar ou configurar sua oferta.
 

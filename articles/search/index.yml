@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Documentação do Azure Search
+title: Documentação da Pesquisa Cognitiva do Azure
 summary: Faça pesquisas na cloud em conteúdos heterogéneos e privados com opções de melhoramento da IA se o seu conteúdo não for estruturado ou não for pesquisável na sua forma não processada.
 metadata:
-  title: Documentação do Azure Search
+  title: Documentação da Pesquisa Cognitiva do Azure
   description: Faça pesquisas na cloud em conteúdos heterogéneos e privados com opções de melhoramento da IA se o seu conteúdo não for estruturado ou não for pesquisável na sua forma não processada.
   services: search
   ms.service: service
@@ -11,26 +11,26 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 09/20/2019
-  ms.openlocfilehash: 5521f784704fe4d97ed30de0ec5367b9b4bb4f5f
-  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.openlocfilehash: 5bf7ec2b629fc765ef5c6393b042b608a48ec804
+  ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72529441"
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72790047"
 landingContent:
-- title: Sobre o Azure Search
+- title: Acerca da Pesquisa Cognitiva
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o Azure Search?
+    - text: O que é a Pesquisa Cognitiva do Azure?
       url: search-what-is-azure-search.md
   - linkListType: architecture
     links:
-    - text: Como funciona a pesquisa em texto completo no Azure Search
+    - text: Como funciona a pesquisa em texto completo na Pesquisa Cognitiva
       url: search-lucene-query-architecture.md
   - linkListType: video
     links:
-    - text: O que é o Azure Search (1 min 27 seg)
+    - text: O que é a Pesquisa Cognitiva (1 min. 27 seg.)
       url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
 - title: Introdução
   linkLists:
@@ -42,9 +42,13 @@ landingContent:
       url: search-get-started-portal.md
     - text: Criar um pipeline de melhoramento
       url: cognitive-search-quickstart-blob.md
+  - linkListType: tutorial
+    links:
+    - text: Criar uma aplicação
+      url: tutorial-csharp-create-first-app.md
   - linkListType: learn
     links:
-    - text: Introdução ao Azure Search
+    - text: Introdução à Pesquisa Cognitiva do Azure
       url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
 - title: Utilizar com o Armazenamento de Blobs
   linkLists:
@@ -72,10 +76,6 @@ landingContent:
       url: search-indexer-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Indexar a partir do Armazenamento de Blobs
-      url: search-howto-indexing-azure-blob-storage.md
-    - text: Blobs JSON de Indexação
-      url: search-howto-index-json-blobs.md
     - text: Indexar a partir da Base de Dados SQL do Azure
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
     - text: Indexar a partir dos dados do Cosmos DB
@@ -90,7 +90,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: O que é a pesquisa cognitiva?
+    - text: Pipeline de melhoramento de IA
       url: cognitive-search-concept-intro.md
     - text: Conjuntos de competências
       url: cognitive-search-defining-skillset.md
@@ -108,7 +108,7 @@ landingContent:
       url: knowledge-store-create-portal.md
   - linkListType: reference
     links:
-    - text: Competências predefinidas
+    - text: Competências incorporadas
       url: cognitive-search-predefined-skills.md
 - title: Consultar os seus dados
   linkLists:

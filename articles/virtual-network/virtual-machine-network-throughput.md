@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 68fe50c75fc25106a0f47af8bf6cfc0db562fbe5
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529116"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750330"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda da rede da máquina virtual
 
@@ -54,7 +54,7 @@ A transferência de dados entre pontos de extremidade requer a criação de vár
 
 ## <a name="flow-limits-and-recommendations"></a>Limites de fluxo e recomendações
 
-Hoje, a pilha de rede do Azure dá suporte a fluxos totais de rede 250 mil com bom desempenho para VMs com mais de 8 núcleos de CPU e 100 mil fluxos totais com bom desempenho para VMs com menos de 8 núcleos de CPU. Além desse limite, o desempenho da rede diminui normalmente para fluxos adicionais até um limite rígido de 1 milhão de fluxos, 500 mil de entrada e 500 mil de saída, após o qual os fluxos adicionais são descartados.
+Hoje, a pilha de rede do Azure dá suporte a fluxos totais de rede 250 mil com bom desempenho para VMs com mais de 8 núcleos de CPU e 100 mil fluxos totais com bom desempenho para VMs com menos de 8 núcleos de CPU. Além desse limite, o desempenho da rede diminui normalmente para fluxos adicionais até um limite rígido de fluxos totais de 500 mil, 250 mil de entrada e 250 mil de saída, após o qual os fluxos adicionais são descartados.
 
 ||VMs com núcleos de CPU < 8|VMs com mais de 8 núcleos de CPU|
 |---|---|---|

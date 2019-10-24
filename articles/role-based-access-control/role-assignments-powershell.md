@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4eaf59200295a25498d3c8b84196e73a703b055d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
-ms.translationtype: MT
+ms.openlocfilehash: 5a6ed66efa0f73f957c3acb048136a5328f9c264
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995240"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750173"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>Gerenciar o acesso aos recursos do Azure usando RBAC e Azure PowerShell
 
@@ -32,7 +32,7 @@ O [RBAC (controle de acesso baseado em função)](overview.md) é a maneira como
 Para gerenciar o acesso, você precisa de um dos seguintes:
 
 * [PowerShell no Azure Cloud Shell](/azure/cloud-shell/overview)
-* [Azure PowerShell](/powershell/azure/install-az-ps)
+* [O Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="list-roles"></a>Listar funções
 
@@ -310,7 +310,7 @@ Para criar uma atribuição de função usando a ID de função exclusiva em vez
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-O exemplo a seguir atribui a função [colaborador da máquina virtual](built-in-roles.md#virtual-machine-contributor) ao *alain@example.com* usuário no escopo do grupo de recursos *Pharma-Sales* . Para obter a ID de função exclusiva, você pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções internas para recursos do Azure](built-in-roles.md).
+O exemplo a seguir atribui a função [colaborador da máquina virtual](built-in-roles.md#virtual-machine-contributor) para *alain@example.com* usuário no escopo do grupo de recursos *Pharma-Sales* . Para obter a ID de função exclusiva, você pode usar [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) ou ver [funções internas para recursos do Azure](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -401,11 +401,11 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-## <a name="remove-access"></a>Remover acesso
+## <a name="remove-access"></a>Remover o acesso
 
 No RBAC, para remover o acesso, você remove uma atribuição de função usando [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
 
-O exemplo a seguir remove a atribuição de função de *colaborador de máquina virtual* do usuário *\@Alain example.com* no grupo de recursos *Pharma-Sales* :
+O exemplo a seguir remove a atribuição de função *colaborador de máquina virtual* do *Alain \@example. com* no grupo de recursos *Pharma-Sales* :
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
@@ -423,10 +423,10 @@ O exemplo a seguir remove a função de > < role_name de < object_id > no escopo
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-Se você receber a mensagem de erro: "As informações fornecidas não são mapeadas para uma atribuição de função", certifique-se de especificar `-Scope` também `-ResourceGroupName` os parâmetros ou. Para obter mais informações, consulte [solucionar problemas de RBAC para recursos do Azure](troubleshooting.md#role-assignments-without-a-security-principal).
+Se você receber a mensagem de erro: "as informações fornecidas não são mapeadas para uma atribuição de função", certifique-se de especificar também os parâmetros `-Scope` ou `-ResourceGroupName`. Para obter mais informações, consulte [solucionar problemas de RBAC para recursos do Azure](troubleshooting.md#role-assignments-with-unknown-security-principal).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Conceder a um grupo acesso aos recursos do Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
-- [Tutorial: Criar uma função personalizada para os recursos do Azure com o Azure PowerShell ](tutorial-custom-role-powershell.md)
+- [Tutorial: conceder a um grupo acesso aos recursos do Azure usando RBAC e Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: criar uma função personalizada para recursos do Azure usando Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Gerenciar recursos com Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)

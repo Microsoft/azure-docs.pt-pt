@@ -1,21 +1,21 @@
 ---
 title: Moderação de texto-Content Moderator
 titleSuffix: Azure Cognitive Services
-description: Use a moderação de texto para possíveis listas de termos de texto indesejado, PII e personalizadas.
+description: Use a moderação de texto para possíveis textos indesejados, dados pessoais e listas personalizadas de termos.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.author: sajagtap
-ms.openlocfilehash: e1d5224d8dc86c82624613b0d2a984ceef3ae5bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564372"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757243"
 ---
 # <a name="learn-text-moderation-concepts"></a>Aprenda conceitos de moderação de texto
 
@@ -30,11 +30,11 @@ A resposta do serviço inclui as seguintes informações:
 - Dados pessoais
 - Texto corrigido automaticamente
 - Texto original
-- Idioma
+- Linguagem
 
 ## <a name="profanity"></a>Profanidade
 
-Se a API detectar quaisquer termos impróprios em qualquer um dos [idiomas com suporte](Text-Moderation-API-Languages.md), esses termos serão incluídos na resposta. A resposta também contém seu local (`Index`) no texto original. O `ListId` no exemplo JSON a seguir se refere aos termos encontrados em [listas de termos personalizados](try-terms-list-api.md) , se disponível.
+Se a API detectar quaisquer termos impróprios em qualquer um dos [idiomas com suporte](Text-Moderation-API-Languages.md), esses termos serão incluídos na resposta. A resposta também contém seu local (`Index`) no texto original. O `ListId` no exemplo JSON a seguir refere-se aos termos encontrados em [listas de termos personalizados](try-terms-list-api.md) , se disponível.
 
     "Terms": [
     {
@@ -45,9 +45,9 @@ Se a API detectar quaisquer termos impróprios em qualquer um dos [idiomas com s
     }
 
 > [!NOTE]
-> Para o parâmetro de **idioma** , `eng` atribua ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte apenas ao inglês**.
+> Para o parâmetro de **idioma** , atribua `eng` ou deixe-o vazio para ver a resposta de **classificação** assistida por computador (recurso de visualização). **Esse recurso dá suporte apenas ao inglês**.
 >
-> Para a detecção de **termos** de profanação, use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe-o vazio.
+> Para a detecção de **termos de profanação** , use o [código ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) dos idiomas com suporte listados neste artigo ou deixe-o vazio.
 
 ## <a name="classification"></a>Classificação
 
@@ -70,15 +70,15 @@ A extração a seguir na extração JSON mostra um exemplo de saída:
 
 ### <a name="explanation"></a>Explicação
 
-- `Category1`refere-se à possível presença de linguagem que pode ser considerada sexualmente explícita ou adulto em determinadas situações.
-- `Category2`refere-se à possível presença de linguagem que pode ser considerada sexualmente sugerida ou amadurece em determinadas situações.
-- `Category3`refere-se à possível presença de linguagem que pode ser considerada ofensiva em determinadas situações.
-- `Score`está entre 0 e 1. Quanto maior a pontuação, mais alto o modelo está prevendo que a categoria pode ser aplicável. Esse recurso depende de um modelo estatístico em vez de resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
-- `ReviewRecommended`é true ou false, dependendo dos limites de Pontuação interna. Os clientes devem avaliar se esse valor deve ser usado ou decidir sobre limites personalizados com base em suas políticas de conteúdo.
+- `Category1` se refere a uma possível presença de linguagem que pode ser considerada sexualmente explícita ou adulto em determinadas situações.
+- `Category2` se refere a uma possível presença de linguagem que pode ser considerada sexualmente sugerida ou amadurece em determinadas situações.
+- `Category3` refere-se à possível presença de linguagem que pode ser considerada ofensiva em determinadas situações.
+- `Score` está entre 0 e 1. Quanto maior a pontuação, mais alto o modelo está prevendo que a categoria pode ser aplicável. Esse recurso depende de um modelo estatístico em vez de resultados codificados manualmente. É recomendável testar com seu próprio conteúdo para determinar como cada categoria se alinha aos seus requisitos.
+- `ReviewRecommended` é true ou false, dependendo dos limites de Pontuação internos. Os clientes devem avaliar se esse valor deve ser usado ou decidir sobre limites personalizados com base em suas políticas de conteúdo.
 
 ## <a name="personal-data"></a>Dados pessoais
 
-O recurso PII detecta a presença potencial dessas informações:
+O recurso de dados pessoais detecta a presença potencial dessas informações:
 
 - Endereço de e-mail
 - Endereço de correspondência dos EUA
@@ -89,51 +89,68 @@ O recurso PII detecta a presença potencial dessas informações:
 
 O exemplo a seguir mostra uma resposta de exemplo:
 
-    "PII": {
-        "Email": [{
-            "Detected": "abcdef@abcd.com",
-            "SubType": "Regular",
-            "Text": "abcdef@abcd.com",
-            "Index": 32
-            }],
-        "IPA": [{
-            "SubType": "IPV4",
-            "Text": "255.255.255.255",
-            "Index": 72
-            }],
-        "Phone": [{
-            "CountryCode": "US",
-            "Text": "6657789887",
-            "Index": 56
-            }, {
-            "CountryCode": "US",
-            "Text": "870 608 4000",
-            "Index": 212
-            }, {
-            "CountryCode": "UK",
-            "Text": "+44 870 608 4000",
-            "Index": 208
-            }, {
-            "CountryCode": "UK",
-            "Text": "0344 800 2400",
-            "Index": 228
-            }, {
-            "CountryCode": "UK",
-            "Text": "0800 820 3300",
-            "Index": 245
-            }],
-        "Address": [{
-            "Text": "1 Microsoft Way, Redmond, WA 98052",
-            "Index": 89
-            }],
-        "SSN": [{
-            "Text": "999999999",
-            "Index": 56
-            }, {
-            "Text": "999-99-9999",
-            "Index": 267
-            }]
-        }
+```json
+"PII":{ 
+  "Email":[ 
+    { 
+      "Detected":"abcdef@abcd.com",
+      "SubType":"Regular",
+      "Text":"abcdef@abcd.com",
+      "Index":32
+    }
+  ],
+  "IPA":[ 
+    { 
+      "SubType":"IPV4",
+      "Text":"255.255.255.255",
+      "Index":72
+    }
+  ],
+  "Phone":[ 
+    { 
+      "CountryCode":"US",
+      "Text":"6657789887",
+      "Index":56
+    },
+    { 
+      "CountryCode":"US",
+      "Text":"870 608 4000",
+      "Index":212
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"+44 870 608 4000",
+      "Index":208
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0344 800 2400",
+      "Index":228
+    },
+    { 
+      "CountryCode":"UK",
+      "Text":"0800 820 3300",
+      "Index":245
+    }
+  ],
+  "Address":[ 
+    { 
+      "Text":"1 Microsoft Way, Redmond, WA 98052",
+      "Index":89
+    }
+  ],
+  "SSN":[ 
+    { 
+      "Text":"999999999",
+      "Index":56
+    },
+    { 
+      "Text":"999-99-9999",
+      "Index":267
+    }
+  ]
+}
+```
 
 ## <a name="auto-correction"></a>Correção automática
 
@@ -165,6 +182,6 @@ O exemplo a seguir mostra a ID da lista correspondente:
 
 O Content Moderator fornece uma [API de lista de termos](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f) com operações para gerenciar listas de termos personalizados. Comece com o [termo listar o console de API](try-terms-list-api.md) e use os exemplos de código da API REST. Confira também o [termo listas de início rápido do .net](term-lists-quickstart-dotnet.md) se você estiver familiarizado com C#o Visual Studio e o.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Teste o [console da API](try-text-api.md) de moderação de texto e use os exemplos de código da API REST. Confira também o [início rápido do .net](text-moderation-quickstart-dotnet.md) de moderação de texto se estiver familiarizado C#com o Visual Studio e o.
+Teste o [console da API de moderação de texto](try-text-api.md) e use os exemplos de código da API REST. Confira também o [início rápido do .net de moderação de texto](text-moderation-quickstart-dotnet.md) se estiver familiarizado C#com o Visual Studio e o.

@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: f316f77d0f4ca3132a2ae77d807e2dd66ba62a43
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b858776d8309be94a0dd64f994a9e34e589d3c49
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71846308"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750465"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>Recuperar um banco de dados SQL do Azure usando backups de banco de dados automatizados
 
-Por padrão, os backups do banco de dados SQL do Azure são armazenados no armazenamento de BLOBs replicados geograficamente. As opções a seguir estão disponíveis para recuperação de banco de dados usando [backups de banco de dados automatizados](sql-database-automated-backups.md). Pode:
+Por padrão, os backups do banco de dados SQL do Azure são armazenados no armazenamento de BLOBs com replicação geográfica (tipo de armazenamento RA-GRS). As opções a seguir estão disponíveis para recuperação de banco de dados usando [backups de banco de dados automatizados](sql-database-automated-backups.md). Pode:
 
 - Crie um novo banco de dados no mesmo servidor de banco de dados SQL, recuperado para um momento determinado dentro do período de retenção.
 - Crie um banco de dados no mesmo servidor do banco de dados SQL, recuperado para o momento da exclusão de um banco de dados excluído.
@@ -34,9 +34,6 @@ Se você configurou o [backup de retenção de longo prazo](sql-database-long-te
 
 Quando você estiver usando as camadas de serviço Standard ou Premium, a restauração do banco de dados poderá incorrer em um custo de armazenamento extra. O custo extra é incorrido quando o tamanho máximo do banco de dados restaurado é maior do que a quantidade de armazenamento incluída na camada de serviço e no nível de desempenho do banco de dados de destino. Para obter detalhes de preços de armazenamento extra, consulte a [página de preços do banco de dados SQL](https://azure.microsoft.com/pricing/details/sql-database/). Se a quantidade real de espaço usado for menor que a quantidade de armazenamento incluída, você poderá evitar esse custo extra definindo o tamanho máximo do banco de dados para o valor incluído.
 
-> [!NOTE]
-> Ao criar uma [cópia de banco de dados](sql-database-copy.md), você usa [backups de banco de dados automatizados](sql-database-automated-backups.md).
-
 ## <a name="recovery-time"></a>Tempo de recuperação
 
 O tempo de recuperação para restaurar um banco de dados usando backups de banco de dados automatizados é afetado por vários fatores:
@@ -48,9 +45,9 @@ O tempo de recuperação para restaurar um banco de dados usando backups de banc
 - A largura de banda da rede se a restauração for para uma região diferente.
 - O número de solicitações de restauração simultâneas sendo processadas na região de destino.
 
-Para um banco de dados grande ou muito ativo, a restauração pode levar várias horas. Se houver uma interrupção prolongada em uma região, é possível que haja um grande número de solicitações de restauração geográfica sendo processadas por outras regiões. Quando há muitas solicitações, o tempo de recuperação pode aumentar para os bancos de dados nessa região. A maioria das restaurações de banco de dados é concluída em menos de 12 horas.
+Para um banco de dados grande ou muito ativo, a restauração pode levar várias horas. Se houver uma interrupção prolongada em uma região, será possível que um número alto de solicitações de restauração geográfica seja iniciado para recuperação de desastre. Quando há muitas solicitações, o tempo de recuperação para bancos de dados individuais pode aumentar. A maioria das restaurações de banco de dados é concluída em menos de 12 horas.
 
-Para uma única assinatura, há limitações no número de solicitações de restauração simultâneas.  Essas limitações se aplicam a qualquer combinação de restaurações point-in-time, restaurações geográficas e restaurações do backup de retenção de longo prazo.
+Para uma única assinatura, há limitações no número de solicitações de restauração simultâneas. Essas limitações se aplicam a qualquer combinação de restaurações point-in-time, restaurações geográficas e restaurações do backup de retenção de longo prazo.
 
 | | **Número máximo de solicitações simultâneas sendo processadas** | **Número máximo de solicitações simultâneas sendo enviadas** |
 | :--- | --: | --: |
@@ -58,16 +55,16 @@ Para uma única assinatura, há limitações no número de solicitações de res
 |Pool elástico (por pool)|4|200|
 ||||
 
-Não há um método interno para restaurar o servidor inteiro. Para obter um exemplo de como realizar essa tarefa, consulte banco de dados SQL [Azure: Recuperação completa do servidor @ no__t-0.
+Não há um método interno para restaurar o servidor inteiro. Para obter um exemplo de como realizar essa tarefa, consulte [banco de dados SQL do Azure: recuperação completa do servidor](https://gallery.technet.microsoft.com/Azure-SQL-Database-Full-82941666).
 
 > [!IMPORTANT]
-> Para recuperar usando backups automatizados, você deve ser membro da função de colaborador de SQL Server na assinatura ou ser o proprietário da assinatura. Para obter mais informações, [consulte RBAC: Funções incorporadas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
+> Para recuperar usando backups automatizados, você deve ser membro da função de colaborador de SQL Server na assinatura ou ser o proprietário da assinatura. Para obter mais informações, consulte [RBAC: funções internas](../role-based-access-control/built-in-roles.md). Você pode recuperar usando o portal do Azure, o PowerShell ou a API REST. Você não pode usar o Transact-SQL.
 
 ## <a name="point-in-time-restore"></a>Restauro para um ponto anterior no tempo
 
 Você pode restaurar um banco de dados autônomo, em pool ou de instância para um ponto anterior no tempo usando o portal do Azure, o [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)ou a [API REST](https://docs.microsoft.com/rest/api/sql/databases). A solicitação pode especificar qualquer camada de serviço ou tamanho de computação para o banco de dados restaurado. Verifique se você tem recursos suficientes no servidor para o qual você está restaurando o banco de dados. Ao concluir, a restauração cria um novo banco de dados no mesmo servidor que o banco de dados original. O banco de dados restaurado é cobrado com tarifas normais, com base em sua camada de serviço e tamanho de computação. Você não incorre em encargos até que a restauração do banco de dados seja concluída.
 
-Geralmente, você restaura um banco de dados para um ponto anterior para fins de recuperação. Você pode tratar o banco de dados restaurado como uma substituição para o banco de dado original ou usá-lo como um data de origem para atualizar o banco original.
+Geralmente, você restaura um banco de dados para um ponto anterior para fins de recuperação. Você pode tratar o banco de dados restaurado como uma substituição para o banco de dados original ou usá-lo como uma fonte de dados para atualizar o banco de dado original.
 
 - **Substituição de banco de dados**
 
@@ -148,14 +145,14 @@ No portal do Azure, você cria um novo banco de dados de instância única ou ge
 
 Para restaurar geograficamente um único banco de dados SQL do portal do Azure na região e no servidor de sua escolha, siga estas etapas:
 
-1. No **painel**, selecione **Adicionar** > **criar banco de dados SQL**. Na guia **noções básicas** , insira as informações necessárias.
+1. No **painel**, selecione **Adicionar**  > **criar banco de dados SQL**. Na guia **noções básicas** , insira as informações necessárias.
 2. Selecione **configurações adicionais**.
 3. Para **usar dados existentes**, selecione **backup**.
 4. Para **backup**, selecione um backup na lista de backups de restauração geográfica disponíveis.
 
     ![Captura de tela de criar opções de banco de dados SQL](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
-Conclua o processo de criação de um novo banco de dados. Quando você cria o banco de dados SQL único do Azure, ele contém o backup de restauração geográfica restaurado.
+Conclua o processo de criação de um novo banco de dados a partir do backup. Quando você cria o banco de dados SQL único do Azure, ele contém o backup de restauração geográfica restaurado.
 
 #### <a name="managed-instance-database"></a>Banco de dados de instância gerenciada
 
@@ -185,7 +182,7 @@ Para um script do PowerShell que mostra como executar a restauração geográfic
 Você não pode executar uma restauração pontual em um banco de dados geográfico secundário. Você só pode fazer isso em um banco de dados primário. Para obter informações detalhadas sobre como usar a restauração geográfica para se recuperar de uma interrupção, consulte [recuperar de uma interrupção](sql-database-disaster-recovery.md).
 
 > [!IMPORTANT]
-> A restauração geográfica é a solução de recuperação de desastre mais básica disponível no banco de dados SQL. Ele se baseia em backups replicados geograficamente criados com RPO (objetivo de ponto de recuperação) igual a 1 hora e o tempo de recuperação estimado de até 12 horas. Ele não garante que a região de destino terá a capacidade de restaurar seus bancos de dados após uma interrupção regional, pois é provável que um aumento preciso da demanda. Se seu aplicativo usa bancos de dados relativamente pequenos e não é essencial para os negócios, a restauração geográfica é uma solução de recuperação de desastre apropriada. Para aplicativos críticos para os negócios que usam grandes bancos de dados e devem garantir a continuidade dos negócios, você deve usar [grupos de failover automático](sql-database-auto-failover-group.md). Ele oferece um RPO muito menor e um objetivo de tempo de recuperação, e a capacidade é sempre garantida. Para obter mais informações sobre as opções de continuidade de negócios, consulte [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
+> A restauração geográfica é a solução de recuperação de desastre mais básica disponível no banco de dados SQL. Ele se baseia em backups replicados geograficamente criados com RPO (objetivo de ponto de recuperação) igual a 1 hora e o tempo de recuperação estimado de até 12 horas. Ele não garante que a região de destino terá a capacidade de restaurar seus bancos de dados após uma interrupção regional, pois é provável que um aumento preciso da demanda. Se seu aplicativo usa bancos de dados relativamente pequenos e não é essencial para os negócios, a restauração geográfica é uma solução de recuperação de desastre apropriada. Para aplicativos críticos para os negócios que exigem grandes bancos de dados e devem garantir a continuidade dos negócios, use [grupos de failover automático](sql-database-auto-failover-group.md). Ele oferece um RPO muito menor e um objetivo de tempo de recuperação, e a capacidade é sempre garantida. Para obter mais informações sobre as opções de continuidade de negócios, consulte [visão geral da continuidade dos negócios](sql-database-business-continuity.md).
 
 ## <a name="programmatically-performing-recovery-by-using-automated-backups"></a>Executando programaticamente a recuperação usando backups automatizados
 
@@ -227,7 +224,7 @@ Para restaurar um banco de dados individual ou em pool usando a API REST:
 
 | API | Descrição |
 | --- | --- |
-| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Restaura um banco de dados. |
+| [REST (= recuperação)](https://docs.microsoft.com/rest/api/sql/databases) |Restaura um banco de dados. |
 | [Obter o status de criação ou atualização do banco de dados](https://docs.microsoft.com/rest/api/sql/operations) |Retorna o status durante uma operação de restauração. |
 
 ### <a name="azure-cli"></a>CLI do Azure

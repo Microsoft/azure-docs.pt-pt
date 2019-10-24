@@ -1,23 +1,23 @@
 ---
 title: Particionamento no Azure Cosmos DB
 description: Visão geral do particionamento no Azure Cosmos DB.
-ms.author: rimman
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: e80e548ceae2149fe7061da42c71ee8b61f00a72
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 38b4e4c2541bf30bd9c95d9c0ec61779b0d1d7bb
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717561"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753251"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Particionamento no Azure Cosmos DB
 
 Azure Cosmos DB usa o particionamento para dimensionar contêineres individuais em um banco de dados para atender às necessidades de desempenho do seu aplicativo. No particionamento, os itens em um contêiner são divididos em subconjuntos distintos chamados *partições lógicas*. As partições lógicas são formadas com base no valor de uma *chave de partição* associada a cada item em um contêiner. Todos os itens em uma partição lógica têm o mesmo valor de chave de partição.
 
-Por exemplo, um contêiner contém itens. Cada item tem um valor exclusivo para a `UserID` propriedade. Se `UserID` serve como a chave de partição para os itens no contêiner e há 1.000 valores exclusivos `UserID` , 1.000 partições lógicas são criadas para o contêiner.
+Por exemplo, um contêiner contém itens. Cada item tem um valor exclusivo para a propriedade `UserID`. Se `UserID` atua como a chave de partição para os itens no contêiner e há 1.000 valores de `UserID` exclusivos, 1.000 partições lógicas são criadas para o contêiner.
 
 Além de uma chave de partição que determina a partição lógica do item, cada item em um contêiner tem uma *ID de item* (exclusiva em uma partição lógica). A combinação da chave de partição e da ID do item cria o *índice*do item, que identifica exclusivamente o item.
 
@@ -47,7 +47,7 @@ Veja a seguir uma boa orientação para escolher uma chave de partição:
 
 * Os candidatos às chaves de partição podem incluir propriedades que aparecem com frequência como um filtro em suas consultas. As consultas podem ser roteadas com eficiência, incluindo a chave de partição no predicado de filtro.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [particionamento e dimensionamento horizontal em Azure Cosmos DB](partition-data.md).
 * Saiba mais sobre a [taxa de transferência provisionada no Azure Cosmos DB](request-units.md).

@@ -8,12 +8,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: a558bbd114bdaa2046bd0bfb8ffd846d0804b9a3
-  ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+  ms.openlocfilehash: 63c9b205048b6cd4f59d1f5972f8f789a875b768
+  ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 07/10/2019
-  ms.locfileid: "67785592"
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72803252"
 landingContent:
 - title: Acerca da plataforma de identidade da Microsoft
   linkLists:
@@ -25,6 +25,14 @@ landingContent:
       url: v2-overview.md
     - text: Azure Active Directory para programadores (v1.0)
       url: v1-overview.md
+  - linkListType: concept
+    links:
+    - text: Noções básicas sobre autenticação
+      url: authentication-scenarios.md
+    - text: Fluxos de autenticação e cenários de aplicações
+      url: authentication-flows-app-scenarios.md
+    - text: Melhores práticas e recomendações
+      url: identity-platform-integration-checklist.md
   - linkListType: learn
     links:
     - text: One Dev Minute - Plataforma de identidade da Microsoft
@@ -43,10 +51,6 @@ landingContent:
     links:
     - text: JavaScript
       url: tutorial-v2-javascript-spa.md
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplos - JavaScript, Angular
@@ -69,10 +73,6 @@ landingContent:
     links:
     - text: Núcleo de ASP.NET
       url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplos - ASP.NET Core, ASP.NET
@@ -87,10 +87,6 @@ landingContent:
     links:
     - text: Núcleo de ASP.NET
       url: https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2#scope-of-this-tutorial
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplos - ASP.NET Core, ASP.NET, Node.js, Ruby
@@ -105,10 +101,6 @@ landingContent:
     links:
     - text: API Web ASP.NET Core
       url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplo - ASP.NET
@@ -123,10 +115,6 @@ landingContent:
     links:
     - text: API Web ASP.NET Core que chama o Microsoft Graph
       url: https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
 - title: Criar uma aplicação de ambiente de trabalho que chama APIs Web
   linkLists:
   - linkListType: get-started
@@ -145,10 +133,6 @@ landingContent:
       url: tutorial-v2-windows-desktop.md
     - text: Chamar o Microsoft Graph API (UWP)
       url: tutorial-v2-windows-uwp.md
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplo - .NET, .NET Core
@@ -165,10 +149,6 @@ landingContent:
       url: quickstart-v2-netcore-daemon.md
     - text: Adquirir um token e chamar o Microsoft Graph API (consola ASP.NET)
       url: https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplos - consola ASP.NET, ASP.NET Web
@@ -193,10 +173,6 @@ landingContent:
       url: tutorial-v2-android.md
     - text: Iniciar a sessão dos utilizadores e chamar o Microsoft Graph API (iOS)
       url: tutorial-v2-ios.md
-  - linkListType: deploy
-    links:
-    - text: Testar integração de aplicações
-      url: identity-platform-integration-checklist.md
   - linkListType: download
     links:
     - text: Exemplo - Android, iOS, Xamarin

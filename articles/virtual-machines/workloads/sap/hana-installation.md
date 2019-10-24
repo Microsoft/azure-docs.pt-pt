@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aacedeb2c047d1abfc5affdcf94404abbb2c7b62
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168605"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750350"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Como instalar e configurar SAP HANA (instâncias grandes) no Azure
 
@@ -101,7 +101,7 @@ Veja a seguir o SAP adicional e útil para links relacionados ao SUSE:
 
 Veja a seguir as notas de suporte da SAP que são aplicáveis à implementação de SAP HANA no SLES 12:
 
-- [Nota de suporte da SAP #1944799 – diretrizes de SAP HANA para instalação do sistema operacional SLES](https://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html)
+- [Nota de suporte da SAP #1944799 – diretrizes de SAP HANA para instalação do sistema operacional SLES](http://service.sap.com/sap/support/notes/1944799)
 - [Nota de suporte da SAP #2205917 – as configurações de so recomendadas do SAP HANA DB para SLES 12 para aplicativos SAP](https://launchpad.support.sap.com/#/notes/2205917/E)
 - [Nota de suporte da SAP #1984787 – SUSE Linux Enterprise Server 12: notas de instalação](https://launchpad.support.sap.com/#/notes/1984787)
 - [Nota de suporte da SAP #171356 – software SAP no Linux: informações gerais](https://launchpad.support.sap.com/#/notes/1984787)
@@ -125,7 +125,7 @@ Veja a seguir as notas de suporte do SAP que são aplicáveis à implementação
 
 ### <a name="time-synchronization"></a>Sincronização de horário
 
-Os aplicativos SAP criados na arquitetura do SAP NetWeaver são sensíveis a diferenças de tempo para os vários componentes que compõem o sistema SAP. Os despejos curtos do SAP ABAP com o título do erro de ZDATE Large @ no__t-0LARGE @ no__t-1TIME @ no__t-2DIFF provavelmente são familiares. Isso ocorre porque esses despejos curtos aparecem quando a hora do sistema de diferentes servidores ou VMs está se afastando muito.
+Os aplicativos SAP criados na arquitetura do SAP NetWeaver são sensíveis a diferenças de tempo para os vários componentes que compõem o sistema SAP. Os despejos curtos do SAP ABAP com o título do erro de ZDATE Large \_LARGE \_TIME \_DIFF provavelmente são familiares. Isso ocorre porque esses despejos curtos aparecem quando a hora do sistema de diferentes servidores ou VMs está se afastando muito.
 
 Para SAP HANA no Azure (instâncias grandes), a sincronização de tempo feita no Azure não se aplica às unidades de computação nos carimbos de instância grande. Essa sincronização não é aplicável para a execução de aplicativos SAP em VMs nativas do Azure, pois o Azure garante que a hora do sistema seja sincronizada corretamente. 
 
@@ -152,8 +152,8 @@ As convenções de nomenclatura dos volumes de armazenamento estão listadas na 
 
 | Uso do armazenamento | Nome da montagem | Nome do volume | 
 | --- | --- | ---|
-| Dados do HANA | /hana/data/SID/mnt0000 @ no__t-0m > | IP de armazenamento:/hana_data_SID_mnt00001_tenant_vol |
-| Log do HANA | /hana/log/SID/mnt0000 @ no__t-0m > | IP de armazenamento:/hana_log_SID_mnt00001_tenant_vol |
+| Dados do HANA | /hana/data/SID/mnt0000 \<m > | IP de armazenamento:/hana_data_SID_mnt00001_tenant_vol |
+| Log do HANA | /hana/log/SID/mnt0000 \<m > | IP de armazenamento:/hana_log_SID_mnt00001_tenant_vol |
 | Backup de log do HANA | /hana/log/backups | IP de armazenamento:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA compartilhado | /hana/shared/SID | IP de armazenamento:/hana_shared_SID_mnt00001_tenant_vol/compartilhado |
 | usr/SAP | /usr/sap/SID | IP de armazenamento:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

@@ -1,22 +1,22 @@
 ---
 title: Custo total de propriedade (TCO) com Azure Cosmos DB
 description: Este artigo compara o custo total de propriedade de Azure Cosmos DB com IaaS e bancos de dados locais
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 911f5fa9985fc5e34f758dfb739d84521f91f5c0
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: b24b69716e472082abfdb388e7d79e88a8e23e64
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716924"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754798"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Custo total de propriedade (TCO) com Azure Cosmos DB
 
-O Azure Cosmos DB é projetado com a multilocação e a governança de recursos refinados. Esse design permite que Azure Cosmos DB operem com custo significativamente menor e ajudam os usuários a salvar. Atualmente Azure Cosmos DB dá suporte a mais de 280 cargas de trabalho do cliente em um único computador com a densidade aumentando continuamente e milhares de cargas de trabalho do cliente em um cluster. Ela equilibra as réplicas das cargas de trabalho dos clientes em diferentes máquinas em um cluster e em vários clusters dentro de um data center. Para saber mais, confira [Azure Cosmos DB: Enviando a fronteira de bancos de dados](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/)distribuídos globalmente. Por causa do controle de recursos, multilocação e integração nativa com o restante da infraestrutura do Azure, Azure Cosmos DB está em média 4 a 6 vezes mais barata do que MongoDB, Cassandra ou outros NoSQL OSS em execução em IaaS e até 10 vezes mais barato do que o banco de dados mecanismos em execução no local. Confira o artigo sobre [o custo total de propriedade (não) de um serviço de nuvem de banco de dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
+O Azure Cosmos DB é projetado com a multilocação e a governança de recursos refinados. Esse design permite que Azure Cosmos DB operem com custo significativamente menor e ajudam os usuários a salvar. Atualmente Azure Cosmos DB dá suporte a mais de 280 cargas de trabalho do cliente em um único computador com a densidade aumentando continuamente e milhares de cargas de trabalho do cliente em um cluster. Ela equilibra as réplicas das cargas de trabalho dos clientes em diferentes máquinas em um cluster e em vários clusters dentro de um data center. Para saber mais, confira [Azure Cosmos DB: enviando a fronteira de bancos de dados distribuídos globalmente](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Por causa do controle de recursos, multilocação e integração nativa com o restante da infraestrutura do Azure, Azure Cosmos DB está em média 4 a 6 vezes mais barata do que MongoDB, Cassandra ou outros NoSQL OSS em execução em IaaS e até 10 vezes mais barato do que o banco de dados mecanismos em execução no local. Confira o artigo sobre [o custo total de propriedade (não) de um serviço de nuvem de banco de dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 
 As soluções de banco de dados NoSQL OSS, como Apache Cassandra, MongoDB, HBase, mecanismos foram projetadas para locais. Quando oferecido como um serviço gerenciado, eles são equivalentes a um modelo do Resource Manager com um banco de dados de locatário para gerenciar os clusters provisionados e o suporte ao monitoramento. As arquiteturas de NoSQL OSS exigem sobrecarga operacional significativa e a experiência pode ser difícil e dispendiosa de ser encontrada. Por outro lado, Azure Cosmos DB é um serviço de nuvem totalmente gerenciado, que permite aos desenvolvedores se concentrar na inovação de negócios em vez de gerenciar e manter a infraestrutura de banco de dados. 
 
@@ -40,7 +40,7 @@ O modelo de provisionamento sem servidor do Azure Cosmos DB elimina a necessidad
 
 * **Você paga por hora:** Para cargas de trabalho de grande escala que precisam ser dimensionadas a qualquer momento, você só é cobrado por hora. As cargas de trabalho em um aplicativo normalmente variam em horários do ano e pelos dados que são consultados. Com o Azure Cosmos DB, você pode escalar ou reduzir verticalmente conforme necessário e pagar apenas pelo que precisa. Com sistemas locais ou instalados em IaaS, você não pode corresponder a esse modelo, pois não há uma maneira de encerrar o hardware a cada hora. Nesses casos, você pode potencialmente economizar entre 10 e 14 vezes em uma média com Azure Cosmos DB.
 
-* **Você obtém vários recursos gratuitamente:** Em Azure Cosmos DB, as cargas de trabalho de gravação são consideravelmente mais baratas em comparação com os serviços de banco de dados alternativos. Além disso, o Azure Cosmos DB oferece recursos como, por exemplo, [indexação automática](indexing-policies.md), [TTL (vida útil)](time-to-live.md), feed de [alterações](change-feed.md) e outros sem cobranças adicionais, algo que os outros serviços de banco de dados normalmente cobram.
+* **Você obtém vários recursos gratuitamente:** Em Azure Cosmos DB, as cargas de trabalho de gravação são consideravelmente mais baratas em comparação com os serviços de banco de dados alternativos. Além disso, o Azure Cosmos DB oferece recursos como, por exemplo, [indexação automática](indexing-policies.md), [TTL (vida útil)](time-to-live.md), [feed de alterações](change-feed.md) e outros sem cobranças adicionais, algo que os outros serviços de banco de dados normalmente cobram.
 
 * **Usa moeda unificada para cargas de trabalho diversas:** Ao contrário das ofertas alternativas, no Azure Cosmos DB, você não precisa segmentar cargas de trabalho, por exemplo, em leituras e gravações. Ou Provisione a taxa de transferência em um tipo por carga de trabalho de leitura versus taxa de transferência de gravação. Em Azure Cosmos DB, a taxa de transferência provisionada é reservada usando uma moeda unificada e normalizada em termos de unidades de solicitação ou RU/s. Azure Cosmos DB não força você a atribuir prioridade às suas cargas de trabalho, executar planejamento de capacidade ou pagar por cada tipo de capacidade parte. Essa abordagem permite trocar facilmente os mesmos RU/s entre várias operações e tipos de carga de trabalho.
 
@@ -56,7 +56,7 @@ O modelo de provisionamento sem servidor do Azure Cosmos DB elimina a necessidad
 
 * **Você pode economizar até 65% dos custos com capacidade reservada:** Azure Cosmos DB [capacidade reservada](cosmos-db-reserved-capacity.md) ajuda você a economizar dinheiro por meio do pagamento antecipado de Azure Cosmos DB recursos por um ou três anos. Você pode reduzir significativamente os custos com compromissos antecipados de um ou três anos e economizar entre 20-65% de descontos quando comparado ao preço regular. Em suas cargas de trabalho de missão crítica, você pode obter SLAs melhores em termos de capacidade de provisionamento.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [como Azure Cosmos DB modelo de preços é econômico para os clientes](total-cost-ownership.md)
 * Saiba mais sobre como [otimizar para desenvolvimento e teste](optimize-dev-test.md)

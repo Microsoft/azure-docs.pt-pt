@@ -1,18 +1,18 @@
 ---
-title: Tutorial de distribuição global do Azure Cosmos DB para a API de SQL
+title: Azure Cosmos DB tutorial de distribuição global para a API do SQL
 description: Saiba como configurar a distribuição global do Azure Cosmos DB com a API SQL.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 07/15/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: a566094f88ba9ffd25eadd046ae7254e26b9c2cf
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: b6b8be29afc25a3862a440e46d41e8c911189c04
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234605"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756834"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Configurar a distribuição global do Azure Cosmos DB com a API SQL
 
@@ -44,10 +44,10 @@ A aplicação pode verificar o ponto final de escrita atual e o ponto final de l
 
 Se a propriedade PreferredLocations não estiver definida, todos os pedidos serão fornecidos a partir da região de escrita atual.
 
-## <a name="net-sdk"></a>SDK .NET
+## <a name="net-sdk"></a>.NET SDK
 O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direciona automaticamente as leituras e as escritas para a região de escrita atual.
 
-Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia são formatados pela coluna de nome da região na [regiões do Azure][regions] página, sem espaços antes ou depois do primeiro e último caráter, respetivamente.
+Na versão 1.8 e posterior do SDK .NET, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma propriedade denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propriedade é do tipo de Coleção `<string>` e deve conter uma lista de nomes de região. Os valores de cadeia de caracteres são formatados de acordo com a coluna nome da região na página [regiões do Azure][regions] , sem espaços antes ou depois do primeiro e do último caractere, respectivamente.
 
 Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClient.WriteEndpoint e DocumentClient.ReadEndpoint, respetivamente.
 
@@ -78,11 +78,11 @@ DocumentClient docClient = new DocumentClient(
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
 
-## <a name="nodejsjavascript"></a>Node.js/JavaScript
+## <a name="nodejsjavascript"></a>Node. js/JavaScript
 
 O SDK pode ser utilizado sem quaisquer alterações de código. Neste caso, o SDK direcionará automaticamente as leituras e as escritas para a região de escrita atual.
 
-Na versão 1.8 e posterior de cada SDK, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma nova propriedade denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parâmetro é uma matriz de cadeias que utiliza uma lista de nomes de região. Os nomes são formatados pela coluna de nome de região no [regiões do Azure][regions] página. Também pode utilizar as constantes predefinidas no objeto de conveniência AzureDocuments.Regions
+Na versão 1.8 e posterior de cada SDK, o parâmetro ConnectionPolicy do construtor DocumentClient tem uma nova propriedade denominada DocumentClient.ConnectionPolicy.PreferredLocations. Este parâmetro é uma matriz de cadeias que utiliza uma lista de nomes de região. Os nomes são formatados de acordo com a coluna nome da região na página [regiões do Azure][regions] . Também pode utilizar as constantes predefinidas no objeto de conveniência AzureDocuments.Regions
 
 Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClient.getWriteEndpoint e DocumentClient.getReadEndpoint, respetivamente.
 
@@ -91,7 +91,7 @@ Os pontos finais de escrita e leitura atuais estão disponíveis em DocumentClie
 >
 >
 
-Segue-se um exemplo de código para Node.js/Javascript.
+Veja abaixo um exemplo de código para node. js/JavaScript.
 
 ```JavaScript
 // Creating a ConnectionPolicy object
@@ -107,9 +107,9 @@ connectionPolicy.PreferredLocations = ['West US', 'East US', 'North Europe'];
 var client = new DocumentDBClient(host, { masterKey: masterKey }, connectionPolicy);
 ```
 
-## <a name="python-sdk"></a>SDK Python
+## <a name="python-sdk"></a>Python SDK
 
-O código a seguir mostra como definir localizações preferenciais com o SDK de Python:
+O código a seguir mostra como definir locais preferenciais usando o SDK do Python:
 
 ```python
 
@@ -119,9 +119,9 @@ client = cosmos_client.CosmosClient(ENDPOINT, {'masterKey': MASTER_KEY}, connect
 
 ```
 
-## <a name="java-v2-sdk"></a>V2 do Java SDK
+## <a name="java-v2-sdk"></a>SDK do Java v2
 
-O código a seguir mostra como definir localizações preferenciais com o SDK Java:
+O código a seguir mostra como definir locais preferenciais usando o SDK do Java:
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();

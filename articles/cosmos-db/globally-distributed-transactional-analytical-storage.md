@@ -1,18 +1,18 @@
 ---
 title: Armazenamento analítico e transacional distribuído globalmente para contêineres de Cosmos do Azure
 description: Saiba mais sobre armazenamento transacional e analítico e suas opções de configuração para contêineres de Cosmos do Azure.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 27ca2102ee95273fbedd1a870e57d2ae3318e879
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703383"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756910"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Armazenamento analítico e transacional distribuído globalmente para contêineres de Cosmos do Azure
 
@@ -110,7 +110,7 @@ Dependendo do seu cenário, você pode habilitar ou desabilitar de forma indepen
 
    Você pode configurar o contêiner Cosmos do Azure para cargas de trabalho transacionais e analíticas com isolamento de desempenho total entre eles com intervalos de retenção diferentes. Azure Cosmos DB impedirá que seu armazenamento analítico seja sempre retido por uma duração maior do que o armazenamento transacional.
 
-   Você pode habilitar o armazenamento transacional com retenção infinita definindo `DefaultTimeToLive` para < valor 1 > e habilitar o armazenamento analítico definindo `ColumnStoreTimeToLive` para < valor 2 >. Azure Cosmos DB irá impor que < valor 2 > seja sempre maior que < valor 1 >.
+   Você pode habilitar o armazenamento transacional com retenção infinita definindo `DefaultTimeToLive` como < valor 1 > e habilitar o armazenamento analítico Configurando `ColumnStoreTimeToLive` para < valor 2 >. Azure Cosmos DB irá impor que < valor 2 > seja sempre maior que < valor 1 >.
 
    ![Cargas de trabalho transacionais e analíticas com camadas de armazenamento](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 
