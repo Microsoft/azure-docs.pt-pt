@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: 2cc6493d01508d439d8dcef2d12ca1ea40632d81
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096232"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755406"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Azure Functions plano Premium (versão prévia)
 
@@ -31,7 +31,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 --location <REGION> --sku EP1
 ```
 
-Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` por um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [suporte `<REGION>` ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, `--is-linux` inclua a opção.
+Neste exemplo, substitua `<RESOURCE_GROUP>` pelo seu grupo de recursos e `<PLAN_NAME>` com um nome para seu plano que seja exclusivo no grupo de recursos. Especifique um [`<REGION>`com suporte ](#regions). Para criar um plano Premium que ofereça suporte ao Linux, inclua a opção `--is-linux`.
 
 Com o plano criado, você pode usar [AZ functionapp Create](/cli/azure/functionapp#az-functionapp-create) para criar seu aplicativo de funções. No portal, o plano e o aplicativo são criados ao mesmo tempo. 
 
@@ -106,26 +106,34 @@ Abaixo estão as regiões com suporte no momento para a visualização pública 
 
 |Região| Windows | Linux |
 |--| -- | -- |
+|Austrália Central| ✔ * | |
+|Austrália Central 2| ✔ * | |
 |Leste da Austrália| ✔ | |
 |Sudeste da Austrália | ✔ | ✔ |
+|Sul do Brasil| ✔ * * |  |
 |Canadá Central| ✔ |  |
-|EUA Central| ✔ |  |
-|Ásia Oriental| ✔ |  |
-|East US | | ✔ |
-|EUA Leste 2| ✔ |  |
+|Centro dos E.U.A.| ✔ |  |
+|Este Asiático| ✔ |  |
+|Este dos E.U.A. | ✔ | ✔ |
+|Este dos E.U.A. 2| ✔ |  |
 |França Central| ✔ |  |
-|Leste do Japão|  | ✔ |
+|Este do Japão| ✔ | ✔ |
 |Oeste do Japão| ✔ | |
 |Coreia do Sul Central| ✔ |  |
-|EUA Centro-Norte| ✔ |  |
+|E.U.A. Centro-Norte| ✔ |  |
 |Europa do Norte| ✔ | ✔ |
-|EUA Centro-Sul| ✔ |  |
+|E.U.A. Centro-Sul| ✔ |  |
 |Sul da Índia | ✔ | |
 |Sudeste Asiático| ✔ | ✔ |
-|Reino Unido Oeste| ✔ |  |
+|Sul do Reino Unido| ✔ | |
+|Oeste do Reino Unido| ✔ |  |
 |Europa Ocidental| ✔ | ✔ |
 |Oeste da Índia| ✔ |  |
-|EUA Oeste| ✔ | ✔ |
+|Oeste dos E.U.A.| ✔ | ✔ |
+
+\* redução máxima limitada a 20 instâncias
+
+\** expansão máxima limitada a 60 instâncias
 
 ## <a name="known-issues"></a>Problemas Conhecidos
 

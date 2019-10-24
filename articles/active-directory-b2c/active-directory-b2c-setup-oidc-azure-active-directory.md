@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 477b4e51c49a558aed0e5623a3821fa9b8d9eabd
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622371"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755757"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar a entrada para uma organização de Azure Active Directory específica no Azure Active Directory B2C
 
@@ -31,7 +32,7 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 4. Selecione **novo registro**.
 5. Introduza um nome para a aplicação. Por exemplo, `Azure AD B2C App`.
 6. Aceite a seleção de **contas neste diretório organizacional somente** para este aplicativo.
-7. Para o **URI**de redirecionamento, aceite o valor de **Web**e insira a URL a seguir em todas as letras `your-B2C-tenant-name` minúsculas, onde é substituído pelo nome do seu locatário de Azure ad B2C. Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
+7. Para o **URI de redirecionamento**, aceite o valor de **Web**e insira a URL a seguir em todas as letras minúsculas, em que `your-B2C-tenant-name` é substituído pelo nome do seu locatário Azure ad B2C. Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`:
 
     ```
     https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
@@ -51,13 +52,15 @@ Para habilitar a entrada para usuários de uma organização específica do Azur
 1. Escolha **todos os serviços** no canto superior esquerdo da portal do Azure e, em seguida, procure e selecione **Azure ad B2C**.
 1. Selecione **provedores de identidade**e, em seguida, selecione **novo provedor do OpenID Connect**.
 1. Insira um **nome**. Por exemplo, digite *contoso Azure ad*.
-1. Para a **URL de metadados**, insira a seguinte `your-AD-tenant-domain` URL substituindo pelo nome de domínio do seu locatário do Azure AD:
+1. Para **URL de metadados**, insira a URL a seguir substituindo `your-AD-tenant-domain` pelo nome de domínio do seu locatário do Azure AD:
 
     ```
     https://login.microsoftonline.com/your-AD-tenant-domain/.well-known/openid-configuration
     ```
 
     Por exemplo, `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`.
+
+    **Não use o** ponto de extremidade de metadados do Azure ad v 2.0, por exemplo `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`. Fazer isso resulta em um erro semelhante a `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'` ao tentar entrar.
 
 1. Para **ID do cliente**, insira a ID do aplicativo que você registrou anteriormente.
 1. Para **segredo do cliente**, insira o segredo do cliente que você registrou anteriormente.

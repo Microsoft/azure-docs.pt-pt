@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 94bde7b2e2a6f3902d83de90b06638035fd34397
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679125"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754715"
 ---
-# <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
+# <a name="what-are-mapping-data-flows"></a>O que são fluxos de dados de mapeamento?
 
 O mapeamento de fluxos de dados são transformações de dados visualmente projetadas em Azure Data Factory. Os fluxos de dados permitem que os engenheiros de dados desenvolvam a lógica de transformação de dados gráficos sem escrever código. Os fluxos de dados resultantes são executados como atividades dentro de Azure Data Factory pipelines que usam clusters Spark expandidos. As atividades de fluxo de dados podem ser operadas por meio de recursos de agendamento, controle, fluxo e monitoramento existentes de Data Factory.
 
@@ -39,6 +39,38 @@ A tela de fluxo de dados é separada em três partes: a barra superior, o grafo 
 O grafo exibe o fluxo de transformação. Ele mostra a linhagem dos dados de origem conforme eles fluem em um ou mais coletores. Para adicionar uma nova origem, selecione **Adicionar origem**. Para adicionar uma nova transformação, selecione o sinal de adição no canto inferior direito de uma transformação existente.
 
 ![Canvas](media/data-flow/canvas2.png "Canvas")
+
+### <a name="azure-integration-runtime-data-flow-properties"></a>Propriedades de fluxo de dados do Azure Integration Runtime
+
+![Botão de depuração](media/data-flow/debugbutton.png "Botão de depuração")
+
+Ao começar a trabalhar com fluxos de dados no ADF, você desejará ativar a opção de "depuração" para fluxos de dados na parte superior da interface do usuário do navegador. Isso fará com que um cluster de Azure Databricks seja girado para uso para depuração interativa, visualizações de dados e execuções de depuração de pipeline. Você pode definir o tamanho do cluster que está sendo utilizado escolhendo um [Azure Integration Runtime](concepts-integration-runtime.md)personalizado. A sessão de depuração permanecerá ativa por até 60 minutos após a última visualização de dados ou a última execução do pipeline de depuração.
+
+Quando você colocar seus pipelines em operação com atividades de fluxo de dados, o ADF usará o Azure Integration Runtime associado à [atividade](control-flow-execute-data-flow-activity.md) na propriedade "executar em".
+
+O Azure Integration Runtime padrão é um cluster de nó de trabalho único de 4 núcleos, destinado a permitir a visualização de dados e a execução rápida de pipelines de depuração com custos mínimos. Defina uma configuração de Azure IR maior se você estiver executando operações em grandes conjuntos de altos.
+
+Você pode instruir o ADF a manter um pool de recursos de cluster (VMs) definindo um TTL na Azure IR Propriedades de fluxo de dados. Isso resultará em uma execução de trabalho mais rápida nas atividades subsequentes.
+
+#### <a name="azure-integration-runtime-and-data-flow-strategies"></a>Tempo de execução de integração do Azure e estratégias de fluxo de dados
+
+##### <a name="execute-data-flows-in-parallel"></a>Executar fluxos de dados em paralelo
+
+Se você executar fluxos de dados em um pipeline em paralelo, o ADF girará Azure Databricks clusters separados para cada execução de atividade com base nas configurações de sua Azure Integration Runtime anexadas a cada atividade. Para criar execuções paralelas em pipelines do ADF, adicione suas atividades de fluxo de dados sem restrições de precedência na interface do usuário.
+
+Dessas três opções, essa opção provavelmente será executada no menor período de tempo. No entanto, cada fluxo de dados paralelo será executado ao mesmo tempo em clusters separados, de modo que a ordem dos eventos é não determinística.
+
+##### <a name="overload-single-data-flow"></a>Sobrecarga de fluxo de dados único
+
+Se você colocar toda a lógica dentro de um único fluxo de dados, o ADF será executado no mesmo contexto de execução de trabalho em uma única instância de cluster do Spark.
+
+Essa opção pode ser mais difícil de seguir e solucionar problemas, pois suas regras de negócios e a lógica de negócios serão amontoadodas juntas. Essa opção também não fornece muita reutilização.
+
+##### <a name="execute-data-flows-serially"></a>Executar fluxos de dados em série
+
+Se você executar suas atividades de fluxo de dados em série no pipeline e tiver definido um TTL na configuração de Azure IR, o ADF reutilizará os recursos de computação (VMs) resultando em tempos de execução subsequentes mais rápidos. Você ainda receberá um novo contexto do Spark para cada execução.
+
+Dessas três opções, provavelmente levará o tempo mais longo para ser executado de ponta a ponta. Mas ele fornece uma separação limpa das operações lógicas em cada etapa do fluxo de dados.
 
 ### <a name="configuration-panel"></a>Painel de configuração
 

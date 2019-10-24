@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a0e5076f6ecb102b239a94b986830235eb720125
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 2f0fac5e1951f593ea769f73feb21a60afe9c02b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512359"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756183"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrar uma máquina virtual SQL Server no Azure com o provedor de recursos de VM do SQL
 
@@ -203,7 +203,7 @@ Você pode exibir o modo atual de seu SQL Server agente IaaS usando o PowerShell
      $sqlvm.Properties.sqlManagement
   ```
 
-SQL Server VMs que têm a extensão de IaaS *leve* instalada podem atualizar o modo para _completo_ usando o portal do Azure. SQL Server VMs no modo _no-Agent_ podem ser atualizadas para _Full_ depois que o sistema operacional for atualizado para o Windows 2008 R2 e superior. Não é possível fazer o downgrade – para isso, você precisará excluir o recurso do provedor de recursos da VM do SQL usando o portal do Azure e registrar com o provedor de recursos da VM do SQL novamente. 
+SQL Server VMs que têm a extensão de IaaS *leve* instalada podem atualizar o modo para _completo_ usando o portal do Azure. SQL Server VMs no modo _no-Agent_ podem ser atualizadas para _Full_ depois que o sistema operacional for atualizado para o Windows 2008 R2 e superior. Não é possível fazer downgrade – para isso, você precisará [cancelar o registro](#unregister-vm-from-resource-provider) da VM SQL Server do provedor de recursos da VM do SQL excluindo o recurso de VM do SQL e registrar com o provedor de recursos de VM do SQL novamente. 
 
 Para atualizar o modo do agente para completo: 
 
@@ -281,6 +281,49 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
 ---
 
+## <a name="unregister-vm-from-resource-provider"></a>Cancelar registro da VM do provedor de recursos 
+
+Para cancelar o registro da VM SQL Server com o provedor de recursos de VM do SQL, exclua o *recurso* de máquina virtual do SQL usando o portal do Azure ou CLI do Azure. Excluir o *recurso* de máquina virtual do SQL não exclui a VM SQL Server. No entanto, tome cuidado e siga as etapas com cuidado, pois é possível excluir inadvertidamente a máquina virtual ao tentar remover o *recurso*. 
+
+O cancelamento do registro da VM do SQL com o provedor de recursos da VM do SQL é necessário para fazer o downgrade completo do modo de gerenciamento. 
+
+### <a name="azure-portal"></a>Portal do Azure
+
+Para cancelar o registro da VM SQL Server com o provedor de recursos usando o portal do Azure, siga estas etapas:
+
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Navegue até o recurso SQL Server VM. 
+  
+   ![Recurso de máquinas virtuais do SQL](media/virtual-machines-windows-sql-manage-portal/sql-vm-manage.png)
+
+1. Selecione **Eliminar**. 
+
+   ![Excluir provedor de recursos da VM do SQL](media/virtual-machines-windows-sql-register-with-rp/delete-sql-vm-resource-provider.png)
+
+1. Digite o nome da máquina virtual do SQL e **desmarque a caixa de seleção ao lado da máquina virtual**.
+
+   ![Excluir provedor de recursos da VM do SQL](media/virtual-machines-windows-sql-register-with-rp/confirm-delete-of-resource-uncheck-box.png)
+
+   >[!WARNING]
+   > Falha ao desmarcar a caixa de seleção ao lado do nome da máquina virtual *excluirá* totalmente a máquina virtual. Desmarque a caixa de seleção para cancelar o registro da VM SQL Server do provedor de recursos, mas *não exclua a máquina virtual real*. 
+
+1. Selecione **excluir** para confirmar a exclusão do *recurso*de máquina virtual do SQL e não o SQL Server máquina virtual. 
+
+
+### <a name="azure-cli"></a>CLI do Azure 
+
+Para cancelar o registro de sua máquina virtual SQL Server do provedor de recursos com CLI do Azure, use o comando [AZ SQL VM Delete](/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-delete) . Isso removerá o SQL Server *recurso* de máquina virtual, mas não excluirá a máquina virtual. 
+
+
+```azurecli-interactive
+   az sql vm delete 
+     --name <SQL VM resource name> |
+     --resource-group <Resource group name> |
+     --yes 
+```
+
+
+
 ## <a name="remarks"></a>Observações
 
 - O provedor de recursos de VM do SQL dá suporte apenas a VMs SQL Server implantadas por meio de Azure Resource Manager Não há suporte para VMs SQL Server implantadas por meio do modelo clássico. 
@@ -353,7 +396,7 @@ Sim. A atualização do modo de gerenciamento de Lightweight para Full tem supor
 
 Não. Não há suporte para o downgrade do modo de gerenciamento de extensão IaaS SQL Server. Não é possível fazer downgrade do modo de gerenciamento completo para o modo leve ou sem agente, e ele não pode ser desatualizado do modo leve para o modo sem agente. 
 
-Para alterar o modo de gerenciamento da capacidade de gerenciamento total, descarte o recurso Microsoft. SqlVirtualMachine e registre novamente a VM de SQL Server com o provedor de recursos de VM do SQL.
+Para alterar o modo de gerenciamento da capacidade de gerenciamento total, cancele o [registro](#unregister-vm-from-resource-provider) da máquina virtual SQL Server do provedor de recursos SQL Server descartando o *recurso* SQL Server e registre novamente a VM SQL Server com o provedor de recursos de VM do SQL novamente em um modo de gerenciamento diferente.
 
 **Posso registrar com o provedor de recursos de VM do SQL na portal do Azure?**
 

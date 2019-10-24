@@ -1,18 +1,18 @@
 ---
 title: Níveis de consistência e APIs do Azure Cosmos DB
 description: Noções básicas sobre os níveis de consistência entre as APIs em Azure Cosmos DB.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 26cea6243a8b6d06c132325f0b2fe830c4030e9d
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 6779e434339935b64440d7cf617c8946338e36e3
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467765"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756986"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Níveis de consistência e APIs do Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Ao contrário do AzureCosmos DB, o Apache Cassandra não fornece nativamente gar
 
 A tabela a seguir ilustra como os níveis de consistência Cassandra nativos são mapeados para os níveis de consistência do Azure Cosmos DB ao usar o API do Cassandra:  
 
-[![Mapeamento de modelo de consistência Cassandra](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
+[mapeamento de modelo de consistência do Cassandra![](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png)](./media/consistency-levels-across-apis/consistency-model-mapping-cassandra.png#lightbox)
 
 ## <a id="mongo-mapping"></a>Mapeamento entre os níveis de consistência do MongoDB e do Azure Cosmos DB
 
@@ -51,12 +51,12 @@ Ao usar a API do Azure Cosmos DB para MongoDB:
 
 A tabela a seguir ilustra como as preocupações nativas de gravação/leitura do MongoDB são mapeadas para os níveis de consistência do Azure Cosmos ao usar a API do Azure Cosmos DB para MongoDB:
 
-[![Mapeamento de modelo de consistência do MongoDB](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
+[mapeamento de modelo de consistência do MongoDB![](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png)](./media/consistency-levels-across-apis/consistency-model-mapping-mongodb.png#lightbox)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre os níveis de consistência e a compatibilidade entre as APIs de Azure Cosmos DB com as APIs de código aberto. Consulte os seguintes artigos:
 
-* [Desvantagens de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
+* [Compensações de desempenho e disponibilidade para vários níveis de consistência](consistency-levels-tradeoffs.md)
 * [Recursos do MongoDB com suporte da API do Azure Cosmos DB para MongoDB](mongodb-feature-support.md)
 * [Recursos do Apache Cassandra com suporte no API do Cassandra Azure Cosmos DB](cassandra-support.md)

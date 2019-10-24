@@ -5,14 +5,14 @@ services: service-fabric
 author: athinanthny
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: atsenthi
-ms.openlocfilehash: dcffc1ba783b49343bf3380b62c3d4085f5aa347
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390085"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752311"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>O que é o modelo de recurso de aplicativo Service Fabric?
 É recomendável que Service Fabric aplicativos sejam implantados no Cluster Service Fabric por meio do Azure Resource Manager. Esse método possibilita descrever aplicativos e serviços em JSON e implantá-los no mesmo modelo do Resource Manager que o cluster. Em oposição à implantação e ao gerenciamento de aplicativos por meio do PowerShell ou CLI do Azure, não há necessidade de esperar que o cluster esteja pronto. Pode realizar o processo de registo, aprovisionamento e implementação de aplicações com um único passo. Esta é a melhor prática para gerir o ciclo de vida das aplicações no seu cluster. Para obter mais informações, consulte [as práticas recomendadas](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -41,8 +41,14 @@ A implantação de um aplicativo de um modelo do Resource Manager requer uma con
 ![Create a storage account][CreateStorageAccount]
 
 ### <a name="configure-storage-account"></a>Configurar conta de armazenamento 
-Depois que a conta de armazenamento tiver sido criada, você precisará criar um contêiner de BLOBs onde os aplicativos podem ser preparados. Na portal do Azure, navegue até a conta de armazenamento para a qual você deseja armazenar seus aplicativos. Selecione a folha **BLOBs** e clique no botão **Adicionar contêiner** . Adicione um novo contêiner com o nível de acesso público do blob.
-   
+Depois que a conta de armazenamento tiver sido criada, você precisará criar um contêiner de BLOBs onde os aplicativos podem ser preparados. Na portal do Azure, navegue até a conta de armazenamento para a qual você deseja armazenar seus aplicativos. Selecione a folha **BLOBs** e clique no botão **Adicionar contêiner** . Os recursos no cluster podem ser protegidos definindo o nível de acesso público como privado. O acesso pode ser concedido de várias maneiras:
+* [Autorizar o acesso a BLOBs e filas com Azure Active Directory](../storage/common/storage-auth-aad-app.md)
+* [Grant access to Azure blob and queue data with RBAC in the Azure portal](../storage/common/storage-auth-aad-rbac-portal.md) (Conceder acesso a dados de blobs e filas do Azure com RBAC no portal do Azure)
+* [Delegar acesso com uma SAS (assinatura de acesso compartilhado)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature
+)
+
+ Para este exemplo, vamos continuar usando o acesso de leitura anônimo para BLOBs.
+
 ![Criar blob][CreateBlob]
 
 ### <a name="stage-application-in-a-storage-account"></a>Preparar aplicativo em uma conta de armazenamento
@@ -51,10 +57,10 @@ Antes que o aplicativo possa ser implantado, ele deve ser preparado no armazenam
 1. No Visual Studio, clique com o botão direito do mouse no projeto de votação e selecione pacote.   
 ![Aplicativo de pacote][PackageApplication]  
 2. Abra o diretório **.\Service-Fabric-dotnet-quickstart\Voting\pkg\Debug** que acabou de criar e compacte o conteúdo em um arquivo chamado **votação. zip** , de modo que o ApplicationManifest. xml esteja na raiz do arquivo zip.  
-Aplicativo ![Zip @ no__t-1  
+![][ZipApplication] de aplicativo zip  
 3. Renomeie a extensão do arquivo de. zip para **. sfpkg**.
 4. No portal do Azure, no contêiner **aplicativos** da sua conta de armazenamento, clique em **carregar** e carregar **votação. sfpkg**.  
-Pacote de aplicativo ![Upload @ no__t-1
+![carregar o pacote do aplicativo][UploadAppPkg]
 
 O aplicativo agora é preparado. Agora estamos prontos para criar o modelo de Azure Resource Manager para implantar o aplicativo.      
    

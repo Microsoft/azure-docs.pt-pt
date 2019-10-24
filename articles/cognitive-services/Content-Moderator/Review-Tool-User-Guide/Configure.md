@@ -3,19 +3,19 @@ title: Definir configurações da ferramenta de revisão-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use a ferramenta de revisão para configurar ou recuperar sua equipe, marcas, conectores, fluxos de trabalho e credenciais para Content Moderator.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
-ms.openlocfilehash: 5e12806aca7c53c254cc43c8ff5bb8d314f9993e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882725"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757437"
 ---
 # <a name="configure-the-review-tool"></a>Configurar a Ferramenta de revisão
 
@@ -25,7 +25,7 @@ A [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com) tem
 
 ## <a name="manage-team-and-subteams"></a>Gerenciar equipe e subequipes
 
-A guia **equipe** permite que você gerencie seus&mdash;grupos de equipe e subequipes de usuários que podem ser notificados quando determinadas [revisões humanas](../review-api.md#reviews) são iniciadas. Você só pode ter uma equipe (que você cria ao se inscrever com a ferramenta de revisão), mas pode criar várias subequipes. O administrador da equipe pode convidar Membros, definir suas permissões e atribuí-los a diferentes subequipes.
+A guia **equipe** permite que você gerencie sua equipe e subequipes&mdash;grupos de usuários que podem ser notificados quando determinadas [revisões humanas](../review-api.md#reviews) são iniciadas. Você só pode ter uma equipe (que você cria ao se inscrever com a ferramenta de revisão), mas pode criar várias subequipes. O administrador da equipe pode convidar Membros, definir suas permissões e atribuí-los a diferentes subequipes.
 
 ![Examinar as configurações da equipe de ferramentas](images/settings-2-team.png)
 
@@ -35,7 +35,7 @@ Esta seção explica como criar subequipes e atribuir rapidamente revisões imed
 
 ### <a name="create-a-subteam"></a>Criar uma subequipe
 
-Vá para a seção subequipes e clique em **Adicionar subequipe**. Insira o nome da sua subequipe na caixa de diálogo e clique em **salvar**.
+Vá para a seção **subequipes** e clique em **Adicionar subequipe**. Insira o nome da sua subequipe na caixa de diálogo e clique em **salvar**.
 
 ![Nome da subequipe](images/1-Teams-2.PNG)
 
@@ -60,13 +60,13 @@ Para atribuir conteúdo a uma subequipe, clique nas reticências no canto superi
 
 ### <a name="switch-between-subteams"></a>Alternar entre subequipes
 
-Se você for membro de mais de uma subequipe, poderá alternar entre essas subequipes para alterar quais revisões de conteúdo são exibidas para você. Na guia revisar, selecione o menu suspenso rotulado **como padrão** e selecione **escolher subequipe**. Você pode exibir as revisões de conteúdo para diferentes subequipes, mas apenas aquelas das quais você é membro.
+Se você for membro de mais de uma subequipe, poderá alternar entre essas subequipes para alterar quais revisões de conteúdo são exibidas para você. Na guia **revisar** , selecione o menu suspenso rotulado **como padrão** e selecione **escolher subequipe**. Você pode exibir as revisões de conteúdo para diferentes subequipes, mas apenas aquelas das quais você é membro.
 
 ![Alternar entre subequipes](images/3-review-image-subteam-2.png)
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>Etiquetas
 
-A guia **marcas** permite que você defina marcas de moderação personalizadas além das duas marcas&mdash;de moderação padrão isadulto (**a**) e **isracy** ( **r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
+A guia **marcas** permite que você defina marcas de moderação personalizadas, além das duas marcas de moderação padrão&mdash;**isadulto** (**a**) e **isracy** (**r**). Quando você cria uma marca personalizada, ela fica disponível em revisões junto com as marcas padrão. Você pode alterar quais marcas aparecem em revisões alternando suas configurações de visibilidade.
 
 ![Exibição de marcas, incluindo as caixas de seleção "is Visible"](images/tags-4-disable.png)
 
@@ -76,7 +76,7 @@ Para criar uma nova marca, você deve inserir um código curto, um nome e uma de
 
 - **Código curto**: Insira um código de duas letras para sua marca. Exemplo: **CB**
 - **Nome**: Insira um nome de marca curto e descritivo em minúsculas, sem espaços. Exemplo: **isbullying**.
-- **Descrição**: (opcional) Insira uma descrição do tipo de conteúdo que sua marca visa. Exemplo: **Representações ou instâncias do cyber bullying**.
+- **Descrição**: (opcional) Insira uma descrição do tipo de conteúdo que sua marca visa. Exemplo: **representações ou instâncias do cyber bullying**.
 
 Clique em **Adicionar** para adicionar uma marca e clique em **salvar** quando terminar de criar marcas.
 
@@ -88,13 +88,13 @@ Você pode excluir marcas personalizadas selecionando o ícone de Lixeira ao lad
 
 ## <a name="connectors"></a>Conectores
 
-A guia conectores permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
+A guia **conectores** permite que você gerencie seus conectores, que são plug-ins específicos do serviço que podem processar conteúdo de maneiras diferentes como parte dos [fluxos de trabalho](../review-api.md#workflows)de conteúdo.
 
 O conector padrão quando você cria um fluxo de trabalho é o conector de Content Moderator, que pode marcar o conteúdo como **adulto** ou **erótico**, encontrar profanação e assim por diante. No entanto, você pode usar outros conectores, listados aqui, desde que tenha credenciais para seus respectivos serviços (para usar o conector de API de Detecção Facial, por exemplo, será necessário obter uma chave de assinatura [API de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
 
 A [ferramenta de revisão](./human-in-the-loop.md) inclui os seguintes conectores:
 
-- API de Emoções (Pré-visualização)
+- API de Emoções
 - API Face
 - Serviço de nuvem PhotoDNA
 - API de Análise de Texto
@@ -105,7 +105,7 @@ Para adicionar um conector (e torná-lo disponível para uso em [fluxos de traba
 
 ![Configurações de conectores de Content Moderator](images/settings-4-connectors.png)
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Fluxos de trabalho
 
 A guia **fluxos de trabalho** permite que você gerencie seus fluxos de [trabalho](../review-api.md#workflows). Os fluxos de trabalho são filtros baseados em nuvem para conteúdo e trabalham com conectores para classificar conteúdo de maneiras diferentes e tomar as medidas apropriadas. Aqui, você pode definir, editar e testar seus fluxos de trabalho. Consulte [definir e usar fluxos de trabalho](Workflows.md) para obter orientação sobre como fazer isso.
 
@@ -138,6 +138,6 @@ Para usar sua chave do Azure com as APIs de revisão, você precisa recuperar su
 
 Se você tiver inserido sua chave de assinatura em ambos os locais, a chave de avaliação que acompanha a sua conta da ferramenta de revisão não será usada, mas permanecerá disponível.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Siga o guia de [início rápido da ferramenta de revisão](../quick-start.md) para começar a usar a ferramenta de revisão em cenários de moderação de conteúdo.

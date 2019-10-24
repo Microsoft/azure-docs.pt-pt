@@ -1,7 +1,7 @@
 ---
 title: Integração do git para Azure Machine Learning
 titleSuffix: Azure Machine Learning
-description: Saiba como o Azure Machine Learning se integra a um repositório git local.
+description: Saiba como o Azure Machine Learning se integra a um repositório git local. Ao enviar uma execução de treinamento de um diretório local que é um repositório git, as informações sobre o repositório, a ramificação e a confirmação atual são controladas como parte da execução.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 10/11/2019
-ms.openlocfilehash: 1ef9f3f847cb74aca0cae66dc8354838d28a645f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: c8b2407b18f0d7115ce51fc28b956e7fd764c71e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553641"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756019"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -49,7 +49,7 @@ As informações do git são armazenadas nas propriedades de uma execução de t
 1. No [portal do Azure](https://portal.azure.com), selecione seu espaço de trabalho.
 1. Selecione __experimentos__e, em seguida, selecione um de seus experimentos.
 1. Selecione uma das execuções na coluna __número da execução__ .
-1. Selecione __logs__e, em seguida, expanda os __logs__ e as entradas do __azureml__ . Selecione o link que começa com __### \_azure__.
+1. Selecione __logs__e, em seguida, expanda os __logs__ e as entradas do __azureml__ . Selecione o link que começa com __###\_Azure__.
 
     ![A entrada # # #_azure no portal](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
 
@@ -92,5 +92,4 @@ Para obter mais informações, consulte a documentação de referência de [exec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter uma explicação de como treinar com Azure Machine Learning no Visual Studio Code, consulte [tutorial: treinar modelos com Azure Machine Learning](tutorial-train-models-with-aml.md).
-* Para obter uma explicação de como editar, executar e depurar código localmente, consulte o [tutorial do Python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+* [Configurar e usar destinos de computação para treinamento de modelo](how-to-set-up-training-targets.md)

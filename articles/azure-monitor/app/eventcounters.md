@@ -8,10 +8,10 @@ author: cithomas
 ms.author: cithomas
 ms.date: 09/20/2019
 ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
+ms.lasthandoff: 10/22/2019
 ms.locfileid: "72677157"
 ---
 # <a name="eventcounters-introduction"></a>Introdução ao EventCounters
@@ -98,7 +98,7 @@ O exemplo a seguir mostra como adicionar/remover contadores. Essa personalizaç�
 Para exibir as métricas do EventCounter no [Gerenciador de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts), selecione Application insights recurso e escolha métricas baseadas em log como namespace de métrica. Em seguida, as métricas EventCounter são exibidas na categoria PerformanceCounter.
 
 > [!div class="mx-imgBorder"]
-> ![Event contadores relatados no Application Insights ](./media/event-counters/metrics-explorer-counter-list.png)
+> ![contadores de eventos relatados no Application Insights](./media/event-counters/metrics-explorer-counter-list.png)
 
 ## <a name="event-counters-in-analytics"></a>Contadores de eventos no Analytics
 
@@ -111,7 +111,7 @@ performanceCounters | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> ![Event contadores relatados no Application Insights ](./media/event-counters/analytics-event-counters.png)
+> ![contadores de eventos relatados no Application Insights](./media/event-counters/analytics-event-counters.png)
 
 Para obter um gráfico de um contador específico (por exemplo: `ThreadPool Completed Work Item Count`) no período recente, execute a consulta a seguir.
 
@@ -123,7 +123,7 @@ performanceCounters
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> ![Chat de um único contador no Application Insights ](./media/event-counters/analytics-completeditems-counters.png)
+> ![chat de um único contador no Application Insights](./media/event-counters/analytics-completeditems-counters.png)
 
 Como outras telemetrias, os **PerformanceCounters** também têm uma coluna `cloud_RoleInstance` que indica a identidade da instância do servidor host na qual seu aplicativo está sendo executado. A consulta acima mostra o valor do contador por instância e pode ser usada para comparar o desempenho de diferentes instâncias de servidor.
 

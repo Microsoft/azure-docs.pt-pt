@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: bb7b9a41523ab1b1addbf37cb7b463f12a72a814
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: afb48c18f9690e77a5478956e1147acf850290ab
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263684"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756619"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Como administrar o cache do Azure para Redis
 Este tópico descreve como executar tarefas de administração, como [reinicializar](#reboot) e [agendar atualizações](#schedule-updates) para o cache do Azure para instâncias Redis.
@@ -71,7 +71,7 @@ Se você reinicializar os nós **mestre** e **subordinado** , todos os dados no 
 Se você reinicializar apenas um dos nós, os dados normalmente não são perdidos, mas ainda podem ser. Por exemplo, se o nó mestre for reinicializado e uma gravação de cache estiver em andamento, os dados da gravação do cache serão perdidos. Outro cenário de perda de dados seria se você reinicializar um nó e o outro nó ocorrer devido a uma falha ao mesmo tempo. Para obter mais informações sobre as possíveis causas de perda de dados, consulte [o que aconteceu com meus dados no Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md)
 
 ### <a name="can-i-reboot-my-cache-using-powershell-cli-or-other-management-tools"></a>Posso reinicializar meu cache usando o PowerShell, a CLI ou outras ferramentas de gerenciamento?
-Sim, para instruções do PowerShell, consulte [para reinicializar um cache do Azure para Redis](cache-howto-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
+Sim, para instruções do PowerShell, consulte [para reinicializar um cache do Azure para Redis](cache-how-to-manage-redis-cache-powershell.md#to-reboot-an-azure-cache-for-redis).
 
 ## <a name="schedule-updates"></a>Atualizações agendadas
 A folha **agendar atualizações** permite designar uma janela de manutenção para sua instância de cache. Quando a janela de manutenção é especificada, todas as atualizações do servidor Redis são feitas durante essa janela. 

@@ -1,5 +1,5 @@
 ---
-title: Ingressar uma VM do Windows Server em um domínio gerenciado | Microsoft Docs '
+title: Ingressar uma VM do Windows Server em um domínio gerenciado | Microsoft Docs
 description: Neste tutorial, saiba como unir uma máquina virtual do Windows Server a um Azure Active Directory Domain Services domínio gerenciado.
 author: iainfoulds
 manager: daveba
@@ -9,14 +9,14 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: iainfou
-ms.openlocfilehash: 3fd2a50946f0857d527c34b62687b2dbdd71298e
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 00e717202116cf9a48c2c2d889374d451b8e4d45
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172034"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754362"
 ---
-# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: Associar uma máquina virtual do Windows Server a um domínio gerido
+# <a name="tutorial-join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Tutorial: ingressar uma máquina virtual do Windows Server em um domínio gerenciado
 
 O Azure Active Directory Domain Services (Azure AD DS) fornece serviços de domínio gerenciados, como ingresso no domínio, diretiva de grupo, LDAP, autenticação Kerberos/NTLM que é totalmente compatível com o Windows Server Active Directory. Com um domínio gerenciado do Azure AD DS, você pode fornecer recursos de ingresso no domínio e gerenciamento para VMs (máquinas virtuais) no Azure. Este tutorial mostra como criar uma VM do Windows Server e, em seguida, associá-la a um domínio gerenciado AD DS do Azure.
 
@@ -55,7 +55,7 @@ Para ver como unir um computador a um domínio gerenciado AD DS do Azure, vamos 
 Se você já tiver uma VM que deseja ingressar no domínio, pule para a seção para [ingressar a VM no domínio gerenciado AD DS do Azure](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
 1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
-2. Emintrodução, escolha **Windows Server 2016 datacenter**.
+2. Em **introdução**, escolha **Windows Server 2016 datacenter**.
 
     ![Escolha criar uma VM do Windows Server 2016 datacenter no portal do Azure](./media/join-windows-vm/select-vm-image.png)
 
@@ -63,7 +63,7 @@ Se você já tiver uma VM que deseja ingressar no domínio, pule para a seção 
 
     | Parâmetro            | Valor sugerido   |
     |----------------------|-------------------|
-    | Resource group       | Selecionar ou criar um grupo de recursos, como *MyResource* Group |
+    | Grupo de recursos       | Selecionar ou criar um grupo de recursos, como *MyResource* Group |
     | Nome da máquina virtual | Insira um nome para a VM, como *myVM* |
     | Região               | Escolha a região na qual criar sua VM, como *leste dos EUA* |
     | Nome de utilizador             | Insira um nome de usuário para a conta de administrador local a ser criada na VM, como *azureuser* |
@@ -77,8 +77,8 @@ Se você já tiver uma VM que deseja ingressar no domínio, pule para a seção 
 
     Em **portas de entrada públicas**, selecione a opção para **permitir portas selecionadas**. No menu suspenso para **selecionar portas de entrada**, escolha *RDP*.
 
-5. Quando terminar, selecione **avançar: Discos**.
-6. No menu suspenso do **tipo de disco do sistema operacional**, escolha *SSD Standard*e, em **seguida, selecione Avançar: Rede**.
+5. Quando terminar, selecione **Avançar: discos**.
+6. No menu suspenso do **tipo de disco do sistema operacional**, escolha *SSD Standard*e, em seguida, selecione **Avançar: rede**.
 7. Sua VM deve se conectar a uma sub-rede de rede virtual do Azure que pode se comunicar com a sub-rede em que o domínio gerenciado do Azure AD DS está implantado. É recomendável que um domínio gerenciado AD DS do Azure seja implantado em sua própria sub-rede dedicada. Não implante sua VM na mesma sub-rede que o seu domínio gerenciado AD DS do Azure.
 
     Há duas maneiras principais de implantar sua VM e conectar-se a uma sub-rede de rede virtual apropriada:
@@ -89,7 +89,7 @@ Se você já tiver uma VM que deseja ingressar no domínio, pule para a seção 
     Se você selecionar uma sub-rede de rede virtual que não esteja conectada à sub-rede para sua instância de AD DS do Azure, não será possível ingressar a VM no domínio gerenciado. Para este tutorial, vamos criar uma nova sub-rede na rede virtual do Azure.
 
     No painel **rede** , selecione a rede virtual na qual o domínio gerenciado pelo AD DS do Azure é implantado, como *myVnet*
-8. Neste exemplo, a sub- redeservices existente é mostrada para a qual o domínio gerenciado do Azure AD DS está conectado. Não conecte sua VM a esta sub-rede. Para criar uma sub-rede para a VM, selecione **gerenciar configuração de sub-rede**.
+8. Neste exemplo, *a sub-* redeservices existente é mostrada para a qual o domínio gerenciado do Azure AD DS está conectado. Não conecte sua VM a esta sub-rede. Para criar uma sub-rede para a VM, selecione **gerenciar configuração de sub-rede**.
 
     ![Escolha gerenciar a configuração de sub-rede no portal do Azure](./media/join-windows-vm/manage-subnet.png)
 
@@ -100,7 +100,7 @@ Se você já tiver uma VM que deseja ingressar no domínio, pule para a seção 
 10. Leva alguns segundos para criar a sub-rede. Após a criação, selecione o *X* para fechar a janela de sub-rede.
 11. De volta ao painel de **rede** para criar uma VM, escolha a sub-rede que você criou no menu suspenso, como *ManagedVMs*. Novamente, certifique-se de escolher a sub-rede correta e não implantar sua VM na mesma sub-rede que o seu domínio gerenciado do Azure AD DS.
 12. Deixe as outras opções como seus valores padrão e, em seguida, selecione **Gerenciamento**.
-13. Defina **diagnóstico de inicialização** como *desativado*. Deixe as outras opções como seus valores padrão e selecione revisar **+ criar**.
+13. Defina **diagnóstico de inicialização** como *desativado*. Deixe as outras opções como seus valores padrão e selecione **revisar + criar**.
 14. Examine as configurações da VM e, em seguida, selecione **criar**.
 
 Leva alguns minutos para criar a VM. O portal do Azure mostra o status da implantação. Quando a VM estiver pronta, selecione **ir para o recurso**.
@@ -193,17 +193,17 @@ Se você não estiver usando essa VM do Windows Server, exclua a VM usando as se
 
 A VM do Windows Server deve ingressar com êxito no domínio gerenciado do AD DS do Azure, da mesma forma como um computador local comum ingressaria em um domínio de Active Directory Domain Services. Se a VM do Windows Server não puder ingressar no domínio gerenciado do Azure AD DS, isso indicará que há uma conectividade ou um problema relacionado a credenciais. Examine as seções de solução de problemas a seguir para ingressar com êxito no domínio gerenciado.
 
-### <a name="connectivity-issues"></a>Problemas de conectividade
+### <a name="connectivity-issues"></a>Problemas de ligação
 
 Se você não receber uma solicitação solicitando que as credenciais ingressem no domínio, haverá um problema de conectividade. A VM não pode acessar o domínio gerenciado AD DS do Azure na rede virtual.
 
 Depois de tentar cada uma dessas etapas de solução de problemas, tente unir a VM do Windows Server ao domínio gerenciado novamente.
 
 * Verifique se a VM está conectada à mesma rede virtual em que o AD DS do Azure está habilitado ou tem uma conexão de rede emparelhada.
-* Tente executar o ping no nome de domínio DNS do domínio gerenciado, `ping contoso.com`como.
+* Tente executar o ping no nome de domínio DNS do domínio gerenciado, como `ping contoso.com`.
     * Se a solicitação de ping falhar, tente executar ping nos endereços IP para o domínio gerenciado, como `ping 10.0.0.4`. O endereço IP do seu ambiente é exibido na página *Propriedades* quando você seleciona o domínio gerenciado AD DS do Azure na lista de recursos do Azure.
     * Se você puder executar o ping no endereço IP, mas não no domínio, o DNS poderá estar configurado incorretamente. Confirme se os endereços IP do domínio gerenciado estão configurados como servidores DNS para a rede virtual.
-* Tente liberar o cache do resolvedor de DNS na máquina virtual usando `ipconfig /flushdns` o comando.
+* Tente liberar o cache do resolvedor de DNS na máquina virtual usando o comando `ipconfig /flushdns`.
 
 ### <a name="credentials-related-issues"></a>Problemas relacionados a credenciais
 
@@ -213,10 +213,10 @@ Depois de tentar cada uma dessas etapas de solução de problemas, tente unir a 
 
 * Certifique-se de que a conta de usuário especificada pertence ao grupo de *Administradores de DC do AAD* .
 * Tente usar o formato UPN para especificar as credenciais, como `contosoadmin@contoso.onmicrosoft.com`. Se houver muitos usuários com o mesmo prefixo UPN em seu locatário ou se o prefixo UPN for excessivamente longo, o *sAMAccountName* para sua conta poderá ser gerado automaticamente. Nesses casos, o formato *sAMAccountName* para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
-* Verifique se você habilitou a [sincronização de senha][password-sync] para seu domínio gerenciado. Sem essa etapa de configuração, os hashes de senha necessários não estarão presentes no domínio gerenciado AD DS do Azure para autenticar corretamente sua tentativa de entrada.
+* Verifique se você [habilitou a sincronização de senha][password-sync] para seu domínio gerenciado. Sem essa etapa de configuração, os hashes de senha necessários não estarão presentes no domínio gerenciado AD DS do Azure para autenticar corretamente sua tentativa de entrada.
 * Aguarde a conclusão da sincronização de senha. Quando a senha de uma conta de usuário é alterada, uma sincronização automática em segundo plano do Azure AD atualiza a senha no Azure AD DS. Leva algum tempo para que a senha fique disponível para uso de ingresso no domínio.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 

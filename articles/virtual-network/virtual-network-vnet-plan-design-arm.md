@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 17db8dbcba8dd0181be9ca7289ea1b85079ff9a1
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168517"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756121"
 ---
 # <a name="plan-virtual-networks"></a>Planejar redes virtuais
 
@@ -107,13 +107,13 @@ Os recursos em uma rede virtual não podem resolver os nomes de recursos em uma 
 
 ## <a name="permissions"></a>Permissões
 
-O Azure utiliza o RBAC ( [controle de acesso baseado em função](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ) para recursos. As permissões são atribuídas a um [escopo](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na seguinte hierarquia: assinatura, grupo de gerenciamento, grupo de recursos e recurso individual. Para saber mais sobre a hierarquia, consulte [organizar seus recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabalhar com redes virtuais do Azure e todos os seus recursos relacionados, como emparelhamento, grupos de segurança de rede, pontos de extremidade de serviço e tabelas de rotas, você pode atribuir membros da sua organização ao [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)interno, [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)ou [ ](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)Funções de colaborador de rede e, em seguida, atribui a função ao escopo apropriado. Se você quiser atribuir permissões específicas para um subconjunto de recursos de rede virtual, crie uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribua as permissões específicas necessárias para [redes virtuais](manage-virtual-network.md#permissions), [sub-redes e pontos de extremidade de serviço](virtual-network-manage-subnet.md#permissions), interfaces de [rede ](virtual-network-network-interface.md#permissions), [emparelhamento](virtual-network-manage-peering.md#permissions), [grupos de segurança de aplicativos e de rede](manage-network-security-group.md#permissions)ou tabelas de [rotas](manage-route-table.md#permissions) para a função.
+O Azure utiliza o RBAC ( [controle de acesso baseado em função](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ) para recursos. As permissões são atribuídas a um [escopo](../role-based-access-control/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#scope) na seguinte hierarquia: grupo de gerenciamento, assinatura, grupo de recursos e recurso individual. Para saber mais sobre a hierarquia, consulte [organizar seus recursos](../azure-resource-manager/management-groups-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para trabalhar com redes virtuais do Azure e todos os seus recursos relacionados, como emparelhamento, grupos de segurança de rede, pontos de extremidade de serviço e tabelas de rotas, você pode atribuir membros da sua organização ao [proprietário](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#owner)interno, [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#contributor)ou [ ](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)Funções de colaborador de rede e, em seguida, atribui a função ao escopo apropriado. Se você quiser atribuir permissões específicas para um subconjunto de recursos de rede virtual, crie uma [função personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e atribua as permissões específicas necessárias para [redes virtuais](manage-virtual-network.md#permissions), [sub-redes e pontos de extremidade de serviço](virtual-network-manage-subnet.md#permissions), interfaces de [rede ](virtual-network-network-interface.md#permissions), [emparelhamento](virtual-network-manage-peering.md#permissions), [grupos de segurança de aplicativos e de rede](manage-network-security-group.md#permissions)ou tabelas de [rotas](manage-route-table.md#permissions) para a função.
 
 ## <a name="policy"></a>Política
 
 Azure Policy permite criar, atribuir e gerenciar definições de política. As definições de política impõem diferentes regras sobre seus recursos, para que os recursos permaneçam em conformidade com seus padrões organizacionais e contratos de nível de serviço. Azure Policy executa uma avaliação de seus recursos, verificando os recursos que não estão em conformidade com as definições de política que você tem. Por exemplo, você pode definir e aplicar uma política que permite a criação de redes virtuais em apenas um grupo de recursos ou região específico. Outra política pode exigir que cada sub-rede tenha um grupo de segurança de rede associado a ela. As políticas são avaliadas durante a criação e atualização de recursos.
 
-As políticas são aplicadas à seguinte hierarquia: assinatura, grupo de gerenciamento e grupo de recursos. Saiba mais sobre o [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implante alguns exemplos de [modelo de política](policy-samples.md) de rede virtual.
+As políticas são aplicadas à hierarquia a seguir: grupo de gerenciamento, assinatura e grupo de recursos. Saiba mais sobre o [Azure Policy](../governance/policy/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou implante alguns exemplos de [modelo de política](policy-samples.md) de rede virtual.
 
 ## <a name="next-steps"></a>Passos seguintes
 
