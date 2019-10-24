@@ -3,23 +3,23 @@ title: Moderação de vídeo com revisão humana-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Use ferramentas de análise humana e moderação de vídeo assistida por computador para conteúdo moderado inadequado
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/30/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69075f6b36a0be7cd4d0dd4453ea9cdfc08d77dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.author: pafarley
+ms.openlocfilehash: a4e7b079367a4b4dec1d2b3d6c0afde1d8276766
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561157"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754159"
 ---
 # <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
 
-Use a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) e moderação de [vídeo](video-moderation-api.md) assistida por computador Content moderator para vídeos moderados e transcrições para conteúdo adulto (explícito) e erótico (Sugestor) para obter os melhores resultados para seus negócios.
+Use a [ferramenta de análise humana](Review-Tool-User-Guide/human-in-the-loop.md) e [moderação de vídeo](video-moderation-api.md) assistida por computador Content moderator para vídeos moderados e transcrições para conteúdo adulto (explícito) e erótico (Sugestor) para obter os melhores resultados para seus negócios.
 
 ## <a name="video-trained-classifier-preview"></a>Classificador treinado por vídeo (versão prévia)
 
@@ -100,9 +100,9 @@ Os vídeos normalmente têm voz sobre isso também precisa de moderação para a
 
 ![exibição de transcrição da ferramenta de revisão de vídeo](images/video-review-transcript-view.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Comece a usar o guia de [início rápido](video-moderation-api.md)de moderação de vídeo.
+- Comece a usar o guia de [início rápido de moderação de vídeo](video-moderation-api.md).
 - Saiba como gerar [revisões de vídeo](video-reviews-quickstart-dotnet.md) para seus revisores humanos de sua saída moderada.
 - Adicione [revisões de transcrição em vídeo](video-transcript-reviews-quickstart-dotnet.md) às suas revisões de vídeo.
-- Confira o tutorial detalhado sobre como desenvolver uma solução de moderação de [vídeo completa](video-transcript-moderation-review-tutorial-dotnet.md).
+- Confira o tutorial detalhado sobre como desenvolver uma [solução de moderação de vídeo completa](video-transcript-moderation-review-tutorial-dotnet.md).

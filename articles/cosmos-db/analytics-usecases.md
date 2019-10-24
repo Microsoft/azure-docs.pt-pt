@@ -1,18 +1,18 @@
 ---
 title: Casos de uso para análise interna com Azure Cosmos DB.
 description: Saiba como usar a análise interna com Azure Cosmos DB em diferentes casos de uso.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 308e4d986fcbda155a7e6992f6efe0b1914bcfc2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: b9bac14ff47107a4b39f12989685e2e510569ba2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338961"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757066"
 ---
 # <a name="use-cases-for-built-in-analytics-with-azure-cosmos-db"></a>Casos de uso para análise interna com Azure Cosmos DB
 

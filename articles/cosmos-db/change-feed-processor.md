@@ -1,19 +1,19 @@
 ---
 title: Trabalhando com a biblioteca do processador do feed de alterações no Azure Cosmos DB
 description: Usando o Azure Cosmos DB biblioteca do processador do feed de alterações.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 4074f26cdefd650c1b927293f422623841dfff7d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4bd7a31abf47664d1a6ffdd39fe46d9370dbbc97
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073695"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757032"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processador do feed de alterações no Azure Cosmos DB 
 
@@ -39,7 +39,7 @@ Para entender ainda mais como esses quatro elementos do processador do feed de a
 
 ## <a name="implementing-the-change-feed-processor"></a>Implementando o processador do feed de alterações
 
-O ponto de entrada é sempre o contêiner monitorado, de `Container` uma instância chamada `GetChangeFeedProcessorBuilder`:
+O ponto de entrada é sempre o contêiner monitorado, de uma instância `Container` chamada `GetChangeFeedProcessorBuilder`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -49,7 +49,7 @@ Um exemplo de um delegado seria:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
 
-Por fim, você define um nome para essa instância `WithInstanceName` de processador com e qual é o contêiner com `WithLeaseContainer`o qual manter o estado de concessão.
+Finalmente, você define um nome para essa instância de processador com `WithInstanceName` e qual é o contêiner para manter o estado de concessão com `WithLeaseContainer`.
 
 Chamar `Build` fornecerá a instância do processador que você pode iniciar chamando `StartAsync`.
 
@@ -58,7 +58,7 @@ Chamar `Build` fornecerá a instância do processador que você pode iniciar cha
 O ciclo de vida normal de uma instância de host é:
 
 1. Leia o feed de alterações.
-1. Se não houver nenhuma alteração, suspensão por um período de tempo predefinido (personalizável `WithPollInterval` com no Construtor) e vá para #1.
+1. Se não houver nenhuma alteração, suspensão por um período de tempo predefinido (personalizável com `WithPollInterval` no Construtor) e vá para #1.
 1. Se houver alterações, envie-as para o **delegado**.
 1. Quando o delegado concluir o processamento das alterações **com êxito**, atualize o repositório de concessão com o último ponto processado no tempo e vá para #1.
 
@@ -90,7 +90,7 @@ Você é cobrado por RUs consumido, uma vez que a movimentação de dados dentro
 * [Exemplos de uso no GitHub](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)
 * [Exemplos adicionais no GitHub](https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora você pode continuar para saber mais sobre o processador do feed de alterações nos seguintes artigos:
 

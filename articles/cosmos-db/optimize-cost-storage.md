@@ -1,17 +1,17 @@
 ---
 title: Otimizar o custo de armazenamento no Azure Cosmos DB
 description: Este artigo explica como gerenciar os custos de armazenamento para os dados armazenados no Azure Cosmos DB
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: rimman
-ms.openlocfilehash: 2955df266bcf164ce4a155acc5209679eff0ce8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1508adda761fcba7ba70df3bb212d3eb4e32f242
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615018"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754949"
 ---
 # <a name="optimize-storage-cost-in-azure-cosmos-db"></a>Otimizar o custo de armazenamento no Azure Cosmos DB
 
@@ -19,7 +19,7 @@ O Azure Cosmos DB oferece armazenamento e taxa de transferência ilimitados. Ao 
 
 ## <a name="storage-cost"></a>Custo de armazenamento
 
-O armazenamento é cobrado com a unidade de GBs. O armazenamento com suporte do SSD local é usado pelos seus dados e indexação. O armazenamento total usado é igual ao armazenamento exigido pelos dados e índices usados em todas as regiões em que você está usando Azure Cosmos DB. Se você replicar globalmente uma conta do Azure Cosmos em três regiões, pagará pelo custo total de armazenamento em cada uma dessas três regiões. Para estimar seu requisito de armazenamento, consulte ferramenta planejador de [capacidade](https://www.documentdb.com/capacityplanner) . O custo de armazenamento no Azure Cosmos DB é $0.25 GB/mês, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as atualizações mais recentes. Você pode configurar alertas para determinar o armazenamento usado pelo seu contêiner Cosmos do Azure, para monitorar seu armazenamento, consulte o artigo [Azure Cosmos DB do monitor](monitor-accounts.md)).
+O armazenamento é cobrado com a unidade de GBs. O armazenamento com suporte do SSD local é usado pelos seus dados e indexação. O armazenamento total usado é igual ao armazenamento exigido pelos dados e índices usados em todas as regiões em que você está usando Azure Cosmos DB. Se você replicar globalmente uma conta do Azure Cosmos em três regiões, pagará pelo custo total de armazenamento em cada uma dessas três regiões. Para estimar seu requisito de armazenamento, consulte ferramenta [planejador de capacidade](https://www.documentdb.com/capacityplanner) . O custo de armazenamento no Azure Cosmos DB é $0.25 GB/mês, consulte a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as atualizações mais recentes. Você pode configurar alertas para determinar o armazenamento usado pelo seu contêiner Cosmos do Azure, para monitorar seu armazenamento, consulte o artigo [Azure Cosmos DB do monitor](monitor-accounts.md)).
 
 ## <a name="optimize-cost-with-item-size"></a>Otimizar o custo com o tamanho do item
 
@@ -39,7 +39,7 @@ Se você quiser armazenar tipos de mídia avançados, por exemplo, vídeos, imag
 
 ## <a name="check-storage-consumed"></a>Verificar armazenamento consumido
 
-Para verificar o consumo de armazenamento de um contêiner Cosmos do Azure, você pode executar uma solicitação Head ou Get no contêiner e inspecionar `x-ms-request-quota` o e `x-ms-request-usage` os cabeçalhos. Como alternativa, ao trabalhar com o SDK do .NET, você pode usar as propriedades [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) para obter o armazenamento consumido.
+Para verificar o consumo de armazenamento de um contêiner Cosmos do Azure, você pode executar uma solicitação HEAD ou GET no contêiner e inspecionar o `x-ms-request-quota` e os cabeçalhos `x-ms-request-usage`. Como alternativa, ao trabalhar com o SDK do .NET, você pode usar as propriedades [DocumentSizeQuota](https://docs.microsoft.com/previous-versions/azure/dn850325(v%3Dazure.100))e [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) para obter o armazenamento consumido.
 
 ## <a name="using-sdk"></a>Usando o SDK
 
@@ -50,7 +50,7 @@ ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentC
 Console.WriteLine("Item size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode prosseguir para saber mais sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
 

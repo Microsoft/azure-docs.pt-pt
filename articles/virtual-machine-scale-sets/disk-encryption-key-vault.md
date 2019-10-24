@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4f6dc068969efd3f66e6808531594ed4063347f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0252fff84307577ab307e591948e16dc30c38f66
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530878"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72749999"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Criando e configurando um cofre de chaves para Azure Disk Encryption
 
@@ -31,8 +31,6 @@ Você também pode, se desejar, gerar ou importar uma chave de criptografia de c
 ## <a name="install-tools-and-connect-to-azure"></a>Instalar ferramentas e conectar-se ao Azure
 
 As etapas neste artigo podem ser concluídas com o [CLI do Azure](/cli/azure/), o [módulo Azure PowerShell Az](/powershell/azure/overview)ou o [portal do Azure](https://portal.azure.com).
-
-Embora o portal possa ser acessado por meio de seu navegador, CLI do Azure e Azure PowerShell exigem a instalação local.
 
 ### <a name="connect-to-your-azure-account"></a>Ligar à sua conta do Azure
 

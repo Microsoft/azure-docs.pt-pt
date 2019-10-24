@@ -7,12 +7,12 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: ec2a174c365e31520fe99ca0b505bbb62faad8c6
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 84e8f1d7b723bb86b31abb1ff60bce5351d7d996
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883400"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750144"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>Verificar o status de publicação da sua oferta do Marketplace comercial
 
@@ -26,7 +26,7 @@ Um dos seguintes indicadores de status deve ser exibido para cada oferta.
 | **Publicação em andamento** | A oferta/plano está trabalhando de sua maneira por meio das etapas do processo de publicação. |
 | **Atenção necessária** | Um problema crítico foi descoberto durante a certificação pela Microsoft ou por qualquer uma das etapas de publicação. |
 | **Pré-visualização** | A oferta foi certificada pela Microsoft e agora aguarda uma verificação final pelo Publicador. Selecione entrar em tempo real para tornar a oferta ativa. |
-| **Live** | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
+| **Reside** | A oferta está ativa no Marketplace e pode ser vista e adquirida pelos clientes. |
 | **Venda de parada pendente** | O Publicador selecionou "parar venda" na oferta ou no plano, mas a ação ainda não foi concluída. |
 | **Não disponível no Marketplace** | Uma oferta/plano publicado anteriormente no Marketplace foi removido. |
 
@@ -144,6 +144,6 @@ Nesta etapa, garantimos que sua oferta se torne publicamente disponível no Mark
 
 Se você quiser fazer alterações em uma oferta que já publicou, precisará primeiro atualizar a oferta existente e, em seguida, publicá-la novamente.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atualizar uma oferta existente no Marketplace comercial](./update-existing-offer.md)

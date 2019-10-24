@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Domain Services para provedores de soluções de nuvem do Azure | Microsoft Docs
+title: Azure AD Domain Services para provedores de soluções na nuvem | Microsoft Docs
 description: Azure Active Directory Domain Services para os provedores de soluções de nuvem do Azure.
 services: active-directory-ds
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: iainfou
-ms.openlocfilehash: dc4ad7d8cf9f3267713fd066fa79a4d9d8ab733f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 1134c078ee36a146cb1e1cbf8ca46f6cd9f8d775
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612978"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754429"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Serviços de domínio Azure Active Directory (AD) para provedores de soluções de nuvem do Azure (CSP)
 Este artigo explica como você pode usar Azure AD Domain Services em uma assinatura do Azure CSP.
@@ -86,7 +86,7 @@ As seguintes considerações importantes se aplicam ao administrar um domínio g
 * **A conta de usuário criada para administração contínua deve ser adicionada ao grupo ' Administradores do controlador de domínio do AAD ':** O grupo ' Administradores de controlador de domínio do AAD ' tem privilégios para executar determinadas tarefas de administração delegadas no domínio gerenciado. Essas tarefas incluem a configuração do DNS, a criação de unidades organizacionais, a administração da diretiva de grupo, etc. Para que um parceiro CSP execute essas tarefas em um domínio gerenciado, uma conta de usuário precisa ser criada no diretório do Azure AD do cliente. As credenciais para essa conta devem ser compartilhadas com os agentes de administração do parceiro CSP. Além disso, essa conta de usuário deve ser adicionada ao grupo "administradores do controlador de domínio do AAD" para permitir que as tarefas de configuração do domínios gerenciados sejam executadas usando essa conta de usuário.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Registre-se no programa Azure CSP](https://docs.microsoft.com/partner-center/enrolling-in-the-csp-program) e comece a criar negócios por meio do CSP do Azure.
 * Examine a lista de [Serviços do Azure disponíveis no Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 * [Ativar o Azure AD Domain Services com o PowerShell](powershell-create-instance.md)

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 631a103491b70ca016b94af01995aeeb3f29c77a
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387339"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754674"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Mapeando nós de movimentação de fluxo de dados
 

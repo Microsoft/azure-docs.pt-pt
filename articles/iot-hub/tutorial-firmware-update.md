@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: c576020118778e34b80187ec056fca22a4d9c5b1
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: be1b23991a8dc4d8f29e961e33ba97153d8c5355
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67485834"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755825"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Tutorial: Implementar um processo de atualização de firmware do dispositivo
 
@@ -41,7 +41,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Terá de node. js v10.x.x ou posterior no seu computador de desenvolvimento.
+As duas aplicações de exemplo que executa neste guia de início rápido são escritas com Node.js. Você precisa do node. js v10. x. x ou posterior em seu computador de desenvolvimento.
 
 Pode transferir o Node.js para múltiplas plataformas em [nodejs.org](https://nodejs.org).
 
@@ -73,7 +73,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later
-az iot hub show-connection-string --name $hubname -policy-name service -o table
+az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
@@ -176,7 +176,7 @@ node ServiceClient.js "{your service connection string}"
 
 A captura de ecrã seguinte mostra o resultado da aplicação do dispositivo simulado e mostra como responde à atualização das propriedades pretendidas de firmware a partir da aplicação de back-end:
 
-![Dispositivo simulado](./media/tutorial-firmware-update/SimulatedDevice.png)
+![Dispositivo de simulação](./media/tutorial-firmware-update/SimulatedDevice.png)
 
 A captura de ecrã seguinte mostra o resultado da aplicação de back-end e realça como esta cria a configuração para atualizar as propriedades pretendidas de firmware:
 
@@ -186,7 +186,7 @@ A captura de ecrã seguinte mostra o resultado da aplicação de back-end e real
 
 ![Aplicação de back-end](./media/tutorial-firmware-update/BackEnd2.png)
 
-Como configurações de dispositivos automática executado no momento da criação e, em seguida, a cada cinco minutos, poderá não ver cada atualização do status de enviados para a aplicação de back-end. Também pode ver as métricas no portal na secção **Gestão de dispositivos automática -> Configuração do dispositivo IoT** do seu hub IoT:
+Como as configurações automáticas do dispositivo são executadas no momento da criação e a cada cinco minutos, você pode não ver todas as atualizações de status enviadas ao aplicativo de back-end. Também pode ver as métricas no portal na secção **Gestão de dispositivos automática -> Configuração do dispositivo IoT** do seu hub IoT:
 
 ![Ver a configuração no portal](./media/tutorial-firmware-update/portalview.png)
 
@@ -203,9 +203,9 @@ Em alternativa, utilize a CLI:
 az group delete --name tutorial-iot-hub-rg
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a utilizar as ferramentas do portal do Azure IoT Hub e comandos da CLI do Azure para testar a conectividade do dispositivo.
+Neste tutorial, aprendeu a implementar um processo de atualização de firmware para os seus dispositivos ligados. Avance para o próximo tutorial para aprender a usar as ferramentas do portal do Hub IoT do Azure e os comandos CLI do Azure para testar a conectividade do dispositivo.
 
 > [!div class="nextstepaction"]
 > [Utilize um dispositivo simulado para testar a conectividade com o seu hub IoT](tutorial-connectivity.md)

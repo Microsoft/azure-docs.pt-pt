@@ -1,18 +1,18 @@
 ---
 title: Compensações de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB
 description: Compensações de desempenho e disponibilidade para vários níveis de consistência no Azure Cosmos DB.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 2d80e291b3c054fec92b169c8a216a7189e24b79
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68384194"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755193"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Compromissos de consistência, disponibilidade e desempenho 
 
@@ -20,11 +20,11 @@ Os bancos de dados distribuídos que dependem da replicação para alta disponib
 
 Azure Cosmos DB se aproxima da consistência de dados como um espectro de opções. Essa abordagem inclui mais opções do que os dois extremos de consistência forte e eventual. Você pode escolher entre cinco modelos bem definidos no espectro de consistência. Do mais forte ao mais fraco, os modelos são:
 
-- *Forte*
-- *Estagnação limitada*
+- *Tipa*
+- *Desatualização limitada*
 - *Sessão*
 - *Prefixo consistente*
-- *Eventual*
+- *Iminente*
 
 Cada modelo fornece compensações de desempenho e disponibilidade e é apoiado por SLAs abrangentes.
 
@@ -53,11 +53,11 @@ A tabela a seguir define a relação entre o modelo de consistência e a durabil
 |**Região (ões)**|**Modo de replicação**|**Nível de consistência**|**RPO**|**RTO**|
 |---------|---------|---------|---------|---------|
 |1|Único ou vários mestres|Qualquer nível de consistência|< de 240 minutos|< 1 semana|
-|>1|Mestre único|Sessão, prefixo consistente, eventual|< 15 minutos|< 15 minutos|
-|>1|Mestre único|Estagnação Limitada|*K* & *T*|< 15 minutos|
-|>1|Mestre único|Forte|0|< 15 minutos|
-|>1|Vários mestres|Sessão, prefixo consistente, eventual|< 15 minutos|0|
-|>1|Vários mestres|Estagnação Limitada|*K* & *T*|0|
+|> 1|Mestre único|Sessão, prefixo consistente, eventual|< 15 minutos|< 15 minutos|
+|> 1|Mestre único|Estagnação Limitada|*K*  & *t*|< 15 minutos|
+|> 1|Mestre único|Segura|0|< 15 minutos|
+|> 1|Vários mestres|Sessão, prefixo consistente, eventual|< 15 minutos|0|
+|> 1|Vários mestres|Estagnação Limitada|*K*  & *t*|0|
 
 *K* = o número de versões *"K"* (ou seja, atualizações) de um item.
 

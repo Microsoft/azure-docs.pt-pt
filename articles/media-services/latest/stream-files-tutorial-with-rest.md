@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 10/21/2019
 ms.author: juliako
-ms.openlocfilehash: bb62a28798010d3e18c5f19fa0062001a70b9622
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675661"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750254"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: codificar um arquivo remoto com base na URL e transmitir o vídeo-REST
 
@@ -94,11 +94,12 @@ Clone o repositório do GitHub que contém os ficheiros de ambiente e coleção 
 Nesta secção, enviamos pedidos que são relevantes para a codificação e criação de URL para que possa transmitir o seu ficheiro. Especificamente, são enviados os seguintes pedidos:
 
 1. Obter o Token do Microsoft Azure AD para Autenticação Principal de Serviço
+1. Iniciar um ponto de extremidade de streaming
 2. Criar um elemento de saída
-3. Criar uma **transformação**
-4. Criar um **trabalho**
-5. Criar um **localizador de streaming**
-6. Listar caminhos do **localizador de streaming**
+3. Criar uma transformação
+4. Criar um trabalho
+5. Criar um localizador de streaming
+6. Listar caminhos do localizador de streaming
 
 > [!Note]
 >  Este tutorial assume que está a criar todos os recursos com nomes exclusivos.  
@@ -118,6 +119,33 @@ Nesta secção, enviamos pedidos que são relevantes para a codificação e cria
 4. A resposta volta com o token e define a variável de ambiente "AccessToken" como o valor de token. Para ver o código que define "AccessToken", clique no separador **Testes**. 
 
     ![Obter token do AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+
+### <a name="start-a-streaming-endpoint"></a>Iniciar um ponto de extremidade de streaming
+
+Para habilitar o streaming, primeiro você precisa iniciar o [ponto de extremidade de streaming](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) do qual você deseja transmitir o vídeo.
+
+> [!NOTE]
+> Você será cobrado somente quando o ponto de extremidade de streaming estiver no estado executando.
+
+1. Na janela à esquerda do aplicativo de postmaster, selecione "streaming e dinâmico".
+2. Em seguida, selecione "Iniciar StreamingEndpoint".
+3. Prima **Enviar**.
+
+    * A seguinte operação **post** é enviada:
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * Se a solicitação for bem-sucedida, o `Status: 202 Accepted` será retornado.
+
+        Esse status significa que a solicitação foi aceita para processamento; no entanto, o processamento não foi concluído. Você pode consultar o status da operação com base no valor no cabeçalho de resposta `Azure-AsyncOperation`.
+
+        Por exemplo, a seguinte operação GET retorna o status de sua operação:
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        O artigo [rastrear operações assíncronas do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) explica em detalhes como acompanhar o status das operações assíncronas do Azure por meio de valores retornados na resposta.
 
 ### <a name="create-an-output-asset"></a>Criar um elemento de saída
 

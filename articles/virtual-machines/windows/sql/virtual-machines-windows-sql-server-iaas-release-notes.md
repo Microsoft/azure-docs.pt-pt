@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 599dd2b44f934bb864acfa9ffe8d03fa0e8bb850
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300094"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757470"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Alterações de documentação para SQL Server em máquinas virtuais do Azure
 
@@ -29,7 +29,7 @@ O Azure permite que você implante uma máquina virtual (VM) com uma imagem de S
 | For | Detalhes |
 | --- | --- |
 | **Configuração de armazenamento otimizado para desempenho** | Agora você pode [personalizar totalmente sua configuração de armazenamento](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) ao criar uma nova VM SQL Server. |
-| **Compartilhamento de arquivos premium para FCI** | Agora você pode criar uma instância de cluster de failover usando o [compartilhamento de arquivos Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) em vez do método original de [espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
+| **Compartilhamento de arquivos premium para FCI** | Agora você pode criar uma instância de cluster de failover usando um [compartilhamento de arquivos Premium](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) em vez do método original de [espaços de armazenamento diretos](virtual-machines-windows-portal-sql-create-failover-cluster.md). 
 | &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>Agosto de 2019

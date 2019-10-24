@@ -1,17 +1,17 @@
 ---
 title: Otimizar as unidades de solicitação e o custo para executar consultas no Azure Cosmos DB
 description: Saiba como avaliar encargos de unidade de solicitação para uma consulta e otimizar a consulta em termos de desempenho e custo.
-author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.author: rimman
-ms.openlocfilehash: bdf223e60015c4e5d96416f95c410854a057c02c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 376c1a32a70951448b35a4c02022719229a3aad2
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717008"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72753290"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Otimizar o custo da consulta no Azure Cosmos DB
 
@@ -27,13 +27,13 @@ As consultas em Azure Cosmos DB normalmente são ordenadas de forma mais rápida
 
 * Consulta sem filtros.
 
-As consultas que lêem dados de uma ou mais partições incorrem em latência mais alta e consomem um número maior de unidades de solicitação. Como cada partição tem indexação automática para todas as propriedades, a consulta pode ser servida com eficiência do índice. Você pode fazer consultas que usam várias partições mais rápido usando as opções de paralelismo. Para saber mais sobre a criação de partições e chaves de partição, veja [criação de partições no Azure Cosmos DB](partitioning-overview.md).
+As consultas que lêem dados de uma ou mais partições incorrem em latência mais alta e consomem um número maior de unidades de solicitação. Como cada partição tem indexação automática para todas as propriedades, a consulta pode ser servida com eficiência do índice. Você pode fazer consultas que usam várias partições mais rápido usando as opções de paralelismo. Para saber mais sobre particionamento e chaves de partição, confira [particionamento no Azure Cosmos DB](partitioning-overview.md).
 
 ## <a name="evaluate-request-unit-charge-for-a-query"></a>Avaliar o encargo de unidade de solicitação para uma consulta
 
 Depois de armazenar alguns dados em seus contêineres de Cosmos do Azure, você pode usar o Data Explorer no portal do Azure para construir e executar suas consultas. Você também pode obter o custo das consultas usando o data Explorer. Esse método dará a você uma noção dos encargos reais envolvidos em consultas e operações típicas às quais seu sistema dá suporte.
 
-Você também pode obter o custo das consultas programaticamente usando os SDKs. Para medir a sobrecarga de qualquer operação, como criar, atualizar ou excluir, inspecione o `x-ms-request-charge` cabeçalho ao usar a API REST. Se você estiver usando o .net ou o SDK do Java, `RequestCharge` a propriedade será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
+Você também pode obter o custo das consultas programaticamente usando os SDKs. Para medir a sobrecarga de qualquer operação, como criar, atualizar ou excluir, inspecione o cabeçalho `x-ms-request-charge` ao usar a API REST. Se você estiver usando o .NET ou o SDK do Java, a propriedade `RequestCharge` será a propriedade equivalente para obter o encargo da solicitação e essa propriedade estará presente dentro de ResourceResponse ou FeedResponse.
 
 ```csharp
 // Measure the performance (request units) of writes 
@@ -99,7 +99,7 @@ Considere as seguintes práticas recomendadas ao otimizar consultas por custo:
 
    O encargo da solicitação retornado no cabeçalho da solicitação indica o custo de uma determinada consulta. Por exemplo, se uma consulta retornar itens de 1000 1 KB, o custo da operação será 1000. Como tal, dentro de um segundo, o servidor honra apenas duas solicitações desse tipo antes de limitar a taxa de solicitações subsequentes. Para obter mais informações, consulte o artigo [unidades de solicitação](request-units.md) e a calculadora de unidade de solicitação. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, você pode prosseguir para saber mais sobre a otimização de custos no Azure Cosmos DB com os seguintes artigos:
 

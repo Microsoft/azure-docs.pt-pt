@@ -3,19 +3,19 @@ title: Definir e usar fluxos de trabalho de conteúdo por meio da ferramenta de 
 titleSuffix: Azure Cognitive Services
 description: Você pode usar o designer de fluxo de trabalho do Azure Content Moderator para definir fluxos de trabalho e limites personalizados com base em suas políticas de conteúdo.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: sajagtap
-ms.openlocfilehash: ca223735e64e5499313872ba0508bfb0d8ec7ed2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 0be77dc1ac249c37f9b59078451d8fbe35f17458
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882704"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754243"
 ---
 # <a name="define-and-use-moderation-workflows"></a>Definir e usar fluxos de trabalho de moderação
 
@@ -41,7 +41,7 @@ Nomeie seu fluxo de trabalho, insira uma descrição e escolha se o fluxo de tra
 
 Na próxima tela, vá para a seção **se** . No menu suspenso superior, escolha **condição**. Isso permitirá que você configure a condição na qual o fluxo de trabalho executará uma ação. Se você quiser usar várias condições, escolha **combinação** em vez disso. 
 
-Em seguida, selecione um conector. Este exemplo usa **Content moderator**. Dependendo do conector que você escolher, você obterá opções diferentes para a saída de dados. Consulte a [](./configure.md#connectors) seção conectores do guia de configurações da ferramenta de revisão para saber como configurar outros conectores.
+Em seguida, selecione um conector. Este exemplo usa **Content moderator**. Dependendo do conector que você escolher, você obterá opções diferentes para a saída de dados. Consulte a seção [conectores](./configure.md#connectors) do guia de configurações da ferramenta de revisão para saber como configurar outros conectores.
 
 ![Selecionar conector do fluxo de trabalho](images/image-workflow-connect-to.PNG)
 
@@ -81,6 +81,6 @@ Vá para a guia **imagem** em **revisão** e verifique se há uma revisão de im
 
 ![Rever imagens](images/image-workflow-review.PNG)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, você aprendeu a configurar e usar fluxos de trabalho de moderação da ferramenta de [análise](https://contentmoderator.cognitive.microsoft.com)de Content Moderator. Em seguida, consulte o [guia da API REST](../try-review-api-workflow.md) para saber como criar fluxos de trabalho programaticamente.

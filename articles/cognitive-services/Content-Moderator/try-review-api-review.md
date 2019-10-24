@@ -3,19 +3,19 @@ title: Criar revisões de moderação com o console da API REST-Content Moderato
 titleSuffix: Azure Cognitive Services
 description: Use as APIs de revisão de Content Moderator do Azure para criar revisões de imagem ou de texto para moderação humana.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.author: sajagtap
-ms.openlocfilehash: ec45f182e24f44c2222d64f18e2aa0aeea845727
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: a9726e41a84926d00d48b51e31f534a3d8c2fe0c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882335"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757146"
 ---
 # <a name="create-human-reviews-rest"></a>Criar análises humanas (REST)
 
@@ -35,17 +35,17 @@ Para criar uma revisão, vá para a página **[análise-criar](https://westus2.d
 
 Insira valores para **teamname**e **OCP-APIM-Subscription-Key**:
 
-- **teamName**: A ID da equipe que você criou quando configurou sua conta de [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **ID** na tela de credenciais da ferramenta de revisão).
-- **OCP-APIM-Subscription-Key**: Sua chave de Content Moderator. Você pode encontrá-lo na guia **configurações** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
+- **teamname**: a ID da equipe que você criou quando configurou sua conta de [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/) (encontrada no campo **ID** na tela de credenciais da ferramenta de revisão).
+- **OCP-APIM-Subscription-Key**: sua chave de Content Moderator. Você pode encontrá-lo na guia **configurações** da [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com).
 
 ### <a name="enter-a-review-definition"></a>Insira uma definição de revisão
 
 Edite a caixa **corpo da solicitação** para inserir a solicitação JSON com os seguintes campos:
 
-- **Metadados**: Pares chave-valor personalizados a serem retornados para o ponto de extremidade de retorno de chamada. Se a chave for um código curto definido na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), ela aparecerá como uma marca.
-- **Conteúdo**: No caso de conteúdo de imagem e vídeo, essa é uma cadeia de caracteres de URL apontando para o conteúdo. Para conteúdo de texto, esta é a cadeia de texto real.
-- **ContentId**: Uma cadeia de caracteres de identificador personalizado. Essa cadeia de caracteres é passada para a API e retornada por meio do retorno de chamada. É útil para associar identificadores internos ou metadados com os resultados de um trabalho de moderação.
-- **CallbackEndpoint**: Adicional A URL para receber informações de retorno de chamada quando a revisão for concluída.
+- **Metadados**: pares chave-valor personalizados a serem retornados para o ponto de extremidade de retorno de chamada. Se a chave for um código curto definido na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), ela aparecerá como uma marca.
+- **Conteúdo**: no caso de conteúdo de imagem e vídeo, essa é uma cadeia de caracteres de URL apontando para o conteúdo. Para conteúdo de texto, esta é a cadeia de texto real.
+- **ContentId**: uma cadeia de caracteres de identificador personalizado. Essa cadeia de caracteres é passada para a API e retornada por meio do retorno de chamada. É útil para associar identificadores internos ou metadados com os resultados de um trabalho de moderação.
+- **CallbackEndpoint**: (opcional) a URL para receber informações de retorno de chamada quando a revisão for concluída.
 
 O corpo da solicitação padrão mostra exemplos dos diferentes tipos de revisões que você pode criar:
 
@@ -129,13 +129,13 @@ O corpo da solicitação padrão mostra exemplos dos diferentes tipos de revisõ
 
 ### <a name="submit-your-request"></a>Enviar sua solicitação
   
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá uma ID para a revisão. Copie essa ID para usar nas etapas a seguir.
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá uma ID para a revisão. Copie essa ID para usar nas etapas a seguir.
 
 ![Examine-criar conteúdo de resposta do console caixa exibe a ID da revisão](images/test-drive-review-2.PNG)
 
 ### <a name="examine-the-new-review"></a>Examinar a nova revisão
 
-Na [ferramenta revisão](https://contentmoderator.cognitive.microsoft.com), selecione**vídeo** de > /**texto**/da imagem de **revisão**(dependendo de qual conteúdo você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
+Na [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com), selecione **revisar**  > **imagem** /**texto** /**vídeo** (dependendo do conteúdo que você usou). O conteúdo que você carregou deve aparecer, pronto para revisão humana.
 
 ![Examinar a imagem da ferramenta de uma bola de futebol](images/test-drive-review-5.PNG)
 
@@ -145,11 +145,11 @@ Para recuperar detalhes sobre uma revisão existente, acesse a página de refer�
 
 ![Fluxo de trabalho-obter seleção de região](images/test-drive-region.png)
 
-Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, REVIEWID é a cadeia de caracteres de ID exclusiva que você recebeu quando criou a revisão.
+Insira os parâmetros de chamada REST como na seção acima. Para esta etapa, **REVIEWID** é a cadeia de caracteres de ID exclusiva que você recebeu quando criou a revisão.
 
 ![Examinar-criar console obter resultados](images/test-drive-review-3.PNG)
   
-Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 OK`da **resposta** será e a caixa **conteúdo da resposta** exibirá os detalhes da revisão no formato JSON, como o seguinte:
+Selecione **Enviar**. Se a operação for concluída com sucesso, o **status da resposta** será `200 OK` e a caixa **conteúdo da resposta** exibirá os detalhes da revisão no formato JSON, como o seguinte:
 
 ```json
 {  
@@ -186,10 +186,10 @@ Selecione **Enviar**. Se a operação for concluída com sucesso, o status `200 
 
 Anote os seguintes campos na resposta:
 
-- **status**
-- **reviewerResultTags**: Isso será exibido se todas as marcas tiverem sido adicionadas manualmente pela equipe de análise humana (mostrada no campo **createdBy** ).
-- **metadados**: Isso mostra as marcas que foram adicionadas inicialmente na revisão, antes que a equipe de análise humana tenha feito alterações.
+- **Estado**
+- **reviewerResultTags**: isso será exibido se qualquer marca tiver sido adicionada manualmente pela equipe de revisão humana (mostrada no campo **createdBy** ).
+- **metadados**: mostra as marcas que foram adicionadas inicialmente na revisão, antes que a equipe de análise humana tenha feito alterações.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste guia, você aprendeu a criar revisões de moderação de conteúdo usando a API REST. Em seguida, integre as revisões em um cenário de moderação de ponta a ponta, como o tutorial de moderação de [comércio eletrônico](./ecommerce-retail-catalog-moderation.md) .
+Neste guia, você aprendeu a criar revisões de moderação de conteúdo usando a API REST. Em seguida, integre as revisões em um cenário de moderação de ponta a ponta, como o tutorial de [moderação de comércio eletrônico](./ecommerce-retail-catalog-moderation.md) .

@@ -3,19 +3,19 @@ title: Usar revisões de conteúdo por meio da ferramenta de revisão-Content Mo
 titleSuffix: Azure Cognitive Services
 description: Saiba como a ferramenta de revisão permite que os moderadores humanos revisem imagens em um portal da Web.
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: sajagtap
-ms.openlocfilehash: 065d3cd80f93753eb91571d4ada4fe7151258ec0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.author: pafarley
+ms.openlocfilehash: 53d06f84172da0c4717cabe79f4f5152e73e9555
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882664"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754272"
 ---
 # <a name="create-human-reviews"></a>Criar análises humanas
 
@@ -28,7 +28,7 @@ Neste guia, você aprenderá a configurar as [revisões](../review-api.md#review
 ## <a name="image-reviews"></a>Revisões de imagens
 
 1. Vá para a [ferramenta de revisão](https://contentmoderator.cognitive.microsoft.com/), selecione a guia **tentar** e carregue algumas imagens para revisar.
-1. Depois que as imagens carregadas tiverem terminado o processamento, vá para a guia revisar e selecione **imagem**.
+1. Depois que as imagens carregadas tiverem terminado o processamento, vá para a guia **revisar** e selecione **imagem**.
 
     ![Navegador Chrome mostrando a ferramenta de revisão com a opção revisar imagem realçada](images/review-images-1.png)
 

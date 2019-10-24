@@ -4,28 +4,28 @@ description: Exiba a atividade e o histórico de auditoria das funções de recu
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
 ms.date: 04/09/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40e1ed018f66d4f5eefd02d587504cf64969f47b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804043"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756319"
 ---
-# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Exibir histórico de atividades e de auditoria para funções de recurso do Azure no PIM
+# <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management
 
-Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode exibir a atividade, ativações e o histórico de auditoria para funções de recursos do Azure em sua organização. Isso inclui assinaturas, grupos de recursos e até mesmo máquinas virtuais. Qualquer recurso dentro do portal do Azure que aproveita a funcionalidade RBAC (controle de acesso baseado em função) do Azure pode aproveitar os recursos de segurança e gerenciamento do ciclo de vida no PIM.
+Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode exibir a atividade, ativações e o histórico de auditoria para funções de recursos do Azure em sua organização. Isso inclui assinaturas, grupos de recursos e até mesmo máquinas virtuais. Qualquer recurso dentro do portal do Azure que aproveita a funcionalidade RBAC (controle de acesso baseado em função) do Azure pode aproveitar os recursos de segurança e gerenciamento do ciclo de vida no Privileged Identity Management.
 
 ## <a name="view-activity-and-activations"></a>Exibir atividade e ativações
 
@@ -51,7 +51,7 @@ Para ver quais ações um usuário específico realizou em vários recursos, voc
 
 ## <a name="export-role-assignments-with-children"></a>Exportar atribuições de função com filhos
 
-Você pode ter um requisito de conformidade onde deve fornecer uma lista completa de atribuições de função para auditores. O PIM permite consultar atribuições de função em um recurso específico, que inclui atribuições de função para todos os recursos filho. Anteriormente, era difícil para os administradores obter uma lista completa de atribuições de função para uma assinatura e tinham de exportar atribuições de função para cada recurso específico. Usando o PIM, você pode consultar todas as atribuições de função ativas e qualificadas em uma assinatura, incluindo atribuições de função para todos os grupos de recursos e recursos.
+Você pode ter um requisito de conformidade onde deve fornecer uma lista completa de atribuições de função para auditores. Privileged Identity Management permite consultar atribuições de função em um recurso específico, que inclui atribuições de função para todos os recursos filho. Anteriormente, era difícil para os administradores obter uma lista completa de atribuições de função para uma assinatura e tinham de exportar atribuições de função para cada recurso específico. Usando Privileged Identity Management, você pode consultar todas as atribuições de função ativas e qualificadas em uma assinatura, incluindo atribuições de função para todos os grupos de recursos e recursos.
 
 1. Abra **Azure ad Privileged Identity Management**.
 
@@ -67,7 +67,7 @@ Você pode ter um requisito de conformidade onde deve fornecer uma lista complet
 
 1. Clique em **exportar todos os membros** para exportar todas as atribuições de função em um arquivo CSV.
 
-    ![Atribuições de função exportadas em CSV Fil como exibidas no Excel](media/azure-pim-resource-rbac/export-csv.png)
+    ![Atribuições de função exportadas no arquivo CSV como exibidas no Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## <a name="view-resource-audit-history"></a>Exibir histórico de auditoria de recursos
 
@@ -111,6 +111,6 @@ Minha auditoria permite que você exiba sua atividade de função pessoal.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir funções de recurso do Azure no PIM](pim-resource-roles-assign-roles.md)
-- [Aprovar ou negar solicitações para funções de recurso do Azure no PIM](pim-resource-roles-approval-workflow.md)
-- [Exibir histórico de auditoria para funções do Azure AD no PIM](pim-how-to-use-audit-log.md)
+- [Atribuir funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-assign-roles.md)
+- [Aprovar ou negar solicitações para funções de recurso do Azure no Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Exibir histórico de auditoria para funções do Azure AD no Privileged Identity Management](pim-how-to-use-audit-log.md)

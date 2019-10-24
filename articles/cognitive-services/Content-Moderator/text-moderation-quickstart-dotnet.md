@@ -1,23 +1,23 @@
 ---
-title: 'Início rápido: Analisar conteúdo de C# texto Content moderator'
+title: 'Início rápido: analisar conteúdo de C# texto Content moderator'
 titleSuffix: Azure Cognitive Services
 description: Como analisar o conteúdo de texto para vários materiais censuráveis usando o SDK do Content Moderator para .NET
 services: cognitive-services
-author: sanjeev3
+author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/03/2019
-ms.author: sajagtap
-ms.openlocfilehash: 69c190b9ce9e5a99d39a46c147f7159ace47e4f7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.author: pafarley
+ms.openlocfilehash: 40f73a6aabd3631bf2a2f8f1406d2ec9abd55e51
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001434"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757233"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início rápido: Analise o conteúdo de texto para materiais censuráveis noC#
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Início Rápido: Analisar conteúdos de texto quanto a materiais censuráveis em C#
 
 Este artigo apresenta informações e exemplos de código para o ajudara começar a utilizar o [SDK Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Você aprenderá a executar a filtragem baseada em termos e a classificação de conteúdo de texto com o objetivo do moderar material potencialmente censurável.
 
@@ -34,7 +34,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 1. No Visual Studio, crie um projeto **Aplicação de Consola (.NET Framework)** novo e dê ao mesmo o nome **TextModeration**. 
 1. Se houver outros projetos na sua solução, selecione esta como o único projeto de arranque.
-1. Obtenha o pacote NuGet necessário. Clique com o botão direito do mouse em seu projeto no Gerenciador de Soluções e selecione **gerenciar pacotes NuGet**. Em seguida, localize e instale o **pacote `Microsoft.Azure.CognitiveServices.ContentModerator`** . Como alternativa, você pode executar o seguinte comando no diretório da solução:
+1. Obtenha o pacote NuGet necessário. Clique com o botão direito do mouse em seu projeto no Gerenciador de Soluções e selecione **gerenciar pacotes NuGet**. Em seguida, localize e instale o **pacote de `Microsoft.Azure.CognitiveServices.ContentModerator`** . Como alternativa, você pode executar o seguinte comando no diretório da solução:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.ContentModerator
@@ -87,7 +87,7 @@ Se quiser saber mais sobre o que estas operações fazem, siga a ligação na se
 O programa escreve os dados da cadeia JSON no ficheiro _TextModerationOutput.txt_. Os exemplos de textos utilizados neste início rápido originam a saída abaixo:
 
 ```json
-Autocorrect typos, check for matching terms, PII, and classify.
+Autocorrect typos, check for matching terms, check for personal data, and classify.
 {
 "OriginalText": "\"Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number (SSN).\"",
 "NormalizedText": "\" Is this a garbage or crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, Redmond, WA 98052. These are all UK phone numbers, the last two being Microsoft UK support numbers: +44 870 608 4000 or 0344 800 2400 or 0800 820 3300. Also, 999-99-9999 looks like a social security number ( SSN) . \"",
@@ -172,7 +172,7 @@ Autocorrect typos, check for matching terms, PII, and classify.
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, desenvolveu uma aplicação .NET simples que utiliza o serviço Content Moderator para devolver informações relevantes sobre um determinado exemplo de texto. Em seguida, saiba o que querem dizer os diferentes sinalizadores e as diferentes classificações, para determinar de que dados precisa e como é que a sua aplicação os deve processar.
 

@@ -14,49 +14,49 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 018cc54a770a0d18fa9af3d93fec2f5f720ce17b
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: b0ba7846b60ca6649b4342d5096e92dfd8c96601
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804525"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756302"
 ---
-# <a name="start-using-pim"></a>Comece a utilizar o PIM
+# <a name="start-using-privileged-identity-management"></a>Começar a utilizar o Privileged Identity Management
 
-Com o Azure Active Directory (Azure AD) Privileged Identity Management (PIM), você pode gerenciar, controlar e monitorar o acesso em sua organização. Este âmbito inclui o acesso ao Azure, ao Azure AD e a outros serviços online da Microsoft, como o Office 365 ou o Microsoft Intune.
+Com o PIM (Privileged Identity Management), você pode gerenciar, controlar e monitorar o acesso dentro de sua organização do Azure Active Directory (Azure AD). Esse escopo inclui acesso aos recursos do Azure, ao Azure AD e a outros serviços online da Microsoft, como o Office 365 ou Microsoft Intune.
 
-Este artigo descreve como habilitar e começar a usar o PIM.
+Este artigo descreve como habilitar e começar a usar o Privileged Identity Management.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para usar o PIM, você deve ter uma das seguintes licenças:
+Para usar Privileged Identity Management, você deve ter uma das seguintes licenças:
 
 - Azure AD Premium P2
 - Enterprise Mobility + Security (EMS) e5
 
-Para obter mais informações, consulte [requisitos de licença para usar o PIM](subscription-requirements.md).
+Para obter mais informações, consulte [requisitos de licença para usar Privileged Identity Management](subscription-requirements.md).
 
 ## <a name="first-person-to-use-pim"></a>Primeira pessoa a usar o PIM
 
-Se você for a primeira pessoa a usar o PIM em seu diretório, você receberá automaticamente as funções [administrador de segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e administrador de [função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório. Somente administradores de função com privilégios podem gerenciar atribuições de função de usuários do Azure AD. Além disso, você pode optar por executar o [Assistente de segurança](pim-security-wizard.md) que o orientará pela experiência inicial de descoberta e atribuição.
+Se você for a primeira pessoa a usar Privileged Identity Management em seu diretório, receberá automaticamente as funções [administrador de segurança](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) e [administrador de função com privilégios](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) no diretório. Somente administradores de função com privilégios podem gerenciar atribuições de função de usuários do Azure AD. Além disso, você pode optar por executar o [Assistente de segurança](pim-security-wizard.md) que o orientará pela experiência inicial de descoberta e atribuição.
 
 ## <a name="enable-pim"></a>Habilitar PIM
 
-Para começar a usar o PIM em seu diretório, primeiro você deve habilitar o PIM.
+Para começar a usar Privileged Identity Management em seu diretório, primeiro você deve habilitar Privileged Identity Management.
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu diretório.
 
-    Você deve ser um administrador global com uma conta organizacional (por exemplo, @yourdomain.com), não um conta Microsoft (por exemplo, @outlook.com) para habilitar o PIM para um diretório.
+    Você deve ser um administrador global com uma conta organizacional (por exemplo, @yourdomain.com), e não uma conta Microsoft (por exemplo, @outlook.com), para habilitar o Privileged Identity Management para um diretório.
 
 1. Clique em **todos os serviços** e localize o serviço **Azure ad Privileged Identity Management** .
 
     ![Azure AD Privileged Identity Management em todos os serviços](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Clique para abrir o início rápido do PIM.
+1. Clique para abrir o guia de início rápido do Privileged Identity Management.
 
 1. Na lista, clique em **consentimento para PIM**.
 
-    ![Consentimento do PIM para habilitar o PIM](./media/pim-getting-started/consent-pim.png)
+    ![Consentimento para Privileged Identity Management para habilitar Privileged Identity Management](./media/pim-getting-started/consent-pim.png)
 
 1. Clique em **verificar minha identidade** para verificar sua identidade com o Azure MFA. Você será solicitado a escolher uma conta.
 
@@ -72,35 +72,35 @@ Para começar a usar o PIM em seu diretório, primeiro você deve habilitar o PI
 
 1. Depois de concluir o processo de verificação, clique no botão de **consentimento** .
 
-1. Na mensagem que aparece, clique em **Sim** para dar consentimento ao serviço PIM.
+1. Na mensagem que aparece, clique em **Sim** para dar consentimento ao serviço de Privileged Identity Management.
 
-    ![Consentimento da mensagem do PIM para concluir o processo de consentimento](./media/pim-getting-started/consent-pim-message.png)
+    ![Consentimento para Privileged Identity Management mensagem para concluir o processo de consentimento](./media/pim-getting-started/consent-pim-message.png)
 
 ## <a name="sign-up-pim-for-azure-ad-roles"></a>Inscreva-se no PIM para funções do Azure AD
 
-Depois de habilitar o PIM para seu diretório, você precisará inscrever-se no PIM para gerenciar funções do Azure AD.
+Depois de habilitar Privileged Identity Management para seu diretório, você precisará inscrever Privileged Identity Management para gerenciar funções do Azure AD.
 
 1. Abra **Azure ad Privileged Identity Management**.
 
 1. Clique em **funções do Azure ad**.
 
-    ![Inscreva-se no PIM para funções do Azure AD](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
+    ![Inscrever Privileged Identity Management para funções do Azure AD](./media/pim-getting-started/sign-up-pim-azure-ad-roles.png)
 
 1. Clique em **inscrever-se**.
 
-1. Na mensagem que aparece, clique em **Sim** para inscrever o PIM para gerenciar funções do Azure AD.
+1. Na mensagem que aparece, clique em **Sim** para se inscrever Privileged Identity Management para gerenciar funções do Azure AD.
 
-    ![Mensagem de inscrição do PIM para funções do Azure AD](./media/pim-getting-started/sign-up-pim-message.png)
+    ![Inscrever Privileged Identity Management para mensagem de funções do Azure AD](./media/pim-getting-started/sign-up-pim-message.png)
 
     Quando a inscrição for concluída, as opções do AD do Azure serão habilitadas. Talvez seja necessário atualizar o Portal.
 
-    Para obter informações sobre como descobrir e selecionar os recursos do Azure para proteger com o PIM, consulte [descobrir recursos do Azure para gerenciar no PIM](pim-resource-roles-discover-resources.md).
+    Para obter informações sobre como descobrir e selecionar os recursos do Azure para proteger com Privileged Identity Management, consulte [descobrir recursos do Azure para gerenciar no Privileged Identity Management](pim-resource-roles-discover-resources.md).
 
 ## <a name="navigate-to-your-tasks"></a>Navegue para as suas tarefas
 
-Depois que o PIM é configurado, você pode executar suas tarefas de gerenciamento de identidade.
+Quando Privileged Identity Management estiver configurado, você poderá iniciar suas tarefas de gerenciamento de identidade.
 
-![Janela de navegação no PIM mostrando as opções tarefas e gerenciar](./media/pim-getting-started/pim-quickstart-tasks.png)
+![Janela de navegação no Privileged Identity Management mostrando as opções tarefas e gerenciar](./media/pim-getting-started/pim-quickstart-tasks.png)
 
 | Tarefa + gerenciar | Descrição |
 | --- | --- |
@@ -113,7 +113,7 @@ Depois que o PIM é configurado, você pode executar suas tarefas de gerenciamen
 
 ## <a name="add-a-pim-tile-to-the-dashboard"></a>Adicionar um bloco do PIM ao painel
 
-Para facilitar a abertura do PIM, você deve adicionar um bloco do PIM ao seu painel de portal do Azure.
+Para facilitar a abertura de Privileged Identity Management, você deve adicionar um bloco de Privileged Identity Management ao seu painel de portal do Azure.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
@@ -121,17 +121,17 @@ Para facilitar a abertura do PIM, você deve adicionar um bloco do PIM ao seu pa
 
     ![Azure AD Privileged Identity Management em todos os serviços](./media/pim-getting-started/pim-all-services-find.png)
 
-1. Clique para abrir o início rápido do PIM.
+1. Clique para abrir o guia de início rápido do Privileged Identity Management.
 
-1. Marque a **folha fixar no painel** para fixar a folha início rápido do PIM no painel.
+1. Marque a **folha fixar no painel** para fixar a folha Privileged Identity Management início rápido no painel.
 
-    ![Ícone de pino para fixar folha PIM no painel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+    ![Ícone de pino para fixar Privileged Identity Management folha no painel](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
 
     No painel do Azure, você verá um bloco como este:
 
-    ![Bloco de início rápido do PIM no painel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
+    ![Bloco Privileged Identity Management início rápido no painel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir funções do Azure AD no PIM](pim-how-to-add-role-to-user.md)
-- [Descobrir recursos do Azure para gerenciar no PIM](pim-resource-roles-discover-resources.md)
+- [Atribuir funções do Azure AD no Privileged Identity Management](pim-how-to-add-role-to-user.md)
+- [Descubra os recursos do Azure para gerenciar no Privileged Identity Management](pim-resource-roles-discover-resources.md)
