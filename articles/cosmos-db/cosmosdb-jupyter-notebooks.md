@@ -4,14 +4,14 @@ description: Saiba como você pode usar o suporte interno do Jupyter notebooks n
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 09/22/2019
-author: rimman
-ms.author: rimman
-ms.openlocfilehash: 8389cd4d73c5c5d881dcc32c688a59b86895a3e2
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+author: markjbrown
+ms.author: mjbrown
+ms.openlocfilehash: 8026140a07ce8ed03a7bec57f03a1ca1708f85ac
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309546"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756966"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Suporte interno a notebooks Jupyter no Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Portal do Azure integra nativamente a experiência do Jupyter Notebook às conta
 
 Os notebooks Jupyter foram desenvolvidos originalmente para aplicativos de ciência de dados escritos em Python, R. No entanto, eles podem ser usados de várias maneiras para diferentes tipos de projetos, como:
 
-* ***Visualizações de dados:** Os notebooks Jupyter permitem visualizar dados na forma de um bloco de anotações compartilhado que processa alguns conjuntos de dados como um gráfico. O Jupyter Notebook permite que você crie visualizações, compartilhe-as e permita alterações interativas no código compartilhado e no conjunto de dados.
+* ***visualizações de dados: os** notebooks Jupyter permitem visualizar dados na forma de um bloco de anotações compartilhado que processa alguns conjuntos de dados como um gráfico. O Jupyter Notebook permite que você crie visualizações, compartilhe-as e permita alterações interativas no código compartilhado e no conjunto de dados.
 
 * **Compartilhamento de código:** Serviços como o GitHub fornecem maneiras de compartilhar código, mas eles são amplamente não interativos. Com um notebook Jupyter, você pode exibir o código, executá-lo e exibir os resultados diretamente no portal do Azure.
 
@@ -48,11 +48,11 @@ Os notebooks Jupyter podem incluir vários tipos de componentes, cada um organiz
 
 * **Código e saída:** Os notebooks Jupyter dão suporte ao código Python. Os resultados do código executado aparecem imediatamente após os blocos de código, e os blocos de código podem ser executados várias vezes em qualquer ordem desejada.
 
-* **Visualizações** Elementos gráficos e gráficos podem ser gerados a partir do código, usando módulos como matplotlib, Plotal ou bokeh. Semelhante à saída, essas visualizações aparecem embutidas ao lado do código que as gera.
+* **Visualizações:** Elementos gráficos e gráficos podem ser gerados a partir do código, usando módulos como matplotlib, Plotal ou bokeh. Semelhante à saída, essas visualizações aparecem embutidas ao lado do código que as gera.
 
-* **Média** Como o Jupyter Notebook é criado na tecnologia da Web, ele pode exibir todos os tipos de multimídia com suporte em uma página da Web. Você pode incluí-los em um bloco de anotações como elementos HTML ou pode gerá-los programaticamente usando o `IPython.display` módulo.
+* **Multimídia:** Como o Jupyter Notebook é criado na tecnologia da Web, ele pode exibir todos os tipos de multimídia com suporte em uma página da Web. Você pode incluí-los em um bloco de anotações como elementos HTML ou pode gerá-los programaticamente usando o módulo `IPython.display`.
 
-* **Dado** Os dados dos contêineres Cosmos do Azure e os resultados das consultas podem ser importados em um notebook Jupyter de forma programática. Por exemplo, ao incluir o código no bloco de anotações para consultar os dados usando qualquer uma das APIs de Cosmos DB ou Apache Spark interno nativo.
+* **Dados:** Os dados dos contêineres Cosmos do Azure e os resultados das consultas podem ser importados em um notebook Jupyter de forma programática. Por exemplo, ao incluir o código no bloco de anotações para consultar os dados usando qualquer uma das APIs de Cosmos DB ou Apache Spark interno nativo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,14 +6,14 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3ccc5c7c0def7ec1d8d2f8927dc8f8e5d3678a52
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 4faf889755b6f3e5f8fc6ef08cb69b4265fec355
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718972"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755800"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início rápido: Biblioteca de cliente Azure Key Vault para .NET
+# <a name="quickstart-azure-key-vault-client-library-for-net"></a>Início rápido: biblioteca de cliente do Azure Key Vault para .NET
 
 Introdução à biblioteca de cliente do Azure Key Vault para .NET. Siga as etapas abaixo para instalar o pacote e experimentar o código de exemplo para tarefas básicas.
 
@@ -25,7 +25,7 @@ O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os s
 - Simplifique e automatize tarefas para certificados SSL/TLS.
 - Use os HSMs validados pelo FIPS 140-2 nível 2.
 
-[](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Código](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/KeyVault)[](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) -fonte da biblioteca de documentação de referência de API (NuGet) | 
+[Documentação de referência de API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet)  |  o[código-fonte](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault)  | [pacote (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/) da biblioteca
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ O Cofre de Chaves do Azure ajuda a salvaguardar as chaves criptográficas e os s
 * O [SDK do .NET Core 2,1 ou posterior](https://dotnet.microsoft.com/download/dotnet-core/2.1).
 * [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) ou [Azure PowerShell](/powershell/azure/overview)
 
-Este início rápido pressupõe que você `dotnet`esteja executando, [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)e comandos do Windows em um terminal do Windows (como [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)ou o [Azure cloud Shell](https://shell.azure.com/)).
+Este início rápido pressupõe que você esteja executando os comandos `dotnet`, [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)e Windows em um terminal do Windows (como [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6)ou o [Azure cloud Shell](https://shell.azure.com/)).
 
 ## <a name="setting-up"></a>Configurando
 
@@ -41,7 +41,7 @@ Este início rápido pressupõe que você `dotnet`esteja executando, [CLI do Azu
 
 Crie um novo aplicativo .NET Core em seu editor ou IDE preferido.
 
-Em uma janela de console, use `dotnet new` o comando para criar um novo aplicativo de console com `akv-dotnet`o nome.
+Em uma janela de console, use o comando `dotnet new` para criar um novo aplicativo de console com o nome `akv-dotnet`.
 
 
 ```console
@@ -132,7 +132,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-se
 
 A biblioteca de cliente do Azure Key Vault para .NET permite que você gerencie chaves e ativos relacionados, como certificados e segredos. Os exemplos de código abaixo mostrarão como definir um segredo e recuperar um segredo.
 
-Todo o aplicativo de console está disponível https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet em.
+Todo o aplicativo de console está disponível em https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet.
 
 ## <a name="code-examples"></a>Exemplos de código
 
@@ -146,7 +146,7 @@ Adicione as seguintes diretivas à parte superior do seu código:
 
 Este início rápido do .NET depende de variáveis de ambiente para armazenar credenciais que não devem ser colocadas no código. 
 
-Antes de compilar e executar seu aplicativo, use o `setx` comando para definir as `akvClientId`variáveis `akvClientSecret`de `akvTenantId`ambiente, `akvSubscriptionId` , e para os valores que você anotou acima.
+Antes de criar e executar seu aplicativo, use o comando `setx` para definir as variáveis de ambiente `akvClientId`, `akvClientSecret`, `akvTenantId` e `akvSubscriptionId` para os valores que você anotou acima.
 
 ```console
 setx akvClientId <your-clientID>
@@ -154,7 +154,7 @@ setx akvClientId <your-clientID>
 setx akvClientSecret <your-clientSecret>
 ````
 
-Sempre que você chamar `setx`, deverá obter uma resposta de "êxito: O valor especificado foi salvo. "
+Cada vez que você chamar `setx`, deverá obter uma resposta de "êxito: o valor especificado foi salvo".
 
 Atribua essas variáveis de ambiente a cadeias de caracteres em seu código e, em seguida, autentique seu aplicativo passando-as para a [classe KeyVaultClient](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
 
