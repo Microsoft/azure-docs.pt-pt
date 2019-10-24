@@ -15,16 +15,16 @@ ms.topic: quickstart
 ms.date: 05/18/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: cf241b788c0027c6905c6898352bb3352da64825
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: deef63c07dedbff0ae914b09558a2771adba19ff
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326520"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755467"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Início rápido: Usar o cache do Azure para Redis com um aplicativo .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Início rápido: usar o cache do Azure para Redis com um aplicativo .NET Core
 
-Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo .NET Core para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você usa especificamente o cliente [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) com C# código em um aplicativo de console do .NET Core. 
+Neste guia de início rápido, você incorpora o cache do Azure para Redis em um aplicativo .NET Core para ter acesso a um cache seguro e dedicado que pode ser acessado de qualquer aplicativo no Azure. Você usa especificamente o cliente [stackexchange. Redis](https://github.com/StackExchange/StackExchange.Redis) com C# código em um aplicativo de console do .NET Core.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -133,9 +133,9 @@ Adicione a seguinte instrução `using` ao ficheiro *Program.cs*:
 using StackExchange.Redis;
 ```
 
-A conexão com o cache do Azure para Redis é gerenciada `ConnectionMultiplexer` pela classe. Esta classe deve ser partilhada e reutilizada em toda a aplicação cliente. Não crie uma nova ligação para cada operação. 
+A conexão com o cache do Azure para Redis é gerenciada pela classe `ConnectionMultiplexer`. Esta classe deve ser partilhada e reutilizada em toda a aplicação cliente. Não crie uma nova ligação para cada operação. 
 
-Em *Program.cs*, adicione os seguintes membros à classe `Program` da aplicação de consola:
+Em *Program.cs*, adicione os seguintes membros à classe `Program` da sua aplicação de consola:
 
 ```csharp
         private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
@@ -153,7 +153,7 @@ Em *Program.cs*, adicione os seguintes membros à classe `Program` da aplicaçã
         }
 ```
 
-Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect`é definido como false, o que significa que a chamada terá sucesso mesmo se uma conexão com o cache do Azure para Redis não for estabelecida. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
+Esta abordagem para partilhar uma instância `ConnectionMultiplexer` na aplicação utiliza uma propriedade estática que devolve uma instância ligada. O código oferece uma forma segura para os threads de modo a inicializar apenas uma única instância `ConnectionMultiplexer` ligada. `abortConnect` é definido como false, o que significa que a chamada terá sucesso mesmo se uma conexão com o cache do Azure para Redis não for estabelecida. Uma funcionalidade-chave do `ConnectionMultiplexer` consiste no restauro automático da conectividade à cache assim que o problema de rede, ou outros problemas, tiverem sido resolvidos.
 
 O valor do segredo *CacheConnection* é acedido com o fornecedor de configuração do Gestor de Segredo e utilizado como o parâmetro de palavra-passe.
 
@@ -202,7 +202,7 @@ Em *Program.cs*, adicione o seguinte código ao procedimento `Main` da classe `P
 
 Guarde *Program.cs*.
 
-O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código estabelece ligação à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
+O cache do Azure para Redis tem um número configurável de bancos de dados (o padrão de 16) que pode ser usado para separar lógicas do cache do Azure para Redis. O código é ligado à base de dados predefinida, DB 0. Para obter mais informações, veja [O que são as bases de dados Redis?](cache-faq.md#what-are-redis-databases) e [Configuração do servidor predefinido Redis](cache-configure.md#default-redis-server-configuration).
 
 Os itens de cache podem ser obtidos com os métodos `StringSet` e `StringGet`.
 
@@ -229,7 +229,7 @@ No exemplo abaixo, pode ver que a chave `Message` tinha anteriormente um valor e
 
 O cache do Azure para Redis pode armazenar em cache os objetos .NET e os tipos de dados primitivos, mas antes que um objeto .NET possa ser armazenado em cache, ele deve ser serializado. Esta serialização do objeto .NET é da responsabilidade do programador da aplicação, podendo o programador escolher o serializador pretendido.
 
-Uma forma simples de serializar objetos passa por utilizar os métodos de serialização `JsonConvert` no [Newtonsoft.Json.](https://www.nuget.org/packages/Newtonsoft.Json/) e serializar de e para o JSON. Nesta secção, vai adicionar um objeto .NET à cache.
+Uma forma simples de serializar objetos passa por utilizar os métodos de serialização `JsonConvert` no [Newtonsoft.Json.](https://www.nuget.org/packages/Newtonsoft.Json/) e serializar de e para o JSON. Nesta secção, irá adicionar um objeto de .NET à cache.
 
 Execute o seguinte comando para adicionar o pacote *newtonsoft* à aplicação:
 
@@ -237,7 +237,7 @@ Execute o seguinte comando para adicionar o pacote *newtonsoft* à aplicação:
 dotnet add package Newtonsoft.json
 ```
 
-Adicione a seguinte instrução `using` na parte superior do ficheiro *Program.cs*:
+Adicione a seguinte declaração `using` na parte superior do ficheiro *Program.cs*:
 
 ```csharp
 using Newtonsoft.Json;
@@ -296,15 +296,15 @@ dotnet run
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 
-Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, poderá eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
+Caso contrário, se tiver concluído a aplicação de exemplo do início rápido, pode eliminar os recursos do Azure criados neste início rápido, para evitar encargos. 
 
 > [!IMPORTANT]
-> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos nele contidos serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
+> A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
 Inicie sessão no [Portal do Azure](https://portal.azure.com) e clique em **Grupos de recursos**.
 
-Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
+Na caixa de texto **Filtrar por nome...** , escreva o nome do grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, clique em **...** e em **Eliminar grupo de recursos**.
 
 ![Eliminar](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
@@ -316,7 +316,7 @@ Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesm
 
 <a name="next-steps"></a>
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia de início rápido, você aprendeu a usar o cache do Azure para Redis de um aplicativo .NET Core. Continue para o próximo início rápido para usar o cache do Azure para Redis com um aplicativo Web ASP.NET.
 

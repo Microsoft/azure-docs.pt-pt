@@ -1,18 +1,18 @@
 ---
 title: Usar tokens de recurso Azure Cosmos DB com o SDK do Gremlin
 description: Saiba como criar tokens de recurso e usá-los para acessar o banco de dados de grafo.
-author: olignat
+author: luisbosquez
+ms.author: lbosq
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/06/2019
-ms.author: olignat
-ms.openlocfilehash: 6364bd0f762647b5fe9567ed40042a5ad81f97c1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 443b6ea2583c7c8a1c633cf1825e83cc02bd168c
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105027"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72756074"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Usar tokens de recurso Azure Cosmos DB com o SDK do Gremlin
 
@@ -24,13 +24,13 @@ O SDK do Gremlin do Apache TinkerPop não tem uma API a ser usada para criar tok
 
 A hierarquia de modelo de objeto acima dos tokens de recurso é ilustrada na seguinte estrutura de tópicos:
 
-- **Conta de Azure Cosmos DB** -a entidade de nível superior que tem um DNS associado a ela (por exemplo `contoso.gremlin.cosmos.azure.com`,).
+- **Conta de Azure Cosmos DB** -a entidade de nível superior que tem um DNS associado a ela (por exemplo, `contoso.gremlin.cosmos.azure.com`).
   - **Banco de dados Azure Cosmos DB**
     - **Usuário**
       - **Permissão**
         - **Token** -uma propriedade de objeto de permissão que denota quais ações são permitidas ou negadas.
 
-Um token de recurso usa o seguinte formato `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`:. Essa cadeia de caracteres é opaca para os clientes e deve ser usada como está, sem modificação ou interpretação.
+Um token de recurso usa o seguinte formato: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Essa cadeia de caracteres é opaca para os clientes e deve ser usada como está, sem modificação ou interpretação.
 
 ```csharp
 // Notice that document client is created against .NET SDK endpoint, rather than Gremlin.
@@ -95,7 +95,7 @@ builder.authProperties(authenticationProperties);
 
 ## <a name="limit"></a>Limite
 
-Com uma única conta do Gremlin, você pode emitir um número ilimitado de tokens. No entanto, você pode usar apenas até 100 tokens simultaneamente dentro de 1 hora. Se um aplicativo exceder o limite de token por hora, uma solicitação de autenticação será negada e você receberá a seguinte mensagem de erro: "Limite de token de recurso permitido excedido de 100 que pode ser usado simultaneamente." Ele não funciona para fechar conexões ativas que usam tokens específicos para liberar slots para novos tokens. O mecanismo de banco de dados do Azure Cosmos DB Gremlin mantém o controle de tokens exclusivos durante a hora imediatamente antes da solicitação de autenticação.
+Com uma única conta do Gremlin, você pode emitir um número ilimitado de tokens. No entanto, você pode usar apenas até 100 tokens simultaneamente dentro de 1 hora. Se um aplicativo exceder o limite de token por hora, uma solicitação de autenticação será negada e você receberá a seguinte mensagem de erro: "limite de token de recurso permitido excedido de 100 que pode ser usado simultaneamente". Ele não funciona para fechar conexões ativas que usam tokens específicos para liberar slots para novos tokens. O mecanismo de banco de dados do Azure Cosmos DB Gremlin mantém o controle de tokens exclusivos durante a hora imediatamente antes da solicitação de autenticação.
 
 ## <a name="permission"></a>Permissão
 
