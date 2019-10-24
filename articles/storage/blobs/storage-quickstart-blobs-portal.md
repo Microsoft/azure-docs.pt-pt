@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 84753f2c3ab19a0cc9d72ef8ce5011dfc8e5a8da
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: f3d5aaaf57387ae4ccefdfe8ec22435f03b2452f
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121212"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757548"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início rápido: Carregar, transferir e listar os blobs com o portal do Azure
+# <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Início Rápido: carregar, transferir e listar blobs com o portal do Azure
 
 Neste guia de introdução, irá aprender a utilizar o [portal do Azure](https://portal.azure.com/) para criar um contentor no Armazenamento do Azure e para carregar e transferir blobs de blocos nesse contentor.
 
@@ -28,10 +28,10 @@ Neste guia de introdução, irá aprender a utilizar o [portal do Azure](https:/
 Para criar um contentor no portal do Azure, siga estes passos:
 
 1. No portal do Azure, navegue para a sua nova conta de armazenamento.
-2. No menu à esquerda para a conta de armazenamento, desloque-se para a secção **Serviço blob** e, em seguida, selecione **Blobs**.
+2. No menu à esquerda da conta de armazenamento, role até a seção **serviço blob** e, em seguida, selecione **contêineres**.
 3. Selecione o botão **+ Contentor**.
 4. Escreva um nome para o novo contentor. O nome do contentor tem estar em minúsculas, tem de começar com uma letra ou um número e só pode incluir letras, números e o caráter de travessão (-). Para obter mais informações sobre os nomes dos contentores e dos blobs, veja [Nomenclatura e referência para contentores, blobs e metadados](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
-5. Defina o nível de acesso público ao contentor. O nível predefinido é **Privado (sem acesso anónimo)**.
+5. Defina o nível de acesso público ao contentor. O nível predefinido é **Privado (sem acesso anónimo)** .
 6. Selecione **OK** para criar o contentor.
 
     ![A captura de ecrã mostra como criar um contentor no portal do Azure](media/storage-quickstart-blobs-portal/create-container.png)
@@ -67,10 +67,10 @@ Para eliminar o contentor:
 
 1. No portal do Azure, navegue para a lista de contentores na sua conta de armazenamento.
 2. Selecione o contentor a eliminar.
-3. Selecione o botão **Mais** (**...** ) e selecione **Eliminar**.
+3. Selecione o botão **Mais** ( **...** ) e selecione **Eliminar**.
 4. Certifique-se de que pretende eliminar o contentor.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Neste início rápido, aprendeu a transferir ficheiros entre um disco local e o armazenamento de Blobs do Azure com o portal do Azure. Para saber mais sobre a utilização do armazenamento de Blobs, avance para os procedimentos do armazenamento de blobs.
 

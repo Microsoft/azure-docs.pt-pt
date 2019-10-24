@@ -3,15 +3,15 @@ title: Executar sua primeira consulta usando o Gerenciador de grafo de recursos 
 description: Este artigo orienta você pelas etapas para executar sua primeira consulta de portal do Azure usando o Gerenciador de grafo de recursos do Azure.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/18/2019
+ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387607"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752155"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Início rápido: executar sua primeira consulta de grafo de recursos usando o Gerenciador de grafo de recursos do Azure
 
@@ -45,7 +45,10 @@ Quando a consulta final é executada várias vezes, supondo que nada em seu ambi
 
 ### <a name="schema-browser"></a>Navegador de esquema
 
-O navegador de esquema está localizado no painel esquerdo do Gerenciador de gráficos de recursos. Esta lista de recursos mostra todos os _tipos_ de recursos dos recursos do Azure com suporte do grafo de recursos do Azure e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou subpropriedades mostra Propriedades filho que podem ser usadas para criar uma consulta de gráfico de recursos. Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. A seleção de uma das propriedades filho adiciona `where <propertyName> == "INSERT_VALUE_HERE"` na caixa consulta. O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Certifique-se de substituir _Insert @ no__t-1VALUE @ no__t-2HERE_ por seu próprio valor, ajuste a consulta com condições, operadores e funções para atingir os resultados pretendidos.
+O navegador de esquema está localizado no painel esquerdo do Gerenciador de gráficos de recursos. Esta lista de recursos mostra todos os _tipos_ de recursos dos recursos do Azure com suporte do grafo de recursos do Azure e que existem em um locatário ao qual você tem acesso. Expandir um tipo de recurso ou subpropriedades mostra Propriedades filho que podem ser usadas para criar uma consulta de gráfico de recursos.
+
+Selecionar o tipo de recurso coloca `where type =="<resource type>"` na caixa de consulta. A seleção de uma das propriedades filho adiciona `where <propertyName> == "INSERT_VALUE_HERE"` à caixa de consulta.
+O navegador de esquema é uma ótima maneira de descobrir Propriedades para uso em consultas. Substitua _inserir \_VALUE \_HERE_ pelo seu próprio valor, ajuste a consulta com condições, operadores e funções para atingir os resultados pretendidos.
 
 ## <a name="create-a-chart-from-the-resource-graph-query"></a>Criar um gráfico a partir da consulta de grafo de recursos
 
@@ -88,11 +91,11 @@ Para fornecer exemplos de consultas de grafo de recursos e como o Gerenciador de
 
 - [Gerenciador de gráficos de recursos-Dashboard de exemplo #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [imagem ![Example para o painel de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  [![Example imagem para o painel de exemplo #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
 
 - [Gerenciador de gráficos de recursos-Dashboard de exemplo #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [imagem ![Example para o painel de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  [![Example imagem para o painel de exemplo #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
 
 > [!NOTE]
 > As contagens e os gráficos no exemplo acima capturas de tela do painel variam de acordo com o ambiente do Azure.

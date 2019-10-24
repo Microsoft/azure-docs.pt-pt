@@ -1,22 +1,22 @@
 ---
 title: Acessar propriedades do documento do sistema via grafo de Azure Cosmos DB
 description: Saiba como ler e gravar Cosmos DB Propriedades do documento do sistema via API do Gremlin
-author: olignat
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: 4354d37a32bde006a9bee70c39df1fee9b269365
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+author: luisbosquez
+ms.author: lbosq
+ms.openlocfilehash: e762674936ab2fbdf198ca67f79acfa545127f02
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910662"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755059"
 ---
 # <a name="system-document-properties"></a>Propriedades do documento do sistema
 
-Azure Cosmos DB tem [Propriedades do sistema](https://docs.microsoft.com/rest/api/cosmos-db/databases) , ```_ts```como ```_self```, ```_attachments``` ```_rid```,, e ```_etag``` em cada documento. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, essas propriedades estão disponíveis para passagem. No entanto, é possível incluir propriedades específicas ou todas elas em Gremlin Traversal.
+Azure Cosmos DB tem [Propriedades do sistema](https://docs.microsoft.com/rest/api/cosmos-db/databases) , como ```_ts```, ```_self```, ```_attachments```, ```_rid``` e ```_etag``` em cada documento. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, essas propriedades estão disponíveis para passagem. No entanto, é possível incluir propriedades específicas ou todas elas em Gremlin Traversal.
 
 ```
 g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_ts').create())
@@ -32,7 +32,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 ## <a name="time-to-live-ttl"></a>TTL
 
-Se a coleção tiver a expiração de documento ```ttl``` habilitada e os documentos tiverem a propriedade definida nelas, essa propriedade estará disponível em passagem Gremlin como uma propriedade de vértice ou de borda regular. ```ProjectionStrategy```Não é necessário para habilitar a exposição da propriedade de vida útil.
+Se a coleção tiver a expiração de documento habilitada e os documentos tiverem ```ttl``` propriedade definida nelas, essa propriedade estará disponível em passagem Gremlin como um vértice regular ou uma propriedade de borda. ```ProjectionStrategy``` não é necessário para habilitar a exposição da propriedade de vida útil.
 
 O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos**.
 
@@ -40,6 +40,6 @@ O vértice criado com o percurso abaixo será eliminado automaticamente em **123
 g.addV('vertex-one').property('ttl', 123)
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 * [Simultaneidade Otimista do Cosmos DB](faq.md#how-does-the-sql-api-provide-concurrency)
 * [Vida útil (TTL)](time-to-live.md) no Azure Cosmos DB

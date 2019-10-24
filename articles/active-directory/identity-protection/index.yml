@@ -12,44 +12,40 @@ metadata:
   ms.author: joflore
   ms.date: 08/20/2019
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: b493af4372c612c41bafeaef863d8542e6730cb1
-  ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+  ms.openlocfilehash: aeaa23138fb7d0a6d73625fdf7c6507c7fd8152a
+  ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 08/28/2019
-  ms.locfileid: "70126203"
+  ms.lasthandoff: 10/24/2019
+  ms.locfileid: "72880684"
 landingContent:
 - title: Acerca do Identity Protection
   linkLists:
   - linkListType: overview
     links:
     - text: O que é o Identity Protection?
-      url: overview-v2.md
+      url: overview-identity-protection.md
     - text: Introdução à descrição geral da segurança
-      url: security-overview.md
+      url: concept-identity-protection-security-overview.md
 - title: Investigar deteções de riscos
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Configurar políticas de risco
-      url: howto-configure-risk-policies.md
+      url: howto-identity-protection-configure-risk-policies.md
     - text: Investigar riscos
-      url: howto-investigate-risk.md
+      url: howto-identity-protection-investigate-risk.md
   - linkListType: reference
     links:
     - text: Tipos de eventos
-      url: risk-events-reference.md
+      url: concept-identity-protection-risks.md
 - title: Experiência do Identity Protection
   linkLists:
   - linkListType: concept
     links:
     - text: Experiência de início de sessão
-      url: flows.md
+      url: concept-identity-protection-user-experience.md
   - linkListType: how-to-guide
     links:
     - text: Simular deteções de riscos
-      url: playbook.md
-  - linkListType: quickstart
-    links:
-    - text: Bloquear o acesso quando é detetado um risco de sessão
-      url: quickstart-sign-in-risk-policy.md
+      url: howto-identity-protection-simulate-risk.md
