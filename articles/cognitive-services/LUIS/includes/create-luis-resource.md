@@ -6,33 +6,33 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 10/23/2019
 ms.author: dapine
-ms.openlocfilehash: 52d8e1355558b197b193a50c7cde571799541268
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: ecb172aec37fdab21bed8373ac7484dc52a54829
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67717154"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72822023"
 ---
-## <a name="create-a-luis-resource"></a>Criar um recurso de LUIS
+## <a name="create-a-luis-resource"></a>Criar um recurso LUIS
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com)
-1. Clique em [criar **compreensão de idiomas**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUIS)
-1. Introduza todas as definições necessárias:
+1. Entre no [portal do Azure](https://portal.azure.com)
+1. Clique em [criar **reconhecimento vocal** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)
+1. Insira todas as configurações necessárias:
 
     |Definição|Valor|
     |--|--|
-    |Nome|Nome pretendido (2 e 64 carateres)|
-    |Subscription|Selecione a subscrição adequada|
-    |Location|Selecione qualquer localização disponível e próximas|
-    |Escalão de Preço|`F0` -o escalão de preço mínimo|
-    |Grupo de Recursos|Selecione um grupo de recursos disponíveis|
+    |Nome|Nome desejado (2-64 caracteres)|
+    |Subscrição|Selecione a assinatura apropriada|
+    |Localização|Selecione qualquer local próximo e disponível|
+    |Escalão de Preço|`F0`-o tipo de preço mínimo|
+    |Grupo de Recursos|Selecionar um grupo de recursos disponível|
 
-1. Clique em **criar** e espere até que o recurso a ser criada. Depois de criado, navegue para a página de recursos
-1. Recolher configurado `endpoint` e uma chave de API:
+1. Clique em **criar** e aguarde até que o recurso seja criado. Depois de criado, navegue até a página de recursos
+1. Coletar `endpoint` configuradas e uma chave de API:
 
-    |Guia de recursos no Portal|Definição|Valor|
+    |Guia de recursos no portal|Definição|Valor|
     |--|--|--|
-    |**Descrição Geral**|Ponto Final|Copie o ponto final. Que é semelhante a `https://luis.cognitiveservices.azure.com/luis/v2.0`|
-    |**chaves**|Chave de API|Copie a 1 de duas chaves. É uma cadeia de caracteres alfanuméricos 32 sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |**Descrição geral**|Ponto Final|Copie o ponto de extremidade. Ele é semelhante a `https://luis.cognitiveservices.azure.com/luis/v2.0`|
+    |**Novas**|Chave de API|Cópia 1 das duas chaves. É uma cadeia de caracteres de caractere alfanumérico 32 sem espaços ou traços, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
