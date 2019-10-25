@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: f950d273e16dc7fc25f443fda58f9d6582085129
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 1cea76bec3a1b8b698a604c0bac491ac0319a10e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71076391"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791180"
 ---
 # <a name="what-is-azure-hdinsight"></a>O que é o Azure HDInsight?
 
@@ -86,7 +86,7 @@ O HDInsight inclui tipos de clusters específicos e capacidades de personalizaç
 |[Apache Spark](https://spark.apache.org/)|Uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos de análise de Big Data. Veja [O que é o Apache Spark no HDInsight?](./spark/apache-spark-overview.md)|
 |[Apache HBase](https://hbase.apache.org/)|Um banco de dados NoSQL criado no Hadoop que fornece acesso aleatório e consistência forte para grandes quantidades de dados não estruturados e semiestruturados, potencialmente bilhões de linhas vezes milhões de colunas. Veja [O que é o HBase no HDInsight?](./hbase/apache-hbase-overview.md)|
 |[Serviços de ML](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|Um servidor para hospedar e gerenciar processos de R paralelos e distribuídos. Fornece cientistas de dados, peritos em estatística e programadores de R com acesso a pedido a métodos dimensionáveis distribuídos de análise no HDInsight. Veja [Descrição geral dos Serviços ML no HDInsight](./r-server/r-server-overview.md).|
-|[Apache Storm](https://storm.incubator.apache.org/)|Um sistema de computação distribuído e em tempo real para processar grandes fluxos de dados rapidamente. O Storm é fornecido como um cluster gerido no HDInsight. Consulte [Analisar dados de sensores em tempo real através do Storm e do Hadoop](./storm/apache-storm-sensor-data-analysis.md).|
+|[Apache Storm](https://storm.incubator.apache.org/)|Um sistema de computação distribuído e em tempo real para processar grandes fluxos de dados rapidamente. O Storm é fornecido como um cluster gerido no HDInsight. Consulte [Analisar dados de sensores em tempo real através do Storm e do Hadoop](/azure/hdinsight/storm/apache-storm-overview).|
 |[Consulta interativa do Apache](https://cwiki.apache.org/confluence/display/Hive/LLAP)|Cache na memória para consultas de Hive interativas e mais rápidas. Veja [Use Interactive Query in HDInsight (Utilizar o Interactive Query no HDInsight)](./interactive-query/apache-interactive-query-get-started.md).|
 |[Apache Kafka](https://kafka.apache.org/)|Uma plataforma de software livre que é usada para criar pipelines de dados e aplicativos de streaming. O Kafka também fornece uma funcionalidade de fila de mensagens que lhe permite publicar e subscrever transmissões de dados. Consulte [Introduction to Apache Kafka on HDInsight (Introdução ao Apache Kafka no HDInsight)](./kafka/apache-kafka-introduction.md).|
 

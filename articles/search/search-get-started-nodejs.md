@@ -1,23 +1,22 @@
 ---
-title: 'Início rápido: Criar um índice de pesquisa no node. js usando APIs REST-Azure Search'
-description: Exemplo de Node. js para Azure Search, demonstrando como criar, carregar dados e consultar a partir do JavaScript.
+title: 'Início rápido: criar um índice de pesquisa no node. js usando APIs REST'
+titleSuffix: Azure Cognitive Search
+description: Exemplo de Node. js para o Azure Pesquisa Cognitiva, demonstrando como criar, carregar dados e consultar a partir do JavaScript.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: nodejs
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881510"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787433"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>Início rápido: Criar um índice de Azure Search no node. js usando APIs REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no node. js usando APIs REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +25,7 @@ ms.locfileid: "70881510"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie um aplicativo node. js que cria, carrega e consulta um índice de Azure Search. Este artigo demonstra como criar o aplicativo passo a passo. Como alternativa, você pode [baixar o código-fonte e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) e executar o aplicativo na linha de comando.
+Crie um aplicativo node. js que cria, carrega e consulta um índice de Pesquisa Cognitiva do Azure. Este artigo demonstra como criar o aplicativo passo a passo. Como alternativa, você pode [baixar o código-fonte e os dados](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/) e executar o aplicativo na linha de comando.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -37,7 +36,7 @@ Os serviços, as ferramentas e os dados a seguir são usados neste guia de iníc
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com) deve ser instalado pelo node. js.
 + Uma estrutura de índice de exemplo e documentos correspondentes são fornecidos neste artigo ou no diretório de [ **início rápido** do repositório](https://github.com/Azure-Samples/azure-search-javascript-samples/).
-+ [Crie um serviço de Azure Search](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido.
++ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido.
 
 Recomendação:
 
@@ -47,11 +46,11 @@ Recomendação:
 <a name="get-service-info"></a>
 ## <a name="get-keys-and-urls"></a>Obter chaves e URLs
 
-Chamadas para o serviço exigem um ponto de extremidade de URL e uma chave de acesso em cada solicitação. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
+Chamadas para o serviço exigem um ponto de extremidade de URL e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Pesquisa Cognitiva à sua assinatura, siga estas etapas para obter as informações necessárias:
 
-1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha o nome do serviço de pesquisa. Você pode confirmar o nome do serviço examinando a URL do ponto de extremidade. Se a URL do ponto `https://mydemo.search.windows.net`de extremidade for, o nome `mydemo`do serviço será.
+1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha o nome do serviço de pesquisa. Você pode confirmar o nome do serviço examinando a URL do ponto de extremidade. Se a URL do ponto de extremidade fosse `https://mydemo.search.windows.net`, o nome do serviço seria `mydemo`.
 
-2. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
     Obtenha também a chave de consulta. É uma prática recomendada emitir solicitações de consulta com acesso somente leitura.
 
@@ -63,7 +62,7 @@ Todas as solicitações exigem uma chave de API no cabeçalho de cada solicitaç
 
 Comece abrindo um console do PowerShell ou outro ambiente no qual você instalou o Node. js.
 
-1. Crie um diretório de desenvolvimento, dando a ele `quickstart` o nome:
+1. Crie um diretório de desenvolvimento, dando a ele o nome `quickstart`:
 
     ```powershell
     mkdir quickstart
@@ -85,7 +84,7 @@ Comece abrindo um console do PowerShell ou outro ambiente no qual você instalou
     {
       "name": "quickstart",
       "version": "1.0.0",
-      "description": "Azure Search Quickstart",
+      "description": "Azure Cognitive Search Quickstart",
       "main": "index.js",
       "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -120,11 +119,11 @@ Crie um arquivo **azure_search_config. JSON** para manter os dados do serviço d
 }
 ```
 
-Substitua o `[SERVICE_NAME]` valor pelo nome do serviço de pesquisa. Substitua `[ADMIN_KEY]` e`[QUERY_KEY]` pelos valores de chave que você registrou anteriormente. 
+Substitua o valor `[SERVICE_NAME]` pelo nome do serviço de pesquisa. Substitua `[ADMIN_KEY]` e `[QUERY_KEY]` pelos valores de chave que você registrou anteriormente. 
 
 ## <a name="1---create-index"></a>1-criar índice 
 
-Crie um arquivo **hotels_quickstart_index. JSON**.  Esse arquivo define como Azure Search funciona com os documentos que serão carregados na próxima etapa. Cada campo será identificado por um `name` e terá um especificado. `type` Cada campo também tem uma série de atributos de índice que especificam se Azure Search pode pesquisar, filtrar, classificar e facetar sobre o campo. A maioria dos campos são tipos de dados simples, mas alguns, `AddressType` como são tipos complexos que permitem que você crie estruturas de dados ricas em seu índice.  Você pode ler mais sobre tipos de dados e [atributos de índice](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes) [com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) . 
+Crie um arquivo **hotels_quickstart_index. JSON**.  Esse arquivo define como o Pesquisa Cognitiva do Azure funciona com os documentos que serão carregados na próxima etapa. Cada campo será identificado por um `name` e terá um `type`especificado. Cada campo também tem uma série de atributos de índice que especificam se Pesquisa Cognitiva do Azure podem pesquisar, filtrar, classificar e facetar sobre o campo. A maioria dos campos são tipos de dados simples, mas alguns, como `AddressType` são tipos complexos que permitem que você crie estruturas de dados ricas em seu índice.  Você pode ler mais sobre tipos de dados e [atributos de índice](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes) [com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) . 
 
 Adicione o seguinte a **hotels_quickstart_index. JSON** ou [Baixe o arquivo](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -261,9 +260,9 @@ Adicione o seguinte a **hotels_quickstart_index. JSON** ou [Baixe o arquivo](htt
 ```
     
 
-É uma boa prática separar as especificidades de um cenário específico do código que será amplamente aplicável. A `AzureSearchClient` classe definida no arquivo **AzureSearchClient. js** saberá como construir URLs de solicitação, fazer uma solicitação usando a API de busca e reagir ao código de status da resposta.
+É uma boa prática separar as especificidades de um cenário específico do código que será amplamente aplicável. A classe `AzureSearchClient` definida no arquivo **AzureSearchClient. js** saberá como construir URLs de solicitação, fazer uma solicitação usando a API de busca e reagir ao código de status da resposta.
 
-Comece a trabalhar em **AzureSearchClient. js** importando o pacote de **busca de nó** e criando uma classe simples. Isole as partes alteráveis da `AzureSearchClient` classe passando para seu Construtor os vários valores de configuração:
+Comece a trabalhar em **AzureSearchClient. js** importando o pacote de **busca de nó** e criando uma classe simples. Isole as partes alteráveis da classe `AzureSearchClient` passando para seu Construtor os vários valores de configuração:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -284,7 +283,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-A primeira responsabilidade da classe é saber como construir URLs para as quais enviar as várias solicitações. Crie essas URLs com métodos de instância que usam os dados de configuração passados para o construtor de classe. Observe que a URL que ele constrói é específica para uma versão de API e deve ter um argumento especificando essa versão (neste aplicativo `2019-05-06`). 
+A primeira responsabilidade da classe é saber como construir URLs para as quais enviar as várias solicitações. Crie essas URLs com métodos de instância que usam os dados de configuração passados para o construtor de classe. Observe que a URL que ele constrói é específica para uma versão de API e deve ter um argumento especificando essa versão (neste aplicativo, `2019-05-06`). 
 
 O primeiro desses métodos retornará a URL para o índice em si. Adicione o seguinte método dentro do corpo da classe:
 
@@ -293,7 +292,7 @@ getIndexUrl() { return `https://${this.searchServiceName}.search.windows.net/ind
 
 ```
 
-A próxima responsabilidade do `AzureSearchClient` é fazer uma solicitação assíncrona com a API de busca. O método `request` estático assíncrono usa uma URL, uma cadeia de caracteres especificando o método http ("Get", "Put", "post", "Delete"), a chave a ser usada na solicitação e um objeto JSON opcional. A `headers` variável mapeia o `queryKey` (se a chave de administração ou a chave de consulta somente leitura) para o cabeçalho de solicitação HTTP "chave de API". As opções de solicitação sempre contêm `method` o a ser usado e `headers`o. Se `bodyJson` não `null`for, o corpo da solicitação HTTP será definido como a representação de cadeia `bodyJson`de caracteres de. O `request` método retorna a promessa da API de busca para executar a solicitação HTTP.
+A próxima responsabilidade do `AzureSearchClient` é fazer uma solicitação assíncrona com a API de busca. O método estático assíncrono `request` usa uma URL, uma cadeia de caracteres especificando o método HTTP ("GET", "PUT", "POST", "DELETE"), a chave a ser usada na solicitação e um objeto JSON opcional. A variável `headers` mapeia a `queryKey` (se a chave de administração ou a chave de consulta somente leitura) para o cabeçalho de solicitação HTTP "API-Key". As opções de solicitação sempre contêm o `method` a ser usado e o `headers`. Se `bodyJson` não for `null`, o corpo da solicitação HTTP será definido como a representação de cadeia de caracteres de `bodyJson`. O método `request` retorna a promessa da API de busca para executar a solicitação HTTP.
 
 ```javascript
 static async request(url, method, apiKey, bodyJson = null) {
@@ -337,13 +336,13 @@ static throwOnHttpError(response) {
 }
 ```
 
-Por fim, adicione os métodos para detectar, excluir e criar o índice de Azure Search. Todos esses métodos têm a mesma estrutura:
+Por fim, adicione os métodos para detectar, excluir e criar o índice de Pesquisa Cognitiva do Azure. Todos esses métodos têm a mesma estrutura:
 
 * Obtenha o ponto de extremidade para o qual a solicitação será feita.
-* Gere a solicitação com o ponto de extremidade apropriado, o verbo HTTP, a chave de API e, se apropriado, um corpo JSON. `indexExistsAsync()`e `deleteIndexAsync()` não têm um corpo JSON, mas `createIndexAsync(definition)` Sim.
-* `await`a resposta à solicitação.  
+* Gere a solicitação com o ponto de extremidade apropriado, o verbo HTTP, a chave de API e, se apropriado, um corpo JSON. `indexExistsAsync()` e `deleteIndexAsync()` não têm um corpo JSON, mas `createIndexAsync(definition)`.
+* `await` a resposta à solicitação.  
 * Atue no código de status da resposta.
-* Retornar uma promessa de algum valor apropriado (um booliano `this`, ou os resultados da consulta). 
+* Retornar uma promessa de algum valor apropriado (um booliano, `this`ou os resultados da consulta). 
 
 ```javascript
 async indexExistsAsync() { 
@@ -399,7 +398,7 @@ const indexDefinition = require('./hotels_quickstart_index.json');
 const AzureSearchClient = require('./AzureSearchClient.js');
 ```
 
-O [pacote **nconf** ](https://github.com/indexzero/nconf) permite que você especifique dados de configuração em uma variedade de formatos, como variáveis de ambiente ou linha de comando. Este exemplo usa **nconf** de maneira básica para ler o arquivo **azure_search_config. JSON** e retornar o conteúdo desse arquivo como um dicionário. Usandoa função `get(key)` do nconf, você pode fazer uma verificação rápida de que as informações de configuração foram personalizadas corretamente. Por fim, a função retorna a configuração:
+O [pacote **nconf** ](https://github.com/indexzero/nconf) permite que você especifique dados de configuração em uma variedade de formatos, como variáveis de ambiente ou linha de comando. Este exemplo usa **nconf** de maneira básica para ler o arquivo **azure_search_config. JSON** e retornar o conteúdo desse arquivo como um dicionário. Usando a função `get(key)` do **nconf**, você pode fazer uma verificação rápida de que as informações de configuração foram personalizadas corretamente. Por fim, a função retorna a configuração:
 
 ```javascript
 function getAzureConfiguration() {
@@ -411,7 +410,7 @@ function getAzureConfiguration() {
 }
 ```
 
-A `sleep` função cria um `Promise` que resolve após um período de tempo especificado. O uso dessa função permite que o aplicativo seja pausado enquanto aguarda a conclusão das operações de índice assíncronos e sua disponibilização. A adição desse atraso geralmente é necessária apenas em demonstrações, testes e aplicativos de exemplo.
+A função `sleep` cria uma `Promise` que resolve após um período de tempo especificado. O uso dessa função permite que o aplicativo seja pausado enquanto aguarda a conclusão das operações de índice assíncronos e sua disponibilização. A adição desse atraso geralmente é necessária apenas em demonstrações, testes e aplicativos de exemplo.
 
 ```javascript
 function sleep(ms) {
@@ -423,12 +422,12 @@ function sleep(ms) {
 }
 ```
 
-Por fim, especifique e chame a função `run` assíncrona principal. Essa função chama as outras funções em ordem, aguardando conforme necessário para resolver `Promise`os s.
+Por fim, especifique e chame a função de `run` assíncrona principal. Essa função chama as outras funções em ordem, aguardando, conforme necessário, para resolver `Promise`s.
 
-* Recuperar a configuração com a `getAzureConfiguration()` que você escreveu anteriormente
-* Criar uma nova `AzureSearchClient` instância, passando valores de sua configuração
+* Recuperar a configuração com o `getAzureConfiguration()` que você escreveu anteriormente
+* Criar uma nova instância de `AzureSearchClient`, passando valores de sua configuração
 * Verifique se o índice existe e, se tiver, exclua-o
-* Criar um índice usando o `indexDefinition` Loaded de **hotels_quickstart_index. JSON**
+* Criar um índice usando o `indexDefinition` carregado de **hotels_quickstart_index. JSON**
 
 ```javascript
 const run = async () => {
@@ -449,11 +448,11 @@ const run = async () => {
 run();
 ```
 
-Não se esqueça dessa chamada final `run()`para! É o ponto de entrada para seu programa quando você executa `node index.js` na próxima etapa.
+Não se esqueça dessa chamada final para `run()`! É o ponto de entrada para seu programa quando você executa `node index.js` na próxima etapa.
 
-Observe que `AzureSearchClient.indexExistsAsync()` e `AzureSearchClient.deleteIndexAsync()` não usam parâmetros. Essas funções chamam `AzureSearchClient.request()` sem `bodyJson` argumento. Em `AzureSearchClient.request()`, `bodyJson === null` `indexExistsAsync()` desde o, a`init` estrutura é definida para ser apenas o verbo http ("Get" para e "Delete" para `deleteIndexAsync()`) e os cabeçalhos, que especificam a chave de solicitação. `true`  
+Observe que `AzureSearchClient.indexExistsAsync()` e `AzureSearchClient.deleteIndexAsync()` não usam parâmetros. Essas funções chamam `AzureSearchClient.request()` sem `bodyJson` argumento. No `AzureSearchClient.request()`, como `bodyJson === null` é `true`, a estrutura de `init` é definida como apenas o verbo HTTP ("GET" para `indexExistsAsync()` e "DELETE" para `deleteIndexAsync()`) e os cabeçalhos, que especificam a chave de solicitação.  
 
-Por outro lado, `AzureSearchClient.createIndexAsync(indexDefinition)` o _método assume_ um parâmetro. A `run` função no `index.js`, passa o conteúdo do arquivo **hotels_quickstart_index. JSON** para o `AzureSearchClient.createIndexAsync(indexDefinition)` método. O `createIndexAsync()` método passa essa definição para `AzureSearchClient.request()`. No `AzureSearchClient.request()`, como `bodyJson === null` `init` `body` agora `false`é, a estrutura inclui não apenas o verbo http ("Put") e os cabeçalhos, mas define o para os dados de definição de índice.
+Por outro lado, _o método `AzureSearchClient.createIndexAsync(indexDefinition)` executa um_ parâmetro. A função `run` no `index.js`, passa o conteúdo do arquivo **hotels_quickstart_index. JSON** para o método `AzureSearchClient.createIndexAsync(indexDefinition)`. O método `createIndexAsync()` passa essa definição para `AzureSearchClient.request()`. Em `AzureSearchClient.request()`, como `bodyJson === null` agora é `false`, a estrutura de `init` inclui não apenas o verbo HTTP ("PUT") e os cabeçalhos, mas define o `body` para os dados de definição de índice.
 
 ### <a name="prepare-and-run-the-sample"></a>Preparar e executar o exemplo
 
@@ -461,25 +460,25 @@ Use uma janela de terminal para os comandos a seguir.
 
 1. Navegue até a pasta que contém o arquivo **Package. JSON** e o restante do seu código.
 1. Instale os pacotes para o exemplo com `npm install`.  Esse comando baixará os pacotes dos quais o código depende.
-1. Execute o programa com `node index.js`o.
+1. Execute o programa com `node index.js`.
 
-Você deve ver uma série de mensagens que descrevem as ações que estão sendo executadas pelo programa. Se desejar ver mais detalhes das solicitações, você poderá remover os comentários de [linhas no início do `AzureSearchClient.request()` método]https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/AzureSearchClient.js#L21-L27) em **AzureSearchClient. js**. 
+Você deve ver uma série de mensagens que descrevem as ações que estão sendo executadas pelo programa. Se desejar ver mais detalhes das solicitações, você poderá remover os comentários das [linhas no início do método de `AzureSearchClient.request()`]https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/AzureSearchClient.js#L21-L27) em **AzureSearchClient. js**. 
 
-Abra a **visão geral** do serviço de pesquisa no portal do Azure. Selecione a guia **índices** . Deverá ver algo semelhante ao seguinte:
+Abra a **visão geral** do serviço de pesquisa no portal do Azure. Selecione a guia **índices** . Você deverá ver algo semelhante ao seguinte:
 
-![Captura de tela de portal do Azure, Serviço de Pesquisa visão geral, guia índices](media/search-get-started-nodejs/create-index-no-data.png)
+![Captura de tela de portal do Azure, visão geral do serviço de pesquisa, guia índices](media/search-get-started-nodejs/create-index-no-data.png)
 
 Na próxima etapa, você adicionará dados ao índice. 
 
 ## <a name="2---load-documents"></a>2-carregar documentos 
 
-No Azure Search, os documentos são estruturas de dados que são entradas para indexação e saídas de consultas. Você precisa postar esses dados no índice. Isso usa um ponto de extremidade diferente do que as operações realizadas na etapa anterior. Abra **AzureSearchClient. js** e adicione o seguinte método após `getIndexUrl()`:
+No Azure Pesquisa Cognitiva, os documentos são estruturas de dados que são entradas para indexação e saídas de consultas. Você precisa postar esses dados no índice. Isso usa um ponto de extremidade diferente do que as operações realizadas na etapa anterior. Abra **AzureSearchClient. js** e adicione o seguinte método após `getIndexUrl()`:
 
 ```javascript
  getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
 ```
 
-Assim `AzureSearchClient.createIndexAsync(definition)`, você precisa de uma função que `AzureSearchClient.request()` chame e passe nos dados do hotel para ser seu corpo. Em **AzureSearchClient. js** , `postDataAsync(hotelsData)` Adicione `createIndexAsync(definition)`após:
+Assim como `AzureSearchClient.createIndexAsync(definition)`, você precisa de uma função que chama `AzureSearchClient.request()` e passa os dados do hotel para seu corpo. Em **AzureSearchClient. js** , adicione `postDataAsync(hotelsData)` após `createIndexAsync(definition)`:
 
 ```javascript
 async postDataAsync(hotelsData) {
@@ -569,7 +568,7 @@ async postDataAsync(hotelsData) {
 
 ```
 
-Para carregar esses dados em seu programa, modifique o **index. js** adicionando a linha que se refere `hotelData` ao próximo da parte superior:
+Para carregar esses dados em seu programa, modifique **index. js** adicionando a linha que se refere a `hotelData` perto da parte superior:
 
 ```javascript
 const nconf = require('nconf');
@@ -578,7 +577,7 @@ const hotelData = require('./hotels.json');
 const indexDefinition = require('./hotels_quickstart_index.json');
 ```
 
-Agora, modifique `run()` a função em **index. js**. Pode levar alguns segundos para que o índice fique disponível, portanto, adicione uma pausa de 2 segundos antes de chamar `AzureSearchClient.postDataAsync(hotelData)`:
+Agora, modifique a função `run()` no **index. js**. Pode levar alguns segundos para que o índice fique disponível, portanto, adicione uma pausa de 2 segundos antes de chamar `AzureSearchClient.postDataAsync(hotelData)`:
 
 ```javascript
 const run = async () => {
@@ -604,7 +603,7 @@ Execute o programa novamente com `node index.js`. Você verá um conjunto de men
 
 ## <a name="3---search-an-index"></a>3 - Pesquisar um índice
 
-Retorne à guia **índices** na **visão geral** do serviço de pesquisa no portal do Azure. O índice agora contém quatro documentos e consome alguma quantidade de armazenamento (pode levar alguns minutos para que a interface do usuário reflita corretamente o estado subjacente do índice). Clique no nome do índice a ser levado para o **Gerenciador de pesquisa**. Esta página permite que você experimente as consultas de dados. Tente pesquisar em uma cadeia de caracteres `*&$count=true` de consulta de e você deve recuperar todos os seus documentos e o número de resultados. Experimente com a cadeia de `historic&highlight=Description&$filter=Rating gt 4` caracteres de consulta e você deve obter um único documento, com a palavra "histórico" `<em></em>` encapsulada em marcas. Leia mais sobre [como compor uma consulta no Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+Retorne à guia **índices** na **visão geral** do serviço de pesquisa no portal do Azure. O índice agora contém quatro documentos e consome alguma quantidade de armazenamento (pode levar alguns minutos para que a interface do usuário reflita corretamente o estado subjacente do índice). Clique no nome do índice a ser levado para o **Gerenciador de pesquisa**. Esta página permite que você experimente as consultas de dados. Tente pesquisar em uma cadeia de caracteres de consulta de `*&$count=true` e você deverá recuperar todos os seus documentos e o número de resultados. Tente com a cadeia de caracteres de consulta `historic&highlight=Description&$filter=Rating gt 4` e você deve obter um único documento, com a palavra "histórico" encapsulada em marcas de `<em></em>`. Leia mais sobre [como compor uma consulta no Azure pesquisa cognitiva](https://docs.microsoft.com/azure/search/search-query-overview). 
 
 Reproduza essas consultas no código abrindo **index. js** e adicionando esse código próximo à parte superior:
 
@@ -615,7 +614,7 @@ const queries = [
 ];
 ```
 
-No mesmo arquivo **index. js** , escreva a `doQueriesAsync()` função mostrada abaixo. Essa função usa um `AzureSearchClient` objeto e aplica o `AzureSearchClient.queryAsync` método a cada `queries` um dos valores na matriz. Ele usa a `Promise.all()` função para retornar um único `Promise` que só resolve quando todas as consultas foram resolvidas. A chamada para `JSON.stringify(body, null, 4)` formata o resultado da consulta para ser mais legível.
+No mesmo arquivo **index. js** , escreva a função `doQueriesAsync()` mostrada abaixo. Essa função usa um objeto `AzureSearchClient` e aplica o método `AzureSearchClient.queryAsync` a cada um dos valores na matriz `queries`. Ele usa a função `Promise.all()` para retornar uma única `Promise` que só resolve quando todas as consultas foram resolvidas. A chamada para `JSON.stringify(body, null, 4)` formata o resultado da consulta para ser mais legível.
 
 ```javascript
 async function doQueriesAsync(client) {
@@ -630,7 +629,7 @@ async function doQueriesAsync(client) {
 }
 ```
 
-Modifique a `run()` função para pausar o tempo suficiente para o indexador funcionar e, em seguida `doQueriesAsync(client)` , chame a função:
+Modifique a função `run()` para pausar o tempo suficiente para o indexador funcionar e, em seguida, chame a função `doQueriesAsync(client)`:
 
 ```javascript
 const run = async () => {
@@ -655,13 +654,13 @@ const run = async () => {
 }
 ```
 
-Para implementar `AzureSearchClient.queryAsync(query)`, edite o arquivo **AzureSearchClient. js**. A pesquisa requer um ponto de extremidade diferente, e os termos de pesquisa se tornam argumentos de `getSearchUrl(searchTerm)` URL, `getIndexUrl()` portanto `getPostDataUrl()` , adicione a função ao lado dos métodos e que você já escreveu.
+Para implementar `AzureSearchClient.queryAsync(query)`, edite o arquivo **AzureSearchClient. js**. A pesquisa requer um ponto de extremidade diferente, e os termos de pesquisa se tornam argumentos de URL, portanto, adicione a função `getSearchUrl(searchTerm)` juntamente com os métodos `getIndexUrl()` e `getPostDataUrl()` já gravados.
 
 ```javascript
 getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
  ```
 
-A `queryAsync(searchTerm)` função também entra em **AzureSearchClient. js** e segue a mesma estrutura que `postDataAsync(data)` e as outras funções de consulta: 
+A função `queryAsync(searchTerm)` também entra em **AzureSearchClient. js** e segue a mesma estrutura que `postDataAsync(data)` e as outras funções de consulta: 
 
 ```javascript
 async queryAsync(searchTerm) {
@@ -673,17 +672,17 @@ async queryAsync(searchTerm) {
 }
 ```
 
-A pesquisa é feita com o verbo "GET" e nenhum corpo, já que o termo de pesquisa faz parte da URL. Observe que `queryAsync(searchTerm)` o `this.queryKey`usa, diferentemente das outras funções que usaram a chave de administração. As chaves de consulta, como o nome indica, só podem ser usadas para consultar o índice e não podem ser usadas para modificar o índice de forma alguma. As chaves de consulta são, portanto, mais seguras para serem distribuídas aos aplicativos cliente.
+A pesquisa é feita com o verbo "GET" e nenhum corpo, já que o termo de pesquisa faz parte da URL. Observe que `queryAsync(searchTerm)` usa `this.queryKey`, ao contrário das outras funções que usaram a chave de administração. As chaves de consulta, como o nome indica, só podem ser usadas para consultar o índice e não podem ser usadas para modificar o índice de forma alguma. As chaves de consulta são, portanto, mais seguras para serem distribuídas aos aplicativos cliente.
 
 Execute o programa com `node index.js`. Agora, além das etapas anteriores, as consultas serão enviadas e os resultados gravados no console.
 
 ### <a name="about-the-sample"></a>Sobre o exemplo
 
-O exemplo usa uma pequena quantidade de dados de Hotel, suficiente para demonstrar as noções básicas de criação e consulta de um índice de Azure Search.
+O exemplo usa uma pequena quantidade de dados de Hotel, suficiente para demonstrar as noções básicas de criação e consulta de um índice de Pesquisa Cognitiva do Azure.
 
-A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicitações HTTP básicas para o serviço de pesquisa. O arquivo **index. js** carrega os dados de configuração para o serviço de Azure Search, os dados do hotel que serão carregados para indexação e, em sua `run` função, ordena e executa as várias operações.
+A classe **AzureSearchClient** encapsula a configuração, as URLs e as solicitações HTTP básicas para o serviço de pesquisa. O arquivo **index. js** carrega os dados de configuração para o serviço de pesquisa cognitiva do Azure, os dados do hotel que serão carregados para indexação e, em `run` função, Orders, e executa as várias operações.
 
-O comportamento geral da `run` função é excluir o índice de Azure Search, se ele existir, criar o índice, adicionar alguns dados e executar algumas consultas.  
+O comportamento geral da função `run` é excluir o índice de Pesquisa Cognitiva do Azure, se ele existir, criar o índice, adicionar alguns dados e executar algumas consultas.  
 
 ## <a name="clean-up"></a>Limpeza 
 
@@ -696,7 +695,7 @@ Se você estiver usando um serviço gratuito, lembre-se de que você está limit
 
 Neste guia de início rápido do node. js, você trabalhou em uma série de tarefas para criar um índice, carregá-lo com documentos e executar consultas. Fizemos determinadas etapas, como ler a configuração e definir as consultas, da maneira mais simples possível. Em um aplicativo real, você desejaria colocar essas preocupações em módulos separados que forneceriam flexibilidade e encapsulamento. 
  
-Se já tiver algum conhecimento sobre a Azure Search, pode utilizar este exemplo como ponto de partida para tentar sugestores (escrita antecipada ou consultas de conclusão automática), filtros e navegação por facetas. Se você for novo no Azure Search, é recomendável tentar outros tutoriais para desenvolver um entendimento do que você pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. 
+Se você já tiver algum plano de fundo no Pesquisa Cognitiva do Azure, poderá usar este exemplo como um Springboard para experimentar sugestores (consultas de tipo adiantado ou preenchimento automático), filtros e navegação facetada. Se você for novo no Azure Pesquisa Cognitiva, é recomendável tentar outros tutoriais para desenvolver um entendimento do que você pode criar. Visite a nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para obter mais recursos. 
 
 > [!div class="nextstepaction"]
-> [Chamar Azure Search de uma página da Web usando JavaScript](https://github.com/liamca/azure-search-javascript-samples)
+> [Chamar o Azure Pesquisa Cognitiva de uma página da Web usando JavaScript](https://github.com/liamca/azure-search-javascript-samples)

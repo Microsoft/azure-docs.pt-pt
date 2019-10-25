@@ -1,22 +1,22 @@
 ---
-title: Mensagens de comparação - Event Grid, os Hubs de eventos do Service Bus do Azure
-description: Descreve os três serviços do Azure mensagens - Azure Event Grid, Hubs de eventos e do Service Bus. Recomenda que serviço utilizar para diferentes cenários.
+title: Comparar serviços de mensagens do Azure
+description: Descreve os três serviços de mensagens do Azure – grade de eventos do Azure, hubs de eventos e barramento de serviço. Recomenda que serviço utilizar para diferentes cenários.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/30/2019
+ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60826294"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790293"
 ---
-# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre serviços mensagens do Azure - Event Grid, Hubs de eventos e do Service Bus
+# <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Escolha entre os serviços de mensagens do Azure – grade de eventos, hubs de eventos e barramento de serviço
 
 O Azure oferece três serviços que ajudam a entregar mensagens de eventos numa solução. Esses serviços são:
 
@@ -34,7 +34,7 @@ Há uma distinção importante a ter em atenção entre os serviços que entrega
 
 Um evento é uma notificação simples de uma condição ou alteração de estado. O publicador do evento não tem nenhum expectativa sobre o modo como o evento é processado. O consumidor do evento decide o que fazer com a notificação. Os eventos podem ser unidades discretas ou fazer parte de uma série.
 
-Os eventos discretos comunicam alterações de estado e são acionáveis. Para dar o passo seguinte, o consumidor só tem de saber que algo aconteceu. Os dados do evento têm informações sobre o que aconteceu, mas não têm os dados que o acionaram. Por exemplo, um evento notifica os consumidores de que foi criado um ficheiro. Poderá ter informações gerais sobre o ficheiro, mas não tem o ficheiro em si. Eventos discretos são ideais para [sem servidor](https://azure.com/serverless) soluções que precisam de dimensionar.
+Os eventos discretos comunicam alterações de estado e são acionáveis. Para dar o passo seguinte, o consumidor só tem de saber que algo aconteceu. Os dados do evento têm informações sobre o que aconteceu, mas não têm os dados que o acionaram. Por exemplo, um evento notifica os consumidores de que foi criado um ficheiro. Poderá ter informações gerais sobre o ficheiro, mas não tem o ficheiro em si. Eventos discretos são ideais para soluções sem [servidor](https://azure.com/serverless) que precisam ser dimensionadas.
 
 Os eventos de série comunicam uma condição e são analisáveis. Os eventos são ordenados por tempo e inter-relacionados. O consumidor precisa da série sequenciada de eventos para analisar o que aconteceu.
 
@@ -44,7 +44,7 @@ Uma mensagem são dados não processados produzidos por um serviço e que vão s
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
-| Serviço | Objetivo | Tipo | Quando utilizar |
+| Serviço | Finalidade | Tipo | Quando utilizar |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programação reativa | Distribuição de eventos (discretos) | Reagir a alterações de estado |
 | Hubs de Eventos | Pipeline de macrodados | Transmissão de eventos em fluxo (série) | Transmissão de telemetria e dados distribuídos em fluxo |
@@ -56,7 +56,7 @@ O Event Grid é um backplane de eventos que permite a programação reativa e or
 
 O Event Grid está profundamente integrado nos serviços do Azure e pode ser integrado em serviços de terceiros. Ao eliminar a necessidade de consultas constantes, simplifica o consumo de eventos e reduz os custos. Encaminha, de forma eficiente e fiável, os eventos de recursos do Azure e não Azure. Distribui os eventos para pontos finais de subscritor registado. A mensagem do evento tem as informações que sã precisas para reagir a alterações em serviços e aplicações. O Event Grid não é um pipeline de dados e não entrega o objeto propriamente dito que foi atualizado.
 
-Event Grid suporta mensagens não entregues para os eventos que não são entregues a um ponto de extremidade.
+A grade de eventos dá suporte a mensagens mortas para eventos que não são entregues a um ponto de extremidade.
 
 Tem as seguintes características:
 
@@ -77,7 +77,7 @@ Tem as seguintes características:
 
 ### <a name="service-bus"></a>Service Bus
 
-O Service Bus destina-se a aplicações empresariais tradicionais. Estas aplicações empresariais precisam de transações, encomendas, deteção de duplicados e consistência instantânea. Service Bus permite [nativas da cloud](https://azure.microsoft.com/overview/cloudnative/) aplicações para garantir o estado de reliable fazer a transição de gestão para os processos de negócios. Para processar mensagens de alto valor que não podem ser perdidas ou duplicadas, utilize o Azure Service Bus. Além disso, também facilita a comunicação altamente segura em soluções de cloud híbrida e pode ligar sistemas no local existentes a soluções na cloud.
+O Service Bus destina-se a aplicações empresariais tradicionais. Estas aplicações empresariais precisam de transações, encomendas, deteção de duplicados e consistência instantânea. O barramento de serviço permite que aplicativos [nativos de nuvem](https://azure.microsoft.com/overview/cloudnative/) forneçam gerenciamento confiável de transição de estado para processos de negócios. Para processar mensagens de alto valor que não podem ser perdidas ou duplicadas, utilize o Azure Service Bus. Além disso, também facilita a comunicação altamente segura em soluções de cloud híbrida e pode ligar sistemas no local existentes a soluções na cloud.
 
 O Service Bus é um sistema de mensagens mediadas. Armazena as mensagens num "mediador" (por exemplo, uma fila) até que a parte consumidora esteja preparada para recebê-las.
 
@@ -96,11 +96,11 @@ Noutros casos, pode utilizá-los ao mesmo tempo para formar um pipeline de event
 
 ![Descrição geral dos dados de fluxo](./media/compare-messaging-services/overview.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos: 
 
-- [Eventos, pontos de dados e mensagens – escolher o serviço de mensagens do Azure certo para os seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
-- [Filas de armazenamento e filas do Service Bus - comparação e contraste](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+- [Eventos, pontos de dados e mensagens-escolhendo o serviço de mensagens do Azure correto para seus dados](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
+- [Filas de armazenamento e filas do barramento de serviço – comparações e contrastes](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Para começar a utilizar o Event Grid, veja [Criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).
 - Para começar a utilizar os Hubs de Eventos, veja [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md) (Criar um espaço de nomes dos Hubs de Eventos e um hub de eventos com o portal do Azure).
 - Para começar a utilizar o Service Bus, veja [Criar um espaço de nomes do Service Bus com o portal do Azure](../service-bus-messaging/service-bus-create-namespace-portal.md).

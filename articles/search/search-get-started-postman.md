@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: criar um índice de pesquisa no postmaster usando APIs REST-Azure Search'
-description: Saiba como chamar as APIs REST do Azure Search usando o post e definições e dados de exemplo.
+title: 'Início rápido: criar um índice de pesquisa no postmaster usando APIs REST'
+titleSuffix: Azure Cognitive Search
+description: Saiba como chamar as APIs REST do Azure Pesquisa Cognitiva usando o postmaster e definições e dados de exemplo.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: ffa20599ae57908f9b0ea848ab68f41a3d0e2a14
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: 00d1122a8b56237eeb20892ad05cdbbcbe247510
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72176038"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792288"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-postman-using-rest-apis"></a>Início rápido: criar um índice de Azure Search no postmaster usando APIs REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no postmaster usando APIs REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "72176038"
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Uma das maneiras mais fáceis de explorar as [APIs REST Azure Search](https://docs.microsoft.com/rest/api/searchservice) está usando o postmaster ou outra ferramenta de teste da Web para formular solicitações HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
+Uma das maneiras mais fáceis de explorar as [APIs REST do Azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice) está usando o postmaster ou outra ferramenta de teste da Web para formular solicitações HTTP e inspecionar as respostas. Com as ferramentas certas e estas instruções, pode enviar pedidos e ver respostas antes de escrever código.
 
 Este artigo explica como formular solicitações interativamente. Como alternativa, você pode [baixar e importar uma coleção de postmaster](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) para usar solicitações predefinidas.
 
@@ -35,13 +35,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Os seguintes serviços e ferramentas são necessários para este guia de início rápido. 
 
-+ O [aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) é usado para enviar solicitações para Azure Search.
++ O [aplicativo de área de trabalho do postmaster](https://www.getpostman.com/) é usado para enviar solicitações para o Azure pesquisa cognitiva.
 
-+ [Crie um serviço de Azure Search](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido. 
++ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
-As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
+As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Pesquisa Cognitiva à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
@@ -51,9 +51,9 @@ As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos
 
 Todas as solicitações exigem uma chave de API em cada solicitação enviada ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="connect-to-azure-search"></a>Conectar-se ao Azure Search
+## <a name="connect-to-azure-cognitive-search"></a>Conectar-se ao Azure Pesquisa Cognitiva
 
-Nesta seção, use a ferramenta da Web de sua escolha para configurar conexões com Azure Search. Cada ferramenta mantém informações de cabeçalho de solicitação para a sessão, o que significa que você só precisa inserir a chave de API e o tipo de conteúdo uma vez.
+Nesta seção, use a ferramenta da Web de sua escolha para configurar conexões com o Azure Pesquisa Cognitiva. Cada ferramenta mantém informações de cabeçalho de solicitação para a sessão, o que significa que você só precisa inserir a chave de API e o tipo de conteúdo uma vez.
 
 Para qualquer ferramenta, você precisa escolher um comando (GET, POST, PUT e assim por diante), fornecer um ponto de extremidade de URL e, para algumas tarefas, fornecer JSON no corpo da solicitação. Substitua o nome do serviço de pesquisa (YOUR-SEARCH-SERVICE-NAME) por um valor válido. Adicione `$select=name` para retornar apenas o nome de cada índice. 
 
@@ -61,18 +61,18 @@ Para qualquer ferramenta, você precisa escolher um comando (GET, POST, PUT e as
 
 Observe o prefixo HTTPS, o nome do serviço, o nome de um objeto (nesse caso, a coleção de índices) e a versão de [API](search-api-versions.md). A versão de API é uma cadeia de caracteres obrigatória e em minúsculas especificada como `?api-version=2019-05-06` para a versão atual. As versões de API são atualizadas regularmente. Incluir a versão de api em cada pedido dá-lhe controlo total sobre qual das versões é utilizada.  
 
-A composição de cabeçalho de solicitação inclui dois elementos, tipo de conteúdo, mais a chave de API usada para autenticar para Azure Search. Substitua a chave de API de administração (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por um valor válido. 
+A composição de cabeçalho de solicitação inclui dois elementos, tipo de conteúdo, mais a chave de API usada para autenticar no Azure Pesquisa Cognitiva. Substitua a chave de API de administração (YOUR-AZURE-SEARCH-ADMIN-API-KEY) por um valor válido. 
 
     api-key: <YOUR-AZURE-SEARCH-ADMIN-API-KEY>
     Content-Type: application/json
 
-No postmaster, formule uma solicitação semelhante à captura de tela a seguir. Escolha **obter** como o verbo, forneça a URL e clique em **Enviar**. Esse comando conecta-se a Azure Search, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
+No postmaster, formule uma solicitação semelhante à captura de tela a seguir. Escolha **obter** como o verbo, forneça a URL e clique em **Enviar**. Esse comando conecta-se ao Azure Pesquisa Cognitiva, lê a coleção de índices e retorna o código de status HTTP 200 em uma conexão bem-sucedida. Se o seu serviço já tiver índices, a resposta também incluirá definições de índice.
 
 ![URL e cabeçalho da solicitação do postmaster](media/search-get-started-postman/postman-url.png "URL e cabeçalho da solicitação do postmaster")
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
-Em Azure Search, geralmente você cria o índice antes de carregá-lo com os dados. A [API REST criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é usada para esta tarefa. 
+No Azure Pesquisa Cognitiva, você geralmente cria o índice antes de carregá-lo com dados. A [API REST criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index) é usada para esta tarefa. 
 
 A URL é estendida para incluir o nome do índice `hotels`.
 
@@ -126,7 +126,7 @@ Quando submete este pedido, deverá receber uma resposta HTTP 201, que indica qu
 
 ## <a name="2---load-documents"></a>2-carregar documentos
 
-A criação e o preenchimento do índice são dois passos distintos. No Azure Search, o índice contém todos os dados pesquisáveis, que pode fornecer como documentos JSON. A [API REST adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é usada para esta tarefa. 
+A criação e o preenchimento do índice são dois passos distintos. No Azure Pesquisa Cognitiva, o índice contém todos os dados pesquisáveis, que você pode fornecer como documentos JSON. A [API REST adicionar, atualizar ou excluir documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) é usada para esta tarefa. 
 
 A URL é estendida para incluir as coleções `docs` e a operação `index`.
 
@@ -301,4 +301,4 @@ Se você estiver usando um serviço gratuito, lembre-se de que você está limit
 Agora que você sabe como executar tarefas básicas, pode avançar com chamadas adicionais à API REST para obter recursos mais avançados, como indexadores ou [configurar um pipeline de pesquisa cognitiva](cognitive-search-tutorial-blob.md). Para a próxima etapa, recomendamos o seguinte link:
 
 > [!div class="nextstepaction"]
-> [Tutorial de REST: indexe e pesquise dados semiestruturados (BLOBs JSON) no Azure Search](search-semi-structured-data.md)
+> [Tutorial de REST: indexe e pesquise dados semiestruturados (BLOBs JSON) no Azure Pesquisa Cognitiva](search-semi-structured-data.md)

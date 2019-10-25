@@ -1,22 +1,22 @@
 ---
-title: 'Início rápido: criar um índice de pesquisa em Java usando APIs REST-Azure Search'
-description: Explica como criar um índice, carregar dados e executar consultas usando Java e as APIs REST do Azure Search.
+title: 'Início rápido: criar um índice de pesquisa em Java usando APIs REST'
+titleSuffix: Azure Cognitive Search
+description: Explica como criar um índice, carregar dados e executar consultas usando Java e as APIs REST do Azure Pesquisa Cognitiva.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
-ms.service: search
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 3f424f03f72e288994b05c4559bd42e6429760a8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166251"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792803"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>Início rápido: criar um índice de Azure Search em Java usando APIs REST
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure em Java usando APIs REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "72166251"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Crie um aplicativo de console Java que cria, carrega e consulta um índice do Azure Search usando [IntelliJ](https://www.jetbrains.com/idea/), [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable)e a [API REST do serviço de Azure Search](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
+Crie um aplicativo de console Java que cria, carrega e consulta um índice de Pesquisa Cognitiva do Azure usando o [IntelliJ](https://www.jetbrains.com/idea/), o [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable)e a [API REST do Azure pesquisa cognitiva](/rest/api/searchservice/). Este artigo fornece instruções passo a passo para a criação do aplicativo. Como alternativa, você pode [baixar e executar o aplicativo completo](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -38,17 +38,17 @@ Usamos o software e os serviços a seguir para criar e testar este exemplo:
 
 + [SDK do Java 11](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Crie um serviço de Azure Search](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido.
++ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar um serviço gratuito para este guia de início rápido.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
-Chamadas para o serviço exigem um ponto de extremidade de URL e uma chave de acesso em cada solicitação. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
+Chamadas para o serviço exigem um ponto de extremidade de URL e uma chave de acesso em cada solicitação. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Pesquisa Cognitiva à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-2. Em **configurações**@no__t **-1,** obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+2. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
    Crie uma chave de consulta também. É uma prática recomendada emitir solicitações de consulta com acesso somente leitura.
 
@@ -133,9 +133,9 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 ### <a name="set-up-the-project-structure"></a>Configurar a estrutura do projeto
 
 1. Selecione **arquivo** > **estrutura do projeto**.
-1. Selecione **módulos**e expanda a árvore de origem para acessar o conteúdo da pasta `src` @ no__t-2 @ no__t-3.
-1. Na pasta `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4, adicione as pastas `app` e `service`. Para fazer isso, selecione a pasta `java`, pressione ALT + Inserir e insira o nome da pasta.
-1. Na pasta `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4, adicione as pastas `app` e `service`.
+1. Selecione **módulos**e expanda a árvore de origem para acessar o conteúdo da pasta `src` >  `main`.
+1. Na pasta `src` >  `main` > `java`, adicione `app` e `service` pastas. Para fazer isso, selecione a pasta `java`, pressione ALT + Inserir e insira o nome da pasta.
+1. Na pasta `src` >  `main` >`resources`, adicione `app` e `service` pastas.
 
     Quando terminar, a árvore do projeto deverá ser parecida com a imagem a seguir.
 
@@ -143,9 +143,9 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 
 1. Clique em **OK** para fechar a janela.
 
-### <a name="add-azure-search-service-information"></a>Adicionar informações do serviço Azure Search
+### <a name="add-azure-cognitive-search-service-information"></a>Adicionar informações do serviço de Pesquisa Cognitiva do Azure
 
-1. Na janela do **projeto** , expanda a árvore de origem para acessar a pasta `src` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 e adicione um arquivo `config.properties`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
+1. Na janela do **projeto** , expanda a árvore de origem para acessar a pasta `src` >  `main` >`resources` > `app` e adicione um arquivo `config.properties`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
 
 1. Copie as configurações a seguir no novo arquivo e substitua `<YOUR-SEARCH-SERVICE-NAME>`, `<YOUR-ADMIN-KEY>` e `<YOUR-QUERY-KEY>` pelo nome do serviço e pelas chaves. Se o ponto de extremidade de serviço for `https://mydemo.search.windows.net`, o nome do serviço será "mydemo".
 
@@ -159,7 +159,7 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 
 ### <a name="add-the-main-method"></a>Adicionar o método Main
 
-1. Na pasta `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6, adicione uma classe `App`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **classe Java**e, em seguida, digite o nome da classe.
+1. Na pasta `src` >  `main` > `java` > `app`, adicione uma classe `App`. Para fazer isso, selecione a pasta `app`, pressione Alt + Insert, selecione **classe Java**e, em seguida, digite o nome da classe.
 1. Abra a classe `App` e substitua o conteúdo pelo código a seguir. Esse código contém o método `main`. 
 
     O código não comentado lê os parâmetros do serviço de pesquisa e os usa para criar uma instância do cliente do serviço de pesquisa. O código do cliente do serviço de pesquisa será adicionado na próxima seção.
@@ -258,8 +258,8 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 
 ### <a name="add-the-http-operations"></a>Adicionar as operações HTTP
 
-1. Na pasta `src` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6, adicione uma classe @ no__t-7. Para fazer isso, selecione a pasta `service`, pressione Alt + Insert, selecione **classe Java**e, em seguida, digite o nome da classe.
-1. Abra a classe `SearchServiceClient` e substitua o conteúdo pelo código a seguir. Esse código fornece as operações HTTP necessárias para usar a API REST do Azure Search. Métodos adicionais para criar um índice, carregar documentos e consultar o índice serão adicionados em uma seção posterior.
+1. Na pasta `src` >  `main` > `java` > `service`, adicione uma classe`SearchServiceClient`. Para fazer isso, selecione a pasta `service`, pressione Alt + Insert, selecione **classe Java**e, em seguida, digite o nome da classe.
+1. Abra a classe `SearchServiceClient` e substitua o conteúdo pelo código a seguir. Esse código fornece as operações HTTP necessárias para usar a API REST do Azure Pesquisa Cognitiva. Métodos adicionais para criar um índice, carregar documentos e consultar o índice serão adicionados em uma seção posterior.
 
     ```java
     package main.java.service;
@@ -374,7 +374,8 @@ Comece abrindo IntelliJ IDEA e configurando um novo projeto.
 
     ![Estrutura do diretório do projeto](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
-1. Abra a janela de ferramentas do **Maven** e execute esta meta do maven: `verify exec:java` @ no__t-2 @ No__t-3Execute Maven meta: Verify exec: Java @ no__t-4
+1. Abra a janela de ferramentas do **Maven** e execute esta meta do maven: `verify exec:java`
+![executar a meta do Maven: Verify exec: Java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)
 
 Quando o processamento for concluído, procure uma mensagem de êxito de compilação seguida por um código de saída zero (0).
 
@@ -382,7 +383,7 @@ Quando o processamento for concluído, procure uma mensagem de êxito de compila
 
 A definição do índice de hotéis contém campos simples e um campo complexo. Exemplos de um campo simples são "Hotelname" ou "Description". O campo "endereço" é um campo complexo porque tem subcampos, como "endereço" e "cidade". Neste guia de início rápido, a definição do índice é especificada usando JSON.
 
-1. Na janela do **projeto** , expanda a árvore de origem para acessar a pasta `src` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 e adicione um arquivo `index.json`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
+1. Na janela do **projeto** , expanda a árvore de origem para acessar o `src` >  `main` >`resources` > pasta e adicione um arquivo`service`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
 
 1. Abra o arquivo `index.json` e insira a definição de índice a seguir.
 
@@ -511,9 +512,9 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
 
     O nome do índice será "Hotéis-início rápido". Os atributos nos campos de índice determinam como os dados indexados podem ser pesquisados em um aplicativo. Por exemplo, o atributo `IsSearchable` deve ser atribuído a cada campo que deve ser incluído em uma pesquisa de texto completo. Para saber mais sobre atributos, confira [campos de coleção e de campo](search-what-is-an-index.md#fields-collection).
     
-    O campo `Description` neste índice usa a propriedade opcional `analyzer` para substituir o analisador de idioma padrão do Lucene. O campo `Description_fr` está usando o analisador Lucene francês `fr.lucene` porque ele armazena texto em francês. O `Description` está usando o Microsoft Language Analyzer en. Lucene opcional. Para saber mais sobre analisadores, consulte [analisadores para processamento de texto em Azure Search](search-analyzers.md).
+    O campo `Description` neste índice usa a propriedade opcional `analyzer` para substituir o analisador de idioma padrão do Lucene. O campo `Description_fr` está usando a `fr.lucene` do analisador Lucene francês porque armazena texto em francês. O `Description` está usando o Microsoft Language Analyzer en. Lucene opcional. Para saber mais sobre analisadores, consulte [analisadores para processamento de texto no Azure pesquisa cognitiva](search-analyzers.md).
 
-1. Adicione o código a seguir à classe `SearchServiceClient`. Esses métodos criam Azure Search URLs de serviço REST que criam e excluem um índice, e que determinam se existe um índice. Os métodos também fazem a solicitação HTTP.
+1. Adicione o código a seguir à classe `SearchServiceClient`. Esses métodos criam URLs do serviço REST do Azure Pesquisa Cognitiva que criam e excluem um índice, e que determinam se existe um índice. Os métodos também fazem a solicitação HTTP.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -569,7 +570,7 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
     
 ## <a name="2---load-documents"></a>2-carregar documentos
 
-1. Na janela do **projeto** , expanda a árvore de origem para acessar a pasta `src` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 e adicione um arquivo `hotels.json`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
+1. Na janela do **projeto** , expanda a árvore de origem para acessar o `src` >  `main` >`resources` > pasta e adicione um arquivo`service`. Para fazer isso, selecione a pasta `app`, pressione ALT + Inserir, selecione **arquivo**e, em seguida, insira o nome do arquivo.
 1. Insira os seguintes documentos do hotel no arquivo.
 
     ```json
@@ -693,9 +694,9 @@ A definição do índice de hotéis contém campos simples e um campo complexo. 
 
 Agora que você carregou os documentos de hotéis, pode criar consultas de pesquisa para acessar os dados de hotéis.
 
-1. Adicione o código a seguir à classe `SearchServiceClient`. Esse código cria Azure Search URLs de serviço REST para pesquisar os dados indexados e imprime os resultados da pesquisa.
+1. Adicione o código a seguir à classe `SearchServiceClient`. Esse código cria as URLs do serviço REST do Azure Pesquisa Cognitiva para pesquisar os dados indexados e imprime os resultados da pesquisa.
 
-    A classe `SearchOptions` e o método `createSearchOptions` permitem especificar um subconjunto das opções de consulta da API REST Azure Search disponíveis. Para obter mais informações sobre as opções de consulta da API REST, consulte [Pesquisar documentos (Azure Search API REST do serviço)](/rest/api/searchservice/search-documents).
+    A classe `SearchOptions` e o método `createSearchOptions` permitem especificar um subconjunto das opções de consulta da API REST do Azure Pesquisa Cognitiva disponíveis. Para obter mais informações sobre as opções de consulta da API REST, consulte [Pesquisar documentos (API REST do Azure pesquisa cognitiva)](/rest/api/searchservice/search-documents).
 
     O método `SearchPlus` cria a URL de consulta de pesquisa, faz a solicitação de pesquisa e, em seguida, imprime os resultados no console. 
 

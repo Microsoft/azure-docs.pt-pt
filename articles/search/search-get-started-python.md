@@ -1,22 +1,23 @@
 ---
-title: 'Início rápido: Criar um índice de pesquisa no Python usando APIs REST-Azure Search'
-description: Explica como criar um índice, carregar dados e executar consultas usando Python, notebooks Jupyter e a API REST do Azure Search.
-ms.date: 09/10/2019
+title: 'Início rápido: criar um índice de pesquisa no Python usando APIs REST'
+titleSuffix: Azure Cognitive Search
+description: Explica como criar um índice, carregar dados e executar consultas usando Python, notebooks Jupyter e a API REST do Azure Pesquisa Cognitiva.
 author: heidisteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: 273cd690c56ef01b4fd38398aaef85570dd758a2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881548"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792266"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>Início rápido: Criar um índice de Azure Search no Python usando notebooks Jupyter
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Início rápido: criar um índice de Pesquisa Cognitiva do Azure no Python usando notebooks Jupyter
+
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
 > * [PowerShell (REST)](search-create-index-rest-api.md)
@@ -25,7 +26,7 @@ ms.locfileid: "70881548"
 > * [Portal](search-create-index-portal.md)
 > 
 
-Crie um bloco de anotações Jupyter que cria, carrega e consulta um índice de Azure Search usando Python e as [APIs REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de anotações passo a passo. Como alternativa, você pode [baixar e executar um notebook Jupyter Python concluído](https://github.com/Azure-Samples/azure-search-python-samples).
+Crie um bloco de anotações Jupyter que cria, carrega e consulta um índice de Pesquisa Cognitiva do Azure usando Python e as [APIs REST do azure pesquisa cognitiva](https://docs.microsoft.com/rest/api/searchservice/). Este artigo explica como criar um bloco de anotações passo a passo. Como alternativa, você pode [baixar e executar um notebook Jupyter Python concluído](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -35,23 +36,23 @@ Os seguintes serviços e ferramentas são necessários para este guia de início
 
 + [Anaconda 3. x](https://www.anaconda.com/distribution/#download-section), fornecendo blocos de anotações do Python 3. x e do Jupyter.
 
-+ [Crie um serviço de Azure Search](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar a camada gratuita para este guia de início rápido. 
++ [Crie um serviço de pesquisa cognitiva do Azure](search-create-service-portal.md) ou [Localize um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) em sua assinatura atual. Você pode usar a camada gratuita para este guia de início rápido. 
 
 ## <a name="get-a-key-and-url"></a>Obter uma chave e uma URL
 
-As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. É criado um serviço de pesquisa com ambos os elementos, pelo que, se tiver adicionado o Azure Search à sua subscrição, siga estes passos para obter as informações necessárias:
+As chamadas à API precisam do URL de serviço e de uma chave de acesso em todos os pedidos. Um serviço de pesquisa é criado com ambos, portanto, se você adicionou o Azure Pesquisa Cognitiva à sua assinatura, siga estas etapas para obter as informações necessárias:
 
 1. [Entre no portal do Azure](https://portal.azure.com/)e, em sua página de **visão geral** do serviço de pesquisa, obtenha a URL. Um ponto final de exemplo poderá ser parecido com `https://mydemo.search.windows.net`.
 
-1. Em **configurações** > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
+1. Em **configurações**  > **chaves**, obtenha uma chave de administração para obter direitos totais sobre o serviço. Há duas chaves de administração intercambiáveis, fornecidas para a continuidade dos negócios, caso você precise fazer uma sobreposição. Você pode usar a chave primária ou secundária em solicitações para adicionar, modificar e excluir objetos.
 
-![Obter um ponto de extremidade http e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade http e uma chave de acesso")
+![Obter um ponto de extremidade HTTP e uma chave de acesso](media/search-get-started-postman/get-url-key.png "Obter um ponto de extremidade HTTP e uma chave de acesso")
 
 Todas as solicitações exigem uma chave de API em cada solicitação enviada ao seu serviço. Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
-## <a name="connect-to-azure-search"></a>Conectar-se ao Azure Search
+## <a name="connect-to-azure-cognitive-search"></a>Conectar-se ao Azure Pesquisa Cognitiva
 
-Nesta tarefa, inicie um notebook Jupyter e verifique se você pode se conectar ao Azure Search. Você fará isso solicitando uma lista de índices do seu serviço. No Windows com Anaconda3, você pode usar o Anaconda Navigator para iniciar um bloco de anotações.
+Nesta tarefa, inicie um notebook Jupyter e verifique se você pode se conectar ao Azure Pesquisa Cognitiva. Você fará isso solicitando uma lista de índices do seu serviço. No Windows com Anaconda3, você pode usar o Anaconda Navigator para iniciar um bloco de anotações.
 
 1. Crie um novo notebook Python3.
 
@@ -72,7 +73,7 @@ Nesta tarefa, inicie um notebook Jupyter e verifique se você pode se conectar a
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
 
-   Se você receber ConnectionError `"Failed to establish a new connection"`, verifique se a chave de API é uma chave de administração primária ou secundária e se todos os caracteres à esquerda e à`?` direita `/`(e) estão em vigor.
+   Se você receber ConnectionError `"Failed to establish a new connection"`, verifique se a chave de API é uma chave de administração primária ou secundária e se todos os caracteres à esquerda e à direita (`?` e `/`) estão em vigor.
 
 1. Na terceira célula, Formule a solicitação. Essa solicitação GET visa a coleção de índices do serviço de pesquisa e seleciona a propriedade nome dos índices existentes.
 
@@ -85,9 +86,9 @@ Nesta tarefa, inicie um notebook Jupyter e verifique se você pode se conectar a
 
 1. Execute cada etapa. Se houver índices, a resposta conterá uma lista de nomes de índice. Na captura de tela abaixo, o serviço já tem um índice azureblob e realestate-US-Sample.
 
-   ![Script Python no notebook Jupyter com solicitações HTTP para Azure Search](media/search-get-started-python/connect-azure-search.png "Script Python no notebook Jupyter com solicitações HTTP para Azure Search")
+   ![Script Python no notebook Jupyter com solicitações HTTP para o Azure Pesquisa Cognitiva](media/search-get-started-python/connect-azure-search.png "Script Python no notebook Jupyter com solicitações HTTP para o Azure Pesquisa Cognitiva")
 
-   Por outro lado, uma coleção de índice vazia retorna essa resposta:`{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
+   Por outro lado, uma coleção de índice vazia retorna esta resposta: `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
 ## <a name="1---create-an-index"></a>1 - Criar um índice
 
@@ -251,7 +252,7 @@ Para enviar documentos por push, use uma solicitação HTTP POST para o ponto de
 
 Esta etapa mostra como consultar um índice usando a [API REST pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
-1. Em uma célula, forneça uma expressão de consulta que execute uma pesquisa vazia (Search = *), retornando uma lista não classificada (Pontuação de pesquisa = 1,0) de documentos arbitrários. Por padrão, Azure Search retorna 50 correspondências por vez. Como estruturado, essa consulta retorna uma estrutura de documento inteira e valores. Adicione $count = true para obter uma contagem de todos os documentos nos resultados.
+1. Em uma célula, forneça uma expressão de consulta que execute uma pesquisa vazia (Search = *), retornando uma lista não classificada (Pontuação de pesquisa = 1,0) de documentos arbitrários. Por padrão, o Azure Pesquisa Cognitiva retorna 50 correspondências por vez. Como estruturado, essa consulta retorna uma estrutura de documento inteira e valores. Adicione $count = true para obter uma contagem de todos os documentos nos resultados.
 
    ```python
    searchstring = '&search=*&$count=true'
@@ -276,7 +277,7 @@ Esta etapa mostra como consultar um índice usando a [API REST pesquisar documen
 
     ![Pesquisar um índice](media/search-get-started-python/search-index.png "Pesquisar um índice")
 
-1. Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. Você pode substituir o `searchstring` com os exemplos a seguir e, em seguida, executar novamente a solicitação de pesquisa. 
+1. Experimente alguns outros exemplos de consulta para ter uma ideia da sintaxe. Você pode substituir o `searchstring` pelos exemplos a seguir e, em seguida, executar novamente a solicitação de pesquisa. 
 
    Aplicar um filtro: 
 
@@ -304,9 +305,9 @@ Você pode encontrar e gerenciar recursos no portal, usando o link **todos os re
 
 Se você estiver usando um serviço gratuito, lembre-se de que você está limitado a três índices, indexadores e fontes de dados. Você pode excluir itens individuais no portal para permanecer abaixo do limite. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Como uma simplificação, este guia de início rápido usa uma versão abreviada do índice de hotéis. Você pode criar a versão completa para experimentar consultas mais interessantes. Para obter a versão completa e todos os documentos 50, execute o assistente de **importação de dados** , selecionando *Hotéis – exemplo* das fontes de dados de exemplo internas.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um índice no portal do Azure](search-get-started-portal.md)
+> [Início rápido: criar um índice no portal do Azure](search-get-started-portal.md)

@@ -1,30 +1,29 @@
 ---
-title: 'Início rápido: Criar um serviço de Azure Search no portal-Azure Search'
-description: Provisionar um recurso de Azure Search no portal do Azure. Escolha grupos de recursos, regiões e a SKU ou tipo de preço.
+title: 'Início rápido: criar um serviço de Pesquisa Cognitiva do Azure no portal'
+titleSuffix: Azure Cognitive Search
+description: Provisione um recurso de pesquisa AzureCognitive no portal do Azure. Escolha grupos de recursos, regiões e a SKU ou tipo de preço.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 21f55805e0486d987922a1aa160f2938f3a50155
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883850"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792438"
 ---
-# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>Início rápido: Criar um serviço do Azure Search no portal
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Início rápido: criar um serviço de Pesquisa Cognitiva do Azure no portal
 
-Azure Search é um recurso autônomo usado para conectar uma experiência de pesquisa em aplicativos personalizados. Embora Azure Search se integre facilmente com outros serviços do Azure, você também pode usá-lo como um componente autônomo, ou integrá-lo a aplicativos em servidores de rede ou com software em execução em outras plataformas de nuvem.
+O Azure Pesquisa Cognitiva é um recurso autônomo usado para conectar uma experiência de pesquisa em aplicativos personalizados. Embora o Azure Pesquisa Cognitiva se integre facilmente com outros serviços do Azure, você também pode usá-lo como um componente autônomo, ou integrá-lo a aplicativos em servidores de rede ou com software em execução em outras plataformas de nuvem.
 
-Neste artigo, saiba como criar um recurso de Azure Search no [portal do Azure](https://portal.azure.com/).
+Neste artigo, saiba como criar um recurso de Pesquisa Cognitiva do Azure no [portal do Azure](https://portal.azure.com/).
 
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
-Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda com a introdução, consulte [gerenciar o Azure Search com o PowerShell](search-manage-powershell.md).
+Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda com a introdução, consulte [gerenciar o Azure pesquisa cognitiva com o PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 
@@ -32,23 +31,23 @@ Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com
 
 Em alternativa, [ative os benefícios do subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). Uma subscrição do MSDN dá-lhe créditos todos os meses que pode utilizar em serviços pagos do Azure. 
 
-## <a name="find-azure-search"></a>Localizar o Azure Search
+## <a name="find-azure-cognitive-search"></a>Localizar Pesquisa Cognitiva do Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique no sinal de adição ("+ criar recurso") no canto superior esquerdo.
-3. Use a barra de pesquisa para localizar "Azure Search" ou navegue até o recurso por meio da**Azure Search** **da Web** > .
+3. Use a barra de pesquisa para localizar "Azure Pesquisa Cognitiva" ou navegue até o recurso por meio **da Web** > **Azure pesquisa cognitiva**.
 
-![Navegar para um recurso de Azure Search](./media/search-create-service-portal/find-search3.png "Caminho de navegação para Azure Search")
+![Navegar até um recurso de Pesquisa Cognitiva do Azure](./media/search-create-service-portal/find-search3.png "Caminho de navegação para o Azure Pesquisa Cognitiva")
 
-## <a name="select-a-subscription"></a>Selecione uma subscrição
+## <a name="select-a-subscription"></a>Selecionar uma subscrição
 
-Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. Azure Search pode detectar automaticamente o armazenamento de tabelas e BLOBs do Azure, banco de dados SQL e Azure Cosmos DB para indexação por meio de [*indexadores*](search-indexer-overview.md), mas somente para serviços na mesma assinatura.
+Se tiver mais do que uma subscrição, escolha uma que tenha também serviços de armazenamento de dados ou ficheiros. O Azure Pesquisa Cognitiva pode detectar automaticamente o armazenamento de tabelas e BLOBs do Azure, banco de dados SQL e Azure Cosmos DB para indexação por meio de [*indexadores*](search-indexer-overview.md), mas somente para serviços na mesma assinatura.
 
 ## <a name="set-a-resource-group"></a>Definir um grupo de recursos
 
-Um grupo de recursos é necessário e é útil para gerenciar todos os recursos, incluindo o gerenciamento de custos. Um grupo de recursos pode consistir em um serviço ou em vários serviços usados juntos. Por exemplo, se você estiver usando Azure Search para indexar um banco de dados de Azure Cosmos DB, poderá fazer com que ambos os serviços façam parte do mesmo grupo de recursos para fins de gerenciamento. 
+Um grupo de recursos é necessário e é útil para gerenciar todos os recursos, incluindo o gerenciamento de custos. Um grupo de recursos pode consistir em um serviço ou em vários serviços usados juntos. Por exemplo, se você estiver usando o Azure Pesquisa Cognitiva para indexar um banco de dados de Azure Cosmos DB, poderá fazer com que ambos os serviços façam parte do mesmo grupo de recursos para fins de gerenciamento. 
 
-Se você não estiver combinando recursos em um único grupo ou se os grupos de recursos existentes estiverem preenchidos com recursos usados em soluções não relacionadas, crie um novo grupo de recursos apenas para o recurso de Azure Search. 
+Se você não estiver combinando recursos em um único grupo ou se os grupos de recursos existentes forem preenchidos com recursos usados em soluções não relacionadas, crie um novo grupo de recursos apenas para o recurso de Pesquisa Cognitiva do Azure. 
 
 Ao usar o serviço, você pode acompanhar os custos atuais e projetados em todas as distâncias (conforme mostrado na captura de tela) ou rolar para baixo para exibir os encargos de recursos individuais.
 
@@ -59,7 +58,7 @@ Ao usar o serviço, você pode acompanhar os custos atuais e projetados em todas
 
 ## <a name="name-the-service"></a>Nomear o serviço
 
-Em detalhes da instância, forneça um nome de serviço no campo **URL** . O nome faz parte do ponto de extremidade da URL para o qual as chamadas `https://your-service-name.search.windows.net`à API são emitidas:. Por exemplo, se você quiser que o ponto de `https://myservice.search.windows.net`extremidade seja, você `myservice`deve inserir.
+Em detalhes da instância, forneça um nome de serviço no campo **URL** . O nome faz parte do ponto de extremidade da URL para o qual as chamadas à API são emitidas: `https://your-service-name.search.windows.net`. Por exemplo, se você quiser que o ponto de extremidade seja `https://myservice.search.windows.net`, insira `myservice`.
 
 Requisitos do nome do serviço:
 
@@ -70,22 +69,22 @@ Requisitos do nome do serviço:
 * Sem hífenes consecutivos ("-") em qualquer parte
 
 > [!TIP]
-> Se você acha que usará vários serviços, recomendamos incluir a região (ou o local) no nome do serviço como uma Convenção de nomenclatura. Os serviços na mesma região podem trocar dados sem custos, portanto, se Azure Search estiver no oeste dos EUA, e se você tiver outros serviços também no oeste dos EUA, `mysearchservice-westus` um nome como pode poupar uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
+> Se você acha que usará vários serviços, recomendamos incluir a região (ou o local) no nome do serviço como uma Convenção de nomenclatura. Os serviços na mesma região podem trocar dados sem custos, portanto, se o Azure Pesquisa Cognitiva estiver no oeste dos EUA e você tiver outros serviços também no oeste dos EUA, um nome como `mysearchservice-westus` poderá poupar uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
 
-## <a name="choose-a-location"></a>Escolher uma localização
+## <a name="choose-a-location"></a>Escolher um local
 
-Como um serviço do Azure, o Azure Search pode ser alojado em datacenters em todo o mundo. A lista de regiões com suporte pode ser encontrada na [página de preços](https://azure.microsoft.com/pricing/details/search/). 
+Como um serviço do Azure, o Azure Pesquisa Cognitiva pode ser hospedado em data centers em todo o mundo. A lista de regiões com suporte pode ser encontrada na [página de preços](https://azure.microsoft.com/pricing/details/search/). 
 
-Você pode minimizar ou evitar encargos de largura de banda escolhendo o mesmo local para vários serviços. Por exemplo, se você estiver indexando os dados fornecidos por outro serviço do Azure (armazenamento do Azure, Azure Cosmos DB, Azure SQL Database), a criação de seu serviço de Azure Search na mesma região evita cobranças de largura de banda (não há encargos para dados de saída quando os serviços estão em a mesma região).
+Você pode minimizar ou evitar encargos de largura de banda escolhendo o mesmo local para vários serviços. Por exemplo, se você estiver indexando os dados fornecidos por outro serviço do Azure (armazenamento do Azure, Azure Cosmos DB, Azure SQL Database), criar seu serviço de Pesquisa Cognitiva do Azure na mesma região evitará encargos de largura de banda (não há encargos para dados de saída quando os serviços estão na mesma região).
 
-Além disso, se você estiver usando os aprimoramentos de AI de pesquisa cognitiva, crie seu serviço na mesma região que o recurso de serviços cognitivas. A *colocalização de Azure Search e serviços cognitivas na mesma região é um requisito para o enriquecimento de ia*.
+Além disso, se você estiver usando os aprimoramentos de AI de pesquisa cognitiva, crie seu serviço na mesma região que o recurso de serviços cognitivas. A *colocalização do Azure pesquisa cognitiva e serviços cognitivas na mesma região é um requisito para o enriquecimento de ia*.
 
 > [!Note]
 > A Índia central não está disponível no momento para novos serviços. Para serviços que já estão na Índia central, você pode escalar verticalmente sem restrições e o serviço tem suporte total nessa região. A restrição nessa região é temporária e limitada apenas a novos serviços. Removeremos esta observação quando a restrição não se aplicar mais.
 
 ## <a name="choose-a-pricing-tier-sku"></a>Escolher um tipo de preço (SKU)
 
-O [Azure Search atualmente é oferecido em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): Gratuito, básico ou Standard. Cada escalão tem a sua própria [capacidade e limites](search-limits-quotas-capacity.md). Veja [Escolher um escalão de preço ou SKU](search-sku-tier.md) para obter orientações.
+[Atualmente, o Azure pesquisa cognitiva é oferecido em vários tipos de preço](https://azure.microsoft.com/pricing/details/search/): gratuito, básico ou Standard. Cada escalão tem a sua própria [capacidade e limites](search-limits-quotas-capacity.md). Veja [Escolher um escalão de preço ou SKU](search-sku-tier.md) para obter orientações.
 
 Básico e standard são as opções mais comuns para cargas de trabalho de produção, mas a maioria dos clientes começa com o serviço gratuito. As principais diferenças entre as camadas são o tamanho e a velocidade da partição e os limites do número de objetos que você pode criar.
 
@@ -111,11 +110,11 @@ A menos que você esteja usando o portal, o acesso programático ao seu novo ser
 
    ![Página Visão geral do serviço com ponto de extremidade de URL](./media/search-create-service-portal/get-url-key.png "Ponto de extremidade de URL e outros detalhes do serviço")
 
-Um ponto de extremidade e uma chave não são necessários para tarefas baseadas no Portal. O portal já está vinculado ao recurso de Azure Search com direitos de administrador. Para obter uma explicação do portal, [comece com o início rápido: Crie um índice de Azure Search no portal](search-get-started-portal.md).
+Um ponto de extremidade e uma chave não são necessários para tarefas baseadas no Portal. O portal já está vinculado ao recurso de Pesquisa Cognitiva do Azure com direitos de administrador. Para obter uma explicação do portal, comece com o [início rápido: criar um índice de pesquisa cognitiva do Azure no portal](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Dimensionar o serviço
 
-Depois de o serviço ser aprovisionado, pode dimensioná-lo para satisfazer as suas necessidades. Se você escolher a camada Standard para seu serviço de Azure Search, poderá dimensionar seu serviço em duas dimensões: réplicas e partições. Se tiver escolhido o escalão Básico, apenas pode adicionar réplicas. Se tiver aprovisionado o serviço gratuito, o dimensionamento não está disponível.
+Depois de o serviço ser aprovisionado, pode dimensioná-lo para satisfazer as suas necessidades. Se você escolher a camada Standard para o serviço de Pesquisa Cognitiva do Azure, poderá dimensionar seu serviço em duas dimensões: réplicas e partições. Se tiver escolhido o escalão Básico, apenas pode adicionar réplicas. Se tiver aprovisionado o serviço gratuito, o dimensionamento não está disponível.
 
 As ***partições*** permitem ao serviço armazenar e pesquisar mais documentos.
 
@@ -137,22 +136,22 @@ A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](h
 
 ## <a name="when-to-add-a-second-service"></a>Quando adicionar um segundo serviço
 
-A maioria dos clientes usa apenas um serviço provisionado em uma camada que fornece o [equilíbrio certo de recursos](search-sku-tier.md). Um serviço pode alojar vários índices, sujeitos aos [limites máximos do escalão que selecionar](search-capacity-planning.md), com os índices isolados uns dos outros. No Azure Search, os pedidos só podem ser direcionados para um índice, o que minimiza a possibilidade de obtenção de dados acidental ou intencional a partir de outros índices no mesmo serviço.
+A maioria dos clientes usa apenas um serviço provisionado em uma camada que fornece o [equilíbrio certo de recursos](search-sku-tier.md). Um serviço pode alojar vários índices, sujeitos aos [limites máximos do escalão que selecionar](search-capacity-planning.md), com os índices isolados uns dos outros. No Azure Pesquisa Cognitiva, as solicitações só podem ser direcionadas para um índice, minimizando a possibilidade de recuperação de dados acidental ou intencional de outros índices no mesmo serviço.
 
 Embora a maioria dos clientes utilize apenas um serviço, a redundância de serviços pode ser necessária se os requisitos operacionais incluírem o seguinte:
 
-* Recuperação após desastre (falha do datacenter). O Azure Search não fornece ativação pós-falha instantânea na eventualidade de indisponibilidade. Para obter recomendações e orientações, veja [Administração de serviços](search-manage.md).
+* Recuperação após desastre (falha do datacenter). O Azure Pesquisa Cognitiva não fornece failover instantâneo no caso de uma interrupção. Para obter recomendações e orientações, veja [Administração de serviços](search-manage.md).
 * A investigação de modelação de multi-inquilinos determinou que a conceção ideal é ter serviços adicionais. Para obter mais informações, veja [Conceber para multi-inquilinos](search-modeling-multitenant-saas-applications.md).
-* Para aplicações implementadas globalmente, pode necessitar de uma instância do Azure Search em várias regiões para minimizar a latência do tráfego internacional da sua aplicação.
+* Para aplicativos implantados globalmente, você pode exigir uma instância do Azure Pesquisa Cognitiva em várias regiões para minimizar a latência do tráfego internacional do seu aplicativo.
 
 > [!NOTE]
-> No Azure Search, não é possível separar as operações de indexação e consulta; Portanto, você nunca criaria vários serviços para cargas de trabalho segregas. Um índice é sempre consultado no serviço em que foi criado (não pode criar um índice num serviço e copiá-lo para outro).
+> No Azure Pesquisa Cognitiva, não é possível separar as operações de indexação e consulta; Portanto, você nunca criaria vários serviços para cargas de trabalho segregas. Um índice é sempre consultado no serviço em que foi criado (não pode criar um índice num serviço e copiá-lo para outro).
 
-Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplicas são sequenciais, o que significa que pelo menos uma está operacional quando é implementada uma atualização de serviço. Para obter mais informações sobre o tempo de atividade, veja [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
+Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplica são sequenciais, o que significa que pelo menos uma está operacional quando uma atualização de serviço é distribuída. Para obter mais informações sobre o tempo de atividade, consulte [contratos de nível de serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Depois de provisionar um serviço de Azure Search, você pode continuar no portal para criar seu primeiro índice.
+Depois de provisionar um serviço de Pesquisa Cognitiva do Azure, você pode continuar no portal para criar seu primeiro índice.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um índice de Azure Search no portal](search-get-started-portal.md)
+> [Início rápido: criar um índice de Pesquisa Cognitiva do Azure no portal](search-get-started-portal.md)

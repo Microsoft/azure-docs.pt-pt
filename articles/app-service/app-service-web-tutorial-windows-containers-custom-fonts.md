@@ -10,15 +10,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 10/22/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071506"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787326"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migrar uma aplicação ASP.NET para o Serviço de Aplicações do Azure com um contentor do Windows (Pré-visualização)
 
@@ -90,6 +90,10 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 Pode encontrar _InstallFont.ps1_ no projeto **CustomFontSample**. É um script simples que instala o tipo de letra. Pode encontrar uma versão mais complexa do script no [Centro de Scripts](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
+> [!NOTE]
+> Para testar o contêiner do Windows localmente, verifique se o Docker foi iniciado no computador local.
+>
+
 ## <a name="publish-to-azure-container-registry"></a>Publicar no Azure Container Registry
 
 [O Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) pode armazenar as imagens de implementação de contentores. Pode configurar o Serviço de Aplicações para utilizar imagens alojadas no Azure Container Registry.
@@ -120,7 +124,7 @@ Configure o novo registo de contentor com base nos valores sugeridos na tabela s
 | ----------------- | ------------ | ----|
 |**Prefixo DNS**| Mantenha o nome do registo gerado ou altere-o para outro nome exclusivo. |  |
 |**Grupo de Recursos**| Clique em **Novo**, escreva **myResourceGroup** e clique em **OK**. |  |
-|**SKU**| Básica | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
+|**SKU**| Basic | [Escalões de preços](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Localização do registo**| Europa Ocidental | |
 
 ![Configurar o registo de contentor do Azure](./media/app-service-web-tutorial-windows-containers-custom-fonts/configure-registry.png)
@@ -135,27 +139,34 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 No menu à esquerda, selecione **Criar um recurso** > **Web** > **Aplicação Web para Contentores**.
 
-### <a name="configure-the-new-web-app"></a>Configurar a nova aplicação Web
+### <a name="configure-app-basics"></a>Configurar noções básicas do aplicativo
 
-Na interface de criação, configure as definições de acordo com a tabela seguinte:
+Na guia **noções básicas** , defina as configurações de acordo com a tabela a seguir e clique em **Avançar: Docker**.
 
 | Definição  | Valor sugerido | Para obter mais informações: |
 | ----------------- | ------------ | ----|
-|**Nome da Aplicação**| Escreva um nome exclusivo. | O URL da aplicação Web é `http://<app_name>.azurewebsites.net`, em que `<app_name>` é o nome da aplicação. |
-|**Grupo de Recursos**| Selecione **Utilizar existente** e escreva **myResourceGroup**. |  |
-|**OS**| Windows (Pré-visualização) | |
+|**Subscrição**| Verifique se a assinatura correta está selecionada. |  |
+|**Grupo de Recursos**| Selecione **criar novo**, digite **MyResource**e clique em **OK**. |  |
+|**Nome**| Escreva um nome exclusivo. | O URL da aplicação Web é `http://<app-name>.azurewebsites.net`, em que `<app-name>` é o nome da aplicação. |
+|**Publicar**| Contêiner do Docker | |
+|**Sistema Operacional**| Windows | |
+|**Região**| Europa Ocidental | |
+|**Plano do Windows**| Selecione **criar novo**, digite **myAppServicePlan**e clique em **OK**. | |
 
-### <a name="configure-app-service-plan"></a>Configurar plano do Serviço de Aplicações
+A guia **básico** deve ter esta aparência:
 
-Clique em **Plano do Serviço de Aplicações/Localização** > **Criar novo**. Dê um nome ao plano, selecione **Europa Ocidental** como a localização e clique em **OK**.
+![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-service-plan.png)
+### <a name="configure-windows-container"></a>Configurar o contentor do Windows
 
-### <a name="configure-container"></a>Configurar contentor
+Na guia **Docker** , configure seu contêiner do Windows personalizado conforme mostrado na tabela a seguir e selecione **revisar + criar**.
 
-Clique em **Configurar contentor** > **Azure Container Registry**. Selecione o registo, a imagem e a etiqueta que criou anteriormente em [Publicar no Azure Container Registry](#publish-to-azure-container-registry) e clique em **OK**.
-
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
+| Definição  | Valor sugerido |
+| ----------------- | ------------ |
+|**Origem da imagem**| Registro de contêiner do Azure |
+|**Registry**| Selecione [o registro que você criou anteriormente](#publish-to-azure-container-registry). |
+|**Imagem**| customfontsample |
+|**Tag**| mais recente |
 
 ### <a name="complete-app-creation"></a>Criação de aplicação concluída
 
@@ -183,9 +194,9 @@ Aguarde alguns minutos e tente novamente, até chegar à página de boas-vindas 
 
 ## <a name="see-container-start-up-logs"></a>Ver os registos de arranque do contentor
 
-O contentor do Windows poderá demorar algum tempo até ser carregado. Para ver o progresso, navegue para o seguinte URL, substituindo *\<app_name>* pelo nome da sua aplicação.
+O contentor do Windows poderá demorar algum tempo até ser carregado. Para ver o progresso, navegue até a URL a seguir, substituindo *\<nome do aplicativo >* pelo nome do seu aplicativo.
 ```
-https://<app_name>.scm.azurewebsites.net/api/logstream
+https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
 
 Os registos transmitidos têm o seguinte aspeto:

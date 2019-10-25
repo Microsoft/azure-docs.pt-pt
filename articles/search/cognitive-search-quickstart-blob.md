@@ -1,5 +1,5 @@
 ---
-title: 'Início rápido: Aprenda a aprimoramento de AI de pesquisa cognitiva em portal do Azure Azure Search'
+title: 'Início rápido: Aprenda a aprimoramento do AI de pesquisa cognitiva em portal do Azure-Azure Search'
 description: Capacidade de extração de dados, linguagem natural e processamento de imagem em um Azure Search Portal de indexação, usando o portal do Azure e os dados de exemplo.
 manager: nitinme
 author: HeidiSteen
@@ -8,14 +8,14 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: heidist
-ms.openlocfilehash: 11c58a891a730c57aae3500911741623dde5d51b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: e542d4685829886084bbc8adf6831647b9a1256a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265888"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809666"
 ---
-# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: Criar um pipeline de enriquecimento de ia usando habilidades cognitivas no Azure Search
+# <a name="quickstart-create-an-ai-enrichment-pipeline-using-cognitive-skills-in-azure-search"></a>Início rápido: criar um pipeline de enriquecimento de ia usando habilidades cognitivas no Azure Search
 
 O Azure Search integra-se com [Serviços cognitivas](https://azure.microsoft.com/services/cognitive-services/), adicionando extração de conteúdo, NLP (processamento de linguagem natural) e habilidades de processamento de imagem a um pipeline de indexação de Azure Search, tornando o conteúdo não pesquisável ou não estruturado mais pesquisável. 
 
@@ -62,7 +62,7 @@ Retorne à página do painel do serviço Azure Search e clique em **importar dad
 
   ![Comando de importação de dados](media/cognitive-search-quickstart-blob/import-data-cmd2.png)
 
-### <a name="step-1-create-a-data-source"></a>Passo 1: Criar uma origem de dados
+### <a name="step-1-create-a-data-source"></a>Passo 1: criar uma origem de dados
 
 Em **conectar-se aos seus dados**, escolha **armazenamento de BLOBs do Azure**, selecione a conta e o contêiner que você criou. Dê um nome à origem de dados e utilize os valores predefinidos para o resto. 
 
@@ -72,7 +72,7 @@ Vá para a próxima página.
 
   ![Botão próxima página para pesquisa cognitiva](media/cognitive-search-quickstart-blob/next-button-add-cog-search.png)
 
-### <a name="step-2-add-cognitive-skills"></a>Passo 2: Adicionar habilidades cognitivas
+### <a name="step-2-add-cognitive-skills"></a>Passo 2: adicionar capacidades cognitivas
 
 Em seguida, adicione passos de melhoramento ao pipeline de indexação. Se você não tiver um recurso de serviços cognitivas, poderá se inscrever para obter uma versão gratuita que oferece 20 transações por dia. Os dados de exemplo consistem em 14 arquivos, de modo que sua alocação diária será usada principalmente quando você executar esse assistente.
 
@@ -93,7 +93,7 @@ Em seguida, adicione passos de melhoramento ao pipeline de indexação. Se você
 > [!NOTE]
 > As competências de processamento de linguagem natural funcionam através de conteúdo de texto no conjunto de dados de exemplo. Como não selecionamos a opção OCR, os arquivos JPEG e PNG encontrados no conjunto de dados de exemplo não serão processados neste guia de início rápido. 
 
-### <a name="step-3-configure-the-index"></a>Passo 3: Configurar o índice
+### <a name="step-3-configure-the-index"></a>Passo 3: configurar o índice
 
 O assistente normalmente pode inferir um índice padrão. Nesta etapa, você pode exibir o esquema de índice gerado e possivelmente revisar as configurações. Abaixo está o índice padrão criado para o conjunto de dados de blob de demonstração.
 
@@ -101,7 +101,7 @@ Para este início rápido, o assistente é muito útil, pois define predefiniç�
 
 + O nome padrão é *azureblob* com base no tipo de fonte de dados. 
 
-+ Os campos padrão são baseados no campo de dados de origem`content`original (), além dos campos`people`de `organizations`saída ( `locations`, e) criados pelo pipeline cognitiva. Os tipos de dados padrão são inferidos de metadados e amostragem de dados.
++ Os campos padrão são baseados no campo de dados de origem original (`content`), além dos campos de saída (`people`, `organizations`e `locations`) criados pelo pipeline cognitiva. Os tipos de dados padrão são inferidos de metadados e amostragem de dados.
 
 + A chave padrão é *metadata_storage_path* (esse campo contém valores exclusivos).
 
@@ -109,15 +109,15 @@ Para este início rápido, o assistente é muito útil, pois define predefiniç�
 
   ![Campos de índice](media/cognitive-search-quickstart-blob/index-fields.png)
 
-Observe o tachado e o ponto de interrogação no atributo **recuperável** pelo `content` campo. Para documentos de blob com texto pesado, `content` o campo contém a massa do arquivo, potencialmente em milhares de linhas. Se você precisar passar o conteúdo do arquivo para o código do cliente, certifique-se de que **recuperável** permaneça selecionado. Caso contrário, considere limpar esse atributo `content` se os elementos extraídos`people`( `organizations`,, `locations`e) forem suficientes para suas finalidades.
+Observe o tachado e o ponto de interrogação no atributo **recuperável** pelo campo `content`. Para documentos de blob com texto pesado, o campo `content` contém a massa do arquivo, potencialmente em milhares de linhas. Se você precisar passar o conteúdo do arquivo para o código do cliente, certifique-se de que **recuperável** permaneça selecionado. Caso contrário, considere limpar esse atributo em `content` se os elementos extraídos (`people`, `organizations`e `locations`) forem suficientes para suas finalidades.
 
-Marcar um campo como **recuperável** não significa que o campo *deve* estar presente nos resultados da pesquisa. Você pode controlar precisamente a composição dos resultados da pesquisa usando o parâmetro de consulta **$Select** para especificar quais campos incluir. Para campos com texto pesado como `content`, o parâmetro **$Select** é sua solução para fornecer resultados de pesquisa gerenciáveis para os usuários humanos de seu aplicativo, ao mesmo tempo em que garante que o código do cliente tenha acesso a todas as informações necessárias por meio do  **Atributo recuperável** .
+Marcar um campo como **recuperável** não significa que o campo *deve* estar presente nos resultados da pesquisa. Você pode controlar precisamente a composição dos resultados da pesquisa usando o parâmetro de consulta **$Select** para especificar quais campos incluir. Para campos com texto pesado como `content`, o parâmetro **$Select** é sua solução para fornecer resultados de pesquisa gerenciáveis para os usuários humanos de seu aplicativo, ao mesmo tempo em que garante que o código do cliente tenha acesso a todas as informações necessárias por meio da **recuperação** atributo.
   
 Vá para a próxima página.
 
   ![Próxima página Criar indexador](media/cognitive-search-quickstart-blob/next-button-create-indexer.png)
 
-### <a name="step-4-configure-the-indexer"></a>Passo 4: Configurar o indexador
+### <a name="step-4-configure-the-indexer"></a>Passo 4: configurar o indexador
 
 O indexador é um recurso de alto nível que impulsiona o processo de indexação. Especifica o nome da fonte de dados, um índice de destino e a frequência de execução. O resultado final do assistente para **Importar dados** é sempre um indexador que pode executar repetidamente.
 
@@ -145,7 +145,7 @@ Depois de criar um índice, pode submeter consultas para devolver documentos do 
 
 1. Selecione **Alterar Índice**, na parte superior, para selecionar o índice que criou.
 
-1. Insira uma cadeia de caracteres de pesquisa para consultar o índice `search=Microsoft&searchFields=organizations`, como.
+1. Insira uma cadeia de caracteres de pesquisa para consultar o índice, como `search=Microsoft&searchFields=Organizations`.
 
 Os resultados são devolvidos em JSON, que podem ser verbosos e difíceis de ler, especialmente em documentos grandes provenientes de blobs do Azure. Se não conseguir analisar os resultados facilmente, utilize CTRL-F para procurar nos documentos. Para essa consulta, você pode pesquisar dentro do JSON para termos específicos. 
 
@@ -184,4 +184,4 @@ Dependendo de como você provisionou o recurso de serviços cognitivas, você po
 Alternativamente, reutilize os dados de exemplo e os serviços que criou e saiba como realizar as mesmas tarefas programaticamente no próximo tutorial. 
 
 > [!div class="nextstepaction"]
-> [Tutorial: Conheça as APIs REST de pesquisa cognitiva](cognitive-search-tutorial-blob.md)
+> [Tutorial: Learn the cognitive search REST APIs](cognitive-search-tutorial-blob.md) (Tutorial: Saber mais acerca das APIs REST da pesquisa cognitiva)
