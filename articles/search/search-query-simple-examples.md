@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 7c4aeef07d34159e01f188effae77926895e2857
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 6f3f0e0b8b5098784359e7703c4a165654ff9894
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179186"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808187"
 ---
 # <a name="create-a-simple-query-in-azure-search"></a>Criar uma consulta simples no Azure Search
 
@@ -29,13 +29,13 @@ Uma sintaxe de consulta alternativa é o [Lucene completo](https://docs.microsof
 
 Os exemplos a seguir aproveitam um índice de pesquisa de trabalhos do NYC que consiste em trabalhos disponíveis com base em um conjunto de conjuntos fornecido pela [cidade da iniciativa de OpenData de Nova York](https://nycopendata.socrata.com/) . Esses dados não devem ser considerados atuais ou completos. O índice está em um serviço de área restrita fornecido pela Microsoft, o que significa que você não precisa de uma assinatura do Azure ou Azure Search para tentar essas consultas.
 
-O que você precisa é o postmaster ou uma ferramenta equivalente para emitir a solicitação HTTP em GET. Para obter mais informações, [consulte início rápido: Explore Azure Search API REST usando o postmaster](search-get-started-postman.md).
+O que você precisa é o postmaster ou uma ferramenta equivalente para emitir a solicitação HTTP em GET. Para obter mais informações, consulte [início rápido: explorar Azure Search API REST usando o postmaster](search-get-started-postman.md).
 
 ### <a name="set-the-request-header"></a>Definir o cabeçalho da solicitação
 
 1. No cabeçalho da solicitação, defina **Content-Type** como `application/json`.
 
-2. Adicione uma **chave de API**e defina-a para esta cadeia de `252044BE3886FE4A8E3BAA4F595114BB`caracteres:. Essa é uma chave de consulta para o serviço de pesquisa de área restrita que hospeda o índice de trabalhos do NYC.
+2. Adicione uma **chave de API**e defina-a para esta cadeia de caracteres: `252044BE3886FE4A8E3BAA4F595114BB`. Essa é uma chave de consulta para o serviço de pesquisa de área restrita que hospeda o índice de trabalhos do NYC.
 
 Depois de especificar o cabeçalho da solicitação, você pode reutilizá-lo para todas as consultas neste artigo, alternando apenas a cadeia de caracteres **Search =** . 
 
@@ -49,8 +49,8 @@ A solicitação é um comando GET emparelhado com uma URL que contém o ponto de
 
 A composição de URL tem os seguintes elementos:
 
-+ **`https://azs-playground.search.windows.net/`** o é um serviço de pesquisa de área restrita mantido pela equipe de desenvolvimento Azure Search. 
-+ **`indexes/nycjobs/`** é o índice de trabalhos do NYC na coleção de índices desse serviço. O nome do serviço e o índice são necessários na solicitação.
++ **`https://azs-playground.search.windows.net/`** é um serviço de pesquisa de área restrita mantido pela equipe de desenvolvimento do Azure Search. 
++ **`indexes/nycjobs/`** é o índice de trabalhos NYC na coleção de índices desse serviço. O nome do serviço e o índice são necessários na solicitação.
 + **`docs`** é a coleção de documentos que contém todo o conteúdo pesquisável. A chave de API de consulta fornecida no cabeçalho da solicitação só funciona em operações de leitura direcionando a coleção de documentos.
 + **`api-version=2019-05-06`** define a versão de API, que é um parâmetro necessário em cada solicitação.
 + **`search=*`** é a cadeia de caracteres de consulta, que na consulta inicial é nula, retornando os primeiros 50 resultados (por padrão).
@@ -65,7 +65,7 @@ Cole essa URL em um cliente REST como uma etapa de validação e exiba a estrutu
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=*
   ```
 
-A cadeia de caracteres **`search=*`** de consulta,, é uma pesquisa não especificada equivalente a uma pesquisa nula ou vazia. Isso não é especialmente útil, mas é a pesquisa mais simples que você pode fazer.
+A cadeia de caracteres de consulta, **`search=*`** , é uma pesquisa não especificada equivalente a uma pesquisa nula ou vazia. Isso não é especialmente útil, mas é a pesquisa mais simples que você pode fazer.
 
 Opcionalmente, você pode adicionar **`$count=true`** à URL para retornar uma contagem dos documentos que correspondem aos critérios de pesquisa. Em uma cadeia de caracteres de pesquisa vazia, esses são todos os documentos no índice (cerca de 2800 no caso de trabalhos do NYC).
 
@@ -73,7 +73,7 @@ Opcionalmente, você pode adicionar **`$count=true`** à URL para retornar uma c
 
 Para consultas interativas, você não precisa especificar nada: simples é o padrão. No código, se você tiver chamado anteriormente **QueryType = Full** para obter a sintaxe de consulta completa, poderá redefinir o padrão com **QueryType = Simple**.
 
-## <a name="example-1-field-scoped-query"></a>Exemplo 1: Consulta com escopo de campo
+## <a name="example-1-field-scoped-query"></a>Exemplo 1: consulta com escopo de campo
 
 Este primeiro exemplo não é específico do analisador, mas nós o conduzimos a apresentar o primeiro conceito fundamental de consulta: confinamento. Este exemplo abrange a execução da consulta e a resposta a apenas alguns campos específicos. Saber como estruturar uma resposta JSON legível é importante quando sua ferramenta é o postmaster ou o Search Explorer. 
 
@@ -107,19 +107,19 @@ Talvez você tenha notado a pontuação de pesquisa na resposta. Pontuações un
 
 Este exemplo é um pouco atípicos, mas ao avaliar os comportamentos de pesquisa, talvez você queira inspecionar todo o conteúdo de um documento específico para entender por que ele foi incluído ou excluído dos resultados. Para retornar um único documento em sua totalidade, use uma [operação de pesquisa](https://docs.microsoft.com/rest/api/searchservice/lookup-document) para passar a ID do documento.
 
-Todos os documentos têm um identificador exclusivo. Para testar a sintaxe de uma consulta de pesquisa, primeiro retorne uma lista de IDs de documento para que você possa encontrar uma para usar. Para trabalhos do NYC, os identificadores são armazenados no `id` campo.
+Todos os documentos têm um identificador exclusivo. Para testar a sintaxe de uma consulta de pesquisa, primeiro retorne uma lista de IDs de documento para que você possa encontrar uma para usar. Para trabalhos do NYC, os identificadores são armazenados no campo `id`.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchFields=id&$select=id&search=*
 ```
 
-O exemplo a seguir é uma consulta de pesquisa que retorna um documento `id` específico com base em "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", que apareceu primeiro na resposta anterior. A consulta a seguir retorna o documento inteiro, não apenas os campos selecionados. 
+O exemplo a seguir é uma consulta de pesquisa que retorna um documento específico com base em `id` "9E1E3AF9-0660-4E00-AF51-9B654925A2D5", que apareceu primeiro na resposta anterior. A consulta a seguir retorna o documento inteiro, não apenas os campos selecionados. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs/9E1E3AF9-0660-4E00-AF51-9B654925A2D5?api-version=2019-05-06&$count=true&search=*
 ```
 
-## <a name="example-3-filter-queries"></a>Exemplo 3: Filtrar consultas
+## <a name="example-3-filter-queries"></a>Exemplo 3: filtrar consultas
 
 A [sintaxe de filtro](https://docs.microsoft.com/azure/search/search-query-odata-filter) é uma expressão OData que você pode usar com a **pesquisa** ou por si só. Um filtro autônomo, sem um parâmetro de pesquisa, é útil quando a expressão de filtro é capaz de qualificar totalmente os documentos de interesse. Sem uma cadeia de caracteres de consulta, não há nenhuma análise léxica ou linguística, sem pontuação (todas as pontuações são 1) e nenhuma classificação. Observe que a cadeia de caracteres de pesquisa está vazia.
 
@@ -128,7 +128,7 @@ POST /indexes/nycjobs/docs/search?api-version=2019-05-06
     {
       "search": "",
       "filter": "salary_frequency eq 'Annual' and salary_range_from gt 90000",
-      "select": "select=job_id, business_title, agency, salary_range_from",
+      "select": "job_id, business_title, agency, salary_range_from",
       "count": "true"
     }
 ```
@@ -143,7 +143,7 @@ Se você quiser experimentar isso no postmaster usando GET, poderá colar nesta 
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency,salary_range_from&search=&$filter=salary_frequency eq 'Annual' and salary_range_from gt 90000
 ```
 
-Outra maneira eficiente de combinar filtro e pesquisa é por **`search.ismatch*()`** meio de uma expressão de filtro, na qual você pode usar uma consulta de pesquisa dentro do filtro. Essa expressão de filtro usa um curinga no *plano* para selecionar business_title, incluindo o termo plano, planejador, planejamento e assim por diante.
+Outra maneira eficiente de combinar filtro e pesquisa é por meio de **`search.ismatch*()`** em uma expressão de filtro, na qual você pode usar uma consulta de pesquisa dentro do filtro. Essa expressão de filtro usa um curinga no *plano* para selecionar business_title, incluindo o termo plano, planejador, planejamento e assim por diante.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&$select=job_id,business_title,agency&search=&$filter=search.ismatch('plan*', 'business_title', 'full', 'any')
@@ -151,9 +151,9 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
 Para obter mais informações sobre a função, consulte [Search. IsMatch em "Filter examples"](https://docs.microsoft.com/azure/search/search-query-odata-full-text-search-functions#examples).
 
-## <a name="example-4-range-filters"></a>Exemplo 4: Filtros de intervalo
+## <a name="example-4-range-filters"></a>Exemplo 4: filtros de intervalo
 
-A filtragem de intervalo é **`$filter`** suportada por meio de expressões para qualquer tipo de dados. Os exemplos a seguir pesquisam em campos numéricos e de cadeia de caracteres. 
+A filtragem de intervalo tem suporte por meio de expressões **`$filter`** para qualquer tipo de dados. Os exemplos a seguir pesquisam em campos numéricos e de cadeia de caracteres. 
 
 Os tipos de dados são importantes em filtros de intervalo e funcionam melhor quando dados numéricos estão em campos numéricos e dados de cadeia de caracteres em campos de cadeia de caracteres. Dados numéricos em campos de cadeia de caracteres não são adequados para intervalos porque cadeias numéricas não são comparáveis em Azure Search. 
 
@@ -198,7 +198,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 > [!NOTE]
 > A facetação de intervalos de valores é um requisito de aplicativo de pesquisa comum. Para obter mais informações e exemplos sobre a criação de filtros para estruturas de navegação de faceta, consulte ["filtrar com base em um intervalo" em *como implementar a navegação facetada*](search-faceted-navigation.md#filter-based-on-a-range).
 
-## <a name="example-5-geo-search"></a>Exemplo 5: Pesquisa geográfica
+## <a name="example-5-geo-search"></a>Exemplo 5: pesquisa geográfica
 
 O índice de exemplo inclui um campo geo_location com coordenadas de latitude e longitude. Este exemplo usa a [função geográfico. distance](https://docs.microsoft.com/azure/search/search-query-odata-geo-spatial-functions#examples) que filtra em documentos dentro da circunferência de um ponto inicial, até uma distância arbitrária (em quilômetros) que você fornece. Você pode ajustar o último valor na consulta (4) para reduzir ou aumentar a área da superfície da consulta.
 
@@ -221,7 +221,7 @@ Você também pode experimentar isso no postmaster usando GET:
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=&$select=job_id, business_title, work_location&$filter=geo.distance(geo_location, geography'POINT(-74.11734 40.634384)') le 4
 ```
 
-## <a name="example-6-search-precision"></a>Exemplo 6: Precisão da pesquisa
+## <a name="example-6-search-precision"></a>Exemplo 6: precisão da pesquisa
 
 As consultas de termo são termos únicos, talvez muitas delas, que são avaliadas de forma independente. As consultas de frase são colocadas entre aspas e avaliadas como uma cadeia de caracteres textual. A precisão da correspondência é controlada por operadores e searchmode.
 
@@ -237,15 +237,15 @@ Exemplo 2: **`&search=fire department`** retorna 2002 resultados. As correspond�
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search=fire department
 ```
 
-Exemplo 3: **`&search="fire department"`** retorna 82 resultados. Colocar a cadeia de caracteres entre aspas é uma pesquisa textual em ambos os termos e as correspondências são encontradas em termos de token no índice que consiste nos termos combinados. Isso explica por que uma pesquisa **`search=+fire +department`** como não é equivalente. Ambos os termos são necessários, mas são verificados de forma independente. 
+Exemplo 3: **`&search="fire department"`** retorna 82 resultados. Colocar a cadeia de caracteres entre aspas é uma pesquisa textual em ambos os termos e as correspondências são encontradas em termos de token no índice que consiste nos termos combinados. Isso explica por que uma pesquisa como **`search=+fire +department`** não é equivalente. Ambos os termos são necessários, mas são verificados de forma independente. 
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&search="fire department"
 ```
 
-## <a name="example-7-booleans-with-searchmode"></a>Exemplo 7: Boolianos com searchmode
+## <a name="example-7-booleans-with-searchmode"></a>Exemplo 7: boolianos com searchmode
 
-A sintaxe simples dá suporte a operadores boolianos na forma`+, -, |`de caracteres (). O parâmetro searchmode informa as compensações entre Precision e RECALL, `searchMode=any` com favorecer a RECALL (a correspondência em qualquer critério qualifica um documento para o conjunto de `searchMode=all` resultados) e favorecer a precisão (todos os critérios devem ser correspondidos). O padrão é `searchMode=any`, que pode ser confuso se você estiver empilhando uma consulta com vários operadores e obtendo resultados mais amplos em vez de mais estreitos. Isso é particularmente verdadeiro, pois os resultados incluem todos os documentos "não contendo" um termo específico.
+A sintaxe simples dá suporte a operadores boolianos na forma de caracteres (`+, -, |`). O parâmetro searchmode informa as compensações entre Precision e RECALL, com `searchMode=any` favorecer a RECALL (a correspondência em qualquer critério qualifica um documento para o conjunto de resultados) e `searchMode=all` favorecer a precisão (todos os critérios devem ser correspondidos). O padrão é `searchMode=any`, o que pode ser confuso se você estiver empilhando uma consulta com vários operadores e obtendo resultados mais amplos em vez de mais estreitos. Isso é particularmente verdadeiro, pois os resultados incluem todos os documentos "não contendo" um termo específico.
 
 Usando o searchmode padrão (any), 2800 documentos são retornados: aqueles que contêm o termo de várias partes "departamento de incêndio", além de todos os documentos que não têm o termo "MetroTech Center".
 
@@ -255,14 +255,14 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-
 
   ![Pesquisar no modo de pesquisa](media/search-query-simple-examples/searchmodeany.png)
 
-Alterar searchmode para `all` impõe um efeito cumulativo em critérios e retorna um conjunto de resultados menores-21 documentos – consistindo em documentos contendo a frase inteira "departamento de incêndio", menos esses trabalhos no endereço do MetroTech Center.
+Alterar searchmode para `all` impõe um efeito cumulativo em critérios e retorna um conjunto de resultados menores-21 documentos – consistindo em documentos que contêm a frase inteira "departamento de incêndio", menos os trabalhos no endereço do MetroTech Center.
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2019-05-06&$count=true&searchMode=all&search="fire department"  -"Metrotech Center"
 ```
   ![modo de pesquisa tudo](media/search-query-simple-examples/searchmodeall.png)
 
-## <a name="example-8-structuring-results"></a>Exemplo 8: Estruturando resultados
+## <a name="example-8-structuring-results"></a>Exemplo 8: estruturando resultados
 
 Vários parâmetros controlam quais campos estão nos resultados da pesquisa, o número de documentos retornados em cada lote e a ordem de classificação. Este exemplo retona alguns dos exemplos anteriores, limitando os resultados a campos específicos usando a instrução **$Select** e critérios de pesquisa textual, retornando 82 correspondências 
 
