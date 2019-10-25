@@ -10,12 +10,12 @@ metadata:
   author: TomArcherMsft
   ms.author: tarcher
   ms.date: 09/17/2019
-  ms.openlocfilehash: 3d0a74df70b2007812acf22a40e8bd210948fae2
-  ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+  ms.openlocfilehash: 802be2b69f2a58e39771c7100f30f4ab83f64280
+  ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71104276"
+  ms.lasthandoff: 10/24/2019
+  ms.locfileid: "72882068"
 landingContent:
 - title: Acerca do Jenkins no Azure
   linkLists:

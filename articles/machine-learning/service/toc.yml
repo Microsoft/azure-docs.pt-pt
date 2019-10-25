@@ -285,6 +285,8 @@
     - name: CLI de Aprendizagem automática
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: Referência YAML do pipeline de aprendizagem automática
+      href: reference-pipeline-yaml.md
     - name: Módulos de interface visual
       displayName: 'module, reference, algorithm, studio'
       items:

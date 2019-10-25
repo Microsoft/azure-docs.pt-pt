@@ -10,12 +10,12 @@ metadata:
   author: DCtheGeek
   ms.author: dacoulte
   ms.date: 09/01/2019
-  ms.openlocfilehash: 13bab3dae30a7c6277f465584619726a962f014a
-  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.openlocfilehash: e98ffdd41547b9c1f7cbfeebfd8dad798c382fc8
+  ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72527166"
+  ms.lasthandoff: 10/23/2019
+  ms.locfileid: "72821374"
 landingContent:
 - title: Acerca do Azure Resource Graph
   linkLists:
@@ -41,6 +41,8 @@ landingContent:
       url: ./first-query-powershell.md
     - text: Primeira consulta (CLI)
       url: ./first-query-azurecli.md
+    - text: Partilhar consultas (portal)
+      url: ./tutorials/create-share-query.md
   - linkListType: concept
     links:
     - text: Explorar com o Resource Graph
