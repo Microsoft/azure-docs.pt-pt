@@ -1,5 +1,6 @@
 ---
-title: Personalizar declarações para um aplicativo em um locatário do Azure AD (visualização pública)
+title: Personalizar declarações para um aplicativo de locatário do Azure AD (visualização pública)
+titleSuffix: Microsoft identity platform
 description: Esta página descreve o mapeamento de declarações Azure Active Directory.
 services: active-directory
 author: rwike77
@@ -11,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9350a30ac6258664b3a8405923467a8468a6758
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 53ef51d52e699612508a446acbc075f766565d63
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835451"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803510"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Como: Personalizar declarações emitidas em tokens para um aplicativo específico em um locatário (versão prévia)
 
@@ -52,7 +53,7 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | Conjunto de declarações básico | Inclui as declarações emitidas por padrão para tokens (além do conjunto de declarações de núcleo). Você pode omitir ou modificar as declarações básicas usando as políticas de mapeamento de declarações. |
 | Conjunto de declarações restrita | Não é possível modificar usando a política. A fonte de dados não pode ser alterada e nenhuma transformação é aplicada ao gerar essas declarações. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: Conjunto de declarações restritas de JWT (token Web JSON)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabela 1: conjunto de declarações restritas de JWT (token Web JSON)
 
 | Tipo de declaração (nome) |
 | ----- |
@@ -61,19 +62,19 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | access_token |
 | account_type |
 | acr |
-| actor |
+| Ator |
 | actortoken |
 | AIO |
 | altsecid |
-| amr |
+| Amr |
 | app_chain |
 | app_displayname |
 | app_res |
 | appctx |
 | appctxsender |
-| appid |
+| AppID |
 | appidacr |
-| assertion |
+| declaração |
 | at_hash |
 | AUD |
 | auth_data |
@@ -89,25 +90,25 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | cloud_graph_host_name |
 | cloud_instance_name |
 | CNF |
-| code |
-| controls |
+| Auto-completar |
+| controlos |
 | credential_keys |
 | CSR |
 | csr_type |
-| deviceid |
+| DeviceID |
 | dns_names |
 | domain_dns_name |
 | domain_netbios_name |
 | e_exp |
-| email |
+| e-mail |
 | endpoint |
 | enfpolids |
-| exp |
+| Exp |
 | expires_on |
 | grant_type |
-| graph |
+| Graph |
 | group_sids |
-| groups |
+| grupos |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -122,10 +123,10 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | identityprovider |
 | IDP |
 | in_corp |
-| instance |
+| cópia |
 | ipaddr |
 | isbrowserhostedapp |
-| iss |
+| ISS |
 | jwk |
 | key_id |
 | key_type |
@@ -138,33 +139,33 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | NameID |
 | NBF |
 | netbios_name |
-| nonce |
-| oid |
+| momentos |
+| OIDs |
 | on_prem_id |
 | onprem_sam_account_name |
 | onprem_sid |
 | openid2_id |
-| password |
+| palavra-passe |
 | platf |
 | polids |
 | pop_jwk |
 | preferred_username |
 | previous_refresh_token |
 | primary_sid |
-| puid |
+| PUID |
 | pwd_exp |
 | pwd_url |
 | redirect_uri |
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
+| Kit |
+| Cargo |
 | roles |
 | scope |
-| scp |
-| sid |
-| signature |
+| SCP |
+| SIDs |
+| Signature |
 | signin_state |
 | src1 |
 | src2 |
@@ -179,15 +180,15 @@ Há determinados conjuntos de declarações que definem como e quando são usado
 | unique_name |
 | sufixo |
 | user_setting_sync_url |
-| username |
-| uti |
+| o nome de utilizador |
+| UTI |
 | versão |
 | verified_primary_email |
 | verified_secondary_email |
 | wids |
 | win_ver |
 
-### <a name="table-2-saml-restricted-claim-set"></a>Tabela 2: Conjunto de declarações restritas SAML
+### <a name="table-2-saml-restricted-claim-set"></a>Tabela 2: conjunto de declarações restritas SAML
 
 | Tipo de declaração (URI) |
 | ----- |
@@ -244,11 +245,11 @@ Para controlar quais declarações são emitidas e de onde vêm os dados, use as
 
 ### <a name="include-basic-claim-set"></a>Incluir conjunto de declarações básicas
 
-**Strings** IncludeBasicClaimSet
+**Cadeia de caracteres:** IncludeBasicClaimSet
 
 **Tipo de dados:** Booliano (verdadeiro ou falso)
 
-**Resumo** Esta propriedade determina se o conjunto de declarações básico está incluído nos tokens afetados por essa política.
+**Resumo:** Esta propriedade determina se o conjunto de declarações básico está incluído nos tokens afetados por essa política.
 
 - Se definido como true, todas as declarações no conjunto de declarações básico são emitidas em tokens afetados pela política. 
 - Se definido como false, as declarações no conjunto de declarações básico não estão nos tokens, a menos que sejam adicionadas individualmente na propriedade de esquema de declarações da mesma política.
@@ -258,53 +259,53 @@ Para controlar quais declarações são emitidas e de onde vêm os dados, use as
 
 ### <a name="claims-schema"></a>Esquema de declarações
 
-**Strings** ClaimsSchema
+**Cadeia de caracteres:** ClaimsSchema
 
 **Tipo de dados:** Blob JSON com uma ou mais entradas de esquema de declaração
 
-**Resumo** Essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básico e do conjunto de declarações de núcleo.
+**Resumo:** Essa propriedade define quais declarações estão presentes nos tokens afetados pela política, além do conjunto de declarações básico e do conjunto de declarações de núcleo.
 Para cada entrada de esquema de declaração definida nessa propriedade, determinadas informações são necessárias. Especifique de onde os dados serão provenientes (par**valor** ou **origem/ID**) e quais declarações os dados são emitidos como (**tipo de declaração**).
 
 ### <a name="claim-schema-entry-elements"></a>Elementos de entrada do esquema de declaração
 
-**Valor** O elemento Value define um valor estático como os dados a serem emitidos na declaração.
+**Valor:** O elemento Value define um valor estático como os dados a serem emitidos na declaração.
 
 **Par de origem/ID:** Os elementos Source e ID definem de onde os dados na declaração são originados. 
 
 Defina o elemento de origem como um dos seguintes valores: 
 
-- "usuário": Os dados na declaração são uma propriedade no objeto de usuário. 
-- "aplicativo": Os dados na declaração são uma propriedade na entidade de serviço do aplicativo (cliente). 
-- "recurso": Os dados na declaração são uma propriedade na entidade de serviço de recurso.
-- "público": Os dados na declaração são uma propriedade na entidade de serviço que é o público do token (a entidade de serviço de cliente ou recurso).
-- "empresa": Os dados na declaração são uma propriedade no objeto da empresa do locatário do recurso.
-- "transformation": Os dados na declaração são de transformação de declarações (consulte a seção "transformação de declarações" mais adiante neste artigo).
+- "user": os dados na declaração são uma propriedade no objeto de usuário. 
+- "Application": os dados na declaração são uma propriedade na entidade de serviço do aplicativo (cliente). 
+- "Resource": os dados na declaração são uma propriedade na entidade de serviço de recurso.
+- "Audience": os dados na declaração são uma propriedade na entidade de serviço que é o público do token (o cliente ou a entidade de serviço de recurso).
+- "Company": os dados na declaração são uma propriedade no objeto da empresa do locatário do recurso.
+- "Transformation": os dados na declaração são de transformação de declarações (consulte a seção "transformação de declarações" mais adiante neste artigo).
 
-Se a origem for transformação, o elemento Transformation também deverá ser incluído nessa definição de declaração.
+Se a origem for transformação, o elemento Transformation também deverá ser incluído nessa **definição de declaração** .
 
 O elemento ID identifica qual propriedade na fonte fornece o valor para a declaração. A tabela a seguir lista os valores de ID válido para cada valor de origem.
 
-#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válidos por origem
+#### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: valores de ID válidos por origem
 
-| Source | id | Descrição |
+| Origem | ID | Descrição |
 |-----|-----|-----|
-| Utilizador | Apelido | Nome da família |
-| Utilizador | givenName | Nome Próprio |
-| Utilizador | displayName | Nome a Apresentar |
+| Utilizador | Sobrenome | Nome da família |
+| Utilizador | GivenName | Nome Próprio |
+| Utilizador | DisplayName | Nome a Apresentar |
 | Utilizador | ObjectID | ObjectID |
-| Utilizador | mail | Endereço de E-mail |
-| Utilizador | userprincipalname | Nome Principal de utilizador |
-| Utilizador | Departamento|Departamento|
+| Utilizador | Mescla | Endereço de email |
+| Utilizador | userPrincipalName | Nome Principal de Utilizador |
+| Utilizador | Inteiros|Departamento|
 | Utilizador | onpremisessamaccountname | Nome da conta SAM local |
 | Utilizador | NetBiosName| Nome NetBios |
 | Utilizador | dnsdomainname | Nome de domínio DNS |
 | Utilizador | onpremisesecurityidentifier | Identificador de segurança local |
-| Utilizador | CompanyName| Nome da organização |
-| Utilizador | StreetAddress | Morada |
-| Utilizador | PostalCode | Código postal |
-| Utilizador | preferredlanguange | Idioma Preferencial |
+| Utilizador | CompanyName| Nome da Organização |
+| Utilizador | StreetAddress | Endereço da rua |
+| Utilizador | PostalCode | CEP |
+| Utilizador | preferredlanguange | Idioma preferencial |
 | Utilizador | onpremisesuserprincipalname | UPN local |
-| Utilizador | mailNickname | Alcunha de Correio |
+| Utilizador | mailNickname | Apelido de email |
 | Utilizador | extensionAttribute1 | Atributo de extensão 1 |
 | Utilizador | extensionAttribute2 | Atributo de extensão 2 |
 | Utilizador | extensionattribute3 | Atributo de extensão 3 |
@@ -320,19 +321,19 @@ O elemento ID identifica qual propriedade na fonte fornece o valor para a declar
 | Utilizador | extensionattribute13 | Atributo de extensão 13 |
 | Utilizador | extensionAttribute14 | Atributo de extensão 14 |
 | Utilizador | extensionAttribute15 | Atributo de extensão 15 |
-| Utilizador | othermail | Outros emails |
-| Utilizador | país | Country |
-| Utilizador | city | City |
+| Utilizador | Othermail | Outros emails |
+| Utilizador | País | País |
+| Utilizador | city | Cidade |
 | Utilizador | state | Estado |
 | Utilizador | JobTitle | Cargo |
-| Utilizador | employeeid | ID do Empregado |
+| Utilizador | funcionário | ID do funcionário |
 | Utilizador | facsimileTelephoneNumber | Número de telefone do fax |
-| aplicativo, recurso, público-alvo | displayName | Nome a Apresentar |
+| aplicativo, recurso, público-alvo | DisplayName | Nome a Apresentar |
 | aplicativo, recurso, público-alvo | com objeto | ObjectID |
-| aplicativo, recurso, público-alvo | tags | Marca da entidade de serviço |
+| aplicativo, recurso, público-alvo | etiquetas | Marca da entidade de serviço |
 | Empresa | tenantcountry | País do locatário |
 
-**TransformationID** O elemento Transformation deve ser fornecido somente se o elemento Source estiver definido como "Transformation".
+Transformation **:** O elemento Transformation deve ser fornecido somente se o elemento Source estiver definido como "Transformation".
 
 - Esse elemento deve corresponder ao elemento ID da entrada de transformação na propriedade **ClaimsTransformation** que define como os dados para essa declaração são gerados.
 
@@ -346,31 +347,31 @@ O elemento ID identifica qual propriedade na fonte fornece o valor para a declar
 
 ### <a name="claims-transformation"></a>Transformação de afirmações
 
-**Strings** ClaimsTransformation
+**Cadeia de caracteres:** ClaimsTransformation
 
 **Tipo de dados:** Blob JSON, com uma ou mais entradas de transformação 
 
-**Resumo** Use essa propriedade para aplicar transformações comuns aos dados de origem, para gerar os dados de saída para declarações especificadas no esquema de declarações.
+**Resumo:** Use essa propriedade para aplicar transformações comuns aos dados de origem, para gerar os dados de saída para declarações especificadas no esquema de declarações.
 
 **ID:** Use o elemento ID para fazer referência a essa entrada de transformação na entrada de esquema de declarações Transformation. Esse valor deve ser exclusivo para cada entrada de transformação nessa política.
 
-**TransformationMethod** O elemento TransformationMethod identifica qual operação é executada para gerar os dados para a declaração.
+**TransformationMethod:** O elemento TransformationMethod identifica qual operação é executada para gerar os dados para a declaração.
 
 Com base no método escolhido, um conjunto de entradas e saídas é esperado. Defina as entradas e saídas usando os elementos **InputClaims**, **InputParameters** e **OutputClaims** .
 
-#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
+#### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: métodos de transformação e entradas e saídas esperadas
 
-|TransformationMethod|Entrada esperada|Saída esperada|Descrição|
+|TransformationMethod|Entrada esperada|Resultado esperado|Descrição|
 |-----|-----|-----|-----|
-|Associar|Seqüência1, seqüência2, separador|outputClaim|Une cadeias de caracteres de entrada usando um separador entre. Por exemplo: seqüência1: "foo@bar.com", seqüência2: "sandbox", separador: "." resulta em outputClaimfoo@bar.com.sandbox: ""|
-|ExtractMailPrefix|mail|outputClaim|Extrai a parte local de um endereço de email. Por exemplo: mail: "foo@bar.com" resulta em outputClaim: "foo". Se nenhum \@ sinal estiver presente, a cadeia de caracteres de entrada original será retornada como está.|
+|Associar|Seqüência1, seqüência2, separador|outputClaim|Une cadeias de caracteres de entrada usando um separador entre. Por exemplo: seqüência1: "foo@bar.com", seqüência2: "sandbox", separador: "." resulta em outputClaim: "foo@bar.com.sandbox"|
+|ExtractMailPrefix|Mescla|outputClaim|Extrai a parte local de um endereço de email. Por exemplo: mail: "foo@bar.com" resulta em outputClaim: "foo". Se nenhum sinal de \@ estiver presente, a cadeia de caracteres de entrada original será retornada como está.|
 
-**InputClaims** Use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
+**InputClaims:** Use um elemento InputClaims para passar os dados de uma entrada de esquema de declaração para uma transformação. Ele tem dois atributos: **ClaimTypeReferenceId** e **TransformationClaimType**.
 
 - **ClaimTypeReferenceId** é unida ao elemento ID da entrada de esquema de declaração para localizar a declaração de entrada apropriada. 
 - **TransformationClaimType** é usado para atribuir um nome exclusivo a essa entrada. Esse nome deve corresponder a uma das entradas esperadas para o método de transformação.
 
-**InputParameters** Use um elemento InputParameters para passar um valor constante para uma transformação. Ele tem dois atributos: **Valor** e **ID**.
+**InputParameters:** Use um elemento InputParameters para passar um valor constante para uma transformação. Ele tem dois atributos: **Value** e **ID**.
 
 - **Valor** é o valor constante real a ser passado.
 - A **ID** é usada para atribuir um nome exclusivo à entrada. O nome deve corresponder a uma das entradas esperadas para o método de transformação.
@@ -384,14 +385,14 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 
 **NameID e UPN SAML:** Os atributos dos quais você origina os valores NameID e UPN e as transformações de declarações permitidas são limitados. Consulte a tabela 5 e a tabela 6 para ver os valores permitidos.
 
-#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como uma fonte de dados para NameID SAML
+#### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: atributos permitidos como uma fonte de dados para NameID do SAML
 
-|Source|id|Descrição|
+|Origem|ID|Descrição|
 |-----|-----|-----|
-| Utilizador | mail|Endereço de E-mail|
-| Utilizador | userprincipalname|Nome Principal de utilizador|
+| Utilizador | Mescla|Endereço de email|
+| Utilizador | userPrincipalName|Nome Principal de Utilizador|
 | Utilizador | onpremisessamaccountname|Nome da conta Sam local|
-| Utilizador | employeeid|ID do Empregado|
+| Utilizador | funcionário|ID do funcionário|
 | Utilizador | extensionAttribute1 | Atributo de extensão 1 |
 | Utilizador | extensionAttribute2 | Atributo de extensão 2 |
 | Utilizador | extensionattribute3 | Atributo de extensão 3 |
@@ -408,16 +409,16 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. De
 | Utilizador | extensionAttribute14 | Atributo de extensão 14 |
 | Utilizador | extensionAttribute15 | Atributo de extensão 15 |
 
-#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: Métodos de transformação permitidos para NameID SAML
+#### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabela 6: métodos de transformação permitidos para NameID SAML
 
 | TransformationMethod | Restrições |
 | ----- | ----- |
-| ExtractMailPrefix | Nenhum |
+| ExtractMailPrefix | Nenhuma |
 | Associar | O sufixo que está sendo Unido deve ser um domínio verificado do locatário do recurso. |
 
 ### <a name="custom-signing-key"></a>Chave de assinatura personalizada
 
-Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege aplicativos de políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento de declarações habilitado devem verificar um URI especial para suas chaves de assinatura `appid={client_id}` de token anexando a suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Uma chave de assinatura personalizada deve ser atribuída ao objeto de entidade de serviço para que uma política de mapeamento de declarações entre em vigor. Isso garante a confirmação de que os tokens foram modificados pelo criador da política de mapeamento de declarações e protege aplicativos de políticas de mapeamento de declarações criadas por atores mal-intencionados.  Os aplicativos que têm o mapeamento de declarações habilitado devem verificar um URI especial para suas chaves de assinatura de token acrescentando `appid={client_id}` às suas [solicitações de metadados do OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Cenários entre locatários
 
@@ -449,7 +450,7 @@ Para começar, execute as seguintes etapas:
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para omitir as declarações básicas de tokens emitidos para uma entidade de serviço
 
 Neste exemplo, você cria uma política que remove o conjunto de declarações básicas de tokens emitidos para entidades de serviço vinculadas.
 
@@ -465,14 +466,14 @@ Neste exemplo, você cria uma política que remove o conjunto de declarações b
       Get-AzureADPolicy
       ```
 1. Atribua a política à entidade de serviço. Você também precisa obter o ObjectId da entidade de serviço.
-   1. Para ver todas as entidades de serviço de sua organização, você pode consultar Microsoft Graph. Ou, no explorador do Graph do Azure AD, entre na sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
    2. Quando você tiver o ObjectId da entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política para incluir EmployeeID e TenantCountry como declarações em tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política para incluir EmployeeID e TenantCountry como declarações em tokens emitidos para uma entidade de serviço
 
 Neste exemplo, você cria uma política que adiciona o EmployeeID e o TenantCountry a tokens emitidos para entidades de serviço vinculadas. O EmployeeID é emitido como o tipo de declaração de nome em tokens SAML e JWTs. O TenantCountry é emitido como o tipo de declaração country nos tokens SAML e JWTs. Neste exemplo, continuamos a incluir o conjunto de declarações básicas nos tokens.
 
@@ -489,14 +490,14 @@ Neste exemplo, você cria uma política que adiciona o EmployeeID e o TenantCoun
       Get-AzureADPolicy
       ```
 1. Atribua a política à entidade de serviço. Você também precisa obter o ObjectId da entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode consultar Microsoft Graph. Ou, no explorador do Graph do Azure AD, entre na sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
    2. Quando você tiver o ObjectId da entidade de serviço, execute o seguinte comando:  
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemplo: Criar e atribuir uma política que usa uma transformação de declarações em tokens emitidos para uma entidade de serviço
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemplo: criar e atribuir uma política que usa uma transformação de declarações em tokens emitidos para uma entidade de serviço
 
 Neste exemplo, você cria uma política que emite uma declaração personalizada "JoinedData" para JWTs emitida para entidades de serviço vinculadas. Essa declaração contém um valor criado unindo os dados armazenados no atributo extensionAttribute1 no objeto de usuário com ". sandbox". Neste exemplo, excluimos o conjunto de declarações básicas nos tokens.
 
@@ -513,13 +514,13 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
       Get-AzureADPolicy
       ```
 1. Atribua a política à entidade de serviço. Você também precisa obter o ObjectId da entidade de serviço. 
-   1. Para ver todas as entidades de serviço de sua organização, você pode consultar Microsoft Graph. Ou, no explorador do Graph do Azure AD, entre na sua conta do Azure AD.
+   1. Para ver todas as entidades de serviço de sua organização, você pode [consultar Microsoft Graph](/graph/traverse-the-graph). Ou, no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer), entre em sua conta do Azure AD.
    2. Quando você tiver o ObjectId da entidade de serviço, execute o seguinte comando: 
      
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, [consulte Como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)
+Para saber como personalizar as declarações emitidas no token SAML por meio do portal do Azure, consulte [como: Personalizar declarações emitidas no token SAML para aplicativos empresariais](active-directory-saml-claims-customization.md)

@@ -1,69 +1,68 @@
 ---
-title: Migrar do serviço de controle de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado | Documentos da Microsoft
-description: Migrar aplicativos do serviço de controlo de acesso para SAS
+title: Migrar do serviço de controle de acesso do AD do Azure para SAS
+description: Saiba mais sobre como migrar do serviço de controle de acesso Azure Active Directory para a autorização de assinatura de acesso compartilhado.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2018
+ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: 746b19062c3014caa37c6668e6c41df054a47e25
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae0dd3827e17cc63b4b698eb8d88a08799c7278f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60868167"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790337"
 ---
-# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar do serviço de controle de acesso do Azure Active Directory para autorização de assinatura de acesso partilhado
+# <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar do serviço de controle de acesso Azure Active Directory para autorização de assinatura de acesso compartilhado
 
-Aplicações do Service Bus tem tinha anteriormente uma opção de usar dois modelos de autorização diferentes: os [assinatura de acesso partilhado (SAS)](service-bus-sas.md) modelo de token fornecido diretamente do Service Bus e um modelo de federado onde o gerenciamento de regras de autorização é gerido dentro de, pelo [do Azure Active Directory](/azure/active-directory/) Access Control Service (ACS) e tokens de obteve do ACS são transmitidos para o Service Bus para autorizar o acesso aos recursos desejados.
+Os aplicativos do barramento de serviço tinham anteriormente a opção de usar dois modelos de autorização diferentes: o modelo de token [SAS (assinatura de acesso compartilhado)](service-bus-sas.md) fornecido diretamente pelo barramento de serviço e um modelo federado em que o gerenciamento de regras de autorização é gerenciados dentro do, o ACS (serviço de controle de acesso) [Azure Active Directory](/azure/active-directory/) e os tokens obtidos do ACS são passados para o barramento de serviço para autorizar o acesso aos recursos desejados.
 
-O modelo de autorização de ACS há muito tempo foi substituído pelas [autorização de SAS](service-bus-authentication-and-authorization.md) como o modelo preferencial e toda a documentação, exemplos e documentação de orientação exclusivamente utilizam SAS hoje mesmo. Além disso, já não é possível criar novos espaços de nomes do Service Bus que são emparelhados com o ACS.
+O modelo de autorização do ACS foi substituído por uma [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferencial, e toda a documentação, orientação e exemplos usam exclusivamente SAS atualmente. Além disso, não é mais possível criar novos namespaces do barramento de serviço emparelhados com o ACS.
 
-SAS tem a vantagem em que não é imediatamente dependente de outro serviço, mas pode ser utilizado diretamente a partir de um cliente sem qualquer intermediários ao dar o acesso de cliente para a chave de regra e o nome da regra SAS. SAS também podem ser facilmente integrada com uma abordagem em que um cliente tem de passar primeiro por uma verificação de autorização com outro serviço e, em seguida, é emitido um token. A última abordagem é semelhante ao padrão de utilização de ACS, mas permite que a emissora tokens de acesso com base em condições específicas do aplicativo que são difíceis de express no ACS.
+A SAS tem a vantagem de não ser imediatamente dependente de outro serviço, mas pode ser usada diretamente de um cliente sem nenhum intermediário, concedendo ao cliente acesso ao nome da regra SAS e à chave de regra. A SAS também pode ser facilmente integrada com uma abordagem em que um cliente precisa primeiro passar uma verificação de autorização com outro serviço e, em seguida, emitir um token. A última abordagem é semelhante ao padrão de uso do ACS, mas permite emitir tokens de acesso com base em condições específicas do aplicativo que são difíceis de expressar no ACS.
 
-Para todos os aplicativos existentes que dependem dos ACS, recomendamos vivamente que os clientes a migrar os aplicativos contar com SAS em vez disso.
+Para todos os aplicativos existentes que dependem do ACS, incentivamos os clientes a migrar seus aplicativos para que dependam de SAS em vez disso.
 
 ## <a name="migration-scenarios"></a>Cenários de migração
 
-ACS e o Service Bus são integradas por meio do conhecimento partilhado de um *chave de assinatura*. A chave de assinatura é utilizada por um espaço de nomes do ACS para assinar os tokens de autorização, e ele é utilizado pelo barramento de serviço para verificar que o token foi emitido por espaço de nomes emparelhado do ACS. O espaço de nomes do ACS armazena identidades de serviço e regras de autorização. As regras de autorização definem a identidade de serviço ou o fornecedor de identidade de qual token emitido por um externo obtém o tipo de acesso a uma parte do espaço de nomes do Service Bus gráfico, na forma de uma correspondência de prefixo mais longo.
+O ACS e o barramento de serviço são integrados por meio do conhecimento compartilhado de uma *chave de assinatura*. A chave de assinatura é usada por um namespace do ACS para assinar tokens de autorização e é usada pelo barramento de serviço para verificar se o token foi emitido pelo namespace do ACS emparelhado. O namespace do ACS contém identidades de serviço e regras de autorização. As regras de autorização definem qual identidade de serviço ou qual token emitido por um provedor de identidade externo Obtém qual tipo de acesso a uma parte do grafo de namespace do barramento de serviço, na forma de uma correspondência de prefixo mais longo.
 
-Por exemplo, uma regra de ACS pode conceder a **enviar** o prefixo do caminho de afirmação `/` para uma identidade de serviço, que significa que um token emitido por ACS com base na regra concede o cliente direitos para enviar para todas as entidades no espaço de nomes. Se o prefixo do caminho estiver `/abc`, a identidade é restrita a enviar para entidades com o nome `abc` ou organizadas sob esse prefixo. Pressupõe-se que os leitores desta orientação de migração já estão familiarizados com esses conceitos.
+Por exemplo, uma regra do ACS pode conceder a Declaração **Send** no prefixo do caminho `/` a uma identidade de serviço, o que significa que um token emitido pelo ACS com base nessa regra concede aos direitos de cliente para enviar a todas as entidades no namespace. Se o prefixo do caminho for `/abc`, a identidade será restrita ao envio para entidades denominadas `abc` ou organizadas abaixo desse prefixo. Supõe-se que os leitores dessas diretrizes de migração já estão familiarizados com esses conceitos.
 
-Os cenários de migração enquadram-se em três categorias principais:
+Os cenários de migração se enquadram em três categorias amplas:
 
-1.  **Inalterado predefinições**. Alguns clientes usam uma [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) objeto, passando o gerado automaticamente **proprietário** do serviço identidade e a chave secreta para o espaço de nomes do ACS, emparelhado com o espaço de nomes do Service Bus e não adicionar novas regras.
+1.  **Padrões inalterados**. Alguns clientes usam um objeto [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) , passando a identidade de serviço do **proprietário** gerada automaticamente e sua chave secreta para o namespace do ACS, emparelhado com o namespace do barramento de serviço e não adicionam novas regras.
 
-2.  **Identidades de serviço personalizado com regras simples**. Alguns clientes adicionar novas identidades de serviço e conceder a cada nova identidade de serviço **enviar**, **escutar**, e **gerir** permissões de uma entidade específica.
+2.  **Identidades de serviço personalizadas com regras simples**. Alguns clientes adicionam novas identidades de serviço e concedem a cada nova identidade de serviço **Enviar**, **escutar**e **gerenciar** permissões para uma entidade específica.
 
-3.  **Identidades de serviço personalizado com regras complexas**. Muito poucos clientes têm regra complexa conjuntos em quais tokens emitidos externamente são mapeados para direitos no reencaminhamento, ou onde é atribuída uma identidade de serviço único diferenciados direitos em vários caminhos de espaço de nomes através de várias regras.
+3.  **Identidades de serviço personalizadas com regras complexas**. Muito poucos clientes têm conjuntos de regras complexos nos quais os tokens emitidos externamente são mapeados para direitos na retransmissão ou em que uma única identidade de serviço recebe direitos diferenciados em vários caminhos de namespace por meio de várias regras.
 
-Para obter assistência com a migração de conjuntos de regras complexas, pode contactar [suporte do Azure](https://azure.microsoft.com/support/options/). Os outros dois cenários ative a migração direta.
+Para obter assistência com a migração de conjuntos de regras complexas, você pode contatar o [suporte do Azure](https://azure.microsoft.com/support/options/). Os outros dois cenários permitem uma migração direta.
 
-### <a name="unchanged-defaults"></a>Predefinições inalteradas
+### <a name="unchanged-defaults"></a>Padrões inalterados
 
-Se seu aplicativo não tiver sido alterado predefinições de ACS, pode substituir todas as [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) utilização com um [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) de objeto e usar o namespace pré-configurada  **RootManageSharedAccessKey** em vez do ACS **proprietário** conta. Tenha em atenção que, mesmo com o ACS **proprietário** conta, esta configuração foi (e continua a ser) geralmente não recomendada, uma vez que esta conta/regra fornece a autoridade de gestão completa sobre o espaço de nomes, incluindo a permissão para eliminar quaisquer entidades.
+Se seu aplicativo não tiver alterado os padrões do ACS, você poderá substituir todo o uso de [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider) por um objeto [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) e usar o namespace pré-configurado **RootManageSharedAccessKey** em vez disso da conta do **proprietário** do ACS. Observe que, mesmo com a conta do **proprietário** do ACS, essa configuração foi (e ainda), geralmente não é recomendada, porque essa conta/regra fornece autoridade de gerenciamento completa sobre o namespace, incluindo a permissão para excluir qualquer entidade.
 
 ### <a name="simple-rules"></a>Regras simples
 
-Se a aplicação utilizar identidades de serviço personalizado com regras simples, a migração é simples no caso em que uma identidade de serviço ACS foi criada para fornecer controlo de acesso numa fila específica. Este cenário é muitas vezes o caso em soluções de SaaS estilo em que cada fila é usada como uma ponte para um site de inquilino ou filial e a identidade de serviço é criada para esse site específico. Neste caso, a identidade de serviço correspondentes pode ser migrada para uma regra de assinatura de acesso partilhado, diretamente na fila. O nome do serviço de identidade pode tornar-se o nome da regra SAS e a chave de identidade de serviço pode tornar-se a chave de regra SAS. Os direitos da regra SAS são, em seguida, o equivalente configurado para o ACS respectivamente aplicável de regra para a entidade.
+Se o aplicativo usar identidades de serviço personalizadas com regras simples, a migração será simples no caso em que uma identidade de serviço do ACS foi criada para fornecer controle de acesso em uma fila específica. Esse cenário geralmente é o caso em soluções em estilo SaaS em que cada fila é usada como uma ponte para um site de locatário ou filial, e a identidade do serviço é criada para esse site específico. Nesse caso, a respectiva identidade de serviço pode ser migrada para uma regra de assinatura de acesso compartilhado, diretamente na fila. O nome da identidade do serviço pode se tornar o nome da regra SAS e a chave de identidade do serviço pode se tornar a chave de regra SAS. Os direitos da regra de SAS são então configurados equivalentes à regra do ACS aplicável para a entidade.
 
-Pode fazer esta configuração nova e adicional de SAS no local em qualquer espaço de nomes existente que está Federado com o ACS e a migração para fora do ACS, em seguida, é efetuada utilizando [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) em vez de [SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). O espaço de nomes não precisa de ser desassociado do ACS.
+Você pode fazer essa configuração nova e adicional de SAS in-loco em qualquer namespace existente que seja federado com o ACS, e a migração para fora do ACS é executada posteriormente usando [SharedAccessSignatureTokenProvider](/dotnet/api/microsoft.servicebus.sharedaccesssignaturetokenprovider) em vez de [ SharedSecretTokenProvider](/dotnet/api/microsoft.servicebus.sharedsecrettokenprovider). O namespace não precisa ser desvinculado do ACS.
 
 ### <a name="complex-rules"></a>Regras complexas
 
-Regras SAS não devem ser contas, mas são nomeadas associadas com direitos de chaves de assinatura. Como tal, os cenários em que a aplicação cria várias identidades de serviço e lhe concede direitos de acesso para várias entidades ou todo o espaço de nomes ainda exigem um intermediário de emissão de token. Pode obter orientações para tal um intermediário pela [contactar o suporte](https://azure.microsoft.com/support/options/).
+As regras de SAS não devem ser contas, mas são chaves de assinatura nomeadas associadas a direitos. Dessa forma, cenários nos quais o aplicativo cria muitas identidades de serviço e concede a eles direitos de acesso para várias entidades ou o namespace inteiro ainda exige um intermediário emissor de tokens. Você pode obter diretrizes para tal intermediário [entrando em contato com o suporte](https://azure.microsoft.com/support/options/).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a autenticação do Service Bus, consulte os seguintes tópicos:
+Para saber mais sobre a autenticação do barramento de serviço, consulte os seguintes tópicos:
 
-* [Barramento de serviço de autenticação e autorização](service-bus-authentication-and-authorization.md)
-* [Autenticação do Service Bus com assinaturas de acesso partilhado](service-bus-sas.md)
+* [Autenticação e autorização do barramento de serviço](service-bus-authentication-and-authorization.md)
+* [Autenticação do barramento de serviço com assinaturas de acesso compartilhado](service-bus-sas.md)
 

@@ -1,25 +1,24 @@
 ---
-title: Como monitorar o status e os resultados do indexador-Azure Search
-description: Monitore o status, o progresso e os resultados de Azure Search indexadores no portal do Azure, usando a API REST ou o SDK do .NET.
-ms.date: 06/28/2019
-author: RobDixon22
+title: Como monitorar o status e os resultados do indexador
+titleSuffix: Azure Cognitive Search
+description: Monitore o status, o progresso e os resultados dos indexadores do Azure Pesquisa Cognitiva no portal do Azure, usando a API REST ou o SDK do .NET.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-services: search
-ms.service: search
 ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: conceptual
-ms.custom: seodec2018
-ms.openlocfilehash: 0096334e06051b9ff474543384febb37bdf1c8e2
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 11/04/2019
+ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72533713"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793790"
 ---
-# <a name="how-to-monitor-azure-search-indexer-status-and-results"></a>Como monitorar Azure Search o status e os resultados do indexador
+# <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorar o status e os resultados do indexador Pesquisa Cognitiva do Azure
 
-Azure Search fornece informações de status e monitoramento sobre as execuções atuais e históricas de todos os indexadores.
+O Azure Pesquisa Cognitiva fornece informações de status e monitoramento sobre as execuções atuais e históricas de todos os indexadores.
 
 O monitoramento do indexador é útil quando você deseja:
 
@@ -75,7 +74,7 @@ Se houver problemas específicos ao documento durante a execução, eles serão 
 
 Os avisos são comuns com alguns tipos de indexadores e nem sempre indicam um problema. Por exemplo indexadores que usam serviços cognitivas podem relatar avisos quando arquivos de imagem ou PDF não contêm nenhum texto para processar.
 
-Para obter mais informações sobre como investigar erros e avisos do indexador, consulte [Solucionando problemas comuns do indexador no Azure Search](search-indexer-troubleshooting.md).
+Para obter mais informações sobre como investigar erros e avisos do indexador, consulte [Solucionando problemas comuns do indexador no Azure pesquisa cognitiva](search-indexer-troubleshooting.md).
 
 <a name="restapi"></a>
 
@@ -128,7 +127,7 @@ Para obter mais detalhes sobre códigos de status e dados de monitoramento do in
 
 ## <a name="monitor-using-the-net-sdk"></a>Monitorar usando o SDK do .NET
 
-Você pode definir a agenda para um indexador usando o SDK do .NET Azure Search. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
+Você pode definir o agendamento de um indexador usando o SDK do .NET Pesquisa Cognitiva do Azure. Para fazer isso, inclua a propriedade **Schedule** ao criar ou atualizar um indexador.
 
 O exemplo C# a seguir grava informações sobre o status de um indexador e os resultados de sua execução mais recente (ou contínua) no console.
 

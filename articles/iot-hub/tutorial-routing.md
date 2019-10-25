@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: cc084c9ff118aa5405bc12cf4e92ff1e11f24e2a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535118"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809417"
 ---
-# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: Usar o CLI do Azure e portal do Azure para configurar o roteamento de mensagens do Hub IoT
+# <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>Tutorial: usar o CLI do Azure e portal do Azure para configurar o roteamento de mensagens do Hub IoT
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535118"
 
 Este tutorial usa o CLI do Azure para criar os recursos básicos e, em seguida, usa o [portal do Azure](https://portal.azure.com) para mostrar como configurar o roteamento de mensagens e configurar o dispositivo virtual para teste.
 
-Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanuméricoaleatório chamado randomValue. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico.
-
 Copie e cole o script abaixo em Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Isso criará os recursos base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o namespace do barramento de serviço e a fila do barramento de serviço.
 
-Uma observação sobre depuração: esse script usa o símbolo de continuação (a barra `\`invertida) para tornar o script mais legível. Se você tiver um problema ao executar o script, certifique-se de que não haja espaços após qualquer uma das barras invertidas.
+Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *randomValue*. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico.
+
+> [!TIP]
+> Uma dica sobre a depuração: esse script usa o símbolo de continuação (a barra invertida `\`) para tornar o script mais legível. Se você tiver um problema ao executar o script, verifique se sua sessão de Cloud Shell está em execução `bash` e se não há espaços após qualquer uma das barras invertidas.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 
@@ -160,15 +162,15 @@ Agora configure o encaminhamento para a conta de armazenamento. Vá para o paine
 
 9. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para o contentor de armazenamento que acabou de adicionar como ponto final. Preencha os campos no ecrã.
 
-   **Nome**: Insira um nome para a consulta de roteamento. Este tutorial usa **ContosoStorageRoute**.
+   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial usa **ContosoStorageRoute**.
 
-   **Ponto de extremidade**: Isso mostra o ponto de extremidade que você acabou de configurar.
+   **Ponto final**: mostra o ponto final que acabou de configurar.
 
-   **Fonte de dados**: Selecione **mensagens** de telemetria do dispositivo na lista suspensa.
+   **Origem de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista pendente.
 
-   **Habilitar rota**: Verifique se esse campo está definido como `enabled`.
+   **Habilitar rota**: Certifique-se de que esse campo esteja definido como `enabled`.
    
-   **Consulta de roteamento**: Insira `level="storage"` como a cadeia de caracteres de consulta.
+   **Consulta de encaminhamento**: introduza `level="storage"` como a cadeia de consulta.
 
    ![Criando uma consulta de roteamento para a conta de armazenamento](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
 
@@ -188,7 +190,7 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
 4. Preencha os campos:
 
-   **Nome do ponto de extremidade**: Introduza um nome para o ponto final. Este tutorial usa **ContosoSBQueueEndpoint**.
+   **Nome do Ponto Final**: introduza um nome para o ponto final. Este tutorial usa **ContosoSBQueueEndpoint**.
    
    **Namespace do barramento de serviço**: Use a lista suspensa para selecionar o namespace do barramento de serviço que você configurou nas etapas de preparação. Este tutorial utiliza **ContosoSBNamespace**.
 
@@ -198,13 +200,13 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
 6. Agora, preencha o resto das informações da consulta de encaminhamento. Esta consulta especifica os critérios para enviar mensagens para a fila do Service Bus que acabou de adicionar como ponto final. Preencha os campos no ecrã. 
 
-   **Nome**: Insira um nome para a consulta de roteamento. Este tutorial usa **ContosoSBQueueRoute**. 
+   **Nome**: introduza um nome para a consulta de encaminhamento. Este tutorial usa **ContosoSBQueueRoute**. 
 
-   **Ponto de extremidade**: Isso mostra o ponto de extremidade que você acabou de configurar.
+   **Ponto final**: mostra o ponto final que acabou de configurar.
 
-   **Fonte de dados**: Selecione **mensagens** de telemetria do dispositivo na lista suspensa.
+   **Origem de dados**: selecione **Mensagens de Telemetria do Dispositivo** na lista pendente.
 
-   **Consulta de roteamento**: Insira `level="critical"` como a cadeia de caracteres de consulta. 
+   **Consulta de encaminhamento**: introduza `level="critical"` como a cadeia de consulta. 
 
    ![Criar uma consulta de roteamento para a fila do barramento de serviço](./media/tutorial-routing/message-routing-finish-route-sbq-ep.png)
 
@@ -222,7 +224,7 @@ Agora configure o encaminhamento para a fila do Service Bus. Vá para o painel E
 
 [!INCLUDE [iot-hub-include-create-simulated-device-portal](../../includes/iot-hub-include-create-simulated-device-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que você tem os recursos configurados e as rotas de mensagens definidas, avance para o próximo tutorial para saber como enviar mensagens para o Hub IoT e vê-las roteadas para os diferentes destinos. 
 

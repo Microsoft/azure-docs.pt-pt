@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 032d52961b4867cad94d06802adb0a1f3eb00f5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 84af0484ed9fb792bef6bbbe9c53395b569acb3c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553948"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793857"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Azure (versão prévia)
 
@@ -69,7 +69,10 @@ Da sua assinatura do Office 365:
 
 - Nome de usuário: endereço de email de uma conta administrativa.
 - ID do locatário: ID exclusiva para assinatura do Office 365.
-- ID do cliente: cadeia de 16 caracteres que representa o cliente do Office 365.
+
+As informações a seguir devem ser coletadas durante a criação e a configuração do aplicativo Office 365 no Azure Active Directory:
+
+- ID do aplicativo (cliente): cadeia de caracteres de 16 caracteres que representa o cliente do Office 365.
 - Segredo do cliente: cadeia de caracteres criptografada necessária para autenticação.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Criar um aplicativo do Office 365 no Azure Active Directory
@@ -87,6 +90,9 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
 1. Clique em **registrar** e validar as informações do aplicativo.
 
     ![Aplicativo registrado](media/solution-office-365/registered-app.png)
+
+1. Salve a ID do aplicativo (cliente) junto com o restante das informações coletadas antes.
+
 
 ### <a name="configure-application-for-office-365"></a>Configurar o aplicativo para o Office 365
 
@@ -117,7 +123,7 @@ A primeira etapa é criar um aplicativo no Azure Active Directory que a soluçã
     ![Chaves](media/solution-office-365/secret.png)
  
 1. Digite uma **Descrição** e uma **duração** para a nova chave.
-1. Clique em **Adicionar** e copie o **valor** gerado.
+1. Clique em **Adicionar** e salve o **valor** que foi gerado como o segredo do cliente junto com o restante das informações coletadas antes.
 
     ![Chaves](media/solution-office-365/keys.png)
 
@@ -188,7 +194,12 @@ Para habilitar a conta administrativa pela primeira vez, você deve fornecer con
     
     ![Consentimento do administrador](media/solution-office-365/admin-consent.png)
 
+> [!NOTE]
+> Você pode ser redirecionado para uma página que não existe. Considere-o como sucesso.
+
 ### <a name="subscribe-to-log-analytics-workspace"></a>Assinar Log Analytics espaço de trabalho
+
+A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Analytics. Você também faz isso com um script do PowerShell.
 
 A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Analytics. Você também faz isso com um script do PowerShell.
 
@@ -236,18 +247,20 @@ A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Anal
                     $authority = "https://login.windows.net/$adTenant";
                     $ARMResource ="https://management.azure.com/";break} 
                     }
-    
+
     Function RESTAPI-Auth { 
-    
-    $global:SubscriptionID = $Subscription.SubscriptionId
+    $global:SubscriptionID = $Subscription.Subscription.Id
     # Set Resource URI to Azure Service Management API
-    $resourceAppIdURIARM=$ARMResource;
+    $resourceAppIdURIARM=$ARMResource
     # Authenticate and Acquire Token 
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
+
     $authHeader
     }
     
@@ -271,7 +284,7 @@ A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Anal
     
     Function Connection-API
     {
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     
@@ -315,7 +328,7 @@ A última etapa é inscrever o aplicativo em seu espaço de trabalho do Log Anal
     Function Office-Subscribe-Call{
     try{
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $SubscriptionId   =  $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_' + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
     
@@ -509,7 +522,7 @@ Pode levar algumas horas para que os dados sejam coletados inicialmente. Depois 
 [!INCLUDE [azure-monitor-solutions-overview-page](../../../includes/azure-monitor-solutions-overview-page.md)]
 
 Quando você adicionar a solução do Office 365 ao seu espaço de trabalho do Log Analytics, o bloco do **office 365** será adicionado ao seu painel. Este mosaico apresenta uma contagem e uma representação gráfica do número de computadores no seu ambiente e a respetiva conformidade de atualização.<br><br>
-Bloco de resumo do ![Office 365 ](media/solution-office-365/tile.png)  
+Bloco de resumo do ![Office 365](media/solution-office-365/tile.png)  
 
 Clique no bloco do **office 365** para abrir o painel do **Office 365** .
 

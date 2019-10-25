@@ -1,5 +1,6 @@
 ---
-title: Personalizar navegadores e webviews | Plataforma de identidade da Microsoft
+title: Personalizar browsers e WebViews
+titleSuffix: Microsoft identity platform
 description: Saiba como personalizar a experiência do navegador usada pelo MSAL para iOS e macOS para conectar usuários
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264197"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803374"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Como: Personalizar navegadores e webviews para iOS/macOS
 

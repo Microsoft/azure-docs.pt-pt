@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: c5aa7af1ca6f4fe0768add47d2037d797e4ef99b
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dceb558532305c6d2e84563e25ab05508423090
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613240"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801950"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar Fluxos de Trabalho de Codificação Avançados com o Estruturador de Fluxos de Trabalho  
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 O **Designer de fluxo de trabalho** é uma ferramenta de área de trabalho do Windows que é usada para criar e criar fluxos de trabalho personalizados para codificação com **Media Encoder Premium Workflow**.
 Usando o poder da ferramenta designer de fluxo de trabalho, você pode projetar e criar fluxos de trabalho complexos que serão executados no **Media Encoder Premium**.  
 
@@ -37,7 +37,7 @@ Os fluxos de trabalho de exemplo que você pode criar incluem:
 Essa ferramenta também pode ser usada para modificar qualquer um dos nossos [fluxos de trabalho publicados](media-services-workflow-designer.md#existing_workflows). 
 
 > [!NOTE]
-> Para obter sua cópia da ferramenta de Designer de Fluxo de Trabalho, entre em mepd@microsoft.comcontato com.
+> Para obter sua cópia da ferramenta de Designer de Fluxo de Trabalho, entre em contato com mepd@microsoft.com.
 
 Depois que um arquivo de fluxo de trabalho é criado, ele pode ser carregado como um ativo e, em seguida, usado para codificar arquivos de mídia. Para obter informações sobre como codificar com **Media Encoder Premium Workflow** usando o **.net**, consulte [Codificação avançada com Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
@@ -79,6 +79,10 @@ O vídeo do dia 3 abrange:
 > 
 > 
 
+## <a name="need-help"></a>Precisa de ajuda?
+
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+
 ## <a name="next-step"></a>Passo seguinte
 Rever os percursos de aprendizagem dos Serviços de Multimédia
 
@@ -87,8 +91,6 @@ Rever os percursos de aprendizagem dos Serviços de Multimédia
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-Se você precisar de suporte ou tiver dúvidas sobre a criação de fluxos de trabalho personalizados na ferramenta designer de fluxo de mepd@microsoft.comtrabalho, envie um email para. Use o idioma inglês ao escrever seu email.
-
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 [Vídeos de treinamento Designer de Fluxo de Trabalho o codificador Premium do Azure](http://johndeutscher.com/2015/07/06/azure-premium-encoder-workflow-designer-training-videos/)
 

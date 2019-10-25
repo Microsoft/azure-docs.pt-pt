@@ -1,23 +1,25 @@
 ---
-title: Práticas recomendadas de segurança de Internet das coisas (IoT)
-description: Melhores práticas para proteger a sua infraestrutura de IoT
+title: Práticas recomendadas de segurança do Internet das Coisas (IoT)
+description: Práticas recomendadas para proteger sua infraestrutura de IoT
 author: robinsh
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: aa76e281a47be783ca9694fd65a4db39ae0f4a57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 522fea022bf245f351681eb7bdd93b524a1d9535
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442679"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793116"
 ---
+# <a name="security-best-practices-for-internet-of-things-iot"></a>Práticas recomendadas de segurança para Internet das Coisas (IoT)
+
 [!INCLUDE [iot-security-best-practices](../../includes/iot-security-best-practices.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-Para saber mais sobre como proteger uma solução criada por um acelerador de solução de IoT, veja [proteger a sua implementação de IoT](iot-security-deployment.md).
+Para saber mais sobre como proteger uma solução criada por um acelerador de solução de IoT, confira [proteger sua implantação de IOT](iot-security-deployment.md).
 
-Saiba mais sobre segurança de IoT Hub no [controlar o acesso ao IoT Hub](../iot-hub/iot-hub-devguide-security.md) no Guia do programador do IoT Hub.
+Leia sobre a segurança do Hub IoT em [controlar o acesso ao Hub IOT](../iot-hub/iot-hub-devguide-security.md) no guia do desenvolvedor do Hub IOT.

@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5080ec4db46f717a9e9ecdcdfbea42fbe43c349d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 66073052b290a1345dc0bb63ed6df0934fd81c64
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598431"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804147"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento para Azure Machine Learning
 
@@ -305,7 +305,7 @@ Use estas configurações:
 | Definição |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |constante| yourclustername |
-| Runtime do Databricks |constante| Qualquer tempo de execução não ML (não ML 4. x, 5. x) |
+| Runtime do Databricks |constante|Tempo de execução não ML 6,0 (escala 2,11, Spark 2.4.3) |
 | Versão de Python |constante| 3 |
 | Pelos |constante| 2 ou superior |
 | Tipos de VM de nó de trabalho <br>(determina o número máximo de iterações simultâneas) |ML Automatizado<br>somente| VM com otimização de memória preferencial |
@@ -346,14 +346,17 @@ Depois que o cluster estiver em execução, [crie uma biblioteca](https://docs.d
 
 Se a instalação tiver sido bem-sucedida, a biblioteca importada deverá ser semelhante a uma destas:
 
-SDK para databricks **_sem_** o aprendizado de máquina automatizado ![Azure o sdk do Machine Learning para databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+SDK para databricks **_sem_** o aprendizado de máquina automatizado ![o sdk do Azure Machine Learning para databricks](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
 
-SDK para databricks **com** o ![SDK de aprendizado de máquina automatizado com o aprendizado de máquina automatizado instalado no databricks ](./media/how-to-configure-environment/automlonadb.jpg)
+SDK para databricks **com** o sdk do ![de Machine Learning automatizado com o Machine Learning automatizado instalado no databricks](./media/how-to-configure-environment/automlonadb.png)
 
 ### <a name="start-exploring"></a>Comece a explorar
 
 Experimente:
 + Embora muitos blocos de anotações de exemplo estejam disponíveis, **somente [esses blocos de anotações de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) funcionam com Azure Databricks.**
+
++ Importe esses exemplos diretamente do seu espaço de trabalho. Veja abaixo: ![selecione Importar](media/how-to-configure-environment/azure-db-screenshot.png)
+![painel importar](media/how-to-configure-environment/azure-db-import.png)
 
 + Saiba como [criar um pipeline com o databricks como a computação de treinamento](how-to-create-your-first-pipeline.md).
 

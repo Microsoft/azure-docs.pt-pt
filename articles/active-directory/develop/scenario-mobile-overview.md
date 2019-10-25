@@ -1,5 +1,6 @@
 ---
-title: Aplicativo móvel que chama APIs Web-visão geral | Plataforma de identidade da Microsoft
+title: Aplicativo móvel que chama APIs Web-visão geral
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (visão geral)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,14 +17,14 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f67f063ab374dec8bac3905ea46f1dfa9d8ed1fb
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 98f05470a07bad82a1e51517a787fb98c78f92ce
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852594"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803758"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: Aplicativo móvel que chama APIs da Web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Cenário: aplicativo móvel que chama APIs da Web
 
 Saiba tudo o que você precisa saber para criar um aplicativo móvel que chama APIs da Web.
 
@@ -36,13 +37,13 @@ Saiba tudo o que você precisa saber para criar um aplicativo móvel que chama A
 Crie seu primeiro aplicativo móvel e experimente um início rápido!
 
 > [!div class="nextstepaction"]
-> [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)
+> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Android](./quickstart-v2-android.md)
 >
-> [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo iOS](./quickstart-v2-ios.md)
+> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo iOS](./quickstart-v2-ios.md)
 >
-> [Quickstart: Adquirir um token e chamar Microsoft Graph API de um aplicativo Xamarin iOS & Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+> [Início rápido: adquirir um token e chamar Microsoft Graph API de um aplicativo Xamarin iOS & Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Uma experiência de usuário personalizada e direta é essencial para aplicativos móveis.  A plataforma de identidade da Microsoft permite que os desenvolvedores móveis criem essa experiência para usuários de iOS e Android. Seu aplicativo pode entrar Azure Active Directory (Azure AD) usuários, usuários pessoais conta Microsoft e Azure AD B2C usuários e adquirir tokens para chamar uma API da Web em seu nome. Para implementar esses fluxos, usaremos a MSAL (biblioteca de autenticação da Microsoft), que implementa o fluxo de código de autorização padrão do setor [OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
@@ -50,9 +51,9 @@ Uma experiência de usuário personalizada e direta é essencial para aplicativo
 
 Considerações para aplicativos móveis:
 
-- A **experiência do usuário é a chave**: Permita que os usuários vejam o valor do seu aplicativo antes de solicitar a entrada e solicite apenas as permissões necessárias.
-- **Suporte a todas as configurações de usuário**: Muitos usuários de negócios móveis estão sob políticas de acesso condicional e de conformidade do dispositivo. Certifique-se de dar suporte a esses cenários principais.
-- **Implementar logon único (SSO)** : O MSAL e a plataforma de identidade da Microsoft facilitam a habilitação do logon único por meio do navegador do dispositivo ou do Microsoft Authenticator (e Portal da Empresa do Intune no Android).
+- A **experiência do usuário é a chave**: permite que os usuários vejam o valor do seu aplicativo antes de solicitar a entrada e solicitem apenas as permissões necessárias.
+- **Suporte a todas as configurações de usuário**: muitos usuários comerciais móveis estão sob políticas de acesso condicional e de conformidade do dispositivo. Certifique-se de dar suporte a esses cenários principais.
+- **Implementar SSO (logon único)** : o MSAL e a plataforma de identidade da Microsoft facilitam a habilitação do logon único por meio do navegador do dispositivo ou do Microsoft Authenticator (e portal da empresa do Intune no Android).
 
 ## <a name="specifics"></a>Especificações
 
@@ -62,7 +63,7 @@ Lembre-se destas considerações ao criar um aplicativo móvel na plataforma Mic
 - No iOS e no Android, o MSAL pode usar um navegador externo (que pode aparecer na parte superior do seu aplicativo) para conectar usuários. Em vez disso, você pode personalizar a configuração para usar webviews no aplicativo.
 - Nunca use um segredo em um aplicativo móvel. Ele poderá ser acessado por todos os usuários.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Registo da aplicação](scenario-mobile-app-registration.md)

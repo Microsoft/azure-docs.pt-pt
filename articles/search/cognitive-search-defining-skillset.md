@@ -1,25 +1,25 @@
 ---
-title: Criar um conconhecimento em um pipeline de pesquisa cognitiva-Azure Search
-description: Defina as etapas de extração de dados, processamento de idioma natural ou análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso em Azure Search.
+title: Criar um conconhecimento em um pipeline de enriquecimento
+titleSuffix: Azure Cognitive Search
+description: Defina as etapas de extração de dados, processamento de idioma natural ou análise de imagem para enriquecer e extrair informações estruturadas de seus dados para uso no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: f78b8c3b9619b7eea92b6a4f04ed4f6543916efe
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: a60298b02b02e375d7241acf15852a19f814d59a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71265520"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787475"
 ---
-# <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Como criar um congrau de habilidade em um pipeline de enriquecimento
+# <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Como criar um conconhecimento em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva 
 
-A pesquisa cognitiva extrai e enriquece os dados para torná-los pesquisáveis em Azure Search. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto de *qualificações* referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md) para obter mais informações).
+O enriquecimento de ia extrai e enriquece os dados para torná-los pesquisáveis no Azure Pesquisa Cognitiva. Chamamos as *habilidades*de extração e enriquecimento, combinadas em um conjunto de *qualificações* referenciadas durante a indexação. Um técnico pode usar [habilidades internas](cognitive-search-predefined-skills.md) ou habilidades personalizadas (consulte [o exemplo: criando uma habilidade personalizada em um pipeline de enriquecimento de ia](cognitive-search-create-custom-skill-example.md) para obter mais informações).
 
-Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que deseja usar. Um contratador de qualificações é anexado a um [indexador](search-indexer-overview.md)de Azure Search. Uma parte do design de pipeline, abordada neste artigo, está construindo o próprio próprio contratador. 
+Neste artigo, você aprenderá a criar um pipeline de enriquecimento para as habilidades que deseja usar. Um contratador de qualificações é anexado a um [indexador](search-indexer-overview.md)pesquisa cognitiva do Azure. Uma parte do design de pipeline, abordada neste artigo, está construindo o próprio próprio contratador. 
 
 > [!NOTE]
 > Outra parte do design do pipeline é especificar um indexador, abordado na [próxima etapa](#next-step). Uma definição de indexador inclui uma referência para o skillset, além de mapeamentos de campo usados para conectar entradas a saídas no índice de destino.
@@ -45,10 +45,10 @@ O diagrama a seguir ilustra um pipeline de enriquecimento hipotético:
 ![Um pipeline de enriquecimento hipotético](media/cognitive-search-defining-skillset/sample-skillset.png "Um pipeline de enriquecimento hipotético")
 
 
-Depois de ter uma ideia justa do que você deseja no pipeline, você pode expressar o tipo de habilidade que fornece essas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador para Azure Search. Para saber mais sobre como carregar o indexador, consulte a [documentação do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Depois de ter uma ideia justa do que você deseja no pipeline, você pode expressar o tipo de habilidade que fornece essas etapas. Funcionalmente, o contratador de habilidades é expresso quando você carrega a definição do indexador no Azure Pesquisa Cognitiva. Para saber mais sobre como carregar o indexador, consulte a [documentação do indexador](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
 
-No diagrama, a etapa de *quebra de documento* ocorre automaticamente. Essencialmente, Azure Search sabe como abrir arquivos bem conhecidos e cria um campo de *conteúdo* que contém o texto extraído de cada documento. As caixas brancas são aprimoramentos internos e a caixa "Pesquisa de Entidade do Bing" pontilhada representa um aprimorado personalizado que você está criando. Conforme ilustrado, o skillset contém três habilidades.
+No diagrama, a etapa de *quebra de documento* ocorre automaticamente. Essencialmente, o Azure Pesquisa Cognitiva sabe como abrir arquivos conhecidos e cria um campo de *conteúdo* que contém o texto extraído de cada documento. As caixas brancas são aprimoramentos internos e a caixa "Pesquisa de Entidade do Bing" pontilhada representa um aprimorado personalizado que você está criando. Conforme ilustrado, o skillset contém três habilidades.
 
 ## <a name="skillset-definition-in-rest"></a>Definição de conconhecimento em REST
 
@@ -243,11 +243,11 @@ Um resultado provável seria uma estrutura gerada semelhante à ilustração a s
 
 ![Estrutura de saída de exemplo](media/cognitive-search-defining-skillset/enriched-doc.png "Estrutura de saída de exemplo")
 
-Até agora, essa estrutura tem sido somente interno, somente de memória e usada somente em índices Azure Search. A adição de uma loja de conhecimento oferece uma maneira de salvar os aprimoramentos moldados para uso fora da pesquisa.
+Até agora, essa estrutura tem sido somente interno, somente de memória e usada somente nos índices de Pesquisa Cognitiva do Azure. A adição de uma loja de conhecimento oferece uma maneira de salvar os aprimoramentos moldados para uso fora da pesquisa.
 
 ## <a name="add-a-knowledge-store"></a>Adicionar uma loja de conhecimento
 
-O [repositório de conhecimento](knowledge-store-concept-intro.md) é um recurso de visualização no Azure Search para salvar seu documento aprimorado. Uma loja de conhecimento que você cria, apoiada por uma conta de armazenamento do Azure, é o repositório no qual seus dados aprimorados ficam. 
+O [repositório de conhecimento](knowledge-store-concept-intro.md) é um recurso de visualização do Azure pesquisa cognitiva para salvar seu documento aprimorado. Uma loja de conhecimento que você cria, apoiada por uma conta de armazenamento do Azure, é o repositório no qual seus dados aprimorados ficam. 
 
 Uma definição de repositório de conhecimento é adicionada a um conconhecedor. Para obter uma explicação do processo inteiro, consulte [como começar a usar a loja de conhecimento](knowledge-store-howto.md).
 

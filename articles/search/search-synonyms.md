@@ -1,37 +1,35 @@
 ---
-title: Sinônimos para expansão de consulta em um índice de pesquisa-Azure Search
-description: Crie um mapa de sinônimos para expandir o escopo de uma consulta de pesquisa em um índice de Azure Search. O escopo é ampliado para incluir termos equivalentes que você fornecer em uma lista.
-author: brjohnstmsft
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+title: Sinônimos para expansão de consulta em um índice de pesquisa
+titleSuffix: Azure Cognitive Search
+description: Crie um mapa de sinônimos para expandir o escopo de uma consulta de pesquisa em um índice de Pesquisa Cognitiva do Azure. O escopo é ampliado para incluir termos equivalentes que você fornecer em uma lista.
 manager: nitinme
+author: brjohnstmsft
 ms.author: brjohnst
-ms.custom: seodec2018
-ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331185"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794216"
 ---
-# <a name="synonyms-in-azure-search"></a>Sinônimos no Azure Search
+# <a name="synonyms-in-azure-cognitive-search"></a>Sinônimos no Azure Pesquisa Cognitiva
 
 Os sinônimos nos mecanismos de pesquisa associam termos equivalentes que expandem implicitamente o escopo de uma consulta, sem que o usuário tenha que realmente fornecer o termo. Por exemplo, considerando o termo "cachorro" e as associações de sinônimo de "canino" e "filhote", todos os documentos contendo "cachorro", "canino" ou "filhote" ficarão dentro do escopo da consulta.
 
-No Azure Search, a expansão do sinônimo é feita no momento da consulta. Você pode adicionar mapas de sinônimos a um serviço sem interrupções nas operações existentes. Você pode adicionar uma propriedade **synonymMaps** a uma definição de campo sem precisar recriar o índice.
+No Azure Pesquisa Cognitiva, a expansão do sinônimo é feita no momento da consulta. Você pode adicionar mapas de sinônimos a um serviço sem interrupções nas operações existentes. Você pode adicionar uma propriedade **synonymMaps** a uma definição de campo sem precisar recriar o índice.
 
 ## <a name="create-synonyms"></a>Criar sinônimos
 
-Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [criar mapas de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# os desenvolvedores, você pode começar a [Adicionar sinônimos na pesquisa do Azure C#usando ](search-synonyms-tutorial-sdk.md)o.
+Não há suporte do portal para criar sinônimos, mas você pode usar a API REST ou o SDK do .NET. Para começar com o REST, é recomendável [usar o postmaster](search-get-started-postman.md) e a formulação de solicitações usando esta API: [criar mapas de sinônimos](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Para C# os desenvolvedores, você pode começar a [Adicionar sinônimos na pesquisa cognitiva do Azure C#usando ](search-synonyms-tutorial-sdk.md).
 
 Opcionalmente, se você estiver usando [chaves gerenciadas pelo cliente](search-security-manage-encryption-keys.md) para criptografia do lado do serviço em repouso, poderá aplicar essa proteção ao conteúdo do seu mapa de sinônimos.
 
 ## <a name="use-synonyms"></a>Usar sinônimos
 
-No Azure Search, o suporte a sinônimos é baseado em mapas de sinônimos que você define e carrega em seu serviço. Esses mapas constituem um recurso independente (como índices ou fontes de dados) e podem ser usados por qualquer campo pesquisável em qualquer índice em seu serviço de pesquisa.
+No Azure Pesquisa Cognitiva, o suporte a sinônimos é baseado em mapas de sinônimos que você define e carrega em seu serviço. Esses mapas constituem um recurso independente (como índices ou fontes de dados) e podem ser usados por qualquer campo pesquisável em qualquer índice em seu serviço de pesquisa.
 
 Mapas e índices de sinônimos são mantidos de forma independente. Depois de definir um mapa de sinônimos e carregá-lo em seu serviço, você pode habilitar o recurso de sinônimo em um campo adicionando uma nova propriedade chamada **synonymMaps** na definição de campo. Criar, atualizar e excluir um mapa de sinônimos sempre é uma operação de documento inteiro, o que significa que você não pode criar, atualizar ou excluir partes do mapa de sinônimos de forma incremental. Atualizar até mesmo uma única entrada requer um recarregamento.
 

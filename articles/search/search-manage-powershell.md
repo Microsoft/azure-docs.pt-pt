@@ -1,22 +1,22 @@
 ---
-title: Scripts do PowerShell usando o módulo AZ. Search-Azure Search
-description: Criar e configurar um serviço de Azure Search com o PowerShell. Você pode dimensionar um serviço para cima ou para baixo, gerenciar as chaves de API de administração e de consulta e consultar informações do sistema.
-author: HeidiSteen
+title: Scripts do PowerShell usando o módulo AZ. Search
+titleSuffix: Azure Cognitive Search
+description: Criar e configurar um serviço de Pesquisa Cognitiva do Azure com o PowerShell. Você pode dimensionar um serviço para cima ou para baixo, gerenciar as chaves de API de administração e de consulta e consultar informações do sistema.
 manager: nitinme
-services: search
-ms.service: search
+author: HeidiSteen
+ms.author: heidist
+ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/28/2019
-ms.author: heidist
-ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/04/2019
+ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331245"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793545"
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Gerenciar seu serviço de Azure Search com o PowerShell
+# <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerenciar o serviço de Pesquisa Cognitiva do Azure com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
@@ -24,7 +24,7 @@ ms.locfileid: "72331245"
 > * [SDK do .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Você pode executar os cmdlets e scripts do PowerShell no Windows, Linux ou no [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar Azure Search. O módulo **AZ. Search** estende Azure PowerShell] com paridade total para as [APIs REST de gerenciamento de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Com Azure PowerShell e **AZ. Search**, você pode executar as seguintes tarefas:
+Você pode executar os cmdlets e scripts do PowerShell no Windows, Linux ou no [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para criar e configurar o pesquisa cognitiva do Azure. O módulo **AZ. Search** estende Azure PowerShell] com paridade total para as [APIs REST do gerenciamento de pesquisa cognitiva do Azure](https://docs.microsoft.com/rest/api/searchmanagement). Com Azure PowerShell e **AZ. Search**, você pode executar as seguintes tarefas:
 
 > [!div class="checklist"]
 > * [Listar todos os serviços de pesquisa em sua assinatura](#list-search-services)
@@ -92,7 +92,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 <a name="list-search-services"></a>
 
-## <a name="list-all-azure-search-services-in-your-subscription"></a>Listar todos os serviços de Azure Search em sua assinatura
+## <a name="list-all-azure-cognitive-search-services-in-your-subscription"></a>Listar todos os serviços de Pesquisa Cognitiva do Azure em sua assinatura
 
 Os comandos a seguir são de [**AZ. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), retornando informações sobre os recursos e serviços existentes já provisionados em sua assinatura. Se você não souber quantos serviços de pesquisa já foram criados, esses comandos retornarão essas informações, poupando uma viagem ao Portal.
 
@@ -201,7 +201,7 @@ Você só pode gerar um de cada vez, especificado como a chave `primary` ou `sec
 
 Como você deve esperar, se você regenerar chaves sem Atualizar o código do cliente, as solicitações que usam a chave antiga falharão. A regeneração de todas as novas chaves não o bloqueia permanentemente de seu serviço e você ainda pode acessar o serviço por meio do Portal. Depois de regenerar chaves primárias e secundárias, você pode atualizar o código do cliente para usar as novas chaves e as operações serão retomadas de acordo.
 
-Os valores para as chaves de API são gerados pelo serviço. Você não pode fornecer uma chave personalizada para Azure Search usar. Da mesma forma, não há nenhum nome definido pelo usuário para as chaves de API de administração. As referências à chave são cadeias de caracteres fixas, `primary` ou `secondary`. 
+Os valores para as chaves de API são gerados pelo serviço. Você não pode fornecer uma chave personalizada para uso do Azure Pesquisa Cognitiva. Da mesma forma, não há nenhum nome definido pelo usuário para as chaves de API de administração. As referências à chave são cadeias de caracteres fixas, `primary` ou `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary
@@ -217,9 +217,9 @@ Primary                    Secondary
 
 ## <a name="create-or-delete-query-keys"></a>Criar ou excluir chaves de consulta
 
-[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) é usado para criar [chaves de API](search-security-api-keys.md) de consulta para acesso somente leitura de aplicativos cliente a um índice Azure Search. As chaves de consulta são usadas para autenticar em um índice específico com a finalidade de recuperar os resultados da pesquisa. As chaves de consulta não concedem acesso somente leitura a outros itens no serviço, como um índice, uma fonte de dados ou um indexador.
+[**New-AzSearchQueryKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchquerykey?view=azps-1.4.0) é usado para criar [chaves de API](search-security-api-keys.md) de consulta para acesso somente leitura de aplicativos cliente a um índice de pesquisa cognitiva do Azure. As chaves de consulta são usadas para autenticar em um índice específico com a finalidade de recuperar os resultados da pesquisa. As chaves de consulta não concedem acesso somente leitura a outros itens no serviço, como um índice, uma fonte de dados ou um indexador.
 
-Você não pode fornecer uma chave para Azure Search usar. As chaves de API são geradas pelo serviço.
+Você não pode fornecer uma chave para uso do Azure Pesquisa Cognitiva. As chaves de API são geradas pelo serviço.
 
 ```azurepowershell-interactive
 New-AzSearchQueryKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <query-key-name> 
@@ -257,7 +257,7 @@ Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resource
 
 Crie um [índice](search-what-is-an-index.md), [consulte um índice](search-query-overview.md) usando o portal, as APIs REST ou o SDK do .net.
 
-* [Criar um índice de Azure Search no portal do Azure](search-create-index-portal.md)
+* [Criar um índice de Pesquisa Cognitiva do Azure no portal do Azure](search-create-index-portal.md)
 * [Configurar um indexador para carregar dados de outros serviços](search-indexer-overview.md)
-* [Consultar um índice de Azure Search usando o Search Explorer no portal do Azure](search-explorer.md)
-* [Como utilizar o Azure Search no .NET](search-howto-dotnet-sdk.md)
+* [Consultar um índice de Pesquisa Cognitiva do Azure usando o Search Explorer no portal do Azure](search-explorer.md)
+* [Como usar o Azure Pesquisa Cognitiva no .NET](search-howto-dotnet-sdk.md)

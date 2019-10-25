@@ -1,27 +1,27 @@
 ---
-title: 'Exemplo: facetas de vários níveis-Azure Search'
+title: 'Exemplo: facetas de vários níveis'
+titleSuffix: Azure Cognitive Search
 description: Saiba como criar estruturas de faceta para taxonomias de vários níveis, criando uma estrutura de navegação aninhada que você pode incluir nas páginas do aplicativo.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: 9a56bba55f9b3a59126168bc2bbbd50927c3fc78
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 8672fa0911d1a031205bb3340fa0c03ab9492a28
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70274090"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792945"
 ---
-# <a name="example-multi-level-facets-in-azure-search"></a>Exemplo: facetas de vários níveis no Azure Search
+# <a name="example-multi-level-facets-in-azure-cognitive-search"></a>Exemplo: facetas de vários níveis no Azure Pesquisa Cognitiva
 
-Os esquemas de Azure Search não dão suporte explicitamente a categorias de taxonomia de vários níveis, mas você pode aproximar-los manipulando o conteúdo antes da indexação e, em seguida, aplicando uma manipulação especial aos resultados. 
+Os esquemas de Pesquisa Cognitiva do Azure não dão suporte explicitamente a categorias de taxonomia de vários níveis, mas você pode aproximar-los manipulando o conteúdo antes da indexação e, em seguida, aplicando uma manipulação especial aos resultados. 
 
 ## <a name="start-with-the-data"></a>Comece com os dados
 
-O exemplo neste artigo se baseia em um exemplo anterior, [Modele o banco de dados de inventário AdventureWorks](search-example-adventureworks-modeling.md), para demonstrar a faceta de vários níveis no Azure Search.
+O exemplo neste artigo se baseia em um exemplo anterior, [Modele o banco de dados de inventário AdventureWorks](search-example-adventureworks-modeling.md), para demonstrar a faceta de vários níveis no Azure pesquisa cognitiva.
 
 O AdventureWorks tem uma taxonomia simples de dois níveis com uma relação pai-filho. Para obter as profundidades de taxonomia de comprimento fixo dessa estrutura, uma consulta de junção SQL simples pode ser usada para agrupar a taxonomia:
 
@@ -39,7 +39,7 @@ LEFT JOIN
 
 ## <a name="indexing-to-a-collection-field"></a>Indexando em um campo de coleção
 
-No índice que contém essa estrutura, crie um campo de **coleção (EDM. String)** no esquema de Azure Search para armazenar esses dados, verificando se os atributos de campo incluem pesquisáveis, filtráveis, de face e recuperáveis.
+No índice que contém essa estrutura, crie um campo de **coleção (EDM. String)** no esquema de pesquisa cognitiva do Azure para armazenar esses dados, certificando-se de que os atributos de campo incluem pesquisáveis, filtráveis, de face e recuperáveis.
 
 Agora, ao indexar conteúdo que se refere a uma categoria de taxonomia específica, envie a taxonomia como uma matriz que contém o texto de cada nível da taxonomia. Por exemplo, para uma entidade com `ProductCategoryId = 5 (Mountain Bikes)`, envie o campo como `[ "Bikes", "Bikes|Mountain Bikes"]`
 
@@ -99,4 +99,4 @@ Essa técnica será dimensionada para abranger cenários mais complexos, como á
 
 ## <a name="see-also"></a>Ver também
 
-[Exemplo: Modele o banco de dados de inventário AdventureWorks para Azure Search](search-example-adventureworks-modeling.md)
+[Exemplo: Modele o banco de dados de inventário AdventureWorks para o Azure Pesquisa Cognitiva](search-example-adventureworks-modeling.md)

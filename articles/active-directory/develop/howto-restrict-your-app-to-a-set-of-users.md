@@ -1,5 +1,6 @@
 ---
-title: Como restringir seu aplicativo registrado Azure Active Directory a um conjunto de usuários
+title: Restringir seu aplicativo registrado Azure Active Directory a um conjunto de usuários
+titleSuffix: Microsoft identity platform
 description: Saiba como restringir o acesso aos seus aplicativos registrados no Azure AD para um conjunto selecionado de usuários.
 services: active-directory
 documentationcenter: ''
@@ -17,18 +18,18 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51c49633e68fdc5f9afd4bf0205adaa625940ff
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: c768730a00d424333e735bb4f6a385d294f38513
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68812970"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803962"
 ---
-# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Como: Restringir a aplicação a um conjunto de utilizadores
+# <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Como restringir seu aplicativo a um conjunto de usuários
 
 Os aplicativos registrados em um locatário Azure Active Directory (Azure AD) são, por padrão, disponíveis para todos os usuários do locatário que são autenticados com êxito.
 
-Da mesma forma, no caso [](howto-convert-app-to-be-multi-tenant.md) de um aplicativo multilocatário, todos os usuários no locatário do Azure AD em que esse aplicativo é provisionado poderão acessar esse aplicativo depois que eles se autenticarem com êxito em seu respectivo locatário.
+Da mesma forma, no caso de um aplicativo [multilocatário](howto-convert-app-to-be-multi-tenant.md) , todos os usuários no locatário do Azure AD em que esse aplicativo é provisionado poderão acessar esse aplicativo depois que eles se autenticarem com êxito em seu respectivo locatário.
 
 Os administradores de locatários e os desenvolvedores geralmente têm requisitos em que um aplicativo deve ser restrito a um determinado conjunto de usuários. Os desenvolvedores podem fazer o mesmo usando padrões de autorização populares, como o RBAC (controle de acesso baseado em função), mas essa abordagem requer uma quantidade significativa de trabalho em parte do desenvolvedor.
 
@@ -69,7 +70,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 1. Localize a configuração **atribuição de usuário necessária?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários devem primeiro ser atribuídos a esse aplicativo antes de poderem acessá-lo.
 1. Selecione **salvar** para salvar essa alteração de configuração.
 
-### <a name="app-registration"></a>Registo de aplicações
+### <a name="app-registration"></a>Registo da aplicação
 
 1. Vá para a [**portal do Azure**](https://portal.azure.com/).
 1. Na barra superior, selecione a conta conectada. 

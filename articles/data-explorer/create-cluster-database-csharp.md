@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 35f11ee9bce4dc7c68e12749f69d2f2e4253d4bc
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: b5839ef7d9f1e5498beabfcdf0f1605fc1378498
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996241"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800424"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Criar um cluster de Data Explorer do Azure e um banco de dados usandoC#
 
@@ -34,12 +34,12 @@ O Azure Data Explorer é um serviço de análise de dados rápido e totalmente g
 
 ## <a name="install-c-nuget"></a>Instalar C# o NuGet
 
-1. Instale o [pacote NuGet do Azure data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
+* Instale o [pacote NuGet do Azure data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
-1. Instale o [pacote NuGet Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
+* Instale o [pacote NuGet Microsoft. IdentityModel. clients. ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para autenticação.
 
-## <a name="authentication"></a>Authentication
-Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter o `Directory (tenant) ID`, `Application ID` e `Client Secret`.
+## <a name="authentication"></a>Autenticação
+Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD e uma entidade de serviço que possa acessar recursos. Marque [criar um aplicativo do Azure ad](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para criar um aplicativo gratuito do Azure AD e adicionar a atribuição de função no escopo da assinatura. Ele também mostra como obter as `Directory (tenant) ID`, `Application ID`e `Client Secret`.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Criar o cluster de Data Explorer do Azure
 
@@ -89,7 +89,7 @@ Para executar os exemplos neste artigo, precisamos de um aplicativo do Azure AD 
     kustoManagementClient.Clusters.Get(resourceGroupName, clusterName);
     ```
 
-Se o resultado contiver `ProvisioningState` com o valor de `Succeeded`, o cluster foi criado com êxito.
+Se o resultado contiver `ProvisioningState` com o valor `Succeeded`, o cluster foi criado com êxito.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Criar o banco de dados no cluster de Data Explorer do Azure
 
@@ -107,7 +107,7 @@ Se o resultado contiver `ProvisioningState` com o valor de `Succeeded`, o cluste
    |**Definição** | **Valor sugerido** | **Descrição do campo**|
    |---|---|---|
    | clusterName | *mykustocluster* | O nome do cluster em que o banco de dados será criado.|
-   | databaseName | *mykustodatabase* | O nome do seu banco de dados.|
+   | NomeDoBancoDeDados | *mykustodatabase* | O nome do seu banco de dados.|
    | resourceGroupName | *testrg* | O nome do grupo de recursos em que o cluster será criado. |
    | softDeletePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos disponíveis para consulta. |
    | hotCachePeriod | *3650:00:00:00* | A quantidade de tempo que os dados serão mantidos no cache. |

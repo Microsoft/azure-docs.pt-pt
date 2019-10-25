@@ -1,33 +1,32 @@
 ---
-title: Habilidades de pesquisa cognitiva de reconhecimento de entidade-Azure Search
-description: Extrair diferentes tipos de entidades do texto em um pipeline de pesquisa Azure Search cognitiva.
-services: search
+title: Habilidade cognitiva de reconhecimento de entidade
+titleSuffix: Azure Cognitive Search
+description: Extrair diferentes tipos de entidades de texto em um pipeline de enriquecimento no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: ad2fef96491c2d1a15ad9ff5f57d2911dfecaa36
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265794"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792011"
 ---
-#    <a name="entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade
+#   <a name="entity-recognition-cognitive-skill"></a>Habilidade cognitiva de reconhecimento de entidade
 
 A habilidade de **reconhecimento de entidade** extrai entidades de tipos diferentes do texto. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [análise de texto](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) em serviços cognitivas.
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
+> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.EntityRecognitionSkill
+Microsoft. Skills. Text. EntityRecognitionSkill
 
 ## <a name="data-limits"></a>Limites de dados
 O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o extrator de frases-chave, considere usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
@@ -38,36 +37,36 @@ Os parâmetros diferenciam maiúsculas de minúsculas e são todos opcionais.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| categorias    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis `"Person"`: `"Location"` `"Organization"`, ,,`"Quantity"`,, ,.`"Email"` `"URL"` `"Datetime"` Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
-|defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas:`de, en, es, fr, it`|
+| categories    | Matriz de categorias que devem ser extraídas.  Tipos de categoria possíveis: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. Se nenhuma categoria for fornecida, todos os tipos serão retornados.|
+|defaultLanguageCode |  Código de idioma do texto de entrada. Há suporte para os seguintes idiomas: `de, en, es, fr, it`|
 |minimumPrecision | Não utilizado. Reservado para uso futuro. |
-|includeTypelessEntities | Quando definido como true se o texto contiver uma entidade bem conhecida, mas não puder ser Categorizado em uma das categorias com suporte, ele será retornado como parte do `"entities"` campo de saída complexo. 
-Essas são entidades que são bem conhecidas, mas não classificadas como parte das "categorias" com suporte atual. Por exemplo, "Windows 10" é uma entidade bem conhecida (um produto), mas "produtos" não estão nas categorias com suporte atualmente. O padrão é`false` |
+|includeTypelessEntities | Quando definido como true se o texto contiver uma entidade bem conhecida, mas não puder ser Categorizado em uma das categorias com suporte, ele será retornado como parte do campo de saída complexo `"entities"`. 
+Essas são entidades que são bem conhecidas, mas não classificadas como parte das "categorias" com suporte atual. Por exemplo, "Windows 10" é uma entidade bem conhecida (um produto), mas "produtos" não estão nas categorias com suporte atualmente. O padrão é `false` |
 
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Introduzir nome      | Descrição                   |
+| Nome de entrada      | Descrição                   |
 |---------------|-------------------------------|
 | languageCode  | Opcional. A predefinição é `"en"`.  |
-| text          | O texto a ser analisado.          |
+| texto          | O texto a ser analisado.          |
 
 ## <a name="skill-outputs"></a>Saídas de habilidades
 
 > [!NOTE]
-> Nem todas as categorias de entidade têm suporte para todos os idiomas. Somente _en_, _es_ dão suporte à `"Quantity"`extração `"URL"`de `"Email"` tipos, `"Datetime"`,,.
+> Nem todas as categorias de entidade têm suporte para todos os idiomas. Somente _en_, _es_ dão suporte à extração de `"Quantity"`, `"Datetime"`, `"URL"``"Email"` tipos.
 
 | Nome da saída     | Descrição                   |
 |---------------|-------------------------------|
 | pessoas      | Uma matriz de cadeias de caracteres em que cada cadeia representa o nome de uma pessoa. |
-| locations  | Uma matriz de cadeias de caracteres em que cada cadeia representa um local. |
+| locais  | Uma matriz de cadeias de caracteres em que cada cadeia representa um local. |
 | organizações  | Uma matriz de cadeias de caracteres em que cada cadeia representa uma organização. |
 | volumes  | Uma matriz de cadeias de caracteres em que cada cadeia representa uma quantidade. |
 | dateTimes  | Uma matriz de cadeias de caracteres em que cada cadeia representa um DateTime (como aparece no valor de texto). |
 | URLs | Uma matriz de cadeias de caracteres em que cada cadeia representa uma URL |
-| e-mails | Uma matriz de cadeias de caracteres em que cada cadeia representa um email |
-| namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>category</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usada por enquanto. Será definido como um valor de-1)</li></ul> |
-| Contabilidade | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídas do texto, com os campos a seguir <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipédiaid</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipédia da entidade)</li><li>bingId</li><li>tipo (a categoria da entidade reconhecida)</li><li>subtipo (disponível somente para determinadas categorias, isso fornece uma exibição mais granular do tipo de entidade)</li><li> corresponde (uma coleção complexa que contém)<ul><li>texto (o texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto da entidade)</li></ul></li></ul> |
+| e-mail | Uma matriz de cadeias de caracteres em que cada cadeia representa um email |
+| namedEntities | Uma matriz de tipos complexos que contém os seguintes campos: <ul><li>categoria</li> <li>valor (o nome real da entidade)</li><li>deslocamento (o local onde ele foi encontrado no texto)</li><li>confiança (não usada por enquanto. Será definido como um valor de-1)</li></ul> |
+| contabilidade | Uma matriz de tipos complexos que contém informações detalhadas sobre as entidades extraídas do texto, com os campos a seguir <ul><li> nome (o nome da entidade real. Isso representa um formulário "normalizado")</li><li> wikipédiaid</li><li>wikipediaLanguage</li><li>wikipediaUrl (um link para a página da Wikipédia da entidade)</li><li>bingid</li><li>tipo (a categoria da entidade reconhecida)</li><li>subtipo (disponível somente para determinadas categorias, isso fornece uma exibição mais granular do tipo de entidade)</li><li> corresponde (uma coleção complexa que contém)<ul><li>texto (o texto bruto para a entidade)</li><li>deslocamento (o local onde ele foi encontrado)</li><li>comprimento (o comprimento do texto bruto da entidade)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>Definição de exemplo
 
@@ -192,7 +191,7 @@ Essas são entidades que são bem conhecidas, mas não classificadas como parte 
 ## <a name="error-cases"></a>Casos de erro
 Se não houver suporte para o código de idioma do documento, um erro será retornado e nenhuma entidade será extraída.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

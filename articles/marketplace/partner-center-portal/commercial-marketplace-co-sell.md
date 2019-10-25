@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f021ac0a7c9c46592f7969dd0df10f76aec88cb7
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773227"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784820"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opção de venda conjunta no Partner Center
 
@@ -35,11 +35,11 @@ Selecione o tipo de oferta:
 | Dispositivo | Uma oferta que envolve a criação ou a venda de hardware de um fabricante de dispositivos. |
 | IP | Aplicativos ou outros materiais com direitos autorais licenciados para uso do cliente. Por exemplo: um programa CRM que pode ser licenciado e instalado localmente. |
 | Serviço | Experiência prática para um projeto único específico, geralmente entregue por meio de consultores. Por exemplo: configurar um banco de dados de cliente para um cliente (com o cliente assumindo a responsabilidade de operar o banco de dados após a entrega). |
-| Serviço gerenciado | Experiência prática para um projeto baseado em nuvem, geralmente em uma base contínua. Por exemplo: Fornecendo uma plataforma e ferramentas para executar um banco de dados online, com gerenciamento contínuo fornecido pelo provedor de serviços gerenciados. |
+| Serviço gerenciado | Experiência prática para um projeto baseado em nuvem, geralmente em uma base contínua. Por exemplo: fornecendo uma plataforma e ferramentas para executar um banco de dados online, com gerenciamento contínuo fornecido pelo provedor de serviços gerenciado. |
 
 ## <a name="solution-areas"></a>Áreas de solução
 
-Você pode adicionar até três áreas de solução para sua oferta.  Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use `Ctrl` a chave (no Windows) ou a tecla de comando (em Mac os).
+Você pode adicionar até três áreas de solução para sua oferta.  Para cada área de solução, você pode escolher até duas subáreas de solução. Para selecionar várias subcategorias, use a chave de `Ctrl` (no Windows) ou a tecla de comando (em Mac OS).
 
 As áreas de solução ajudam a definir os cenários para os quais sua oferta foi projetada para resolver.
 
@@ -65,17 +65,17 @@ Este documento fornece orientação sobre as diferentes funções para parceiros
 
 Você também pode exportar sua lista existente de contatos de uma oferta e, em seguida, fazer alterações nesse arquivo.
 
-* *Nome (obrigatório)* : O nome do contato.
-* *Endereço de email (obrigatório)* : O endereço de email do contato.
-* *Cargo (obrigatório)* : Cargo.
+* *Nome (obrigatório)* : o nome do contato.
+* *Endereço de email (obrigatório)* : o endereço de email do contato.
+* Cargo *(obrigatório)* : título do trabalho.
 * *Função (obrigatório)* : Use uma das funções a seguir neste campo no modelo.
 
     | **Função**    | **Descrição**  |
     | :------------------- | :-------------------|
-    | *Marketing para parceiros* | Essa função se concentra em comercializar sua solução e colaborar em esforços de marketing com equipes de vendas da Microsoft e revendedores de canal. O ponto principal de contato para contratos de marketing e conteúdo de listagem de oferta, como descrições de produtos, imagens e vídeos. |
-    | *Vendas do parceiro* | Essa função se concentra em vender sua solução e colaborar em vendas com equipes de vendas da Microsoft e revendedores de canal. Para soluções de venda conjunta, indique pelo menos um contato de vendas de parceiros por região em que você deseja estar pronto para venda. O mesmo contato de vendas do parceiro pode abranger várias regiões. |
-    | *Vendas técnicas do parceiro* | Dá suporte a questões de implantação e arquitetura técnica durante o ciclo de vendas, a integração pós-venda e os períodos de implantação. |
-    | *Gerente de sucesso do cliente do parceiro* | Normalmente dá suporte a clientes após a implantação, para ajudá-los a obter o máximo de sua solução e aumentar seu espaço na organização do cliente. |
+    | *:::no-loc text="Partner marketing":::* | Essa função se concentra em comercializar sua solução e colaborar em esforços de marketing com equipes de vendas da Microsoft e revendedores de canal. O ponto principal de contato para contratos de marketing e conteúdo de listagem de oferta, como descrições de produtos, imagens e vídeos. |
+    | *:::no-loc text="Partner sales":::* | Essa função se concentra em vender sua solução e colaborar em vendas com equipes de vendas da Microsoft e revendedores de canal. Para soluções de venda conjunta, indique pelo menos um contato de vendas de parceiros por região em que você deseja estar pronto para venda. O mesmo contato de vendas do parceiro pode abranger várias regiões. |
+    | *:::no-loc text="Partner technical sales":::* | Dá suporte a questões de implantação e arquitetura técnica durante o ciclo de vendas, a integração pós-venda e os períodos de implantação. |
+    | *:::no-loc text="Partner customer success manager":::* | Normalmente dá suporte a clientes após a implantação, para ajudá-los a obter o máximo de sua solução e aumentar seu espaço na organização do cliente. |
 
 * *Países/regiões (obrigatório):*  Ao preencher o modelo, use os [códigos de país/região de duas letras, conforme listado](./commercial-marketplace-co-sell-countries.md). Se o contato abranger todos os países/regiões, use o código de três letras "OOO". Se um contato abranger mais de um país/região, insira cada um dos dois códigos de letra separados por uma vírgula (por exemplo, digite "US, CA, FR" sem aspas no modelo).
 

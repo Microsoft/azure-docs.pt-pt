@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/30/2019
 ms.author: sedusch
-ms.openlocfilehash: 71c1d1eb91654ea169330715be6bcf2b94207a27
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 569ac844a971970c22f5cc0a511545020fe802c5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099050"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791690"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs do Azure em SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -78,7 +78,7 @@ Leia as seguintes notas e documentos SAP primeiro
 * [Guias de práticas recomendadas do SUSE SAP ha][suse-ha-guide] Os guias contêm todas as informações necessárias para configurar o NetWeaver HA e a replicação de sistema SAP HANA no local. Use esses guias como uma linha de base geral. Eles fornecem informações muito mais detalhadas.
 * [Notas de versão da extensão de alta disponibilidade do SUSE 12 SP3][suse-ha-12sp3-relnotes]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Para obter alta disponibilidade, o SAP NetWeaver requer um servidor NFS. O servidor NFS é configurado em um cluster separado e pode ser usado por vários sistemas SAP.
 
@@ -89,23 +89,23 @@ O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e
 > [!IMPORTANT]
 > **Não há suporte para**clustering de vários SIDs do SAP ASCS/ers com o SuSE Linux como sistema operacional convidado em VMs do Azure. Clustering de vários SIDs descreve a instalação de várias instâncias do SAP ASCS/ERS com SIDs diferentes em um cluster pacemaker
 
-### <a name="ascs"></a>UM SCS
+### <a name="ascs"></a>Um SCS
 
 * Configuração de front-end
   * 10.0.0.7 de endereço IP
 * Configuração de back-end
   * Conectado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A) SCS/ERS
 * Porta de investigação
-  * Porta 620<strong>&lt;NR&gt;</strong>
-* Carregamento 
+  * Porta 620<strong>&lt;nr&gt;</strong>
+* Carregar 
 * regras de balanceamento
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
   * 81<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;NR&gt;</strong>13 TCP
-  * <strong>5&lt;NR&gt;</strong>14 TCP
-  * <strong>5&lt;NR&gt;</strong>16 TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -114,13 +114,13 @@ O servidor NFS, o SAP NetWeaver ASCS, o SAP NetWeaver SCS, o SAP NetWeaver ERS e
 * Configuração de back-end
   * Conectado às interfaces de rede primárias de todas as máquinas virtuais que devem fazer parte do cluster (A) SCS/ERS
 * Porta de investigação
-  * Porta 621<strong>&lt;NR&gt;</strong>
+  * Porta 621<strong>&lt;nr&gt;</strong>
 * Regras de balanceamento de carga
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
-  * <strong>5&lt;NR&gt;</strong>13 TCP
-  * <strong>5&lt;NR&gt;</strong>14 TCP
-  * <strong>5&lt;NR&gt;</strong>16 TCP
+  * 5<strong>&lt;nr&gt;</strong>13 TCP
+  * 5<strong>&lt;nr&gt;</strong>14 TCP
+  * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-a-highly-available-nfs-server"></a>Configurando um servidor NFS altamente disponível
 
@@ -156,7 +156,7 @@ Você pode usar um dos modelos de início rápido no GitHub para implantar todos
    9. Nome de usuário do administrador e senha do administrador  
       Um novo usuário é criado e pode ser usado para fazer logon no computador.
    10. ID da sub-rede  
-   Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente se parece com **&lt;a ID&gt;da assinatura**/subscriptions//resourceGroups/ **&lt;nome&gt;do grupo de recursos**/Providers/Microsoft.Network/virtualNetworks/ **&lt; nome&gt;da rede virtual**/Subnets/ **&lt;nome&gt; da sub-rede**
+   Se você deseja implantar a VM em uma VNet existente em que você tem uma sub-rede definida, a VM deve ser atribuída, nomear a ID dessa sub-rede específica. A ID geralmente é semelhante a/subscriptions/ **&lt;ID da assinatura&gt;** /resourceGroups/ **&lt;nome do grupo de recursos&gt;** /Providers/Microsoft.Network/virtualNetworks/ **&lt;nome da rede virtual&gt;** /subnets/ **&lt;nome da sub-rede&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Implantar o Linux manualmente por meio de portal do Azure
 
@@ -175,7 +175,7 @@ Primeiro, você precisa criar as máquinas virtuais para esse cluster NFS. Poste
    O SLES for SAP Applications 12 SP1 é usado  
    Selecionar conjunto de disponibilidade criado anteriormente  
 1. Adicionar pelo menos um disco de dados a ambas as máquinas virtuais  
-   Os discos de dados são usados para o`<SAPSID`diretório > do/usr/SAP/
+   Os discos de dados são usados para o/usr/SAP/`<SAPSID`> Directory
 1. Criar um Load Balancer (interno)  
    1. Criar os endereços IP de front-end
       1. Endereço IP 10.0.0.7 para o ASCS
@@ -226,7 +226,7 @@ Siga as etapas em [Configurando pacemaker em SuSE Linux Enterprise Server no Azu
 
 ### <a name="installation"></a>Instalação
 
-Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os nós, **[1]** – apenas aplicável no nó 1 ou **[2]** – apenas aplicável a nó 2.
+Os itens a seguir são prefixados com **[A]** -aplicável a todos os nós **[1]** -aplicável somente ao nó 1 ou **[2]** – aplicável somente ao nó 2.
 
 1. **[A]** instalar o conector SuSE
 
@@ -276,15 +276,15 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
    sudo zypper in -t patch SUSE-SLE-HA-12-SP2-2017-886=1
    </code></pre>
 
-1. **[A]**  Configurar a resolução de nomes de anfitrião
+1. **[A]** configurar resolução de nome de host
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Você pode usar um servidor DNS ou modificar o/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
    Substitua o endereço IP e o nome do host nos comandos a seguir
 
    <pre><code>sudo vi /etc/hosts
    </code></pre>
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente   
+   Insira as linhas a seguir para/etc/hosts. Alterar o endereço IP e o nome do host para corresponder ao seu ambiente   
 
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
@@ -362,6 +362,10 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
 
 1. **[1]** criar um recurso de IP virtual e uma investigação de integridade para a instância de ASCS
 
+   > [!IMPORTANT]
+   > Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
+   > Para clusters pacemaker existentes, é recomendável substituir netcat por socat, seguindo as instruções em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128). Observe que a alteração exigirá um breve tempo de inatividade.  
+
    <pre><code>sudo crm node standby <b>nw1-cl-1</b>
    
    sudo crm configure primitive fs_<b>NW1</b>_ASCS Filesystem device='<b>nw1-nfs</b>:/<b>NW1</b>/ASCS' directory='/usr/sap/<b>NW1</b>/ASCS<b>00</b>' fstype='nfs4' \
@@ -374,7 +378,7 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ASCS anything \
-     params binfile="/usr/bin/nc" cmdline_options="-l -k 620<b>00</b>" \
+     params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:620<b>00</b>,backlog=10,fork,reuseaddr /dev/null" \
      op monitor timeout=20s interval=10 depth=0
    
    sudo crm configure group g-<b>NW1</b>_ASCS fs_<b>NW1</b>_ASCS nc_<b>NW1</b>_ASCS vip_<b>NW1</b>_ASCS \
@@ -427,10 +431,10 @@ Os seguintes itens são prefixados com ambos **[A]** - aplicáveis a todos os n�
      op monitor interval=10 timeout=20
    
    sudo crm configure primitive nc_<b>NW1</b>_ERS anything \
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 621<b>02</b>" \
+    params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:621<b>02</b>,backlog=10,fork,reuseaddr /dev/null" \
     op monitor timeout=20s interval=10 depth=0
    
-   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/nc"
+   # WARNING: Resources nc_NW1_ASCS,nc_NW1_ERS violate uniqueness for parameter "binfile": "/usr/bin/socat"
    # Do you still want to commit (y/n)? y
    
    sudo crm configure group g-<b>NW1</b>_ERS fs_<b>NW1</b>_ERS nc_<b>NW1</b>_ERS vip_<b>NW1</b>_ERS
@@ -622,7 +626,7 @@ As etapas abaixo pressupõem que você instale o servidor de aplicativos em um s
 
 1. Configurar sistema operacional
 
-   Reduza o tamanho da cache modificado. Para obter mais informações, consulte [desempenho de escrita de baixa no SLES 11/12 servidores com grandes RAM](https://www.suse.com/support/kb/doc/?id=7010287).
+   Reduza o tamanho do cache sujo. Para obter mais informações, consulte [baixo desempenho de gravação em servidores SLES 11/12 com RAM grande](https://www.suse.com/support/kb/doc/?id=7010287).
 
    <pre><code>sudo vi /etc/sysctl.conf
 
@@ -633,14 +637,14 @@ As etapas abaixo pressupõem que você instale o servidor de aplicativos em um s
 
 1. Configurar resolução de nome de host
 
-   Pode utilizar um servidor DNS ou modificar os /etc/hosts em todos os nós. Este exemplo mostra como utilizar o ficheiro /etc/hosts.
+   Você pode usar um servidor DNS ou modificar o/etc/hosts em todos os nós. Este exemplo mostra como usar o arquivo/etc/hosts.
    Substitua o endereço IP e o nome do host nos comandos a seguir
 
    ```bash
    sudo vi /etc/hosts
    ```
 
-   Insira as seguintes linhas ao /etc/hosts. Alterar o endereço IP e o nome de anfitrião para corresponder ao seu ambiente
+   Insira as linhas a seguir para/etc/hosts. Alterar o endereço IP e o nome do host para corresponder ao seu ambiente
 
    <pre><code># IP address of the load balancer frontend configuration for NFS
    <b>10.0.0.4 nw1-nfs</b>
@@ -767,7 +771,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de práticas rec
 
 1. Testar HAGetFailoverConfig, HACheckConfig e HACheckFailoverConfig
 
-   Execute os comandos a seguir \<como sapsid > ADM no nó em que a instância ASCS está em execução no momento. Se os comandos falharem com falha: Memória insuficiente, pode ser causada por traços em seu nome de host. Esse é um problema conhecido e será corrigido pelo SUSE no pacote SAP-SuSE-cluster-Connector.
+   Execute os comandos a seguir como \<sapsid > ADM no nó em que a instância ASCS está em execução no momento. Se os comandos falharem com falha: memória insuficiente, isso pode ser causado por traços em seu nome de host. Esse é um problema conhecido e será corrigido pelo SUSE no pacote SAP-SuSE-cluster-Connector.
 
    <pre><code>nw1-cl-0:nw1adm 54> sapcontrol -nr <b>00</b> -function HAGetFailoverConfig
    
@@ -879,7 +883,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de práticas rec
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Execute os comandos a seguir \<como sapsid > ADM para migrar a instância ASCS.
+   Execute os comandos a seguir como \<sapsid > ADM para migrar a instância ASCS.
 
    <pre><code>nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm &lt;password&gt; -function HAFailoverToNode ""
    
@@ -998,7 +1002,7 @@ Os testes a seguir são uma cópia dos casos de teste nos guias de práticas rec
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Crie um bloqueio de enfileirar por, por exemplo, editar um usuário na transação su01. Execute os comandos a seguir \<como sapsid > ADM no nó em que a instância ASCS está em execução. Os comandos irão parar a instância de ASCS e iniciá-la novamente. Se você estiver usando a arquitetura enqueue Server 1, espera-se que o bloqueio de enfileiramento seja perdido neste teste. Se estiver usando a arquitetura do Queue Server 2, o enfileiramento será retido. 
+   Crie um bloqueio de enfileirar por, por exemplo, editar um usuário na transação su01. Execute os comandos a seguir como \<sapsid > ADM no nó em que a instância ASCS está em execução. Os comandos irão parar a instância de ASCS e iniciá-la novamente. Se você estiver usando a arquitetura enqueue Server 1, espera-se que o bloqueio de enfileiramento seja perdido neste teste. Se estiver usando a arquitetura do Queue Server 2, o enfileiramento será retido. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

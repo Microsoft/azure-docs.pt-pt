@@ -8,17 +8,17 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: spelluru
-ms.openlocfilehash: 37ca2b655d30ffd330d5430da20d07d9548a7c84
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260862"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809378"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
 Os hubs de eventos do Azure fornecem criptografia de dados em repouso com o Criptografia do Serviço de Armazenamento do Azure (Azure SSE). Os hubs de eventos dependem do armazenamento do Azure para armazenar os dados e, por padrão, todos os dados armazenados com o armazenamento do Azure são criptografados usando chaves gerenciadas pela Microsoft. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 Os hubs de eventos do Azure agora dão suporte à opção de criptografar dados em repouso com chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente (Bring Your Own Key – BYOK). Esse recurso permite que você crie, gire, desabilite e revogue o acesso às chaves gerenciadas pelo cliente que são usadas para criptografar dados de hubs de eventos do Azure em repouso.
 
 Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
@@ -28,10 +28,10 @@ Habilitar o recurso BYOK é um processo de instalação única em seu namespace.
 
 Você pode usar Azure Key Vault para gerenciar suas chaves e auditar o uso da chave. Você pode criar suas próprias chaves e armazená-las em um cofre de chaves ou pode usar as APIs de Azure Key Vault para gerar chaves. Para obter mais informações sobre Azure Key Vault, consulte [o que é Azure Key Vault?](../key-vault/key-vault-overview.md)
 
-Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [] início rápido: Defina e recupere um segredo de Azure Key Vault usando o portal do Azure] (.. /key-vault/quick-create-portal.md).
+Este artigo mostra como configurar um cofre de chaves com chaves gerenciadas pelo cliente usando o portal do Azure. Para saber como criar um cofre de chaves usando o portal do Azure, consulte [início rápido: definir e recuperar um segredo de Azure Key Vault usando o portal do Azure](../key-vault/quick-create-portal.md).
 
 > [!IMPORTANT]
-> O uso de chaves gerenciadas pelo cliente com os hubs de eventos do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. São:  **Exclusão reversível** e **não limpar**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
+> O uso de chaves gerenciadas pelo cliente com os hubs de eventos do Azure requer que o cofre de chaves tenha duas propriedades necessárias configuradas. Eles são: **exclusão reversível** e **não limpeza**. Essas propriedades são habilitadas por padrão quando você cria um novo cofre de chaves no portal do Azure. No entanto, se você precisar habilitar essas propriedades em um cofre de chaves existente, deverá usar o PowerShell ou CLI do Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Habilitar chaves gerenciadas pelo cliente
 Para habilitar as chaves gerenciadas pelo cliente no portal do Azure, siga estas etapas:
@@ -101,20 +101,20 @@ Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
 
     ![Selecione a opção de logs de usuário de chave gerenciada pelo cliente](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
-## <a name="log-schema"></a>Esquema de registo 
-Todos os registos são armazenados no formato de JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
+## <a name="log-schema"></a>Esquema de log 
+Todos os logs são armazenados no formato JavaScript Object Notation (JSON). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
 
-| Name | Descrição |
+| Nome | Descrição |
 | ---- | ----------- | 
-| TaskName | Descrição da tarefa que falhou. |
+| Tarefa | Descrição da tarefa que falhou. |
 | ActivityId | ID interna que é usada para acompanhamento. |
-| category | Define a classificação da tarefa. Por exemplo, se a chave do cofre de chaves estiver sendo desabilitada, ela seria uma categoria de informações ou, se uma chave não puder ser desativada, ela poderá ficar com erro. |
+| categoria | Define a classificação da tarefa. Por exemplo, se a chave do cofre de chaves estiver sendo desabilitada, ela seria uma categoria de informações ou, se uma chave não puder ser desativada, ela poderá ficar com erro. |
 | resourceId | ID do recurso de Azure Resource Manager |
-| KeyVault | Nome completo do cofre de chaves. |
+| keyVault | Nome completo do cofre de chaves. |
 | key | O nome da chave que é usado para criptografar o namespace de hubs de eventos. |
-| version | A versão da chave que está sendo usada. |
-| operation | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
-| code | O código associado à operação. Exemplo: Código de erro 404 significa que a chave não foi encontrada. |
+| versão | A versão da chave que está sendo usada. |
+| Operacional | A operação executada na chave em seu cofre de chaves. Por exemplo, desabilitar/habilitar a chave, encapsular ou desencapsular |
+| Auto-completar | O código associado à operação. Exemplo: código de erro 404 significa que a chave não foi encontrada. |
 | message | Qualquer mensagem de erro associada à operação |
 
 Aqui está um exemplo do log para uma chave gerenciada pelo cliente:
@@ -154,7 +154,7 @@ Como prática recomendada, sempre habilite logs como mostrado na seção anterio
 
 Veja a seguir os códigos de erros comuns a serem procurados quando a criptografia BYOK estiver habilitada.
 
-| Action | Código de erro | Estado resultante dos dados |
+| Ação | Código de erro | Estado resultante dos dados |
 | ------ | ---------- | ----------------------- | 
 | Remover a permissão de encapsulamento/desencapsulamento de um cofre de chaves | 403 |    Inacessível |
 | Remover a associação de função do AAD de uma entidade de segurança do AAD que concedeu a permissão de encapsulamento/desencapsulamento | 403 |  Inacessível |
@@ -175,7 +175,7 @@ Veja a seguir os códigos de erros comuns a serem procurados quando a criptograf
 
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
-- [Descrição geral dos Hubs de Eventos](event-hubs-about.md)
+- [Event Hubs Overview (Descrição Geral dos Hubs de Eventos)](event-hubs-about.md)
 - [Visão geral de Key Vault](../key-vault/key-vault-overview.md)
 
 

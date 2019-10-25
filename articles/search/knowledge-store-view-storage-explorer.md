@@ -1,23 +1,24 @@
 ---
-title: Exibir uma loja de conhecimento com Gerenciador de Armazenamento Azure Search
-description: Exiba e analise uma loja de conhecimento Azure Search com o Gerenciador de Armazenamento do portal do Azure.
+title: Exibir uma loja de conhecimento com Gerenciador de Armazenamento
+titleSuffix: Azure Cognitive Search
+description: Exiba e analise uma loja de conhecimento do Azure Pesquisa Cognitiva com o Gerenciador de Armazenamento do portal do Azure.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265606"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789982"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Exibir uma loja de conhecimento com Gerenciador de Armazenamento
 
 > [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. A [API REST do Azure Search versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
+> A loja de conhecimento está em versão prévia e não deve ser usada na produção. A [API REST do Azure pesquisa cognitiva versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
 Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento usando Gerenciador de Armazenamento no portal do Azure. Para criar a amostra da loja de conhecimento usada neste passo a passos, consulte [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md).
 
@@ -37,15 +38,15 @@ Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento
 
 Selecione qualquer tabela para exibir os dados aprimorados, incluindo frases-chave opiniões, dados de localização de latitude e longitude e muito mais.
 
-   ![Exibir tabelas no Gerenciador de armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Exibir tabelas no Gerenciador de armazenamento")
+   ![Exibir tabelas no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Exibir tabelas no Gerenciador de Armazenamento")
 
 Para alterar o tipo de dados de qualquer valor de tabela ou alterar valores individuais em sua tabela, clique em **Editar**. Quando você altera o tipo de dados para qualquer coluna em uma linha de tabela, ela será aplicada a todas as linhas.
 
-   ![Editar tabela no Gerenciador de armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabela no Gerenciador de armazenamento")
+   ![Editar tabela no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Editar tabela no Gerenciador de Armazenamento")
 
 Para executar consultas, clique em **consulta** na barra de comandos e insira suas condições.  
 
-   ![Tabela de consulta no Gerenciador de armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Tabela de consulta no Gerenciador de armazenamento")
+   ![Tabela de consulta no Gerenciador de Armazenamento](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Tabela de consulta no Gerenciador de Armazenamento")
 
 ## <a name="clean-up"></a>Limpeza
 

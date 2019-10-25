@@ -11,14 +11,14 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 895425232dabc78650b6ee7ed035048471084237
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030548"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793898"
 ---
-# <a name="what-is-automated-machine-learning"></a>O que é automatizado aprendizagem automática?
+# <a name="what-is-automated-machine-learning"></a>O que é o Machine Learning automatizado?
 
 O Machine Learning automatizado, também conhecido como ML automatizado, é o processo de automatização das tarefas iterativas demoradas do desenvolvimento de modelos de aprendizado de máquina. Ele permite que cientistas de dados, analistas e desenvolvedores criem modelos de ML com alta escala, eficiência e produtividade, tudo ao mesmo tempo em que sustenta a qualidade do modelo. O ML automatizado se baseia em uma inovação da [divisão do Microsoft Research](https://arxiv.org/abs/1705.05355).
 
@@ -50,7 +50,7 @@ Usando **Azure Machine Learning**, você pode projetar e executar seus experimen
 
 1. **Identificar o problema de ml** a ser resolvido: classificação, previsão ou regressão
 
-1. **Especifique a origem e o formato dos dados de treinamento rotulados**: Matrizes numpy ou pandas dataframe
+1. **Especifique a origem e o formato dos dados de treinamento rotulados**: matrizes de numpy ou pandas dataframe
 
 1. **Configure o destino de computação para treinamento de modelo**, como seu [computador local, Azure Machine Learning computações, VMS remotas ou Azure Databricks](how-to-set-up-training-targets.md).  Saiba mais sobre o treinamento automatizado [em um recurso remoto](how-to-auto-train-remote.md).
 
@@ -62,7 +62,7 @@ Usando **Azure Machine Learning**, você pode projetar e executar seus experimen
 
 Durante o treinamento, Azure Machine Learning cria um número de pipelines paralelos que tentam algoritmos e parâmetros diferentes. Ele será interrompido quando atingir os critérios de saída definidos no experimento.
 
-Você também pode inspecionar as informações de execução registradas, que [contêm as métricas](how-to-understand-automated-ml.md) coletadas durante a execução. A execução de treinamento produz um objeto serializado do Python (arquivo `.pkl`) que contém o modelo e o pré-processamento de dados.
+Você também pode inspecionar as informações de execução registradas, que [contêm as métricas](how-to-understand-automated-ml.md) coletadas durante a execução. A execução de treinamento produz um objeto serializado do Python (arquivo de`.pkl`) que contém o modelo e o pré-processamento de dados.
 
 Embora a criação de modelos seja automatizada, você também pode [aprender como os recursos importantes ou relevantes são](how-to-configure-auto-train.md#explain) para os modelos gerados.
 
@@ -81,7 +81,7 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 Em todos os experimentos de aprendizado de máquina automatizados, seus dados são dimensionados e normalizados automaticamente para ajudar os algoritmos a executarem bem.  Durante o treinamento do modelo, uma das técnicas de dimensionamento ou normalização a seguir será aplicada a cada modelo.
 
-|Dimensionamento de @ no__t-0 @ no__t-1 @ no__t-2normalization| Descrição |
+|Dimensionamento&nbsp;&&nbsp;normalização| Descrição |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar recursos removendo a média e dimensionamento para a variação de unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma recursos dimensionando cada recurso pelo mínimo e máximo da coluna  |
@@ -95,9 +95,9 @@ Em todos os experimentos de aprendizado de máquina automatizados, seus dados s�
 
 O pré-processamento avançado adicional e os personalização também estão disponíveis, como valores ausentes de imputação, codificação e transformações. [Saiba mais sobre o que o personalização está incluído](how-to-create-portal-experiments.md#preprocess). Habilite essa configuração com:
 
-+ Portal do Azure: Marcando a caixa de seleção **pré-processar** nas **Configurações avançadas** [com estas etapas](how-to-create-portal-experiments.md).
++ Portal do Azure: marcar a caixa de seleção **pré-processar** nas **Configurações avançadas** [com estas etapas](how-to-create-portal-experiments.md).
 
-+ SDK do Python: Especificando `"preprocess": True` para a [classe `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ SDK do Python: especificando `"preprocess": True` para a [classe`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Previsão da série temporal
@@ -108,6 +108,8 @@ Um experimento de série temporal automatizado é tratado como um problema de re
 Saiba mais e veja um exemplo de [Machine Learning automatizado para previsão de série temporal](how-to-auto-train-forecast.md). Ou então, consulte o [notebook de demanda de energia](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) para obter exemplos de código detalhados de configuração de previsão avançada, incluindo:
 
 * detecção de feriados e personalização
+* série temporal e aprendizes DNN (auto-ARIMA, Prophet, ForecastTCN)
+* muitos modelos de suporte por meio de agrupamento
 * validação cruzada de origem sem interrupção
 * retardo configurável
 * recursos agregados de janela sem interrupção
@@ -172,7 +174,7 @@ O ML automatizado também está disponível em outras soluções da Microsoft, c
 
 Veja exemplos e aprenda a criar modelos usando o aprendizado de máquina automatizado:
 
-+ Siga o [Tutorial: Treinar automaticamente um modelo de regressão com o Azure Automated Machine Learning @ no__t-0
++ Siga o [tutorial: treinar automaticamente um modelo de regressão com o Machine Learning automatizado do Azure](tutorial-auto-train-models.md)
 
 + Defina as configurações para o teste de treinamento automático:
   + Na interface portal do Azure ou na página de aterrissagem do espaço de trabalho (versão prévia), [Use estas etapas](how-to-create-portal-experiments.md).

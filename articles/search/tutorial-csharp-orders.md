@@ -1,24 +1,25 @@
 ---
-title: C#tutorial sobre resultados de ordenação-Azure Search
-description: Este tutorial se baseia no projeto "paginação de resultados da pesquisa-Azure Search", para adicionar a ordenação dos resultados da pesquisa. Saiba como ordenar resultados em uma propriedade primária e para resultados que têm a mesma propriedade primária, como ordenar resultados em uma propriedade secundária. Por fim, saiba como ordenar resultados com base em um perfil de pontuação.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C#tutorial sobre resultados de ordenação
+titleSuffix: Azure Cognitive Search
+description: Este tutorial se baseia no projeto "paginação de resultados da pesquisa – Azure Pesquisa Cognitiva", para adicionar a ordenação dos resultados da pesquisa. Saiba como ordenar resultados em uma propriedade primária e para resultados que têm a mesma propriedade primária, como ordenar resultados em uma propriedade secundária. Por fim, saiba como ordenar resultados com base em um perfil de pontuação.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/21/2019
-ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327654"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794060"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>C#destina Ordenar os resultados-Azure Search
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C#Tutorial: ordenar os resultados-Pesquisa Cognitiva do Azure
 
 Até esse ponto em nossa série de tutoriais, os resultados são retornados e exibidos em uma ordem padrão. Essa pode ser a ordem na qual os dados estão localizados ou, possivelmente, um _perfil de Pontuação_ padrão definido, que será usado quando nenhum parâmetro de ordenação for especificado. Neste tutorial, veremos como ordenar os resultados com base em uma propriedade primária e, em seguida, para os resultados que têm a mesma propriedade primária, como ordenar essa seleção em uma propriedade secundária. Como uma alternativa à ordenação com base em valores numéricos, o exemplo final mostra como ordenar com base em um perfil de Pontuação personalizado. Também vamos mais fundo na exibição de _tipos complexos_.
 
-Para comparar os resultados retornados com facilidade, este projeto se baseia no projeto de rolagem infinito criado no tutorial @no__t-C# 0: Paginação de resultados da pesquisa-Azure Search o tutorial @ no__t-0.
+Para comparar os resultados retornados com facilidade, este projeto se baseia no projeto de rolagem infinito criado no [ C# tutorial: paginação dos resultados da pesquisa-tutorial de pesquisa cognitiva do Azure](tutorial-csharp-paging.md) .
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
@@ -31,7 +32,7 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, precisa de:
 
-Ter a versão de rolagem infinita do tutorial @no__tC# -0: Paginação dos resultados da pesquisa-Azure Search projeto @ no__t-0 em funcionamento. Este projeto pode ser sua própria versão ou instalá-lo do GitHub: [Crie o primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Tenha a versão de rolagem infinita do [ C# tutorial: paginação dos resultados da pesquisa-projeto de pesquisa cognitiva do Azure](tutorial-csharp-paging.md) em funcionamento. Este projeto pode ser sua própria versão ou instalá-lo do GitHub: [criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="order-results-based-on-one-property"></a>Ordenar resultados com base em uma propriedade
 
@@ -435,7 +436,7 @@ Para exibir resultados com base em distância geográfica, várias etapas são n
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Embora os resultados tenham sido retornados por Azure Search usando um filtro de distância, a distância calculada entre os dados e o ponto especificado _não_ é retornada. Recalcule esse valor na exibição, ou controlador, se você quiser exibi-lo nos resultados.
+3. Embora os resultados tenham sido retornados pelo Azure Pesquisa Cognitiva usando um filtro de distância, a distância calculada entre os dados e o ponto especificado _não_ é retornada. Recalcule esse valor na exibição, ou controlador, se você quiser exibi-lo nos resultados.
 
     O código a seguir calculará a distância entre dois pontos Lat/Lon.
 
@@ -465,7 +466,7 @@ Para exibir resultados com base em distância geográfica, várias etapas são n
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Ordenar resultados com base em um perfil de Pontuação
 
-Os exemplos fornecidos no tutorial até agora mostram como ordenar valores numéricos (classificação, data de reforma, distância geográfica), fornecendo um processo _exato_ de ordenação. No entanto, algumas pesquisas e alguns dados não se prestam a uma comparação tão fácil entre dois elementos de dados. Azure Search inclui o conceito de _Pontuação_. Os _perfis de Pontuação_ podem ser especificados para um conjunto de dados que podem ser usados para fornecer comparações mais complexas e qualitativas, que devem ser mais valiosas quando, digamos, comparar dados baseados em texto para decidir quais devem ser exibidos primeiro.
+Os exemplos fornecidos no tutorial até agora mostram como ordenar valores numéricos (classificação, data de reforma, distância geográfica), fornecendo um processo _exato_ de ordenação. No entanto, algumas pesquisas e alguns dados não se prestam a uma comparação tão fácil entre dois elementos de dados. O Azure Pesquisa Cognitiva inclui o conceito de _Pontuação_. Os _perfis de Pontuação_ podem ser especificados para um conjunto de dados que podem ser usados para fornecer comparações mais complexas e qualitativas, que devem ser mais valiosas quando, digamos, comparar dados baseados em texto para decidir quais devem ser exibidos primeiro.
 
 Os perfis de pontuação não são definidos pelos usuários, mas normalmente por administradores de um conjunto de dados. Vários perfis de Pontuação foram configurados nos dados de hotéis. Vamos ver como um perfil de pontuação é definido e, em seguida, tentar escrever o código para pesquisá-los.
 
@@ -543,7 +544,7 @@ Vamos examinar três exemplos de perfis de Pontuação e considerar como cada um
 
 ### <a name="add-code-to-the-view-to-compare-profiles"></a>Adicionar código à exibição para comparar perfis
 
-1. Abra o arquivo index. cshtml e substitua a seção &lt;body @ no__t-1 pelo código a seguir.
+1. Abra o arquivo index. cshtml e substitua a seção&gt; do corpo do &lt;pelo código a seguir.
 
     ```cs
     <body>
@@ -957,7 +958,7 @@ Vamos examinar três exemplos de perfis de Pontuação e considerar como cada um
 
 ### <a name="resources"></a>Recursos
 
-Para obter mais informações, consulte os seguintes [perfis de Pontuação de adição a um índice de Azure Search](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Para obter mais informações, consulte os seguintes [perfis de Pontuação de adição a um índice de pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Conclusões
 
@@ -971,6 +972,6 @@ Considere as seguintes alternativas deste projeto:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Você concluiu esta série de C# tutoriais: você deve ter obtido conhecimento valioso das APIs de Azure Search.
+Você concluiu esta série de C# tutoriais: você deve ter obtido conhecimento valioso das APIs de pesquisa cognitiva do Azure.
 
-Para obter mais referências e tutoriais, considere procurar [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)ou outros tutoriais na documentação do [Azure Search](https://docs.microsoft.com/azure/search/).
+Para obter mais referências e tutoriais, considere procurar [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure)ou outros tutoriais na documentação do [pesquisa cognitiva do Azure](https://docs.microsoft.com/azure/search/).

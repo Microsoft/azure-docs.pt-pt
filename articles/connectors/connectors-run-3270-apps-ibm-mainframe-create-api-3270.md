@@ -1,5 +1,5 @@
 ---
-title: Conecte-se a aplicativos 3270 em mainframes IBM com o Azure-aplicativos lógicos do Azure
+title: Conectar-se a aplicativos 3270 em mainframes IBM – aplicativos lógicos do Azure
 description: Integre e automatize aplicativos baseados em tela de 3270 com o Azure usando o aplicativo lógico do Azure e o conector IBM 3270
 services: logic-apps
 ms.service: logic-apps
@@ -10,12 +10,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 50b8fc6b6a350d0a5982cc84f94067979d018cce
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f039d0cbfa2b34fecbcdee53ebe2b56b6e9b6d69
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050683"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787564"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integre aplicativos baseados na tela 3270 em mainframes IBM com o Azure usando o aplicativo lógico do Azure e o conector IBM 3270
 
@@ -46,13 +46,13 @@ Depois de gerar o arquivo de metadados da ferramenta de design, você adiciona e
 
 * Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Recomendação: Um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
+* Recomendado: um [ISE (ambiente do serviço de integração)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
 
   Você pode selecionar esse ambiente como o local para criar e executar seu aplicativo lógico. Um ISE fornece acesso de seu aplicativo lógico a recursos que são protegidos dentro de redes virtuais do Azure.
 
 * O aplicativo lógico a ser usado para automatizar e executar seu aplicativo baseado na tela 3270
 
-  O conector IBM 3270 não tem gatilhos, portanto, use outro gatilho para iniciar seu aplicativo lógico, como o gatilho de recorrência. Em seguida, você pode adicionar ações do conector 3270. Para começar, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+  O conector IBM 3270 não tem gatilhos, portanto, use outro gatilho para iniciar seu aplicativo lógico, como o gatilho de **recorrência** . Em seguida, você pode adicionar ações do conector 3270. Para começar, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
   Se você usar um ISE, selecione esse ISE como o local do seu aplicativo lógico.
 
 * [Baixe e instale a ferramenta de design do 3270](https://aka.ms/3270-design-tool-download).
@@ -78,20 +78,20 @@ O único pré-requisito é [Microsoft .NET Framework 4.6.1](https://aka.ms/net-f
 
 Em um aplicativo baseado em tela 3270, as telas e os campos de dados são exclusivos para seus cenários, portanto, o conector 3270 precisa dessas informações sobre seu aplicativo, que você pode fornecer como metadados. Esses metadados descrevem informações que ajudam seu aplicativo lógico a identificar e reconhecer telas, descreve como navegar entre telas, onde inserir dados e onde esperar resultados. Para especificar e gerar esses metadados, use a ferramenta de design 3270, que orienta você durante esses *modos*específicos ou estágios, conforme descrito mais adiante em mais detalhes:
 
-* **Captura**: Nesse modo, você registra as telas necessárias para concluir uma tarefa específica com seu aplicativo de mainframe, por exemplo, obtendo um saldo bancário.
+* **Captura**: nesse modo, você registra as telas necessárias para concluir uma tarefa específica com seu aplicativo de mainframe, por exemplo, obtendo um saldo bancário.
 
-* **Navegação**: Nesse modo, você especifica o plano ou caminho para como navegar pelas telas de seu aplicativo de mainframe para a tarefa específica.
+* **Navegação**: nesse modo, você especifica o plano ou o caminho para como navegar pelas telas do aplicativo de mainframe para a tarefa específica.
 
-* **Métodos**: Nesse modo, você define o método, por exemplo `GetBalance`,, que descreve o caminho de navegação da tela. Você também escolhe os campos em cada tela que se tornam os parâmetros de entrada e saída do método.
+* **Métodos**: nesse modo, você define o método, por exemplo, `GetBalance`, que descreve o caminho de navegação da tela. Você também escolhe os campos em cada tela que se tornam os parâmetros de entrada e saída do método.
 
 ### <a name="unsupported-elements"></a>Elementos sem suporte
 
 A ferramenta de design não dá suporte a esses elementos:
 
-* Mapas parciais de suporte a mapeamento básico IBM (BMS): Se você importar um mapa do BMS, a ferramenta de design ignorará as definições de tela parciais.
-* Parâmetros de entrada/saída: Você não pode definir parâmetros de entrada/saída.
-* Processamento de menu: Sem suporte durante a visualização
-* Processamento de matriz: Sem suporte durante a visualização
+* Mapas parciais de suporte a mapeamento básico IBM (BMS): se você importar um mapa do BMS, a ferramenta de design ignorará as definições parciais de tela.
+* Parâmetros de entrada/saída: não é possível definir parâmetros de entrada/saída.
+* Processamento de menu: sem suporte durante a visualização
+* Processamento de matriz: sem suporte durante a visualização
 
 <a name="capture-screens"></a>
 
@@ -141,9 +141,9 @@ Para que o conector Navegue e diferencie as telas, geralmente você encontra um 
 
 Na ferramenta de design, você pode adicionar *atributos de reconhecimento*, por exemplo, um título de tela, como "obter saldo de conta", usando o editor de reconhecimento de tela. Se você tiver um caminho bifurcado e ambas as ramificações retornarem a mesma tela, mas com resultados diferentes, você precisará de outros atributos de reconhecimento. No tempo de execução, o conector usa esses atributos para determinar o Branch atual e a bifurcação. Estas são as condições que você pode usar:
 
-* Valor específico: Esse valor corresponde à cadeia de caracteres especificada no local especificado.
-* Não é um valor específico: Esse valor não corresponde à cadeia de caracteres especificada no local especificado.
-* Esvaziá Este campo está vazio.
+* Valor específico: esse valor corresponde à cadeia de caracteres especificada no local especificado.
+* Não é um valor específico: esse valor não corresponde à cadeia de caracteres especificada no local especificado.
+* Empty: Este campo está vazio.
 * NÃO vazio: Este campo não está vazio.
 
 Para saber mais, consulte o [plano de navegação de exemplo](#example-plan) mais adiante neste tópico.
@@ -221,7 +221,7 @@ Além disso, suponha que você repita essas etapas, mas inseriu dados incorretos
 
 * MSG-10
 * CICS Welcome
-* Vazio
+* esvaziá
 * WBGB_1 (entrada)
 * WBGB_2 (erro)
 * Empty_1
@@ -245,7 +245,7 @@ Embora muitas telas aqui obtenham nomes exclusivos, algumas telas são a mesma t
 
   ![Plano combinado](./media/connectors-create-api-3270/combined-plan.png)
 
-#### <a name="example-identify-repeated-screens"></a>Exemplo: Identificar telas repetidas
+#### <a name="example-identify-repeated-screens"></a>Exemplo: identificar telas repetidas
 
 Para que o conector Navegue e diferencie as telas, geralmente você encontra um texto exclusivo em uma tela que pode ser usado como um identificador nas telas capturadas. Para telas repetidas, talvez você precise de mais métodos de identificação. O plano de exemplo tem uma bifurcação em que você pode obter telas parecidas. Uma tela retorna um saldo de conta, enquanto a outra tela retorna uma mensagem de erro.
 
@@ -292,8 +292,8 @@ Nesse modo, você define um método que está associado ao seu plano de navegaç
    | Nome da propriedade | Valores possíveis | 
    |---------------|-----------------|
    | **Tipo de dados** | Byte, data e hora, Decimal, int, longo, curto, Cadeia de caracteres |
-   | **Técnica de preenchimento de campo** | Os parâmetros dão suporte a esses tipos de preenchimento, preenchendo com espaços em branco, se necessário: <p><p>- **Tipo**: Insira os caracteres sequencialmente no campo. <p>- **Preenchimento**: Substitua o conteúdo do campo por caracteres, preenchendo com espaços em branco, se necessário. <p>- **EraseEofType**: Limpe o campo e, em seguida, insira os caracteres sequencialmente no campo. |
-   | **Cadeia de formato** | Alguns tipos de dados de parâmetro usam uma cadeia de caracteres de formato, que informa ao conector 3270 como converter o texto da tela em um tipo de dados .NET: <p><p>- **Data e hora**: A cadeia de formato DateTime segue as cadeias de caracteres de [formato de data e hora personalizadas do .net](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` usa a cadeia de `MM/dd/yyyy`caracteres de formato. <p>- **Decimal**: A cadeia de caracteres de formato decimal usa a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` usa a cadeia de `999V99`caracteres de formato. |
+   | **Técnica de preenchimento de campo** | Os parâmetros dão suporte a esses tipos de preenchimento, preenchendo com espaços em branco, se necessário: <p><p>**tipo**de - : Insira os caracteres sequencialmente no campo. <p>**preenchimento**de - : substitua o conteúdo do campo por caracteres, preenchendo com espaços em branco, se necessário. <p>- **EraseEofType**: Limpe o campo e, em seguida, insira os caracteres sequencialmente no campo. |
+   | **Cadeia de formato** | Alguns tipos de dados de parâmetro usam uma cadeia de caracteres de formato, que informa ao conector 3270 como converter o texto da tela em um tipo de dados .NET: <p><p>- **DateTime**: a cadeia de formato DateTime segue as cadeias de caracteres de [formato de data e hora personalizadas do .net](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` usa a cadeia de caracteres de formato `MM/dd/yyyy`. <p>- **decimal**: a cadeia de caracteres de formato decimal usa a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` usa a cadeia de caracteres de formato `999V99`. |
    |||
 
 ## <a name="save-and-view-metadata"></a>Salvar e exibir metadados
@@ -350,25 +350,25 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
 
 1. Na última etapa em que você deseja adicionar uma ação, escolha **nova etapa**e selecione **Adicionar uma ação**. 
 
-1. Na caixa de pesquisa, escolha **Enterprise**. Na caixa de pesquisa, insira "3270" como seu filtro. Na lista ações, selecione esta ação: **Executa um programa de mainframe em uma conexão TN3270**
+1. Na caixa de pesquisa, escolha **Enterprise**. Na caixa de pesquisa, insira "3270" como seu filtro. Na lista ações, selecione esta ação: **executa um programa de mainframe em uma conexão TN3270**
 
    ![Selecione a ação 3270](./media/connectors-create-api-3270/select-3270-action.png)
 
    Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. 
-   Escolha o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Escolha o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
 1. Se nenhuma conexão ainda existir, forneça as informações necessárias para sua conexão e escolha **criar**.
 
-   | Propriedade | Requerido | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome da Ligação** | Sim | <*nome da conexão*> | O nome da conexão |
-   | **ID da conta de integração** | Sim | <*integration-account-name*> | O nome da sua conta de integração |
-   | **URL SAS da conta de integração** | Sim | <*integration-account-SAS-URL*> | A URL da assinatura de acesso compartilhado (SAS) da sua conta de integração, que pode ser gerada com base nas configurações da sua conta de integração no portal do Azure. <p>1. No menu conta de integração, em **configurações**, selecione **URL de retorno de chamada**. <br>2. No painel à direita, copie o valor da **URL de retorno de chamada gerado** . |
-   | **servidor** | Sim | <*TN3270-server-name*> | O nome do servidor para o serviço TN3270 |
-   | **Porta** | Não | <*TN3270-server-port*> | A porta usada pelo servidor TN3270. Se for deixado em branco, o `23` conector usará como o valor padrão. |
+   | **Nome da Ligação** | Sim | <*nome da conexão* > | O nome da conexão |
+   | **ID da conta de integração** | Sim | <*Integration-nome da conta* > | O nome da sua conta de integração |
+   | **URL SAS da conta de integração** | Sim | *integração de <-Account-SAS-URL*> | A URL da assinatura de acesso compartilhado (SAS) da sua conta de integração, que pode ser gerada com base nas configurações da sua conta de integração no portal do Azure. <p>1. no menu da sua conta de integração, em **configurações**, selecione **URL de retorno de chamada**. <br>2. no painel à direita, copie o valor da **URL de retorno de chamada gerado** . |
+   | **Servidor** | Sim | <*TN3270-Server-name*> | O nome do servidor para o serviço TN3270 |
+   | **Porta** | Não | <*TN3270-Server-port*> | A porta usada pelo servidor TN3270. Se for deixado em branco, o conector usará `23` como o valor padrão. |
    | **Tipo de dispositivo** | Não | <*IBM-terminal-model*> | O nome do modelo ou o número do terminal IBM a ser emulado. Se for deixado em branco, o conector usará valores padrão. |
-   | **Página de código** | Não | <*code-page-number*> | O número da página de código para o host. Se for deixado em branco, o `37` conector usará como o valor padrão. |
-   | **Nome da unidade lógica** | Não | <*logical-unit-name*> | O nome da unidade lógica específica a ser solicitada do host |
+   | **Página de código** | Não | *código de <-página-número*> | O número da página de código para o host. Se for deixado em branco, o conector usará `37` como o valor padrão. |
+   | **Nome da unidade lógica** | Não | <*nome da unidade lógica*> | O nome da unidade lógica específica a ser solicitada do host |
    | **Habilitar SSL?** | Não | Ativar ou desativar | Ative ou desative a criptografia SSL. |
    | **Validar o certificado SSL do host?** | Não | Ativar ou desativar | Ative ou desative a validação para o certificado do servidor. |
    ||||
@@ -379,10 +379,10 @@ Ao concluir todas essas etapas, você pode usar a ação que você cria em seu a
 
 1. Forneça as informações necessárias para a ação:
 
-   | Propriedade | Requerido | Value | Descrição |
+   | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome do Hidx** | Sim | <*HIDX-nome-do-arquivo*> | Selecione o arquivo 3270 HIDX que você deseja usar. |
-   | **Nome do método** | Sim | <*nome do método*> | Selecione o método no arquivo HIDX que você deseja usar. Depois de selecionar um método, a lista **Adicionar novo parâmetro** é exibida para que você possa selecionar os parâmetros a serem usados com esse método. |
+   | **Nome do Hidx** | Sim | <*HIDX-nome do arquivo*> | Selecione o arquivo 3270 HIDX que você deseja usar. |
+   | **Nome do método** | Sim | *nome do método de* <> | Selecione o método no arquivo HIDX que você deseja usar. Depois de selecionar um método, a lista **Adicionar novo parâmetro** é exibida para que você possa selecionar os parâmetros a serem usados com esse método. |
    ||||
 
    Por exemplo:
@@ -414,4 +414,4 @@ Para obter detalhes técnicos sobre gatilhos, ações e limites, que são descri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

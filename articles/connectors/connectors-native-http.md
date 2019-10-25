@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/05/2019
 tags: connectors
-ms.openlocfilehash: df856e0d76dbd5903964bc80aa01b97b7461128a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4f585778808b133fe5c731ab6a3189594cbfc0f9
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122707"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804227"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>Enviar chamadas de saída para pontos de extremidade HTTP ou HTTPS usando aplicativos lógicos do Azure
 
@@ -35,7 +35,7 @@ Com base na capacidade do ponto de extremidade de destino, o conector HTTP dá s
 
 * A URL para o ponto de extremidade de destino que você deseja chamar
 
-* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure?](../logic-apps/logic-apps-overview.md)
+* Conhecimento básico sobre [como criar aplicativos lógicos](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se você for novo em aplicativos lógicos, examine [o que são os aplicativos lógicos do Azure](../logic-apps/logic-apps-overview.md)?
 
 * O aplicativo lógico do qual você deseja chamar o ponto de extremidade de destino. Para começar com o gatilho HTTP, [crie um aplicativo lógico em branco](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para usar a ação HTTP, inicie seu aplicativo lógico com qualquer gatilho desejado. Este exemplo usa o gatilho HTTP como a primeira etapa.
 
@@ -45,7 +45,7 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). Abra seu aplicativo lógico em branco no designer de aplicativo lógico.
 
-1. No designer, na caixa de pesquisa, digite "http" como seu filtro. Na lista de gatilhos, selecione o gatilho **http** .
+1. Em **escolher uma ação**, na caixa de pesquisa, digite "http" como filtro. Na lista de **gatilhos** , selecione o gatilho **http** .
 
    ![Selecionar gatilho HTTP](./media/connectors-native-http/select-http-trigger.png)
 
@@ -53,15 +53,15 @@ Esse gatilho interno faz uma chamada HTTP para a URL especificada para um ponto 
 
 1. Forneça os valores para os [parâmetros de gatilho http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-trigger) que você deseja incluir na chamada para o ponto de extremidade de destino. Configure a recorrência para a frequência com que você deseja que o gatilho Verifique o ponto de extremidade de destino.
 
-   ![Inserir parâmetros de gatilho HTTP](./media/connectors-native-http/http-trigger-parameters.png)
+   Se você selecionar um tipo de autenticação diferente de **nenhum**, as configurações de autenticação diferem com base na sua seleção. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte [autenticar gatilhos e ações http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Inserir parâmetros de gatilho HTTP](./media/connectors-native-http/http-trigger-parameters.png)
 
 1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
 
 1. Continue criando o fluxo de trabalho do aplicativo lógico com ações que são executadas quando o gatilho é acionado.
 
-1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
+1. Quando terminar, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
 
 ## <a name="add-an-http-action"></a>Adicionar uma ação HTTP
 
@@ -73,9 +73,9 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 1. Na etapa em que você deseja adicionar a ação HTTP, selecione **nova etapa**.
 
-   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição **+** () que aparece e, em seguida, selecione **Adicionar uma ação**.
+   Para adicionar uma ação entre etapas, mova o ponteiro sobre a seta entre as etapas. Selecione o sinal de adição ( **+** ) que aparece e, em seguida, selecione **Adicionar uma ação**.
 
-1. No designer, na caixa de pesquisa, digite "http" como seu filtro. Na lista **ações** , selecione a ação **http** .
+1. Em **escolher uma ação**, na caixa de pesquisa, digite "http" como filtro. Na lista **ações** , selecione a ação **http** .
 
    ![Selecionar ação HTTP](./media/connectors-native-http/select-http-action.png)
 
@@ -83,17 +83,17 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 1. Forneça os valores para os [parâmetros de ação http](../logic-apps/logic-apps-workflow-actions-triggers.md##http-action) que você deseja incluir na chamada para o ponto de extremidade de destino.
 
-   ![Inserir parâmetros de ação HTTP](./media/connectors-native-http/http-action-parameters.png)
+   Se você selecionar um tipo de autenticação diferente de **nenhum**, as configurações de autenticação diferem com base na sua seleção. Para obter mais informações, consulte [Adicionar autenticação a chamadas de saída](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-   Para obter mais informações sobre os tipos de autenticação disponíveis para HTTP, consulte [autenticar gatilhos e ações http](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
+   ![Inserir parâmetros de ação HTTP](./media/connectors-native-http/http-action-parameters.png)
 
 1. Para adicionar outros parâmetros disponíveis, abra a lista **Adicionar novo parâmetro** e selecione os parâmetros desejados.
 
-1. Quando tiver terminado, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
+1. Quando terminar, lembre-se de salvar seu aplicativo lógico. Na barra de ferramentas do designer, selecione **salvar**.
 
 ## <a name="content-with-multipartform-data-type"></a>Conteúdo com tipo de dados de várias partes/formulário
 
-Para lidar com o conteúdo `multipart/form-data` que tem o tipo em solicitações HTTP, você pode adicionar um objeto JSON `$content-type` que `$multipart` inclui os atributos e ao corpo da solicitação HTTP usando esse formato.
+Para manipular o conteúdo que tem `multipart/form-data` tipo em solicitações HTTP, você pode adicionar um objeto JSON que inclui os atributos `$content-type` e `$multipart` ao corpo da solicitação HTTP usando esse formato.
 
 ```json
 "body": {
@@ -109,7 +109,7 @@ Para lidar com o conteúdo `multipart/form-data` que tem o tipo em solicitaçõe
 }
 ```
 
-Por exemplo, suponha que você tenha um aplicativo lógico que envia uma solicitação HTTP post para um arquivo do Excel para um site usando a API desse site, que dá `multipart/form-data` suporte ao tipo. Veja como essa ação pode parecer:
+Por exemplo, suponha que você tenha um aplicativo lógico que envia uma solicitação HTTP POST para um arquivo do Excel para um site usando a API desse site, que dá suporte ao tipo de `multipart/form-data`. Veja como essa ação pode parecer:
 
 ![Dados de formulário com várias partes](./media/connectors-native-http/http-action-multipart.png)
 
@@ -148,24 +148,24 @@ Para obter mais informações sobre parâmetros de ação e gatilho, consulte es
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Nome da propriedade | Type | Descrição |
+| Nome da propriedade | Tipo | Descrição |
 |---------------|------|-------------|
-| Conector | object | Os cabeçalhos da solicitação |
-| corpo | object | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| Código de status | int | O código de status da solicitação |
+| conector | objeto | Os cabeçalhos da solicitação |
+| conteúdo | objeto | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
+| código de status | int | O código de status da solicitação |
 |||
 
 | Código de estado | Descrição |
 |-------------|-------------|
 | 200 | OK |
-| 202 | Aceite |
-| 400 | Pedido incorreto |
+| 202 | Aceitar |
+| 400 | Solicitação inadequada |
 | 401 | Não autorizado |
 | 403 | Proibido |
-| 404 | Não Encontrado |
+| 404 | Não encontrado |
 | 500 | Erro interno do servidor. Ocorreu um erro desconhecido. |
 |||
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre outros conectores de [aplicativos lógicos](../connectors/apis-list.md)
+* Saiba mais sobre outros [conectores de aplicativos lógicos](../connectors/apis-list.md)

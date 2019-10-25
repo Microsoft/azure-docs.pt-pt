@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5738161e88c42f4d4033fab091d8e8c8d7162042
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9eba76d78c2070f03ed835cdf2bf303ed72b1f7f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301727"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801860"
 ---
 # <a name="developers-guide-to-durable-entities-in-net-preview"></a>Guia do desenvolvedor para entidades duráveis no .NET (visualização)
 
@@ -120,7 +120,7 @@ Por exemplo, podemos modificar a entidade do contador para que ela inicie uma or
 As entidades baseadas em classe podem ser acessadas diretamente, usando nomes de cadeia de caracteres explícitos para a entidade e suas operações. Fornecemos alguns exemplos abaixo; para obter uma explicação mais detalhada dos conceitos subjacentes (como sinais versus chamadas), consulte a discussão em [acessando entidades](durable-functions-entities.md#accessing-entities). 
 
 > [!NOTE]
-> Sempre que possível, é recomendável [acessar entidades por meio de interfaces](), pois ela fornece mais verificação de tipo.
+> Sempre que possível, é recomendável [acessar entidades por meio de interfaces](#accessing-entities-through-interfaces), pois ela fornece mais verificação de tipo.
 
 ### <a name="example-client-signals-entity"></a>Exemplo: entidade de sinais de cliente
 
@@ -314,9 +314,9 @@ public class User
 
 No exemplo acima, optamos por incluir vários atributos para tornar a serialização subjacente mais visível:
 - Anotamos a classe com `[JsonObject(MemberSerialization.OptIn)]` para nos lembrar que a classe deve ser serializável e manter somente os membros explicitamente marcados como propriedades JSON.
--  Anotamos os campos a serem persistidos com `[JsonProperty("name")]` para nos lembrar que um campo faz parte do estado de entidade persistente e especificar o nome da propriedade a ser usada na representação JSON.
+-  Anotamos os campos a serem persistidos com `[JsonProperty("name")]` para lembrá-lo de que um campo faz parte do estado de entidade persistente e especificar o nome da propriedade a ser usada na representação JSON.
 
-No entanto, esses atributos não são obrigatórios; outras convenções ou atributos são permitidos contanto que funcionem com Json.NET. Por exemplo, um pode usar atributos `[DataContract]` ou nenhum atributo:
+No entanto, esses atributos não são obrigatórios; outras convenções ou atributos são permitidos contanto que funcionem com Json.NET. Por exemplo, um pode usar atributos de `[DataContract]` ou nenhum atributo:
 
 ```csharp
 [DataContract]

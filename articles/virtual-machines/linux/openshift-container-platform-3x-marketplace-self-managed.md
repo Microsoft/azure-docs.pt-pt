@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 721d4dae2c05c252b863b7cea2589deca8404602
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392699"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791619"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
 
-Antes de usar a oferta do Marketplace para implantar um cluster da plataforma de contêiner do OpenShift autogerenciada 3,11 no Azure, alguns pré-requisitos devem ser configurados.  Leia o artigo [pré-requisitos do OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-prerequisites) para obter instruções para criar uma chave SSH (sem uma frase secreta), cofre de chaves do Azure, segredo do cofre de chaves e uma entidade de serviço.
+Antes de usar a oferta do Marketplace para implantar um cluster da plataforma de contêiner do OpenShift autogerenciada 3,11 no Azure, alguns pré-requisitos devem ser configurados.  Leia o artigo [pré-requisitos do OpenShift](https://docs.microsoft.com/azure/virtual-machines/linux/openshift-container-platform-3x-prerequisites) para obter instruções para criar uma chave SSH (sem uma frase secreta), cofre de chaves do Azure, segredo do cofre de chaves e uma entidade de serviço.
 
  
 ## <a name="deploy-using-the-marketplace-offer"></a>Implantar usando a oferta do Marketplace

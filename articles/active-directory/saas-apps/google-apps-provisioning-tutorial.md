@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0187d17f8210800aef1c68def0614ce26913e09a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555026"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802198"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: configurar o G Suite para provisionamento automático de usuário
 
@@ -32,7 +32,7 @@ O objetivo deste tutorial é demonstrar as etapas a serem executadas no G Suite 
 > [!NOTE]
 > O conector do G Suite foi atualizado recentemente em outubro de 2019. As alterações feitas no conector do G Suite incluem:
 - Adição de suporte para atributos adicionais de usuário e grupo do G Suite. 
-- Atualizado os nomes de atributo de destino do G Suite para corresponder ao que está definido [aqui]().
+- Atualizado os nomes de atributo de destino do G Suite para corresponder ao que está definido [aqui](/azure/active-directory/manage-apps/customize-application-attributes).
 - Mapeamentos de atributo padrão atualizados.
 
 ## <a name="prerequisites"></a>Pré-requisitos

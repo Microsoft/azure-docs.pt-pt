@@ -1,51 +1,52 @@
 ---
-title: C#tutorial sobre a paginação de resultados de pesquisa - Azure Search
-description: Este tutorial baseia-se no projeto "Criar seu primeiro aplicativo - Azure Search", com a escolha dos dois tipos de paginação. O primeiro usa uma variedade de botões de número de página, bem como em primeiro lugar, em seguida, anterior e última página botões. O sistema de paginação de segundo utiliza deslocamento infinito, acionado por mover uma barra de rolagem vertical para o limite inferior.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: C#tutorial sobre a paginação de resultados da pesquisa
+titleSuffix: Azure Cognitive Search
+description: Este tutorial se baseia no projeto "criar seu primeiro aplicativo-Azure Pesquisa Cognitiva", com a opção de dois tipos de paginação. O primeiro usa um intervalo de botões de número de página, bem como os botões primeiro, próximo, anterior e última página. O segundo sistema de paginação usa a rolagem infinita, disparada movendo uma barra de rolagem vertical para seu limite inferior.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 7e6c433168b73c6b58d13d4698bed55d7c18ec58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434641"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794006"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>C#Tutorial: Paginação de resultados de pesquisa - Azure Search
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C#Tutorial: paginação dos resultados da pesquisa-Azure Pesquisa Cognitiva
 
-Aprenda a implementar dois sistemas diferentes de paginação, o primeiro com base nos números de página e a segunda de deslocamento infinito. Ambos os sistemas de paginação são amplamente utilizados e selecionar o correto depende a experiência do usuário que desejar com os resultados. Este tutorial baseia-se os sistemas de paginação no projeto criado no [ C# Tutorial: Crie seu primeiro aplicativo - Azure Search](tutorial-csharp-create-first-app.md) tutorial.
+Saiba como implementar dois sistemas de paginação diferentes, o primeiro com base em números de página e o segundo na rolagem infinita. Ambos os sistemas de paginação são amplamente usados e a seleção da correta depende da experiência do usuário que você gostaria com os resultados. Este tutorial cria os sistemas de paginação no projeto criado no [ C# tutorial: criar seu primeiro aplicativo-tutorial de pesquisa cognitiva do Azure](tutorial-csharp-create-first-app.md) .
 
 Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
-> * Expandir a sua aplicação com paginação numerada
-> * Expandir a sua aplicação com rolagem infinita
+> * Estenda seu aplicativo com paginação numerada
+> * Estenda seu aplicativo com rolagem infinita
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, precisa de:
 
-Tem a [ C# Tutorial: Crie seu primeiro aplicativo - Azure Search](tutorial-csharp-create-first-app.md) projeto em funcionamento. Este projeto pode ser a sua própria versão ou instalá-lo a partir do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Faça o [ C# tutorial: criar seu primeiro aplicativo-Azure pesquisa cognitiva](tutorial-csharp-create-first-app.md) projeto em funcionamento. Este projeto pode ser sua própria versão ou instalá-lo do GitHub: [criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-## <a name="extend-your-app-with-numbered-paging"></a>Expandir a sua aplicação com paginação numerada
+## <a name="extend-your-app-with-numbered-paging"></a>Estenda seu aplicativo com paginação numerada
 
-Paginação numerada é o sistema de paginação de escolha de mecanismos de pesquisa de internet principal e a maioria dos outros sites de pesquisa. Paginação numerada normalmente inclui uma opção "seguinte" e "anterior", além de um intervalo de números de página real. Também uma opção de "última página" e "primeira página" também poderão estar disponíveis. Estas opções, certamente, dê um controle de usuário ao longo de navegar pelos resultados baseado em página.
+A paginação numerada é o sistema de paginação de sua escolha dos principais mecanismos de pesquisa da Internet e a maioria dos outros sites de pesquisa. A paginação numerada normalmente inclui uma opção "Next" e "Previous", além de um intervalo de números de página reais. Também uma "primeira página" e a opção "última página" também podem estar disponíveis. Essas opções certamente dão a um controle de usuário sobre a navegação por meio de resultados baseados em página.
 
-Adicionaremos um sistema que inclui o seguinte em primeiro lugar, anterior e opções de pela última vez, juntamente com os números de página que não se iniciam a partir de 1, mas em vez disso, o surround a página atual, o utilizador está num (então, por exemplo, se o usuário está observando a página de 10, talvez números de página 8 9, 10, 11 e 12 são apresentados).
+Adicionaremos um sistema que inclui as opções primeiro, anterior, avançar e último, juntamente com os números de página que não iniciam de 1, mas, em vez disso, envolvem a página atual em que o usuário está (por exemplo, se o usuário estiver olhando para a página 10, talvez números de página 8 , 9, 10, 11 e 12 são exibidos).
 
-O sistema estará flexível o suficiente para permitir que o número de números de página visível para ser definida numa variável global.
+O sistema será flexível o suficiente para permitir que o número de números de página visíveis seja definido em uma variável global.
 
-O sistema irão tratar a página mais à esquerda e mais à direita botões de número como especiais, que significa que irão disparar a alterar o intervalo de números de página apresentados. Por exemplo, se são apresentados números de página, 8, 9, 10, 11 e 12 e o usuário clica em 8, o intervalo de números de página apresentado muda para 6, 7, 8, 9 e 10. E há uma mudança semelhante à direita, se tiver selecionado 12.
+O sistema tratará os botões de número de página mais à esquerda e à direita como especiais, o que significa que eles irão disparar a alteração do intervalo de números de página exibidos. Por exemplo, se os números de página 8, 9, 10, 11 e 12 forem exibidos e o usuário clicar em 8, o intervalo de números de página exibido será alterado para 6, 7, 8, 9 e 10. E haverá uma mudança semelhante à direita se elas tiverem selecionado 12.
 
-### <a name="add-paging-fields-to-the-model"></a>Adicione campos de paginação para o modelo
+### <a name="add-paging-fields-to-the-model"></a>Adicionar campos de paginação ao modelo
 
-Tem a solução de página de pesquisa básica abrir.
+Tenha a solução de página de pesquisa básica aberta.
 
-1. Abra o ficheiro de modelo SearchData.cs.
+1. Abra o arquivo de modelo SearchData.cs.
 
-2. Primeiro, adicione algumas variáveis globais. No MVC, as variáveis globais são declaradas na própria classe estática. **ResultsPerPage** define o número de resultados por página. **MaxPageRange** determina o número de números de página visível na exibição. **PageRangeDelta** determina quantas páginas do esquerda ou direita deve ser deslocado o intervalo de páginas, quando o número de página mais à esquerda ou mais à direita está selecionado. Normalmente, este último número é em torno de metade dos **MaxPageRange**. Adicione o seguinte código para o espaço de nomes.
+2. Primeiro, adicione algumas variáveis globais. No MVC, as variáveis globais são declaradas em sua própria classe estática. **ResultsPerPage** define o número de resultados por página. **MaxPageRange** determina o número de números de página visíveis na exibição. **PageRangeDelta** determina quantas páginas esquerda ou direita o intervalo de páginas deve ser deslocado, quando o número de página mais à esquerda ou à direita é selecionado. Normalmente, esse último número é cerca de metade de **MaxPageRange**. Adicione o código a seguir ao namespace.
 
     ```cs
     public static class GlobalVariables
@@ -76,9 +77,9 @@ Tem a solução de página de pesquisa básica abrir.
     ```
 
     >[!Tip]
-    >Se estiver a executar este projeto num dispositivo com uma tela menor, por exemplo, um laptop, em seguida, considere alterar **ResultsPerPage** para 2.
+    >Se você estiver executando esse projeto em um dispositivo com uma tela menor, como um laptop, considere alterar **ResultsPerPage** para 2.
 
-3. Adicionar propriedades de paginação para a **SearchData** de classe, digamos, afinal o **searchText** propriedade.
+3. Adicione Propriedades de paginação à classe **SearchData** , digamos, após a propriedade **ProcurarTexto** .
 
     ```cs
         // The current page being displayed.
@@ -97,9 +98,9 @@ Tem a solução de página de pesquisa básica abrir.
         public string paging { get; set; }
     ```
 
-### <a name="add-a-table-of-paging-options-to-the-view"></a>Adicionar uma tabela de opções de paginação para a vista
+### <a name="add-a-table-of-paging-options-to-the-view"></a>Adicionar uma tabela de opções de paginação à exibição
 
-1. Abra o ficheiro Index. cshtml e adicione o seguinte código logo antes do fechamento &lt;/body&gt; marca. Este novo código apresenta uma tabela de opções de paginação: primeiro, anterior, 1, 2, 3, 4, 5, em seguida, a última.
+1. Abra o arquivo index. cshtml e adicione o código a seguir logo antes de fechar &lt;marca de&gt; de/Body. Esse novo código apresenta uma tabela de opções de paginação: primeiro, anterior, 1, 2, 3, 4, 5, avançar, último.
 
     ```cs
     @if (Model != null && Model.pageCount > 1)
@@ -180,11 +181,11 @@ Tem a solução de página de pesquisa básica abrir.
     }
     ```
 
-    Utilizamos uma tabela HTML para alinhar as coisas de forma organizada. No entanto, toda a ação é proveniente do @Html.ActionLink instruções, que chama o controlador com um **novos** modelo criado com entradas diferentes para o **paginação** propriedade que adicionamos anteriormente.
+    Usamos uma tabela HTML para alinhar as coisas de maneiras organizadas. No entanto, toda a ação é proveniente das instruções @Html.ActionLink, cada uma chamando o controlador com um **novo** modelo criado com entradas diferentes para a propriedade de **paginação** que adicionamos anteriormente.
 
-    As opções de página de primeiro e último não enviam cadeias de caracteres como "primeiro" e "last", mas em vez disso, enviar os números de página correta.
+    A primeira e a última opção de página não enviam cadeias de caracteres como "First" e "Last", mas sim enviar os números de página corretos.
 
-2. Adicione algumas classes de paginação para a lista de estilos HTML no ficheiro hotels.css. O **pageSelected** classe está lá para identificar a página que o usuário está visualizando atualmente (ao ativar o número em negrito) na lista de números de página.
+2. Adicione algumas classes de paginação à lista de estilos HTML no arquivo Hotéis. css. A classe **pageSelected** está lá para identificar a página que o usuário está exibindo no momento (virando o número em negrito) na lista de números de página.
 
     ```html
         .pageButton {
@@ -209,9 +210,9 @@ Tem a solução de página de pesquisa básica abrir.
         }
     ```
 
-### <a name="add-a-page-action-to-the-controller"></a>Adicionar uma ação de página para o controlador
+### <a name="add-a-page-action-to-the-controller"></a>Adicionar uma ação de página ao controlador
 
-1. Abra o ficheiro HomeController.cs e adicione a **página** ação. Esta ação responde a qualquer uma das opções de página selecionadas.
+1. Abra o arquivo HomeController.cs e adicione a ação da **página** . Essa ação responde a qualquer uma das opções de página selecionadas.
 
     ```cs
         public async Task<ActionResult> Page(SearchData model)
@@ -257,12 +258,12 @@ Tem a solução de página de pesquisa básica abrir.
         }
     ```
 
-    O **RunQueryAsync** método mostrará um erro de sintaxe, devido ao terceiro parâmetro, que será entramos para um pouco.
+    O método **RunQueryAsync** agora mostrará um erro de sintaxe, devido ao terceiro parâmetro, que entraremos em um bit.
 
     > [!Note]
-    > O **TempData** chamadas de armazenam um valor (uma **objeto**) no armazenamento temporário, porém Este armazenamento persistir durante _apenas_ uma chamada. Se algo que armazenamos em dados temporários, estará disponível para a próxima chamada a uma ação de controlador, mas com certeza será passou pela chamada depois disso! Devido a este tempo de vida curto, armazenamos o texto de pesquisa e propriedades de paginação de volta no armazenamento temporário de cada chamada para **página**.
+    > As chamadas **TempData** armazenam um valor (um **objeto**) no armazenamento temporário, embora esse armazenamento persista _apenas_ em uma chamada. Se armazenarmos algo em dados temporários, ele estará disponível para a próxima chamada a uma ação de controlador, mas, na maioria das chamadas, será indefinida depois disso! Devido a esse breve período de vida, armazenamos as propriedades de texto de pesquisa e de paginação de volta no armazenamento temporário cada um e cada chamada à **página**.
 
-2. O **Index(model)** necessidades de ação atualizadas para armazenar as variáveis temporárias e adicionar o parâmetro de página mais à esquerda para a **RunQueryAsync** chamar.
+2. A ação de **índice (modelo)** precisa ser atualizada para armazenar as variáveis temporárias e adicionar o parâmetro de página mais à esquerda à chamada **RunQueryAsync** .
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -292,7 +293,7 @@ Tem a solução de página de pesquisa básica abrir.
         }
     ```
 
-3. O **RunQueryAsync** necessidades de método atualizadas significativamente. Usamos o **Skip**, **superior**, e **IncludeTotalResultCount** campos do **SearchParameters** classe para solicitar apenas um valor de página de os resultados, começando a **ignorar** definição. Também precisamos calcular as variáveis de paginação para nossa exibição. Substitua o método de todo o código a seguir.
+3. O método **RunQueryAsync** precisa ser atualizado significativamente. Usamos os campos **Skip**, **Top**e **IncludeTotalResultCount** da classe **SearchParameters** para solicitar apenas uma página de resultados, começando pela configuração **Skip** . Também precisamos calcular as variáveis de paginação para nossa exibição. Substitua o método inteiro pelo código a seguir.
 
     ```cs
         private async Task<ActionResult> RunQueryAsync(SearchData model, int page, int leftMostPage)
@@ -351,7 +352,7 @@ Tem a solução de página de pesquisa básica abrir.
         }
     ```
 
-4. Por fim, precisamos de faça uma pequena alteração para a vista. A variável **resultsList.Results.Count** agora irá conter o número de resultados retornados numa página (3 no nosso exemplo), não o número total. Porque definimos os **IncludeTotalResultCount** como true, a variável **resultsList.Count** agora contém o número total de resultados. Então, localizar onde o número de resultados é apresentado na vista e alterá-lo para o código a seguir.
+4. Por fim, precisamos fazer uma pequena alteração na exibição. A variável **resultList. Results. Count** agora conterá o número de resultados retornados em uma página (3 em nosso exemplo), não o número total. Como definimos o **IncludeTotalResultCount** como true, a variável **resultList. Count** agora contém o número total de resultados. Portanto, localize onde o número de resultados é exibido na exibição e altere-o para o código a seguir.
 
     ```cs
             // Show the result count.
@@ -361,50 +362,50 @@ Tem a solução de página de pesquisa básica abrir.
     ```
 
     > [!Note]
-    > Há um impacto no desempenho, embora não normalmente grande parte de um, definindo **IncludeTotalResultCount** como true, como este total tem de ser calculado pela Azure Search. Com conjuntos de dados complexos, há um aviso de que o valor devolvido é uma _aproximação_. Para os nossos dados de hotel, será preciso.
+    > Há um impacto no desempenho, embora geralmente não seja muito de um, definindo **IncludeTotalResultCount** como true, pois esse total precisa ser calculado pelo Azure pesquisa cognitiva. Com conjuntos de dados complexos, há um aviso de que o valor retornado é uma _aproximação_. Para nossos dados de Hotel, será preciso.
 
-### <a name="compile-and-run-the-app"></a>Compilar e executar a aplicação
+### <a name="compile-and-run-the-app"></a>Compilar e executar o aplicativo
 
-Agora, selecione **iniciar sem depuração** (ou prima a tecla F5).
+Agora, selecione **Iniciar sem depuração** (ou pressione a tecla F5).
 
-1. Procure um texto que vai dar muita resultados (por exemplo, "Wi-Fi"). Pode, página harmoniosamente pelos resultados?
+1. Pesquise um texto que fornecerá muitos resultados (como "WiFi"). Você pode obter uma página organizada dos resultados?
 
-    ![Paginação numerada através de resultados de "agrupamento"](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
+    ![Paginação numerada por meio de resultados de "pool"](./media/tutorial-csharp-create-first-app/azure-search-numbered-paging.png)
 
-2. Experimente clicar no mais à direita e mais tarde, mais à esquerda números de página. Os números de página ajustar adequadamente para o centro da página que estiver a utilizar?
+2. Tente clicar na mais à direita e, mais tarde, os números de página mais à esquerda. Os números de página se ajustam adequadamente para centralizar a página em que você está?
 
-3. São as opções de "primeiros" e "last" útil? Algumas pesquisas na web populares utilizam estas opções, e outros não.
+3. As opções "primeiro" e "última" são úteis? Algumas pesquisas populares da Web usam essas opções, e outras não.
 
-4. Ir para a última página de resultados. A última página é a única página, que pode conter menos de **ResultsPerPage** resultados.
+4. Vá para a última página de resultados. A última página é a única página que pode conter menos de **ResultsPerPage** resultados.
 
-    ![Examinando a última página do "Wi-Fi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
+    ![Examinando a última página de "WiFi"](./media/tutorial-csharp-create-first-app/azure-search-pool-last-page.png)
 
-5. Escreva "Cidade" e clique em Procurar. Não existem opções de paginação são apresentadas se existirem menos de um valor de página de resultados.
+5. Digite "cidade" e clique em Pesquisar. Nenhuma opção de paginação será exibida se houver menos de uma página de resultados.
 
-    ![Procurar por "Cidade"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
+    ![Pesquisando por "cidade"](./media/tutorial-csharp-create-first-app/azure-search-town.png)
 
-Agora salve desativar este projeto e vamos tentar uma alternativa para essa forma de paginação.
+Agora, salve este projeto e vamos tentar uma alternativa para essa forma de paginação.
 
-## <a name="extend-your-app-with-infinite-scrolling"></a>Expandir a sua aplicação com rolagem infinita
+## <a name="extend-your-app-with-infinite-scrolling"></a>Estenda seu aplicativo com rolagem infinita
 
-Deslocamento infinito é acionado quando um usuário rola uma barra de rolagem vertical para o último dos resultados a serem apresentados. Neste evento, é feita uma chamada para o servidor para a próxima página de resultados. Se não existirem mais resultados, nada é retornado e a barra de deslocamento vertical não é alterada. Se existirem mais resultados, eles são acrescentados para a página atual e as alterações de barra de rolagem para mostrar o que mais resultados estão disponíveis.
+A rolagem infinita é disparada quando um usuário rola uma barra de rolagem vertical para o último dos resultados exibidos. Nesse evento, uma chamada para o servidor é feita para a próxima página de resultados. Se não houver mais resultados, nada será retornado e a barra de rolagem vertical não mudará. Se houver mais resultados, eles serão anexados à página atual e a barra de rolagem será alterada para mostrar que mais resultados estão disponíveis.
 
-O ponto importante aqui é que a página a ser apresentada não é substituída, mas anexado para com os resultados de novo. Cópia de segurança para os primeiros resultados da pesquisa, o utilizador pode sempre navegar.
+O ponto importante aqui é que a página que está sendo exibida não é substituída, mas acrescentada ao com os novos resultados. Um usuário sempre pode rolar para o backup até os primeiros resultados da pesquisa.
 
-Para implementar de deslocamento infinito, vamos começar com o projeto antes de qualquer um dos elementos rolagem número da página foram adicionados. Então, se for necessário, fazer outra cópia da página de pesquisa básica do GitHub: [Criar a primeira aplicação](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+Para implementar a rolagem infinita, vamos começar com o projeto antes que qualquer um dos elementos de rolagem de número de página fosse adicionado. Portanto, se necessário, faça outra cópia da página de pesquisa básica do GitHub: [criar primeiro aplicativo](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
-### <a name="add-paging-fields-to-the-model"></a>Adicione campos de paginação para o modelo
+### <a name="add-paging-fields-to-the-model"></a>Adicionar campos de paginação ao modelo
 
-1. Primeiro, adicione uma **paginação** propriedade para o **SearchData** classe (no arquivo de modelo SearchData.cs).
+1. Primeiro, adicione uma propriedade de **paginação** à classe **SearchData** (no arquivo de modelo SearchData.cs).
 
     ```cs
         // Record if the next page is requested.
         public string paging { get; set; }
     ```
 
-    Esta variável é uma cadeia de caracteres, que contém "seguinte" se a página seguinte dos resultados deve ser enviada ou ser nulo para a primeira página de uma pesquisa.
+    Essa variável é uma cadeia de caracteres que mantém "Avançar" se a próxima página de resultados deve ser enviada ou ser nula para a primeira página de uma pesquisa.
 
-2. No mesmo ficheiro e no espaço de nomes, adicione uma classe de variável global com uma propriedade. No MVC, as variáveis globais são declaradas na própria classe estática. **ResultsPerPage** define o número de resultados por página. 
+2. No mesmo arquivo e no namespace, adicione uma classe de variável global com uma propriedade. No MVC, as variáveis globais são declaradas em sua própria classe estática. **ResultsPerPage** define o número de resultados por página. 
 
     ```cs
     public static class GlobalVariables
@@ -419,11 +420,11 @@ Para implementar de deslocamento infinito, vamos começar com o projeto antes de
     }
     ```
 
-### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Adicionar uma barra de rolagem vertical para o modo de exibição
+### <a name="add-a-vertical-scroll-bar-to-the-view"></a>Adicionar uma barra de rolagem vertical à exibição
 
-1. Localize a secção do ficheiro Index. cshtml que apresenta os resultados (ele começa com o  **@if (modelo! = null)** ).
+1. Localize a seção do arquivo index. cshtml que exibe os resultados (ele começa com o **@if (Model! = NULL)** ).
 
-2. Substitua a secção com o código abaixo. A nova **&lt;div&gt;** secção destina-se em torno da área que deve ser rolável e adiciona ambos um **capacidade excedida-y** atributo e uma chamada para um **onscroll**função chamada "scrolled()", da seguinte forma.
+2. Substitua a seção pelo código abaixo. A nova seção **&lt;div&gt;** está em volta da área que deve ser rolável e adiciona um atributo **overflow-y** e uma chamada a uma função **onrolation** chamada "rolada ()", desta forma.
 
     ```cs
         @if (Model != null)
@@ -446,7 +447,7 @@ Para implementar de deslocamento infinito, vamos começar com o projeto antes de
         }
     ```
 
-3. Diretamente abaixo do loop, depois do &lt;/div&gt; etiqueta, adicione o **rolado** função.
+3. Diretamente abaixo do loop, após a marca &lt;/div&gt;, adicione a função **rolada** .
 
     ```javascript
         <script>
@@ -466,15 +467,15 @@ Para implementar de deslocamento infinito, vamos começar com o projeto antes de
         </script>
     ```
 
-    O **se** instrução no script acima testa para verificar se o utilizador tem rolado na parte inferior da barra de rolagem vertical. Se tiverem, uma chamada para o **home page** controlador é feito para uma ação chamada **próxima**. Nenhuma outra informação é necessária para o controlador, irá devolver a seguinte página de dados. Estes dados, em seguida, são formatados com estilos idênticos de HTML da página original. Se não são devolvidos resultados, nada é acrescentado e mantenha-se as coisas como estão.
+    A instrução **If** no script acima testa para ver se o usuário foi rolado para a parte inferior da barra de rolagem vertical. Se houver, será feita uma chamada para o controlador **doméstico** para uma ação chamada **Next**. Nenhuma outra informação é necessária para o controlador; ela retornará a próxima página de dados. Esses dados são formatados usando estilos HTML idênticos à página original. Se nenhum resultado for retornado, nada será acrescentado e as coisas permanecerão como estão.
 
-### <a name="handle-the-next-action"></a>Lidar com a próxima ação
+### <a name="handle-the-next-action"></a>Manipular a próxima ação
 
-Existem apenas três ações que têm de ser enviados para o controlador de: a primeira execução da aplicação, que chama **Index()** , a primeira pesquisa pelo usuário, que chama **Index(model)** e, em seguida, os próximos chama-se para obter mais resultados via **Next(model)** .
+Há apenas três ações que precisam ser enviadas ao controlador: a primeira execução do aplicativo, que chama **Index ()** , a primeira pesquisa pelo usuário, que chama **Index (Model)** e, em seguida, as chamadas subsequentes para obter mais resultados por meio do **próximo (Model)** .
 
-1. Abra o ficheiro de controlador home e eliminar a **RunQueryAsync** método a partir do original tutorial.
+1. Abra o arquivo do controlador Home e exclua o método **RunQueryAsync** do tutorial original.
 
-2. Substitua a **Index(model)** ação com o código a seguir. Ela agora trate a **paginação** campo quando é nulo ou definido como "next" e processa a chamada para o Azure Search.
+2. Substitua a ação de **índice (modelo)** pelo código a seguir. Agora ele manipula o campo de **paginação** quando é nulo, ou definido como "Next", e manipula a chamada para o Azure pesquisa cognitiva.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -536,9 +537,9 @@ Existem apenas três ações que têm de ser enviados para o controlador de: a p
         }
     ```
 
-    Semelhante ao método numerados de paginação, usamos o **Skip** e **superior** as configurações de pesquisa para solicitar apenas os dados que precisamos é devolvido.
+    Semelhante ao método de paginação numerada, usamos as configurações de pesquisa **Skip** e **Top** para solicitar apenas os dados que precisamos que sejam retornados.
 
-3. Adicionar a **seguinte** ação para o controlador home. Observe como ele retorna uma lista, a cada dois elementos a adicionar à lista de hotel: um nome de hotel e uma descrição de hotel. Este formato é definido de acordo com o **rolado** uso de função dos dados retornados na vista.
+3. Adicione a **próxima** ação ao controlador Home. Observe como ele retorna uma lista, cada hotel adicionando dois elementos à lista: um nome de Hotel e uma descrição de Hotel. Esse formato é definido para corresponder ao uso da função **rolada** dos dados retornados na exibição.
 
     ```cs
         public async Task<ActionResult> Next(SearchData model)
@@ -562,42 +563,42 @@ Existem apenas três ações que têm de ser enviados para o controlador de: a p
         }
     ```
 
-4. Se estiver recebendo um erro de sintaxe **lista&lt;cadeia&gt;** , em seguida, adicione o seguinte **usando** diretiva ao cabeçalho do ficheiro de controlador.
+4. Se você estiver recebendo um erro de sintaxe na **lista&lt;cadeia de caracteres&gt;** , adicione o seguinte **usando** a diretiva ao cabeçalho do arquivo do controlador.
 
     ```cs
     using System.Collections.Generic;
     ```
 
-### <a name="compile-and-run-your-project"></a>Compilar e executar o seu projeto
+### <a name="compile-and-run-your-project"></a>Compilar e executar seu projeto
 
-Agora, selecione **iniciar sem depuração** (ou prima a tecla F5).
+Agora, selecione **Iniciar sem depuração** (ou pressione a tecla F5).
 
-1. Introduza um termo que forneceram muita resultados (como "conjunto") e, em seguida, testar a barra de deslocamento vertical. Acionar uma nova página de resultados?
+1. Insira um termo que fornecerá muitos resultados (como "pool") e, em seguida, teste a barra de rolagem vertical. Ele dispara uma nova página de resultados?
 
-    ![Infinito de rolagem por meio de resultados de "agrupamento"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
+    ![Rolagem infinita por meio de resultados de "pool"](./media/tutorial-csharp-create-first-app/azure-search-infinite-scroll.png)
 
     > [!Tip]
-    > Para garantir que uma barra de deslocamento aparece na primeira página, a primeira página de resultados tem de exceder um pouco a altura da área que estão a ser apresentados no. No nosso exemplo **.box1** tem uma altura de 30 pixels, **.box2** tem uma altura de 100 pixels _e_ uma margem inferior de 24 pixels. Portanto, cada entrada utiliza 154 pixels. Três entradas irão demorar até 3 x 154 = 462 pixels. Para garantir que uma barra de rolagem vertical aparece, uma altura para a área de exibição deve ser definida que é menor do que 462 pixels, até mesmo 461 funciona. Este problema ocorre apenas na primeira página, depois disso, uma barra de rolagem é-se de que são apresentados. A linha a atualizar é:  **&lt;div id = "myDiv" style = "width: 800px; height: 450px; overflow-y: scroll;" onscroll="scrolled()"&gt;** .
+    > Para garantir que uma barra de rolagem apareça na primeira página, a primeira página de resultados deve exceder ligeiramente a altura da área em que estão sendo exibidas. Em nosso exemplo **. box1** tem uma altura de 30 pixels, **. box2** tem uma altura de 100 pixels _e_ uma margem inferior de 24 pixels. Portanto, cada entrada usa 154 pixels. Três entradas terão 3 x 154 = 462 pixels. Para garantir que uma barra de rolagem vertical seja exibida, uma altura para a área de exibição deve ser definida com menos de 462 pixels, até 461 Works. Esse problema ocorre apenas na primeira página, depois que uma barra de rolagem tiver certeza de que ela aparecerá. A linha a ser atualizada é: **&lt;div id = "myDiv" Style = "largura: 800px; altura: 450px; overflow-y: rolagem;" onrolal = "rolado ()"&gt;** .
 
-2. Role para baixo até à parte inferior dos resultados. Observe que como todas as informações estão agora na página de uma vista. Pode navegar de volta à parte superior sem disparar quaisquer chamadas do servidor.
+2. Role para baixo até a parte inferior dos resultados. Observe como todas as informações agora estão na página uma exibição. Você pode rolar todo o caminho de volta para a parte superior sem disparar nenhuma chamada de servidor.
 
-Sistemas de deslocamento infinitos mais sofisticados, poderão utilizar a roda do mouse, ou outro mecanismo, para acionar o carregamento de uma nova página de resultados. Não extrairemos algum ainda mais nestes tutoriais de deslocamento infinito, mas tem um determinado atalho para o mesmo à medida que evita cliques do extra mouse e, é aconselhável investigar outras opções ainda mais!
+Sistemas de rolagem infinitas mais sofisticados podem usar a roda do mouse ou outro mecanismo semelhante para disparar o carregamento de uma nova página de resultados. Não vamos fazer mais nenhuma rolagem infinita nesses tutoriais, mas ele tem um certo botão para ele, pois evita cliques adicionais do mouse, e talvez você queira investigar outras opções ainda mais!
 
 ## <a name="takeaways"></a>Conclusões
 
-Considere o seguintes das novidades deste projeto:
+Considere as seguintes alternativas deste projeto:
 
-* Paginação numerada é boa para pesquisas onde a ordem dos resultados é um tanto arbitrário, o que significa Maio há também ser algo de interesse para seus usuários nas páginas posteriores.
-* Deslocamento infinito é bom quando a ordem de resultados é particularmente importante. Por exemplo, se os resultados são ordenados na distância do Centro de uma cidade de destino.
-* Paginação numerada permite navegação melhor. Por exemplo, um utilizador pode não se esqueça de que um resultado interessante foi na página 6, ao passo que nenhuma dessa referência fácil existe no deslocamento infinito.
-* Deslocamento infinito tem um apelo fácil, a rolagem e reduzir verticalmente com nenhum número de página meticuloso clicar em.
-* Um recurso chave do deslocamento infinito é que os resultados são acrescentados a uma página existente, não substituir nessa página, que é eficiente.
-* Armazenamento temporário persistir para apenas uma chamada e tem de ser reposto para resistir a chamadas adicionais.
+* A paginação numerada é boa para pesquisas em que a ordem dos resultados é um pouco arbitrária, o que significa que pode haver algo de interesse para seus usuários nas páginas posteriores.
+* A rolagem infinita é boa quando a ordem dos resultados é particularmente importante. Por exemplo, se os resultados forem ordenados na distância do centro de uma cidade de destino.
+* A paginação numerada permite uma melhor navegação. Por exemplo, um usuário pode se lembrar de que um resultado interessante estava na página 6, embora não exista nenhuma referência fácil na rolagem infinita.
+* A rolagem infinita tem um apelo fácil, rolando para cima e para baixo sem números de página minuciosos para clicar.
+* Um recurso importante de rolagem infinita é que os resultados são anexados a uma página existente, não substituindo essa página, o que é eficiente.
+* O armazenamento temporário persiste para apenas uma chamada e precisa ser redefinido para sobreviver a chamadas adicionais.
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Paginação é fundamental para pesquisas da internet. Com a paginação cobertas bem, a próxima etapa é melhorar a experiência do usuário ainda mais, adicionando pesquisas antecipada.
+A paginação é fundamental para pesquisas na Internet. Com a paginação bem coberta, a próxima etapa é melhorar ainda mais a experiência do usuário, adicionando pesquisas de tipo antecipado.
 
 > [!div class="nextstepaction"]
-> [C#Tutorial: Adicionar preenchimento automático e sugestões - Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C#Tutorial: Adicionar AutoCompletar e sugestões-Azure Pesquisa Cognitiva](tutorial-csharp-type-ahead-and-suggestions.md)

@@ -1,5 +1,6 @@
 ---
-title: Aplicativo móvel que chama as APIs da Web – configuração de código do aplicativo | Plataforma de identidade da Microsoft
+title: Aplicativo móvel que chama as APIs da Web – configuração de código do aplicativo
+titleSuffix: Microsoft identity platform
 description: Saiba como criar um aplicativo móvel que chama APIs da Web (configuração de código do aplicativo)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bebaa5d35876d562e567a8398cc7a9ce7e6f488
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68413589"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803730"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>Aplicativo móvel que chama APIs Web-registro de aplicativo
 
@@ -52,25 +53,25 @@ Essa experiência permitirá que seu aplicativo obtenha SSO (logon único) por m
 
 Observe que há uma experiência de visualização no portal de registro de aplicativo para ajudá-lo a calcular o URI de resposta orientado para aplicativos iOS e Android:
 
-1. No registro do aplicativo, escolha **autenticação** e seleção **experimentar a nova imagem de experiência**
-   ![](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
+1. No registro do aplicativo, escolha **autenticação** e seleção **Experimente a nova experiência**
+   ![imagem](https://user-images.githubusercontent.com/13203188/60799285-2d031b00-a173-11e9-9d28-ac07a7ae894a.png)
 
-2. Selecione **Adicionar**
-   imagem de plataforma![](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
+2. Selecione **Adicionar plataforma**
+   ![imagem](https://user-images.githubusercontent.com/13203188/60799366-4c01ad00-a173-11e9-934f-f02e26c9429e.png)
 
-3. Quando houver suporte para a lista de plataformas, selecione imagem do **Ios**
-   ![](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
+3. Quando houver suporte para a lista de plataformas, selecione **iOS**
+   ![imagem](https://user-images.githubusercontent.com/13203188/60799411-60de4080-a173-11e9-9dcc-d39a45826d42.png)
 
-4. Insira a ID do pacote conforme solicitado e pressione a imagem do **registro**
-   ![](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
+4. Insira a ID do pacote conforme solicitado e, em seguida, pressione **registrar**
+   ![imagem](https://user-images.githubusercontent.com/13203188/60799477-7eaba580-a173-11e9-9f8b-431f5b09344e.png)
 
 5. O URI de redirecionamento é calculado para você.
-   ![image](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png)
+   ](https://user-images.githubusercontent.com/13203188/60799538-9e42ce00-a173-11e9-860a-015a1840fd19.png) de imagem ![
 
 Se preferir configurar manualmente o URI de redirecionamento, você poderá fazer isso por meio do manifesto do aplicativo. O formato recomendado é o seguinte:
 
 - ***Ios***: `msauth.<BUNDLE_ID>://auth` (por exemplo, "msauth. com. suaempresa. AppName://auth")
-- ***Android***:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- ***Android***: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - O hash de assinatura do Android pode ser gerado usando as chaves Release ou debug por meio do comando keytool.
 
 ### <a name="username-password"></a>Senha do nome de usuário
@@ -81,7 +82,7 @@ Se seu aplicativo estiver usando apenas o nome de usuário/senha, você não pre
 
 Os aplicativos móveis chamam APIs em nome do usuário conectado. Seu aplicativo precisa solicitar permissões delegadas, também chamadas de escopos. Dependendo da experiência desejada, isso pode ser feito estaticamente por meio do portal do Azure ou dinamicamente em tempo de execução. O registro estático das permissões permite que os administradores aprovem facilmente seu aplicativo e é recomendado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configuração de código](scenario-mobile-app-configuration.md)

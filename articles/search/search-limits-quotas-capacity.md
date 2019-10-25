@@ -1,22 +1,23 @@
 ---
-title: Limites de serviço para camadas e SKUs-Azure Search
-description: Limites de serviço usados para o planejamento de capacidade e limites máximos de solicitações e respostas para Azure Search.
-author: HeidiSteen
+title: Limites de serviço para camadas e SKUs
+titleSuffix: Azure Cognitive Search
+description: Limites de serviço usados para planejamento de capacidade e limites máximos de solicitações e respostas para Pesquisa Cognitiva do Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 10/03/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: d70812779d392cc4555c91599fad37c2d2c68ba5
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947787"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793567"
 ---
-# <a name="service-limits-in-azure-search"></a>Limites de serviço no Azure Search
-Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar Azure Search](search-create-service-portal.md) nos tipos de preço **gratuito**, **básico**, **padrão**ou **otimizado para armazenamento** .
+# <a name="service-limits-in-azure-cognitive-search"></a>Limites de serviço no Azure Pesquisa Cognitiva
+
+Os limites máximos de armazenamento, cargas de trabalho e quantidades de índices, documentos e outros objetos dependem de você [provisionar pesquisa cognitiva do Azure](search-create-service-portal.md) em tipos de preço **gratuitos**, **básicos**, **padrão**ou com **otimização de armazenamento** .
 
 + **Gratuito** é um serviço compartilhado multilocatário que vem com sua assinatura do Azure. As solicitações de indexação e consulta são executadas em réplicas e partições que são usadas por outros locatários.
 
@@ -45,7 +46,7 @@ Os limites máximos de armazenamento, cargas de trabalho e quantidades de índic
 
 ## <a name="index-limits"></a>Limites de índice
 
-| Resource | Livre | Básico @ no__t-0<sup>1</sup>  | S1 | S2 | S3 | S3 @ NO__T-0HD | L1 | ERROS DE L2 |
+| Recurso | Gratuito | &nbsp;básica <sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | Cache |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Índices máximos |3 |5 ou 15 |50 |200 |200 |1000 por partição ou 3000 por serviço |10 |10 |
 | Máximo de campos simples por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -66,25 +67,25 @@ A partir de outubro de 2018, não há mais nenhum limite de documento<sup>1</sup
 
 Para determinar se o serviço tem limites de documento, verifique o bloco uso na página Visão geral do seu serviço. As contagens de documentos são ilimitadas ou estão sujeitas a um limite com base na camada.
 
-  ![Mosaico utilização](media/search-limits-quotas-capacity/portal-usage-tile.png)
+  ![Bloco uso](media/search-limits-quotas-capacity/portal-usage-tile.png)
 
-<sup>1</sup> mesmo que não haja nenhum limite de documento específico de SKU, cada índice ainda está sujeito a um limite de segurança máximo para garantir a estabilidade do serviço. Esse limite vem do Lucene. Cada documento de Azure Search é indexado internamente como um ou mais documentos do Lucene. O número de documentos do Lucene por documento do Azure Search depende do número total de elementos em campos de coleção complexos. Cada elemento é indexado como um documento Lucene separado. Por exemplo, um documento com 3 elementos em um campo de coleção complexo será indexado como quatro documentos Lucene-1 para o documento em si e 3 para os elementos. O número máximo de documentos Lucene é de aproximadamente 25.000.000.000 por índice.
+<sup>1</sup> mesmo que não haja nenhum limite de documento específico de SKU, cada índice ainda está sujeito a um limite de segurança máximo para garantir a estabilidade do serviço. Esse limite vem do Lucene. Cada documento do Azure Pesquisa Cognitiva é indexado internamente como um ou mais documentos do Lucene. O número de documentos Lucene por documento de pesquisa depende do número total de elementos em campos de coleção complexos. Cada elemento é indexado como um documento Lucene separado. Por exemplo, um documento com 3 elementos em um campo de coleção complexo será indexado como quatro documentos Lucene-1 para o documento em si e 3 para os elementos. O número máximo de documentos Lucene é de aproximadamente 25.000.000.000 por índice.
 
 ### <a name="regions-previously-having-document-limits"></a>Regiões com limites de documentos anteriormente
 
-Se o portal indicar um limite de documento, o serviço foi criado antes de 2017 ou foi criado em um data center usando clusters de menor capacidade para hospedar serviços de Azure Search:
+Se o portal indicar um limite de documento, o serviço foi criado antes de 2017 ou foi criado em um data center usando clusters de menor capacidade para hospedar os serviços de Pesquisa Cognitiva do Azure:
 
 + Leste da Austrália
-+ Ásia Oriental
-+ Índia Central
++ Este Asiático
++ Centro da Índia
 + Oeste do Japão
-+ EUA Centro-Oeste
++ E.U.A. Centro-Oeste
 
 Para serviços sujeitos a limites de documentos, os limites máximos a seguir se aplicam:
 
-|  Livre | Básica | S1 | S2 | S3 | S3 @ NO__T-0HD |
+|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10,000 |1 @ no__t-0million |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
+|  10,000 |1 @ no__t_0_ milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 biliões por serviço |1 milhão por índice ou 200 milhões por partição |
 
 Se o serviço tiver limites que estão bloqueando você, crie um novo serviço e Republique todo o conteúdo para esse serviço. Não há nenhum mecanismo para reprovisionar o serviço diretamente em um novo hardware nos bastidores.
 
@@ -105,7 +106,7 @@ Para manter o tamanho do documento inativo, lembre-se de excluir dados não cons
 Existem tempos de execução máximos para fornecer balanceamento e estabilidade ao serviço como um todo, mas conjuntos de dados maiores podem precisar de mais tempo de indexação do que o máximo permitido. Se um trabalho de indexação não puder ser concluído dentro do tempo máximo permitido, tente executá-lo em um agendamento. O Agendador mantém o controle do status de indexação. Se um trabalho de indexação agendado for interrompido por algum motivo, o indexador poderá escolher onde ele parou na próxima execução agendada.
 
 
-| Resource | @ No__t livre-0<sup>1</sup> | Básico @ no__t-0<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |ERROS DE L2 |
+| Recurso | Gratuito&nbsp;<sup>1</sup> | &nbsp;básica <sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |Cache |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Indexadores máximos |3 |5 ou 15|50 |200 |200 |N/A |10 |10 |
 | Origens de dados máximas |3 |5 ou 15 |50 |200 |200 |N/A |10 |10 |
@@ -113,9 +114,9 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 | Carga de indexação máxima por invocação |10.000 documentos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |Limitado apenas por documentos máximos |N/A |Sem limite |Sem limite |
 | Agenda mínima | 5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos |5 minutos | 5 minutos |
 | Tempo máximo de execução <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/A  |24 horas |24 horas |
-| Tempo máximo de execução para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |Duas horas |Duas horas |Duas horas |Duas horas |N/A  |Duas horas |Duas horas |
+| Tempo máximo de execução para habilidades de pesquisa cognitiva ou indexação de blob com análise de imagem <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/A  |2 horas |2 horas |
 | Indexador de blob: tamanho máximo do blob, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Indexador de blob: máximo de caracteres de conteúdo extraídos de um blob |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |N/A |4 @ no__t-0million |4 @ no__t-0million |
+| Indexador de blob: máximo de caracteres de conteúdo extraídos de um blob |32.000 |64.000 |4 @ no__t_0_ milhões |4 @ no__t_0_ milhões |4 @ no__t_0_ milhões |N/A |4 @ no__t_0_ milhões |4 @ no__t_0_ milhões |
 
 <sup>1</sup> os serviços gratuitos têm o tempo máximo de execução do indexador de 3 minutos para fontes de BLOB e 1 minuto para todas as outras fontes de dados. Para a indexação de ia que chama serviços cognitivas, os serviços gratuitos são limitados a 20 transações gratuitas por dia, em que uma transação é definida como um documento que passa com êxito pelo pipeline de enriquecimento.
 
@@ -131,7 +132,7 @@ Existem tempos de execução máximos para fornecer balanceamento e estabilidade
 
 O número máximo de mapas de sinônimos permitido varia de acordo com o tipo de preço. Cada regra pode ter até 20 expansões, em que uma expansão é um termo equivalvent. Por exemplo, dado "gato", associação com "Kitty", "felinos" e "Felis" (o genus para gatos) contaria como 3 expansões.
 
-| Resource | Livre | Básica | S1 | S2 | S3 | S3-HD |L1 | ERROS DE L2 |
+| Recurso | Gratuito | Basic | S1 | S2 | S3 | S3-HD |L1 | Cache |
 | -------- | -----|------ |----|----|----|-------|---|----|
 | Máximo de mapas de sinônimo |3 |3|5 |10 |20 |20 | 10 | 10 |
 | Número máximo de regras por mapa |5000 |20000|20000 |20000 |20000 |20000 | 20000 | 20000  |
@@ -140,13 +141,13 @@ O número máximo de mapas de sinônimos permitido varia de acordo com o tipo de
 
 As estimativas de QPS devem ser desenvolvidas de forma independente por cada cliente. O tamanho e a complexidade do índice, o tamanho e a complexidade da consulta e a quantidade de tráfego são os principais determinantes de QPS. Não há como oferecer estimativas significativas quando esses fatores são desconhecidos.
 
-As estimativas são mais previsíveis quando calculadas em serviços em execução em recursos dedicados (camadas básica e Standard). Você pode estimar QPS mais de mais de acordo porque tem controle sobre mais parâmetros. Para obter orientação sobre como abordar a estimativa, consulte [Azure Search desempenho e otimização](search-performance-optimization.md).
+As estimativas são mais previsíveis quando calculadas em serviços em execução em recursos dedicados (camadas básica e Standard). Você pode estimar QPS mais de mais de acordo porque tem controle sobre mais parâmetros. Para obter orientação sobre como abordar a estimativa, consulte [desempenho e otimização do Azure pesquisa cognitiva](search-performance-optimization.md).
 
 Para as camadas de armazenamento otimizado, você deve esperar uma taxa de transferência de consulta inferior e uma latência mais alta do que as camadas padrão.  A metodologia para estimar o desempenho da consulta que você experimentará é a mesma das camadas padrão.
 
-## <a name="data-limits-cognitive-search"></a>Limites de dados (pesquisa cognitiva)
+## <a name="data-limits-ai-enrichment"></a>Limites de dados (enriquecimento de ia)
 
-Um [pipeline de pesquisa cognitiva](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ter de 1 a 50.000 caracteres, conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, use a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
+Um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) que faz chamadas para um recurso de análise de texto para [reconhecimento de entidade](cognitive-search-skill-entity-recognition.md), [extração de frases-chave](cognitive-search-skill-keyphrases.md), análise de [sentimentos](cognitive-search-skill-sentiment.md)e [detecção de idioma](cognitive-search-skill-language-detection.md) está sujeito a limites de dados. O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o analisador de sentimentos, use a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limites de limitação
 
@@ -167,7 +168,7 @@ Limites de solicitação de taxa estática para operações relacionadas a um í
 * Máximo de 32 campos na cláusula $orderby
 * O tamanho máximo do termo de pesquisa é 32.766 bytes (32 KB menos 2 bytes) de texto codificado em UTF-8
 
-<sup>1</sup> em Azure Search, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou coleções que não são restritas por limites teóricos (consulte tipos de [dados com suporte](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) para obter mais informações sobre composição e restrições de campo).
+<sup>1</sup> no Azure pesquisa cognitiva, o corpo de uma solicitação está sujeito a um limite superior de 16 MB, impondo um limite prático no conteúdo de campos individuais ou coleções que, de outra forma, não são restritas por limites teóricos (consulte [tipos de dados com suporte ](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)para obter mais informações sobre composição e restrições de campo).
 
 ## <a name="api-response-limits"></a>Limites de resposta da API
 * Máximo de 1000 documentos retornados por página de resultados da pesquisa

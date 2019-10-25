@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 661e1b6e3811ff2b5ae25e4fd59764a69e9ebe48
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596656"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802041"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introdução ao gerenciamento de custos do Azure para parceiros
 
@@ -30,10 +30,10 @@ Os parceiros CSP usam o gerenciamento de custos para:
 - Habilite a política de Azure Resource Manager que fornece acesso de cliente aos dados de gerenciamento de custos. Os clientes podem exibir dados de custo de consumo para suas assinaturas usando as tarifas pré- [pagas](https://azure.microsoft.com/pricing/calculator/).
 
 Aqui está um exemplo mostrando os custos para todos os clientes.
-![Example mostrando os custos de todos os clientes ](./media/get-started-partners/customer-costs1.png)
+![exemplo mostrando os custos para todos os clientes](./media/get-started-partners/customer-costs1.png)
 
 Veja um exemplo que mostra os custos de um único cliente.
-![Example mostrando os custos de um único cliente ](./media/get-started-partners/customer-costs2.png)
+![exemplo mostrando os custos de um único cliente](./media/get-started-partners/customer-costs2.png)
 
 Todas as funcionalidades disponíveis no gerenciamento de custos do Azure também estão disponíveis com APIs REST. Use as APIs para automatizar as tarefas de gerenciamento de custos.
 
@@ -101,7 +101,7 @@ O escopo do cliente não inclui clientes que estão na oferta atual do CSP. O es
 
 Somente os usuários com funções de **administrador global** e **agente de administração** podem gerenciar e exibir os custos de contas de cobrança, perfis de cobrança e clientes diretamente no locatário do Azure do parceiro. Para obter mais informações sobre as funções do Partner Center, consulte [atribuir funções e permissões de usuários](/partner-center/permissions-overview).
 
-### <a name="enable-cost-management-in-the-customer-tenant"></a>Habilitar o gerenciamento de custos no locatário do cliente
+## <a name="enable-cost-management-in-the-customer-tenant"></a>Habilitar o gerenciamento de custos no locatário do cliente
 
 Os parceiros podem habilitar o acesso ao gerenciamento de custos depois que os clientes são integrados a um contrato de cliente da Microsoft. Em seguida, os parceiros podem habilitar uma política que permite aos clientes Exibir seus custos computados com taxas de varejo pagas conforme o uso. Os custos são mostrados na moeda de cobrança do cliente para seu uso consumido em escopos de grupos de recursos e assinatura RBAC.
 
@@ -122,7 +122,7 @@ Na lista de clientes, selecione o cliente que você deseja permitir para exibir 
 Em **configurações**, clique em **políticas**.
 
 A política de visibilidade de custo atual é mostrada para encargos de **uso do Azure** associados às assinaturas do cliente selecionado.
-![Policy para permitir que os clientes exibam encargos pagos conforme o uso ](./media/get-started-partners/cost-management-billing-policies.png)
+![política para permitir que os clientes exibam encargos pagos conforme o uso](./media/get-started-partners/cost-management-billing-policies.png)
 
 Quando a política estiver definida como **não**, o gerenciamento de custos do Azure não estará disponível para os usuários de assinatura associados ao cliente. A menos que seja habilitado por um parceiro, a política de visibilidade de custo é desabilitada por padrão para todos os usuários de assinatura.
 

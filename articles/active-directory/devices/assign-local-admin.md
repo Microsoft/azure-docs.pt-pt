@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cb6cba02a1bdcf9f19c7f02b7e2ca4d01e0d3f
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67983676"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802442"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Como gerenciar o grupo de administradores locais em dispositivos ingressados no Azure AD
 
@@ -68,7 +68,7 @@ Os administradores de dispositivo são atribuídos a todos os dispositivos ingre
 
 Por padrão, o Azure AD adiciona o usuário que está executando a junção do Azure AD ao grupo de administradores no dispositivo. Se você quiser impedir que usuários regulares se tornem administradores locais, terá as seguintes opções:
 
-- [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -o Windows AutoPilot fornece uma opção para impedir que o usuário primário execute o join de se tornar um administrador local. Você pode fazer isso [criando um perfil](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile)do AutoPilot.
+- [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) -o Windows AutoPilot fornece uma opção para impedir que o usuário primário execute o join de se tornar um administrador local. Você pode fazer isso [criando um perfil do AutoPilot](https://docs.microsoft.com/intune/enrollment-autopilot#create-an-autopilot-deployment-profile).
 - [Registro em massa](https://docs.microsoft.com/intune/windows-bulk-enroll) – uma junção do Azure ad executada no contexto de um registro em massa ocorre no contexto de um usuário criado automaticamente. Os usuários que se conectarem depois que um dispositivo tiver sido ingressado não serão adicionados ao grupo de administradores.   
 
 ## <a name="manually-elevate-a-user-on-a-device"></a>Elevar um usuário manualmente em um dispositivo 
@@ -80,7 +80,7 @@ A partir da versão **10 1709 do Windows** , você pode executar essa tarefa em 
 Além disso, você também pode adicionar usuários usando o prompt de comando:
 
 - Se os usuários do locatário estiverem sincronizados do Active Directory local, use `net localgroup administrators /add "Contoso\username"`.
-- Se os usuários do locatário forem criados no Azure AD, use`net localgroup administrators /add "AzureAD\UserUpn"`
+- Se os usuários do locatário forem criados no Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 ## <a name="considerations"></a>Considerações 
 

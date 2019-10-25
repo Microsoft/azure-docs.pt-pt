@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6799e604b9e5e2acc3af35e4038ea6f14271d5c8
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e07136eed9c14eb4b6eda49ef635171aaf543445
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834722"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809269"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicativos para a plataforma Microsoft Identity
 
@@ -37,7 +37,7 @@ O ponto de extremidade da plataforma Microsoft Identity (v 2.0) dá suporte à a
 Você deve registrar cada aplicativo que usa o ponto de extremidade da plataforma de identidade da Microsoft no novo [portal de registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908). O processo de registro de aplicativo coleta e atribui esses valores para seu aplicativo:
 
 * Uma **ID de aplicativo (cliente)** que identifica exclusivamente seu aplicativo
-* Um **URI** de redirecionamento que você pode usar para direcionar as respostas de volta para seu aplicativo
+* Um **URI de redirecionamento** que você pode usar para direcionar as respostas de volta para seu aplicativo
 * Alguns outros valores específicos de cenário, como tipos de conta com suporte
 
 Para obter detalhes, saiba como [registrar um aplicativo](quickstart-register-app.md).
@@ -102,7 +102,7 @@ Accept: application/json
 
 A API da Web usa o token de acesso para verificar a identidade do chamador da API e extrair informações sobre o chamador de declarações que são codificadas no token de acesso. Mais detalhes de tipos diferentes de tokens usados no ponto de extremidade da plataforma Microsoft Identity estão disponíveis na referência de [token de acesso](access-tokens.md) e [referência de id_token](id-tokens.md)
 
-Uma API da Web pode fornecer aos usuários o poder de aceitar ou recusar a funcionalidade ou os dados específicos, expondo permissões, também conhecidas [](v2-permissions-and-consent.md)como escopos. Para que um aplicativo de chamada Obtenha permissão para um escopo, o usuário deve consentir o escopo durante um fluxo. O ponto de extremidade da plataforma de identidade da Microsoft solicita permissão ao usuário e, em seguida, registra permissões em todos os tokens de acesso que a API Web recebe. A API da Web valida os tokens de acesso que recebe em cada chamada e executa verificações de autorização.
+Uma API da Web pode fornecer aos usuários o poder de aceitar ou recusar a funcionalidade ou os dados específicos, expondo permissões, também conhecidas como [escopos](v2-permissions-and-consent.md). Para que um aplicativo de chamada Obtenha permissão para um escopo, o usuário deve consentir o escopo durante um fluxo. O ponto de extremidade da plataforma de identidade da Microsoft solicita permissão ao usuário e, em seguida, registra permissões em todos os tokens de acesso que a API Web recebe. A API da Web valida os tokens de acesso que recebe em cada chamada e executa verificações de autorização.
 
 Uma API da Web pode receber tokens de acesso de todos os tipos de aplicativos, incluindo aplicativos de servidor Web, aplicativos móveis e de área de trabalho, aplicativos de página única, daemons do lado do servidor e até outras APIs da Web. O fluxo de alto nível para uma API da Web tem esta aparência:
 
@@ -122,9 +122,9 @@ Nesse fluxo, o aplicativo recebe um código de autorização do ponto de extremi
 
 ## <a name="daemons-and-server-side-apps"></a>Daemons e aplicativos do lado do servidor
 
-Os aplicativos que têm processos de execução longa ou que operam sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web. Esses aplicativos podem autenticar e obter tokens usando a identidade do aplicativo, em vez da identidade delegada de um usuário, com o fluxo de credenciais do cliente OAuth 2,0. Você pode provar a identidade do aplicativo usando um certificado ou segredo do cliente. Para obter mais informações, consulte [Autenticando para a plataforma Microsoft Identity em aplicativos daemon com certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
+Os aplicativos que têm processos de execução longa ou que operam sem interação com um usuário também precisam de uma maneira de acessar recursos protegidos, como APIs da Web. Esses aplicativos podem autenticar e obter tokens usando a identidade do aplicativo, em vez da identidade delegada de um usuário, com o fluxo de credenciais do cliente OAuth 2,0. Você pode provar a identidade do aplicativo usando um certificado ou segredo do cliente. Para obter mais informações, consulte [Autenticando para a plataforma Microsoft Identity em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/).
 
-Nesse fluxo, o aplicativo interage diretamente com o `/token` ponto de extremidade para obter acesso:
+Nesse fluxo, o aplicativo interage diretamente com o ponto de extremidade `/token` para obter acesso:
 
 ![Mostra o fluxo de autenticação do aplicativo de daemon](./media/v2-app-types/convergence-scenarios-daemon.svg)
 

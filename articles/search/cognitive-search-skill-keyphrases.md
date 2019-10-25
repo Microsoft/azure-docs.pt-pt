@@ -1,20 +1,19 @@
 ---
-title: Habilidade de pesquisa cognitiva de extração de frases-chave-Azure Search
-description: Avalia o texto não estruturado e, para cada registro, retorna uma lista de frases-chave em um pipeline de enriquecimento de Azure Search.
-services: search
+title: Extração de Frases-chave habilidades cognitivas
+titleSuffix: Azure Cognitive Search
+description: Avalia o texto não estruturado e, para cada registro, retorna uma lista de frases-chave em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: luisca
-ms.openlocfilehash: ffaa2afbfa12770168cb5a92b7022addc039f0fb
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: ccdd25d82af2b4893260af18dac818816d9e4579
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265782"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791984"
 ---
 #   <a name="key-phrase-extraction-cognitive-skill"></a>Extração de Frases-chave habilidades cognitivas
 
@@ -23,13 +22,13 @@ A **extração de frases-chave** habilidade avalia o texto não estruturado e, p
 Esse recurso será útil se você precisar identificar rapidamente os principais pontos de discussão no registro. Por exemplo, dado o texto de entrada "o alimento foi deliciosa e havia uma equipe maravilhosa", o serviço retorna "alimentos" e "equipe maravilhosa".
 
 > [!NOTE]
-> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
+> Ao expandir o escopo aumentando a frequência de processamento, adicionando mais documentos ou adicionando mais algoritmos de ia, você precisará [anexar um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.KeyPhraseExtractionSkill 
+Microsoft. Skills. Text. KeyPhraseExtractionSkill 
 
 ## <a name="data-limits"></a>Limites de dados
 O tamanho máximo de um registro deve ser de 50.000 caracteres conforme medido por [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se você precisar dividir seus dados antes de enviá-los para o extrator de frases-chave, considere usar a [habilidade de divisão de texto](cognitive-search-skill-textsplit.md).
@@ -47,7 +46,7 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Entradas     | Descrição |
 |--------------------|-------------|
-| text | O texto a ser analisado.|
+| texto | O texto a ser analisado.|
 | languageCode  |  Uma cadeia de caracteres que indica o idioma dos registros. Se esse parâmetro não for especificado, o código de idioma padrão será usado para analisar os registros. <br/>Veja a [lista completa de idiomas com suporte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
 ##  <a name="sample-definition"></a>Definição de exemplo
@@ -121,7 +120,7 @@ Se você fornecer um código de idioma sem suporte, um erro será gerado e as fr
 Se o texto estiver vazio, um aviso será produzido.
 Se o texto tiver mais de 50.000 caracteres, somente os primeiros 50.000 caracteres serão analisados e um aviso será emitido.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)

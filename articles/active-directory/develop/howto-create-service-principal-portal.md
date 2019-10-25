@@ -1,5 +1,6 @@
 ---
-title: Criar identidade para o aplicativo do Azure no portal | Microsoft Docs
+title: Criar identidade para o aplicativo do Azure no portal
+titleSuffix: Microsoft identity platform
 description: Descreve como criar um novo aplicativo Azure Active Directory e uma entidade de serviço que pode ser usada com o controle de acesso baseado em função no Azure Resource Manager para gerenciar o acesso aos recursos.
 services: active-directory
 documentationcenter: na
@@ -16,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: d60c1a01f3a4ca3a191ddb322def7d86a316c58f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324738"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803326"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como: usar o portal para criar um aplicativo do Azure AD e uma entidade de serviço que pode acessar recursos
 
@@ -126,7 +127,7 @@ Tenha em mente que talvez seja necessário configurar permissões de adição em
 1. No [portal do Azure](https://portal.azure.com), navegue até o cofre de chaves e selecione **políticas de acesso**.  
 1. Selecione **Adicionar política de acesso**e, em seguida, selecione as permissões de chave, segredo e certificado que você deseja conceder ao seu aplicativo.  Selecione a entidade de serviço que você criou anteriormente.
 1. Selecione **Adicionar** para adicionar a política de acesso e, em seguida, **salvar** para confirmar suas alterações.
-    política de acesso ![Add @ no__t-1
+    ![adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 

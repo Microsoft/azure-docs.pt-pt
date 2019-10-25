@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: 86376983f98abd241783f456cb9b41ab5d93ae51
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511014"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784836"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Traffic Manager
 
@@ -172,7 +172,7 @@ Você pode especificar o número máximo de pontos de extremidade a serem retorn
 
 Não podemos garantir que o mesmo conjunto de pontos de extremidade será retornado em cada consulta. Isso também é afetado pelo fato de que alguns dos pontos de extremidade podem ficar não íntegros no ponto em que não serão incluídos na resposta
 
-## <a name="real-user-measurements"></a>Medidas Reais de Utilizadores
+## <a name="real-user-measurements"></a>Medidas de Utilizadores Reais
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quais são os benefícios do uso do Medidas de Usuário Reais?
 
@@ -300,7 +300,7 @@ Você pode desativar Exibição de Tráfego para qualquer perfil usando o portal
 
 Exibição de Tráfego preço é baseado no número de pontos de dados usados para criar a saída. Atualmente, o único tipo de dados com suporte é as consultas que seu perfil recebe. Além disso, você será cobrado apenas pelo processamento feito quando Exibição de Tráfego habilitado. Isso significa que, se você habilitar Exibição de Tráfego por algum período de tempo em um mês e desativá-lo durante outros horários, somente os pontos de dados processados enquanto você tiver a contagem de recursos habilitados em direção à sua fatura.
 
-## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de Tráfego
+## <a name="traffic-manager-endpoints"></a>Pontos finais do Gestor de tráfego
 
 ### <a name="can-i-use-traffic-manager-with-endpoints-from-multiple-subscriptions"></a>Posso usar o Gerenciador de tráfego com pontos de extremidade de várias assinaturas?
 
@@ -326,7 +326,7 @@ Normalmente, o Gerenciador de tráfego é usado para direcionar o tráfego para 
 
 Os pontos de extremidade do Azure associados a um perfil do Gerenciador de tráfego são controlados usando suas IDs de recurso. Quando um recurso do Azure que está sendo usado como um ponto de extremidade (por exemplo, IP público, serviço de nuvem clássico, WebApp ou outro perfil do Gerenciador de tráfego usado de maneira aninhada) é movido para um grupo de recursos ou assinatura diferente, sua ID de recurso é alterada. Nesse cenário, no momento, você deve atualizar o perfil do Gerenciador de tráfego primeiro excluindo e depois adicionando novamente os pontos de extremidade ao perfil.
 
-## <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de tráfego
+## <a name="traffic-manager-endpoint-monitoring"></a>Monitorização do ponto final do Gestor de Tráfego
 
 ### <a name="is-traffic-manager-resilient-to-azure-region-failures"></a>O Gerenciador de tráfego é resiliente a falhas de região do Azure?
 
@@ -345,7 +345,7 @@ Azure Resource Manager requer que todos os grupos de recursos especifiquem um lo
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>Como fazer determinar a integridade atual de cada ponto de extremidade?
 
-O status de monitoramento atual de cada ponto de extremidade, além do perfil geral, é exibido no portal do Azure. Essas informações também estão disponíveis por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx)do monitor de tráfego, cmdlets do [PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager)e [CLI do Azure de plataforma cruzada](../cli-install-nodejs.md).
+O status de monitoramento atual de cada ponto de extremidade, além do perfil geral, é exibido no portal do Azure. Essas informações também estão disponíveis por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx)do monitor de tráfego, [cmdlets do PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager)e [CLI do Azure de plataforma cruzada](../cli-install-nodejs.md).
 
 Você também pode usar Azure Monitor para controlar a integridade de seus pontos de extremidade e ver uma representação visual deles. Para obter mais informações sobre como usar Azure Monitor, consulte a [documentação de monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
@@ -382,7 +382,7 @@ Quando uma consulta é recebida em um perfil, o Gerenciador de tráfego primeiro
 
 Para perfis com qualquer método de roteamento diferente de vários valores:
 
-|Solicitação de consulta de entrada|    Tipo de ponto final|  Resposta fornecida|
+|Solicitação de consulta de entrada|    Tipo de ponto de extremidade|  Resposta fornecida|
 |--|--|--|
 |OUTRO |  A/AAAA/CNAME |  Ponto de extremidade de destino| 
 |A |    A/CNAME | Ponto de extremidade de destino|
@@ -390,12 +390,12 @@ Para perfis com qualquer método de roteamento diferente de vários valores:
 |AAAA | AAAA/CNAME |  Ponto de extremidade de destino|
 |AAAA | A | NODATA |
 |CNAME |    CNAME | Ponto de extremidade de destino|
-|CNAME  |A / AAAA | NODATA |
+|CNAME  |A/AAAA | NODATA |
 |
 
 Para perfis com o método de roteamento definido como vários valores:
 
-|Solicitação de consulta de entrada|    Tipo de ponto final | Resposta fornecida|
+|Solicitação de consulta de entrada|    Tipo de ponto de extremidade | Resposta fornecida|
 |--|--|--|
 |OUTRO |  Combinação de A e AAAA | Pontos de extremidade de destino|
 |A |    Combinação de A e AAAA | Somente pontos de extremidade de destino do tipo A|
@@ -416,7 +416,10 @@ Sim. Você pode especificar o TCP como o protocolo de monitoramento e o Gerencia
 
 ### <a name="what-specific-responses-are-required-from-the-endpoint-when-using-tcp-monitoring"></a>Quais respostas específicas são necessárias do ponto de extremidade ao usar o monitoramento de TCP?
 
-Quando o monitoramento de TCP é usado, o Gerenciador de tráfego inicia um handshake TCP de três vias enviando uma solicitação SYN ao ponto de extremidade na porta especificada. Em seguida, ele aguarda um período de tempo (conforme especificado nas configurações de tempo limite) para uma resposta do ponto de extremidade. Se o ponto de extremidade responder à solicitação SYN com uma resposta de SYN-ACK dentro do período de tempo limite especificado nas configurações de monitoramento, esse ponto de extremidade será considerado íntegro. Se a resposta SYN-ACK for recebida, o Gerenciador de tráfego redefinirá a conexão respondendo novamente com um RST.
+Quando o monitoramento de TCP é usado, o Gerenciador de tráfego inicia um handshake TCP de três vias enviando uma solicitação SYN ao ponto de extremidade na porta especificada. Em seguida, ele aguarda uma resposta de SYN-ACK do ponto de extremidade por um período de tempo (especificado nas configurações de tempo limite).
+
+- Se uma resposta de SYN-ACK for recebida dentro do período de tempo limite especificado nas configurações de monitoramento, esse ponto de extremidade será considerado íntegro. Uma ACK de FIN ou fin é a resposta esperada do Traffic Manager quando ele termina regularmente um soquete.
+- Se uma resposta de SYN-ACK for recebida após o tempo limite especificado, o Gerenciador de tráfego responderá com um RST para redefinir a conexão.
 
 ### <a name="how-fast-does-traffic-manager-move-my-users-away-from-an-unhealthy-endpoint"></a>Com que velocidade o Gerenciador de tráfego move meus usuários para fora de um ponto de extremidade não íntegro?
 
@@ -477,8 +480,8 @@ Não há nenhum impacto negativo no preço do uso de perfis aninhados.
 
 A cobrança do Gerenciador de tráfego tem dois componentes: verificações de integridade do ponto de extremidade e milhões de consultas DNS
 
-* Verificações de integridade do ponto de extremidade: Não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. O monitoramento dos pontos de extremidade no perfil filho é cobrado da maneira usual.
-* Consultas DNS: Cada consulta é contada apenas uma vez. Uma consulta em relação a um perfil pai que retorna um ponto de extremidade de um perfil filho é contada somente no perfil pai.
+* Verificações de integridade do ponto de extremidade: não há nenhum encargo para um perfil filho quando configurado como um ponto de extremidade em um perfil pai. O monitoramento dos pontos de extremidade no perfil filho é cobrado da maneira usual.
+* Consultas DNS: cada consulta é contada apenas uma vez. Uma consulta em relação a um perfil pai que retorna um ponto de extremidade de um perfil filho é contada somente no perfil pai.
 
 Para obter detalhes completos, consulte a [página de preços do Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager/).
 

@@ -7,28 +7,27 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/18/2019
 ms.author: iainfou
-ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336846"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786992"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: Criar e configurar uma instância de Azure Active Directory Domain Services
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutorial: criar e configurar uma instância de Azure Active Directory Domain Services
 
 O Azure Active Directory Domain Services (Azure AD DS) fornece serviços de domínio gerenciados, como ingresso no domínio, diretiva de grupo, LDAP, autenticação Kerberos/NTLM que é totalmente compatível com o Windows Server Active Directory. Você consome esses serviços de domínio sem implantar, gerenciar e aplicar patches a controladores de domínio por conta própria. O Azure AD DS integra-se ao seu locatário existente do Azure AD. Essa integração permite que os usuários entrem usando suas credenciais corporativas e você pode usar grupos existentes e contas de usuário para proteger o acesso aos recursos.
 
-Este tutorial mostra como criar e configurar uma instância de AD DS do Azure usando o portal do Azure.
+Você pode criar um domínio gerenciado usando as opções de configuração padrão para rede e sincronização ou [definir manualmente essas configurações][tutorial-create-instance-advanced]. Este tutorial mostra como usar as opções padrão para criar e configurar uma instância de AD DS do Azure usando o portal do Azure.
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Definir as configurações de rede virtual e DNS para um domínio gerenciado
+> * Entender os requisitos de DNS para um domínio gerenciado
 > * Criar uma instância do Azure AD DS
-> * Adicionar usuários administrativos ao gerenciamento de domínio
-> * Ativar a sincronização de hash de palavra-passe
+> * Ativar a sincronização de palavras-passe de hash
 
 Se você não tiver uma assinatura do Azure, [crie uma conta](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -52,13 +51,15 @@ Embora não seja necessário para o Azure AD DS, é recomendável [Configurar o 
 
 Neste tutorial, você criará e configurará a instância de AD DS do Azure usando o portal do Azure. Para começar, primeiro entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="create-an-instance-and-configure-basic-settings"></a>Criar uma instância e definir as configurações básicas
+## <a name="create-an-instance"></a>Criar uma instância
 
 Para iniciar o assistente para **habilitar Azure AD Domain Services** , conclua as seguintes etapas:
 
 1. No canto superior esquerdo da portal do Azure, selecione **+ criar um recurso**.
 1. Insira *serviços de domínio* na barra de pesquisa e, em seguida, escolha *Azure AD Domain Services* nas sugestões de pesquisa.
 1. Na página Azure AD Domain Services, selecione **criar**. O assistente para **habilitar Azure AD Domain Services** é iniciado.
+1. Selecione a **assinatura** do Azure na qual você gostaria de criar o domínio gerenciado.
+1. Selecione o **grupo de recursos** ao qual o domínio gerenciado deve pertencer. Escolha **criar novo** ou selecionar um grupo de recursos existente.
 
 Ao criar uma instância de AD DS do Azure, você especifica um nome DNS. Há algumas considerações quando você escolhe esse nome DNS:
 
@@ -86,80 +87,28 @@ As seguintes restrições de nome DNS também se aplicam:
 Preencha os campos na janela *noções básicas* do portal do Azure para criar uma instância do AD DS do Azure:
 
 1. Insira um **nome de domínio DNS** para seu domínio gerenciado, levando em consideração os pontos anteriores.
-1. Selecione a **assinatura** do Azure na qual você gostaria de criar o domínio gerenciado.
-1. Selecione o **grupo de recursos** ao qual o domínio gerenciado deve pertencer. Escolha **criar novo** ou selecionar um grupo de recursos existente.
 1. Escolha o **local** do Azure no qual o domínio gerenciado deve ser criado.
-1. Clique em **OK** para passar para a seção **rede** .
 
-![Definir configurações básicas para uma instância de Azure AD Domain Services](./media/tutorial-create-instance/basics-window.png)
+    ![Definir configurações básicas para uma instância de Azure AD Domain Services](./media/tutorial-create-instance/basics-window.png)
 
-## <a name="create-and-configure-the-virtual-network"></a>Criar e configurar a rede virtual
+Para criar rapidamente um domínio gerenciado AD DS do Azure, você pode selecionar **examinar + criar** para aceitar opções de configuração padrão adicionais. Os padrões a seguir são configurados quando você escolhe essa opção de criação:
 
-Para fornecer conectividade, é necessária uma rede virtual do Azure e uma sub-rede dedicada. O AD DS do Azure está habilitado nesta sub-rede de rede virtual. Neste tutorial, você criará uma rede virtual, embora possa optar por usar uma rede virtual existente. Em qualquer abordagem, você deve criar uma sub-rede dedicada para uso pelo Azure AD DS.
+* Cria uma rede virtual chamada *aadds-vnet* que usa o intervalo de endereços IP de *10.0.1.0/24*.
+* Cria uma sub-rede denominada *aadds-subnet* usando o intervalo de endereços IP de *10.0.1.0/24*.
+* Sincroniza *todos* os usuários do Azure AD com o domínio gerenciado AD DS do Azure.
 
-Algumas considerações para essa sub-rede de rede virtual dedicada incluem as seguintes áreas:
+1. Selecione **examinar + criar** para aceitar essas opções de configuração padrão.
 
-* A sub-rede deve ter pelo menos 3-5 endereços IP disponíveis em seu intervalo de endereços para dar suporte aos recursos de AD DS do Azure.
-* Não selecione a sub-rede de *Gateway* para implantar AD DS do Azure. Não há suporte para implantar o Azure AD DS em uma sub-rede de *Gateway* .
-* Não implante nenhuma outra máquina virtual na sub-rede. Os aplicativos e as VMs geralmente usam grupos de segurança de rede para proteger a conectividade. A execução dessas cargas de trabalho em uma sub-rede separada permite que você aplique esses grupos de segurança de rede sem interromper a conectividade com o domínio gerenciado.
-* Você não pode mover seu domínio gerenciado para uma rede virtual diferente depois de habilitar o Azure AD DS.
+## <a name="deploy-the-managed-domain"></a>Implantar o domínio gerenciado
 
-Para obter mais informações sobre como planejar e configurar a rede virtual, consulte [considerações de rede para Azure Active Directory Domain Services][network-considerations].
+Na página **Resumo** do assistente, examine as definições de configuração do domínio gerenciado. Você pode voltar a qualquer etapa do assistente para fazer alterações. Para reimplantar um domínio gerenciado do Azure AD DS em um locatário do Azure AD diferente de forma consistente usando essas opções de configuração, você também pode **baixar um modelo para automação**.
 
-Preencha os campos na janela *rede* da seguinte maneira:
-
-1. Na janela **rede** , escolha **selecionar rede virtual**.
-1. Para este tutorial, opte por **criar uma nova** rede virtual na qual implantar o Azure AD DS.
-1. Insira um nome para a rede virtual, como *myVnet*, em seguida, forneça um intervalo de endereços, como *10.1.0.0/16*.
-1. Crie uma sub-rede dedicada com um nome claro, como *DomainServices*. Forneça um intervalo de endereços, como *10.1.0.0/24*.
-
-    ![Criar uma rede virtual e uma sub-rede para uso com Azure AD Domain Services](./media/tutorial-create-instance/create-vnet.png)
-
-    Certifique-se de escolher um intervalo de endereços que esteja dentro de seu intervalo de endereços IP privado. Os intervalos de endereços IP que não são de sua propriedade no espaço de endereço público causam erros no AD DS do Azure.
-
-    > [!TIP]
-    > Na página **escolher rede virtual** , as redes virtuais existentes são exibidas que pertencem ao grupo de recursos e ao local do Azure que você selecionou anteriormente. Você precisa [criar uma sub-rede dedicada][create-dedicated-subnet] antes de implantar AD DS do Azure.
-
-1. Com a rede virtual e a sub-rede criadas, a sub-rede deve ser selecionada automaticamente, como *DomainServices*. Em vez disso, você pode escolher uma sub-rede existente alternativa que faça parte da rede virtual selecionada:
-
-    ![Escolha a sub-rede dedicada dentro da rede virtual](./media/tutorial-create-instance/choose-subnet.png)
-
-1. Selecione **OK** para confirmar a configuração de rede virtual.
-
-## <a name="configure-an-administrative-group"></a>Configurar um grupo administrativo
-
-Um grupo administrativo especial chamado *Administradores de DC do AAD* é usado para o gerenciamento do domínio de AD DS do Azure. Os membros desse grupo recebem permissões administrativas em VMs que ingressaram no domínio para o domínio gerenciado. Em VMs ingressadas no domínio, esse grupo é adicionado ao grupo local de administradores. Os membros desse grupo também podem usar Área de Trabalho Remota para se conectar remotamente a VMs ingressadas no domínio.
-
-Você não tem permissões de administrador de *domínio* ou de *administrador corporativo* em um domínio gerenciado usando o Azure AD DS. Essas permissões são reservadas pelo serviço e não são disponibilizadas para os usuários dentro do locatário. Em vez disso, o grupo de *Administradores de DC do AAD* permite que você execute algumas operações privilegiadas. Essas operações incluem o ingresso de computadores no domínio, pertencente ao grupo de administração em VMs ingressadas no domínio e a configuração de Política de Grupo.
-
-O assistente cria automaticamente o grupo de *Administradores de DC do AAD* em seu diretório do Azure AD. Se você tiver um grupo existente com esse nome em seu diretório do Azure AD, o assistente selecionará esse grupo. Opcionalmente, você pode optar por adicionar outros usuários a esse grupo de *Administradores de DC do AAD* durante o processo de implantação. Essas etapas podem ser concluídas mais tarde.
-
-1. Para adicionar usuários adicionais a esse grupo de *Administradores de DC do AAD* , selecione **gerenciar associação de grupo**.
-1. Selecione o botão **adicionar membros** e procure e selecione usuários no seu diretório do Azure AD. Por exemplo, pesquise sua própria conta e adicione-a ao grupo de *Administradores de DC do AAD* .
-
-    ![Configurar a associação de grupo do grupo de administradores de DC do AAD](./media/tutorial-create-instance/admin-group.png)
-
-1. Quando tiver terminado, selecione **OK**.
-
-## <a name="configure-synchronization"></a>Configurar sincronização
-
-O AD DS do Azure permite sincronizar *todos* os usuários e grupos disponíveis no Azure ad ou uma sincronização com *escopo* apenas de grupos específicos. Se você optar por sincronizar *todos* os usuários e grupos, não poderá optar por executar apenas uma sincronização com escopo. Para obter mais informações sobre sincronização com escopo, consulte [Azure AD Domain Services sincronização com escopo][scoped-sync].
-
-1. Para este tutorial, escolha sincronizar **todos** os usuários e grupos. Essa opção de sincronização é a opção padrão.
-
-    ![Executar uma sincronização completa de usuários e grupos do Azure AD](./media/tutorial-create-instance/sync-all.png)
-
-1. Selecione **OK**.
-
-## <a name="deploy-your-managed-domain"></a>Implantar seu domínio gerenciado
-
-Na página **Resumo** do assistente, examine as definições de configuração do domínio gerenciado. Você pode voltar a qualquer etapa do assistente para fazer alterações.
-
-1. Para criar o domínio gerenciado, selecione **OK**.
+1. Para criar o domínio gerenciado, selecione **criar**. É exibida uma observação de que determinadas opções de configuração, como o nome DNS ou a rede virtual, não podem ser alteradas depois que o Azure AD DS gerenciado foi criado. Para continuar, selecione **OK**.
 1. O processo de provisionamento do domínio gerenciado pode levar até uma hora. Uma notificação é exibida no portal que mostra o progresso de sua implantação de AD DS do Azure. Selecione a notificação para ver o progresso detalhado da implantação.
 
     ![Notificação na portal do Azure da implantação em andamento](./media/tutorial-create-instance/deployment-in-progress.png)
 
+1. A página será carregada com atualizações no processo de implantação, incluindo a criação de novos recursos em seu diretório.
 1. Selecione seu grupo de recursos, como *MyResource*Group e, em seguida, escolha sua instância de AD DS do Azure na lista de recursos do Azure, como *contoso.com*. A guia **visão geral** mostra que o domínio gerenciado está sendo *implantado*no momento. Você não pode configurar o domínio gerenciado até que ele seja totalmente provisionado.
 
     ![Status dos serviços de domínio durante o estado de provisionamento](./media/tutorial-create-instance/provisioning-in-progress.png)
@@ -168,7 +117,7 @@ Na página **Resumo** do assistente, examine as definições de configuração d
 
     ![Status dos serviços de domínio depois de provisionado com êxito](./media/tutorial-create-instance/successfully-provisioned.png)
 
-Durante o processo de provisionamento, o Azure AD DS cria dois aplicativos empresariais denominados *serviços de controlador de domínio* e *AzureActiveDirectoryDomainControllerServices* em seu diretório. Esses aplicativos empresariais são necessários para atender ao domínio gerenciado. É imperativo que esses aplicativos não sejam excluídos a qualquer momento.
+Nós provisionamos Azure AD Domain Services no locatário Azure Active Directory e o recurso Azure AD Domain Services para o serviço é criado dentro da assinatura do Azure associada. Durante o processo de provisionamento, o Azure AD DS cria dois aplicativos empresariais denominados *serviços de controlador de domínio* e *AzureActiveDirectoryDomainControllerServices* em sua instância do Azure Active Directory em que você habilitou o Azure Serviços de domínio do AD. Esses aplicativos empresariais são necessários para atender ao domínio gerenciado.  É imperativo que esses aplicativos não sejam excluídos a qualquer momento.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Atualizar as definições de DNS para a Azure Virtual Network
 
@@ -203,14 +152,14 @@ Antes que um usuário possa redefinir sua senha, o locatário do Azure AD deve s
 
 Para alterar a senha de um usuário somente em nuvem, o usuário deve concluir as seguintes etapas:
 
-1. Acesse a página do painel de acesso do [https://myapps.microsoft.com](https://myapps.microsoft.com)Azure AD em.
+1. Acesse a página do painel de acesso do Azure AD em [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. No canto superior direito, selecione seu nome e, em seguida, escolha **perfil** no menu suspenso.
 
     ![Selecionar perfil](./media/tutorial-create-instance/select-profile.png)
 
 1. Na página **perfil** , selecione **alterar senha**.
 1. Na página **alterar senha** , insira sua senha existente (antiga) e, em seguida, insira e confirme uma nova senha.
-1. Selecione **submeter**.
+1. Selecione **Enviar**.
 
 Levará alguns minutos após você ter alterado sua senha para que a nova senha possa ser usada no Azure AD DS e entrar com êxito em computadores ingressados no domínio gerenciado.
 
@@ -219,17 +168,18 @@ Levará alguns minutos após você ter alterado sua senha para que a nova senha 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Definir as configurações de rede virtual e DNS para um domínio gerenciado
+> * Entender os requisitos de DNS para um domínio gerenciado
 > * Criar uma instância do Azure AD DS
 > * Adicionar usuários administrativos ao gerenciamento de domínio
 > * Habilitar contas de usuário para o Azure AD DS e gerar hashes de senha
 
-Para ver esse domínio gerenciado em ação, crie e ingresse uma máquina virtual no domínio.
+Antes de ingressar em VMs de domínio e implantar aplicativos que usam o domínio gerenciado AD DS do Azure, configure uma rede virtual do Azure para cargas de trabalho de aplicativo.
 
 > [!div class="nextstepaction"]
-> [Ingressar uma máquina virtual do Windows Server em seu domínio gerenciado](join-windows-vm.md)
+> [Configurar a rede virtual do Azure para cargas de trabalho de aplicativo para usar seu domínio gerenciado](tutorial-configure-networking.md)
 
 <!-- INTERNAL LINKS -->
+[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [network-considerations]: network-considerations.md

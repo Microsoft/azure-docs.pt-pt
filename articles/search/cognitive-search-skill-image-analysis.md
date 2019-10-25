@@ -1,33 +1,32 @@
 ---
-title: Habilidades de pesquisa cognitiva de análise de imagem-Azure Search
-description: Extraia o texto semântico por meio da análise de imagem usando a habilidade cognitiva ImageAnalysis em um pipeline de enriquecimento de Azure Search.
-services: search
+title: Habilidade cognitiva de análise de imagem
+titleSuffix: Azure Cognitive Search
+description: Extraia o texto semântico por meio da análise de imagem usando a habilidade cognitiva de análise de imagem em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 08/28/2019
 ms.author: luisca
-ms.openlocfilehash: 69e798601dc53ffb666aa9dcddd68980256fa3fc
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 04114d00f3905675a1794a3875e650661febc832
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265459"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791997"
 ---
-#   <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
+# <a name="image-analysis-cognitive-skill"></a>Habilidade cognitiva de análise de imagem
 
 A habilidade de **análise de imagem** extrai um conjunto avançado de recursos visuais com base no conteúdo da imagem. Por exemplo, você pode gerar uma legenda de uma imagem, gerar marcas ou identificar celebridades e pontos de referência. Essa habilidade usa os modelos de aprendizado de máquina fornecidos pelo [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) em serviços cognitivas. 
 
 > [!NOTE]
-> Volumes pequenos (menos de 20 transações) podem ser executados gratuitamente em Azure Search, mas cargas de trabalho maiores exigem [a anexação de um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Search. Não há encargos para a extração de texto de documentos.
+> Volumes pequenos (menos de 20 transações) podem ser executados gratuitamente no Azure Pesquisa Cognitiva, mas cargas de trabalho maiores exigem [a anexação de um recurso de serviços cognitivas cobráveis](cognitive-search-attach-cognitive-services.md). As cobranças são acumuladas ao chamar APIs em serviços cognitivas e para extração de imagem como parte do estágio de quebra de documento no Azure Pesquisa Cognitiva. Não há encargos para a extração de texto de documentos.
 >
-> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> A execução de habilidades internas é cobrada pelo [preço pago pelo uso dos serviços cognitivas](https://azure.microsoft.com/pricing/details/cognitive-services/)existentes. O preço de extração de imagem é descrito na [página de preços do Azure pesquisa cognitiva](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Vision.ImageAnalysisSkill 
+Microsoft. Skills. Vision. ImageAnalysisSkill 
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -37,13 +36,13 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 |--------------------|-------------|
 | defaultLanguageCode   |  Uma cadeia de caracteres que indica o idioma a ser retornado. O serviço retorna resultados de reconhecimento em um idioma especificado. Se esse parâmetro não for especificado, o valor padrão será "en". <br/><br/>Os idiomas com suporte são: <br/>*en* -inglês (padrão) <br/> *zh* -chinês simplificado|
 |visualFeatures |   Uma matriz de cadeias de caracteres que indica os tipos de recursos visuais a serem retornados. Os tipos de recursos visuais válidos incluem:  <ul><li> *categorias* – categoriza o conteúdo da imagem de acordo com uma taxonomia definida na documentação de [Pesquisa Visual computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy)de serviços cognitivas. </li><li> *marcas* – marca a imagem com uma lista detalhada de palavras relacionadas ao conteúdo da imagem.</li><li>*Descrição* -descreve o conteúdo da imagem com uma frase do inglês completa.</li><li>*faces* – detecta se há faces presentes. Se presente, gera coordenadas, sexo e idade.</li><li>    *ImageType* – detecta se a imagem é uma clip-art ou um desenho de linha.</li><li>  *cor* -determina a cor de destaque, a cor dominante e se uma imagem é preta & branca.</li><li>*adulto* – detecta se a imagem é pornográfico por natureza (descreve nudez ou lei sexo). O conteúdo de sexo sugerido também é detectado.</li></ul> Os nomes dos recursos visuais diferenciam maiúsculas de minúsculas.|
-| details   | Uma matriz de cadeias de caracteres que indica quais detalhes específicos de domínio retornar. Os tipos de recursos visuais válidos incluem: <ul><li>*celebridades* -identifica celebridades se detectada na imagem.</li><li>*pontos de referência* – identifica os pontos de referência, se detectados na imagem. </li></ul> |
+| Ver   | Uma matriz de cadeias de caracteres que indica quais detalhes específicos de domínio retornar. Os tipos de recursos visuais válidos incluem: <ul><li>*celebridades* -identifica celebridades se detectada na imagem.</li><li>*pontos de referência* – identifica os pontos de referência, se detectados na imagem. </li></ul> |
 
 ## <a name="skill-inputs"></a>Entradas de habilidades
 
-| Introduzir nome      | Descrição                                          |
+| Nome de entrada      | Descrição                                          |
 |---------------|------------------------------------------------------|
-| image         | Tipo complexo. No momento, só funciona com o campo "/Document/normalized_images", produzido pelo indexador de ```imageAction``` blob do Azure quando é definido com ```none```um valor diferente de. Consulte o [exemplo](#sample-output) para obter mais informações.|
+| imagem         | Tipo complexo. No momento, só funciona com o campo "/Document/normalized_images", produzido pelo indexador de blob do Azure quando ```imageAction``` é definido com um valor diferente de ```none```. Consulte o [exemplo](#sample-output) para obter mais informações.|
 
 
 
@@ -493,7 +492,7 @@ Você pode definir mapeamentos de campo de saída para propriedades de nível in
 ## <a name="error-cases"></a>Casos de erro
 Nos casos de erro a seguir, nenhum elemento é extraído.
 
-| Código de Erro | Descrição |
+| Código de erro | Descrição |
 |------------|-------------|
 | NotSupportedLanguage | Não há suporte para o idioma fornecido. |
 | InvalidImageUrl | A URL da imagem está mal formatada ou não está acessível.|
@@ -519,8 +518,8 @@ Se você receber o erro semelhante a `"One or more skills are invalid. Details: 
             ]
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

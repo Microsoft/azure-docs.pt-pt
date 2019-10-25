@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 952bcb85484e885d45876de1e4cf3326db0a146a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: HT
+ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693398"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786064"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solucionando problemas com Gerenciamento de Atualizações
 
@@ -163,7 +163,7 @@ Windows Update pode ser modificado por várias chaves do registro, qualquer uma 
 
 ### <a name="resolution"></a>Resolução
 
-Examine as chaves do registro listadas em [Configurando atualizações automáticas editando o registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-rej7uijui7jgistry) e [as chaves do registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para garantir que seus computadores estejam configurados corretamente.
+Examine as chaves do registro listadas em [Configurando atualizações automáticas editando o registro](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) e [as chaves do registro usadas para gerenciar a reinicialização](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) para garantir que seus computadores estejam configurados corretamente.
 
 ## <a name="failed-to-start"></a>Cenário: o computador mostra "falha ao iniciar" em uma implantação de atualização
 
@@ -334,7 +334,7 @@ Você também pode baixar e executar a [solução de problemas Windows Update](h
 > [!NOTE]
 > A documentação da [solução de problemas Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) indica que ele é para uso em clientes Windows, mas também funciona no Windows Server.
 
-## <a name="scenario-update-run-returns-failed-status"></a>Cenário: a execução de atualização retorna o status "falha"
+## <a name="scenario-update-run-returns-failed-status-linux"></a>Cenário: a execução de atualização retorna o status "falha" (Linux)
 
 ### <a name="issue"></a>Problema
 
@@ -367,7 +367,7 @@ Se você não puder resolver um problema de aplicação de patch, faça uma cóp
 ### <a name="machines-dont-install-updates"></a>Os computadores não instalam atualizações
 
 * Experimente executar as atualizações diretamente na máquina. Se o computador não puder aplicar as atualizações, consulte a [lista de possíveis erros no guia de solução de problemas](https://docs.microsoft.com/azure/automation/troubleshoot/update-management#hresult).
-* Se as atualizações forem executadas localmente, tente remover e reinstalar o agente no computador seguindo as orientações em [remover uma VM do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-update-management#remove-a-vm-from-update-management).
+* Se as atualizações forem executadas localmente, tente remover e reinstalar o agente no computador seguindo as orientações em [remover uma VM do gerenciamento de atualizações](https://docs.microsoft.com/azure/automation/automation-onboard-solutions-from-browse#clean-up-resources).
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Sei que as atualizações estão disponíveis, mas elas não são mostradas como disponíveis em meus computadores
 

@@ -1,23 +1,22 @@
 ---
-title: Exemplo de script do Azure PowerShell - Subscrever uma subscrição do Azure | Microsoft Docs
-description: Exemplo de script do Azure PowerShell - Subscrever uma subscrição do Azure
+title: Azure PowerShell-assinar a assinatura do Azure
+description: Azure PowerShell & amostra de script da grade de eventos do Azure – assinar assinatura do Azure
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3d3d7a864bf6941dfb0bf7496b291639e7e5ea6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/22/2019
+ms.author: spelluru
+ms.openlocfilehash: 8ab0d61e2c7ec23b7c3ed82d460cbb53711d5c7f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117175"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790505"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-powershell"></a>Subscrever eventos para uma subscrição do Azure com o PowerShell
 
@@ -25,7 +24,7 @@ Este script cria uma subscrição do Event Grid para os eventos para uma subscri
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-O script de exemplo de pré-visualização requer o módulo do Event Grid. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
+O script de exemplo de visualização requer o módulo de grade de eventos. Para instalar, execute `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`
 
 ## <a name="sample-script---stable"></a>Script de exemplo - estável
 
@@ -33,7 +32,7 @@ O script de exemplo de pré-visualização requer o módulo do Event Grid. Para 
 
 [!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription.ps1 "Subscribe to Azure subscription")]
 
-## <a name="sample-script---preview-module"></a>Script de exemplo - módulo de pré-visualização
+## <a name="sample-script---preview-module"></a>Script de exemplo – módulo de visualização
 
 [!INCLUDE [requires-azurerm](../../../includes/requires-azurerm.md)]
 

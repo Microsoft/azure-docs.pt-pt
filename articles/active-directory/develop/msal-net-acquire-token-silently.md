@@ -1,5 +1,6 @@
 ---
-title: Adquirir um token silenciosamente (biblioteca de autenticação da Microsoft para .NET) | Azure
+title: Adquirir um token silenciosamente (biblioteca de autenticação da Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Saiba como adquirir um token de acesso silenciosamente (do cache de token) usando a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,20 +18,20 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a4c7a96e48ddf5a000888929b8bab719ff89fa
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 1dc573c37aab95006f647509080fb9883d8650c7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532692"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802937"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>Obter um token do cache de token usando MSAL.NET
 
-Quando você adquire um token de acesso usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET), o token é armazenado em cache. Quando o aplicativo precisa de um token, ele deve primeiro chamar `AcquireTokenSilent` o método para verificar se um token aceitável está no cache. Em muitos casos, é possível adquirir outro token com mais escopos com base em um token no cache. Também é possível atualizar um token quando ele está ficando próximo da expiração (pois o cache do token também contém um token de atualização).
+Quando você adquire um token de acesso usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET), o token é armazenado em cache. Quando o aplicativo precisa de um token, ele deve primeiro chamar o método `AcquireTokenSilent` para verificar se um token aceitável está no cache. Em muitos casos, é possível adquirir outro token com mais escopos com base em um token no cache. Também é possível atualizar um token quando ele está ficando próximo da expiração (pois o cache do token também contém um token de atualização).
 
-O padrão recomendado é chamar o `AcquireTokenSilent` método primeiro.  Se `AcquireTokenSilent` falhar, adquira um token usando outros métodos.
+O padrão recomendado é chamar o método `AcquireTokenSilent` primeiro.  Se `AcquireTokenSilent` falhar, adquira um token usando outros métodos.
 
-No exemplo a seguir, o aplicativo tenta primeiro adquirir um token do cache de token.  Se uma `MsalUiRequiredException` exceção for lançada, o aplicativo adquirirá um token interativamente. 
+No exemplo a seguir, o aplicativo tenta primeiro adquirir um token do cache de token.  Se uma exceção de `MsalUiRequiredException` for lançada, o aplicativo adquirirá um token interativamente. 
 
 ```csharp
 AuthenticationResult result = null;

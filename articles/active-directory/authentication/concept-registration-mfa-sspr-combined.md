@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65f3490e9cb62aa2d5c18b8fd564796dd6d3946c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162423"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808461"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registro de informações de segurança combinadas (versão prévia)
 
@@ -36,6 +36,9 @@ O registro de informações de segurança combinadas do Azure AD não está disp
 > [!IMPORTANT]
 > Os usuários que estão habilitados para a versão prévia original e a experiência de registro combinado aprimorada verão o novo comportamento. Os usuários que estiverem habilitados para as duas experiências verão apenas a nova experiência meu perfil. O novo meu perfil se alinha com a aparência do registro combinado e fornece uma experiência direta para os usuários. Os usuários podem ver meu perfil acessando [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 
+> [!NOTE] 
+> Você pode encontrar uma mensagem de erro ao tentar acessar a opção informações de segurança. Por exemplo, "Desculpe, não é possível conectá-lo". Nesse caso, confirme que você não tem nenhuma configuração ou objeto de política de grupo que bloqueia cookies de terceiros no navegador da Web. 
+
 Minhas páginas de perfil são localizadas com base nas configurações de idioma do computador que está acessando a página. A Microsoft armazena a linguagem mais recente usada no cache do navegador, portanto, as tentativas subsequentes de acessar as páginas continuarão a ser renderizadas no último idioma usado. Se você limpar o cache, as páginas serão renderizadas novamente. Se você quiser forçar um idioma específico, poderá adicionar `?lng=<language>` ao final da URL, em que `<language>` é o código do idioma que você deseja renderizar.
 
 ![Configurar SSPR ou outros métodos de verificação de segurança](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
@@ -49,10 +52,10 @@ O registro combinado dá suporte aos seguintes métodos e ações de autenticaç
 | Microsoft Authenticator | Sim (no máximo 5) | Não | Sim |
 | Outro aplicativo autenticador | Sim (no máximo 5) | Não | Sim |
 | Token de hardware | Não | Não | Sim |
-| Phone | Sim | Sim | Sim |
+| Telefone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
-| Telefone do escritório | Não | Não | Não |
-| Email | Sim | Sim | Sim |
+| Telefone comercial | Não | Não | Não |
+| E-mail | Sim | Sim | Sim |
 | Perguntas de segurança | Sim | Não | Sim |
 | Palavras-passe de aplicações | Sim | Não | Sim |
 
@@ -84,11 +87,11 @@ O registro combinado respeita as políticas de autenticação multifator e SSPR,
 
 Aqui estão vários cenários em que os usuários podem ser solicitados a registrar ou atualizar suas informações de segurança:
 
-- Registro de autenticação multifator imposto por meio da proteção de identidade: Os usuários são solicitados a se registrar durante a entrada. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
-- Registro de autenticação multifator imposto por meio da autenticação multifator por usuário: Os usuários são solicitados a se registrar durante a entrada. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
-- Registro de autenticação multifator imposto por meio de acesso condicional ou outras políticas: Os usuários são solicitados a se registrar quando usam um recurso que requer autenticação multifator. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
-- Registro de SSPR imposto: Os usuários são solicitados a se registrar durante a entrada. Eles registram apenas os métodos SSPR.
-- SSPR atualização imposta: Os usuários são obrigados a revisar suas informações de segurança em um intervalo definido pelo administrador. Os usuários são mostrados suas informações e podem confirmar as informações atuais ou fazer alterações, se necessário.
+- Registro de autenticação multifator imposto por meio da proteção de identidade: os usuários são solicitados a se registrar durante a entrada. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
+- Registro de autenticação multifator imposto por meio da autenticação multifator por usuário: os usuários são solicitados a se registrar durante a entrada. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
+- Registro de autenticação multifator imposto por meio de acesso condicional ou outras políticas: os usuários são solicitados a se registrar quando usam um recurso que requer autenticação multifator. Eles registram métodos de autenticação multifator e métodos SSPR (se o usuário estiver habilitado para SSPR).
+- Registro SSPR imposto: os usuários são solicitados a se registrarem durante a entrada. Eles registram apenas os métodos SSPR.
+- SSPR atualização imposta: os usuários são obrigados a revisar suas informações de segurança em um intervalo definido pelo administrador. Os usuários são mostrados suas informações e podem confirmar as informações atuais ou fazer alterações, se necessário.
 
 Quando o registro é imposto, os usuários são mostrados o número mínimo de métodos necessários para serem compatíveis com as políticas de autenticação multifator e SSPR, do mais para o menos seguro.
 
@@ -109,7 +112,7 @@ Se a política de SSPR exigir que os usuários revisem suas informações de seg
 
 ### <a name="manage-mode"></a>Modo de gerenciamento
 
-Os usuários podem acessar o modo [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) de gerenciamento acessando ou selecionando informações de **segurança** em meu perfil. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
+Os usuários podem acessar o modo de gerenciamento acessando [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) ou selecionando **informações de segurança** em meu perfil. A partir daí, os usuários podem adicionar métodos, excluir ou alterar métodos existentes, alterar o método padrão e muito mais.
 
 ## <a name="key-usage-scenarios"></a>Principais cenários de uso
 
@@ -123,17 +126,17 @@ Um usuário não configurou todas as informações de segurança necessárias e 
 
 Um administrador não impô o registro.
 
-Um usuário que ainda não configurou todas as informações de segurança necessárias [https://myprofile.microsoft.com](https://myprofile.microsoft.com)vai para. O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que acabou de ser configurado na página informações de segurança.
+Um usuário que ainda não configurou todas as informações de segurança necessárias vai para [https://myprofile.microsoft.com](https://myprofile.microsoft.com). O usuário seleciona **informações de segurança** no painel esquerdo. A partir daí, o usuário opta por adicionar um método, seleciona qualquer um dos métodos disponíveis e segue as etapas para configurar esse método. Quando terminar, o usuário verá o método que acabou de ser configurado na página informações de segurança.
 
 ### <a name="delete-security-info-from-my-profile"></a>Excluir informações de segurança do meu perfil
 
-Um usuário que tenha configurado anteriormente pelo menos um método navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário escolhe excluir um dos métodos registrados anteriormente. Quando terminar, o usuário não verá mais esse método na página informações de segurança.
+Um usuário que configurou anteriormente pelo menos um método navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário escolhe excluir um dos métodos registrados anteriormente. Quando terminar, o usuário não verá mais esse método na página informações de segurança.
 
 ### <a name="change-the-default-method-from-my-profile"></a>Alterar o método padrão do meu perfil
 
 Um usuário que configurou anteriormente pelo menos um método que pode ser usado para a autenticação multifator navega para [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). O usuário altera o método padrão atual para um método padrão diferente. Quando terminar, o usuário verá o novo método padrão na página informações de segurança.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Forçar os usuários a registrar novamente os métodos de autenticação](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 

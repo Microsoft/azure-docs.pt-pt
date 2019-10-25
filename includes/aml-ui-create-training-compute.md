@@ -9,14 +9,14 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 28478f38df6ba6ea356626cc36c23ad498fc1f47
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692258"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792633"
 ---
-Um pipeline é executado em um destino de computação, um recurso de computação anexado ao seu espaço de trabalho.  Depois de criar um destino de computação, você poderá reutilizá-lo para execuções futuras.
+Um pipeline é executado em um destino de computação que é um recurso de computação anexado ao seu espaço de trabalho. Depois de criar um destino de computação, você poderá reutilizá-lo para execuções futuras.
 
 1. Selecione **executar** na parte superior da tela para executar o pipeline.
 
@@ -36,6 +36,9 @@ Um pipeline é executado em um destino de computação, um recurso de computaç�
 1. Selecione **Executar**.
 
 1. Na caixa de diálogo **configurar execução de pipeline** , selecione **+ novo experimento** para o **experimento**
+
+    > [!NOTE]
+    > O pipeline semelhante do grupo de experimentos é executado juntos. Se você executar um pipeline várias vezes, poderá selecionar o mesmo experimento para execuções sucessivas.
 
     * Insira um **nome de experimento** descritivo
 

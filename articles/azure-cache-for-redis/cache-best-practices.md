@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 6ac4722c1253f97bfb8c232202e24a923c027edf
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69018831"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785878"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Práticas recomendadas para o cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -29,11 +29,11 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
 
  * **Lembre-se de que Redis é um armazenamento de dados na memória.**  [Este artigo](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) descreve alguns cenários em que podem ocorrer perda de dados.
 
- * **Desenvolva seu sistema de modo que ele possa lidar com blips de conexão** [devido a patches e failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
+ * **Desenvolva seu sistema de modo que ele possa lidar com o blips de conexão devido a** [patches e failover](https://gist.github.com/JonCole/317fe03805d5802e31cfa37e646e419d#file-azureredis-patchingexplained-md).
 
- * **Configure sua [configuração de MaxMemory-reservado](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para melhorar a capacidade de resposta do sistema** em condições de pressão de memória.  Essa configuração é especialmente importante para cargas de trabalho pesadas de gravação ou se você estiver armazenando valores maiores (100 KB ou mais) em Redis.  Eu recomendaria começar com 10% do tamanho do cache e, em seguida, aumentaria se você tiver cargas pesadas de gravação. Veja [algumas considerações](cache-how-to-troubleshoot.md#considerations-for-memory-reservations) ao selecionar um valor.
+ * **Configure sua [configuração de MaxMemory-reservado](cache-configure.md#maxmemory-policy-and-maxmemory-reserved) para melhorar a capacidade de resposta do sistema** em condições de pressão de memória.  Essa configuração é especialmente importante para cargas de trabalho pesadas de gravação ou se você estiver armazenando valores maiores (100 KB ou mais) em Redis. É recomendável que você comece com 10% do tamanho do seu cache e, em seguida, aumente a porcentagem se houver cargas pesadas de gravação.
 
- * O **Redis funciona melhor com valores menores**, portanto, considere a possibilidade de aumentar dados maiores em várias chaves.  Nesta [discussão de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), são listadas algumas considerações que você deve considerar com cuidado.  Leia [Este artigo](cache-how-to-troubleshoot.md#large-requestresponse-size) para obter um problema de exemplo que pode ser causado por valores grandes.
+ * O **Redis funciona melhor com valores menores**, portanto, considere a possibilidade de aumentar dados maiores em várias chaves.  Nesta [discussão de Redis](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/), são listadas algumas considerações que você deve considerar com cuidado.  Leia [Este artigo](cache-troubleshoot-client.md#large-request-or-response-size) para obter um problema de exemplo que pode ser causado por valores grandes.
 
  * **Localize sua instância de cache e seu aplicativo na mesma região.**  Conectar-se a um cache em uma região diferente pode aumentar significativamente a latência e reduzir a confiabilidade.  Embora você possa se conectar de fora do Azure, isso não é recomendado *especialmente ao usar Redis como um cache*.  Se você estiver usando Redis como apenas um repositório de chave/valor, a latência poderá não ser a principal preocupação. 
 
@@ -43,10 +43,9 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
      > [!NOTE]
      > Essa diretriz é específica para a *tentativa de conexão* e não está relacionada ao tempo que você deseja aguardar uma *operação* como Get ou Set como concluída.
  
+ * **Evite operações caras** – algumas operações Redis, como o comando [Keys](https://redis.io/commands/keys) , são *muito* caras e devem ser evitadas.  Para obter mais informações, consulte algumas considerações sobre [comandos de longa execução](cache-troubleshoot-server.md#long-running-commands)
 
- * **Evite comandos caros** – algumas operações Redis, como o [comando Keys](https://redis.io/commands/keys), são *muito* caras e devem ser evitadas.  Para obter mais informações, consulte [algumas considerações sobre comandos caros](cache-how-to-troubleshoot.md#expensive-commands)
-
-
+ * **Usar criptografia TLS** -o cache do Azure para Redis requer comunicações criptografadas TLS por padrão.  No momento, há suporte para as versões 1,0, 1,1 e 1,2 do TLS.  No entanto, o TLS 1,0 e o 1,1 estão em um caminho para a substituição em todo o setor, portanto, use o TLS 1,2, se possível.  Se a sua biblioteca ou ferramenta de cliente não oferecer suporte a TLS, a habilitação de conexões não criptografadas poderá ser feita [por meio das APIs de](cache-configure.md#access-ports) [Gerenciamento](https://docs.microsoft.com/rest/api/redis/redis/update)ou portal do Azure.  Nesses casos em que as conexões criptografadas não são possíveis, colocar o cache e o aplicativo cliente em uma rede virtual seria recomendado.  Para obter detalhes sobre quais portas são usadas para o 
  
 ## <a name="memory-management"></a>Gerenciamento de memória
 Há várias coisas relacionadas ao uso de memória em sua instância do servidor Redis que você talvez queira considerar.  Aqui estão algumas:
@@ -56,7 +55,7 @@ Há várias coisas relacionadas ao uso de memória em sua instância do servidor
  * **Defina um valor de expiração em suas chaves.**  Isso removerá as chaves proativamente, em vez de aguardar até que haja pressão de memória.  Quando a remoção é acionada devido à pressão de memória, ela pode causar carga adicional no servidor.  Para obter mais informações, consulte a documentação para os comandos [expire](https://redis.io/commands/expire) e [ExpireAt](https://redis.io/commands/expireat) .
  
 ## <a name="client-library-specific-guidance"></a>Diretrizes específicas da biblioteca de cliente
- * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-qual cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
@@ -73,10 +72,10 @@ Infelizmente, não há uma resposta fácil.  Cada aplicativo precisa decidir qua
      - Quando ocorre um erro na conexão de soquete, não é possível saber se a operação realmente foi executada no servidor.  Por exemplo, o erro de conexão pode ocorrer depois que a solicitação é processada pelo servidor, mas antes de a resposta ser recebida pelo cliente.
  *  Como meu aplicativo reage se eu executar acidentalmente a mesma operação duas vezes?  Por exemplo, e se eu incrementar um inteiro duas vezes em vez de apenas uma vez?  Meu aplicativo está gravando na mesma chave de vários locais?  E se minha lógica de repetição substituir um valor definido por alguma outra parte do meu aplicativo?
 
-Se você quiser testar como o código funciona em condições de erro, considere usar o [recurso](cache-administration.md#reboot)de reinicialização. Isso permite que você veja como a conexão blips afeta seu aplicativo.
+Se você quiser testar como o código funciona em condições de erro, considere usar o [recurso de reinicialização](cache-administration.md#reboot). Isso permite que você veja como a conexão blips afeta seu aplicativo.
 
 ## <a name="performance-testing"></a>Teste de desempenho
- * **Comece usando `redis-benchmark.exe`**  para ter uma ideia de taxa de transferência/latência possível antes de escrever seus próprios testes de desempenho.  A documentação do Redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que Redis-benchmark não dá suporte a SSL, portanto, você precisará [habilitar a porta não SSL por meio do portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com Windows do Redis-benchmark. exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
+ * **Comece usando `redis-benchmark.exe`** para ter uma ideia de taxa de transferência/latência possível antes de escrever seus próprios testes de desempenho.  A documentação do Redis-benchmark pode ser [encontrada aqui](https://redis.io/topics/benchmarks).  Observe que Redis-benchmark não dá suporte a SSL, portanto, você precisará [habilitar a porta não SSL por meio do portal](cache-configure.md#access-ports) antes de executar o teste.  [Uma versão compatível com Windows do Redis-benchmark. exe pode ser encontrada aqui](https://github.com/MSOpenTech/redis/releases)
  * A VM do cliente usada para teste deve estar **na mesma região** que a instância do cache Redis.
  * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
  * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
@@ -89,10 +88,10 @@ Se você quiser testar como o código funciona em condições de erro, considere
      > Nossos resultados de desempenho observados são [publicados aqui](cache-faq.md#azure-cache-for-redis-performance) para sua referência.   Além disso, lembre-se de que o SSL/TLS adiciona alguma sobrecarga, de modo que você poderá obter latências e/ou taxa de transferência diferentes se estiver usando a criptografia de transporte.
  
 ### <a name="redis-benchmark-examples"></a>Redis-exemplos de benchmark
-**Configuração de pré-teste**: Isso irá preparar a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
+**Configuração de pré-teste**: isso preparará a instância de cache com os dados necessários para os comandos de teste de latência e taxa de transferência listados abaixo.
 > Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t SET-n 10-d 1024 
 
-**Para testar a latência**: Isso testará as solicitações GET usando uma carga de 1K.
+**Para testar a latência**: isso testará as solicitações Get usando uma carga de 1K.
 > Redis-benchmark. exe-h yourcache.redis.cache.windows.net-a Suachavedeacesso-t GET-d 1024-P 50-c 4
 
 **Para testar a taxa de transferência:** Isso usa solicitações GET em pipeline com carga de 1K.

@@ -1,5 +1,6 @@
 ---
-title: API Web protegida-configuração de código do aplicativo | Azure
+title: API Web protegida-configuração de código do aplicativo
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida e configurar o código do aplicativo.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,20 +17,20 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fdc30df1f932a35702b01d7146017c4ca82c91a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 49dc3b0542e3f5e24c556ed78c20b16c3a6f1796
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562327"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803695"
 ---
-# <a name="protected-web-api-code-configuration"></a>API Web protegida: Configuração do código
+# <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
 
 Para configurar o código para sua API Web protegida, você precisa entender o que define as APIs como protegidas, como configurar um token de portador e como validar o token.
 
 ## <a name="what-defines-aspnetaspnet-core-apis-as-protected"></a>O que define as APIs principais do ASP.NET/ASP.NET como protegidas?
 
-Como os aplicativos Web, as APIs Web do ASP.net/ASP.NET Core são "protegidas" porque suas ações de controlador são `[Authorize]` prefixadas com o atributo. Assim, as ações do controlador poderão ser chamadas somente se a API for chamada com uma identidade autorizada.
+Como os aplicativos Web, as APIs Web do ASP.NET/ASP.NET Core são "protegidas" porque suas ações de controlador são prefixadas com o atributo `[Authorize]`. Assim, as ações do controlador poderão ser chamadas somente se a API for chamada com uma identidade autorizada.
 
 Considere as seguintes perguntas:
 
@@ -61,7 +62,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 Esta seção descreve como configurar um token de portador.
 
-### <a name="config-file"></a>Ficheiro de configuração
+### <a name="config-file"></a>Arquivo de configuração
 
 ```Json
 {
@@ -91,7 +92,7 @@ Esta seção descreve como configurar um token de portador.
 
 ### <a name="code-initialization"></a>Inicialização de código
 
-Quando um aplicativo é chamado em uma ação de controlador que contém `[Authorize]` um atributo, o ASP.net/ASP.NET Core examina o token de portador no cabeçalho de autorização da solicitação de chamada e extrai o token de acesso. Em seguida, o token é encaminhado para o middleware JwtBearer, que chama as extensões Microsoft IdentityModel para .NET.
+Quando um aplicativo é chamado em uma ação do controlador que contém um atributo `[Authorize]`, o ASP.NET/ASP.NET Core examina o token de portador no cabeçalho Authorization da solicitação de chamada e extrai o token de acesso. Em seguida, o token é encaminhado para o middleware JwtBearer, que chama as extensões Microsoft IdentityModel para .NET.
 
 Em ASP.NET Core, esse middleware é inicializado no arquivo Startup.cs:
 
@@ -141,7 +142,7 @@ Também pode haver validações especiais. Por exemplo, é possível validar que
 
 ### <a name="validators"></a>Validadores
 
-As etapas de validação são capturadas em validadores, que estão todas na biblioteca [Microsoft IdentityModel Extensions para .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) Open-Source, em um arquivo de origem: [Microsoft.IdentityModel.Tokens/Validators.cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
+As etapas de validação são capturadas em validadores, que estão todas na biblioteca [Microsoft IdentityModel Extensions para .net](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet) Open-Source, em um arquivo de origem: [Microsoft. IdentityModel. Tokens/validators. cs](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/blob/master/src/Microsoft.IdentityModel.Tokens/Validators.cs).
 
 Os validadores são descritos nesta tabela:
 
@@ -150,13 +151,13 @@ Os validadores são descritos nesta tabela:
 | `ValidateAudience` | Garante que o token seja para o aplicativo que valida o token (para mim). |
 | `ValidateIssuer` | Garante que o token foi emitido por um STS confiável (de alguém que eu confio). |
 | `ValidateIssuerSigningKey` | Garante que o aplicativo que valida o token confie na chave que foi usada para assinar o token. (Caso especial em que a chave é inserida no token. Geralmente não é necessário.) |
-| `ValidateLifetime` | Garante que o token ainda é válido (ou já). O validador verifica se o tempo de vida do`notbefore` token `expires` (e das declarações) está no intervalo. |
+| `ValidateLifetime` | Garante que o token ainda é válido (ou já). O validador verifica se o tempo de vida do token (`notbefore` e `expires` declarações) está no intervalo. |
 | `ValidateSignature` | Garante que o token não tenha sido adulterado. |
 | `ValidateTokenReplay` | Garante que o token não seja reproduzido. (Caso especial para alguns protocolos de uso de OneTime). |
 
-Os validadores são todos associados às propriedades da `TokenValidationParameters` classe, inicializados a partir da configuração do ASP.net/ASP.NET Core. Na maioria dos casos, você não precisará alterar os parâmetros. Há uma exceção para aplicativos que não são locatários únicos. (Ou seja, aplicativos Web que aceitam usuários de qualquer organização ou de contas pessoais da Microsoft). Nesse caso, o emissor deve ser validado.
+Os validadores são todos associados às propriedades da classe `TokenValidationParameters`, inicializados a partir da configuração do ASP.NET/ASP.NET Core. Na maioria dos casos, você não precisará alterar os parâmetros. Há uma exceção para aplicativos que não são locatários únicos. (Ou seja, aplicativos Web que aceitam usuários de qualquer organização ou de contas pessoais da Microsoft). Nesse caso, o emissor deve ser validado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Verificar escopos e funções de aplicativo em seu código](scenario-protected-web-api-verification-scope-app-roles.md)

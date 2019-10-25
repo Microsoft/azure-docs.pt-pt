@@ -1,10 +1,9 @@
 ---
-title: Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium | Microsoft Docs
+title: Migrar namespaces do barramento de serviço do Azure-Standard para Premium
 description: Guia para permitir a migração de namespaces padrão do barramento de serviço do Azure para Premium
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
-manager: darosa
 editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2019
 ms.author: aschhab
-ms.openlocfilehash: f7cbee13416c090e59c82c928946b512af1c620b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 610c3aa486b48b2d29df48d98e93b37cfec4854c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69611916"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790386"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar namespaces padrão do barramento de serviço do Azure para a camada Premium
 Anteriormente, o barramento de serviço do Azure ofereceu namespaces apenas na camada Standard. Os namespaces são configurações de vários locatários que são otimizadas para baixo rendimento e ambientes de desenvolvimento. A camada Premium oferece recursos dedicados por namespace para latência previsível e maior taxa de transferência a um preço fixo. A camada Premium é otimizada para ambientes de produção e alta taxa de transferência que exigem recursos empresariais adicionais.
@@ -94,30 +93,30 @@ Para migrar seu namespace standard do barramento de serviço para Premium usando
 A migração usando o portal do Azure tem o mesmo fluxo lógico que a migração usando os comandos. Siga estas etapas para migrar usando o portal do Azure.
 
 1. No menu de **navegação** no painel esquerdo, selecione **migrar para Premium**. Clique no **botão introdução** para continuar na próxima página.
-    ][] página de aterrissagem de ![Migration
+    ][] página de aterrissagem de migração do ![
 
 1. Conclua **a instalação**.
-   namespace de ![Setup ][]
+   ![namespace de instalação][]
    1. Crie e atribua o namespace Premium para migrar o namespace padrão existente para o.
-        namespace de ![Setup-criar ][] de namespace Premium
+        ![o namespace da instalação-criar][] do namespace Premium
    1. Escolha um **nome de migração após**. Você usará esse nome para acessar o namespace padrão depois que a migração for concluída.
-        ![Setup namespace – escolha o nome da migração após ][]
+        ![o namespace da instalação – escolha o nome da migração após o][]
    1. Selecione **' Avançar '** para continuar.
 1. Sincronizar entidades entre os namespaces padrão e Premium.
-    namespace ![Setup-entidades de sincronização-iniciar ][]
+    ![configurar o namespace-entidades de sincronização-iniciar][]
 
    1. Selecione **Iniciar sincronização** para começar a sincronizar as entidades.
    1. Selecione **Sim** na caixa de diálogo para confirmar e iniciar a sincronização.
    1. Aguarde até que a sincronização seja concluída. O status está disponível na barra de status.
-        namespace ![Setup-entidades de sincronização-progresso ][]
+        ![configurar o namespace-entidades de sincronização-][] de progresso
         >[!IMPORTANT]
         > Se você precisar anular a migração por qualquer motivo, examine o fluxo de anulação na seção de perguntas frequentes deste documento.
    1. Depois que a sincronização for concluída, selecione **Avançar** na parte inferior da página.
 
 1. Examine as alterações na página Resumo. Selecione **concluir migração** para alternar os namespaces e concluir a migração.
-    namespace ![Switch – ][] menu switch  
+    namespace do comutador de ![– menu alternar][]  
     A página confirmação é exibida quando a migração é concluída.
-    namespace de ![Switch-êxito ][]
+    namespace do comutador de ![-êxito][]
 
 ## <a name="caveats"></a>ADVERTÊNCIAS
 
@@ -179,8 +178,8 @@ az servicebus migration abort --resource-group $resourceGroup --name $standardNa
 
 #### <a name="azure-portal"></a>Portal do Azure
 
-fluxo de ![Abort-anular sincronização ][]
- ![Abort fluxo-anulação concluída ][]
+![anular fluxo-anular sincronização][]
+![anular fluxo-anular conclusão][]
 
 Quando o processo de migração é anulado, ele anula o processo de cópia das entidades (tópicos, assinaturas e filtros) do padrão para o namespace Premium e interrompe o emparelhamento.
 

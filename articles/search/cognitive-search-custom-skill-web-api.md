@@ -1,24 +1,23 @@
 ---
-title: Habilidades de pesquisa cognitiva personalizada-Azure Search
-description: Estenda os recursos de habilidades de pesquisa cognitiva chamando para APIs da Web
-services: search
+title: Habilidades da API Web personalizada em um pipeline de enriquecimento
+titleSuffix: Azure Cognitive Search
+description: Estenda os recursos do Azure Pesquisa Cognitiva habilidades chamando as APIs da Web. Use a habilidade personalizada da API Web para integrar seu código personalizado.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: a148f974671e0d909591cbf24a433384a7570842
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 54c51993733091d326c59c4ac4ec3662cc704021
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693297"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72784896"
 ---
-# <a name="custom-web-api-skill"></a>Habilidades da API Web personalizada
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Habilidades da API Web personalizada em um pipeline de enriquecimento de Pesquisa Cognitiva do Azure
 
-A habilidade **personalizada da API Web** permite que você estenda a pesquisa cognitiva chamando para um ponto de extremidade da API Web fornecendo operações personalizadas. Semelhante às habilidades internas, uma habilidade de **API Web personalizada** tem entradas e saídas. Dependendo das entradas, sua API da Web recebe uma carga JSON quando o indexador é executado e gera uma carga JSON como uma resposta, juntamente com um código de status de êxito. Espera-se que a resposta tenha as saídas especificadas por sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aperfeiçoamento é realizado.
+A habilidade **personalizada da API Web** permite estender o enriquecimento de ai chamando para um ponto de extremidade de API Web que fornece operações personalizadas. Semelhante às habilidades internas, uma habilidade de **API Web personalizada** tem entradas e saídas. Dependendo das entradas, sua API da Web recebe uma carga JSON quando o indexador é executado e gera uma carga JSON como uma resposta, juntamente com um código de status de êxito. Espera-se que a resposta tenha as saídas especificadas por sua habilidade personalizada. Qualquer outra resposta é considerada um erro e nenhum aperfeiçoamento é realizado.
 
 A estrutura dos conteúdos JSON é descrita mais adiante neste documento.
 
@@ -204,5 +203,5 @@ Para casos em que a API Web não está disponível ou retorna um erro de HTTP, u
 
 + [Habilidades de energia: um repositório de habilidades personalizadas](https://aka.ms/powerskills)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
-+ [Adicionar habilidades personalizadas à pesquisa cognitiva](cognitive-search-custom-skill-interface.md)
-+ [Exemplo: criando uma habilidade personalizada para pesquisa cognitiva](cognitive-search-create-custom-skill-example.md)
++ [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
++ [Exemplo: criando uma habilidade personalizada para o enriquecimento de ia (cognitiva-Search-Create-Custom-Skill-example.md)

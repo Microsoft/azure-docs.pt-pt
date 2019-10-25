@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: b0c9fd85171020c9b78dc166980f85bcd89d8d67
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 3852531615418ffe5397295bc194de34139d6e81
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692325"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792631"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-visual-interface"></a>Tutorial: prever o preço do automóvel com a interface visual
 
@@ -40,15 +40,15 @@ Na [parte dois](ui-tutorial-automobile-price-deploy.md) do tutorial, você apren
 
 ## <a name="create-a-new-pipeline"></a>Criar um novo pipeline
 
-Azure Machine Learning pipelines organizam várias etapas de processamento de dados dependentes em um único recurso. Os pipelines ajudam você a organizar, gerenciar e reutilizar fluxos de trabalho de aprendizado de máquina complexos entre projetos e usuários. Para criar um pipeline de Azure Machine Learning, você precisa de um espaço de trabalho de serviço do Azure Machine Learning. Nesta seção, você aprenderá a criar esses dois recursos.
+Azure Machine Learning pipelines organizam várias etapas dependentes de aprendizado de máquina e processamento de dados em um único recurso. Os pipelines ajudam você a organizar, gerenciar e reutilizar fluxos de trabalho de aprendizado de máquina complexos entre projetos e usuários. Para criar um pipeline de Azure Machine Learning, você precisa de um espaço de trabalho de serviço do Azure Machine Learning. Nesta seção, você aprenderá a criar esses dois recursos.
 
 ### <a name="create-a-new-workspace"></a>Criar um novo espaço de trabalho
 
-Se você tiver um espaço de trabalho Azure Machine Learning, pule para a próxima seção.
+Se você tiver um espaço de trabalho de serviço Azure Machine Learning, pule para a próxima seção.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-### <a name="create-a-pipeline"></a>Criar um pipeline
+### <a name="create-the-pipeline"></a>Criar o pipeline
 
 1. Entre no [ml.Azure.com](https://ml.azure.com) e selecione o espaço de trabalho com o qual você deseja trabalhar.
 
@@ -56,7 +56,7 @@ Se você tiver um espaço de trabalho Azure Machine Learning, pule para a próxi
 
     ![Captura de tela do espaço de trabalho Visual mostrando como acessar a interface visual](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
 
-1. Selecione **pipeline em branco**.
+1. Selecione **módulos pré-criados fáceis de usar**.
 
 1. Selecione o nome de pipeline padrão **"pipeline-created-on..."** na parte superior da tela e renomeie-o como algo significativo. Por exemplo, **"Previsão de preço de automóvel"** . O nome não tem de ser exclusivo.
 
@@ -69,32 +69,6 @@ Há vários exemplos de conjuntos de exemplo incluídos na interface visual para
 1. Selecione o conjunto de **dados, o preço do automóvel (bruto)** e arraste-o para a tela.
 
    ![Arrastar dados para tela](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
-
-1. Selecione as colunas de dados com as quais trabalhar. Digite **Select** na caixa de pesquisa na parte superior da paleta para localizar o módulo **selecionar colunas no conjunto de DataSet** .
-
-1. Clique e arraste o módulo **selecionar colunas no conjunto de DataSet** para a tela. Descarte o módulo abaixo do módulo DataSet.
-
-1. Conecte o conjunto de os que você adicionou anteriormente ao módulo **selecionar colunas no conjunto de banco** de um clique e arrastando. Arraste a partir da porta de saída do conjunto de dados, que é o pequeno círculo na parte inferior do conjunto de dados na tela, para a porta de entrada de **selecionar colunas no DataSet**, que é o pequeno círculo na parte superior do módulo.
-
-    > [!TIP]
-    > Você cria um fluxo de dados por meio de seu pipeline ao conectar a porta de saída de um módulo a uma porta de entrada de outro.
-    >
-
-    ![Módulos de conexão](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-1. Selecione o módulo **selecionar colunas no conjunto** de módulos.
-
-1. No painel **Propriedades** à direita da tela, selecione **Editar coluna**.
-
-    Na caixa de diálogo **selecionar colunas** , selecione **todas as colunas** e inclua **todos os recursos**.
-
-1. No canto inferior direito, selecione **salvar** para fechar o seletor de coluna.
-
-### <a name="run-the-pipeline"></a>Executar o pipeline
-
-A qualquer momento, clique na porta de saída de um conjunto de dados ou módulo para ver a aparência dos dados nesse ponto no fluxo de dados. Se a guia **saídas** não aparecer, primeiro você precisará executar o pipeline.
-
-[!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 ### <a name="visualize-the-data"></a>Ver os dados
 
@@ -114,30 +88,23 @@ Você pode visualizar os dados para entender o DataSet que será usado.
 
 ## <a name="prepare-data"></a>Preparar dados
 
-Os conjuntos de linhas normalmente exigem algum pré-processamento antes da análise. Talvez você tenha notado alguns valores ausentes ao visualizar o conjunto de um. Estes valores em falta têm de ser apagados para que o modelo possa analisar os dados corretamente. Você removerá todas as linhas que têm valores ausentes.
+Os conjuntos de linhas normalmente exigem algum pré-processamento antes da análise. Talvez você tenha notado alguns valores ausentes ao visualizar o conjunto de um. Estes valores em falta têm de ser apagados para que o modelo possa analisar os dados corretamente. Você removerá colunas com muitos valores ausentes e removerá quaisquer linhas individuais que tenham valores ausentes.
 
-1. Digite **Select** na caixa de pesquisa na parte superior da paleta para localizar o módulo **selecionar colunas no conjunto de DataSet** .
+### <a name="remove-a-column"></a>Remover uma coluna
+
+Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse conjunto de DataSet, a coluna **normalized-** losss não tem muitos valores, portanto, você excluirá a coluna do modelo completamente.
+
+1. Selecione as colunas de dados com as quais trabalhar. Digite **Select** na caixa de pesquisa na parte superior da paleta para localizar o módulo **selecionar colunas no conjunto de DataSet** .
 
 1. Clique e arraste o módulo **selecionar colunas no conjunto de DataSet** para a tela. Descarte o módulo abaixo do módulo DataSet.
 
 1. Conecte o conjunto de os que você adicionou anteriormente ao módulo **selecionar colunas no conjunto de banco** de um clique e arrastando. Arraste a partir da porta de saída do conjunto de dados, que é o pequeno círculo na parte inferior do conjunto de dados na tela, para a porta de entrada de **selecionar colunas no DataSet**, que é o pequeno círculo na parte superior do módulo.
 
+    > [!TIP]
+    > Você cria um fluxo de dados por meio de seu pipeline ao conectar a porta de saída de um módulo a uma porta de entrada de outro.
+    >
+
     ![Módulos de conexão](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
-
-1. Selecione o módulo **selecionar colunas no conjunto** de módulos.
-
-1. No painel **Propriedades** à direita da tela, selecione **Editar coluna**.
-
-    Na caixa de diálogo **selecionar colunas** , selecione **todas as colunas** e inclua **todos os recursos**.
-
-1. No canto inferior direito, selecione **salvar** para fechar o seletor de coluna.
-
-> [!TIP]
-> Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos na interface visual.
-
-### <a name="remove-column"></a>Remover coluna
-
-Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse conjunto de DataSet, a coluna **normalized-** losss tem um grande número de valores ausentes, portanto, você excluirá completamente essa coluna do modelo.
 
 1. Selecione o módulo **selecionar colunas no conjunto** de módulos.
 
@@ -162,6 +129,9 @@ Ao treinar um modelo, você precisa fazer algo sobre os dados ausentes. Nesse co
 ### <a name="clean-missing-data"></a>Limpar dados ausentes
 
 Seu conjunto de seus ainda tem valores ausentes após a remoção da coluna de **perdas normalizadas** . Você pode remover os dados ausentes restantes usando o módulo **limpar dados ausentes** .
+
+> [!TIP]
+> Limpar os valores ausentes dos dados de entrada é um pré-requisito para usar a maioria dos módulos na interface visual.
 
 1. Digite **limpar** na caixa de pesquisa para localizar o módulo **limpar dados ausentes** .
 
@@ -286,7 +256,7 @@ Na parte um deste tutorial, você concluiu estas etapas:
 * Treinado o modelo
 * Pontuado e avaliado o modelo
 
-Na parte dois, você aprenderá a implantar seu modelo como um ponto de extremidade de pipeline.
+Na parte dois, você aprenderá a implantar seu modelo como um ponto de extremidade em tempo real.
 
 > [!div class="nextstepaction"]
 > [Continuar a implantar modelos](ui-tutorial-automobile-price-deploy.md)

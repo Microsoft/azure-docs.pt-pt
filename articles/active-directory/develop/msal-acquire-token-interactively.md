@@ -1,5 +1,6 @@
 ---
-title: Gerenciando tokens (biblioteca de autenticação da Microsoft) | Azure
+title: Gerenciando tokens (biblioteca de autenticação da Microsoft)
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre como adquirir e armazenar em cache tokens usando a MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,45 +18,45 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f7914744073f82d8a35d3679a1c65459e10b2f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532881"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803220"
 ---
 # <a name="acquiring-and-caching-tokens-using-msal"></a>Adquirindo e armazenando tokens em cache usando MSAL
-Os tokens de [acesso](access-tokens.md) permitem que os clientes chamem com segurança APIs da Web protegidas pelo Azure. Há várias maneiras de adquirir um token usando a MSAL (biblioteca de autenticação da Microsoft). Algumas maneiras exigem interações com o usuário por meio de um navegador da Web. Alguns não exigem nenhuma interação do usuário. Em geral, a maneira de adquirir um token depende de se o aplicativo é um aplicativo cliente público (desktop ou aplicativo móvel) ou um aplicativo cliente confidencial (aplicativo Web, API da Web ou aplicativos daemon, como um serviço do Windows).
+Os [tokens de acesso](access-tokens.md) permitem que os clientes chamem com segurança APIs da Web protegidas pelo Azure. Há várias maneiras de adquirir um token usando a MSAL (biblioteca de autenticação da Microsoft). Algumas maneiras exigem interações com o usuário por meio de um navegador da Web. Alguns não exigem nenhuma interação do usuário. Em geral, a maneira de adquirir um token depende de se o aplicativo é um aplicativo cliente público (desktop ou aplicativo móvel) ou um aplicativo cliente confidencial (aplicativo Web, API da Web ou aplicativos daemon, como um serviço do Windows).
 
 MSAL armazena em cache um token depois que ele é adquirido.  O código do aplicativo deve tentar obter um token silenciosamente (do cache), primeiro antes de adquirir um token por outros meios.
 
 Você também pode limpar o cache de token, que é obtido removendo as contas do cache. No entanto, isso não remove o cookie de sessão que está no navegador.
 
 ## <a name="scopes-when-acquiring-tokens"></a>Escopos ao adquirir tokens
-[](v2-permissions-and-consent.md) Escopos são as permissões que uma API Web expõe para aplicativos cliente solicitarem acesso ao. Aplicativos cliente solicitam o consentimento do usuário para esses escopos ao fazer solicitações de autenticação para obter tokens para acessar as APIs da Web. O MSAL permite que você obtenha tokens para acessar as APIs do Azure AD para desenvolvedores (v 1.0) e plataforma Microsoft Identity (v 2.0). o protocolo v 2.0 usa escopos em vez de recurso nas solicitações. Para obter mais informações, leia [comparação v 1.0 e v 2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ele aceita, o ponto de extremidade v 2.0 retorna o token de acesso para MSAL.
+[Escopos](v2-permissions-and-consent.md) são as permissões que uma API Web expõe para aplicativos cliente solicitarem acesso ao. Aplicativos cliente solicitam o consentimento do usuário para esses escopos ao fazer solicitações de autenticação para obter tokens para acessar as APIs da Web. O MSAL permite que você obtenha tokens para acessar as APIs do Azure AD para desenvolvedores (v 1.0) e plataforma Microsoft Identity (v 2.0). o protocolo v 2.0 usa escopos em vez de recurso nas solicitações. Para obter mais informações, leia [comparação v 1.0 e v 2.0](active-directory-v2-compare.md). Com base na configuração da API Web da versão do token que ele aceita, o ponto de extremidade v 2.0 retorna o token de acesso para MSAL.
 
-Um número de métodos de token de aquisição MSAL requer um parâmetro de escopos. Esse parâmetro é uma lista simples de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Os escopos bem conhecidos são as [permissões de Microsoft Graph](/graph/permissions-reference).
+Um número de métodos de token de aquisição MSAL requer um parâmetro de *escopos* . Esse parâmetro é uma lista simples de cadeias de caracteres que declaram as permissões e os recursos desejados que são solicitados. Os escopos bem conhecidos são as [permissões de Microsoft Graph](/graph/permissions-reference).
 
-Também é possível em MSAL acessar recursos v 1.0. Para obter mais informações, leia escopos [para um aplicativo v 1.0](msal-v1-app-scopes.md).
+Também é possível em MSAL acessar recursos v 1.0. Para obter mais informações, leia [escopos para um aplicativo v 1.0](msal-v1-app-scopes.md).
 
 ### <a name="request-specific-scopes-for-a-web-api"></a>Escopos específicos de solicitação para uma API Web
-Quando seu aplicativo precisar solicitar tokens com permissões específicas para uma API de recurso, você precisará passar os escopos que contêm o URI de ID do aplicativo da API no formato abaixo:  *&lt;escopo&gt;do URI/&lt;da ID do aplicativo&gt;*
+Quando seu aplicativo precisar solicitar tokens com permissões específicas para uma API de recurso, você precisará passar os escopos que contêm o URI de ID do aplicativo da API no formato abaixo: *&lt;URI da ID do aplicativo&gt;/&lt;escopo&gt;*
 
-Por exemplo, escopos para Microsoft Graph API:`https://graph.microsoft.com/User.Read`
+Por exemplo, escopos para Microsoft Graph API: `https://graph.microsoft.com/User.Read`
 
-Ou, por exemplo, escopos para uma API Web personalizada:`api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
+Ou, por exemplo, escopos para uma API Web personalizada: `api://abscdefgh-1234-abcd-efgh-1234567890/api.read`
 
-Para a API de Microsoft Graph, apenas um valor `user.read` de escopo é mapeado para `https://graph.microsoft.com/User.Read` Format e pode ser usado de forma intercambiável.
+Para a API de Microsoft Graph, apenas um valor de escopo `user.read` é mapeado para `https://graph.microsoft.com/User.Read` formato e pode ser usado de forma intercambiável.
 
 > [!NOTE]
-> Determinadas APIs da Web, como Azure Resource Manager API https://management.core.windows.net/) (Espere um '/' à direita na declaração de audiência (AUD) do token de acesso. Nesse caso, é importante passar o escopo como https://management.core.windows.net//user_impersonation (Observe a barra dupla), para que o token seja válido na API.
+> Determinadas APIs da Web, como Azure Resource Manager API (https://management.core.windows.net/) esperam um '/' à direita na declaração de audiência (AUD) do token de acesso. Nesse caso, é importante passar o escopo como https://management.core.windows.net//user_impersonation (Observe a barra dupla), para que o token seja válido na API.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>Solicitar escopos dinâmicos para consentimento incremental
 Ao criar aplicativos usando a v 1.0, era necessário registrar o conjunto completo de permissões (escopos estáticos) exigido pelo aplicativo para que o usuário consentisse no momento do logon. Na v 2.0, você pode solicitar permissões adicionais conforme necessário usando o parâmetro de escopo. Eles são chamados de escopos dinâmicos e permitem que o usuário forneça um consentimento incremental aos escopos.
 
 Por exemplo, você pode entrar inicialmente no usuário e negar a eles qualquer tipo de acesso. Posteriormente, você pode conceder a eles a capacidade de ler o calendário do usuário solicitando o escopo do calendário nos métodos de token de aquisição e obter o consentimento do usuário.
 
-Por exemplo: `https://graph.microsoft.com/User.Read` e`https://graph.microsoft.com/Calendar.Read`
+Por exemplo: `https://graph.microsoft.com/User.Read` e `https://graph.microsoft.com/Calendar.Read`
 
 ## <a name="acquiring-tokens-silently-from-the-cache"></a>Adquirindo tokens silenciosamente (do cache)
 O MSAL mantém um cache de token (ou dois caches para aplicativos cliente confidenciais) e armazena em cache um token depois que ele é adquirido.  Em muitos casos, a tentativa de obter um token de forma silenciosa adquirirá outro token com mais escopos com base em um token no cache. Ele também é capaz de atualizar um token quando está ficando próximo da expiração (pois o cache do token também contém um token de atualização).

@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c475bfc6179f3604ed6b83cafc75d34f4359513f
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 4e732e62afcc7af0a2b90d7c525a6de5e65195aa
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532832"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809245"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>O que há de novo no Azure Active Directory?
 
->Seja notificado sobre quando revisitar esta página para obter atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` em seu ícone do leitor de feed ![RSS ](./media/whats-new/feed-icon-16x16.png) o leitor de feeds.
+>Seja notificado sobre quando revisitar esta página para obter as atualizações copiando e colando esta URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` em seu ícone do leitor de feed de RSS da ![](./media/whats-new/feed-icon-16x16.png) leitor de feeds.
 
 O Azure AD recebe melhorias em uma base contínua. Para se manter atualizado com os desenvolvimentos mais recentes, este artigo fornece informações sobre:
 
@@ -55,13 +55,13 @@ Para obter mais informações sobre a nova API do riskDetection, consulte a [doc
 
 ## <a name="september-2019"></a>Setembro de 2019
 
-### <a name="deprecation-of-the-power-bi-content-packs"></a>Substituição dos pacotes de conteúdo do Power BI
+### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Planejar alteração: substituição dos pacotes de conteúdo do Power BI
 
-**Tipo:** Preterido  
+**Tipo:** Planejar alteração  
 **Categoria de serviço:** Gerar  
 **Funcionalidade do produto:** Monitoramento & relatórios
 
-Power BI estiver preterindo pacotes de conteúdo de seu armazenamento e a partir de **1º de outubro de 2019**, não estamos mais dando suporte ao pacote de conteúdo do Azure ad Power bi. Atualmente, os clientes que usam o pacote de conteúdo podem continuar a usá-lo, mesmo que as APIs subjacentes sejam versões mais antigas. Como alternativa para esse pacote de conteúdo, você pode usar pastas de trabalho do Azure AD (criadas em Log Analytics) para obter informações sobre seus serviços relacionados ao Azure AD.
+A partir de 1º de outubro de 2019, Power BI começará a substituir todos os pacotes de conteúdo, incluindo o pacote de conteúdo do Azure AD Power BI. Como alternativa para esse pacote de conteúdo, você pode usar pastas de trabalho do Azure AD para obter informações sobre seus serviços relacionados ao Azure AD. Pastas de trabalho adicionais são disponibilizadas, incluindo pastas de trabalho sobre políticas de acesso condicional no modo somente de relatório, informações baseadas em consentimento do aplicativo e muito mais.
 
 Para obter mais informações sobre as pastas de trabalho, consulte [como usar pastas de trabalho do Azure monitor para relatórios Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Para obter mais informações sobre a substituição dos pacotes de conteúdo, consulte a postagem do blog [anunciando Power bi aplicativos de modelo de disponibilidade geral](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
 
@@ -192,18 +192,6 @@ A partir de 1º de julho de 2019, a Microsoft parou de oferecer o servidor MFA p
 ---
 
 ## <a name="august-2019"></a>Agosto de 2019
-
-### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>Planejar alteração: substituição dos pacotes de conteúdo do Power BI
-
-**Tipo:** Planejar alteração  
-**Categoria de serviço:** Gerar  
-**Funcionalidade do produto:** Monitoramento & relatórios
-
-A partir de 1º de outubro de 2019, Power BI começará a substituir todos os pacotes de conteúdo, incluindo o pacote de conteúdo do Azure AD Power BI. Como alternativa para esse pacote de conteúdo, você pode usar pastas de trabalho do Azure AD para obter informações sobre seus serviços relacionados ao Azure AD. Pastas de trabalho adicionais são disponibilizadas, incluindo pastas de trabalho sobre políticas de acesso condicional no modo somente de relatório, informações baseadas em consentimento do aplicativo e muito mais.
-
-Para obter mais informações sobre as pastas de trabalho, consulte [como usar pastas de trabalho do Azure monitor para relatórios Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Para obter mais informações sobre a substituição dos pacotes de conteúdo, consulte a postagem do blog [anunciando Power bi aplicativos de modelo de disponibilidade geral](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
-
----
 
 ### <a name="enhanced-search-filtering-and-sorting-for-groups-is-available-in-the-azure-ad-portal-public-preview"></a>Pesquisa, filtragem e classificação aprimoradas para grupos estão disponíveis no portal do AD do Azure (visualização pública)
 

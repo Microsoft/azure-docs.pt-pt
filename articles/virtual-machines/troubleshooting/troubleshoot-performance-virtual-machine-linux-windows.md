@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: fc8cc4834997033203376cd33670cc907e2911e7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170303"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790841"
 ---
 # <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Resolução de problemas genéricos de desempenho da Máquina Virtual do Azure que executa o Linux ou o Windows
 
-Este artigo descreve a solução de problemas de desempenho genérico da VM (máquina virtual) por meio do monitoramento e da observação de afunilamentos e fornece uma possível correção para problemas que possam ocorrer.
+Este artigo descreve a solução de problemas de desempenho genérico da VM (máquina virtual) por meio do monitoramento e da observação de afunilamentos e fornece uma possível correção para problemas que possam ocorrer. Além do monitoramento, você também pode usar o Perfinsights, que pode fornecer um relatório com recomendações de práticas recomendadas e afunilamentos-chave em relação à e/s/CPU/memória. O Perfinsights está disponível para VMs do [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) e [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) no Azure.
+
+Este artigo abordará o uso do monitoramento para diagnosticar gargalos de desempenho.
 
 ## <a name="enabling-monitoring"></a>Habilitando o monitoramento
 
@@ -34,32 +36,55 @@ Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá aler
  
 ### <a name="enable-vm-diagnostics-through-microsoft-azure-portal"></a>Habilitar o diagnóstico de VM por meio do Microsoft portal do Azure
 
-Para habilitar o diagnóstico de VM, acesse a VM, clique em **configurações**e em **diagnóstico**.
+Para habilitar o diagnóstico de VM:
 
-![Clique em configurações e em diagnóstico](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
- 
+1. Ir para a VM
+2. Clique em **configurações de diagnóstico**
+3. Selecione a conta de armazenamento e clique em **habilitar o monitoramento em nível de convidado**.
+
+   ![Clique em configurações e em diagnóstico](media/troubleshoot-performance-virtual-machine-linux-windows/2-virtual-machines-diagnostics.png)
+
+Você pode verificar a conta de armazenamento usada para a configuração de diagnóstico na guia **agente** em **configurações de diagnóstico**.
+
+![Verificar conta de armazenamento](media/troubleshoot-performance-virtual-machine-linux-windows/3-check-storage-account.png)
+
 ### <a name="enable-storage-account-diagnostics-through-azure-portal"></a>Habilitar o diagnóstico da conta de armazenamento por meio do portal do Azure
 
-Primeiro, identifique qual conta de armazenamento (ou contas) sua VM está usando selecionando a VM. Clique em **configurações**e em **discos**:
+O armazenamento é uma camada muito importante quando pretendemos analisar o desempenho de e/s de uma máquina virtual no Azure. Para métricas relacionadas ao armazenamento, precisamos habilitar o diagnóstico como uma etapa adicional. Isso também pode ser habilitado se quisermos apenas analisar os contadores relacionados ao armazenamento.
 
-![Clique em configurações e em discos](media/troubleshoot-performance-virtual-machine-linux-windows/3-storage-disks-disks-selection.png)
+1. Identifique qual conta de armazenamento (ou contas) sua VM está usando selecionando a VM. Clique em **configurações**e em **discos**:
 
-No portal, vá para a conta de armazenamento (ou contas) para a VM e trabalhe com as seguintes etapas:
+   ![Clique em configurações e em discos](media/troubleshoot-performance-virtual-machine-linux-windows/4-storage-disks-disks-selection.png)
 
-![Selecionar métricas de BLOB](media/troubleshoot-performance-virtual-machine-linux-windows/4-select-blob-metrics.png)
- 
-1. Selecione **todas as configurações**.
-2. Ative o diagnóstico.
-3. Selecione *métricas de *blob** * e defina a retenção para **30** dias.
-4. Guarde as alterações.
+2. No portal, vá para a conta de armazenamento (ou contas) para a VM e trabalhe com as seguintes etapas:
+
+   1. Clique em visão geral da conta de armazenamento encontrada com a etapa acima.
+   2. As métricas padrão seriam mostradas. 
+
+    ![Métricas padrão](media/troubleshoot-performance-virtual-machine-linux-windows/5-default-metrics.png)
+
+3. Clique em qualquer uma das métricas, que mostrará outra folha com mais opções para configurar e adicionar métricas.
+
+   ![Adicionar métricas](media/troubleshoot-performance-virtual-machine-linux-windows/6-add-metrics.png)
+
+Para configurar essas opções:
+
+1.  Selecione **Métricas**.
+2.  Selecione o **recurso** (conta de armazenamento).
+3.  Selecione o **namespace**
+4.  Selecione **métrica**.
+5.  Selecione o tipo de **agregação**
+6.  Você pode fixar essa exibição no painel.
 
 ## <a name="observing-bottlenecks"></a>Observando afunilamentos
+
+Uma vez que estamos usando o processo inicial de configuração para as métricas necessárias e postando o diagnóstico para a VM e a conta de armazenamento relacionada, podemos mudar para a fase de análise.
 
 ### <a name="accessing-the-monitoring"></a>Acessando o monitoramento
 
 Selecione a VM do Azure que você deseja investigar e selecione **monitoramento**.
 
-![Selecionar monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/5-observe-monitoring.png)
+![Selecionar monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/7-select-monitoring.png)
  
 ### <a name="timelines-of-observation"></a>Cronogramas de observação
 
@@ -67,7 +92,7 @@ Para identificar se há gargalos de recursos, examine os dados. Se você descobr
 
 ### <a name="check-for-cpu-bottleneck"></a>Verificar afunilamento de CPU
 
-![Verificar afunilamento de CPU](media/troubleshoot-performance-virtual-machine-linux-windows/6-cpu-bottleneck-time-range.png)
+![Verificar afunilamento de CPU](media/troubleshoot-performance-virtual-machine-linux-windows/8-cpu-bottleneck-time-range.png)
 
 1. Edite o grafo.
 2. Defina o intervalo de tempo.
@@ -94,6 +119,8 @@ Se seu aplicativo ou processo não estiver em execução no nível de desempenho
 * Entenda o problema – localize o aplicativo/processo e solucione-o de acordo.
 
 Se você tiver aumentado a VM e a CPU ainda estiver executando 95%, determine se essa configuração está oferecendo melhor desempenho ou maior taxa de transferência de aplicativo para um nível aceitável. Caso contrário, solucione o problema dessa application\process. individual
+
+Você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar qual processo está orientando o consumo de CPU. 
 
 ## <a name="check-for-memory-bottleneck"></a>Verificar afunilamento de memória
 
@@ -124,9 +151,13 @@ Para resolver a alta utilização de memória, execute qualquer uma das seguinte
 
 Se, após a atualização para uma VM maior, você descobrir que ainda tem um aumento constante entre 100%, identifique o aplicativo/processo e solucione problemas.
 
+Você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) para analisar qual processo está orientando o consumo de memória. 
+
 ## <a name="check-for-disk-bottleneck"></a>Verificar afunilamento de disco
 
 Para verificar o subsistema de armazenamento para a VM, verifique o diagnóstico no nível de VM do Azure usando os contadores em diagnóstico de VM e também o diagnóstico da conta de armazenamento.
+
+Para a solução de problemas de VM específica, você pode usar o Perfinsights para [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) ou [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux), o que pode ajudar a analisar qual processo está orientando a e/s. 
 
 Observe que não temos contadores para contas de armazenamento com redundância de zona e Premium. Para problemas relacionados a esses contadores, gere um caso de suporte.
 
@@ -134,7 +165,7 @@ Observe que não temos contadores para contas de armazenamento com redundância 
 
 Para trabalhar nos itens abaixo, vá para a conta de armazenamento da VM no Portal:
 
-![Exibindo o diagnóstico da conta de armazenamento no monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/7-virtual-machine-storage-account.png)
+![Exibindo o diagnóstico da conta de armazenamento no monitoramento](media/troubleshoot-performance-virtual-machine-linux-windows/9-virtual-machine-storage-account.png)
 
 1. Edite o grafo de monitoramento.
 2. Defina o intervalo de tempo.
@@ -175,6 +206,10 @@ Com essa métrica, você não pode saber qual blob está causando a limitação 
 
 Para identificar se você está atingindo o limite de IOPS, acesse o diagnóstico da conta de armazenamento e verifique o TotalRequests, procurando ver se você está se aproximando do 20000 TotalRequests. Identifique uma alteração no padrão, independentemente de você estar vendo o limite pela primeira vez ou se esse limite ocorre em um determinado momento.
 
+Com novas ofertas de disco no armazenamento Standard, os limites de IOPS e taxa de transferência poderiam ser diferentes, mas o limite cumulativo da conta de armazenamento Standard é de 20000 IOPS (o armazenamento Premium tem limites diferentes no nível de conta ou disco). Leia mais sobre as diferentes ofertas de disco de armazenamento Standard e por limites de disco:
+
+* [Escalabilidade e metas de desempenho para discos de VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
+
 #### <a name="references"></a>Referências
 
 * [Metas de escalabilidade para discos de máquina virtual](https://azure.microsoft.com/documentation/articles/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks)
@@ -187,7 +222,9 @@ Verifique o TotalIngress e o TotalEgress nos limites de entrada e saída para a 
 
 Verifique os limites de taxa de transferência dos VHDs anexados à VM. Adicione as métricas de VM leitura e gravação do disco.
 
-Cada VHD pode dar suporte a até 60 MB/s (IOPS não são expostos por VHD). Examine os dados para ver se você está atingindo os limites de taxa de transferência combinada de MB dos VHD no nível de VM usando leitura e gravação de disco e, em seguida, otimize sua configuração de armazenamento de VM para dimensionar os limites de VHD único.
+Novas ofertas de disco no armazenamento Standard têm diferentes limites de IOPS e taxa de transferência (IOPS não são expostos por VHD). Examine os dados para ver se você está atingindo os limites de taxa de transferência combinada de MB dos VHD no nível de VM usando leitura e gravação de disco e, em seguida, otimize sua configuração de armazenamento de VM para dimensionar os limites de VHD único. Leia mais sobre as diferentes ofertas de disco de armazenamento Standard e por limites de disco:
+
+* [Escalabilidade e metas de desempenho para discos de VM no Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### <a name="high-disk-utilizationlatency-remediation"></a>Alta correção de utilização/latência de disco
 

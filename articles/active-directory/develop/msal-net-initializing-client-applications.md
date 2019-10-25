@@ -1,5 +1,6 @@
 ---
-title: Inicializar aplicativos cliente (biblioteca de autenticação da Microsoft para .NET) | Azure
+title: Inicializar aplicativos cliente (biblioteca de autenticação da Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Saiba como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,17 +18,17 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5012da8f2ff41971df674fd35162fe14e1de8fc9
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f15f6480c2dc77fb1f6e229b62a0114f0f6fb735
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532652"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802830"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar aplicativos cliente usando o MSAL.NET
 Este artigo descreve como inicializar aplicativos cliente públicos e clientes confidenciais usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).  Para saber mais sobre os tipos de aplicativo cliente e as opções de configuração de aplicativo, leia a [visão geral](msal-client-applications.md).
 
-Com o MSAL.net 3. x, a maneira recomendada para instanciar um aplicativo é usando os construtores de aplicativo `PublicClientApplicationBuilder` : `ConfidentialClientApplicationBuilder`e. Eles oferecem um mecanismo poderoso para configurar o aplicativo a partir do código ou de um arquivo de configuração, ou até mesmo misturando as duas abordagens.
+Com o MSAL.NET 3. x, a maneira recomendada para instanciar um aplicativo é usando os construtores de aplicativo: `PublicClientApplicationBuilder` e `ConfidentialClientApplicationBuilder`. Eles oferecem um mecanismo poderoso para configurar o aplicativo a partir do código ou de um arquivo de configuração, ou até mesmo misturando as duas abordagens.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de inicializar um aplicativo, primeiro você precisa [registrá-lo](quickstart-register-app.md) para que seu aplicativo possa ser integrado à plataforma de identidade da Microsoft.  Após o registro, talvez você precise das seguintes informações (que podem ser encontradas no portal do Azure):
@@ -94,7 +95,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 ## <a name="builder-modifiers"></a>Modificadores de Construtor
 
-Nos trechos de código que usam construtores de aplicativos, vários `.With` métodos podem ser aplicados como modificadores (por exemplo, `.WithCertificate` e `.WithRedirectUri`). 
+Nos trechos de código que usam construtores de aplicativos, vários métodos de `.With` podem ser aplicados como modificadores (por exemplo, `.WithCertificate` e `.WithRedirectUri`). 
 
 ### <a name="modifiers-common-to-public-and-confidential-client-applications"></a>Modificadores comuns a aplicativos cliente públicos e confidenciais
 
@@ -102,13 +103,13 @@ Os modificadores que você pode definir em um cliente público ou o construtor d
 
 |Parâmetro | Descrição|
 |--------- | --------- |
-|`.WithAuthority()`7 substituições | Define a autoridade padrão do aplicativo como uma autoridade do Azure AD, com a possibilidade de escolher a nuvem do Azure, o público, o locatário (ID do locatário ou nome de domínio) ou fornecer diretamente o URI de autoridade.|
+|substituições do `.WithAuthority()` 7 | Define a autoridade padrão do aplicativo como uma autoridade do Azure AD, com a possibilidade de escolher a nuvem do Azure, o público, o locatário (ID do locatário ou nome de domínio) ou fornecer diretamente o URI de autoridade.|
 |`.WithAdfsAuthority(string)` | Define a autoridade padrão do aplicativo como uma autoridade do ADFS.|
 |`.WithB2CAuthority(string)` | Define a autoridade padrão do aplicativo como uma autoridade de Azure AD B2C.|
 |`.WithClientId(string)` | Substitui a ID do cliente.|
 |`.WithComponent(string)` | Define o nome da biblioteca usando MSAL.NET (para motivos de telemetria). |
-|`.WithDebugLoggingCallback()` | Se chamado, o aplicativo chamará `Debug.Write` simplesmente habilitar rastreamentos de depuração. Consulte [registro em log](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) para obter mais informações.|
-|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Defina os parâmetros de consulta extra em nível de aplicativo que serão enviados em todas as solicitações de autenticação. Isso é substituível em cada nível de método de aquisição de token `.WithExtraQueryParameters pattern`(com o mesmo).|
+|`.WithDebugLoggingCallback()` | Se chamado, o aplicativo chamará `Debug.Write` simplesmente habilitando rastreamentos de depuração. Consulte [registro em log](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) para obter mais informações.|
+|`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | Defina os parâmetros de consulta extra em nível de aplicativo que serão enviados em todas as solicitações de autenticação. Isso é substituível em cada nível de método de aquisição de token (com o mesmo `.WithExtraQueryParameters pattern`).|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | Habilita cenários avançados, como a configuração de um proxy HTTP, ou para forçar o MSAL a usar um HttpClient específico (por exemplo, em ASP.NET Core aplicativos Web/APIs).|
 |`.WithLogging()` | Se chamado, o aplicativo chamará um retorno de chamada com rastreamentos de depuração. Consulte [registro em log](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) para obter mais informações.|
 |`.WithRedirectUri(string redirectUri)` | Substitui o URI de redirecionamento padrão. No caso de aplicativos cliente públicos, isso será útil para cenários que envolvem o agente.|
@@ -121,7 +122,7 @@ Os modificadores que você pode definir em um construtor de aplicativo cliente p
 
 |Parâmetro | Descrição|
 |--------- | --------- |
-|`.WithIosKeychainSecurityGroup()` | **Somente Xamarin. Ios**: Define o grupo de segurança da cadeia de chaves do iOS (para a persistência do cache).|
+|`.WithIosKeychainSecurityGroup()` | **Xamarin. Ios somente**: define o grupo de segurança da cadeia de chaves do IOS (para a persistência do cache).|
 
 ### <a name="modifiers-specific-to-confidential-client-applications"></a>Modificadores específicos para aplicativos cliente confidenciais
 

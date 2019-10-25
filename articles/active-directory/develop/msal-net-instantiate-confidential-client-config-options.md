@@ -1,5 +1,6 @@
 ---
-title: Criar uma instância de um aplicativo cliente confidencial com opções (biblioteca de autenticação da Microsoft para .NET) | Azure
+title: Criar uma instância de um aplicativo cliente confidencial com opções (biblioteca de autenticação da Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma instância de um aplicativo cliente confidencial com opções de configuração usando a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a05959311b7f62f88a7b474b907982e005b98b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: e382a8d0b5d6f08eafc5621d0e7591111a5e286b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532625"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802808"
 ---
 # <a name="instantiate-a-confidential-client-application-with-configuration-options-using-msalnet"></a>Criar uma instância de um aplicativo cliente confidencial com opções de configuração usando MSAL.NET
 
@@ -37,7 +38,7 @@ Antes de inicializar um aplicativo, primeiro você precisa [registrá](quickstar
 - Para aplicativos Web e, às vezes, para aplicativos cliente públicos (em particular quando seu aplicativo precisa usar um agente), você também terá definido o redirectUri em que o provedor de identidade entrará em contato com o seu aplicativo com os tokens de segurança.
 
 ## <a name="configure-the-application-from-the-config-file"></a>Configurar o aplicativo a partir do arquivo de configuração
-O nome das propriedades das opções em MSAL.NET corresponde ao nome das propriedades do `AzureADOptions` no ASP.NET Core, portanto, você não precisa escrever nenhum código de União.
+O nome das propriedades das opções em MSAL.NET corresponde ao nome das propriedades do `AzureADOptions` em ASP.NET Core, portanto, você não precisa escrever nenhum código de União.
 
 Uma configuração de aplicativo ASP.NET Core é descrita em um arquivo *appSettings. JSON* :
 
@@ -64,7 +65,7 @@ Uma configuração de aplicativo ASP.NET Core é descrita em um arquivo *appSett
 
 A partir do MSAL.NET v3. x, você pode configurar seu aplicativo cliente confidencial do arquivo de configuração.
 
-Na classe em que você deseja configurar e instanciar seu aplicativo, você precisa declarar um `ConfidentialClientApplicationOptions` objeto.  Associe a configuração lida da origem (incluindo o arquivo AppConfig. JSON) à instância das opções de aplicativo, usando o `IConfigurationRoot.Bind()` método do [pacote NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
+Na classe em que você deseja configurar e instanciar seu aplicativo, você precisa declarar um objeto `ConfidentialClientApplicationOptions`.  Associe a configuração lida da origem (incluindo o arquivo AppConfig. JSON) à instância das opções de aplicativo, usando o método `IConfigurationRoot.Bind()` do [pacote NuGet Microsoft. Extensions. Configuration. Binder](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.Binder):
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -74,7 +75,7 @@ _applicationOptions = new ConfidentialClientApplicationOptions();
 configuration.Bind("AzureAD", _applicationOptions);
 ```
 
-Isso permite que o conteúdo da seção "AzureAD" do arquivo *appSettings. JSON* seja vinculado às propriedades correspondentes do `ConfidentialClientApplicationOptions` objeto.  Em seguida, crie `ConfidentialClientApplication` um objeto:
+Isso permite que o conteúdo da seção "AzureAD" do arquivo *appSettings. JSON* seja vinculado às propriedades correspondentes do objeto `ConfidentialClientApplicationOptions`.  Em seguida, compile um objeto `ConfidentialClientApplication`:
 
 ```csharp
 IConfidentialClientApplication app;

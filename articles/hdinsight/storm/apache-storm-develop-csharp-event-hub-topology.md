@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 53399fbdeba44b184ef4e76c89affefd29dbc413
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 62d65a4f004494ac4ce4ecd3df0f091460028d8f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915245"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800067"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Processar eventos dos hubs de eventos do Azure com o Apache StormC#no HDInsight ()
 
 Saiba como trabalhar com hubs de eventos do Azure de [Apache Storm](https://storm.apache.org/) no HDInsight. Este documento usa uma C# topologia Storm para ler e gravar dados de hubs de eventos
 
 > [!NOTE]  
-> Para obter uma versão Java deste projeto, consulte [processar eventos dos hubs de eventos do Azure com Apache Storm no HDInsight (Java)](https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/).
+> Para obter uma versão Java deste projeto, consulte [processar eventos dos hubs de eventos do Azure com Apache Storm no HDInsight (Java)](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub).
 
 ## <a name="scpnet"></a>SCP.NET
 
@@ -51,10 +51,10 @@ A Microsoft fornece um conjunto de componentes Java que podem ser usados para se
 
 Os seguintes componentes são usados neste exemplo:
 
-* __EventHubSpout__: Lê dados dos hubs de eventos.
-* __EventHubBolt__: Grava dados em hubs de eventos.
-* __EventHubSpoutConfig__: Usado para configurar o EventHubSpout.
-* __EventHubBoltConfig__: Usado para configurar o EventHubBolt.
+* __EventHubSpout__: lê dados dos hubs de eventos.
+* __EventHubBolt__: grava dados em hubs de eventos.
+* __EventHubSpoutConfig__: usado para configurar o EventHubSpout.
+* __EventHubBoltConfig__: usado para configurar o EventHubBolt.
 
 ### <a name="example-spout-usage"></a>Exemplo de uso de Spout
 
@@ -125,7 +125,7 @@ Você pode baixar uma versão completa do projeto criado neste artigo do [GitHub
 
 ## <a name="download-the-event-hubs-components"></a>Baixar os componentes dos hubs de eventos
 
-Baixe o componente Spout e dehubs de eventos [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar)de.
+Baixe o componente Spout dos hubs de eventos e componentes de raio de [https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar](https://github.com/hdinsight/mvn-repo/raw/master/org/apache/storm/storm-eventhubs/1.1.0.1/storm-eventhubs-1.1.0.1.jar).
 
 Crie um diretório chamado `eventhubspout`e salve o arquivo no diretório.
 
@@ -135,10 +135,10 @@ Hubs de eventos é a fonte de dados para este exemplo. Use as informações na s
 
 1. Depois que o Hub de eventos tiver sido criado, exiba as configurações do **EventHub** no portal do Azure e selecione **políticas de acesso compartilhado**. Selecione **+ Adicionar** para adicionar as seguintes políticas:
 
-   | Name | Permissões |
+   | Nome | Permissões |
    | --- | --- |
    | escritor |Enviar |
-   | leitor |Vigiar |
+   | leitora |Escutar |
 
     ![Captura de tela da janela de políticas de acesso de compartilhamento](./media/apache-storm-develop-csharp-event-hub-topology/share-access-policies.png)
 
@@ -152,7 +152,7 @@ Hubs de eventos é a fonte de dados para este exemplo. Use as informações na s
 
 3. No projeto **EventHubWriter** , abra o arquivo **app. config** . Use as informações do hub de eventos que você configurou anteriormente para preencher o valor das seguintes chaves:
 
-   | Chave | Value |
+   | Chave | Valor |
    | --- | --- |
    | EventHubPolicyName |gravador (se você usou um nome diferente para a política com permissão de *envio* , use-o em vez disso). |
    | EventHubPolicyKey |A chave para a política do gravador. |
@@ -168,7 +168,7 @@ Hubs de eventos é a fonte de dados para este exemplo. Use as informações na s
 
 2. Abra o arquivo **app. config** para o **EventHubReader**. Use as informações do hub de eventos que você configurou anteriormente para preencher o valor das seguintes chaves:
 
-   | Chave | Value |
+   | Chave | Valor |
    | --- | --- |
    | EventHubPolicyName |leitor (se você usou um nome diferente para a política com a permissão *escutar* , use-o em vez disso). |
    | EventHubPolicyKey |A chave para a política de leitor. |

@@ -5,15 +5,15 @@ description: Adicione processamento semântico, de linguagem natural e de imagem
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-ms.service: search
+ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 1a8840aca71daacc08cf85b178668e42ff9f796c
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5f65667ac8ffacdd12e57ae0d46e25c586624a31
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678426"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792462"
 ---
 # <a name="use-ai-to-understand-blob-storage-data"></a>Usar o ia para entender os dados do armazenamento de BLOBs
 
@@ -68,7 +68,7 @@ O enriquecimento de ia se refere a módulos que procuram padrões ou caracterís
 
 Em Azure Search, as *habilidades* são os componentes individuais do processamento de ia que você pode usar autônomo ou em combinação com outras habilidades. 
 
-+ As habilidades internas são apoiadas por serviços cognitivas, com análise de imagem baseada em Pesquisa Visual Computacional e processamento de linguagem natural com base em Análise de Texto. Você pode examinar a lista completa de habilidades internas em [habilidades predefinidas para o enriquecimento de conteúdo](cognitive-search-predefined-skills.md).
++ As habilidades internas são apoiadas por serviços cognitivas, com análise de imagem baseada em Pesquisa Visual Computacional e processamento de linguagem natural com base em Análise de Texto. Para obter a lista completa, consulte [habilidades internas para o enriquecimento de conteúdo](cognitive-search-predefined-skills.md).
 
 + Habilidades personalizadas são código personalizado, encapsulado em uma [definição de interface](cognitive-search-custom-skill-interface.md) que permite a integração no pipeline. Nas soluções de clientes, é uma prática comum usar ambos, com habilidades personalizadas que fornecem módulos de ia de software livre, de terceiros ou de terceiros.
 

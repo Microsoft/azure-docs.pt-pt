@@ -1,5 +1,6 @@
 ---
-title: Configurar o domínio do Publicador de um aplicativo | Azure
+title: Configurar o domínio do Publicador de um aplicativo
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar o domínio do Publicador de um aplicativo para permitir que os usuários saibam onde suas informações estão sendo enviadas.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28021c0b8512ca12ead92b0b78541fce690b1f80
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257921"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803341"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Como: Configurar o domínio do Publicador de um aplicativo (versão prévia)
+# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>Como configurar um domínio do Publicador de um aplicativo (visualização)
 
 O domínio do Publicador de um aplicativo é exibido aos usuários no [prompt de consentimento do aplicativo](application-consent-experience.md) para permitir que os usuários saibam onde suas informações estão sendo enviadas. Aplicativos multilocatários que são registrados após 21 de maio de 2019 que não têm um domínio do Publicador aparecem como não **verificados**. Aplicativos multilocatários são aplicativos que dão suporte a contas fora de um único diretório organizacional; por exemplo, dar suporte a todas as contas do Azure AD ou dar suporte a todas as contas do Azure AD e contas pessoais da Microsoft.
 
@@ -38,8 +39,8 @@ A tabela a seguir resume o comportamento padrão do valor de domínio do Publica
 
 | Domínios verificados por locatário | Valor padrão do domínio do Publicador |
 |-------------------------|----------------------------|
-| nulo | nulo |
-| *.onmicrosoft.com | *.onmicrosoft.com |
+| Nulo | Nulo |
+| *. onmicrosoft.com | *. onmicrosoft.com |
 | -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (primário) | domain2.com |
 
 Se um domínio do Publicador de um aplicativo multilocatário não estiver definido ou se estiver definido como um domínio que termina em. onmicrosoft.com, o prompt de consentimento do aplicativo mostrará não **verificado** no lugar do domínio do Publicador.
@@ -75,7 +76,7 @@ Se seu aplicativo não estiver registrado em um locatário, você verá apenas a
 
 ### <a name="to-verify-a-new-domain-for-your-app"></a>Para verificar um novo domínio para seu aplicativo
 
-1. Crie um arquivo chamado `microsoft-identity-association.json` e cole o seguinte trecho de código JSON.
+1. Crie um arquivo chamado `microsoft-identity-association.json` e cole o trecho de código JSON a seguir.
 
    ```json
    {
@@ -98,7 +99,7 @@ Se seu aplicativo não estiver registrado em um locatário, você verá apenas a
 - Se o seu locatário tiver domínios verificados, selecione um dos domínios na lista suspensa **selecionar um domínio verificado** .
 
 >[!Note]
-> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json`. Você pode receber um erro, conforme mencionado abaixo, se você usar qualquer outra coisa como`application/json; charset=utf-8` 
+> O cabeçalho ' Content-Type ' esperado que deve ser retornado é `application/json`. Você pode receber um erro, conforme mencionado abaixo, se você usar algo parecido com `application/json; charset=utf-8` 
 > 
 >``` "Verification of publisher domain failed. Error getting JSON file from https:///.well-known/microsoft-identity-association. The server returned an unexpected content type header value. " ```
 >

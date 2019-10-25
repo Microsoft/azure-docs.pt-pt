@@ -1,5 +1,6 @@
 ---
-title: Log em aplicativos da MSAL (biblioteca de autenticação da Microsoft) | Azure
+title: Log nos aplicativos MSAL (biblioteca de autenticação da Microsoft)
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre o registro em log nos aplicativos da MSAL (biblioteca de autenticação da Microsoft).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 87102e3ea71695006e465d1becad0f2ece2a426b
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678041"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802969"
 ---
 # <a name="logging-in-msal-applications"></a>Registrando em log em aplicativos MSAL
 
@@ -32,10 +33,10 @@ Os aplicativos MSAL (biblioteca de autenticação da Microsoft) geram mensagens 
 
 O MSAL fornece vários níveis de detalhes de log:
 
-- Erro: Indica que algo deu errado e um erro foi gerado. Use para depuração e identificação de problemas.
-- Aviso: Não há, necessariamente, um erro ou uma falha, mas destina-se a problemas de diagnóstico e de identificação.
-- Detalhes O MSAL registrará em log eventos destinados a fins informativos, não necessariamente destinados à depuração.
-- extensa Predefinição. O MSAL registra em log os detalhes completos do comportamento da biblioteca.
+- Erro: indica que algo deu errado e um erro foi gerado. Use para depuração e identificação de problemas.
+- Aviso: não há necessariamente erro ou falha, mas destina-se a problemas de diagnóstico e de identificação.
+- Info: o MSAL registrará em log eventos destinados a fins informativos não necessariamente destinados à depuração.
+- Verbose: padrão. O MSAL registra em log os detalhes completos do comportamento da biblioteca.
 
 ## <a name="personal-and-organizational-data"></a>Dados pessoais e organizacionais
 
@@ -46,11 +47,11 @@ Por padrão, o agente de log do MSAL não captura dados pessoais ou organizacion
  > [!NOTE]
  > Consulte o [wiki do MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) para obter exemplos de registro em log do MSAL.net e muito mais.
 
-No MSAL 3. x, o registro em log é definido por aplicativo na criação `.WithLogging` do aplicativo usando o modificador de construtor. Esse método usa parâmetros opcionais:
+No MSAL 3. x, o registro em log é definido por aplicativo na criação do aplicativo usando o modificador do `.WithLogging` Builder. Esse método usa parâmetros opcionais:
 
 - `Level` permite que você decida qual nível de log você deseja. Configurá-lo como erros só receberá erros
 - `PiiLoggingEnabled` permite que você registre dados pessoais e organizacionais se definidos como true. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais.
-- `LogCallback` é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez com o parâmetro `containsPii` é igual a false e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` igual a true e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
+- `LogCallback` é definido como um delegado que faz o registro em log. Se `PiiLoggingEnabled` for true, esse método receberá as mensagens duas vezes: uma vez com o parâmetro `containsPii` é igual a false e a mensagem sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` igual a true e a mensagem pode conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
 - `DefaultLoggingEnabled` habilita o log padrão para a plataforma. Por padrão, é false. Se você defini-lo como verdadeiro, ele usará o rastreamento de eventos em aplicativos de desktop/UWP, NSLog no iOS e logcat no Android.
 
 ```csharp
@@ -85,7 +86,7 @@ class Program
 Ative o logon na criação do aplicativo Criando um retorno de chamada de log. O retorno de chamada usa estes parâmetros:
 
 - `tag` é uma cadeia de caracteres passada para o retorno de chamada pela biblioteca. Ele é associado à entrada de log e pode ser usado para classificar mensagens de registro em log.
-- `logLevel` permite que você decida qual nível de log você deseja. Os níveis de log com suporte são: `Error`, `Warning`, `Info` e `Verbose`.
+- `logLevel` permite que você decida qual nível de log você deseja. Os níveis de log com suporte são: `Error`, `Warning`, `Info`e `Verbose`.
 - `message` é o conteúdo da entrada de log.
 - `containsPII` especifica se as mensagens que contêm dados pessoais ou dados organizacionais são registradas. Por padrão, isso é definido como false, para que seu aplicativo não Registre dados pessoais. Se `containsPII` for `true`, esse método receberá as mensagens duas vezes: uma vez com o parâmetro `containsPII` definido como `false` e o `message` sem dados pessoais, e uma segunda vez com o parâmetro `containsPii` definido como `true` e a mensagem poderá conter dados pessoais. Em alguns casos (quando a mensagem não contiver dados pessoais), a mensagem será a mesma.
 
@@ -123,12 +124,12 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="logging-in-msaljs"></a>Registrando em log no MSAL. js
 
- Habilite o registro em log no MSAL. js passando um objeto do agente durante a configuração para criar uma instância `UserAgentApplication`. Este objeto de agente tem as seguintes propriedades:
+ Habilite o registro em log no MSAL. js passando um objeto do agente durante a configuração para criar uma instância de `UserAgentApplication`. Este objeto de agente tem as seguintes propriedades:
 
 - `localCallback`: uma instância de retorno de chamada que pode ser fornecida pelo desenvolvedor para consumir e publicar logs de maneira personalizada. Implemente o método localCallback dependendo de como você deseja redirecionar os logs.
-- `level`(opcional): o nível de log configurável. Os níveis de log com suporte são: `Error`, `Warning`, `Info` e `Verbose`. A predefinição é `Info`.
+- `level` (opcional): o nível de log configurável. Os níveis de log com suporte são: `Error`, `Warning`, `Info`e `Verbose`. A predefinição é `Info`.
 - `piiLoggingEnabled` (opcional): se definido como true, registra dados pessoais e organizacionais. Por padrão, isso é falso para que seu aplicativo não Registre dados pessoais. Logs de dados pessoais nunca são gravados em saídas padrão como console, logcat ou NSLog.
-- `correlationId`(opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é RFC4122 versão 4 GUID (128 bits).
+- `correlationId` (opcional): um identificador exclusivo, usado para mapear a solicitação com a resposta para fins de depuração. O padrão é RFC4122 versão 4 GUID (128 bits).
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -235,7 +236,7 @@ Para definir o nível de log ao fazer logon usando o MSAL para iOS e macOS, use 
 |---------|---------|
 | `MSALLogLevelNothing`| Desabilitar todo o log |
 | `MSALLogLevelError` | Nível padrão, imprime informações somente quando ocorrem erros |
-| `MSALLogLevelWarning` | Avisos |
+| `MSALLogLevelWarning` | :| |
 | `MSALLogLevelInfo` |  Pontos de entrada de biblioteca, com parâmetros e várias operações de conjunto de chaves |
 |`MSALLogLevelVerbose`     |  Rastreio da API       |
 
@@ -253,7 +254,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 ### <a name="log-message-format"></a>Formato de mensagem de log
 
-A parte da mensagem das mensagens de log MSAL está no formato de`TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+A parte da mensagem das mensagens de log MSAL está no formato de `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
 
 Por exemplo:
 

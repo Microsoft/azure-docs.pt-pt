@@ -1,6 +1,7 @@
 ---
-title: Solicitar o comportamento em pedidos interativos (biblioteca de autenticação da Microsoft para JavaScript) | Azure
-description: Saiba mais sobre como personalizar o comportamento do prompt em chamadas interativos, usando a biblioteca de autenticação da Microsoft para JavaScript (msal).
+title: Comportamento do prompt em solicitações interativas (biblioteca de autenticação da Microsoft para JavaScript)
+titleSuffix: Microsoft identity platform
+description: Saiba mais sobre como personalizar o comportamento de prompt em chamadas interativas usando a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js).
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,20 +18,20 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd0d736345f312f1a1d6f8f029b41429a3e5f0a7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42d6c4415a3eeb28c999d95b838c6dd7c0f6e606
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544273"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803021"
 ---
-# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportamento do prompt em pedidos interativos de msal
+# <a name="prompt-behavior-in-msaljs-interactive-requests"></a>Comportamento de prompt em solicitações interativas do MSAL. js
 
-Quando um utilizador estabeleceu um Azure Active Directory na sessão do AD com várias contas de utilizador, a página de início de sessão do Azure AD pedirá por predefinição ao utilizador para selecionar uma conta antes de avançar para iniciar sessão. Os utilizadores não verão uma seleção de conta experiência se existir apenas uma única sessão autenticada com o Azure AD.
+Quando um usuário estabeleceu uma sessão ativa do Azure AD com várias contas de usuário, a página de entrada do Azure AD solicitará, por padrão, que o usuário selecione uma conta antes de continuar a entrar. Os usuários não verão uma experiência de seleção de conta se houver apenas uma única sessão autenticada com o Azure AD.
 
-A biblioteca de msal (a partir de v0.2.4) não envia um parâmetro de linha de comandos durante os pedidos interativos (`loginRedirect`, `loginPopup`, `acquireTokenRedirect` e `acquireTokenPopup`) e, deste modo, não impõe qualquer comportamento do prompt. Para pedidos de token silenciosas, utilizando o `acquireTokenSilent` método, msal passa um parâmetro de linha de comandos definido como `none`.
+A biblioteca MSAL. js (a partir do v 0.2.4) não envia um parâmetro de prompt durante as solicitações interativas (`loginRedirect`, `loginPopup`, `acquireTokenRedirect` e `acquireTokenPopup`) e, portanto, não impõe nenhum comportamento de prompt. Para solicitações de token silenciosas usando o método `acquireTokenSilent`, MSAL. js passa um parâmetro de prompt definido como `none`.
 
-Com base no seu cenário de aplicativo, pode controlar o comportamento do prompt para pedidos interativos por definição, o parâmetro de linha de comandos nos parâmetros do pedido é passado para o método. Por exemplo, se pretender invocar a experiência de seleção de conta:
+Com base em seu cenário de aplicativo, você pode controlar o comportamento do prompt para as solicitações interativas definindo o parâmetro prompt nos parâmetros de solicitação passados para os métodos. Por exemplo, se você quiser invocar a experiência de seleção de conta:
 
 ```javascript
 var request = {
@@ -42,16 +43,16 @@ userAgentApplication.loginRedirect(request);
 ```
 
 
-Os seguintes valores de linha de comandos podem ser transmitidos ao autenticar com o Azure AD:
+Os seguintes valores de prompt podem ser passados ao autenticar com o Azure AD:
 
-**login:** Este valor irá forçar o utilizador para introduzir as credenciais no pedido de autenticação.
+**logon:** Esse valor forçará o usuário a inserir as credenciais na solicitação de autenticação.
 
-**select_account:** Este valor irá fornecer ao usuário uma experiência de seleção de conta a listagem de todas as contas numa sessão.
+**select_account:** Esse valor dará ao usuário uma experiência de seleção de conta listando todas as contas na sessão.
 
-**consent:** Este valor invocará a caixa de diálogo de consentimento do OAuth que permite aos utilizadores conceder permissões à aplicação.
+**consentimento:** Esse valor invocará a caixa de diálogo de consentimento do OAuth que permite aos usuários conceder permissões ao aplicativo.
 
-**Nenhum:** Este valor irá garantir que o utilizador não vê qualquer linha de comandos interativa. É recomendado não passar este valor para métodos interativos no msal como podem ter comportamentos inesperados. Em alternativa, utilize o `acquireTokenSilent` método conseguir chamadas silenciosas.
+**nenhum:** Esse valor garantirá que o usuário não veja nenhum prompt interativo. É recomendável não passar esse valor para métodos interativos no MSAL. js, pois ele pode ter comportamentos inesperados. Em vez disso, use o método `acquireTokenSilent` para obter chamadas silenciosas.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Leia mais sobre o `prompt` parâmetro na [concessão implícita OAuth 2.0](v2-oauth2-implicit-grant-flow.md) protocolo que biblioteca de msal utiliza.
+Leia mais sobre o parâmetro `prompt` no protocolo de [concessão implícita OAuth 2,0](v2-oauth2-implicit-grant-flow.md) que a biblioteca MSAL. js usa.

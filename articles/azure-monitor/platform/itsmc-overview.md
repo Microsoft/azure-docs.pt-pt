@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 6ae1792d9ef3f07ef7258451be79b587692a1694
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177657"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809439"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Conectar o Azure a ferramentas de ITSM usando o Conector de Gerenciamento de Serviços de TI
 
@@ -94,7 +94,7 @@ Depois de ter preparado suas ferramentas de ITSM, siga as etapas abaixo para cri
 
 1. Vá para **todos os recursos**, procure por **YourWorkspaceName (assistência técnica)** .
 2. Em **fontes de dados do espaço de trabalho** no painel esquerdo, clique em **conexões de ITSM**.
-   conexões ![ITSM @ no__t-1
+   ![conexões de ITSM](media/itsmc-overview/itsm-connections.png)
 
    Esta página exibe a lista de conexões.
 3. Clique em **Adicionar conexão**.
@@ -297,7 +297,7 @@ ServiceDeskWorkItemType_s = "ChangeRequest"
 2. Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow às vezes entram em suspensão quando ociosas por um longo período. Caso contrário, relate o problema.
 3. Se Log Analytics alertas forem acionados, mas os itens de trabalho não forem criados em itens de configuração ou produtos de ITSM não forem criados/vinculados a itens de trabalho ou para outras informações genéricas, procure nos seguintes locais:
    -  ITSMC: a solução mostra um resumo de conexões/itens de trabalho/computadores, etc. Clique no bloco mostrando o **status do conector**, que o leva para a pesquisa de **log** com a consulta relevante. Examine os registros de log com LogType_S como erro para obter mais informações.
-   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL @ no__t-2.
+   - Página **pesquisa de logs** : exiba os erros/informações relacionadas diretamente usando a consulta `*`ServiceDeskLog_CL`*`.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Solucionar problemas Service Manager implantação de aplicativo Web
 1.  No caso de problemas com a implantação de aplicativo Web, verifique se você tem permissões suficientes na assinatura mencionada para criar/implantar recursos.

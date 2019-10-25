@@ -1,5 +1,6 @@
 ---
-title: Diferenças entre MSAL. js e ADAL. js | Azure
+title: Diferenças entre MSAL. js e ADAL. js
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as diferenças entre a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) e a biblioteca de autenticação do Azure AD para JavaScript (ADAL. js) e como escolher qual delas usar.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7149b9d871c43af083774ffb799255e0d1144113
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429939"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803168"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferenças entre MSAL JS e ADAL JS
 
@@ -59,9 +60,9 @@ Na v 2.0, usar a autoridade `https://login.microsoftonline.com/common` permitir�
 
     o protocolo v 2.0 usa escopos em vez de recurso nas solicitações. Em outras palavras, quando seu aplicativo precisa solicitar tokens com permissões para um recurso como o MS Graph, a diferença nos valores passados para os métodos de biblioteca é a seguinte:
 
-    v 1.0: Resource = https @ no__t-0//Graph. Microsoft. com
+    v 1.0: Resource = https\://graph.microsoft.com
 
-    v 2.0: scope = https @ no__t-0//Graph. Microsoft. com/user. Read
+    v 2.0: scope = https\://graph.microsoft.com/User.Read
 
     Você pode solicitar escopos para qualquer API de recurso usando o URI da API neste formato: appidURI/Scope, por exemplo: https: \//mylocatário. onmicrosoft. com/myapi/API. Read
 

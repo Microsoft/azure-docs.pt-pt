@@ -1,6 +1,7 @@
 ---
-title: Framework de consentimento do Azure Active Directory
-description: Saiba mais sobre a estrutura de consentimento do Azure Active Directory e como ela torna mais fácil desenvolver aplicações clientes nativas e web de multi-inquilino.
+title: Estrutura de consentimento Azure Active Directory
+titleSuffix: Microsoft identity platform
+description: Saiba mais sobre a estrutura de consentimento em Azure Active Directory e como ela facilita o desenvolvimento de aplicativos de cliente nativos e Web multilocatários.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,56 +18,56 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b9d272c8a01eeed58278a6e7f0cec147b01a10e
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: af5b60901e57392aaea504f96572801a878d707c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482944"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803855"
 ---
-# <a name="azure-active-directory-consent-framework"></a>Framework de consentimento do Azure Active Directory
+# <a name="azure-active-directory-consent-framework"></a>Estrutura de consentimento Azure Active Directory
 
-A estrutura de consentimento do Azure Active Directory (Azure AD) torna mais fácil desenvolver aplicações clientes nativas e web de multi-inquilino. Esses aplicativos permitem início de sessão por contas de utilizador de um inquilino do Azure AD que é diferente em que a aplicação fica registada. Também poderá acessar a web, APIs, como o Microsoft Graph API (para acesso do Azure AD, o Intune e serviços do Office 365) e APIs de outros serviços da Microsoft, além de suas próprias APIs web.
+A estrutura de consentimento do Azure Active Directory (AD do Azure) facilita o desenvolvimento de aplicativos cliente nativos e Web multilocatários. Esses aplicativos permitem a entrada por contas de usuário de um locatário do Azure AD diferente daquele em que o aplicativo está registrado. Eles também podem precisar acessar APIs da Web, como a API de Microsoft Graph (para acessar o Azure AD, o Intune e os serviços no Office 365) e outras APIs de serviços da Microsoft, além de suas próprias APIs Web.
 
-O framework baseia-se um utilizador ou um administrador a dar o consentimento para um aplicativo que solicita a registar no seu diretório, o que pode envolver a aceder a dados do diretório. Por exemplo, se precisar de uma aplicação de cliente da web ler as informações de calendário sobre o utilizador do Office 365, esse utilizador é necessário para dar consentimento para a aplicação cliente pela primeira vez. Depois de consentimento for dado, o aplicativo cliente poderá chamar o Microsoft Graph API em nome do utilizador e utilize as informações de calendário, conforme necessário. O [Microsoft Graph API](https://developer.microsoft.com/graph) fornece acesso a dados no Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do OneDrive, blocos de notas do OneNote, tarefas do Planner e pastas de trabalho de Excel), bem como os utilizadores e grupos do Azure AD e outros objetos de dados de mais serviços cloud da Microsoft.
+A estrutura é baseada em um usuário ou administrador que dá consentimento a um aplicativo que solicita ser registrado em seu diretório, o que pode envolver o acesso a dados do diretório. Por exemplo, se um aplicativo cliente Web precisar ler informações de calendário sobre o usuário do Office 365, esse usuário precisará dar consentimento ao aplicativo cliente primeiro. Após o consentimento ser fornecido, o aplicativo cliente poderá chamar a API de Microsoft Graph em nome do usuário e usar as informações de calendário conforme necessário. A [API Microsoft Graph](https://developer.microsoft.com/graph) fornece acesso a dados no Office 365 (como calendários e mensagens do Exchange, sites e listas do SharePoint, documentos do onedrive, blocos de anotações do OneNote, tarefas do Planner e pastas de trabalho do Excel), bem como usuários e grupos do Azure AD e outros objetos de dados de mais serviços em nuvem da Microsoft.
 
-Estrutura do consentimento baseia-se em OAuth 2.0 e os vários fluxos, como concedem credenciais de cliente e de concessão do código de autorização, usando clientes públicos ou confidenciais. Ao utilizar o OAuth 2.0, do Azure AD torna possível criar vários tipos de aplicações de cliente, tal como num telemóvel, tablet, servidor ou uma aplicação web – e obter acesso aos recursos necessários.
+A estrutura de consentimento é criada no OAuth 2,0 e em seus vários fluxos, como concessão de código de autorização e concessão de credenciais de cliente, usando clientes públicos ou confidenciais. Usando o OAuth 2,0, o AD do Azure possibilita criar muitos tipos diferentes de aplicativos cliente, como em um telefone, Tablet, servidor ou aplicativo Web, e obter acesso aos recursos necessários.
 
-Para mais informações sobre como utilizar a estrutura do consentimento com concessões de autorização de OAuth2.0, veja [autorizar o acesso a aplicações web com OAuth 2.0 e o Azure AD](v1-protocols-oauth-code.md) e [cenários de autenticação do Azure AD](authentication-scenarios.md). Para informações sobre como obter acesso autorizado ao Office 365 através do Microsoft Graph, veja [autenticação de aplicações com o Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
+Para obter mais informações sobre como usar a estrutura de consentimento com as concessões de autorização do OAuth 2.0, consulte [autorizar o acesso a aplicativos Web usando oauth 2,0 e o Azure ad](v1-protocols-oauth-code.md) e [cenários de autenticação para o Azure ad](authentication-scenarios.md). Para obter informações sobre como obter acesso autorizado ao Office 365 por meio de Microsoft Graph, consulte [autenticação de aplicativo com Microsoft Graph](https://developer.microsoft.com/graph/docs/authorization/auth_overview).
 
-## <a name="consent-experience---an-example"></a>Experiência de consentimento - um exemplo
+## <a name="consent-experience---an-example"></a>Experiência de consentimento-um exemplo
 
-Os passos seguintes mostram como o consentimento refletir funciona para o desenvolvedor do aplicativo e o utilizador.
+As etapas a seguir mostram como a experiência de consentimento funciona tanto para o desenvolvedor do aplicativo quanto para o usuário.
 
-1. Suponha que tem uma aplicação de cliente web que precisa para solicitar permissões específicas para aceder a uma recurso/API. Ficará a saber como fazer esta configuração na secção seguinte, mas, essencialmente, o portal do Azure é utilizado para declarar as solicitações de permissão no momento da configuração. Como outras definições de configuração, que se tornem parte do registo da aplicação do Azure AD:
+1. Suponha que você tenha um aplicativo cliente Web que precisa solicitar permissões específicas para acessar um recurso/API. Você aprenderá como fazer essa configuração na próxima seção, mas, essencialmente, a portal do Azure é usada para declarar solicitações de permissão no momento da configuração. Assim como outras definições de configuração, elas se tornam parte do registro do Azure AD do aplicativo:
 
-    ![Permissões para outras aplicações](./media/consent-framework/permissions.png)
+    ![Permissões para outros aplicativos](./media/consent-framework/permissions.png)
 
-1. Considere que foram atualizadas as permissões de seu aplicativo, a execução do aplicativo e um utilizador estiver prestes a utilizá-lo pela primeira vez. Em primeiro lugar, a aplicação tem de obter um código de autorização do Azure AD `/authorize` ponto final. O código de autorização, em seguida, pode ser usado para adquirir um novo acesso e atualizar o token.
+1. Considere que as permissões do seu aplicativo foram atualizadas, o aplicativo está em execução e um usuário está prestes a usá-lo pela primeira vez. Primeiro, o aplicativo precisa obter um código de autorização do ponto de extremidade `/authorize` do Azure AD. O código de autorização pode então ser usado para adquirir um novo token de acesso e de atualização.
 
-1. Se o utilizador já não for autenticado, o Azure do AD `/authorize` endpoint pede ao utilizador para iniciar sessão.
+1. Se o usuário ainda não estiver autenticado, o ponto de extremidade de `/authorize` do Azure AD solicitará que o usuário entre.
 
-    ![Utilizador ou administrador de início de sessão para o Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
+    ![Usuário ou administrador entrar no Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
-1. Depois do utilizador tem sessão iniciada, do Azure AD irá determinar se o utilizador tem de ser apresentada uma página de consentimento. Essa determinação baseia-se o utilizador (ou o administrador da sua organização) já concedeu o consentimento da aplicação. Se já não tiver sido concedido consentimento, o Azure AD solicita o consentimento do usuário e exibe as permissões necessárias para funcionar. O conjunto de permissões que são apresentadas na caixa de diálogo de consentimento corresponder aos perfis selecionados na **permissões delegadas** no portal do Azure.
+1. Depois que o usuário tiver entrado, o AD do Azure determinará se o usuário precisa ser mostrado na página de consentimento. Essa determinação se baseia em se o usuário (ou o administrador da organização) já concedeu o consentimento do aplicativo. Se o consentimento ainda não tiver sido concedido, o Azure AD solicitará o consentimento do usuário e exibirá as permissões necessárias que ele precisa para funcionar. O conjunto de permissões que são exibidas na caixa de diálogo de consentimento corresponde àqueles selecionados nas **permissões delegadas** no portal do Azure.
 
-    ![Mostra um exemplo de permissões apresentado na caixa de diálogo de consentimento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
+    ![Mostra um exemplo de permissões exibidas na caixa de diálogo de consentimento](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
-1. Depois do utilizador concede consentimento, é devolvido um código de autorização para seu aplicativo, que é resgatado para adquirir um token de acesso e atualizar o token. Para obter mais informações sobre este fluxo, consulte [tipo de aplicação de Web API](web-api.md).
+1. Depois que o usuário concede consentimento, um código de autorização é retornado para seu aplicativo, que é resgatado para adquirir um token de acesso e um token de atualização. Para obter mais informações sobre esse fluxo, consulte [tipo de aplicativo de API Web](web-api.md).
 
-1. Como administrador, pode também autorizar permissões delegadas de uma aplicação em nome de todos os utilizadores no seu inquilino. Consentimento administrativo impede que a caixa de diálogo de consentimento que aparece para cada utilizador no inquilino e pode ser feito no [portal do Azure](https://portal.azure.com) por usuários com a função de administrador. Para saber que funções podem dar consentimento a permissões delegadas de administrador, veja [permissões da função de administrador no Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+1. Como administrador, você também pode concordar com as permissões delegadas de um aplicativo em nome de todos os usuários em seu locatário. O consentimento administrativo impede que a caixa de diálogo de consentimento apareça para cada usuário no locatário e pode ser feita no [portal do Azure](https://portal.azure.com) por usuários com a função de administrador. Para saber quais funções de administrador podem consentir as permissões delegadas, consulte [permissões de função de administrador no Azure ad](../users-groups-roles/directory-assign-admin-roles.md).
 
-    **Para dar consentimento a uma aplicação do permissões delegadas**
+    **Para dar consentimento às permissões delegadas de um aplicativo**
 
-   1. Vá para o **permissões API** página para a sua aplicação
-   1. Clique nas **conceder autorização de administrador** botão.
+   1. Vá para a página de **permissões de API** para seu aplicativo
+   1. Clique no botão **conceder consentimento do administrador** .
 
-      ![Concessão de permissões de consentimento de administrador explícita](./media/consent-framework/grant-consent.png)
+      ![Conceder permissões para consentimento de administrador explícito](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
-   > Conceder explícita consentir utilizar o **conceder permissões** botão é atualmente necessário para aplicações de página única (SPA) que utilizam ADAL.js. Caso contrário, o aplicativo falhar quando o token de acesso é solicitado.
+   > Conceder consentimento explícito usando o botão **conceder permissões** é atualmente necessário para Spa (aplicativos de página única) que usam o Adal. js. Caso contrário, o aplicativo falhará quando o token de acesso for solicitado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Consulte [como converter um aplicativo de modo a multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
-* Para obter mais detalhes, saiba [como o consentimento é suportado na camada de protocolo de OAuth 2.0 durante o fluxo de concessão do código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)
+* Consulte [como converter um aplicativo para ser multilocatário](howto-convert-app-to-be-multi-tenant.md)
+* Para obter mais detalhes, saiba [como o consentimento tem suporte na camada de protocolo OAuth 2,0 durante o fluxo de concessão de código de autorização.](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code)

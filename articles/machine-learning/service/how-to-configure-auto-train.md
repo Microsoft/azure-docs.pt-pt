@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 04753ca4c9b14d7ccc265cfcf971b3fd63c861ae
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 11cd90da1b1ca85893dbdad2ced191326af51238
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72384163"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793875"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentos de ML automatizados em Python
 
@@ -56,8 +56,9 @@ Classificação | Regressão | Previsão de série temporal
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)|[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)| [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
 [Classificador DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNClassifier)|[Regressor DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor) | [Regressor DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/DNNRegressor)|
 [Classificador linear DNN](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearClassifier)|[Regressor linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)|[Regressor linear](https://www.tensorflow.org/api_docs/python/tf/estimator/LinearRegressor)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)|
-[Descendente estocástico Grading (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)|
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)||[ARIMA automático](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Descendente estocástico Grading (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)||[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+|||ForecastTCN
 
 Use o parâmetro `task` no Construtor `AutoMLConfig` para especificar o tipo de experimento.
 
@@ -70,28 +71,24 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>Fonte de dados e formato
 
-O aprendizado de máquina automatizado dá suporte a dados que residem em sua área de trabalho local ou na nuvem, como o armazenamento de BLOBs do Azure. Os dados podem ser lidos em um dataframe do pandas ou em um Azure Machine Learning DataSet. Os exemplos de código a seguir demonstram como armazenar os dados nesses formatos. [Saiba mais sobre o datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+O aprendizado de máquina automatizado dá suporte a dados que residem em sua área de trabalho local ou na nuvem, como o armazenamento de BLOBs do Azure. Os dados podem ser lidos em um **Dataframe do pandas** ou um **Azure Machine Learning TabularDataset**.  [Saiba mais sobre o datatsets](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+
+Requisitos para dados de treinamento:
+- Os dados devem estar no formato de tabela.
+- O valor a prever, coluna de destino, deve estar nos dados.
+
+Os exemplos de código a seguir demonstram como armazenar os dados nesses formatos.
 
 * TabularDataset
+  ```python
+  from azureml.core.dataset import Dataset
+  
+  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
+  label = "Label"
+  ```
+
 * Dataframe do pandas
-
->[!Important]
-> Requisitos para dados de treinamento:
->* Os dados devem estar no formato de tabela.
->* O valor que você deseja prever (coluna de destino) deve estar presente nos dados.
-
-Exemplos:
-
-* TabularDataset
-```python
-    from azureml.core.dataset import Dataset
-
-    tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-    train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-    label = "Label"
-```
-
-*   Dataframe do pandas
 
     ```python
     import pandas as pd
@@ -117,11 +114,11 @@ Você pode especificar conjuntos de treinamento e de validação separados diret
 
 ### <a name="k-folds-cross-validation"></a>Validação cruzada de K-dobras
 
-Use a configuração `n_cross_validations` para especificar o número de validações cruzadas. O conjunto de dados de treinamento será dividido aleatoriamente em dobras `n_cross_validations` de tamanho igual. Durante cada rodada de validação cruzada, uma das dobras será usada para validação do modelo treinado nas dobras restantes. Esse processo se repete para `n_cross_validations` arredonda até que cada dobra seja usada uma vez como conjunto de validação. As pontuações médias em todos os `n_cross_validations` arredondas serão relatadas e o modelo correspondente será retreinado em todo o conjunto de dados de treinamento.
+Use `n_cross_validations` configuração para especificar o número de validações cruzadas. O conjunto de dados de treinamento será dividido aleatoriamente em `n_cross_validations` dobras de tamanho igual. Durante cada rodada de validação cruzada, uma das dobras será usada para validação do modelo treinado nas dobras restantes. Esse processo se repete por `n_cross_validations` arredonda até que cada dobra seja usada uma vez como conjunto de validação. As pontuações médias em todos os `n_cross_validations` arredondas serão relatadas e o modelo correspondente será retreinado em todo o conjunto de dados de treinamento.
 
 ### <a name="monte-carlo-cross-validation-repeated-random-sub-sampling"></a>Validação cruzada Monte Carlo (subamostra aleatória repetida)
 
-Use `validation_size` para especificar a porcentagem do conjunto de e de treinamento que deve ser usada para validação e use `n_cross_validations` para especificar o número de validações cruzadas. Durante cada rodada de validação cruzada, um subconjunto de tamanho `validation_size` será selecionado aleatoriamente para validação do modelo treinado nos dados restantes. Por fim, as pontuações médias em todos os `n_cross_validations` arredondas serão relatadas e o modelo correspondente será retreinado em todo o conjunto de dados de treinamento. Monte Carlo não tem suporte para previsão de série temporal.
+Use `validation_size` para especificar a porcentagem do conjunto de e de treinamento que deve ser usada para validação e use `n_cross_validations` para especificar o número de validações cruzadas. Durante cada rodada de validação cruzada, um subconjunto de `validation_size` de tamanho será selecionado aleatoriamente para validação do modelo treinado nos dados restantes. Por fim, as pontuações médias em todos os `n_cross_validations` arredondas serão relatadas e o modelo correspondente será retreinado em todo o conjunto de dados de treinamento. Monte Carlo não tem suporte para previsão de série temporal.
 
 ### <a name="custom-validation-dataset"></a>Conjunto de personalizar personalizado
 
@@ -243,7 +240,7 @@ Os modelos de Ensemble são habilitados por padrão e aparecem como as iteraçõ
 Há vários argumentos padrão que podem ser fornecidos como `kwargs` em um objeto `AutoMLConfig` para alterar o comportamento de Ensemble da pilha padrão.
 
 * `stack_meta_learner_type`: o meta-aprendiz é um modelo treinado na saída dos modelos heterogêneos individuais. Os meta-aprendizs padrão são `LogisticRegression` para tarefas de classificação (ou `LogisticRegressionCV` se a validação cruzada estiver habilitada) e `ElasticNet` para tarefas de regressão/previsão (ou `ElasticNetCV` se a validação cruzada estiver habilitada). Esse parâmetro pode ser uma das seguintes cadeias de caracteres: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` ou `LinearRegression`.
-* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de treinamento (ao escolher treinamento e tipo de validação, para ser reservado para treinar o meta-aprendiz. O valor padrão é `0.2`.
+* `stack_meta_learner_train_percentage`: especifica a proporção do conjunto de treinamento (ao escolher treinamento e tipo de validação) a ser reservado para treinar o meta-aprendiz. O valor padrão é `0.2`.
 * `stack_meta_learner_kwargs`: parâmetros opcionais a serem passados para o inicializador do meta-aprendiz. Esses parâmetros e tipos de parâmetro espelham aqueles do construtor de modelo correspondente e são encaminhados para o construtor de modelo.
 
 O código a seguir mostra um exemplo de especificação do comportamento Ensemble personalizado em um objeto `AutoMLConfig`.
@@ -311,7 +308,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 >[!NOTE]
 >As dependências são instaladas primeiro em um novo computador.  Pode levar até 10 minutos para que a saída seja mostrada.
->Definir `show_output` como `True` resulta na exibição da saída no console.
+>A configuração de `show_output` para `True` resulta na exibição da saída no console.
 
 ### <a name="exit-criteria"></a>Critérios de saída
 Há algumas opções que você pode definir para encerrar seu experimento.
@@ -475,7 +472,7 @@ O aprendizado de máquina automatizado permite que você compreenda a importânc
 
 Há duas maneiras de gerar importância de recursos.
 
-*   Quando um experimento for concluído, você poderá usar o método `explain_model` em qualquer iteração.
+*   Quando um experimento for concluído, você poderá usar `explain_model` método em qualquer iteração.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
@@ -492,7 +489,7 @@ Há duas maneiras de gerar importância de recursos.
     print(per_class_summary)
     ```
 
-*   Para exibir a importância do recurso para todas as iterações, defina o sinalizador `model_explainability` como `True` em AutoMLConfig.
+*   Para exibir a importância do recurso para todas as iterações, defina `model_explainability` sinalizador como `True` em AutoMLConfig.
 
     ```python
     automl_config = AutoMLConfig(task='classification',

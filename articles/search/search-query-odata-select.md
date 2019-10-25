@@ -1,13 +1,13 @@
 ---
-title: Referência do OData Select-Azure Search
-description: Referência de linguagem OData para a sintaxe SELECT em consultas Azure Search.
-ms.date: 06/13/2019
-services: search
-ms.service: search
-ms.topic: conceptual
-author: Brjohnstmsft
-ms.author: brjohnst
+title: Referência do OData Select
+titleSuffix: Azure Cognitive Search
+description: Referência de linguagem OData para a sintaxe SELECT nas consultas do Azure Pesquisa Cognitiva.
 manager: nitinme
+author: brjohnstmsft
+ms.author: brjohnst
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 64e9ad75d88f595ab5def6fe8b63fee9407ae0fe
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647879"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793254"
 ---
-# <a name="odata-select-syntax-in-azure-search"></a>Sintaxe de $select OData no Azure Search
+# <a name="odata-select-syntax-in-azure-cognitive-search"></a>Sintaxe de $select OData no Azure Pesquisa Cognitiva
 
- Você pode usar o [parâmetro **$Select** OData](query-odata-filter-orderby-syntax.md) para escolher quais campos incluir nos resultados da pesquisa de Azure Search. Este artigo descreve a sintaxe de **$Select** em detalhes. Para obter mais informações gerais sobre como usar **$Select** ao apresentar resultados da pesquisa, consulte [como trabalhar com resultados da pesquisa em Azure Search](search-pagination-page-layout.md).
+ Você pode usar o [parâmetro **$Select** OData](query-odata-filter-orderby-syntax.md) para escolher quais campos incluir nos resultados da pesquisa do Azure pesquisa cognitiva. Este artigo descreve a sintaxe de **$Select** em detalhes. Para obter mais informações gerais sobre como usar **$Select** ao apresentar os resultados da pesquisa, consulte [como trabalhar com os resultados da pesquisa no Azure pesquisa cognitiva](search-pagination-page-layout.md).
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -45,10 +45,10 @@ field_path ::= identifier('/'identifier)*
 Um diagrama de sintaxe interativa também está disponível:
 
 > [!div class="nextstepaction"]
-> [Diagrama de sintaxe do OData para Azure Search](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
+> [Diagrama de sintaxe do OData para Pesquisa Cognitiva do Azure](https://azuresearch.github.io/odata-syntax-diagram/#select_expression)
 
 > [!NOTE]
-> Consulte [referência de sintaxe de expressão OData para Azure Search](search-query-odata-syntax-reference.md) para o EBNF completo.
+> Consulte [referência de sintaxe de expressão OData para pesquisa cognitiva do Azure](search-query-odata-syntax-reference.md) para o EBNF completo.
 
 O parâmetro **$Select** é fornecido em duas formas:
 
@@ -57,11 +57,11 @@ O parâmetro **$Select** é fornecido em duas formas:
 
 Ao usar o segundo formulário, você só pode especificar campos recuperáveis na lista.
 
-Se você listar um campo complexo sem especificar os subcampos explicitamente, todos os subcampos recuperáveis serão incluídos no conjunto de resultados da consulta. Por exemplo, suponha que o índice tenha `Address` um campo `Street`com `City`os subcampos, e `Country` que são todos recuperáveis. Se você especificar `Address` em **$Select**, os resultados da consulta incluirão todos os três subcampos.
+Se você listar um campo complexo sem especificar os subcampos explicitamente, todos os subcampos recuperáveis serão incluídos no conjunto de resultados da consulta. Por exemplo, suponha que o índice tenha um campo de `Address` com `Street`, `City`e `Country` subcampos que sejam recuperáveis. Se você especificar `Address` em **$Select**, os resultados da consulta incluirão todos os três subcampos.
 
 ## <a name="examples"></a>Exemplos
 
-Inclua os `HotelId`campos `HotelName`, e `Rating` de nível superior nos resultados, bem como o `City` subcampo de `Address`:
+Inclua os campos `HotelId`, `HotelName`e `Rating` de nível superior nos resultados, bem como o subcampo `City` do `Address`:
 
     $select=HotelId, HotelName, Rating, Address/City
 
@@ -78,7 +78,7 @@ Um resultado de exemplo pode ser assim:
 }
 ```
 
-Inclua o `HotelName` campo de nível superior nos resultados, bem como todos os subcampos de `Address`e os `Type` subcampos `BaseRate` e de cada objeto na `Rooms` coleção:
+Inclua o `HotelName` campo de nível superior nos resultados, bem como todos os subcampos de `Address`e os subcampos `Type` e `BaseRate` de cada objeto na coleção de `Rooms`:
 
     $select=HotelName, Address, Rooms/Type, Rooms/BaseRate
 
@@ -108,9 +108,9 @@ Um resultado de exemplo pode ser assim:
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes  
+## <a name="next-steps"></a>Passos seguintes  
 
-- [Como trabalhar com resultados de pesquisa em Azure Search](search-pagination-page-layout.md)
-- [Visão geral da linguagem de expressão OData para Azure Search](query-odata-filter-orderby-syntax.md)
-- [Referência de sintaxe de expressão OData para Azure Search](search-query-odata-syntax-reference.md)
-- [Pesquisar documentos &#40;Azure Search API REST do serviço&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Como trabalhar com os resultados da pesquisa no Azure Pesquisa Cognitiva](search-pagination-page-layout.md)
+- [Visão geral da linguagem de expressão OData para Azure Pesquisa Cognitiva](query-odata-filter-orderby-syntax.md)
+- [Referência de sintaxe de expressão OData para Pesquisa Cognitiva do Azure](search-query-odata-syntax-reference.md)
+- [Pesquisar documentos &#40;do Azure pesquisa cognitiva API REST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)

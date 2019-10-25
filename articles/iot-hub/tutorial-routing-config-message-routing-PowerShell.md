@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 8b054fd8008b926cf63a28b0730589eaece5042a
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535144"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809386"
 ---
-# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: Usar Azure PowerShell para configurar o roteamento de mensagens do Hub IoT
+# <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>Tutorial: usar Azure PowerShell para configurar o roteamento de mensagens do Hub IoT
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
 
@@ -34,13 +34,13 @@ Comece criando os recursos com o PowerShell.
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>Use o PowerShell para criar seus recursos básicos
 
-Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanuméricoaleatório chamado randomValue. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico. 
+Copie e cole o script abaixo em Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Esta primeira seção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o namespace do barramento de serviço e a fila do barramento de serviço. Ao percorrer o tutorial, copie cada bloco de script e cole-o em Cloud Shell para executá-lo.
+
+Há vários nomes de recursos que devem ser globalmente exclusivos, como o nome do Hub IoT e o nome da conta de armazenamento. Para tornar isso mais fácil, esses nomes de recursos são anexados com um valor alfanumérico aleatório chamado *randomValue*. O randomValue é gerado uma vez na parte superior do script e acrescentado aos nomes de recursos conforme necessário em todo o script. Se você não quiser que ele seja aleatório, você pode defini-lo como uma cadeia de caracteres vazia ou como um valor específico. 
 
 > [!IMPORTANT]
 > As variáveis definidas no script inicial também são usadas pelo script de roteamento, portanto, execute todo o script na mesma sessão de Cloud Shell. Se você abrir uma nova sessão para executar o script para configurar o roteamento, várias das variáveis terão valores ausentes. 
 >
-
-Copie e cole o script abaixo em Cloud Shell e pressione Enter. Ele executa o script uma linha por vez. Esta primeira seção do script criará os recursos base para este tutorial, incluindo a conta de armazenamento, o Hub IoT, o namespace do barramento de serviço e a fila do barramento de serviço. Ao percorrer o tutorial, copie cada bloco de script e cole-o em Cloud Shell para executá-lo.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -140,29 +140,29 @@ Primeiro, configure o ponto de extremidade para a conta de armazenamento e, em s
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-Essas variáveis são definidas:
+Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão de Cloud Shell:
 
-**resourceGroup**: Há duas ocorrências desse campo – defina ambas como seu grupo de recursos.
+**resourcegroup**: há duas ocorrências deste campo-defina ambas como seu grupo de recursos.
 
-**nome**: Esse campo é o nome do Hub IoT ao qual o roteamento será aplicado.
+**nome**: esse campo é o nome do Hub IOT ao qual o roteamento será aplicado.
 
-**endpointName**: Este campo é o nome que identifica o ponto de extremidade. 
+**EndpointName**: esse campo é o nome que identifica o ponto de extremidade. 
 
-**endpointType**: Esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina- `azurestoragecontainer`o como.
+**EndpointType**: esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina-a como `azurestoragecontainer`.
 
-**SubscriptionId**: Esse campo é definido como a SubscriptionId para sua conta do Azure.
+**SubscriptionId**: esse campo é definido como a SubscriptionId para sua conta do Azure.
 
-**storageConnectionString**: Esse valor é recuperado da conta de armazenamento configurada no script anterior. Ele é usado pelo roteamento para acessar a conta de armazenamento.
+**storageConnectionString**: esse valor é recuperado da conta de armazenamento configurada no script anterior. Ele é usado pelo roteamento para acessar a conta de armazenamento.
 
-**containerName**: Esse campo é o nome do contêiner na conta de armazenamento para o qual os dados serão gravados.
+**ContainerName**: esse campo é o nome do contêiner na conta de armazenamento na qual os dados serão gravados.
 
-**Codificação**: Defina esse campo como `AVRO` ou. `JSON` Isso designa o formato dos dados armazenados. O padrão é AVRO.
+**Codificação**: defina esse campo como `AVRO` ou `JSON`. Isso designa o formato dos dados armazenados. O padrão é AVRO.
 
-**routeName**: Esse campo é o nome da rota que você está configurando. 
+**RouteName**: esse campo é o nome da rota que você está configurando. 
 
-**condição**: Esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para o armazenamento é `level="storage"`.
+**condição**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para o armazenamento é `level="storage"`.
 
-**habilitado**: Esse campo usa como `true`padrão, indicando que a rota da mensagem deve ser habilitada após a criação.
+**habilitado**: esse campo usa como padrão `true`, indicando que a rota da mensagem deve ser habilitada depois de ser criada.
 
 Copie esse script e cole-o na janela Cloud Shell.
 
@@ -208,7 +208,7 @@ Add-AzIotHubRoute `
 
 ### <a name="route-to-a-service-bus-queue"></a>Rotear para uma fila do barramento de serviço
 
-Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de conexão da fila do barramento de serviço, você deve criar uma regra de autorização que tenha os direitos corretos definidos. O script a seguir cria uma regra de autorização para a fila do `sbauthrule`barramento de serviço chamada e define `Listen Manage Send`os direitos para. Depois que essa regra de autorização for configurada, você poderá usá-la para recuperar a cadeia de conexão para a fila.
+Agora configure o encaminhamento para a fila do Service Bus. Para recuperar a cadeia de conexão da fila do barramento de serviço, você deve criar uma regra de autorização que tenha os direitos corretos definidos. O script a seguir cria uma regra de autorização para a fila do barramento de serviço chamada `sbauthrule`e define os direitos para `Listen Manage Send`. Depois que essa regra de autorização for configurada, você poderá usá-la para recuperar a cadeia de conexão para a fila.
 
 ```powershell
 ##### ROUTING FOR SERVICE BUS QUEUE #####
@@ -232,15 +232,15 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-Agora, configure o ponto de extremidade de roteamento e a rota de mensagem para a fila do barramento de serviço. Essas variáveis são definidas:
+Agora, configure o ponto de extremidade de roteamento e a rota de mensagem para a fila do barramento de serviço. Essas são as variáveis usadas pelo script que devem ser definidas dentro de sua sessão de Cloud Shell:
 
-**endpointName**: Este campo é o nome que identifica o ponto de extremidade. 
+**EndpointName**: esse campo é o nome que identifica o ponto de extremidade. 
 
-**endpointType**: Esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina- `servicebusqueue`o como.
+**EndpointType**: esse campo é o tipo de ponto de extremidade. Esse valor deve ser definido como `azurestoragecontainer`, `eventhub`, `servicebusqueue`ou `servicebustopic`. Para suas finalidades aqui, defina-a como `servicebusqueue`.
 
-**routeName**: Esse campo é o nome da rota que você está configurando. 
+**RouteName**: esse campo é o nome da rota que você está configurando. 
 
-**condição**: Esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para a `level="critical"`fila do barramento de serviço é.
+**condição**: esse campo é a consulta usada para filtrar as mensagens enviadas para esse ponto de extremidade. A condição de consulta para as mensagens que estão sendo roteadas para a fila do barramento de serviço é `level="critical"`.
 
 Aqui está a Azure PowerShell para o roteamento de mensagens para a fila do barramento de serviço.
 

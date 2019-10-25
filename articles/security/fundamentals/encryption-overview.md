@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 408c9fb58b428c1671794c6e4e5cc890a153813f
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 541039c82d5ea21c43a847da2710bef4162a2bc7
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003945"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72804032"
 ---
 # <a name="azure-encryption-overview"></a>Visão geral da criptografia do Azure
 
 Este artigo fornece uma visão geral de como a criptografia é usada em Microsoft Azure. Ele abrange as principais áreas de criptografia, incluindo criptografia em repouso, criptografia em trânsito e gerenciamento de chaves com Azure Key Vault. Cada seção inclui links para informações mais detalhadas.
 
-## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
+## <a name="encryption-of-data-at-rest"></a>Encriptação de dados inativos
 
 Os dados em repouso incluem informações que residem no armazenamento persistente em mídia física, em qualquer formato digital. A mídia pode incluir arquivos em mídia magnética ou óptica, dados arquivados e backups de dados. O Microsoft Azure oferece uma variedade de soluções de armazenamento de dados para atender a diferentes necessidades, incluindo o armazenamento de arquivos, discos, BLOBs e tabelas. A Microsoft também fornece criptografia para proteger o [banco de dados SQL do Azure](../../sql-database/sql-database-technical-overview.md), [Azure Cosmos DB](../../data-factory/introduction.md)e Azure data Lake.
 
@@ -51,15 +51,15 @@ Com a criptografia do lado do cliente, os provedores de serviço de nuvem não t
 
 Os três modelos de criptografia do lado do servidor oferecem diferentes características de gerenciamento de chaves, que podem ser escolhidas de acordo com seus requisitos:
 
-- **Chaves gerenciadas pelo serviço**: Fornece uma combinação de controle e conveniência com baixa sobrecarga.
+- **Chaves gerenciadas por serviço**: fornece uma combinação de controle e conveniência com baixa sobrecarga.
 
-- **Chaves gerenciadas pelo cliente**: Fornece controle sobre as chaves, incluindo o suporte a BYOK (Traga suas próprias chaves) ou permite que você gere novas.
+- **Chaves gerenciadas pelo cliente**: fornece controle sobre as chaves, incluindo o suporte a BYOK (Traga suas próprias chaves) ou permite que você gere novas.
 
-- **Chaves gerenciadas pelo serviço em hardware controlado pelo cliente**: Permite que você gerencie chaves em seu repositório proprietário, fora do Microsoft Control. Essa característica é chamada de host de sua própria chave (HYOK). No entanto, a configuração é complexa e a maioria dos serviços do Azure não oferece suporte a esse modelo.
+- **Chaves gerenciadas pelo serviço em hardware controlado pelo cliente**: permite que você gerencie chaves em seu repositório proprietário, fora do Microsoft Control. Essa característica é chamada de host de sua própria chave (HYOK). No entanto, a configuração é complexa e a maioria dos serviços do Azure não oferece suporte a esse modelo.
 
 ### <a name="azure-disk-encryption"></a>Criptografia de disco do Azure
 
-Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](/azure/security/azure-security-disk-encryption), que usa a tecnologia do [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e o [DM](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
+Você pode proteger as máquinas virtuais do Windows e do Linux usando o [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa a tecnologia do [Windows BitLocker](https://technet.microsoft.com/library/cc766295(v=ws.10).aspx) e o [DM](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para proteger os discos do sistema operacional e os discos de dados com a criptografia de volume completo.
 
 As chaves de criptografia e os segredos são protegidos em sua [assinatura do Azure Key Vault](../../key-vault/key-vault-overview.md). Usando o serviço de backup do Azure, você pode fazer backup e restaurar VMs (máquinas virtuais) criptografadas que usam a configuração KEK (chave de criptografia de chave).
 
@@ -79,7 +79,7 @@ Para saber mais sobre o e baixar a biblioteca de cliente do armazenamento do Azu
 
 Quando você usa a criptografia do lado do cliente com Key Vault, seus dados são criptografados usando uma CEK (chave de criptografia de conteúdo simétrico) única que é gerada pelo SDK do cliente de armazenamento do Azure. O CEK é criptografado usando uma chave de criptografia de chave (KEK), que pode ser uma chave simétrica ou um par de chaves assimétricas. Você pode gerenciá-lo localmente ou armazená-lo em Key Vault. Os dados criptografados são então carregados no armazenamento do Azure.
 
-Para saber mais sobre a criptografia do cliente com o Key Vault e introdução às instruções, consulte [o tutorial: Criptografar e descriptografar BLOBs no armazenamento do](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md)Azure usando Key Vault.
+Para saber mais sobre a criptografia do lado do cliente com Key Vault e introdução às instruções, consulte [tutorial: criptografar e descriptografar BLOBs no armazenamento do Azure usando Key Vault](../../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md).
 
 Por fim, você também pode usar a biblioteca de cliente de armazenamento do Azure para Java para executar a criptografia do lado do cliente antes de carregar dados no armazenamento do Azure e para descriptografar os dados ao baixá-los para o cliente. Essa biblioteca também dá suporte à integração com o [Key Vault](https://azure.microsoft.com/services/key-vault/) para o gerenciamento de chaves da conta de armazenamento.
 
@@ -105,7 +105,7 @@ O CLE tem funções internas que você pode usar para criptografar dados usando 
 
 ### <a name="cosmos-db-database-encryption"></a>Criptografia de banco de dados Cosmos DB
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é o banco de dados multimodelo distribuído globalmente da Microsoft. Os dados do usuário armazenados em Cosmos DB no armazenamento não volátil (unidades de estado sólido) são criptografados por padrão. Não há controles para ativar ou desativar. Encriptação inativa é implementada com um número de tecnologias de segurança, incluindo sistemas de armazenamento de chaves segura, redes encriptadas e APIs criptográficas. As chaves de criptografia são gerenciadas pela Microsoft e são giradas de acordo com as diretrizes internas da Microsoft.
+[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) é o banco de dados multimodelo distribuído globalmente da Microsoft. Os dados do usuário armazenados em Cosmos DB no armazenamento não volátil (unidades de estado sólido) são criptografados por padrão. Não há controles para ativar ou desativar. A criptografia em repouso é implementada usando várias tecnologias de segurança, incluindo sistemas de armazenamento de chaves seguras, redes criptografadas e APIs de criptografia. As chaves de criptografia são gerenciadas pela Microsoft e são giradas de acordo com as diretrizes internas da Microsoft.
 
 ### <a name="at-rest-encryption-in-data-lake"></a>Criptografia em repouso no Data Lake
 
@@ -121,7 +121,7 @@ O Azure oferece muitos mecanismos para manter os dados privados à medida que el
 
 [A Microsoft usa o protocolo](https://en.wikipedia.org/wiki/Transport_Layer_Security) TLS para proteger dados quando está viajando entre os serviços de nuvem e os clientes. Os data centers da Microsoft negociam uma conexão TLS com sistemas cliente que se conectam aos serviços do Azure. O TLS fornece autenticação forte, privacidade de mensagens e integridade (permitindo a detecção de adulteração de mensagem, interceptação e falsificação), interoperabilidade, flexibilidade de algoritmo e facilidade de implantação e uso.
 
-[Sigilo de encaminhamento perfeito](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protege as conexões entre os sistemas cliente dos clientes e os serviços de nuvem da Microsoft por chaves exclusivas. As conexões também usam comprimentos de chave de criptografia de 2.048 bits baseados em RSA. Essa combinação torna difícil para alguém interceptar e acessar dados em trânsito.
+O PFS ( [sigilo contínuo](https://en.wikipedia.org/wiki/Forward_secrecy) ) protege as conexões entre os sistemas cliente dos clientes e os serviços de nuvem da Microsoft por chaves exclusivas. As conexões também usam comprimentos de chave de criptografia de 2.048 bits baseados em RSA. Essa combinação torna difícil para alguém interceptar e acessar dados em trânsito.
 
 ### <a name="azure-storage-transactions"></a>Transações de armazenamento do Azure
 
@@ -181,7 +181,7 @@ Você pode usar uma conexão de gateway de VPN site a site para conectar sua red
 
 Você pode configurar uma conexão VPN site a site para uma rede virtual usando o portal do Azure, o PowerShell ou o CLI do Azure.
 
-Para obter mais informações, consulte:
+Para obter mais informações, veja:
 
 [Criar uma conexão site a site no portal do Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 

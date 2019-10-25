@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: c78f2e37fa29fa1cdcb9acc6a4600688750b6d74
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bcc272a8189ebb175f546f6a50c2c117a7975216
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387598"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800181"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Trabalhando com grandes conjuntos de dados de recursos do Azure
 
@@ -36,7 +36,7 @@ az graph query -q "Resources | project name | order by name asc" --first 200 --o
 Search-AzGraph -Query "Resources | project name | order by name asc" -First 200
 ```
 
-Na [API REST](/rest/api/azureresourcegraph/resources/resources), o controle é **$Top** e faz parte de **QueryRequestOptions**.
+Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), o controle é **$Top** e faz parte de **QueryRequestOptions**.
 
 O controle _mais restritivo_ ganhará. Por exemplo, se a consulta usar os operadores **superior** ou **limite** e resultar em mais registros do que o **primeiro**, os registros máximos retornados seriam iguais a **primeiro**. Da mesma forma, se **Top** ou **Limit** for menor do que **First**, o conjunto de registros retornado será o valor menor configurado por **Top** ou **Limit**.
 
@@ -59,11 +59,11 @@ az graph query -q "Resources | project name | order by name asc" --skip 10 --out
 Search-AzGraph -Query "Resources | project name | order by name asc" -Skip 10
 ```
 
-Na [API REST](/rest/api/azureresourcegraph/resources/resources), o controle é **$Skip** e faz parte de **QueryRequestOptions**.
+Na [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources), o controle é **$Skip** e faz parte de **QueryRequestOptions**.
 
 ## <a name="paging-results"></a>Resultados de paginação
 
-Quando for necessário interromper um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registros retornados, use paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resources/resources) fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**.
+Quando for necessário interromper um conjunto de resultados em conjuntos menores de registros para processamento ou porque um conjunto de resultados excederia o valor máximo permitido de _1000_ registros retornados, use paginação. O **QueryResponse** da [API REST](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources) fornece valores para indicar que um conjunto de resultados foi dividido: **resultTruncated** e **$skipToken**.
 **resultTruncated** é um valor booliano que informa ao consumidor se há registros adicionais não retornados na resposta. Essa condição também pode ser identificada quando a propriedade **Count** for menor que a propriedade **totalRecords** . **totalRecords** define quantos registros correspondem à consulta.
 
 Quando **resultTruncated** é **true**, a propriedade **$skipToken** é definida na resposta. Esse valor é usado com os mesmos valores de consulta e assinatura para obter o próximo conjunto de registros que corresponderam à consulta.
@@ -81,7 +81,7 @@ Search-AzGraph -Query "Resources | project id, name | order by id asc" -First 10
 > [!IMPORTANT]
 > A consulta deve **projetar** o campo **ID** para que a paginação funcione. Se ele estiver ausente da consulta, a resposta não incluirá o **$skipToken**.
 
-Para obter um exemplo, consulte a [consulta de próxima página](/rest/api/azureresourcegraph/resources/resources#next-page-query) nos documentos da API REST.
+Para obter um exemplo, consulte a [consulta de próxima página](/rest/api/azureresourcegraph/resourcegraph(2018-09-01-preview)/resources/resources#next-page-query) nos documentos da API REST.
 
 ## <a name="formatting-results"></a>Formatando resultados
 

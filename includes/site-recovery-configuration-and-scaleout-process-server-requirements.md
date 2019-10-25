@@ -9,57 +9,74 @@ ms.topic: include
 ms.date: 06/10/2018
 ms.author: raynew
 ms.custom: include file
-ms.openlocfilehash: 3b4992a16061bef782f012aa7887b248e3423234
-ms.sourcegitcommit: d3b1f89edceb9bff1870f562bc2c2fd52636fc21
+ms.openlocfilehash: 0156ab3acd2f4c629b0263356f61c22e62b424d1
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67568361"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792333"
 ---
-**Requisitos do servidor de configuração/processos**
+**Requisitos do servidor de configuração/processo**
+
+
+## <a name="hardware-requirements"></a>Requisitos de hardware
 
 **Componente** | **Requisito** 
 --- | ---
-**DEFINIÇÕES DE HARDWARE** | 
 Núcleos de CPU | 8 
 RAM | 16 GB
-Número de discos | 3, incluindo o disco de SO, disco de cache do servidor de processo e unidade de retenção para a reativação pós-falha 
+Número de discos | 3, incluindo o disco do sistema operacional, o disco de cache do servidor de processo e a unidade de retenção para failback 
 Espaço livre em disco (cache do servidor de processo) | 600 GB
 Espaço livre em disco (disco de retenção) | 600 GB
  | 
-**DEFINIÇÕES DE SOFTWARE** | 
+
+## <a name="software-requirements"></a>Requisitos de software
+
+**Componente** | **Requisito** 
+--- | ---
 Sistema operativo | Windows Server 2012 R2 <br> Windows Server 2016
 Região do sistema operativo | Inglês (en-us)
-Funções do Windows Server | Não ative estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
-Políticas de grupo | Não ative estas políticas de grupo: <br> -Impedi o acesso ao prompt de comando. <br> -Impedi o acesso a ferramentas de edição do registo. <br> -Lógica para anexos de ficheiros de fidedignidade. <br> – Ative a execução do Script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
-IIS | -Sem Web site predefinido do já existente <br> -Sem preexistente/aplicação do Web site escute na porta 443 <br>-Permitir [autenticação anónima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Ativar [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) definição 
+Funções do Windows Server | Não habilite estas funções: <br> - Active Directory Domain Services <br>- Serviços de Informação da Internet <br> - Hyper-V 
+Políticas de grupo | Não habilite essas políticas de Grupo: <br> -Impedir o acesso ao prompt de comando. <br> -Impedir o acesso às ferramentas de edição do registro. <br> -Lógica de confiança para anexos de arquivo. <br> -Ative a execução do script. <br> [Saiba mais](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | -Nenhum site padrão já existente <br> -Nenhum site/aplicativo já existente escutando na porta 443 <br>-Habilitar [autenticação anônima](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Habilitar configuração de [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 
 | 
-**DEFINIÇÕES DE REDE** | 
+
+## <a name="network-requirements"></a>Requisitos de rede
+
+**Componente** | **Requisito** 
+--- | --- 
 Tipo de endereço IP | Estático 
 Portas | 443 (Canal de controlo e orquestração)<br>9443 (Transporte de dados) 
-Tipo NIC | VMXNET3 (se o servidor de configuração é uma VM de VMware)
+Tipo de NIC | VMXNET3 (se o servidor de configuração for uma VM VMware)
  |
-**Acesso à Internet** (o servidor tem acesso aos seguintes URLs - diretamente ou através de proxy):|
-\*.backup.windowsazure.com | Utilizado para transferência de dados replicados e coordenação
-\*.store.core.windows.net | Utilizado para transferência de dados replicados e coordenação
-\*.blob.core.windows.net | Utilizado para aceder à conta de armazenamento que armazena dados replicados
-\*.hypervrecoverymanager.windowsazure.com | Utilizado para operações de gestão de replicação e coordenação
-https:\//management.azure.com | Utilizado para operações de gestão de replicação e coordenação 
-*.services.visualstudio.com | Utilizada para fins de telemetria (é opcional)
+**Acesso à Internet** (o servidor precisa de acesso às seguintes URLs – diretamente ou via proxy):|
+\*.backup.windowsazure.com | Usado para transferência e coordenação de dados replicados
+\*.store.core.windows.net | Usado para transferência e coordenação de dados replicados
+\*.blob.core.windows.net | Usado para acessar a conta de armazenamento que armazena os dados replicados
+\*.hypervrecoverymanager.windowsazure.com | Usado para operações de gerenciamento de replicação e coordenação
+https:\//management.azure.com | Usado para operações de gerenciamento de replicação e coordenação 
+*.services.visualstudio.com | Usado para fins de telemetria (é opcional)
 time.nist.gov | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
 time.windows.com | Utilizados para verificar a sincronização da hora entre o sistema e a hora global.
-| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF configurar precisa de aceder a estes URLs. São utilizados para gestão de identidades e de controlo de acesso ao Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser novamente direcionado para o URL de CDN. Certifique-se de que o URL do CDN também está na lista de permissões, se necessário.
+| <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | A configuração do OVF precisa de acesso a essas URLs. Eles são usados para controle de acesso e gerenciamento de identidade por Azure Active Directory
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | Para concluir o download do MySQL. </br> Em algumas regiões, o download pode ser redirecionado para a URL da CDN. Verifique se a URL da CDN também está na lista de permissões, se necessário.
 |
-**SOFTWARE PARA INSTALAR** | 
-VMware vSphere PowerCLI | [Versão 6.0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o servidor de configuração está em execução numa VM do VMware.
-MYSQL | Deve ser instalado o MySQL. Pode instalar manualmente ou recuperação de sites pode instalá-lo. (Consulte a [configurar as definições de](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) para obter mais informações)
 
-**Requisitos de dimensionamento do servidor de configuração/processos**
+## <a name="required-software"></a>Software necessário
 
-**CPU** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Máquinas replicadas**
+**Componente** | **Requisito** 
+--- | ---
+VMware vSphere PowerCLI | A [versão 6,0 do PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) deve ser instalada se o servidor de configuração estiver em execução em uma VM do VMware.
+MYSQL | O MySQL deve ser instalado. Você pode instalar manualmente ou Site Recovery pode instalá-lo. (Consulte [definir configurações](../articles/site-recovery/vmware-azure-deploy-configuration-server.md#configure-settings) para obter mais informações)
+
+## <a name="sizing-and-capacity-requirements"></a>Requisitos de dimensionamento e capacidade
+
+A tabela a seguir resume os requisitos de capacidade para o servidor de configuração. Se você estiver replicando várias VMs VMware, examine as considerações de [planejamento de capacidade](../articles/site-recovery/site-recovery-plan-capacity-vmware.md) e execute a [ferramenta de planejador de implantações do Azure site Recovery](../articles/site-recovery/site-recovery-deployment-planner.md).
+
+
+**CPUs** | **Memória** | **Disco de cache** | **Taxa de alteração de dados** | **Máquinas replicadas**
 --- | --- | --- | --- | ---
-8 vCPUs<br/><br/> 2 sockets * 4 núcleos \@ 2,5 GHz | 16GB | 300 GB | 500 GB ou menos | < 100 máquinas
-12 vCPUs<br/><br/> 2 socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB – 1 TB | máquinas de 100 a 150
-16 vCPUs<br/><br/> 2 socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 máquinas
+8 vCPUs<br/><br/> 2 soquetes * 4 núcleos \@ 2,5 GHz | 16 GB | 300 GB | 500 GB ou menos | < computadores 100
+12 vCPUs<br/><br/> 2 Socks * 6 núcleos \@ 2,5 GHz | 18 GB | 600 GB | 500 GB-1 TB | 100 a 150 computadores
+16 vCPUs<br/><br/> 2 x Socks * 8 núcleos \@ 2,5 GHz | 32 GB | 1 TB | 1-2 TB | 150-200 computadores
 

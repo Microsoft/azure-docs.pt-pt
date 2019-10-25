@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: a545617c9e93a9a5fd0a34acc1dd5e2825917b62
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fb836b44ebd567f0ce1c833ca523b1c199ed9c9a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387670"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785982"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Formato de texto delimitado no Azure Data Factory
 
@@ -29,7 +29,7 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | tipo             | A propriedade Type do conjunto de conjuntos deve ser definida como **DelimitedText**. | Sim      |
-| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e as propriedades com suporte em `location`. **Consulte os detalhes no artigo do conector – > seção Propriedades do conjunto de informações**. | Sim      |
+| localização         | Configurações de local dos arquivos. Cada conector baseado em arquivo tem seu próprio tipo de local e as propriedades com suporte em `location`.  | Sim      |
 | columnDelimiter  | Os caracteres usados para separar colunas em um arquivo. Atualmente, o delimitador de vários caracteres só tem suporte para mapear o fluxo de dados, mas não para a atividade de cópia. <br>O valor padrão é **vírgula `,`** , quando o delimitador de coluna é definido como cadeia de caracteres vazia, o que significa que não há delimitador, a linha inteira é executada como uma única coluna. | Não       |
 | rowDelimiter     | O caractere único ou "\r\n" usado para separar linhas em um arquivo.<br>O valor padrão é qualquer um dos seguintes valores **na leitura: ["\r\n", "\r", "\n"]** e **"\n" ou "\r\n" na gravação** mapeando o fluxo de dados e a atividade de cópia, respectivamente. <br>Quando `rowDelimiter` é definido como nenhum delimitador (cadeia de caracteres vazia), o `columnDelimiter` deve ser definido como nenhum delimitador (cadeia de caracteres vazia) também, o que significa tratar todo o conteúdo como um único valor. | Não       |
 | quoteChar        | O caractere único para citar valores de coluna se ele contiver delimitador de coluna. <br>O valor padrão é **aspas duplas** `"`. <br>Para o mapeamento de fluxo de dados, `quoteChar` não pode ser uma cadeia de caracteres vazia. <br>Para a atividade de cópia, quando `quoteChar` é definido como uma cadeia de caracteres vazia, isso significa que não há nenhum caractere de cotação e o valor da coluna não está entre aspas e `escapeChar` é usado para escapar o delimitador de coluna e ele mesmo. | Não       |
@@ -73,13 +73,13 @@ Para obter uma lista completa de seções e propriedades disponíveis para defin
 
 ### <a name="delimited-text-as-source"></a>Texto delimitado como fonte 
 
-As propriedades a seguir têm suporte na seção de atividade de cópia ***\*source @ no__t-2*** .
+As propriedades a seguir têm suporte na seção ***\*de origem*** da atividade de cópia\*.
 
 | Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
 | tipo           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSource**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de leitura de texto delimitada** abaixo. | Não       |
-| storeSettings  | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| storeSettings  | Um grupo de propriedades sobre como ler dados de um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de leitura com suporte em `storeSettings`. | Não       |
 
 **Configurações de leitura de texto delimitado** com suporte em `formatSettings`:
 
@@ -90,13 +90,13 @@ As propriedades a seguir têm suporte na seção de atividade de cópia ***\*sou
 
 ### <a name="delimited-text-as-sink"></a>Texto delimitado como coletor
 
-As propriedades a seguir têm suporte na seção de atividade de cópia ***\*sink @ no__t-2*** .
+As propriedades a seguir têm suporte na seção de ***\*do coletor*** de atividade de cópia\*.
 
 | Propriedade       | Descrição                                                  | Obrigatório |
 | -------------- | ------------------------------------------------------------ | -------- |
 | tipo           | A propriedade Type da fonte da atividade de cópia deve ser definida como **DelimitedTextSink**. | Sim      |
 | formatSettings | Um grupo de propriedades. Consulte a tabela de **configurações de gravação de texto delimitado** abaixo. |          |
-| storeSettings  | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`. **Veja os detalhes no artigo do conector – > seção Propriedades da atividade de cópia**. | Não       |
+| storeSettings  | Um grupo de propriedades sobre como gravar dados em um armazenamento de dados. Cada conector baseado em arquivo tem suas próprias configurações de gravação com suporte em `storeSettings`.  | Não       |
 
 **Configurações de gravação de texto delimitado** com suporte em `formatSettings`:
 

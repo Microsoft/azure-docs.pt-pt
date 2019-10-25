@@ -14,18 +14,16 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 9ec8e2df8befa28fc023edb30889f177b60939f9
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 87cd7c63939331190530a46071a6b4c40480562f
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015031"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792593"
 ---
 # <a name="media-encoder-premium-workflow-formats-and-codecs"></a>Formatos e codecs de Media Encoder Premium Workflow
 
 > [!NOTE]
-> Para perguntas sobre o codificador mepd@microsoft.comPremium, envie um email para.
-> 
 > Media Encoder Premium Workflow processador de mídia discutido neste tópico não está disponível na China. 
 
 Este documento contém uma lista de formatos de arquivo de entrada e saída e codecs que são suportados pela versão de visualização pública do codificador de **Media Encoder Premium Workflow** .
@@ -100,8 +98,6 @@ A seção a seguir lista os codecs e formatos de arquivo que têm suporte como s
 * Criação de miniatura JPEG
 * HEVC (H. 265; perfil de 8 bits e 10 bits, principal e principal)
 
-  O suporte para HDR 10 está disponível em determinados cenários. entre mepd@microsoft.com em contato com para obter mais informações
-
 
 ### <a name="output-audio-codecs"></a>Codecs de áudio de saída
 
@@ -141,6 +137,9 @@ Na saída, as seguintes opções estão disponíveis:
 
 Se o vídeo de entrada não contiver legendas codificadas, o ativo de saída ainda conterá um arquivo TTML vazio. 
 
+## <a name="need-help"></a>Precisa de ajuda?
+
+Você pode abrir um tíquete de suporte navegando até [nova solicitação de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

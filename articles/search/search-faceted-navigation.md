@@ -1,29 +1,29 @@
 ---
-title: Como implementar a navegação facetada em uma hierarquia de categoria-Azure Search
-description: Adicione navegação de faceta a aplicativos que se integram ao Azure Search, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
-author: HeidiSteen
+title: Como implementar a navegação facetada em uma hierarquia de categoria
+titleSuffix: Azure Cognitive Search
+description: Adicione navegação de faceta a aplicativos que se integram ao Azure Pesquisa Cognitiva, um serviço de pesquisa hospedado na nuvem no Microsoft Azure.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/13/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 8e325abf1f58458d2fa035c8c8f081173efb0e65
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: f1847eae1ee7db90f36072e2e832bd6fec9c2caa
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69649901"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792928"
 ---
-# <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Como implementar a navegação por facetas no Azure Search
+# <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Como implementar a navegação facetada no Azure Pesquisa Cognitiva
+
 A navegação facetada é um mecanismo de filtragem que fornece navegação de busca detalhada Autodirigida em aplicativos de pesquisa. O termo ' navegação facetada ' pode não ser familiar, mas você provavelmente o usou antes. Como mostra o exemplo a seguir, a navegação facetada não é nada mais do que as categorias usadas para filtrar os resultados.
 
- ![Demonstração do portal de trabalho Azure Search](media/search-faceted-navigation/azure-search-faceting-example.png "Demonstração do portal de trabalho Azure Search")
+ ![Demonstração do portal de trabalho do Azure Pesquisa Cognitiva](media/search-faceted-navigation/azure-search-faceting-example.png "Demonstração do portal de trabalho do Azure Pesquisa Cognitiva")
 
 A navegação facetada é um ponto de entrada alternativo para pesquisar. Ele oferece uma alternativa conveniente para digitar expressões de pesquisa complexas manualmente. As facetas podem ajudá-lo a encontrar o que você está procurando, garantindo que você não obtenha nenhum resultado. Como desenvolvedor, as facetas permitem que você exponha os critérios de pesquisa mais úteis para navegar no índice de pesquisa. Em aplicativos de varejo online, a navegação facetada geralmente é criada sobre marcas, departamentos (sapatos de criança), tamanho, preço, popularidade e classificações. 
 
-A implementação de navegação facetada difere entre as tecnologias de pesquisa. No Azure Search, a navegação facetada é criada no momento da consulta, usando os campos que você tenha atribuído anteriormente em seu esquema.
+A implementação de navegação facetada difere entre as tecnologias de pesquisa. No Azure Pesquisa Cognitiva, a navegação facetada é criada no momento da consulta, usando os campos que você tenha atribuído anteriormente em seu esquema.
 
 -   Nas consultas que seu aplicativo cria, uma consulta deve enviar *parâmetros de consulta de faceta* para obter os valores de filtro de faceta disponíveis para esse conjunto de resultados de documento.
 
@@ -34,7 +34,7 @@ No desenvolvimento de aplicativos, escrever código que construa consultas const
 ## <a name="sample-code-and-demo"></a>Exemplo de código e demonstração
 Este artigo usa um portal de pesquisa de trabalho como exemplo. O exemplo é implementado como um aplicativo MVC ASP.NET.
 
--   Veja e teste a demonstração de trabalho online em [Azure Search do portal de trabalho](https://azjobsdemo.azurewebsites.net/).
+-   Consulte e teste a demonstração de trabalho online em demonstração do [portal de trabalho do Azure pesquisa cognitiva](https://azjobsdemo.azurewebsites.net/).
 
 -   Baixe o código do [repositório Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -47,13 +47,13 @@ A experiência de pesquisa para navegação facetada é iterativa, portanto, vam
 
 O ponto de partida é uma página de aplicativo que fornece navegação facetada, normalmente colocada no periferia. A navegação facetada geralmente é uma estrutura de árvore, com caixas de seleção para cada valor ou texto clicável. 
 
-1. Uma consulta enviada para Azure Search especifica a estrutura de navegação facetada por meio de um ou mais parâmetros de consulta de faceta. Por exemplo, a consulta pode incluir `facet=Rating`, talvez com uma `:values` ou `:sort` opção para refinar ainda mais a apresentação.
+1. Uma consulta enviada para o Azure Pesquisa Cognitiva especifica a estrutura de navegação facetada por meio de um ou mais parâmetros de consulta de faceta. Por exemplo, a consulta pode incluir `facet=Rating`, talvez com uma `:values` ou `:sort` opção para refinar ainda mais a apresentação.
 2. A camada de apresentação renderiza uma página de pesquisa que fornece navegação facetada, usando as facetas especificadas na solicitação.
 3. Dada uma estrutura de navegação facetada que inclui classificação, você clica em "4" para indicar que somente os produtos com uma classificação de 4 ou superior devem ser mostrados. 
 4. Em resposta, o aplicativo envia uma consulta que inclui `$filter=Rating ge 4` 
 5. A camada de apresentação atualiza a página, mostrando um conjunto de resultados reduzidos, contendo apenas os itens que atendem aos novos critérios (nesse caso, produtos classificados como 4 e acima).
 
-Uma faceta é um parâmetro de consulta, mas não a confunda com a entrada de consulta. Ele nunca é usado como critério de seleção em uma consulta. Em vez disso, considere os parâmetros de consulta de faceta como entradas para a estrutura de navegação que retorna na resposta. Para cada parâmetro de consulta de faceta que você fornecer, Azure Search avalia quantos documentos estão nos resultados parciais para cada valor de faceta.
+Uma faceta é um parâmetro de consulta, mas não a confunda com a entrada de consulta. Ele nunca é usado como critério de seleção em uma consulta. Em vez disso, considere os parâmetros de consulta de faceta como entradas para a estrutura de navegação que retorna na resposta. Para cada parâmetro de consulta de faceta que você fornecer, o Azure Pesquisa Cognitiva avalia quantos documentos estão nos resultados parciais para cada valor de faceta.
 
 Observe a `$filter` na etapa 4. O filtro é um aspecto importante da navegação facetada. Embora facetas e filtros sejam independentes na API, você precisará de ambos para fornecer a experiência que pretende. 
 
@@ -63,7 +63,7 @@ No código do aplicativo, o padrão é usar parâmetros de consulta de faceta pa
 
 ### <a name="query-basics"></a>Noções básicas de consulta
 
-No Azure Search, uma solicitação é especificada por meio de um ou mais parâmetros de consulta (consulte [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter uma descrição de cada um). Nenhum dos parâmetros de consulta é necessário, mas você deve ter pelo menos um para que uma consulta seja válida.
+No Azure Pesquisa Cognitiva, uma solicitação é especificada por meio de um ou mais parâmetros de consulta (consulte [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter uma descrição de cada um). Nenhum dos parâmetros de consulta é necessário, mas você deve ter pelo menos um para que uma consulta seja válida.
 
 A precisão, entendida como a capacidade de filtrar ocorrências irrelevantes, é obtida por meio de uma ou de ambas as expressões:
 
@@ -89,17 +89,17 @@ Em aplicativos que incluem navegação facetada, certifique-se de que cada açã
 <a name="howtobuildit"></a>
 
 ## <a name="build-a-faceted-navigation-app"></a>Criar um aplicativo de navegação facetado
-Você implementa a navegação facetada com Azure Search no código do aplicativo que cria a solicitação de pesquisa. A navegação facetada depende de elementos no esquema que você definiu anteriormente.
+Implemente a navegação facetada com o Azure Pesquisa Cognitiva no código do aplicativo que cria a solicitação de pesquisa. A navegação facetada depende de elementos no esquema que você definiu anteriormente.
 
 Predefinido no índice de pesquisa é o `Facetable [true|false]` atributo de índice, definido nos campos selecionados para habilitar ou desabilitar seu uso em uma estrutura de navegação facetada. Sem `"Facetable" = true`, um campo não pode ser usado na navegação de faceta.
 
-A camada de apresentação em seu código fornece a experiência do usuário. Ele deve listar as partes constituintes da navegação facetada, como o rótulo, os valores, as caixas de seleção e a contagem. A API REST do Azure Search é independente da plataforma, portanto, use qualquer linguagem e plataforma que desejar. O importante é incluir elementos de interface do usuário que dão suporte à atualização incremental, com estado de interface do usuário atualizado, pois cada faceta adicional é selecionada. 
+A camada de apresentação em seu código fornece a experiência do usuário. Ele deve listar as partes constituintes da navegação facetada, como o rótulo, os valores, as caixas de seleção e a contagem. A API REST do Azure Pesquisa Cognitiva é independente da plataforma, portanto, use qualquer linguagem e plataforma que desejar. O importante é incluir elementos de interface do usuário que dão suporte à atualização incremental, com estado de interface do usuário atualizado, pois cada faceta adicional é selecionada. 
 
 No momento da consulta, o código do aplicativo cria uma solicitação que inclui `facet=[string]`, um parâmetro de solicitação que fornece o campo ao qual facetar. Uma consulta pode ter várias facetas, como `&facet=color&facet=category&facet=rating`, cada uma separada por um caractere de e comercial (&).
 
 O código do aplicativo também deve construir uma expressão `$filter` para manipular os eventos de clique na navegação facetada. Um `$filter` reduz os resultados da pesquisa, usando o valor da faceta como critérios de filtro.
 
-Azure Search retorna os resultados da pesquisa, com base em um ou mais termos inseridos, juntamente com as atualizações da estrutura de navegação facetada. No Azure Search, a navegação facetada é uma construção de nível único, com valores de faceta e contagens de quantos resultados são encontrados para cada um.
+O Azure Pesquisa Cognitiva retorna os resultados da pesquisa, com base em um ou mais termos inseridos, juntamente com as atualizações da estrutura de navegação facetada. No Azure Pesquisa Cognitiva, a navegação facetada é uma construção de nível único, com valores de faceta e contagens de quantos resultados são encontrados para cada um.
 
 Nas seções a seguir, examinaremos mais detalhadamente como criar cada parte.
 
@@ -167,7 +167,7 @@ O trabalho de volta da camada de apresentação pode ajudá-lo a descobrir os re
 
 Em termos de navegação facetada, a página da Web ou do aplicativo exibe a estrutura de navegação facetada, detecta a entrada do usuário na página e insere os elementos alterados. 
 
-Para aplicativos Web, o AJAX é comumente usado na camada de apresentação porque permite que você atualize as alterações incrementais. Você também pode usar o ASP.NET MVC ou qualquer outra plataforma de visualização que possa se conectar a um serviço de Azure Search por HTTP. O aplicativo de exemplo referenciado em todo este artigo – o **Azure Search demonstração do portal de trabalho** – é um aplicativo MVC ASP.net.
+Para aplicativos Web, o AJAX é comumente usado na camada de apresentação porque permite que você atualize as alterações incrementais. Você também pode usar o ASP.NET MVC ou qualquer outra plataforma de visualização que possa se conectar a um serviço de Pesquisa Cognitiva do Azure via HTTP. O aplicativo de exemplo referenciado em todo este artigo – a **demonstração do portal de trabalho do Azure pesquisa cognitiva** – é um aplicativo MVC ASP.net.
 
 No exemplo, a navegação facetada é incorporada à página de resultados da pesquisa. O exemplo a seguir, extraído do arquivo de `index.cshtml` do aplicativo de exemplo, mostra a estrutura HTML estática para exibir a navegação facetada na página de resultados da pesquisa. A lista de facetas é criada ou recriada dinamicamente quando você envia um termo de pesquisa ou seleciona ou limpa uma faceta.
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Um parâmetro de consulta de faceta é definido como um campo e, dependendo do tipo de dados, pode ser mais parametrizado por uma lista delimitada por vírgulas que inclui `count:<integer>`, `sort:<>`, `interval:<integer>` e `values:<list>`. Há suporte para uma lista de valores para dados numéricos durante A configuração de intervalos. Consulte [Pesquisar documentos (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter detalhes de uso.
+Um parâmetro de consulta de faceta é definido como um campo e, dependendo do tipo de dados, pode ser mais parametrizado por uma lista delimitada por vírgulas que inclui `count:<integer>`, `sort:<>`, `interval:<integer>` e `values:<list>`. Há suporte para uma lista de valores para dados numéricos durante A configuração de intervalos. Consulte [Pesquisar documentos (API de pesquisa cognitiva do Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) para obter detalhes de uso.
 
 Juntamente com facetas, a solicitação formulada por seu aplicativo também deve criar filtros para restringir o conjunto de documentos candidatos com base em uma seleção de valor de faceta. Para uma loja de bicicletas, a navegação facetada fornece pistas para perguntas como *quais cores, fabricantes e tipos de bicicletas estão disponíveis?* . A filtragem responde a perguntas como *quais bicicletas exatas são vermelhas, Mountain Bikes, neste intervalo de preços?* . Quando você clica em "vermelho" para indicar que apenas os produtos vermelhos devem ser mostrados, a próxima consulta enviada pelo aplicativo inclui `$filter=Color eq ‘Red’`.
 
@@ -260,7 +260,7 @@ Somente para valores numéricos e DateTime, você pode definir valores explicita
 
 **Por padrão, você só pode ter um nível de navegação facetada** 
 
-Como observado, não há suporte direto para aninhar facetas em uma hierarquia. Por padrão, a navegação facetada no Azure Search dá suporte apenas a um nível de filtros. No entanto, existem soluções alternativas. Você pode codificar uma estrutura de faceta hierárquica em um `Collection(Edm.String)` com um ponto de entrada por hierarquia. A implementação dessa solução alternativa está além do escopo deste artigo. 
+Como observado, não há suporte direto para aninhar facetas em uma hierarquia. Por padrão, a navegação facetada no Azure Pesquisa Cognitiva dá suporte apenas a um nível de filtros. No entanto, existem soluções alternativas. Você pode codificar uma estrutura de faceta hierárquica em um `Collection(Edm.String)` com um ponto de entrada por hierarquia. A implementação dessa solução alternativa está além do escopo deste artigo. 
 
 ### <a name="querying-tips"></a>Dicas de consulta
 **Validar campos**
@@ -302,7 +302,7 @@ Para cada campo facetado na árvore de navegação, há um limite padrão de 10 
 Observe a distinção entre os resultados da faceta e os resultados da pesquisa. Os resultados da pesquisa são todos os documentos que correspondem à consulta. Os resultados da faceta são as correspondências para cada valor de faceta. No exemplo, os resultados da pesquisa incluem nomes de cidades que não estão na lista de classificação da faceta (5 em nosso exemplo). Os resultados que são filtrados pela navegação facetada se tornam visíveis quando você limpa facetas ou escolhe outras facetas além da cidade. 
 
 > [!NOTE]
-> Discutir `count` quando há mais de um tipo pode ser confuso. A tabela a seguir oferece um breve resumo de como o termo é usado na API Azure Search, código de exemplo e documentação. 
+> Discutir `count` quando há mais de um tipo pode ser confuso. A tabela a seguir oferece um breve resumo de como o termo é usado na API de Pesquisa Cognitiva do Azure, código de exemplo e documentação. 
 
 * `@colorFacet.count`<br/>
   No código de apresentação, você deve ver um parâmetro de contagem na faceta, usado para exibir o número de resultados da faceta. Nos resultados da faceta, Count indica o número de documentos que correspondem ao período ou ao intervalo da faceta.
@@ -317,7 +317,7 @@ Ao adicionar um filtro a uma consulta facetada, talvez você queira manter a ins
 
 **Certifique-se de obter contagens de faceta precisas**
 
-Em determinadas circunstâncias, você pode descobrir que as contagens de faceta não correspondem aos conjuntos de resultados (consulte [navegação facetada em Azure Search (postagem do fórum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
+Em determinadas circunstâncias, você pode descobrir que as contagens de faceta não correspondem aos conjuntos de resultados (consulte [navegação facetada no Azure pesquisa cognitiva (postagem no fórum)](https://social.msdn.microsoft.com/Forums/azure/06461173-ea26-4e6a-9545-fbbd7ee61c8f/faceting-on-azure-search?forum=azuresearch)).
 
 As contagens de faceta podem ser imprecisas devido à arquitetura de fragmentação. Cada índice de pesquisa tem vários fragmentos, e cada fragmento relata as N facetas principais por contagem de documentos, que é então combinada em um único resultado. Se alguns fragmentos tiverem muitos valores correspondentes, enquanto outros têm menos, você verá que alguns valores de faceta estão ausentes ou sob conta nos resultados.
 
@@ -326,14 +326,14 @@ Embora esse comportamento possa mudar a qualquer momento, se você encontrar ess
 ### <a name="user-interface-tips"></a>Dicas de interface do usuário
 **Adicionar rótulos para cada campo na navegação da faceta**
 
-Os rótulos normalmente são definidos no HTML ou no formulário (`index.cshtml` no aplicativo de exemplo). Não há API na Azure Search para rótulos de navegação de faceta ou quaisquer outros metadados.
+Os rótulos normalmente são definidos no HTML ou no formulário (`index.cshtml` no aplicativo de exemplo). Não há API no Azure Pesquisa Cognitiva para rótulos de navegação de faceta ou quaisquer outros metadados.
 
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtrar com base em um intervalo
-A facetação de intervalos de valores é um requisito de aplicativo de pesquisa comum. Os intervalos têm suporte para dados numéricos e valores de data e hora. Você pode ler mais sobre cada abordagem em [Pesquisar documentos (Azure Search API)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+A facetação de intervalos de valores é um requisito de aplicativo de pesquisa comum. Os intervalos têm suporte para dados numéricos e valores de data e hora. Você pode ler mais sobre cada abordagem em [Pesquisar documentos (API de pesquisa cognitiva do Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
 
-Azure Search simplifica a construção de intervalo fornecendo duas abordagens para a computação de um intervalo. Para ambas as abordagens, Azure Search cria os intervalos apropriados de acordo com as entradas que você forneceu. Por exemplo, se você especificar valores de intervalo de 10 | 20 | 30, ele criará automaticamente intervalos de 0-10, 10-20, 20-30. O aplicativo pode, opcionalmente, remover os intervalos que estiverem vazios. 
+O Azure Pesquisa Cognitiva simplifica a construção do intervalo fornecendo duas abordagens para a computação de um intervalo. Para ambas as abordagens, o Azure Pesquisa Cognitiva cria os intervalos apropriados de acordo com as entradas que você forneceu. Por exemplo, se você especificar valores de intervalo de 10 | 20 | 30, ele criará automaticamente intervalos de 0-10, 10-20, 20-30. O aplicativo pode, opcionalmente, remover os intervalos que estiverem vazios. 
 
 **Abordagem 1: usar o parâmetro Interval**  
 Para definir facetas de preço em incrementos de $10, você deve especificar: `&facet=price,interval:10`
@@ -347,7 +347,7 @@ Para especificar um intervalo de faceta como aquele na captura de tela anterior,
 
     facet=listPrice,values:10|25|100|500|1000|2500
 
-Cada intervalo é criado usando 0 como um ponto de partida, um valor da lista como um ponto de extremidade e, em seguida, cortado do intervalo anterior para criar intervalos discretos. Azure Search faz essas coisas como parte da navegação facetada. Você não precisa escrever código para estruturar cada intervalo.
+Cada intervalo é criado usando 0 como um ponto de partida, um valor da lista como um ponto de extremidade e, em seguida, cortado do intervalo anterior para criar intervalos discretos. O Azure Pesquisa Cognitiva faz essas coisas como parte da navegação facetada. Você não precisa escrever código para estruturar cada intervalo.
 
 ### <a name="build-a-filter-for-a-range"></a>Criar um filtro para um intervalo
 Para filtrar documentos com base em um intervalo selecionado, você pode usar os operadores de filtro `"ge"` e `"lt"` em uma expressão de duas partes que define os pontos de extremidade do intervalo. Por exemplo, se você escolher o intervalo de 10-25 para um campo `listPrice`, o filtro será `$filter=listPrice ge 10 and listPrice lt 25`. No código de exemplo, a expressão de filtro usa os parâmetros **os** e **PriceTo** para definir os pontos de extremidade. 
@@ -359,19 +359,19 @@ Para filtrar documentos com base em um intervalo selecionado, você pode usar os
 ## <a name="filter-based-on-distance"></a>Filtrar com base na distância
 É comum ver filtros que ajudam a escolher uma loja, restaurante ou destino com base em sua proximidade com seu local atual. Embora esse tipo de filtro possa parecer como navegação facetada, trata-se apenas de um filtro. Mencionamos isso aqui para aqueles que estão procurando especificamente conselhos de implementação para esse problema de design específico.
 
-Há duas funções geoespaciais em Azure Search, **Geo. distance** e **Geo. interseção**.
+Há duas funções geoespaciais no Azure Pesquisa Cognitiva, **Geo. distance** e **Geo. intersecciona**.
 
 * A função **geográfico. distance** retorna a distância em quilômetros entre dois pontos. Um ponto é um campo e outro é uma constante passada como parte do filtro. 
 * A função **Geo. interseccionations** retornará true se um determinado ponto estiver dentro de um determinado polígono. O ponto é um campo e o polígono é especificado como uma lista constante de coordenadas passadas como parte do filtro.
 
-Você pode encontrar exemplos de filtro na [sintaxe de expressão OData (Azure Search)](query-odata-filter-orderby-syntax.md).
+Você pode encontrar exemplos de filtro na [sintaxe de expressão OData (Azure pesquisa cognitiva)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 
 ## <a name="try-the-demo"></a>Experimente a demonstração
-A demonstração do portal de trabalho Azure Search contém os exemplos mencionados neste artigo.
+A demonstração do portal de trabalho do Azure Pesquisa Cognitiva contém os exemplos referenciados neste artigo.
 
--   Veja e teste a demonstração de trabalho online em [Azure Search do portal de trabalho](https://azjobsdemo.azurewebsites.net/).
+-   Consulte e teste a demonstração de trabalho online em demonstração do [portal de trabalho do Azure pesquisa cognitiva](https://azjobsdemo.azurewebsites.net/).
 
 -   Baixe o código do [repositório Azure-Samples no GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -396,7 +396,7 @@ Conforme você trabalha com os resultados da pesquisa, observe a URL quanto a al
 <a name="nextstep"></a>
 
 ## <a name="learn-more"></a>Saber mais
-Assista [Azure Search aprofundamento](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410). Em 45:25, há uma demonstração sobre como implementar facetas.
+Assista ao [Azure pesquisa cognitiva aprofundar](https://channel9.msdn.com/Events/TechEd/Europe/2014/DBI-B410)-se. Em 45:25, há uma demonstração sobre como implementar facetas.
 
 Para obter mais informações sobre princípios de design para navegação facetada, recomendamos os seguintes links:
 

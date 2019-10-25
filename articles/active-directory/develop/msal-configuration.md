@@ -1,5 +1,6 @@
 ---
-title: Entender o arquivo de configuração do MSAL (biblioteca de autenticação da Microsoft) do Android | Azure
+title: Entender o arquivo de configuração do MSAL (biblioteca de autenticação da Microsoft) do Android
+titleSuffix: Microsoft identity platform
 description: Uma visão geral do arquivo de configuração do MSAL (biblioteca de autenticação da Microsoft) do Android, que representa a configuração de um aplicativo no Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2851adf14f5ccaec576a325cefcef8523be03bc
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679753"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803149"
 ---
 # <a name="android-microsoft-authentication-library-msal-configuration-file"></a>Arquivo de configuração do MSAL (biblioteca de autenticação da Microsoft) do Android
 
@@ -34,14 +35,14 @@ Este artigo o ajudará a entender as várias configurações no arquivo de confi
 
 ### <a name="general-settings"></a>Definições gerais
 
-| Propriedade | Tipo de Dados | Requerido | Notas |
+| Propriedade | Tipo de Dados | Obrigatório | Notas |
 |-----------|------------|-------------|-------|
-| `client_id` | Cadeia | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `redirect_uri`   | Cadeia | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `authorities` | Listar @ no__t-0Authority > | Não | A lista de autoridades que seu aplicativo precisa |
+| `client_id` | String | Sim | A ID do cliente do aplicativo na [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `redirect_uri`   | String | Sim | O URI de redirecionamento do seu aplicativo da [página de registro do aplicativo](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
+| `authorities` | Listar > de autoridade de\< | Não | A lista de autoridades que seu aplicativo precisa |
 | `authorization_user_agent` | AuthorizationAgent (enum) | Não | Valores possíveis: `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | Não | Configurar `HttpUrlConnection` `connect_timeout` e `read_timeout` |
-| `logging` | LoggingConfiguration | Não | Especifica o nível de detalhes de log. As configurações opcionais incluem: `pii_enabled`, que usa um valor booliano e `log_level`, que usa `ERROR`, `WARNING`, `INFO` ou `VERBOSE`. |
+| `logging` | LoggingConfiguration | Não | Especifica o nível de detalhes de log. As configurações opcionais incluem: `pii_enabled`, que usa um valor booliano e `log_level`, que usa `ERROR`, `WARNING`, `INFO`ou `VERBOSE`. |
 
 ### <a name="client_id"></a>client_id
 
@@ -90,7 +91,7 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 
 #### <a name="map-aad-authority--audience-to-microsoft-identity-platform-endpoints"></a>Mapear a autoridade do AAD & público para pontos de extremidade da plataforma Microsoft Identity
 
-| Type | Audiência | ID do inquilino | Authority_Url | Ponto de extremidade resultante | Notas |
+| Tipo | Audiência | ID do inquilino | Authority_Url | Ponto de extremidade resultante | Notas |
 |------|------------|------------|----------------|----------------------|---------|
 | AAD | AzureADandPersonalMicrosoftAccount | | | https://login.microsoftonline.com/common | `common` é um alias de locatário para onde a conta é. Como um locatário específico de Azure Active Directory ou o sistema conta Microsoft. |
 | AAD | AzureADMyOrg | contoso.com | | https://login.microsoftonline.com/contoso.com | Somente as contas presentes no contoso.com podem adquirir um token. Qualquer domínio verificado, ou o GUID do locatário, pode ser usado como a ID do locatário. |
@@ -101,32 +102,32 @@ A lista de autoridades que são conhecidas e confiáveis por você. Além das au
 > [!NOTE]
 > A validação de autoridade não pode ser habilitada e desabilitada em MSAL.
 > As autoridades são conhecidas por você como o desenvolvedor especificado por meio da configuração ou são conhecidas pela Microsoft por meio de metadados.
-> Se o MSAL receber uma solicitação de um token para uma autoridade desconhecida, um `MsalClientException` do tipo `UnknownAuthority` resultados.
+> Se MSAL receber uma solicitação de um token para uma autoridade desconhecida, um `MsalClientException` do tipo `UnknownAuthority` resultados.
 
 #### <a name="authority-properties"></a>Propriedades da autoridade
 
-| Propriedade | Tipo de dados  | Requerido | Notas |
+| Propriedade | Data type  | Obrigatório | Notas |
 |-----------|-------------|-----------|--------|
-| `type` | Cadeia | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`, `B2C` |
-| `audience` | Objeto | Não | Aplica-se somente quando Type = `AAD`. Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
-| `authority_url` | Cadeia | Sim | Necessário somente quando Type = `B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
+| `type` | String | Sim | Espelha o público ou o tipo de conta de destino do seu aplicativo. Valores possíveis: `AAD`, `B2C` |
+| `audience` | Object | Não | Aplica-se somente quando Type =`AAD`. Especifica a identidade de destino do seu aplicativo. Usar o valor do registro do aplicativo |
+| `authority_url` | String | Sim | Necessário somente quando Type =`B2C`. Especifica a URL ou a política de autoridade que seu aplicativo deve usar  |
 | `default` | boolean | Sim | Um único `"default":true` é necessário quando uma ou mais autoridades são especificadas. |
 
 #### <a name="audience-properties"></a>Propriedades do público
 
-| Propriedade | Tipo de Dados  | Requerido | Notas |
+| Propriedade | Tipo de Dados  | Obrigatório | Notas |
 |-----------|-------------|------------|-------|
-| `type` | Cadeia | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs`, `AzureADMyOrg` |
-| `tenant_id` | Cadeia | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros valores `type`. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
+| `type` | String | Sim | Especifica o público-alvo que seu aplicativo deseja direcionar. Valores possíveis: `AzureADandPersonalMicrosoftAccount`, `PersonalMicrosoftAccount`, `AzureADMultipleOrgs``AzureADMyOrg` |
+| `tenant_id` | String | Sim | Necessário somente quando `"type":"AzureADMyOrg"`. Opcional para outros valores de `type`. Pode ser um domínio de locatário, como `contoso.com`, ou uma ID de locatário, como `72f988bf-86f1-41af-91ab-2d7cd011db46`) |
 
 ### <a name="authorization_user_agent"></a>authorization_user_agent
 
 Indica se deve ser usado um WebView inserido ou o navegador padrão no dispositivo, ao entrar em uma conta ou autorizar o acesso a um recurso.
 
 Valores possíveis:
-- `DEFAULT`: Prefere o navegador do sistema. Usa a exibição da Web inserida se um navegador não estiver disponível no dispositivo.
+- `DEFAULT`: prefere o navegador do sistema. Usa a exibição da Web inserida se um navegador não estiver disponível no dispositivo.
 - `WEBVIEW`: Use a exibição da Web inserida.
-- `BROWSER`: Usa o navegador padrão no dispositivo.
+- `BROWSER`: usa o navegador padrão no dispositivo.
 
 ### <a name="multiple_clouds_supported"></a>multiple_clouds_supported
 
@@ -142,7 +143,7 @@ Se você estiver usando a autoridade do AAD com o público definido como `"Micro
 
 Defina configurações globais para tempos limite de HTTP, como:
 
-| Propriedade | Tipo de dados | Requerido | Notas |
+| Propriedade | Data type | Obrigatório | Notas |
 | ---------|-----------|------------|--------|
 | `connect_timeout` | int | Não | Tempo em milissegundos |
 | `read_timeout` | int | Não | Tempo em milissegundos |
@@ -151,7 +152,7 @@ Defina configurações globais para tempos limite de HTTP, como:
 
 As seguintes configurações globais são para registro em log:
 
-| Propriedade | Tipo de Dados  | Requerido | Notas |
+| Propriedade | Tipo de Dados  | Obrigatório | Notas |
 | ----------|-------------|-----------|---------|
 | `pii_enabled`  | boolean | Não | Se os dados pessoais devem ser emitidos |
 | `log_level`   | boolean | Não | Quais mensagens de log para saída |

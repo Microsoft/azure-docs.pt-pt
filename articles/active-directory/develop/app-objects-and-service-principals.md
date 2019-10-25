@@ -1,5 +1,6 @@
 ---
 title: Objetos de aplicativo e entidade de serviço no Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre a relação entre objetos de aplicativo e entidade de serviço no Azure Active Directory.
 documentationcenter: dev-center-name
 author: rwike77
@@ -18,18 +19,18 @@ ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83083026b20573d93777e77f44bf8d5480bfdd97
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: c1a4d9301894c6a98abd8244fdd6c10a058a26ad
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853313"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803433"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicativo e entidade de serviço no Azure Active Directory
 
 Às vezes, o significado do termo "aplicativo" pode ser mal compreendido quando usado no contexto de Azure Active Directory (AD do Azure). Este artigo esclarece os aspectos conceituais e concretos da integração de aplicativos do Azure AD, com uma ilustração de registro e consentimento para um [aplicativo multilocatário](developer-glossary.md#multi-tenant-application).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Visão geral
 
 Um aplicativo que foi integrado ao Azure AD tem implicações que vão além do aspecto do software. "Aplicativo" é frequentemente usado como um termo conceitual, referindo-se não apenas ao software do aplicativo, mas também ao seu registro e função do Azure AD em "conversas" de autenticação/autorização em tempo de execução.
 
@@ -93,11 +94,11 @@ Neste cenário de exemplo:
 | 2    | Quando os administradores da Contoso e da Fabrikam concluírem o consentimento, um objeto de entidade de serviço será criado no locatário do Azure AD da empresa e receberá as permissões concedidas pelo administrador. Observe também que o aplicativo de RH pode ser configurado/projetado para permitir o consentimento pelos usuários para uso individual. |
 | 3    | Os locatários do consumidor do aplicativo de RH (contoso e Fabrikam) têm seu próprio objeto de entidade de serviço. Cada um representa o uso de uma instância do aplicativo em tempo de execução, governado pelas permissões consentidas pelo respectivo administrador. |
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Você pode usar o [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) para consultar os objetos de aplicativo e entidade de serviço.
-- Você pode acessar o objeto de aplicativo de um aplicativo usando a API Microsoft Graph, o editor de manifesto [do aplicativo portal do Azure][AZURE-Portal] ou os cmdlets do [PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de aplicativo][MS-Graph-App-Entity]OData.
-- Você pode acessar o objeto de entidade de serviço de um aplicativo por meio da API do Microsoft Graph ou dos [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade][MS-Graph-Sp-Entity]de UserEntity do OData.
+- Você pode acessar o objeto de aplicativo de um aplicativo usando a API Microsoft Graph, o editor de manifesto [do aplicativo portal do Azure][AZURE-Portal] ou os [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de aplicativo][MS-Graph-App-Entity]OData.
+- Você pode acessar o objeto de entidade de serviço de um aplicativo por meio da API do Microsoft Graph ou dos [cmdlets do PowerShell do Azure ad](https://docs.microsoft.com/powershell/azure/overview?view=azureadps-2.0), conforme representado por sua [entidade de UserEntity][MS-Graph-Sp-Entity]do OData.
 
 <!--Image references-->
 

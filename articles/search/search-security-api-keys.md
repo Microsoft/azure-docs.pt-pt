@@ -1,23 +1,21 @@
 ---
-title: Criar, gerenciar e proteger o administrador e as chaves de API de consulta-Azure Search
-description: as chaves de API controlam o acesso ao ponto de extremidade de serviço. As chaves de administração concedem acesso de gravação. As chaves de consulta podem ser criadas para acesso somente leitura.
-author: HeidiSteen
+title: Criar, gerenciar e proteger as chaves de API de administração e de consulta
+titleSuffix: Azure Cognitive Search
+description: Uma API-key controla o acesso ao ponto de extremidade de serviço. As chaves de administração concedem acesso de gravação. As chaves de consulta podem ser criadas para acesso somente leitura.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: rest-api
-ms.topic: conceptual
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: a148ccccd156b0bf637a134758b3a1c8b9db70a7
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 68a17b8b3587077222a9ed2057927c8f16253c1e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647894"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794377"
 ---
-# <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Criar e gerenciar chaves de API para um serviço de Azure Search
+# <a name="create-and-manage-api-keys-for-an-azure-cognitive-search-service"></a>Criar e gerenciar chaves de API para um serviço de Pesquisa Cognitiva do Azure
 
 Todas as solicitações para um serviço de pesquisa precisam de uma chave de API somente leitura que foi gerada especificamente para seu serviço. A chave de API é o único mecanismo para autenticar o acesso ao ponto de extremidade do serviço de pesquisa e deve ser incluído em cada solicitação. Em [soluções REST](search-get-started-postman.md), a chave de API é normalmente especificada em um cabeçalho de solicitação. Em [soluções .net](search-howto-dotnet-sdk.md#core-scenarios), uma chave é geralmente especificada como uma definição de configuração e, em seguida, passada como [credenciais](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.credentials) (chave de administração) ou [SearchCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.searchcredentials) (chave de consulta) em [SearchServiceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient).
 
@@ -33,13 +31,13 @@ Dois tipos de chaves são usados para acessar o serviço de pesquisa: administra
 
 |Chave|Descrição|Limites|  
 |---------|-----------------|------------|  
-|administrador|Concede direitos totais a todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados.<br /><br /> Duas chaves de administração, chamadas de chaves primárias e *secundárias* no portal, são geradas quando o serviço é criado e podem ser regeneradas individualmente sob demanda. Ter duas chaves permite que você passe por uma chave enquanto usa a segunda chave para obter acesso contínuo ao serviço.<br /><br /> As chaves de administração são especificadas apenas nos cabeçalhos de solicitação HTTP. Não é possível inserir uma chave de API de administração em uma URL.|Máximo de 2 por serviço|  
+|ADM|Concede direitos totais a todas as operações, incluindo a capacidade de gerenciar o serviço, criar e excluir índices, indexadores e fontes de dados.<br /><br /> Duas chaves de administração, chamadas de chaves *primárias* e *secundárias* no portal, são geradas quando o serviço é criado e podem ser regeneradas individualmente sob demanda. Ter duas chaves permite que você passe por uma chave enquanto usa a segunda chave para obter acesso contínuo ao serviço.<br /><br /> As chaves de administração são especificadas apenas nos cabeçalhos de solicitação HTTP. Não é possível inserir uma chave de API de administração em uma URL.|Máximo de 2 por serviço|  
 |Consulta|Concede acesso somente leitura a índices e documentos, e normalmente são distribuídos para aplicativos cliente que emitem solicitações de pesquisa.<br /><br /> As chaves de consulta são criadas sob demanda. Você pode criá-los manualmente no portal ou programaticamente por meio da [API REST de gerenciamento](https://docs.microsoft.com/rest/api/searchmanagement/).<br /><br /> As chaves de consulta podem ser especificadas em um cabeçalho de solicitação HTTP para pesquisa, sugestão ou operação de pesquisa. Como alternativa, você pode passar uma chave de consulta como um parâmetro em uma URL. Dependendo de como o aplicativo cliente formula a solicitação, pode ser mais fácil passar a chave como um parâmetro de consulta:<br /><br /> `GET /indexes/hotels/docs?search=*&$orderby=lastRenovationDate desc&api-version=2019-05-06&api-key=[query key]`|50 por serviço|  
 
  Visualmente, não há nenhuma distinção entre uma chave de administração ou uma chave de consulta. Ambas as chaves são cadeias de caracteres compostas de 32 de caractere alfanuméricos gerados aleatoriamente. Se você perder o controle de qual tipo de chave é especificado em seu aplicativo, poderá [verificar os valores de chave no portal](https://portal.azure.com) ou usar a [API REST](https://docs.microsoft.com/rest/api/searchmanagement/) para retornar o valor e o tipo de chave.  
 
 > [!NOTE]  
->  É considerada uma prática de segurança inadequada para passar dados confidenciais, como `api-key` um no URI de solicitação. Por esse motivo, Azure Search aceita apenas uma chave de consulta como `api-key` uma na cadeia de caracteres de consulta, e você deve evitar fazer isso, a menos que o conteúdo do índice esteja disponível publicamente. Como regra geral, recomendamos passar seu `api-key` como um cabeçalho de solicitação.  
+>  É considerada uma prática de segurança inadequada para passar dados confidenciais, como um `api-key` no URI de solicitação. Por esse motivo, o Azure Pesquisa Cognitiva aceita apenas uma chave de consulta como uma `api-key` na cadeia de caracteres de consulta e você deve evitar fazer isso, a menos que o conteúdo do índice deva estar publicamente disponível. Como regra geral, é recomendável passar seu `api-key` como um cabeçalho de solicitação.  
 
 ## <a name="find-existing-keys"></a>Localizar chaves existentes
 
@@ -66,7 +64,7 @@ Restringir o acesso e as operações em aplicativos cliente é essencial para pr
    ![Criar ou usar uma chave de consulta](media/search-security-overview/create-query-key.png) 
 
 > [!Note]
-> Um exemplo de código que mostra o uso da chave de consulta pode ser encontrado em [consultar um índice de Azure Search em C# ](search-query-dotnet.md).
+> Um exemplo de código que mostra o uso da chave de consulta pode ser encontrado em [consultar C#um índice de pesquisa cognitiva do Azure no ](search-query-dotnet.md).
 
 <a name="regenerate-admin-keys"></a>
 
@@ -74,7 +72,7 @@ Restringir o acesso e as operações em aplicativos cliente é essencial para pr
 
 Duas chaves de administração são criadas para cada serviço para que você possa girar uma chave primária usando a chave secundária para continuidade dos negócios.
 
-1. Na página**chaves** de **configurações** >, copie a chave secundária.
+1. Na página **configurações** >**chaves** , copie a chave secundária.
 2. Para todos os aplicativos, atualize as configurações de chave de API para usar a chave secundária.
 3. Regenerar a chave primária.
 4. Atualize todos os aplicativos para usar a nova chave primária.
@@ -88,15 +86,15 @@ Depois de criar novas chaves por meio do portal ou da camada de gerenciamento, o
 ## <a name="secure-api-keys"></a>Proteger chaves de API
 A segurança da chave é garantida restringindo o acesso por meio do portal ou das interfaces do Resource Manager (PowerShell ou interface de linha de comando). Como observado, os administradores de assinatura podem exibir e regenerar todas as chaves de API. Como precaução, revise as atribuições de função para entender quem tem acesso às chaves de administração.
 
-+ No painel de serviço, clique em **controle de acesso (iam)** e na guia atribuições de **função** para exibir as atribuições de função para seu serviço.
++ No painel de serviço, clique em **controle de acesso (iam)** e na guia **atribuições de função** para exibir as atribuições de função para seu serviço.
 
-Os membros das seguintes funções podem exibir e regenerar chaves: Proprietário, colaborador, [colaboradores de serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
+Os membros das seguintes funções podem exibir e regenerar chaves: proprietário, colaborador, [colaboradores de serviço de pesquisa](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#search-service-contributor)
 
 > [!Note]
 > Para obter acesso baseado em identidade nos resultados da pesquisa, você pode criar filtros de segurança para cortar os resultados por identidade, removendo documentos para os quais o solicitante não deve ter acesso. Para obter mais informações, consulte [filtros de segurança](search-security-trimming-for-azure-search.md) e [proteger com Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-+ [Controle de acesso baseado em função no Azure Search](search-security-rbac.md)
++ [Controle de acesso baseado em função no Azure Pesquisa Cognitiva](search-security-rbac.md)
 + [Gerir com o PowerShell](search-manage-powershell.md) 
 + [Artigo de desempenho e otimização](search-performance-optimization.md)

@@ -1,5 +1,6 @@
 ---
-title: Configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure AD | Microsoft Docs
+title: Configurar a declaração de função para aplicativos empresariais no Azure AD
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar a declaração de função emitida no token SAML para aplicativos empresariais no Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,14 +18,14 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 699c8ce559d26ad226ad1dfd7f7266fe8c4acdfb
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70207201"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803491"
 ---
-# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como: Configurar a declaração de função emitida no token SAML para aplicativos empresariais
+# <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
 Usando Azure Active Directory (AD do Azure), você pode personalizar o tipo de declaração para a declaração de função no token de resposta que você recebe depois de autorizar um aplicativo.
 
@@ -80,7 +81,7 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
-      Se você estiver usando vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+      Se você estiver usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
       ![Caixa de diálogo Gerenciador de gráficos, com a consulta para buscar entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -157,7 +158,7 @@ Se seu aplicativo espera que as funções personalizadas sejam passadas em uma r
 
     | Nome do atributo | Valor do atributo |
     | -------------- | ----------------|
-    | Nome da função  | user.assignedroles |
+    | Nome da função  | User. assignedroles |
 
     >[!NOTE]
     >Se o valor de declaração de função for nulo, o Azure AD não enviará esse valor no token e isso será padrão de acordo com o design.
@@ -194,7 +195,7 @@ Para atualizar uma função existente, execute as seguintes etapas:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se você estiver usando vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se você estiver usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo Gerenciador de gráficos, com a consulta para buscar entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -232,7 +233,7 @@ Para excluir uma função existente, execute as seguintes etapas:
 
     `https://graph.microsoft.com/beta/servicePrincipals`
 
-    Se você estiver usando vários diretórios, siga este padrão:`https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
+    Se você estiver usando vários diretórios, siga este padrão: `https://graph.microsoft.com/beta/contoso.com/servicePrincipals`
 
     ![Caixa de diálogo Gerenciador de gráficos, com a consulta para buscar a lista de entidades de serviço](./media/active-directory-enterprise-app-role-management/graph-explorer-new1.png)
 
@@ -268,7 +269,7 @@ Para excluir uma função existente, execute as seguintes etapas:
     > [!NOTE]
     > A função precisa ser desabilitada para que possa ser removida.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter etapas adicionais, consulte a [documentação do aplicativo](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 

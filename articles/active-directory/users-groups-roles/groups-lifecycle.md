@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56bfe92de24b9386252ee8719af66cc658948565
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3cef2bd16907de6e60db2678516f70346a20285
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844309"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803605"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configurar a política de expiração para grupos do Office 365
 
@@ -28,9 +28,16 @@ Este artigo mostra como gerenciar o ciclo de vida dos grupos do Office 365 defin
 
 Depois de definir um grupo para expirar:
 
-- Os proprietários do grupo são notificados para renovar o grupo à medida que a expiração é próxima
+- Grupos com atividades do usuário são renovados automaticamente à medida que a expiração é próxima
+- Os proprietários do grupo são notificados para renovar o grupo, se o grupo não for renovado automaticamente
 - Qualquer grupo que não é renovado é excluído
 - Qualquer grupo do Office 365 excluído pode ser restaurado dentro de 30 dias por proprietários do grupo ou pelo administrador
+
+As ações folloing resultarão na renovação automática de um grupo:
+
+- SharePoint – exibir, editar, baixar, mover, compartilhar e carregar arquivos
+- Outlook-ingressar no grupo, mensagem de grupo de leitura/gravação e como uma mensagem
+- Equipes-visite um canal de equipes
 
 Atualmente, apenas uma política de expiração pode ser configurada para grupos do Office 365 num inquilino.
 
@@ -43,7 +50,7 @@ Para obter informações sobre como baixar e instalar os cmdlets do PowerShell d
 
 As funções a seguir podem configurar e usar a expiração para grupos do Office 365 no Azure AD.
 
-Role | Permissões
+Função | Permissões
 -------- | --------
 Administrador global ou administrador de usuários | Pode criar, ler, atualizar ou excluir as configurações de política de expiração dos grupos do Office 365<br>Pode renovar qualquer grupo do Office 365
 Utilizador | Pode renovar um grupo do Office 365 que ele possui<br>Pode restaurar um grupo do Office 365 que ele possui<br>Pode ler as configurações da política de expiração
@@ -69,15 +76,15 @@ Para obter mais informações sobre permissões para restaurar um grupo excluíd
   - Salve as configurações quando terminar selecionando **salvar**.
 
 > [!NOTE]
-> Quando você configura pela primeira vez, todos os grupos que são mais antigos que o intervalo de expiração são definidos como 30 dias até a expiração, a menos que o proprietário o renova. O email de notificação da primeira renovação é enviado dentro de um dia.
+> Quando você configura pela primeira vez, todos os grupos que são mais antigos que o intervalo de expiração são definidos como 35 dias até a expiração, a menos que o grupo seja renovado automaticamente ou o proprietário o renova. 
 >
 > Quando um grupo dinâmico é excluído e restaurado, ele é visto como um novo grupo e populado novamente de acordo com a regra. Esse processo pode levar até 24 horas.
 >
 > Os avisos de expiração para grupos usados em equipes são exibidos no feed proprietários de equipes.
 
-## <a name="email-notifications"></a>Notificações de e-mail
+## <a name="email-notifications"></a>Notificações por e-mail
 
-As notificações por email, como esta, são enviadas para os proprietários do grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo. O idioma do email é determinado pela configuração de idioma preferencial do proprietário de grupos ou da linguagem do Azure AD. Se o proprietário do grupo tiver definido um idioma preferencial ou se vários proprietários tiverem o mesmo idioma preferencial, esse idioma será usado. Para todos os outros casos, a configuração de idioma do Azure AD é usada.
+Se os grupos não forem renovados automaticamente, as notificações por email, como este, serão enviadas para os proprietários do grupo do Office 365 30 dias, 15 dias e 1 dia antes da expiração do grupo. O idioma do email é determinado pela configuração de idioma preferencial do proprietário de grupos ou da linguagem do Azure AD. Se o proprietário do grupo tiver definido um idioma preferencial ou se vários proprietários tiverem o mesmo idioma preferencial, esse idioma será usado. Para todos os outros casos, a configuração de idioma do Azure AD é usada.
 
 ![Notificações por email de expiração](./media/groups-lifecycle/expiration-notification.png)
 
@@ -113,17 +120,17 @@ Aqui estão exemplos de como você pode usar os cmdlets do PowerShell para defin
    Connect-AzureAD
    ```
 
-1. Definir as configurações de expiração use o cmdlet New-AzureADMSGroupLifecyclePolicy para definir o tempo de vida de todos os grupos do Office 365 na organização do Azure AD como 365 dias. As notificações de renovação para grupos do Office 365 sem proprietários serão enviadasemailaddress@contoso.compara ' '
+1. Definir as configurações de expiração use o cmdlet New-AzureADMSGroupLifecyclePolicy para definir o tempo de vida de todos os grupos do Office 365 na organização do Azure AD como 365 dias. As notificações de renovação para grupos do Office 365 sem proprietários serão enviadas para 'emailaddress@contoso.com'
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
    ```
 
-1. Recupere a política existente Get-AzureADMSGroupLifecyclePolicy: Esse cmdlet recupera as configurações atuais de expiração do grupo do Office 365 que foram configuradas. Neste exemplo, você pode ver:
+1. Recuperar a política existente Get-AzureADMSGroupLifecyclePolicy: esse cmdlet recupera as configurações atuais de expiração do grupo do Office 365 que foram configuradas. Neste exemplo, você pode ver:
 
    - A ID da política
    - O tempo de vida de todos os grupos do Office 365 na organização do Azure AD é definido como 365 dias
-   - As notificações de renovação para grupos do Office 365 sem proprietários serão enviadasemailaddress@contoso.compara '. '
+   - As notificações de renovação para grupos do Office 365 sem proprietários serão enviadas para 'emailaddress@contoso.com'.
   
    ```powershell
    Get-AzureADMSGroupLifecyclePolicy
@@ -133,19 +140,19 @@ Aqui estão exemplos de como você pode usar os cmdlets do PowerShell para defin
    26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
    ```
 
-1. Atualize o conjunto de políticas existente-AzureADMSGroupLifecyclePolicy: Esse cmdlet é usado para atualizar uma política existente. No exemplo a seguir, o tempo de vida do grupo na política existente é alterado de 365 dias para 180 dias.
+1. Atualizar a política existente Set-AzureADMSGroupLifecyclePolicy: Este cmdlet é usado para atualizar uma política existente. No exemplo a seguir, o tempo de vida do grupo na política existente é alterado de 365 dias para 180 dias.
   
    ```powershell
    Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
    ```
   
-1. Adicione grupos específicos à política Add-AzureADMSLifecyclePolicyGroup: Esse cmdlet adiciona um grupo à política de ciclo de vida. Por exemplo:
+1. Adicionar grupos específicos à política Add-AzureADMSLifecyclePolicyGroup: esse cmdlet adiciona um grupo à política de ciclo de vida. Em forma de exemplo:
   
    ```powershell
    Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
    ```
   
-1. Remova a política existente remove-AzureADMSGroupLifecyclePolicy: Este cmdlet exclui as configurações de expiração do grupo do Office 365, mas requer a ID da política. Isso desabilitará a expiração dos grupos do Office 365.
+1. Remover a política existente remove-AzureADMSGroupLifecyclePolicy: Este cmdlet exclui as configurações de expiração do grupo do Office 365, mas requer a ID da política. Isso desabilitará a expiração dos grupos do Office 365.
   
    ```powershell
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
@@ -160,7 +167,7 @@ Os cmdlets a seguir podem ser usados para configurar a política mais detalhadam
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup
 - Remove-AzureADMSLifecyclePolicyGroup
-- Reset-AzureADMSLifeCycleGroup
+- Redefinir-AzureADMSLifeCycleGroup
 - Get-AzureADMSLifecyclePolicyGroup
 
 ## <a name="next-steps"></a>Passos seguintes

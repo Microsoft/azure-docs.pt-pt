@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7ef9b55dd17a6f1d190282f369ccb8b9386e65d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 39b727d14419634d413e0f649a43d455c4aeba20
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324281"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803546"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma Microsoft Identity
 
@@ -108,7 +108,7 @@ As declarações estarão presentes somente se houver um valor para preenchê-lo
 | `hasgroups` | Booleano | Se estiver presente, sempre `true`, denotando que o usuário está em pelo menos um grupo. Usado no lugar da declaração `groups` para JWTs em fluxos de concessão implícitas se a declaração de grupos completos estender o fragmento de URI além dos limites de comprimento da URL (atualmente, 6 ou mais grupos). Indica que o cliente deve usar o grafo para determinar os grupos do usuário (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Para solicitações de token que não têm comprimento limitado (consulte `hasgroups` acima), mas que ainda são muito grandes para o token, um link para a lista de grupos completos do usuário será incluído. Para JWTs como uma declaração distribuída, para SAML como uma nova declaração no lugar da declaração `groups`. <br><br>**Valor de exemplo de JWT**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `sub` | Cadeia de caracteres, um GUID | A entidade de segurança sobre a qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado. Ele pode ser usado para executar verificações de autorização com segurança, como quando o token é usado para acessar um recurso e pode ser usado como uma chave em tabelas de banco de dados. Como o assunto está sempre presente nos tokens que o Azure AD emite, é recomendável usar esse valor em um sistema de autorização de uso geral. O assunto é, no entanto, um identificador emparelhado-ele é exclusivo para uma ID de aplicativo específica. Portanto, se um único usuário entrar em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração de assunto. Isso pode ou não ser desejado dependendo dos requisitos de arquitetura e privacidade. Consulte também a declaração `oid` (que permanece a mesma em aplicativos dentro de um locatário). |
-| `oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, nesse caso, uma conta de usuário. Ele também pode ser usado para executar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na declaração `oid`. Assim, `oid` pode ser usado ao fazer consultas ao Microsoft serviços online, como o Microsoft Graph. O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada conta de usuário. Como o `oid` permite que vários aplicativos correlacionem os usuários, o escopo de `profile` é necessário para receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário-eles serão considerados contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
+| `oid` | Cadeia de caracteres, um GUID | O identificador imutável de um objeto na plataforma de identidade da Microsoft, nesse caso, uma conta de usuário. Ele também pode ser usado para executar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário em aplicativos-dois aplicativos diferentes que se conectam ao mesmo usuário receberão o mesmo valor na declaração `oid`. Assim, `oid` pode ser usado ao fazer consultas ao Microsoft serviços online, como o Microsoft Graph. O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada [conta de usuário](/graph/api/resources/user). Como o `oid` permite que vários aplicativos correlacionem os usuários, o escopo de `profile` é necessário para receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferente em cada locatário-eles serão considerados contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
 | `tid` | Cadeia de caracteres, um GUID | Representa o locatário do Azure AD do qual o usuário é. Para contas corporativas e de estudante, o GUID é a ID de locatário imutável da organização à qual o usuário pertence. Para contas pessoais, o valor é `9188040d-6c67-4c5b-b112-36a304b66dad`. O escopo `profile` é necessário para receber essa declaração. |
 | `unique_name` | String | Presente apenas em tokens v 1.0. Fornece um valor legível por humanos que identifica o requerente do token. Não há garantia de que esse valor seja exclusivo dentro de um locatário e deve ser usado somente para fins de exibição. |
 | `uti` | Cadeia de caracteres opaca | Uma declaração interna usada pelo Azure para revalidar tokens. Os recursos não devem usar essa declaração. |
@@ -156,7 +156,7 @@ As declarações a seguir serão incluídas em tokens v 1.0, se aplicável, mas 
 
 #### <a name="the-amr-claim"></a>A declaração `amr`
 
-As identidades da Microsoft podem ser autenticadas de maneiras diferentes, o que pode ser relevante para seu aplicativo. A declaração `amr` é uma matriz que pode conter vários itens, como `["mfa", "rsa", "pwd"]`, para uma autenticação que usou uma senha e o aplicativo autenticador.
+As identidades da Microsoft podem ser autenticadas de maneiras diferentes, o que pode ser relevante para seu aplicativo. A declaração de `amr` é uma matriz que pode conter vários itens, como `["mfa", "rsa", "pwd"]`, para uma autenticação que usou uma senha e o aplicativo autenticador.
 
 | Valor | Descrição |
 |-----|-------------|
@@ -209,14 +209,14 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 Este documento de metadados:
 
 * É um objeto JSON que contém várias informações úteis, como o local dos vários pontos de extremidade necessários para fazer a autenticação do OpenID Connect.
-* Inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. O documento JSON localizado no `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico. Seu aplicativo pode usar a declaração `kid` no cabeçalho JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Em seguida, ele pode fazer a validação de assinatura usando a chave pública correta e o algoritmo indicado.
+* Inclui um `jwks_uri`, que fornece o local do conjunto de chaves públicas usadas para assinar tokens. A chave da Web JSON (JWK) localizada na `jwks_uri` contém todas as informações de chave pública em uso naquele momento específico.  O formato JWK é descrito em [RFC 7517](https://tools.ietf.org/html/rfc7517).  Seu aplicativo pode usar a declaração `kid` no cabeçalho JWT para selecionar qual chave pública neste documento foi usada para assinar um token específico. Em seguida, ele pode fazer a validação de assinatura usando a chave pública correta e o algoritmo indicado.
 
 > [!NOTE]
 > O ponto de extremidade v 1.0 retorna as declarações `x5t` e `kid`, enquanto o ponto de extremidade v 2.0 responde apenas à declaração `kid`. No futuro, é recomendável usar a declaração `kid` para validar seu token.
 
 A validação da assinatura está fora do escopo deste documento. há muitas bibliotecas de software livre disponíveis para ajudá-lo a fazer isso, se necessário.  No entanto, a plataforma de identidade da Microsoft tem uma extensão de assinatura de token para os padrões-chaves de assinatura personalizadas.  
 
-Se seu aplicativo tiver chaves de assinatura personalizadas como resultado do uso do recurso de [mapeamento de declarações](active-directory-claims-mapping.md) , você deverá acrescentar um parâmetro de consulta `appid` contendo a ID do aplicativo para obter um ponto de `jwks_uri` apontando para as informações de chave de assinatura do aplicativo, que devem ser usadas para validação. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém um `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Se seu aplicativo tiver chaves de assinatura personalizadas como resultado do uso do recurso de [mapeamento de declarações](active-directory-claims-mapping.md) , você deverá acrescentar um `appid` parâmetro de consulta contendo a ID do aplicativo para obter uma `jwks_uri` apontando para as informações de chave de assinatura do aplicativo, que devem ser usadas para validação. Por exemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contém uma `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorização baseada em declarações
 
@@ -272,5 +272,5 @@ Os tokens de atualização podem ser invalidados ou revogados a qualquer momento
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o [`id_tokens` no Azure ad](id-tokens.md).
+* Saiba mais sobre [`id_tokens` no Azure ad](id-tokens.md).
 * Saiba mais sobre permissão e consentimento em [v 1.0](v1-permissions-and-consent.md) e [v 2.0](v2-permissions-and-consent.md).

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e26cf5ede2c8884719152b6d35f1b41eb092eda6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 72874e7b96e2ec8909a325b5ae598b900ebe8079
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071805"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791883"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Serviço de Azure App Conexões Híbridas #
 
@@ -38,7 +38,7 @@ Por meio das duas conexões Unidas, seu aplicativo tem um túnel TCP para uma co
 Quando seu aplicativo faz uma solicitação DNS que corresponde a um ponto de extremidade de conexão híbrida configurado, o tráfego TCP de saída será redirecionado por meio da conexão híbrida.  
 
 > [!NOTE]
-> Isso significa que você deve tentar sempre usar um nome DNS para sua conexão híbrida. Um software cliente não fará uma pesquisa de DNS se o ponto de extremidade usar um endereço IP em vez disso.
+> Isso significa que você deve tentar sempre usar um nome DNS para sua conexão híbrida. Um software cliente não fará uma pesquisa de DNS se o ponto de extremidade usar um endereço IP em vez disso. 
 >
 
 ### <a name="app-service-hybrid-connection-benefits"></a>Benefícios da conexão híbrida do serviço de aplicativo ###
@@ -63,6 +63,9 @@ As coisas que você não pode fazer com Conexões Híbridas incluem:
 - Suporte ao LDAP, pois ele pode exigir UDP.
 - Suporte a Active Directory, porque não é possível ingressar no domínio em um trabalho do serviço de aplicativo.
 
+### <a name="prerequisites"></a>Pré-requisitos ###
+ - O serviço de aplicativo do Windows é necessário. Ele só está disponível no Windows.  
+
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>Adicionar e criar Conexões Híbridas em seu aplicativo ##
 
 Para criar uma conexão híbrida, vá para a [portal do Azure][portal] e selecione seu aplicativo. Selecione **rede** > **configurar seus pontos de extremidade de conexão híbrida**. Aqui você pode ver as Conexões Híbridas que estão configuradas para seu aplicativo.  
@@ -84,7 +87,7 @@ Se você quiser criar uma nova conexão híbrida, selecione **criar nova conexã
 
 Cada conexão híbrida é vinculada a um namespace do barramento de serviço e cada namespace do barramento de serviço está em uma região do Azure. É importante tentar usar um namespace do barramento de serviço na mesma região que seu aplicativo, para evitar a latência de rede induzida.
 
-Se você quiser remover sua conexão híbrida do seu aplicativo, clique com o botão direito do mousenela e selecione desconectar.  
+Se você quiser remover sua conexão híbrida do seu aplicativo, clique com o botão direito do mouse nela e selecione **Desconectar**.  
 
 Quando uma conexão híbrida é adicionada ao seu aplicativo, você pode ver detalhes sobre ela simplesmente selecionando-a. 
 
@@ -103,10 +106,10 @@ Os Conexões Híbridas do serviço de aplicativo estão disponíveis apenas nas 
 
 | Plano de preços | Número de Conexões Híbridas utilizáveis no plano |
 |----|----|
-| Básica | 5 |
-| Standard | 25 |
+| Basic | 5 |
+| Padrão | 25 |
 | Premium | 200 |
-| Plano Isolado | 200 |
+| Isolado | 200 |
 
 A interface do usuário do plano do serviço de aplicativo mostra quantas Conexões Híbridas estão sendo usadas e por quais aplicativos.  
 
@@ -136,12 +139,12 @@ Para adicionar um ou mais Conexões Híbridas à HCM:
 
 1. Inicie a interface do usuário do HCM.
 2. Selecione **Configurar outra conexão híbrida**.
-![Captura de tela de configurar novo Conexões Híbridas][8]
+![captura de tela de configurar novos Conexões Híbridas][8]
 
 1. Entre com sua conta do Azure para colocar seu Conexões Híbridas disponível com suas assinaturas. A HCM não continua a usar sua conta do Azure além disso. 
 1. Escolha uma assinatura.
 1. Selecione o Conexões Híbridas que você deseja que o HCM retransmita.
-![Captura de tela de Conexões Híbridas][9]
+Captura de tela de ![de Conexões Híbridas][9]
 
 1. Selecione **Guardar**.
 
@@ -169,7 +172,7 @@ Para permitir que alguém fora de sua assinatura hospede uma instância HCM para
 
 ![Adicionar uma conexão híbrida manualmente][11]
 
-### <a name="upgrade"></a>Actualizar ###
+### <a name="upgrade"></a>Atualização ###
 
 Há atualizações periódicas para a Gerenciador de Conexões Híbridas corrigir problemas ou fornecer melhorias. Quando as atualizações forem liberadas, um pop-up será exibido na interface do usuário da HCM. A aplicação da atualização aplicará as alterações e reiniciará a HCM. 
 

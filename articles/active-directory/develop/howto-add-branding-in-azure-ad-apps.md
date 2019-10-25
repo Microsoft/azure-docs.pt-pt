@@ -1,5 +1,6 @@
 ---
-title: Diretrizes de imagem corporativa para aplicações | Microsoft Docs
+title: Diretrizes de imagem corporativa para aplicações
+titleSuffix: Microsoft identity platform
 description: Um guia completo de recursos orientados para programadores do Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92770acb19bf95d6a19507184bd8bea10806d5b7
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: ef784dc5f071889a1f4a0072599b9880b7c07c55
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70053248"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803869"
 ---
 # <a name="branding-guidelines-for-applications"></a>Diretrizes de imagem corporativa para aplicações
 
@@ -60,9 +61,9 @@ Numa versão anterior destas diretrizes, recomendámos utilizar um pictograma de
 
 A sua aplicação pode apresentar caminhos diferentes para inscrição e início de sessão e as secções seguintes fornecem orientação visual para ambos os cenários.
 
-**Se seu aplicativo der suporte à inscrição do usuário final (por exemplo, gratuito para avaliação ou modelo freemium)** : Você pode mostrar um botão de **conexão** que permite aos usuários acessar seu aplicativo com sua conta corporativa ou sua conta pessoal. O Azure AD irá mostrar um pedido de consentimento na primeira vez que acederem à aplicação.
+**Se a aplicação suportar a inscrição de utilizadores finais (por exemplo, modelo Freemium ou de avaliação gratuita)** : pode mostrar um botão de **início de sessão** que permite aos utilizadores acederem à aplicação com a sua conta profissional ou a sua conta pessoal. O Azure AD irá mostrar um pedido de consentimento na primeira vez que acederem à aplicação.
 
-**Se seu aplicativo exigir permissões que somente os administradores possam consentir, ou se seu aplicativo exigir licenciamento organizacional**: A aquisição de administrador separada da entrada do usuário. O **botão "obter esta aplicação"** redireciona os administradores para o início de sessão e, em seguida, pede-lhes para darem consentimento em nome dos utilizadores na respetiva organização, o que tem o benefício adicional de suprimir os pedidos de consentimento do utilizador final para a sua aplicação.
+**Se a aplicação exigir permissões a que apenas os administradores podem dar consentimento ou se a aplicação exigir licenciamento organizacional**: separe a aquisição de administrador do início de sessão do utilizador. O **botão "obter esta aplicação"** redireciona os administradores para o início de sessão e, em seguida, pede-lhes para darem consentimento em nome dos utilizadores na respetiva organização, o que tem o benefício adicional de suprimir os pedidos de consentimento do utilizador final para a sua aplicação.
 
 ## <a name="visual-guidance-for-app-acquisition"></a>Documentação de orientação visual para aquisição de aplicações
 
@@ -74,7 +75,7 @@ Após o consentimento dos administradores para a sua aplicação, estes podem op
 
 No entanto, recomendamos que escreva um texto explicativo em vez de utilizar botões. Por exemplo:
 
-> *Se já utiliza o Office 365 ou outro serviço comercial da Microsoft, pode conceder a <your_app_name> acesso aos dados da sua organização. Isto permitirá que os utilizadores acedam a <your_app_name> com as suas contas profissionais existentes.*
+> *Se você já usa o Office 365 ou outro serviço comercial da Microsoft, é possível conceder < your_app_name > acesso aos dados da sua organização. Isso permitirá que os usuários acessem < your_app_name > com suas contas de trabalho existentes.*
 
 Para transferir o logótipo oficial da Microsoft para utilizar na sua aplicação, clique com o botão direito do rato naquele que pretende utilizar e, em seguida, guarde-o no seu computador.
 

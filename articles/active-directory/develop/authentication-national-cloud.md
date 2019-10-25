@@ -1,5 +1,6 @@
 ---
 title: Autenticação usando Azure Active Directory em nuvens nacionais
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre os pontos de extremidade de autenticação e registro de aplicativo para nuvens nacionais.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca82efbd4e26ccb8a169c84332e3d24196fae95e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135861"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803879"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -64,8 +65,8 @@ A tabela a seguir lista as URLs de base para os pontos de extremidade do Azure A
 
 Você pode formar solicitações para a autorização do Azure AD ou pontos de extremidade de token usando a URL base específica da região apropriada. Por exemplo, para o Azure Alemanha:
 
-  - O ponto de extremidade `https://login.microsoftonline.de/common/oauth2/authorize`comum de autorização é.
-  - O ponto de extremidade `https://login.microsoftonline.de/common/oauth2/token`comum do token é.
+  - O ponto de extremidade comum de autorização é `https://login.microsoftonline.de/common/oauth2/authorize`.
+  - O ponto de extremidade comum do token é `https://login.microsoftonline.de/common/oauth2/token`.
 
 Para aplicativos de locatário único, substitua "Common" nas URLs anteriores pela sua ID de locatário ou nome. Um exemplo é `https://login.microsoftonline.de/contoso.com`.
 
@@ -78,7 +79,7 @@ Para saber como chamar as APIs de Microsoft Graph em um ambiente de nuvem nacion
 
 Para saber como criar um aplicativo usando a plataforma de identidade da Microsoft, siga o [tutorial da MSAL (biblioteca de autenticação da Microsoft)](msal-national-cloud.md). Especificamente, esse aplicativo conectará um usuário e obterá um token de acesso para chamar a API de Microsoft Graph.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre:
 

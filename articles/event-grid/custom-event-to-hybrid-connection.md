@@ -1,22 +1,22 @@
 ---
-title: Enviar eventos personalizados para a ligação híbrida - Event Grid, da CLI do Azure
+title: Enviar eventos personalizados para conexão híbrida – grade de eventos
 description: Utilize o Azure Event Grid e a CLI do Azure para publicar um tópico e subscrever esse evento. Uma ligação híbrida serve para o ponto final.
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 02/02/2019
+ms.date: 10/22/2019
 ms.topic: tutorial
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 270059537fc8d06648c86088b22aef5b78ff00ec
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 7e1493903cdb51191c942762895644ee12c49f10
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606308"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790267"
 ---
-# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhar eventos personalizados para as Ligações Híbridas do Azure Relay com a CLI do Azure e o Event Grid
+# <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: rotear eventos personalizados para retransmissão do Azure Conexões Híbridas com CLI do Azure e a grade de eventos
 
 O Azure Event Grid é um serviço de eventos para a cloud. As Ligações Híbridas do Azure Relay são um dos processadores de eventos suportados. Utiliza ligações híbridas como o processador de eventos quando necessita de processar eventos de aplicações que não tenham um ponto final público. Estas aplicações podem estar dentro da sua rede empresarial. Neste artigo, a CLI do Azure serve para criar um tópico personalizado, subscrever o tópico personalizado e acionar o evento para ver o resultado. Os eventos são enviados para a ligação híbrida.
 
@@ -27,7 +27,7 @@ Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de s
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 > [!NOTE]
-> Se estiver a utilizar o CLI do Azure no seu computador local, utilizar a CLI do Azure versão 2.0.56 ou superior. Para obter instruções sobre como instalar a versão mais recente da CLI do Azure, consulte [instalar a CLI do Azure](/cli/azure/install-azure-cli).
+> Se você estiver usando CLI do Azure em seu computador local, use CLI do Azure versão 2.0.56 ou superior. Para obter instruções sobre como instalar a versão mais recente do CLI do Azure, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -51,7 +51,7 @@ az eventgrid topic create --name <topic_name> -l westus2 -g gridResourceGroup
 
 ## <a name="subscribe-to-a-custom-topic"></a>Subscrever um tópico personalizado
 
-Subscreva um tópico do Event Grid para comunicar ao Event Grid os eventos que quer controlar. O exemplo seguinte subscreve o tópico personalizado que criou e transmite o ID do recurso da ligação híbrida ao ponto final. O ID da ligação híbrida está no formato:
+Você assina um tópico da grade de eventos para informar à grade de eventos quais eventos você deseja rastrear. O exemplo a seguir assina o tópico personalizado que você criou e passa a ID de recurso da conexão híbrida para o ponto de extremidade. O ID da ligação híbrida está no formato:
 
 `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Relay/namespaces/<relay-namespace>/hybridConnections/<hybrid-connection-name>`
 
@@ -80,7 +80,7 @@ Observe que está definida uma [data de expiração](concepts.md#event-subscript
 
 Precisa de uma aplicação que possa recuperar eventos a partir da ligação híbrida. O [exemplo do Consumidor de Ligação Híbrida do Microsoft Azure Event Grid para C#](https://github.com/Azure-Samples/event-grid-dotnet-hybridconnection-destination) realiza essa operação. Já terminou os passos dos pré-requisitos.
 
-1. Certifique-se de que tem o Visual Studio 2019 ou posterior.
+1. Verifique se você tem o Visual Studio 2019 ou posterior.
 
 1. Clone o repositório para o seu computador local.
 
@@ -117,7 +117,7 @@ Se quiser continuar a trabalhar com este evento, não limpe os recursos criados 
 az group delete --name gridResourceGroup
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que sabe como criar tópicos e subscrições de eventos, saiba mais sobre o que o Event Grid pode ajudá-lo a fazer:
 

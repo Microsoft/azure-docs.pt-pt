@@ -1,24 +1,24 @@
 ---
-title: Monitorar o uso de recursos e as métricas de consulta para um serviço de pesquisa-Azure Search
-description: Habilite o registro em log, obtenha métricas de atividade de consulta, uso de recursos e outros dados do sistema de um serviço de Azure Search.
-author: HeidiSteen
+title: Monitorar o uso de recursos e as métricas de consulta
+titleSuffix: Azure Cognitive Search
+description: Habilite o registro em log, obtenha métricas de atividade de consulta, uso de recursos e outros dados do sistema de um serviço de Pesquisa Cognitiva do Azure.
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 05/16/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+tags: azure-portal
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72331214"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793489"
 ---
-# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorar o consumo de recursos e a atividade de consulta no Azure Search
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Monitorar o consumo de recursos e a atividade de consulta no Azure Pesquisa Cognitiva
 
-Na página Visão geral do seu serviço de Azure Search, você pode exibir dados do sistema sobre o uso de recursos, métricas de consulta e a quantidade de cota disponível para criar mais índices, indexadores e fontes de dados. Você também pode usar o portal para configurar o log Analytics ou outro recurso usado para a coleta de dados persistentes. 
+Na página Visão geral do serviço de Pesquisa Cognitiva do Azure, você pode exibir dados do sistema sobre o uso de recursos, métricas de consulta e a quantidade de cota disponível para criar mais índices, indexadores e fontes de dados. Você também pode usar o portal para configurar o log Analytics ou outro recurso usado para a coleta de dados persistentes. 
 
 A configuração de logs é útil para autodiagnóstico e preservação do histórico operacional. Internamente, os logs existem no back-end por um curto período de tempo, suficiente para investigação e análise se você arquivar um tíquete de suporte. Se você quiser controlar e acessar as informações de log, deverá configurar uma das soluções descritas neste artigo.
 
@@ -52,7 +52,7 @@ Para tarefas em serviço como criar um índice ou excluir uma fonte de dados, vo
 
 ## <a name="add-on-monitoring-solutions"></a>Soluções de monitoramento de complemento
 
-Azure Search não armazena nenhum dado além dos objetos que ele gerencia, o que significa que os dados de log têm que ser armazenados externamente. Você pode configurar qualquer um dos recursos abaixo se desejar manter os dados de log. 
+O Azure Pesquisa Cognitiva não armazena nenhum dado além dos objetos que ele gerencia, o que significa que os dados de log têm que ser armazenados externamente. Você pode configurar qualquer um dos recursos abaixo se desejar manter os dados de log. 
 
 A tabela a seguir compara as opções de armazenamento de logs e a adição de monitoramento detalhado de operações de serviço e de cargas de trabalho de consulta por meio de Application Insights.
 
@@ -64,17 +64,17 @@ A tabela a seguir compara as opções de armazenamento de logs e a adição de m
 
 Os logs de Azure Monitor e o armazenamento de BLOBs estão disponíveis como um serviço gratuito para que você possa experimentá-lo gratuitamente pelo tempo de vida da sua assinatura do Azure. Application Insights é livre para se inscrever e usar desde que o tamanho dos dados do aplicativo esteja sob determinados limites (consulte a [página de preços](https://azure.microsoft.com/pricing/details/monitor/) para obter detalhes).
 
-A próxima seção orienta você pelas etapas de habilitar e usar o armazenamento de BLOBs do Azure para coletar e acessar dados de log criados por Azure Search operações.
+A próxima seção orienta você pelas etapas de habilitar e usar o armazenamento de BLOBs do Azure para coletar e acessar os dados de log criados pelas operações de Pesquisa Cognitiva do Azure.
 
 ## <a name="enable-logging"></a>Ativar registo
 
-O registro em log para cargas de trabalho de indexação e consulta é desativado por padrão e depende de soluções complementares para a infraestrutura de log e o armazenamento externo de longo prazo. Por si só, os únicos dados persistentes em Azure Search são os objetos que ele cria e gerencia, de modo que os logs devem ser armazenados em outro lugar.
+O registro em log para cargas de trabalho de indexação e consulta é desativado por padrão e depende de soluções complementares para a infraestrutura de log e o armazenamento externo de longo prazo. Por si só, os únicos dados persistentes no Azure Pesquisa Cognitiva são os objetos que ele cria e gerencia, de modo que os logs devem ser armazenados em outro lugar.
 
 Nesta seção, você aprenderá a usar o armazenamento de BLOBs para armazenar eventos registrados e dados de métricas.
 
-1. [Crie uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) se você ainda não tiver uma. Você pode colocá-lo no mesmo grupo de recursos que Azure Search para simplificar a limpeza mais tarde se quiser excluir todos os recursos usados neste exercício.
+1. [Crie uma conta de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) se você ainda não tiver uma. Você pode colocá-lo no mesmo grupo de recursos que o Azure Pesquisa Cognitiva para simplificar a limpeza mais tarde se quiser excluir todos os recursos usados neste exercício.
 
-   Sua conta de armazenamento deve existir na mesma região que Azure Search.
+   Sua conta de armazenamento deve existir na mesma região que o Azure Pesquisa Cognitiva.
 
 2. Abra a página Visão geral do serviço de pesquisa. No painel de navegação esquerdo, role para baixo até **monitoramento** e clique em **habilitar monitoramento**.
 
@@ -158,14 +158,14 @@ Você pode usar qualquer editor de JSON para exibir o arquivo de log. Se você n
 
 1. Em portal do Azure, abra sua conta de armazenamento. 
 
-2. No painel de navegação esquerdo, clique em **BLOBs**. Você deve ver **insights-logs-operationlogs** e **insights-métricas-PT1M**. Esses contêineres são criados por Azure Search quando os dados de log são exportados para o armazenamento de BLOBs.
+2. No painel de navegação esquerdo, clique em **BLOBs**. Você deve ver **insights-logs-operationlogs** e **insights-métricas-PT1M**. Esses contêineres são criados pelo Azure Pesquisa Cognitiva quando os dados de log são exportados para o armazenamento de BLOBs.
 
 3. Clique na hierarquia de pastas até chegar ao arquivo. JSON.  Use o menu de contexto para baixar o arquivo.
 
 Depois que o arquivo for baixado, abra-o em um editor de JSON para exibir o conteúdo.
 
 ## <a name="use-system-apis"></a>Usar APIs do sistema
-A API REST do Azure Search e o SDK do .NET fornecem acesso programático às métricas de serviço, informações de índice e indexador e contagens de documentos.
+A API REST do Azure Pesquisa Cognitiva e o SDK do .NET fornecem acesso programático às métricas de serviço, informações de índice e indexador e contagens de documentos.
 
 * [Obter estatísticas de serviços](/rest/api/searchservice/get-service-statistics)
 * [Obter estatísticas de índice](/rest/api/searchservice/get-index-statistics)

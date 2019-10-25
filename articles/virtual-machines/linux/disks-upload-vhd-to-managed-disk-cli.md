@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dfcf9ea61a1f0fb5fd2d3b613c2449480753b3a1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5215a7d899af15dc028189aee5760a6ec5b6577d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595100"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803985"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Carregar um VHD no Azure usando o CLI do Azure
 
@@ -29,7 +29,7 @@ Atualmente, o carregamento direto tem suporte para discos gerenciados HDD padrã
 - Baixe a versão mais recente [do AzCopy V10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Instale o CLI do Azure](/cli/azure/install-azure-cli).
 - Um arquivo VHD, armazenado localmente
-- Se você pretende carregar um VHD de on-PEM: um VHD que foi [preparado para o Azure](../windows/prepare-for-upload-vhd-image.md), armazenado localmente.
+- Se você pretende carregar um VHD do local: um VHD que foi [preparado para o Azure](../windows/prepare-for-upload-vhd-image.md), armazenado localmente.
 - Ou, um disco gerenciado no Azure, se você pretende executar uma ação de cópia.
 
 ## <a name="create-an-empty-managed-disk"></a>Criar um disco gerenciado vazio
@@ -124,6 +124,5 @@ az disk revoke-access -n $targetDiskName -g $targetRG
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que você carregou com êxito um VHD em um disco gerenciado, você pode anexar o disco a uma VM e começar a usá-lo.
+Agora que você carregou com êxito um VHD em um disco gerenciado, é possível anexar o disco como um [disco de dados a uma VM existente](add-disk.md) ou [anexar o disco a uma VM como um disco do sistema operacional](upload-vhd.md#create-the-vm), para criar uma nova VM. 
 
-Para saber como anexar um disco a uma VM, consulte nosso artigo sobre o assunto: [Adicionar um disco a uma VM do Linux](add-disk.md).

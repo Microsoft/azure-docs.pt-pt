@@ -1,29 +1,29 @@
 ---
-title: Introdução à loja de conhecimento (versão prévia)-Azure Search
-description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Search e em outros aplicativos.
-manager: nitinme
+title: Introdução à loja de conhecimento (visualização)
+titleSuffix: Azure Cognitive Search
+description: Envie documentos aprimorados para o armazenamento do Azure, onde você pode exibir, remodelar e consumir documentos aprimorados no Azure Pesquisa Cognitiva e em outros aplicativos.
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: overview
-ms.date: 08/02/2019
+manager: nitinme
 ms.author: heidist
-ms.openlocfilehash: 8a0022ce429b1359d8771f5089589fc779b8a751
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 82f8606f4b4201833667347d3ed16fdd73f70a36
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554884"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790359"
 ---
-# <a name="what-is-knowledge-store-in-azure-search"></a>O que é o repositório de conhecimento em Azure Search?
+# <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Introdução às lojas de conhecimento no Azure Pesquisa Cognitiva
 
 > [!Note]
 > A loja de conhecimento está em versão prévia e não se destina ao uso em produção. A [API REST versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
 
-O repositório de conhecimento é um recurso do Azure Search que persiste a saída de um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) para análise posterior ou outro processamento downstream. Um *documento aprimorado* é a saída de um pipeline, criada a partir do conteúdo que foi extraído, estruturado e analisado usando processos de ia. Em um pipeline de ia padrão, os documentos aprimorados são transitórios, usados somente durante a indexação e, em seguida, descartados. Com a loja de conhecimento, os documentos aprimorados são preservados. 
+O repositório de conhecimento é um recurso do Azure Pesquisa Cognitiva que persiste a saída de um [pipeline de enriquecimento de ia](cognitive-search-concept-intro.md) para análise posterior ou outro processamento downstream. Um *documento aprimorado* é a saída de um pipeline, criada a partir do conteúdo que foi extraído, estruturado e analisado usando processos de ia. Em um pipeline de ia padrão, os documentos aprimorados são transitórios, usados somente durante a indexação e, em seguida, descartados. Com a loja de conhecimento, os documentos aprimorados são preservados. 
 
-Se você usou habilidades de ia com Azure Search no passado, já sabe que o *habilidades* move um documento por uma sequência de aprimoramentos. O resultado pode ser um índice de pesquisa ou (novo nesta visualização) projeções em uma loja de conhecimento. As duas saídas, o índice de pesquisa e o repositório de conhecimento, compartilham o mesmo conteúdo, mas são armazenados e usados de maneiras muito diferentes.
+Se você usou habilidades cognitivas com o Azure Pesquisa Cognitiva no passado, já sabe que o *habilidades* move um documento por uma sequência de aprimoramentos. O resultado pode ser um índice de pesquisa ou (novo nesta visualização) projeções em uma loja de conhecimento. As duas saídas, o índice de pesquisa e o repositório de conhecimento, compartilham o mesmo conteúdo, mas são armazenados e usados de maneiras muito diferentes.
 
 Fisicamente, uma loja de conhecimento é o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), o armazenamento de tabelas do Azure, o armazenamento de BLOBs do Azure ou ambos. Qualquer ferramenta ou processo que possa se conectar ao armazenamento do Azure pode consumir o conteúdo de uma loja de conhecimento.
 
@@ -31,13 +31,13 @@ Fisicamente, uma loja de conhecimento é o [armazenamento do Azure](https://docs
 
 As projeções são seu mecanismo para estruturar dados em uma loja de conhecimento. Por exemplo, por meio de projeções, você pode escolher se a saída é salva como um único BLOB ou uma coleção de tabelas relacionadas. 
 
-Para usar o repositório de conhecimento, adicione um elemento de `knowledgeStore` a um conconhecedor que defina operações passo-a-bit em um pipeline de indexação. Durante a execução, Azure Search cria um espaço em sua conta de armazenamento do Azure e projeta os documentos aprimorados como BLOBs ou tabelas, dependendo de sua configuração.
+Para usar o repositório de conhecimento, adicione um elemento de `knowledgeStore` a um conconhecedor que defina operações passo-a-bit em um pipeline de indexação. Durante a execução, o Azure Pesquisa Cognitiva cria um espaço em sua conta de armazenamento do Azure e projeta os documentos aprimorados como BLOBs ou tabelas, dependendo de sua configuração.
 
 ## <a name="benefits-of-knowledge-store"></a>Benefícios da loja de conhecimento
 
 Uma loja de conhecimento fornece estrutura, contexto e conteúdo real, obtidas de arquivos de dados não estruturados e semiestruturados, como BLOBs, arquivos de imagem que têm análise passou ou até mesmo dados estruturados que são remodelados em novos formulários. Em uma [explicação](knowledge-store-howto.md) passo a passo escrita para essa versão prévia, você pode ver em primeira mão como um documento JSON denso é particionado em subestruturações, reconstituído em novas estruturas e disponibilizado para processos downstream como o computador cargas de trabalho de aprendizado e ciência de dados.
 
-Embora seja útil ver o que um pipeline de indexação baseado em ia pode produzir, o poder real da loja de conhecimento é a capacidade de remodelar os dados. Você pode começar com um habilidades básicas e, em seguida, iterar sobre ele para adicionar níveis cada vez maiores de estrutura, que você pode combinar em novas estruturas, consumíveis em outros aplicativos além Azure Search.
+Embora seja útil ver o que um pipeline de enriquecimento de ia pode produzir, o poder real da loja de conhecimento é a capacidade de remodelar os dados. Você pode começar com um habilidades básicas e iterar sobre ele para adicionar níveis cada vez maiores de estrutura, que você pode combinar em novas estruturas, consumíveis em outros aplicativos além do Azure Pesquisa Cognitiva.
 
 Enumerado, os benefícios da loja de conhecimento incluem o seguinte:
 
@@ -45,10 +45,10 @@ Enumerado, os benefícios da loja de conhecimento incluem o seguinte:
 
 + Refinar um pipeline de indexação de AI durante a depuração de etapas e de definições de habilidades. Uma loja de conhecimento mostra o produto de uma definição de conconhecedor em um pipeline de indexação de AI. Você pode usar esses resultados para criar um melhor conhecimento, pois você pode ver exatamente de que forma os aprimoramentos se parecem. Você pode usar [Gerenciador de armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) no armazenamento do Azure para exibir o conteúdo de uma loja de conhecimento.
 
-+ Formate os dados em novos formulários. A remodelagem é codificados em habilidades, mas o ponto é que um con agora pode fornecer esse recurso. A [habilidade do modelador](cognitive-search-skill-shaper.md) no Azure Search foi estendida para acomodar essa tarefa. A remodelagem permite que você defina uma projeção que se alinhe com o uso pretendido dos dados, preservando as relações.
++ Formate os dados em novos formulários. A remodelagem é codificados em habilidades, mas o ponto é que um con agora pode fornecer esse recurso. A [habilidade do modelador](cognitive-search-skill-shaper.md) no Azure pesquisa cognitiva foi estendida para acomodar essa tarefa. A remodelagem permite que você defina uma projeção que se alinhe com o uso pretendido dos dados, preservando as relações.
 
 > [!Note]
-> Não está familiarizado com a indexação baseada em ia usando serviços cognitivas? O Azure Search integra-se à visão de serviços cognitivas e aos recursos de linguagem para extrair e enriquecer dados de origem usando OCR (reconhecimento óptico de caracteres) em arquivos de imagem, reconhecimento de entidade e extração de frases-chave de arquivos de texto e muito mais. Para obter mais informações, consulte [o que é pesquisa cognitiva?](cognitive-search-concept-intro.md).
+> Não está familiarizado com o enrichcment de ia usando serviços cognitivas? O Azure Pesquisa Cognitiva integra-se com recursos de linguagem e visão de serviços cognitivas para extrair e enriquecer dados de origem usando OCR (reconhecimento óptico de caracteres) em arquivos de imagem, reconhecimento de entidade e extração de frases-chave de arquivos de texto e muito mais. Para obter mais informações, consulte [enriquecimento de ia no Azure pesquisa cognitiva](cognitive-search-concept-intro.md).
 
 ## <a name="creating-a-knowledge-store"></a>Criando uma loja de conhecimento
 
@@ -133,7 +133,7 @@ Uma `knowledgeStore` consiste em uma conexão e projeções.
 
 ### <a name="sources-of-data-for-a-knowledge-store"></a>Fontes de dados para uma loja de conhecimento
 
-Se uma loja de conhecimento for uma saída de um pipeline de enriquecimento de ia, quais são as entradas? Os dados originais que você deseja extrair, enriquecer e, eventualmente, salvar em uma loja de conhecimento podem se originar de qualquer fonte de dados do Azure com suporte dos indexadores Azure Search: 
+Se uma loja de conhecimento for uma saída de um pipeline de enriquecimento de ia, quais são as entradas? Os dados originais que você deseja extrair, enriquecer e eventualmente salvar em uma loja de conhecimento podem se originar de qualquer fonte de dados do Azure com suporte dos indexadores de pesquisa: 
 
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 
@@ -153,7 +153,7 @@ Somente duas APIs têm as extensões necessárias para criar um repositório de 
 |--------|----------|-------------|
 | Fonte de dados | [Criar Origem de Dados](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Um recurso que identifica uma fonte de dados externa do Azure que fornece dados de origem usados para criar documentos aprimorados.  |
 | qualificações | [Criar Qualificable (API-Version = 2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que coordena o uso de [habilidades internas](cognitive-search-predefined-skills.md) e [habilidades cognitivas personalizadas](cognitive-search-custom-skill-interface.md) usadas em um pipeline de enriquecimento durante a indexação. Um qualificable tem uma definição de `knowledgeStore` como um elemento filho. |
-| index | [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice de Azure Search. Os campos no índice são mapeados para campos em dados de origem ou para campos fabricados durante a fase de enriquecimento (por exemplo, um campo para nomes de organização criados pelo reconhecimento de entidade). |
+| index | [Criar índice](https://docs.microsoft.com/rest/api/searchservice/create-index)  | Um esquema que expressa um índice de pesquisa. Os campos no índice são mapeados para campos em dados de origem ou para campos fabricados durante a fase de enriquecimento (por exemplo, um campo para nomes de organização criados pelo reconhecimento de entidade). |
 | indexador | [Criar indexador (API-Version = 2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | Um recurso que define os componentes usados durante a indexação: incluindo uma fonte de dados, uma habilidade, associações de campo das estruturas de dados de origem e intermediária para o índice de destino e o próprio índice. A execução do indexador é o gatilho para a ingestão e o enriquecimento de dados. A saída é um índice de pesquisa baseado no esquema de índice, preenchido com dados de origem, aprimorado por meio de habilidades.  |
 
 ### <a name="physical-composition-of-a-knowledge-store"></a>Composição física de uma loja de conhecimento
@@ -219,7 +219,7 @@ We recommend the Free service for learning purposes, but be aware that the numbe
 
 When using multiple services, create all of your services in the same region for best performance and to minimize costs. You are not charged for bandwidth for inbound data or outbound data that goes to another service in the same region.
 
-**Step 1: [Create an Azure Search resource](search-create-service-portal.md)** 
+**Step 1: [Create an Azure Cognitive Search resource](search-create-service-portal.md)** 
 
 **Step 2: [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)** 
 

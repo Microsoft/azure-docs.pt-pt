@@ -1,24 +1,23 @@
 ---
-title: Erros comuns e avisos-Azure Search
-description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante a enriquecimento do ia no Azure Search.
-services: search
-manager: heidist
+title: Erros e avisos comuns
+titleSuffix: Azure Cognitive Search
+description: Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: a8d5fc30299dbb16373b1cfbbd89563bad471f39
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553605"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787981"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Search
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Erros comuns e avisos do pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva
 
-Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante a enriquecimento do ia no Azure Search.
+Este artigo fornece informações e soluções para erros comuns e avisos que você pode encontrar durante o enriquecimento do ia no Azure Pesquisa Cognitiva.
 
 ## <a name="errors"></a>Erros
 A indexação é interrompida quando a contagem de erros excede [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
@@ -210,3 +209,14 @@ Se você quiser garantir que todo o texto seja analisado, considere usar a [habi
 
 ### <a name="web-api-skill-response-contains-warnings"></a>Resposta de habilidade da API Web contém avisos
 O indexador foi capaz de executar uma habilidade no configurador de habilidades, mas a resposta da solicitação da API Web indicou que havia avisos durante a execução. Examine os avisos para entender como os dados são afetados e se a ação é necessária ou não.
+
+### <a name="the-current-indexer-configuration-does-not-support-incremental-progress"></a>A configuração atual do indexador não dá suporte ao progresso incremental
+Esse aviso ocorre apenas para Cosmos DB fontes de dados.
+
+O progresso incremental durante a indexação garante que, se a execução do indexador for interrompida por falhas transitórias ou por um limite de tempo de execução, o indexador poderá escolher onde parou na próxima vez em que for executado, em vez de ter que reindexar toda a coleção do zero. Isso é especialmente importante ao indexar grandes coleções.
+
+A capacidade de retomar um trabalho de indexação não concluído é o predicado em ter documentos ordenados pela coluna `_ts`. O indexador usa o carimbo de data/hora para determinar qual documento deve ser selecionado em seguida. Se a coluna `_ts` estiver ausente ou se o indexador não puder determinar se uma consulta personalizada foi ordenada por ela, o indexador será iniciado no início e você verá esse aviso.
+
+É possível substituir esse comportamento, permitindo o progresso incremental e suprimindo esse aviso usando a propriedade de configuração `assumeOrderByHighWatermarkColumn`.
+
+[Mais informações sobre Cosmos DB progresso incremental e consultas personalizadas.](https://go.microsoft.com/fwlink/?linkid=2099593)

@@ -1,5 +1,6 @@
 ---
-title: API Web protegida-registro de aplicativo | Azure
+title: API Web protegida-registro de aplicativo
+titleSuffix: Microsoft identity platform
 description: Saiba como criar uma API Web protegida e as informações necessárias para registrar o aplicativo.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,22 +17,22 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bbccfc38a4e5e4b31cb625c614e838a3c92e7429
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562297"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802537"
 ---
-# <a name="protected-web-api-app-registration"></a>API Web protegida: Registo de aplicações
+# <a name="protected-web-api-app-registration"></a>API Web protegida: registro de aplicativo
 
 Este artigo explica as especificidades de registro de aplicativo para uma API Web protegida.
 
-Consulte [início rápido: Registre um aplicativo com a plataforma](quickstart-register-app.md) de identidade da Microsoft para as etapas comuns para registrar um aplicativo.
+Consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](quickstart-register-app.md) para obter as etapas comuns para registrar um aplicativo.
 
 ## <a name="accepted-token-version"></a>Versão do token aceito
 
-O ponto de extremidade da plataforma de identidade da Microsoft pode emitir dois tipos de tokens: tokens v 1.0 e tokens v 2.0. Para obter mais informações sobre esses tokens, consulte tokens de [acesso](access-tokens.md). A versão de token aceita depende dos **tipos de conta com suporte** que você escolheu quando criou seu aplicativo:
+O ponto de extremidade da plataforma de identidade da Microsoft pode emitir dois tipos de tokens: tokens v 1.0 e tokens v 2.0. Para obter mais informações sobre esses tokens, consulte [tokens de acesso](access-tokens.md). A versão de token aceita depende dos **tipos de conta com suporte** que você escolheu quando criou seu aplicativo:
 
 - Se o valor de **tipos de conta com suporte** for **contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** , a versão de token aceita será v 2.0.
 - Caso contrário, a versão do token aceito será v 1.0.
@@ -55,12 +56,12 @@ Outra configuração específica para APIs Web é a API exposta e os escopos exp
 
 ### <a name="resource-uri-and-scopes"></a>URI de recurso e escopos
 
-Os escopos geralmente estão no `resourceURI/scopeName`formato. Por Microsoft Graph, os escopos têm atalhos `User.Read`como. Essa cadeia de caracteres é um `https://graph.microsoft.com/user.read`atalho para.
+Os escopos geralmente estão no formato `resourceURI/scopeName`. Por Microsoft Graph, os escopos têm atalhos como `User.Read`. Essa cadeia de caracteres é um atalho para `https://graph.microsoft.com/user.read`.
 
 Durante o registro do aplicativo, você precisará definir esses parâmetros:
 
-- O URI do recurso. Por padrão, o portal de registro de aplicativos recomenda que você use `api://{clientId}`o. Esse URI de recurso é exclusivo, mas não é legível por humanos. Você pode alterá-lo, mas certifique-se de que o novo valor seja exclusivo.
-- Um ou maisescopos. (Para aplicativos cliente, eles aparecerão como *permissões delegadas* para sua API Web.)
+- O URI do recurso. Por padrão, o portal de registro de aplicativos recomenda que você use `api://{clientId}`. Esse URI de recurso é exclusivo, mas não é legível por humanos. Você pode alterá-lo, mas certifique-se de que o novo valor seja exclusivo.
+- Um ou mais *escopos*. (Para aplicativos cliente, eles aparecerão como *permissões delegadas* para sua API Web.)
 - Uma ou mais *funções de aplicativo*. (Para aplicativos cliente, eles aparecerão como *permissões de aplicativo* para sua API Web.)
 
 Os escopos também são exibidos na tela de consentimento que é apresentada aos usuários finais do seu aplicativo. Portanto, você precisará fornecer as cadeias de caracteres correspondentes que descrevem o escopo:
@@ -72,7 +73,7 @@ Os escopos também são exibidos na tela de consentimento que é apresentada aos
 
 1. Selecione a seção **expor uma API** no registro do aplicativo.
 1. Selecione **Adicionar âmbito**.
-1. Se solicitado, aceite o URI da ID do aplicativo proposto`api://{clientId}`() selecionando **salvar e continuar**.
+1. Se solicitado, aceite o URI da ID do aplicativo proposto (`api://{clientId}`) selecionando **salvar e continuar**.
 1. Insira estes parâmetros:
       - Para **nome do escopo**, use **access_as_user**.
       - Para **quem pode consentir**, verifique se **Administradores e usuários** está selecionado.
@@ -95,10 +96,10 @@ Nesta seção, você aprenderá a registrar sua API Web protegida para que ela p
 Para expor permissões de aplicativo, você precisará editar o manifesto.
 
 1. No registro do aplicativo para seu aplicativo, selecione **manifesto**.
-1. Edite o manifesto localizando `appRoles` a configuração e adicionando uma ou mais funções de aplicativo. A definição de função é fornecida no bloco JSON de exemplo a seguir. Deixe definir como `"Application"`somente. `allowedMemberTypes` Verifique se o `id` é um GUID exclusivo e `value` se `displayName` não contém espaços.
+1. Edite o manifesto localizando a configuração de `appRoles` e adicionando uma ou mais funções de aplicativo. A definição de função é fornecida no bloco JSON de exemplo a seguir. Deixe a `allowedMemberTypes` definida como `"Application"` apenas. Verifique se o `id` é um GUID exclusivo e se `displayName` e `value` não contêm espaços.
 1. Salve o manifesto.
 
-O exemplo a seguir mostra o conteúdo `appRoles`de. (O `id` pode ser qualquer Guid exclusivo.)
+O exemplo a seguir mostra o conteúdo de `appRoles`. (O `id` pode ser qualquer GUID exclusivo.)
 
 ```JSon
 "appRoles": [
@@ -130,13 +131,13 @@ A API da Web verifica a função do aplicativo. (Essa é a maneira do desenvolve
 
    > [!IMPORTANT]
    >
-   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de clientes quando eles solicitarem um token de acesso para a API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`o erro.
+   > Se você definir a **atribuição de usuário necessária?** para **Sim**, o Azure ad verificará as atribuições de função de aplicativo de clientes quando eles solicitarem um token de acesso para a API Web. Se o cliente não estiver atribuído a nenhuma função de aplicativo, o Azure AD retornará o erro `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
    >
    > Se você mantiver a **atribuição de usuário necessária?** definida como **não**, *o Azure ad não verificará as atribuições de função de aplicativo quando um cliente solicitar um token de acesso para sua API Web*. Qualquer cliente daemon (ou seja, qualquer cliente que use o fluxo de credenciais do cliente) poderá obter um token de acesso para a API apenas especificando seu público-alvo. Qualquer aplicativo poderá acessar a API sem precisar solicitar permissões para ela. Mas sua API Web sempre pode, conforme explicado na seção anterior, verifique se o aplicativo tem a função certa (que é autorizada pelo administrador de locatário). A API executa essa verificação Validando se o token de acesso tem uma declaração de funções e se o valor dessa declaração está correto. (Em nosso caso, o valor é `access_as_application`.)
 
 1. Selecione **Guardar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Configuração de código do aplicativo](scenario-protected-web-api-app-configuration.md)

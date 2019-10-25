@@ -4,19 +4,19 @@ description: Este documento explica a arquitetura de conectividade do SQL do Azu
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828856"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72807926"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitetura de conectividade do SQL do Azure
 
@@ -38,19 +38,19 @@ As etapas a seguir descrevem como uma conexão é estabelecida com um banco de d
 
 O banco de dados SQL do Azure dá suporte às três opções a seguir para a configuração de política de conexão de um servidor de banco de dados SQL:
 
-- **Redirecionar (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados. Para habilitar a conectividade, os clientes devem permitir regras de firewall de saída para todos os endereços IP do Azure na região usando NSG (grupos de segurança de rede) com [marcas de serviço](../virtual-network/security-overview.md#service-tags)) para as portas 11000-11999, não apenas os endereços IP do gateway do banco de dados SQL do Azure na porta 1433. Como os pacotes vão diretamente para o banco de dados, a latência e a taxa de transferência melhoraram o desempenho.
-- **Acionista** Nesse modo, todas as conexões são proxy por meio dos gateways de banco de dados SQL do Azure. Para habilitar a conectividade, o cliente deve ter regras de firewall de saída que permitam apenas os endereços IP do gateway do banco de dados SQL do Azure (geralmente, dois endereços IP por região). Escolher esse modo pode resultar em latência mais alta e menor taxa de transferência, dependendo da natureza da carga de trabalho. É altamente recomendável `Redirect` a política de conexão `Proxy` sobre a política de conexão para a menor latência e a taxa de transferência mais alta.
-- **Os** Essa é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere `Proxy` explicitamente `Redirect`a política de conexão para o ou o. A política efetiva depende se as conexões se originam de dentro do`Redirect`Azure () ou fora do`Proxy`Azure ().
+- **Redirecionar (recomendado):** Os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados. Para habilitar a conectividade, os clientes devem permitir regras de firewall de saída para todos os endereços IP do Azure na região usando NSG (grupos de segurança de rede) com [marcas de serviço](../virtual-network/security-overview.md#service-tags) para as portas 11000-11999, não apenas os endereços IP do gateway do banco de dados SQL do Azure na porta 1433. Como os pacotes vão diretamente para o banco de dados, a latência e a taxa de transferência melhoraram o desempenho.
+- **Proxy:** Nesse modo, todas as conexões são proxy por meio dos gateways de banco de dados SQL do Azure. Para habilitar a conectividade, o cliente deve ter regras de firewall de saída que permitam apenas os endereços IP do gateway do banco de dados SQL do Azure (geralmente, dois endereços IP por região). Escolher esse modo pode resultar em latência mais alta e menor taxa de transferência, dependendo da natureza da carga de trabalho. É altamente recomendável a `Redirect` política de conexão sobre a política de conexão de `Proxy` para a menor latência e taxa de transferência mais alta.
+- **Padrão:** Essa é a política de conexão em vigor em todos os servidores após a criação, a menos que você altere explicitamente a política de conexão para `Proxy` ou `Redirect`. A política efetiva depende se as conexões se originam de dentro do Azure (`Redirect`) ou fora do Azure (`Proxy`).
 
 ## <a name="connectivity-from-within-azure"></a>Conectividade de dentro do Azure
 
-Se você estiver se conectando de dentro do Azure, suas conexões têm `Redirect` uma política de conexão de por padrão. Uma política de `Redirect` significa que, depois que a sessão TCP é estabelecida com o banco de dados SQL do Azure, a sessão do cliente é redirecionada para o cluster de banco de dados correto com uma alteração no IP virtual de destino do gateway do banco de dados SQL do Azure para o do em. Depois disso, todos os pacotes subsequentes fluem diretamente para o cluster, ignorando o gateway do banco de dados SQL do Azure. O diagrama a seguir ilustra esse fluxo de tráfego.
+Se você estiver se conectando de dentro do Azure, suas conexões têm uma política de conexão de `Redirect` por padrão. Uma política de `Redirect` significa que, depois que a sessão TCP for estabelecida com o banco de dados SQL do Azure, a sessão do cliente será redirecionada para o cluster de banco de dados correto com uma alteração no IP virtual de destino do gateway do banco de dados SQL do Azure para o do em. Depois disso, todos os pacotes subsequentes fluem diretamente para o cluster, ignorando o gateway do banco de dados SQL do Azure. O diagrama a seguir ilustra esse fluxo de tráfego.
 
 ![Visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Conectividade de fora do Azure
 
-Se você estiver se conectando de fora do Azure, suas conexões têm uma `Proxy` política de conexão de por padrão. Uma política de `Proxy` significa que a sessão TCP é estabelecida por meio do gateway do banco de dados SQL do Azure e de todos os pacotes subsequentes fluem por meio do gateway. O diagrama a seguir ilustra esse fluxo de tráfego.
+Se você estiver se conectando de fora do Azure, suas conexões terão uma política de conexão de `Proxy` por padrão. Uma política de `Proxy` significa que a sessão TCP é estabelecida por meio do gateway do banco de dados SQL do Azure e de todos os pacotes subsequentes fluem por meio do gateway. O diagrama a seguir ilustra esse fluxo de tráfego.
 
 ![Visão geral da arquitetura](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
@@ -58,7 +58,7 @@ Se você estiver se conectando de fora do Azure, suas conexões têm uma `Proxy`
 
 A tabela a seguir lista os endereços IP dos gateways por região. Para se conectar a um banco de dados SQL do Azure, você precisa permitir que o tráfego de rede & de **todos os** gateways para a região.
 
-Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões específicas estão no seguinte artigo: [Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes](sql-database-gateway-migration.md)
+Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões específicas estão no seguinte artigo: [migração de tráfego do banco de dados SQL do Azure para gateways mais recentes](sql-database-gateway-migration.md)
 
 
 | Nome da Região          | Endereços IP do gateway |
@@ -70,46 +70,46 @@ Os detalhes de como o tráfego deve ser migrado para novos gateways em regiões 
 | Sul do Brasil         | 104.41.11.5, 191.233.200.14 |
 | Canadá Central       | 40.85.224.249      |
 | Leste do Canadá          | 40.86.226.166      |
-| EUA Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
-| Leste da China           | 139.219.130.35     |
+| Centro dos E.U.A.           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
+| Norte da China           | 139.219.130.35     |
 | Leste da China 2         | 40.73.82.1         |
-| Norte da China          | 139.219.15.17      |
+| China Norte          | 139.219.15.17      |
 | Norte da China 2        | 40.73.50.0         |
-| Ásia Oriental            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
-| East US              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
-| EUA Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
+| Este Asiático            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
+| Este dos E.U.A.              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Este dos E.U.A. 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
 | França Central       | 40.79.137.0, 40.79.129.1 |
-| Alemanha Central      | 51.4.144.100       |
+| Nordeste da Alemanha      | 51.4.144.100       |
 | Leste Norte da Alemanha   | 51.5.144.179       |
 | Índia Central        | 104.211.96.159     |
 | Índia do Sul          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80     |
-| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
+| Este do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Coreia do Sul Central        | 52.231.32.42       |
-| Coreia do Sul          | 52.231.200.86      |
-| EUA Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
+| Sul da Coreia do Sul          | 52.231.200.86      |
+| E.U.A. Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
 | Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | Norte da África do Sul   | 102.133.152.0      |
 | Oeste da África do Sul    | 102.133.24.0       |
-| EUA Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
+| E.U.A. Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | Sudeste Asiático      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | E.A.U. Central          | 20.37.72.64        |
 | Norte dos E.A.U.            | 65.52.248.0        |
-| Reino Unido Sul             | 51.140.184.11      |
-| Reino Unido Oeste              | 51.141.8.11        |
-| EUA Centro-Oeste      | 13.78.145.25       |
+| Sul do Reino Unido             | 51.140.184.11      |
+| Oeste do Reino Unido              | 51.141.8.11        |
+| E.U.A. Centro-Oeste      | 13.78.145.25       |
 | Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105  |
-| EUA Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
-| EUA Oeste 2            | 13.66.226.202      |
+| Oeste dos E.U.A.              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| E.U.A. Oeste 2            | 13.66.226.202      |
 |                      |                    |
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Alterar política de conexão do banco de dados SQL do Azure
 
 Para alterar a política de conexão do banco de dados SQL do Azure para um servidor de banco de dados SQL do Azure, use o comando [Conn-Policy](https://docs.microsoft.com/cli/azure/sql/server/conn-policy) .
 
-- Se a política de conexão for definida `Proxy`como, todos os pacotes de rede fluem por meio do gateway do banco de dados SQL do Azure. Para essa configuração, você precisa permitir a saída somente para o IP do gateway do banco de dados SQL do Azure. O uso de uma `Proxy` configuração de tem mais latência do que `Redirect`uma configuração de.
-- Se a política de conexão estiver `Redirect`configurando, todos os pacotes de rede fluem diretamente para o cluster de banco de dados. Para essa configuração, você precisa permitir a saída para vários IPs.
+- Se sua política de conexão for definida como `Proxy`, todos os pacotes de rede fluem por meio do gateway do banco de dados SQL do Azure. Para essa configuração, você precisa permitir a saída somente para o IP do gateway do banco de dados SQL do Azure. O uso de uma configuração de `Proxy` tem mais latência do que uma configuração de `Redirect`.
+- Se sua política de conexão estiver definindo `Redirect`, todos os pacotes de rede fluem diretamente para o cluster de banco de dados. Para essa configuração, você precisa permitir a saída para vários IPs.
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script para alterar as configurações de conexão por meio do PowerShell
 

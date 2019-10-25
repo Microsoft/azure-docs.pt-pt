@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c897d52c10efdb8824f676d7640dcc7275915a9e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851783"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72809221"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validação controlada de associação do Azure AD híbrido
 
@@ -55,24 +55,24 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
 
 1. Abra um console de gerenciamento de Política de Grupo e crie um novo objeto de Política de Grupo em seu domínio.
    1. Forneça um nome de GPO criado recentemente (por exemplo, ClientSideSCP).
-1. Edite o GPO e localize o seguinte caminho: >  > Preferênciasde > configuração do computador registro de configurações**do** Windows
-1. Clique com o botão direito do mouse no registro e selecione **novo** > **item do registro**
+1. Edite o GPO e localize o seguinte caminho: **configuração do computador** > **preferências** > configurações **do** **Windows** > registro
+1. Clique com o botão direito do mouse no registro e selecione **novo** **item de registro** de > 
    1. Na guia **geral** , configure o seguinte
-      1. Ação: **Atualização**
-      1. Sessão **HKEY_LOCAL_MACHINE**
+      1. Ação: **Atualizar**
+      1. Hive: **HKEY_LOCAL_MACHINE**
       1. Caminho da chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. Nome do valor: **TenantId**
+      1. Nome do valor: **tenantid**
       1. Tipo de valor: **REG_SZ**
-      1. Dados do valor: O GUID ou a **ID de diretório** da sua instância do Azure AD (esse valor pode ser encontrado no **portal do Azure** > **Azure Active Directory** > **ID de diretório**de**Propriedades** > )
+      1. Dados do valor: o GUID ou a **ID de diretório** da sua instância do Azure AD (esse valor pode ser encontrado no **portal do Azure** > **Azure Active Directory** > **Propriedades** > **ID do diretório**)
    1. Clique em **OK**
-1. Clique com o botão direito do mouse no registro e selecione **novo** > **item do registro**
+1. Clique com o botão direito do mouse no registro e selecione **novo** **item de registro** de > 
    1. Na guia **geral** , configure o seguinte
-      1. Ação: **Atualização**
-      1. Sessão **HKEY_LOCAL_MACHINE**
+      1. Ação: **Atualizar**
+      1. Hive: **HKEY_LOCAL_MACHINE**
       1. Caminho da chave: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
-      1. Nome do valor: **TenantName**
+      1. Nome do valor: **tenantname**
       1. Tipo de valor: **REG_SZ**
-      1. Dados do valor: Seu **nome de domínio** verificado se você estiver usando ambiente federado, como AD FS. Seu **nome de domínio** verificado ou seu nome de domínio onmicrosoft.com, `contoso.onmicrosoft.com` por exemplo, se você estiver usando um ambiente gerenciado
+      1. Dados do valor: seu **nome de domínio** verificado se você estiver usando ambiente federado, como AD FS. Seu **nome de domínio** verificado ou seu nome de domínio onmicrosoft.com, por exemplo, `contoso.onmicrosoft.com` se você estiver usando um ambiente gerenciado
    1. Clique em **OK**
 1. Feche o editor do GPO criado recentemente
 1. Vincular o GPO recém-criado à UO desejada que contém computadores ingressados no domínio que pertencem à sua população de distribuição controlada
@@ -82,7 +82,7 @@ Use o exemplo a seguir para criar um objeto de Política de Grupo (GPO) para imp
 Se estiver usando AD FS, primeiro você precisará configurar o SCP do lado do cliente usando as instruções mencionadas acima, mas vinculando o GPO aos seus servidores de AD FS. O objeto SCP define a origem de autoridade para objetos de dispositivo. Ele pode ser local ou Azure AD. Quando isso é configurado para AD FS, a origem dos objetos de dispositivo é estabelecida como Azure AD.
 
 > [!NOTE]
-> Se você não configurou o SCP do lado do cliente em seus servidores de AD FS, a origem das identidades de dispositivo seria considerada como local e AD FS começaria a excluir objetos de dispositivo do diretório local após um período estipulado.
+> Se você não configurou o SCP do lado do cliente em seus servidores de AD FS, a origem das identidades do dispositivo seria considerada como local e, se você tiver o Write-back do dispositivo, AD FS começaria a excluir objetos de dispositivo do contêiner de dispositivo registrado no local após um período estipulado.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Validação controlada do ingresso no Azure AD híbrido em dispositivos de nível inferior do Windows
 
@@ -98,7 +98,7 @@ Para controlar o registro do dispositivo, você deve implantar o pacote de Windo
 > Se um SCP não estiver configurado no AD, você deverá seguir a mesma abordagem descrita para definir a [configuração do registro do lado do cliente para o SCP](#configure-client-side-registry-setting-for-scp)) em seus computadores ingressados no domínio usando um objeto de política de grupo (GPO).
 
 
-Depois de verificar se tudo está funcionando conforme o esperado, você pode registrar automaticamente o restante de seus dispositivos atuais e de nível inferior do Windows com o Azure AD Configurando o [SCP usando o Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
+Depois de verificar se tudo está funcionando conforme o esperado, você pode registrar automaticamente o restante de seus dispositivos atuais e de nível inferior do Windows com o Azure AD [Configurando o SCP usando o Azure ad Connect](hybrid-azuread-join-managed-domains.md#configure-hybrid-azure-ad-join).
 
 ## <a name="next-steps"></a>Passos seguintes
 

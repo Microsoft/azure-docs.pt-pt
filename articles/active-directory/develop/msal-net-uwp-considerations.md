@@ -1,5 +1,6 @@
 ---
-title: Considerações sobre Plataforma Universal do Windows (biblioteca de autenticação da Microsoft para .NET) | Azure
+title: Considerações sobre Plataforma Universal do Windows (biblioteca de autenticação da Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar Plataforma Universal do Windows com a biblioteca de autenticação da Microsoft para .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,22 +18,22 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 263264742088a0012ea844946e13cffbab634b29
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 27a41ad084d21c7623011b5678fb84ed27d68325
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532491"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802662"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considerações específicas de Plataforma Universal do Windows com MSAL.NET
 No UWP, há várias considerações que você deve levar em conta ao usar o MSAL.NET.
 
 ## <a name="the-usecorporatenetwork-property"></a>A propriedade UseCorporateNetwork
-Na plataforma WinRT, `PublicClientApplication` tem a seguinte propriedade ``UseCorporateNetwork``booliana. Essa propriedade permite que os aplicativos win 8.1 e UWP se beneficiem da autenticação integrada do Windows (e, portanto, SSO com o usuário conectado com o sistema operacional) se o usuário estiver conectado com uma conta em um locatário federado do Azure AD. Quando você define essa propriedade, o MSAL.NET aproveita o WAB (agente de autenticação da Web).
+Na plataforma WinRT, `PublicClientApplication` tem a seguinte Propriedade booliana ``UseCorporateNetwork``. Essa propriedade permite que os aplicativos win 8.1 e UWP se beneficiem da autenticação integrada do Windows (e, portanto, SSO com o usuário conectado com o sistema operacional) se o usuário estiver conectado com uma conta em um locatário federado do Azure AD. Quando você define essa propriedade, o MSAL.NET aproveita o WAB (agente de autenticação da Web).
 
 > [!IMPORTANT]
 > Definir essa propriedade como true pressupõe que o desenvolvedor do aplicativo habilitou a autenticação integrada do Windows (IWA) no aplicativo. Para isso:
-> - No para seu aplicativo UWP, na guia recursos, habilite os seguintes recursos: ``Package.appxmanifest``
+> - Na ``Package.appxmanifest`` para seu aplicativo UWP, na guia **recursos** , habilite os seguintes recursos:
 >   - Autenticação corporativa
 >   - Redes privadas (servidor de & cliente)
 >   - Certificado de usuário compartilhado
@@ -64,10 +65,10 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 
 Para obter detalhes, consulte [agente de autenticação da Web-Fiddler](https://docs.microsoft.com/windows/uwp/security/web-authentication-broker#fiddler).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Mais detalhes são fornecidos nos seguintes exemplos:
 
 Exemplo | Plataforma | Descrição 
 |------ | -------- | -----------|
-|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente Plataforma Universal do Windows usando o msal.net, acessando o Microsoft Graph para uma autenticação de usuário com o ponto de extremidade v 2.0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[Active-Directory-dotnet-Native-UWP-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Um aplicativo cliente Plataforma Universal do Windows usando o msal.net, acessando o Microsoft Graph para uma autenticação de usuário com o ponto de extremidade v 2.0 do Azure AD. <br>![Topologia](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | Um aplicativo Xamarin Forms simples mostrando como usar o MSAL para autenticar o MSA e o Azure AD por meio do ponto de extremidade do AAD v 2.0 e acessar o Microsoft Graph com o token resultante. <br>![Topologia](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

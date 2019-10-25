@@ -1,5 +1,6 @@
 ---
-title: Credenciais de certificado no Azure AD | Microsoft Docs
+title: Credenciais de certificado no Azure AD
+titleSuffix: Microsoft identity platform
 description: Este artigo discute o registro e o uso de credenciais de certificado para autenticação de aplicativo
 services: active-directory
 documentationcenter: .net
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aa63a8f06b71455b7f00d2ce5842f0da851789b
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 1184d210f5b7ea25b9f73cbd70b5f960402126a1
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835467"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803531"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação de aplicativo
 
@@ -46,14 +47,14 @@ Para computar a asserção, você pode usar uma das muitas bibliotecas de [token
 
 | Parâmetro |  Observações |
 | --- | --- |
-| `aud` | Platéia Deve ser  **https://login.microsoftonline.com/ *tenant_Id*/oauth2/token** |
+| `aud` | Público-alvo: deve ser **https://login.microsoftonline.com/*tenant_Id*/oauth2/token** |
 | `exp` | Data de validade: a data em que o token expira. O tempo é representado como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0: 0Z) UTC até a hora em que a validade do token expira.|
 | `iss` | Emissor: deve ser o client_id (ID do aplicativo do serviço do cliente) |
 | `jti` | GUID: a ID do JWT |
 | `nbf` | Não antes: a data antes da qual o token não pode ser usado. O tempo é representado como o número de segundos de 1º de janeiro de 1970 (1970-01-01T0:0: 0Z) UTC até a hora em que o token foi emitido. |
-| `sub` | Requerente: Como for `iss`, deve ser o client_id (ID do aplicativo do serviço do cliente) |
+| `sub` | Assunto: como por `iss`, deve ser o client_id (ID do aplicativo do serviço do cliente) |
 
-### <a name="signature"></a>Assinatura
+### <a name="signature"></a>Signature
 
 A assinatura é computada aplicando o certificado conforme descrito na [especificação RFC7519 do token Web JSON](https://tools.ietf.org/html/rfc7519)
 
@@ -114,7 +115,7 @@ Você também precisa fornecer um GUID para identificar a chave no manifesto do 
 
 No registro do aplicativo do Azure para o aplicativo cliente:
 1. Selecione **manifesto** para abrir o manifesto do aplicativo.
-2. Substitua a Propriedade keycredentials pelas suas novas informações de certificado usando o esquema a seguir.
+2. Substitua a propriedade *Keycredentials* pelas suas novas informações de certificado usando o esquema a seguir.
 
    ```
    "keyCredentials": [
@@ -129,8 +130,8 @@ No registro do aplicativo do Azure para o aplicativo cliente:
    ```
 3. Salve as edições no manifesto do aplicativo e, em seguida, carregue o manifesto no Azure AD. 
 
-   A `keyCredentials` propriedade tem valores múltiplos, portanto, você pode carregar vários certificados para um gerenciamento mais avançado de chaves.
+   A propriedade `keyCredentials` tem valores múltiplos, portanto, você pode carregar vários certificados para um gerenciamento mais avançado de chaves.
    
 ## <a name="code-sample"></a>Exemplo de código
 
-O exemplo de código sobre [autenticação no Azure AD em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) mostra como um aplicativo usa suas próprias credenciais para autenticação. Ele também mostra como você pode [criar um certificado autoassinado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando o comando `New-SelfSignedCertificate` do PowerShell. Você também pode tirar proveito e usar os [scripts de criação de aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para criar os certificados, computar a impressão digital e assim por diante.
+O exemplo de código sobre [autenticação no Azure AD em aplicativos daemon com certificados](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) mostra como um aplicativo usa suas próprias credenciais para autenticação. Ele também mostra como você pode [criar um certificado autoassinado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) usando o comando `New-SelfSignedCertificate` PowerShell. Você também pode tirar proveito e usar os [scripts de criação de aplicativo](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) para criar os certificados, computar a impressão digital e assim por diante.

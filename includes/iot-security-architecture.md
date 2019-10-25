@@ -8,266 +8,264 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: f3e05f213821b053f8cf6abbbc50a14e9ea62295
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f01d4a3a53ac9acf1350e4eea0526cf8584140a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184917"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789077"
 ---
-# <a name="internet-of-things-iot-security-architecture"></a>Arquitetura de segurança de Internet das coisas (IoT)
+Ao criar um sistema, é importante compreender as possíveis ameaças ao sistema e adicionar as defesas apropriadas de acordo, à medida que o sistema é projetado e arquitetado. É importante projetar o produto desde o início com segurança em mente, pois entender como um invasor pode ser capaz de comprometer um sistema ajuda a garantir que as atenuações apropriadas estejam em vigor desde o início.
 
-Quando um sistema, é importante compreender as ameaças potenciais para esse sistema e adicionar as defesas apropriadas da mesma forma, como o sistema é concebido e criado. É importante estruturar o produto desde o início com segurança em mente, porque a compreensão de como um invasor poderá comprometer um sistema de ajuda a tornar as atenuações apropriadas-se de que estão em vigor desde o início.
+## <a name="security-starts-with-a-threat-model"></a>A segurança começa com um modelo de ameaça
 
-## <a name="security-starts-with-a-threat-model"></a>Segurança começa com um modelo de ameaças
+A Microsoft usou muito os modelos de ameaça para seus produtos e tornou o processo de modelagem de ameaças da empresa publicamente disponível. A experiência da empresa demonstra que a modelagem tem benefícios inesperados além da compreensão imediata de quais ameaças mais se referem. Por exemplo, ele também cria uma avenida para uma discussão aberta com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e melhorias no produto.
 
-A Microsoft há muito tempo utiliza modelos de ameaça para seus produtos e fez publicamente disponível do processo de modelagem de ameaças da empresa. A experiência de empresa demonstra que a Modelagem tem benefícios inesperados além a compreensão imediata dos quais ameaças são mais relacionados. Por exemplo, ele também cria um caminho para um debate aberto com outras pessoas fora da equipe de desenvolvimento, o que pode levar a novas ideias e aprimoramentos no produto.
+O objetivo da modelagem de ameaças é entender como um invasor pode ser capaz de comprometer um sistema e, em seguida, garantir que as atenuações apropriadas estejam em vigor. A modelagem de ameaças força a equipe de design a considerar as mitigações à medida que o sistema é projetado, e não depois que um sistema é implantado. Esse fato é extremamente importante, pois as defesas de segurança modernização para uma infinidade de dispositivos no campo são inviáveis, sujeitas a erros e deixam os clientes em risco.
 
-O objetivo da modelagem de ameaças é compreender como um invasor poderá comprometer um sistema e, em seguida, certifique-se de atenuações apropriadas estão em vigor. Forças de modelagem de ameaças a equipa de design a serem considerados atenuações, como o sistema foi concebido, em vez depois de um sistema é implementado. Esse fato é extremamente importante, uma vez que estão modernizando suas defesas de segurança para uma grande variedade de dispositivos no terreno é inviável, propenso a erros e os clientes de folhas em risco.
+Muitas equipes de desenvolvimento realizam um excelente trabalho capturando os requisitos funcionais do sistema que beneficiam os clientes. No entanto, identificar maneiras não óbvias para que alguém possa indevidamente o sistema seja mais desafiador. A modelagem de ameaças pode ajudar as equipes de desenvolvimento a entender o que um invasor pode fazer e por quê. A modelagem de ameaças é um processo estruturado que cria uma discussão sobre as decisões de design de segurança no sistema, bem como as alterações no design que são feitas ao longo do caminho que afetam a segurança. Embora um modelo de risco seja simplesmente um documento, esta documentação também representa uma maneira ideal de garantir a continuidade do conhecimento, a retenção de lições aprendidas e ajudar a nova equipe a se integrar rapidamente. Finalmente, um resultado da modelagem de ameaças é permitir que você considere outros aspectos de segurança, como os compromissos de segurança que deseja fornecer aos seus clientes. Esses compromissos em conjunto com a modelagem de ameaças informam e orientam os testes da sua solução de Internet das Coisas (IoT).
 
-Muitas equipes de desenvolvimento fazem um excelente trabalho capturar os requisitos funcionais para o sistema que beneficiam os clientes. No entanto, a identificação de formas não óbvio que alguém pode uso indevido o sistema é mais desafiador. A Modelagem de ameaças pode ajudar a compreender o que um invasor pode fazer as equipes de desenvolvimento e por que. A Modelagem de ameaças é um processo estruturado que cria uma discussão sobre a segurança decisões de design no sistema, bem como alterações para o design que são feitas ao longo do processo dessa segurança de impacto. Enquanto um modelo de risco é simplesmente um documento, esta documentação também representa uma forma ideal para garantir a continuidade dos dados de conhecimento, retenção de lições aprendidas e novo de ajuda da Equipe carregar rapidamente. Por fim, um resultado da modelagem de ameaças é permitir-lhe que considere outros aspectos de segurança, como os compromissos de segurança que deseja fornecer aos seus clientes. Estes compromissos em conjunto com a Modelagem de ameaças informam e orientar o teste da sua solução de Internet das coisas (IoT).
+### <a name="when-to-do-threat-modeling"></a>Quando fazer a modelagem de risco
 
-### <a name="when-to-do-threat-modeling"></a>Quando a Modelagem de ameaças
+A [modelagem de ameaças](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o maior valor quando você a incorpora na fase de design. Ao projetar, você tem a maior flexibilidade para fazer alterações para eliminar ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar mitigações, testá-las e garantir que elas permaneçam atuais e, além disso, essa eliminação nem sempre é possível. Torna-se mais difícil eliminar as ameaças à medida que um produto se torna mais maduro e, por sua vez, requer mais trabalho e muito mais difícil do que a modelagem de ameaças no início do desenvolvimento.
 
-[A Modelagem de ameaças](https://www.microsoft.com/en-us/sdl/adopt/threatmodeling.aspx) oferece o maior valor quando incorporá-la para a fase de design. Durante o design, tem a maior flexibilidade para fazer alterações para eliminar as ameaças. A eliminação de ameaças por design é o resultado desejado. É muito mais fácil do que adicionar atenuações, testá-los e garantir que eles permanecem atualizados e além disso, tal eliminação nem sempre é possível. Ele se torna mais difícil de eliminar as ameaças à medida que um produto torna-se mais maduro e, por sua vez, por fim, requer mais trabalho e os compromissos muito mais difícil do que no início de modelagem no desenvolvimento de ameaças.
+### <a name="what-to-consider-for-threat-modeling"></a>O que considerar para a modelagem de ameaças
 
-### <a name="what-to-consider-for-threat-modeling"></a>O que considerar para a Modelagem de ameaças
+Você deve examinar a solução como um todo e também se concentrar nas seguintes áreas:
 
-Deve considerar a solução como um todo e também se concentrem nas seguintes áreas:
+* Os recursos de segurança e privacidade
+* Os recursos cujas falhas são relevantes para a segurança
+* Os recursos que tocam em um limite de confiança
 
-* As funcionalidades de segurança e privacidade
-* Os recursos cujas falhas são relevante de segurança
-* Os recursos de toque de um limite de fidedignidade
+### <a name="who-performs-threat-modeling"></a>Quem executa a modelagem de ameaças
 
-### <a name="who-performs-threat-modeling"></a>Que executa a Modelagem de ameaças
+A modelagem de ameaças é um processo como qualquer outro. É uma boa ideia tratar o documento de modelo de risco como qualquer outro componente da solução e validá-lo. Muitas equipes de desenvolvimento realizam um excelente trabalho capturando os requisitos funcionais do sistema que beneficiam os clientes. No entanto, identificar maneiras não óbvias para que alguém possa indevidamente o sistema seja mais desafiador. A modelagem de ameaças pode ajudar as equipes de desenvolvimento a entender o que um invasor pode fazer e por quê.
 
-A Modelagem de ameaças é um processo como qualquer outro. É uma boa idéia para tratar o documento de modelo de ameaças, como qualquer outro componente da solução e validá-lo. Muitas equipes de desenvolvimento fazem um excelente trabalho capturar os requisitos funcionais para o sistema que beneficiam os clientes. No entanto, a identificação de formas não óbvio que alguém pode uso indevido o sistema é mais desafiador. A Modelagem de ameaças pode ajudar a compreender o que um invasor pode fazer as equipes de desenvolvimento e por que.
+### <a name="how-to-perform-threat-modeling"></a>Como executar a modelagem de ameaças
 
-### <a name="how-to-perform-threat-modeling"></a>Como realizar a Modelagem de ameaças
+O processo de modelagem de ameaças é composto de quatro etapas; as etapas são:
 
-O processo de modelagem de ameaças é composto de quatro etapas; os passos são:
-
-* Modele a aplicação
+* Modelar o aplicativo
 * Enumerar ameaças
-* Mitigue ameaças
-* Validar as atenuações
+* Migrar ameaças
+* Validar as mitigações
 
 #### <a name="the-process-steps"></a>As etapas do processo
 
-Três regras básicas para ter em mente ao criar um modelo de ameaças:
+Três regras gerais para ter em mente ao criar um modelo de ameaça:
 
-1. Crie um diagrama de arquitetura de referência.
+1. Crie um diagrama fora da arquitetura de referência.
 
-2. Comece a amplitude em primeiro lugar. Obtenha uma visão geral e compreender o sistema como um todo, antes de mergulhar de profunda. Esta abordagem ajuda a garantir que-aprofunde-se nos lugares certos.
+2. Iniciar amplitude-primeiro. Obtenha uma visão geral e entenda o sistema como um todo, antes de mergulhar. Essa abordagem ajuda a garantir que você se aprofunde nos lugares certos.
 
-3. Orientar o processo, não deixe que o processo de unidade. Se encontrar um problema na fase de modelagem e pretende explorá-lo, vá para o mesmo! Não se sinta tem de seguir estes passos submissamente.
+3. Conduza o processo, não deixe que o processo o conduza. Se você encontrar um problema na fase de modelagem e quiser explorá-lo, acesse! Não se sinta que você precisa seguir estas etapas submissamente.
 
 #### <a name="threats"></a>Ameaças
 
-Os elementos de quatro núcleos de um modelo de ameaças são:
+Os quatro elementos principais de um modelo de ameaça são:
 
-* Processos como serviços da web, serviços do Win32, e * nix daemons. Algumas entidades complexas (por exemplo, os gateways de campo e sensores) podem ser abstraídas como um processo quando um técnico desagregação nas seguintes áreas não é possível.
+* Processos como serviços Web, serviços Win32 e daemons * Nix. Algumas entidades complexas (por exemplo, gateways de campo e sensores) podem ser abstratas como um processo quando um detalhamento técnico nessas áreas não é possível.
 
-* Arquivos de dados (em qualquer lugar os dados são armazenados como um ficheiro de configuração ou a base de dados)
+* Armazenamentos de dados (em qualquer lugar, os dados são armazenados, como um arquivo de configuração ou banco de dado)
 
-* Fluxo de dados (em que dados são movidos entre outros elementos do aplicativo)
+* Fluxo de dados (onde os dados se movem entre outros elementos no aplicativo)
 
-* Entidades externas (qualquer coisa que interage com o sistema, mas que não seja sob o controlo da aplicação, exemplos incluem utilizadores e por satélite feeds)
+* Entidades externas (qualquer coisa que interaja com o sistema, mas que não esteja sob o controle do aplicativo, exemplos incluem usuários e feeds satélites)
 
-Todos os elementos no diagrama da arquitetura são sujeitos a várias ameaças; Este artigo o mnemônica STRIDE. Leia [modelagem de ameaças novamente ', STRIDE](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) para saber mais sobre os elementos STRIDE.
+Todos os elementos no diagrama arquitetônico estão sujeitos a várias ameaças; Este artigo é o mnemônico do STRIDE. Leia a [modelagem de ameaças novamente, Stride](https://blogs.msdn.microsoft.com/larryosterman/2007/09/04/threat-modeling-again-stride/) para saber mais sobre os elementos Stride.
 
-Diferentes elementos de diagrama de aplicativos estão sujeitos a determinadas ameaças STRIDE:
+Elementos diferentes do diagrama de aplicativo estão sujeitos a determinadas ameaças STRIDE:
 
-* Os processos são sujeitos a STRIDE
-* Fluxos de dados são sujeitos a NIF
-* Arquivos de dados são sujeitos a NIF e, às vezes, R, quando os arquivos de dados são ficheiros de registo.
-* Entidades externas são sujeitos a SRD
+* Os processos estão sujeitos a STRIDE
+* Os fluxos de dados estão sujeitos ao TID
+* Os armazenamentos de dados estão sujeitos a TID e, às vezes, R, quando os armazenamentos de dados são arquivos de log.
+* Entidades externas estão sujeitas a SRD
 
-## <a name="security-in-iot"></a>Segurança de IoT
+## <a name="security-in-iot"></a>Segurança na IoT
 
-Dispositivos com objetivos especiais ligados têm um número significativo de potenciais áreas de superfície de interação e padrões de interação, todos os quais tem de ser considerados para fornecer uma estrutura para proteger o acesso digital para esses dispositivos. O termo "acesso digital" é utilizado aqui para distinguir de todas as operações são executadas por meio da interação direta de dispositivos onde a segurança de acesso é fornecida por meio do controle de acesso físico. Por exemplo, colocar o dispositivo numa sala com um bloqueio à porta. Embora o acesso físico não pode ser negado com software e hardware, a medidas podem ser tomadas para impedir o acesso físico de líderes a interferência de sistema.
+Dispositivos de finalidade especial conectados têm um número significativo de áreas potenciais de superfície de interação e padrões de interação, que devem ser considerados para fornecer uma estrutura para proteger o acesso digital a esses dispositivos. O termo "acesso digital" é usado aqui para distinguir de quaisquer operações executadas por meio da interação direta do dispositivo em que a segurança de acesso é fornecida por meio do controle de acesso físico. Por exemplo, colocar o dispositivo em uma sala com um bloqueio na porta. Embora o acesso físico não possa ser negado usando software e hardware, as medidas podem ser tomadas para impedir que o acesso físico fique à frente para a interferência do sistema.
 
-À medida que explora os padrões de interação, veja "controle de dispositivo" e "dados de dispositivo" com o mesmo nível de atenção. "Controle de dispositivo" pode ser classificado como qualquer informação que é fornecida para um dispositivo por qualquer entidade com o objetivo de alterar ou influência de seu comportamento para seu estado ou o estado de seu ambiente. "Dados de dispositivo" podem ser classificados como todas as informações que um dispositivo emite a todas as outras pessoas sobre seu estado e o estado observado de seu ambiente.
+Ao explorar os padrões de interação, examine o "controle de dispositivo" e os "dados do dispositivo" com o mesmo nível de atenção. O "controle de dispositivo" pode ser classificado como qualquer informação fornecida a um dispositivo por qualquer parte com o objetivo de alterar ou influenciar seu comportamento em relação ao estado ou ao estado de seu ambiente. Os "dados do dispositivo" podem ser classificados como qualquer informação que um dispositivo emite para qualquer outra parte sobre seu estado e o estado observado de seu ambiente.
 
-Para otimizar a melhores práticas de segurança, recomenda-se que uma arquitetura típica de IoT é dividida em vários componentes/zonas como parte do exercício de modelagem de ameaças. Estas zonas são descritas completamente em toda esta secção e incluem:
+Para otimizar as práticas recomendadas de segurança, é recomendável que uma arquitetura de IoT típica seja dividida em vários componentes/zonas como parte do exercício de modelagem de ameaças. Essas zonas são descritas completamente em toda esta seção e incluem:
 
-* Dispositivo,
+* Vice
 * Gateway de campo,
-* Gateways, da cloud e
-* Serviços.
+* Gateways de nuvem e
+* serviços.
 
-As zonas são amplas para segmentar uma solução; cada zona, freqüentemente, possuem seus próprios requisitos de dados, autenticação e autorização. As zonas também podem ser utilizado para danos de isolamento e restringir o impacto das zonas de fidedignidade baixa nas zonas de confiança de mais altas.
+As zonas são uma ampla maneira de segmentar uma solução; cada zona geralmente tem seus próprios dados e requisitos de autenticação e autorização. As zonas também podem ser usadas para isolar danos e restringir o impacto de zonas de confiança baixa em zonas de confiança mais altas.
 
-Cada zona é separada por um limite de confiança, que é indicado como a linha ponteada com o vermelha no diagrama seguinte. Ele representa uma transição de dados/informações de uma origem para outro. Durante essa transição, os dados/informações pode ser sujeita a Spoofing, violação, rejeição, divulgação de informações, Denial of Service e elevação de privilégios (STRIDE).
+Cada zona é separada por um limite de confiança, que é indicado como a linha pontilhada vermelha no diagrama a seguir. Ele representa uma transição de dados/informações de uma fonte para outra. Durante essa transição, os dados/informações podem estar sujeitos a falsificação, violação, repúdio, divulgação de informações, negação de serviço e elevação de privilégio (STRIDE).
 
 ![Zonas de segurança de IoT](media/iot-security-architecture/iot-security-architecture-fig1.png) 
 
-Os componentes representados dentro de cada limite também estão sujeitos aos STRIDE, permitindo uma completa 360 vista da solução de modelagem de ameaças. As secções seguintes falar mais sobre cada um dos componentes e preocupações de segurança específicas e soluções que devem ser colocadas no lugar certo.
+Os componentes descritos dentro de cada limite também estão sujeitos a STRIDE, permitindo uma exibição de modelagem de risco 360 completa da solução. As seções a seguir elaboram cada um dos componentes e questões específicas de segurança e soluções que devem ser colocadas em vigor.
 
-As secções seguintes abordam os componentes padrão normalmente encontrados destas zonas.
+As seções a seguir abordam os componentes padrão normalmente encontrados nessas zonas.
 
-### <a name="the-device-zone"></a>A zona de dispositivo
+### <a name="the-device-zone"></a>A zona do dispositivo
 
-O ambiente de dispositivo é o espaço físico imediato em todo o dispositivo no qual físico acesso e/ou "rede local" acesso digital do ponto-a-ponto para o dispositivo é viável. Uma "rede local" é considerada como uma rede que é distinto e isolado da – mas potencialmente preenchidas – para a Internet pública e inclui qualquer tecnologia de curto alcance relacionadas rádio sem fio que permite a comunicação de ponto-a-ponto dos dispositivos. Ele faz *não* incluir qualquer tecnologia de Virtualização de rede criar a ilusão de uma rede local e também não inclui as redes de operador público que necessitam de quaisquer dois dispositivos para comunicar em espaço de rede pública se eles eram introduzir uma relação de comunicação de ponto-a-ponto.
+O ambiente do dispositivo é o espaço físico imediato em volta do dispositivo em que o acesso físico e/ou a "rede local" acesso digital ponto a ponto para o dispositivo é viável. Uma "rede local" é considerada uma rede distinta e isolada da – mas potencialmente ligada à – Internet pública e inclui qualquer tecnologia de rádio sem fio de curto alcance que permita a comunicação ponto a ponto dos dispositivos. Ele não *inclui nenhuma* tecnologia de virtualização de rede criando a ilusão de uma rede local como essa, e também não inclui redes de operador público que exigem dois dispositivos para se comunicarem pelo espaço de rede pública se eles fossem inserir um relação de comunicação ponto a ponto.
 
 ### <a name="the-field-gateway-zone"></a>A zona de gateway de campo
 
-Gateway de campo é uma aplicação/dispositivo ou algum software de computador do servidor para fins gerais que age como habilitador de comunicação e, potencialmente, como um sistema de controle de dispositivo e o hub de processamento de dados do dispositivo. A zona de gateway de campo inclui o próprio gateway de campo e todos os dispositivos que estão ligados ao mesmo. Como o nome indica, o gateways de campo agirem instalações de processamento de dados dedicado exterior, são, normalmente, a localização vinculada, são potencialmente sujeitas a intrusões físico e limitou a redundância operacional. Tudo para dizer que um gateway de campo é, normalmente, uma coisa um touch e tentaram sabotar sabendo o que é sua função.
+O gateway de campo é um dispositivo/aplicativo ou algum software de computador de servidor de uso geral que atua como habilitador de comunicação e, potencialmente, como um sistema de controle de dispositivo e Hub de processamento de dados de dispositivo. A zona de gateway de campo inclui o próprio gateway de campo e todos os dispositivos anexados a ele. Como o nome indica, os gateways de campo atuam fora dos recursos de processamento de dados dedicados, geralmente são associados à localização, estão potencialmente sujeitos à invasão física e têm redundância operacional limitada. Tudo o que dizer que um gateway de campo é, em geral, uma coisa que pode tocar e sabotarr enquanto sabe qual é sua função.
 
-Um gateway de campo é diferente de um router de tráfego meros em que ele tenha tido uma função ativa no gerenciamento de acesso e fluxo de informações, que significa que é um aplicativo resolvido ligação de entidades e de rede ou sessão de terminal. Um dispositivo NAT ou de uma firewall, por outro lado, não se qualifica como gateways de campo, uma vez que não são ligação explícita ou terminais de sessão, mas em vez disso, um ligações rota (ou bloco) ou sessões feitas por eles. O gateway de campo tem duas áreas de superfície distintas. Um enfrenta os dispositivos que estão ligados a ele e representa o interior da zona e o outro enfrenta todas as partes externas e é o limite da zona.
+Um gateway de campo é diferente de um mero roteador de tráfego, pois ele tinha uma função ativa no gerenciamento do acesso e do fluxo de informações, o que significa que ele é uma entidade endereçada ao aplicativo e uma conexão de rede ou terminal de sessão. Um dispositivo NAT ou firewall, por outro lado, não se qualifica como gateways de campo, pois não são terminais de sessão ou conexão explícitas, mas sim uma (ou bloquear) conexões ou sessões feitas por meio deles. O gateway de campo tem duas áreas de superfície distintas. Uma faces os dispositivos que estão anexados a ele e representa o interior da zona, e a outra é voltada para todas as partes externas e é a borda da zona.
 
-### <a name="the-cloud-gateway-zone"></a>A zona de gateway de cloud
+### <a name="the-cloud-gateway-zone"></a>A zona do gateway de nuvem
 
-Gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes em espaço de rede pública, normalmente em direção um controle com base na cloud e o sistema de análise de dados, uma federação de tais sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitam o acesso para dispositivos com objetivos especiais de terminais, tais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se para fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos ligados ou gateways de campo. Também numa zona de Cloud, medidas operacionais impedem o acesso físico de destino e não são necessariamente expostas a uma infra-estrutura de "nuvem pública".  
+O gateway de nuvem é um sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se a fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos anexados ou gateways de campo. Também em uma zona de nuvem, as medidas operacionais impedem o acesso físico direcionado e não são necessariamente expostas a uma infra-estrutura de "nuvem pública".  
 
-Um gateway de nuvem potencialmente pode ser mapeado para uma sobreposição de Virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos ligados ou gateways de campo de qualquer outro tráfego de rede. O gateway de nuvem em si não é um sistema de controle de dispositivo ou um processamento ou recurso de armazenamento para dados device nessas instalações interface com o gateway de nuvem. A zona de gateway de cloud inclui o gateway de nuvem, juntamente com todos os gateways de campo e dispositivos direta ou indiretamente ligados ao mesmo. O limite da zona é uma área de superfície distinta em que todas as partes externas comunicam através de.
+Um gateway de nuvem pode potencialmente ser mapeado para uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O próprio gateway de nuvem não é um sistema de controle de dispositivo ou um recurso de processamento ou armazenamento para dados do dispositivo; esses recursos são interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele. A borda da zona é uma área de superfície distinta na qual todas as partes externas se comunicam.
 
 ### <a name="the-services-zone"></a>A zona de serviços
 
-Um "serviço" é definido para este contexto como qualquer componente de software ou o módulo que está a fazer interface com dispositivos através de um gateway de campo ou na cloud para análise e recolha de dados, bem como para comando e controlo. Os serviços são mediators. Eles atuam em sua identidade para os gateways de outros subsistemas, armazenam e analisam dados, forma autónoma emitir comandos para dispositivos com base nas informações de dados ou agendas e expõem informações e controlam recursos para os utilizadores finais autorizados.
+Um "serviço" é definido para esse contexto como qualquer componente de software ou módulo que está fazendo interface com dispositivos por meio de um gateway de campo ou de nuvem para coleta e análise de dados, bem como para comando e controle. Os serviços são mediadores. Eles atuam sob sua identidade para gateways e outros subsistemas, armazenam e analisam dados, executam comandos de forma autônoma em dispositivos com base em análises de dados ou agendas e expõem informações e controlam os recursos para usuários finais autorizados.
 
-### <a name="information-devices-versus-special-purpose-devices"></a>Dispositivos de informações em comparação com dispositivos com objetivos especiais
+### <a name="information-devices-versus-special-purpose-devices"></a>Informações-dispositivos versus dispositivos de finalidade especial
 
-PCs, telemóveis e tablets são principalmente os dispositivos de informações interativas. Telemóveis e tablets explicitamente são otimizados em torno de maximizar a vida útil da bateria. Eles, de preferência, desative a parcialmente quando não imediatamente a interagir com uma pessoa, ou quando o não fornecimento de serviços, como a reprodução de música ou orientar o seu proprietário para um local específico. Da perspectiva de sistemas, estes dispositivos de tecnologia de informações principalmente atuam como proxies para as pessoas. Eles são "atuadores de pessoas", sugerindo ações e "sensores de pessoas" coleta de entrada.
+PCs, telefones e tablets são principalmente dispositivos de informações interativos. Telefones e tablets são explicitamente otimizados em relação à maximização do tempo de vida da bateria. Eles são, de preferência, desativados parcialmente quando não interagem imediatamente com uma pessoa, ou quando não fornecem serviços como reproduzir música ou orientar seu proprietário para um local específico. Da perspectiva de sistemas, esses dispositivos de tecnologia da informação estão atuando principalmente como proxies para as pessoas. Eles são "acionadores de pessoas" sugerindo ações e "sensores de pessoas" coletando entrada.
 
-Dispositivos com objetivos especiais, a partir de sensores de temperatura simples para linhas de produção de fábrica complexos com milhares de componentes dentro deles, são diferentes. Estes dispositivos estão confinados muito mais no fim e o mesmo que fornecem uma interface de usuário, em grande parte estão confinadas a interface com, ou ser integrados nos ativos no mundo físico. Eles medem e relatar circunstâncias ambientais, ativar valves, controlam servos, alarmes de som, alternar luzes e fazer muitas outras tarefas. Eles ajudam a trabalhar para o qual um dispositivo de informações é demasiado genérico, demasiado caro, demasiado grande ou muito frágil. O objetivo de concreto dita imediatamente o design técnico como bem monetário orçamento disponível para a sua produção e a operação agendada do tempo de vida. A combinação destes dois fatores chave restringe o disponível operacional orçamento de energia, requisitos de espaço físico e, portanto, armazenamento disponível, capacidades de computação e segurança.
+Dispositivos de finalidade especial, desde sensores de temperatura simples até linhas de produção de fábrica complexas com milhares de componentes dentro deles, são diferentes. Esses dispositivos são muito mais delimitados com finalidades e, mesmo que forneçam alguma interface do usuário, eles têm um escopo amplo para se integrar ou serem integrados a ativos no mundo físico. Eles medem e relatam circunstâncias ambientais, ativam válvulas, controlam os servos, alarmes de som, interruptores e executam muitas outras tarefas. Eles ajudam a realizar o trabalho para o qual um dispositivo de informações é muito genérico, muito caro, muito grande ou frágil demais. A finalidade concreta imediatamente dita o design técnico, bem como o orçamento monetário disponível para sua operação de produção e tempo de vida agendada. A combinação desses dois fatores principais restringe o orçamento de energia operacional disponível, a superfície física e, portanto, os recursos de armazenamento, computação e segurança disponíveis.
 
-Se algo "acompanha errado" dispositivos controláveis automatizadas ou remotos, por exemplo, defeitos físicos ou lógica de controle de defeitos willful intrusões não autorizadas e manipulação. A grande de produção pode ser destruído, edifícios podem estar looted ou gravados para baixo, e as pessoas podem ser die injured ou até mesmo. Essa é uma classe totalmente diferente de danos do que alguém maximizar o limite de um cartão crédito roubado. A barra de segurança para os dispositivos que fazem coisas mover e também para dados de sensor que, eventualmente, resulta em comandos que fazer com que as coisas mover, tem de ser maior do que em qualquer cenário de banca ou de comércio eletrônico.
+Se algo "der errado" com dispositivos controláveis automatizados ou remotos, por exemplo, defeitos físicos ou defeitos de lógica de controle para deliberada intrusão e manipulação não autorizadas. Os lotes de produção podem ser destruídos, os prédios podem ser saqueadosdos ou gravados, e as pessoas podem ser feridas ou até mesmo morrer. Essa é uma classe totalmente diferente de danos do que alguém maximizando o limite de um cartão de crédito roubado. A barra de segurança para dispositivos que fazem as coisas se movimentam e também para dados de sensor que eventualmente resultam em comandos que fazem com que as coisas sejam movidas, devem ser maiores do que em qualquer cenário de comércio eletrônico ou bancário.
 
-### <a name="device-control-and-device-data-interactions"></a>Controle de dispositivo e as interações de dados do dispositivo
+### <a name="device-control-and-device-data-interactions"></a>Controle de dispositivo e interações de dados do dispositivo
 
-Dispositivos com objetivos especiais ligados têm um número significativo de potenciais áreas de superfície de interação e padrões de interação, todos os quais tem de ser considerados para fornecer uma estrutura para proteger o acesso digital para esses dispositivos. O termo "acesso digital" é utilizado aqui para distinguir de todas as operações são executadas por meio da interação direta de dispositivos onde a segurança de acesso é fornecida por meio do controle de acesso físico. Por exemplo, colocar o dispositivo numa sala com um bloqueio à porta. Embora o acesso físico não pode ser negado com software e hardware, a medidas podem ser tomadas para impedir o acesso físico de líderes a interferência de sistema.
+Dispositivos de finalidade especial conectados têm um número significativo de áreas potenciais de superfície de interação e padrões de interação, que devem ser considerados para fornecer uma estrutura para proteger o acesso digital a esses dispositivos. O termo "acesso digital" é usado aqui para distinguir de quaisquer operações executadas por meio da interação direta do dispositivo em que a segurança de acesso é fornecida por meio do controle de acesso físico. Por exemplo, colocar o dispositivo em uma sala com um bloqueio na porta. Embora o acesso físico não possa ser negado usando software e hardware, as medidas podem ser tomadas para impedir que o acesso físico fique à frente para a interferência do sistema.
 
-À medida que explora os padrões de interação, examine "controle de dispositivo" e "dados de dispositivo" com o mesmo nível de atenção durante a Modelagem de ameaças. "Controle de dispositivo" pode ser classificado como qualquer informação que é fornecida para um dispositivo por qualquer entidade com o objetivo de alterar ou influência de seu comportamento para seu estado ou o estado de seu ambiente. "Dados de dispositivo" podem ser classificados como todas as informações que um dispositivo emite a todas as outras pessoas sobre seu estado e o estado observado de seu ambiente.
+Ao explorar os padrões de interação, examine o "controle de dispositivo" e os "dados do dispositivo" com o mesmo nível de atenção durante a modelagem de risco. O "controle de dispositivo" pode ser classificado como qualquer informação fornecida a um dispositivo por qualquer parte com o objetivo de alterar ou influenciar seu comportamento em relação ao estado ou ao estado de seu ambiente. Os "dados do dispositivo" podem ser classificados como qualquer informação que um dispositivo emite para qualquer outra parte sobre seu estado e o estado observado de seu ambiente.
 
-## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>A efetuar para a arquitetura de referência do IoT do Azure de modelagem de ameaças
+## <a name="performing-threat-modeling-for-the-azure-iot-reference-architecture"></a>Executando a modelagem de ameaças para a arquitetura de referência do Azure IoT
 
-A Microsoft utiliza o framework descrito anteriormente para o fazer para IoT do Azure de modelagem de ameaças. A secção seguinte utiliza o exemplo concreto de arquitetura de referência do Azure IoT para demonstrar como pensar sobre IoT de modelagem de ameaças e como resolver ameaças identificadas. Neste exemplo identifica quatro áreas de foco principais:
+A Microsoft usa a estrutura descrita anteriormente para fazer a modelagem de ameaças para o Azure IoT. A seção a seguir usa o exemplo concreto da arquitetura de referência do Azure IoT para demonstrar como pensar sobre a modelagem de risco para IoT e como tratar as ameaças identificadas. Este exemplo identifica quatro áreas principais de foco:
 
-* Dispositivos e origens de dados,
+* Dispositivos e fontes de dados,
 * Transporte de dados,
-* Dispositivo e processamento de eventos, e
-* Apresentação
+* Processamento de dispositivos e eventos e
+* Presentation
 
-![Modelagem para IoT do Azure de ameaças](media/iot-security-architecture/iot-security-architecture-fig2.png)
+![Modelagem de ameaças para o Azure IoT](media/iot-security-architecture/iot-security-architecture-fig2.png)
 
-O diagrama seguinte apresenta uma visão simplificada da arquitetura de IoT da Microsoft usando um modelo de diagrama de fluxo de dados que é utilizado pela ferramenta de modelagem de ameaças da Microsoft:
+O diagrama a seguir fornece uma visão simplificada da arquitetura IoT da Microsoft usando um modelo de diagrama de fluxo de dados que é usado pelo Microsoft Threat Modeling Tool:
 
-![Modelagem para IoT do Azure com a ferramenta de modelagem de ameaças em MS de ameaças](media/iot-security-architecture/iot-security-architecture-fig3.png)
+![Modelagem de ameaças para o Azure IoT usando o MS Threat Modeling Tool](media/iot-security-architecture/iot-security-architecture-fig3.png)
 
-É importante observar que a arquitetura separa as capacidades do dispositivo e o gateway. Esta abordagem permite que o usuário tirar partido dos dispositivos de gateway que são mais seguros: são capazes de comunicar com o gateway de nuvem usando protocolos seguros, que requer, normalmente, a maior sobrecarga de processamento que um dispositivo nativo - por exemplo, um termóstato - poderia Fornece por conta própria. Na zona de serviços do Azure, partem do princípio de que o Gateway de nuvem é representado pelo serviço do IoT Hub do Azure.
+É importante observar que a arquitetura separa os recursos do dispositivo e do gateway. Essa abordagem permite que o usuário aproveite os dispositivos de gateway que são mais seguros: eles são capazes de se comunicar com o gateway de nuvem usando protocolos seguros, o que geralmente requer uma sobrecarga de processamento maior que um dispositivo nativo, como um termostato forneça por conta própria. Na zona de serviços do Azure, suponha que o gateway de nuvem seja representado pelo serviço do Hub IoT do Azure.
 
-### <a name="device-and-data-sourcesdata-transport"></a>Transporte / dados de origens de dados e de dispositivo
+### <a name="device-and-data-sourcesdata-transport"></a>Fontes de dados e de dispositivo/transporte de dados
 
-Esta seção explora a arquitetura descrita anteriormente através a lente de modelagem de ameaças e proporcione uma descrição geral de como abordar algumas das preocupações inerentes. Este exemplo se concentra nos principais elementos do modelo de risco:
+Esta seção explora a arquitetura descrita anteriormente por meio da lente de modelagem de ameaças e fornece uma visão geral de como abordar algumas das preocupações inerentes. Este exemplo enfoca os principais elementos de um modelo de ameaça:
 
-* Processos (ambos em seu controle e itens externos)
+* Processos (tanto sob seu controle quanto em itens externos)
 * Comunicação (também chamada de fluxos de dados)
-* Armazenamento (também chamado de arquivos de dados)
+* Armazenamento (também chamado de armazenamentos de dados)
 
 #### <a name="processes"></a>Processos
 
-Em cada uma das categorias descritas na arquitetura do IoT do Azure, neste exemplo tenta atenuar várias ameaças diferentes entre os diferentes estágios/informações de dados existe na: processo, comunicação e armazenamento. Segue-se uma descrição geral dos mais comuns para a categoria de "processo", seguido de uma descrição geral de como essas ameaças podem ser mitigadas melhor:
+Em cada uma das categorias descritas na arquitetura do Azure IoT, este exemplo tenta mitigar várias ameaças diferentes entre os diferentes estágios em que dados/informações existem em: processo, comunicação e armazenamento. A seguir, uma visão geral das mais comuns para a categoria "processo", seguida de uma visão geral de como essas ameaças poderiam ser mais bem atenuadas:
 
-**(S) de spoofing**: Um invasor pode extrair um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de material de chave criptográfica. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
+**Falsificações**: um invasor pode extrair o material de chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo que o material da chave tem foi tirado de. Uma boa ilustração é controles remotos que podem transformar qualquer TV e que sejam ferramentas de Prankster populares.
 
-**Negação de serviço (D)** : É possível incapacitar o funcionamento ou as comunicações de um dispositivo ao interferir com as frequências de rádio ou através do corte de cabos. Por exemplo, uma câmara de vigilância cuja alimentação ou ligação de rede tenha sido intencionalmente desligada não consegue comunicar dados de todo.
+**Negação de serviço (D)** : um dispositivo pode ser processado incapaz de funcionar ou se comunicar interferindo-se em radiofrequências ou recortando fios. Por exemplo, uma câmara de vigilância cuja alimentação ou ligação de rede tenha sido intencionalmente desligada não consegue comunicar dados de todo.
 
-**Adulteração (T)** : Um atacante pode substituir, parcial ou totalmente, o software em execução no dispositivo, o que pode potencialmente permitir ao software de substituição tirar partido da identidade genuína do dispositivo, caso os materiais chave ou os recursos criptográficos que os contêm tenham estado à mercê do programa ilícito. Por exemplo, um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
+**Adulteração (T)** : um invasor pode substituir parcialmente ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído Aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia contiverem a chave os materiais estavam disponíveis para o programa ilícito. Por exemplo, um invasor pode aproveitar o material de chave extraído para interceptar e suprimir dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material de chave roubado.
 
-**Divulgação de informações (I)** : Se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas. Por exemplo, um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um gateway de campo ou controlador ou gateway de nuvem para siphon desativar informações.
+**Divulgação de informações (I)** : se o dispositivo estiver executando software manipulado, esse software manipulado poderia potencialmente vazar dados para partes não autorizadas. Por exemplo, um invasor pode aproveitar o material de chave extraído para injetar-se no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou gateway de nuvem para desviarr as informações.
 
-**Elevação de privilégios (E)** : Um dispositivo com uma função específica pode ser forçado a executar outras ações. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
+**Elevação de privilégio (E)** : um dispositivo que executa uma função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que é programada para abrir a metade do caminho pode ser induzida a abrir todo o caminho.
 
-| **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Ataque** | **Atenuação** | **Ameaça** | **Implementação** |
 | --- | --- | --- | --- | --- |
-| Dispositivo |S |Atribuir a identidade para o dispositivo e autenticar o dispositivo |Substituir parte do dispositivo ou de dispositivo por algum outro dispositivo. Como sabe que quem está conversando no dispositivo certo? |Autenticar o dispositivo, através do protocolo Transport Layer Security (TLS) ou IPSec. Infraestrutura deve suporta a utilização de chave pré-partilhada (PSK) nesses dispositivos que não é possível processar a criptografia assimétrica completa. Tire partido do Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
-|| TRID |Aplicam-se à prova de violações mecanismos para o dispositivo, por exemplo, ao permitir que o disco rígido para impossível extrair as chaves e outros materiais de criptografia do dispositivo. |O risco é se alguém a adulteração é o dispositivo (interferência físico). Como está claro, que o dispositivo não foram violados. |A redução de mais eficiente é uma funcionalidade de module (TPM) de plataforma fidedigna que permite o armazenamento de chaves em especial no chip circuitos, do qual as chaves não não possível ler, mas só podem ser utilizadas para operações de criptografia que utilizam a chave, mas nunca divulgar a chave. Encriptação de memória do dispositivo. Gestão de chaves para o dispositivo. O código de assinatura. |
-|| E |Com o controlo de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir a execução de ações individuais com base nos comandos a partir de uma origem externa ou até mesmo comprometidos sensores, ele permite que o ataque de execução de operações do contrário, não acessíveis. |Ter o esquema de autorização para o dispositivo |
-| Gateway de campo |S |Autenticar o gateway de campo para o Gateway de nuvem (como o certificado com base em, PSK, ou afirmação.) |Se alguém pode falsificar o Gateway de campo, em seguida, ele pode apresentar em si como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). As mesmas preocupações principais de armazenamento e de atestado de dispositivos em geral – melhor caso é usar o TPM. Extensão de 6LowPAN para IPSec oferecer suporte a redes de Sensor sem fios (WSN). |
-|| TRID |Proteger o Gateway de campo contra adulteração (TPM)? |Spoofing de ataques que fazer com que o pensamento de gateway de cloud que está falando ao gateway de campo pode resultar em divulgação e violação de dados |Do memória encriptação, TPM, a autenticação. |
-|| E |Mecanismo de controlo de acesso para o Gateway de campo | | |
+| Dispositivo |S |Atribuindo identidade ao dispositivo e Autenticando o dispositivo |Substituindo o dispositivo ou parte do dispositivo por outro dispositivo. Como você sabe que está falando com o dispositivo certo? |Autenticar o dispositivo, usando TLS (segurança de camada de transporte) ou IPSec. A infraestrutura deve dar suporte ao uso da chave pré-compartilhada (PSK) nesses dispositivos que não podem lidar com a criptografia assimétrica completa. Aproveite o Azure AD, [OAuth](https://www.rfc-editor.org/pdfrfc/rfc6755.txt.pdf) |
+|| TRID |Aplique mecanismos de violação ao dispositivo, por exemplo, tornando difícil extrair chaves e outros materiais criptográficos do dispositivo. |O risco é se alguém está violando o dispositivo (interferência física). Como você tem certeza de que o dispositivo não foi violado. |A mitigação mais eficaz é um recurso de Trusted Platform Module (TPM) que permite armazenar chaves em circuitos especiais no chip, dos quais as chaves não podem ser lidas, mas só podem ser usadas para operações criptográficas que usam a chave, mas nunca divulgam a chave. Criptografia de memória do dispositivo. Gerenciamento de chaves para o dispositivo. Assinando o código. |
+|| Oriental |Ter controle de acesso do dispositivo. Esquema de autorização. |Se o dispositivo permitir que ações individuais sejam executadas com base em comandos de uma fonte externa, ou até mesmo sensores comprometidos, ele permitirá que o ataque execute operações não acessíveis de outra forma. |Tendo o esquema de autorização para o dispositivo |
+| Gateway de campo |S |Autenticação do gateway de campo para o gateway de nuvem (como baseado em certificado, PSK ou baseada em declaração). |Se alguém puder falsificar o gateway de campo, ele poderá se apresentar como qualquer dispositivo. |TLS RSA/PSK, IPSec, [RFC 4279](https://tools.ietf.org/html/rfc4279). Todas as mesmas preocupações de armazenamento e atestado de chave de dispositivos em geral – o melhor caso é usar o TPM. extensão 6LowPAN para IPSec para dar suporte a WSN (redes de sensor sem fio). |
+|| TRID |Proteger o gateway de campo contra violação (TPM?) |Ataques de falsificação que vazam o gateway de nuvem pensando que ele está se comunicando com o gateway de campo pode resultar em divulgação de informações e violação de dados |Criptografia de memória, TPM, autenticação. |
+|| Oriental |Mecanismo de controle de acesso para o gateway de campo | | |
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-**Spoofing**: Um invasor pode extrair um dispositivo, seja no software ou o nível de hardware e, em seguida, acesso que está a ser utilizado o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo o material de chave de material de chave criptográfica.
+**Falsificação**: um invasor pode extrair o material de chave de criptografia de um dispositivo, no nível de software ou hardware, e posteriormente acessar o sistema com um dispositivo físico ou virtual diferente sob a identidade do dispositivo que o material da chave foi extraído de.
 
-**Negação de serviço**: É possível incapacitar o funcionamento ou as comunicações de um dispositivo ao interferir com as frequências de rádio ou através do corte de cabos. Por exemplo, uma câmara de vigilância cuja alimentação ou ligação de rede tenha sido intencionalmente desligada não consegue comunicar dados de todo.
+**Negação de serviço**: um dispositivo pode ser processado incapaz de funcionar ou comunicar-se interferindo com radiofrequências ou recortando fios. Por exemplo, uma câmara de vigilância cuja alimentação ou ligação de rede tenha sido intencionalmente desligada não consegue comunicar dados de todo.
 
-**Adulteração**: Um atacante pode substituir, parcial ou totalmente, o software em execução no dispositivo, o que pode potencialmente permitir ao software de substituição tirar partido da identidade genuína do dispositivo, caso os materiais chave ou os recursos criptográficos que os contêm tenham estado à mercê do programa ilícito.
+**Violação**: um invasor pode substituir parcialmente ou totalmente o software em execução no dispositivo, potencialmente permitindo que o software substituído Aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia contiverem a chave os materiais estavam disponíveis para o programa ilícito.
 
-**Adulteração**: Uma câmara de vigilância que está a mostrar uma imagem de visível espectro de um corredor vazio pode ter o objetivo de uma fotografia de um corredor desse tipo. Pode comunicar-se um sensor fumaça ou fire de alguém que contém um mais sob a mesma. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável para o sistema, mas comunica informações manipuladas.
+**Violação**: uma câmera de vigilância que mostra uma imagem de espectro visível de um corredor vazio pode ser direcionada a uma fotografia desse corredor. Um sensor de fumaça ou fogo pode estar relatando alguém com mais leves. Em ambos os casos, o dispositivo pode ser tecnicamente totalmente confiável em relação ao sistema, mas ele relata informações manipuladas.
 
-**Adulteração**: Um atacante pode tirar partido do material de chave extraída para interceptar e suprimir os dados do dispositivo no caminho de comunicação e substituí-lo com dados falso que for autenticados com o material de chave roubado.
+**Violação**: um invasor pode aproveitar o material de chave extraído para interceptar e suprimir dados do dispositivo no caminho de comunicação e substituí-los por dados falsos que são autenticados com o material de chave roubado.
 
-**Adulteração**: Um invasor pode parcial ou completamente substituir o software em execução no dispositivo, potencialmente permitindo que o software substituído aproveitar a identidade original do dispositivo se o material de chave ou os recursos de criptografia que contém o material de chave estavam disponíveis para o programa ilícito.
+**Violação**: um invasor pode substituir parcialmente ou completamente o software em execução no dispositivo, potencialmente permitindo que o software substituído Aproveite a identidade original do dispositivo se o material da chave ou os recursos de criptografia contiverem a chave os materiais estavam disponíveis para o programa ilícito.
 
-**Divulgação de informações**: Se o dispositivo está a executar software manipulado, esse software manipulado poderia potencialmente originar fugas de dados para partes não autorizadas.
+**Divulgação de informações**: se o dispositivo estiver executando software manipulado, esse software manipulado poderá potencialmente vazar dados para partes não autorizadas.
 
-**Divulgação de informações**: Um atacante pode tirar partido do material de chave extraída para injetar em si o caminho de comunicação entre o dispositivo e um gateway de campo ou controlador ou gateway de nuvem para siphon desativar informações.
+**Divulgação de informações**: um invasor pode aproveitar o material de chave extraído para injetar-se no caminho de comunicação entre o dispositivo e um controlador ou gateway de campo ou gateway de nuvem para desviarr as informações.
 
-**Negação de serviço**: O dispositivo pode ser desativado ou transformado num modo em que a comunicação não é possível (que é intencional no número de máquinas industrial).
+**Negação de serviço**: o dispositivo pode ser desativado ou ativado em um modo em que a comunicação não é possível (o que é intencional em muitos computadores industriais).
 
-**Adulteração**: O dispositivo pode ser reconfigurado para funcionar num Estado desconhecido para o sistema de controle (fora de parâmetros de calibração conhecidos) e, portanto, fornecer dados que podem ser mal interpretados
+**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora dos parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente
 
-**Elevação de privilégios**: Um dispositivo com uma função específica pode ser forçado a executar outras ações. Por exemplo, uma válvula que está programada para abrir a metade de forma pode ser tricked para o abrir.
+**Elevação de privilégio**: um dispositivo que executa uma função específica pode ser forçado a fazer outra coisa. Por exemplo, uma válvula que é programada para abrir a metade do caminho pode ser induzida a abrir todo o caminho.
 
-**Negação de serviço**: O dispositivo pode ser transformado num Estado em que a comunicação não é possível.
+**Negação de serviço**: o dispositivo pode ser ativado em um estado em que a comunicação não é possível.
 
-**Adulteração**: O dispositivo pode ser reconfigurado para funcionar num Estado desconhecido para o sistema de controle (fora de parâmetros de calibração conhecidos) e, portanto, fornecer dados que podem ser mal interpretados.
+**Violação**: o dispositivo pode ser reconfigurado para operar em um estado desconhecido para o sistema de controle (fora dos parâmetros de calibragem conhecidos) e, portanto, fornecer dados que podem ser interpretados incorretamente.
 
-**Spoofing/adulteração/rejeição**: Se não protegido (que raramente é o caso com controles remotos de consumidor), um invasor pode manipular o estado de um dispositivo de forma anónima. Uma ilustração de bom é controles remotos que pode ativar quaisquer programas de TV e que são as ferramentas de prankster populares.
+**Falsificação/violação/repúdio**: se não estiver protegido (o que raramente é o caso com controles remotos do consumidor), um invasor poderá manipular o estado de um dispositivo anonimamente. Uma boa ilustração é controles remotos que podem transformar qualquer TV e que sejam ferramentas de Prankster populares.
 
 #### <a name="communication"></a>Comunicação
 
-Ameaças em torno do caminho de comunicação entre dispositivos, dispositivos e gateways de campo e gateway de dispositivo e na cloud. A tabela seguinte tem algumas diretrizes em torno de soquetes abertos no dispositivo e/ou VPN:
+Ameaças em relação ao caminho de comunicação entre dispositivos, dispositivos e gateways de campo e gateway de dispositivo e de nuvem. A tabela a seguir apresenta algumas diretrizes sobre soquetes abertos no dispositivo/VPN:
 
-| **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Ataque** | **Atenuação** | **Ameaça** | **Implementação** |
 | --- | --- | --- | --- | --- |
-| Dispositivo IoT Hub |NIF |(D) TLS (PSK/RSA) para criptografar o tráfego |Interceptação ou interferir a comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo. Com protocolos personalizados, precisa descobrir como protegê-los. Na maioria dos casos, a comunicação ocorre do dispositivo ao IoT Hub (o dispositivo inicia a ligação). |
-| Dispositivo para dispositivo |NIF |(D) TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre dispositivos. Adulteração com os dados. Sobrecarregando o dispositivo com novas ligações |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP. Com protocolos personalizados, precisa descobrir como protegê-los. A atenuação para a ameaça DoS é configurar o peering entre dispositivos através de um gateway de campo ou na cloud e tê-las apenas act como clientes em direção à rede. O peering pode resultar numa conexão direta entre os elementos de rede depois de ter sido mediadas pelo gateway |
-| Dispositivo de entidade externa |NIF |Emparelhamento forte da entidade externa para o dispositivo |Interceptação a ligação para o dispositivo. A comunicação a interferir com o dispositivo |Emparelhamento com segurança a entidade externa para o dispositivo NFC/Bluetooth LE. Controlar o painel operacional do dispositivo (física) |
-| Gateway de nuvem de Gateway de campo |NIF |TLS (PSK/RSA) para criptografar o tráfego. |Interceptação ou interferir a comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP). Com protocolos personalizados, precisa descobrir como protegê-los. |
-| Gateway de Cloud de dispositivo |NIF |TLS (PSK/RSA) para criptografar o tráfego. |Interceptação ou interferir a comunicação entre o dispositivo e o gateway |Segurança no nível do protocolo (MQTT/AMQP/HTTP/CoAP). Com protocolos personalizados, precisa descobrir como protegê-los. |
+| Hub IoT do dispositivo |TID |3D TLS (PSK/RSA) para criptografar o tráfego |Interceptando ou interferindo a comunicação entre o dispositivo e o gateway |Segurança no nível de protocolo. Com protocolos personalizados, você precisa descobrir como protegê-los. Na maioria dos casos, a comunicação ocorre do dispositivo para o Hub IoT (o dispositivo inicia a conexão). |
+| Dispositivo para dispositivo |TID |3D TLS (PSK/RSA) para criptografar o tráfego. |Leitura de dados em trânsito entre dispositivos. Violação dos dados. Sobrecarregando o dispositivo com novas conexões |Segurança no nível de protocolo (MQTT/AMQP/HTTP/CoAP. Com protocolos personalizados, você precisa descobrir como protegê-los. A mitigação da ameaça DoS é emparelhar dispositivos por meio de um gateway de campo ou nuvem e fazer com que eles atuem apenas como clientes na rede. O emparelhamento pode resultar em uma conexão direta entre os pares após ter sido orientado pelo gateway |
+| Dispositivo de entidade externa |TID |Emparelhamento forte da entidade externa para o dispositivo |Interceptando a conexão com o dispositivo. Interferindo a comunicação com o dispositivo |Emparelhar com segurança a entidade externa com o dispositivo NFC/Bluetooth LE. Controlando o painel operacional do dispositivo (físico) |
+| Gateway de nuvem do gateway de campo |TID |TLS (PSK/RSA) para criptografar o tráfego. |Interceptando ou interferindo a comunicação entre o dispositivo e o gateway |Segurança no nível de protocolo (MQTT/AMQP/HTTP/CoAP). Com protocolos personalizados, você precisa descobrir como protegê-los. |
+| Gateway de nuvem do dispositivo |TID |TLS (PSK/RSA) para criptografar o tráfego. |Interceptando ou interferindo a comunicação entre o dispositivo e o gateway |Segurança no nível de protocolo (MQTT/AMQP/HTTP/CoAP). Com protocolos personalizados, você precisa descobrir como protegê-los. |
 
 Aqui estão alguns exemplos de ameaças nesta categoria:
 
-**Negação de serviço**: Dispositivos restritos geralmente estiverem a ser ameaça DoS quando eles ativamente escutam ligações de entrada ou não solicitados os datagramas numa rede, uma vez que um invasor pode muitas ligações abertas em paralelo e não fornecê-las ou fornecê-las lenta, ou o dispositivo pode ser enorme tráfego não solicitado. Em ambos os casos, o dispositivo com eficiência pode ser composto inoperável na rede.
+**Negação de serviço**: os dispositivos restritos geralmente estão sob a ameaça dos quando escutam ativamente as conexões de entrada ou os datagramas não solicitados em uma rede, porque um invasor pode abrir muitas conexões em paralelo e não atender a elas ou atender a elas lentamente, ou o dispositivo pode ser inundado com tráfego não solicitado. Em ambos os casos, o dispositivo pode efetivamente ser renderizado inoperável na rede.
 
-**Spoofing, divulgação de informações**: Dispositivos restritos e dispositivos com objetivos especiais geralmente têm recursos de segurança de um-para-todos, como a palavra-passe ou proteção de PIN ou eles totalmente dependem de confiar na rede, que significa que eles concedem acesso às informações quando um dispositivo estiver na mesma rede e essa rede muitas vezes, só está protegido por uma chave partilhada. Isso significa que, quando o segredo partilhado para o dispositivo ou de rede é divulgado, é possível controlar o dispositivo ou observar dados emitidos a partir do dispositivo.  
+**Falsificação, divulgação de informações**: dispositivos restritos e dispositivos de finalidade especial geralmente têm recursos de segurança um para todos como a proteção de senha ou PIN, ou dependem totalmente da rede, o que significa que eles concedem acesso a informações quando um dispositivo está na mesma rede e essa rede geralmente é protegida apenas por uma chave compartilhada. Isso significa que, quando o segredo compartilhado para o dispositivo ou a rede é divulgado, é possível controlar o dispositivo ou observar os dados emitidos pelo dispositivo.  
 
-**Spoofing**: um atacante poderá interceptar ou parcialmente substituir a difusão e falsificar o originador (intermediário)
+**Falsificação**: um invasor pode interceptar ou substituir parcialmente a difusão e falsificar o originador (Man no meio)
 
-**Adulteração**: um atacante poderá interceptar ou parcialmente substituir a difusão e enviar informações falsas 
+**Violação**: um invasor pode interceptar ou substituir parcialmente a difusão e enviar informações falsas 
 
-**Divulgação de informações:** um atacante poderá interceptar uma difusão e obter informações sem autorização **Denial of Service:** um invasor pode comprimir o sinal de difusão e distribuição de informações de negação
+**Divulgação de informações:** um invasor pode bisbilhotar uma difusão e obter informações sem a **negação de serviço de autorização:** um invasor pode emperrar o sinal de difusão e negar a distribuição de informações
 
 #### <a name="storage"></a>Armazenamento
 
-Cada gateway de dispositivo e o campo tem de alguma forma de armazenamento (temporário para a colocação em fila os dados, armazenamento de imagens do sistema operativo (SO)).
+Cada dispositivo e gateway de campo têm alguma forma de armazenamento (temporário para enfileirar os dados, armazenamento de imagem do sistema operacional).
 
-| **Componente** | **Threat** | **Atenuação** | **Risco** | **Implementação** |
+| **Componente** | **Ataque** | **Atenuação** | **Ameaça** | **Implementação** |
 | --- | --- | --- | --- | --- |
-| Dispositivo de armazenamento |TRID |Encriptação de armazenamento, os registos de assinatura |Leitura de dados do armazenamento (dados PII), de adulteração dos dados de telemetria. Violação de colocados em fila ou colocada em cache os dados de controlo de comando. Violação de pacotes de atualização de firmware ou de configuração enquanto armazenados em cache ou colocada em fila localmente pode levar a componentes de sistema operacional e/ou de sistema que está a ser comprometidas |Encriptação, o código de autenticação de mensagem (MAC) ou assinatura digital. Em que o controlo de acesso forte e possíveis através de acesso a recursos controlar permissões ou (ACLs listas). |
-| Imagem de SO do dispositivo |TRID | |Violação de SO / substituir os componentes do SO |Partição do sistema operacional só de leitura, iniciada a imagem do SO, encriptação |
-| Armazenamento de Gateway de campo (colocar em fila os dados) |TRID |Encriptação de armazenamento, os registos de assinatura |Leitura de dados do armazenamento (dados PII), de adulteração dos dados de telemetria, adulteração com colocados em fila ou colocada em cache os dados de controlo de comando. Violação de pacotes de atualização de firmware ou de configuração (destinados a dispositivos ou gateway de campo) enquanto armazenados em cache ou colocada em fila localmente pode levar a componentes de sistema operacional e/ou de sistema que está a ser comprometidas |BitLocker |
-| Imagem do SO do Gateway de campo |TRID | |Violação de SO / substituir os componentes do SO |Partição do sistema operacional só de leitura, iniciada a imagem do SO, encriptação |
+| Armazenamento de dispositivo |TRID |Criptografia de armazenamento, assinando os logs |Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria. Violação de dados de controle de comando em cache ou em fila. A adulteração de pacotes de atualização de firmware e configuração enquanto armazenada em cache ou na fila localmente pode levar ao sistema operacional e/ou a comprometimento dos componentes do sistema |Criptografia, MAC (código de autenticação de mensagens) ou assinatura digital. Sempre que possível, controle de acesso forte por meio das ACLs (listas de controle de acesso) do recurso. |
+| Imagem do so do dispositivo |TRID | |Adulteração do sistema operacional/replacing os componentes do sistema operacional |Partição de sistema operacional somente leitura, imagem de so assinada, criptografia |
+| Armazenamento de gateway de campo (enfileirando os dados) |TRID |Criptografia de armazenamento, assinando os logs |Leitura de dados do armazenamento (dados de PII), violação de dados de telemetria, violação de dados de controle de comando em fila ou armazenados em cache. Violação de configuração ou pacotes de atualização de firmware (destinados a dispositivos ou gateway de campo) enquanto em cache ou em fila localmente pode levar ao sistema operacional e/ou a comprometimento dos componentes do sistema |BitLocker |
+| Imagem do so do gateway de campo |TRID | |Adulteração do sistema operacional/replacing os componentes do sistema operacional |Partição de sistema operacional somente leitura, imagem de so assinada, criptografia |
 
-### <a name="device-and-event-processingcloud-gateway-zone"></a>Zona de gateway de processamento/na cloud de dispositivo e eventos
+### <a name="device-and-event-processingcloud-gateway-zone"></a>Processamento de dispositivo e evento/zona de gateway de nuvem
 
-Um gateway de nuvem é o sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes em espaço de rede pública, normalmente em direção um controle com base na cloud e o sistema de análise de dados, uma federação de tais sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitam o acesso para dispositivos com objetivos especiais de terminais, tais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se para fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos ligados ou gateways de campo e em que medidas operacionais impedem o acesso físico de destino, mas não é necessariamente a um " infraestrutura de nuvem pública". Um gateway de nuvem potencialmente pode ser mapeado para uma sobreposição de Virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos ligados ou gateways de campo de qualquer outro tráfego de rede. O gateway de nuvem em si não é um sistema de controle de dispositivo ou um processamento ou recurso de armazenamento para dados device nessas instalações interface com o gateway de nuvem. A zona de gateway de cloud inclui o gateway de nuvem, juntamente com todos os gateways de campo e dispositivos direta ou indiretamente ligados ao mesmo.
+Um gateway de nuvem é o sistema que permite a comunicação remota de e para dispositivos ou gateways de campo de vários sites diferentes por espaço de rede pública, normalmente em direção a um controle baseado em nuvem e sistema de análise de dados, uma federação desses sistemas. Em alguns casos, um gateway de nuvem pode imediatamente facilitar o acesso a dispositivos de finalidade especial de terminais como tablets ou telefones. No contexto discutido aqui, "nuvem" destina-se a fazer referência a um sistema de processamento de dados dedicado que não está associado ao mesmo site que os dispositivos anexados ou gateways de campo, e onde as medidas operacionais impedem o acesso físico direcionado, mas não necessariamente a um " nuvem pública "infraestrutura. Um gateway de nuvem pode potencialmente ser mapeado para uma sobreposição de virtualização de rede para isolar o gateway de nuvem e todos os seus dispositivos conectados ou gateways de campo de qualquer outro tráfego de rede. O próprio gateway de nuvem não é um sistema de controle de dispositivo ou um recurso de processamento ou armazenamento para dados do dispositivo; esses recursos são interface com o gateway de nuvem. A zona de gateway de nuvem inclui o próprio gateway de nuvem juntamente com todos os gateways de campo e dispositivos conectados diretamente ou indiretamente a ele.
 
-Gateway de nuvem é principalmente personalizados criados software em execução como um serviço com pontos finais expostos ao qual ligar dispositivos e de gateway de campo. Como tal, devem ser criado tendo em mente a segurança. Siga [SDL](https://www.microsoft.com/sdl) processo de estruturação e criação deste serviço.
+O gateway de nuvem é principalmente uma parte personalizada do software em execução como um serviço com pontos de extremidade expostos aos quais o gateway de campo e os dispositivos se conectam. Como tal, ele deve ser projetado tendo em mente a segurança. Siga o processo [SDL](https://www.microsoft.com/sdl) para criar e criar esse serviço.
 
 #### <a name="services-zone"></a>Zona de serviços
 
-Um sistema de controle (ou o controlador) é uma solução de software que faz interface com um dispositivo, ou um gateway de campo ou o gateway de nuvem com o objetivo de controlar um ou vários dispositivos e/ou para recolher e/ou armazenar e/ou analisar os dados de dispositivo para apresentação, ou efeitos de controlo subsequentes. Sistemas de controle são as apenas as entidades no âmbito desta discussão que imediatamente pode facilitar a interação com as pessoas. As exceções são intermediários superfícies de controle físicos em dispositivos, como uma chave que permite que uma pessoa desativar o dispositivo ou alterar outras propriedades, e para que não existe nenhum equivalente funcional que pode ser acedido digitalmente.
+Um sistema de controle (ou controlador) é uma solução de software que interage com um dispositivo ou um gateway de campo ou um gateway de nuvem com a finalidade de controlar um ou vários dispositivos e/ou coletar e/ou armazenar e/ou analisar dados de dispositivo para apresentação ou finalidades de controle subsequentes. Os sistemas de controle são as únicas entidades no escopo desta discussão que podem facilitar imediatamente a interação com as pessoas. As exceções são superfícies de controle físico intermediários em dispositivos, como uma opção que permite que uma pessoa desligue o dispositivo ou altere outras propriedades, e para as quais não há nenhum equivalente funcional que possa ser acessado digitalmente.
 
-Intermediários superfícies de controle físicos são aqueles em que que regem a lógica restringe a função da superfície de controle física de forma a que uma função equivalente pode ser iniciada remotamente ou é possível evitar conflitos de entrada com entrada remoto – como, por exemplo intermediated conceitualmente, superfícies de controle são anexados a um sistema de controlo local que utiliza a mesma funcionalidade subjacente que qualquer outro sistema de controlo remoto que o dispositivo pode ser anexado a em paralelo. Principais ameaças para a cloud pode ser lido de computação [Cloud Security Alliance (CSA)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) página.
+As superfícies de controle físico intermediário são aquelas em que a lógica que governa restringe a função da superfície de controle físico, de modo que uma função equivalente possa ser iniciada remotamente ou conflitos de entrada com a entrada remota podem ser evitados – como intermediários as superfícies de controle são anexadas conceitualmente a um sistema de controle local que aproveita a mesma funcionalidade subjacente de qualquer outro sistema de controle remoto ao qual o dispositivo possa ser anexado em paralelo. As principais ameaças à computação em nuvem podem ser lidas na página [CSA (Cloud Security Alliance)](https://cloudsecurityalliance.org/articles/csa-releases-top-threats-to-cloud-computing-deep-dive/) .
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 Para obter mais informações, veja os artigos seguintes:
 
-* [Ferramenta de modelagem de ameaças do SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
-* [Arquitetura de referência do Microsoft Azure IoT](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)
+* [Threat Modeling Tool do SDL](https://www.microsoft.com/sdl/adopt/threatmodeling.aspx)
+* [Arquitetura de referência de IoT Microsoft Azure](https://azure.microsoft.com/updates/microsoft-azure-iot-reference-architecture-available/)

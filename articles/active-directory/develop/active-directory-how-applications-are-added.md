@@ -1,5 +1,6 @@
 ---
 title: Como e por que os aplicativos são adicionados ao Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: O que significa que um aplicativo seja adicionado ao Azure AD e como eles ficam lá?
 services: active-directory
 documentationcenter: ''
@@ -18,12 +19,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb3ef2a86c523d7cda5bc7da5d83ec4ac741abf
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835384"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803446"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao Azure AD
 
@@ -34,7 +35,7 @@ Há duas representações de aplicativos no Azure AD:
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>O que são objetos de aplicativo e de onde eles vêm?
 Você pode gerenciar [objetos de aplicativo](app-objects-and-service-principals.md#application-object) no portal do Azure por meio da experiência de [registros do aplicativo](https://aka.ms/appregistrations) . Os objetos de aplicativo descrevem o aplicativo para o Azure AD e podem ser considerados a definição do aplicativo, permitindo que o serviço saiba como emitir tokens para o aplicativo com base em suas configurações. O objeto de aplicativo só existirá em seu diretório base, mesmo se for um aplicativo multilocatário que dá suporte a entidades de serviço em outros diretórios. O objeto de aplicativo pode incluir qualquer um dos seguintes (bem como informações adicionais não mencionadas aqui):
 * Nome, logotipo e Publicador
-* URIs de Redirecionamento
+* Redirecionar URIs
 * Segredos (chaves simétricas e/ou assimétricas usadas para autenticar o aplicativo)
 * Dependências de API (OAuth)
 * APIs/recursos/escopos publicados (OAuth)
@@ -104,7 +105,7 @@ Os aplicativos que você mesmo adiciona (representados como **aplicativo (seu)**
   * Regras de transformação de declarações
   * Mapeamentos de atributo (provisionamento de usuário)
 * Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência da API REST do Azure AD Graph:
-  * [Aplicação](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Aplicativo](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Entidade de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="why-do-applications-integrate-with-azure-ad"></a>Por que os aplicativos se integram ao Azure AD?
@@ -144,7 +145,7 @@ Se você ainda quiser impedir que os usuários em seu diretório registrem aplic
 
 * Para impedir que os usuários registrem seus próprios aplicativos:
   1. Na portal do Azure, vá para a seção [configurações do usuário](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) em Azure Active Directory
-  2. Alterar **os usuários podem registrar aplicativos** no.
+  2. Alterar **os usuários podem registrar aplicativos** **no.**
 
 > [!NOTE]
 > A própria Microsoft usa a configuração padrão com os usuários capazes de registrar aplicativos e dar consentimento a aplicativos em seu próprio nome.

@@ -1,5 +1,6 @@
 ---
-title: Noções básicas sobre experiências de consentimento de aplicativo do Azure AD | Microsoft Docs
+title: Compreender as experiências de consentimento da aplicação do Azure AD
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre as experiências de consentimento do Azure AD para ver como você pode usá-las ao gerenciar e desenvolver aplicativos no Azure AD
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 012a79969f2fa72589ba6b70aa5398b6f4e7e811
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835244"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803896"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Compreender as experiências de consentimento da aplicação do Azure AD
 
@@ -35,7 +36,7 @@ O consentimento é o processo de um usuário que concede autorização a um apli
 A experiência real do usuário de conceder consentimento varia de acordo com as políticas definidas no locatário do usuário, o escopo de autoridade (ou função) do usuário e o tipo de [permissões](https://docs.microsoft.com/azure/active-directory/develop/active-directory-permissions) que estão sendo solicitadas pelo aplicativo cliente. Isso significa que os desenvolvedores de aplicativos e administradores de locatário têm algum controle sobre a experiência de consentimento. Os administradores têm a flexibilidade de definir e desabilitar políticas em um locatário ou aplicativo para controlar a experiência de consentimento em seu locatário. Os desenvolvedores de aplicativos podem determinar quais tipos de permissões estão sendo solicitados e se desejam guiar os usuários por meio do fluxo de consentimento do usuário ou do fluxo de consentimento do administrador.
 
 - O **fluxo de consentimento do usuário** é quando um desenvolvedor de aplicativo direciona os usuários para o ponto de extremidade de autorização com a intenção de registrar o consentimento somente para o usuário atual.
-- O **fluxo de consentimento do administrador** é quando um desenvolvedor de aplicativos direciona os usuários para o ponto de extremidade de consentimento do administrador com a intenção de registrar o consentimento para todo o locatário. Para garantir que o fluxo de consentimento do administrador funcione corretamente, os desenvolvedores de aplicativos devem `RequiredResourceAccess` listar todas as permissões na propriedade no manifesto do aplicativo. Para obter mais informações, consulte [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
+- O **fluxo de consentimento do administrador** é quando um desenvolvedor de aplicativos direciona os usuários para o ponto de extremidade de consentimento do administrador com a intenção de registrar o consentimento para todo o locatário. Para garantir que o fluxo de consentimento do administrador funcione corretamente, os desenvolvedores de aplicativos devem listar todas as permissões na propriedade `RequiredResourceAccess` no manifesto do aplicativo. Para obter mais informações, consulte [manifesto do aplicativo](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest).
 
 ## <a name="building-blocks-of-the-consent-prompt"></a>Blocos de construção da solicitação de consentimento
 
@@ -45,11 +46,11 @@ O diagrama e a tabela a seguir fornecem informações sobre os blocos de constru
 
 ![Blocos de construção da solicitação de consentimento](./media/application-consent-experience/consent_prompt.png)
 
-| # | Componente | Objetivo |
+| # | Componente | Finalidade |
 | ----- | ----- | ----- |
-| 1 | Identificador de utilizador | Esse identificador representa o usuário que o aplicativo cliente está solicitando para acessar recursos protegidos em nome de. |
-| 2 | Cargo | O título é alterado com base em se os usuários estão passando pelo fluxo de consentimento do usuário ou do administrador. No fluxo de consentimento do usuário, o título será "permissões solicitadas" enquanto estiver no fluxo de consentimento do administrador, o título terá uma linha adicional "aceitar para sua organização". |
-| 3 | Logótipo da aplicação | Essa imagem deve ajudar os usuários a ter uma indicação visual de se esse aplicativo é o aplicativo que pretende acessar. Essa imagem é fornecida por desenvolvedores de aplicativos e a propriedade dessa imagem não é validada. |
+| 1 | Identificador de usuário | Esse identificador representa o usuário que o aplicativo cliente está solicitando para acessar recursos protegidos em nome de. |
+| 2 | Título | O título é alterado com base em se os usuários estão passando pelo fluxo de consentimento do usuário ou do administrador. No fluxo de consentimento do usuário, o título será "permissões solicitadas" enquanto estiver no fluxo de consentimento do administrador, o título terá uma linha adicional "aceitar para sua organização". |
+| 3 | Logotipo do aplicativo | Essa imagem deve ajudar os usuários a ter uma indicação visual de se esse aplicativo é o aplicativo que pretende acessar. Essa imagem é fornecida por desenvolvedores de aplicativos e a propriedade dessa imagem não é validada. |
 | 4 | Nome da aplicação | Esse valor deve informar aos usuários qual aplicativo está solicitando acesso aos seus dados. Observe que esse nome é fornecido pelos desenvolvedores e a propriedade desse nome de aplicativo não é validada. |
 | 5 | Domínio de publicador | Esse valor deve fornecer aos usuários um domínio que eles podem ser capazes de avaliar a confiabilidade. Esse domínio é fornecido pelos desenvolvedores e a propriedade desse domínio do Publicador é validada. |
 | 6 | Permissões | Essa lista contém as permissões que estão sendo solicitadas pelo aplicativo cliente. Os usuários sempre devem avaliar os tipos de permissões que estão sendo solicitadas para entender quais dados o aplicativo cliente será autorizado a acessar em seu nome, se eles aceitarem. Como um desenvolvedor de aplicativos, é melhor solicitar acesso, às permissões com privilégios mínimos. |
@@ -84,7 +85,7 @@ Aqui estão as experiências de consentimento que um usuário pode ver nos cená
         
     1. Os usuários não administradores verão a mesma tela que 2. II mostrada acima.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 - Obtenha uma visão geral passo a passo de [como a estrutura de consentimento do Azure ad implementa o consentimento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
 - Para obter mais detalhes, saiba [como um aplicativo multilocatário pode usar a estrutura de consentimento](active-directory-devhowto-multi-tenant-overview.md) para implementar o consentimento de "usuário" e "administrador", dando suporte a padrões de aplicativos multicamadas mais avançados.
 - Saiba [como configurar o domínio do Publicador do aplicativo](howto-configure-publisher-domain.md).

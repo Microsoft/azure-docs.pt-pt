@@ -1,5 +1,6 @@
 ---
-title: Configurar conjunto de chaves | Plataforma de identidade da Microsoft
+title: Configurar keychain
+titleSuffix: Microsoft identity platform
 description: Saiba como configurar o conjunto de chaves para que seu aplicativo possa armazenar em cache tokens no conjunto de chaves.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264192"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803800"
 ---
 # <a name="configure-keychain"></a>Configurar keychain
 

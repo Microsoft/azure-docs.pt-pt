@@ -1,23 +1,23 @@
 ---
-title: Modelar dados relacionais do SQL para importação e indexação-Azure Search
-description: Saiba como modelar dados relacionais, desnormalizados em um conjunto de resultados simples, para indexação e pesquisa de texto completo em Azure Search.
+title: Modelar dados relacionais do SQL para importação e indexação
+titleSuffix: Azure Cognitive Search
+description: Saiba como modelar dados relacionais, desnormalizados em um conjunto de resultados simples, para indexação e pesquisa de texto completo no Azure Pesquisa Cognitiva.
 author: HeidiSteen
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: conceptual
-ms.date: 09/12/2019
 ms.author: heidist
-ms.openlocfilehash: 60dfae48b0aa1d6e0d9bc8e79d5ff2dedd744fd5
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 3b973dd05d23d190c77986ca9bf6d39656739cd8
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993587"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790081"
 ---
-# <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-search"></a>Como modelar dados SQL relacionais para importação e indexação no Azure Search
+# <a name="how-to-model-relational-sql-data-for-import-and-indexing-in-azure-cognitive-search"></a>Como modelar dados SQL relacionais para importação e indexação no Azure Pesquisa Cognitiva
 
-Azure Search aceita um conjunto de linhas simples como entrada para o [pipeline de indexação](search-what-is-an-index.md). Se os dados de origem forem provenientes de tabelas unidas em um banco de dados relacional SQL Server, este artigo explicará como construir o conjunto de resultados e como modelar uma relação pai-filho em um índice de Azure Search.
+O Azure Pesquisa Cognitiva aceita um conjunto de linhas simples como entrada para o [pipeline de indexação](search-what-is-an-index.md). Se os dados de origem forem provenientes de tabelas unidas em um banco de dados relacional SQL Server, este artigo explicará como construir o conjunto de resultados e como modelar uma relação pai-filho em um índice de Pesquisa Cognitiva do Azure.
 
 Como ilustração, vamos nos referir a um banco de dados de hotéis hipotéticos, com base na [demonstração](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/hotels). Suponha que o banco de dados consiste em um Hotéis $ Table com 50 hotéis e uma tabela Rooms $ com salas de tipos variados, taxas e comodidades, para um total de 750 salas. Há uma relação um-para-muitos entre as tabelas. Em nossa abordagem, uma exibição fornecerá a consulta que retorna 50 linhas, uma linha por Hotel, com detalhes de sala associado inseridos em cada linha.
 
@@ -26,7 +26,7 @@ Como ilustração, vamos nos referir a um banco de dados de hotéis hipotéticos
 
 ## <a name="the-problem-of-denormalized-data"></a>O problema dos dados desnormalizados
 
-Um dos desafios de trabalhar com relações um-para-muitos é que as consultas padrão criadas em tabelas unidas retornarão dados desnormalizados, o que não funciona bem em um cenário de Azure Search. Considere o exemplo a seguir que une Hotéis e salas.
+Um dos desafios de trabalhar com relações um-para-muitos é que as consultas padrão criadas em tabelas unidas retornarão dados desnormalizados, o que não funciona bem em um cenário de Pesquisa Cognitiva do Azure. Considere o exemplo a seguir que une Hotéis e salas.
 
 ```sql
 SELECT * FROM Hotels$
@@ -38,13 +38,13 @@ Os resultados dessa consulta retornam todos os campos de Hotel, seguidos por tod
    ![Dados desnormalizados, dados de Hotel redundantes quando campos de sala são adicionados](media/index-sql-relational-data/denormalize-data-query.png "Dados desnormalizados, dados de Hotel redundantes quando campos de sala são adicionados")
 
 
-Embora essa consulta tenha êxito na superfície (fornecendo todos os dados em um conjunto de linhas simples), ela falha ao fornecer a estrutura de documentos correta para a experiência de pesquisa esperada. Durante a indexação, Azure Search criará um documento de pesquisa para cada linha ingerida. Se os documentos de pesquisa parecerem com os resultados acima, você terá percebido duplicatas-sete documentos separados para o Hotel Dome. Uma consulta em "Hotéis na Flórida" retornaria sete resultados apenas para o Hotel Dome, enviando outros hotéis relevantes profundamente nos resultados da pesquisa.
+Embora essa consulta tenha êxito na superfície (fornecendo todos os dados em um conjunto de linhas simples), ela falha ao fornecer a estrutura de documentos correta para a experiência de pesquisa esperada. Durante a indexação, o Azure Pesquisa Cognitiva criará um documento de pesquisa para cada linha ingerida. Se os documentos de pesquisa parecerem com os resultados acima, você terá percebido duplicatas-sete documentos separados para o Hotel Dome. Uma consulta em "Hotéis na Flórida" retornaria sete resultados apenas para o Hotel Dome, enviando outros hotéis relevantes profundamente nos resultados da pesquisa.
 
 Para obter a experiência esperada de um documento por Hotel, você deve fornecer um conjunto de linhas à granularidade correta, mas com informações completas. Felizmente, você pode fazer isso facilmente adotando as técnicas neste artigo.
 
 ## <a name="define-a-query-that-returns-embedded-json"></a>Definir uma consulta que retorna JSON inserido
 
-Para fornecer a experiência de pesquisa esperada, seu conjunto de dados deve consistir em uma linha para cada documento de pesquisa no Azure Search. Em nosso exemplo, queremos uma linha para cada hotel, mas também queremos que nossos usuários sejam capazes de pesquisar outros campos relacionados à sala com os quais eles se preocupam, como a taxa noturna, o tamanho e o número de ambientes, ou uma exibição da praia, todas que fazem parte de um detalhe de sala.
+Para fornecer a experiência de pesquisa esperada, seu conjunto de dados deve consistir em uma linha para cada documento de pesquisa no Azure Pesquisa Cognitiva. Em nosso exemplo, queremos uma linha para cada hotel, mas também queremos que nossos usuários sejam capazes de pesquisar outros campos relacionados à sala com os quais eles se preocupam, como a taxa noturna, o tamanho e o número de ambientes, ou uma exibição da praia, todas que fazem parte de um detalhe de sala.
 
 A solução é capturar os detalhes da sala como JSON aninhado e, em seguida, inserir a estrutura JSON em um campo em uma exibição, conforme mostrado na segunda etapa. 
 
@@ -84,7 +84,7 @@ A solução é capturar os detalhes da sala como JSON aninhado e, em seguida, in
     GO
     ```
 
-2. Crie uma exibição composta de todos os campos na tabela pai (`SELECT * from dbo.Hotels$`), com a adição de um novo campo de *salas* que contenha a saída de uma consulta aninhada. Uma cláusula **for JSON auto** em `SELECT * from dbo.Rooms$` estrutura a saída como JSON. 
+2. Crie uma exibição composta de todos os campos na tabela pai (`SELECT * from dbo.Hotels$`), com a adição de um novo campo de *salas* que contém a saída de uma consulta aninhada. Uma cláusula **for JSON auto** em `SELECT * from dbo.Rooms$` estrutura a saída como JSON. 
 
      ```sql
    CREATE VIEW [dbo].[HotelRooms]
@@ -104,14 +104,14 @@ A solução é capturar os detalhes da sala como JSON aninhado e, em seguida, in
 
    ![Conjunto de linhas da exibição HotelRooms](media/index-sql-relational-data/hotelrooms-rowset.png "Conjunto de linhas da exibição HotelRooms")
 
-Este conjunto de linhas agora está pronto para importação no Azure Search.
+Este conjunto de linhas agora está pronto para importação para o Azure Pesquisa Cognitiva.
 
 > [!NOTE]
-> Essa abordagem pressupõe que o JSON inserido esteja abaixo dos [limites máximos de tamanho de coluna de SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). Se os dados não couberem, você poderá experimentar uma abordagem programática, conforme ilustrado no [exemplo: Modele o banco de dados de](search-example-adventureworks-modeling.md)inventário AdventureWorks para Azure Search.
+> Essa abordagem pressupõe que o JSON inserido esteja abaixo dos [limites máximos de tamanho de coluna de SQL Server](https://docs.microsoft.com/sql/sql-server/maximum-capacity-specifications-for-sql-server). Se os dados não couberem, você poderá experimentar uma abordagem programática, conforme ilustrado no [exemplo: Modele o banco de dados de inventário AdventureWorks para o Azure pesquisa cognitiva](search-example-adventureworks-modeling.md).
 
  ## <a name="use-a-complex-collection-for-the-many-side-of-a-one-to-many-relationship"></a>Use uma coleção complexa para o lado "muitos" de uma relação um-para-muitos
 
-No lado do Azure Search, crie um esquema de índice que modela a relação um-para-muitos usando JSON aninhado. O conjunto de resultados criado na seção anterior geralmente corresponde ao esquema de índice fornecido abaixo (cortamos alguns campos para fins de brevidade).
+No lado do Pesquisa Cognitiva do Azure, crie um esquema de índice que modela a relação um-para-muitos usando JSON aninhado. O conjunto de resultados criado na seção anterior geralmente corresponde ao esquema de índice fornecido abaixo (cortamos alguns campos para fins de brevidade).
 
 O exemplo a seguir é semelhante ao exemplo em [como modelar tipos de dados complexos](search-howto-complex-data-types.md#creating-complex-fields). A estrutura de *salas* , que tem sido o foco deste artigo, está na coleção Fields de um índice chamado *Hotéis*. Este exemplo também mostra um tipo complexo para *endereço*, que difere de *salas* em que ele é composto de um conjunto fixo de itens, em oposição ao múltiplo, o número arbitrário de itens permitidos em uma coleção.
 
@@ -148,7 +148,7 @@ O exemplo a seguir é semelhante ao exemplo em [como modelar tipos de dados comp
 }
 ```
 
-Considerando o conjunto de resultados anterior e o esquema de índice acima, você tem todos os componentes necessários para uma operação de indexação bem-sucedida. O conjunto de dados achatados atende aos requisitos de indexação, mas preserva as informações detalhadas. No índice de Azure Search, os resultados da pesquisa ficarão facilmente em entidades baseadas em Hotel, preservando, ao mesmo tempo, o contexto de salas individuais e seus atributos.
+Considerando o conjunto de resultados anterior e o esquema de índice acima, você tem todos os componentes necessários para uma operação de indexação bem-sucedida. O conjunto de dados achatados atende aos requisitos de indexação, mas preserva as informações detalhadas. No índice de Pesquisa Cognitiva do Azure, os resultados da pesquisa ficarão facilmente em entidades baseadas em Hotel, preservando, ao mesmo tempo, o contexto de salas individuais e seus atributos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -159,4 +159,4 @@ Usando seu próprio conjunto de dados, você pode usar o [Assistente para import
 Experimente o início rápido a seguir para aprender as etapas básicas do assistente de importação de dados.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Criar um índice de pesquisa usando portal do Azure](search-get-started-portal.md)
+> [Início rápido: criar um índice de pesquisa usando portal do Azure](search-get-started-portal.md)

@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 38a9f3a7020e866ccb000ed0c54499258f5e651a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 63d1213a2dded41df3f462722b354b03fe9f6e33
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68734678"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72801874"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Abordagem e processo de adoção do Catálogo de Dados do Azure
 
@@ -125,7 +125,7 @@ Para mais informações sobre a ferramenta de registo de origens de dados, veja 
 Como parte do projeto piloto, a equipa da Teresa também utiliza origens de dados que são descritas num livro do Excel que o David e os colegas dele mantêm. Uma vez que outras equipas na empresa também utilizam livros do Excel para descrever origens de dados, a equipa de TI decide criar uma ferramenta para migrar o livro do Excel para o Catálogo de Dados. Ao utilizar a API REST do Catálogo de Dados para importar anotações existentes, a equipa do projeto piloto pode ter um catálogo de dados completo com metadados extraídos das origens de dados, utilizando a ferramenta de registo de origens de dados, completa com as informações anteriormente documentadas pelos produtores e consumidores de dados, sem haver necessidade de reintrodução manual. À medida que o catálogo de dados da empresa cresce, a organização pode utilizar a ferramenta de registo de origens de dados para origens de dados comuns, e a API do Catálogo de Dados para origens personalizadas e cenários pouco comuns.
 
 > [!NOTE]
-> Escrevemos uma ferramenta de exemplo que utiliza a API do **Catálogo de Dados do Azure** para migrar um livro do Excel para o Catálogo de Dados. Para obter informações sobre a API do Catálogo de Dados e a ferramenta de exemplo, pode [transferir o exemplo de código do livro Ad Hoc](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/) e consultar a documentação [API REST do Catálogo de Dados do Azure](/rest/api/datacatalog/).
+> Escrevemos uma ferramenta de exemplo que utiliza a API do **Catálogo de Dados do Azure** para migrar um livro do Excel para o Catálogo de Dados. Para obter informações sobre a API do Catálogo de Dados e a ferramenta de exemplo, pode [transferir o exemplo de código do livro Ad Hoc](https://github.com/Azure-Samples/data-catalog-dotnet-excel-register-data-assets) e consultar a documentação [API REST do Catálogo de Dados do Azure](/rest/api/datacatalog/).
 
 Depois de o projeto piloto estar implementado, está na altura de executar o seu plano de adoção do Catálogo de Dados.
 
@@ -163,6 +163,6 @@ Os adotantes iniciais que participaram no projeto piloto podem ser úteis para e
 
 Este artigo informou-o sobre como introduzir o **Catálogo de Dados do Azure** na sua organização. Esperamos que tenha conseguido iniciar um projeto piloto do Catálogo de Dados e expandir o Catálogo de Dados na organização.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 [Criar um catálogo de dados do Azure](data-catalog-get-started.md)

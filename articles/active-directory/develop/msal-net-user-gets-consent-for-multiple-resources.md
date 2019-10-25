@@ -1,5 +1,6 @@
 ---
-title: Obter consentimento para vários recursos (biblioteca de autenticação da Microsoft para .NET) | Azure
+title: Obter consentimento para vários recursos (biblioteca de autenticação da Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Saiba como um usuário pode obter o consentimento para vários recursos usando a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,25 +18,25 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ded7a6fc465b4cfc98d26f65195f89de8381ac6
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: c3a3d50e94f76341dc349eda997d6e25ca96dec0
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532378"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802699"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>O usuário obtém consentimento para vários recursos usando o MSAL.NET
-O ponto de extremidade da plataforma de identidade da Microsoft não permite que você obtenha um token para vários recursos de uma vez. Ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET), o parâmetro escopos no método de token de aquisição deve conter apenas escopos para um único recurso. No entanto, você pode conceder o consentimento a vários recursos antecipadamente especificando escopos adicionais `.WithExtraScopeToConsent` usando o método Builder.
+O ponto de extremidade da plataforma de identidade da Microsoft não permite que você obtenha um token para vários recursos de uma vez. Ao usar a MSAL.NET (biblioteca de autenticação da Microsoft para .NET), o parâmetro escopos no método de token de aquisição deve conter apenas escopos para um único recurso. No entanto, você pode me concordar com vários recursos antecipadamente especificando escopos adicionais usando o método `.WithExtraScopeToConsent` Builder.
 
 > [!NOTE]
 > A obtenção de consentimento para vários recursos funciona para a plataforma de identidade da Microsoft, mas não para Azure AD B2C. O Azure AD B2C dá suporte apenas ao consentimento do administrador, não ao consentimento do usuário.
 
 Por exemplo, se você tiver dois recursos que têm 2 escopos cada:
 
-- https:\//mytenant.onmicrosoft.com/customerapi (com 2 `customer.read` escopos `customer.write`e)
-- https:\//mytenant.onmicrosoft.com/vendorapi (com 2 `vendor.read` escopos `vendor.write`e)
+- https:\//mytenant.onmicrosoft.com/customerapi (com 2 escopos `customer.read` e `customer.write`)
+- https:\//mytenant.onmicrosoft.com/vendorapi (com 2 escopos `vendor.read` e `vendor.write`)
 
-Você deve usar o `.WithExtraScopeToConsent` modificador que tem o parâmetro *extraScopesToConsent* , conforme mostrado no exemplo a seguir:
+Você deve usar o modificador `.WithExtraScopeToConsent` que tem o parâmetro *extraScopesToConsent* , conforme mostrado no exemplo a seguir:
 
 ```csharp
 string[] scopesForCustomerApi = new string[]

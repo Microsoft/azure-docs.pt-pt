@@ -9,21 +9,21 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cca4f794fd3f84b991c7882307f74bcfadf6835b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241060"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72799391"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Sobre chaves, segredos e certificados
 
 Azure Key Vault permite que Microsoft Azure aplicativos e usuários armazenem e usem vários tipos de dados de segredo/chave:
 
-- Chaves de criptografia: Dá suporte a vários tipos de chave e algoritmos e habilita o uso de HSM (módulos de segurança de hardware) para chaves de valor alto. 
-- Confidenciais Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados.
-- Certificado Dá suporte a certificados, que são criados com base em chaves e segredos e adicionam um recurso de renovação automatizada.
-- Armazenamento do Azure: Pode gerenciar chaves de uma conta de armazenamento do Azure para você. Internamente, Key Vault pode listar (sincronizar) chaves com uma conta de armazenamento do Azure e regenerar (girar) as chaves periodicamente. 
+- Chaves de criptografia: dá suporte a vários tipos de chave e algoritmos e habilita o uso de HSM (módulos de segurança de hardware) para chaves de valor alto. 
+- Segredos: fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados.
+- Certificados: oferece suporte a certificados, que são criados com base em chaves e segredos e adicionam um recurso de renovação automatizada.
+- Armazenamento do Azure: o pode gerenciar chaves de uma conta de armazenamento do Azure para você. Internamente, Key Vault pode listar (sincronizar) chaves com uma conta de armazenamento do Azure e regenerar (girar) as chaves periodicamente. 
 
 Para obter mais informações gerais sobre Key Vault, consulte [o que é Azure Key Vault?](/azure/key-vault/key-vault-overview)
 
@@ -35,10 +35,10 @@ As seções a seguir oferecem informações gerais aplicáveis em toda a impleme
 
 As especificações JavaScript Object Notation (JSON) e José (assinatura de objeto JavaScript e criptografia) são informações importantes sobre o plano de fundo.  
 
--   [Chave da Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [Criptografia Web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [Algoritmos Web JSON (JWA)](http://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [Assinatura Web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [Chave da Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
+-   [Criptografia Web JSON (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
+-   [Algoritmos Web JSON (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
+-   [Assinatura Web JSON (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
 
 ### <a name="data-types"></a>Tipos de dados
 
@@ -69,14 +69,14 @@ Um identificador de objeto tem o seguinte formato geral:
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-Em que:  
+Onde:  
 
 |||  
 |-|-|  
 |`keyvault-name`|O nome de um cofre de chaves no serviço de Key Vault Microsoft Azure.<br /><br /> Os nomes de Key Vault são selecionados pelo usuário e são globalmente exclusivos.<br /><br /> Key Vault nome deve ser uma cadeia de caracteres 3-24, contendo apenas 0-9, a-z, A-Z e-.|  
 |`object-type`|O tipo do objeto, "Keys" ou "segredos".|  
-|`object-name`|Um `object-name` é um nome de usuário fornecido para e deve ser exclusivo dentro de um Key Vault. O nome deve ser uma cadeia de caracteres 1-127, contendo apenas 0-9, a-z, A-Z e-.|  
-|`object-version`|Um `object-version` é um identificador de cadeia de caracteres 32, gerado pelo sistema, que é opcionalmente usado * o endereçar uma versão exclusiva de um objeto.|  
+|`object-name`|Um `object-name` é um nome fornecido pelo usuário para e deve ser exclusivo dentro de um Key Vault. O nome deve ser uma cadeia de caracteres 1-127, contendo apenas 0-9, a-z, A-Z e-.|  
+|`object-version`|Um `object-version` é um identificador de cadeia de caracteres 32, gerado pelo sistema, que é opcionalmente usado * o para atender a uma versão exclusiva de um objeto.|  
 
 ## <a name="key-vault-keys"></a>Chaves de Key Vault
 
@@ -84,17 +84,17 @@ Em que:
 
 As chaves de criptografia no Key Vault são representadas como objetos de chave da Web JSON [JWK]. As especificações base de JWK/JWA também são estendidas para habilitar tipos de chave exclusivos para a implementação de Key Vault. Por exemplo, a importação de chaves usando o empacotamento específico de fornecedor do HSM permite o transporte seguro de chaves que podem ser usadas apenas em Key Vault HSMs.  
 
-- **Chaves "soft"** : Uma chave processada no software por Key Vault, mas é criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave existente de RSA ou EC (curva elíptica) ou solicitar que Key Vault gerar uma.
-- **Chaves "rígidas"** : Uma chave processada em um HSM (módulo de segurança de hardware). Essas chaves são protegidas em um dos mundos de segurança Key Vault HSM (há um mundo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, em forma flexível ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar Key Vault para gerar uma chave. Esse tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material de chave HSM.
+- **Chaves "soft"** : uma chave processada no software por Key Vault, mas é criptografada em repouso usando uma chave do sistema que está em um HSM. Os clientes podem importar uma chave existente de RSA ou EC (curva elíptica) ou solicitar que Key Vault gerar uma.
+- **Chaves "rígidas"** : uma chave processada em um HSM (módulo de segurança de hardware). Essas chaves são protegidas em um dos mundos de segurança Key Vault HSM (há um mundo de segurança por geografia para manter o isolamento). Os clientes podem importar uma chave RSA ou EC, em forma flexível ou exportando de um dispositivo HSM compatível. Os clientes também podem solicitar Key Vault para gerar uma chave. Esse tipo de chave adiciona o atributo key_hsm ao JWK obter para transportar o material de chave HSM.
 
      Para obter mais informações sobre limites geográficos, consulte [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/privacy/)  
 
 Key Vault dá suporte apenas a chaves de curva elíptica e RSA. 
 
--   **EC**: Chave de curva elíptica "soft".
--   **EC-HSM**: Chave de curva elíptica "Hard".
--   **RSA**: Chave RSA "soft".
--   **RSA-HSM**: Chave RSA "Hard".
+-   **EC**: chave de curva elíptica "suave".
+-   **EC-HSM**: chave de curva elíptica "rígida".
+-   **RSA**: chave RSA "soft".
+-   **RSA-HSM**: chave RSA "Hard".
 
 Key Vault dá suporte a chaves RSA de tamanhos 2048, 3072 e 4096. O Key Vault dá suporte a tipos de chave de curva elíptica P-256, P-384, P-521 e P-256K (SECP256K1).
 
@@ -108,7 +108,7 @@ Os módulos de criptografia que o Key Vault usa, seja o HSM ou software, validad
 #### <a name="curve-types"></a>Tipos de curva
 
 -   **P-256** -a curva NIST p-256, definida no [DSS FIPS pub 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
--   **P-256K** -a SECP256K1 de curva da SEC, [definida na SEC 2: Parâmetros](https://www.secg.org/sec2-v2.pdf)de domínio de curva elíptica recomendados.
+-   **P-256K** -a curva de s SECP256K1, definida em [seg. 2: parâmetros de domínio de curva elíptica recomendados](https://www.secg.org/sec2-v2.pdf).
 -   **P-384** -a curva NIST p-384, definida no [DSS FIPS pub 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 -   **P-521** -a curva NIST p-521, definida no [DSS FIPS pub 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
 
@@ -138,23 +138,23 @@ Os módulos de criptografia que o Key Vault usa, seja o HSM ou software, validad
 
 O Key Vault dá suporte às seguintes operações em objetos de chave:  
 
--   **Criar**: Permite que um cliente crie uma chave no Key Vault. O valor da chave é gerado por Key Vault e armazenado e não é liberado para o cliente. Chaves assimétricas podem ser criadas em Key Vault.  
--   **Importar**: Permite que um cliente importe uma chave existente para Key Vault. Chaves assimétricas podem ser importadas para Key Vault usando vários métodos de empacotamento diferentes dentro de uma construção JWK. 
--   **Atualização**: Permite que um cliente com permissões suficientes modifique os metadados (atributos de chave) associados a uma chave armazenada anteriormente no Key Vault.  
--   **Excluir**: Permite que um cliente com permissões suficientes para excluir uma chave de Key Vault.  
--   **Lista**: Permite que um cliente liste todas as chaves em um determinado Key Vault.  
--   **Listar versões**: Permite que um cliente liste todas as versões de uma determinada chave em determinado Key Vault.  
--   **Obter**: Permite que um cliente recupere as partes públicas de uma determinada chave em um Key Vault.  
--   **Backup**: Exporta uma chave em um formulário protegido.  
--   **Restaurar**: Importa uma chave de backup anterior.  
+-   **Criar**: permite que um cliente crie uma chave no Key Vault. O valor da chave é gerado por Key Vault e armazenado e não é liberado para o cliente. Chaves assimétricas podem ser criadas em Key Vault.  
+-   **Importar**: permite que um cliente importe uma chave existente para Key Vault. Chaves assimétricas podem ser importadas para Key Vault usando vários métodos de empacotamento diferentes dentro de uma construção JWK. 
+-   **Atualização**: permite que um cliente com permissões suficientes modifique os metadados (atributos de chave) associados a uma chave armazenada anteriormente no Key Vault.  
+-   **Excluir**: permite que um cliente com permissões suficientes para excluir uma chave de Key Vault.  
+-   **Lista**: permite que um cliente liste todas as chaves em um determinado Key Vault.  
+-   **Listar versões**: permite que um cliente liste todas as versões de uma determinada chave em determinado Key Vault.  
+-   **Get**: permite que um cliente recupere as partes públicas de uma determinada chave em um Key Vault.  
+-   **Backup**: exporta uma chave em um formulário protegido.  
+-   **Restaurar**: importa uma chave de backup anterior.  
 
 Para obter mais informações, consulte [operações de chave na referência da API REST do Key Vault](/rest/api/keyvault).  
 
 Depois que uma chave tiver sido criada no Key Vault, as seguintes operações criptográficas poderão ser executadas usando a chave:  
 
--   **Assinar e verificar**: Estritamente, essa operação é "assinar hash" ou "verificar hash", pois Key Vault não dá suporte a hash de conteúdo como parte da criação da assinatura. Os aplicativos devem fazer o hash dos dados a serem assinados localmente e solicitar que Key Vault assinar o hash. Há suporte para a verificação de hashes assinados como uma operação de conveniência para aplicativos que podem não ter acesso ao material de chave [Public]. Para obter o melhor desempenho do aplicativo, verifique se as operações são executadas localmente.  
--   **Criptografia/encapsulamento de chave**: Uma chave armazenada em Key Vault pode ser usada para proteger outra chave, normalmente uma CEK (chave de criptografia de conteúdo simétrica). Quando a chave no Key Vault é assimétrica, a criptografia de chave é usada. Por exemplo, as operações RSA-OAEP e WRAPKEY/UNWRAPKEY são equivalentes a CRIPTOGRAFAr/descriptografar. Quando a chave no Key Vault é simétrica, o encapsulamento de chave é usado. Por exemplo, AES-KW. A operação WRAPKEY tem suporte como uma conveniência para aplicativos que podem não ter acesso ao material de chave [Public]. Para obter o melhor desempenho do aplicativo, as operações de WRAPKEY devem ser executadas localmente.  
--   **Criptografar e descriptografar**: Uma chave armazenada em Key Vault pode ser usada para criptografar ou descriptografar um único bloco de dados. O tamanho do bloco é determinado pelo tipo de chave e pelo algoritmo de criptografia selecionado. A operação Encrypt é fornecida para sua conveniência, para aplicativos que podem não ter acesso ao material da chave [Public]. Para obter o melhor desempenho do aplicativo, as operações de criptografia devem ser executadas localmente.  
+-   **Assinar e verificar**: estritamente, essa operação é "assinar hash" ou "verificar hash", pois Key Vault não dá suporte ao hash de conteúdo como parte da criação da assinatura. Os aplicativos devem fazer o hash dos dados a serem assinados localmente e solicitar que Key Vault assinar o hash. Há suporte para a verificação de hashes assinados como uma operação de conveniência para aplicativos que podem não ter acesso ao material de chave [Public]. Para obter o melhor desempenho do aplicativo, verifique se as operações são executadas localmente.  
+-   **Criptografia/encapsulamento de chave**: uma chave armazenada em Key Vault pode ser usada para proteger outra chave, normalmente uma CEK (chave de criptografia de conteúdo simétrica). Quando a chave no Key Vault é assimétrica, a criptografia de chave é usada. Por exemplo, as operações RSA-OAEP e WRAPKEY/UNWRAPKEY são equivalentes a CRIPTOGRAFAr/descriptografar. Quando a chave no Key Vault é simétrica, o encapsulamento de chave é usado. Por exemplo, AES-KW. A operação WRAPKEY tem suporte como uma conveniência para aplicativos que podem não ter acesso ao material de chave [Public]. Para obter o melhor desempenho do aplicativo, as operações de WRAPKEY devem ser executadas localmente.  
+-   **Criptografar e descriptografar**: uma chave armazenada em Key Vault pode ser usada para criptografar ou descriptografar um único bloco de dados. O tamanho do bloco é determinado pelo tipo de chave e pelo algoritmo de criptografia selecionado. A operação Encrypt é fornecida para sua conveniência, para aplicativos que podem não ter acesso ao material da chave [Public]. Para obter o melhor desempenho do aplicativo, as operações de criptografia devem ser executadas localmente.  
 
 Embora WRAPKEY/UNWRAPKEY usando chaves assimétricas possa parecer supérfluo (pois a operação é equivalente a CRIPTOGRAFAr/descriptografar), o uso de operações distintas é importante. A distinção fornece a separação semântica e de autorização dessas operações e a consistência quando outros tipos de chave são suportados pelo serviço.  
 
@@ -162,30 +162,30 @@ Key Vault não dá suporte a operações de exportação. Depois que uma chave �
 
 Os usuários podem restringir qualquer uma das operações criptográficas que Key Vault oferece suporte por chave usando a propriedade key_ops do objeto JWK.  
 
-Para obter mais informações sobre objetos JWK, consulte [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).  
+Para obter mais informações sobre objetos JWK, consulte [JSON Web Key (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).  
 
 ###  <a name="key-attributes"></a>Atributos de chave
 
 Além do material da chave, os atributos a seguir podem ser especificados. Em uma solicitação JSON, a palavra-chave Attributes e chaves, ' {' '} ', são necessárias mesmo se não houver nenhum atributo especificado.  
 
-- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e utilizável para operações criptográficas. O atributo *Enabled* é usado em conjunto com *NBF* e *exp*. Quando ocorrer uma operação entre *NBF* e *exp*, ele só será permitido se *habilitado* for definido como **true**. As operações fora da janela *NBF* / *exp* são automaticamente desautorizadas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations).
-- *nbf*: IntDate, opcional, o padrão é agora. O atributo *NBF* (não antes) identifica a hora antes da qual a chave não deve ser usada para operações criptográficas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations). O processamento do atributo *NBF* requer que a data/hora atual deva ser posterior ou igual à data/hora anterior, listada no atributo *NBF* . Key Vault pode fornecer algumas pequenas reserva, normalmente não mais do que alguns minutos, para considerar a distorção do relógio. Seu valor deve ser um número que contenha um valor IntDate.  
+- *habilitado*: booliano, opcional, o padrão é **true**. Especifica se a chave está habilitada e utilizável para operações criptográficas. O atributo *Enabled* é usado em conjunto com *NBF* e *exp*. Quando ocorrer uma operação entre *NBF* e *exp*, ele só será permitido se *habilitado* for definido como **true**. As operações fora da janela *nbf* / *exp* são automaticamente desautorizadas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations).
+- *NBF*: IntDate, opcional, o padrão é agora. O atributo *NBF* (não antes) identifica a hora antes da qual a chave não deve ser usada para operações criptográficas, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations). O processamento do atributo *NBF* requer que a data/hora atual deva ser posterior ou igual à data/hora anterior, listada no atributo *NBF* . Key Vault pode fornecer algumas pequenas reserva, normalmente não mais do que alguns minutos, para considerar a distorção do relógio. Seu valor deve ser um número que contenha um valor IntDate.  
 - *exp*: IntDate, opcional, o padrão é "para sempre". O atributo *exp* (tempo de expiração) identifica o tempo de expiração em ou após o qual a chave não deve ser usada para operação criptográfica, exceto para determinados tipos de operação sob [condições específicas](#date-time-controlled-operations). O processamento do atributo *exp* requer que a data/hora atual deva ser anterior à data/hora de vencimento listada no atributo *exp* . Key Vault pode fornecer algumas pequenas reserva, normalmente não mais do que alguns minutos, para considerar a distorção do relógio. Seu valor deve ser um número que contenha um valor IntDate.  
 
 Há atributos adicionais somente leitura que são incluídos em qualquer resposta que inclua atributos de chave:  
 
-- *criado*em: IntDate, opcional. O atributo *created* indica quando esta versão da chave foi criada. O valor é nulo para chaves criadas antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.  
-- *atualizado*em: IntDate, opcional. O atributo *updated* indica quando esta versão da chave foi atualizada. O valor é nulo para as chaves que foram atualizadas pela última vez antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.  
+- *criado*: IntDate, opcional. O atributo *created* indica quando esta versão da chave foi criada. O valor é nulo para chaves criadas antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.  
+- *atualizado*: IntDate, opcional. O atributo *updated* indica quando esta versão da chave foi atualizada. O valor é nulo para as chaves que foram atualizadas pela última vez antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.  
 
 Para obter mais informações sobre IntDate e outros tipos de dados, consulte [tipos de dados](#data-types)  
 
 #### <a name="date-time-controlled-operations"></a>Operações controladas por data e hora
 
-As chaves ainda não válidas e expiradas, fora da janela *NBF* / *exp* , funcionarão para **descriptografar**, **desencapsular**e **verificar** as operações (não retornarão 403, proibido). A lógica para usar o estado ainda não válido é permitir que uma chave seja testada antes do uso da produção. A lógica para usar o estado expirado é permitir operações de recuperação em dados que foram criados quando a chave era válida. Além disso, você pode desabilitar o acesso a uma chave usando políticas de Key Vault ou atualizando o atributo de chave *habilitado* para **false**.
+Chaves ainda não válidas e expiradas, fora da janela *nbf* / *exp* , funcionarão para **descriptografar**, **desencapsular**e **verificar** as operações (não retornarão 403, proibido). A lógica para usar o estado ainda não válido é permitir que uma chave seja testada antes do uso da produção. A lógica para usar o estado expirado é permitir operações de recuperação em dados que foram criados quando a chave era válida. Além disso, você pode desabilitar o acesso a uma chave usando políticas de Key Vault ou atualizando o atributo de chave *habilitado* para **false**.
 
 Para obter mais informações sobre tipos de dados, consulte [tipos de dados](#data-types).
 
-Para obter mais informações sobre outros atributos possíveis, consulte a [chave da Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key).
+Para obter mais informações sobre outros atributos possíveis, consulte a [chave da Web JSON (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41).
 
 ### <a name="key-tags"></a>Marcas de chave
 
@@ -201,26 +201,26 @@ O controle de acesso para chaves gerenciadas pelo Key Vault é fornecido no nív
 As permissões a seguir podem ser concedidas, em uma base de entidade por usuário/serviço, na entrada de controle de acesso chaves em um cofre. Essas permissões espelham fortemente as operações permitidas em um objeto de chave.  Conceder acesso a uma entidade de serviço no Key Vault é uma operação OneTime e permanecerá o mesmo para todas as assinaturas do Azure. Você pode usá-lo para implantar quantos certificados desejar. 
 
 - Permissões para operações de gerenciamento de chaves
-  - *obter*: Ler a parte pública de uma chave, além de seus atributos
-  - *list*: Listar as chaves ou versões de uma chave armazenada em um cofre de chaves
-  - *atualização*: Atualizar os atributos de uma chave
-  - *criar*: Criar novas chaves
-  - *importar*: Importar uma chave para um cofre de chaves
-  - *excluir*: Excluir o objeto de chave
-  - *recuperar*: Recuperar uma chave excluída
-  - *backup*: Fazer backup de uma chave em um cofre de chaves
-  - *restaurar*: Restaurar uma chave de backup para um cofre de chaves
+  - *Get*: ler a parte pública de uma chave, além de seus atributos
+  - *lista*: listar as chaves ou versões de uma chave armazenada em um cofre de chaves
+  - *Atualizar*: atualizar os atributos de uma chave
+  - *criar*: criar novas chaves
+  - *importar*: importar uma chave para um cofre de chaves
+  - *excluir*: excluir o objeto de chave
+  - *recuperar*: recuperar uma chave excluída
+  - *backup*: fazer backup de uma chave em um cofre de chaves
+  - *restaurar*: restaurar uma chave de backup para um cofre de chaves
 
 - Permissões para operações criptográficas
-  - *decrypt*: Use a chave para desproteger uma sequência de bytes
-  - *encrypt*: Use a chave para proteger uma sequência arbitrária de bytes
-  - *unwrapKey*: Usar a chave para desproteger as chaves simétricas encapsuladas
-  - *wrapKey*: Usar a chave para proteger uma chave simétrica
+  - *descriptografar*: Use a chave para desproteger uma sequência de bytes
+  - *criptografar*: Use a chave para proteger uma sequência arbitrária de bytes
+  - *unwrapKey*: Use a chave para desproteger as chaves simétricas encapsuladas
+  - *wrapKey*: Use a chave para proteger uma chave simétrica
   - *verificar*: Use a chave para verificar resumos  
-  - *assinar*: Usar a chave para assinar resumos
+  - *assinar*: Use a chave para assinar resumos
     
 - Permissões para operações privilegiadas
-  - *limpar*: Limpar (excluir permanentemente) uma chave excluída
+  - *limpar*: limpar (excluir permanentemente) uma chave excluída
 
 Para obter mais informações sobre como trabalhar com chaves, consulte [operações de chave na referência da API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, consulte [cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [cofres-atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
@@ -239,17 +239,17 @@ Key Vault também dá suporte a um campo contentType para segredos. Os clientes 
 Além dos dados secretos, os seguintes atributos podem ser especificados:  
 
 - *exp*: IntDate, opcional, o padrão é para **sempre**. O atributo *exp* (tempo de expiração) identifica o tempo de expiração em ou após o qual os dados secretos não devem ser recuperados, exceto em [situações específicas](#date-time-controlled-operations). Esse campo é para fins **informativos** apenas quando informa aos usuários do serviço de cofre de chaves que um segredo específico não pode ser usado. Seu valor deve ser um número que contenha um valor IntDate.   
-- *nbf*: IntDate, opcional, o padrão é **agora**. O atributo *NBF* (não antes) identifica a hora antes da qual os dados secretos não devem ser recuperados, exceto em [situações específicas](#date-time-controlled-operations). Este campo é apenas para fins **informativos** . Seu valor deve ser um número que contenha um valor IntDate. 
+- *NBF*: IntDate, opcional, o padrão é **agora**. O atributo *NBF* (não antes) identifica a hora antes da qual os dados secretos não devem ser recuperados, exceto em [situações específicas](#date-time-controlled-operations). Este campo é apenas para fins **informativos** . Seu valor deve ser um número que contenha um valor IntDate. 
 - *habilitado*: booliano, opcional, o padrão é **true**. Esse atributo especifica se os dados secretos podem ser recuperados. O atributo Enabled é usado em conjunto com *NBF* e *exp* quando ocorre uma operação entre *NBF* e *exp*. ele só será permitido se habilitado for definido como **true**. As operações fora da janela *NBF* e *exp* são automaticamente desautorizadas, exceto em [situações específicas](#date-time-controlled-operations).  
 
 Há atributos adicionais somente leitura que são incluídos em qualquer resposta que inclua atributos secretos:  
 
-- *criado*em: IntDate, opcional. O atributo created indica quando esta versão do segredo foi criada. Esse valor é nulo para segredos criados antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.  
-- *atualizado*em: IntDate, opcional. O atributo updated indica quando esta versão do segredo foi atualizada. Esse valor é nulo para os segredos que foram atualizados pela última vez antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.
+- *criado*: IntDate, opcional. O atributo created indica quando esta versão do segredo foi criada. Esse valor é nulo para segredos criados antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.  
+- *atualizado*: IntDate, opcional. O atributo updated indica quando esta versão do segredo foi atualizada. Esse valor é nulo para os segredos que foram atualizados pela última vez antes da adição deste atributo. Seu valor deve ser um número que contenha um valor IntDate.
 
 #### <a name="date-time-controlled-operations"></a>Operações controladas por data e hora
 
-A operação **Get** de um segredo funcionará para segredos que ainda não são válidos e expirados, fora da janela *NBF* / *exp* . Chamar a operação **Get** de um segredo, para um segredo ainda não válido, pode ser usado para fins de teste. Recuperar (**receber**) um segredo expirado pode ser usado para operações de recuperação.
+A operação de **obtenção** de um segredo funcionará para segredos que ainda não são válidos e expirados, fora da janela *NBF* / *exp* . Chamar a operação **Get** de um segredo, para um segredo ainda não válido, pode ser usado para fins de teste. Recuperar (**receber**) um segredo expirado pode ser usado para operações de recuperação.
 
 Para obter mais informações sobre tipos de dados, consulte [tipos de dados](#data-types).  
 
@@ -260,16 +260,16 @@ O controle de acesso para segredos gerenciados no Key Vault, é fornecido no ní
 As permissões a seguir podem ser usadas, em uma base por entidade de segurança, na entrada de controle de acesso dos segredos em um cofre e espelham com mais detalhes as operações permitidas em um objeto secreto:  
 
 - Permissões para operações de gerenciamento de segredo
-  - *obter*: Ler um segredo  
-  - *list*: Listar os segredos ou as versões de um segredo armazenado em um Key Vault  
-  - *definir*: Criar um segredo  
-  - *excluir*: Eliminar um segredo  
-  - *recuperar*: Recuperar um segredo excluído
-  - *backup*: Fazer backup de um segredo em um cofre de chaves
-  - *restaurar*: Restaurar um segredo de backup para um cofre de chaves
+  - *obter*: ler um segredo  
+  - *lista*: listar os segredos ou as versões de um segredo armazenado em um Key Vault  
+  - *definir*: criar um segredo  
+  - *excluir*: excluir um segredo  
+  - *recuperar*: recuperar um segredo excluído
+  - *backup*: fazer backup de um segredo em um cofre de chaves
+  - *restaurar*: restaurar um segredo de backup para um cofre de chaves
 
 - Permissões para operações privilegiadas
-  - *limpar*: Limpar (excluir permanentemente) um segredo excluído
+  - *limpar*: limpar (excluir permanentemente) um segredo excluído
 
 Para saber mais sobre como trabalhar com segredos, confira [operações secretas na referência da API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, consulte [cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [cofres-atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy). 
 
@@ -322,15 +322,15 @@ Um certificado Key Vault tem os seguintes atributos:
 
 Há atributos adicionais somente leitura que são incluídos na resposta:
 
--   *criado*em: IntDate: indica quando esta versão do certificado foi criada.  
--   *atualizado*em: IntDate: indica quando esta versão do certificado foi atualizada.  
+-   *criado*: IntDate: indica quando esta versão do certificado foi criada.  
+-   *atualizado*: IntDate: indica quando esta versão do certificado foi atualizada.  
 -   *exp*: IntDate: contém o valor da data de expiração do certificado X509.  
--   *nbf*: IntDate: contém o valor da data do certificado X509.  
+-   *NBF*: IntDate: contém o valor da data do certificado X509.  
 
 > [!Note] 
 > Se um certificado de Key Vault expirar, a chave endereçável e o segredo se tornarão inoperáveis.  
 
-#### <a name="tags"></a>Tags
+#### <a name="tags"></a>Etiquetas
 
  O cliente especificou o dicionário de pares chave-valor, semelhante a marcas em chaves e segredos.  
 
@@ -345,7 +345,7 @@ Quando um certificado de Key Vault é criado do zero, é necessário fornecer um
 
 Em um alto nível, uma política de certificado contém as seguintes informações:  
 
--   Propriedades do certificado X509: Contém o nome da entidade, nomes alternativos da entidade e outras propriedades usadas para criar uma solicitação de certificado X509.  
+-   Propriedades do certificado X509: contém o nome da entidade, nomes alternativos da entidade e outras propriedades usadas para criar uma solicitação de certificado X509.  
 -   Propriedades da chave: contém os campos tipo de chave, comprimento da chave, exportável e reutilização de chave. Esses campos instruem o cofre de chaves sobre como gerar uma chave.  
 -   Propriedades secretas: contém propriedades secretas, como tipo de conteúdo de segredo endereçável para gerar o valor secreto, para recuperar o certificado como um segredo.  
 -   Ações de tempo de vida: contém ações de tempo de vida para o certificado KV. Cada ação de tempo de vida contém:  
@@ -354,7 +354,7 @@ Em um alto nível, uma política de certificado contém as seguintes informaçõ
 
      - Ação: especificando o tipo de ação – *emailContacts* ou *renovar autorenovação*  
 
--   Emissor Parâmetros sobre o emissor do certificado a ser usado para emitir certificados X509.  
+-   Emissor: parâmetros sobre o emissor do certificado a ser usado para emitir certificados X509.  
 -   Atributos de política: contém atributos associados à política  
 
 #### <a name="x509-to-key-vault-usage-mapping"></a>Key Vault o X509 para mapeamento de uso
@@ -417,24 +417,24 @@ Se a política de um certificado for definida como renovação automática, uma 
  As permissões a seguir podem ser usadas, em uma base por entidade de segurança, na entrada de controle de acesso dos segredos em um cofre de chaves e refletem de forma mais alta as operações permitidas em um objeto secreto:  
 
 - Permissões para operações de gerenciamento de certificado
-  - *obter*: Obter a versão atual do certificado ou qualquer versão de um certificado 
-  - *list*: Listar os certificados atuais ou versões de um certificado  
-  - *atualização*: Atualizar um certificado
-  - *criar*: Criar um certificado Key Vault
-  - *importar*: Importar material do certificado para um Key Vault certificado
-  - *excluir*: Excluir um certificado, sua política e todas as suas versões  
-  - *recuperar*: Recuperar um certificado excluído
-  - *backup*: Fazer backup de um certificado em um cofre de chaves
-  - *restaurar*: Restaurar um certificado de backup para um cofre de chaves
-  - *managecontacts*: Gerenciar Key Vault contatos de certificado  
-  - *manageissuers*: Gerenciar autoridades de certificação/emissores Key Vault
-  - *emissors*: Obter as autoridades/emissores de um certificado
-  - *listissuers*: Listar as autoridades/emissores de um certificado  
-  - *emissores*: Criar ou atualizar as autoridades/os emissores de um certificado Key Vault  
-  - *deleteissuers*: Excluir as autoridades/os emissores de um Key Vault certificado  
+  - *Get*: obter a versão do certificado atual ou qualquer versão de um certificado 
+  - *lista*: listar os certificados atuais ou as versões de um certificado  
+  - *Atualizar*: atualizar um certificado
+  - *criar*: criar um certificado de Key Vault
+  - *importar*: importar material do certificado para um Key Vault certificado
+  - *excluir*: excluir um certificado, sua política e todas as suas versões  
+  - *recuperar*: recuperar um certificado excluído
+  - *backup*: fazer backup de um certificado em um cofre de chaves
+  - *restaurar*: restaurar um certificado de backup para um cofre de chaves
+  - *managecontacts*: gerenciar Key Vault contatos de certificado  
+  - *manageissuers*: gerenciar autoridades/emissores de certificado de Key Vault
+  - *emissors*: obter as autoridades/emissores de um certificado
+  - *listissuers*: listar as autoridades/emissores de um certificado  
+  - *emissors*: criar ou atualizar as autoridades/emissores de um Key Vault certificado  
+  - *deleteissuers*: excluir as autoridades/os emissores do certificado Key Vault  
  
 - Permissões para operações privilegiadas
-  - *limpar*: Limpar (excluir permanentemente) um certificado excluído
+  - *limpar*: limpar (excluir permanentemente) um certificado excluído
 
 Para obter mais informações, consulte as [operações de certificado na referência da API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, consulte [cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [cofres-atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
@@ -454,26 +454,26 @@ Para obter mais informações, consulte [Azure Key Vault chaves da conta de arma
 As seguintes permissões podem ser usadas ao autorizar uma entidade de usuário ou aplicativo para executar operações em uma conta de armazenamento gerenciada:  
 
 - Permissões para a conta de armazenamento gerenciado e operações de definição de SaS
-  - *obter*: Obtém informações sobre uma conta de armazenamento 
-  - *list*: Listar contas de armazenamento gerenciadas por um Key Vault
-  - *atualização*: Atualizar uma conta de armazenamento
-  - *excluir*: Eliminar uma conta do Storage  
-  - *recuperar*: Recuperar uma conta de armazenamento excluída
-  - *backup*: Fazer backup de uma conta de armazenamento
-  - *restaurar*: Restaurar uma conta de armazenamento de backup para um Key Vault
-  - *definir*: Criar ou atualizar uma conta de armazenamento
-  - *regeneratekey*: Regenerar um valor de chave especificado para uma conta de armazenamento
-  - *getss*: Obter informações sobre uma definição de SAS para uma conta de armazenamento
-  - *listas*: Listar definições de SAS de armazenamento para uma conta de armazenamento
-  - *deletesas*: Excluir uma definição de SAS de uma conta de armazenamento
-  - *conjuntos*de: Criar ou atualizar uma nova definição/atributo de SAS para uma conta de armazenamento
+  - *Get*: Obtém informações sobre uma conta de armazenamento 
+  - *lista*: listar as contas de armazenamento gerenciadas por um Key Vault
+  - *Atualizar*: atualizar uma conta de armazenamento
+  - *excluir*: excluir uma conta de armazenamento  
+  - *recuperar*: recuperar uma conta de armazenamento excluída
+  - *backup*: fazer backup de uma conta de armazenamento
+  - *restaurar*: restaurar uma conta de armazenamento de backup para um Key Vault
+  - *definir*: criar ou atualizar uma conta de armazenamento
+  - *regeneratekey*: regenerar um valor de chave especificado para uma conta de armazenamento
+  - *getss*: obter informações sobre uma definição de SAS para uma conta de armazenamento
+  - *Lists*: listar definições de SAS de armazenamento para uma conta de armazenamento
+  - *exclusões*: excluir uma definição de SAS de uma conta de armazenamento
+  - *sets*: criar ou atualizar uma nova definição/atributos de SAS para uma conta de armazenamento
 
 - Permissões para operações privilegiadas
-  - *limpar*: Limpar (excluir permanentemente) uma conta de armazenamento gerenciada
+  - *limpar*: limpar (excluir permanentemente) uma conta de armazenamento gerenciada
 
 Para obter mais informações, consulte as [operações da conta de armazenamento na referência da API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, consulte [cofres – criar ou atualizar](/rest/api/keyvault/vaults/createorupdate) e [cofres-atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 
-## <a name="see-also"></a>Consultar Também
+## <a name="see-also"></a>Consulte também
 
 - [Autenticação, solicitações e respostas](authentication-requests-and-responses.md)
 - [Guia do Programador do Key Vault](/azure/key-vault/key-vault-developers-guide)

@@ -1,18 +1,18 @@
 ---
-title: Mensagens mortas e novas políticas para assinaturas da grade de eventos do Azure
+title: Mensagens mortas e políticas de repetição – grade de eventos do Azure
 description: Descreve como personalizar opções de entrega de eventos para a grade de eventos. Defina um destino de letra mortas e especifique o tempo de repetição da entrega.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/06/2019
+ms.date: 10/22/2019
 ms.author: spelluru
-ms.openlocfilehash: 63bae62ed89bd0bbc167a88274002d1fa1e9b86d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: caed3c077b4df5da5fd8541b2f7e85ef119604b0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933361"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794042"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensagens mortas e novas políticas
 
@@ -99,7 +99,7 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Se você definir `event-ttl` e `max-deliver-attempts`, a grade de eventos usará a primeira para expirar para determinar quando parar a entrega de eventos.
+Se você definir `event-ttl` e `max-deliver-attempts`, a grade de eventos usará a primeira a expirar para determinar quando parar a entrega de eventos.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -127,11 +127,11 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Se você definir `EventTtl` e `MaxDeliveryAttempt`, a grade de eventos usará a primeira para expirar para determinar quando parar a entrega de eventos.
+Se você definir `EventTtl` e `MaxDeliveryAttempt`, a grade de eventos usará a primeira a expirar para determinar quando parar a entrega de eventos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Para um aplicativo de exemplo que usa um aplicativo de funções do Azure para processar eventos de mensagens mortas, consulte [amostras de mensagens mortas da grade de eventos do Azure para .net](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
-* Para obter informações sobre a entrega de eventos e repetições, [entrega de mensagens do Event Grid e volte a tentar](delivery-and-retry.md).
+* Para obter informações sobre a entrega e tentativas de eventos, [entrega e repetição de mensagem da grade de eventos](delivery-and-retry.md).
 * Para obter uma introdução ao Event Grid, veja [Sobre o Azure Event Grid](overview.md).
-* Para começar rapidamente com o Event Grid, veja [criar e encaminhar eventos personalizados com o Azure Event Grid](custom-event-quickstart.md).
+* Para começar a usar a grade de eventos rapidamente, consulte [criar e rotear eventos personalizados com a grade de eventos do Azure](custom-event-quickstart.md).

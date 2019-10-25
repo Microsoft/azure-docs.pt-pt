@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb9b3a4add951079ab918d3ac02ca5e38eff6161
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241160"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808964"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regras de associação dinâmica para grupos no Azure Active Directory
 
@@ -185,7 +185,7 @@ Ao especificar um valor dentro de uma expressão, é importante usar a sintaxe c
 
 * Aspas duplas são opcionais, a menos que o valor seja uma cadeia de caracteres.
 * Operações de cadeia de caracteres e Regex não diferenciam maiúsculas de minúsculas.
-* Quando um valor de cadeia de caracteres contém aspas duplas, ambas as aspas devem ser precedidas usando o caractere \`, por exemplo, User. Department-EQ \` "Sales @ no__t-2" é a sintaxe adequada quando "Sales" é o valor.
+* Quando um valor de cadeia de caracteres contém aspas duplas, ambas as aspas devem ser precedidas usando o caractere \`, por exemplo, User. Department-EQ \`"Sales\`" é a sintaxe adequada quando "Sales" é o valor.
 * Você também pode executar verificações nulas, usando NULL como um valor, por exemplo, `user.department -eq null`.
 
 ### <a name="use-of-null-values"></a>Uso de valores nulos
@@ -379,8 +379,10 @@ Os atributos de dispositivo a seguir podem ser usados.
  enrollmentProfileName | Perfil de registro de dispositivo da Apple, registro de dispositivo-identificadores de dispositivo corporativo (Android-quiosque) ou nome do perfil do Windows AutoPilot | (Device. enrollmentProfileName-EQ "iPhone DEP")
  IsRoot | verdadeiro falso | (Device. isenraizadad-EQ true)
  gerenciamento de | MDM (para dispositivos móveis)<br>PC (para computadores gerenciados pelo agente de PC do Intune) | (Device. managementtype-EQ "MDM")
+ organizationalUnit | uma UO (unidade organizacional) local válida | (Device. organizationalUnit-contém "laptop")
  deviceId | uma ID de dispositivo do Azure AD válida | (Device. DeviceID-EQ "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | uma ID de objeto do Azure AD válida |  (Device. objectId-EQ 76ad43c9-32c5-45e8-A272-7b58b58f596d ")
+ devicePhysicalIds | qualquer valor de cadeia de caracteres usado pelo AutoPilot, como todos os dispositivos AutoPilot, OrderID ou PurchaseOrderID  | (Device. devicePhysicalIDs-any _ contém "[ZTDId]") (Device. devicePhysicalIds-qualquer _-EQ "[OrderID]: 179887111881") (Device. devicePhysicalIds-qualquer _-EQ "[PurchaseOrderId]: 76222342342")
  systemLabels | qualquer cadeia de caracteres correspondente à propriedade de dispositivo do Intune para marcar dispositivos de local de trabalho modernos | (Device. systemLabels-contém "M365Managed")
 
 > [!Note]  

@@ -1,6 +1,7 @@
 ---
-title: Utilize o Internet Explorer (biblioteca de autenticação da Microsoft para JavaScript) | Azure
-description: Saiba como utilizar a biblioteca de autenticação da Microsoft para JavaScript (msal) com o navegador Internet Explorer.
+title: Usar o Internet Explorer (biblioteca de autenticação da Microsoft para JavaScript)
+titleSuffix: Microsoft identity platform
+description: Saiba mais sobre como usar a biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) com o navegador Internet Explorer.
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
@@ -17,45 +18,45 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf8c84120f4c90d3943cfc31ffbf9aafcec0ba3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c79717b00cd9a4b5da00496bf2f1822f7f77032
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873919"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802982"
 ---
-# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conhecidos em browsers do Internet Explorer e o Microsoft Edge com msal
+# <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>Problemas conhecidos no Internet Explorer e nos navegadores do Microsoft Edge com MSAL. js
 
-Biblioteca de autenticação da Microsoft para JavaScript (msal) é gerada para [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) para que ele pode ser executado no Internet Explorer. No entanto, existem alguns aspetos a saber.
+A biblioteca de autenticação da Microsoft para JavaScript (MSAL. js) é gerada para o [JavaScript ES5](https://fr.wikipedia.org/wiki/ECMAScript#ECMAScript_Edition_5_.28ES5.29) para que ele possa ser executado no Internet Explorer. No entanto, há algumas coisas que você precisa saber.
 
-## <a name="run-an-app-in-internet-explorer"></a>Executar uma aplicação no Internet Explorer
-Se pretender utilizar a msal em aplicações que podem ser executadas no Internet Explorer, terá de adicionar uma referência a um suporte retroativo de promessa antes de fazer referência o script de msal.
+## <a name="run-an-app-in-internet-explorer"></a>Executar um aplicativo no Internet Explorer
+Se você pretende usar MSAL. js em aplicativos que podem ser executados no Internet Explorer, será necessário adicionar uma referência a um antifill de promessa antes de fazer referência ao script MSAL. js.
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.4/bluebird.min.js" class="pre"></script>
 ```
 
-Isto acontece porque o Internet Explorer não suporta nativamente promessas de JavaScript.
+Isso ocorre porque o Internet Explorer não dá suporte às promessas do JavaScript nativamente.
 
-## <a name="debugging-an-application-running-in-internet-explorer"></a>Depurar uma aplicação em execução no Internet Explorer
+## <a name="debugging-an-application-running-in-internet-explorer"></a>Depurando um aplicativo em execução no Internet Explorer
 
 ### <a name="running-in-production"></a>Em execução na produção
-Implementar a aplicação para a produção (por exemplo, em aplicações Web do Azure) normalmente funciona bem, contanto que o utilizador final aceitou pop-ups. Testamos com o Internet Explorer 11.
+Implantar seu aplicativo para produção (por exemplo, em aplicativos Web do Azure) normalmente funciona bem, desde que o usuário final tenha aceitado os pop-ups. Testamos isso com o Internet Explorer 11.
 
-### <a name="running-locally"></a>Em execução localmente
-Se pretende executar e depurar localmente a aplicação em execução no Internet Explorer, tem de ter em consideração as seguintes considerações (partem do princípio de que pretende executar a aplicação como *http://localhost:1234* ):
+### <a name="running-locally"></a>Executando localmente
+Se você quiser executar e depurar localmente seu aplicativo em execução no Internet Explorer, você precisa estar ciente das seguintes considerações (Suponha que você deseja executar seu aplicativo como *http://localhost:1234* ):
 
-- Internet Explorer tem um mecanismo de segurança com o nome "modo protegido", o que impede que msal a funcionar corretamente. Entre os sintomas, depois de iniciar sessão, a página pode ser redirecionada para http://localhost:1234/null.
+- O Internet Explorer tem um mecanismo de segurança chamado "modo protegido", que impede que o MSAL. js funcione corretamente. Entre os sintomas, depois de entrar, a página pode ser redirecionada para http://localhost:1234/null.
 
-- Para executar e depurar a aplicação localmente, terá de desativar esta "modo protegido". Para isso:
+- Para executar e depurar seu aplicativo localmente, você precisará desabilitar esse "modo protegido". Para isso:
 
-    1. Clique em Internet Explorer **ferramentas** (o ícone de engrenagem).
-    1. Selecione **opções da Internet** e, em seguida, o **segurança** separador.
-    1. Clique nas **Internet** zona e desmarque **ativar modo protegido (é necessário reiniciar o Internet Explorer)** . Internet Explorer avisa que seu computador já não está protegido. Clique em **OK**.
+    1. Clique em **ferramentas** do Internet Explorer (o ícone de engrenagem).
+    1. Selecione **Opções da Internet** e, em seguida, a guia **segurança** .
+    1. Clique na zona da **Internet** e desmarque **habilitar modo protegido (requer a reinicialização do Internet Explorer)** . O Internet Explorer avisa que o computador não está mais protegido. Clique em **OK**.
     1. Reinicie o Internet Explorer.
-    1. Executar e depurar seu aplicativo.
+    1. Execute e depure seu aplicativo.
 
-Quando tiver terminado, restaure as definições de segurança do Internet Explorer.  Selecione **configurações** -> **opções da Internet** -> **segurança** -> **repor todas as zonas para o nível predefinido**.
+Quando terminar, restaure as configurações de segurança do Internet Explorer.  Selecione **configurações** -> **opções da Internet** -> **segurança** -> **redefinir todas as zonas para o nível padrão**.
 
-## <a name="next-steps"></a>Passos Seguintes
-Saiba mais sobre [problemas conhecidos ao utilizar a msal no Internet Explorer](msal-js-use-ie-browser.md).
+## <a name="next-steps"></a>Passos seguintes
+Saiba mais sobre [problemas conhecidos ao usar o MSAL. js no Internet Explorer](msal-js-use-ie-browser.md).

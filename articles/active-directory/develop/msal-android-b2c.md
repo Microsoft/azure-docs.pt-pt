@@ -1,5 +1,6 @@
 ---
-title: Azure AD B2C (biblioteca de autenticação da Microsoft para Android) | Azure
+title: Azure AD B2C (biblioteca de autenticação da Microsoft para Android)
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar Azure AD B2C com a biblioteca de autenticação da Microsoft para Android (MSAL. Android
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c55356b19c8150c76858efb4edc593406c1722a4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8b5061f1ab341e5872dfa82c9f5c5b133ae40bdf
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679740"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803249"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usar o MSAL para Android com B2C
 
@@ -38,7 +39,7 @@ Dado um aplicativo B2C que tem duas políticas:
 - Editar perfil
     * Chamado `B2C_1_EditProfile`
 
-O arquivo de configuração para o aplicativo declararia dois `authorities`. Uma para cada política. A propriedade `type` de cada autoridade é `B2C`.
+O arquivo de configuração para o aplicativo declararia duas `authorities`. Uma para cada política. A propriedade `type` de cada autoridade é `B2C`.
 
 ### `app/src/main/res/raw/msal_config.json`
 ```json
@@ -58,11 +59,11 @@ O arquivo de configuração para o aplicativo declararia dois `authorities`. Uma
 }
 ```
 
-O `redirect_uri` deve ser registrado na configuração do aplicativo e também em `AndroidManifest.xml` para dar suporte ao redirecionamento durante o [fluxo de concessão do código de autorização](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+O `redirect_uri` deve ser registrado na configuração do aplicativo e também em `AndroidManifest.xml` para dar suporte ao redirecionamento durante o [fluxo de concessão do código de autorização](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inicializar IPublicClientApplication
 
-`IPublicClientApplication` é construído por um método de fábrica para permitir que a configuração do aplicativo seja analisada de forma assíncrona.
+`IPublicClientApplication` é construída por um método de fábrica para permitir que a configuração do aplicativo seja analisada de forma assíncrona.
 
 ```java
 PublicClientApplication.createMultipleAccountPublicClientApplication(
@@ -85,7 +86,7 @@ PublicClientApplication.createMultipleAccountPublicClientApplication(
 
 ## <a name="interactively-acquire-a-token"></a>Adquirir um token de forma interativa
 
-Para adquirir um token interativamente com o MSAL, crie uma instância `AcquireTokenParameters` e forneça-a ao método `acquireToken`. A solicitação de token abaixo usa a autoridade `default`.
+Para adquirir um token interativamente com o MSAL, crie uma instância `AcquireTokenParameters` e forneça-a ao método `acquireToken`. A solicitação de token abaixo usa a autoridade de `default`.
 
 ```java
 IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
@@ -143,7 +144,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Especificar uma política
 
-Como as políticas no B2C são representadas como autoridades separadas, invocar uma política diferente do padrão é obtido especificando uma cláusula `fromAuthority` ao construir parâmetros `acquireToken` ou `acquireTokenSilent`.  Por exemplo:
+Como as políticas no B2C são representadas como autoridades separadas, invocar uma política diferente do padrão é obtido especificando uma cláusula de `fromAuthority` ao construir `acquireToken` ou `acquireTokenSilent` parâmetros.  Por exemplo:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
@@ -159,7 +160,7 @@ AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()
 
 O fluxo de usuário de inscrição ou entrada da conta local mostra uma '**esqueceu a senha?** ' criar. Clicar nesse link não disparará automaticamente um fluxo de usuário de redefinição de senha.
 
-Em vez disso, o código de erro `AADB2C90118` é retornado ao seu aplicativo. Seu aplicativo deve lidar com esse código de erro executando um fluxo de usuário específico que redefine a senha.
+Em vez disso, o código de erro `AADB2C90118` é retornado para seu aplicativo. Seu aplicativo deve lidar com esse código de erro executando um fluxo de usuário específico que redefine a senha.
 
 Para capturar um código de erro de redefinição de senha, a seguinte implementação pode ser usada dentro de seu `AuthenticationCallback`:
 
@@ -189,7 +190,7 @@ new AuthenticationCallback() {
 
 ## <a name="use-iauthenticationresult"></a>Usar IAuthenticationResult
 
-Uma aquisição de token bem-sucedida resulta em um objeto `IAuthenticationResult`. Ele contém o token de acesso, as declarações do usuário e os metadados.
+Uma aquisição de token bem-sucedida resulta em um objeto de `IAuthenticationResult`. Ele contém o token de acesso, as declarações do usuário e os metadados.
 
 ### <a name="get-the-access-token-and-related-properties"></a>Obter o token de acesso e as propriedades relacionadas
 
@@ -219,7 +220,7 @@ String id = account.getId();
 // Get the IdToken Claims
 //
 // For more information about B2C token claims, see reference documentation
-// https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-reference-tokens
+// https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens
 Map<String, ?> claims = account.getClaims();
 
 // Get the 'preferred_username' claim through a convenience function
@@ -231,13 +232,13 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>Declarações de token
 
-As declarações retornadas no token são populadas pelo serviço de token de segurança (STS), não por MSAL. Dependendo do IdP (provedor de identidade) usado, algumas declarações podem estar ausentes. Alguns IdPs não fornecem atualmente a declaração `preferred_username`. Como essa declaração é usada pelo MSAL para cache, um valor de espaço reservado, `MISSING FROM THE TOKEN RESPONSE`, é usado em seu lugar. Para obter mais informações sobre as declarações do B2C token, consulte [visão geral dos tokens em Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+As declarações retornadas no token são populadas pelo serviço de token de segurança (STS), não por MSAL. Dependendo do IdP (provedor de identidade) usado, algumas declarações podem estar ausentes. Alguns IdPs atualmente não fornecem a declaração de `preferred_username`. Como essa declaração é usada pelo MSAL para cache, um valor de espaço reservado, `MISSING FROM THE TOKEN RESPONSE`, é usado em seu lugar. Para obter mais informações sobre as declarações do B2C token, consulte [visão geral dos tokens em Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Gerenciando contas e políticas
 
 O B2C trata cada política como uma autoridade separada. Portanto, os tokens de acesso, os tokens de atualização e os tokens de ID retornados de cada política não são intercambiáveis. Isso significa que cada política retorna um objeto `IAccount` separado cujos tokens não podem ser usados para invocar outras políticas.
 
-Cada política adiciona um `IAccount` ao cache para cada usuário. Se um usuário entrar em um aplicativo e invocar duas políticas, ele terá dois `IAccount`s. Para remover esse usuário do cache, você deve chamar `removeAccount()` para cada política.
+Cada política adiciona um `IAccount` ao cache para cada usuário. Se um usuário entrar em um aplicativo e invocar duas políticas, ele terá duas `IAccount`s. Para remover esse usuário do cache, você deve chamar `removeAccount()` para cada política.
 
 Quando você renova tokens para uma política com `acquireTokenSilent`, forneça o mesmo `IAccount` que foi retornado de invocações anteriores da política para `AcquireTokenSilentParameters`. Fornecer uma conta retornada por outra política resultará em um erro.
 

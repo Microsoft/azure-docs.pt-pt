@@ -15,12 +15,12 @@ ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: e308b44fffff451daa92cbf19209a1bcbfd4bff6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087987"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808748"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticação e autorização no Serviço de Aplicações do Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "70087987"
 > Neste momento, o AAD v2 (incluindo MSAL) não tem suporte para serviços Azure App e Azure Functions. Verifique novamente se há atualizações.
 >
 
-O serviço de Azure App fornece suporte interno de autenticação e autorização, para que você possa conectar usuários e acessar dados escrevendo um mínimo ou nenhum código em seu aplicativo Web, API RESTful e back-end móvel e também [Azure Functions](../azure-functions/functions-overview.md). Este artigo descreve como o serviço de aplicativo ajuda a simplificar a autenticação e a autorização para seu aplicativo. 
+O serviço de Azure App fornece suporte interno de autenticação e autorização, para que você possa conectar usuários e acessar dados escrevendo um mínimo ou nenhum código em seu aplicativo Web, API RESTful e back-end móvel e também [Azure Functions](../azure-functions/functions-overview.md). Este artigo descreve como o serviço de aplicativo ajuda a simplificar a autenticação e a autorização para seu aplicativo.
 
 A autenticação e a autorização seguras exigem uma profunda compreensão da segurança, incluindo Federação, criptografia, gerenciamento [JWT (token Web JSON)](https://wikipedia.org/wiki/JSON_Web_Token) , [tipos de concessão](https://oauth.net/2/grant-types/)e assim por diante. O serviço de aplicativo fornece esses utilitários para que você possa passar mais tempo e energia para fornecer valor comercial ao cliente.
 
@@ -53,9 +53,9 @@ Este módulo lida com várias coisas para seu aplicativo:
 
 O módulo é executado separadamente do código do aplicativo e é configurado usando as configurações do aplicativo. Não são necessários SDKs, idiomas específicos ou alterações no código do aplicativo. 
 
-### <a name="user-claims"></a>Afirmações do utilizador
+### <a name="user-claims"></a>Declarações do usuário
 
-Para todas as estruturas de linguagem, o serviço de aplicativo disponibiliza as declarações do usuário para seu código injetando-as nos cabeçalhos de solicitação. Para aplicativos ASP.NET 4,6, o serviço de aplicativo popula [ClaimsPrincipal. Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, para que você possa seguir o padrão de código .NET padrão `[Authorize]` , incluindo o atributo. Da mesma forma, para aplicativos PHP, o serviço de `_SERVER['REMOTE_USER']` aplicativo popula a variável. Para aplicativos Java, as declarações podem [ser acessadas do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+Para todas as estruturas de linguagem, o serviço de aplicativo disponibiliza as declarações do usuário para seu código injetando-as nos cabeçalhos de solicitação. Para aplicativos ASP.NET 4,6, o serviço de aplicativo popula [ClaimsPrincipal. Current](/dotnet/api/system.security.claims.claimsprincipal.current) com as declarações do usuário autenticado, para que você possa seguir o padrão de código .NET padrão, incluindo o atributo `[Authorize]`. Da mesma forma, para aplicativos PHP, o serviço de aplicativo popula a variável `_SERVER['REMOTE_USER']`. Para aplicativos Java, as declarações podem [ser acessadas do servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
 
 Por [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` não é alimentado pelo código .net, mas você ainda pode encontrar as declarações do usuário nos cabeçalhos da solicitação.
 
@@ -87,7 +87,7 @@ O serviço de aplicativo usa a [identidade federada](https://en.wikipedia.org/wi
 | [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) | `/.auth/login/aad` |
 | [Conta Microsoft](../active-directory/develop/v2-overview.md) | `/.auth/login/microsoftaccount` |
 | [Facebook](https://developers.facebook.com/docs/facebook-login) | `/.auth/login/facebook` |
-| [Google](https://developers.google.com/+/web/api/rest/oauth) | `/.auth/login/google` |
+| [Google](https://developers.google.com/identity/choose-auth) | `/.auth/login/google` |
 | [Twitter](https://developer.twitter.com/en/docs/basics/authentication) | `/.auth/login/twitter` |
 
 Quando você habilita a autenticação e a autorização com um desses provedores, seu ponto de extremidade de entrada está disponível para autenticação de usuário e para validação de tokens de autenticação do provedor. Você pode fornecer a seus usuários qualquer número dessas opções de conexão com facilidade. Você também pode integrar outro provedor de identidade ou [sua própria solução de identidade personalizada][custom-auth].
@@ -96,8 +96,8 @@ Quando você habilita a autenticação e a autorização com um desses provedore
 
 O fluxo de autenticação é o mesmo para todos os provedores, mas difere dependendo se você deseja entrar com o SDK do provedor:
 
-- Sem o SDK do provedor: O aplicativo delega a entrada federada ao serviço de aplicativo. Normalmente, esse é o caso de aplicativos de navegador, que podem apresentar a página de logon do provedor ao usuário. O código do servidor gerencia o processo de entrada, portanto, ele também é chamado de fluxo direcionado ao _servidor_ ou _fluxo do servidor_. Esse caso se aplica a aplicativos de navegador. Ele também se aplica a aplicativos nativos que conectam usuários usando o SDK do cliente de aplicativos móveis porque o SDK abre uma exibição da Web para conectar usuários com a autenticação do serviço de aplicativo. 
-- Com o SDK do provedor: O aplicativo conecta os usuários ao provedor manualmente e, em seguida, envia o token de autenticação para o serviço de aplicativo para validação. Normalmente, esse é o caso com aplicativos sem navegador, que não podem apresentar a página de entrada do provedor ao usuário. O código do aplicativo gerencia o processo de entrada, portanto, ele também é chamado de fluxo direcionado ao _cliente_ ou _fluxo do cliente_. Esse caso se aplica a APIs REST, [Azure Functions](../azure-functions/functions-overview.md)e clientes de navegador JavaScript, bem como aplicativos de navegador que precisam de mais flexibilidade no processo de entrada. Ele também se aplica a aplicativos móveis nativos que assinam usuários usando o SDK do provedor.
+- Sem o SDK do provedor: o aplicativo delega a entrada federada ao serviço de aplicativo. Normalmente, esse é o caso de aplicativos de navegador, que podem apresentar a página de logon do provedor ao usuário. O código do servidor gerencia o processo de entrada, portanto, ele também é chamado _de fluxo direcionado ao servidor_ ou _fluxo do servidor_. Esse caso se aplica a aplicativos de navegador. Ele também se aplica a aplicativos nativos que conectam usuários usando o SDK do cliente de aplicativos móveis porque o SDK abre uma exibição da Web para conectar usuários com a autenticação do serviço de aplicativo. 
+- Com o SDK do provedor: o aplicativo conecta os usuários ao provedor manualmente e, em seguida, envia o token de autenticação para o serviço de aplicativo para validação. Normalmente, esse é o caso com aplicativos sem navegador, que não podem apresentar a página de entrada do provedor ao usuário. O código do aplicativo gerencia o processo de entrada, portanto, ele também é chamado _de fluxo direcionado ao cliente_ ou fluxo do _cliente_. Esse caso se aplica a APIs REST, [Azure Functions](../azure-functions/functions-overview.md)e clientes de navegador JavaScript, bem como aplicativos de navegador que precisam de mais flexibilidade no processo de entrada. Ele também se aplica a aplicativos móveis nativos que assinam usuários usando o SDK do provedor.
 
 > [!NOTE]
 > Chamadas de um aplicativo de navegador confiável no serviço de aplicativo chamam outra API REST no serviço de aplicativo ou [Azure Functions](../azure-functions/functions-overview.md) podem ser autenticadas usando o fluxo direcionado ao servidor. Para obter mais informações, consulte [Personalizar a autenticação e a autorização no serviço de aplicativo](app-service-authentication-how-to.md).
@@ -107,12 +107,12 @@ A tabela a seguir mostra as etapas do fluxo de autenticação.
 
 | Passo | Sem o SDK do provedor | Com o SDK do provedor |
 | - | - | - |
-| 1. Conectar usuário | Redireciona o cliente para `/.auth/login/<provider>`. | O código do cliente assina o usuário diretamente com o SDK do provedor e recebe um token de autenticação. Para obter informações, consulte a documentação do provedor. |
-| 2. Pós-autenticação | O provedor redireciona o cliente para `/.auth/login/<provider>/callback`o. | O código [do cliente posta o token do provedor](app-service-authentication-how-to.md#validate-tokens-from-providers) para `/.auth/login/<provider>` para validação. |
-| 3. Estabelecer sessão autenticada | O serviço de aplicativo adiciona o cookie autenticado à resposta. | O serviço de aplicativo retorna seu próprio token de autenticação para o código do cliente. |
-| 4. Fornecer conteúdo autenticado | O cliente inclui o cookie de autenticação em solicitações subsequentes (manipuladas automaticamente pelo navegador). | O código do cliente apresenta o `X-ZUMO-AUTH` token de autenticação no cabeçalho (manipulado automaticamente pelos SDKs do cliente de aplicativos móveis). |
+| 1. conectar o usuário | Redireciona o cliente para `/.auth/login/<provider>`. | O código do cliente assina o usuário diretamente com o SDK do provedor e recebe um token de autenticação. Para obter informações, consulte a documentação do provedor. |
+| 2. pós-autenticação | O provedor redireciona o cliente para `/.auth/login/<provider>/callback`. | O código [do cliente posta o token do provedor](app-service-authentication-how-to.md#validate-tokens-from-providers) para `/.auth/login/<provider>` para validação. |
+| 3. estabelecer sessão autenticada | O serviço de aplicativo adiciona o cookie autenticado à resposta. | O serviço de aplicativo retorna seu próprio token de autenticação para o código do cliente. |
+| 4. fornecer conteúdo autenticado | O cliente inclui o cookie de autenticação em solicitações subsequentes (manipuladas automaticamente pelo navegador). | O código do cliente apresenta o token de autenticação no cabeçalho `X-ZUMO-AUTH` (manipulado automaticamente por SDKs de cliente de aplicativos móveis). |
 
-Para navegadores de cliente, o serviço de aplicativo pode direcionar automaticamente todos `/.auth/login/<provider>`os usuários não autenticados para o. Você também pode apresentar aos usuários um ou mais `/.auth/login/<provider>` links para entrar em seu aplicativo usando seu provedor de preferência.
+Para navegadores de cliente, o serviço de aplicativo pode direcionar automaticamente todos os usuários não autenticados para `/.auth/login/<provider>`. Você também pode apresentar aos usuários um ou mais links de `/.auth/login/<provider>` para entrar em seu aplicativo usando seu provedor de preferência.
 
 <a name="authorization"></a>
 
@@ -132,7 +132,7 @@ Essa opção fornece mais flexibilidade no tratamento de solicitações anônima
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir somente solicitações autenticadas
 
-A opção é **fazer logon com \<o provedor >** . O serviço de aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` o provedor que você escolher. Se a solicitação anônima vier de um aplicativo móvel nativo, a resposta retornada será um `HTTP 401 Unauthorized`.
+A opção é **fazer logon com \<provedor >** . O serviço de aplicativo redireciona todas as solicitações anônimas para `/.auth/login/<provider>` para o provedor que você escolher. Se a solicitação anônima vier de um aplicativo móvel nativo, a resposta retornada será uma `HTTP 401 Unauthorized`.
 
 Com essa opção, você não precisa escrever nenhum código de autenticação em seu aplicativo. Uma autorização mais refinada, como autorização específica de função, pode ser manipulada inspecionando as declarações do usuário (consulte [acessar declarações de usuário](app-service-authentication-how-to.md#access-user-claims)).
 
@@ -141,8 +141,8 @@ Com essa opção, você não precisa escrever nenhum código de autenticação e
 
 ## <a name="more-resources"></a>Mais recursos
 
-[Tutorial: Autenticar e autorizar usuários de ponta a ponta no serviço de Azure App (Windows)](app-service-web-tutorial-auth-aad.md)  
-[Tutorial: Autenticar e autorizar usuários de ponta a ponta no serviço de Azure App para Linux](containers/tutorial-auth-aad.md)  
+[Tutorial: autenticar e autorizar usuários de ponta a ponta no serviço de Azure App (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: autenticar e autorizar usuários de ponta a ponta no serviço de Azure App para Linux](containers/tutorial-auth-aad.md)  
 [Personalizar a autenticação e a autorização no serviço de aplicativo](app-service-authentication-how-to.md)
 
 Guias de instruções específicas do provedor:
@@ -152,7 +152,7 @@ Guias de instruções específicas do provedor:
 * [Como configurar a sua aplicação para utilizar o início de sessão do Google][Google]
 * [Como configurar a sua aplicação para utilizar o início de sessão da conta Microsoft][MSA]
 * [Como configurar a sua aplicação para utilizar o início de sessão do Twitter][Twitter]
-* [How to: Usar a autenticação personalizada para seu aplicativo][custom-auth]
+* [Como: usar a autenticação personalizada para seu aplicativo][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

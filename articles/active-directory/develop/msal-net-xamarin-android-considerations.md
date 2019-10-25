@@ -1,5 +1,6 @@
 ---
-title: Considerações sobre o Xamarin Android (biblioteca de autenticação da Microsoft para .NET) | Azure
+title: Considerações sobre o Xamarin Android (biblioteca de autenticação da Microsoft para .NET)
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 465902cf6ef6db1d867f7cc986da8c9e06e4fbbf
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2d6af9753887ffa593a44fba9faa3376066417a8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532463"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802643"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>Considerações específicas do Xamarin Android com MSAL.NET
 Este artigo discute considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
@@ -58,7 +59,7 @@ var pca = PublicClientApplicationBuilder
 
 
 ## <a name="ensuring-control-goes-back-to-msal-once-the-interactive-portion-of-the-authentication-flow-ends"></a>Garantindo que o controle volte para MSAL depois que a parte interativa do fluxo de autenticação for encerrada
-No Android, você precisa substituir o `OnActivityResult` método `Activity` do e chamar o método SetAuthenticationContinuationEventArgs da classe AuthenticationContinuationHelper MSAL.
+No Android, você precisa substituir o método `OnActivityResult` da `Activity` e chamar o método SetAuthenticationContinuationEventArgs da classe AuthenticationContinuationHelper MSAL.
 
 ```csharp
 protected override void OnActivityResult(int requestCode, 
@@ -113,9 +114,9 @@ Para solucionar esses problemas, você deve:
 - Como alternativa, se você estiver criando a partir da linha de comando, tente remover/m do comando se estiver usando-a.
 
 
-### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Erro: O nome ' AuthenticationContinuationHelper ' não existe no contexto atual
+### <a name="error-the-name-authenticationcontinuationhelper-does-not-exist-in-the-current-context"></a>Erro: o nome ' AuthenticationContinuationHelper ' não existe no contexto atual
 
-Isso é provável porque o Visual Studio não atualizou corretamente o arquivo Android. csproj *. Às vezes, o  **\<HintPath >** FilePath contém incorretamente netstandard13 em vez de **monoandroid90**.
+Isso é provável porque o Visual Studio não atualizou corretamente o arquivo Android. csproj *. Às vezes, o **\<HintPath >** FilePath contém incorretamente netstandard13 em vez de **monoandroid90**.
 
 ```xml
 <Reference Include="Microsoft.Identity.Client, Version=3.0.4.0, Culture=neutral, PublicKeyToken=0a613f4dd989e8ae,

@@ -1,39 +1,39 @@
 ---
-title: Criar seu próprio recuperação após desastre para tópicos personalizados no Azure Event Grid | Documentos da Microsoft
-description: Sobrevivem a interrupções regionais para manter o Azure Event Grid ligado.
+title: Recuperação de desastre para tópicos personalizados na grade de eventos do Azure
+description: Saiba como sobreviver a interrupções regionais para manter a grade de eventos do Azure conectada.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305082"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790282"
 ---
-# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Criar seu próprio recuperação após desastre para tópicos personalizados no Event Grid
-Recuperação após desastre se concentra em recuperar de uma grave perda de funcionalidade do aplicativo. Este tutorial explica como configurar a sua arquitetura de eventos para recuperar, se o serviço do Event Grid fica em mau estado de funcionamento numa região específica.
+# <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Crie sua própria recuperação de desastre para tópicos personalizados na grade de eventos
+A recuperação de desastres se concentra em recuperar-se de uma perda grave de funcionalidade do aplicativo. Este tutorial explicará como configurar sua arquitetura de eventos para recuperar se o serviço de grade de eventos se tornar não íntegro em uma região específica.
 
-Neste tutorial, irá aprender como criar uma arquitetura de ativação pós-falha do ativa-passiva para tópicos personalizados no Event Grid. Irá realizar a ativação pós-falha ao espelhamento seus tópicos e subscrições em duas regiões e, em seguida, gerir uma ativação pós-falha quando um tópico fica em mau estado de funcionamento. A arquitetura neste tutorial efetua a ativação pós-falha de todo o tráfego de novo. é importante ter em consideração, com esta configuração, a não ser recuperados eventos já em andamento, até que a região comprometida está em bom estada novamente.
+Neste tutorial, você aprenderá a criar uma arquitetura de failover ativo-passivo para tópicos personalizados na grade de eventos. Você realizará o failover espelhando seus tópicos e assinaturas em duas regiões e, em seguida, gerenciando um failover quando um tópico se tornar não íntegro. A arquitetura neste tutorial faz failover de todo o tráfego novo. é importante estar ciente de que, com essa configuração, os eventos que já estão em voo não serão recuperados até que a região comprometida esteja íntegra novamente.
 
 > [!NOTE]
-> Event Grid suporta recuperação de desastre geográfico automática (GeoDR) agora no lado do servidor. Pode ainda implementar a lógica de recuperação após desastre do lado do cliente se pretender que um maior controlo sobre o processo de ativação pós-falha. Para obter detalhes sobre GeoDR automática, consulte [recuperação de desastres do lado do servidor georreplicação no Azure Event Grid](geo-disaster-recovery.md).
+> A grade de eventos dá suporte à GeoDR (recuperação de desastre geográfica automática) no lado do servidor agora. Você ainda pode implementar a lógica de recuperação de desastre do lado do cliente se quiser um maior controle sobre o processo de failover. Para obter detalhes sobre o GeoDR automático, consulte [recuperação de desastre geográfica no lado do servidor na grade de eventos do Azure](geo-disaster-recovery.md).
 
 ## <a name="create-a-message-endpoint"></a>Criar um ponto final de mensagem
 
-Para testar a configuração de ativação pós-falha, precisará para receber os seus eventos num ponto de extremidade. O ponto final não é parte da sua infraestrutura de ativação pós-falha, mas funcionará como nosso manipulador de eventos para que seja mais fácil de testar.
+Para testar sua configuração de failover, você precisará de um ponto de extremidade para receber seus eventos em. O ponto de extremidade não faz parte da sua infraestrutura de failover, mas atuará como nosso manipulador de eventos para facilitar o teste.
 
-Para simplificar o teste, implemente um [aplicação web pré-criados](https://github.com/Azure-Samples/azure-event-grid-viewer) que apresenta as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
+Para simplificar o teste, implante um [aplicativo Web predefinido](https://github.com/Azure-Samples/azure-event-grid-viewer) que exiba as mensagens de evento. A solução implementada inclui um plano do Serviço de Aplicações, uma aplicação Web do Serviço de Aplicações e o código de origem do GitHub.
 
 1. Selecione **Implementar no Azure** para implementar a solução para a sua subscrição. No portal do Azure, indique os valores para os parâmetros.
 
    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. A implementação pode demorar alguns minutos. Após a implementação ter sido concluída com êxito, verifique a aplicação Web para verificar se está em execução. Num browser, navegue para: `https://<your-site-name>.azurewebsites.net`
-Certifique-se observar este URL, à medida que vai precisar dele mais tarde.
+Certifique-se de anotar essa URL, pois você precisará dela mais tarde.
 
 1. Vê o site, mas ainda não foram publicados eventos no mesmo.
 
@@ -42,58 +42,58 @@ Certifique-se observar este URL, à medida que vai precisar dele mais tarde.
 [!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
 
 
-## <a name="create-your-primary-and-secondary-topics"></a>Criar seus tópicos primários e secundários
+## <a name="create-your-primary-and-secondary-topics"></a>Crie seus tópicos primários e secundários
 
-Primeiro, crie dois tópicos do Event Grid. Estes tópicos atuará como seu principal e secundário. Por predefinição, os seus eventos irão fluir pelo seu tópico principal. Se houver uma interrupção de serviço na região primária, irá assumir a secundária.
+Primeiro, crie dois tópicos de grade de eventos. Esses tópicos funcionarão como primário e secundário. Por padrão, seus eventos fluirão pelo seu tópico primário. Se houver uma interrupção de serviço na região primária, o secundário assumirá.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-1. No canto superior esquerdo do menu principal do Azure, escolha **todos os serviços** > procure **Event Grid** > selecione **tópicos do Event Grid**.
+1. No canto superior esquerdo do menu principal do Azure, escolha **todos os serviços** > Pesquisar a **grade de eventos** > selecionar **Tópicos da grade de eventos**.
 
-   ![Menu de tópicos de grelha de eventos](./media/custom-disaster-recovery/select-topics-menu.png)
+   ![Menu de tópicos da grade de eventos](./media/custom-disaster-recovery/select-topics-menu.png)
 
-    Selecione a estrela junto tópicos do Event Grid para adicioná-lo ao menu de recursos para facilitar o acesso no futuro.
+    Selecione a estrela ao lado dos tópicos da grade de eventos para adicioná-lo ao menu de recursos para facilitar o acesso no futuro.
 
-1. No Menu de tópicos do eventos Grid, selecione **+ adicionar** para criar um tópico principal.
+1. No menu tópicos da grade de eventos, selecione **+ Adicionar** para criar seu tópico primário.
 
-   * Dê um nome lógico ao tópico e adicione "-primário" como sufixo torna mais fácil de controlar.
-   * Região deste tópico será sua região primária.
+   * Dê ao tópico um nome lógico e adicione "-Primary" como um sufixo para facilitar o rastreamento.
+   * A região deste tópico será sua região primária.
 
-     ![Tópico do Event Grid principal criar caixa de diálogo](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Caixa de diálogo criação primária do tópico da grade de eventos](./media/custom-disaster-recovery/create-primary-topic.png)
 
-1. Depois do tópico ter sido criado, navegue para o mesmo e copie os **ponto final do tópico**. será necessário o URI mais tarde.
+1. Depois que o tópico tiver sido criado, navegue até ele e copie o **ponto de extremidade do tópico**. Você precisará do URI mais tarde.
 
-    ![Tópico do Event Grid principal](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
+    ![Tópico primário da grade de eventos](./media/custom-disaster-recovery/get-primary-topic-endpoint.png)
 
-1. Obtenha a chave de acesso para o tópico, que também será necessário mais tarde. Clique em **chaves de acesso** no menu de recursos e copie chave 1.
+1. Obtenha a chave de acesso para o tópico, que você também precisará mais tarde. Clique em **chaves de acesso** no menu de recursos e copie a chave 1.
 
-    ![Obter a chave primária de tópico](./media/custom-disaster-recovery/get-primary-access-key.png)
+    ![Obter chave do tópico primário](./media/custom-disaster-recovery/get-primary-access-key.png)
 
-1. No painel do tópico, clique em **+ subscrição de evento** para criar uma subscrição ligar-se de que sua assinatura o site do receptor de evento que tomou em pré-requisitos para o tutorial.
+1. Na folha do tópico, clique em **+ assinatura de evento** para criar uma assinatura que conecta seu assinante do site Receptor de eventos que você fez nos pré-requisitos para o tutorial.
 
-   * Dê um nome lógico à subscrição de evento e adicione "-primário" como sufixo torna mais fácil de controlar.
-   * Selecione o Hook de Web do tipo de ponto final.
-   * Definir o ponto final para o URL de eventos do receptor de eventos, o que deve ser algo como: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Dê à assinatura do evento um nome lógico e adicione "-Primary" como um sufixo para facilitar o rastreamento.
+   * Selecione o tipo de ponto de extremidade Web Hook.
+   * Defina o ponto de extremidade para a URL de evento do receptor de evento, que deve ser semelhante a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-     ![Subscrição de eventos primário do Event Grid](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Assinatura de evento principal da grade de eventos](./media/custom-disaster-recovery/create-primary-es.png)
 
-1. Repita o mesmo fluxo para criar o seu tópico secundário e a subscrição. Desta vez, substitua o "-primário" sufixo com "-secundário" para o controlo de mais fácil. Por fim, certifique-se de que colocá-la numa região do Azure diferente. Enquanto pode colocá-lo em qualquer lugar que desejar, recomenda-se que utilize o [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md). Colocar o tópico secundário e a subscrição numa região diferente garante que os seus novos eventos irão fluir, mesmo que a região primária fica inativo.
+1. Repita o mesmo fluxo para criar seu tópico secundário e sua assinatura. Desta vez, substitua o sufixo "-Primary" por "-Secondary" para facilitar o acompanhamento. Por fim, certifique-se de colocá-lo em uma região diferente do Azure. Embora você possa colocá-lo em qualquer lugar desejado, é recomendável usar as [regiões emparelhadas do Azure](../best-practices-availability-paired-regions.md). Colocar o tópico secundário e a assinatura em uma região diferente garante que os novos eventos fluirão mesmo se a região primária falhar.
 
-Agora, deve ter:
+Agora você deve ter:
 
-   * Um site do receptor de evento para fins de teste.
-   * Um tópico principal na sua região primária.
-   * Uma subscrição de eventos primário ligar o seu tópico principal para o site do receptor de evento.
-   * Um tópico secundário na sua região secundária.
-   * Uma subscrição de evento secundário ligar o seu tópico principal para o site do receptor de evento.
+   * Um site Receptor de eventos para teste.
+   * Um tópico primário em sua região primária.
+   * Uma assinatura de evento principal conectando seu tópico primário ao site do receptor de eventos.
+   * Um tópico secundário em sua região secundária.
+   * Uma assinatura de evento secundário conectando seu tópico primário ao site do receptor de eventos.
 
 ## <a name="implement-client-side-failover"></a>Implementar aplicação pós-falha do lado do cliente
 
-Agora que tem um par regional redundante do programa de configuração de tópicos e subscrições, está pronto para implementar a ativação pós-falha do lado do cliente. Existem várias formas de fazer isso, mas todas as implementações de ativação pós-falha terá um recurso comum: se um tópico já não está em bom estado, o tráfego será redirecionado para o outro tópico.
+Agora que você tem um par de tópicos e assinaturas com redundância geográfica, você está pronto para implementar o failover do lado do cliente. Há várias maneiras de fazer isso, mas todas as implementações de failover terão um recurso comum: se um tópico não estiver mais íntegro, o tráfego será redirecionado para o outro tópico.
 
 ### <a name="basic-client-side-implementation"></a>Implementação básica do lado do cliente
 
-O código de exemplo seguinte é um simple Editor de .NET que sempre irá tentar publicar para o seu tópico principal primeiro. Se não tiver êxito, irá, em seguida, ativação pós-falha do tópico secundário. Em ambos os casos, ele também verifica o estado de funcionamento api do outro tópico, fazendo um GET no `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Um tópico de bom estado de funcionamento sempre deverá responder com **200 OK** quando um GET é feito no **estado defuncionamento/api/** ponto final.
+O código de exemplo a seguir é um editor .NET simples que sempre tentará publicar primeiro seu tópico primário. Se não tiver sucesso, ele executará o failover do tópico secundário. Em ambos os casos, ele também verifica a API de integridade do outro tópico fazendo um GET no `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Um tópico íntegro deve sempre responder com **200 OK** quando um get é feito no ponto de extremidade **/API/Health** .
 
 ```csharp
 using System;
@@ -188,27 +188,27 @@ namespace EventGridFailoverPublisher
 
 ### <a name="try-it-out"></a>Experimentar
 
-Agora que tem todos os componentes no local, pode testar a sua implementação de ativação pós-falha. Execute o exemplo acima no código do Visual Studio ou o seu ambiente de favorito. Substitua os seguintes quatro valores com os pontos finais e as chaves a partir dos seus tópicos:
+Agora que você tem todos os seus componentes em vigor, você pode testar sua implementação de failover. Execute o exemplo acima no Visual Studio Code ou seu ambiente favorito. Substitua os quatro valores a seguir pelos pontos de extremidade e chaves dos seus tópicos:
 
-   * primaryTopic - o ponto final para o seu tópico principal.
-   * secondaryTopic - o ponto final para o seu tópico secundário.
-   * primaryTopicKey - a chave para o seu tópico principal.
-   * secondaryTopicKey - a chave para o seu tópico secundário.
+   * primaryTopic-o ponto de extremidade para seu tópico primário.
+   * secondaryTopic-o ponto de extremidade para seu tópico secundário.
+   * primaryTopicKey-a chave para seu tópico primário.
+   * secondaryTopicKey-a chave para seu tópico secundário.
 
-Tente executar o publicador de eventos. Deverá ver a sua situação de eventos de teste em seu visualizador do Event Grid, como abaixo.
+Tente executar o editor de eventos. Você deve ver seus eventos de teste no seu visualizador de grade de eventos, como abaixo.
 
-![Subscrição de eventos primário do Event Grid](./media/custom-disaster-recovery/event-grid-viewer.png)
+![Assinatura de evento principal da grade de eventos](./media/custom-disaster-recovery/event-grid-viewer.png)
 
-Para certificar-se de que a ativação pós-falha está a funcionar, pode alterar alguns caracteres na sua chave de tópico principal para torná-la já não são válidas. Tente executar novamente o publicador. Ainda deverá ver novos eventos são apresentados no seu visualizador do Event Grid, no entanto, quando examinar seu console, verá que eles estão agora a ser publicados o tópico secundário.
+Para verificar se o failover está funcionando, você pode alterar alguns caracteres em sua chave de tópico primário para torná-lo não mais válido. Tente executar o Publicador novamente. Você ainda deve ver novos eventos exibidos no Visualizador de grade de eventos. no entanto, ao examinar seu console, você verá que agora eles estão sendo publicados por meio do tópico secundário.
 
 ### <a name="possible-extensions"></a>Extensões possíveis
 
-Existem várias formas de estender esse exemplo com base nas suas necessidades. Para cenários de volume elevado, pode querer verificar regularmente o estado de funcionamento do tópico api de forma independente. Dessa forma, se um tópico foram descer, não precisa de verificá-lo com cada publicação única. Sabe que um tópico não está em bom estado, pode padrão para a publicação para o tópico secundário.
+Há várias maneiras de estender esse exemplo com base em suas necessidades. Para cenários de alto volume, talvez você queira verificar regularmente a API de integridade do tópico de forma independente. Dessa forma, se um tópico fosse desativado, você não precisará verificá-lo com cada publicação única. Depois de saber que um tópico não está íntegro, você pode padronizar a publicação no tópico secundário.
 
-Da mesma forma, pode querer implementar a lógica de reativação pós-falha com base nas suas necessidades específicas. Se o Datacenter mais próximo a publicação é essencial para que possa reduzir a latência, pode de sonda periodicamente o estado de funcionamento da api de um tópico de ativação pós-falha do dispositivo. Assim que é bom estado de funcionamento novamente, saberá que é seguro para a reativação pós-falha para o Datacenter mais próximo.
+Da mesma forma, talvez você queira implementar a lógica de failback com base em suas necessidades específicas. Se a publicação na data center mais próxima for crítica para reduzir a latência, você poderá investigar periodicamente a API de integridade de um tópico que passou por failover. Quando ele estiver íntegro novamente, você saberá que é seguro fazer failback para o data center mais próximo.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba como [receber eventos num ponto final http](./receive-events.md)
-- Descubra como [encaminhar eventos para as ligações híbridas](./custom-event-to-hybrid-connection.md)
-- Saiba mais sobre [recuperação após desastre com o DNS do Azure e o Gestor de tráfego](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)
+- Saiba como [receber eventos em um ponto de extremidade http](./receive-events.md)
+- Descubra como [rotear eventos para conexões híbridas](./custom-event-to-hybrid-connection.md)
+- Saiba mais sobre a [recuperação de desastre usando o DNS do Azure e o Gerenciador de tráfego](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager)

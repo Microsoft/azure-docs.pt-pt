@@ -1,5 +1,5 @@
 ---
-title: Introdução ao Azure AD em projetos do Visual Studio .NET MVC
+title: Introdução ao Azure AD em projetos do Visual Studio .NET MVC | Azure
 description: Como começar a usar o Azure Active Directory em projetos do .NET MVC depois de se conectar ou criar um AD do Azure usando os serviços conectados do Visual Studio
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806961dce41fbdf07572b3d0ab8b79bc9fb682da
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b0a6265f76cc7c799d162487999c129ec7e6a14
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852028"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803622"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Introdução com Azure Active Directory (projetos ASP.NET MVC)
 
@@ -31,11 +31,11 @@ Veja o [que aconteceu com meu projeto do MVC?](vs-active-directory-dotnet-what-h
 
 ## <a name="requiring-authentication-to-access-controllers"></a>Exigindo autenticação para acessar controladores
 
-Todos os controladores em seu projeto foram adornados com `[Authorize]` o atributo. Este atributo requer que o usuário seja autenticado antes de acessar esses controladores. Para permitir que o controlador seja acessado anonimamente, remova esse atributo do controlador. Se você quiser definir as permissões em um nível mais granular, aplique o atributo a cada método que requer autorização em vez de aplicá-lo à classe do controlador.
+Todos os controladores em seu projeto foram adornados com o atributo `[Authorize]`. Este atributo requer que o usuário seja autenticado antes de acessar esses controladores. Para permitir que o controlador seja acessado anonimamente, remova esse atributo do controlador. Se você quiser definir as permissões em um nível mais granular, aplique o atributo a cada método que requer autorização em vez de aplicá-lo à classe do controlador.
 
 ## <a name="adding-signin--signout-controls"></a>Adicionando controles de entrada/saída
 
-Para adicionar os controles de entrada/saída à exibição, você pode usar a `_LoginPartial.cshtml` exibição parcial para adicionar a funcionalidade a uma de suas exibições. Aqui está um exemplo da funcionalidade adicionada à exibição padrão `_Layout.cshtml` . (Observe o último elemento no div com a barra de navegação de classe-Collapse):
+Para adicionar os controles de entrada/saída à exibição, você pode usar o `_LoginPartial.cshtml` exibição parcial para adicionar a funcionalidade a uma de suas exibições. Aqui está um exemplo da funcionalidade adicionada à exibição de `_Layout.cshtml` padrão. (Observe o último elemento no div com a barra de navegação de classe-Collapse):
 
 ```html
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ Para adicionar os controles de entrada/saída à exibição, você pode usar a `
 </html>
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - [Cenários de autenticação para Azure Active Directory](authentication-scenarios.md)
 - [Adicionar entrada com a Microsoft a um aplicativo Web ASP.NET](quickstart-v1-aspnet-webapp.md)

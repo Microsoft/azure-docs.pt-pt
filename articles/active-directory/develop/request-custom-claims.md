@@ -1,5 +1,6 @@
 ---
-title: Como solicitar declarações personalizadas usando o MSAL para iOS e macOS | Plataforma de identidade da Microsoft
+title: Como solicitar declarações personalizadas usando o MSAL para iOS e macOS
+titleSuffix: Microsoft identity platform
 description: Saiba como solicitar declarações personalizadas.
 services: active-directory
 documentationcenter: ''
@@ -17,18 +18,18 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6e09d58742bffd74f07f79b3ec55c1e81533632
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6c34da9e8faa8c2c2e24e7f00569e2b7c8af674f
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268989"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802589"
 ---
-# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: Solicitar declarações personalizadas usando o MSAL para iOS e macOS
+# <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>Como: solicitar declarações personalizadas usando o MSAL para iOS e macOS
 
 O OpenID Connect permite que você solicite opcionalmente o retorno de declarações individuais do ponto de extremidade de UserInfo e/ou no token de ID. Uma solicitação de declarações é representada como um objeto JSON que contém uma lista de declarações solicitadas. Consulte [OpenID Connect Core 1,0](https://openid.net/specs/openid-connect-core-1_0-final.html#ClaimsParameter) para obter mais detalhes.
 
-A MSAL (biblioteca de autenticação da Microsoft) para iOS e macOS permite solicitar declarações específicas em cenários de aquisição de tokens interativos e silenciosos. Ele faz isso por meio `claimsRequest` do parâmetro.
+A MSAL (biblioteca de autenticação da Microsoft) para iOS e macOS permite solicitar declarações específicas em cenários de aquisição de tokens interativos e silenciosos. Ele faz isso por meio do parâmetro `claimsRequest`.
 
 Há vários cenários em que isso é necessário. Por exemplo:
 
@@ -36,9 +37,9 @@ Há vários cenários em que isso é necessário. Por exemplo:
 - Solicitando combinações específicas das declarações padrão que não podem ser especificadas usando escopos para seu aplicativo. Por exemplo, se um token de acesso for rejeitado devido a declarações ausentes, o aplicativo poderá solicitar as declarações ausentes usando MSAL.
 
 > [!NOTE]
-> MSAL ignora o cache de token de acesso sempre que uma solicitação de declarações é especificada. É importante fornecer `claimsRequest` apenas o parâmetro quando declarações adicionais são necessárias (em vez de fornecer sempre o mesmo `claimsRequest` parâmetro em cada chamada à API MSAL).
+> MSAL ignora o cache de token de acesso sempre que uma solicitação de declarações é especificada. É importante fornecer apenas `claimsRequest` parâmetro quando declarações adicionais são necessárias (em vez de fornecer sempre o mesmo parâmetro `claimsRequest` em cada chamada à API MSAL).
 
-`claimsRequest`pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
+`claimsRequest` pode ser especificado em `MSALSilentTokenParameters` e `MSALInteractiveTokenParameters`:
 
 ```objc
 /*!
@@ -54,7 +55,7 @@ Há vários cenários em que isso é necessário. Por exemplo:
 
 @end
 ```
-`MSALClaimsRequest`pode ser construído a partir de uma representação NSString da solicitação de declarações JSON. 
+`MSALClaimsRequest` pode ser construída a partir de uma representação NSString da solicitação de declarações JSON. 
 
 Objective-C:
 
@@ -103,7 +104,7 @@ do {
 
 
 
-`MSALClaimsRequest`deve ser definido nos parâmetros de token e fornecido para uma das APIs de aquisições de token MSAL:
+`MSALClaimsRequest` deve ser definido nos parâmetros de token e fornecidos para uma das APIs de aquisições de token MSAL:
 
 Objective-C:
 

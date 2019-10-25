@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: 7ca6f1bda2dff9a8a9e54cb9d9ce5fd2d34c7245
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428070"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72783783"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -341,11 +341,15 @@ Os seguintes itens são prefixados com um:
 - **[2]** : aplicável somente ao nó 2
 
 **[A]** pré-requisitos para a configuração do pacemaker:
-1. Desligue os servidores de banco de dados com o usuário DB2 @ no__t-0sid > com db2stop.
-1. Altere o ambiente do Shell para DB2 @ no__t-0sid > usuário para */bin/ksh*. Recomendamos que você use a ferramenta YaST. 
+1. Desligue os servidores de banco de dados com o usuário DB2\<Sid > com db2stop.
+1. Altere o ambiente do Shell para DB2\<Sid > usuário para */bin/ksh*. Recomendamos que você use a ferramenta YaST. 
 
 
 ### <a name="pacemaker-configuration"></a>Configuração do pacemaker
+
+> [!IMPORTANT]
+> Testes recentes revelaram situações em que o netcat para de responder às solicitações devido à pendência e sua limitação de manipular apenas uma conexão. O recurso netcat para de escutar as solicitações do Azure Load Balancer e o IP flutuante fica indisponível.  
+> Para clusters pacemaker existentes, é recomendável substituir netcat por socat, seguindo as instruções em [proteção de detecção do balanceador de carga do Azure](https://www.suse.com/support/kb/doc/?id=7024128). Observe que a alteração exigirá um breve tempo de inatividade.  
 
 **[1]** configuração de pacemaker específica do IBM DB2 HADR:
 <pre><code># Put Pacemaker into maintenance mode
@@ -371,7 +375,7 @@ sudo crm configure primitive rsc_ip_db2ptr_<b>PTR</b> IPaddr2 \
 
 # Configure probe port for Azure load Balancer
 sudo crm configure primitive rsc_nc_db2ptr_<b>PTR</b> anything \
-        params binfile="/usr/bin/nc" cmdline_options="-l -k <b>62500</b>" \
+        params binfile="/usr/bin/socat" cmdline_options="-U TCP-LISTEN:<b>62500</b>,backlog=10,fork,reuseaddr /dev/null" \
         op monitor timeout="20s" interval="10" depth="0"
 
 sudo crm configure group g_ip_db2ptr_<b>PTR</b> rsc_ip_db2ptr_<b>PTR</b> rsc_nc_db2ptr_<b>PTR</b>
@@ -474,12 +478,12 @@ Para configurar Azure Load Balancer, recomendamos que você use o [SKU de Standa
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Fazer alterações nos perfis SAP para usar o IP virtual para conexão
 Para se conectar à instância primária da configuração do HADR, a camada do aplicativo SAP precisa usar o endereço IP virtual que você definiu e configurou para o Azure Load Balancer. As seguintes alterações são necessárias:
 
-/sapmnt/@no__t 0SID >/profile/DEFAULT. PFL
+/sapmnt/\<SID >/profile/DEFAULT. PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/@no__t 0SID >/global/DB6/db2cli.ini
+/sapmnt/\<SID >/global/DB6/db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -558,7 +562,7 @@ O status original em um sistema SAP está documentado em transação DBACOCKPIT 
 > Antes de iniciar o teste, verifique se:
 > * Pacemaker não tem nenhuma ação com falha (status do CRM).
 > * Não há restrições de local (sobras de teste de migração)
-> * A sincronização do IBM DB2 HADR está funcionando. Verifique com o usuário DB2 @ no__t-0sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> * A sincronização do IBM DB2 HADR está funcionando. Verificar com o Sid de\<do usuário do DB2 > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migre o nó que está executando o banco de dados DB2 primário executando o seguinte comando:
@@ -592,8 +596,8 @@ Migre o recurso de volta para *azibmdb01* e desmarque as restrições de local
 crm resource clear msl_<b>Db2_db2ptr_PTR</b>
 </code></pre>
 
-- **@no__t de migração de recursos de CRM-1res_name > \<host >:** Cria restrições de local e pode causar problemas com tomada
-- **@no__t de recursos do CRM-1res_name >** : limpa as restrições de local
+- a **migração de recursos do crm \<res_name > \<> do host:** Cria restrições de local e pode causar problemas com tomada
+- **RES_NAME de recursos de CRM limpar \<** : limpa as restrições de local
 - **limpeza de recursos de crm \<res_name >** : limpa todos os erros do recurso
 
 ### <a name="test-the-fencing-agent"></a>Testar o agente de isolamento
@@ -767,7 +771,7 @@ stonith-sbd     (stonith:external/sbd): Started azibmdb01
      Masters: [ azibmdb01 ]
      Slaves: [ azibmdb02 ]</code></pre>
 
-Como usuário DB2 @ no__t-0sid > execute o comando db2stop Force:
+Como o usuário DB2\<Sid > execute o comando db2stop Force:
 <pre><code>azibmdb01:~ # su - db2ptr
 azibmdb01:db2ptr> db2stop force</code></pre>
 

@@ -10,20 +10,20 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3547ff218e9a15151e4abe2ceff53292d3f01ac0
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804317"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808993"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Exibir histórico de auditoria para funções do Azure AD no PIM
 
-Você pode usar o histórico de auditoria do Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para ver todas as atribuições de função e ativações nos últimos 30 dias para todas as funções privilegiadas. Se você quiser ver o histórico de auditoria completo de atividade em seu diretório, incluindo administrador, usuário final e atividade de sincronização, você pode usar os [Azure Active Directory relatórios de segurança e atividade](../reports-monitoring/overview-reports.md).
+Você pode usar o histórico de auditoria de Privileged Identity Management (PIM) para ver todas as atribuições de função e ativações nos últimos 30 dias para todas as funções privilegiadas. Se você quiser ver o histórico de auditoria completo de atividade na organização do Azure Active Directory (Azure AD), incluindo o administrador, o usuário final e a atividade de sincronização, poderá usar os [relatórios de segurança e atividade do Azure Active Directory](../reports-monitoring/overview-reports.md).
 
 ## <a name="view-audit-history"></a>Ver histórico de auditoria
 
@@ -43,15 +43,15 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
 
     Na parte inferior da página, é exibida uma tabela com informações sobre cada ação no histórico de auditoria disponível. As colunas têm os seguintes significados:
 
-    | Coluna | Descrição |
+    | Column | Descrição |
     | --- | --- |
-    | Time | Quando a ação ocorreu. |
-    | Requerente | Usuário que solicitou a ativação ou alteração da função. Se o valor for **sistema do Azure**, verifique o histórico de auditoria do Azure para obter mais informações. |
-    | Action | Ações tomadas pelo solicitante. As ações podem incluir atribuir, Cancelar atribuição, ativar, desativar ou AddedOutsidePIM. |
+    | Tempo | Quando a ação ocorreu. |
+    | Solicitante | Usuário que solicitou a ativação ou alteração da função. Se o valor for **sistema do Azure**, verifique o histórico de auditoria do Azure para obter mais informações. |
+    | Ação | Ações tomadas pelo solicitante. As ações podem incluir atribuir, Cancelar atribuição, ativar, desativar ou AddedOutsidePIM. |
     | Membro | Usuário que está ativando ou atribuído a uma função. |
-    | Role | Função atribuída ou ativada pelo usuário. |
-    | Raciocínio | Texto inserido no campo motivo durante a ativação. |
-    | Expiração | Quando uma função ativada expira. Aplica-se somente a atribuições de função qualificadas. |
+    | Função | Função atribuída ou ativada pelo usuário. |
+    | Reasoning | Texto inserido no campo motivo durante a ativação. |
+    | Ela | Quando uma função ativada expira. Aplica-se somente a atribuições de função qualificadas. |
 
 1. Para classificar o histórico de auditoria, clique nos botões de **hora**, **ação**e **função** .
 
@@ -63,12 +63,12 @@ Siga estas etapas para exibir o histórico de auditoria para funções do Azure 
 
 1. Em **intervalo de tempo**, selecione um intervalo de tempo.
 
-1. Em **funções**, adicione marcas de seleção para as funções que você deseja exibir.
+1. Em **funções**, marque as caixas de seleção para indicar as funções que você deseja exibir.
 
     ![Atualizar painel de parâmetros do gráfico](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Clique em **concluído** para exibir o histórico de auditoria filtrado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-- [Exibir histórico de atividades e de auditoria para funções de recurso do Azure no PIM](azure-pim-resource-rbac.md)
+- [Exibir a atividade e o histórico de auditoria das funções de recurso do Azure no Privileged Identity Management](azure-pim-resource-rbac.md)

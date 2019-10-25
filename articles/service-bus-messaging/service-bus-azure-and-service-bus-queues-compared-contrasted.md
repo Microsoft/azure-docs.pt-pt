@@ -1,5 +1,5 @@
 ---
-title: Filas do armazenamento do Azure e filas do barramento de serviço comparadas e contrastadas | Microsoft Docs
+title: Comparar filas do armazenamento do Azure e filas do barramento de serviço
 description: Analisa diferenças e semelhanças entre dois tipos de filas oferecidos pelo Azure.
 services: service-bus-messaging
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 09/04/2019
 ms.author: aschhab
-ms.openlocfilehash: df9a7325d3ffc2362ff14b9a618ca0db7928b337
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a1e75416db34514425436bc3ceae9f27b156b557
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376339"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792693"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas de armazenamento e filas do barramento de serviço – comparações e contrastes
-Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure hoje: Filas de armazenamento e filas do barramento de serviço. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
+Este artigo analisa as diferenças e semelhanças entre os dois tipos de filas oferecidos pelo Microsoft Azure hoje: filas de armazenamento e filas do barramento de serviço. A utilização destas informações permite-lhe comparar e contrastar as respetivas tecnologias, e tomar uma decisão mais informada quanto à solução que melhor responde às suas necessidades.
 
 ## <a name="introduction"></a>Introdução
-O Azure dá suporte a dois tipos de mecanismos de fila: Filas de **armazenamento** e **filas do barramento de serviço**.
+O Azure dá suporte a dois tipos de mecanismos de fila: **filas de armazenamento** e filas do **barramento de serviço**.
 
 As **filas de armazenamento**, que fazem parte da infraestrutura de [armazenamento do Azure](https://azure.microsoft.com/services/storage/) , apresentam uma interface simples get/Put/Peek baseada em REST, fornecendo mensagens confiáveis e persistentes dentro e entre serviços.
 
@@ -70,18 +70,18 @@ Esta seção compara alguns dos recursos fundamentais de enfileiramento fornecid
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Garantia de pedidos |**Não** <br/><br>Para obter mais informações, consulte a primeira observação na seção "informações adicionais".</br> |**Sim, primeiro a entrar, primeiro a sair (FIFO)**<br/><br>(com o uso de sessões de mensagens) |
-| Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (usando o modo de recebimento PeekLock-esse é o padrão) <br/><br/>**No máximo uma vez** (usando o modo de recebimento ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos de recebimento](service-bus-queues-topics-subscriptions.md#receive-modes)  |
+| Garantia de entrega |**Pelo menos uma vez** |**Pelo menos uma vez** (usando o modo de recebimento Peeklock-esse é o padrão) <br/><br/>**No máximo uma vez** (usando o modo de recebimento ReceiveAndDelete) <br/> <br/> Saiba mais sobre vários [modos de recebimento](service-bus-queues-topics-subscriptions.md#receive-modes)  |
 | Suporte a operações atômicas |**Não** |**Sim**<br/><br/> |
 | Comportamento de recebimento |**Sem bloqueio**<br/><br/>(será concluído imediatamente se nenhuma mensagem nova for encontrada) |**Bloqueio com/sem tempo limite**<br/><br/>(oferece sondagem longa ou a ["técnica de Comet"](https://go.microsoft.com/fwlink/?LinkId=613759))<br/><br/>**Sem bloqueio**<br/><br/>(somente com o uso da API gerenciada do .NET) |
 | API de estilo push |**Não** |**Sim**<br/><br/>API do .NET [e sessões onMessage.](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) |
 | Modo de recebimento |**Espiar & concessão** |**Bloqueio de & de inspeção**<br/><br/>**Receber & Excluir** |
 | Modo de acesso exclusivo |**Baseado em concessão** |**Baseado em bloqueio** |
-| Duração da concessão/bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) .) |**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) . |
+| Duração da concessão/bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) .) |**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) . |
 | Precisão da concessão/bloqueio |**Nível de mensagem**<br/><br/>(cada mensagem pode ter um valor de tempo limite diferente, que você pode atualizar conforme necessário durante o processamento da mensagem, usando a API [UpdateMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.updatemessage) ) |**Nível da fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas você pode renovar o bloqueio usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock) .) |
 | Recebimento em lote |**Sim**<br/><br/>(especificando explicitamente a contagem de mensagens ao recuperar mensagens, até um máximo de 32 mensagens) |**Sim**<br/><br/>(habilitando implicitamente uma propriedade de pré-busca ou explicitamente por meio do uso de transações) |
 | Envio em lote |**Não** |**Sim**<br/><br/>(com o uso de transações ou envio em lote no lado do cliente) |
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>Informação adicional
 * As mensagens nas filas de armazenamento são normalmente o primeiro a entrar, mas, às vezes, podem estar fora de ordem; por exemplo, quando a duração do tempo limite de visibilidade de uma mensagem expirar (por exemplo, como resultado de um aplicativo cliente falhar durante o processamento). Quando o tempo limite de visibilidade expira, a mensagem se torna visível novamente na fila de outro operador para remover a fila. Nesse ponto, a mensagem recentemente visível pode ser colocada na fila (para ser removida da fila novamente) após uma mensagem que foi originalmente enfileirada depois dela.
 * O padrão de FIFO garantido nas filas do barramento de serviço requer o uso de sessões de mensagens. Caso o aplicativo falhe durante o processamento de uma mensagem recebida no modo de **bloqueio de & de Peek** , na próxima vez que um destinatário da fila aceitar uma sessão de mensagens, ele começará com a mensagem com falha após seu período de tempo de vida (TTL) expirar.
 * As filas de armazenamento são projetadas para oferecer suporte a cenários de enfileiramento padrão, como dissociar componentes de aplicativos para aumentar a escalabilidade e a tolerância para falhas, nivelamento de carga e criação de fluxos de trabalho de processo.
@@ -117,7 +117,7 @@ Esta seção compara os recursos avançados fornecidos pelas filas de armazename
 | Procurando grupos de mensagens |**Não** |**Sim** |
 | Buscando sessões de mensagens por ID |**Não** |**Sim** |
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>Informação adicional
 * Ambas as tecnologias de enfileiramento permitem que uma mensagem seja agendada para entrega em um momento posterior.
 * O encaminhamento automático da fila permite que milhares de filas encaminhem automaticamente suas mensagens para uma única fila, da qual o aplicativo de recebimento consome a mensagem. Você pode usar esse mecanismo para obter segurança, controlar o fluxo e isolar o armazenamento entre cada editor de mensagem.
 * As filas de armazenamento fornecem suporte para atualizar o conteúdo da mensagem. Você pode usar essa funcionalidade para manter informações de estado persistentes e atualizações de progresso incremental na mensagem para que ela possa ser processada a partir do último ponto de verificação conhecido, em vez de começar do zero. Com as filas do barramento de serviço, você pode habilitar o mesmo cenário por meio do uso de sessões de mensagens. As sessões permitem salvar e recuperar o estado de processamento do aplicativo (usando [SetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.setstate#Microsoft_ServiceBus_Messaging_MessageSession_SetState_System_IO_Stream_) e [GetState](/dotnet/api/microsoft.servicebus.messaging.messagesession.getstate#Microsoft_ServiceBus_Messaging_MessageSession_GetState)).
@@ -133,12 +133,12 @@ Esta seção compara as filas de armazenamento e as filas do barramento de servi
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a uma [única capacidade de conta de armazenamento](../storage/common/storage-introduction.md#queue-storage)) |**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando o particionamento](service-bus-partitioning.md) – consulte a seção "informações adicionais") |
-| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64** )<br/><br/>O Azure dá suporte a mensagens grandes combinando filas e blobs – nesse ponto, você pode enfileirar até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
-| TTL máximo da mensagem |**Infinito** (a partir da versão de API 2017-07-27) |**TimeSpan.Max** |
-| Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por namespace de serviço) |
+| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64** )<br/><br/>O Azure dá suporte a mensagens grandes combinando filas e blobs – nesse ponto, você pode enfileirar até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo o cabeçalho e o corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
+| TTL máximo da mensagem |**Infinito** (a partir da versão de API 2017-07-27) |**TimeSpan. Max** |
+| Número máximo de filas |**Ilimitado** |**10.000**<br/><br/>(por namespace de serviço) |
 | Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(100 limite de conexão simultânea só se aplica à comunicação baseada em protocolo TCP) |
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>Informação adicional
 * O barramento de serviço impõe limites de tamanho de fila. O tamanho máximo da fila é especificado na criação da fila e pode ter um valor entre 1 e 80 GB. Se o valor do tamanho da fila definido na criação da fila for atingido, mensagens de entrada adicionais serão rejeitadas e uma exceção será recebida pelo código de chamada. Para obter mais informações sobre cotas no barramento de serviço, consulte [cotas do barramento de serviço](service-bus-quotas.md).
 * O particionamento não tem suporte na [camada Premium](service-bus-premium-messaging.md). Na camada Standard, você pode criar filas do barramento de serviço em tamanhos de 1, 2, 3, 4 ou 5 GB (o padrão é 1 GB). Na camada Standard, com o particionamento habilitado (que é o padrão), o barramento de serviço cria 16 partições para cada GB que você especificar. Assim, se você criar uma fila com 5 GB de tamanho, com 16 partições, o tamanho máximo da fila se tornará (5 * 16) = 80 GB. Você pode ver o tamanho máximo da fila ou do tópico particionado examinando sua entrada na [portal do Azure][Azure portal].
 * Com as filas de armazenamento, se o conteúdo da mensagem não for XML seguro, ele deverá ser codificado em **Base64** . Se você codificar a mensagem em **Base64**, a carga do usuário poderá ser de até 48 KB, em vez de 64 KB.
@@ -163,7 +163,7 @@ Esta seção compara os recursos de gerenciamento fornecidos pelas filas de arma
 | Função obter comprimento da fila |**Sim**<br/><br/>(Valor aproximado se as mensagens expirarem além da TTL sem serem excluídas.) |**Sim**<br/><br/>(Valor exato, pontual). |
 | Função Peek |**Sim** |**Sim** |
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>Informação adicional
 * As filas de armazenamento fornecem suporte para atributos arbitrários que podem ser aplicados à descrição da fila, na forma de pares de nome/valor.
 * Ambas as tecnologias de fila oferecem a capacidade de inspecionar uma mensagem sem precisar bloqueá-la, o que pode ser útil ao implementar uma ferramenta de Gerenciador/navegador de filas.
 * As APIs de mensagens orientadas do .NET do barramento de serviço utilizam conexões TCP Full duplex para melhorar o desempenho em comparação com REST sobre HTTP e dão suporte ao protocolo padrão AMQP 1,0.
@@ -175,11 +175,11 @@ Esta seção aborda os recursos de autenticação e autorização com suporte na
 
 | Critérios de comparação | Filas de armazenamento | Filas do Service Bus |
 | --- | --- | --- |
-| Authentication |**Chave simétrica** |**Chave simétrica** |
+| Autenticação |**Chave simétrica** |**Chave simétrica** |
 | Modelo de segurança |Acesso delegado por meio de tokens SAS. |RÍGIDO |
 | Federação do provedor de identidade |**Não** |**Sim** |
 
-### <a name="additional-information"></a>Informações adicionais
+### <a name="additional-information"></a>Informação adicional
 * Cada solicitação para uma das tecnologias de enfileiramento deve ser autenticada. Não há suporte para filas públicas com acesso anônimo. Usando a [SAS](service-bus-sas.md), você pode resolver esse cenário publicando uma SAS somente gravação, SAS somente leitura ou até mesmo uma SAS de acesso completo.
 * O esquema de autenticação fornecido pelas filas de armazenamento envolve o uso de uma chave simétrica, que é um HMAC (Message Authentication Code baseado em hash), calculado com o algoritmo SHA-256 e codificado como uma cadeia de caracteres **Base64** . Para obter mais informações sobre o respectivo protocolo, consulte [autenticação para os serviços de armazenamento do Azure](/rest/api/storageservices/fileservices/Authentication-for-the-Azure-Storage-Services). As filas do barramento de serviço dão suporte a um modelo semelhante usando chaves simétricas. Para obter mais informações, consulte [autenticação de assinatura de acesso compartilhado com o barramento de serviço](service-bus-sas.md).
 
@@ -188,7 +188,7 @@ Ao obter uma compreensão mais profunda das duas tecnologias, você poderá toma
 
 Como as filas do barramento de serviço fornecem uma série de recursos avançados, como sessões, transações, detecção de duplicidades, mensagens mortas automáticas e recursos de publicação/assinatura duráveis, eles podem ser uma opção preferida se você estiver criando um híbrido ou, caso contrário, o aplicativo exige esses recursos.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Os artigos a seguir fornecem mais orientações e informações sobre como usar filas de armazenamento ou filas do barramento de serviço.
 
 * [Introdução às filas do Service Bus](service-bus-dotnet-get-started-with-queues.md)

@@ -1,6 +1,6 @@
 ---
-title: Como configurar o aprovisionamento de utilizadores a uma aplicação da galeria do Azure AD | Documentos da Microsoft
-description: Como pode rapidamente configurar a conta de usuário avançada, aprovisionamento e desaprovisionamento para aplicativos já listados na Galeria de aplicações do Azure AD
+title: Como configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD | Microsoft Docs
+description: Como você pode configurar rapidamente o provisionamento e o desprovisionamento de conta de usuário avançado para aplicativos já listados na Galeria de aplicativos do Azure AD
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,44 +16,42 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be43f0e100bc96de2be916cbf52bca7d3ba51431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8bcc53b97b1187314404cfe075f6593f437e7bf4
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65784540"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789053"
 ---
-# <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar o aprovisionamento de utilizadores a uma aplicação da galeria do Azure AD
+# <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Como configurar o provisionamento de usuário para um aplicativo da galeria do Azure AD
 
-*Aprovisionamento de contas de utilizador* é o ato de criar, atualizar, e/ou desativar os registos de conta de utilizador no arquivo de perfil de utilizador local de um aplicativo. A maioria das aplicações SaaS e cloud armazenam a função de utilizadores e permissões no seu próprio arquivo de perfil de utilizador local e a presença de tal um registo de utilizador no arquivo local está *necessário* para início de sessão único e acesso ao seu trabalho.
+O *provisionamento de conta de usuário* é o ato de criar, atualizar e/ou desabilitar registros de conta de usuário no armazenamento de perfil de usuário local de um aplicativo. A maioria dos aplicativos de nuvem e SaaS armazenam a função de usuários e as permissões no próprio armazenamento de perfil de usuário local do usuário e a presença desse registro de usuário no armazenamento local do usuário é *necessária* para o logon único e o acesso ao trabalho.
 
-No portal do Azure, o **aprovisionamento** separador no painel de navegação esquerdo, para uma aplicação empresarial que modos de aprovisionamento são suportados para essa aplicação. Isto pode ser um de dois valores:
+No portal do Azure, a guia **provisionamento** no painel de navegação esquerdo de um aplicativo empresarial exibe quais modos de provisionamento têm suporte para esse aplicativo. Isso pode ser um dos dois valores:
 
-## <a name="configuring-an-application-for-manual-provisioning"></a>Configuração de uma aplicação de aprovisionamento Manual
+## <a name="configuring-an-application-for-manual-provisioning"></a>Configurando um aplicativo para provisionamento manual
 
-*Manual* aprovisionamento significa que as contas de utilizador tem de ser criadas manualmente com os métodos fornecidos por essa aplicação. Isso pode significar o início de sessão num portal administrativo para essa aplicação e adicionar utilizadores que utilizam uma interface do usuário baseada na web. Ou poderia carregar uma planilha com detalhes de conta de usuário, usando um mecanismo fornecido por essa aplicação. Consulte a documentação fornecida pela aplicação, ou entre em contato com o programador da aplicação para determinar a wat mecanismos estão disponíveis.
+Provisionamento *manual* significa que as contas de usuário devem ser criadas manualmente usando métodos fornecidos pelo aplicativo. Isso pode significar fazer logon em um portal administrativo para esse aplicativo e adicionar usuários usando uma interface de usuário baseada na Web. Ou pode estar carregando uma planilha com detalhes da conta de usuário, usando um mecanismo fornecido por esse aplicativo. Consulte a documentação fornecida pelo aplicativo ou entre em contato com o desenvolvedor do aplicativo para determinar quais mecanismos estão disponíveis.
 
-Se Manual é o único modo mostrado para um determinado aplicativo, significa que nenhum automática aprovisionamento do Azure AD conector foi criado para a aplicação ainda. Ou, significa que a aplicação não suporta a API de gestão de pré-requisitos do utilizador no qual a criação de um conector de aprovisionamento automatizado.
+Se *manual* for o único modo mostrado para um determinado aplicativo, isso significa que ainda não há nenhum conector de provisionamento do Azure ad automático para o aplicativo. Ou isso significa que o aplicativo não oferece suporte aos pré-requisitos para a API de gerenciamento de usuários da Microsoft, que é usada para criar um conector de provisionamento automatizado.
 
-Se gostaria de pedido de suporte para o aprovisionamento automático para uma determinada aplicação, pode preencher um pedido através da [pedidos de aplicações do Azure Active Directory](https://aka.ms/aadapprequest).
+Se desejar solicitar suporte para o provisionamento automático para um determinado aplicativo, você poderá preencher uma solicitação usando as [solicitações de Azure Active Directory aplicativo](https://aka.ms/aadapprequest).
 
-## <a name="configuring-an-application-for-automatic-provisioning"></a>Configuração de uma aplicação para aprovisionamento automático
+## <a name="configuring-an-application-for-automatic-provisioning"></a>Configurando um aplicativo para provisionamento automático
 
-*Automática* significa que um Azure AD aprovisionamento conector foi desenvolvido para esta aplicação. Para obter mais informações sobre o Azure AD que o serviço de aprovisionamento e como ele funciona, consulte [automatizar o aprovisionamento do utilizador e cancelar o aprovisionamento a aplicações SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
+*Automático* significa que um conector de provisionamento do Azure ad foi desenvolvido para este aplicativo. Para obter mais informações sobre o serviço de provisionamento do Azure AD e como ele funciona, consulte [automatizar o provisionamento e desprovisionamento de usuários para aplicativos SaaS com Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning).
 
-Para obter mais informações sobre como aprovisionar utilizadores e grupos a uma aplicação específicos, consulte [gerir o aprovisionamento de contas de utilizador para aplicações empresariais de](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
+Para obter mais informações sobre como provisionar usuários e grupos específicos para um aplicativo, consulte [Gerenciando o provisionamento de conta de usuário para aplicativos empresariais](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-provisioning).
 
-As etapas reais necessárias para ativar e configurar o aprovisionamento automático variam dependendo do aplicativo.
+As etapas reais necessárias para habilitar e configurar o provisionamento automático variam de acordo com o aplicativo.
 
->[!NOTE]
->Deve começar encontrando o tutorial de configuração específicas para configurar o aprovisionamento para a sua aplicação e ao seguir os passos para configurar a aplicação e o Azure AD para criar a ligação de aprovisionamento. 
->
->
+> [!NOTE]
+> Você deve começar encontrando o tutorial de instalação específico para configurar o provisionamento para seu aplicativo e seguindo essas etapas para configurar o aplicativo e o Azure AD para criar a conexão de provisionamento. 
 
-Tutoriais de aplicação podem ser encontrados em [lista de tutoriais sobre como integrar aplicações de SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Os tutoriais do aplicativo podem ser encontrados na [lista de tutoriais sobre como integrar aplicativos SaaS com o Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
 
-Uma coisa importante a considerar ao configurar o aprovisionamento ser para rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem qual usuário (ou grupo) propriedades fluxo a partir do Azure AD à aplicação. Isto inclui a definição "da propriedade correspondente" que ser utilizado para identificar exclusivamente e corresponder ao utilizadores/grupos entre os dois sistemas. Para obter mais informações sobre este processo importante.
+Uma coisa importante a ser considerada ao configurar o provisionamento é examinar e configurar os mapeamentos de atributo e os fluxos de trabalho que definem quais propriedades de usuário (ou grupo) fluem do Azure AD para o aplicativo. Isso inclui a definição da "propriedade correspondente" que é usada para identificar exclusivamente e corresponder usuários/grupos entre os dois sistemas. Consulte o link nas *próximas etapas* para obter mais informações sobre mapeamentos de atributo.
 
-## <a name="next-steps"></a>Passos Seguintes
-[Personalizar mapeamentos de atributos de Provisionamento para aplicações de SaaS no Azure Active Directory de usuários](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
+## <a name="next-steps"></a>Passos seguintes
+[Personalizando mapeamentos de atributo de provisionamento de usuário para aplicativos SaaS no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 

@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: ff3ffe4b68d7b5d74ee3a84ca9c59a13d445f43b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 6f8717f70a2cb03a7fd683cfe61f1198461f4305
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692997"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792679"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-visual-interface"></a>Tutorial: implantar um modelo de aprendizado de máquina com a interface visual
 
@@ -40,7 +40,7 @@ Para implantar seu pipeline, você deve:
 
 1. Na parte superior da tela do pipeline, selecione **criar pipeline de inferência**  > **pipeline de indução em tempo real**
 
-    Quando você seleciona **criar pipeline de previsão**, várias coisas acontecem:
+    Quando você seleciona **criar pipeline de inferência**, várias coisas acontecem:
     
     * O modelo treinado é armazenado como um módulo de **conjunto** de armazenamento na paleta de módulos. Você pode encontrá-lo em **meus conjuntos de valores**.
     * Módulos, como **treinar modelo** e **dividir dados**, que foram usados para treinamento, são removidos.
@@ -97,7 +97,7 @@ Depois que o serviço AKS tiver concluído o provisionamento, retorne ao pipelin
 
 1. Selecione **Implementar**.
 
-    [! Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
 
     Uma notificação de êxito acima da tela será exibida quando a implantação for concluída, pode levar alguns minutos.
 
