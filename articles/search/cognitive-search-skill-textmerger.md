@@ -1,22 +1,21 @@
 ---
-title: Habilidade de pesquisa cognitiva de mesclagem de texto – Azure Search
-description: Mesclar texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento de Azure Search.
-services: search
+title: Habilidade cognitiva de mesclagem de texto
+titleSuffix: Azure Cognitive Search
+description: Mesclar texto de uma coleção de campos em um campo consolidado. Use essa habilidade cognitiva em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 1e88fcc13d97d92cf9b35616ecb7d71c2d24db1f
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: c44f37c37bff2ddeb0fbba83d170054bf21129a6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265267"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791845"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Habilidade cognitiva de mesclagem de texto
+#   <a name="text-merge-cognitive-skill"></a>Habilidade cognitiva de mesclagem de texto
 
 A habilidade de **mesclagem de texto** consolida o texto de uma coleção de campos em um único campo. 
 
@@ -24,7 +23,7 @@ A habilidade de **mesclagem de texto** consolida o texto de uma coleção de cam
 > Essa habilidade não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Text.MergeSkill
+Microsoft. Skills. Text. MergeSkill
 
 ## <a name="skill-parameters"></a>Parâmetros de habilidade
 
@@ -32,8 +31,8 @@ Os parâmetros diferenciam maiúsculas de minúsculas.
 
 | Nome do parâmetro     | Descrição |
 |--------------------|-------------|
-| insertPreTag  | Cadeia de caracteres a ser incluída antes de cada inserção. O valor predefinido é `" "`. Para omitir o espaço, defina o valor `""`como.  |
-| insertPostTag | Cadeia de caracteres a ser incluída após cada inserção. O valor predefinido é `" "`. Para omitir o espaço, defina o valor `""`como.  |
+| insertPreTag  | Cadeia de caracteres a ser incluída antes de cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
+| insertPostTag | Cadeia de caracteres a ser incluída após cada inserção. O valor padrão é `" "`. Para omitir o espaço, defina o valor como `""`.  |
 
 
 ##  <a name="sample-input"></a>Entrada de exemplo
@@ -141,8 +140,8 @@ O exemplo acima pressupõe que exista um campo de imagens normalizadas. Para obt
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Criar indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

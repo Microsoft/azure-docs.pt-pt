@@ -1,6 +1,7 @@
 ---
-title: Aplicações multi-inquilino e individuais no Azure Active Directory
-description: Saiba mais sobre os recursos e as diferenças entre as aplicações de inquilino único e multi-inquilinos no Azure AD.
+title: Aplicativos únicos e multilocatários no Azure Active Directory
+titleSuffix: Microsoft identity platform
+description: Saiba mais sobre os recursos e as diferenças entre aplicativos de locatário único e multilocatário no Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,39 +18,39 @@ ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9035cc629a11c125c1b6351bd4bff9f5576f7baf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aa8f63b6e7355ae387a321acf77683fac22e028
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67111073"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803647"
 ---
-# <a name="tenancy-in-azure-active-directory"></a>Inquilinos no Azure Active Directory
+# <a name="tenancy-in-azure-active-directory"></a>Aluguel em Azure Active Directory
 
-Azure Active Directory (Azure AD) organiza os objetos, como utilizadores e aplicações em grupos chamados *inquilinos*. Os inquilinos permitem ao administrador definir políticas nos utilizadores dentro da organização e as aplicações que a organização é proprietária para atender às suas políticas operacionais e de segurança. 
+O Azure Active Directory (AD do Azure) organiza objetos como usuários e aplicativos em grupos chamados *locatários*. Os locatários permitem que um administrador defina políticas nos usuários dentro da organização e os aplicativos que a organização possui para atender às políticas operacionais e de segurança. 
 
-## <a name="who-can-sign-in-to-your-app"></a>Quem pode iniciar sessão sua aplicação?
+## <a name="who-can-sign-in-to-your-app"></a>Quem pode entrar em seu aplicativo?
 
-Quando se trata de desenvolvimento de aplicativos, os desenvolvedores podem optar por configurar a sua aplicação para ser inquilino único ou vários inquilinos durante o registo de aplicação no [portal do Azure](https://portal.azure.com).
-* Aplicações de inquilino único só estão disponíveis no inquilino que foram registados no, também conhecido como seu principal de inquilino.
-* Aplicações de multi-inquilinos estão disponíveis para os utilizadores no seu inquilino principal e de outros inquilinos.
+Quando se trata de desenvolver aplicativos, os desenvolvedores podem optar por configurar seu aplicativo para ser um locatário único ou multilocatário durante o registro do aplicativo no [portal do Azure](https://portal.azure.com).
+* Os aplicativos de locatário único só estão disponíveis no locatário em que foram registrados, também conhecidos como seu locatário inicial.
+* Aplicativos multilocatários estão disponíveis para usuários em ambos os locatários domésticos e outros locatários.
 
-No portal do Azure, pode configurar a sua aplicação para ser o inquilino único ou vários inquilinos, definindo o público-alvo da seguinte forma.
+No portal do Azure, você pode configurar seu aplicativo para ser de locatário único ou multilocatário definindo o público como a seguir.
 
-| Audiência | Único/várias-tenant | Quem pode iniciar sessão | 
+| Audiência | Único/multilocatário | Quem pode entrar | 
 |----------|--------| ---------|
-| Contas apenas neste diretório | Inquilino único | Todas as contas de convidado no seu diretório de utilizador e podem utilizar a sua aplicação ou API.<br>*Utilize esta opção se o seu público-alvo é interno para a sua organização.* |
-| Contas de qualquer diretório do Azure AD | Multi-inquilino | Todos os utilizadores e convidados com uma conta escolar ou profissional da Microsoft podem utilizar a sua aplicação ou API. Isto inclui a instituições de ensino e empresas que utilizam o Office 365.<br>*Utilize esta opção se o seu público-alvo é empresas ou clientes de instituições de ensino.* |
-| Contas em qualquer diretório do Azure AD e as contas Microsoft pessoais (por exemplo, o Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os utilizadores com um trabalho ou escola ou conta Microsoft pessoal podem utilizar a sua aplicação ou API. Ele inclui a instituições de ensino e as empresas que utilizam o Office 365, bem como contas pessoais que são utilizadas para iniciar sessão em serviços como a Xbox e o Skype.<br>*Utilize esta opção para o conjunto mais ampla de contas Microsoft de destino.* | 
+| Contas somente neste diretório | Inquilino único | Todas as contas de usuário e convidado em seu diretório podem usar seu aplicativo ou API.<br>*Use esta opção se o público-alvo for interno à sua organização.* |
+| Contas em qualquer diretório do AD do Azure | Multi-inquilino | Todos os usuários e convidados com uma conta corporativa ou de estudante da Microsoft podem usar seu aplicativo ou API. Isso inclui escolas e empresas que usam o Office 365.<br>*Use esta opção se o público-alvo for cliente corporativo ou educativo.* |
+| Contas em qualquer diretório do Azure AD e contas pessoais da Microsoft (como Skype, Xbox, Outlook.com) | Multi-inquilino | Todos os usuários com um trabalho ou escola ou conta Microsoft pessoal podem usar seu aplicativo ou API. Ele inclui escolas e empresas que usam o Office 365, bem como contas pessoais que são usadas para entrar em serviços como Xbox e Skype.<br>*Use esta opção para direcionar o conjunto mais amplo de contas da Microsoft.* | 
 
-## <a name="best-practices-for-multi-tenant-apps"></a>Melhores práticas para aplicações multi-inquilino
+## <a name="best-practices-for-multi-tenant-apps"></a>Práticas recomendadas para aplicativos multilocatários
 
-Pode ser um desafio criação de excelentes aplicações multi-inquilino devido ao número de diferentes políticas que os administradores de TI podem definir no seus inquilinos. Se optar por criar uma aplicação multi-inquilino, siga estas práticas recomendadas:
+A criação de aplicativos ótimos de vários locatários pode ser desafiadora devido ao número de políticas diferentes que os administradores de ti podem definir em seus locatários. Se você optar por criar um aplicativo multilocatário, siga estas práticas recomendadas:
 
-* Testar a aplicação num inquilino que tenha configurado [políticas de acesso condicional](conditional-access-dev-guide.md).
-* Acompanhar o princípio de, pelo menos, acesso de utilizador para se certificar de que a aplicação solicite apenas que ela realmente precisa de permissões. Evite a pedir permissões requerem consentimento de administrador, como isso pode impedir que os utilizadores a adquirir a sua aplicação em algumas organizações. 
-* Fornece nomes adequados e descrições para quaisquer permissões que expor como parte da sua aplicação. Isto ajuda os utilizadores e os administradores sabem o que eles estão a aceitar quando tentarem utilizar as APIs da sua aplicação. Para obter mais informações, consulte a seção práticas recomendada a [guia de permissões](v1-permissions-and-consent.md).
+* Teste seu aplicativo em um locatário que tenha configurado [políticas de acesso condicional](conditional-access-dev-guide.md).
+* Siga o princípio do acesso mínimo do usuário para garantir que seu aplicativo solicite apenas as permissões de que realmente precisa. Evite solicitar permissões que exijam consentimento de administrador, pois isso pode impedir que os usuários adquiram seu aplicativo em algumas organizações. 
+* Forneça nomes e descrições apropriados para quaisquer permissões que você expor como parte de seu aplicativo. Isso ajuda os usuários e administradores a saber o que eles estão concordando ao tentarem usar as APIs do seu aplicativo. Para obter mais informações, consulte a seção práticas recomendadas no [Guia de permissões](v1-permissions-and-consent.md).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Como converter um aplicativo de modo a multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
+* [Como converter um aplicativo para ser multilocatário](howto-convert-app-to-be-multi-tenant.md)

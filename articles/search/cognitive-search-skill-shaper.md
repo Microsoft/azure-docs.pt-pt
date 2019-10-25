@@ -1,22 +1,21 @@
 ---
-title: Habilidade de pesquisa cognitivar de Modelador-Azure Search
-description: Extraia metadados e informações estruturadas de dados não estruturados e formate-os como um tipo complexo em um pipeline de enriquecimento de Azure Search.
-services: search
+title: Habilidade cognitiva do modelador
+titleSuffix: Azure Cognitive Search
+description: Extraia metadados e informações estruturadas de dados não estruturados e formate-os como um tipo complexo em um pipeline de enriquecimento de ia no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: 84814c317a945fd22ada580dcc3f64ed2adcff7c
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: e9ba540ee0eda2be50c88a89a139032d8d99752d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265356"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791867"
 ---
-#   <a name="shaper-cognitive-skill"></a>Habilidade cognitiva do modelador
+# <a name="shaper-cognitive-skill"></a>Habilidade cognitiva do modelador
 
 A habilidade de **modelador** consolida várias entradas em um [tipo complexo](search-howto-complex-data-types.md) que pode ser referenciado posteriormente no pipeline de enriquecimento. A habilidade de **modelador** permite criar essencialmente uma estrutura, definir o nome dos membros dessa estrutura e atribuir valores a cada membro. Exemplos de campos consolidados úteis em cenários de pesquisa incluem a combinação de um nome e sobrenome em uma única estrutura, cidade e estado em uma única estrutura, ou nome e DataDeNascimento em uma única estrutura para estabelecer identidade exclusiva.
 
@@ -28,11 +27,11 @@ O nome de saída é sempre "output". Internamente, o pipeline pode mapear um nom
 > A habilidade do **modelador** não está associada a uma API de serviços cognitivas e você não é cobrado por usá-la. No entanto, você ainda deve [anexar um recurso de serviços cognitivas](cognitive-search-attach-cognitive-services.md)para substituir a opção de recurso **gratuito** que limita você a um pequeno número de aprimoramentos diários por dia.
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.ShaperSkill
+Microsoft. Skills. util. ShaperSkill
 
 ## <a name="scenario-1-complex-types"></a>Cenário 1: tipos complexos
 
-Considere um cenário em que você deseja criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. Em um índice de Azure Search, um campo pesquisável de várias partes é chamado de *tipo complexo* e geralmente é criado quando os dados de origem têm uma estrutura complexa correspondente que mapeia para ele.
+Considere um cenário em que você deseja criar uma estrutura chamada *analyzedText* que tem dois membros: *texto* e *sentimentos*, respectivamente. Em um índice, um campo pesquisável de várias partes é chamado de *tipo complexo* e geralmente é criado quando os dados de origem têm uma estrutura complexa correspondente que mapeia para ele.
 
 No entanto, outra abordagem para a criação de tipos complexos é por meio da habilidade do **modelador** . Ao incluir essa habilidade em um configurador, as operações na memória durante o processamento do Configurador de habilidades podem gerar formas de dados com estruturas aninhadas, que podem então ser mapeadas para um tipo complexo no índice. 
 
@@ -110,7 +109,7 @@ Um documento JSON de entrada que fornece entrada utilizável para essa habilidad
 
 ### <a name="skill-output"></a>Saída de habilidades
 
-A habilidade de **modelador** gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e de *sentimentos*. Essa saída está em conformidade com o esquema de índice. Ele será importado e indexado em um índice de Azure Search.
+A habilidade de **modelador** gera um novo elemento chamado *analyzedText* com os elementos combinados de *texto* e de *sentimentos*. Essa saída está em conformidade com o esquema de índice. Ele será importado e indexado em um índice de Pesquisa Cognitiva do Azure.
 
 ```json
 {
@@ -247,10 +246,10 @@ Nesse caso, o **modelador** cria um tipo complexo. Essa estrutura existe na mem�
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-+ [Habilidades predefinidas](cognitive-search-predefined-skills.md)
++ [Habilidades internas](cognitive-search-predefined-skills.md)
 + [Como definir um congrau de habilidade](cognitive-search-defining-skillset.md)
 + [Como usar tipos complexos](search-howto-complex-data-types.md)
-+ [Visão geral da loja de conhecimento](knowledge-store-concept-intro.md)
++ [Loja de conhecimento (visualização)](knowledge-store-concept-intro.md)
 + [Como começar a usar a loja de conhecimento](knowledge-store-howto.md)

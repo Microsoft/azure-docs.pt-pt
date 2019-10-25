@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: eb34395e0a9ec881c2f5e303383555fa6544369d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: aba404842658aaa946a14a3cde03853c2fb3062d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090907"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792578"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Trabalhando com problemas de conexão do banco de dados SQL e erros transitórios
 
@@ -57,8 +57,8 @@ Os programas cliente que ocasionalmente encontram um erro transitório são mais
 ### <a name="principles-for-retry"></a>Princípios para repetição
 
 - Se o erro for transitório, tente abrir uma conexão novamente.
-- Não repita diretamente uma instrução SQL `SELECT` que falhou com um erro transitório. Em vez disso, estabeleça uma nova conexão e tente novamente `SELECT`.
-- Quando uma instrução `UPDATE` SQL falhar com um erro transitório, estabeleça uma nova conexão antes de tentar novamente a atualização. A lógica de repetição deve garantir que toda a transação do banco de dados seja concluída ou que toda a transação seja revertida.
+- Não repita diretamente uma instrução SQL `SELECT` que falhou com um erro transitório. Em vez disso, estabeleça uma nova conexão e tente novamente a `SELECT`.
+- Quando uma instrução SQL `UPDATE` falhar com um erro transitório, estabeleça uma nova conexão antes de tentar novamente a atualização. A lógica de repetição deve garantir que toda a transação do banco de dados seja concluída ou que toda a transação seja revertida.
 
 ### <a name="other-considerations-for-retry"></a>Outras considerações para repetição
 
@@ -90,8 +90,8 @@ Para testar sua lógica de repetição, você deve simular ou causar um erro que
 
 Uma maneira de testar sua lógica de repetição é desconectar o computador cliente da rede enquanto o programa está em execução. O erro é:
 
-- **SqlException.Number** = 11001
-- Mensagem: "Nenhum host desse tipo é conhecido"
+- **SqlException. Number** = 11001
+- Mensagem: "nenhum host desse tipo é conhecido"
 
 Como parte da primeira tentativa de repetição, você pode reconectar o computador cliente à rede e, em seguida, tentar se conectar.
 
@@ -108,8 +108,8 @@ Para tornar esse teste prático, desconecte o computador da rede antes de inicia
 
 Seu programa pode intencionalmente errar o nome de usuário antes da primeira tentativa de conexão. O erro é:
 
-- **SqlException.Number** = 18456
-- Mensagem: "Falha no logon do usuário ' WRONG_MyUserName '."
+- **SqlException. Number** = 18456
+- Mensagem: "falha de logon para o usuário ' WRONG_MyUserName '."
 
 Como parte da primeira tentativa de repetição, o programa pode corrigir o erro de ortografia e, em seguida, tentar se conectar.
 
@@ -133,11 +133,11 @@ Se o programa cliente se conectar ao banco de dados SQL usando o .NET Framework 
 
 Ao criar a [cadeia de conexão](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o objeto **SqlConnection** , coordene os valores entre os seguintes parâmetros:
 
-- **ConnectRetryCount**&nbsp;:&nbsp;o padrão é 1. O intervalo é de 0 a 255.
-- **ConnectRetryInterval**&nbsp;:&nbsp;o padrão é 10 segundos. O intervalo é de 1 a 60.
-- **Tempo limite**de&nbsp;conexão:&nbsp;o padrão é 15 segundos. O intervalo é de 0 a 2147483647.
+- **ConnectRetryCount**:&nbsp;&nbsp;o padrão é 1. O intervalo é de 0 a 255.
+- **ConnectRetryInterval**:&nbsp;&nbsp;o padrão é 10 segundos. O intervalo é de 1 a 60.
+- **Tempo limite de conexão**:&nbsp;&nbsp;o padrão é 15 segundos. O intervalo é de 0 a 2147483647.
 
-Especificamente, os valores escolhidos devem fazer com que a seguinte igualdade seja verdadeira: Tempo limite de conexão = ConnectRetryCount * ConnectionRetryInterval
+Especificamente, os valores escolhidos devem fazer com que a seguinte igualdade seja verdadeira: tempo limite da conexão = ConnectRetryCount * ConnectionRetryInterval
 
 Por exemplo, se a contagem for igual a 3 e o intervalo for igual a 10 segundos, um tempo limite de apenas 29 segundos não dará ao sistema tempo suficiente para sua terceira e última tentativa de conexão: 29 < 3 * 10.
 
@@ -162,7 +162,7 @@ Suponha que seu aplicativo tenha uma lógica de repetição personalizada robust
 
 <a id="c-connection-string" name="c-connection-string"></a>
 
-### <a name="connection-connection-string"></a>Ligação: Cadeia de ligação
+### <a name="connection-connection-string"></a>Conexão: cadeia de conexão
 
 A cadeia de conexão necessária para se conectar ao banco de dados SQL é um pouco diferente da cadeia de caracteres usada para se conectar ao SQL Server. Você pode copiar a cadeia de conexão do seu banco de dados do [portal do Azure](https://portal.azure.com/).
 
@@ -170,7 +170,7 @@ A cadeia de conexão necessária para se conectar ao banco de dados SQL é um po
 
 <a id="b-connection-ip-address" name="b-connection-ip-address"></a>
 
-### <a name="connection-ip-address"></a>Ligação: Endereço IP
+### <a name="connection-ip-address"></a>Conexão: endereço IP
 
 Você deve configurar o servidor de banco de dados SQL para aceitar a comunicação do endereço IP do computador que hospeda o programa cliente. Para definir essa configuração, edite as configurações de firewall por meio do [portal do Azure](https://portal.azure.com/).
 
@@ -181,14 +181,14 @@ Se você se esquecer de configurar o endereço IP, o programa falhará com uma m
 Para obter mais informações, consulte [definir configurações de firewall no banco de dados SQL](sql-database-configure-firewall-settings.md).
 <a id="c-connection-ports" name="c-connection-ports"></a>
 
-### <a name="connection-ports"></a>Ligação: Portas
+### <a name="connection-ports"></a>Conexão: portas
 
 Normalmente, você precisa garantir que apenas a porta 1433 esteja aberta para comunicação de saída no computador que hospeda o programa cliente.
 
 Por exemplo, quando o programa cliente está hospedado em um computador com Windows, você pode usar o Firewall do Windows no host para abrir a porta 1433.
 
 1. Abra o painel de controle.
-2. Selecione **todos os itens** > do painel de controle**configurações** > avançadas do**Firewall** > do Windows**regras** > de saída**ações** > **nova regra**.
+2. Selecione **todos os itens do painel de controle** > **Firewall do Windows** > **Configurações avançadas** > **regras de saída** > **ações** > **nova regra**.
 
 Se o seu programa cliente estiver hospedado em uma VM (máquina virtual) do Azure, leia [portas além de 1433 para ADO.NET 4,5 e banco de dados SQL](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -196,7 +196,7 @@ Para obter informações básicas sobre a configuração de portas e endereços 
 
 <a id="d-connection-ado-net-4-5" name="d-connection-ado-net-4-5"></a>
 
-### <a name="connection-adonet-462-or-later"></a>Ligação: ADO.NET 4.6.2 ou posterior
+### <a name="connection-adonet-462-or-later"></a>Conexão: ADO.NET 4.6.2 ou posterior
 
 Se o seu programa usar classes ADO.NET como **System. Data. SqlClient. SqlConnection** para se conectar ao banco de dados SQL, recomendamos que você use .NET Framework versão 4.6.2 ou posterior.
 
@@ -215,31 +215,31 @@ Se você usar o ADO.NET 4,0 ou anterior, recomendamos que atualize para o ADO.NE
 
 <a id="e-diagnostics-test-utilities-connect" name="e-diagnostics-test-utilities-connect"></a>
 
-## <a name="diagnostics"></a>Diagnóstico
+## <a name="diagnostics"></a>Diagnósticos
 
 <a id="d-test-whether-utilities-can-connect" name="d-test-whether-utilities-can-connect"></a>
 
-### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnostics Testar se os utilitários podem se conectar
+### <a name="diagnostics-test-whether-utilities-can-connect"></a>Diagnóstico: testar se os utilitários podem se conectar
 
 Se o seu programa não conseguir se conectar ao banco de dados SQL, uma opção de diagnóstico será tentar se conectar a um programa utilitário. O ideal é que o utilitário se conecte usando a mesma biblioteca que o programa usa.
 
 Em qualquer computador com Windows, você pode experimentar estes utilitários:
 
 - SQL Server Management Studio (SSMS. exe), que se conecta usando ADO.NET
-- `sqlcmd.exe`, que se conecta usando [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
+- `sqlcmd.exe`, que se conecta usando o [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 Depois que o programa estiver conectado, teste se uma consulta SQL SELECT curta funciona.
 
 <a id="f-diagnostics-check-open-ports" name="f-diagnostics-check-open-ports"></a>
 
-### <a name="diagnostics-check-the-open-ports"></a>Diagnostics Verificar as portas abertas
+### <a name="diagnostics-check-the-open-ports"></a>Diagnóstico: verificar as portas abertas
 
 Se você suspeitar que as tentativas de conexão falham devido a problemas de porta, você pode executar um utilitário em seu computador que relata as configurações de porta.
 
 No Linux, os seguintes utilitários podem ser úteis:
 
 - `netstat -nap`
-- `nmap -sS -O 127.0.0.1`: Altere o valor de exemplo para que seja seu endereço IP.
+- `nmap -sS -O 127.0.0.1`: altere o valor de exemplo para que seja seu endereço IP.
 
 No Windows, o utilitário [Portqry. exe](https://www.microsoft.com/download/details.aspx?id=17148) pode ser útil. Aqui está um exemplo de execução que consultou a situação de porta em um servidor de banco de dados SQL e que foi executado em um computador laptop:
 
@@ -261,17 +261,17 @@ TCP port 1433 (ms-sql-s service): LISTENING
 
 <a id="g-diagnostics-log-your-errors" name="g-diagnostics-log-your-errors"></a>
 
-### <a name="diagnostics-log-your-errors"></a>Diagnostics Registre seus erros
+### <a name="diagnostics-log-your-errors"></a>Diagnóstico: registrar seus erros em log
 
 Um problema intermitente, às vezes, é mais bem diagnosticado pela detecção de um padrão geral em dias ou semanas.
 
 O cliente pode auxiliar em um diagnóstico registrando todos os erros encontrados. Você pode correlacionar as entradas de log com dados de erro que o banco de dados SQL registra em log internamente.
 
-A Enterprise Library 6 (EntLib60) oferece classes gerenciadas do .NET para auxiliar no registro em log. Para obter mais informações, [consulte 5-tão fácil como cair em um log: Use o bloqueio](https://msdn.microsoft.com/library/dn440731.aspx)de aplicativo de log.
+A Enterprise Library 6 (EntLib60) oferece classes gerenciadas do .NET para auxiliar no registro em log. Para obter mais informações, consulte [5-tão fácil como cair em um log: Use o Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
-### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnostics Examinar os logs do sistema em busca de erros
+### <a name="diagnostics-examine-system-logs-for-errors"></a>Diagnóstico: examine os logs do sistema em busca de erros
 
 Aqui estão algumas instruções SELECT do Transact-SQL que consultam logs de erros e outras informações.
 
@@ -282,7 +282,7 @@ Aqui estão algumas instruções SELECT do Transact-SQL que consultam logs de er
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
-### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnostics Procurar eventos de problema no log do banco de dados SQL
+### <a name="diagnostics-search-for-problem-events-in-the-sql-database-log"></a>Diagnóstico: Pesquisar eventos de problema no log do banco de dados SQL
 
 Você pode pesquisar entradas sobre eventos de problema no log do banco de dados SQL. Experimente a seguinte instrução Transact-SQL SELECT no banco de dados *mestre* :
 
@@ -327,7 +327,7 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 
 A Enterprise Library 6 (EntLib60) é uma estrutura de classes .NET que ajuda a implementar clientes robustos de serviços de nuvem, um dos quais é o serviço de banco de dados SQL. Para localizar tópicos dedicados a cada área na qual o EntLib60 pode auxiliar, consulte [Enterprise Library 6 – abril de 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-A lógica de repetição para lidar com erros transitórios é uma área na qual o EntLib60 pode auxiliar. Para obter mais informações, [consulte 4-perseverity, Secret de todos os triunfos: Use o bloco](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx)de aplicativo de tratamento de falhas transitórias.
+A lógica de repetição para lidar com erros transitórios é uma área na qual o EntLib60 pode auxiliar. Para obter mais informações, consulte [4-perseverity, Secret de todos os triunfos: Use o bloco de aplicativo de tratamento de falhas transitórias](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
 > O código-fonte para EntLib60 está disponível para download público no [centro de download](https://go.microsoft.com/fwlink/p/?LinkID=290898). A Microsoft não tem planos de fazer mais atualizações de manutenção ou de recursos para o EntLib.
@@ -354,13 +354,13 @@ No namespace **Microsoft. Practices. EnterpriseLibrary. TransientFaultHandling. 
 
 Aqui estão alguns links para informações sobre EntLib60:
 
-- Download gratuito do livro: [Guia do desenvolvedor para o Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
-- Melhores Práticas: As [diretrizes gerais de repetição](../best-practices-retry-general.md) têm uma excelente discussão aprofundada sobre a lógica de repetição.
-- Download do NuGet: [Enterprise Library – falha transitória ao lidar com falhas do bloco de aplicativos 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
+- Download gratuito do livro: [Guia do desenvolvedor para Microsoft Enterprise Library, 2ª edição](https://www.microsoft.com/download/details.aspx?id=41145).
+- Práticas recomendadas: as [diretrizes gerais de repetição](../best-practices-retry-general.md) têm uma excelente discussão aprofundada sobre a lógica de repetição.
+- Download do NuGet: [Enterprise Library-falha transitória ao manipular o bloco de aplicativos 6,0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
 
-### <a name="entlib60-the-logging-block"></a>EntLib60: O bloco de log
+### <a name="entlib60-the-logging-block"></a>EntLib60: o bloco de log
 
 - O bloqueio de log é uma solução altamente flexível e configurável que você pode usar para:
   - Crie e armazene mensagens de log em uma ampla variedade de locais.
@@ -368,7 +368,7 @@ Aqui estão alguns links para informações sobre EntLib60:
   - Coletar informações contextuais que são úteis para depuração e rastreamento, bem como para requisitos de auditoria e de log geral.
 - O bloqueio de log abstrai a funcionalidade de log do destino de log para que o código do aplicativo seja consistente, independentemente do local e do tipo de armazenamento de log de destino.
 
-Para obter mais informações, [consulte 5-tão fácil como cair em um log: Use o bloqueio](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx)de aplicativo de log.
+Para obter mais informações, consulte [5-tão fácil como cair em um log: Use o Logging Application Block](https://msdn.microsoft.com/library/dn440731%28v=pandp.60%29.aspx).
 
 <a id="entlib60-istransient-method-source-code" name="entlib60-istransient-method-source-code"></a>
 
@@ -442,7 +442,7 @@ public bool IsTransient(Exception ex)
 }
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter mais informações sobre como solucionar outros problemas comuns de conexão de banco de dados SQL, consulte [solucionar problemas de conexão com o banco de dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
 - [Bibliotecas de conexão para o banco de dados SQL e SQL Server](sql-database-libraries.md)
@@ -451,6 +451,6 @@ public bool IsTransient(Exception ex)
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

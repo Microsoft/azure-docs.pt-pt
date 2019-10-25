@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/22/2019
 ms.author: raynew
-ms.openlocfilehash: 179676ae2a7d68bc0263f897ffededcf8b7a01f4
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: de9fd8c7cd9470a7ccc9136d1eac91fe373fe03c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693375"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787292"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -50,7 +50,7 @@ RAM | 16 GB
 Número de discos | 3 discos<br/><br/> Os discos incluem o disco do sistema operacional, o disco de cache do servidor de processo e a unidade de retenção para failback.
 Espaço livre em disco | 600 GB de espaço para o cache do servidor de processo.
 Espaço livre em disco | 600 GB de espaço para a unidade de retenção.
-Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 com experiência desktop |
+Sistema operativo  | Windows Server 2012 R2 ou Windows Server 2016 com experiência desktop <br/><br> Se você planeja usar o destino mestre interno deste dispositivo para failback, verifique se a versão do sistema operacional é igual ou superior aos itens replicados.|
 Região do sistema operativo | Inglês (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Não é necessário para o Configuration Server versão [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) ou posterior. 
 Funções do Windows Server | Não habilitar Active Directory Domain Services; Serviços de Informações da Internet (IIS) ou Hyper-V. 

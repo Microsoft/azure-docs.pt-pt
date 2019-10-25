@@ -1,23 +1,24 @@
 ---
-title: Conectar-se a uma loja de conhecimento com Power BI Azure Search
-description: Conecte um Azure Search repositório de conhecimento com Power BI para análise e exploração.
+title: Conectar-se a uma loja de conhecimento com Power BI
+titleSuffix: Azure Cognitive Search
+description: Conecte uma loja de conhecimento do Azure Pesquisa Cognitiva com Power BI para análise e exploração.
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
+manager: nitinme
 ms.author: v-lilei
-ms.openlocfilehash: de282213535a2e49f73bc30e476bae02d470fdb2
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265658"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790073"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Conectar uma loja de conhecimento com Power BI
 
 > [!Note]
-> A loja de conhecimento está em versão prévia e não deve ser usada na produção. A [API REST do Azure Search versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
+> A loja de conhecimento está em versão prévia e não deve ser usada na produção. A [API REST do Azure pesquisa cognitiva versão 2019-05-06-Preview](search-api-preview.md) fornece esse recurso. Não há suporte para o SDK do .NET no momento.
 >
 Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento usando Power Query no aplicativo Power BI Desktop. Para criar a amostra da loja de conhecimento usada neste passo a passos, consulte [criar uma loja de conhecimento em portal do Azure](knowledge-store-create-portal.md).
 
@@ -39,7 +40,7 @@ Neste artigo, você aprenderá a se conectar e explorar uma loja de conhecimento
 
 1. Se solicitado, insira a chave da conta de armazenamento.
 
-1. Selecione as tabelas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases*e *hotelReviewsSsPages* . Essas tabelas são projeções de tabela do Azure dos dados de exemplo de revisões de Hotel e incluem os aprimoramentos de serviço cognitiva que foram selecionados quando a loja de conhecimento foi criada.
+1. Selecione as tabelas *hotelReviewsSsDocument*, *hotelReviewsSsKeyPhrases*e *hotelReviewsSsPages* . Essas tabelas são projeções de tabela do Azure dos dados de exemplo de revisões de Hotel e incluem os aprimoramentos de ia que foram selecionados quando a loja de conhecimento foi criada.
 
 1. Clique em **carregar**.
 
@@ -87,7 +88,7 @@ Create new containers in Azure Blob storage and upload each CSV file to its own 
 | Medium (6000 Records)| [HotelReviews_Medium.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Medium.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D)
 | Large (Full dataset 35000 Records) | [HotelReviews_Large.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Large.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Be aware that very large data sets are expensive to process. This one costs roughly $1000 U.S dollars.|
 
-In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Search to use larger data sets. 
+In the enrichment step of the wizard, attach a billable [Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) resource, created at the *S0* tier, in the same region as Azure Cognitive Search to use larger data sets. 
 
   ![Create a Cognitive Services resource](media/knowledge-store-connect-power-bi/create-cognitive-service.png "Create a Cognitive Services resource") -->
 

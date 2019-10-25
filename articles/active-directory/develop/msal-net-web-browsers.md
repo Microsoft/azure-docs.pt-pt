@@ -1,5 +1,6 @@
 ---
-title: Navegadores da Web na biblioteca de autenticação da Microsoft para .NET | Azure
+title: Navegadores da Web na biblioteca de autenticação da Microsoft para .NET
+titleSuffix: Microsoft identity platform
 description: Saiba mais sobre considerações específicas ao usar o Xamarin Android com a MSAL.NET (biblioteca de autenticação da Microsoft para .NET).
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1285c5c61cee25e387ca5fb598f0e062088e549
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2446166aa8078040c06d7cb54ce01666d9931727
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532493"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802686"
 ---
 # <a name="using-web-browsers-in-msalnet"></a>Usando navegadores da Web no MSAL.NET
 Os navegadores da Web são necessários para a autenticação interativa. Por padrão, o MSAL.NET dá suporte ao [navegador da Web do sistema](#system-web-browser-on-xamarinios-xamarinandroid) em Xamarin. Ios e Xamarin. Android. Mas [você também pode habilitar o navegador da Web incorporado](#enable-embedded-webviews-on-ios-and-android) dependendo de seus requisitos (UX, necessidade de logon único (SSO), segurança) em aplicativos [xamarin. Ios](#choosing-between-embedded-web-browser-or-system-browser-on-xamarinios) e [xamarin. Android](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) . E você pode até mesmo [escolher dinamicamente](#detecting-the-presence-of-custom-tabs-on-xamarinandroid) qual navegador da Web usar com base na presença do Chrome ou em um navegador com suporte a guias personalizadas do Chrome no Android. O MSAL.NET só dá suporte ao navegador do sistema em aplicativos de área de trabalho do .NET Core.
@@ -42,11 +43,11 @@ Os navegadores da Web são necessários para a autenticação interativa. Por pa
 
 ### <a name="embedded-vs-system-web-ui"></a>Interface do usuário da Web do vs integrado
 
-MSAL.NET é uma biblioteca de várias estruturas e tem código específico da estrutura para hospedar um navegador em um controle de interface do usuário (por exemplo, no .net clássico ele usa WinForms, no Xamarin, ele usa controles móveis nativos, etc.). Esse controle é chamado `embedded` de interface do usuário da Web. Como alternativa, o MSAL.NET também é capaz de iniciar o navegador do sistema operacional.
+MSAL.NET é uma biblioteca de várias estruturas e tem código específico da estrutura para hospedar um navegador em um controle de interface do usuário (por exemplo, no .net clássico ele usa WinForms, no Xamarin, ele usa controles móveis nativos, etc.). Esse controle é chamado de interface do usuário da Web `embedded`. Como alternativa, o MSAL.NET também é capaz de iniciar o navegador do sistema operacional.
 
-Em geral, é recomendável que você use o padrão de plataforma, e isso normalmente é o navegador do sistema. O navegador do sistema é melhor para lembrar os usuários que fizeram logon antes. Se você precisar alterar esse comportamento, use`WithUseEmbeddedWebView(bool)`
+Em geral, é recomendável que você use o padrão de plataforma, e isso normalmente é o navegador do sistema. O navegador do sistema é melhor para lembrar os usuários que fizeram logon antes. Se você precisar alterar esse comportamento, use `WithUseEmbeddedWebView(bool)`
 
-### <a name="at-a-glance"></a>De relance
+### <a name="at-a-glance"></a>Síntese
 
 | Framework        | Caractere | Sistema | Predefinição |
 | ------------- |-------------| -----| ----- |
@@ -58,7 +59,7 @@ Em geral, é recomendável que você use o padrão de plataforma, e isso normalm
 | Xamarin.iOS | Sim | Sim  | Sistema |
 | Xamarin. Mac| Sim | Não | Caractere |
 
-^ Requer URI http://localhost de redirecionamento ""
+^ Requer URI de redirecionamento "http://localhost"
 
 ## <a name="system-web-browser-on-xamarinios-xamarinandroid"></a>Navegador da Web do sistema no Xamarin. iOS, Xamarin. Android
 
@@ -77,15 +78,15 @@ await pca.AcquireTokenInteractive(s_scopes)
          .WithUseEmbeddedWebView(false)
 ```
 
-MSAL.NET não pode detectar se o usuário sai ou simplesmente fecha o navegador. Os aplicativos que usam essa técnica são incentivados a definir um `CancellationToken`tempo limite (via). Recomendamos um tempo limite de pelo menos alguns minutos para levar em conta os casos em que o usuário é solicitado a alterar a senha ou executar a autenticação multifator.
+MSAL.NET não pode detectar se o usuário sai ou simplesmente fecha o navegador. Os aplicativos que usam essa técnica são incentivados a definir um tempo limite (via `CancellationToken`). Recomendamos um tempo limite de pelo menos alguns minutos para levar em conta os casos em que o usuário é solicitado a alterar a senha ou executar a autenticação multifator.
 
 ### <a name="how-to-use-the-default-os-browser"></a>Como usar o navegador do sistema operacional padrão
 
-O MSAL.NET precisa escutar `http://localhost:port` e interceptar o código que o AAD envia quando o usuário conclui a autenticação (consulte o código de [autorização](v2-oauth2-auth-code-flow.md) para obter detalhes)
+O MSAL.NET precisa escutar em `http://localhost:port` e interceptar o código que o AAD envia quando o usuário conclui a autenticação (consulte o [código de autorização](v2-oauth2-auth-code-flow.md) para obter detalhes)
 
 Para habilitar o navegador do sistema:
 
-1. Durante o registro do aplicativo `http://localhost` , configure como um URI de redirecionamento (não suportado atualmente pelo B2C)
+1. Durante o registro do aplicativo, configure `http://localhost` como um URI de redirecionamento (não tem suporte no momento pelo B2C)
 2. Ao construir seu PublicClientApplication, especifique este URI de redirecionamento:
 
 ```csharp
@@ -97,12 +98,12 @@ IPublicClientApplication pca = PublicClientApplicationBuilder
 ```
 
 > [!Note]
-> Se você configurar `http://localhost`, o MSAL.net internamente encontrará uma porta aberta aleatória e a usará.
+> Se você configurar `http://localhost`, internamente MSAL.NET encontrará uma porta aberta aleatória e a usará.
 
 ### <a name="linux-and-mac"></a>Linux e MAC
 
-No Linux, o MSAL.NET abrirá o navegador de sistema operacional padrão usando a ferramenta xdg-open. Para solucionar problemas, execute a ferramenta em um terminal, por exemplo,`xdg-open "https://www.bing.com"`  
-No Mac, o navegador é aberto invocando-se`open <url>`
+No Linux, o MSAL.NET abrirá o navegador de sistema operacional padrão usando a ferramenta xdg-open. Para solucionar problemas, execute a ferramenta em um terminal, por exemplo, `xdg-open "https://www.bing.com"`  
+No Mac, o navegador é aberto invocando `open <url>`
 
 ### <a name="customizing-the-experience"></a>Personalizando a experiência
 
@@ -141,7 +142,7 @@ No entanto, para aplicativos de área de trabalho, iniciar um sistema WebView le
 
 ## <a name="enable-embedded-webviews-on-ios-and-android"></a>Habilitar webviews inseridos no iOS e no Android
 
-Você também pode habilitar webviews incorporados em aplicativos Xamarin. iOS e Xamarin. Android. A partir do MSAL.NET 2.0.0-Preview, o MSAL.NET também dá suporte ao uso da opção de WebView inserida. Para ADAL.NET, o WebView incorporado é a única opção com suporte.
+Você também pode habilitar webviews incorporados em aplicativos Xamarin. iOS e Xamarin. Android. A partir do MSAL.NET 2.0.0-Preview, o MSAL.NET também dá suporte ao uso da opção de WebView **inserida** . Para ADAL.NET, o WebView incorporado é a única opção com suporte.
 
 Como desenvolvedor que usa o MSAL.NET para o Xamarin, você pode optar por usar as exibições ou os navegadores de sistema incorporados. Essa é sua opção, dependendo da experiência do usuário e das questões de segurança que você deseja direcionar.
 
@@ -152,7 +153,7 @@ Há algumas diferenças visuais entre o WebView e o navegador do sistema incorpo
 
 **Entrada interativa com MSAL.NET usando o WebView inserido:**
 
-![caractere](media/msal-net-web-browsers/embedded-webview.png)
+![Caractere](media/msal-net-web-browsers/embedded-webview.png)
 
 **Entrada interativa com MSAL.NET usando o navegador do sistema:**
 
@@ -162,8 +163,8 @@ Há algumas diferenças visuais entre o WebView e o navegador do sistema incorpo
 
 Como desenvolvedor usando o MSAL.NET, você tem várias opções para exibir a caixa de diálogo interativa do STS:
 
-- **Navegador do sistema.** O navegador do sistema é definido por padrão na biblioteca do. Se estiver usando o Android, leia navegadores do [sistema](msal-net-system-browser-android-considerations.md) para obter informações específicas sobre quais navegadores têm suporte para autenticação. Ao usar o navegador do sistema no Android, recomendamos que o dispositivo tenha um navegador que dê suporte a guias personalizadas do Chrome.  Caso contrário, a autenticação poderá falhar.
-- **WebView inserido.** Para usar apenas o WebView incorporado em MSAL.NET `AcquireTokenInteractively` , o construtor de `WithUseEmbeddedWebView()` parâmetros contém um método.
+- **Navegador do sistema.** O navegador do sistema é definido por padrão na biblioteca do. Se estiver usando o Android, leia [navegadores do sistema](msal-net-system-browser-android-considerations.md) para obter informações específicas sobre quais navegadores têm suporte para autenticação. Ao usar o navegador do sistema no Android, recomendamos que o dispositivo tenha um navegador que dê suporte a guias personalizadas do Chrome.  Caso contrário, a autenticação poderá falhar.
+- **WebView inserido.** Para usar apenas o WebView incorporado no MSAL.NET, o construtor de parâmetros `AcquireTokenInteractively` contém um método `WithUseEmbeddedWebView()`.
 
     iOS
 
@@ -174,7 +175,7 @@ Como desenvolvedor usando o MSAL.NET, você tem várias opções para exibir a c
                     .ExecuteAsync();
     ```
 
-    Android:
+    Android
 
     ```csharp
     authResult = app.AcquireTokenInteractively(scopes)
@@ -185,7 +186,7 @@ Como desenvolvedor usando o MSAL.NET, você tem várias opções para exibir a c
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinios"></a>Escolhendo entre navegador da Web incorporado ou navegador do sistema no Xamarin. iOS
 
-Em seu aplicativo IOS, no `AppDelegate.cs` , você pode inicializar `ParentWindow` o `null`para. Não é usado no iOS
+Em seu aplicativo iOS, no `AppDelegate.cs` você pode inicializar o `ParentWindow` para `null`. Não é usado no iOS
 
 ```csharp
 App.ParentWindow = null; // no UI parent on iOS
@@ -193,13 +194,13 @@ App.ParentWindow = null; // no UI parent on iOS
 
 #### <a name="choosing-between-embedded-web-browser-or-system-browser-on-xamarinandroid"></a>Escolhendo entre navegador da Web incorporado ou navegador do sistema no Xamarin. Android
 
-Em seu aplicativo Android, no `MainActivity.cs` , você pode definir a atividade pai para que o resultado da autenticação volte a ela:
+Em seu aplicativo Android, no `MainActivity.cs` você pode definir a atividade pai, para que o resultado da autenticação volte a ela:
 
 ```csharp
  App.ParentWindow = this;
 ```
 
-Em seguida, `MainPage.xaml.cs`no:
+Em seguida, no `MainPage.xaml.cs`:
 
 ```csharp
 authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
@@ -210,7 +211,7 @@ authResult = await App.PCA.AcquireTokenInteractive(App.Scopes)
 
 #### <a name="detecting-the-presence-of-custom-tabs-on-xamarinandroid"></a>Detectando a presença de guias personalizadas no Xamarin. Android
 
-Se você quiser usar o navegador da Web do sistema para habilitar o SSO com os aplicativos em execução no navegador, mas estiver preocupado com a experiência do usuário para dispositivos Android que não têm um navegador com suporte à guia personalizado, você tem a opção `IsSystemWebViewAvailable()` de decidir chamando o método em < c 2 > `IPublicClientApplication` . Esse método retornará `true` se o PackageManager detectar guias personalizadas e `false` se elas não forem detectadas no dispositivo.
+Se você quiser usar o navegador da Web do sistema para habilitar o SSO com os aplicativos em execução no navegador, mas estiver preocupado com a experiência do usuário para dispositivos Android que não têm um navegador com suporte à guia personalizado, você tem a opção de decidir chamando o método `IsSystemWebViewAvailable()` no `IPublicClientApplication`. Esse método retornará `true` se o PackageManager detectar guias personalizadas e `false` se elas não forem detectadas no dispositivo.
 
 Com base no valor retornado por esse método e seus requisitos, você pode tomar uma decisão:
 

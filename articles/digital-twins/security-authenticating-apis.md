@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: c75db8d1885c8680dd316952a5f67e11dc26edb1
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 53b53fa5185ade87dfdd21f0805641657d49d676
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949788"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72800206"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Conectar e autenticar com APIs
 
@@ -28,11 +28,11 @@ Para integrar uma aplicação ou serviço com o Azure AD, primeiro, o programado
 
 Há suporte para [cinco cenários de aplicativo primário](../active-directory/develop/v2-app-types.md) pelo Azure AD:
 
-* Aplicativo de página única (SPA): Um usuário precisa entrar em um aplicativo de página única protegido pelo Azure AD.
-* Navegador da Web para aplicativo Web: Um usuário precisa entrar em um aplicativo Web protegido pelo Azure AD.
-* Aplicativo nativo para API da Web: Um aplicativo nativo que é executado em um telefone, Tablet ou PC precisa autenticar um usuário para obter recursos de uma API Web protegida pelo Azure AD.
-* Aplicativo Web para API da Web: Um aplicativo Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
-* Aplicativo de daemon ou de servidor para API da Web: Um aplicativo daemon ou um aplicativo de servidor sem interface do usuário da Web precisa obter recursos de uma API Web protegida pelo Azure AD.
+* Aplicativo de página única (SPA): um usuário precisa entrar em um aplicativo de página única protegido pelo Azure AD.
+* Navegador da Web para aplicativo Web: um usuário precisa entrar em um aplicativo Web protegido pelo Azure AD.
+* Aplicativo nativo para API da Web: um aplicativo nativo que é executado em um telefone, Tablet ou PC precisa autenticar um usuário para obter recursos de uma API da Web protegida pelo Azure AD.
+* Aplicativo Web para API da Web: um aplicativo Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
+* Aplicativo de daemon ou de servidor para API da Web: um aplicativo de daemon ou um aplicativo de servidor sem interface do usuário da Web precisa obter recursos de uma API da Web protegida pelo Azure AD.
 
 > [!IMPORTANT]
 > O Azure digital gêmeos dá suporte a ambas as bibliotecas de autenticação a seguir:
@@ -49,7 +49,7 @@ Quando os desenvolvedores arquitetam soluções de gêmeos digital, normalmente 
 
 1. O token adquirido é usado para autenticar ou chamar APIs que são mais downstream usando o fluxo em nome de
 
-Para obter instruções sobre como orquestrar o fluxo em nome de, consulte [fluxo em nome de do OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código na [chamada de uma API Web downstream](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+Para obter instruções sobre como orquestrar o fluxo em nome de, consulte [fluxo em nome de do OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Você também pode exibir exemplos de código na [chamada de uma API Web downstream](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Passos seguintes
 

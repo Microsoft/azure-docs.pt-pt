@@ -1,10 +1,9 @@
 ---
-title: Como utilizar as filas do Service bus do Azure em node. js - / service-bus do azure | Documentos da Microsoft
-description: Saiba como utilizar filas do Service Bus no Azure a partir de uma aplicação node. js.
+title: Como usar as filas do Azure/Service-Bus no node. js
+description: Saiba como usar as filas do barramento de serviço no Azure de um aplicativo node. js usando o pacote do Azure/Service-Bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
@@ -12,42 +11,42 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 10/22/2019
 ms.author: aschhab
-ms.openlocfilehash: 7aacefde9c037fcce64d9256e35082eb04e0a2f3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58049855cc27d51134b9f76a773f32f49c6381b6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65988355"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790314"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Como utilizar filas do Service Bus com o node. js e o pacote/service-bus do azure
-> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote de node. js"]
-> - [(Node.js | azure-sb)](service-bus-nodejs-how-to-use-queues.md)
-> - [(Node.js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
+# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Como usar filas do barramento de serviço com o Node. js e o pacote do Azure/Service-Bus
+> [!div class="op_multi_selector" title1="Linguagem de programação" title2="Pacote node. js"]
+> - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
+> - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)
 
-Neste tutorial, irá aprender a escrever um programa de Nodejs para enviar mensagens e receber mensagens de uma fila do Service Bus com o novo [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote. Esse pacote usa o mais rápido [protocolo AMQP 1.0](service-bus-amqp-overview.md) ao passo que o antigo [azure sb](https://www.npmjs.com/package/azure-sb) pacote utilizado [APIs de tempo de execução de REST do Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
+Neste tutorial, você aprende a escrever um programa NodeJS para enviar e receber mensagens de uma fila do barramento de serviço usando o novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) . Esse pacote usa o [protocolo AMQP 1,0](service-bus-amqp-overview.md) mais rápido, enquanto o pacote [Azure-SB](https://www.npmjs.com/package/azure-sb) mais antigo usava [APIs de tempo de execução REST do barramento de serviço](/rest/api/servicebus/service-bus-runtime-rest). Os exemplos são escritos em JavaScript.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Pode ativar sua [benefícios de subscritor do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se um [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Se não tiver uma fila para trabalhar com, siga os passos no [portal do Azure de utilização para criar uma fila do Service Bus](service-bus-quickstart-portal.md) artigo para criar uma fila. Aponte a cadeia de ligação para a instância do Service Bus e o nome da fila que criou. Iremos utilizar estes valores nos exemplos.
+- Uma subscrição do Azure. Para concluir este tutorial, precisa de uma conta do Azure. Você pode ativar os [benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou inscrever-se para uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- Se você não tiver uma fila com a qual trabalhar, siga as etapas no artigo [usar portal do Azure para criar uma fila do barramento de serviço](service-bus-quickstart-portal.md) para criar uma fila. Anote a cadeia de conexão para sua instância do barramento de serviço e o nome da fila que você criou. Usaremos esses valores nos exemplos.
 
 > [!NOTE]
-> - Este tutorial funciona com exemplos que pode copiar e executados utilizando [Nodejs](https://nodejs.org/). Para obter instruções sobre como criar uma aplicação node. js, consulte [criar e implementar uma aplicação node. js para um Web site do Azure](../app-service/app-service-web-get-started-nodejs.md), ou [serviço cloud de node. js com o Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - A nova [ @azure/service-bus ](https://www.npmjs.com/package/@azure/service-bus) pacote não suporta a criação de filas ainda. Utilize o [ @azure/arm-servicebus ](https://www.npmjs.com/package/@azure/arm-servicebus) se quiser criar programaticamente o pacote.
+> - Este tutorial funciona com exemplos que você pode copiar e executar usando o [NodeJS](https://nodejs.org/). Para obter instruções sobre como criar um aplicativo node. js, consulte [criar e implantar um aplicativo node. js em um site do Azure](../app-service/app-service-web-get-started-nodejs.md)ou [serviço de nuvem do node. js usando o Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
+> - O novo pacote de [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) não dá suporte à criação de filas ainda. Use o pacote [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) se desejar criá-los programaticamente.
 
 ### <a name="use-node-package-manager-npm-to-install-the-package"></a>Utilize o NPM (Node Package Manager, Gestor de Pacotes do Nó) para instalar o pacote
-Para instalar o pacote npm para o Service Bus, abra um prompt de comando que tem `npm` no seu caminho, altere o diretório para a pasta onde pretende ter seus exemplos e, em seguida, execute este comando.
+Para instalar o pacote NPM para o barramento de serviço, abra um prompt de comando que tenha `npm` em seu caminho, altere o diretório para a pasta onde você deseja ter seus exemplos e, em seguida, execute este comando.
 
 ```bash
 npm install @azure/service-bus
 ```
 
 ## <a name="send-messages-to-a-queue"></a>Enviar mensagens para uma fila
-Interagir com um barramento de serviço de fila é iniciado com instanciar o [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) classe e seu uso para instanciar o [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) classe. Assim que tiver o cliente de fila, pode criar um remetente e a utilização de uma [enviar](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) método nele para enviar mensagens.
+Interagir com uma fila do barramento de serviço começa com a instanciação da classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e sua utilização para instanciar a classe [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) . Depois de ter o cliente de fila, você pode criar um remetente e usar o método [Send](https://docs.microsoft.com/javascript/api/%40azure/service-bus/sender#send-sendablemessageinfo-) ou [sendBatch](https://docs.microsoft.com/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) nele para enviar mensagens.
 
-1. Abra o seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um ficheiro chamado `send.js` e cole o abaixo código nele. Esse código irá enviar 10 mensagens para a fila.
+1. Abra seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
+2. Crie um arquivo chamado `send.js` e cole o código abaixo nele. Esse código enviará 10 mensagens para sua fila.
 
     ```javascript
     const { ServiceBusClient } = require("@azure/service-bus"); 
@@ -84,20 +83,20 @@ Interagir com um barramento de serviço de fila é iniciado com instanciar o [Se
       console.log("Error occurred: ", err);
     });
     ```
-3. Introduza a cadeia de ligação e o nome da sua fila no código anterior.
-4. Em seguida, execute o comando `node send.js` numa linha de comandos para executar este ficheiro.
+3. Insira a cadeia de conexão e o nome da sua fila no código acima.
+4. Em seguida, execute o comando `node send.js` em um prompt de comando para executar esse arquivo.
 
-Parabéns! Que acabou de enviar mensagens a uma fila do Service Bus.
+Parabéns! Você acabou de enviar mensagens para uma fila do barramento de serviço.
 
-As mensagens de algumas propriedades padrão como ter `label` e `messageId` que pode definir quando enviar. Se quiser definir quaisquer propriedades personalizadas, utilize o `userProperties`, que é um objeto json que pode armazenar pares chave-valor dos seus dados personalizados.
+As mensagens têm algumas propriedades padrão como `label` e `messageId` que você pode definir ao enviar. Se você quiser definir qualquer propriedade personalizada, use o `userProperties`, que é um objeto JSON que pode conter pares de chave-valor de seus dados personalizados.
 
-As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). Não tem qualquer limite no número de mensagens contidas numa fila, mas existe um limite do tamanho total das mensagens contidas numa fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre as quotas, consulte [quotas do Service Bus](service-bus-quotas.md).
+As filas do Service Bus suportam um tamanho da mensagem máximo de 256 KB no [escalão Padrão](service-bus-premium-messaging.md) e de 1 MB no [escalão Premium](service-bus-premium-messaging.md). Não há limite para o número de mensagens mantidas em uma fila, mas há uma limitação no tamanho total das mensagens mantidas por uma fila. O tamanho da fila é definido no momento de criação, com um limite superior de 5 GB. Para obter mais informações sobre cotas, consulte [cotas do barramento de serviço](service-bus-quotas.md).
 
 ## <a name="receive-messages-from-a-queue"></a>Receber mensagens de uma fila
-Interagir com um barramento de serviço de fila é iniciado com instanciar o [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) classe e seu uso para instanciar o [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) classe. Assim que tiver o cliente de fila, pode criar um receptor e a utilização de uma [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) método no mesmo para receber mensagens.
+Interagir com uma fila do barramento de serviço começa com a instanciação da classe [ServiceBusClient](https://docs.microsoft.com/javascript/api/@azure/service-bus/servicebusclient) e sua utilização para instanciar a classe [QueueClient](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient) . Depois de ter o cliente de fila, você pode criar um receptor e usar o método [receiveMessages](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#receivemessages-number--undefined---number-) ou [registerMessageHandler](https://docs.microsoft.com/javascript/api/%40azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) para receber mensagens.
 
-1. Abra o seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
-2. Crie um ficheiro chamado `recieve.js` e cole o abaixo código nele. Esse código tentará-se receber 10 mensagens da sua fila. A contagem real que receberá depende o número de mensagens na fila e de rede de latência.
+1. Abra seu editor favorito, como [Visual Studio Code](https://code.visualstudio.com/)
+2. Crie um arquivo chamado `recieve.js` e cole o código abaixo nele. Esse código tentará receber 10 mensagens da fila. A contagem real que você recebe depende do número de mensagens na fila e latência de rede.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -109,7 +108,7 @@ Interagir com um barramento de serviço de fila é iniciado com instanciar o [Se
     async function main(){
       const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
       const queueClient = sbClient.createQueueClient(queueName);
-      const receiver = queueClient.createReceiver(ReceiveMode.ReceiveAndDelete);
+      const receiver = queueClient.createReceiver(ReceiveMode.receiveAndDelete);
       try {
         const messages = await receiver.receiveMessages(10)
         console.log("Received messages:");
@@ -125,19 +124,19 @@ Interagir com um barramento de serviço de fila é iniciado com instanciar o [Se
       console.log("Error occurred: ", err);
     });
     ```
-3. Introduza a cadeia de ligação e o nome da sua fila no código anterior.
-4. Em seguida, execute o comando `node receiveMessages.js` numa linha de comandos para executar este ficheiro.
+3. Insira a cadeia de conexão e o nome da sua fila no código acima.
+4. Em seguida, execute o comando `node receiveMessages.js` em um prompt de comando para executar esse arquivo.
 
-Parabéns! Acabou de receber mensagens de uma fila do Service Bus.
+Parabéns! Você acabou de receber mensagens de uma fila do barramento de serviço.
 
-O [createReceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) método usa um `ReceiveMode` que é uma enum com valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se utilizar o `PeekLock` modo utilizando qualquer um dos `complete()`, `abandon()`, `defer()`, ou `deadletter()` métodos na mensagem.
+O método [Createreceiver](https://docs.microsoft.com/javascript/api/%40azure/service-bus/queueclient#createreceiver-receivemode-) usa um `ReceiveMode`, que é um enum com os valores [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) e [Peeklock](message-transfers-locks-settlement.md#settling-receive-operations). Lembre-se de [liquidar suas mensagens](message-transfers-locks-settlement.md#settling-receive-operations) se usar o modo `PeekLock` usando qualquer um dos métodos `complete()`, `abandon()`, `defer()` ou `deadletter()` na mensagem.
 
 > [!NOTE]
-> Pode gerir recursos do Service Bus com [Explorador do Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). O Explorador do Service Bus permite aos utilizadores ligar a um espaço de nomes do Service Bus e administrar as entidades de mensagens de uma forma fácil. A ferramenta fornece funcionalidades avançadas como a funcionalidade de importação/exportação ou a capacidade de teste tópico, filas, subscrições, serviços de reencaminhamento, os hubs de notificação e os hubs de eventos. 
+> Você pode gerenciar os recursos do barramento de serviço com o [Gerenciador do barramento de serviço](https://github.com/paolosalvatori/ServiceBusExplorer/). O Gerenciador do barramento de serviço permite que os usuários se conectem a um namespace do barramento de serviço e administrem entidades de mensagens de maneira fácil. A ferramenta fornece recursos avançados como a funcionalidade de importação/exportação ou a capacidade de testar tópicos, filas, assinaturas, serviços de retransmissão, hubs de notificação e hubs de eventos. 
 
-## <a name="next-steps"></a>Passos Seguintes
-Para obter mais informações, consulte os seguintes recursos.
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais, confira os recursos a seguir.
 - [Filas, tópicos e subscrições](service-bus-queues-topics-subscriptions.md)
-- Veja outros [Nodejs exemplos do Service Bus no GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
+- Fazer check-out [de outros exemplos de NodeJS para o barramento de serviço no GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
 - [Centro de Programadores do Node.js](https://azure.microsoft.com/develop/nodejs/)
 
