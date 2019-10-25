@@ -1,23 +1,18 @@
 ---
 title: Solucionar problemas Application Insights em um projeto Web Java
 description: Guia de solução de problemas-monitoramento de aplicativos Java em tempo real com Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: ef602767-18f2-44d2-b7ef-42b404edd0e9
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: a26302b0c0b4361fe3e7aae6aba798f433c72ade
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 03/14/2019
+ms.openlocfilehash: 941dcc268c2af9e011af01d3da224b90e9ee5018
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742189"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820799"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
 Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui estão algumas dicas.
@@ -25,17 +20,17 @@ Perguntas ou problemas com o [aplicativo Azure insights em Java][java]? Aqui est
 ## <a name="build-errors"></a>Erros de compilação
 **No Eclipse ou no IntelliJ IDEA, ao adicionar o SDK do Application Insights via Maven ou gradle, obtenho erros de validação de compilação ou de soma de verificação.**
 
-* Se o elemento `<version>` Dependency estiver usando um padrão com caracteres curinga (por exemplo, Maven ou (gradle) `version:'2.0.+'`), tente especificar uma versão específica, como `2.0.1`. `<version>[2.0,)</version>` Consulte as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java/releases) para obter a versão mais recente.
+* Se o elemento de `<version>` de dependência estiver usando um padrão com caracteres curinga (por exemplo, (Maven) `<version>[2.0,)</version>` ou (gradle) `version:'2.0.+'`), tente especificar uma versão específica, como `2.0.1`. Consulte as [notas de versão](https://github.com/Microsoft/ApplicationInsights-Java/releases) para obter a versão mais recente.
 
-## <a name="no-data"></a>Nenhuns dados
+## <a name="no-data"></a>Sem dados
 **Adicionei Application Insights com êxito e executei meu aplicativo, mas nunca vi dados no Portal.**
 
 * Aguarde um minuto e clique em atualizar. Os gráficos se atualizam periodicamente, mas você também pode atualizar manualmente. O intervalo de atualização depende do intervalo de tempo do gráfico.
 * Verifique se você tem uma chave de instrumentação definida no arquivo ApplicationInsights. XML (na pasta recursos em seu projeto) ou configurada como variável de ambiente.
-* Verifique se não há nenhum `<DisableTelemetry>true</DisableTelemetry>` nó no arquivo XML.
+* Verifique se não há `<DisableTelemetry>true</DisableTelemetry>` nó no arquivo XML.
 * No firewall, talvez seja necessário abrir as portas TCP 80 e 443 para o tráfego de saída para o dc.services.visualstudio.com. Consulte a [lista completa de exceções de firewall](../../azure-monitor/app/ip-addresses.md)
 * Na Microsoft Azure quadro inicial, examine o mapa de status do serviço. Se houver algumas indicações de alerta, aguarde até que elas sejam retornadas para OK e, em seguida, feche e abra novamente sua folha de aplicativo Application Insights.
-* [Ative o registro em log](#debug-data-from-the-sdk) adicionando `<SDKLogger />` um elemento sob o nó raiz no arquivo ApplicationInsights. XML (na pasta recursos em seu projeto) e verifique se há entradas precedidas com ia: INFORMAÇÕES/aviso/erro para quaisquer logs suspeitos. 
+* [Ative o registro em log](#debug-data-from-the-sdk) adicionando um elemento de `<SDKLogger />` sob o nó raiz no arquivo ApplicationInsights. XML (na pasta recursos em seu projeto) e verifique se há entradas precedidas com ia: info/Warn/erro para quaisquer logs suspeitos. 
 * Verifique se o arquivo ApplicationInsights. xml correto foi carregado com êxito pelo SDK do Java, examinando as mensagens de saída do console para uma instrução "arquivo de configuração foi encontrado com êxito".
 * Se o arquivo de configuração não for encontrado, verifique as mensagens de saída para ver onde o arquivo de configuração está sendo pesquisado e verifique se o ApplicationInsights. xml está localizado em um desses locais de pesquisa. Como regra geral, você pode posicionar o arquivo de configuração perto dos JARs Application Insights SDK. Por exemplo: no Tomcat, isso significa a pasta WEB-INF/classes. Durante o desenvolvimento, você pode posicionar o ApplicationInsights. xml na pasta de recursos do seu projeto Web.
 * Consulte também a [página de problemas do GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues) para problemas conhecidos com o SDK.
@@ -80,7 +75,7 @@ No código:
     config.setTrackingIsDisabled(true);
 ```
 
-**ou**
+**Or**
 
 Atualize ApplicationInsights. XML (na pasta recursos em seu projeto). Adicione o seguinte sob o nó raiz:
 
@@ -105,7 +100,7 @@ Usando o método XML, é necessário reiniciar o aplicativo quando você altera 
 
 Para obter mais informações sobre o que está acontecendo na API, adicione `<SDKLogger/>` sob o nó raiz do arquivo de configuração ApplicationInsights. xml.
 
-### <a name="applicationinsightsxml"></a>ApplicationInsights.xml
+### <a name="applicationinsightsxml"></a>ApplicationInsights. xml
 
 Você também pode instruir o agente a gerar uma saída para um arquivo:
 
@@ -119,7 +114,7 @@ Você também pode instruir o agente a gerar uma saída para um arquivo:
 
 ### <a name="spring-boot-starter"></a>Iniciador do Spring boot
 
-Para habilitar o log do SDK com aplicativos Spring boot usando o iniciador do Spring boot Application insights, adicione o `application.properties` seguinte ao arquivo:
+Para habilitar o log do SDK com aplicativos Spring boot usando o iniciador do Spring boot Application Insights, adicione o seguinte ao arquivo `application.properties`:
 
 ```yaml
 azure.application-insights.logger.type=file
@@ -183,10 +178,10 @@ No firewall, talvez seja necessário abrir as portas TCP 80 e 443 para o tráfeg
 Consulte [retenção e privacidade de dados][data].
 
 ## <a name="debug-logging"></a>Log de depuração
-O Application Insights `org.apache.http`usa. Isso é realocado dentro de Application Insights jars principais no `com.microsoft.applicationinsights.core.dependencies.http`namespace. Isso permite que Application insights manipulem cenários em que diferentes versões do `org.apache.http` mesmo existam em uma base de código.
+Application Insights usa `org.apache.http`. Isso é realocado em Application Insights jars principais sob o namespace `com.microsoft.applicationinsights.core.dependencies.http`. Isso permite que o Application Insights manipule cenários em que diferentes versões do mesmo `org.apache.http` existem em uma base de código.
 
 >[!NOTE]
->Se você habilitar o log de nível de depuração para todos os namespaces no aplicativo, ele será respeitado por todos `org.apache.http` os módulos em execução `com.microsoft.applicationinsights.core.dependencies.http`, incluindo renomeado como. Application Insights não poderá aplicar a filtragem para essas chamadas porque a chamada de log está sendo feita pela biblioteca do Apache. O log de nível de depuração produz uma quantidade considerável de dados de log e não é recomendado para instâncias de produção ao vivo.
+>Se você habilitar o log de nível de depuração para todos os namespaces no aplicativo, ele será respeitado por todos os módulos em execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http`. Application Insights não poderá aplicar a filtragem para essas chamadas porque a chamada de log está sendo feita pela biblioteca do Apache. O log de nível de depuração produz uma quantidade considerável de dados de log e não é recomendado para instâncias de produção ao vivo.
 
 
 ## <a name="next-steps"></a>Passos seguintes

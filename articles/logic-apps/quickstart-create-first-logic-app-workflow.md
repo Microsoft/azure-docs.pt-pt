@@ -1,6 +1,6 @@
 ---
-title: Criar e automatizar seu primeiro fluxo de trabalho-aplicativos lógicos do Azure
-description: Início rápido – criar sua primeira tarefa ou fluxo de trabalho automatizado usando aplicativos lógicos do Azure para integração de sistema e soluções de EAI (integração de aplicativos empresariais)
+title: Criar seu primeiro fluxo de trabalho automatizado-aplicativos lógicos do Azure
+description: Início rápido-Crie sua primeira tarefa automatizada usando aplicativos lógicos do Azure para integração de sistema e soluções de EAI (integração de aplicativos empresariais)
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,13 +10,13 @@ ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/20/2019
-ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 10/20/2019
+ms.openlocfilehash: 246bd7935bf5aaaae569e589e4efa0ea7d39c90a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679149"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821181"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Início Rápido: Criar o primeiro fluxo de trabalho automatizado com o Azure Logic Apps – portal do Azure
 
@@ -34,9 +34,13 @@ Inicie sessão no [portal do Azure](https://portal.azure.com) com as credenciais
 
 ## <a name="create-your-logic-app"></a>Criar uma aplicação lógica
 
-1. No menu principal do Azure, selecione **criar um recurso** > **integração** > **aplicativo lógico**.
+1. Na home page do Azure, na caixa de pesquisa, localize e selecione **aplicativos lógicos**.
 
-   ![Criar uma aplicação lógica - Portal do Azure](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
+   ![Localize e selecione "aplicativos lógicos"](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
+
+1. Na página **aplicativos lógicos** , selecione **Adicionar**.
+
+   ![Adicionar novo aplicativo lógico](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. Em **Criar aplicação lógica**, forneça detalhes sobre a sua aplicação lógica, conforme aqui apresentado. Depois de terminar, selecione **criar**.
 
@@ -69,7 +73,7 @@ Em seguida, adicione um [acionador](../logic-apps/logic-apps-overview.md#logic-a
 
 1. No designer de aplicativo lógico, na caixa de pesquisa, selecione **tudo**.
 
-1. Na caixa de pesquisa, digite "RSS". Na lista de gatilhos, selecione este gatilho: **quando um item de feed é publicado-RSS**
+1. Na caixa de pesquisa, introduza `rss`. Na lista de gatilhos, selecione este gatilho: **quando um item de feed é publicado**
 
    ![Selecione o gatilho "quando um item de feed é publicado"](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -104,7 +108,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
 1. Em **escolher uma ação** e a caixa de pesquisa, selecione **tudo**.
 
-1. Na caixa de pesquisa, digite "enviar um email". Na lista de ações, selecione a ação "enviar um e-mail" para o fornecedor de e-mail que pretende.
+1. Na caixa de pesquisa, introduza `send an email`. Na lista de ações, selecione a ação "enviar um e-mail" para o fornecedor de e-mail que pretende.
 
    ![Selecione a ação "enviar um email" para o Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -121,7 +125,7 @@ Agora, adicione uma [ação](../logic-apps/logic-apps-overview.md#logic-app-conc
 
       Por agora, ignore a lista **Adicionar conteúdo dinâmico** que é apresentada. Quando clica no interior de algumas caixas de edição, esta lista aparece e mostra os parâmetros disponíveis do passo anterior que pode incluir como entradas no fluxo de trabalho.
 
-   1. Na caixa **Assunto**, introduza este texto com um espaço em branco à direita: ```New RSS item:```
+   1. Na caixa **Assunto**, introduza este texto com um espaço em branco à direita: `New RSS item: `
 
       ![Na propriedade "assunto", insira seu assunto de email](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
 
@@ -170,16 +174,12 @@ Quando já não precisar deste exemplo, elimine o grupo de recursos que contém 
 
    ![Localizar, selecionar e excluir o grupo de recursos](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-1. Insira o nome do grupo de recursos como confirmação e selecione **excluir**.
+1. Quando o painel de confirmação for exibido, insira o nome do grupo de recursos e selecione **excluir**.
 
    ![Para confirmar a exclusão, selecione "excluir"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
 > Quando elimina uma aplicação lógica, não são instanciadas novas execuções. Todas as execuções em curso e pendentes são canceladas. Se tiver milhares de execuções, o cancelamento pode demorar muito tempo a concluir.
-
-## <a name="get-support"></a>Obter suporte
-
-Relativamente a dúvidas, visite o [fórum do Azure Logic Apps](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## <a name="next-steps"></a>Passos seguintes
 

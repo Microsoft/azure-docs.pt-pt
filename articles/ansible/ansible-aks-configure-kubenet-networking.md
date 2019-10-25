@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 949a55fd8c004bc656d02816231c4ebb6dd8f92b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/23/2019
+ms.openlocfilehash: 67b4eb9e9ee53613ec8b54b2bf8d3bbdb89778c7
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242171"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881530"
 ---
 # <a name="tutorial-configure-kubenet-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Tutorial: configurar a rede kubenet no AKS (serviço kubernetes do Azure) usando o Ansible
 
@@ -107,16 +107,16 @@ Guarde o manual de procedimentos seguinte como `aks.yml`:
 
 Aqui estão algumas observações importantes a serem consideradas ao trabalhar com o guia estratégico de exemplo:
 
-- Use o módulo `azure_rm_aks_version` para localizar a versão com suporte.
+- Use `azure_rm_aks_version` módulo para localizar a versão com suporte.
 - O `vnet_subnet_id` é a sub-rede criada na seção anterior.
 - O `network_profile` define as propriedades do plug-in de rede kubenet.
 - O `service_cidr` é usado para atribuir serviços internos no cluster AKS a um endereço IP. Esse intervalo de endereços IP deve ser um espaço de endereço que não é usado em outro lugar na rede. 
-- O endereço `dns_service_ip` deve ser o endereço ". 10" do intervalo de endereços IP do seu serviço.
+- O endereço de `dns_service_ip` deve ser o endereço ". 10" do intervalo de endereços IP do seu serviço.
 - O `pod_cidr` deve ser um espaço de endereço grande que não está em uso em outro lugar em seu ambiente de rede. O intervalo de endereços deve ser grande o suficiente para acomodar o número de nós que você espera escalar verticalmente. Você não pode alterar esse intervalo de endereços depois que o cluster é implantado.
 - O intervalo de endereços IP de Pod é usado para atribuir um espaço de endereço/24 a cada nó no cluster. No exemplo a seguir, o `pod_cidr` de 192.168.0.0/16 atribui o primeiro nó 192.168.0.0/24, o segundo nó 192.168.1.0/24 e o terceiro nó 192.168.2.0/24.
 - À medida que o cluster é dimensionado ou atualizado, o Azure continua a atribuir um intervalo de endereços IP de Pod a cada novo nó.
 - O guia estratégico carrega `ssh_key` de `~/.ssh/id_rsa.pub`. Se você modificá-lo, use o formato de linha única-começando com "ssh-RSA" (sem as aspas).
-- Os valores `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
+- Os valores de `client_id` e `client_secret` são carregados de `~/.azure/credentials`, que é o arquivo de credencial padrão. Você pode definir esses valores para sua entidade de serviço ou carregar esses valores de variáveis de ambiente:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
@@ -212,7 +212,7 @@ Guarde o manual de procedimentos seguinte como `aks-kubenet.yml`:
 
 Na seção `vars`, faça as seguintes alterações:
 
-- Para a chave `resource_group`, altere o valor de `aksansibletest` para o nome do grupo de recursos.
+- Para a chave de `resource_group`, altere o valor de `aksansibletest` para o nome do grupo de recursos.
 - Para a chave `name`, altere o valor de `aksansibletest` para o nome do AKS.
 - Para a chave `Location`, altere o valor de `eastus` para o local do grupo de recursos.
 

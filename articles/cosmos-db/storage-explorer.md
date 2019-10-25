@@ -1,31 +1,31 @@
 ---
-title: Gerir recursos do Azure Cosmos DB com o Explorador de armazenamento do Azure
-description: Saiba como ligar ao Azure Cosmos DB e gerir os respetivos recursos através do Explorador de armazenamento do Azure.
+title: Gerenciar Azure Cosmos DB recursos usando Gerenciador de Armazenamento do Azure
+description: Saiba como se conectar a Azure Cosmos DB e gerenciar seus recursos usando Gerenciador de Armazenamento do Azure.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 10/23/2019
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 6c3c8aee51a4484013126a5959d3d275a88aa1cc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fd044d4f32aefc00e1b04f7060e0fc0dc74fd6c7
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242648"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882355"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Trabalhar com dados com o Explorador de Armazenamento do Azure
 
-A utilização do Azure Cosmos DB no Explorador de Armazenamento do Azure permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local. Neste momento, o Explorador de armazenamento do Azure suporta contas do Cosmos configuradas para SQL, MongoDB, Graph e APIs de tabela.
+A utilização do Azure Cosmos DB no Explorador de Armazenamento do Azure permite aos utilizadores gerir as entidades do Azure Cosmos DB, manipular dados, atualizar os procedimentos e acionadores armazenados, bem como outras entidades do Azure, como blobs e filas de Armazenamento. Agora, pode utilizar a mesma ferramenta para gerir as diferentes entidades do Azure num único local. Neste momento, Gerenciador de Armazenamento do Azure dá suporte a contas Cosmos configuradas para SQL, MongoDB, Graph e APIs de tabela.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Uma conta do Cosmos com a API de SQL ou do Azure Cosmos DB API para MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [do Azure Cosmos DB: Criar uma aplicação de web da SQL API com .NET e o portal do Azure](create-sql-api-dotnet.md).
+Uma conta do cosmos com API do SQL ou API do Azure Cosmos DB para MongoDB. Se não tiver uma conta, pode criar uma no portal do Azure, conforme descrito em [Azure Cosmos DB: criar uma aplicação Web da SQL API com .NET e o portal do Azure](create-sql-api-dotnet.md).
 
 ## <a name="installation"></a>Instalação
 
-Instale os mais recentes bits de Explorador de armazenamento do Azure aqui: [Explorador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), agora, suportamos a versão do Windows, Linux e MAC.
+Instale os bits mais recentes do Explorador de Armazenamento do Azure aqui: [Explorador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), suportamos agora a versão para Windows, Linux e MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Ligar a uma subscrição do Azure
 
@@ -43,7 +43,7 @@ Instale os mais recentes bits de Explorador de armazenamento do Azure aqui: [Exp
 
 3. Selecione a sua subscrição na lista e clique em **Aplicar**.
 
-    ![Aplicar](./media/storage-explorer/apply-subscription.png)
+    ![Registe-se](./media/storage-explorer/apply-subscription.png)
 
     O painel do Explorador atualiza e apresenta as contas na subscrição selecionada.
 
@@ -59,7 +59,7 @@ Uma forma alternativa de ligar ao Azure Cosmos DB é utilizar uma cadeia de liga
 
     ![Ligar ao Cosmos DB através de uma cadeia de ligação](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. Atualmente, apenas suporta a API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Ligação**, introduza a **Etiqueta de conta**, clique em **Seguinte** para verificar o resumo e, em seguida, clique em **Ligar** para ligar a conta do Azure Cosmos DB. Para obter informações sobre como obter a cadeia de ligação, veja [Obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+2. Atualmente, apenas suporta a API do SQL e de Tabela. Escolha a API, cole a **Cadeia de Ligação**, introduza a **Etiqueta de conta**, clique em **Seguinte** para verificar o resumo e, em seguida, clique em **Ligar** para ligar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
 
     ![Connection-string](./media/storage-explorer/connection-string.png)
 
@@ -73,7 +73,7 @@ Utilize os seguintes passos para ligar ao Azure Cosmos DB pelo Emulador, só sup
 
     ![Ligar ao Cosmos DB pelo Emulador](./media/storage-explorer/emulator-entry.png)
 
-3. Atualmente, apenas suporta a API do SQL. Cole a **Cadeia de Ligação**, introduza a **Etiqueta de conta**, clique em **Seguinte** para verificar o resumo e, em seguida, clique em **Ligar** para ligar a conta do Azure Cosmos DB. Para obter informações sobre como obter a cadeia de ligação, veja [Obter a cadeia de ligação](https://docs.microsoft.com/azure/cosmos-db/manage-account).
+3. Atualmente, apenas suporta a API do SQL. Cole a **Cadeia de Ligação**, introduza a **Etiqueta de conta**, clique em **Seguinte** para verificar o resumo e, em seguida, clique em **Ligar** para ligar a conta do Azure Cosmos DB. Para obter informações sobre como recuperar a cadeia de conexão primária, consulte [obter a cadeia de conexão](manage-with-powershell.md#list-keys).
 
     ![Ligar ao Cosmos DB através da caixa de diálogo Emulador](./media/storage-explorer/emulator-dialog.png)
 
@@ -116,7 +116,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
     ![Eliminar base de dados2](./media/storage-explorer/delete-database2.png) 
 
 #### <a name="create-a-collection"></a>Criar uma coleção
-1. Clique com o botão direito do rato na base de dados, selecione **Criar Coleção** e, em seguida, forneça as seguintes informações, como **ID da Coleção**, **Capacidade de armazenamento**, etc. Clique em **OK** para concluir. 
+1. Clique com o botão direito do mouse no banco de dados, escolha **criar coleção**e forneça as informações a seguir, como **ID da coleção**, **capacidade de armazenamento**, etc. Clique em **OK** para concluir. 
 
     ![Criar coleção1](./media/storage-explorer/create-collection.png)
 
@@ -174,7 +174,7 @@ Ao clicar com o botão direito do rato numa subscrição no painel do Explorador
 1. Para criar uma nova tabela, abra **Entidades** na janela esquerda, clique em **Adicionar**, edite o conteúdo na caixa de diálogo **Adicionar Entidade**, adicione a propriedade ao clicar no botão **Adicionar Propriedade** e clique em **Inserir**.
 2. Para modificar uma tabela, clique em **Editar**, modifique o conteúdo e clique em **Atualizar**.
 
-    ![Tabela](./media/storage-explorer/table.png)
+    ![Tabelas](./media/storage-explorer/table.png)
 
 #### <a name="import-and-export-table"></a>Importar e exportar tabela
 1. Para importar, clique no botão **Importar** e escolha uma tabela existente.
@@ -213,7 +213,7 @@ Antes de prosseguir, tente reiniciar a aplicação e verifique se os problemas p
 
 Existem algumas razões pelas quais pode estar a ver este erro, sendo as duas mais comuns:
 
-+ Está por trás de um *proxy transparente*, que significa que alguém (por exemplo, o departamento de TI) está a intercetar o tráfego HTTPS, desencriptá-lo e encriptá-lo a utilizar um certificado autoassinado.
++ Você está atrás de um *proxy transparente*, o que significa que alguém (como seu departamento de ti) está interceptando o tráfego HTTPS, descriptografando-o e, em seguida, criptografando-o usando um certificado autoassinado.
 
 + Está a executar software, como software antivírus, que está a injetar um certificado SSL autoassinado nas mensagens HTTPS recebidas.
 
@@ -221,9 +221,9 @@ Quando o Explorador de Armazenamento encontra um destes "certificados autoassina
 
 1. Instalar o Open SSL
      - [Windows](https://slproweb.com/products/Win32OpenSSL.html) (qualquer uma das versões simples)
-     - Mac e Linux: Deve ser incluído com o sistema operativo
+     - Mac e Linux: devem estar incluídos no sistema operativo
 2. Executar o Open SSL
-    - Windows: Aceda ao diretório de instalação, em seguida, **/bin/** , em seguida, faça duplo clique em **openssl.exe**.
+    - Windows: aceda ao diretório de instalação, a **/bin/** e faça duplo clique em **openssl.exe**.
     - Mac e Linux: execute **openssl** a partir de um terminal
 3. Execute `s_client -showcerts -connect microsoft.com:443`
 4. Procure certificados autoassinados. Se não tiver a certeza de quais são autoassinados, verifique se o assunto ("s:") e o emissor ("i:") são os mesmos.
@@ -240,7 +240,7 @@ Se não conseguir obter as suas subscrições depois de iniciar sessão com êxi
 - Certifique-se de que tem sessão iniciada no ambiente correto ([Azure](https://portal.azure.com/), [Azure China](https://portal.azure.cn/), [Azure Alemanha](https://portal.microsoftazure.de/), [Azure US Government](https://portal.azure.us/) ou Ambiente Personalizado/Azure Stack)
 - Se estiver por trás de um proxy, certifique-se de que configurou o proxy do Explorador de Armazenamento corretamente
 - Tente remover e adicionar novamente a conta
-- Tente eliminar os seguintes ficheiros do diretório raiz (tais como: C:\Users\ContosoUser) e, em seguida, adicionar novamente a conta:
+- Tente eliminar os seguintes ficheiros do diretório raiz (como: C:\Users\ContosoUser) e, em seguida, adicionar novamente a conta:
   - .adalcache
   - .devaccounts
   - .extaccounts
@@ -266,7 +266,7 @@ Se não conseguir remover uma conta ou se a ligação de reautenticação não f
   - .extaccounts
 - Se quiser remover os recursos de Armazenamento SAS anexados, elimine:
   - a pasta %AppData%/StorageExplorer do Windows
-  - /Users/ < your_name >/biblioteca/aplicação suporte/StorageExplorer para Mac
+  - /Users/< your_name >/library/Application Support SUpport/StorageExplorer para Mac
   - ~/.config/StorageExplorer para Linux
   - **Terá de reintroduzir todas as suas credenciais** se eliminar estes ficheiros
 
@@ -302,8 +302,8 @@ Experimente as sugestões seguintes:
 
 Se nenhuma das soluções resolver o problema, envie um e-mail à equipa de Ferramentas de Programação do Azure Cosmos DB ([cosmosdbtooling@microsoft.com](mailto:cosmosdbtooling@microsoft.com)) com detalhes sobre o problema, para o corrigir.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Veja o seguinte vídeo para ver como utilizar o Azure Cosmos DB no Explorador de armazenamento do Azure: [Utilizar o Azure Cosmos DB no Explorador de armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
+* Veja o vídeo seguinte para ver como utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure: [Utilizar o Azure Cosmos DB no Explorador de Armazenamento do Azure](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be).
 * Saiba mais sobre o Explorador de Armazenamento e como ligar mais serviços em [Introdução ao Explorador de Armazenamento](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 

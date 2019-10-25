@@ -1,5 +1,5 @@
 ---
-title: Como instalar e usar as exibições do log Analytics para Azure Active Directory | Microsoft Docs
+title: Como instalar e usar as exibições do log Analytics | Microsoft Docs
 description: Saiba como instalar e usar as exibições do log Analytics para Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -17,19 +17,19 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb1241387144b691b76ec330a5f90b762ebc11f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 00bca8bca19f9a71c4eeb639017845987682661f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989792"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820905"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalar e usar as exibições do log Analytics para Azure Active Directory
 
 As exibições Azure Active Directory log Analytics ajudam a analisar e Pesquisar os logs de atividades do Azure AD em seu locatário do Azure AD. Os logs de atividades do Azure AD incluem:
 
-* Logs de auditoria: O [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
-* Logs de entrada: Com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem realizou as tarefas que são relatadas nos logs de auditoria.
+* Logs de auditoria: o [relatório de atividade de logs de auditoria](concept-audit-logs.md) fornece acesso ao histórico de todas as tarefas que são executadas em seu locatário.
+* Logs de entrada: com o [relatório de atividade de entrada](concept-sign-ins.md), você pode determinar quem executou as tarefas que são relatadas nos logs de auditoria.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,15 +51,15 @@ Para usar as exibições do log Analytics, você precisa de:
 
 2. Quando estiver no espaço de trabalho, selecione **Resumo do espaço de trabalho**. Você deve ver os três seguintes modos de exibição:
 
-    * **Eventos de provisionamento de conta do Azure ad**: Essa exibição mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários provisionados e falhas de provisionamento, o número de usuários atualizados e falhas de atualização e o número de usuários desprovisionados e falhas correspondentes.    
-    * **Eventos de entrada**: Essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como uma exibição de resumo que controla o número de entradas ao longo do tempo.
+    * **Eventos de provisionamento de conta do Azure ad**: esta exibição mostra relatórios relacionados à atividade de provisionamento de auditoria, como o número de novos usuários com falhas de provisionamento e provisionamento, o número de usuários atualizados e falhas de atualização e o número de usuários desprovisionadas e falhas correspondentes.    
+    * **Eventos de entrada**: essa exibição mostra os relatórios mais relevantes relacionados à atividade de entrada de monitoramento, como entradas por aplicativo, usuário, dispositivo, bem como uma exibição de resumo que controla o número de entradas ao longo do tempo.
 
 3. Selecione uma dessas exibições para ir para os relatórios individuais. Você também pode definir alertas em qualquer um dos parâmetros de relatório. Por exemplo, vamos definir um alerta para cada vez que houver um erro de entrada. Para fazer isso, primeiro selecione o modo de exibição de **eventos** de entradas, selecione o relatório **erros de entrada ao longo do tempo** e, em seguida, selecione **análise** para abrir a página de detalhes, com a consulta real por trás do relatório. 
 
     ![Detalhes](./media/howto-install-use-log-analytics-views/details.png)
 
 
-4. Selecione **definir alerta**e, em seguida, selecione **sempre que a pesquisa &lt;de logs personalizada&gt; for lógica indefinida** na seção **critérios de alerta** . Como queremos alertar sempre que houver um erro de entrada, defina o **limite** da lógica de alerta padrão como **1** e, em seguida, selecione **concluído**. 
+4. Selecione **definir alerta**e, em seguida, selecione **sempre que a pesquisa de logs personalizada for &lt;lógica&gt;da** na seção **critérios de alerta** . Como queremos alertar sempre que houver um erro de entrada, defina o **limite** da lógica de alerta padrão como **1** e, em seguida, selecione **concluído**. 
 
     ![Configurar lógica de sinal](./media/howto-install-use-log-analytics-views/configure-signal-logic.png)
 
@@ -71,7 +71,7 @@ Para usar as exibições do log Analytics, você precisa de:
 
 7. Selecione **criar regra de alerta** para criar o alerta. Agora você será alertado toda vez que houver um erro de entrada.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como analisar logs de atividade com logs de Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
 * [Introdução aos logs de Azure Monitor no portal do Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-analytics-portal)

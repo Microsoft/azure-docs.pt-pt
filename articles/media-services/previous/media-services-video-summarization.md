@@ -15,15 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: e7a99ffdd42c02e5a18dc14c4774b428232b8293
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: a546df73f316b4eb6c215a6f52d68f87ad09c1a2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015988"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881696"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar Azure Media Video Thumbnails para criar um resumo de vídeo  
-## <a name="overview"></a>Descrição geral
+
+> [!IMPORTANT]
+> Examine os [planos de aposentadoria](media-services-analytics-overview.md#retirement-plans) de alguns processadores de mídia.
+
+## <a name="overview"></a>Visão geral
 O MP (processador de mídia **Azure Media Video thumbnails** ) permite que você crie um resumo de um vídeo que é útil para os clientes que desejam apenas visualizar um resumo de um vídeo longo. Por exemplo, os clientes talvez queiram ver um breve "vídeo de resumo" quando focalizam uma miniatura. Ao ajustar os parâmetros de **Azure Media Video thumbnails** por meio de uma predefinição de configuração, você pode usar a avançada tecnologia de detecção e concatenação do MP para forma algorítmica gerar um subclipe descritivo.  
 
 O MP da **miniatura de vídeo de mídia do Azure** está atualmente em versão prévia.
@@ -56,8 +60,8 @@ No momento, você pode alterar os seguintes parâmetros:
 
 | Param | Descrição |
 | --- | --- |
-| outputAudio |Especifica se o vídeo resultante contém ou não qualquer áudio. <br/>Valores permitidos são: VERDADEIRO ou FALSO. O padrão é true. |
-| fadeInFadeOut |Especifica se as transições de esmaecimento são usadas ou não entre as miniaturas de movimento separadas.  <br/>Valores permitidos são: VERDADEIRO ou FALSO.  O padrão é true. |
+| outputAudio |Especifica se o vídeo resultante contém ou não qualquer áudio. <br/>Os valores permitidos são: true ou false. O padrão é true. |
+| fadeInFadeOut |Especifica se as transições de esmaecimento são usadas ou não entre as miniaturas de movimento separadas.  <br/>Os valores permitidos são: true ou false.  O padrão é true. |
 | maxMotionThumbnailDurationInSecs |Inteiro que especifica quanto tempo todo o vídeo resultante deve ser.  O padrão depende da duração original do vídeo. |
 
 A tabela a seguir descreve a duração padrão quando **maxMotionThumbnailInSecs** não é usado.
@@ -285,7 +289,7 @@ Configure o seu ambiente de desenvolvimento e preencha o ficheiro app.config com
 ## <a name="provide-feedback"></a>Enviar comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>Ligações relacionadas
+## <a name="related-links"></a>Hiperligações relacionadas
 [Visão geral da análise dos serviços de mídia do Azure](media-services-analytics-overview.md)
 
 [Demonstrações de Análise de Mídia do Azure](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

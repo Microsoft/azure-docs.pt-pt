@@ -1,23 +1,18 @@
 ---
 title: Exportação contínua de telemetria de Application Insights | Microsoft Docs
 description: Exporte dados de diagnóstico e de uso para armazenamento em Microsoft Azure e baixe-os a partir daí.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 5b859200-b484-4c98-9d9f-929713f1030c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 07/25/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 3238abcbcbc4d776e3736b13d5b32149c642649c
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.date: 07/25/2019
+ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516953"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819549"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter sua telemetria por mais tempo do que o período de retenção padrão? Ou processá-lo de alguma maneira especializada? A exportação contínua é ideal para isso. Os eventos que você vê no portal de Application Insights podem ser exportados para armazenamento em Microsoft Azure no formato JSON. A partir daí, você pode baixar seus dados e escrever qualquer código necessário para processá-los.  
@@ -92,7 +87,7 @@ Os dados também incluem os resultados de qualquer [teste de disponibilidade na 
 ## <a name="get"></a>Inspecionar os dados
 Você pode inspecionar o armazenamento diretamente no Portal. Clique em início no menu à extrema esquerda, na parte superior em que diz "serviços do Azure" selecionar **contas de armazenamento**, selecione o nome da conta de armazenamento, na página Visão geral, selecione **BLOBs** em serviços e, por fim, selecione o nome do contêiner.
 
-Para inspecionar o armazenamento do Azure no Visual Studio, abra o **modo de exibição**, **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: Abra a caixa de diálogo **novo projeto** , C#expanda Visual/Cloud e escolha **obter Microsoft Azure SDK para .net**.)
+Para inspecionar o armazenamento do Azure no Visual Studio, abra o **modo de exibição**, **Cloud Explorer**. (Se você não tiver esse comando de menu, precisará instalar o SDK do Azure: Abra a caixa de diálogo **novo projeto** , expanda Visual C#/Cloud e escolha **obter Microsoft Azure SDK para .net**.)
 
 Ao abrir seu repositório de BLOB, você verá um contêiner com um conjunto de arquivos de BLOB. O URI de cada arquivo derivado de seu Application Insights nome do recurso, sua chave de instrumentação, tipo de telemetria/data/hora. (O nome do recurso está em letras minúsculas e a chave de instrumentação omite traços.)
 
@@ -106,8 +101,8 @@ Aqui está a forma do caminho:
 
 Onde
 
-* `blobCreationTimeUtc`é a hora em que o blob foi criado no armazenamento de preparo interno
-* `blobDeliveryTimeUtc`é a hora em que o blob é copiado para o armazenamento de destino de exportação
+* `blobCreationTimeUtc` é hora em que o blob foi criado no armazenamento de preparo interno
+* `blobDeliveryTimeUtc` é a hora em que o blob é copiado para o armazenamento de destino de exportação
 
 ## <a name="format"></a>Formato de dados
 * Cada blob é um arquivo de texto que contém várias linhas separadas por "\n". Ele contém a telemetria processada durante um período de aproximadamente meio minuto.
@@ -185,7 +180,7 @@ Em escalas maiores, considere os clusters [HDInsight](https://azure.microsoft.co
   * Além disso, para aplicativos com alto tráfego, unidades de partição adicionais são alocadas. Nesse caso, cada unidade cria um blob a cada minuto.
 * *Eu regerei a chave para o meu armazenamento ou alterei o nome do contêiner, e agora a exportação não funciona.*
 
-    Edite a exportação e abra a guia destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação será reiniciada. Se a alteração tiver sido nos últimos dias, você não perderá dados.
+    Edite a exportação e abra a guia destino de exportação. deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação será reiniciada. Se a alteração tiver sido nos últimos dias, você não perderá dados.
 * *Posso pausar a exportação?*
 
     Sim. Clique em Desabilitar.

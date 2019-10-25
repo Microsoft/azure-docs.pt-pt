@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 9557923fc2228e8508acaa7e15d1729ac3d29538
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d3f5ef9d2c3359dc61c32d4971100b096b004f2f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028373"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881551"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Ingerir BLOBs no Azure Data Explorer assinando notificações de grade de eventos
 
@@ -43,17 +43,17 @@ Neste artigo, você aprenderá a definir uma assinatura da [grade de eventos do 
 
     **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Name | *Test-Grid-Connection* | O nome da grade de eventos que você deseja criar.|
+    | Nome | *Test-Grid-Connection* | O nome da grade de eventos que você deseja criar.|
     | Esquema de evento | *Esquema de grade de eventos* | O esquema que deve ser usado para a grade de eventos. |
     | Tipo de tópico | *Conta de armazenamento* | O tipo de tópico da grade de eventos. |
     | Recurso de tópico | *gridteststorage* | O nome da sua conta de armazenamento. |
-    | Subscrever todos os tipos de eventos | *clear* | Não seja notificado sobre todos os eventos. |
+    | Assinar todos os tipos de evento | *formatação* | Não seja notificado sobre todos os eventos. |
     | Tipos de evento definidos | *Blob criado* | A quais eventos específicos serão notificados. |
     | Tipo de ponto de extremidade | *Hubs de eventos* | O tipo de ponto de extremidade para o qual você envia os eventos. |
     | Ponto Final | *test-hub* | O hub de eventos que criou. |
     | | |
 
-1. Selecione a guia **recursos adicionais** se desejar controlar arquivos de um contêiner específico. Defina os filtros para as notificações da seguinte maneira:
+1. Selecione a guia **filtros** se desejar rastrear arquivos de um contêiner específico. Defina os filtros para as notificações da seguinte maneira:
     * O **assunto começa com** o campo é o prefixo *literal* do contêiner de BLOB. Como o padrão aplicado é *StartsWith*, ele pode abranger vários contêineres. Nenhum caractere curinga é permitido.
      Ele *deve* ser definido da seguinte maneira: *`/blobServices/default/containers/`* [prefixo do contêiner]
     * A **entidade termina com** o campo é o sufixo *literal* do blob. Nenhum caractere curinga é permitido.
@@ -94,7 +94,7 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
 
     ![Ingestão de dados](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Selecione o tipo de conexão: **Armazenamento de BLOBs**.
+1.  Selecione o tipo de conexão: **armazenamento de BLOBs**.
 
 1. Preencha o formulário com as informações a seguir e selecione **criar**.
 
@@ -116,8 +116,8 @@ Agora, conecte-se à grade de eventos do Data Explorer do Azure, para que os dad
 
      **Definição** | **Valor sugerido** | **Descrição do campo**
     |---|---|---|
-    | Tabela | *TestTable* | A tabela que criou em **TestDatabase**. |
-    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: Zip e GZip |
+    | Tabelas | *TestTable* | A tabela que criou em **TestDatabase**. |
+    | Formato de dados | *JSON* | Os formatos com suporte são Avro, CSV, JSON, JSON MULTILINHA, PSV, SOH, SCSV, TSV e TXT. Opções de compactação com suporte: zip e GZip |
     | Mapeamento de colunas | *TestMapping* | O mapeamento que criou no **TestDatabase**, que mapeia os dados recebidos de JSON para os tipos de dados e os nomes de coluna de **TestTable**.|
     | | |
     

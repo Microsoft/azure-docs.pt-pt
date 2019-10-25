@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 124b52d920ef36b373eef895187727499068f3eb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72596529"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882434"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>Transformação do coletor para um fluxo de dados
 
@@ -53,8 +53,8 @@ Selecione **validar esquema** para falhar o coletor se o esquema for alterado.
 
 Selecione **limpar a pasta** para truncar o conteúdo da pasta do coletor antes de gravar os arquivos de destino nessa pasta de destino.
 
-## <a name="rule-based-mapping"></a>Mapeamento baseado em regras
-Ao desligar o mapeamento automático, você terá a opção de adicionar mapeamento baseado em coluna (mapeamento fixo) ou mapeamento baseado em regra. O mapeamento baseado em regras permitirá que você escreva expressões com correspondência de padrões. 
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Mapeamento fixo versus mapeamento baseado em regra
+Ao desativar o mapeamento automático, você terá a opção de adicionar mapeamento baseado em coluna (mapeamento fixo) ou mapeamento baseado em regra. O mapeamento baseado em regras permitirá que você grave expressões com correspondência de padrões enquanto o mapeamento fixo mapeará nomes de coluna física e lógica.
 
 ![Mapeamento baseado em regras](media/data-flow/rules4.png "Mapeamento baseado em regras")
 
@@ -65,6 +65,12 @@ Os detalhes sobre a correspondência de padrões estão na [documentação do pa
 Você também pode inserir padrões de expressão regular ao usar a correspondência baseada em regra, expandindo a linha e inserindo uma expressão regular ao lado de "nome corresponde:".
 
 ![Mapeamento de Regex](media/data-flow/scdt1g4.png "Mapeamento de Regex")
+
+Um exemplo comum muito básico para um mapeamento baseado em regra versus mapeamento fixo é o caso em que você deseja mapear todos os campos de entrada para o mesmo nome em seu destino. No caso de mapeamentos fixos, você listaria cada coluna individual na tabela. Para o mapeamento baseado em regras, você teria uma única regra que mapeia todos os campos usando ```true()``` para o mesmo nome de campo de entrada representado por ```$$```.
+
+### <a name="sink-association-with-dataset"></a>Associação de coletor com DataSet
+
+O conjunto de os que você selecionar para o coletor pode ou não ter um esquema definido na definição do conjunto de conjuntos. Se não tiver um esquema definido, você deverá permitir descompasso de esquema. Quando você definiu um mapeamento fixo, o mapeamento de nome lógico para físico persistirá na transformação do coletor. Se você alterar a definição de esquema do conjunto de coleta, poderá interromper o mapeamento do coletor. Para evitar isso, use o mapeamento baseado em regras. Os mapeamentos baseados em regras são generalizados, o que significa que as alterações de esquema no conjunto de seus conjuntos de um não interromperão o mapeamento.
 
 ## <a name="file-name-options"></a>Opções de nome de arquivo
 

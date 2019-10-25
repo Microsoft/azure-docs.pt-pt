@@ -15,18 +15,18 @@ ms.date: 06/07/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fbea0567ec125ce12acd8f757b32df723876fe09
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 64161451c0c8b1af7666fcd104d337856e5803c7
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338577"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821461"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Funções personalizadas para recursos do Azure
 
 Se as [funções internas para os recursos do Azure](built-in-roles.md) não atenderem às necessidades específicas de sua organização, você poderá criar suas próprias funções personalizadas. Assim como as funções internas, você pode atribuir funções personalizadas a usuários, grupos e entidades de serviço na assinatura, grupo de recursos e escopos de recursos.
 
-As funções personalizadas são armazenadas em um diretório Azure Active Directory (Azure AD) e podem ser compartilhadas entre assinaturas. Cada diretório pode ter até **5000** funções personalizadas. (para clouds especializadas, como o Azure Government, o Azure Alemanha e o Azure China 21Vianet, o limite é de 2000 funções personalizadas). As funções personalizadas podem ser criadas usando Azure PowerShell, CLI do Azure ou a API REST.
+As funções personalizadas podem ser compartilhadas entre assinaturas que confiam no mesmo diretório do Azure AD. Há um limite de **5.000** funções personalizadas por diretório. (Para nuvens especializadas, como Azure governamental, Azure Alemanha e Azure China 21Vianet, o limite é de 2.000 funções personalizadas.) As funções personalizadas podem ser criadas usando Azure PowerShell, CLI do Azure ou a API REST.
 
 ## <a name="custom-role-example"></a>Exemplo de função personalizada
 
@@ -78,29 +78,29 @@ Quando você cria uma função personalizada, ela aparece na portal do Azure com
 
 1. Criar a função personalizada
 
-    Normalmente, você começa com uma função interna existente e a modifica para suas necessidades. Em seguida, use os comandos Create [-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [AZ role Definition](/cli/azure/role/definition#az-role-definition-create) para criar a função personalizada. Para criar uma função personalizada, você deve ter a permissão `Microsoft.Authorization/roleDefinitions/write` em todos os `AssignableScopes`, como o [proprietário](built-in-roles.md#owner) ou [administrador de acesso do usuário](built-in-roles.md#user-access-administrator).
+    Normalmente, você começa com uma função interna existente e a modifica para suas necessidades. Em seguida, use os comandos Create [-AzRoleDefinition](/powershell/module/az.resources/new-azroledefinition) ou [AZ role Definition](/cli/azure/role/definition#az-role-definition-create) para criar a função personalizada. Para criar uma função personalizada, você deve ter a permissão `Microsoft.Authorization/roleDefinitions/write` em todos os `AssignableScopes`, como [proprietário](built-in-roles.md#owner) ou [administrador de acesso do usuário](built-in-roles.md#user-access-administrator).
 
 1. Testar a função personalizada
 
     Depois de ter sua função personalizada, você precisa testá-la para verificar se ela funciona conforme o esperado. Se precisar fazer ajustes mais tarde, você poderá atualizar a função personalizada.
 
-Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [Tutorial: Crie uma função personalizada usando Azure PowerShell @ no__t-0 ou [Tutorial: Crie uma função personalizada usando CLI do Azure @ no__t-0.
+Para obter um tutorial passo a passo sobre como criar uma função personalizada, consulte [tutorial: criar uma função personalizada usando Azure PowerShell](tutorial-custom-role-powershell.md) ou [tutorial: criar uma função personalizada usando CLI do Azure](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Propriedades da função personalizada
 
 Uma função personalizada tem as propriedades a seguir.
 
-| Propriedade | Requerido | Tipo | Descrição |
+| Propriedade | Obrigatório | Tipo | Descrição |
 | --- | --- | --- | --- |
-| `Name` | Sim | Cadeia | O nome de exibição da função personalizada. Embora uma definição de função seja um recurso de nível de assinatura, uma definição de função pode ser usada em várias assinaturas que compartilham o mesmo diretório do AD do Azure. Esse nome de exibição deve ser exclusivo no escopo do diretório do Azure AD. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 128. |
-| `Id` | Sim | Cadeia | A ID exclusiva da função personalizada. Para Azure PowerShell e CLI do Azure, essa ID é gerada automaticamente quando você cria uma nova função. |
-| `IsCustom` | Sim | Cadeia | Indica se esta é uma função personalizada. Defina como `true` para funções personalizadas. |
-| `Description` | Sim | Cadeia | A descrição da função personalizada. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 1024. |
+| `Name` | Sim | String | O nome de exibição da função personalizada. Embora uma definição de função seja um recurso de nível de assinatura, uma definição de função pode ser usada em várias assinaturas que compartilham o mesmo diretório do AD do Azure. Esse nome de exibição deve ser exclusivo no escopo do diretório do Azure AD. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 128. |
+| `Id` | Sim | String | A ID exclusiva da função personalizada. Para Azure PowerShell e CLI do Azure, essa ID é gerada automaticamente quando você cria uma nova função. |
+| `IsCustom` | Sim | String | Indica se esta é uma função personalizada. Defina como `true` para funções personalizadas. |
+| `Description` | Sim | String | A descrição da função personalizada. Pode incluir letras, números, espaços e caracteres especiais. O número máximo de caracteres é 1024. |
 | `Actions` | Sim | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que a função permite executar. Para obter mais informações, consulte [ações](role-definitions.md#actions). |
-| `NotActions` | Não | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions` permitido. Para obter mais informações, consulte não- [ações](role-definitions.md#notactions). |
+| `NotActions` | Não | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica as operações de gerenciamento que são excluídas do `Actions`permitido. Para obter mais informações, consulte não- [ações](role-definitions.md#notactions). |
 | `DataActions` | Não | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica as operações de dados que a função permite que sejam executadas em seus dados dentro desse objeto. Para obter mais informações, consulte [Dataactions](role-definitions.md#dataactions). |
-| `NotDataActions` | Não | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica as operações de dados que são excluídas do `DataActions` permitido. Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
-| `AssignableScopes` | Sim | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica os escopos que a função personalizada está disponível para atribuição. Para funções personalizadas, atualmente, você não pode definir `AssignableScopes` para o escopo raiz (`"/"`) ou um escopo de grupo de gerenciamento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [Organize seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
+| `NotDataActions` | Não | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica as operações de dados que são excluídas do `DataActions`permitido. Para obter mais informações, consulte [NotDataActions](role-definitions.md#notdataactions). |
+| `AssignableScopes` | Sim | Cadeia de caracteres [] | Uma matriz de cadeias de caracteres que especifica os escopos que a função personalizada está disponível para atribuição. Para funções personalizadas, atualmente não é possível definir `AssignableScopes` para o escopo raiz (`"/"`) ou um escopo de grupo de gerenciamento. Para obter mais informações, consulte [AssignableScopes](role-definitions.md#assignablescopes) e [Organize seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment). |
 
 ## <a name="who-can-create-delete-update-or-view-a-custom-role"></a>Quem pode criar, excluir, atualizar ou exibir uma função personalizada
 
@@ -108,8 +108,8 @@ Assim como as funções internas, a propriedade `AssignableScopes` especifica os
 
 | Tarefa | Operação | Descrição |
 | --- | --- | --- |
-| Criar/excluir uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os usuários que recebem essa operação em todos os `AssignableScopes` da função personalizada podem criar (ou excluir) funções personalizadas para uso nesses escopos. Por exemplo, [proprietários](built-in-roles.md#owner) e [Administradores de acesso de usuário](built-in-roles.md#user-access-administrator) de assinaturas, grupos de recursos e recursos. |
-| Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os usuários que recebem essa operação em todos os `AssignableScopes` da função personalizada podem atualizar funções personalizadas nesses escopos. Por exemplo, [proprietários](built-in-roles.md#owner) e [Administradores de acesso de usuário](built-in-roles.md#user-access-administrator) de assinaturas, grupos de recursos e recursos. |
+| Criar/excluir uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os usuários que recebem essa operação em todas as `AssignableScopes` da função personalizada podem criar (ou excluir) funções personalizadas para uso nesses escopos. Por exemplo, [proprietários](built-in-roles.md#owner) e [Administradores de acesso de usuário](built-in-roles.md#user-access-administrator) de assinaturas, grupos de recursos e recursos. |
+| Atualizar uma função personalizada | `Microsoft.Authorization/ roleDefinitions/write` | Os usuários que recebem essa operação em todas as `AssignableScopes` da função personalizada podem atualizar funções personalizadas nesses escopos. Por exemplo, [proprietários](built-in-roles.md#owner) e [Administradores de acesso de usuário](built-in-roles.md#user-access-administrator) de assinaturas, grupos de recursos e recursos. |
 | Exibir uma função personalizada | `Microsoft.Authorization/ roleDefinitions/read` | Os usuários que recebem essa operação em um escopo podem exibir as funções personalizadas que estão disponíveis para atribuição nesse escopo. Todas as funções internas permitem que as funções personalizadas estejam disponíveis para atribuição. |
 
 ## <a name="next-steps"></a>Passos seguintes

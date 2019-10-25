@@ -8,13 +8,13 @@ author: tomarcher
 manager: gwallace
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: b156169e7202319366e337cc7081e02f5de3acad
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/23/2019
+ms.openlocfilehash: 82cee1e5c93eb21fa8db29985d26fe75bde970d2
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244812"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882593"
 ---
 # <a name="create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Criar um controlador de entrada do gateway de aplicativo no serviço kubernetes do Azure
 
@@ -475,11 +475,11 @@ Crie um arquivo de configuração Terraform que cria todos os recursos.
 
 1. Salve o arquivo e saia do editor.
 
-O código apresentado nesta seção define o nome do cluster, o local e o resource_group_name. O valor `dns_prefix`-que faz parte do FQDN (nome de domínio totalmente qualificado) usado para acessar o cluster-está definido.
+O código apresentado nesta seção define o nome do cluster, o local e o resource_group_name. O valor `dns_prefix`-que faz parte do FQDN (nome de domínio totalmente qualificado) usado para acessar o cluster – está definido.
 
-O registro `linux_profile` permite que você defina as configurações que permitem a entrada nos nós de trabalho usando o SSH.
+O registro de `linux_profile` permite que você defina as configurações que permitem a entrada nos nós de trabalho usando o SSH.
 
-No AKS, paga apenas os nós de trabalho. O registro `agent_pool_profile` configura os detalhes para esses nós de trabalho. O `agent_pool_profile record` inclui o número de nós de trabalho a serem criados e os tipos de nós de trabalho. Se você precisar escalar ou reduzir verticalmente o cluster no futuro, modifique o valor `count` nesse registro.
+No AKS, paga apenas os nós de trabalho. O registro de `agent_pool_profile` configura os detalhes para esses nós de trabalho. O `agent_pool_profile record` inclui o número de nós de trabalho a serem criados e o tipo de nós de trabalho. Se você precisar escalar ou reduzir verticalmente o cluster no futuro, modifique o valor `count` nesse registro.
 
 ## <a name="create-a-terraform-output-file"></a>Criar um ficheiro de saída do Terraform
 
@@ -568,7 +568,7 @@ Nesta secção, pode ver como utilizar o comando `terraform init` para criar os 
     terraform init -backend-config="storage_account_name=<YourAzureStorageAccountName>" -backend-config="container_name=tfstate" -backend-config="access_key=<YourStorageAccountAccessKey>" -backend-config="key=codelab.microsoft.tfstate" 
     ```
   
-    O comando `terraform init` mostra o sucesso de inicializar o plug-in de fornecedor e back-end:
+    O comando `terraform init` exibe o sucesso da inicialização do plug-in de back-end e do provedor:
 
     ![Exemplo de resultados "terraform init"](./media/terraform-k8s-cluster-appgw-with-tf-aks/terraform-init-complete.png)
 

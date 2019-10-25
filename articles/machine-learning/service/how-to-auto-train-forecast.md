@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.openlocfilehash: eb13e6d279ffd8efc0cdb5ce675b77aac5be9c18
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436623"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819860"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
@@ -34,6 +34,27 @@ Essa abordagem, ao contrário dos métodos de série temporal clássica, tem uma
 Você pode [Configurar](#config) o quanto no futuro a previsão deve estender (o horizonte de previsão), bem como um retardo e muito mais. O ML automatizado aprende um modelo único, mas geralmente ramificado internamente para todos os itens no conjunto de e horizontes de previsão. Por isso, mais dados estão disponíveis para estimar os parâmetros de modelo e a generalização para uma série não vista se torna possível.
 
 Os recursos extraídos dos dados de treinamento desempenham uma função crítica. E o ML automatizado executa etapas de pré-processamento padrão e gera recursos adicionais de série temporal para capturar efeitos sazonais e maximizar a precisão preditiva.
+
+## <a name="time-series-and-deep-learning-models"></a>Modelos de série temporal e aprendizado profundo
+
+
+O ML automatizado fornece aos usuários os modelos de série temporal nativa e de aprendizado profundo como parte do sistema de recomendação. Esses aprendizes incluem:
++ Prophet
++ ARIMA automático
++ ForecastTCN
+
+O profundo aprendizado automatizado do ML permite prever dados de série temporal monovariável e MultiVariable.
+
+Os modelos de aprendizado profundo têm três capbailities intrínsecos:
+1. Eles podem aprender com mapeamentos arbitrários de entradas para saídas
+1. Eles dão suporte a várias entradas e saídas
+1. Eles podem extrair automaticamente padrões em dados de entrada que se estendem por longas sequências
+
+Considerando dados maiores, modelos de aprendizado profundo, como Microsoft ' ForecasTCN ', podem melhorar as pontuações do modelo resultante. 
+
+Os aprendizes da série temporal nativa também são fornecidos como parte do ML automatizado. O Prophet funciona melhor com a série temporal que tem efeitos sazonais fortes e várias estações de dados históricos. O Prophet é preciso & rápido, robusto a exceções, dados ausentes e alterações consideráveis na sua série temporal. 
+
+A média de movimentação integrada de regressão automática (ARIMA) é um método estatístico popular para a previsão de série temporal. Essa técnica de previsão é normalmente usada em cenários de previsão de curto prazo, em que os dados mostram evidências de tendências, como ciclos, que podem ser imprevisíveis e difíceis de modelar ou prever. O ARIMA transforma seus dados em dados estáticos para receber resultados consistentes e confiáveis.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +77,7 @@ A diferença mais importante entre um tipo de tarefa de regressão de previsão 
     9/7/2018,A,2450,36
     9/7/2018,B,650,36
 
-Esse conjunto de dados é um exemplo simples de dados de vendas diários para uma empresa que tem duas lojas diferentes, A e B. Além disso, há um recurso para `week_of_year` que permitirá que o modelo detecte sazonalidade semanalmente. O campo `day_datetime` representa uma série temporal limpa com frequência diária e o campo `sales_quantity` é a coluna de destino para executar previsões. Leia os dados em um data frame do pandas e use a função `to_datetime` para garantir que a série temporal seja um tipo `datetime`.
+Esse conjunto de dados é um exemplo simples de dados de vendas diários para uma empresa que tem duas lojas diferentes, A e B. Além disso, há um recurso para `week_of_year` que permitirá que o modelo detecte sazonalidade semanalmente. O campo `day_datetime` representa uma série temporal limpa com frequência diária e o campo `sales_quantity` é a coluna de destino para executar previsões. Leia os dados em um dataframe do pandas e use a função `to_datetime` para garantir que a série temporal seja um tipo de `datetime`.
 
 ```python
 import pandas as pd
@@ -101,7 +122,7 @@ O objeto `AutoMLConfig` define as configurações e os dados necessários para u
 
 Consulte a [documentação de referência](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) para obter mais informações.
 
-Crie as configurações de série temporal como um objeto Dictionary. Defina o `time_column_name` para o campo `day_datetime` no conjunto de dados. Defina o parâmetro `grain_column_names` para garantir que **dois grupos de série temporal separados** sejam criados para os dados; uma para a loja A e B. por fim, defina o `max_horizon` como 50 para prever o conjunto de teste inteiro. Defina uma janela de previsão como 10 períodos com `target_rolling_window_size` e especifique um único retardo nos valores de destino para 2 períodos à frente com o parâmetro `target_lags`.
+Crie as configurações de série temporal como um objeto Dictionary. Defina o `time_column_name` para o campo `day_datetime` no conjunto de dados. Defina o parâmetro `grain_column_names` para garantir que **dois grupos de série temporal separados** sejam criados para os dados; uma para a loja A e B. por fim, defina o `max_horizon` como 50 para prever o conjunto de teste inteiro. Defina uma janela de previsão como 10 períodos com `target_rolling_window_size`e especifique um único retardo nos valores de destino para 2 períodos à frente com o parâmetro `target_lags`.
 
 ```python
 time_series_settings = {
@@ -173,7 +194,7 @@ predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-Como alternativa, você pode usar a função `forecast()` em vez de `predict()`, que permitirá especificações de quando as previsões devem ser iniciadas. No exemplo a seguir, você primeiro substitui todos os valores em `y_pred` por `NaN`. A origem da previsão estará no final dos dados de treinamento nesse caso, como normalmente seria ao usar `predict()`. No entanto, se você substituiu apenas a segunda metade de `y_pred` por `NaN`, a função deixaria os valores numéricos na primeira metade sem modificações, mas prevendo os valores de `NaN` na segunda metade. A função retorna os valores previstos e os recursos alinhados.
+Como alternativa, você pode usar a função `forecast()` em vez de `predict()`, que permitirá especificações de quando as previsões devem ser iniciadas. No exemplo a seguir, você primeiro substitui todos os valores em `y_pred` por `NaN`. A origem da previsão estará no final dos dados de treinamento nesse caso, como normalmente seria ao usar `predict()`. No entanto, se você substituiu apenas a segunda metade de `y_pred` por `NaN`, a função deixaria os valores numéricos na primeira metade sem modificações, mas preverá os valores de `NaN` na segunda metade. A função retorna os valores previstos e os recursos alinhados.
 
 Você também pode usar o parâmetro `forecast_destination` na função `forecast()` para prever valores até uma data especificada.
 
@@ -184,7 +205,7 @@ label_fcst, data_trans = fitted_pipeline.forecast(
     test_data, label_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
-Calcule RMSE (erro ao quadrado da média raiz) entre os valores reais de `actual_labels` e os valores previstos em `predict_labels`.
+Calcule RMSE (erro ao quadrado da média raiz) entre o `actual_labels` valores reais e os valores previstos em `predict_labels`.
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -194,7 +215,7 @@ rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
 rmse
 ```
 
-Agora que a precisão geral do modelo foi determinada, a próxima etapa realista é usar o modelo para prever valores futuros desconhecidos. Basta fornecer um conjunto de dados no mesmo formato que o conjunto de teste `test_data`, mas com DateTimes futuros, e o conjunto de previsão resultante é os valores previstos para cada etapa da série temporal. Suponha que os últimos registros de série temporal no conjunto de dados eram de 12/31/2018. Para prever a demanda para o dia seguinte (ou quantos períodos forem necessários para prever, < = `max_horizon`), crie um único registro de série temporal para cada loja para 01/01/2019.
+Agora que a precisão geral do modelo foi determinada, a próxima etapa realista é usar o modelo para prever valores futuros desconhecidos. Basta fornecer um conjunto de dados no mesmo formato que o conjunto de teste `test_data` mas com DateTimes futuros e o conjunto de previsão resultante é os valores previstos para cada etapa da série temporal. Suponha que os últimos registros de série temporal no conjunto de dados eram de 12/31/2018. Para prever a demanda para o dia seguinte (ou quantos períodos forem necessários para prever, < = `max_horizon`), crie um único registro de série temporal para cada loja para 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1

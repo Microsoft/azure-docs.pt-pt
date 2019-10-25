@@ -1,5 +1,5 @@
 ---
-title: Códigos de erro dos relatórios de atividades de início de sessão no portal do Azure Active Directory | Microsoft Docs
+title: Códigos de erro no portal de Azure Active Directory | Microsoft Docs
 description: Referência aos códigos de erro dos relatórios de atividades de início de sessão.
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5aedd5c9bde7689df14c7efdf8d58692680c13
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383179"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820868"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de erro do relatório de atividade de entrada 
 
@@ -38,15 +38,15 @@ Quando uma entrada falhar, você verá um código de erro correspondente à falh
 
 Navegue até o [relatório de entradas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns) no [portal do Azure](https://portal.azure.com).
 
-![Atividade de início de sessão](./media/reference-sign-ins-error-codes/61.png "Atividade de início de sessão")
+![Atividade de entrada](./media/reference-sign-ins-error-codes/61.png "Atividade de início de sessão")
 
 Filtre o relatório para exibir todas as entradas com falha selecionando **falha** na caixa suspensa **status de entrada** .
 
-![Atividade de início de sessão](./media/reference-sign-ins-error-codes/06.png "Atividade de início de sessão")
+![Atividade de entrada](./media/reference-sign-ins-error-codes/06.png "Atividade de início de sessão")
 
-A seleção de um item da lista filtrada **abre os detalhes da atividade:**  Folha de entradas. Essa exibição fornece informações adicionais sobre o evento de entrada com falha, incluindo o código de **erro de entrada** e o **motivo da falha**.
+A seleção de um item da lista filtrada abre a folha **detalhes da atividade: entradas** . Essa exibição fornece informações adicionais sobre o evento de entrada com falha, incluindo o código de **erro de entrada** e o **motivo da falha**.
 
-![Atividade de início de sessão](./media/reference-sign-ins-error-codes/05.png "Atividade de início de sessão")
+![Atividade de entrada](./media/reference-sign-ins-error-codes/05.png "Atividade de início de sessão")
 
 Você também pode acessar os dados de entrada programaticamente usando a [API de relatório](concept-reporting-api.md).
 
@@ -71,7 +71,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |50007|O certificado de encriptação do parceiro não foi encontrado para esta aplicação. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com a Microsoft para corrigir isso.|
 |50008|A asserção SAML está em falta ou não está devidamente configurada no token. Contacte o seu fornecedor de federação.|
 |50010|A validação do URI de audiência da aplicação falhou, pois não foram configuradas audiências de token. Contate o proprietário do aplicativo para resolução.|
-|50011|O endereço de resposta está em falta, está mal configurado ou não corresponde aos endereços de resposta configurados para a aplicação. Tente a resolução listada [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application)em. Se o problema persistir, contate o proprietário do aplicativo ou o administrador do aplicativo.|
+|50011|O endereço de resposta está em falta, está mal configurado ou não corresponde aos endereços de resposta configurados para a aplicação. Experimente a resolução listada em [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery#the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application). Se o problema persistir, contate o proprietário do aplicativo ou o administrador do aplicativo.|
 |50012| Essa é uma mensagem de erro genérica que indica que a autenticação falhou. Isso pode ocorrer por motivos como credenciais ausentes ou inválidas ou declarações na solicitação. Certifique-se de que a solicitação seja enviada com as credenciais e declarações corretas. |
 |50013|A asserção é inválida devido a vários motivos. Por exemplo, o emissor do token não corresponde à versão da API em seu intervalo de tempo válido, o token está expirado ou malformado ou o token de atualização na asserção não é um token de atualização primário.|
 |50017|A validação da certificação falhou devido a um dos seguintes motivos:<ul><li>O certificado da emissora não foi encontrado na lista de certificados fidedignos</li><li>Não foi possível encontrar o CrlSegment esperado</li><li>O certificado da emissora não foi encontrado na lista de certificados fidedignos</li><li>O ponto de distribuição de Delta CRL está configurado sem um ponto de distribuição de CRL correspondente</li><li>Não é possível obter segmentos de CRL válidos devido a um problema de tempo de ligação excedido</li><li>Não é possível transferir a CRL</li></ul>Contate o administrador do locatário.|
@@ -116,7 +116,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |50143|Incompatibilidade de sessão-a sessão é inválida porque o locatário do usuário não corresponde à dica de domínio devido a um recurso diferente.  [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com ID de correlação, ID de solicitação e código de erro para obter mais detalhes.|
 |50144|A palavra-passe do Active Directory do utilizador expirou. Gerar uma nova senha para o usuário ou ter o usuário final usando a ferramenta de redefinição de autoatendimento.|
 |50146|Esta aplicação tem de ser configurada com uma chave de assinatura específica da aplicação. Ou não está configurada com uma chave destas ou a chave expirou ou ainda não é válida. Contacte o proprietário da aplicação.|
-|50148|O code_verifier não corresponde ao code_challenge fornecido no pedido de autorização do PKCE. Contacte o programador da aplicação. |
+|50148|O code_verifier não corresponde ao code_challenge fornecido no pedido de autorização do PKCE. Contate o desenvolvedor do aplicativo. |
 |50155|Falha na autenticação do dispositivo para este usuário.|
 |50158|O desafio de segurança externa não foi atendido.|
 |50161|As declarações enviadas pelo provedor externo não são suficientes ou estão faltando uma declaração solicitada para o provedor externo.|
@@ -131,13 +131,13 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |51001|A dica de domínio não está presente no identificador de segurança local-UPN local.|
 |51004|A conta de utilizador não existe no diretório.|
 |51006|É necessária a Autenticação Integrada do Windows Usuário conectado usando o token de sessão que está faltando por meio de declaração. Pedir ao utilizador que volte a iniciar sessão.|
-|52004|O utilizador não deu consentimento de acesso a recursos do LinkedIn. |
+|52004|O utilizador não deu consentimento para acesso a recursos do LinkedIn. |
 |53000|A política de acesso condicional requer um dispositivo em conformidade e o dispositivo não está em conformidade. Faça com que o usuário registre seu dispositivo com um provedor de MDM aprovado, como o Intune.|
 |53001|A política de acesso condicional requer um dispositivo associado a um domínio, o que não é o caso deste dispositivo. Fazer com que o usuário use um dispositivo ingressado no domínio.|
 |53002|O aplicativo usado não é um aplicativo aprovado para acesso condicional. Para obter acesso, o utilizador tem de utilizar uma das aplicações na lista de aplicações aprovadas.|
 |53003|O acesso foi bloqueado devido a políticas de acesso condicional.|
 |53004|O utilizador tem de concluir o processo de registo na autenticação multifator antes de aceder a este conteúdo. O utilizador deve registar-se na autenticação multifator.|
-|65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o usuário ou administrador não consentiu usar o aplicativo com ID X. envie uma solicitação de autorização para o administrador de locatários para agir em nome do aplicativo: Y para o recurso: Z.|
+|65001|A aplicação X não tem permissão para aceder à aplicação Y ou a permissão foi revogada. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização interativo para este utilizador e este recurso. Ou o utilizador ou o administrador não permitiu utilizar a aplicação com o ID X. Envie um pedido de autorização ao administrador do seu inquilino para agir em nome da Aplicação :Y para o Recurso : Z.|
 |65004|O utilizador recusou dar autorização para aceder à aplicação. Pedir ao utilizador que repita o início de sessão e que autorize o acesso à aplicação|
 |65005|A lista de acesso a recursos necessária para a aplicação não contém aplicações detetáveis pelo recurso ou a aplicação cliente pediu acesso a um recurso que não foi especificado nesta lista de acesso a recursos necessária ou o serviço Graph devolveu um pedido inválido ou o recurso não foi encontrado. Se a aplicação suportar SAML, poderá ter configurado a aplicação com o identificador (Entidade) incorreto. Experimente a resolução indicada para SAML através da ligação abaixo: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
 |70000|Concessão inválida devido aos seguintes motivos:<ul><li>A asserção de SAML 2.0 pedida tem um Método de Confirmação de Requerente inválido</li><li>O fluxo OnBehalfOf da aplicação não é suportado em V2</li><li>O token de atualização principal não está assinado com a chave de sessão</li><li>Token de atualização externo inválido</li><li>A concessão de acesso foi obtida para outro inquilino.</li></ul>|
@@ -162,15 +162,15 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |75011|O método de autenticação através do qual o utilizador se autenticou no serviço não corresponde ao método de autenticação pedido. Contacte o proprietário da aplicação.|
 |75016|O Pedido de Autenticação SAML2 tem uma NameIdPolicy inválida. Contacte o proprietário da aplicação.|
 |80001|O Agente de Autenticação não se consegue ligar ao Active Directory. Confirme que o agente de autenticação está instalado num computador associado a um domínio que tenha linha de visão para um controlador de domínio que possa servir o pedido de início de sessão do utilizador.|
-|80002|Erro interno. O pedido de validação da palavra-passe atingiu o tempo limite. Não foi possível enviar o pedido de autenticação para o serviço de identidade híbrido interno. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
+|80002|Erro interno. A solicitação de validação de senha atingiu o tempo limite. Não foi possível enviar a solicitação de autenticação para o serviço de identidade híbrida interno. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80003|O Agente de Autenticação recebeu uma resposta inválida. Ocorreu um erro desconhecido ao tentar autenticar no Active Directory no local. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
-|80005|Agente de autenticação: Ocorreu um erro desconhecido ao processar a resposta do agente de autenticação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
+|80005|Agente de Autenticação: ocorreu um erro desconhecido ao processar a resposta do Agente de Autenticação. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para obter mais detalhes sobre o erro.|
 |80007|O Agente de Autenticação não conseguiu validar a palavra-passe do utilizador.|
 |80010|O Agente de Autenticação não conseguiu desencriptar a palavra-passe. |
 |80011|O Agente de Autenticação não conseguiu obter a chave de desencriptação.|
 |80012|Os usuários tentaram fazer logon fora dos horários permitidos (isso é especificado no AD).|
 |80013|Não foi possível concluir a tentativa de autenticação devido a um desfasamento de horas entre o computador que está a executar o agente de autenticação e o AD. Corrija os problemas de sincronização de hora.|
-|80014|O agente de autenticação excedeu o tempo limite. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, ID de correlação e data e hora para obter mais detalhes sobre esse erro.|
+|80014|O agente de autenticação atingiu o tempo limite. [Abra um tíquete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o código de erro, ID de correlação e data e hora para obter mais detalhes sobre esse erro.|
 |81001|A permissão do Kerberos do utilizador é demasiado grande. Isto pode acontecer se o utilizador estiver em demasiados grupos e, por conseguinte, a permissão do Kerberos contém demasiadas adesões a grupos. Reduza as adesões a grupos do utilizador e tente novamente.|
 |81005|Não há suporte para o pacote de autenticação.|
 |81007|O locatário não está habilitado para SSO contínuo.|
@@ -190,7 +190,7 @@ Você também pode acessar os dados de entrada programaticamente usando a [API d
 |7000218|O corpo da solicitação deve conter o seguinte parâmetro: ' client_assertion ' ou ' client_secret '.|
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Visão geral de relatórios de entradas](concept-sign-ins.md)
 * [Acesso programático aos relatórios do Azure AD](concept-reporting-api.md)

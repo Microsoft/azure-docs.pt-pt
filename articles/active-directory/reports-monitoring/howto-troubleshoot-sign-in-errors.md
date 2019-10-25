@@ -1,5 +1,5 @@
 ---
-title: Como solucionar problemas de erros de entrada usando relatórios de Azure Active Directory | Microsoft Docs
+title: Como solucionar problemas de relatórios de erros de entrada | Microsoft Docs
 description: Saiba como solucionar problemas de erros de entrada usando Azure Active Directory relatórios no portal do Azure
 services: active-directory
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.date: 11/13/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c901395436c8ed660c50b7342a804143d57db3c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 692fd2034fb70feffe02320eea5cdb9a3d163475
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988175"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819706"
 ---
-# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: Solucionar problemas de erros de entrada usando relatórios de Azure Active Directory
+# <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Como: solucionar problemas de erros de entrada usando relatórios de Azure Active Directory
 
 O [relatório de entradas](concept-sign-ins.md) no Azure Active Directory (Azure AD) permite que você encontre respostas para perguntas sobre o gerenciamento de acesso aos aplicativos em sua organização, incluindo:
 

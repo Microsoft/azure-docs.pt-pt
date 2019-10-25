@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 984d0c570c6c0d5048d58377f113319157411244
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 0772446b0259b12d3f76b2020eeed4c9c2de1119
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513393"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882226"
 ---
 # <a name="azcopy"></a>azcopy
 
@@ -36,10 +36,16 @@ Para relatar problemas ou para saber mais sobre a ferramenta, consulte [https://
 ## <a name="see-also"></a>Ver também
 
 - [Introdução ao AzCopy](storage-use-azcopy-v10.md)
+- [bancada de azcopy](storage-ref-azcopy-bench.md)
 - [cópia azcopy](storage-ref-azcopy-copy.md)
 - [azcopy doc](storage-ref-azcopy-doc.md)
 - [azcopy env](storage-ref-azcopy-env.md)
 - [trabalhos do azcopy](storage-ref-azcopy-jobs.md)
+- [limpeza de trabalhos do azcopy](storage-ref-azcopy-jobs-clean.md)
+- [lista de trabalhos do azcopy](storage-ref-azcopy-jobs-list.md)
+- [remover trabalhos do azcopy](storage-ref-azcopy-jobs-remove.md)
+- [retomada de trabalhos do azcopy](storage-ref-azcopy-jobs-resume.md)
+- [azcopy trabalhos de exibição](storage-ref-azcopy-jobs-show.md)
 - [lista de azcopy](storage-ref-azcopy-list.md)
 - [logon do azcopy](storage-ref-azcopy-login.md)
 - [azcopy logout](storage-ref-azcopy-logout.md)

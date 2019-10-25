@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 928900c526ec0e77f84c621f630ac5894cdb2d23
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 619f1ea3bae001d25eb520f43da33ca94a3160c8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125664"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880343"
 ---
-# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: Bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional  
+# <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-conditional-access"></a>Início rápido: bloquear o acesso quando um risco de sessão for detectado com Azure Active Directory acesso condicional  
 
 Para manter seu ambiente protegido, talvez você queira bloquear usuários suspeitos de entrar. A [proteção de identidade do Azure Active Directory (AD do Azure)](../active-directory-identityprotection.md) analisa cada entrada e calcula a probabilidade de uma tentativa de entrada não ter sido executada pelo proprietário legítimo de uma conta de usuário. A probabilidade (baixa, média, alta) é indicada na forma de um valor calculado chamado [níveis de risco de entrada](conditions.md#sign-in-risk). Ao definir a condição de risco de entrada, você pode configurar uma política de acesso condicional para responder a níveis de risco de entrada específicos.
 
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 Para concluir o cenário deste tutorial, precisa de:
 
 - **Acesso a uma edição Azure ad Premium P2** – embora o acesso condicional seja um recurso Azure ad Premium P1, você precisa de uma edição P2 porque o cenário deste início rápido requer a proteção de identidade.
-- **Proteção de identidade** -o cenário neste guia de início rápido requer que o Identity Protection esteja habilitado. Se você não souber como habilitar a proteção de identidade, consulte [habilitando Azure Active Directory Identity Protection](../identity-protection/enable.md).
+- **Proteção de identidade** -o cenário neste guia de início rápido requer que o Identity Protection esteja habilitado. Se você não souber como habilitar a proteção de identidade, consulte [habilitando Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md).
 - **Tor browser** – o [navegador do Tor](https://www.torproject.org/projects/torbrowser.html.en) foi projetado para ajudá-lo a preservar sua privacidade online. A proteção de identidade detecta uma entrada de um navegador Tor como entradas de endereços IP anônimos, que têm um nível de risco médio. Para obter mais informações, consulte [Azure Active Directory as detecções de risco](../reports-monitoring/concept-risk-events.md).  
 - **Uma conta de teste chamada Alain Charon** -se você não souber como criar uma conta de teste, consulte [Adicionar usuários baseados em nuvem](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
@@ -52,10 +52,10 @@ O cenário neste guia de início rápido usa uma entrada de um navegador Tor par
 
 Esta seção mostra como criar a política de acesso condicional necessária. Em sua política, defina:
 
-| Definição | Value |
+| Definição | Valor |
 | --- | --- |
 | Utilizadores e grupos | Alain Charon  |
-| Aplicações na cloud | Todas as aplicações na cloud |
+| Aplicativos de nuvem | Todos os aplicativos de nuvem |
 | Risco de entrada | Médio |
 | Conceder | Bloquear acesso |
 
@@ -74,11 +74,11 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
 
 1. Na página **acesso condicional** , na barra de ferramentas na parte superior, clique em **Adicionar**.
 
-   ![Name](./media/app-sign-in-risk/108.png)
+   ![Nome](./media/app-sign-in-risk/108.png)
 
 1. Na página **novo** , na caixa de texto **nome** , digite **bloquear acesso para nível de risco médio**.
 
-   ![Name](./media/app-sign-in-risk/104.png)
+   ![Nome](./media/app-sign-in-risk/104.png)
 
 1. Na seção **atribuição** , clique em **usuários e grupos**.
 
@@ -94,7 +94,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
    1. Na página **usuários e grupos** , clique em **concluído**.
 1. Clique em **aplicativos de nuvem**.
 
-   ![Aplicações na cloud](./media/app-sign-in-risk/08.png)
+   ![Aplicativos de nuvem](./media/app-sign-in-risk/08.png)
 
 1. Na página **aplicativos de nuvem** :
 
@@ -104,7 +104,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
    1. Clique em **Concluído**.
 1. Clique em **condições**.
 
-   ![Controlos de acesso](./media/app-sign-in-risk/19.png)
+   ![Controles de acesso](./media/app-sign-in-risk/19.png)
 
 1. Na página **condições** :
 
@@ -117,7 +117,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
    1. Na página **condições** , clique em **concluído**.
 1. Na seção **controles de acesso** , clique em **conceder**.
 
-   ![Controlos de acesso](./media/app-sign-in-risk/10.png)
+   ![Controles de acesso](./media/app-sign-in-risk/10.png)
 
 1. Na página **conceder** :
 
@@ -127,7 +127,7 @@ Esta seção mostra como criar a política de acesso condicional necessária. Em
    1. Clique em **Selecionar**.
 1. Na seção **habilitar política** , clique **em ativar**.
 
-   ![Ativar política](./media/app-sign-in-risk/18.png)
+   ![Habilitar política](./media/app-sign-in-risk/18.png)
 
 1. Clique em **Criar**.
 
@@ -161,7 +161,7 @@ Na seção anterior, você aprendeu como avaliar uma entrada simulada. Além de 
 
 Para testar sua política, tente entrar no seu [portal do Azure](https://portal.azure.com) como **Alan Charon** usando o navegador Tor. Sua tentativa de entrada deve ser bloqueada pela política de acesso condicional.
 
-![Multi-Factor Authentication](./media/app-sign-in-risk/118.png)
+![Autenticação multifator](./media/app-sign-in-risk/118.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -170,9 +170,9 @@ Quando não for mais necessário, exclua o usuário de teste, o navegador Tor e 
 - Se você não souber como excluir um usuário do Azure AD, consulte [excluir usuários do Azure ad](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 - Para excluir sua política, selecione sua política e clique em **excluir** na barra de ferramentas de acesso rápido.
 
-   ![Multi-Factor Authentication](./media/app-sign-in-risk/33.png)
+   ![Autenticação multifator](./media/app-sign-in-risk/33.png)
 
-- Para obter instruções para remover o navegador Tor, [](https://tb-manual.torproject.org/uninstalling/)consulte Desinstalando.
+- Para obter instruções para remover o navegador Tor, consulte [desinstalando](https://tb-manual.torproject.org/uninstalling/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

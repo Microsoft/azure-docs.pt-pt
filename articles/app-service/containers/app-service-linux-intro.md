@@ -4,8 +4,8 @@ description: Saiba mais sobre o Serviço de Aplicações do Azure no Linux.
 keywords: serviço de aplicações do azure, linux, oss
 services: app-service
 documentationcenter: ''
-author: msangapu
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -15,29 +15,20 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7c00946ed9de88df43a4435c23ebef27b5c64e5c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071331"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819678"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicações do Azure no Linux
 
-[Azure app serviço](../overview.md) é uma plataforma de computação totalmente gerenciada que é otimizada para hospedar sites e aplicativos Web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas. A seção [idiomas](#languages) lista as pilhas de aplicativos com suporte no momento.
+[Azure app serviço](../overview.md) é uma plataforma de computação totalmente gerenciada que é otimizada para hospedar sites e aplicativos Web. Os clientes podem utilizar o Serviço de Aplicações no Linux para alojar aplicações Web nativamente no Linux para pilhas de aplicações suportadas.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Idiomas
 
-O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
-
-| Idioma | Versões Suportadas |
-|---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
-| Java * | Tomcat 8,5, 9,0, Java SE, WildFly 14 (todos executando o JRE 8) |
-| PHP | 5.6, 7.0, 7.2, 7.3 |
-| Python | 2,7, 3,6, 3,7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
-| Ruby | 2.3, 2.4, 2.5, 2.6 |
+O Serviço de Aplicações no Linux suporta um número de imagens Incorporadas para aumentar a produtividade do programador. Os idiomas incluem: node. js, Java (JRE 8 & JRE 11), PHP, Python, .NET Core e Ruby. Execute [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes) para exibir os idiomas mais recentes e as versões com suporte. Se o runtime pedido pela sua aplicação não for suportado nas imagens incorporadas, existem instruções sobre como [criar a sua própria imagem do Docker](tutorial-custom-docker-image.md) para implementar a Aplicação Web para Contentores.
 
 ## <a name="deployments"></a>Implementações
 
@@ -76,13 +67,13 @@ Com base em uma limitação atual, para o mesmo grupo de recursos, você não po
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registrar o `stdout` e `stderr` de seu contêiner, você precisa habilitar o **log de contêiner** do Docker em **logs do serviço de aplicativo**. A configuração entra em vigor imediatamente. O serviço de aplicativo detecta a alteração e reinicia o contêiner automaticamente.
+Quando a aplicação não consegue iniciar ou pretende verificar o registo da sua aplicação, verifique os registos do Docker no diretório LogFiles. Pode aceder a este diretório através do seu site SCM ou do FTP. Para registrar o `stdout` e `stderr` do contêiner, você precisa habilitar o **log de contêiner do Docker** em **logs do serviço de aplicativo**. A configuração entra em vigor imediatamente. O serviço de aplicativo detecta a alteração e reinicia o contêiner automaticamente.
 
 Pode aceder ao site do SCM através das **Ferramentas Avançadas** no menu **Ferramentas de Desenvolvimento**.
 
 ![Utilizar o Kudu para ver registos do Docker][1]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Os artigos seguintes ajudam-no a começar a utilizar o Serviço de Aplicações no Linux com aplicações Web escritas em várias linguagens:
 

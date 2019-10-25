@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
-ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2019
+ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162193"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882123"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementar no Serviço de Aplicações do Azure com o Jenkins e a CLI do Azure
 Para implementar uma aplicação Web Java no Azure, pode utilizar a CLI do Azure no [Pipeline do Jenkins](https://jenkins.io/doc/book/pipeline/). Neste tutorial, vai criar um pipeline de CI/CD numa VM do Azure, incluindo como:
@@ -31,13 +31,13 @@ Este tutorial requer a versão do módulo 2.0.4 ou posterior da CLI do Azure. Pa
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-and-configure-jenkins-instance"></a>Criar e Configurar a instância do Jenkins
-Se ainda não tiver um mestre do Jenkins, comece com o [Modelo de Solução](install-jenkins-solution-template.md), que inclui o plug-in [Azure Credentials](https://plugins.jenkins.io/azure-credentials) necessário, por predefinição. 
+Se você ainda não tiver um mestre Jenkins, comece com o [modelo de solução](install-jenkins-solution-template.md), que inclui o plug-in necessário de [credenciais do Azure](https://plugins.jenkins.io/azure-credentials) por padrão. 
 
-O plug-in Azure Credential permite-lhe armazenar credenciais de principal de serviço do Microsoft Azure no Jenkins. Na versão 1.2, adicionámos o suporte para que o Pipeline do Jenkins possa obter as credenciais do Azure. 
+O plug-in de credenciais do Azure permite que você armazene Microsoft Azure credenciais de entidade de serviço no Jenkins. Na versão 1.2, adicionámos o suporte para que o Pipeline do Jenkins possa obter as credenciais do Azure. 
 
 Certifique-se de que tem a versão 1.2 ou posterior:
 * No dashboard do Jenkins, clique em **Manage Jenkins (Gerir Jenkins) -> Plugin Manager (Gestor de Plug-ins)->** e procure **Azure Credential**. 
-* Atualize o plug-in se a versão for anterior à versão 1.2.
+* Atualize o plug-in se a versão for anterior à 1,2.
 
 O Java JDK e o Maven também são necessários no mestre do Jenkins. Para instalar, inicie sessão no mestre do Jenkins com SSH e execute os seguintes comandos:
 ```bash
@@ -152,7 +152,7 @@ Abra o Jenkins num browser e clique em **New Item** (Novo Item).
 * Em **Definition** (Definição), selecione **Pipeline script from SCM** (Script de pipeline do SCM).
 * Em **SCM**, selecione **Git**.
 * Introduza o URL do GitHub para o repositório duplicado: https:\<o repositório duplicado\>.git
-* Clique em **Guardar**
+* Clicar em **Guardar**
 
 ## <a name="test-your-pipeline"></a>Testar o pipeline
 * Vá para o pipeline que criou e clique em **Build Now** (Compilar Agora)
@@ -174,7 +174,7 @@ Verá:
 ## <a name="deploy-to-azure-web-app-on-linux"></a>Implementar na Aplicação Web do Azure no Linux
 Agora que já sabe como utilizar a CLI do Azure no seu pipeline do Jenkins, pode modificar o script para implementar numa Aplicação Web do Azure no Linux.
 
-A Aplicação Web no Linux suporta uma forma diferente de executar a implementação, que consiste em utilizar o Docker. Para implementar, tem de fornecer um Dockerfile que empacote a aplicação Web com o runtime de serviço numa imagem do Docker. Em seguida, o plug-in compila a imagem, envia-a para um registo do Docker e implementa-a na aplicação Web.
+A Aplicação Web no Linux suporta uma forma diferente de executar a implementação, que consiste em utilizar o Docker. Para implementar, tem de fornecer um Dockerfile que empacote a aplicação Web com o runtime de serviço numa imagem do Docker. O plug-in, em seguida, criará a imagem, a enviará por push para um registro do Docker e implantará a imagem em seu aplicativo Web.
 
 * Siga os passos [aqui](../app-service/containers/quickstart-nodejs.md) indicados para criar uma aplicação Web do Azure em execução no Linux.
 * Instale o Docker na sua instância do Jenkins, seguindo as instruções deste [artigo](https://docs.docker.com/engine/installation/linux/ubuntu/).
@@ -215,7 +215,7 @@ A Aplicação Web no Linux suporta uma forma diferente de executar a implementa�
 
     Aceda a http://&lt;app_name>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (substitua &lt;x> e &lt;y> por quaisquer números) para obter a soma de x e y
     
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, configurou um pipeline do Jenkins que dá saída do código fonte no repositório do GitHub. Executa o Maven para compilar um ficheiro war e, em seguida, utiliza a CLI do Azure para implementar no Serviço de Aplicações do Azure. Aprendeu a:
 
 > [!div class="checklist"]

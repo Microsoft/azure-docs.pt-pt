@@ -1,23 +1,19 @@
 ---
 title: Perfil de aplicativos de produção no Azure com Application Insights Profiler | Microsoft Docs
 description: Identifique o Hot Path no código do servidor Web com um criador de perfil de baixa ocupação.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: fc152aab6d0e62ac5656b50834ce17278bb6676e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338082"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820514"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Perfil de aplicativos de produção no Azure com Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Habilitar Application Insights Profiler para seu aplicativo
@@ -26,8 +22,8 @@ O Aplicativo Azure insights Profiler fornece rastreamentos de desempenho para ap
 
 O profiler funciona com aplicativos .NET que são implantados nos seguintes serviços do Azure. Instruções específicas para habilitar o Profiler para cada tipo de serviço estão nos links abaixo.
 
-* [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [App Service do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 * [Versão **prévia** ASP.NET Core aplicativos Web Linux do Azure](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
@@ -48,10 +44,10 @@ Selecione um exemplo para exibir uma divisão de nível de código de tempo gast
 
 O Gerenciador de rastreamento exibe as seguintes informações:
 
-* **Mostrar Hot Path**: Abre o maior nó folha ou pelo menos algo próximo. Na maioria dos casos, esse nó está perto de um afunilamento de desempenho.
-* **Rótulo**: O nome da função ou do evento. A árvore exibe uma mistura de código e eventos que ocorreram, como eventos SQL e HTTP. O evento superior representa a duração geral da solicitação.
-* **Decorrido**: O intervalo de tempo entre o início da operação e o fim da operação.
-* **Quando**: A hora em que a função ou evento estava sendo executado em relação a outras funções.
+* **Mostrar Hot Path**: abre o maior nó folha ou pelo menos algo próximo. Na maioria dos casos, esse nó está perto de um afunilamento de desempenho.
+* **Rótulo**: o nome da função ou do evento. A árvore exibe uma mistura de código e eventos que ocorreram, como eventos SQL e HTTP. O evento superior representa a duração geral da solicitação.
+* **Decorrido**: o intervalo de tempo entre o início da operação e o fim da operação.
+* **Quando**: a hora em que a função ou evento estava sendo executado em relação a outras funções.
 
 ## <a name="how-to-read-performance-data"></a>Como ler dados de desempenho
 
@@ -59,9 +55,9 @@ O criador de perfil de serviço da Microsoft usa uma combinação de métodos de
 
 A pilha de chamadas exibida na exibição da linha do tempo é o resultado da amostragem e da instrumentação. Como cada amostra captura a pilha de chamadas completa do thread, ela inclui código de Microsoft .NET Framework e de outras estruturas que você referencia.
 
-### <a id="jitnewobj"></a>Alocação de objeto (CLR! JIT @ no__t-1New ou CLR! JIT @ no__t-2Newarr1)
+### <a id="jitnewobj"></a>Alocação de objeto (CLR! JIT\_novo ou CLR! Newarr1 JIT\_)
 
-**CLR! JIT @ no__t-1New** e **CLR! JIT @ no__t-3Newarr1** são funções auxiliares em .NET Framework que alocam memória de um heap gerenciado. **CLR! JIT @ no__t-1New** é invocado quando um objeto é alocado. **CLR! JIT @ no__t-1Newarr1** é invocado quando uma matriz de objeto é alocada. Essas duas funções geralmente são rápidas e levam quantidades relativamente pequenas de tempo. Se o **CLR! JIT @ no__t-1New** ou **CLR! JIT @ no__t-3Newarr1** leva muito tempo em sua linha do tempo, o código pode estar alocando muitos objetos e consumindo quantidades significativas de memória.
+**CLR!\_JIT New** e **CLR! JIT\_Newarr1** são funções auxiliares em .NET Framework que alocam memória de um heap gerenciado. **CLR! O JIT\_novo** é invocado quando um objeto é alocado. **CLR! JIT\_Newarr1** é invocado quando uma matriz de objeto é alocada. Essas duas funções geralmente são rápidas e levam quantidades relativamente pequenas de tempo. Se o **CLR! JIT\_novo** ou **CLR! O JIT\_Newarr1** leva muito tempo em sua linha do tempo, o código pode estar alocando muitos objetos e consumindo quantidades significativas de memória.
 
 ### <a id="theprestub"></a>Carregando código (CLR! ThePreStub
 
@@ -69,9 +65,9 @@ A pilha de chamadas exibida na exibição da linha do tempo é o resultado da am
 
 Se o **CLR! ThePreStub** leva muito tempo para uma solicitação, a solicitação é a primeira a executar esse método. O tempo para o tempo de execução de .NET Framework carregar o primeiro método é significativo. Você pode considerar o uso de um processo aquecimento que executa essa parte do código antes que os usuários o acessem, ou considere executar o gerador de imagem nativa (NGen. exe) em seus assemblies.
 
-### <a id="lockcontention"></a>Contenção de bloqueio (CLR! JITutil @ no__t-1MonContention ou CLR! JITutil @ no__t-2MonEnterWorker)
+### <a id="lockcontention"></a>Contenção de bloqueio (CLR! JITutil\_MonContention ou CLR! JITutil\_MonEnterWorker)
 
-**CLR! JITutil @ no__t-1MonContention** ou **CLR! JITutil @ no__t-3MonEnterWorker** indica que o thread atual está aguardando a liberação de um bloqueio. Esse texto geralmente é exibido quando você executa uma C# instrução **Lock** , invoca o método **Monitor. Enter** ou invoca um método com o atributo **MethodImplOptions. Synchronized** . A contenção de bloqueio geralmente ocorre quando o thread _a_ adquire um bloqueio e o thread _B_ tenta adquirir o mesmo bloqueio antes que _o thread a o_ libere.
+**CLR! JITutil\_MonContention** ou **CLR! JITutil\_MonEnterWorker** indica que o thread atual está aguardando a liberação de um bloqueio. Esse texto geralmente é exibido quando você executa uma C# instrução **Lock** , invoca o método **Monitor. Enter** ou invoca um método com o atributo **MethodImplOptions. Synchronized** . A contenção de bloqueio geralmente ocorre quando o thread _a_ adquire um bloqueio e o thread _B_ tenta adquirir o mesmo bloqueio antes que _o thread a o_ libere.
 
 ### <a id="ngencold"></a>Carregando código ([frio])
 
@@ -87,15 +83,15 @@ Métodos como **HttpClient. Send** indicam que o código está aguardando a conc
 
 Métodos como **SqlCommand. Execute** indicam que o código está aguardando a conclusão de uma operação de banco de dados.
 
-### <a id="await"></a>Aguardando (AWAIT @ no__t-1TIME)
+### <a id="await"></a>Aguardando (AWAIT\_tempo)
 
-**AWAIT @ no__t-1TIME** indica que o código está aguardando a conclusão de outra tarefa. Geralmente, esse atraso ocorre com C# a instrução **AWAIT** . Quando o código faz um C# **AWAIT**, o thread desenrola e retorna o controle para o pool de threads, e não há nenhum thread que esteja bloqueado aguardando a conclusão do **AWAIT** . No entanto, logicamente, o thread que fez o **AWAIT** é "bloqueado" e está aguardando a conclusão da operação. A instrução **AWAIT @ no__t-1TIME** indica o tempo bloqueado aguardando a conclusão da tarefa.
+**AWAIT\_time** indica que o código está aguardando a conclusão de outra tarefa. Geralmente, esse atraso ocorre com C# a instrução **AWAIT** . Quando o código faz um C# **AWAIT**, o thread desenrola e retorna o controle para o pool de threads, e não há nenhum thread que esteja bloqueado aguardando a conclusão do **AWAIT** . No entanto, logicamente, o thread que fez o **AWAIT** é "bloqueado" e está aguardando a conclusão da operação. A instrução **AWAIT\_time** indica o tempo bloqueado aguardando a conclusão da tarefa.
 
 ### <a id="block"></a>Tempo bloqueado
 
 **BLOCKED_TIME** indica que o código está aguardando que outro recurso esteja disponível. Por exemplo, ele pode estar aguardando um objeto de sincronização, para que um thread esteja disponível ou para que uma solicitação seja concluída.
 
-### <a name="unmanaged-async"></a>Assíncrono Não Gerido
+### <a name="unmanaged-async"></a>Async não gerenciado
 
 O .NET Framework emite eventos ETW e passa IDs de atividade entre threads para que as chamadas assíncronas possam ser controladas entre threads. O código não gerenciado (código nativo) e alguns estilos mais antigos de código assíncrono estão sem esses eventos e IDs de atividade, portanto, o criador de perfil não pode informar o thread e quais funções estão em execução no thread. Isso é rotulado como ' async não gerenciado ' na pilha de chamadas. Se você baixar o arquivo ETW, talvez seja possível usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) para obter mais informações sobre o que está acontecendo.
 
@@ -126,9 +122,9 @@ Não há encargos para usar o serviço Profiler. Para você usá-lo, seu aplicat
 O profiler é executado aleatoriamente dois minutos a cada hora em cada máquina virtual que hospeda o aplicativo que tem o criador de perfil habilitado para capturar rastreamentos. Quando o profiler está em execução, ele adiciona de 5 a 15% da sobrecarga de CPU ao servidor.
 
 ## <a name="next-steps"></a>Passos seguintes
-Habilite Application Insights Profiler para seu aplicativo do Azure. Consulte também:
+Habilite Application Insights Profiler para seu aplicativo do Azure. Veja também:
 * [Serviços Aplicacionais](profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Serviços em Nuvem do Azure](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 

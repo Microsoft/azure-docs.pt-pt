@@ -1,23 +1,19 @@
 ---
 title: Monitorizar a disponibilidade e a capacidade de resposta de qualquer site | Microsoft Docs
 description: Configurar testes Web no Application Insights. Receber alertas se um site ficar indisponível ou responder lentamente.
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 46dc13b4-eb2e-4142-a21c-94a156f760ee
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.author: mbullwin
-ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 074b5c175305131cd67cc6660d13756a83386c11
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812209"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819292"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorar a disponibilidade de qualquer site
 
@@ -30,8 +26,8 @@ Pode configurar testes de disponibilidade para qualquer ponto final HTTP ou HTTP
 Há três tipos de testes de disponibilidade:
 
 * [Teste de ping do URL](#create-a-url-ping-test): um teste simples que pode criar no Portal do Azure.
-* [Teste na Web de várias etapas](availability-multistep.md): Uma gravação de uma sequência de solicitações da Web, que pode ser reproduzida para testar cenários mais complexos. Os testes na Web de várias etapas são criados no Visual Studio Enterprise e carregados no portal para execução.
-* [Testes de disponibilidade de acompanhamento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Se você decidir criar um aplicativo personalizado para executar testes de disponibilidade, o método `TrackAvailability()` poderá ser usado para enviar os resultados para Application Insights.
+* [Teste na Web de várias etapas](availability-multistep.md): uma gravação de uma sequência de solicitações da Web, que pode ser reproduzida para testar cenários mais complexos. Os testes na Web de várias etapas são criados no Visual Studio Enterprise e carregados no portal para execução.
+* [Testes de disponibilidade de acompanhamento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): se você decidir criar um aplicativo personalizado para executar testes de disponibilidade, o método `TrackAvailability()` poderá ser usado para enviar os resultados para Application insights.
 
 **Você pode criar até 100 testes de disponibilidade por recurso de Application Insights.**
 
@@ -39,7 +35,7 @@ Há três tipos de testes de disponibilidade:
 
 Para criar um teste de disponibilidade, primeiro você precisa criar um recurso de Application Insights. Se você já tiver criado um recurso, vá para a próxima seção para [criar um teste de ping de URL](#create-a-url-ping-test).
 
-No portal do Azure, selecione **criar um recurso** > **ferramentas para desenvolvedores** > **Application insights** e [criar um recurso de Application insights](create-new-resource.md).
+Na portal do Azure, selecione **criar um recurso** > **ferramentas para desenvolvedores** > **Application insights** e [crie um recurso de Application insights](create-new-resource.md).
 
 ## <a name="create-a-url-ping-test"></a>Criar um teste de ping do URL
 
@@ -64,7 +60,7 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 > [!NOTE]
 > É altamente recomendável testar de vários locais com **um mínimo de cinco locais**. Isso é para evitar alarmes falsos que podem resultar de problemas transitórios com um local específico. Além disso, descobrimos que a configuração ideal é ter o **número de locais de teste igual ao limite de local do alerta + 2**.
 
-### <a name="success-criteria"></a>Critérios de êxito
+### <a name="success-criteria"></a>Critérios de sucesso
 
 |Definição| Explicação
 |----|----|----|
@@ -78,7 +74,7 @@ Para criar sua primeira solicitação de disponibilidade, abra o painel disponib
 |----|----|----|
 |**Quase em tempo real (visualização)** | É recomendável usar alertas quase em tempo real. A configuração desse tipo de alerta é feita após a criação do teste de disponibilidade.  |
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
-|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o número **limite** = **de local de alerta de locais de teste-2, com um mínimo de cinco locais de teste.**|
+|**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta**  = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
 
 ## <a name="see-your-availability-test-results"></a>Ver os resultados do teste de disponibilidade
 
@@ -123,8 +119,8 @@ Clique na linha de exceção para ver os detalhes da exceção do lado do servid
 
 Além dos resultados brutos, você também pode exibir duas métricas de disponibilidade principais no [Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
 
-1. Ininterrupta Porcentagem dos testes que foram bem-sucedidos, em todas as execuções de teste.
-2. Duração do teste: Duração média do teste em todas as execuções de teste.
+1. Disponibilidade: percentagem dos testes que foram bem-sucedidos, em todas as execuções de testes.
+2. Duração do Teste: duração média dos testes em todas as execuções de testes.
 
 ## <a name="automation"></a>Automatização
 

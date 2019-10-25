@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: 71f2b111c0291bc9563b12a1cdbd88ea7e9f5b5b
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376127"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882005"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizar configurações de Cluster Service Fabric
 Este artigo descreve as várias configurações de malha para o Cluster Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizar as configurações por meio do [portal do Azure](https://portal.azure.com) ou usando um modelo de Azure Resource Manager. Para obter mais informações, consulte [atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters autônomos, você personaliza as configurações atualizando o arquivo *ClusterConfig. JSON* e realizando uma atualização de configuração no cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -185,6 +185,9 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |EnableRestartManagement |Bool, o padrão é false |Dinâmico|Isso é para habilitar a reinicialização do servidor. |
 |EnableServiceFabricAutomaticUpdates |Bool, o padrão é false |Dinâmico|Isso é para habilitar a atualização automática da malha via Windows Update. |
 |EnableServiceFabricBaseUpgrade |Bool, o padrão é false |Dinâmico|Isso é para habilitar a atualização básica para o servidor. |
+|FailureReportingExpeditedReportingIntervalEnabled | Bool, o padrão é true | Estático | Permite taxas de carregamento mais rápidas em DCA quando FabricHost está em modo de relatório de falha. |
+|FailureReportingTimeout | TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (60) | Estático |Especifique TimeSpan em segundos. Tempo limite para relatório de falha DCA no caso de FabricHost encontrar uma falha na inicialização do estágio inicial. | 
+|RunDCAOnStartupFailure | Bool, o padrão é true | Estático |Determina se o DCA deve ser iniciado para carregar logs quando enfrentados problemas de inicialização no FabricHost. | 
 |StartTimeout |Tempo em segundos, o padrão é 300 |Dinâmico|Especifique TimeSpan em segundos. Tempo limite para a inicialização do fabricactivationmanager. |
 |StopTimeout |Tempo em segundos, o padrão é 300 |Dinâmico|Especifique TimeSpan em segundos. O tempo limite para ativação do serviço hospedado; desativação e atualização. |
 
@@ -279,7 +282,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |DiskSpaceHealthReportingIntervalWhenCloseToOutOfDiskSpace |TimeSpan, o padrão é Common:: TimeSpan:: FromMinutes (5)|Dinâmico|Especifique TimeSpan em segundos. O intervalo de tempo entre a verificação do espaço em disco para relatar o evento de integridade quando o disco está perto de ficar sem espaço. |
 |DiskSpaceHealthReportingIntervalWhenEnoughDiskSpace |TimeSpan, o padrão é Common:: TimeSpan:: FromMinutes (15)|Dinâmico|Especifique TimeSpan em segundos. O intervalo de tempo entre a verificação de espaço em disco para relatar o evento de integridade quando houver espaço suficiente no disco. |
 |EnableImageStoreHealthReporting |bool, o padrão é TRUE |Estático|Configuração para determinar se o serviço de repositório de arquivos deve relatar sua integridade. |
-|FreeDiskSpaceNotificationSizeInKB|Int64, o padrão é 25 @ no__t-01024 |Dinâmico|O tamanho do espaço livre em disco abaixo do qual pode ocorrer o aviso de integridade. O valor mínimo dessa configuração e do FreeDiskSpaceNotificationThresholdPercentage config são usados para determinar o envio do aviso de integridade. |
+|FreeDiskSpaceNotificationSizeInKB|Int64, o padrão é 25\*1024 |Dinâmico|O tamanho do espaço livre em disco abaixo do qual pode ocorrer o aviso de integridade. O valor mínimo dessa configuração e do FreeDiskSpaceNotificationThresholdPercentage config são usados para determinar o envio do aviso de integridade. |
 |FreeDiskSpaceNotificationThresholdPercentage|duplo, o padrão é 0, 2 |Dinâmico|A porcentagem de espaço livre em disco abaixo do qual pode ocorrer o aviso de integridade. O valor mínimo dessa configuração e do FreeDiskSpaceNotificationInMB config são usados para determinar o envio de aviso de integridade. |
 |GenerateV1CommonNameAccount| bool, o padrão é TRUE|Estático|Especifica se uma conta com algoritmo de geração de nome de usuário v1 deve ser gerada. A partir do Service Fabric versão 6,1; uma conta com geração V2 é sempre criada. A conta v1 é necessária para atualizações de/para versões que não dão suporte à geração v2 (antes de 6,1).|
 |MaxCopyOperationThreads | Uint, o padrão é 0 |Dinâmico| O número máximo de arquivos paralelos que o secundário pode copiar do primário. ' 0 ' = = número de núcleos. |
@@ -353,6 +356,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |DeploymentRetryBackoffInterval| TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (10)|Dinâmico|Especifique TimeSpan em segundos. Intervalo de retirada para a falha de implantação. Em cada falha de implantação contínua, o sistema tentará novamente a implantação até o MaxDeploymentFailureCount. O intervalo de repetição é um produto de falha de implantação contínua e o intervalo de retirada da implantação. |
 |DisableContainers|bool, o padrão é FALSE|Estático|Configuração para desabilitar contêineres – usado em vez de DisableContainerServiceStartOnContainerActivatorOpen que é uma configuração preterida |
 |DisableDockerRequestRetry|bool, o padrão é FALSE |Dinâmico| Por padrão, o it se comunica com DD (Docker Dameon) com um tempo limite de "DockerRequestTimeout" para cada solicitação HTTP enviada a ele. Se DD não responder dentro desse período de tempo; It reenviará a solicitação se a operação de nível superior ainda tiver o tempo restante.  Com o contêiner HyperV; O DD às vezes leva muito mais tempo para exibir o contêiner ou desativá-lo. Nesses casos, DD a solicitação atinge o tempo limite da perspectiva do it e tenta a operação novamente. Às vezes, isso parece adicionar mais pressão ao DD. Essa configuração permite desabilitar essa repetição e aguardar que o DD responda. |
+|DnsServerListTwoIps | bool, o padrão é FALSE | Estático | Esses sinalizadores adicionam o servidor DNS local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
 |EnableActivateNoWindow| bool, o padrão é FALSE|Dinâmico| O processo ativado é criado em segundo plano sem qualquer console. |
 |EnableContainerServiceDebugMode|bool, o padrão é TRUE|Estático|Habilitar/desabilitar registro em log para contêineres do Docker.  Somente Windows.|
 |EnableDockerHealthCheckIntegration|bool, o padrão é TRUE|Estático|Habilita a integração de eventos do Docker HEALTHCHECK com Service Fabric relatório de integridade do sistema |
@@ -460,7 +464,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |MaxClientConnections |Int, o padrão é 1000 |Dinâmico|O número máximo permitido de conexões de cliente por gateway. |
 |MaxFileOperationTimeout |Tempo em segundos, o padrão é 30 |Dinâmico|Especifique TimeSpan em segundos. O tempo limite máximo permitido para a operação do serviço de repositório de arquivos. As solicitações que especificam um tempo limite maior serão rejeitadas. |
 |MaxIndexedEmptyPartitions |Int, o padrão é 1000 |Dinâmico|O número máximo de partições vazias que permanecerão indexadas no cache de notificação para sincronizar clientes de reconexão. Todas as partições vazias acima desse número serão removidas do índice em ordem de versão de pesquisa crescente. A reconexão de clientes ainda pode sincronizar e receber atualizações de partição vazias perdidas; Mas o protocolo de sincronização torna-se mais caro. |
-|MaxMessageSize |Int, o padrão é 4 @ no__t-01024 @ no__t-11024 |Estático|O tamanho máximo da mensagem para comunicação de nó de cliente ao usar o nome. Atenuação de ataque DOS; o valor padrão é 4 MB. |
+|MaxMessageSize |Int, o padrão é 4\*1024\*1024 |Estático|O tamanho máximo da mensagem para comunicação de nó de cliente ao usar o nome. Atenuação de ataque DOS; o valor padrão é 4 MB. |
 |MaxNamingServiceHealthReports | Int, o padrão é 10 |Dinâmico|O número máximo de operações lentas que o serviço de repositório de nomeação relata como não íntegro de uma só vez. Se for 0; todas as operações lentas são enviadas. |
 |MaxOperationTimeout |Tempo em segundos, o padrão é 600 |Dinâmico|Especifique TimeSpan em segundos. O tempo limite máximo permitido para operações do cliente. As solicitações que especificam um tempo limite maior serão rejeitadas. |
 |MaxOutstandingNotificationsPerClient |Int, o padrão é 1000 |Dinâmico|O número máximo de notificações pendentes antes de um registro de cliente ser fechado forçosamente pelo Gateway. |
@@ -660,7 +664,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |CertificateHealthReportingInterval|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (3600 * 8)|Estático|Especifique TimeSpan em segundos. Especificar intervalo para relatório de integridade de certificado; o padrão é 8 horas; a configuração para 0 desabilita o relatório de integridade do certificado |
 |ClientCertThumbprints|Cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais de certificados usados pelos clientes para se comunicar com o cluster; o cluster usa esta autorizar conexão de entrada. É uma lista de nomes separados por vírgulas. |
 |ClientClaimAuthEnabled|bool, o padrão é FALSE|Estático|Indica se a autenticação baseada em declarações está habilitada em clientes; a definição de true define ClientRoleEnabled implicitamente. |
-|ClientClaims|Cadeia de caracteres, o padrão é ""|Dinâmico|Todas as declarações possíveis esperadas de clientes para conexão com o gateway. Esta é uma lista ' ou ': ClaimsEntry \| @ no__t-1 ClaimsEntry \| @ no__t-3 ClaimsEntry... cada ClaimsEntry é uma lista de "e": ClaimType = Declarevalue & & DeclareType = Claimvalue & & DeclareType = Declarevalue... |
+|ClientClaims|Cadeia de caracteres, o padrão é ""|Dinâmico|Todas as declarações possíveis esperadas de clientes para conexão com o gateway. Esta é uma lista ' ou ': ClaimsEntry \|\| ClaimsEntry \|\| ClaimsEntry... cada ClaimsEntry é uma lista de "e": ClaimType = Declarevalue & & DeclareType = Claimvalue & & DeclareType = Declarevalue... |
 |ClientIdentities|Cadeia de caracteres, o padrão é ""|Dinâmico|Identidades do Windows de FabricClient; o gateway de nomenclatura usa isso para autorizar conexões de entrada. É uma lista separada por vírgulas; cada entrada é um nome de conta de domínio ou nome de grupo. Para sua conveniência; a conta que executa o Fabric. exe é permitida automaticamente; Portanto, os grupos ServiceFabricAllowedUsers e ServiceFabricAdministrators. |
 |ClientRoleEnabled|bool, o padrão é FALSE|Estático|Indica se a função de cliente está habilitada; Quando definido como true; Os clientes recebem funções com base em suas identidades. Para v2; habilitar isso significa que o cliente que não está no AdminClientCommonNames/AdminClientIdentities só pode executar operações somente leitura. |
 |ClusterCertThumbprints|Cadeia de caracteres, o padrão é ""|Dinâmico|Impressões digitais de certificados com permissão para ingressar no cluster; uma lista de nomes separados por vírgulas. |
@@ -713,47 +717,47 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |DeleteNetwork|Cadeia de caracteres, o padrão é "admin" |Dinâmico|Exclui uma rede de contêiner |
 |DeleteService |Cadeia de caracteres, o padrão é "admin" |Dinâmico|Configuração de segurança para exclusão de serviço. |
 |DeleteVolume|Cadeia de caracteres, o padrão é "admin"|Dinâmico|Exclui um volume.| 
-|Enumeraproperties |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Configuração de segurança para a enumeração da propriedade de nomenclatura. |
-|EnumerateSubnames |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para enumeração de URI de nomenclatura. |
+|Enumeraproperties |Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Configuração de segurança para a enumeração da propriedade de nomenclatura. |
+|EnumerateSubnames |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para enumeração de URI de nomenclatura. |
 |FileContent |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para transferência de arquivos do cliente de repositório de imagens (externo ao cluster). |
 |FileDownload |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para o início do download do arquivo do cliente de repositório de imagens (externo ao cluster). |
 |FinishInfrastructureTask |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para concluir tarefas de infraestrutura. |
-|GetChaosReport | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Busca o status do caos em um determinado intervalo de tempo. |
-|GetClusterConfiguration | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Induzi GetClusterConfiguration em uma partição. |
-|GetClusterConfigurationUpgradeStatus | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Induzi GetClusterConfigurationUpgradeStatus em uma partição. |
-|GetFabricUpgradeStatus |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para sondagem do status de atualização do cluster. |
+|GetChaosReport | Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Busca o status do caos em um determinado intervalo de tempo. |
+|GetClusterConfiguration | Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Induzi GetClusterConfiguration em uma partição. |
+|GetClusterConfigurationUpgradeStatus | Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Induzi GetClusterConfigurationUpgradeStatus em uma partição. |
+|GetFabricUpgradeStatus |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para sondagem do status de atualização do cluster. |
 |Getfolderize |Cadeia de caracteres, o padrão é "admin" |Dinâmico|Configuração de segurança para obter o tamanho da pasta de FileStoreService |
 |GetNodeDeactivationStatus |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para verificar o status de desativação. |
-|GetNodeTransitionProgress | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para obter o progresso em um comando de transição de nó. |
-|GetPartitionDataLossProgress | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Busca o progresso de uma chamada de API de perda de dados de invocação. |
-|GetPartitionQuorumLossProgress | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Busca o progresso de uma chamada de API de perda de quorum de invocação. |
-|GetPartitionRestartProgress | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Busca o progresso de uma chamada de API de partição de reinicialização. |
+|GetNodeTransitionProgress | Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para obter o progresso em um comando de transição de nó. |
+|GetPartitionDataLossProgress | Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Busca o progresso de uma chamada de API de perda de dados de invocação. |
+|GetPartitionQuorumLossProgress | Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Busca o progresso de uma chamada de API de perda de quorum de invocação. |
+|GetPartitionRestartProgress | Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Busca o progresso de uma chamada de API de partição de reinicialização. |
 |Getsecretos|Cadeia de caracteres, o padrão é "admin"|Dinâmico|Obter valores secretos |
-|GetServiceDescription |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviço de leitura. |
+|GetServiceDescription |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para notificações de serviço de sondagem longa e descrições de serviço de leitura. |
 |GetStagingLocation |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para recuperação do local de preparo do cliente de repositório de imagens. |
 |GetStoreLocation |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para recuperação do local do repositório do cliente do repositório de imagens. |
 |GetUpgradeOrchestrationServiceState|Cadeia de caracteres, o padrão é "admin"| Dinâmico|Induzi GetUpgradeOrchestrationServiceState em uma partição |
 |GetUpgradesPendingApproval |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Induzi GetUpgradesPendingApproval em uma partição. |
-|GetUpgradeStatus |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para sondagem do status de atualização do aplicativo. |
+|GetUpgradeStatus |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para sondagem do status de atualização do aplicativo. |
 |Internolist |Cadeia de caracteres, o padrão é "admin" | Dinâmico|Configuração de segurança para operação de lista de arquivos do cliente de repositório de imagens (interna). |
 |InvokeContainerApi|Cadeia de caracteres, o padrão é "admin"|Dinâmico|Invocar API de contêiner |
 |InvokeInfrastructureCommand |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para comandos de gerenciamento de tarefas de infraestrutura. |
-|InvokeInfrastructureQuery |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Configuração de segurança para consultar tarefas de infraestrutura. |
-|Lista |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Configuração de segurança para operação de lista de arquivos do cliente de repositório de imagens. |
+|InvokeInfrastructureQuery |Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Configuração de segurança para consultar tarefas de infraestrutura. |
+|Lista |Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Configuração de segurança para operação de lista de arquivos do cliente de repositório de imagens. |
 |MoveNextFabricUpgradeDomain |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para retomar atualizações de cluster com um domínio de atualização explícito. |
 |MoveNextUpgradeDomain |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para retomar atualizações de aplicativo com um domínio de atualização explícito. |
 |MoveReplicaControl |Cadeia de caracteres, o padrão é "admin" | Dinâmico|Mover réplica. |
-|NameExists |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Configuração de segurança para verificações de existência de URI de nomenclatura. |
+|NameExists |Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Configuração de segurança para verificações de existência de URI de nomenclatura. |
 |NodeControl |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para iniciar; impedir e reiniciando nós. |
 |NodeStateRemoved |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para relatar o estado do nó removido. |
-|Ping |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para pings de cliente. |
+|Ping |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para pings de cliente. |
 |PredeployPackageToNode |Cadeia de caracteres, o padrão é "admin" |Dinâmico| API de pré-implantação. |
-|PrefixResolveService |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para resolução de prefixo de serviço baseada em reclamações. |
-|PropertyReadBatch |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para operações de leitura de propriedade de nomenclatura. |
+|PrefixResolveService |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para resolução de prefixo de serviço baseada em reclamações. |
+|PropertyReadBatch |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para operações de leitura de propriedade de nomenclatura. |
 |PropertyWriteBatch |Cadeia de caracteres, o padrão é "admin" |Dinâmico|Configurações de segurança para operações de gravação de propriedade de nomenclatura. |
 |ProvisionApplicationType |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para provisionamento de tipo de aplicativo. |
 |ProvisionFabric |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para MSI e/ou provisionamento de manifesto de cluster. |
-|Consulta |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para consultas. |
+|Consulta |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para consultas. |
 |RecoverPartition |Cadeia de caracteres, o padrão é "admin" | Dinâmico|Configuração de segurança para recuperar uma partição. |
 |RecoverPartitions |Cadeia de caracteres, o padrão é "admin" | Dinâmico|Configuração de segurança para recuperar partições. |
 |RecoverServicePartitions |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para recuperar partições de serviço. |
@@ -763,14 +767,14 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |ReportFault |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para relatar falha. |
 |ReportHealth |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para relatório de integridade. |
 |ReportUpgradeHealth |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para retomar atualizações de aplicativos com o andamento da atualização atual. |
-|ResetPartitionLoad |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para redefinir carregamento para um failoverUnit. |
-|ResolveNameOwner |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Configuração de segurança para resolver o proprietário do URI de nomenclatura. |
-|ResolvePartition |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" | Dinâmico|Configuração de segurança para resolver serviços do sistema. |
-|ResolveService |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para resolução de serviço baseada em reclamações. |
-|ResolveSystemService|Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User"|Dinâmico| Configuração de segurança para resolver serviços do sistema |
+|ResetPartitionLoad |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para redefinir carregamento para um failoverUnit. |
+|ResolveNameOwner |Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Configuração de segurança para resolver o proprietário do URI de nomenclatura. |
+|ResolvePartition |Cadeia de caracteres, o padrão é "admin\|\|usuário" | Dinâmico|Configuração de segurança para resolver serviços do sistema. |
+|ResolveService |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para resolução de serviço baseada em reclamações. |
+|ResolveSystemService|Cadeia de caracteres, o padrão é "admin\|\|usuário"|Dinâmico| Configuração de segurança para resolver serviços do sistema |
 |RollbackApplicationUpgrade |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para reverter atualizações de aplicativo. |
 |RollbackFabricUpgrade |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para reverter atualizações de cluster. |
-|Notificações de notificação |Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para notificações de serviço baseadas em evento. |
+|Notificações de notificação |Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para notificações de serviço baseadas em evento. |
 |SetUpgradeOrchestrationServiceState|Cadeia de caracteres, o padrão é "admin"| Dinâmico|Induzi SetUpgradeOrchestrationServiceState em uma partição |
 |StartApprovedUpgrades |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Induzi StartApprovedUpgrades em uma partição. |
 |StartChaos |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Inicia o caos – se ainda não tiver iniciado. |
@@ -781,7 +785,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |StartPartitionQuorumLoss |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Induzi a perda de quorum em uma partição. |
 |StartPartitionRestart |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Reinicia simultaneamente algumas ou todas as réplicas de uma partição. |
 |StopChaos |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Para o caos – se ele tiver sido iniciado. |
-|ToggleVerboseServicePlacementHealthReporting | Cadeia de caracteres, o padrão é "admin @ no__t-0 @ no__t-1User" |Dinâmico| Configuração de segurança para alternar o detalhado de substituição detalhado. |
+|ToggleVerboseServicePlacementHealthReporting | Cadeia de caracteres, o padrão é "admin\|\|usuário" |Dinâmico| Configuração de segurança para alternar o detalhado de substituição detalhado. |
 |UnprovisionApplicationType |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para o desprovisionamento de tipo de aplicativo. |
 |UnprovisionFabric |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Configuração de segurança para MSI e/ou desprovisionamento do manifesto do cluster. |
 |UnreliableTransportControl |Cadeia de caracteres, o padrão é "admin" |Dinâmico| Transporte não confiável para adicionar e remover comportamentos. |
@@ -872,7 +876,7 @@ Veja a seguir uma lista de configurações de malha que você pode personalizar,
 |FrameHeaderErrorCheckingEnabled|bool, o padrão é TRUE|Estático|Configuração padrão para verificação de erro no cabeçalho do quadro no modo não seguro; a configuração do componente substitui isso. |
 |MessageErrorCheckingEnabled|bool, o padrão é FALSE|Estático|Configuração padrão para verificação de erros no cabeçalho e no corpo da mensagem no modo não seguro; a configuração do componente substitui isso. |
 |ResolveOption|Cadeia de caracteres, o padrão é "não especificado"|Estático|Determina como o FQDN é resolvido.  Os valores válidos são "não especificado/IPv4/IPv6". |
-|SendTimeout|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (300)|Dinâmico|Especifique TimeSpan em segundos. Tempo limite de envio para detecção de conexão travada. Os relatórios de falha de TCP não são confiáveis em algum ambiente. Isso pode precisar ser ajustado de acordo com a largura de banda de rede disponível e o tamanho dos dados de saída (\*MaxMessageSize @ no__t-1 @ no__t-2SendQueueSizeLimit). |
+|SendTimeout|TimeSpan, o padrão é Common:: TimeSpan:: FromSeconds (300)|Dinâmico|Especifique TimeSpan em segundos. Tempo limite de envio para detecção de conexão travada. Os relatórios de falha de TCP não são confiáveis em algum ambiente. Isso pode precisar ser ajustado de acordo com a largura de banda de rede disponível e o tamanho dos dados de saída (\*MaxMessageSize\/\*SendQueueSizeLimit). |
 
 ## <a name="upgradeorchestrationservice"></a>UpgradeOrchestrationService
 

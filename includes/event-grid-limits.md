@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 3f94481e6a8550479788d92c744327e1dc3b58c4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "66376914"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72887822"
 ---
 Os limites a seguir se aplicam aos tópicos do sistema de grade de eventos do Azure e aos tópicos personalizados, *não* aos domínios de evento.
 
-| Resource | Limite |
+| Recurso | Limite |
 | --- | --- |
 | Tópicos personalizados por assinatura do Azure | 100 |
 | Assinaturas de evento por tópico | 500 |
@@ -27,10 +27,11 @@ Os limites a seguir se aplicam aos tópicos do sistema de grade de eventos do Az
 
 Os limites a seguir se aplicam somente a domínios de evento.
 
-| Resource | Limite |
+| Recurso | Limite |
 | --- | --- |
-| Tópicos por domínio de evento | 1\.000 durante a visualização pública |
-| Assinaturas de evento por tópico em um domínio | 50 durante a visualização pública |
-| Assinaturas de evento de escopo de domínio | 50 durante a visualização pública |
-| Taxa de publicação para um domínio de evento (entrada) | 5\.000 eventos por segundo durante a visualização pública |
+| Tópicos por domínio de evento | 100.000 |
+| Assinaturas de evento por tópico em um domínio | 500 |
+| Assinaturas de evento de escopo de domínio | 50 |
+| Taxa de publicação para um domínio de evento (entrada) | 5\.000 eventos por segundo |
 | Solicitações de publicação | 250 por segundo |
+| Domínios de evento por assinatura do Azure | 100 |

@@ -4,14 +4,14 @@ description: Este documento descreve as várias opções para migrar seus dados 
 author: bharathsreenivas
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/23/2019
 ms.author: bharathb
-ms.openlocfilehash: 0a2423421c6dfda02646546a6e071c8c78396f2c
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9111193bb441487b9e3c49bc9ee1a296d49f8a31
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170688"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882393"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opções para migrar seus dados locais ou na nuvem para Azure Cosmos DB
 
@@ -72,8 +72,4 @@ Para APIs que não sejam a API do SQL, a API Mongo e a API do Cassandra, há vá
 
 * Saiba mais experimentando os aplicativos de exemplo que consomem a biblioteca de executores em massa no [.net](bulk-executor-dot-net.md) e no [Java](bulk-executor-java.md). 
 * A biblioteca de executores em massa é integrada ao conector do Cosmos DB Spark, para saber mais, consulte o artigo [Azure Cosmos DB conector do Spark](spark-connector.md) .  
-* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala. 
-* Use o [programa de inicialização Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/) para acelerar a criação ou a migração de seus aplicativos no Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Programa de inicialização Cosmos DB](https://azurecosmosdb.github.io/CosmosBootstrap/)
+* Entre em contato com a equipe de produto Azure Cosmos DB abrindo um tíquete de suporte no tipo de problema "consultoria geral" e no subtipo de problema "migrações grandes (TB +)" para obter ajuda adicional com migrações em larga escala.

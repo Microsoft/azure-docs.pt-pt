@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 6a43b721b70858d82083538638853c5bbdf1531d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004133"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821347"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicar-se com o Hub IoT usando o protocolo MQTT
 
@@ -42,12 +42,12 @@ Quando um dispositivo está conectado a um hub IoT, os SDKs do dispositivo forne
 
 A tabela a seguir contém links para exemplos de código para cada idioma com suporte e especifica o parâmetro a ser usado para estabelecer uma conexão com o Hub IoT usando o protocolo MQTT.
 
-| Idioma | Parâmetro de protocolo |
+| Linguagem | Parâmetro de protocolo |
 | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |Azure-IOT-Device-MQTT |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol. MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType. MQTT |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Sempre dá suporte a MQTT por padrão |
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migrando um aplicativo de dispositivo do AMQP para o MQTT
@@ -68,7 +68,7 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
 
 * Para o campo **ClientID** , use **DeviceID**.
 
-* Para o campo **nome** de usuário `{iothubhostname}/{device_id}/?api-version=2018-06-30`, use `{iothubhostname}` , em que é o CNAME completo do Hub IOT.
+* Para o campo **nome de usuário** , use `{iothubhostname}/{device_id}/?api-version=2018-06-30`, em que `{iothubhostname}` é o CNAME completo do Hub IOT.
 
     Por exemplo, se o nome do seu hub IoT for **contoso.Azure-Devices.net** e se o nome do seu dispositivo for **MyDevice01**, o campo **nome de usuário** completo deverá conter:
 
@@ -115,19 +115,51 @@ Se um dispositivo não puder usar os SDKs do dispositivo, ele ainda poderá se c
 
 Para pacotes MQTT Connect e Disconnect, o Hub IoT emite um evento no canal de **monitoramento de operações** . Esse evento tem informações adicionais que podem ajudá-lo a solucionar problemas de conectividade.
 
-O aplicativo do dispositivo pode especificar uma mensagem **será** exibida no pacote do **Connect** . O aplicativo do dispositivo deve `devices/{device_id}/messages/events/` usar `devices/{device_id}/messages/events/{property_bag}` ou como o nome do tópico **será** para **definir as mensagens** a serem encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um pacote de **desconexão** não tiver sido recebido anteriormente do dispositivo **, o Hub** IOT enviará a mensagem fornecida no pacote **Connect** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade de **eventos** padrão ou um ponto de extremidade personalizado definido pelo roteamento do Hub IOT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **será** atribuída a ela.
+O aplicativo do dispositivo pode especificar uma mensagem **será** exibida no pacote do **Connect** . O aplicativo do dispositivo deve usar `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` como **o nome** do tópico para **definir as** mensagens que serão encaminhadas como uma mensagem de telemetria. Nesse caso, se a conexão de rede for fechada, mas um pacote de **desconexão** não tiver sido recebido anteriormente do dispositivo **, o Hub** IOT enviará a mensagem fornecida no pacote **Connect** para o canal de telemetria. O canal de telemetria pode ser o ponto de extremidade de **eventos** padrão ou um ponto de extremidade personalizado definido pelo roteamento do Hub IOT. A mensagem tem a propriedade **iothub-MessageType** com um valor de **será** atribuída a ela.
+
+### <a name="an-example-of-c-code-using-mqtt-without-azure-iot-c-sdk"></a>Um exemplo de código C usando MQTT sem o SDK do Azure IoT C
+Nesse [repositório](https://github.com/Azure-Samples/IoTMQTTSample), você encontrará alguns projetos C/C++ demo que mostram como enviar mensagens de telemetria, receber eventos com um hub IOT sem usar o SDK do Azure IOT C. 
+
+Esses exemplos usam a biblioteca mosquitto do Eclipse para enviar a mensagem para o agente do MQTT implementado no Hub IoT.
+
+Este repositório contém:
+
+**Para Windows:**
+
+• TelemetryMQTTWin32: contém o código para enviar uma mensagem de telemetria para um hub IoT do Azure, compilado e executado em um computador Windows.
+
+• SubscribeMQTTWin32: contém o código para assinar eventos de um determinado Hub IoT em um computador Windows.
+
+• DeviceTwinMQTTWin32: contém o código para consultar e assinar os eventos de entrelaçamento do dispositivo de um dispositivo no Hub IoT do Azure em um computador Windows.
+
+• PnPMQTTWin32: contém o código para enviar uma mensagem de telemetria com os recursos do dispositivo de visualização do plug & Play de IoT para um hub IoT do Azure, compilado e executado em um computador Windows. Mais sobre o & de plug-in IoT [aqui](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play)
+
+**Para Linux:**
+
+• MQTTLinux: contém código e script de compilação para execução no Linux (WSL, Ubuntu e Raspbian foram testados até agora).
+
+• LinuxConsoleVS2019: contém o mesmo código, mas em um projeto VS2019 direcionado a WSL (subsistema Linux do Windows). Este projeto permite que você depure o código em execução no Linux passo a passo do Visual Studio.
+
+**Para mosquito_pub:**
+
+• Essa pasta contém dois comandos de exemplos usados com a ferramenta Utilitário mosquitto_pub fornecida pelo Mosquitto.org.
+
+Mosquitto_sendmessage: para enviar uma mensagem de texto simples para um hub IoT do Azure atuando como um dispositivo.
+
+Mosquitto_subscribe: para ver os eventos que ocorrem em um hub IoT do Azure.
+
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>Usando o protocolo MQTT diretamente (como um módulo)
 
 Conectar-se ao Hub IoT em MQTT usando uma identidade de módulo é semelhante ao dispositivo (descrito [acima](#using-the-mqtt-protocol-directly-as-a-device)), mas você precisa usar o seguinte:
 
-* Defina a ID do cliente `{device_id}/{module_id}`como.
+* Defina a ID do cliente como `{device_id}/{module_id}`.
 
-* Se estiver autenticando com nome de usuário e senha, `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` defina o nome de usuário como e use o token SAS associado à identidade do módulo como sua senha.
+* Se estiver autenticando com nome de usuário e senha, defina o nome de usuário como `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` e use o token SAS associado à identidade do módulo como sua senha.
 
-* Use `devices/{device_id}/modules/{module_id}/messages/events/` o tópico as para publicar a telemetria.
+* Use `devices/{device_id}/modules/{module_id}/messages/events/` como tópico para publicar a telemetria.
 
-* Usar `devices/{device_id}/modules/{module_id}/messages/events/` como será o tópico.
+* Use `devices/{device_id}/modules/{module_id}/messages/events/` como tópico será.
 
 * Os tópicos GET e PATCH do "/" são idênticos para módulos e dispositivos.
 
@@ -149,13 +181,13 @@ pip install paho-mqtt
 
 Em seguida, implemente o cliente em um script Python. Substitua os espaços reservados da seguinte maneira:
 
-* `<local path to digicert.cer>`é o caminho para um arquivo local que contém o certificado raiz DigiCert Baltimore. Você pode criar esse arquivo copiando as informações do certificado de [certs. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) no SDK do IOT do Azure para c. inclua `-----BEGIN CERTIFICATE-----` as `-----END CERTIFICATE-----`linhas e remova `"` as marcas no início e no final de cada linha e remova o `\r\n`caracteres no final de cada linha.
+* `<local path to digicert.cer>` é o caminho para um arquivo local que contém o certificado raiz DigiCert Baltimore. Você pode criar esse arquivo copiando as informações de certificado de [certs. c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) no SDK do IOT do Azure para c. inclua as linhas `-----BEGIN CERTIFICATE-----` e `-----END CERTIFICATE-----`, remova as marcas de `"` no início e no final de cada linha e remova os caracteres de `\r\n` no fim de cada linha.
 
-* `<device id from device registry>`é a ID de um dispositivo que você adicionou ao seu hub IoT.
+* `<device id from device registry>` é a ID de um dispositivo que você adicionou ao seu hub IoT.
 
-* `<generated SAS token>`é um token SAS para o dispositivo criado conforme descrito anteriormente neste artigo.
+* `<generated SAS token>` é um token SAS para o dispositivo criado conforme descrito anteriormente neste artigo.
 
-* `<iot hub name>`o nome do Hub IoT.
+* `<iot hub name>` o nome do seu hub IoT.
 
 ```python
 from paho.mqtt import client as mqtt
@@ -189,7 +221,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=sas_token)
 
 client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -216,7 +248,7 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
 cert_file = "<local path to your certificate file>"
 key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
-               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1_2, ciphers=None)
 
 # Connect as before
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -224,14 +256,14 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Enviando mensagens do dispositivo para a nuvem
 
-Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao Hub IOT `devices/{device_id}/messages/events/` usando `devices/{device_id}/messages/events/{property_bag}` ou como um **nome de tópico**. O `{property_bag}` elemento permite que o dispositivo envie mensagens com propriedades adicionais em um formato codificado por URL. Por exemplo:
+Depois de fazer uma conexão bem-sucedida, um dispositivo pode enviar mensagens ao Hub IoT usando `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` como um **nome de tópico**. O elemento `{property_bag}` permite que o dispositivo envie mensagens com propriedades adicionais em um formato codificado por URL. Por exemplo:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
 ```
 
 > [!NOTE]
-> Esse `{property_bag}` elemento usa a mesma codificação que as cadeias de caracteres de consulta no protocolo HTTPS.
+> Esse elemento de `{property_bag}` usa a mesma codificação que as cadeias de caracteres de consulta no protocolo HTTPS.
 
 Veja a seguir uma lista de comportamentos específicos de implementação do Hub IoT:
 
@@ -245,17 +277,17 @@ Para obter mais informações, consulte [Guia do desenvolvedor de mensagens](iot
 
 ## <a name="receiving-cloud-to-device-messages"></a>Recebendo mensagens da nuvem para o dispositivo
 
-Para receber mensagens do Hub IOT, um dispositivo deve assinar usando `devices/{device_id}/messages/devicebound/#` como um **filtro de tópico**. O curinga `#` de vários níveis no filtro de tópico é usado somente para permitir que o dispositivo receba propriedades adicionais no nome do tópico. O Hub IOT não permite o uso dos `#` caracteres curinga ou `?` para a filtragem de subtópicos. Como o Hub IoT não é um agente de mensagens pub-sub de uso geral, ele dá suporte apenas aos nomes de tópico e filtros de tópico documentados.
+Para receber mensagens do Hub IoT, um dispositivo deve assinar usando `devices/{device_id}/messages/devicebound/#` como um **filtro de tópico**. O curinga de vários níveis `#` no filtro de tópico é usado somente para permitir que o dispositivo receba propriedades adicionais no nome do tópico. O Hub IoT não permite o uso dos curingas `#` ou `?` para filtragem de subtópicos. Como o Hub IoT não é um agente de mensagens pub-sub de uso geral, ele dá suporte apenas aos nomes de tópico e filtros de tópico documentados.
 
-O dispositivo não recebe nenhuma mensagem do Hub IOT até que tenha se inscrito com êxito em seu ponto de extremidade específico do dispositivo, representado pelo filtro `devices/{device_id}/messages/devicebound/#` de tópico. Depois que uma assinatura tiver sido estabelecida, o dispositivo receberá mensagens da nuvem para o dispositivo que foram enviadas a ela após o horário da assinatura. Se o dispositivo se conectar com o sinalizador **CleanSession** definido como **0**, a assinatura será persistida em diferentes sessões. Nesse caso, na próxima vez que o dispositivo se conectar com o **CleanSession 0** , ele receberá todas as mensagens pendentes enviadas a ele enquanto estiver desconectado. Se o dispositivo usar o sinalizador **CleanSession** definido como **1** no entanto, ele não receberá nenhuma mensagem do Hub IOT até assinar seu ponto de extremidade do dispositivo.
+O dispositivo não recebe nenhuma mensagem do Hub IoT até que tenha se inscrito com êxito em seu ponto de extremidade específico do dispositivo, representado pelo `devices/{device_id}/messages/devicebound/#` filtro de tópico. Depois que uma assinatura tiver sido estabelecida, o dispositivo receberá mensagens da nuvem para o dispositivo que foram enviadas a ela após o horário da assinatura. Se o dispositivo se conectar com o sinalizador **CleanSession** definido como **0**, a assinatura será persistida em diferentes sessões. Nesse caso, na próxima vez que o dispositivo se conectar com o **CleanSession 0** , ele receberá todas as mensagens pendentes enviadas a ele enquanto estiver desconectado. Se o dispositivo usar o sinalizador **CleanSession** definido como **1** no entanto, ele não receberá nenhuma mensagem do Hub IOT até assinar seu ponto de extremidade do dispositivo.
 
-O Hub IOT entrega mensagens com o **nome** `devices/{device_id}/messages/devicebound/`do tópico `devices/{device_id}/messages/devicebound/{property_bag}` ou quando há propriedades de mensagem. `{property_bag}`contém pares de chave/valor codificados de URL de propriedades de mensagem. Somente as propriedades do aplicativo e as propriedades do sistema de usuário configurável (como **MessageId** ou **CorrelationId**) são incluídas no recipiente de propriedades. Os nomes de Propriedade do sistema **$** têm o prefixo, as propriedades do aplicativo usam o nome da propriedade original sem prefixo.
+O Hub IoT entrega mensagens com o **nome do tópico** `devices/{device_id}/messages/devicebound/`ou `devices/{device_id}/messages/devicebound/{property_bag}` quando há propriedades de mensagem. `{property_bag}` contém pares de chave/valor codificados de URL das propriedades da mensagem. Somente as propriedades do aplicativo e as propriedades do sistema de usuário configurável (como **MessageId** ou **CorrelationId**) são incluídas no recipiente de propriedades. Os nomes de Propriedade do sistema têm o prefixo **$** , as propriedades do aplicativo usam o nome da propriedade original sem prefixo.
 
 Quando um aplicativo de dispositivo assina um tópico com o **QoS 2**, o Hub IOT concede o nível 1 de QoS máximo no pacote **SUBACK** . Depois disso, o Hub IoT entrega mensagens para o dispositivo usando a QoS 1.
 
 ## <a name="retrieving-a-device-twins-properties"></a>Recuperando as propriedades de um dispositivo
 
-Primeiro, um dispositivo assina `$iothub/twin/res/#`o para receber as respostas da operação. Em seguida, ele envia uma mensagem vazia para `$iothub/twin/GET/?$rid={request id}`o tópico, com um valor preenchido para a **ID da solicitação**. O serviço, em seguida, envia uma mensagem de resposta que contém os `$iothub/twin/res/{status}/?$rid={request id}`dados do dispositivo "entrelaçar" no tópico, usando a mesma **ID de solicitação** da solicitação.
+Primeiro, um dispositivo assina `$iothub/twin/res/#`para receber as respostas da operação. Em seguida, ele envia uma mensagem vazia para o tópico `$iothub/twin/GET/?$rid={request id}`, com um valor preenchido para a **ID da solicitação**. Em seguida, o serviço envia uma mensagem de resposta que contém os dados do dispositivo "r" no tópico `$iothub/twin/res/{status}/?$rid={request id}`, usando a mesma **ID de solicitação** da solicitação.
 
 A ID de solicitação pode ser qualquer valor válido para um valor de propriedade de mensagem, de acordo com o [Guia do desenvolvedor de mensagens do Hub IOT](iot-hub-devguide-messaging.md)e o status é validado como um inteiro.
 
@@ -277,27 +309,27 @@ O corpo da resposta contém a seção de propriedades do dispositivo de texto, c
 
 Os códigos de status possíveis são:
 
-|State | Descrição |
+|Estado | Descrição |
 | ----- | ----------- |
 | 204 | Êxito (nenhum conteúdo é retornado) |
 | 429 | Muitas solicitações (limitadas), de acordo com a [limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md) |
-| 5** | Erros do servidor |
+| 5 * * | Erros do servidor |
 
 Para obter mais informações, consulte [Guia do desenvolvedor do dispositivo gêmeos](iot-hub-devguide-device-twins.md).
 
 ## <a name="update-device-twins-reported-properties"></a>Atualizar Propriedades relatadas do dispositivo
 
-Para atualizar as propriedades relatadas, o dispositivo emite uma solicitação ao Hub IoT por meio de uma publicação em um tópico de MQTT designado. Após o processamento da solicitação, o Hub IoT responde o status de êxito ou falha da operação de atualização por meio de uma publicação para outro tópico. Este tópico pode ser assinado pelo dispositivo para notificá-lo sobre o resultado de sua solicitação de atualização de entrelaçamento. Para implementar esse tipo de interação de solicitação/resposta no MQTT, aproveitamos a noção da ID da`$rid`solicitação () fornecida inicialmente pelo dispositivo em sua solicitação de atualização. Essa ID de solicitação também é incluída na resposta do Hub IoT para permitir que o dispositivo correlacione a resposta a sua solicitação anterior específica.
+Para atualizar as propriedades relatadas, o dispositivo emite uma solicitação ao Hub IoT por meio de uma publicação em um tópico de MQTT designado. Após o processamento da solicitação, o Hub IoT responde o status de êxito ou falha da operação de atualização por meio de uma publicação para outro tópico. Este tópico pode ser assinado pelo dispositivo para notificá-lo sobre o resultado de sua solicitação de atualização de entrelaçamento. Para implementar esse tipo de interação de solicitação/resposta no MQTT, aproveitamos a noção da ID da solicitação (`$rid`) fornecida inicialmente pelo dispositivo em sua solicitação de atualização. Essa ID de solicitação também é incluída na resposta do Hub IoT para permitir que o dispositivo correlacione a resposta a sua solicitação anterior específica.
 
 A sequência a seguir descreve como um dispositivo atualiza as propriedades relatadas no dispositivo "r" no Hub IoT:
 
-1. Um dispositivo deve primeiro assinar o `$iothub/twin/res/#` tópico para receber as respostas da operação do Hub IOT.
+1. Um dispositivo deve primeiro assinar o tópico `$iothub/twin/res/#` para receber as respostas da operação do Hub IoT.
 
-2. Um dispositivo envia uma mensagem que contém a atualização do dispositivo para o `$iothub/twin/PATCH/properties/reported/?$rid={request id}` tópico. Essa mensagem inclui um valor de **ID de solicitação** .
+2. Um dispositivo envia uma mensagem que contém a atualização do dispositivo para o tópico `$iothub/twin/PATCH/properties/reported/?$rid={request id}`. Essa mensagem inclui um valor de **ID de solicitação** .
 
-3. Em seguida, o serviço envia uma mensagem de resposta que contém o novo valor de ETag para a coleção `$iothub/twin/res/{status}/?$rid={request id}`Propriedades relatadas no tópico. Essa mensagem de resposta usa a mesma **ID de solicitação** que a solicitação.
+3. Em seguida, o serviço envia uma mensagem de resposta que contém o novo valor de ETag para a coleção Propriedades relatadas no tópico `$iothub/twin/res/{status}/?$rid={request id}`. Essa mensagem de resposta usa a mesma **ID de solicitação** que a solicitação.
 
-O corpo da mensagem de solicitação contém um documento JSON que contém novos valores para propriedades relatadas. Cada membro no documento JSON atualiza ou adiciona o membro correspondente no documento do dispositivo. Um membro definido como `null`, exclui o membro do objeto recipiente. Por exemplo:
+O corpo da mensagem de solicitação contém um documento JSON que contém novos valores para propriedades relatadas. Cada membro no documento JSON atualiza ou adiciona o membro correspondente no documento do dispositivo. Um membro definido como `null`, exclui o membro do objeto contentor. Por exemplo:
 
 ```json
 {
@@ -308,12 +340,12 @@ O corpo da mensagem de solicitação contém um documento JSON que contém novos
 
 Os códigos de status possíveis são:
 
-|State | Descrição |
+|Estado | Descrição |
 | ----- | ----------- |
 | 200 | Êxito |
 | 400 | Solicitação inadequada. JSON malformado |
 | 429 | Muitas solicitações (limitadas), de acordo com a [limitação do Hub IOT](iot-hub-devguide-quotas-throttling.md) |
-| 5** | Erros do servidor |
+| 5 * * | Erros do servidor |
 
 O trecho de código Python abaixo demonstra o processo de atualização de propriedades relatadas de entrelaçar em MQTT (usando o cliente PAHO MQTT):
 
@@ -329,13 +361,13 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
                rid, twin_reported_property_patch, qos=0)
 ```
 
-Após o êxito da operação de atualização das propriedades relatadas de entrelaçamento acima, a mensagem de publicação do `$iothub/twin/res/204/?$rid=1&$version=6`Hub IOT `204` terá o seguinte tópico:, em `$rid=1` que é o código de status indicando êxito, corresponde à ID da solicitação fornecido pelo dispositivo no código e `$version` corresponde à versão da seção de propriedades relatadas do dispositivo gêmeos após a atualização.
+Após o êxito da operação de atualização de propriedades relatadas de entrelaçamento acima, a mensagem de publicação do Hub IoT terá o seguinte tópico: `$iothub/twin/res/204/?$rid=1&$version=6`, em que `204` é o código de status que indica êxito, `$rid=1` corresponde à ID de solicitação fornecida pelo dispositivo em o código e `$version` corresponde à versão da seção de propriedades relatadas do dispositivo gêmeos após a atualização.
 
 Para obter mais informações, consulte [Guia do desenvolvedor do dispositivo gêmeos](iot-hub-devguide-device-twins.md).
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Recebendo notificações de atualização de propriedades desejadas
 
-Quando um dispositivo está conectado, o Hub IOT envia notificações para o `$iothub/twin/PATCH/properties/desired/?$version={new version}`tópico, que contêm o conteúdo da atualização executada pelo back-end da solução. Por exemplo:
+Quando um dispositivo está conectado, o Hub IoT envia notificações para o tópico `$iothub/twin/PATCH/properties/desired/?$version={new version}`, que contêm o conteúdo da atualização executada pelo back-end da solução. Por exemplo:
 
 ```json
 {
@@ -345,7 +377,7 @@ Quando um dispositivo está conectado, o Hub IOT envia notificações para o `$i
 }
 ```
 
-Para atualizações de propriedade, `null` os valores significam que o membro do objeto JSON está sendo excluído. Além disso, observe `$version` que indica a nova versão da seção de propriedades desejadas de a.
+Para atualizações de propriedade, `null` valores significa que o membro do objeto JSON está sendo excluído. Além disso, observe que `$version` indica a nova versão da seção de propriedades desejadas de a.
 
 > [!IMPORTANT]
 > O Hub IoT gera notificações de alteração somente quando os dispositivos estão conectados. Certifique-se de implementar o [fluxo de reconexão do dispositivo](iot-hub-devguide-device-twins.md#device-reconnection-flow) para manter as propriedades desejadas sincronizadas entre o Hub IOT e o aplicativo do dispositivo.
@@ -354,9 +386,9 @@ Para obter mais informações, consulte [Guia do desenvolvedor do dispositivo g�
 
 ## <a name="respond-to-a-direct-method"></a>Responder a um método direto
 
-Primeiro, um dispositivo precisa assinar `$iothub/methods/POST/#`. O Hub IOT envia solicitações de método para `$iothub/methods/POST/{method name}/?$rid={request id}`o tópico, com um JSON válido ou um corpo vazio.
+Primeiro, um dispositivo precisa assinar `$iothub/methods/POST/#`. O Hub IoT envia solicitações de método para o tópico `$iothub/methods/POST/{method name}/?$rid={request id}`, com um JSON válido ou um corpo vazio.
 
-Para responder, o dispositivo envia uma mensagem com um corpo válido de JSON ou vazio para o `$iothub/methods/res/{status}/?$rid={request id}`tópico. Nesta mensagem, a **ID da solicitação** deve corresponder à que está na mensagem de solicitação e o **status** deve ser um inteiro.
+Para responder, o dispositivo envia uma mensagem com um corpo válido de JSON ou vazio para o tópico `$iothub/methods/res/{status}/?$rid={request id}`. Nesta mensagem, a **ID da solicitação** deve corresponder à que está na mensagem de solicitação e o **status** deve ser um inteiro.
 
 Para obter mais informações, consulte [Guia do desenvolvedor do método direto](iot-hub-devguide-direct-methods.md).
 
@@ -364,7 +396,7 @@ Para obter mais informações, consulte [Guia do desenvolvedor do método direto
 
 Como uma consideração final, se você precisar personalizar o comportamento do protocolo MQTT no lado da nuvem, examine o gateway do [protocolo IOT do Azure](iot-hub-protocol-gateway.md). Este software permite que você implante um gateway de protocolo personalizado de alto desempenho que se interfaces diretamente com o Hub IoT. O gateway de protocolo IoT do Azure permite que você personalize o protocolo de dispositivo para acomodar implantações MQTTs de Brownfield ou outros protocolos personalizados. No entanto, essa abordagem requer que você execute e opere um gateway de protocolo personalizado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o protocolo MQTT, consulte a [documentação do MQTT](https://mqtt.org/documentation).
 
@@ -377,5 +409,5 @@ Para saber mais sobre como planejar a implantação do Hub IoT, confira:
 
 Para explorar ainda mais os recursos do Hub IoT, consulte:
 
-* [guia para programadores do IoT Hub](iot-hub-devguide.md)
+* [Guia do desenvolvedor do Hub IoT](iot-hub-devguide.md)
 * [Implantando ia em dispositivos de borda com Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

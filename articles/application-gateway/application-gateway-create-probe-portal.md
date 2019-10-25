@@ -1,5 +1,5 @@
 ---
-title: Criar um gateway de Aplicativo Azure de investigação personalizado-portal do Azure | Microsoft Docs
+title: Criar uma investigação personalizada-Aplicativo Azure gateway-portal do Azure | Microsoft Docs
 description: Saiba como criar uma investigação personalizada para o gateway de aplicativo usando o portal
 services: application-gateway
 documentationcenter: na
@@ -13,56 +13,109 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/26/2017
+ms.date: 10/14/2019
 ms.author: victorh
-ms.openlocfilehash: b92b9d953b6dd941b8b5f445ad64059f557c2980
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 18799d928f7239eea311aa39159bfa0b5416ca1a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061804"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72821075"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Criar uma investigação personalizada para o gateway de aplicativo usando o portal
 
 > [!div class="op_single_selector"]
-> * [Azure portal](application-gateway-create-probe-portal.md)
+> * [Portal do Azure](application-gateway-create-probe-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-probe-ps.md)
 > * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
-Neste artigo, você adiciona uma investigação personalizada a um gateway de aplicativo existente por meio do portal do Azure. Investigações personalizadas são úteis para aplicativos que têm uma página de verificação de integridade específica ou para aplicativos que não fornecem uma resposta bem-sucedida no aplicativo Web padrão.
+Neste artigo, você adiciona uma investigação de integridade personalizada a um gateway de aplicativo existente por meio do portal do Azure. Usando as investigações de integridade, Aplicativo Azure gateway monitora a integridade dos recursos no pool de back-end.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Se você ainda não tiver um gateway de aplicativo, visite [criar um gateway de aplicativo](application-gateway-create-gateway-portal.md) para criar um gateway de aplicativo com o qual trabalhar.
 
-## <a name="createprobe"></a>Criar a investigação
+## <a name="create-probe-for-application-gateway-v2-sku"></a>Criar investigação para SKU do gateway de aplicativo v2
 
-As investigações são configuradas em um processo de duas etapas por meio do Portal. A primeira etapa é criar a investigação. Na segunda etapa, você adiciona a investigação às configurações de http de back-end do gateway de aplicativo.
+As investigações são configuradas em um processo de duas etapas por meio do Portal. A primeira etapa é inserir os valores necessários para a configuração de investigação. Na segunda etapa, você testará a integridade do back-end usando essa configuração de teste e salvará a investigação. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+### <a name="createprobe"></a>Inserir Propriedades da investigação
 
-1. No painel portal do Azure favoritos, clique em todos os recursos. Clique no gateway de aplicativo na folha todos os recursos. Se a assinatura que você selecionou já tiver vários recursos, você poderá inserir partners.contoso.net no filtro por nome... para aceder facilmente ao gateway de aplicação.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
 
-1. Clique em **investigações** e clique no botão **Adicionar** para adicionar uma investigação.
+2. No painel portal do Azure favoritos, clique em todos os recursos. Clique no gateway de aplicativo na folha todos os recursos. Se a assinatura que você selecionou já tiver vários recursos, você poderá inserir partners.contoso.net no filtro por nome... para aceder facilmente ao gateway de aplicação.
 
-   ![Adicionar folha de investigação com informações preenchidas][1]
+3. Selecione **investigações de integridade** e, em seguida, selecione **Adicionar** para adicionar uma nova investigação de integridade.
 
-1. Na folha **Adicionar investigação de integridade** , preencha as informações necessárias para a investigação e, quando concluir, clique em **OK**.
+   ![Adicionar nova investigação][4]
+
+4. Na página **Adicionar investigação de integridade** , preencha as informações necessárias para a investigação e, quando concluir, selecione **OK**.
 
    |**Definição** | **Valor** | **Detalhes**|
    |---|---|---|
-   |**Name**|customProbe|Esse valor é um nome amigável para a investigação que é acessível no Portal.|
-   |**Protocolo**|HTTP ou HTTPS | O protocolo usado pela investigação de integridade.|
-   |**Anfitrião**|, contoso.com|Esse valor é o nome do host que é usado para a investigação. Aplicável somente quando multissite está configurado no gateway de aplicativo; caso contrário, use ' 127.0.0.1 '. Esse valor é diferente do nome de host da VM.|
-   |**Caminho**|/ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http:\//contoso.com, basta usar '/' |
+   |**Nome**|customProbe|Esse valor é um nome amigável dado à investigação que é acessível no Portal.|
+   |**Protocolo**|HTTP ou HTTPS | O protocolo usado pela investigação de integridade. |
+   |**Anfitrião**|, contoso.com|Esse valor é o nome do host virtual (diferente do nome de host da VM) em execução no servidor de aplicativos. A investigação é enviada para (protocolo)://(nome do host):(porta de httpsetting)/urlPath.  Isso é aplicável quando o multissite é configurado no gateway de aplicativo. Se o gateway de aplicativo estiver configurado para um único site, digite ' 127.0.0.1 '.|
+   |**Escolha o nome do host nas configurações de HTTP de back-end**|Sim ou Não|Define o cabeçalho de *host* na investigação como o nome de host do recurso de back-end no pool de back-ends associado à configuração de http à qual essa investigação está associada. Especialmente necessário no caso de back-ends de vários locatários, como o serviço de aplicativo do Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Caminho**|/ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http:\//contoso.com apenas use '/' |
    |**Intervalo (segundos)**|30|Com que frequência a investigação é executada para verificar a integridade. Não é recomendável definir o menor que 30 segundos.|
-   |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação aguarda antes de atingir o tempo limite. O intervalo de tempo limite precisa ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de integridade de back-end esteja disponível.|
-   |**Limite não íntegro**|3|Número de tentativas com falha a serem consideradas não íntegras. O limite pode ser definido como 1 ou mais.|
+   |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação aguarda antes de atingir o tempo limite. Se uma resposta válida não for recebida nesse período de tempo limite, a investigação será marcada como com falha. O intervalo de tempo limite precisa ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de integridade de back-end esteja disponível. Observe que o valor de tempo limite não deve ser maior que o valor de ' interval ' usado nesta configuração de investigação ou o valor de ' tempo limite de solicitação ' na configuração de HTTP que será associada a essa investigação.|
+|**Limite não íntegro**|3|Número de tentativas de falha consecutivas a serem consideradas não íntegras. O limite pode ser definido como 1 ou mais.|
+   |**Usar condições de correspondência de investigação**|Sim ou Não|Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. Você pode alterar o intervalo aceitável de código de resposta de back-end ou corpo de resposta de back-end. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**Configurações de HTTP**|seleção da lista suspensa|A investigação será associada às configurações de HTTP selecionadas aqui e, portanto, monitorará a integridade desse pool de back-end que está associado à configuração de HTTP selecionada. Ele usará a mesma porta para a solicitação de investigação que a que está sendo usada na configuração de HTTP selecionada. Você só pode escolher essas configurações HTTP que não estão associadas a nenhuma outra investigação personalizada. <br>Observe que apenas essas configurações HTTP estão disponíveis para associação que têm o mesmo protocolo que o protocolo escolhido nesta configuração de investigação e têm o mesmo estado para a opção *escolher nome de host do back-end de configuração de http* .|
+   
+   > [!IMPORTANT]
+   > A investigação monitorará a integridade do back-end somente quando ele estiver associado a uma ou mais configurações de HTTP. Ele monitorará os recursos de back-end desses pools de back-end que estão associados às configurações de HTTP às quais essa investigação está associada. A solicitação de investigação será enviada para a porta de:(http://(nome do host) de httpsetting)/urlPath.
+
+### <a name="test-backend-health-with-the-probe"></a>Testar a integridade do back-end com a investigação
+
+Depois de inserir as propriedades de investigação, você pode testar a integridade dos recursos de back-end para verificar se a configuração de investigação está correta e se os recursos de back-end estão funcionando conforme o esperado.
+
+1. Selecione **testar** e observe o resultado da investigação. O gateway de aplicativo testa a integridade de todos os recursos de back-end nos pools de back-end associados às configurações de HTTP usadas para essa investigação. 
+
+   ![Testar integridade do back-end][5]
+
+2. Se houver recursos de back-end não íntegros, verifique a coluna **detalhes** para entender o motivo do estado não íntegro do recurso. Se o recurso tiver sido marcado como não íntegro devido a uma configuração de investigação incorreta, selecione o link voltar **ao teste de investigação** e edite a configuração da investigação. Caso contrário, se o recurso tiver sido marcado como não íntegro devido a um problema com o back-end, resolva os problemas com o recurso de back-end e, em seguida, teste o back-end novamente selecionando **voltar ao** link de investigação e selecione **testar**.
+
+   > [!NOTE]
+   > Você pode optar por salvar a investigação mesmo com recursos de back-end não íntegros, mas isso não é recomendado. Isso ocorre porque o gateway de aplicativo remove esses recursos de back-end do pool de back-end que são determinados como não íntegros pela investigação. Caso não haja recursos íntegros em um pool de back-end, você não poderá acessar seu aplicativo e receberá um erro 502.
+
+   ![Exibir resultado da investigação][6]
+
+3. Selecione **Adicionar** para salvar a investigação. 
+
+## <a name="create-probe-for-application-gateway-v1-sku"></a>Criar investigação para SKU do gateway de aplicativo v1
+
+As investigações são configuradas em um processo de duas etapas por meio do Portal. A primeira etapa é criar a investigação. Na segunda etapa, você adiciona a investigação às configurações de http de back-end do gateway de aplicativo.
+
+### <a name="createprobe"></a>Criar a investigação
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Se você ainda não tiver uma conta, poderá se inscrever para uma [avaliação gratuita de um mês](https://azure.microsoft.com/free)
+
+2. No painel portal do Azure favoritos, selecione **todos os recursos**. Selecione o gateway de aplicativo na página **todos os recursos** . Se a assinatura que você selecionou já tiver vários recursos, você poderá inserir partners.contoso.net no filtro por nome... para aceder facilmente ao gateway de aplicação.
+
+3. Selecione **investigações** e, em seguida, selecione **Adicionar** para adicionar uma investigação.
+
+   ![Adicionar folha de investigação com informações preenchidas][1]
+
+4. Na folha **Adicionar investigação de integridade** , preencha as informações necessárias para a investigação e, quando concluir, selecione **OK**.
+
+   |**Definição** | **Valor** | **Detalhes**|
+   |---|---|---|
+   |**Nome**|customProbe|Esse valor é um nome amigável dado à investigação que é acessível no Portal.|
+   |**Protocolo**|HTTP ou HTTPS | O protocolo usado pela investigação de integridade. |
+   |**Anfitrião**|, contoso.com|Esse valor é o nome do host virtual (diferente do nome de host da VM) em execução no servidor de aplicativos. A investigação é enviada para (protocolo)://(nome do host):(porta de httpsetting)/urlPath.  Isso é aplicável quando o multissite é configurado no gateway de aplicativo. Se o gateway de aplicativo estiver configurado para um único site, digite ' 127.0.0.1 '.|
+   |**Escolha o nome do host nas configurações de HTTP de back-end**|Sim ou Não|Define o cabeçalho de *host* na investigação como o nome de host do recurso de back-end no pool de back-ends associado à configuração de http à qual essa investigação está associada. Especialmente necessário no caso de back-ends de vários locatários, como o serviço de aplicativo do Azure. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Caminho**|/ou outro caminho|O restante da URL completa para a investigação personalizada. Um caminho válido começa com '/'. Para o caminho padrão de http:\//contoso.com apenas use '/' |
+   |**Intervalo (segundos)**|30|Com que frequência a investigação é executada para verificar a integridade. Não é recomendável definir o menor que 30 segundos.|
+   |**Tempo limite (segundos)**|30|A quantidade de tempo que a investigação aguarda antes de atingir o tempo limite. Se uma resposta válida não for recebida nesse período de tempo limite, a investigação será marcada como com falha. O intervalo de tempo limite precisa ser alto o suficiente para que uma chamada http possa ser feita para garantir que a página de integridade de back-end esteja disponível. Observe que o valor de tempo limite não deve ser maior que o valor de ' interval ' usado nesta configuração de investigação ou o valor de ' tempo limite de solicitação ' na configuração de HTTP que será associada a essa investigação.|
+|**Limite não íntegro**|3|Número de tentativas de falha consecutivas a serem consideradas não íntegras. O limite pode ser definido como 1 ou mais.|
+   |**Usar condições de correspondência de investigação**|Sim ou Não|Por padrão, uma resposta HTTP (S) com código de status entre 200 e 399 é considerada íntegra. Você pode alterar o intervalo aceitável de código de resposta de back-end ou corpo de resposta de back-end. [Saiba mais](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
 
    > [!IMPORTANT]
    > O nome do host não é o mesmo que o nome do servidor. Esse valor é o nome do host virtual em execução no servidor de aplicativos. A investigação é enviada para a porta de:(http://(nome do host) de httpsetting)/urlPath
 
-## <a name="add-probe-to-the-gateway"></a>Adicionar investigação ao gateway
+### <a name="add-probe-to-the-gateway"></a>Adicionar investigação ao gateway
 
 Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As configurações de investigação são definidas nas configurações de http de back-end do gateway de aplicativo.
 
@@ -70,15 +123,15 @@ Agora que a investigação foi criada, é hora de adicioná-la ao gateway. As co
 
    ![janela configurações de https][2]
 
-1. Na folha configurações do **appgatewaybackendhttp** , marque a caixa de seleção **usar investigação personalizada** e escolha a investigação criada na seção [criar a investigação](#createprobe) no menu suspenso **investigação personalizada** .
+2. Na página Configurações do **appgatewaybackendhttp** , marque a caixa de seleção **usar investigação personalizada** e escolha a investigação criada na seção [criar a investigação](#createprobe) no menu suspenso **investigação personalizada** .
    Ao concluir, clique em **salvar** e as configurações serão aplicadas.
 
-A investigação padrão verifica o acesso padrão ao aplicativo Web. Agora que uma investigação personalizada foi criada, o gateway de aplicativo usa o caminho personalizado definido para monitorar a integridade dos servidores de back-end. Com base nos critérios definidos, o gateway de aplicativo verifica o caminho especificado na investigação. Se a chamada para host: porta/caminho não retornar uma resposta de status HTTP 200-399, o servidor será retirado da rotação depois que o limite não íntegro for atingido. A investigação continua na instância não íntegra para determinar quando ela se torna íntegra novamente. Depois que a instância é adicionada novamente ao pool de servidores íntegros, o tráfego começa a fluir para ele novamente e a investigação da instância continua no intervalo especificado pelo usuário normalmente.
+## <a name="next-steps"></a>Passos seguintes
 
-## <a name="next-steps"></a>Passos Seguintes
-
-Para saber como configurar o descarregamento de SSL com Aplicativo Azure gateway, consulte [Configurar descarregamento SSL](application-gateway-ssl-portal.md)
+Exiba a integridade dos recursos de back-end conforme determinado pela investigação usando a [exibição integridade de back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png
-
+[4]: ./media/application-gateway-create-probe-portal/figure4.png
+[5]: ./media/application-gateway-create-probe-portal/figure5.png
+[6]: ./media/application-gateway-create-probe-portal/figure6.png

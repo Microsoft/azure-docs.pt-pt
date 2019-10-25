@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: d89150f43205a4b38612008033ab5649acd9af5b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 10/23/2019
+ms.openlocfilehash: 38be15cf5771f7eb09bce1154baa3bc6e559d49b
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241583"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881512"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>Tutorial: configurar inventários dinâmicos de seus recursos do Azure usando o Ansible
 
@@ -71,11 +71,20 @@ O Ansible pode ser usado para efetuar pull de informações de inventário de v�
 
 Você pode [usar marcas para organizar os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#azure-cli) por categorias definidas pelo usuário. 
 
+### <a name="using-ansible-version--28"></a>Usando o Ansible versão < 2,8
 Insira o comando [AZ Resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) a seguir para marcar a máquina virtual `ansible-inventory-test-vm1` com a chave `nginx`:
 
 ```azurecli-interactive
 az resource tag --tags nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
 ```
+
+### <a name="using-ansible-version--28"></a>Usando o Ansible versão > = 2,8
+Insira o comando [AZ Resource tag](/cli/azure/resource?view=azure-cli-latest.md#az-resource-tag) a seguir para marcar a máquina virtual `ansible-inventory-test-vm1` com a chave `Ansible=nginx`:
+
+```azurecli-interactive
+az resource tag --tags Ansible=nginx --id /subscriptions/<YourAzureSubscriptionID>/resourceGroups/ansible-inventory-test-rg/providers/Microsoft.Compute/virtualMachines/ansible-inventory-test-vm1
+```
+
 ## <a name="generate-a-dynamic-inventory"></a>Gerar um inventário dinâmico
 
 Quando você tiver suas máquinas virtuais definidas (e marcadas), é hora de gerar o inventário dinâmico.
@@ -84,7 +93,7 @@ Quando você tiver suas máquinas virtuais definidas (e marcadas), é hora de ge
 
 O Ansible fornece um script Python chamado [azure_rm. py](https://github.com/ansible/ansible/blob/devel/contrib/inventory/azure_rm.py) que gera um inventário dinâmico dos recursos do Azure. As etapas a seguir explicam como usar o script `azure_rm.py` para se conectar às suas duas máquinas virtuais do Azure de teste:
 
-1. Use o comando GNU `wget` para recuperar o script `azure_rm.py`:
+1. Use o comando GNU `wget` para recuperar o script de `azure_rm.py`:
 
     ```azurecli-interactive
     wget https://raw.githubusercontent.com/ansible/ansible/devel/contrib/inventory/azure_rm.py
@@ -124,10 +133,14 @@ A partir do Ansible 2,8, o Ansible fornece um [plug-in de inventário dinâmico 
 1. O plug-in de inventário requer um arquivo de configuração. O arquivo de configuração deve terminar em `azure_rm` e ter uma extensão de `yml` ou `yaml`. Para este exemplo de tutorial, salve o seguinte guia estratégico como `myazure_rm.yml`:
 
     ```yml
-    plugin: azure_rm
-    include_vm_resource_groups:
-    - ansible-inventory-test-rg
-    auth_source: auto
+        plugin: azure_rm
+        include_vm_resource_groups:
+        - ansible-inventory-test-rg
+        auth_source: auto
+    
+        keyed_groups:
+        - prefix: tag
+          key: tags
     ```
 
 1. Execute o seguinte comando para executar ping em VMs no grupo de recursos:
@@ -156,33 +169,49 @@ A partir do Ansible 2,8, o Ansible fornece um [plug-in de inventário dinâmico 
     ```
 
 ## <a name="enable-the-vm-tag"></a>Habilitar a marca de VM
-Depois de definir uma marca, você precisará "habilitar" essa marca. Uma maneira de habilitar uma marca é exportando a marca para uma variável de ambiente `AZURE_TAGS` por meio do comando `export`:
 
-```azurecli-interactive
-export AZURE_TAGS=nginx
-```
+### <a name="if-youre-using-ansible--28"></a>Se você estiver usando o Ansible < 2,8,
 
-- Se você estiver usando o Ansible < 2,8, execute o seguinte comando:
+- Depois de definir uma marca, você precisará "habilitar" essa marca. Uma maneira de habilitar uma marca é exportando a marca para uma variável de ambiente `AZURE_TAGS` por meio do comando `export`:
+
+    ```azurecli-interactive
+    export AZURE_TAGS=nginx
+    ```
+    
+- Execute o seguinte comando:
 
     ```bash
     ansible -i azure_rm.py ansible-inventory-test-rg -m ping
     ```
+    
+    Agora você vê apenas uma máquina virtual (aquela cuja marca corresponde ao valor exportado para a variável de ambiente `AZURE_TAGS`):
 
-- Se você estiver usando Ansible > = 2,8, execute o seguinte comando:
-  
-    ```bash
-    ansible all -m ping -i ./myazure_rm.yml
+    ```Output
+       ansible-inventory-test-vm1 | SUCCESS => {
+        "changed": false,
+        "failed": false,
+        "ping": "pong"
+    }
     ```
 
-Agora você vê apenas uma máquina virtual (aquela cuja marca corresponde ao valor exportado para a variável de ambiente `AZURE_TAGS`):
+### <a name="if-youre-using-ansible---28"></a>Se você estiver usando Ansible > = 2,8
 
-```Output
-ansible-inventory-test-vm1 | SUCCESS => {
-    "changed": false,
-    "failed": false,
-    "ping": "pong"
-}
-```
+- Execute o comando `ansible-inventory -i myazure_rm.yml --graph` para obter a seguinte saída:
+
+    ```Output
+        @all:
+          |--@tag_Ansible_nginx:
+          |  |--ansible-inventory-test-vm1_9e2f
+          |--@ungrouped:
+          |  |--ansible-inventory-test-vm2_7ba9
+    ```
+
+- Você também pode executar o seguinte comando para testar a conexão com a VM Nginx:
+  
+    ```bash
+    ansible -i ./myazure_rm.yml -m ping tag_Ansible_nginx
+    ```
+
 
 ## <a name="set-up-nginx-on-the-tagged-vm"></a>Configurar o Nginx na VM marcada
 
@@ -197,19 +226,19 @@ A finalidade das marcas é habilitar a capacidade de trabalhar de forma rápida 
 1. Cole o seguinte código de exemplo no editor:
 
     ```yml
-    ---
-    - name: Install and start Nginx on an Azure virtual machine
-      hosts: all
-      become: yes
-      tasks:
-      - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
-
-      handlers:
-        - name: start nginx
-          service: name=nginx state=started
+        ---
+        - name: Install and start Nginx on an Azure virtual machine
+          hosts: all
+          become: yes
+          tasks:
+          - name: install nginx
+            apt: pkg=nginx state=installed
+            notify:
+            - start nginx
+    
+          handlers:
+            - name: start nginx
+              service: name=nginx state=started
     ```
 
 1. Salve o arquivo e saia do editor.
@@ -218,15 +247,15 @@ A finalidade das marcas é habilitar a capacidade de trabalhar de forma rápida 
 
    - Ansible < 2,8:
 
-    ```bash
-    ansible-playbook -i azure_rm.py nginx.yml
-    ```
+     ```bash
+     ansible-playbook -i azure_rm.py nginx.yml
+     ```
 
    - Ansible > = 2,8:
 
-    ```bash
-     ansible-playbook  -i ./myazure_rm.yml  nginx.yml
-    ```
+     ```bash
+     ansible-playbook  -i ./myazure_rm.yml  nginx.yml --limit=tag_Ansible_nginx
+     ```
 
 1. Depois de executar o guia estratégico, você verá uma saída semelhante aos seguintes resultados:
 

@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bfb66789df3236c096ea00bcc83ddc435e87f047
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4dffa7dcafe4aabe3e8dcb56d4f5084d0c6ef821
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097651"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819659"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Visão geral do cache local do serviço de Azure App
 
@@ -58,15 +58,15 @@ O recurso de cache local do serviço de Azure App fornece uma exibição de fun�
 ## <a name="enable-local-cache-in-app-service"></a>Habilitar o cache local no serviço de aplicativo
 Você configura o cache local usando uma combinação de configurações de aplicativo reservadas. Você pode definir essas configurações de aplicativo usando os seguintes métodos:
 
-* [Azure portal](#Configure-Local-Cache-Portal)
+* [Portal do Azure](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurar o cache local usando o portal do Azure
 <a name="Configure-Local-Cache-Portal"></a>
 
-Você habilita o cache local por aplicativo Web usando esta configuração de aplicativo:`WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
+Você habilita o cache local por aplicativo Web usando esta configuração de aplicativo: `WEBSITE_LOCAL_CACHE_OPTION` = `Always`  
 
-![Portal do Azure configurações do aplicativo: Cache Local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
+![Portal do Azure configurações do aplicativo: cache local](media/app-service-local-cache-overview/app-service-local-cache-configure-portal.png)
 
 ### <a name="configure-local-cache-by-using-azure-resource-manager"></a>Configurar o cache local usando Azure Resource Manager
 <a name="Configure-Local-Cache-ARM"></a>
@@ -93,23 +93,24 @@ Você habilita o cache local por aplicativo Web usando esta configuração de ap
 ```
 
 ## <a name="change-the-size-setting-in-local-cache"></a>Alterar a configuração de tamanho no cache local
-Por padrão, o tamanho do cache local é **300 MB**. Isso inclui as pastas/site e/siteextensions que são copiadas do armazenamento de conteúdo, bem como quaisquer logs e pastas de dados criados localmente. Para aumentar esse limite, use a configuração `WEBSITE_LOCAL_CACHE_SIZEINMB`de aplicativo. Você pode aumentar o tamanho de até **2 GB** (2000 MB) por aplicativo.
+Por padrão, o tamanho do cache local é **1 GB**. Isso inclui as pastas/site e/siteextensions que são copiadas do armazenamento de conteúdo, bem como quaisquer logs e pastas de dados criados localmente. Para aumentar esse limite, use a configuração de aplicativo `WEBSITE_LOCAL_CACHE_SIZEINMB`. Você pode aumentar o tamanho de até **2 GB** (2000 MB) por aplicativo.
 
 ## <a name="best-practices-for-using-app-service-local-cache"></a>Práticas recomendadas para usar o cache local do serviço de aplicativo
 Recomendamos que você use o cache local em conjunto com o recurso de [ambientes de preparo](../app-service/deploy-staging-slots.md) .
 
-* Adicione a configuração `WEBSITE_LOCAL_CACHE_OPTION` do aplicativo adesivo com o `Always` valor ao seu slot de **produção** . Se você estiver usando `WEBSITE_LOCAL_CACHE_SIZEINMB`o, adicione-o também como uma configuração adesiva ao seu slot de produção.
+* Adicione a configuração do aplicativo *adesivo* `WEBSITE_LOCAL_CACHE_OPTION` com o valor `Always` ao seu slot de **produção** . Se você estiver usando `WEBSITE_LOCAL_CACHE_SIZEINMB`, adicione-o também como uma configuração adesiva ao seu slot de produção.
 * Crie um slot de **preparo** e publique em seu slot de preparo. Normalmente, você não define o slot de preparo para usar o cache local para habilitar um ciclo de vida de desenvolvimento/implantação-teste contínuo para preparo se você obtiver os benefícios do cache local para o slot de produção.
 * Teste seu site em relação ao slot de preparo.  
 * Quando estiver pronto, emita uma [operação de permuta](../app-service/deploy-staging-slots.md#Swap) entre os slots de preparo e de produção.  
 * As configurações adesivas incluem nome e adesivo em um slot. Assim, quando o slot de preparo é alternado para produção, ele herda as configurações do aplicativo de cache local. O slot de produção trocado recentemente será executado no cache local após alguns minutos e será ativado como parte do slot aquecimento após a troca. Assim, quando a permuta do slot for concluída, o slot de produção será executado no cache local.
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>Como saber se o cache local se aplica ao meu aplicativo?
 Se seu aplicativo precisar de um repositório de conteúdo confiável e de alto desempenho, o não usará o repositório de conteúdo para gravar dados críticos em tempo de execução e tiver menos de 2 GB de tamanho total, a resposta será "Sim"! Para obter o tamanho total de suas pastas/site e/siteextensions, você pode usar a extensão de site "uso de disco de aplicativos Web do Azure".
 
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>Como saber se meu site mudou para usar o cache local?
-Se você estiver usando o recurso de cache local com ambientes de preparo, a operação de permuta não será concluída até que o cache local seja quente. Para verificar se o site está em execução no cache local, você pode verificar a variável `WEBSITE_LOCALCACHE_READY`de ambiente do processo de trabalho. Use as instruções na página [variável de ambiente do processo de trabalho](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) para acessar a variável de ambiente do processo de trabalho em várias instâncias.  
+Se você estiver usando o recurso de cache local com ambientes de preparo, a operação de permuta não será concluída até que o cache local seja quente. Para verificar se o site está em execução no cache local, você pode verificar a variável de ambiente do processo de trabalho `WEBSITE_LOCALCACHE_READY`. Use as instruções na página [variável de ambiente do processo de trabalho](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) para acessar a variável de ambiente do processo de trabalho em várias instâncias.  
 
 ### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>Acabei de publicar novas alterações, mas meu aplicativo parece não tê-las. Porquê?
 Se seu aplicativo usar o cache local, você precisará reiniciar o site para obter as alterações mais recentes. Não deseja publicar alterações em um site de produção? Consulte as opções de slot na seção de práticas recomendadas anteriores.

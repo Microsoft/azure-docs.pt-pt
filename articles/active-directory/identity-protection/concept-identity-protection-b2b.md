@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 10/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d374f4ddac2e4d013bab1c5e88a87af1da2c1f
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 95ea7eb470a5880bc88b3df903d33854f363e974
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667144"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881316"
 ---
 # <a name="identity-protection-and-b2b-users"></a>Utilizadores de proteção de identidade e B2B
 
@@ -33,9 +33,9 @@ O risco do usuário para usuários de colaboração B2B é avaliado em seu diret
 
 Há limitações na implementação da proteção de identidade para usuários de colaboração B2B em um diretório de recursos devido à sua identidade existente em seu diretório base. As principais limitações são as seguintes:
 
-- Se um usuário convidado disparar a política de risco do usuário de proteção de identidade para forçar a redefinição de senha, ele será bloqueado. Esse bloco é devido à incapacidade de redefinir senhas no diretório de recursos.
-- Os usuários convidados não aparecem no relatório de usuários arriscados. Essa perda de visibilidade ocorre devido à avaliação de risco que ocorre no diretório base do usuário B2B.
-- Os administradores não podem ignorar ou corrigir um usuário de colaboração B2B arriscado em seu diretório de recursos. Essa perda de funcionalidade é devido aos administradores no diretório de recursos não terem acesso ao diretório base do usuário B2B.
+- Se um usuário convidado disparar a política de risco do usuário de proteção de identidade para forçar a redefinição de senha, **ele será bloqueado**. Esse bloco é devido à incapacidade de redefinir senhas no diretório de recursos.
+- **Os usuários convidados não aparecem no relatório de usuários arriscados**. Essa perda de visibilidade ocorre devido à avaliação de risco que ocorre no diretório base do usuário B2B.
+- Os administradores **não podem ignorar ou corrigir um usuário de colaboração B2B arriscado** em seu diretório de recursos. Essa perda de funcionalidade é devido aos administradores no diretório de recursos não terem acesso ao diretório base do usuário B2B.
 
 ### <a name="why-cant-i-remediate-risky-b2b-collaboration-users-in-my-directory"></a>Por que não é possível corrigir usuários arriscados de colaboração B2B em meu diretório?
 
@@ -49,9 +49,8 @@ Se um usuário B2B arriscado em seu diretório for bloqueado pela sua política 
 
 A exclusão de usuários B2B das políticas de acesso condicional com base em risco da sua organização impedirá que os usuários B2B sejam afetados ou bloqueados pela avaliação de risco. Para excluir esses usuários B2B, crie um grupo no Azure AD que contenha todos os usuários convidados da sua organização. Em seguida, adicione esse grupo como uma exclusão para as políticas internas de risco do usuário e de entrada de proteção de identidade, bem como as políticas de acesso condicional que usam o risco de entrada como uma condição.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a colaboração B2B do Azure AD:
 
 - [O que é a colaboração B2B do Azure AD?](../b2b/what-is-b2b.md)
-- [O que é o acesso condicional?](../conditional-access/overview.md)

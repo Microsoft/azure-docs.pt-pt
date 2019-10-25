@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: de8f31a02b62164a8a6b099a90297a207aefae80
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5dae8c4da46c750f69057f33d593f5bb7396a99e
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240806"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882245"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Conectar dados de Azure AD Identity Protection
 
@@ -37,7 +37,7 @@ Você pode transmitir logs de [Azure ad Identity Protection](https://docs.micros
 
 ## <a name="connect-to-azure-ad-identity-protection"></a>Conectar-se ao Azure AD Identity Protection
 
-Se você já tiver Azure AD Identity Protection, verifique se ele está [habilitado em sua rede](../active-directory/identity-protection/enable.md).
+Se você já tiver Azure AD Identity Protection, verifique se ele está [habilitado em sua rede](../active-directory/identity-protection/overview-identity-protection.md).
 Se Azure AD Identity Protection for implantada e estiver obtendo dados, os dados de alerta poderão ser facilmente transmitidos para o Azure Sentinel.
 
 

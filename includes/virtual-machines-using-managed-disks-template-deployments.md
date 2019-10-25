@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: 904bd884bc09c1e2016f55ffc8e1e9f635974ac7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 59c888b1f18b1c9f700e1b79c4786a466f2c55fb
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67184194"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72822020"
 ---
-# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Utilizar Managed Disks no modelos Azure Resource Manager
+# <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Usando Managed Disks em modelos de Azure Resource Manager
 
-Este documento explica as diferenças entre discos geridos e, ao utilizar modelos Azure Resource Manager para aprovisionar máquinas virtuais. Os exemplos ajudá-lo a atualizar os modelos existentes que estão a utilizar discos não geridos para discos geridos. Para referência, estamos a utilizar o [101-vm-simples-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) modelo como um guia. Pode ver o modelo usando ambos [discos geridos](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) e uma versão anterior utilizando [discos não geridos](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) se quiser diretamente compará-los.
+Este documento percorre as diferenças entre discos gerenciados e não gerenciados ao usar modelos de Azure Resource Manager para provisionar máquinas virtuais. Os exemplos ajudam você a atualizar os modelos existentes que estão usando discos não gerenciados para discos gerenciados. Para referência, estamos usando o modelo [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) como um guia. Você pode ver o modelo usando [discos gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) e uma versão anterior usando [discos não gerenciados](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) se quiser compará-los diretamente.
 
-## <a name="unmanaged-disks-template-formatting"></a>Modelo de discos não gerido formatação
+## <a name="unmanaged-disks-template-formatting"></a>Formatação de modelo de discos não gerenciados
 
-Para começar, vamos dar uma olhada em discos como não geridos implementadas. Durante a criação de discos não geridos, terá de uma conta de armazenamento para armazenar os ficheiros VHD. Pode criar uma nova conta de armazenamento ou utilizar um já existente. Este artigo mostra-lhe como criar uma nova conta de armazenamento. Crie um recurso de conta de armazenamento no bloco de recursos, conforme mostrado abaixo.
+Para começar, vamos dar uma olhada em como os discos não gerenciados são implantados. Ao criar discos não gerenciados, você precisa de uma conta de armazenamento para manter os arquivos VHD. Você pode criar uma nova conta de armazenamento ou usar uma já existente. Este artigo mostra como criar uma nova conta de armazenamento. Crie um recurso de conta de armazenamento no bloco de recursos, conforme mostrado abaixo.
 
 ```json
 {
@@ -37,7 +37,7 @@ Para começar, vamos dar uma olhada em discos como não geridos implementadas. D
 }
 ```
 
-Dentro do objeto de máquina virtual, adicione uma dependência na conta de armazenamento para se certificar de que foi criado antes da máquina virtual. Dentro do `storageProfile` secção, especifique o URI completo da localização do VHD, o que faz referência a conta de armazenamento e é necessário para o disco do SO e de quaisquer discos de dados.
+Dentro do objeto de máquina virtual, adicione uma dependência na conta de armazenamento para garantir que ela seja criada antes da máquina virtual. Na seção `storageProfile`, especifique o URI completo do local do VHD, que faz referência à conta de armazenamento e é necessário para o disco do sistema operacional e quaisquer discos de dados.
 
 ```json
 {
@@ -85,18 +85,18 @@ Dentro do objeto de máquina virtual, adicione uma dependência na conta de arma
 }
 ```
 
-## <a name="managed-disks-template-formatting"></a>Managed disks formatação de modelo
+## <a name="managed-disks-template-formatting"></a>Formatação de modelo de Managed disks
 
-Com o Managed Disks do Azure, o disco torna-se um recurso de nível superior e já não necessita de uma conta de armazenamento a ser criada pelo utilizador. Discos geridos foram expostos pela primeira vez no `2016-04-30-preview` versão de API, elas estão disponíveis em todas as versões de API posteriores e agora são o tipo de disco predefinido. As secções seguintes percorrer as configurações padrão e como personalizar ainda mais os seus discos em pormenor.
+Com o Azure Managed Disks, o disco torna-se um recurso de nível superior e não requer mais uma conta de armazenamento para ser criada pelo usuário. Os discos gerenciados foram expostos primeiro na versão `2016-04-30-preview` API, eles estão disponíveis em todas as versões de API subsequentes e agora são o tipo de disco padrão. As seções a seguir percorrem as configurações padrão e detalham como personalizar ainda mais seus discos.
 
 > [!NOTE]
-> É recomendado utilizar uma versão de API posterior `2016-04-30-preview` pois ocorreram alterações significativas entre `2016-04-30-preview` e `2017-03-30`.
+> É recomendável usar uma versão de API posterior à `2016-04-30-preview`, pois houve alterações significativas entre `2016-04-30-preview` e `2017-03-30`.
 >
 >
 
-### <a name="default-managed-disk-settings"></a>Predefinições de disco gerido
+### <a name="default-managed-disk-settings"></a>Configurações padrão de disco gerenciado
 
-Para criar uma VM com discos geridos, já não terá de criar o armazenamento de conta de recurso e pode atualizar o recurso de máquina virtual da seguinte forma. Especificamente tenha em atenção que o `apiVersion` reflete `2017-03-30` e o `osDisk` e `dataDisks` Consulte já não é um URI específico para o VHD. Quando implementar sem especificar propriedades adicionais, o disco utiliza um tipo de armazenamento com base no tamanho da VM. Por exemplo, se estiver a utilizar um tamanho de VM com capacidade Premium (tamanhos com "s" no respetivo nome, como Standard_D2s_v3) sistema utilizarão o armazenamento de Premium_LRS. Utilize a definição de sku do disco para especificar um tipo de armazenamento. Se não for especificado nenhum nome, ele assume o formato `<VMName>_OsDisk_1_<randomstring>` para o disco do SO e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por predefinição, a encriptação de disco do Azure está desativada; colocação em cache é de leitura/escrita para o disco do SO e não discos de dados. Pode observar no exemplo a seguir que há ainda uma dependência de conta de armazenamento, embora isso seja apenas pelo armazenamento de diagnóstico e não é necessária para o armazenamento de disco.
+Para criar uma VM com discos gerenciados, você não precisa mais criar o recurso de conta de armazenamento e pode atualizar o recurso de máquina virtual da seguinte maneira. Observe especificamente que a `apiVersion` reflete `2017-03-30` e a `osDisk` e `dataDisks` não se referem mais a um URI específico para o VHD. Ao implantar sem especificar propriedades adicionais, o disco usará um tipo de armazenamento com base no tamanho da VM. Por exemplo, se você estiver usando um tamanho de VM com capacidade Premium (tamanhos com "s" em seu nome, como Standard_D2s_v3), o sistema usará o armazenamento Premium_LRS. Use a configuração de SKU do disco para especificar um tipo de armazenamento. Se nenhum nome for especificado, ele usará o formato de `<VMName>_OsDisk_1_<randomstring>` para o disco do sistema operacional e `<VMName>_disk<#>_<randomstring>` para cada disco de dados. Por padrão, a criptografia de disco do Azure está desabilitada; o Caching é leitura/gravação para o disco do sistema operacional e nenhum para discos de dados. Você pode observar, no exemplo abaixo, que ainda há uma dependência de conta de armazenamento, embora isso seja apenas para o armazenamento de diagnósticos e não seja necessário para o armazenamento em disco.
 
 ```json
 {
@@ -135,9 +135,9 @@ Para criar uma VM com discos geridos, já não terá de criar o armazenamento de
 }
 ```
 
-### <a name="using-a-top-level-managed-disk-resource"></a>Através de um recurso de nível superior de disco gerido
+### <a name="using-a-top-level-managed-disk-resource"></a>Usando um recurso de disco gerenciado de nível superior
 
-Como alternativa a especificar a configuração do disco no objeto de máquina virtual, pode criar um recurso de disco de nível superior e anexá-lo como parte da criação de máquina virtual. Por exemplo, pode criar um recurso de disco da seguinte forma para utilizar como um disco de dados.
+Como alternativa para especificar a configuração de disco no objeto de máquina virtual, você pode criar um recurso de disco de nível superior e anexá-lo como parte da criação da máquina virtual. Por exemplo, você pode criar um recurso de disco da seguinte maneira para usar como um disco de dados.
 
 ```json
 {
@@ -157,7 +157,7 @@ Como alternativa a especificar a configuração do disco no objeto de máquina v
 }
 ```
 
-Dentro do objeto VM, referenciar o objeto de disco a ser ligado. Especificar o ID de recurso de disco gerido, criado no `managedDisk` propriedade permite o anexo do disco, enquanto a VM é criada. O `apiVersion` para a VM recurso está definido como `2017-03-30`. Uma dependência no recurso do disco é adicionada para garantir que é criado com êxito antes da criação da VM. 
+No objeto da VM, faça referência ao objeto de disco a ser anexado. A especificação da ID de recurso do disco gerenciado criado na propriedade `managedDisk` permite o anexo do disco à medida que a VM é criada. O `apiVersion` para o recurso de VM é definido como `2017-03-30`. Uma dependência no recurso de disco é adicionada para garantir que ele seja criado com êxito antes da criação da VM. 
 
 ```json
 {
@@ -200,9 +200,9 @@ Dentro do objeto VM, referenciar o objeto de disco a ser ligado. Especificar o I
 }
 ```
 
-### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Criar conjuntos de disponibilidade gerido de VMS com discos geridos
+### <a name="create-managed-availability-sets-with-vms-using-managed-disks"></a>Criar conjuntos de disponibilidade gerenciados com VMs usando Managed disks
 
-Para criar gerida conjuntos de disponibilidade com VMs a utilizar discos geridos, adicione a `sku` objeto para o conjunto de disponibilidade recursos e defina a `name` propriedade `Aligned`. Esta propriedade garante que os discos para cada VM são suficientemente isolados uns dos outros para evitar pontos únicos de falha. Observe também que o `apiVersion` para a disponibilidade do conjunto de recursos está definida como `2018-10-01`.
+Para criar conjuntos de disponibilidade gerenciados com VMs usando discos gerenciados, adicione o objeto `sku` ao recurso de conjunto de disponibilidade e defina a propriedade `name` como `Aligned`. Essa propriedade garante que os discos de cada VM estejam suficientemente isolados uns dos outros para evitar pontos únicos de falha. Observe também que o `apiVersion` para o recurso de conjunto de disponibilidade está definido como `2018-10-01`.
 
 ```json
 {
@@ -222,12 +222,12 @@ Para criar gerida conjuntos de disponibilidade com VMs a utilizar discos geridos
 
 ### <a name="standard-ssd-disks"></a>Discos SSD Standard
 
-Seguem-se os parâmetros necessários no modelo do Resource Manager para criar os discos de SSD Standard:
+Abaixo estão os parâmetros necessários no modelo do Resource Manager para criar SSD Standard discos:
 
-* *apiVersion* para a Microsoft. Compute tem de ser definido como `2018-04-01` (ou posterior)
-* Especifique *managedDisk.storageAccountType* como `StandardSSD_LRS`
+* *apiVersion* para Microsoft. Compute deve ser definido como `2018-04-01` (ou posterior)
+* Especifique *managedDisk. storageAccountType* como `StandardSSD_LRS`
 
-A exemplo a seguir mostra a *properties.storageProfile.osDisk* secção para uma VM que utilize discos de SSD Standard:
+O exemplo a seguir mostra a seção *Properties. storageProfile. osDisk* para uma VM que usa SSD Standard discos:
 
 ```json
 "osDisk": {
@@ -241,19 +241,18 @@ A exemplo a seguir mostra a *properties.storageProfile.osDisk* secção para uma
 }
 ```
 
-Para obter um exemplo de modelo completo de como criar um disco Standard SSD com um modelo, veja [criar uma VM a partir de uma imagem do Windows com discos de dados padrão do SSD](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
+Para obter um exemplo de modelo completo de como criar um disco de SSD Standard com um modelo, consulte [criar uma VM de uma imagem do Windows com discos de dados SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
-### <a name="additional-scenarios-and-customizations"></a>Cenários adicionais e personalizações
+### <a name="additional-scenarios-and-customizations"></a>Cenários e personalizações adicionais
 
-Para obter informações completas sobre as especificações de REST API, consulte a [criar um disco gerido documentação da REST API](/rest/api/manageddisks/disks/disks-create-or-update). Encontrará cenários adicionais, bem como padrão e os valores aceitáveis que podem ser submetidos para a API através de implementações de modelo. 
+Para encontrar informações completas sobre as especificações da API REST, consulte a [documentação criar uma API REST de disco gerenciado](/rest/api/manageddisks/disks/disks-create-or-update). Você encontrará cenários adicionais, bem como valores padrão e aceitáveis que podem ser enviados para a API por meio de implantações de modelo. 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* Para modelos completos que utilizam discos geridos, visite as seguintes ligações de repositório de início rápido do Azure.
-    * [VM do Windows com disco gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
-    * [VM do Linux com o disco gerido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
-    * [Lista completa dos modelos de disco gerido](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
-* Visite o [descrição geral de discos geridos do Azure](../articles/virtual-machines/windows/managed-disks-overview.md) documento para obter mais informações sobre os discos geridos.
-* Reveja a documentação de referência de modelo para os recursos de máquina virtual ao visitar a [referência de modelo Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) documento.
-* Reveja a documentação de referência de modelo para os recursos de disco, visitando a [referência de modelo Microsoft.Compute/disks](/azure/templates/microsoft.compute/disks) documento.
-* Para obter informações sobre como utilizar discos geridos em conjuntos de dimensionamento de máquina virtual do Azure, visite o [utilizar discos de dados com conjuntos de dimensionamento](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) documento.
+* Para obter modelos completos que usam discos gerenciados, visite os seguintes links do repositório de início rápido do Azure.
+    * [VM do Windows com disco gerenciado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows)
+    * [VM do Linux com disco gerenciado](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
+* Visite o documento [visão geral do Azure Managed disks](../articles/virtual-machines/windows/managed-disks-overview.md) para saber mais sobre o Managed disks.
+* Examine a documentação de referência do modelo para recursos de máquina virtual visitando o documento de [referência do modelo Microsoft. Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines) .
+* Examine a documentação de referência de modelo para recursos de disco visitando o documento de [referência de modelo Microsoft. Compute/discos](/azure/templates/microsoft.compute/disks) .
+* Para obter informações sobre como usar discos gerenciados em conjuntos de dimensionamento de máquinas virtuais do Azure, visite o documento [usar discos de dados com conjuntos de dimensionamento](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks) .

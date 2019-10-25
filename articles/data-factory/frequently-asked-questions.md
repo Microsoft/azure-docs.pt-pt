@@ -5,18 +5,16 @@ services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387064"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72880131"
 ---
 # <a name="azure-data-factory-faq"></a>Perguntas frequentes Azure Data Factory
 Este artigo fornece respostas para perguntas frequentes sobre Azure Data Factory.  
@@ -178,34 +176,21 @@ Sim. Uma saída de atividade pode ser consumida em uma atividade subsequente com
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Como fazer tratar normalmente valores nulos em uma saída de atividade? 
 Você pode usar a construção `@coalesce` nas expressões para manipular valores nulos normalmente. 
 
-## <a name="mapping-data-flows"></a>Mapeando fluxos de dados
-
-### <a name="which-data-factory-version-do-i-use-to-create-data-flows"></a>Qual versão de Data Factory eu uso para criar fluxos de dados?
-Use a versão Data Factory v2 para criar fluxos de dados.
-  
-### <a name="i-was-a-previous-private-preview-customer-who-used-data-flows-and-i-used-the-data-factory-v2-preview-version-for-data-flows"></a>Eu era um cliente de visualização particular anterior que usava fluxos de dados e usei a versão de visualização do Data Factory v2 para fluxos de dados.
-Esta versão agora é obsoleta. Use Data Factory v2 para fluxos de dados.
-  
-### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-regard-to-data-flows"></a>O que mudou da visualização privada para a visualização pública limitada em relação aos fluxos de dados?
-Você não precisará mais colocar seus próprios clusters de Azure Databricks. Data Factory gerenciará a criação e a divisão do cluster. Os conjuntos de BLOBs e os conjuntos de Azure Data Lake Storage Gen2 são separados em texto delimitado e em conjuntos de parquet do Apache. Você ainda pode usar Data Lake Storage Gen2 e armazenamento de BLOBs para armazenar esses arquivos. Use o serviço vinculado apropriado para esses mecanismos de armazenamento.
-
-### <a name="can-i-migrate-my-private-preview-factories-to-data-factory-v2"></a>Posso migrar minhas fábricas de versão prévia privada para Data Factory v2?
-
-Sim. [Siga as instruções](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration).
+## <a name="mapping-data-flows"></a>Fluxos de dados de mapeamento
 
 ### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-info-do-i-need-to-provide-to-get-help"></a>Preciso de ajuda para solucionar problemas de minha lógica de fluxo de dados. Quais informações eu preciso fornecer para obter ajuda?
 
-Quando a Microsoft fornece ajuda ou solução de problemas com fluxos de dados, forneça o plano de código DSL. Para tal, siga estes passos:
+Quando a Microsoft fornece ajuda ou solução de problemas com fluxos de dados, forneça o script de fluxo de dados. Este é o script code-behind do grafo de fluxo de dados. Na interface do usuário do ADF, abra o fluxo de dados e clique no botão "script" no canto superior direito. Copie e cole esse script ou salve-o em um arquivo de texto.
 
-1. No designer de fluxo de dados, selecione o **código** no canto superior direito. Isso exibirá o código editável do JSON para o fluxo de dados.
-2. Na exibição de código, selecione **plano** no canto superior direito. Essa alternância mudará de JSON para o plano de script DSL formatado somente leitura.
-3. Copie e cole esse script ou salve-o em um arquivo de texto.
-
-### <a name="how-do-i-access-data-by-using-the-other-80-dataset-types-in-data-factory"></a>Como fazer acessar dados usando os outros tipos de conjunto de dados 80 no Data Factory?
+### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Como fazer acessar dados usando os outros tipos de conjunto de dados 90 no Data Factory?
 
 No momento, o recurso de fluxo de dados de mapeamento permite que os arquivos de texto do Azure SQL, do Azure SQL Data Warehouse, delimitados do armazenamento de BLOBs do Azure ou Azure Data Lake Storage Gen2, e parquet os arquivos do armazenamento de BLOBs ou Data Lake Storage Gen2 nativamente para origem e coletor. 
 
 Use a atividade de cópia para preparar dados de qualquer um dos outros conectores e, em seguida, execute uma atividade de fluxo de dados para transformar dados após sua preparação. Por exemplo, seu pipeline primeiro copiará para o armazenamento de BLOBs e, em seguida, uma atividade de fluxo de dados usará um conjunto de dados na origem para transformá-los.
+
+### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>O tempo de execução de integração auto-hospedado está disponível para fluxos de dados?
+
+O IR auto-hospedado é uma construção de pipeline do ADF que você pode usar com a atividade de cópia para adquirir ou mover dados de e para fontes de dados locais ou baseadas em VM e coletores. Prepare os dados primeiro com uma cópia, depois o fluxo de dados para transformação e, em seguida, uma cópia subsequente se você precisar mover esses dados transformados de volta para o repositório local.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter instruções detalhadas sobre como criar um data factory, consulte os seguintes tutoriais:

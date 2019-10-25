@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 06/12/2019
-ms.openlocfilehash: f11cbdab59548906f751116a2ca7b9c545b25d91
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.date: 10/01/2019
+ms.openlocfilehash: 686f4620280318fb0e642b30624a91c54280c360
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677874"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817956"
 ---
-# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: Criar Apache Kafka cluster no Azure HDInsight usando portal do Azure
+# <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Início rápido: criar Apache Kafka cluster no Azure HDInsight usando portal do Azure
 
 O Apache Kafka é uma plataforma de código aberto de transmissão em fluxo distribuída. É frequentemente utilizado como mediador de mensagens, uma vez que fornece funcionalidades semelhantes a uma fila de mensagens de publicação-subscrição.
 
@@ -37,7 +37,7 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. No menu à esquerda, navegue até **+ criar uma** > **análise** > de recursos**HDInsight**.
+1. No menu à esquerda, navegue até **+ criar um recurso** > **Analytics** > **HDInsight**.
 
     ![portal do Azure criar recurso HDInsight](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
 
@@ -45,13 +45,13 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
     |Propriedade  |Descrição  |
     |---------|---------|
-    |Subscription    |  Selecione a sua subscrição do Azure. |
-    |Resource group     | Crie um grupo de recursos ou selecione um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
-    |Nome do cluster   | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode conter até 59 caracteres, incluindo letras, números e hifens. O primeiro e último carateres do nome não podem ser hífenes. |
-    |Location    | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
+    |Subscrição    |  Selecione a sua subscrição do Azure. |
+    |Grupo de recursos     | Crie um grupo de recursos ou selecione crie um existente.  Um grupo de recursos é um contentor de componentes do Azure.  Neste caso, o grupo de recursos contém o cluster do HDInsight e a conta de armazenamento do Azure dependente. |
+    |Nome do cluster   | Introduza um nome para o cluster do Hadoop. Uma vez que todos os clusters no HDInsight partilham o mesmo espaço de nomes DNS, este nome tem de ser único. O nome pode conter até 59 caracteres, incluindo letras, números e hifens. O primeiro e o último carateres do nome não podem ser hífenes. |
+    |Localização    | Selecione uma localização do Azure onde quer criar o cluster.  Selecione uma localização mais próxima de si para obter um melhor desempenho. |
     |Tipo de cluster| Selecione **Selecionar tipo de cluster**. Em seguida, selecione **Kafka** como o tipo de cluster.|
-    |Version|A versão padrão para o tipo de cluster será especificada. Selecione na lista suspensa se desejar especificar uma versão diferente.|
-    |Nome de usuário e senha de logon do cluster    | O nome de início de sessão predefinido é **admin**. A palavra-passe tem de ter no mínimo 10 carateres e tem de conter, pelo menos, um número, uma letra maiúscula e uma letra minúscula, e um caráter não alfanumérico (exceto os carateres ' " `\). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
+    |Versão|A versão padrão para o tipo de cluster será especificada. Selecione na lista suspensa se desejar especificar uma versão diferente.|
+    |Nome de usuário e senha de logon do cluster    | O nome de logon padrão é **admin**. A senha deve ter pelo menos 10 caracteres de comprimento e deve conter pelo menos um dígito, uma letra maiúscula e uma letras minúsculas, um caractere não alfanumérico (exceto os caracteres ' "' \). Certifique-se de que **não escolhe** uma palavra-passe comum, tal como "Pass@word1".|
     |Nome de utilizador de Secure Shell (SSH) | O nome de utilizador predefinido é **sshuser**.  Pode indicar outro nome de utilizador SSH. |
     |Usar senha de logon do cluster para SSH| Marque essa caixa de seleção para usar a mesma senha para o usuário SSH como aquela que você forneceu para o usuário de logon do cluster.|
 
@@ -61,7 +61,7 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 
     Para obter uma elevada disponibilidade de dados, selecione uma região (localização) que contenha __três domínios de falha__. Para obter informações sobre o número de domínios de falha numa região, consulte o documento [Disponibilidade das máquinas virtuais Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-    Selecione o **Next: > De armazenamento > guia**  para avançar para as configurações de armazenamento.
+    Selecione a guia **Avançar: > de armazenamento >** para avançar para as configurações de armazenamento.
 
 1. Na guia **armazenamento** , forneça os seguintes valores:
 
@@ -69,10 +69,10 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
     |---------|---------|
     |Tipo de armazenamento primário|Use o valor padrão **armazenamento do Azure**.|
     |Método de seleção|Use o valor padrão **selecionar da lista**.|
-    |Conta de armazenamento primário|Use a lista suspensa para selecionar uma conta de armazenamento existente ou selecione **criar nova**. Se você criar uma nova conta, o nome deverá ter entre 3 e 24 caracteres de comprimento e só poderá incluir números e letras minúsculas|
+    |Conta de armazenamento primária|Use a lista suspensa para selecionar uma conta de armazenamento existente ou selecione **criar nova**. Se você criar uma nova conta, o nome deverá ter entre 3 e 24 caracteres de comprimento e só poderá incluir números e letras minúsculas|
     |Contentor|Use o valor preenchido automaticamente.|
 
-    ![Introdução ao fornecimento de valores de armazenamento do cluster no HDInsight com Linux](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Fornecer valores de armazenamento para criar um cluster no HDInsight")
+    ![Introdução ao Linux do HDInsight fornecer valores de armazenamento de cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Fornecer valores de armazenamento para criar um cluster HDInsight")
 
     Selecione a guia **segurança + rede** .
 
@@ -111,24 +111,24 @@ Para criar um Apache Kafka no cluster do HDInsight, utilize os seguintes passos:
 3. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
 
     Quando estiver ligado, verá informações semelhantes ao texto seguinte:
-    
+
     ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     83 packages can be updated.
     37 updates are security updates.
 
 
     Welcome to Apache Kafka on HDInsight.
-    
+
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
     ```
 
@@ -138,35 +138,37 @@ Ao trabalhar com o Kafka, você deve conhecer os hosts do *Apache Zookeeper* e *
 
 Nesta seção, você obtém as informações do host da API REST do Apache Ambari no cluster.
 
-1. Instale o [JQ](https://stedolan.github.io/jq/), um processador de linha de comando JSON. Esse utilitário é usado para analisar documentos JSON e é útil na análise das informações do host. Na conexão SSH aberta, digite o seguinte comando para instalar `jq`:
+1. Instale o [JQ](https://stedolan.github.io/jq/), um processador de linha de comando JSON. Esse utilitário é usado para analisar documentos JSON e é útil na análise das informações do host. Na conexão SSH aberta, digite o seguinte comando para instalar o `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-2. Configurar variáveis de ambiente. Substitua `PASSWORD` e`CLUSTERNAME` pela senha de logon do cluster e nome do cluster, respectivamente, digite o comando:
+1. Configure a variável de senha. Substitua `PASSWORD` pela senha de logon do cluster e, em seguida, digite o comando:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-3. Extraia corretamente o nome do cluster em maiúsculas. A capitalização real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá o capital real, o armazenará em uma variável e, em seguida, exibirá o nome em maiúsculas e o nome que você forneceu anteriormente. Introduza o seguinte comando:
+1. Extraia o nome do cluster em maiúscula corretamente. A capitalização real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá o capital real e, em seguida, o armazenará em uma variável. Introduza o seguinte comando:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Se você estiver fazendo esse processo de fora do cluster, haverá um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em minúsculas no portal do Azure. Em seguida, substitua o nome do cluster por `<clustername>` no comando a seguir e execute-o: `export clusterName='<clustername>'`.
 
-4. Para definir uma variável de ambiente com informações de host Zookeeper, use o comando a seguir. O comando recupera todos os hosts Zookeeper e, em seguida, retorna apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
+
+1. Para definir uma variável de ambiente com informações de host Zookeeper, use o comando a seguir. O comando recupera todos os hosts Zookeeper e, em seguida, retorna apenas as duas primeiras entradas. Isto acontece porque é desejável que exista alguma redundância para o caso de um anfitrião estar inacessível.
 
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2);
     ```
 
-    Este comando consulta diretamente o serviço do Ambari no nó principal do cluster. Você também pode acessar o Ambari usando o endereço público `https://$CLUSTERNAME.azurehdinsight.net:80/`de. Algumas configurações de rede podem impedir o acesso ao endereço público. Por exemplo, ao utilizar Grupos de Segurança de Rede (NSG) para restringir o acesso ao HDInsight numa rede virtual.
+    > [!Note]  
+    > Este comando requer acesso Ambari. Se o cluster estiver atrás de um NSG, execute este comando em um computador que possa acessar o Ambari. 
 
-5. Para verificar se a variável de ambiente está definida corretamente, utilize o comando seguinte:
+1. Para verificar se a variável de ambiente está definida corretamente, utilize o comando seguinte:
 
     ```bash
     echo $KAFKAZKHOSTS
@@ -176,15 +178,18 @@ Nesta seção, você obtém as informações do host da API REST do Apache Ambar
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-6. Para definir uma variável de ambiente com as informações do anfitrião do mediador do Apache Kafka, utilize o comando seguinte:
+1. Para definir uma variável de ambiente com as informações do anfitrião do mediador do Apache Kafka, utilize o comando seguinte:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-7. Para verificar se a variável de ambiente está definida corretamente, utilize o comando seguinte:
+    > [!Note]  
+    > Este comando requer acesso Ambari. Se o cluster estiver atrás de um NSG, execute este comando em um computador que possa acessar o Ambari. 
 
-    ```bash   
+1. Para verificar se a variável de ambiente está definida corretamente, utilize o comando seguinte:
+
+    ```bash
     echo $KAFKABROKERS
     ```
 

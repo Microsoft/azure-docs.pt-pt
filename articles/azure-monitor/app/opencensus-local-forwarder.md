@@ -1,23 +1,19 @@
 ---
 title: Encaminhador local de rastreamento distribuído do Aplicativo Azure insights OpenCensus (visualização) | Microsoft docs
 description: Encaminhe rastreamentos distribuídos do OpenCensus e alcance de linguagens como Python e vá para Aplicativo Azure insights
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/18/2018
 ms.reviewer: nimolnar
-ms.author: mbullwin
-ms.openlocfilehash: aa64755b636005f4ed8ea5c074ffaada51fb8dd9
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: b0d0bc4d711b05dd2206b7437f1f4c7b3444a0c6
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68348161"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819219"
 ---
 # <a name="local-forwarder-preview"></a>Encaminhador local (visualização)
 
@@ -34,7 +30,7 @@ O encaminhador local é um [projeto de código-fonte aberto no GitHub](https://g
 A maneira mais fácil de executar o encaminhador local no Windows é instalá-lo como um serviço do Windows. A versão vem com um executável de serviço do Windows (*WindowsServiceHost/Microsoft. LocalForwarder. WindowsServiceHost. exe*) que pode ser facilmente registrado com o sistema operacional.
 
 > [!NOTE]
-> O serviço de encaminhador local requer um mínimo de .NET Framework 4,7. Se você não tiver .NET Framework 4,7, o serviço será instalado, mas não iniciará. Para acessar a versão de disponibilidade mais recente do .NET Framework **[visite a página de download do .NET Framework](
+> O serviço de encaminhador local requer um mínimo de .NET Framework 4,7. Se você não tiver .NET Framework 4,7, o serviço será instalado, mas não iniciará. Para acessar a versão mais recente do .NET Framework **[visite a página de download do .NET Framework](
 https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_source=getdotnet&utm_medium=referral)** .
 
 1. Baixe a LF. Arquivo WindowsServiceHost. zip da [página de versão do encaminhador local](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/releases) no github.
@@ -53,7 +49,7 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     
     `[SC] CreateService SUCCESS`
     
-    Para examinar seu novo serviço por meio do tipo de GUI de serviços``services.msc``
+    Para examinar seu novo serviço por meio do tipo de GUI de serviços ``services.msc``
         
      ![Captura de tela do serviço de encaminhador local](./media/opencensus-local-forwarder/002-services.png)
 
@@ -67,11 +63,11 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
     sc failure "Local Forwarder" reset= 432000 actions= restart/1000/restart/1000/restart/1000
     ```
 
-5. No mesmo local que o ``Microsoft.LocalForwarder.WindowsServiceHost.exe`` arquivo, que neste exemplo é ``C:\LF-WindowsServiceHost`` um arquivo chamado ``LocalForwarder.config``. Esse é um arquivo baseado em XML que permite que você ajuste a configuração de seu localforwader e especifique a chave de instrumentação do recurso de Application Insights que você deseja que seus dados de rastreamento distribuído sejam encaminhados. 
+5. No mesmo local que o arquivo de ``Microsoft.LocalForwarder.WindowsServiceHost.exe``, que neste exemplo é ``C:\LF-WindowsServiceHost`` há um arquivo chamado ``LocalForwarder.config``. Esse é um arquivo baseado em XML que permite que você ajuste a configuração de seu localforwader e especifique a chave de instrumentação do recurso de Application Insights que você deseja que seus dados de rastreamento distribuído sejam encaminhados. 
 
-    Depois de editar ``LocalForwarder.config`` o arquivo para adicionar sua chave de instrumentação, certifique-se de reiniciar o **serviço de encaminhador local** para permitir que as alterações entrem em vigor.
+    Depois de editar o arquivo de ``LocalForwarder.config`` para adicionar sua chave de instrumentação, certifique-se de reiniciar o **serviço de encaminhador local** para permitir que as alterações entrem em vigor.
     
-6. Para confirmar que as configurações desejadas estão em vigor e que o encaminhador local está escutando dados de rastreamento conforme ``LocalForwarder.log`` o esperado, verifique o arquivo. Você deverá ver resultados semelhantes à imagem abaixo na parte inferior do arquivo:
+6. Para confirmar que as configurações desejadas estão em vigor e que o encaminhador local está escutando dados de rastreamento conforme o esperado, verifique o arquivo de ``LocalForwarder.log``. Você deverá ver resultados semelhantes à imagem abaixo na parte inferior do arquivo:
 
     ![Captura de tela do arquivo LocalForwarder. log](./media/opencensus-local-forwarder/003-log-file.png)
 
@@ -82,7 +78,7 @@ Para certos casos de uso, pode ser benéfico executar o encaminhador local como 
   ```batchfile
   E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
   ```
-* um conjunto de binários do .NET Core independente para plataformas x86 e x64. Eles não exigem o tempo de execução do .NET Core para serem executados. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
+* um conjunto de binários do .NET Core independente para plataformas x86 e x64. Eles não exigem o tempo de execução do .NET Core para serem executados. */ConsoleHost/Win-x86/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/Win-x64/Publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
   ```batchfile
   E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
   E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
@@ -97,7 +93,7 @@ Assim como no Windows, a versão vem com as seguintes versões executáveis do h
 dotnet Microsoft.LocalForwarder.ConsoleHost.dll
 ```
 
-* um conjunto de binários do .NET Core independente para Linux-64. Este não requer que o tempo de execução do .NET Core seja executado. */ConsoleHost/linux-x64/publish/Microsoft.LocalForwarder.ConsoleHost*.
+* um conjunto de binários do .NET Core independente para Linux-64. Este não requer que o tempo de execução do .NET Core seja executado. */ConsoleHost/Linux-x64/Publish/Microsoft.LocalForwarder.ConsoleHost*.
 
 ```batchfile
 user@machine:~/ConsoleHost/linux-x64/publish$ sudo chmod +x Microsoft.LocalForwarder.ConsoleHost
@@ -181,6 +177,6 @@ Os rastreamentos são gravados no sistema de arquivos ao lado do executável que
 
 Se nenhum arquivo de configuração for fornecido (que é o padrão), o encaminhador local usará a configuração padrão, que pode ser encontrada [aqui](https://github.com/Microsoft/ApplicationInsights-LocalForwarder/blob/master/src/Common/NLog.config).
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Abrir censo](https://opencensus.io/)

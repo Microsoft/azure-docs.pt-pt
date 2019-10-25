@@ -1,143 +1,138 @@
 ---
-title: Como faço para... no Application Insights do Azure | Documentos da Microsoft
-description: Perguntas frequentes no Application Insights.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 48b2b644-92e4-44c3-bc14-068f1bbedd22
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Como fazer... no Aplicativo Azure insights | Microsoft Docs
+description: Perguntas frequentes em Application Insights.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 04/04/2017
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9f80edf18a531d6c2850658ddef9c7007edb350f
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.date: 04/04/2017
+ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67795519"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817364"
 ---
 # <a name="how-do-i--in-application-insights"></a>Como... no Application Insights?
-## <a name="get-an-email-when-"></a>Receber um e-mail quando...
-### <a name="email-if-my-site-goes-down"></a>E-mail se o meu site ficar inativo
-Definir um [teste da web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
+## <a name="get-an-email-when-"></a>Receber um email quando...
+### <a name="email-if-my-site-goes-down"></a>Enviar email se meu site ficar inativo
+Defina um [teste da Web de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md).
 
-### <a name="email-if-my-site-is-overloaded"></a>Se o meu site está sobrecarregado de e-mail
-Definir um [alerta](../../azure-monitor/app/alerts.md) nos **tempo de resposta do servidor**. Um limiar entre 1 e 2 segundos deve funcionar.
+### <a name="email-if-my-site-is-overloaded"></a>Enviar email se meu site estiver sobrecarregado
+Definir um [alerta](../../azure-monitor/app/alerts.md) no **tempo de resposta do servidor**. Um limite entre 1 e 2 segundos deve funcionar.
 
 ![](./media/how-do-i/030-server.png)
 
-A aplicação também poderá mostrar sinais de enfraquecer retornando códigos de falha. Definir um alerta num **pedidos falhados**.
+Seu aplicativo também pode mostrar sinais de tensão retornando códigos de falha. Definir um alerta sobre **solicitações com falha**.
 
-Se quiser definir um alerta num **exceções de servidor**, poderá ter de fazer [alguma configuração adicional](../../azure-monitor/app/asp-net-exceptions.md) para ver os dados.
+Se você quiser definir um alerta sobre **exceções de servidor**, talvez seja necessário fazer [algumas configurações adicionais](../../azure-monitor/app/asp-net-exceptions.md) para ver os dados.
 
-### <a name="email-on-exceptions"></a>Exceções de e-mail
-1. [Configurar a monitorização de exceção](../../azure-monitor/app/asp-net-exceptions.md)
-2. [Definir um alerta](../../azure-monitor/app/alerts.md) na exceção contagem de métrica
+### <a name="email-on-exceptions"></a>Email sobre exceções
+1. [Configurar o monitoramento de exceção](../../azure-monitor/app/asp-net-exceptions.md)
+2. [Definir um alerta](../../azure-monitor/app/alerts.md) na métrica de contagem de exceção
 
-### <a name="email-on-an-event-in-my-app"></a>Num evento na minha aplicação de e-mail
-Vamos supor que gostaria de receber um e-mail quando ocorre um evento específico. O Application Insights não fornece esse recurso diretamente, mas pode [enviar um alerta quando uma métrica ultrapassa um limiar](../../azure-monitor/app/alerts.md).
+### <a name="email-on-an-event-in-my-app"></a>Email em um evento em meu aplicativo
+Vamos supor que você gostaria de receber um email quando ocorrer um evento específico. Application Insights não fornece esse recurso diretamente, mas pode [enviar um alerta quando uma métrica ultrapassar um limite](../../azure-monitor/app/alerts.md).
 
-Os alertas podem ser definidos no [métricas personalizadas](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), embora os eventos não personalizados. Escreva alguns códigos para aumentar uma métrica quando o evento ocorre:
+Os alertas podem ser definidos em [métricas personalizadas](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), embora não sejam eventos personalizados. Escreva algum código para aumentar uma métrica quando o evento ocorrer:
 
     telemetry.TrackMetric("Alarm", 10);
 
-Ou:
+or
 
     var measurements = new Dictionary<string,double>();
     measurements ["Alarm"] = 10;
     telemetry.TrackEvent("status", null, measurements);
 
-Como os alertas têm dois Estados, terá de enviar um valor baixo, quando considera o alerta tem de terminar:
+Como os alertas têm dois Estados, você precisa enviar um valor baixo ao considerar que o alerta foi encerrado:
 
     telemetry.TrackMetric("Alarm", 0.5);
 
-Criar um gráfico no [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md) para ver o alarme:
+Crie um gráfico no [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md) para ver seu alarme:
 
 ![](./media/how-do-i/010-alarm.png)
 
-Agora, defina um alerta ser lançado quando a métrica ultrapassarem um valor mid durante um curto período:
+Agora, defina um alerta para disparar quando a métrica estiver acima de um valor médio por um curto período:
 
 ![](./media/how-do-i/020-threshold.png)
 
-Defina o período médio para o mínimo.
+Defina o período de média para o mínimo.
 
-Irá receber e-mails quando a métrica fica acima e abaixo do limiar.
+Você receberá emails quando a métrica ficar acima e abaixo do limite.
 
 Alguns pontos a considerar:
 
-* Um alerta tem dois Estados ("alert" e "integridade"). O estado é avaliado apenas quando uma métrica é recebida.
-* Uma mensagem de e-mail é enviada apenas quando o estado é alterado. É por que precisa enviar ambos elevada e métricas de baixo valor.
-* Para avaliar o alerta, a média é removida dos valores recebidos durante o período anterior. Isto ocorre sempre que uma métrica é recebida, para que as mensagens de e-mail podem ser enviadas com mais frequência do que o período que definir.
-* Uma vez que os e-mails são enviados no "alert" e "integridade", talvez queira considerar a pensar novamente o seu evento da como uma condição de dois Estados. Por exemplo, em vez de um evento de "tarefa concluída", tem uma condição de "tarefa em curso", onde pode obter mensagens de correio eletrónico no início e no final de uma tarefa.
+* Um alerta tem dois Estados ("alerta" e "íntegro"). O estado é avaliado somente quando uma métrica é recebida.
+* Um email é enviado somente quando o estado é alterado. É por isso que você precisa enviar métricas de valor alto e baixo.
+* Para avaliar o alerta, a média é obtida dos valores recebidos no período anterior. Isso ocorre toda vez que uma métrica é recebida, para que os emails possam ser enviados com mais frequência do que o período definido.
+* Como os emails são enviados em "alerta" e "íntegro", talvez você queira considerar a possibilidade de repensar o evento de uma imagem como uma condição de dois Estados. Por exemplo, em vez de um evento "trabalho concluído", tenha uma condição de "trabalho em andamento", em que você recebe emails no início e no final de um trabalho.
 
-### <a name="set-up-alerts-automatically"></a>Configure alertas automaticamente
-[Utilize o PowerShell para criar novos alertas](../../azure-monitor/app/alerts.md#automation)
+### <a name="set-up-alerts-automatically"></a>Configurar alertas automaticamente
+[Usar o PowerShell para criar novos alertas](../../azure-monitor/app/alerts.md#automation)
 
-## <a name="use-powershell-to-manage-application-insights"></a>Utilize o PowerShell para gerir o Application Insights
+## <a name="use-powershell-to-manage-application-insights"></a>Usar o PowerShell para gerenciar o Application Insights
 * [Criar novos recursos](../../azure-monitor/app/powershell-script-create-resource.md)
 * [Criar novos alertas](../../azure-monitor/app/alerts.md#automation)
 
-## <a name="separate-telemetry-from-different-versions"></a>Telemetria separado de diferentes versões
+## <a name="separate-telemetry-from-different-versions"></a>Separar telemetria de versões diferentes
 
-* Várias funções num aplicativo: Utilizar um único recurso do Application Insights e filtre [cloud_Rolename](../../azure-monitor/app/app-map.md).
-* Separar o desenvolvimento, teste e versões de lançamento: Utilize diferentes recursos do Application Insights. Escolha a segurança das chaves de instrumentação do Web. config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
-* Relatórios de versões de compilação: Adicione uma propriedade com um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Várias funções em um aplicativo: Use um único recurso de Application Insights e filtre em [cloud_Rolename](../../azure-monitor/app/app-map.md).
+* Separando versões de desenvolvimento, teste e lançamento: Use diferentes recursos de Application Insights. Pegue as chaves de instrumentação em Web. config. [Saiba mais](../../azure-monitor/app/separate-resources.md)
+* Relatando versões de compilação: Adicione uma propriedade usando um inicializador de telemetria. [Saiba mais](../../azure-monitor/app/separate-resources.md)
 
-## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar os servidores de back-end e os aplicativos de desktop
-[Utilizar o módulo SDK do Windows Server](../../azure-monitor/app/windows-desktop.md).
+## <a name="monitor-backend-servers-and-desktop-apps"></a>Monitorar servidores de back-end e aplicativos da área de trabalho
+[Use o módulo SDK do Windows Server](../../azure-monitor/app/windows-desktop.md).
 
 ## <a name="visualize-data"></a>Visualizar os dados
-#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Dashboard com métricas de várias aplicações
-* Na [Explorador de métricas](../../azure-monitor/app/metrics-explorer.md), personalizar o gráfico e guarde-o como um favorito. Afixá-la ao dashboard do Azure.
+#### <a name="dashboard-with-metrics-from-multiple-apps"></a>Painel com métricas de vários aplicativos
+* No [Gerenciador de métricas](../../azure-monitor/app/metrics-explorer.md), personalize seu gráfico e salve-o como um favorito. Fixe-o no painel do Azure.
 
-#### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Dashboard com dados de outras origens e o Application Insights
-* [Exportar a telemetria para o Power BI](../../azure-monitor/app/export-power-bi.md ).
+#### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>Painel com dados de outras fontes e Application Insights
+* [Exportar telemetria para Power bi](../../azure-monitor/app/export-power-bi.md ).
 
 Ou
 
-* Use o SharePoint como dashboard, exibir dados em peças web do SharePoint. [Utilizar a exportação contínua e o Stream Analytics para exportar para o SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Utilize PowerView para examinar a base de dados e criar uma web part do SharePoint para PowerView.
+* Use o SharePoint como seu painel, exibindo dados em Web Parts do SharePoint. [Use a exportação e a Stream Analytics contínua para exportar para o SQL](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  Use PowerView para examinar o banco de dados e criar uma Web Part do SharePoint para PowerView.
 
 <a name="search-specific-users"></a>
 
-### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrar utilizadores anônimos ou autenticados
-Se os seus utilizadores iniciarem sessão, pode definir o [autenticado o id de utilizador](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Isso não acontece automaticamente.)
+### <a name="filter-out-anonymous-or-authenticated-users"></a>Filtrar usuários anônimos ou autenticados
+Se os usuários entrarem, você poderá definir a [ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users). (Isso não acontece automaticamente.)
 
-Em seguida, pode:
+Em seguida, você pode:
 
-* Pesquisar ids de utilizador específico
+* Pesquisar IDs de usuário específicas
 
 ![](./media/how-do-i/110-search.png)
 
-* Filtrar métricas para os utilizadores de anônimos ou autenticados
+* Filtrar métricas para usuários anônimos ou autenticados
 
 ![](./media/how-do-i/115-metrics.png)
 
-## <a name="modify-property-names-or-values"></a>Modificar os nomes das propriedades ou valores
-Criar uma [filtro](../../azure-monitor/app/api-filtering-sampling.md#filtering). Isto permite-lhe modificar ou filtrar telemetria antes do envio da sua aplicação para o Application Insights.
+## <a name="modify-property-names-or-values"></a>Modificar valores ou nomes de propriedade
+Crie um [filtro](../../azure-monitor/app/api-filtering-sampling.md#filtering). Isso permite que você modifique ou filtre a telemetria antes que ela seja enviada do seu aplicativo para Application Insights.
 
-## <a name="list-specific-users-and-their-usage"></a>Lista de utilizadores específicos e seu uso
-Se só quer [pesquisa para utilizadores específicos](#search-specific-users), pode definir o [autenticado o id de utilizador](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
+## <a name="list-specific-users-and-their-usage"></a>Listar usuários específicos e seu uso
+Se você quiser apenas [Pesquisar usuários específicos](#search-specific-users), poderá definir a [ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users).
 
-Se pretender que uma lista de utilizadores com os dados, como quais são as páginas olham para ou a frequência com que iniciar sessão, tem duas opções:
+Se você quiser uma lista de usuários com dados como as páginas que eles examinam ou com que frequência eles fazem logon, você tem duas opções:
 
-* [Id do conjunto de utilizador autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [exportar para uma base de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) e usar ferramentas adequadas para analisar os seus dados de utilizador existe.
-* Se tiver apenas um pequeno número de utilizadores, envie eventos personalizados ou métricas, usando os dados de interesse como o nome de evento ou valor métrico e definindo o id de utilizador como uma propriedade. Para analisar as vistas de página, substitua a chamada de trackPageView JavaScript padrão. Para analisar a telemetria de lado do servidor, utilize um inicializador de telemetria para adicionar o id de utilizador para toda a telemetria server. Pode, em seguida, filtrar e segmentar métricas e pesquisas sobre o id de utilizador.
+* [Defina a ID de usuário autenticado](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), [exporte para um banco de dados](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) e use ferramentas adequadas para analisar os dados do usuário ali.
+* Se você tiver apenas um pequeno número de usuários, envie eventos personalizados ou métricas, usando os dados de interesse como o valor da métrica ou o nome do evento e definindo a ID de usuário como uma propriedade. Para analisar exibições de página, substitua a chamada trackPageView do JavaScript padrão. Para analisar a telemetria do lado do servidor, use um inicializador de telemetria para adicionar a ID de usuário a toda a telemetria do servidor. Em seguida, você pode filtrar e segmentar métricas e pesquisas na ID de usuário.
 
-## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Reduzir o tráfego do meu aplicativo para o Application Insights
-* Na [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), desative quaisquer módulos não precisar, o coletor de contador de desempenho desse tipo.
-* Uso [amostragem e filtragem](../../azure-monitor/app/api-filtering-sampling.md) no SDK.
-* Nas suas páginas da web, limite o número de chamadas Ajax comunicado para cada vista de página. No fragmento de script após `instrumentationKey:...` , insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
-* Se estiver a utilizar [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), a agregação de lotes de valores de métrica de computação antes de enviar o resultado. Há uma sobrecarga de trackmetric () que fornece para isso.
+## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Reduzir o tráfego do meu aplicativo para Application Insights
+* Em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md), desabilite todos os módulos dos quais você não precisa, como o coletor do contador de desempenho.
+* Use a [amostragem e a filtragem](../../azure-monitor/app/api-filtering-sampling.md) no SDK.
+* Em suas páginas da Web, limite o número de chamadas AJAX relatadas para cada exibição de página. No trecho de script após `instrumentationKey:...`, insira: `,maxAjaxCallsPerView:3` (ou um número adequado).
+* Se você estiver usando [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric), Compute a agregação de lotes de valores de métrica antes de enviar o resultado. Há uma sobrecarga de TrackMetric () que o fornece para isso.
 
-Saiba mais sobre [preços e quotas](../../azure-monitor/app/pricing.md).
+Saiba mais sobre [preços e cotas](../../azure-monitor/app/pricing.md).
 
-## <a name="disable-telemetry"></a>Desativar a telemetria
-Para **dinamicamente parar e iniciar** a recolha e a transmissão de telemetria do servidor:
+## <a name="disable-telemetry"></a>Desabilitar telemetria
+Para **parar e iniciar dinamicamente** a coleta e a transmissão da telemetria do servidor:
 
-### <a name="aspnet-classic-applications"></a>Aplicativos do ASP.NET clássico
+### <a name="aspnet-classic-applications"></a>Aplicativos clássicos ASP.NET
 
 ```csharp
     using  Microsoft.ApplicationInsights.Extensibility;
@@ -145,28 +140,28 @@ Para **dinamicamente parar e iniciar** a recolha e a transmissão de telemetria 
     TelemetryConfiguration.Active.DisableTelemetry = true;
 ```
 
-### <a name="other-applications"></a>Outras aplicações
-Não é recomendado utilizar `TelemetryConfiguration.Active` singleton no console ou aplicativos do ASP.NET Core.
-Se criou `TelemetryConfiguration` instância por conta própria - definir `DisableTelemetry` para `true`.
+### <a name="other-applications"></a>Outros aplicativos
+Não é recomendável usar `TelemetryConfiguration.Active` singleton no console ou em aplicativos ASP.NET Core.
+Se você criou `TelemetryConfiguration` instância por conta própria, defina `DisableTelemetry` como `true`.
 
-Para aplicativos do ASP.NET Core poderá aceder `TelemetryConfiguration` através de instâncias [injeção de dependência do ASP.NET Core](/aspnet/core/fundamentals/dependency-injection/). . Veja mais detalhes no [Application Insights para aplicações ASP.NET Core](../../azure-monitor/app/asp-net-core.md) artigo.
+Para ASP.NET Core aplicativos, você pode acessar `TelemetryConfiguration` instância usando [ASP.NET Core injeção de dependência](/aspnet/core/fundamentals/dependency-injection/). Encontre mais detalhes no artigo [ApplicationInsights for ASP.NET Core Applications](../../azure-monitor/app/asp-net-core.md) .
 
-## <a name="disable-selected-standard-collectors"></a>Desativar os coletores padrão selecionados
-Pode desativar os coletores padrão (por exemplo, contadores de desempenho, pedidos de HTTP ou dependências)
+## <a name="disable-selected-standard-collectors"></a>Desabilitar coletores padrão selecionados
+Você pode desabilitar os coletores padrão (por exemplo, contadores de desempenho, solicitações HTTP ou dependências)
 
-* **Aplicativos ASP.NET** – eliminar ou comente as linhas relevantes no [applicationinsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
-* **Aplicativos do ASP.NET Core** – siga as opções de configuração de módulos de telemetria no [Application Insights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
+* **Aplicativos ASP.net** -exclua ou comente as linhas relevantes em [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)
+* **ASP.NET Core aplicativos** – siga as opções de configuração dos módulos de telemetria no [ApplicationInsights ASP.NET Core](../../azure-monitor/app/asp-net-core.md#configuring-or-removing-default-telemetrymodules)
 
-## <a name="view-system-performance-counters"></a>Contadores de desempenho do sistema de vista
-Entre as métricas que podem mostrar no Explorador de métricas é um conjunto de sistema, contadores de desempenho. Há um painel predefinido intitulado **servidores** que apresenta várias delas.
+## <a name="view-system-performance-counters"></a>Exibir contadores de desempenho do sistema
+Entre as métricas que você pode mostrar no Metrics Explorer estão um conjunto de contadores de desempenho do sistema. Há uma folha predefinida intitulada **servidores** que exibe vários deles.
 
-![Abra o recurso do Application Insights e clique em servidores](./media/how-do-i/121-servers.png)
+![Abra o recurso Application Insights e clique em servidores](./media/how-do-i/121-servers.png)
 
-### <a name="if-you-see-no-performance-counter-data"></a>Se vir que não existem dados de contador de desempenho
-* **Servidor IIS** no seu computador ou numa VM. [Instale o Monitor de estado](../../azure-monitor/app/monitor-performance-live-website-now.md).
-* **Web site do Azure** -não é suportada ainda contadores de desempenho. Existem várias métricas, que pode obter como parte padrão do painel de controlo do web site do Azure.
-* **Servidor UNIX** - [instale collectd](../../azure-monitor/app/java-collectd.md)
+### <a name="if-you-see-no-performance-counter-data"></a>Se você não vir dados do contador de desempenho
+* **Servidor IIS** em seu próprio computador ou em uma VM. [Instale o status monitor](../../azure-monitor/app/monitor-performance-live-website-now.md).
+* **Site do Azure** -ainda não há suporte para contadores de desempenho. Há várias métricas que você pode obter como uma parte padrão do painel de controle do site do Azure.
+* **Servidor Unix** - [instalar a coleta](../../azure-monitor/app/java-collectd.md)
 
-### <a name="to-display-more-performance-counters"></a>Para apresentar mais contadores de desempenho
-* Primeiro, [adicione um novo gráfico](../../azure-monitor/app/metrics-explorer.md) e ver se o contador está no conjunto básico que oferecemos.
-* Caso contrário, [adicionar o contador para o conjunto recolhido pelo módulo de contador de desempenho](../../azure-monitor/app/performance-counters.md).
+### <a name="to-display-more-performance-counters"></a>Para exibir mais contadores de desempenho
+* Primeiro, [adicione um novo gráfico](../../azure-monitor/app/metrics-explorer.md) e veja se o contador está no conjunto básico que oferecemos.
+* Caso contrário, [adicione o contador ao conjunto coletado pelo módulo contador de desempenho](../../azure-monitor/app/performance-counters.md).

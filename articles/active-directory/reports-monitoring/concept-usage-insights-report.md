@@ -1,5 +1,5 @@
 ---
-title: Relatório de uso e informações no portal de Azure Active Directory | Microsoft Docs
+title: Relatório de uso e informações | Microsoft Docs
 description: Introdução ao relatório de uso e informações no portal de Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0c6723c28bf6ab8af112763a6485bc89b46409c6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 568eaa358f6788af525a69cd8ecda76a0591879f
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989848"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820934"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de uso e informações no portal de Azure Active Directory
 
@@ -43,7 +43,7 @@ Para acessar os dados do relatório de uso e informações, você precisa:
 
 1. Navegue para o [portal do Azure](https://portal.azure.com).
 2. Selecione o diretório certo e, em seguida, selecione **Azure Active Directory** e escolha **aplicativos empresariais**.
-3. Na seção **atividade** , selecione **uso &** insights para abrir o relatório. 
+3. Na seção **atividade** , selecione **uso & insights** para abrir o relatório. 
 
 ![Relatório de Utilização e Informações](./media/concept-usage-insights-report/main-menu.png)
                                      
@@ -60,6 +60,6 @@ Ao selecionar um dia no grafo de uso do aplicativo, você obtém uma lista detal
 
 ![Relatório de Utilização e Informações](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Relatório de entradas](concept-sign-ins.md)

@@ -4,16 +4,16 @@ description: Este artigo contém uma coleção de comandos de exemplo AzCopy que
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/22/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: c65c6b3f6f186e7821ff402eea4494fa60e9c370
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6680efb89eddcfb1c4fa931993956ef83369b292
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598071"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817042"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Transferir dados com o armazenamento de BLOBs e AzCopy
 
@@ -31,6 +31,9 @@ Consulte o artigo [introdução ao AzCopy](storage-use-azcopy-v10.md) para baixa
 > Por exemplo: `'https://<storage-account-name>.blob.core.windows.net/<container-name>?<SAS-token>'`.
 
 ## <a name="create-a-container"></a>Criar um contentor
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 Você pode usar o comando [azcopy Make](storage-ref-azcopy-make.md) para criar um contêiner. Os exemplos nesta seção criam um contêiner chamado `mycontainer`.
 
@@ -54,10 +57,10 @@ Esta seção contém os seguintes exemplos:
 > * Carregar o conteúdo de um diretório 
 > * Carregar arquivos específicos
 
-> [!NOTE]
-> AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o sinalizador `--put-md5` a cada comando de cópia. Dessa forma, quando o blob é baixado, o AzCopy calcula um hash MD5 para dados baixados e verifica se o hash MD5 armazenado na propriedade `Content-md5` do blob corresponde ao hash calculado.
-
 Para obter documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
 
@@ -122,7 +125,6 @@ Neste exemplo, AzCopy transfere o diretório `C:\myDirectory\photos` e o arquivo
 
 Você também pode excluir arquivos usando a opção `--exclude-path`. Para saber mais, consulte [azcopy Copy](storage-ref-azcopy-copy.md) Reference docs.
 
-
 #### <a name="use-wildcard-characters"></a>Usar caracteres curinga
 
 Use o comando [azcopy Copy](storage-ref-azcopy-copy.md) com a opção `--include-pattern`. Especifique nomes parciais que incluam os caracteres curinga. Separe os nomes usando um semicolin (`;`). 
@@ -153,6 +155,9 @@ Esta seção contém os seguintes exemplos:
 > Se o valor da propriedade `Content-md5` de um blob contiver um hash, AzCopy calculará um hash MD5 para os dados baixados e verificará se o hash MD5 armazenado na propriedade `Content-md5` do blob corresponde ao hash calculado. Se esses valores não corresponderem, o download falhará, a menos que você substitua esse comportamento acrescentando `--check-md5=NoCheck` ou `--check-md5=LogOnly` ao comando de cópia.
 
 Para obter documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 ### <a name="download-a-file"></a>Transferir um ficheiro
 
@@ -242,6 +247,9 @@ Esta seção contém os seguintes exemplos:
 
 Para obter documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+
 ### <a name="copy-a-blob-to-another-storage-account"></a>Copiar um blob para outra conta de armazenamento
 
 |    |     |
@@ -285,6 +293,9 @@ Se você definir o sinalizador `--delete-destination` como `true` AzCopy excluir
 > Para evitar exclusões acidentais, certifique-se de habilitar o recurso de [exclusão reversível](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) antes de usar o sinalizador `--delete-destination=prompt|true`.
 
 Para obter documentos de referência detalhados, consulte [azcopy Sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 ### <a name="update-a-container-with-changes-to-a-local-file-system"></a>Atualizar um contêiner com alterações em um sistema de arquivos local
 

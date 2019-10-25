@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671318"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882576"
 ---
 # <a name="azure-storage-account-overview"></a>Visão geral da conta de armazenamento do Azure
 
@@ -29,7 +29,7 @@ Para saber como criar uma conta de armazenamento do Azure, consulte [criar uma c
 
 As contas de armazenamento de uso geral v2 dão suporte aos recursos mais recentes do armazenamento do Azure e incorporam toda a funcionalidade das contas de armazenamento de blob v1 e de uso geral. As contas v2 de uso geral fornecem os preços de capacidade por gigabyte mais baixos para o armazenamento do Azure, bem como preços de transação competitivos do setor. As contas de armazenamento de uso geral v2 dão suporte a estes serviços de armazenamento do Azure:
 
-- BLOBs (todos os tipos: Bloco, acrescentar, página)
+- BLOBs (todos os tipos: bloco, acrescentar, página)
 - Ficheiros
 - Discos
 - Filas
@@ -44,7 +44,7 @@ As contas de armazenamento de uso geral v2 oferecem várias camadas de acesso pa
 
 ### <a name="general-purpose-v1-accounts"></a>Contas de armazenamento para fins gerais v1
 
-As contas de uso geral v1 fornecem acesso a todos os serviços de armazenamento do Azure, mas podem não ter os recursos mais recentes ou os preços mais baixos por gigabyte. As contas de armazenamento v1 de uso geral dão suporte a estes serviços de armazenamento do Azure:
+As contas de armazenamento v1 de uso geral fornecem acesso a todos os serviços de armazenamento do Azure, mas podem não ter os recursos mais recentes ou os preços mais baixos por gigabyte. As contas de armazenamento v1 de uso geral dão suporte a estes serviços de armazenamento do Azure:
 
 - BLOBs (todos os tipos)
 - Ficheiros
@@ -60,17 +60,19 @@ Embora as contas v2 de uso geral sejam recomendadas na maioria dos casos, as con
 
 * Utiliza uma versão da [API REST dos Serviços do Storage](https://msdn.microsoft.com/library/azure/dd894041.aspx) anterior a 14/02/2014 ou uma biblioteca de cliente com uma versão inferior à 4.x e não pode atualizar a sua aplicação.
 
-### <a name="block-blob-storage-accounts"></a>Bloquear contas de armazenamento de BLOBs
+### <a name="blockblobstorage-accounts"></a>Contas do BlockBlobStorage
 
-Uma conta de armazenamento de blobs de blocos é uma conta de armazenamento especializada para armazenar dados de objeto não estruturados como BLOBs de blocos. Esse tipo de conta de armazenamento dá suporte a blobs de bloco e blobs de acréscimo, mas não a blobs de páginas, tabelas ou filas.
+Uma conta do BlockBlobStorage é uma conta de armazenamento especializada usada para armazenar dados de objeto não estruturado como BLOBs de blocos e criar blobs de blocos Premium. Esse tipo de conta de armazenamento dá suporte a blobs de bloco e blobs de acréscimo, mas não a blobs de páginas, tabelas ou filas.
 
-Em comparação com contas de armazenamento de BLOBs V2 e de uso geral, as contas de armazenamento de blobs de blocos fornecem latência baixa e consistente e taxas de transações mais altas.
+Em comparação com contas de uso geral V2 e BlobStorage, as contas BlockBlobStorage fornecem latência baixa e consistente e taxas de transações mais altas.
 
-As contas de armazenamento de blobs de blocos atualmente não dão suporte a camadas para camadas de acesso frequente, esporádica ou de arquivamento.
+As contas do BlockBlobStorage atualmente não dão suporte a camadas para camadas de acesso frequente, esporádica ou de arquivamento.
 
-### <a name="filestorage-storage-accounts"></a>Contas de armazenamento de armazenamento em
+### <a name="filestorage-accounts"></a>Contas de armazenamento de
 
-Uma conta de armazenamento de armazenamento de arquivo é uma conta de armazenamento especializada usada para armazenar e criar compartilhamentos de arquivos premium. As contas de armazenamento de armazenamento em fileoferecem características exclusivas de desempenho dedicadas, como a intermitência de IOPS. Para obter mais informações sobre essas características, consulte a seção [níveis de desempenho de compartilhamento de arquivos](../files/storage-files-planning.md#file-share-performance-tiers) do guia de planejamento de arquivos.
+Uma conta de armazenamento de arquivo é uma conta de armazenamento especializada usada para armazenar e criar compartilhamentos de arquivos premium. Esse tipo de conta de armazenamento dá suporte a arquivos, mas não a blobs de blocos, blobs de acréscimo, blobs de páginas, tabelas ou filas. 
+
+As contas de armazenamento de fileoferecem características dedicadas de desempenho exclusivas, como a intermitência de IOPS. Para obter mais informações sobre essas características, consulte a seção [níveis de desempenho de compartilhamento de arquivos](../files/storage-files-planning.md#file-share-performance-tiers) do guia de planejamento de arquivos.
 
 ## <a name="naming-storage-accounts"></a>Nomeando contas de armazenamento
 
@@ -86,7 +88,7 @@ As contas de armazenamento de uso geral podem ser configuradas para qualquer um 
 * Um nível de desempenho padrão para armazenar blobs, arquivos, tabelas, filas e discos de máquina virtual do Azure.
 * Um nível de desempenho premium para armazenar apenas discos de máquina virtual não gerenciados.
 
-As contas de armazenamento de blobs de blocos fornecem um nível de desempenho premium para armazenar blobs de bloco e blobs de acréscimo.
+As contas de armazenamento BlockBlobStorage fornecem um nível de desempenho premium para armazenar blobs de bloco e blobs de acréscimo.
 
 As contas de armazenamento de armazenamento de arquivo fornecem um nível de desempenho premium para compartilhamentos de arquivos do Azure.
 
@@ -115,7 +117,7 @@ Para obter mais informações sobre replicação de armazenamento, consulte [rep
 
 Todos os dados em sua conta de armazenamento são criptografados no lado do serviço. Para obter mais informações sobre criptografia, consulte [criptografia do serviço de armazenamento do Azure para dados em repouso](storage-service-encryption.md).
 
-## <a name="storage-account-endpoints"></a>Pontos finais da conta de armazenamento
+## <a name="storage-account-endpoints"></a>Pontos finais da conta do Storage
 
 Uma conta de armazenamento fornece um namespace exclusivo no Azure para seus dados. Cada objeto que você armazena no armazenamento do Azure tem um endereço que inclui seu nome de conta exclusivo. A combinação do nome da conta e do ponto de extremidade do serviço de armazenamento do Azure forma os pontos de extremidades para sua conta de armazenamento.
 
@@ -186,5 +188,5 @@ O serviço de importação/exportação também pode ser usado para transferir d
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber como criar uma conta de armazenamento do Azure de uso geral, consulte [criar uma conta de armazenamento](storage-quickstart-create-account.md).
-* Para saber como criar uma conta de armazenamento de blob de blocos, consulte [criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md).
+* Para saber como criar uma conta do BlockBlobStorage, consulte [criar uma conta de armazenamento de blob de blocos](../blobs/storage-blob-create-account-block-blob.md).
 * Para gerenciar ou excluir uma conta de armazenamento existente, consulte [gerenciar contas de armazenamento do Azure](storage-account-manage.md).

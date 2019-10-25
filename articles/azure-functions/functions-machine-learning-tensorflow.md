@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dbf2b4b5113598fee742c3864bede782a624773c
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677886"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817455"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: aplicar modelos de aprendizado de máquina em Azure Functions com Python e TensorFlow
 
@@ -114,7 +114,7 @@ func new --language python --template HttpTrigger --name classify
 
 Uma nova pasta chamada *classificar* é criada, contendo dois arquivos.
 
-- *\_ \_init \_ \_. py*: um arquivo para a função principal
+- *\_\_init\_\_. py*: um arquivo para a função main
 - *Function. JSON*: um arquivo que descreve o gatilho da função e suas associações de entrada e saída
 
 ### <a name="run-the-function"></a>Executar a função
@@ -179,7 +179,7 @@ Confirme se a *classificação* agora contém um arquivo chamado *Predict.py*.
 A biblioteca auxiliar tem algumas dependências que precisam ser instaladas. Abra *Start/requirements. txt* em seu editor e adicione as seguintes dependências ao arquivo.
 
 ```txt
-tensorflow==1.15
+tensorflow==1.14
 Pillow
 requests
 ```
@@ -200,7 +200,7 @@ Para obter mais informações sobre variáveis globais, consulte o [Guia do dese
 
 ## <a name="update-function-to-run-predictions"></a>Atualizar função para executar previsões
 
-Abra *classificar/\_ \_init \_ \_. py* em seu editor. Importe a biblioteca de *previsão* que você adicionou à mesma pasta anteriormente. Adicione as seguintes instruções `import` abaixo das outras importações que já estão no arquivo.
+Abra *classificar/\_\_init\_\_. py* em seu editor. Importe a biblioteca de *previsão* que você adicionou à mesma pasta anteriormente. Adicione as seguintes instruções `import` abaixo das outras importações que já estão no arquivo.
 
 ```python
 import json

@@ -1,27 +1,22 @@
 ---
 title: Monitorizar serviços Node.js com o Azure Application Insights | Microsoft Docs
 description: Monitorize o desempenho e diagnostique problemas em serviços Node.js com o Application Insights.
-services: application-insights
-documentationcenter: nodejs
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 2ec7f809-5e1a-41cf-9fcd-d0ed4bebd08c
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: f2a30d5a040c2713f04173e83732cea5fa19af3b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 03/14/2019
+ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66255289"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820718"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
-[O Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitora os componentes e serviços de back-end após a implementação, para o ajudar a detetar e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para os serviços Node.js que estão alojados no seu datacenter, em VMs do Azure, em aplicações Web e inclusivamente noutras clouds privadas.
+O [aplicativo Azure insights](../../azure-monitor/app/app-insights-overview.md) monitora seus serviços de back-end e componentes após a implantação, para ajudá-lo a descobrir e diagnosticar rapidamente o desempenho e outros problemas. Pode utilizar o Application Insights para os serviços Node.js que estão alojados no seu datacenter, em VMs do Azure, em aplicações Web e inclusivamente noutras clouds privadas.
 
 Para receber, armazenar e explorar os seus dados de monitorização, inclua o SDK no seu código e configure um recurso do Application Insights correspondente no Azure. O SDK envia dados para esse recurso para análise e exploração adicionais.
 
@@ -35,7 +30,7 @@ Conclua as tarefas seguintes para configurar a monitorização para uma aplicaç
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma nova gratuitamente][azure-free-offer]. Se a sua organização já tiver uma subscrição do Azure, um administrador pode seguir [estas instruções][add-aad-user] para o adicionar à mesma.
+Antes de começar, verifique se você tem uma assinatura do Azure ou [obtenha uma nova gratuitamente][azure-free-offer]. Se sua organização já tiver uma assinatura do Azure, um administrador poderá seguir [estas instruções][add-aad-user] para adicioná-lo a ela.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
 [add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
@@ -44,7 +39,7 @@ Antes de começar, confirme que tem uma subscrição do Azure ou [obtenha uma no
 ### <a name="resource"></a> Configurar um recurso do Application Insights
 
 
-1. Inicie sessão no [Portal do Azure][portal].
+1. Inicie sessão no [portal do Azure][portal].
 2. Selecione **Criar um recurso** > **Ferramentas de programador** > **Application Insights**. O recurso inclui um ponto final para receber dados de telemetria, armazenamento para esses dados, relatórios guardados e configuração de dashboards, regras e alertas, entre outras coisas.
 
 3. Na página de criação do recurso, na caixa **Tipo de Aplicação**, selecione **Aplicação Node.js**. O tipo de aplicação determina os dashboards e relatórios predefinidos que são criados por si. (Os recursos do Application Insights podem recolher dados de qualquer linguagem e plataforma.)
@@ -83,7 +78,7 @@ Inclua o SDK na sua aplicação, para que esta possa recolher dados.
 
 O SDK recolhe automaticamente telemetria sobre o runtime de Node.js e sobre alguns módulos de terceiros comuns. Utilize a sua aplicação para gerar alguns destes dados.
 
-Em seguida, no [portal do Azure][portal], aceda ao recurso do Application Insights que criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
+Em seguida, na [portal do Azure][portal] vá para o recurso Application insights que você criou anteriormente. Na **Linha cronológica geral**, procure os seus primeiros pontos de dados. Para ver dados mais detalhadas, selecione diferentes componentes nos gráficos.
 
 Para ver a topologia que é detetada para a sua aplicação, selecione o botão **Mapa da aplicação**. Selecione os componentes no mapa para ver mais detalhes.
 
@@ -93,7 +88,7 @@ Para saber mais sobre a sua aplicação e resolver problemas, selecione as resta
 
 ![Secção Investigar](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>Não existem dados?
+#### <a name="no-data"></a>Não tem dados?
 
 Visto que o SDK põe os dados em lotes para a submissão, poderá haver um atraso antes de os itens aparecerem no portal. Se não vir dados no seu recurso, experimente algumas das correções seguintes:
 
@@ -200,7 +195,7 @@ server.on("listening", () => {
 });
 ```
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar a telemetria no portal](../../azure-monitor/app/overview-dashboard.md)
 * [Escrever consultas de análise sobre a telemetria](../../azure-monitor/log-query/get-started-portal.md)

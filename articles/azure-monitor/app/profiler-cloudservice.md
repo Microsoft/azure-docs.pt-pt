@@ -1,35 +1,31 @@
 ---
 title: Perfil de serviços de nuvem do Azure em tempo real com Application Insights | Microsoft Docs
 description: Habilite o Application Insights Profiler para os serviços de nuvem do Azure.
-services: application-insights
-documentationcenter: ''
-author: cweining
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 08/06/2018
+author: cweining
 ms.author: cweining
-ms.openlocfilehash: 93392e379cbb03508fefc1877d5d50e04436b79c
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.date: 08/06/2018
+ms.reviewer: mbullwin
+ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737221"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820508"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil de serviços de nuvem do Azure dinâmicos com Application Insights
 
 Você também pode implantar Application Insights Profiler nesses serviços:
-* [Serviço de Aplicações do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
+* [App Service do Azure](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Aplicativos Service Fabric do Azure](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Máquinas Virtuais do Azure](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 O Application Insights Profiler é instalado com a extensão Diagnóstico do Azure. Você só precisa configurar Diagnóstico do Azure para instalar o Profiler e enviar perfis para o recurso de Application Insights.
 
 ## <a name="enable-profiler-for-azure-cloud-services"></a>Habilitar o Profiler para serviços de nuvem do Azure
-1. Verifique se você está usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou mais recente. Se estiver usando a família de sistemas operacionais 4, você precisará instalar .NET Framework 4.6.1 ou mais recente com uma [tarefa de inicialização](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-install-dotnet). A família 5 do so inclui uma versão compatível do .NET Framework por padrão. 
+1. Verifique se você está usando [.NET Framework 4.6.1](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) ou mais recente. Se estiver usando a família de sistemas operacionais 4, você precisará instalar .NET Framework 4.6.1 ou mais recente com uma [tarefa de inicialização](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-install-dotnet). A família 5 do so inclui uma versão compatível do .NET Framework por padrão. 
 
 1. Adicionar [Application insights SDK aos serviços de nuvem do Azure](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
@@ -49,7 +45,7 @@ O Application Insights Profiler é instalado com a extensão Diagnóstico do Azu
 
       Se você não encontrar o arquivo, consulte [Configurar o diagnóstico para os serviços de nuvem do Azure e máquinas virtuais](https://docs.microsoft.com/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
-    b. Adicione a seguinte `SinksConfig` seção como um elemento filho de `WadCfg`:  
+    b. Adicione a seguinte seção `SinksConfig` como um elemento filho de `WadCfg`:  
 
       ```xml
       <WadCfg>
@@ -69,13 +65,13 @@ O Application Insights Profiler é instalado com a extensão Diagnóstico do Azu
     > * A chave usada pelo coletor ApplicationInsights. 
     > * A chave usada pelo coletor ApplicationInsightsProfiler. 
     >
-    > Pode encontrar o valor de chave de instrumentação real é utilizado pelos `ApplicationInsights` serem digeridos a *ServiceConfiguration.\*.cscfg* ficheiros. 
+    > Você pode encontrar o valor da chave de instrumentação real que é usado pelo coletor de `ApplicationInsights` nos arquivos *\*. cscfg* . 
     > Após a versão do SDK do Azure do Visual Studio 15,5, somente as chaves de instrumentação usadas pelo aplicativo e o coletor ApplicationInsightsProfiler precisam corresponder umas às outras.
 
 1. Implante seu serviço com a nova configuração de diagnóstico e Application Insights Profiler está configurado para ser executado em seu serviço.
  
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * Gere o tráfego para seu aplicativo (por exemplo, inicie um [teste de disponibilidade](monitor-web-app-availability.md)). Em seguida, aguarde de 10 a 15 minutos para que os rastreamentos comecem a ser enviados para a instância de Application Insights.
-* Consulte [rastreamentos](profiler-overview.md?toc=/azure/azure-monitor/toc.json) do profiler no portal do Azure.
-* Para solucionar problemas do criador de perfil, consulte [solução de problemas](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json)do profiler.
+* Consulte [rastreamentos do profiler](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal do Azure.
+* Para solucionar problemas do criador de perfil, consulte [solução de problemas do profiler](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

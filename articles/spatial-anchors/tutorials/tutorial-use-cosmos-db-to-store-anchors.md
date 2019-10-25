@@ -1,6 +1,6 @@
 ---
-title: Tutorial - partilha Azure geográficos âncoras nas sessões e dispositivos com o Azure Cosmos DB back-end | Documentos da Microsoft
-description: Neste tutorial, saiba como partilhar os identificadores de âncoras espaciais do Azure em todos os dispositivos Android/iOS no Unity com um serviço de back-end e o Azure Cosmos DB.
+title: Tutorial – compartilhar âncoras espaciais do Azure entre sessões e dispositivos com um back-end de Azure Cosmos DB | Microsoft Docs
+description: Neste tutorial, você aprende a compartilhar identificadores de âncoras espaciais do Azure em dispositivos Android/iOS no Unity com um serviço de back-end e Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,69 +8,46 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: fc172b5327d72687fea7d13ddb706ecc7ab630b6
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 7ddbff563f79992f21aef5182177f4fb60c61dab
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "67135355"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882171"
 ---
-# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Partilha Azure geográficos âncoras nas sessões e dispositivos com o Azure Cosmos DB back-end
+# <a name="tutorial-sharing-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: compartilhando âncoras espaciais do Azure entre sessões e dispositivos com um back-end Azure Cosmos DB
 
-Neste tutorial, irá aprender a utilizar [âncoras geográficos de Azure](../overview.md) criar âncoras durante uma sessão e, em seguida, localize-los durante a sessão de outro, no mesmo dispositivo ou em outro. Por exemplo, a segunda sessão pode ser em outro dia. Também foi possível localizar estas âncoras mesmo por vários dispositivos no mesmo local e ao mesmo tempo.
+Este tutorial é uma continuação do [compartilhamento de âncoras espaciais do Azure em sessões e dispositivos.](../../../articles/spatial-anchors/tutorials/tutorial-share-anchors-across-devices.md) Ele vai orientá-lo pelo processo de adição de mais alguns recursos para fazer Azure Cosmos DB servirem como o armazenamento de back-end enquanto compartilham âncoras espaciais do Azure entre sessões e dispositivos.
 
-![Persistência de objeto que ilustram GIF](./media/persistence.gif)
+![GIF ilustrando persistência de objeto](./media/persistence.gif)
 
-[Azure âncoras geográficos](../overview.md) é um serviço de programador para várias plataformas que pode utilizar para criar experiências de realidade mista com objetos que manter a respetiva localização em todos os dispositivos ao longo do tempo. Quando tiver terminado, terá uma aplicação que pode ser implementada em duas ou mais dispositivos. Âncoras geográficos criadas por uma instância irão partilhar os seus identificadores com os outros através da utilização do Azure Cosmos DB.
-
-Vai aprender a:
-
-> [!div class="checklist"]
-> * Implemente uma aplicação web do ASP.NET Core no Azure que pode ser utilizado para partilhar as âncoras, armazenando-os no Azure Cosmos DB.
-> * Configure a cena AzureSpatialAnchorsLocalSharedDemo no exemplo Unity dos inícios rápidos do Azure para tirar partido da aplicação Web âncoras de partilha.
-> * Implementar uma aplicação para um ou mais dispositivos e executá-lo.
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
-
-[!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
-
-Vale a pena observar que, embora usará Unity e o Azure Cosmos DB neste tutorial, é apenas dar um exemplo de como partilhar os identificadores de âncoras geográficos em todos os dispositivos. Pode utilizador outros idiomas e as tecnologias de back-end para alcançar o mesmo objetivo. Além disso, a aplicação web ASP.NET Core utilizada neste tutorial requer o SDK do .NET Core 2.2. Ele é executado bem em aplicações Web para Windows, mas atualmente não será executado nas aplicações Web para Linux.
-
-[!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
+Vale a pena observar que, embora você esteja usando o Unity e o Azure Cosmos DB neste tutorial, é só fornecer um exemplo de como compartilhar identificadores espaciais de âncoras entre dispositivos. Você pode fazer com que outras linguagens e tecnologias de back-end atinjam o mesmo objetivo. Além disso, o aplicativo Web ASP.NET Core usado neste tutorial requer o SDK do .NET Core 2,2. Ele funciona bem em aplicativos Web para o Windows, mas ele não é executado atualmente em aplicativos Web para Linux.
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
+Adicione um banco de dados Cosmos do Azure ao grupo de recursos que você criou anteriormente. 
+
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
-Copiar o `Connection String` porque irá precisar das mesmas.
+Copie o `Connection String` porque você precisará dele.
 
-## <a name="download-the-unity-sample-project"></a>Transfira o projeto de exemplo do Unity
+## <a name="make-minor-changes-to-the-sharingservice-files"></a>Fazer alterações secundárias nos arquivos SharingService
 
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+Em **Gerenciador de soluções**, abra `SharingService\Startup.cs`.
 
-## <a name="deploy-the-sharing-anchors-service"></a>Implementar o serviço de âncoras de partilha
+Localize `#define INMEMORY_DEMO` na parte superior do arquivo e comente essa linha. Salve o arquivo.
 
-Abra o Visual Studio e abrir o projeto no `Sharing\SharingServiceSample` pasta.
+Em **Gerenciador de soluções**, abra `SharingService\appsettings.json`.
 
-### <a name="configure-the-service-to-use-your-azure-cosmos-db-database"></a>Configurar o serviço para utilizar a sua base de dados do Azure Cosmos DB
+Localize a propriedade `StorageConnectionString` e defina o valor como o mesmo que o valor de `Connection String` que você copiou na [etapa criar uma conta de banco de dados](#create-a-database-account). Guarde o ficheiro.
 
-Na **Explorador de soluções**, abra `SharingService\Startup.cs`.
-
-Localize `#define INMEMORY_DEMO` na parte superior do ficheiro e comentário que fora de linha. Guarde o ficheiro.
-
-Na **Explorador de soluções**, abra `SharingService\appsettings.json`.
-
-Localize a `StorageConnectionString` propriedade e defina o valor seja igual a `Connection String` valor que copiou no [criar um passo de conta de base de dados](#create-a-database-account). Guarde o ficheiro.
-
-[!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
-
-[!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
+Você pode publicar o serviço de compartilhamento novamente e executar o aplicativo de exemplo.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, utilizou a Azure Cosmos DB para partilhar os identificadores de âncora entre dispositivos. Para saber mais sobre como utilizar as âncoras espaciais do Azure numa nova aplicação Unity HoloLens, avance para o próximo tutorial.
+Neste tutorial, você usou Azure Cosmos DB para compartilhar identificadores de âncora entre dispositivos. Para saber mais sobre como usar as âncoras espaciais do Azure em um novo aplicativo de HoloLens do Unity, prossiga para o próximo tutorial.
 
 > [!div class="nextstepaction"]
-> [A partir de uma nova aplicação Android](./tutorial-new-unity-hololens-app.md)
+> [Iniciando um novo aplicativo de HoloLens de Unity](./tutorial-new-unity-hololens-app.md)

@@ -1,49 +1,44 @@
 ---
-title: Monitorizar o desempenho de aplicações web Java no Linux - Azure | Documentos da Microsoft
-description: Estendido a monitorização de desempenho do seu site de Java com o plug-in de recolhidos para o Application Insights.
-services: application-insights
-documentationcenter: java
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Monitorar o desempenho do aplicativo Web Java no Linux – Azure | Microsoft Docs
+description: Monitoramento de desempenho de aplicativo estendido do seu site Java com o plug-in coletado para Application Insights.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 03/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: c6e947dfed3169f346f43ab08225056815e8b487
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 03/14/2019
+ms.openlocfilehash: 6c74684ac45a040be154a1e6406c1e7a5e0dd253
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061193"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817146"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>recolhidos: Métricas de desempenho do Linux no Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>coletados: métricas de desempenho do Linux no Application Insights
 
 
-Para explorar métricas de desempenho do sistema Linux no [Application Insights](../../azure-monitor/app/app-insights-overview.md), instale [recolhidos](https://collectd.org/), juntamente com o seu plug-in do Application Insights. Esta solução de código-fonte aberto reúne várias estatísticas de sistema e de rede.
+Para explorar as métricas de desempenho do sistema Linux no [Application insights](../../azure-monitor/app/app-insights-overview.md), instale o [collectd](https://collectd.org/), junto com seu plug-in de Application insights. Essa solução de software livre reúne várias estatísticas de rede e de sistema.
 
-Normalmente, irá utilizar recolhidos se já tiver [instrumentada seu serviço web em Java com o Application Insights][java]. Ele dá-lhe mais dados para ajudar a melhorar o desempenho da sua aplicação ou diagnosticar problemas. 
+Normalmente, você usará collectd se já tiver [instrumentado seu serviço Web Java com Application insights][java]. Ele fornece mais dados para ajudá-lo a melhorar o desempenho do seu aplicativo ou diagnosticar problemas. 
 
-## <a name="get-your-instrumentation-key"></a>Obtenha a chave de instrumentação
-Na [portal do Microsoft Azure](https://portal.azure.com), abra o [Application Insights](../../azure-monitor/app/app-insights-overview.md) recurso onde pretende que os dados a aparecer. (Ou [criar um novo recurso](../../azure-monitor/app/create-new-resource.md ).)
+## <a name="get-your-instrumentation-key"></a>Obter sua chave de instrumentação
+Na [portal do Microsoft Azure](https://portal.azure.com), abra o recurso [Application insights](../../azure-monitor/app/app-insights-overview.md) em que você deseja que os dados sejam exibidos. (Ou [criar um novo recurso](../../azure-monitor/app/create-new-resource.md ).)
 
-Fazer uma cópia da chave de instrumentação, que identifica o recurso.
+Faça uma cópia da chave de instrumentação, que identifica o recurso.
 
-![Procurar tudo, abra o recurso e, em seguida, no Essentials lista pendente, selecione e copie a chave de instrumentação](./media/java-collectd/instrumentation-key-001.png)
+![Procurar tudo, abrir o recurso e, em seguida, na lista suspensa Essentials, selecionar e copiar a chave de instrumentação](./media/java-collectd/instrumentation-key-001.png)
 
-## <a name="install-collectd-and-the-plug-in"></a>Instalar recolhidos e o plug-in
-Nas suas máquinas de servidor Linux:
+## <a name="install-collectd-and-the-plug-in"></a>Instalar coletados e o plug-in
+Em seus computadores de servidor Linux:
 
-1. Instale [recolhidos](https://collectd.org/) versão 5.4.0 ou posterior.
-2. Transfira o [Plug-in do Application Insights recolhidos escritor](https://aka.ms/aijavasdk). Tenha em atenção o número de versão.
-3. Copiar o plug-in JAR em `/usr/share/collectd/java`.
+1. Instale a versão do [Collected](https://collectd.org/) 5.4.0 ou posterior.
+2. Baixe o [plug-in de gravador coletado Application insights](https://aka.ms/aijavasdk). Observe o número de versão.
+3. Copie o JAR do plug-in em `/usr/share/collectd/java`.
 4. Editar `/etc/collectd/collectd.conf`:
-   * Certifique-se de que [o plug-in de Java](https://collectd.org/wiki/index.php/Plugin:Java) está ativada.
-   * Atualize o JVMArg para o java.class.path para incluir o seguinte JAR. Atualize o número de versão corresponde ao que transferiu:
+   * Verifique se [o plug-in Java](https://collectd.org/wiki/index.php/Plugin:Java) está habilitado.
+   * Atualize o JVMArg para o Java. class. Path para incluir o JAR a seguir. Atualize o número de versão para corresponder ao que você baixou:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * Adicione este trecho de código, usando a chave de instrumentação do seu recurso:
+   * Adicione este trecho de código usando a chave de instrumentação do seu recurso:
 
 ```XML
 
@@ -53,7 +48,7 @@ Nas suas máquinas de servidor Linux:
      </Plugin>
 ```
 
-Segue-se parte de um ficheiro de configuração de exemplo:
+Aqui está parte de um arquivo de configuração de exemplo:
 
 ```XML
 
@@ -86,47 +81,47 @@ Segue-se parte de um ficheiro de configuração de exemplo:
     ...
 ```
 
-Configurar outro [plug-ins de recolhidos](https://collectd.org/wiki/index.php/Table_of_Plugins), que pode recolher dados de várias origens diferentes.
+Configure outros [plug-ins coletados](https://collectd.org/wiki/index.php/Table_of_Plugins), que podem coletar vários dados de fontes diferentes.
 
-Reiniciar recolhidos de acordo com a respetiva [manual](https://collectd.org/wiki/index.php/First_steps).
+Reinicialização coletada de acordo com seu [manual](https://collectd.org/wiki/index.php/First_steps).
 
-## <a name="view-the-data-in-application-insights"></a>Ver os dados no Application Insights
-No recurso do Application Insights, abra [métricas e adição de gráficos][metrics], selecionando as métricas que deseja ver da categoria personalizada.
+## <a name="view-the-data-in-application-insights"></a>Exibir os dados em Application Insights
+No recurso Application Insights, abra [métricas e adicione gráficos][metrics], selecionando as métricas que você deseja ver na categoria personalizada.
 
-Por predefinição, as métricas são agregadas entre todos os computadores anfitrião a partir dos quais as métricas foram recolhidas. Para ver as métricas por anfitrião, no painel de detalhes do gráfico, ative agrupamento e, em seguida, optar por agrupar por anfitrião recolhidos.
+Por padrão, as métricas são agregadas em todos os computadores host dos quais as métricas foram coletadas. Para exibir as métricas por host, na folha detalhes do gráfico, ative o agrupamento e, em seguida, escolha agrupar por coletar-host.
 
-## <a name="to-exclude-upload-of-specific-statistics"></a>Para excluir o carregamento das estatísticas específicas
-Por predefinição, o plug-in do Application Insights envia todos os dados recolhidos por todos os ativado recolhidos em "ler" plug-ins. 
+## <a name="to-exclude-upload-of-specific-statistics"></a>Para excluir o carregamento de estatísticas específicas
+Por padrão, o plug-in Application Insights envia todos os dados coletados por todos os plug-ins de ' leitura ' conunidos habilitados. 
 
-Para excluir os dados de origens de dados ou de plug-ins específicas:
+Para excluir dados de plugins ou fontes de dados específicas:
 
-* Edite o ficheiro de configuração. 
-* No `<Plugin ApplicationInsightsWriter>`, adicionar a diretivas linhas como esta:
+* Edite o arquivo de configuração. 
+* Em `<Plugin ApplicationInsightsWriter>`, adicione linhas de diretiva como esta:
 
-| Diretiva | Efeito |
+| Register | Efeito |
 | --- | --- |
-| `Exclude disk` |Excluir todos os dados recolhidos pelo `disk` Plug-in |
-| `Exclude disk:read,write` |Excluir origens com o nome `read` e `write` partir o `disk` Plug-in. |
+| `Exclude disk` |Excluir todos os dados coletados pelo plug-in `disk` |
+| `Exclude disk:read,write` |Exclua as fontes chamadas `read` e `write` do plug-in `disk`. |
 
 Diretivas separadas com uma nova linha.
 
 ## <a name="problems"></a>Problemas?
-*Não vejo a dados no portal*
+*Não vejo dados no portal*
 
-* Open [pesquisa] [ diagnostic] para ver se os eventos não processados chegaram. Por vezes, demorar mais tempo a aparecer no Explorador de métricas.
-* Poderá ter de [definir exceções de firewall para dados de saída](../../azure-monitor/app/ip-addresses.md)
-* Ative o rastreio no plug-in do Application Insights. Adicione esta linha no `<Plugin ApplicationInsightsWriter>`:
+* Abra a [pesquisa][diagnostic] para ver se os eventos brutos chegaram. Às vezes, eles demoram mais para aparecer no Metrics Explorer.
+* Talvez seja necessário [definir exceções de firewall para dados de saída](../../azure-monitor/app/ip-addresses.md)
+* Habilite o rastreamento no plug-in Application Insights. Adicione esta linha dentro do `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
-* Abra um terminal e iniciar recolhidos no modo verboso, para ver todos os problemas que está a comunicar:
+* Abra um terminal e comece a ser coletado no modo detalhado para ver os problemas que ele está relatando:
   * `sudo collectd -f`
 
 ## <a name="known-issue"></a>Problema conhecido
 
-O plug-in de escrita do Application Insights é incompatível com determinados plug-ins de leitura. Alguns plug-ins, às vezes, enviam "NaN", onde o plug-in do Application Insights espera um número de vírgula flutuante.
+O plug-in de Application Insights gravação é incompatível com determinados plug-ins de leitura. Alguns plugins às vezes enviam "NaN" onde o plug-in de Application Insights espera um número de ponto flutuante.
 
-Sintoma: O registo de recolhidos mostra erros que incluem "IA:... SyntaxError: Token inesperado N".
+Sintoma: o log coletado mostra erros que incluem "ia:... SyntaxError: token N inesperado ".
 
-Solução: Exclua os dados recolhidos pelos plug-ins de escrita do problema. 
+Solução alternativa: exclua os dados coletados pelo problema gravar plug-ins. 
 
 <!--Link references-->
 

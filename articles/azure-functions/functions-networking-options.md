@@ -1,23 +1,22 @@
 ---
 title: Opções de rede Azure Functions
 description: Uma visão geral de todas as opções de rede disponíveis no Azure Functions
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 9fe7147325b2e14a7ae6bb4b31aa941fb4059b11
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf5ce8da2ce62a5da821588c8f635bbab04dd3c1
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690834"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881562"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede Azure Functions
 
-Este artigo descreve os recursos de rede disponíveis nas opções de hospedagem para Azure Functions. Todas as opções de rede a seguir fornecem alguma capacidade de acessar recursos sem usar endereços roteáveis da Internet ou restringir o acesso à Internet a um aplicativo de funções. 
+Este artigo descreve os recursos de rede disponíveis nas opções de hospedagem para Azure Functions. Todas as opções de rede a seguir fornecem alguma capacidade de acessar recursos sem usar endereços roteáveis da Internet ou restringir o acesso à Internet a um aplicativo de funções.
 
 Os modelos de hospedagem têm níveis diferentes de isolamento de rede disponíveis. Escolher a correta ajudará você a atender aos seus requisitos de isolamento de rede.
 
@@ -39,7 +38,6 @@ Você pode hospedar aplicativos de funções de duas maneiras:
 |[Ligações Híbridas](#hybrid-connections)|❌No|✅Yes|✅Yes|✅Yes|
 |[Restrições de IP de saída](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
-
 ## <a name="inbound-ip-restrictions"></a>Restrições de IP de entrada
 
 Você pode usar restrições de IP para definir uma lista ordenada de prioridade de endereços IP que têm acesso permitido/negado ao seu aplicativo. A lista pode incluir endereços IPv4 e IPv6. Quando há uma ou mais entradas, um "negar tudo" implícito existe no final da lista. As restrições de IP funcionam com todas as opções de Hospedagem de função.
@@ -51,8 +49,9 @@ Para saber mais, consulte [Azure app restrições de acesso estático do serviç
 
 ## <a name="private-site-access"></a>O acesso a sites privados
 
-Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma rede virtual do Azure. 
-* O acesso ao site privado está disponível nos serviços [Premium](./functions-premium-plan.md), [consumo], (funções-escala. MD # consumo-plano) e [serviço de aplicativo](functions-scale.md#app-service-plan) quando os pontos de **extremidade de serviço** são configurados. 
+Acesso ao site privado refere-se a tornar seu aplicativo acessível somente de uma rede privada, como de dentro de uma rede virtual do Azure.
+
+* O acesso ao site privado está disponível no plano [Premium](./functions-premium-plan.md), [consumo](functions-scale.md#consumption-plan) e [serviço de aplicativo](functions-scale.md#app-service-plan) quando os pontos de **extremidade de serviço** são configurados.
     * Os pontos de extremidade de serviço podem ser configurados por aplicativo em recursos da plataforma > rede > configurar restrições de acesso > Adicionar regra. As redes virtuais podem ser selecionadas agora como o "tipo" de uma regra.
     * Para obter mais informações, consulte [pontos de extremidade de serviço de rede virtual](../virtual-network/virtual-network-service-endpoints-overview.md)
         * Tenha em mente que, com os pontos de extremidade de serviço, sua função ainda tem acesso total de saída à Internet, mesmo com a integração de rede virtual configurada.
@@ -64,19 +63,19 @@ A integração de rede virtual permite que seu aplicativo de funções acesse re
 
 Você pode usar a integração de rede virtual para habilitar o acesso de aplicativos a bancos de dados e serviços Web em execução em sua rede virtual. Com a integração de rede virtual, você não precisa expor um ponto de extremidade público para aplicativos em sua VM. Você pode usar os endereços não roteáveis privados da Internet.
 
-Há dois formulários para o recurso de integração de rede virtual
+Há duas formas de integração de rede virtual:
 
-1. A integração de rede virtual regional permite a integração com redes virtuais na mesma região. Essa forma do recurso requer uma sub-rede em uma rede virtual na mesma região. Este recurso ainda está em visualização, mas tem suporte para cargas de trabalho de produção do aplicativo do Windows com algumas limitações indicadas abaixo.
-2. A integração de rede virtual necessária do Gateway permite a integração com redes virtuais em regiões remotas ou com redes virtuais clássicas. Esta versão do recurso requer a implantação de um gateway de rede virtual em sua VNet. Esse é o recurso baseado em VPN ponto a site e só é suportado com aplicativos do Windows.
++ **Integração de rede virtual regional (versão prévia)** : habilita a integração com redes virtuais na mesma região. Esse tipo de integração requer uma sub-rede em uma rede virtual na mesma região. Este recurso ainda está em visualização, mas tem suporte para aplicativos de funções em execução no Windows, com as advertências anotadas abaixo.
++ **Integração de rede virtual necessária do gateway**: habilita a integração com redes virtuais em regiões remotas ou com redes virtuais clássicas. Esse tipo de integração requer a implantação de um gateway de rede virtual em sua VNet. Esse é um recurso baseado em VPN ponto a site, que tem suporte apenas para aplicativos de funções em execução no Windows.
 
-Um aplicativo pode usar apenas um formulário do recurso de integração VNet de cada vez. Em seguida, a pergunta é qual recurso você deve usar. Você pode usar o para muitas coisas. No entanto, os diferenciadores claros são:
+Um aplicativo só pode usar um tipo de recurso de integração VNet por vez. Embora ambos sejam úteis para muitos cenários, a tabela a seguir indica onde cada um deve ser usado:
 
-| Problema  | Solução | 
+| Problema  | Solução |
 |----------|----------|
-| Deseja alcançar um endereço RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) na mesma região | Integração de VNet regional |
-| Deseja acessar recursos em uma VNet clássica ou em uma VNet em outra região | Integração VNet necessária do gateway |
-| Deseja alcançar os pontos de extremidade RFC 1918 no ExpressRoute | Integração de VNet regional |
-| Deseja acessar recursos entre pontos de extremidade de serviço | Integração de VNet regional |
+| Deseja alcançar um endereço RFC 1918 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) na mesma região | integração de VNet regional |
+| Deseja acessar recursos em uma VNet clássica ou em uma VNet em outra região | integração VNet necessária do gateway |
+| Deseja alcançar os pontos de extremidade RFC 1918 no ExpressRoute | integração de VNet regional |
+| Deseja acessar recursos entre pontos de extremidade de serviço | integração de VNet regional |
 
 Nenhum recurso permitirá que você alcance endereços não RFC 1918 no ExpressRoute. Para fazer isso, você precisa usar um ASE por enquanto.
 
@@ -93,10 +92,11 @@ O recurso de integração VNet:
 Há algumas coisas para as quais a integração VNet não oferece suporte, incluindo:
 
 * A montagem de drives
-* Integração do AD 
+* Integração do AD
 * A NetBios
 
 A integração de rede virtual no functions usa a infraestrutura compartilhada com aplicativos Web do serviço de aplicativo. Para ler mais sobre os dois tipos de integração de rede virtual, consulte:
+
 * [Integração VNET regional](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
 * [Integração VNet necessária do gateway](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
 
@@ -104,7 +104,7 @@ Para saber mais sobre como usar a integração de rede virtual, consulte [integr
 
 ## <a name="connecting-to-service-endpoint-secured-resources"></a>Conectando a recursos protegidos do ponto de extremidade de serviço
 
-> [!note] 
+> [!NOTE]
 > Temporariamente, pode levar até 12 horas para que novos pontos de extremidade de serviço fiquem disponíveis para seu aplicativo de funções depois que você configurar restrições de acesso no recurso downstream. Durante esse tempo, o recurso ficará completamente indisponível para seu aplicativo.
 
 Para fornecer um nível mais alto de segurança, você pode restringir vários serviços do Azure a uma rede virtual usando pontos de extremidade de serviço. Em seguida, você deve integrar seu aplicativo de funções com essa rede virtual para acessar o recurso. Essa configuração tem suporte em todos os planos que dão suporte à integração de rede virtual.
@@ -112,10 +112,11 @@ Para fornecer um nível mais alto de segurança, você pode restringir vários s
 [Leia mais sobre os pontos de extremidade de serviço de rede virtual aqui.](../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### <a name="restricting-your-storage-account-to-a-virtual-network"></a>Restringindo sua conta de armazenamento a uma rede virtual
+
 Ao criar um aplicativo de funções, você deve criar ou vincular a uma conta de armazenamento do Azure de uso geral que dá suporte ao armazenamento de BLOBs, filas e tabelas. No momento, não é possível usar nenhuma restrição de rede virtual nesta conta. Se você configurar um ponto de extremidade de serviço de rede virtual na conta de armazenamento que você está usando para seu aplicativo de funções, ele interromperá seu aplicativo.
 
 [Leia mais sobre os requisitos de conta de armazenamento aqui.](./functions-create-function-app-portal.md#storage-account-requirements
-) 
+)
 
 ## <a name="virtual-network-triggers-non-http"></a>Gatilhos de rede virtual (não HTTP)
 
@@ -140,6 +141,7 @@ As restrições de IP de saída estão disponíveis somente para funções impla
 Ao integrar um aplicativo de funções em um plano Premium ou plano do serviço de aplicativo com uma rede virtual, o aplicativo ainda é capaz de fazer chamadas de saída para a Internet.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Para saber mais sobre rede e Azure Functions: 
 
 * [Siga o tutorial sobre como começar com a integração de rede virtual](./functions-create-vnet.md)

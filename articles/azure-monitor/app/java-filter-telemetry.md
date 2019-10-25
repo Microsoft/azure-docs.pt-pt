@@ -1,41 +1,37 @@
 ---
-title: Filtrar telemetria do Application Insights do Azure na sua aplicação web Java | Documentos da Microsoft
-description: Reduza o tráfego de telemetria ao filtrar os eventos que não precisa de monitorizar.
-services: application-insights
-documentationcenter: ''
-author: mrbullwinkle
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Filtrar Aplicativo Azure telemetria de informações em seu aplicativo Web Java | Microsoft Docs
+description: Reduza o tráfego de telemetria filtrando os eventos que você não precisa monitorar.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 3/14/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 9cf939b241da01be55c1b2ba5f00a5131ab94c06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 3/14/2019
+ms.openlocfilehash: de2a7c73b87254a6fd2e6c5dc942a9c93d28c2d4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061169"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819354"
 ---
-# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria na sua aplicação web Java
+# <a name="filter-telemetry-in-your-java-web-app"></a>Filtrar telemetria em seu aplicativo Web Java
 
-Filtros fornecem uma forma para selecionar a telemetria que sua [aplicação web Java envia para o Application Insights](java-get-started.md). Existem alguns filtros de out-of-the-box que pode utilizar, e também pode escrever seus próprios filtros personalizados.
+Os filtros fornecem uma maneira de selecionar a telemetria que seu [aplicativo Web Java envia para Application insights](java-get-started.md). Há alguns filtros prontos para uso que você pode usar, e você também pode escrever seus próprios filtros personalizados.
 
-Os filtros de out-of-the-box incluem:
+Os filtros prontos para uso incluem:
 
-* Nível de gravidade de rastreio
-* URLs específicos, palavras-chave ou códigos de resposta
-* Respostas rápidas - ou seja, pedidos para o qual a aplicação respondeu a rapidamente
-* Nomes de eventos específico
+* Nível de severidade de rastreamento
+* URLs específicas, palavras-chave ou códigos de resposta
+* Respostas rápidas – ou seja, solicitações às quais seu aplicativo respondeu rapidamente
+* Nomes de eventos específicos
 
 > [!NOTE]
-> Filtros distorcer as métricas da sua aplicação. Por exemplo, poderá decidir que, para diagnosticar repostas lentas, defina um filtro para descartar os tempos de resposta rápidos. Mas deve estar ciente de que os tempos de resposta médio comunicados pelo Application Insights, em seguida, será mais lentos que a velocidade verdadeira e a contagem de pedidos irá ser menor do que a contagem real.
-> Se isso for uma preocupação, utilize [amostragem](../../azure-monitor/app/sampling.md) em vez disso.
+> Os filtros distorcem as métricas do seu aplicativo. Por exemplo, você pode decidir que, para diagnosticar respostas lentas, você definirá um filtro para descartar tempos de resposta rápidos. Mas você deve estar ciente de que os tempos de resposta médios relatados pelo Application Insights serão mais lentos do que a velocidade real e a contagem de solicitações será menor do que a contagem real.
+> Se essa for uma preocupação, use a [amostragem](../../azure-monitor/app/sampling.md) em vez disso.
 
-## <a name="setting-filters"></a>Filtros de definição
+## <a name="setting-filters"></a>Definindo filtros
 
-No applicationinsights. XML, adicione um `TelemetryProcessors` secção semelhante a este exemplo:
+Em ApplicationInsights. xml, adicione uma seção `TelemetryProcessors` como neste exemplo:
 
 
 ```XML
@@ -88,11 +84,11 @@ No applicationinsights. XML, adicione um `TelemetryProcessors` secção semelhan
 
 
 
-[Inspecionar o conjunto completo de processadores incorporados](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Inspecione o conjunto completo de processadores internos](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
-## <a name="built-in-filters"></a>Filtros incorporados
+## <a name="built-in-filters"></a>Filtros internos
 
-### <a name="metric-telemetry-filter"></a>Filtro da métrica telemetria
+### <a name="metric-telemetry-filter"></a>Filtro de telemetria de métrica
 
 ```XML
 
@@ -101,10 +97,10 @@ No applicationinsights. XML, adicione um `TelemetryProcessors` secção semelhan
            </Processor>
 ```
 
-* `NotNeeded` – Lista separados por vírgulas de nomes de métricas personalizados.
+* `NotNeeded`-lista separada por vírgulas de nomes de métrica personalizados.
 
 
-### <a name="page-view-telemetry-filter"></a>Filtro de telemetria de vista de página
+### <a name="page-view-telemetry-filter"></a>Filtro de telemetria de exibição de página
 
 ```XML
 
@@ -115,12 +111,12 @@ No applicationinsights. XML, adicione um `TelemetryProcessors` secção semelhan
            </Processor>
 ```
 
-* `DurationThresholdInMS` -Duração refere-se para o tempo necessário para carregar a página. Se isto estiver definido, as páginas que carregado mais rapidamente do que desta vez não são reportadas.
-* `NotNeededNames` – Lista separados por vírgulas de nomes de página.
-* `NotNeededUrls` -Fragmentos de lista separados por vírgulas de URL. Por exemplo, `"home"` filtra todas as páginas que têm de "home" no URL.
+* `DurationThresholdInMS`-Duration refere-se ao tempo necessário para carregar a página. Se estiver definido, as páginas que carregarem mais rápido do que essa hora não serão relatadas.
+* `NotNeededNames`-lista de nomes de página separados por vírgulas.
+* `NotNeededUrls`-lista de fragmentos de URL separados por vírgulas. Por exemplo, `"home"` filtra todas as páginas que têm "Home" na URL.
 
 
-### <a name="request-telemetry-filter"></a>Filtro de telemetria de pedido
+### <a name="request-telemetry-filter"></a>Filtro de telemetria de solicitação
 
 
 ```XML
@@ -136,9 +132,9 @@ No applicationinsights. XML, adicione um `TelemetryProcessors` secção semelhan
 
 ### <a name="synthetic-source-filter"></a>Filtro de origem sintético
 
-Filtra as toda a telemetria que têm valores na propriedade SyntheticSource. Estes incluem pedidos de bots, spiders e testes de disponibilidade.
+Filtra toda a telemetria que tem valores na propriedade sintética. Isso inclui solicitações de bots, aranhas e testes de disponibilidade.
 
-Filtre telemetria para todos os pedidos sintéticos:
+Filtrar a telemetria de todas as solicitações sintéticas:
 
 
 ```XML
@@ -146,7 +142,7 @@ Filtre telemetria para todos os pedidos sintéticos:
            <Processor type="SyntheticSourceFilter" />
 ```
 
-Filtre telemetria de fontes sintéticas específicas:
+Filtrar a telemetria para fontes sintéticas específicas:
 
 
 ```XML
@@ -156,11 +152,11 @@ Filtre telemetria de fontes sintéticas específicas:
            </Processor>
 ```
 
-* `NotNeeded` – Lista separados por vírgulas de nomes de origem sintético.
+* `NotNeeded`-lista separada por vírgulas de nomes de origem sintético.
 
 ### <a name="telemetry-event-filter"></a>Filtro de eventos de telemetria
 
-Filtra os eventos personalizados (conectado usando [trackevent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtra eventos personalizados (registrados usando [TrackEvent ()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -171,12 +167,12 @@ Filtra os eventos personalizados (conectado usando [trackevent ()](../../azure-m
 ```
 
 
-* `NotNeededNames` – Lista separados por vírgulas de nomes de eventos.
+* `NotNeededNames`-lista de nomes de eventos separados por vírgulas.
 
 
-### <a name="trace-telemetry-filter"></a>Filtro de telemetria de rastreio
+### <a name="trace-telemetry-filter"></a>Filtro de telemetria de rastreamento
 
-Rastreios de registo de filtros (conectado usando [tracktrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) ou uma [recoletor de estrutura de Registro em log](java-trace-logs.md)).
+Filtra rastreamentos de log (registrados usando [TrackTrace ()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) ou um [coletor de estrutura de registro em log](java-trace-logs.md)).
 
 ```XML
 
@@ -185,20 +181,20 @@ Rastreios de registo de filtros (conectado usando [tracktrace ()](../../azure-mo
            </Processor>
 ```
 
-* `FromSeverityLevel` Valores válidos são:
-  *  DESATIVAR - filtrar todos os rastreios
-  *  RASTREIO - nenhuma filtragem. é igual ao nível de rastreio
-  *  INFO - filtrar o nível de rastreio
-  *  AVISO - filtro de rastreio e informações
-  *  Erro - filtrar o rastreio de aviso, informações,
-  *  CRÍTICO - filtrar todas, CRÍTICOS
+* `FromSeverityLevel` os valores válidos são:
+  *  FORA do filtro de todos os rastreamentos
+  *  RASTREAMENTO-sem filtragem. igual ao nível de rastreamento
+  *  INFORMAÇÕES-filtrar nível de rastreamento
+  *  AVISO-filtrar rastreamento e informações
+  *  ERRO-filtrar aviso, informações, rastreamento
+  *  CRÍTICO-filtrar tudo menos crítico
 
 
 ## <a name="custom-filters"></a>Filtros personalizados
 
-### <a name="1-code-your-filter"></a>1. O filtro de código
+### <a name="1-code-your-filter"></a>1. codificar seu filtro
 
-Em seu código, criar uma classe que implementa `TelemetryProcessor`:
+Em seu código, crie uma classe que implemente `TelemetryProcessor`:
 
 ```Java
 
@@ -235,9 +231,9 @@ Em seu código, criar uma classe que implementa `TelemetryProcessor`:
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Invocar o filtro no ficheiro de configuração
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. invocar seu filtro no arquivo de configuração
 
-In ApplicationInsights.xml:
+Em ApplicationInsights. xml:
 
 ```XML
 
@@ -254,9 +250,9 @@ In ApplicationInsights.xml:
 
 ```
 
-### <a name="3-invoke-your-filter-java-spring"></a>3. Invocar o filtro (Java Spring)
+### <a name="3-invoke-your-filter-java-spring"></a>3. invocar seu filtro (Spring do Java)
 
-Para aplicações com base na estrutura Spring, processadores de telemetria personalizada tem de estar registados na sua classe de aplicativo principal como um bean. Eles serão, em seguida, devem ser conectados automaticamente quando o aplicativo é iniciado.
+Para aplicativos baseados no Spring Framework, os processadores de telemetria personalizados devem ser registrados em sua classe de aplicativo principal como um Bean. Em seguida, eles serão transferidos por cabo quando o aplicativo for iniciado.
 
 ```Java
 @Bean
@@ -265,15 +261,15 @@ public TelemetryProcessor successFilter() {
 }
 ```
 
-Terá de criar os seus parâmetros de filtro no `application.properties` e tire partido da estrutura de configuração externalized de Spring Boot para passar os parâmetros para o seu filtro personalizado. 
+Você precisará criar seus próprios parâmetros de filtro no `application.properties` e aproveitar a estrutura de configuração externa do Spring boot para passar esses parâmetros para o filtro personalizado. 
 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-*Meu filtro não está a funcionar.*
+*Meu filtro não está funcionando.*
 
-* Verifique que forneceu valores de parâmetro válido. Por exemplo, durações devem ser números inteiros. Valores inválidos fará com que o filtro que deverão ser ignorados. Se o seu filtro personalizado lança uma exceção de um construtor ou método set, ela será ignorada.
+* Verifique se você forneceu valores de parâmetro válidos. Por exemplo, as durações devem ser números inteiros. Valores inválidos farão com que o filtro seja ignorado. Se o filtro personalizado lançar uma exceção de um construtor ou de um método set, ele será ignorado.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-* [Amostragem](../../azure-monitor/app/sampling.md) -considere amostragem como uma alternativa que não distorcer as suas métricas.
+* [Amostragem](../../azure-monitor/app/sampling.md) -considere a amostragem como uma alternativa que não distorce suas métricas.

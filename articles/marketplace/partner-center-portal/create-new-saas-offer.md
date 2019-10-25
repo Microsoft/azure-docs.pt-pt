@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376289"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819816"
 ---
 # <a name="create-a-new-saas-offer"></a>Criar uma nova oferta de SaaS
 
@@ -178,7 +178,8 @@ Selecione **salvar** depois de concluir esses campos.
 Selecione no mínimo um (1) e no máximo três (3) categorias usadas para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Descreva como sua oferta dá suporte a essas categorias na descrição da oferta. 
 
 ### <a name="industry"></a>Indústria
-Selecione até dois (2) setores usados para agrupar sua oferta nas áreas de pesquisa do Marketplace apropriadas. Se sua oferta não for específica para um setor, não selecione uma. Descreva como sua oferta dá suporte aos setores selecionados na descrição da oferta. 
+
+[!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>Versão da aplicação
 Esse é um campo opcional usado no AppSource Marketplace para identificar o número de versão da sua oferta. 
@@ -289,12 +290,12 @@ Para tornar sua descrição de oferta mais atraente, você pode usar marcas HTML
 
     **Exemplo**:
 
-    `<h1>`This é Heading 1 @ no__t-1 <br>
-    `<h2>`This é heading 2 @ no__t-1 <br>
-    `<h3>`This é heading 3 @ no__t-1 <br>
-    `<h4>`This é heading 4 @ no__t-1 <br>
-    `<h5>`This é título 5 @ no__t-1 <br>
-    `<h6>`This é título 6 @ no__t-1 
+    `<h1>`este é o título 1`</h1>` <br>
+    `<h2>`este é o título 2`</h2>` <br>
+    `<h3>`este é o título 3`</h3>` <br>
+    `<h4>`é o título 4`</h4>` <br>
+    `<h5>`este é o título 5`</h5>` <br>
+    `<h6>`é o título 6`</h6>` 
 
     O anterior ficaria assim:
 

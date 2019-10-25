@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 36c6c914c96048825c82a8d1f590a7e805373c08
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3b61e8680ef2484b1ad42837711adef171fdde25
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854606"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882645"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro em log da análise de armazenamento do Azure
 
@@ -33,7 +33,7 @@ Análise de Armazenamento registra informações detalhadas sobre solicitações
 
  Os seguintes tipos de solicitações autenticadas são registrados em log:
 
-- Pedidos com êxito
+- Solicitações bem-sucedidas
 - Solicitações com falha, incluindo tempo limite, limitação, rede, autorização e outros erros
 - Solicitações que usam uma SAS (assinatura de acesso compartilhado) ou OAuth, incluindo solicitações com falha e bem-sucedidas
 - Solicitações para dados de análise
@@ -44,7 +44,7 @@ Análise de Armazenamento registra informações detalhadas sobre solicitações
 
  Os seguintes tipos de solicitações anônimas são registrados:
 
-- Pedidos com êxito
+- Solicitações bem-sucedidas
 - Erros do servidor
 - Erros de tempo limite para o cliente e o servidor
 - Solicitações GET com falha com o código de erro 304 (não modificado)
@@ -53,10 +53,10 @@ Análise de Armazenamento registra informações detalhadas sobre solicitações
 
 ## <a name="how-logs-are-stored"></a>Como os logs são armazenados
 
-Todos os logs são armazenados em blobs de blocos em um `$logs`contêiner chamado, que é criado automaticamente quando análise de armazenamento está habilitado para uma conta de armazenamento. O `$logs` contêiner está localizado no namespace de BLOB da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Esse contêiner não pode ser excluído quando Análise de Armazenamento tiver sido habilitado, embora seu conteúdo possa ser excluído. Se você usar sua ferramenta de navegação de armazenamento para navegar diretamente até o contêiner, verá todos os blobs que contêm os dados de log.
+Todos os logs são armazenados em blobs de blocos em um contêiner chamado `$logs`, que é criado automaticamente quando Análise de Armazenamento está habilitado para uma conta de armazenamento. O contêiner de `$logs` está localizado no namespace de BLOB da conta de armazenamento, por exemplo: `http://<accountname>.blob.core.windows.net/$logs`. Esse contêiner não pode ser excluído quando Análise de Armazenamento tiver sido habilitado, embora seu conteúdo possa ser excluído. Se você usar sua ferramenta de navegação de armazenamento para navegar diretamente até o contêiner, verá todos os blobs que contêm os dados de log.
 
 > [!NOTE]
->  O `$logs` contêiner não é exibido quando uma operação de listagem de contêiner é executada, como a operação listar contêineres. Ele deve ser acessado diretamente. Por exemplo, você pode usar a operação listar BLOBs para acessar os BLOBs no `$logs` contêiner.
+>  O contêiner `$logs` não é exibido quando uma operação de listagem de contêiner é executada, como a operação listar contêineres. Ele deve ser acessado diretamente. Por exemplo, você pode usar a operação listar BLOBs para acessar os BLOBs no contêiner `$logs`.
 
 À medida que as solicitações são registradas, Análise de Armazenamento carregar resultados intermediários como blocos. Periodicamente, Análise de Armazenamento confirmará esses blocos e os tornará disponíveis como um blob. Pode levar até uma hora para que os dados de log apareçam nos BLOBs no contêiner de **$logs** , pois a frequência em que o serviço de armazenamento libera os gravadores de log. Registros duplicados podem existir para logs criados na mesma hora. Você pode determinar se um registro é uma duplicata verificando o **RequestId** e o número da **operação** .
 
@@ -90,13 +90,13 @@ Para obter informações sobre como listar BLOBs programaticamente, consulte [en
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob`, `table`ou`queue`|
+|`<service-name>`|O nome do serviço de armazenamento. Por exemplo: `blob`, `table`ou `queue`|
 |`YYYY`|O ano de quatro dígitos do log. Por exemplo: `2011`|
 |`MM`|O mês de dois dígitos para o log. Por exemplo: `07`|
 |`DD`|O dia de dois dígitos para o log. Por exemplo: `31`|
 |`hh`|A hora de dois dígitos que indica a hora inicial dos logs, no formato UTC de 24 horas. Por exemplo: `18`|
-|`mm`|O número de dois dígitos que indica o minuto inicial para os logs. **Nota:**  Esse valor não tem suporte na versão atual do Análise de Armazenamento, e seu valor sempre `00`será.|
-|`<counter>`|Um contador baseado em zero com seis dígitos que indica o número de blobs de log gerados para o serviço de armazenamento em um período de hora. Este contador é iniciado `000000`em. Por exemplo: `000001`|
+|`mm`|O número de dois dígitos que indica o minuto inicial para os logs. **Observação:**  Esse valor não tem suporte na versão atual do Análise de Armazenamento, e seu valor sempre será `00`.|
+|`<counter>`|Um contador baseado em zero com seis dígitos que indica o número de blobs de log gerados para o serviço de armazenamento em um período de hora. Este contador é iniciado na `000000`. Por exemplo: `000001`|
 
  Este é um nome de log de exemplo completo que combina os exemplos acima:
 
@@ -106,7 +106,7 @@ Para obter informações sobre como listar BLOBs programaticamente, consulte [en
 
  `https://<accountname>.blob.core.windows.net/$logs/blob/2011/07/31/1800/000001.log`
 
- Quando uma solicitação de armazenamento é registrada, o nome do log resultante se correlaciona com a hora em que a operação solicitada foi concluída. Por exemplo, se uma solicitação getBlob tiver sido concluída em 6: às 16h30 em 7/31/2011, o log seria gravado com o seguinte prefixo:`blob/2011/07/31/1800/`
+ Quando uma solicitação de armazenamento é registrada, o nome do log resultante se correlaciona com a hora em que a operação solicitada foi concluída. Por exemplo, se uma solicitação getBlob tiver sido concluída em 6: às 16h30 em 7/31/2011, o log seria gravado com o seguinte prefixo: `blob/2011/07/31/1800/`
 
 ### <a name="log-metadata"></a>Metadados de log
 
@@ -114,7 +114,7 @@ Para obter informações sobre como listar BLOBs programaticamente, consulte [en
 
 |Atributo|Descrição|
 |---------------|-----------------|
-|`LogType`|Descreve se o log contém informações referentes a operações de leitura, gravação ou exclusão. Esse valor pode incluir um tipo ou uma combinação de todos os três, separados por vírgulas.<br /><br /> Exemplo 1: `write`<br /><br /> Exemplo 2: `read,write`<br /><br /> Exemplo 3:`read,write,delete`|
+|`LogType`|Descreve se o log contém informações referentes a operações de leitura, gravação ou exclusão. Esse valor pode incluir um tipo ou uma combinação de todos os três, separados por vírgulas.<br /><br /> Exemplo 1: `write`<br /><br /> Exemplo 2: `read,write`<br /><br /> Exemplo 3: `read,write,delete`|
 |`StartTime`|A hora mais antiga de uma entrada no log, na forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:21:46Z`|
 |`EndTime`|A hora mais recente de uma entrada no log, na forma de `YYYY-MM-DDThh:mm:ssZ`. Por exemplo: `2011-07-31T18:22:09Z`|
 |`LogVersion`|A versão do formato de log.|
@@ -154,13 +154,13 @@ Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations rea
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
- Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão a ser usada, consulte: [Como instalar e configurar Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
+ Para obter informações sobre como configurar os cmdlets Azure PowerShell para trabalhar com sua assinatura do Azure e como selecionar a conta de armazenamento padrão a ser usada, consulte: [como instalar e configurar o Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Habilitar o log de armazenamento de forma programática  
 
  Além de usar os cmdlets portal do Azure ou Azure PowerShell para controlar o log de armazenamento, você também pode usar uma das APIs de armazenamento do Azure. Por exemplo, se você estiver usando uma linguagem .NET, poderá usar a biblioteca de cliente de armazenamento.  
 
- As classes **CloudBlobClient**, **CloudQueueClient**e **CloudTableClient** têm métodos como setserviceproperties e **SetServicePropertiesAsync** que usam um objeto serviceproperties como um meter. Você pode usar o objeto serviceproperties para configurar o log de armazenamento. Por exemplo, o trecho C# a seguir mostra como alterar o que é registrado e o período de retenção para o log de fila:  
+ As classes **CloudBlobClient**, **CloudQueueClient**e **CloudTableClient** têm métodos como **setserviceproperties** e **SetServicePropertiesAsync** que usam um objeto **serviceproperties** como um meter. Você pode usar o objeto **serviceproperties** para configurar o log de armazenamento. Por exemplo, o trecho C# a seguir mostra como alterar o que é registrado e o período de retenção para o log de fila:  
 
 ```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
@@ -179,7 +179,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 ## <a name="download-storage-logging-log-data"></a>Baixar dados de log de log de armazenamento
 
- Para exibir e analisar os dados de log, baixe os blobs que contêm os dados de log em que você está interessado em um computador local. Muitas ferramentas de navegação de armazenamento permitem que você baixe blobs de sua conta de armazenamento; Você também pode usar a**AzCopy**(ferramenta de cópia do Azure) de linha de comando fornecida pela equipe de armazenamento do Azure para baixar seus dados de log.  
+ Para exibir e analisar os dados de log, baixe os blobs que contêm os dados de log em que você está interessado em um computador local. Muitas ferramentas de navegação de armazenamento permitem que você baixe blobs de sua conta de armazenamento; Você também pode usar a ferramenta de cópia do Azure de linha de comando fornecida pela equipe de armazenamento do Azure [AzCopy](storage-use-azcopy-v10.md) para baixar seus dados de log.  
 
  Para verificar se você baixou os dados de log nos quais está interessado e para evitar baixar os mesmos dados de log mais de uma vez:  
 
@@ -187,22 +187,19 @@ queueClient.SetServiceProperties(serviceProperties);
 
 -   Use os metadados nos BLOBs que contêm dados de log para identificar o período específico para o qual o BLOB contém dados de log para identificar o blob exato que você precisa baixar.  
 
-> [!NOTE]
->  O AzCopy faz parte do SDK do Azure, mas você sempre pode baixar a versão mais [https://aka.ms/AzCopy](https://aka.ms/AzCopy)recente do. Por padrão, o AzCopy é instalado na pasta **C:\Program Files (x86) \Microsoft SDKs\Windows Azure\AzCopy**e você deve adicionar essa pasta ao seu caminho antes de tentar executar a ferramenta em um prompt de comando ou janela do PowerShell.  
+Para começar a usar o AzCopy, consulte Introdução [ao AzCopy](storage-use-azcopy-v10.md) 
 
- O exemplo a seguir mostra como você pode baixar os dados de log para o serviço fila para as horas começando às 9h, às 12h, às 9h e às 11 de maio de 2014. O parâmetro **/s** faz com que o AzCopy crie uma estrutura de pasta local com base nas datas e horas nos nomes dos arquivos de log; o parâmetro **/v** faz com que o AzCopy produza saída detalhada; o parâmetro **/y** faz com que o AzCopy substitua qualquer arquivo local. Substitua **< yourstorageaccount\>**  pelo nome da sua conta de armazenamento e substitua **< yourstoragekey\>**  pela sua chave de conta de armazenamento.  
+O exemplo a seguir mostra como você pode baixar os dados de log para o serviço fila para as horas começando às 9h, às 12h, às 9h e às 11 de maio de 2014.
 
 ```
-AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
-```  
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$logs/queue' 'C:\Logs\Storage' --include-path '2014/05/20/09;2014/05/20/10;2014/05/20/11' --recursive
+```
 
- O AzCopy também tem alguns parâmetros úteis que controlam como ele define a hora da última modificação nos arquivos que ele baixa e se ele tentará baixar arquivos que são mais antigos ou mais recentes do que os arquivos que já existem em seu computador local. Você também pode executá-lo no modo reiniciável. Para obter detalhes completos, veja a ajuda executando o **AzCopy/?** linha.  
+Para saber mais sobre como baixar arquivos específicos, consulte [baixar arquivos específicos](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#download-specific-files).
 
- Para obter um exemplo de como baixar seus dados de log programaticamente, consulte [a postagem no blog log de armazenamento do Windows Azure: Usando logs para rastrear solicitações](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) de armazenamento e pesquisar a palavra "DumpLogs" na página.  
+Depois de baixar os dados de log, você poderá exibir as entradas de log nos arquivos. Esses arquivos de log usam um formato de texto delimitado que muitas ferramentas de leitura de log podem analisar, incluindo o Microsoft Message Analyzer (para obter mais informações, consulte o guia [monitoramento, diagnóstico e solução de problemas armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Ferramentas diferentes têm recursos diferentes para formatação, filtragem, classificação, AD pesquisando o conteúdo dos arquivos de log. Para obter mais informações sobre o formato e o conteúdo do arquivo de log de log de armazenamento, consulte [análise de armazenamento formato de log](/rest/api/storageservices/storage-analytics-log-format) e [análise de armazenamento as operações registradas e as mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
- Depois de baixar os dados de log, você poderá exibir as entradas de log nos arquivos. Esses arquivos de log usam um formato de texto delimitado que muitas ferramentas de leitura de log podem analisar, incluindo o Microsoft Message Analyzer (para obter mais informações, consulte o guia [monitoramento, diagnóstico e solução de problemas armazenamento do Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Ferramentas diferentes têm recursos diferentes para formatação, filtragem, classificação, AD pesquisando o conteúdo dos arquivos de log. Para obter mais informações sobre o formato e o conteúdo do arquivo de log de log de armazenamento, consulte [análise de armazenamento formato de log](/rest/api/storageservices/storage-analytics-log-format) e [análise de armazenamento as operações registradas e as mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
-
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Formato de log de Análise de Armazenamento](/rest/api/storageservices/storage-analytics-log-format)
 * [Análise de Armazenamento mensagens de status e operações registradas](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)

@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 07/25/2019
+ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: f34695cb4a92fbed285ba8c56764606a124194a4
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678241"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817383"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web de vários passos
 
@@ -34,38 +34,12 @@ Para localizar o pré-requisito das ferramentas de teste. Inicie o **Instalador 
 > [!NOTE]
 > Testes na Web de várias etapas têm custos adicionais associados a eles. Para saber mais, consulte o [Guia de preços oficial](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="record-a-multi-step-web-test"></a>Registrar um teste na Web de várias etapas
+## <a name="record-a-multi-step-web-test"></a>Registrar um teste na Web de várias etapas 
 
-Para criar um teste com vários passos, registe o cenário com o Visual Studio Enterprise e, em seguida, carregue o registo no Application Insights. Application Insights repete o cenário em intervalos definidos e verifica a resposta.
+> [!WARNING]
+> Não é mais recomendável usar o gravador de várias etapas. O gravador foi desenvolvido para páginas HTML estáticas com interações básicas e não fornece uma experiência funcional para páginas da Web modernas.
 
-> [!IMPORTANT]
-> * Não pode utilizar funções codificadas ou ciclos no seus testes. O teste tem de estar contido completamente no script .webtest. No entanto, pode utilizar plug-ins standard.
-> * Os testes web com vários passos são suportados apenas com carateres em inglês. Se utilizar o Visual Studio noutras linguagens, atualize o ficheiro de definição de teste web para traduzir/excluir carateres não ingleses.
-
-Utilize o Visual Studio Enterprise para guardar uma sessão Web.
-
-1. Crie um projeto de teste de carga e desempenho na Web. **Arquivo**  > **novo** **projeto** de  >   > **teste** do**Visual C#**   > 
-
-    ![IU do novo projeto do Visual Studio](./media/availability-multistep/vs-web-performance-and-load-test.png)
-
-2. Abra o arquivo `.webtest` e inicie a gravação.
-
-    ![IU de gravação de teste do Visual Studio](./media/availability-multistep/open-web-test.png)
-
-3. Clique nas etapas que você deseja que o teste simule para simular como parte da gravação.
-
-    ![IU de gravação do navegador](./media/availability-multistep/record.png)
-
-4. Edite o teste para:
-
-    * Adicionar validações para verificar o texto recebido e os códigos de reposta.
-    * Remova todas as interações de uneccesary. Você também pode remover solicitações dependentes de imagens ou adicionar sites de acompanhamento que não são relevantes para você Considerando seu teste de sucesso.
-    
-    Tenha em mente que você só pode editar o script de teste – você pode adicionar um código personalizado ou chamar outros testes da Web. Não insira ciclos no teste. Pode utilizar os plug-ins do teste Web padrão.
-
-5. Execute o teste no Visual Studio para validar e verificar se ele funciona.
-
-    A execução de testes Web abre um browser e repete as ações que gravou. Certifique-se de que tudo se comporta conforme o esperado.
+Para obter orientação sobre como criar testes na Web do Visual Studio, consulte a [documentação oficial do visual studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Carregar o teste na Web
 
@@ -96,7 +70,7 @@ Utilize o Visual Studio Enterprise para guardar uma sessão Web.
 |**Clássico** | Não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limite de local de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limite de local de alerta e o número de locais de teste é o **limite de local de alerta**  = **número de locais de teste-2, com um mínimo de cinco locais de teste.**|
 
-## <a name="advanced-configuration"></a>Configuração Avançada
+## <a name="configuration"></a>Configuração
 
 ### <a name="plugging-time-and-random-numbers-into-your-test"></a>Tempo de conexão e números aleatórios em seu teste
 

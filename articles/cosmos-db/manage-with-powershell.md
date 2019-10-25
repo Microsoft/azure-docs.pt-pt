@@ -4,15 +4,15 @@ description: Use o Azure PowerShell para gerenciar suas contas, bancos de dados,
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 08/05/2019
+ms.date: 10/23/2019
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 3b5d8ff6177b4f9f397b40f50a9cc65f74460f02
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 978f37d08275de704dd01c0251dde42665fca552
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815892"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882097"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>Gerenciar Azure Cosmos DB recursos da API do SQL usando o PowerShell
 
@@ -26,8 +26,8 @@ Para o gerenciamento de plataforma cruzada do Azure Cosmos DB, você pode usar [
 
 Siga as instruções em [como instalar e configurar o Azure PowerShell][powershell-install-configure] para instalar e entrar em sua conta do Azure no PowerShell.
 
-* Se desejar executar os seguintes comandos sem a necessidade de confirmação do usuário, acrescentar o `-Force` sinalizador para o comando.
-* Todos os comandos seguintes são síncronos.
+* Se você quiser executar os comandos a seguir sem exigir confirmação do usuário, anexe o sinalizador `-Force` ao comando.
+* Todos os comandos a seguir são síncronos.
 
 ## <a name="azure-cosmos-accounts"></a>Contas do Azure Cosmos
 
@@ -78,11 +78,11 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -PropertyObject $CosmosDBProperties
 ```
 
-* `$accountName`O nome da conta do Azure Cosmos. Deve estar em letras minúsculas, aceita caracteres alfanuméricos e '-' e entre 3 e 31 caracteres.
-* `$location`O local para o recurso de conta do Azure Cosmos.
-* `$locations`As regiões de réplica para a conta do banco de dados. Deve haver uma região de gravação por conta de banco de dados com um valor de prioridade de failover 0.
-* `$consistencyPolicy`O nível de consistência padrão da conta do Azure Cosmos. Para obter mais informações, consulte [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
-* `$CosmosDBProperties`Os valores de propriedade passados para o provedor de Azure Resource Manager Cosmos DB para provisionar a conta.
+* `$accountName` o nome da conta do Azure Cosmos. Deve estar em letras minúsculas, aceita caracteres alfanuméricos e '-' e entre 3 e 31 caracteres.
+* `$location` o local para o recurso de conta do Azure Cosmos.
+* `$locations` as regiões de réplica para a conta do banco de dados. Deve haver uma região de gravação por conta de banco de dados com um valor de prioridade de failover 0.
+* `$consistencyPolicy` o nível de consistência padrão da conta do Azure Cosmos. Para obter mais informações, consulte [níveis de consistência no Azure Cosmos DB](consistency-levels.md).
+* `$CosmosDBProperties` os valores de propriedade passados para o provedor de Azure Resource Manager de Cosmos DB para provisionar a conta.
 
 As contas do Azure Cosmos podem ser configuradas com o firewall IP, bem como pontos de extremidade de serviço de rede virtual. Para obter informações sobre como configurar o firewall IP para Azure Cosmos DB, consulte [Configurar o firewall de IP](how-to-configure-firewall.md).  Para obter mais informações sobre como habilitar pontos de extremidade de serviço para Azure Cosmos DB, consulte [Configurar o acesso de redes virtuais](how-to-configure-vnet-service-endpoint.md).
 
@@ -122,7 +122,7 @@ Esse comando permite que você atualize suas propriedades de conta do banco de d
 * Habilitando vários mestres
 
 > [!NOTE]
-> Você não pode adicionar ou remover regiões `locations` simultaneamente e alterar outras propriedades para uma conta do Azure Cosmos. A modificação de regiões deve ser executada como uma operação separada do que qualquer outra alteração no recurso da conta.
+> Não é possível adicionar ou remover simultaneamente regiões `locations` e alterar outras propriedades de uma conta do Azure Cosmos. A modificação de regiões deve ser executada como uma operação separada do que qualquer outra alteração no recurso da conta.
 > [!NOTE]
 > Esse comando permite que você adicione e remova regiões, mas não permite que você modifique as prioridades de failover ou dispare um failover manual. Consulte [Modificar prioridade de failover](#modify-failover-priority) e [disparar failover manual](#trigger-manual-failover).
 
@@ -223,7 +223,7 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 O exemplo a seguir descreve como definir [marcas de recurso do Azure][azure-resource-tags] para uma conta do Azure Cosmos.
 
 > [!NOTE]
-> Este comando pode ser combinado com os comandos de criar ou atualizar, acrescentando a `-Tags` sinalizador com o parâmetro correspondente.
+> Esse comando pode ser combinado com os comandos CREATE ou Update acrescentando o sinalizador `-Tags` com o parâmetro correspondente.
 
 ```azurepowershell-interactive
 # Update tags for an Azure Cosmos Account
@@ -241,9 +241,9 @@ Set-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
     -Name $accountName -Tags $tags
 ```
 
-### <a id="list-keys"></a> Listar chaves de conta
+### <a id="list-keys"></a>Listar chaves de conta
 
-Quando cria uma conta do Azure Cosmos DB, o serviço gera duas chaves de acesso mestre que podem ser utilizadas para autenticação quando aceder a conta do Azure Cosmos DB. Ao fornecer duas chaves de acesso, o Azure Cosmos DB permite-lhe voltar a gerar as chaves sem interrupções na sua conta do Azure Cosmos DB. Chaves só de leitura para a autenticação de operações só de leitura também estão disponíveis. Existem duas chaves de leitura / escrita (primárias e secundárias) e duas chaves só de leitura (primário e secundário).
+Quando você cria uma conta de Azure Cosmos DB, o serviço gera duas chaves de acesso mestre que podem ser usadas para autenticação quando a conta de Azure Cosmos DB é acessada. Ao fornecer duas chaves de acesso, Azure Cosmos DB permite regenerar as chaves sem interrupção para sua conta de Azure Cosmos DB. Chaves somente leitura para autenticar operações somente leitura também estão disponíveis. Há duas chaves de leitura/gravação (primária e secundária) e duas chaves somente leitura (primária e secundária).
 
 ```azurepowershell-interactive
 # List keys for an Azure Cosmos Account
@@ -255,12 +255,13 @@ $keys = Invoke-AzResourceAction -Action listKeys `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
     -ResourceGroupName $resourceGroupName -Name $accountName
 
-Select-Object $keys
+Write-Host "PrimaryKey =" $keys.primaryMasterKey
+Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 ```
 
-### <a id="list-connection-strings"></a> Lista cadeias de ligação
+### <a id="list-connection-strings"></a>Listar cadeias de conexão
 
-Para contas de MongoDB, a cadeia de ligação para ligar a sua aplicação MongoDB à conta de base de dados pode ser obtida com o seguinte comando.
+Para contas do MongoDB, a cadeia de conexão para conectar seu aplicativo MongoDB à conta do banco de dados pode ser recuperada usando o comando a seguir.
 
 ```azurepowershell-interactive
 # List connection strings for an Azure Cosmos Account
@@ -319,10 +320,10 @@ Set-AzResource -ResourceType $resourceType `
 
 Para contas configuradas com failover automático, você pode alterar a ordem em que o cosmos promoverá as réplicas secundárias para primária se o primário ficar indisponível.
 
-Para o exemplo a seguir, suponha que a prioridade de `West US 2 = 0`failover `East US 2 = 1`atual `South Central US = 2`,,,.
+Para o exemplo a seguir, suponha que a prioridade de failover atual, `West US 2 = 0`, `East US 2 = 1``South Central US = 2`.
 
 > [!CAUTION]
-> A `locationName` alteração `failoverPriority=0` de para irá disparar um failover manual para uma conta do Azure Cosmos. Qualquer outra alteração de prioridade não disparará um failover.
+> Alterar `locationName` para `failoverPriority=0` irá disparar um failover manual para uma conta do Azure Cosmos. Qualquer outra alteração de prioridade não disparará um failover.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -348,12 +349,12 @@ Invoke-AzResourceAction -Action failoverPriorityChange `
 
 ### <a id="trigger-manual-failover"></a>Disparar failover manual
 
-Para contas configuradas com failover manual, você pode fazer failover e promover qualquer réplica secundária para primária `failoverPriority=0`modificando para. Esta operação pode ser usada para iniciar uma análise de recuperação de desastre para testar o planejamento de recuperação de desastre.
+Para contas configuradas com failover manual, você pode fazer failover e promover qualquer réplica secundária para primária modificando para `failoverPriority=0`. Esta operação pode ser usada para iniciar uma análise de recuperação de desastre para testar o planejamento de recuperação de desastre.
 
-Para o exemplo a seguir, suponha que a conta tenha uma prioridade de `West US 2 = 0` failover `East US 2 = 1` atual de e e inverta as regiões.
+Para o exemplo a seguir, suponha que a conta tenha uma prioridade de failover atual de `West US 2 = 0` e `East US 2 = 1` e inverta as regiões.
 
 > [!CAUTION]
-> A `locationName` alteração `failoverPriority=0` de para irá disparar um failover manual para uma conta do Azure Cosmos. Qualquer outra alteração de prioridade não disparará um failover.
+> Alterar `locationName` para `failoverPriority=0` irá disparar um failover manual para uma conta do Azure Cosmos. Qualquer outra alteração de prioridade não disparará um failover.
 
 ```azurepowershell-interactive
 # Change the failover priority for an Azure Cosmos Account
@@ -697,7 +698,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 
 ### <a id="create-container-lww"></a>Criar um contêiner Cosmos do Azure com resolução de conflitos
 
-Para criar uma política de resolução de conflitos para usar um procedimento armazenado `"mode"="custom"` , defina e defina o caminho de resolução como o nome do procedimento `"conflictResolutionPath"="myResolverStoredProcedure"`armazenado,. Para gravar todos os conflitos no ConflictsFeed e manipular separadamente, defina `"mode"="custom"` e`"conflictResolutionPath"=""`
+Para criar uma política de resolução de conflitos para usar um procedimento armazenado, defina `"mode"="custom"` e defina o caminho de resolução como o nome do procedimento armazenado, `"conflictResolutionPath"="myResolverStoredProcedure"`. Para gravar todos os conflitos no ConflictsFeed e manipular separadamente, defina `"mode"="custom"` e `"conflictResolutionPath"=""`
 
 ```azurepowershell-interactive
 # Create container with last-writer-wins conflict resolution policy

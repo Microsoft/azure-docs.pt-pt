@@ -1,21 +1,18 @@
 ---
 title: Coleção de endereços IP do Aplicativo Azure insights | Microsoft Docs
 description: Compreendendo como os endereços IP e a localização geográfica são tratados com o Aplicativo Azure insights
-services: application-insights
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0e3b103c-6e2a-4634-9e8c-8b85cf5e9c84
-ms.service: application-insights
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 09/11/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 49534cbce7bb0bbf540416785e31b451509d5bf6
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 09/11/2019
+ms.openlocfilehash: bee3e24739aa560a43960143d1a18c30ec1ce160
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916170"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819442"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Localização geográfica e manipulação de endereço IP
 
@@ -25,10 +22,10 @@ Este artigo explica como a pesquisa de localização geográfica e o tratamento 
 
 Por padrão, os endereços IP são coletados temporariamente, mas não são armazenados em Application Insights. O processo básico é o seguinte:
 
-Os endereços IP são enviados para Application Insights como parte dos dados de telemetria. Ao atingir o ponto de extremidade de ingestão no Azure, o endereço IP é usado para executar uma pesquisa de localização geográfica usando [GeoLite2 de MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Os resultados dessa pesquisa são usados para popular os campos `client_City`a seguir, `client_StateOrProvince`,. `client_CountryOrRegion` Neste ponto, o endereço IP é Descartado e `0.0.0.0` gravado `client_IP` no campo.
+Os endereços IP são enviados para Application Insights como parte dos dados de telemetria. Ao atingir o ponto de extremidade de ingestão no Azure, o endereço IP é usado para executar uma pesquisa de localização geográfica usando [GeoLite2 de MaxMind](https://dev.maxmind.com/geoip/geoip2/geolite2/). Os resultados dessa pesquisa são usados para preencher os campos a seguir `client_City`, `client_StateOrProvince``client_CountryOrRegion`. Neste ponto, o endereço IP é Descartado e `0.0.0.0` é gravado no campo `client_IP`.
 
-* Telemetria do navegador: Coletamos temporariamente o endereço IP do remetente. O endereço IP é calculado pelo ponto de extremidade de ingestão.
-* Telemetria do servidor: O módulo Application Insights coleta temporariamente o endereço IP do cliente. Ele não será coletado `X-Forwarded-For` se estiver definido.
+* Telemetria do navegador: coletamos temporariamente o endereço IP do remetente. O endereço IP é calculado pelo ponto de extremidade de ingestão.
+* Telemetria do servidor: o módulo Application Insights coleta temporariamente o endereço IP do cliente. Ele não será coletado se `X-Forwarded-For` estiver definido.
 
 Esse comportamento é por design para ajudar a evitar a coleta desnecessária de dados pessoais. Sempre que possível, é recomendável evitar a coleta de dados pessoais. 
 
@@ -38,7 +35,7 @@ Embora o comportamento padrão seja minimizar a coleta de dados pessoais, ainda 
 
 ## <a name="storing-ip-address-data"></a>Armazenando dados de endereço IP
 
-Para habilitar a coleta e o armazenamento de IP, `DisableIpMasking` a propriedade do componente Application insights deve ser definida como `true`. Essa propriedade pode ser definida por meio de modelos de Azure Resource Manager ou chamando a API REST. 
+Para habilitar a coleta e o armazenamento de IP, a propriedade `DisableIpMasking` do componente Application Insights deve ser definida como `true`. Essa propriedade pode ser definida por meio de modelos de Azure Resource Manager ou chamando a API REST. 
 
 ### <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
@@ -66,7 +63,7 @@ Para habilitar a coleta e o armazenamento de IP, `DisableIpMasking` a propriedad
 
 Se você só precisa modificar o comportamento de um único recurso Application Insights, a maneira mais fácil de fazer isso é por meio do portal do Azure.  
 
-1. Acesse o recurso de Application insights > **configurações** > **Exportar modelo** 
+1. Acesse o recurso de Application Insights > **configurações** > **Exportar modelo** 
 
     ![Exportar modelo](media/ip-collection/export-template.png)
 
@@ -83,7 +80,7 @@ Se você só precisa modificar o comportamento de um único recurso Application 
     ![A captura de tela adiciona uma vírgula após "IbizaAIExtension" e adiciona uma nova linha abaixo com "DisableIpMasking": true](media/ip-collection/save.png)
 
     > [!WARNING]
-    > Se você tiver um erro que diz: **_O grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
+    > Se você tiver um erro que diz:  **_o grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
 
 5. Selecione **concordo** > **compra**. 
 
@@ -93,7 +90,7 @@ Se você só precisa modificar o comportamento de um único recurso Application 
 
 6. Depois que a implantação for concluída, novos dados de telemetria serão registrados.
 
-    Se você fosse selecionar e editar o modelo novamente, só veria o modelo padrão e não veria sua propriedade recém-adicionada e seu valor associado. Se você não estiver vendo os dados de endereço IP e quiser `"DisableIpMasking": true` confirmar que está definido. Execute o PowerShell a seguir: (Substitua `Fabrikam-dev` pelo nome do grupo de recursos e do recurso apropriado.)
+    Se você fosse selecionar e editar o modelo novamente, só veria o modelo padrão e não veria sua propriedade recém-adicionada e seu valor associado. Se você não estiver vendo os dados de endereço IP e quiser confirmar se `"DisableIpMasking": true` está definido. Execute o seguinte PowerShell: (substitua `Fabrikam-dev` pelo recurso apropriado e o nome do grupo de recursos.)
     
     ```powershell
     # If you aren't using the cloud shell you will need to connect to your Azure account
@@ -102,7 +99,7 @@ Se você só precisa modificar o comportamento de um único recurso Application 
     $AppInsights.Properties
     ```
     
-    Uma lista de propriedades será retornada como resultado. Uma das propriedades deve ser lida `DisableIpMasking: true`. Se você executar o PowerShell antes de implantar a nova propriedade com Azure Resource Manager, a propriedade não existirá.
+    Uma lista de propriedades será retornada como resultado. Uma das propriedades deve ler `DisableIpMasking: true`. Se você executar o PowerShell antes de implantar a nova propriedade com Azure Resource Manager, a propriedade não existirá.
 
 ### <a name="rest-api"></a>API REST
 
@@ -127,7 +124,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicializador de telemetria
 
-Se precisar de uma alternativa mais flexível do `DisableIpMasking` que registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
+Se precisar de uma alternativa mais flexível do que `DisableIpMasking` para registrar todo ou parte dos endereços IP, você poderá usar um [inicializador de telemetria](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) para copiar todo ou parte do IP para um campo personalizado. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -155,7 +152,7 @@ namespace MyWebApp
 ```
 
 > [!NOTE]
-> Se não for possível acessar `ISupportProperties`o, verifique e verifique se você está executando a versão estável mais recente do SDK do Application insights. `ISupportProperties`são destinadas a valores de cardinalidade alta `GlobalProperties` , enquanto são mais apropriadas para valores de cardinalidade baixa, como nome da região, nome do ambiente, etc. 
+> Se não for possível acessar o `ISupportProperties`, verifique e se você está executando a versão estável mais recente do SDK do Application Insights. `ISupportProperties` destinam-se a valores de alta cardinalidade, enquanto `GlobalProperties` são mais apropriadas para valores de cardinalidade baixa, como nome da região, nome do ambiente, etc. 
 
 ### <a name="enable-telemetry-initializer-for-aspnet"></a>Habilite o inicializador de telemetria para. ASP.NET
 
@@ -208,9 +205,9 @@ appInsights.defaultClient.addTelemetryProcessor((envelope) => {
 
 Ao contrário dos SDKs do lado do servidor, o SDK do JavaScript do lado do cliente não calcula o endereço IP. Por padrão, o cálculo de endereço IP para telemetria do lado do cliente é executado no ponto de extremidade de ingestão no Azure na chegada da telemetria. Isso significa que, se você estivesse enviando dados do lado do cliente para um proxy e, em seguida, encaminhando para o ponto de extremidade de ingestão, o cálculo do endereço IP pode mostrar o endereço IP do proxy e não o cliente. Se nenhum proxy for usado, isso não deve ser um problema.
 
-Se você quiser calcular o endereço IP diretamente no lado do cliente, precisará adicionar sua própria lógica personalizada para executar esse cálculo e usar o resultado para definir a `ai.location.ip` marca. Quando `ai.location.ip` é definido, o cálculo de endereço IP não é executado pelo ponto de extremidade de ingestão e o endereço IP fornecido é respeitado e usado para executar a pesquisa geográfica. Nesse cenário, o endereço IP ainda será zerado por padrão. 
+Se você quiser calcular o endereço IP diretamente no lado do cliente, precisará adicionar sua própria lógica personalizada para executar esse cálculo e usar o resultado para definir a marca de `ai.location.ip`. Quando `ai.location.ip` é definido, o cálculo de endereço IP não é executado pelo ponto de extremidade de ingestão e o endereço IP fornecido é respeitado e usado para executar a pesquisa geográfica. Nesse cenário, o endereço IP ainda será zerado por padrão. 
 
-Para manter todo o endereço IP calculado de sua lógica personalizada, você pode usar um inicializador de telemetria que copiaria os dados de endereço `ai.location.ip` IP que você forneceu em um campo personalizado separado. Mas, novamente, diferentemente dos SDKs do lado do servidor, sem depender de bibliotecas de terceiros ou sua própria lógica de coleção de IPS personalizada do lado do cliente, o SDK do lado do cliente não calculará o IP para você.    
+Para manter todo o endereço IP calculado de sua lógica personalizada, você pode usar um inicializador de telemetria que copiaria os dados de endereço IP que você forneceu em `ai.location.ip` para um campo personalizado separado. Mas, novamente, diferentemente dos SDKs do lado do servidor, sem depender de bibliotecas de terceiros ou sua própria lógica de coleção de IPS personalizada do lado do cliente, o SDK do lado do cliente não calculará o IP para você.    
 
 
 ```javascript
@@ -236,10 +233,10 @@ requests
 | project appName, operation_Name, url, resultCode, client_IP, customDimensions.["client-ip"]
 ```
 
-Endereços IP recentemente coletados devem aparecer na `customDimensions_client-ip` coluna. A coluna `client-ip` padrão ainda terá quatro octetos zerados ou apenas exibindo os três primeiros octetos, dependendo de como você configurou a coleta de endereços IP no nível do componente. Se você estiver testando localmente após implementar o inicializador de telemetria e o `customDimensions_client-ip` valor `::1` que você vê para o for, esse é o comportamento esperado. `::1`representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4 e é o resultado que você verá ao testar a partir do localhost.
+Endereços IP recentemente coletados devem aparecer na coluna `customDimensions_client-ip`. A coluna de `client-ip` padrão ainda terá quatro octetos zerados ou apenas exibindo os três primeiros octetos, dependendo de como você configurou a coleta de endereços IP no nível do componente. Se você estiver testando localmente após implementar o inicializador de telemetria e o valor que você vê para `customDimensions_client-ip` for `::1` o comportamento é esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4 e é o resultado que você verá ao testar a partir do localhost.
 
 ## <a name="next-steps"></a>Próximos Passos
 
 * Saiba mais sobre a [coleta de dados pessoais](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) no Application insights.
 
-* Saiba mais sobre como a [coleta de endereços IP](https://apmtips.com/blog/2016/07/05/client-ip-address/) no Application insights funciona. (Esta é uma postagem de blog externa mais antiga escrita por um de nossos engenheiros. Ele atinge o comportamento padrão atual em que o endereço IP é registrado como `0.0.0.0`, mas ele entra em mais detalhes sobre a mecânica do interno `ClientIpHeaderTelemetryInitializer`.)
+* Saiba mais sobre como a [coleta de endereços IP](https://apmtips.com/blog/2016/07/05/client-ip-address/) no Application insights funciona. (Esta é uma postagem de blog externa mais antiga escrita por um de nossos engenheiros. Ele atinge o comportamento padrão atual em que o endereço IP é registrado como `0.0.0.0`, mas ele entra em mais profundidade na mecânica do `ClientIpHeaderTelemetryInitializer`interno.)

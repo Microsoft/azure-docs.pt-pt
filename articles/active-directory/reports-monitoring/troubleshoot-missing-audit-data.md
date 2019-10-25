@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas de dados em falta nos registos de atividades do Azure Active Directory | Microsoft Docs
+title: Solucionar problemas de dados ausentes em logs de atividade | Microsoft Docs
 description: Apresenta uma resolução para os dados em falta nos registos de atividades do Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,14 +17,14 @@ ms.date: 01/15/2018
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a04de319a17255e3b61378cbd716828a237317b3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 7aeac1180292ea5200e9eabc30ee01db05b67e75
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989508"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820864"
 ---
-# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Solucionar problemas Dados ausentes nos logs de atividade de Azure Active Directory 
+# <a name="troubleshoot-missing-data-in-the-azure-active-directory-activity-logs"></a>Resolução de problemas: Dados em falta nos registos de atividades do Azure Active Directory 
 
 ## <a name="i-cant-find-audit-logs-for-recent-actions-in-the-azure-portal"></a>Não consigo encontrar registos de auditoria para ações recentes no portal do Azure
 
@@ -91,7 +91,7 @@ Para obter mais informações, veja [Políticas de retenção de relatórios do 
 
 Tem duas opções para manter os dados durante mais de 30 dias. Pode utilizar as [APIs de Relatórios do Azure AD](concept-reporting-api.md) para recuperar os dados por meio programático e armazená-los numa base de dados. Em alternativa, pode integrar registos de auditoria num sistema SIEM de terceiros, como o Splunk ou o SumoLogic.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Retenção de relatórios do Azure AD](reference-reports-data-retention.md).
 * [Latências dos relatórios do Azure Active Directory](reference-reports-latencies.md).

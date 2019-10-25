@@ -1,24 +1,19 @@
 ---
 title: Detecção inteligente-anomalias de desempenho | Microsoft Docs
 description: Application Insights executa a análise inteligente de sua telemetria de aplicativo e avisa sobre possíveis problemas. Este recurso não precisa de configuração.
-services: application-insights
-documentationcenter: windows
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 6acd41b9-fbf0-45b8-b83b-117e19062dd2
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.author: mbullwin
-ms.openlocfilehash: 5ccff22a74b0cb1edcbae40fca087fe3197cb6ca
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67867717"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820562"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção inteligente-anomalias de desempenho
 
@@ -41,7 +36,7 @@ A detecção inteligente requer pelo menos 8 dias de telemetria em um volume fun
 
 Não, uma notificação não significa que seu aplicativo definitivamente tem um problema. É simplesmente uma sugestão sobre algo que pode querer examinar mais detalhadamente.
 
-## <a name="how-do-i-fix-it"></a>Como posso corrigi-lo?
+## <a name="how-do-i-fix-it"></a>Como fazer corrigi-lo?
 
 As notificações incluem informações de diagnóstico. Segue-se um exemplo:
 
@@ -52,7 +47,7 @@ As notificações incluem informações de diagnóstico. Segue-se um exemplo:
 2. **Escopo**. O problema está afetando todo o tráfego ou apenas algumas páginas? Ele é restrito a determinados navegadores ou locais? Essas informações podem ser obtidas na notificação.
 3. **Diagnostique**. Muitas vezes, as informações de diagnóstico na notificação sugerirão a natureza do problema. Por exemplo, se o tempo de resposta for mais lento quando a taxa de solicitação for alta, isso sugere que o servidor ou as dependências estão sobrecarregadas. 
 
-    Caso contrário, abra a folha desempenho em Application Insights. Lá, você encontrará [](profiler.md) dados do profiler. Se as exceções forem geradas, você também poderá experimentar o [depurador](../../azure-monitor/app/snapshot-debugger.md)de instantâneos.
+    Caso contrário, abra a folha desempenho em Application Insights. Lá, você encontrará dados do [Profiler](profiler.md) . Se as exceções forem geradas, você também poderá experimentar o [depurador de instantâneos](../../azure-monitor/app/snapshot-debugger.md).
 
 
 
@@ -108,7 +103,7 @@ Onde está o problema? O servidor está lento para responder, é a página muito
 
 Abra a folha métrica de navegadores. A exibição segmentada do tempo de carregamento da página do navegador mostra onde o tempo está indo. 
 
-* Se o **tempo de solicitação de envio** for alto, o servidor está respondendo lentamente ou a solicitação é uma postagem com muitos dados. Examine as métricas de [desempenho](../../azure-monitor/app/web-monitor-performance.md#metrics) para investigar os tempos de resposta.
+* Se o **tempo de solicitação de envio** for alto, o servidor está respondendo lentamente ou a solicitação é uma postagem com muitos dados. Examine as [métricas de desempenho](../../azure-monitor/app/web-monitor-performance.md#metrics) para investigar os tempos de resposta.
 * Configure o [acompanhamento de dependência](../../azure-monitor/app/asp-net-dependencies.md) para ver se o lentidão é devido a serviços externos ou seu banco de dados.
 * Se a **resposta de recebimento** for predominante, sua página e suas partes dependentes – JavaScript, CSS, imagens e assim por diante (mas não dados carregados de forma assíncrona) serão longas. Configure um [teste de disponibilidade](../../azure-monitor/app/monitor-web-app-availability.md)e certifique-se de definir a opção para carregar partes dependentes. Ao obter alguns resultados, abra o detalhe de um resultado e expanda-o para ver os tempos de carregamento de arquivos diferentes.
 * O **tempo de processamento** alto do cliente sugere que os scripts estão em execução lenta. Se o motivo não for óbvio, considere adicionar algum código de tempo e enviar os horários em chamadas trackMetric.
@@ -116,9 +111,9 @@ Abra a folha métrica de navegadores. A exibição segmentada do tempo de carreg
 ### <a name="improve-slow-pages"></a>Melhorar páginas lentas
 Há uma Web cheia de conselhos sobre como melhorar suas respostas de servidor e tempos de carregamento de página, portanto, não tentaremos repetir tudo aqui. Aqui estão algumas dicas que você provavelmente já sabe, apenas para ajudá-lo a pensar:
 
-* Carregamento lento devido a arquivos grandes: Carregue os scripts e outras partes de forma assíncrona. Use o agrupamento de scripts. Quebre a página principal em widgets que carregam seus dados separadamente. Não enviar HTML antigo simples para tabelas longas: Use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela no lugar. Há excelentes estruturas para ajudar com tudo isso. (Eles também envolvem scripts grandes, é claro).
-* Dependências de servidor lentas: Considere as localizações geográficas de seus componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que as necessárias? Ajuda em cache ou em lote?
-* Problemas de capacidade: Examine as métricas de servidor de tempos de resposta e contagens de solicitação. Se os tempos de resposta forem picos desproporcionalmente com picos nas contagens de solicitação, é provável que os servidores sejam ampliados.
+* Carregamento lento devido a arquivos grandes: carregue os scripts e outras partes de forma assíncrona. Use o agrupamento de scripts. Quebre a página principal em widgets que carregam seus dados separadamente. Não enviar HTML antigo simples para tabelas longas: Use um script para solicitar os dados como JSON ou outro formato compacto e preencha a tabela no lugar. Há excelentes estruturas para ajudar com tudo isso. (Eles também envolvem scripts grandes, é claro).
+* Dependências de servidor lentas: considere as localizações geográficas de seus componentes. Por exemplo, se você estiver usando o Azure, verifique se o servidor Web e o banco de dados estão na mesma região. As consultas recuperam mais informações do que as necessárias? Ajuda em cache ou em lote?
+* Problemas de capacidade: examine as métricas de servidor de tempos de resposta e contagens de solicitação. Se os tempos de resposta forem picos desproporcionalmente com picos nas contagens de solicitação, é provável que os servidores sejam ampliados.
 
 
 ## <a name="server-response-time-degradation"></a>Degradação do tempo de resposta do servidor
@@ -179,7 +174,7 @@ Clique nos links para abrir o Gerenciador de métricas e Pesquisar relatórios r
 
 Modifique o intervalo de tempo e os filtros para explorar a telemetria.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 Essas ferramentas de diagnóstico ajudam você a inspecionar a telemetria do seu aplicativo:
 
 * [Gerador de perfis](profiler.md) 

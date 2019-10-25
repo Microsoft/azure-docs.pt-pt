@@ -4,15 +4,15 @@ description: AzCopy é um utilitário de linha de comando que você pode usar pa
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 37d8c483a1ef49a87205dcc848aae974f5b0e47e
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675868"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882503"
 ---
 # <a name="get-started-with-azcopy"></a>Introdução ao AzCopy
 
@@ -58,6 +58,8 @@ Para ver uma lista de comandos, digite `azcopy -h` e pressione a tecla ENTER.
 Para saber mais sobre um comando específico, apenas inclua o nome do comando (por exemplo: `azcopy list -h`).
 
 ![Ajuda embutida](media/storage-use-azcopy-v10/azcopy-inline-help.png)
+
+Para encontrar a documentação de referência detalhada para cada comando e parâmetro de comando, consulte [azcopy](storage-ref-azcopy.md)
 
 > [!NOTE] 
 > Como proprietário de sua conta de armazenamento do Azure, você não recebe automaticamente permissões para acessar dados. Antes de poder fazer qualquer coisa significativa com o AzCopy, você precisa decidir como fornecerá credenciais de autorização para o serviço de armazenamento. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 6f6c656bee9d271942e74f8116e64aeb47d68d5c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: b141677e60705dc4176630ee7fd195ae03bba842
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757535"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72816933"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>Transferir dados com o AzCopy e o armazenamento de arquivos 
 
@@ -23,6 +23,9 @@ Antes de começar, consulte o artigo [introdução ao AzCopy](storage-use-azcopy
 ## <a name="create-file-shares"></a>Criar compartilhamentos de arquivos
 
 Você pode usar o comando [azcopy Make](storage-ref-azcopy-make.md) para criar um compartilhamento de arquivos. O exemplo nesta seção cria um compartilhamento de arquivos chamado `myfileshare`.
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 |    |     |
 |--------|-----------|
@@ -47,6 +50,9 @@ Esta seção contém os seguintes exemplos:
 > AzCopy não calcula e armazena automaticamente o código hash MD5 do arquivo. Se você quiser que o AzCopy faça isso, anexe o sinalizador `--put-md5` a cada comando de cópia. Dessa forma, quando o arquivo for baixado, AzCopy calculará um hash MD5 para dados baixados e verificará se o hash MD5 armazenado na propriedade `Content-md5` do arquivo corresponde ao hash calculado.
 
 Para documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 ### <a name="upload-a-file"></a>Carregar um ficheiro
 
@@ -133,6 +139,9 @@ Esta seção contém os seguintes exemplos:
 
 Para documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+
 ### <a name="download-a-file"></a>Transferir um ficheiro
 
 |    |     |
@@ -207,6 +216,9 @@ Esta seção contém os seguintes exemplos:
 
 Para obter documentos de referência detalhados, consulte [cópia azcopy](storage-ref-azcopy-copy.md).
 
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
+
 ### <a name="copy-a-file-to-another-storage-account"></a>Copiar um arquivo para outra conta de armazenamento
 
 |    |     |
@@ -247,6 +259,9 @@ O comando [Sync](storage-ref-azcopy-sync.md) compara os nomes de arquivo e os ú
 Se você definir o sinalizador `--delete-destination` como `true` AzCopy excluirá arquivos sem fornecer um prompt. Se você quiser que um prompt apareça antes de AzCopy excluir um arquivo, defina o sinalizador `--delete-destination` como `prompt`.
 
 Para obter documentos de referência detalhados, consulte [azcopy Sync](storage-ref-azcopy-sync.md).
+
+> [!TIP]
+> Os exemplos nesta seção incluem argumentos de caminho com aspas simples (' '). Use aspas simples em todos os shells de comando, exceto pelo shell de comando do Windows (cmd. exe). Se você estiver usando um shell de comando do Windows (cmd. exe), coloque argumentos de caminho com aspas duplas ("") em vez de aspas simples (' ').
 
 ### <a name="update-a-file-share-with-changes-to-another-file-share"></a>Atualizar um compartilhamento de arquivos com alterações em outro compartilhamento de arquivos
 

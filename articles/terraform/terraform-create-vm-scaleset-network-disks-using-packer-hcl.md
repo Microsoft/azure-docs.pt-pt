@@ -8,13 +8,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 6feeab9b48715a8fe1f6c6fe11ae90b6be71a57a
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/23/2019
+ms.openlocfilehash: de68d5217fb455c8d2b3e11163287e00abcf8481
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173477"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882516"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Utilizar o Terraform para criar um conjunto de dimensionamento de máquinas virtuais do Azure a partir de uma imagem personalizada do Packer
 
@@ -42,9 +42,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Crie três novos ficheiros num diretório vazio com os seguintes nomes:
 
-- `variables.tf` : Esse arquivo contém os valores das variáveis usadas no modelo.
-- `output.tf` : Esse arquivo descreve as configurações que são exibidas após a implantação.
-- `vmss.tf` : Esse arquivo contém o código da infraestrutura que você está implantando.
+- `variables.tf`: esse arquivo contém os valores das variáveis usadas no modelo.
+- `output.tf`: este arquivo descreve as configurações que são exibidas após a implantação.
+- `vmss.tf`: esse arquivo contém o código da infraestrutura que você está implantando.
 
 ##  <a name="create-the-variables"></a>Criar as variáveis 
 
@@ -145,7 +145,7 @@ Inicialize o ambiente do Terraform ao executar o seguinte comando no diretório 
 terraform init 
 ```
  
-Os plug-ins do fornecedor são transferidos a partir do registo do Terraform para a pasta `.terraform` no diretório onde executou o comando.
+Os plug-ins do provedor são baixados do registro Terraform para a pasta `.terraform` no diretório em que você executou o comando.
 
 Execute o seguinte comando para implementar a infraestrutura no Azure.
 

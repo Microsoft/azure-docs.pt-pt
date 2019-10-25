@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Utilizar o Apache Kafka produtor e consumidor APIs - Azure HDInsight '
+title: 'Tutorial: Utilizar as APIs de Produtor e de Consumidor do Apache Kafka - Azure HDInsight '
 description: Saiba como utilizar as APIs de Produtor e de Consumidor de Apache Kafka com o Kafka no HDInsight. Neste tutorial, irá aprender a utilizar estas APIs com o Kafka no HDInsight a partir de uma aplicação Java.
 author: dhgoelmsft
 ms.author: dhgoel
@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 06/24/2019
-ms.openlocfilehash: 7a23d30e940417a6191cf14ad5d60159bd11c3da
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 10/08/2019
+ms.openlocfilehash: 3ac68732042016c747b693e97bf8da15e1843b1e
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446406"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72817789"
 ---
-# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar o Apache Kafka produtor e consumidor APIs
+# <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Tutorial: Utilizar as APIs de Produtor e de Consumidor de Apache Kafka
 
 Saiba como utilizar as APIs de Produtor e de Consumidor de Apache Kafka com o Kafka no HDInsight.
 
@@ -33,48 +33,48 @@ Para obter mais informações sobre as APIs, veja a documentação do Apache ded
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Apache Kafka no HDInsight 3.6. Para saber como criar um Kafka num cluster do HDInsight, veja [introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md).
+* Apache Kafka no HDInsight 3,6. Para saber como criar um Kafka no cluster HDInsight, consulte [Iniciar com o Apache Kafka no HDInsight](apache-kafka-get-started.md).
 
-* [Kit de desenvolvimento Java (JDK) versão 8](https://aka.ms/azure-jdks) ou equivalente, como OpenJDK.
+* [Java Developer Kit (JDK) versão 8](https://aka.ms/azure-jdks) ou um equivalente, como OpenJDK.
 
-* [Apache Maven](https://maven.apache.org/download.cgi) corretamente [instalado](https://maven.apache.org/install.html) , de acordo com o Apache.  A maven é um projeto de criar o sistema de projetos de Java.
+* O [Apache Maven](https://maven.apache.org/download.cgi) foi [instalado](https://maven.apache.org/install.html) corretamente de acordo com o Apache.  O Maven é um sistema de compilação de projeto para projetos Java.
 
-* Um cliente SSH. Para obter mais informações, consulte [ligar ao HDInsight (Apache Hadoop) através de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. Para obter mais informações, consulte [conectar-se ao HDInsight (Apache Hadoop) usando o ssh](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="understand-the-code"></a>Compreender o código
 
 A aplicação de exemplo está localizada em [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started), no subdiretório `Producer-Consumer`. Essencialmente, a aplicação é composta por quatro ficheiros:
 
-* `pom.xml`: Esse arquivo define as dependências do projeto, versão de Java e métodos de empacotamento.
-* `Producer.java`: Este ficheiro envia frases aleatórias ao Kafka com o API de produtor.
-* `Consumer.java`: Este ficheiro utiliza o API de consumidor para ler dados do Kafka e emiti-lo para STDOUT.
-* `Run.java`: A interface de linha de comandos utilizada para executar o código de produtor e consumidor.
+* `pom.xml`: este ficheiro define as dependências do projeto, a versão de Java e os métodos de empacotamento.
+* `Producer.java`: este ficheiro envia frases aleatórias para o Kafka através da API de produtor.
+* `Consumer.java`: este ficheiro utiliza a API de consumidor para ler os dados a partir de Kafka e emiti-los para STDOUT.
+* `Run.java`: a interface de linha de comandos utilizada para executar o código do produtor e do consumidor.
 
 ### <a name="pomxml"></a>Pom.xml
 
 Seguem-se os aspetos importantes a compreender em relação ao ficheiro `pom.xml`:
 
-* Dependências: Este projeto depende do produtor Kafka e consumidor APIs, que é fornecida pelo `kafka-clients` pacote. Esta dependência é definida pelo seguinte código XML:
+* Dependências: este projeto depende das APIs de produtor e de consumidor de Kafka, fornecidas pelo pacote `kafka-clients`. Esta dependência é definida pelo seguinte código XML:
 
     ```xml
     <!-- Kafka client for producer/consumer operations -->
     <dependency>
-      <groupId>org.apache.kafka</groupId>
-      <artifactId>kafka-clients</artifactId>
-      <version>${kafka.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka-clients</artifactId>
+            <version>${kafka.version}</version>
     </dependency>
     ```
 
     A entrada `${kafka.version}` é declarada na secção `<properties>..</properties>` de `pom.xml` e está configurada para a versão de Kafka do cluster do HDInsight.
 
-* Plug-ins: Plug-ins do maven fornecem vários recursos. Neste projeto, são utilizados os seguintes plug-ins:
+* Plug-ins: os plug-ins de Maven proporcionam diversas funcionalidades. Neste projeto, são utilizados os seguintes plug-ins:
 
-    * `maven-compiler-plugin`: Usado para definir a versão de Java utilizada pelo projeto para 8. Esta é a versão de Java utilizada pelo HDInsight 3.6.
-    * `maven-shade-plugin`: Usado para gerar um jar uber que contém esta aplicação, bem como quaisquer dependências. Também é utilizado para definir o ponto de entrada da aplicação, para que possa executar diretamente o ficheiro JAR sem ter de especificar a classe principal.
+    * `maven-compiler-plugin`: utilizado para definir a versão de Java utilizada pelo projeto para a versão 8. Esta é a versão de Java utilizada pelo HDInsight 3.6.
+    * `maven-shade-plugin`: utilizado para gerar um JAR com dependências, que contém precisamente não só esta aplicação como todas as dependências. Também é utilizado para definir o ponto de entrada da aplicação, para que possa executar diretamente o ficheiro JAR sem ter de especificar a classe principal.
 
 ### <a name="producerjava"></a>Producer.Java
 
-O produtor comunica com os anfitriões de mediador (nós de trabalho) de Kafka e envia os dados para um tópico do Kafka. O seguinte trecho de código é do [Producer.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) ficheiro a partir do [repositório do GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra como definir as propriedades de produtor:
+O produtor comunica com os anfitriões de mediador (nós de trabalho) de Kafka e envia os dados para um tópico do Kafka. O trecho de código a seguir é do arquivo [produtor. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Producer.java) do [repositório GitHub](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started) e mostra como definir as propriedades do produtor:
 
 ```java
 Properties properties = new Properties();
@@ -112,13 +112,13 @@ Neste código, o consumidor está configurado para ler a partir do início do t�
 
 ### <a name="runjava"></a>Run.Java
 
-O [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) ficheiro fornece uma interface de linha de comandos que executa o código do produtor ou do consumidor. Tem de fornecer as informações do anfitrião de mediador de Kafka como um parâmetro. Opcionalmente, pode incluir um valor de ID de grupo, o que é utilizado pelo processo de consumidor. Se criar várias instâncias de consumidor com o mesmo ID de grupo, eles serão balanceamento de carga de leitura do tópico.
+O arquivo [Run. java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Producer-Consumer/src/main/java/com/microsoft/example/Run.java) fornece uma interface de linha de comando que executa o produtor ou o código do consumidor. Tem de fornecer as informações do anfitrião de mediador de Kafka como um parâmetro. Opcionalmente, você pode incluir um valor de ID de grupo, que é usado pelo processo do consumidor. Se você criar várias instâncias de consumidor usando a mesma ID de grupo, elas balancearão a leitura do tópico.
 
 ## <a name="build-and-deploy-the-example"></a>Criar e implementar o exemplo
 
-1. Transferir e extrair os exemplos de [ https://github.com/Azure-Samples/hdinsight-kafka-java-get-started ](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
+1. Baixe e extraia os exemplos de [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started).
 
-2. Definir o seu diretório atual para a localização do `hdinsight-kafka-java-get-started\Producer-Consumer` diretório e utilize o seguinte comando:
+2. Defina o diretório atual como o local do diretório de `hdinsight-kafka-java-get-started\Producer-Consumer` e use o seguinte comando:
 
     ```cmd
     mvn clean package
@@ -126,7 +126,7 @@ O [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/b
 
     Este comando cria um diretório com o nome `target`, que contém um ficheiro com o nome `kafka-producer-consumer-1.0-SNAPSHOT.jar`.
 
-3. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Introduza o seguinte comando para copiar o `kafka-producer-consumer-1.0-SNAPSHOT.jar` ficheiro ao seu cluster do HDInsight. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
+3. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Digite o seguinte comando para copiar o arquivo de `kafka-producer-consumer-1.0-SNAPSHOT.jar` para o cluster HDInsight. Quando lhe for pedido, introduza a palavra-passe do utilizador SSH.
 
     ```cmd
     scp ./target/kafka-producer-consumer-1.0-SNAPSHOT.jar sshuser@CLUSTERNAME-ssh.azurehdinsight.net:kafka-producer-consumer.jar
@@ -134,53 +134,54 @@ O [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/b
 
 ## <a id="run"></a> Executar o exemplo
 
-1. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Abra uma ligação SSH ao cluster, introduzindo o seguinte comando. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
+1. Substitua `sshuser` pelo utilizador SSH do seu cluster e `CLUSTERNAME` pelo nome do seu cluster. Abra uma conexão SSH para o cluster, inserindo o comando a seguir. Se tal lhe for pedido, introduza a palavra-passe da conta de utilizador SSH.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. Instale [jq](https://stedolan.github.io/jq/), um processador JSON da linha de comandos. A partir da ligação de SSH aberta, introduzir o seguinte comando para instalar `jq`:
+1. Instale o [JQ](https://stedolan.github.io/jq/), um processador de linha de comando JSON. Na conexão SSH aberta, digite o seguinte comando para instalar o `jq`:
 
     ```bash
     sudo apt -y install jq
     ```
 
-3. Configure variáveis de ambiente. Substitua `PASSWORD` e `CLUSTERNAME` com a palavra-passe de início de sessão do cluster e o cluster nome respectivamente, em seguida, introduza o comando:
+1. Configure a variável de senha. Substitua `PASSWORD` pela senha de logon do cluster e, em seguida, digite o comando:
 
     ```bash
     export password='PASSWORD'
-    export clusterNameA='CLUSTERNAME'
     ```
 
-4. Extrair nome do cluster corretamente com maiúsculas e minúsculas. A real letras maiúsculas e minúsculas no nome do cluster podem ser diferente do que o esperado, dependendo de como o cluster foi criado. Este comando irá obter as maiúsculas e minúsculas real, guarde-o numa variável e, em seguida, exibir o nome corretamente com maiúsculas e minúsculas e o nome que indicou anteriormente. Introduza o seguinte comando:
+1. Extraia corretamente o nome do cluster em maiúsculas. A capitalização real do nome do cluster pode ser diferente do esperado, dependendo de como o cluster foi criado. Esse comando obterá o capital real e, em seguida, o armazenará em uma variável. Introduza o seguinte comando:
 
     ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" \
-  	| jq -r '.items[].Clusters.cluster_name')
-    echo $clusterName, $clusterNameA
+    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+    > [!Note]  
+    > Se você estiver fazendo esse processo de fora do cluster, haverá um procedimento diferente para armazenar o nome do cluster. Obtenha o nome do cluster em minúsculas no portal do Azure. Em seguida, substitua o nome do cluster por `<clustername>` no comando a seguir e execute-o: `export clusterName='<clustername>'`.  
 
-5. Para obter o mediador Kafka anfitriões e os anfitriões de Apache Zookeeper, utilize o seguinte comando:
+1. Para obter os hosts do agente do Kafka, use o seguinte comando:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER \
-  	| jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 
-6. Criar o tópico do Kafka, `myTest`, introduzindo o seguinte comando:
+    > [!Note]  
+    > Este comando requer acesso Ambari. Se o cluster estiver atrás de um NSG, execute este comando em um computador que possa acessar o Ambari.
+
+1. Crie o tópico Kafka, `myTest`, digitando o seguinte comando:
 
     ```bash
     java -jar kafka-producer-consumer.jar create myTest $KAFKABROKERS
     ```
 
-7. Para executar o produtor e escrever dados para o tópico, utilize o seguinte comando:
+1. Para executar o produtor e escrever dados para o tópico, utilize o seguinte comando:
 
     ```bash
     java -jar kafka-producer-consumer.jar producer myTest $KAFKABROKERS
     ```
 
-8. Quando o produtor tiver terminado, utilize o seguinte comando para ler a partir do tópico:
+1. Quando o produtor tiver terminado, utilize o seguinte comando para ler a partir do tópico:
 
     ```bash
     java -jar kafka-producer-consumer.jar consumer myTest $KAFKABROKERS
@@ -188,7 +189,7 @@ O [Run.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/b
 
     A leitura dos registos, juntamente com uma contagem de registos, é apresentada.
 
-9. Utilize __Ctrl + C__ para sair do consumidor.
+1. Utilize __Ctrl + C__ para sair do consumidor.
 
 ### <a name="multiple-consumers"></a>Vários consumidores
 
@@ -210,14 +211,14 @@ tmux new-session 'java -jar kafka-producer-consumer.jar consumer myTest $KAFKABR
 \; attach
 ```
 
-Este comando utiliza `tmux` para dividir o terminal em duas colunas. É iniciado um consumidor em cada coluna, com o mesmo valor de ID de grupo. Após os consumidores concluírem a leitura, tenha em atenção que cada um deles lê apenas uma parte dos registos. Uso __Ctrl + C__ duas vezes para sair `tmux`.
+Este comando utiliza `tmux` para dividir o terminal em duas colunas. É iniciado um consumidor em cada coluna, com o mesmo valor de ID de grupo. Após os consumidores concluírem a leitura, tenha em atenção que cada um deles lê apenas uma parte dos registos. Use __Ctrl + C__ duas vezes para sair `tmux`.
 
 O consumo pelos clientes dentro do mesmo grupo é processado pelas partições do tópico. Neste exemplo de tópico, o tópico `test` criado anteriormente, tem oito partições. Se iniciar oito consumidores, cada consumidor lê os registos de uma única partição do tópico.
 
 > [!IMPORTANT]  
 > Não podem existir mais instâncias de consumidor num grupo de consumidores do que partições. Neste exemplo, um grupo de consumidores pode incluir até oito consumidores, pois esse é o número de partições no tópico. Também pode ter vários grupos de consumidores, em que cada grupo não tem mais do que oito consumidores.
 
-Os registos armazenados no Kafka são armazenados pela ordem em que são recebidos dentro de uma partição. Para obter uma entrega por ordem dos registos *dentro de uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
+Os registros armazenados em Kafka são armazenados na ordem em que são recebidos em uma partição. Para obter uma entrega por ordem dos registos *dentro de uma partição*, crie um grupo de consumidores em que o número de instâncias de consumidor corresponde ao número de partições. Para obter uma entrega por ordem dos registos *dentro do tópico*, crie um grupo de consumidores com apenas uma instância de consumidor.
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -229,9 +230,9 @@ Para remover o grupo de recursos através do Portal do Azure:
 2. Encontre o grupo de recursos a eliminar e, em seguida, clique com o botão direito do rato em __Mais__ (...) no lado direito da lista.
 3. Selecione __Eliminar grupo de recursos__ e, em seguida, confirme.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
-Neste documento, aprendeu a utilizar o Apache Kafka produtor e a API de consumidor com o Kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
+Neste documento, você aprendeu a usar o Apache Kafka produtor e a API do consumidor com o Kafka no HDInsight. Utilize o seguinte para obter mais informações sobre como trabalhar com o Kafka:
 
 > [!div class="nextstepaction"]
-> [Analisar registos do Apache Kafka](apache-kafka-log-analytics-operations-management.md)
+> [Analisar logs de Apache Kafka](apache-kafka-log-analytics-operations-management.md)

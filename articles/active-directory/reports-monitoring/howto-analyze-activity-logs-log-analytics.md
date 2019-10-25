@@ -1,5 +1,5 @@
 ---
-title: Analisar Azure Active Directory logs de atividades usando logs de Azure Monitor | Microsoft Docs
+title: Analisar logs de atividade usando logs de Azure Monitor | Microsoft Docs
 description: Saiba como analisar Azure Active Directory logs de atividades usando logs de Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1670c93f83ecd6f5bd557d24ec754998a225db0c
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 52ab1bd445f8af0bf58dcb6b1176904aa073877a
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255621"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820961"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analisar logs de atividades do Azure AD com logs de Azure Monitor
 
@@ -61,7 +61,7 @@ Os logs são enviados por push para as tabelas **AuditLogs** e **SigninLogs** no
 1. Na exibição de consulta padrão na seção anterior, selecione **esquema** e expanda o espaço de trabalho. 
 
 2. Expanda a seção **Gerenciamento de log** e expanda **AuditLogs** ou **SignInLogs** para exibir o esquema de log.
-    logs de ![Audit @ no__t-1 ![Signin logs @ no__t-3
+    ![logs de auditoria](./media/howto-analyze-activity-logs-log-analytics/auditlogschema.png) ![logs de entrada](./media/howto-analyze-activity-logs-log-analytics/signinlogschema.png)
 
 ## <a name="query-the-azure-ad-activity-logs"></a>Consultar os logs de atividades do Azure AD
 

@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/09/2019
-ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 10/23/2019
+ms.openlocfilehash: 4f528a667a7b498cadb15a441f9d9321259fffde
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249397"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882077"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Implementar no Azure Kubernetes Service (AKS) com o Jenkins e o padrão de implementação azul/verde
 
@@ -218,7 +218,7 @@ Nesta secção, vai aprender a preparar o servidor Jenkins para executar uma com
     1. Selecione **Manage Jenkins > Manage Plugins > Available** (Gerir o Jenkins > Gerir plug-ins > Disponíveis).
     1. Procure e instale o plug-in do Azure Container Service.
 
-1. Adicione credenciais para gerir recursos no Azure. Se ainda não o tiver, instale o plug-in **Azure Credential**.
+1. Adicione credenciais para gerir recursos no Azure. Se você ainda não tiver o plug-in, instale o plug-in de **credenciais do Azure** .
 
 1. Adicione a credencial do Principal de Serviço do Azure como o tipo **Microsoft Azure Service Principal** (Principal de Serviço do Microsoft Azure).
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dc8381fe964ce924ed37d6b7e6d22dc730eae89
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 19b29181f023b49cca7159fbbcad4a4675744a96
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453059"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819736"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloqueando a autenticação herdada
  
@@ -33,9 +33,11 @@ Antes de poder bloquear a autenticação herdada em seu diretório, primeiro voc
 
 1. Navegue até o portal do Azure > Azure Active Directory > entradas.
 1. Adicione a coluna aplicativo cliente se ela não for exibida clicando em colunas > aplicativo cliente.
-1. Filtre por aplicativo cliente > outros clientes e clique em aplicar.
+1. Filtrar por aplicativo cliente > Verifique todas as outras opções de cliente apresentadas e clique em aplicar.
+1. Filtre por status > êxito e clique em aplicar. 
+1. Expanda seu intervalo de datas, se necessário, usando o filtro de data.
 
-A filtragem mostrará apenas as tentativas de entrada feitas por protocolos de autenticação herdados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. O campo aplicativo cliente na guia informações básicas indicará qual protocolo de autenticação herdado foi usado. Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados para não usar a autenticação herdada, implemente uma política de acesso condicional ou habilite a política de linha de base: bloquear a autenticação herdada somente para esses usuários.
+A filtragem mostrará apenas as tentativas de entrada bem-sucedidas feitas pelos protocolos de autenticação herdados selecionados. Clicar em cada tentativa de entrada individual mostrará detalhes adicionais. A coluna aplicativo cliente ou o campo aplicativo cliente na guia informações básicas, depois de selecionar uma linha individual de dados, indicará qual protocolo de autenticação herdado foi usado. Esses logs indicarão quais usuários ainda estão dependendo da autenticação herdada e quais aplicativos estão usando protocolos herdados para fazer solicitações de autenticação. Para usuários que não aparecem nesses logs e são confirmados para não usar a autenticação herdada, implemente uma política de acesso condicional ou habilite a política de linha de base: bloquear a autenticação herdada somente para esses usuários.
 
 ## <a name="moving-away-from-legacy-authentication"></a>Afastando da autenticação herdada 
 
@@ -47,8 +49,8 @@ Esta seção fornece uma visão geral passo a passo sobre como atualizar seu amb
 
 A primeira etapa para habilitar a autenticação moderna é verificar se o diretório dá suporte à autenticação moderna. A autenticação moderna é habilitada por padrão para diretórios criados em ou após 1º de agosto de 2017. Se seu diretório foi criado antes dessa data, você precisará habilitar manualmente a autenticação moderna para seu diretório usando as seguintes etapas:
 
-1. Verifique se o diretório já dá suporte à autenticação moderna executando @ no__t-0 @ no__t-1from o [módulo do PowerShell do Skype for Business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
-1. Se o comando retornar um @ no__t-0 @ no__t-1property vazio, a autenticação moderna será desabilitada. Atualize a configuração para habilitar a autenticação moderna usando @ no__t-0. Se o @ no__t-0 @ no__t-1property contiver uma entrada, você estará pronto para começar.
+1. Verifique se o diretório já dá suporte à autenticação moderna executando `Get-CsOAuthConfiguration` do módulo do [PowerShell do Skype for Business online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Se o comando retornar uma propriedade `OAuthServers` vazia, a autenticação moderna será desabilitada. Atualize a configuração para habilitar a autenticação moderna usando `Set-CsOAuthConfiguration`. Se a propriedade `OAuthServers` contiver uma entrada, você estará pronto para começar.
 
 Certifique-se de concluir esta etapa antes de prosseguir. É essencial que suas configurações de diretório sejam alteradas primeiro porque ditam qual protocolo será usado por todos os clientes do Office. Mesmo se você estiver usando clientes do Office que dão suporte à autenticação moderna, eles usarão como padrão os protocolos herdados se a autenticação moderna estiver desabilitada em seu diretório.
 

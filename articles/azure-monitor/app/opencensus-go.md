@@ -1,20 +1,18 @@
 ---
 title: OpenCensus o rastreamento com o Aplicativo Azure insights | Microsoft Docs
 description: Fornece instruções para integrar o rastreamento do OpenCensus Go com o encaminhador local e Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/15/2018
-ms.service: application-insights
-ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 56e66f17e9ce1d2482463f619e82dfd29d48f191
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 99f26bb2b89ef9642a36aa2be2037d04aafcdcd4
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67990308"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819276"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Coletar rastreamentos distribuídos do Go (visualização)
 
@@ -45,11 +43,11 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
 
    É apresentada uma caixa de configuração; utilize a tabela abaixo para preencher os campos de texto.
 
-    | Definições        | Value           | Descrição  |
+    | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
+   | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 
@@ -59,7 +57,7 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
 
    ![Captura de tela da chave de instrumentação](./media/opencensus-Go/0003-instrumentation-key.png)
 
-2. Edite `LocalForwarder.config` o arquivo e adicione sua chave de instrumentação. Se você seguiu as instruções no [pré-requisito](./opencensus-local-forwarder.md) , o arquivo está localizado em`C:\LF-WindowsServiceHost`
+2. Edite seu arquivo de `LocalForwarder.config` e adicione sua chave de instrumentação. Se você seguiu as instruções no [pré-requisito](./opencensus-local-forwarder.md) , o arquivo está localizado em `C:\LF-WindowsServiceHost`
 
     ```xml
       <OpenCensusToApplicationInsights>
@@ -186,11 +184,11 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
         }
      ```
 
-3. Quando o aplicativo go simples estiver em execução, `http://localhost:50030`navegue até. Cada atualização do navegador irá gerar o texto "Olá, mundo" acompanhado pelos dados de span correspondentes que são selecionados pelo encaminhador local.
+3. Quando o aplicativo go simples estiver em execução, navegue até `http://localhost:50030`. Cada atualização do navegador irá gerar o texto "Olá, mundo" acompanhado pelos dados de span correspondentes que são selecionados pelo encaminhador local.
 
-4. Para confirmar se o **encaminhador local** está selecionando os rastreamentos, `LocalForwarder.config` Verifique o arquivo. Se você seguiu as etapas no [pré-requisito](https://docs.microsoft.com/azure/application-insights/local-forwarder), ele será localizado em `C:\LF-WindowsServiceHost`.
+4. Para confirmar se o **encaminhador local** está selecionando os rastreamentos, verifique o arquivo de `LocalForwarder.config`. Se você seguiu as etapas no [pré-requisito](https://docs.microsoft.com/azure/application-insights/local-forwarder), elas estarão localizadas em `C:\LF-WindowsServiceHost`.
 
-    Na imagem abaixo do arquivo de log, você pode ver que, antes de executar o segundo script em que adicionamos um exportador `OpenCensus input BatchesReceived` era 0. Depois de começar a executar o script `BatchesReceived` atualizado incrementado igual ao número de valores que inserimos:
+    Na imagem abaixo do arquivo de log, você pode ver que, antes de executar o segundo script em que adicionamos um exportador `OpenCensus input BatchesReceived` era 0. Depois de começar a executar o script atualizado `BatchesReceived` ser incrementado igual ao número de valores que inserimos:
     
     ![Formulário de recurso novo do App Insights](./media/opencensus-go/0004-batches-received.png)
 
@@ -200,7 +198,7 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
 
    ![Captura de tela do painel Visão geral com o Live Metric Stream selecionado na caixa vermelha](./media/opencensus-go/0005-overview-live-metrics-stream.png)
 
-2. Se você executar o aplicativo de segunda vez novamente e iniciar a atualização do `http://localhost:50030`navegador para o, verá os dados de rastreamento dinâmico à medida que eles chegam no Application insights do serviço de encaminhador local.
+2. Se você executar o aplicativo de segunda vez novamente e iniciar a atualização do navegador para `http://localhost:50030`, verá os dados de rastreamento ao vivo conforme eles chegam em Application Insights do serviço de encaminhador local.
 
    ![Captura de tela do Live Metric Stream com dados de desempenho exibidos](./media/opencensus-go/0006-stream.png)
 
@@ -224,7 +222,7 @@ Primeiro, você precisa criar um recurso de Application Insights que irá gerar 
 
 Abordamos apenas os conceitos básicos da integração do OpenCensus para o Go com o encaminhador local e Application Insights. As [diretrizes de uso oficial do OpenCensus go](https://godoc.org/go.opencensus.io) abrangem tópicos mais avançados.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mapa do aplicativo](./../../azure-monitor/app/app-map.md)
 * [Monitoramento de desempenho de ponta a ponta](./../../azure-monitor/learn/tutorial-performance.md)

@@ -1,22 +1,20 @@
 ---
-title: Usando o plug-in Azure Dev Spaces para Jenkins com o serviço Kubenetes do Azure
+title: Usando o plug-in Azure Dev Spaces para Jenkins com o serviço kubernetes do Azure
 description: Saiba como usar o plug-in Azure Dev Spaces em um pipeline de integração contínua.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/31/2019
-ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/23/2019
+ms.openlocfilehash: 7bc2bb63f1382d1c7fd7e436dd5ddfa278262526
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161482"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881872"
 ---
-<!-- GMinchAQ, 06/18/19 -->
-
-# <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>Tutorial: Usando o plug-in Azure Dev Spaces para Jenkins com o serviço Kubenetes do Azure 
+# <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>Tutorial: usando o plug-in Azure Dev Spaces para Jenkins com o serviço kubernetes do Azure 
 
 Azure Dev Spaces permite testar e desenvolver iterativamente seu aplicativo de microatendimento em execução no AKS (serviço de kubernetes do Azure) sem a necessidade de replicar ou simular dependências. O plug-in Azure Dev Spaces para Jenkins ajuda a usar espaços de desenvolvimento em seu pipeline de integração e entrega contínua (CI/CD).
 
@@ -74,7 +72,7 @@ Nesta seção, você criará recursos do Azure:
     ```bash
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
-    Esta etapa instala a `azds` extensão da CLI.
+    Esta etapa instala a extensão da CLI do `azds`.
 
 4. Crie um registro de contêiner.
 
@@ -88,9 +86,9 @@ Nesta seção, você configura um espaço de desenvolvimento e implanta um aplic
 
 Para obter mais informações sobre como usar Azure Dev Spaces e desenvolvimento de vários serviços com o Azure Dev Spaces, consulte Introdução [ao Azure dev Spaces com Java](https://docs.microsoft.com/azure/dev-spaces/get-started-java)e [desenvolvimento de vários serviços com o Azure dev Spaces](https://docs.microsoft.com/azure/dev-spaces/multi-service-java). Esses tutoriais fornecem informações adicionais em segundo plano não incluídas aqui.
 
-1. Baixe o https://github.com/Azure/dev-spaces repositório do github.
+1. Baixe o repositório de https://github.com/Azure/dev-spaces do GitHub.
 
-2. Abra a `samples/java/getting-started/webfrontend` pasta em vs Code. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
+2. Abra a pasta `samples/java/getting-started/webfrontend` em VS Code. (Pode ignorar os pedidos predefinidos para adicionar recursos de erro ou restaurar o projeto.)
 
 3. Atualize `/src/main/java/com/ms/sample/webfrontend/Application.java` para ser semelhante ao seguinte:
 
@@ -124,26 +122,26 @@ Para obter mais informações sobre como usar Azure Dev Spaces e desenvolvimento
 
 4. Clique em **Exibir** e em **terminal** para abrir o terminal integrado no vs Code.
 
-5. Execute o `azds prep` comando para preparar seu aplicativo para ser executado em um espaço de desenvolvimento. Este comando deve ser executado de `dev-spaces/samples/java/getting-started/webfrontend` para preparar o aplicativo corretamente:
+5. Execute o comando `azds prep` para preparar seu aplicativo para ser executado em um espaço de desenvolvimento. Este comando deve ser executado de `dev-spaces/samples/java/getting-started/webfrontend` para preparar o aplicativo corretamente:
 
     ```bash
     azds prep --public
     ```
 
-    O comando da CLI do `azds prep` dev Spaces gera os ativos Docker e kubernetes com as configurações padrão. Esses arquivos persistem durante o tempo de vida do projeto e podem ser personalizados:
+    O comando `azds prep` da CLI de espaços de desenvolvimento gera ativos de Docker e kubernetes com as configurações padrão. Esses arquivos persistem durante o tempo de vida do projeto e podem ser personalizados:
 
-    * `./Dockerfile`e `./Dockerfile.develop` descrevem a imagem de contêiner do aplicativo e como o código-fonte é compilado e executado dentro do contêiner.
+    * `./Dockerfile` e `./Dockerfile.develop` descrevem a imagem de contêiner do aplicativo e como o código-fonte é compilado e executado dentro do contêiner.
     * Um [gráfico Helm](https://helm.sh/docs/developing_charts/) em `./charts/webfrontend` descreve como implementar o contentor no Kubernetes.
-    * `./azds.yaml`é o arquivo de configuração Azure Dev Spaces.
+    * `./azds.yaml` é o arquivo de configuração de Azure Dev Spaces.
 
     Para obter mais informações, consulte [como Azure dev Spaces funciona e está configurado](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works).
 
-6. Compile e execute o aplicativo no AKs usando o `azds up` comando:
+6. Compile e execute o aplicativo no AKS usando o comando `azds up`:
 
     ```bash
     azds up
     ```
-    <a name="test_endpoint"></a>Examine a saída do console para obter informações sobre a URL que foi criada `up` pelo comando. Estará na forma:
+    <a name="test_endpoint"></a>Examine a saída do console para obter informações sobre a URL que foi criada pelo comando `up`. Estará na forma:
 
     ```bash
     (pending registration) Service 'webfrontend' port 'http' will be available at '<url>'
@@ -153,7 +151,7 @@ Para obter mais informações sobre como usar Azure Dev Spaces e desenvolvimento
 
 8. Em seguida, configure e implante *mywebapi*:
 
-    1. Alterar o diretório para`dev-spaces/samples/java/getting-started/mywebapi`
+    1. Altere o diretório para `dev-spaces/samples/java/getting-started/mywebapi`
 
     2. Executar
 
@@ -196,7 +194,7 @@ O pipeline de exemplo usa Helm e kubectl para implantar no espaço de desenvolvi
 
 1. Faça uma conexão SSH com o mestre Jenkins. 
 
-2. Alterne para o `jenkins` usuário:
+2. Alterne para o usuário do `jenkins`:
     ```bash
     sudo su jenkins
     ```
@@ -221,11 +219,11 @@ O pipeline de exemplo usa Helm e kubectl para implantar no espaço de desenvolvi
 
 2. Adicione um tipo de credencial de *entidade de serviço Microsoft Azure* no Jenkins, usando as informações da entidade de serviço da etapa anterior. Os nomes na captura de tela abaixo correspondem à saída de `create-for-rbac`.
 
-    O campo **ID** é o nome da credencial Jenkins para sua entidade de serviço. O exemplo usa o valor de `displayName` (nesta instância, `xxxxxxxjenkinssp`), mas você pode usar qualquer texto que desejar. Esse nome de credencial é o valor para a variável de ambiente AZURE_CRED_ID na próxima seção.
+    O campo **ID** é o nome da credencial Jenkins para sua entidade de serviço. O exemplo usa o valor de `displayName` (nesta instância, `xxxxxxxjenkinssp`), mas você pode usar qualquer texto desejado. Esse nome de credencial é o valor para a variável de ambiente AZURE_CRED_ID na próxima seção.
 
     ![Adicionar credenciais da entidade de serviço a Jenkins](media/tutorial-jenkins-dev-spaces/add-service-principal-credentials.png)
 
-    A **Descrição** é opcional. Para obter instruções mais detalhadas, consulte [a seção Add Service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) no tutorial Deploy to Azure app Service. 
+    A **Descrição** é opcional. Para obter instruções mais detalhadas, consulte a seção [Add Service principal to Jenkins](https://docs.microsoft.com/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service#add-service-principal-to-jenkins) no tutorial Deploy to Azure app Service. 
 
 
 
@@ -253,7 +251,7 @@ O pipeline de exemplo usa Helm e kubectl para implantar no espaço de desenvolvi
     }
     ```
 
-4. Adicione um *nome de usuário com* o tipo de credencial de senha em Jenkins. O **nome de usuário** é o nome de usuário da última etapa, `acr01`neste exemplo. A **senha** é o valor da primeira senha, neste exemplo `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. A **ID** dessa credencial é o valor de ACR_CRED_ID.
+4. Adicione um *nome de usuário com* o tipo de credencial de senha em Jenkins. O **nome de usuário** é o nome de usuário da última etapa, neste exemplo `acr01`. A **senha** é o valor da primeira senha, neste exemplo `vGBP=zzzzzzzzzzzzzzzzzzzzzzzzzzz`. A **ID** dessa credencial é o valor de ACR_CRED_ID.
 
 5. Configure uma credencial AKS. Adicione um tipo de credencial de *configuração de kubernetes (kubeconfig)* em Jenkins (use a opção "inserir diretamente"). Para obter as credenciais de acesso para o cluster AKS, execute o seguinte comando:
 
@@ -265,7 +263,7 @@ O pipeline de exemplo usa Helm e kubectl para implantar no espaço de desenvolvi
 
 ## <a name="create-a-pipeline"></a>Criar um pipeline
 
-O cenário selecionado para o pipeline de exemplo é baseado em um padrão do mundo real: Uma solicitação de pull dispara um pipeline de CI que cria e implanta as alterações propostas em um espaço de desenvolvimento do Azure para teste e análise. Dependendo do resultado da revisão, as alterações são mescladas e implantadas em AKS ou descartadas. Por fim, o espaço de desenvolvimento é removido.
+O cenário selecionado para o pipeline de exemplo é baseado em um padrão do mundo real: uma solicitação de pull dispara um pipeline de CI que cria e implanta as alterações propostas em um espaço de desenvolvimento do Azure para teste e análise. Dependendo do resultado da revisão, as alterações são mescladas e implantadas em AKS ou descartadas. Por fim, o espaço de desenvolvimento é removido.
 
 A configuração de pipeline Jenkins e Jenkinsfile definem os estágios no pipeline de CI. Este fluxograma mostra os estágios de pipeline e os pontos de decisão definidos pelo Jenkinsfile:
 
@@ -339,7 +337,7 @@ Para concluir a etapa 3 nesta seção, você precisará comentar parte do Jenkin
     }
 ```
 
-1. Faça uma alteração em `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`e, em seguida, crie uma solicitação de pull. Por exemplo:
+1. Faça uma alteração no `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`e, em seguida, crie uma solicitação de pull. Por exemplo:
 
     ```java
     public String index() {
@@ -353,15 +351,15 @@ Para concluir a etapa 3 nesta seção, você precisará comentar parte do Jenkin
 
 3. Comparar alterações com a versão compartilhada atual:
 
-    1. Abra o navegador e navegue até a versão `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`compartilhada. TEST_ENDPOINT contém a URL.
+    1. Abra o navegador e navegue até a versão compartilhada `https://webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. TEST_ENDPOINT contém a URL.
 
-    2. Abra outra guia e, em seguida, insira a URL de espaço de desenvolvimento de PR. Será semelhante a `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. Você encontrará o link no **histórico de compilação > < Build # > > saída do console** para o trabalho Jenkins. Pesquise a página `aksapp`ou para ver apenas o prefixo, `azdsprefix`procure.
+    2. Abra outra guia e, em seguida, insira a URL de espaço de desenvolvimento de PR. Ele será semelhante a `https://<yourdevspacename>.s.webfrontend.XXXXXXXXXXXXXXXXXXX.eastus.aksapp.io`. Você encontrará o link no **histórico de compilação > < Build # > > saída do console** para o trabalho Jenkins. Pesquise a página `aksapp`, ou para ver apenas o prefixo, procure por `azdsprefix`.
 
  
 
 ### <a name="constructing-the-url-to-the-child-dev-space"></a>Construindo a URL para o espaço de desenvolvimento filho
 
-Quando você arquiva uma solicitação de pull, o Jenkins cria um espaço de desenvolvimento filho com base no espaço de desenvolvimento compartilhado da equipe e executa o código da sua solicitação de pull nesse espaço de desenvolvimento filho. A URL para o espaço de desenvolvimento filho assume a `http://$env.azdsprefix.<test_endpoint>`forma. 
+Quando você arquiva uma solicitação de pull, o Jenkins cria um espaço de desenvolvimento filho com base no espaço de desenvolvimento compartilhado da equipe e executa o código da sua solicitação de pull nesse espaço de desenvolvimento filho. A URL para o espaço de desenvolvimento filho usa a forma `http://$env.azdsprefix.<test_endpoint>`. 
 
 **$env. azdsprefix** é definido durante a execução do pipeline pelo plug-in de Azure dev Spaces pelo **devSpacesCreate**:
 
@@ -378,7 +376,7 @@ stage('create dev space') {
 
 O `test_endpoint` é a URL para o aplicativo WebFrontEnd que você implantou anteriormente usando `azds up`em [implantar aplicativos de exemplo no cluster AKs, etapa 7](#test_endpoint). O valor de `$env.TEST_ENDPOINT` é definido na configuração do pipeline. 
 
-O trecho de código a seguir mostra como a URL de espaço de desenvolvimento filho `smoketest` é usada no estágio. O código verifica se o espaço de desenvolvimento filho TEST_ENDPOINT está disponível e, nesse caso, baixa o texto de saudação para stdout:
+O trecho de código a seguir mostra como a URL de espaço de desenvolvimento filho é usada no estágio de `smoketest`. O código verifica se o espaço de desenvolvimento filho TEST_ENDPOINT está disponível e, nesse caso, baixa o texto de saudação para stdout:
 
 ```Groovy
 stage('smoketest') {

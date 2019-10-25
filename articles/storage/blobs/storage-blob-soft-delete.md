@@ -5,27 +5,30 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 253f42080d7c0eab2f7b3cfc5de3d4462f63c738
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f53bf023346c4f494de5ab50e8beb185d9f97c91
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673405"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882659"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Exclusão reversível para BLOBs de armazenamento do Azure
+
 O armazenamento do Azure agora oferece exclusão reversível para objetos de BLOB para que você possa recuperar seus dados com mais facilidade quando eles forem modificados ou excluídos erroneamente por um aplicativo ou outro usuário da conta de armazenamento.
 
-## <a name="how-does-it-work"></a>Como funciona?
-Quando ativado, a exclusão reversível permite que você salve e recupere seus dados quando BLOBs ou instantâneos de blob são excluídos. Essa proteção se estende aos dados de BLOB que são apagados como resultado de uma substituição.
+## <a name="how-soft-delete-works"></a>Como a exclusão reversível funciona
+
+Quando habilitado, a exclusão reversível permite que você salve e recupere seus dados quando BLOBs ou instantâneos de blob são excluídos. Essa proteção se estende aos dados de BLOB que são apagados como resultado de uma substituição.
 
 Quando os dados são excluídos, ele faz a transição para um estado de exclusão reversível em vez de ser apagado permanentemente. Quando a exclusão reversível está ativada e você substitui dados, um instantâneo com exclusão reversível é gerado para salvar o estado dos dados substituídos. Os objetos com exclusão reversível são invisíveis, a menos que explicitamente listados. Você pode configurar a quantidade de tempo que os dados com exclusão reversível são recuperáveis antes de expirarem permanentemente.
 
-A exclusão reversível é compatível com versões anteriores; Você não precisa fazer nenhuma alteração em seus aplicativos para aproveitar as proteções que esse recurso proporciona. No entanto, a [recuperação de dados](#recovery) introduz uma nova API para **restaurar blob** .
+A exclusão reversível é compatível com versões anteriores, portanto, você não precisa fazer nenhuma alteração em seus aplicativos para aproveitar as proteções que esse recurso proporciona. No entanto, a [recuperação de dados](#recovery) introduz uma nova API para **restaurar blob** .
 
 ### <a name="configuration-settings"></a>Definições de configuração
+
 Quando você cria uma nova conta, a exclusão reversível está desativada por padrão. A exclusão reversível também está desativada por padrão para contas de armazenamento existentes. Você pode ativar e desativar o recurso a qualquer momento durante a vida útil de uma conta de armazenamento.
 
 Você ainda poderá acessar e recuperar dados com exclusão reversível quando o recurso estiver desativado, supondo que os dados com exclusão reversível foram salvos quando o recurso foi ativado anteriormente. Quando você ativa a exclusão reversível, também precisa configurar o período de retenção.
@@ -35,13 +38,14 @@ O período de retenção indica a quantidade de tempo que os dados com exclusão
 Você pode alterar o período de retenção de exclusão reversível a qualquer momento. Um período de retenção atualizado será aplicado somente aos dados excluídos recentemente. Os dados excluídos anteriormente expirarão com base no período de retenção que foi configurado quando os dados foram excluídos. A tentativa de excluir um objeto com exclusão reversível não afetará sua hora de expiração.
 
 ### <a name="saving-deleted-data"></a>Salvando dados excluídos
+
 A exclusão reversível preserva seus dados em muitos casos em que BLOBs ou instantâneos de blob são excluídos ou substituídos.
 
 Quando um blob é substituído usando **Put Blob**, **Put bloquear**, **Put bloquear lista** ou **copiar blob** , um instantâneo do estado do blob antes da operação de gravação é gerado automaticamente. Esse instantâneo é um instantâneo com exclusão reversível; Ela é invisível, a menos que os objetos excluídos por software sejam explicitamente listados. Consulte a seção [recuperação](#recovery) para saber como listar objetos com exclusão reversível.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-overwrite.png)
 
-os dados excluídos de @no__t 0Soft são cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Quando B0 é substituído por B1, um instantâneo com exclusão reversível de B0 é gerado. Quando B1 é substituído por B2, um instantâneo com exclusão reversível de B1 é gerado. *
+*Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Quando B0 é substituído por B1, um instantâneo com exclusão reversível de B0 é gerado. Quando B1 é substituído por B2, um instantâneo com exclusão reversível de B1 é gerado.*
 
 > [!NOTE]  
 > A exclusão reversível só permite substituir a proteção para operações de cópia quando ela está ativada para a conta do blob de destino.
@@ -53,13 +57,13 @@ Quando o **blob de exclusão** é chamado em um instantâneo, esse instantâneo 
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-delete-snapshot.png)
 
-os dados excluídos de @no__t 0Soft são cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Quando o **blob de instantâneo** é chamado, B0 torna-se um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é excluído, ele é marcado como com exclusão reversível. *
+*Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Quando o **blob de instantâneo** é chamado, B0 torna-se um instantâneo e B1 é o estado ativo do blob. Quando o instantâneo B0 é excluído, ele é marcado como com exclusão reversível.*
 
 Quando **delete blob** é chamado em um blob de base (qualquer BLOB que não seja um instantâneo), esse blob é marcado como com exclusão reversível. Consistente com o comportamento anterior, chamar **delete blob** em um blob com instantâneos ativos retorna um erro. Chamar **delete blob** em um blob com instantâneos com exclusão reversível não retorna um erro. Você ainda pode excluir um blob e todos os seus instantâneos em uma única operação quando a exclusão reversível estiver ativada. Isso marca o blob de base e os instantâneos como com exclusão reversível.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-explicit-include.png)
 
-os dados excluídos de @no__t 0Soft são cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Aqui, uma chamada **delete blob** é feita para excluir B2 e todos os instantâneos associados. O blob ativo, B2 e todos os instantâneos associados são marcados como com exclusão reversível. *
+*Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Aqui, uma chamada **delete blob** é feita para excluir B2 e todos os instantâneos associados. O blob ativo, B2 e todos os instantâneos associados são marcados como com exclusão reversível.*
 
 > [!NOTE]  
 > Quando um blob com exclusão reversível é substituído, um instantâneo com exclusão reversível do estado do blob antes da operação de gravação é gerado automaticamente. O novo BLOB herda a camada do blob substituído.
@@ -85,18 +89,20 @@ A tabela a seguir detalha o comportamento esperado quando a exclusão reversíve
 É importante observar que chamar "Put Page" para substituir ou limpar os intervalos de um blob de páginas não gerará automaticamente instantâneos. Os discos de máquina virtual são apoiados por blobs de página e usam a **página Put** para gravar dados.
 
 ### <a name="recovery"></a>Recuperação
-Para facilitar a recuperação de dados excluídos, apresentamos uma nova API de "recuperar BLOB". Chamar a API de restauração em um blob de base com exclusão reversível restaura e todos os instantâneos de exclusão reversível associados como ativos. Chamar a API de restauração em um blob de base ativo restaura todos os instantâneos de exclusão reversível associados como ativos. Quando os instantâneos são restaurados como ativos, eles se parecem com instantâneos gerados pelo usuário; Eles não substituem o blob de base.
 
-Para restaurar um blob para um instantâneo de exclusão reversível específico, você pode chamar **undelete blob** no blob de base. Em seguida, você pode copiar o instantâneo sobre o blob agora ativo. Você também pode copiar o instantâneo para um novo BLOB.
+Chamar a operação de [remover blob](/rest/api/storageservices/undelete-blob) em um blob de base com exclusão reversível restaura e todos os instantâneos de exclusão reversível associados como ativos. Chamar a operação de `Undelete Blob` em um blob de base ativo restaura todos os instantâneos com exclusão reversível associados como ativos. Quando os instantâneos são restaurados como ativos, eles se parecem com instantâneos gerados pelo usuário; Eles não substituem o blob de base.
+
+Para restaurar um blob para um instantâneo de exclusão reversível específico, você pode chamar `Undelete Blob` no blob de base. Em seguida, você pode copiar o instantâneo sobre o blob agora ativo. Você também pode copiar o instantâneo para um novo BLOB.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-recover.png)
 
-os dados excluídos de @no__t 0Soft são cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Aqui, o **blob** de restauração é chamado no blob B, restaurando assim o blob de base, B1 e todos os instantâneos associados, aqui apenas B0, como ativo. Na segunda etapa, B0 é copiado sobre o blob de base. Esta operação de cópia gera um instantâneo com exclusão reversível de B1. *
+*Os dados com exclusão reversível estão em cinza, enquanto os dados ativos são azuis. Os dados gravados mais recentemente aparecem abaixo dos dados mais antigos. Aqui, o **blob** de restauração é chamado no blob B, restaurando assim o blob de base, B1 e todos os instantâneos associados, aqui apenas B0, como ativo. Na segunda etapa, B0 é copiado sobre o blob de base. Essa operação de cópia gera um instantâneo com exclusão reversível de B1.*
 
 Para exibir BLOBs com exclusão reversível e instantâneos de BLOB, você pode optar por incluir dados excluídos em **blobs de lista**. Você pode optar por exibir apenas blobs de base com exclusão reversível ou também para incluir instantâneos de blob com exclusão reversível. Para todos os dados com exclusão reversível, você pode exibir a hora em que os dados foram excluídos, bem como o número de dias antes que os dados sejam permanentemente expirados.
 
 ### <a name="example"></a>Exemplo
-Veja a seguir a saída do console de um script do .NET que carrega, substitui, faz o instantâneo, exclui e restaura um blob chamado "HelloWorld" quando a exclusão reversível está ativada:
+
+Veja a seguir a saída do console de um script .NET que carrega, substitui, faz o instantâneo, exclui e restaura um blob chamado *HelloWorld* quando a exclusão reversível está ativada:
 
 ```bash
 Upload:
@@ -131,16 +137,21 @@ Copy a snapshot over the base blob:
 Consulte a seção [próximas etapas](#next-steps) para obter um ponteiro para o aplicativo que produziu essa saída.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
+
 Todos os dados com exclusão reversível são cobrados com a mesma taxa que os dados ativos. Você não será cobrado pelos dados que são excluídos permanentemente após o período de retenção configurado. Para aprofundar-se nos instantâneos e como eles acumulam cobranças, consulte [entender como os instantâneos acumulam encargos](storage-blob-snapshots.md).
 
-Você não será cobrado pelas transações relacionadas à geração automática de instantâneos. Você será cobrado por restaurar transações de **blob** na taxa de "operações de gravação".
+Você não será cobrado pelas transações relacionadas à geração automática de instantâneos. Você será cobrado por restaurar transações de **blob** na taxa de operações de gravação.
 
 Para obter mais detalhes sobre os preços do armazenamento de BLOBs do Azure em geral, confira a [página de preços do armazenamento de BLOBs do Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 Quando você ativa a exclusão reversível inicialmente, é recomendável usar um período de retenção pequeno para entender melhor como o recurso afetará sua fatura.
 
-## <a name="quickstart"></a>Início Rápido
-### <a name="azure-portal"></a>Portal do Azure
+## <a name="get-started"></a>Introdução
+
+As etapas a seguir mostram como começar a usar a exclusão reversível.
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+
 Para habilitar a exclusão reversível, navegue até a opção **exclusão reversível** em **serviço blob**. Em seguida, clique em **habilitado** e insira o número de dias que você deseja manter os dados com exclusão reversível.
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-configuration.png)
@@ -169,7 +180,7 @@ Depois de restaurar os instantâneos de um blob, você pode clicar em **promover
 
 ![](media/storage-blob-soft-delete/storage-blob-soft-delete-portal-promote-snapshot.png)
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -187,6 +198,7 @@ $MatchingAccounts | Get-AzStorageServiceProperty -ServiceType Blob
 ```
 
 Para recuperar os blobs que foram excluídos acidentalmente, chame undelete nesses BLOBs. Lembre-se de que chamar **undelete blob**, tanto em BLOBs ativos e com exclusão reversível, irá restaurar todos os instantâneos de exclusão reversível associados como ativos. O exemplo a seguir chama undelete em todos os BLOBs com exclusão reversível e ativos em um contêiner:
+
 ```powershell
 # Create a context by specifying storage account name and key
 $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
@@ -205,7 +217,8 @@ Para localizar a política de retenção de exclusão reversível atual, use o s
    Get-AzStorageServiceProperty -ServiceType Blob -Context $account.Context
 ```
 
-### <a name="azure-cli"></a>CLI do Azure 
+# <a name="clitabazure-cli"></a>[CLI](#tab/azure-CLI)
+
 Para habilitar a exclusão reversível, atualize as propriedades de serviço de um cliente de blob:
 
 ```azurecli-interactive
@@ -218,7 +231,8 @@ Para verificar se a exclusão reversível está ativada, use o seguinte comando:
 az storage blob service-properties delete-policy show --account-name mystorageaccount 
 ```
 
-### <a name="python-client-library"></a>Biblioteca de cliente do Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
 Para habilitar a exclusão reversível, atualize as propriedades de serviço de um cliente de blob:
 
 ```python
@@ -235,7 +249,8 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-### <a name="net-client-library"></a>Biblioteca de cliente .NET
+# <a name="nettabnet"></a>[.NET](#tab/net)
+
 Para habilitar a exclusão reversível, atualize as propriedades de serviço de um cliente de blob:
 
 ```csharp
@@ -276,50 +291,70 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
+---
+
 ## <a name="are-there-any-special-considerations-for-using-soft-delete"></a>Há alguma consideração especial para usar a exclusão reversível?
-Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, recomendamos a ativação da exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode mitigar isso armazenando os dados frequentemente substituídos em uma conta de armazenamento separada com a exclusão reversível desabilitada. 
+
+Se houver uma chance de que seus dados sejam acidentalmente modificados ou excluídos por um aplicativo ou outro usuário da conta de armazenamento, é recomendável ativar a exclusão reversível. Habilitar a exclusão reversível para dados frequentemente substituídos pode resultar em encargos de capacidade de armazenamento maiores e maior latência ao listar BLOBs. Você pode reduzir esse custo adicional armazenando os dados substituídos frequentemente em uma conta de armazenamento separada na qual a exclusão reversível está desabilitada. 
 
 ## <a name="faq"></a>FAQ
-**Para quais tipos de armazenamento posso usar a exclusão reversível?**  
+
+### <a name="for-which-storage-services-can-i-use-soft-delete"></a>Para quais serviços de armazenamento posso usar a exclusão reversível?
+
 Atualmente, a exclusão reversível só está disponível para armazenamento de BLOB (objeto).
 
-**A exclusão reversível está disponível para todos os tipos de conta de armazenamento?**  
-Sim, a exclusão reversível está disponível para contas de armazenamento de BLOBs, bem como para BLOBs em contas de armazenamento de uso geral (GPv1 e GPv2). Isso se aplica a contas standard e Premium. A exclusão reversível não está disponível para discos gerenciados.
+### <a name="is-soft-delete-available-for-all-storage-account-types"></a>A exclusão reversível está disponível para todos os tipos de conta de armazenamento?
 
-**A exclusão reversível está disponível para todas as camadas de armazenamento?**  
+Sim, a exclusão reversível está disponível para contas de armazenamento de BLOBs, bem como para BLOBs em contas de armazenamento de uso geral (GPv1 e GPv2). Há suporte para os tipos de conta Standard e Premium. A exclusão reversível está disponível para discos não gerenciados, que são blobs de páginas nos bastidores. A exclusão reversível não está disponível para discos gerenciados.
+
+### <a name="is-soft-delete-available-for-all-storage-tiers"></a>A exclusão reversível está disponível para todas as camadas de armazenamento?
+
 Sim, a exclusão reversível está disponível para todas as camadas de armazenamento, incluindo quente, frio e arquivo. No entanto, a exclusão reversível não permite a substituição da proteção para BLOBs na camada de arquivo morto.
 
-**Posso usar a API de camada de blob de conjunto para BLOBs de camada com instantâneos com exclusão reversível?**  
+### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso usar a API de camada de blob de conjunto para BLOBs de camada com instantâneos com exclusão reversível?
+
 Sim. Os instantâneos com exclusão reversível permanecerão na camada original, mas o blob de base será movido para a nova camada. 
 
-as contas de armazenamento **Premium têm um limite de instantâneo por blob de 100. Os instantâneos com exclusão reversível contam para esse limite?**  
+### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>As contas de armazenamento Premium têm um limite de instantâneo por blob de 100. Os instantâneos com exclusão reversível contam para esse limite?
+
 Não, os instantâneos com exclusão reversível não contam para esse limite.
 
-**Posso ativar a exclusão reversível para contas de armazenamento existentes?**  
+### <a name="can-i-turn-on-soft-delete-for-existing-storage-accounts"></a>Posso ativar a exclusão reversível para contas de armazenamento existentes?
+
 Sim, a exclusão reversível é configurável para contas de armazenamento existentes e novas.
 
-**Se eu excluir uma conta ou contêiner inteiro com exclusão reversível ativada, todos os BLOBs associados serão salvos?**  
-Não, se você excluir uma conta ou um contêiner inteiro, todos os BLOBs associados serão excluídos permanentemente. Para saber como proteger uma conta de armazenamento de exclusões acidentais, consulte o artigo Azure Resource Manager [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md).
+### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Se eu excluir uma conta ou contêiner inteiro com exclusão reversível ativada, todos os BLOBs associados serão salvos?
 
-**Posso exibir as métricas de capacidade dos dados excluídos?**  
-Os dados com exclusão reversível são incluídos como parte da capacidade total da conta de armazenamento. Para obter mais informações sobre como controlar e monitorar a capacidade de armazenamento, consulte o artigo [análise de armazenamento](../common/storage-analytics.md) .
+Não, se você excluir uma conta ou um contêiner inteiro, todos os BLOBs associados serão excluídos permanentemente. Para obter mais informações sobre como proteger uma conta de armazenamento de exclusões acidentais, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/resource-group-lock-resources.md).
 
-**Se eu desativar a exclusão reversível, ainda poderei acessar os dados com exclusão reversível?**  
+### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Posso exibir as métricas de capacidade dos dados excluídos?
+
+Os dados com exclusão reversível são incluídos como parte da capacidade total da conta de armazenamento. Para obter mais informações sobre como controlar e monitorar a capacidade de armazenamento, consulte [análise de armazenamento](../common/storage-analytics.md).
+
+### <a name="if-i-turn-off-soft-delete-will-i-still-be-able-to-access-soft-deleted-data"></a>Se eu desativar a exclusão reversível, ainda poderei acessar os dados com exclusão reversível?
+
 Sim, você ainda poderá acessar e recuperar dados com exclusão reversível não expirada quando a exclusão reversível estiver desativada.
 
-**Posso ler e copiar instantâneos com exclusão reversível do meu blob?**  
+### <a name="can-i-read-and-copy-out-soft-deleted-snapshots-of-my-blob"></a>Posso ler e copiar instantâneos com exclusão reversível do meu blob?  
+
 Sim, mas você deve chamar undelete no blob primeiro.
 
-**A exclusão reversível está disponível para todos os tipos de BLOB?**  
+### <a name="is-soft-delete-available-for-all-blob-types"></a>A exclusão reversível está disponível para todos os tipos de BLOB?
+
 Sim, a exclusão reversível está disponível para BLOBs de blocos, blobs de acréscimo e blobs de páginas.
 
-**A exclusão reversível está disponível para discos de máquina virtual?**  
-A exclusão reversível está disponível para discos não gerenciados Premium e Standard. A exclusão reversível só ajudará a recuperar os dados excluídos por **excluir blob**, **colocar blob**, **colocar lista de blocos**, **colocar bloco** e **copiar blob**. Os dados substituídos por uma chamada à **página Put** não são recuperáveis.
+### <a name="is-soft-delete-available-for-virtual-machine-disks"></a>A exclusão reversível está disponível para discos de máquina virtual?  
 
-**Preciso alterar meus aplicativos existentes para usar a exclusão reversível?**  
-É possível tirar proveito da exclusão reversível, independentemente da versão da API que você está usando. No entanto, para listar e recuperar blobs com exclusão reversível e instantâneos de BLOB, você precisará usar a versão 2017-07-29 da [API REST dos serviços de armazenamento](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. Em geral, é sempre recomendável usar a versão mais recente, independentemente de você estar usando esse recurso.
+A exclusão reversível está disponível para discos não gerenciados Premium e Standard, que são blobs de páginas nos bastidores. A exclusão reversível só ajudará a recuperar dados excluídos por **excluir blob**, **colocar blob**, **colocar lista de blocos**, colocar operações de **bloco** e **copiar blob** . Os dados substituídos por uma chamada à **página Put** não são recuperáveis.
+
+Uma máquina virtual do Azure grava em um disco não gerenciado usando chamadas para **colocar página**, portanto, usar a exclusão reversível para desfazer gravações em um disco não gerenciado de uma VM do Azure não é um cenário com suporte.
+
+### <a name="do-i-need-to-change-my-existing-applications-to-use-soft-delete"></a>Preciso alterar meus aplicativos existentes para usar a exclusão reversível?
+
+É possível tirar proveito da exclusão reversível, independentemente da versão da API que você está usando. No entanto, para listar e recuperar blobs com exclusão reversível e instantâneos de BLOB, você precisará usar a versão 2017-07-29 da [API REST dos serviços de armazenamento](https://docs.microsoft.com/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) ou superior. A Microsoft recomenda sempre usar a versão mais recente da API de armazenamento do Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
+
 * [Código de exemplo do .NET](https://github.com/Azure-Samples/storage-dotnet-blob-soft-delete)
 * [API REST do serviço blob](/rest/api/storageservices/blob-service-rest-api)
 * [Replicação do armazenamento do Azure](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
