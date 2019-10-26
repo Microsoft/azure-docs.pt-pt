@@ -4,15 +4,15 @@ description: Para parceiros CSP, o gerenciamento de recursos delegado do Azure a
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/17/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: cdb9eaf0b1f1a6e7a136432586ad186308e4e3d3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: cf9b834d79fa36bbe327a72089388b3f1a1a0c14
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550290"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72901837"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>O Azure Lighthouse e o programa de provedor de soluções na nuvem
 
@@ -36,6 +36,11 @@ Usando o gerenciamento de recursos delegado do Azure, você pode atribuir difere
 A integração de uma assinatura que você criou por meio do programa CSP segue as etapas descritas em [integração de uma assinatura ao gerenciamento de recursos delegado do Azure](../how-to/onboard-customer.md). Qualquer usuário que tenha a função de agente de administração em seu locatário pode realizar essa integração.
 
 ![Gerenciamento de locatários usando o AOBO e o gerenciamento de recursos delegado do Azure](../media/csp-2.jpg)
+
+> [!NOTE]
+> A [página **meus clientes** no portal do Azure](../how-to/view-manage-customers.md) agora inclui uma seção **provedor de soluções na nuvem (versão prévia)** , que exibe informações de cobrança e recursos para clientes do CSP que [assinaram o MCA (contrato de cliente da Microsoft)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e que estão no plano do Azure. Para obter mais informações, consulte Introdução [à sua conta de cobrança do Microsoft Partner Agreement](https://docs.microsoft.com/azure/billing/mpa-overview).
+>
+> Os clientes do CSP podem aparecer nesta seção se eles tiverem sido integrados ao gerenciamento de recursos delegado do Azure. Se eles tiverem, eles também aparecerão na seção **clientes** , conforme descrito em [Exibir e gerenciar clientes e recursos delegados](../how-to/view-manage-customers.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

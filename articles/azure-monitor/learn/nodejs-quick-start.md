@@ -1,21 +1,19 @@
 ---
 title: 'Início rápido: monitorar com informações do Aplicativo Azure'
 description: Fornece instruções para configurar rapidamente uma Aplicação Web Node.js para monitorização com o Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
-ms.service: application-insights
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 84be9c2b1d8e28fb847e52bda36f9857bd28da28
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 23fdf326bd1d3deac56f138130c3767427d062e5
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528861"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894948"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Início rápido: iniciar o monitoramento do aplicativo Web node. js com insights Aplicativo Azure
 
@@ -92,7 +90,7 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
    ![Mapa do aplicativo Application Insights](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. Selecione o ícone de **análise de aplicativo** ![Application ícone de mapa ](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **exibição no Analytics**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Selecione o ícone de **análise** de aplicativo ![ícone de mapa de aplicativo](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Exibir no Analytics**.  Esta ação abre o **Application Insights Analytics**, que fornece uma linguagem de consulta avançada para analisar todos os dados recolhidos pelo Application Insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
    ![Gráficos de análise de Application Insights](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 

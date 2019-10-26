@@ -1,21 +1,19 @@
 ---
 title: 'Início Rápido: Monitorizar Sites com o Azure Monitor Application Insights | Microsoft Docs'
 description: Fornece instruções para configurar rapidamente a monitorização de sites do lado do cliente/browser com o Azure Monitor Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: f423e96055c23ae1521466f0e697d7ad2254f8c0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: eecc3d739cb5500abdbd04a9aaca1ddcf86e352b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813899"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899256"
 ---
 # <a name="start-monitoring-your-website"></a>Começar a monitorizar o site
 
@@ -48,9 +46,9 @@ O Application Insights pode recolher dados telemétricos de qualquer aplicação
 
     | Definições        | Valor           | Descrição  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
+   | **Nome**      | Valor Exclusivo Global | Nome que identifica a aplicação que está a monitorizar |
    | **Grupo de Recursos**     | myResourceGroup      | Nome do novo grupo de recursos para alojar os dados do Application Insights |
-   | **Location** | East US | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
+   | **Localização** | Este dos E.U.A. | Escolha uma localização perto de si ou perto do local onde a sua aplicação está alojada |
 
 2. Clique em **Criar**.
 
@@ -138,7 +136,7 @@ Se pretender continuar a trabalhar com guias de introdução subsequentes ou com
 1. No menu do lado esquerdo no portal do Azure, clique em **Grupos de recursos** e, em seguida, clique em **myResourceGroup**.
 2. Na página do grupo de recursos, clique em **Eliminar**, escreva **myResourceGroup** na caixa de texto e, em seguida, clique em **Eliminar**.
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Encontrar e diagnosticar problemas de desempenho](https://docs.microsoft.com/azure/application-insights/app-insights-analytics)

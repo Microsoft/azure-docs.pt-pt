@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 85905f97500848be0e17da7d8a65209878713fc2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: c994b77105fe94eef418c0befc4c135ec09ada14
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516515"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900937"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Início rápido: comunicar-se com um C# aplicativo de dispositivo por meio de fluxos de dispositivo do Hub IOT (versão prévia)
 
@@ -33,6 +33,8 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * Atualmente, há suporte para a visualização de fluxos de dispositivo apenas para os hubs IoT criados nas seguintes regiões:
   * Centro dos E.U.A.
   * EUA Central EUAP
+  * Europa do Norte
+  * Sudeste Asiático
 
 * Os dois aplicativos de exemplo que você executa neste guia de início rápido C#são escritos em. Você precisa do SDK do .NET Core 2.1.0 ou posterior em seu computador de desenvolvimento.
   * Baixe o [SDK do .NET Core para várias plataformas do .net](https://www.microsoft.com/net/download/all).

@@ -1,21 +1,19 @@
 ---
 title: Monitorizar uma aplicação Web ASP.NET com o Azure Application Insights | Microsoft Docs
 description: Fornece instruções para configurar rapidamente um aplicativo Web ASP.NET para monitoramento com Application Insights
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: quickstart
-manager: carmonm
-ms.openlocfilehash: 1edb83fcbe03fd113c59986bdbb6afcf2a0970bb
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 1aab9009c2c33522abdeae6ca865a35b9fc104e4
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916135"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900495"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Iniciar a Monitorização de uma Aplicação Web ASP.NET
 
@@ -47,7 +45,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 4. Selecione a sua subscrição e clique em **Registo**.
 
-5. Selecione **projeto** >  > **gerenciar pacotes** > NuGet**origem do pacote: NuGet.org** **Atualizar** os pacotes do SDK Application insights para a versão estável mais recente.
+5. Selecione **projeto** > **gerenciar pacotes NuGet** > **origem do pacote: NuGet.org** > **Atualizar** os pacotes do SDK do Application insights para a versão estável mais recente.
 
 6. Execute a sua aplicação selecionando **Iniciar Depuração** no menu **Depurar** ou premindo a tecla F5.
 
@@ -71,7 +69,7 @@ Agora, pode abrir o Application Insights no portal do Azure para ver os vários 
 
     ![Mapeamento de Aplicações](media/quick-monitor-portal/05-appmap.png)
 
-3. Clique no ícone ![do **app Analytics** na exibição](media/quick-monitor-portal/app-viewinlogs-icon.png) mapa do aplicativo **nos logs (análise)** em um dos componentes do aplicativo. Isso abre **logs (análise)** , que fornece uma linguagem de consulta avançada para a análise de todos os dados coletados pelo Application insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
+3. Clique no ícone de **análise de aplicativo** ![mapa de aplicativo](media/quick-monitor-portal/app-viewinlogs-icon.png) **Exibir nos logs (análise)** em um dos componentes do aplicativo. Isso abre **logs (análise)** , que fornece uma linguagem de consulta avançada para a análise de todos os dados coletados pelo Application insights. Neste caso, é gerada uma consulta que compõe a contagem de pedidos como um gráfico. Pode escrever as suas próprias consultas para analisar outros dados.
 
     ![Análise](media/quick-monitor-portal/6viewanalytics.png)
 

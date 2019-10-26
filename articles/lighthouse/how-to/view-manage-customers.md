@@ -4,15 +4,15 @@ description: Como um provedor de serviços usando o gerenciamento de recursos de
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 10/23/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: f6c98a67394db8028901f3f1f8e799af4c7a8c5f
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302739"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898900"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Exibir e gerenciar clientes e recursos delegados
 
@@ -20,7 +20,7 @@ Provedores de serviço que usam o [Gerenciamento de recursos delegado do Azure](
 
 Para acessar a página **meus clientes** no portal do Azure, selecione **todos os serviços**e, em seguida, pesquise **meus clientes** e selecione-o. Você também pode encontrá-lo inserindo "meus clientes" na caixa de pesquisa próxima à parte superior do portal do Azure.
 
-Tenha em mente que a página **meus clientes** mostra apenas informações sobre os clientes que delegaram assinaturas ou grupos de recursos. Se você trabalha com outros clientes (por exemplo, por meio do [programa provedor de soluções na nuvem](https://docs.microsoft.com/partner-center/csp-overview), você não verá informações sobre esses clientes aqui, a menos que você integre seus recursos para o gerenciamento de recursos delegado.
+Tenha em mente que a seção superior da página **meus clientes** mostra apenas informações sobre os clientes que delegaram assinaturas ou grupos de recursos. Se você trabalha com outros clientes (por exemplo, por meio do [programa provedor de soluções na nuvem](https://docs.microsoft.com/partner-center/csp-overview), você não verá informações sobre esses clientes aqui, a menos que você integre seus recursos para o gerenciamento de recursos delegado. Inferior na página, a seção **provedor de soluções na nuvem (versão prévia)** mostra informações de cobrança e recursos para seus clientes CSP que [assinaram o Microsoft Customer Agreement (MCA)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) e estão sob o plano do Azure, se eles foram ou não integrados para o gerenciamento de recursos delegado do Azure. Para obter mais informações, consulte Introdução [à sua conta de cobrança do Microsoft Partner Agreement](https://docs.microsoft.com/azure/billing/mpa-overview).
 
 > [!NOTE]
 > Seus clientes podem exibir informações sobre provedores de serviço navegando até **provedores de serviço** no portal do Azure. Para obter mais informações, consulte [Exibir e gerenciar provedores de serviços](view-manage-service-providers.md).
